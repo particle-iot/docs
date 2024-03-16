@@ -760,15 +760,80 @@ $(document).ready(function() {
 
             let protobuf = apiHelper.protobuf(data);
             
-            const decodeDependencies = function(array, end) {
-                let dependency = {};
+
+            // moduleType values
+            // protobuf  system  description
+            //           1       resource
+            // 1         2       bootloader
+            // 4         3       monolithic firmware
+            // 2         4       system part 
+            // 3         5       user part (ignore index and version)
+            //           6       settings
+            // 5         7       NCP
+            // 6         8       Radio stack (softdevice)
+            //           9       asset
+            // The protobuf values are for v1 (prior to 5.7.0). In v2, they match the system values.
+            const moduleData = [
+                { // index 0
+                    title: 'Invalid',
+                    protobuf1: 0,
+                },
+                { // index 1
+                    title: 'Resource',
+                },
+                { // index 2
+                    title: 'Bootloader',
+                    binaryVersionName: 'bootloader',
+                    protobuf1: 1,
+                },
+                { // index 3
+                    title: 'Monolithic',
+                    binaryVersionName: 'monolithic',
+                    protobuf1: 4,
+                },
+                { // index 4
+                    title: 'System Part',                    
+                    binaryVersionName: 'system_part',
+                    protobuf1: 2,
+                },
+                { // index 5
+                    title: 'User Part',
+                    binaryVersionName: 'user_part',
+                    protobuf1: 3,
+                },
+                { // index 6
+                    title: 'Settings',
+                },
+                { // index 7
+                    title: 'NCP',    
+                    binaryVersionName: 'ncp_firmware',
+                    protobuf1: 5,
+                },
+                { // index 8
+                    title: 'Softdevice (Radio Stack)',
+                    binaryVersionName: 'radio_stack',
+                    protobuf1: 6,
+                },
+                { // index 9
+                    title: 'Asset',
+                },
+            ];
+
+            const decodeDependency = function(origTag, options = {}) {
+                let dependency = {
+                };
         
-                while(protobuf.offset < end) {
+                while(!origTag.isEnd()) {
                     result = protobuf.decodeTag();
         
                     switch(result.field) {
                     case 1:
-                        dependency.moduleType = result.value;
+                        if (options.version == 1) {
+                            dependency.moduleType = moduleData.findIndex(e => e.protobuf1 == result.value)
+                        }
+                        else {
+                            dependency.moduleType = result.value;
+                        }
                         break;
         
                     case 2:
@@ -781,20 +846,57 @@ $(document).ready(function() {
                     }
                 }
         
-                array.push(dependency);
+                return dependency;
             };
         
-            const decodeModule = function(end) {
-                let module = {
-                    dependencies: []
-                };
-                let result;
+
+            const decodeAsset = function(array, origTag) {
+                let asset = {};
         
-                while(protobuf.offset < end) {
-                    result = protobuf.decodeTag();
+                let result = protobuf.decodeTag();
+    
+                switch(result.field) {
+                case 1:
+                    asset.hash = protobuf.decodeBytes(protobuf.offset + result.value);
+                    break;
+    
+                case 2:
+                    asset.name = protobuf.decodeString(protobuf.offset + result.value);
+                    break;
+    
+                case 3:
+                    asset.size = result.value;
+                    break;
+    
+                case 4:
+                    asset.storage_size = result.value;
+                    break;
+
+                }
+
+                return asset;
+            };
+            
+            const decodeSecurity = function(security, origTag) {
+                let tag = protobuf.decodeTag();
+                security.mode = tag.value;
+
+                tag = protobuf.decodeTag();
+                security.hash = protobuf.decodeBytes(protobuf.offset + tag.value);
+
+            }
+
+            
+            const decodeModule = function(origTag) {
+                let module = {
+                    dependencies: [], // repeated
+                };
+        
+                while(!origTag.isEnd()) {
+                    const result = protobuf.decodeTag();
                     switch(result.field) {
                     case 1:
-                        module.moduleType = result.value;
+                        module.moduleType = moduleData.findIndex(e => e.protobuf1 == result.value);
                         break;
                     case 2:
                         module.index = result.value;
@@ -810,7 +912,7 @@ $(document).ready(function() {
                         break;
                     case 6:
                         // Dependencies       
-                        decodeDependencies(module.dependencies, protobuf.offset + result.value);
+                        module.dependencies.push(decodeDependency(result, {version:1}));
                         break;
                     }
                 }
@@ -818,19 +920,80 @@ $(document).ready(function() {
                 moduleInfo.modules.push(module);    
             };
 
-            // moduleType values
-            // protobuf  system  description
-            // 1         2       bootloader
-            // 2         4       system part 
-            // 3         5       user part (ignore index and version)
-            // 4         3       monolithic firmware
-            // 5         7       NCP
-            // 6         8       Radio stack (softdevice)
-            const systemModuleTypes = [0, 2, 4, 5, 3, 7, 8];
+            /*
+            cloud version (5.7.0 and later)
+            message FirmwareModule {
+                FirmwareModuleType type = 1; ///< Module type
+                uint32 index = 2; ///< Module index
+                uint32 version = 3; ///< Module version
+                FirmwareModuleStore store = 4; ///< Module store
+                uint32 max_size = 5; ///< Maximum module size
+                fixed32 checked_flags = 6; ///< Performed validation checks (see FirmwareModuleValidityFlag)
+                fixed32 passed_flags = 7; ///< Passed validation checks (see FirmwareModuleValidityFlag)
+                optional bytes hash = 8; ///< SHA-256 hash
+                repeated FirmwareModuleDependency dependencies = 9; ///< Module dependencies
+                repeated FirmwareModuleAsset asset_dependencies = 10; ///< Asset dependencies
+                uint32 size = 11; ///< Actual module size
+                FirmwareModuleSecurity security = 12; ///< Security mode
+            }
+            */
+            const decodeModule2 = function(origTag) {
+                let module = {
+                    dependencies: [], // repeated
+                    assets: [], // repeated
+                };
+        
+                while(!origTag.isEnd()) {
+                    const result = protobuf.decodeTag();
 
-            const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Softdevice (Radio Stack)']; 
-
-            const binaryVersionNames = ['', 'bootloader', 'system_part', 'user_part', 'monolithic', 'ncp_firmware', 'radio_stack']; 
+                    switch(result.field) {
+                    case 1:
+                        module.moduleType = result.value;
+                        break;
+                    case 2:
+                        module.index = result.value;
+                        break;
+                    case 3:
+                        module.version = result.value;
+                        break;
+                    case 4:
+                        // FirmwareModuleStore
+                        module.store = protobuf.decodeTag().value;
+                        break;                    
+                    case 5:
+                        module.max_size = result.value;
+                        break;
+                    case 6: // fixed32
+                        module.checked_flags = result.value;
+                        break;
+                    case 7: // fixed32
+                        module.passed_flags = result.value;
+                        break;
+                    case 8:
+                        module.hash = protobuf.decodeBytes(result.value); // optional
+                        protobuf.offset += result.value;
+                        break;                        
+                    case 9:
+                        // repeated Dependencies       
+                        module.dependencies.push(decodeDependency(result, {version:2}));
+                        break;
+                    case 10:
+                        // repeated asset_dependencies
+                        module.assets.push(decodeAsset(result));
+                        break;
+                    case 11:
+                        module.size = result.value;
+                        break;
+                    case 12:
+                        // security
+                        module.security = {};
+                        decodeSecurity(module.security, result);
+                        break;
+                    }
+                }
+        
+                moduleInfo.modules.push(module);    
+            };
 
             // Validity values:
             // 0 (or omitted): valid
@@ -840,43 +1003,48 @@ $(document).ready(function() {
         
             moduleInfo.modules = [];
         
+
             while(protobuf.offset < data.byteLength) {
-                result = protobuf.decodeTag();
-        
+                result = protobuf.decodeTag();                
+
                 // repeated Module modules = 1; // Firmware modules
-                if (result.field != 1 || result.wireType != 2) {
+                if (result.wireType == 2) {
+                    if (result.field == 1) {
+                        result = decodeModule(result);
+                    }
+                    else
+                    if (result.field == 2) {
+                        // .field is 2 in 5.7.0 and later as this will be deprecated
+                        result = decodeModule2(result);
+                    }
+                    else {
+                        return null;
+                    }
+                }
+                else {
                     return null;
                 }
                 
-                result = decodeModule(protobuf.offset + result.value);
         
             }
 
             moduleInfo.moduletypeProtobufToName = function(moduleType) {
-                return moduleTypeNames[moduleType];
+                if (moduleData[moduleType]) {
+                    return moduleData[moduleType].title;
+                }
+                else {
+                    return 'unknown module ' + moduleType;
+                }
             }
 
             moduleInfo.moduletypeProtobufToBinaryVersionName = function(moduleType) {
-                return binaryVersionNames[moduleType];
+                return moduleData[moduleType].binaryVersionName;
             }    
         
-            moduleInfo.moduleTypeProtobufToSystem = function(moduleType) {
-                return systemModuleTypes[moduleType];
-            };
-
-            moduleInfo.moduleTypeSystemToProtobuf = function(systemModuleType) {
-                for(let ii = 0; ii < systemModuleTypes.length; ii++) {
-                    if (systemModuleTypes[ii] == systemModuleType) {
-                        return ii;
-                    }
-                }
-                return 0;
-            };
-
             moduleInfo.getDescriptiveName = function(modOrDep) {
                 let descriptiveName;
 
-                if (modOrDep.moduleType == 1) {
+                if (modOrDep.moduleType == 2) {
                     switch(modOrDep.index) {
                         case 2:
                             descriptiveName = 'prebootloader-part1';
@@ -892,7 +1060,7 @@ $(document).ready(function() {
                     }
                 }
                 else
-                if (modOrDep.moduleType == 2) {
+                if (modOrDep.moduleType == 4) {
                     descriptiveName = 'system-part' + modOrDep.index;
                 }
                 else {
@@ -948,7 +1116,7 @@ $(document).ready(function() {
 
             moduleInfo.getSystemVersion = function() {
                 for(const m of moduleInfo.modules) {
-                    if (m.moduleType == 2) {
+                    if (m.moduleType == 4) {
                         return m.version;
                     }
                 }
@@ -1025,7 +1193,7 @@ $(document).ready(function() {
 
             const formatVersion = function(obj) {
                 let text = '';
-                if (obj.moduleType == 2) {
+                if (obj.moduleType == 4) {
                     const semVer = apiHelper.systemVersionToSemVer(obj.version);
                     if (semVer) {
                         text = semVer + ' (' + obj.version + ')';
@@ -1100,6 +1268,7 @@ $(document).ready(function() {
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
 
                 analytics.track('Selected', {category:gaCategory, label:deviceInfo.platformId});
+                console.log('checkDevice', deviceInfo);
 
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
@@ -2926,7 +3095,7 @@ $(document).ready(function() {
                     let firstRelease;
                     for(let ver of deviceInfo.platformVersionInfo.versionArray) {
                         versionElem.append('<option name="' + ver + '">' + ver + '</option>');
-                        if (!firstRelease && !ver.includes('alpha') && !ver.includes('beta') && !ver.includes('rc')) {
+                        if (!firstRelease && !ver.includes('alpha') && !ver.includes('beta') && !ver.includes('rc') & !ver.startsWith('6.')) {
                             firstRelease = ver;
                         }
                     }
@@ -3702,10 +3871,10 @@ $(document).ready(function() {
                         */
                         let protobuf = apiHelper.protobuf(knownNetworksRes.data);
 
-                        const decodeNetwork = function(end) {
+                        const decodeNetwork = function(origTag) {
                             let network = {};
 
-                            while(protobuf.offset < end) {
+                            while(!origTag.isEnd()) {
                                 result = protobuf.decodeTag();
                                 switch(result.field) {
                                 case 1: // string ssid = 1;
@@ -3732,7 +3901,7 @@ $(document).ready(function() {
                                 break;
                             }
                             
-                            result = decodeNetwork(protobuf.offset + result.value);
+                            result = decodeNetwork(result);
                             if (result.ssid) {
                                 knownNetworks.push(result);
                             }

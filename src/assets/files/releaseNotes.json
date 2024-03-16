@@ -27877,6 +27877,215 @@
                 2729,
                 2731
             ]
+        },
+        "v5.8.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.8.0",
+            "tag_name": "v5.8.0",
+            "name": "v5.8.0 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2024-03-15T03:45:40Z",
+            "published_at": "2024-03-15T22:39:55Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2715,
+                        2756
+                    ],
+                    "section": "FEATURES",
+                    "text": "Ledger"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2746,
+                        2754,
+                        2758
+                    ],
+                    "section": "FEATURES",
+                    "text": "`WiFi.setCredentials()` with credentials validation"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2735
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Improve BG95 connection speed by only setting `nwscanseq` if needed"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2730
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Include IMEI in `CTRL_REQUEST_CELLULAR_GET_ICCID` control request"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2745
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Process system tasks while cloud handshake is in progress"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2736
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix incorrect `int` to `bool` conversion in `WiFi.clearCredentials()`"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2739
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix boot loop if system-part module info is corrupted"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2742
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix OTA bounds check, add `ota/min_max_app_size` test"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2743
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix `std::call_once` re-entrancy problem"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2741
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Prevent OTA progress events from blocking system thread"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2747,
+                        2752,
+                        2755,
+                        2754
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix WiFi/BLE coexistence and WiFi/BLE stability issues"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2744,
+                        2752,
+                        2754
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix USB re-enumeration issues"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2749,
+                        2757
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix incorrect timing of SPI TX-only transaction completion notification"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2750
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix an issue with `micros()` and `millis()` occasionally jumping forward after ~37 hours"
+                },
+                {
+                    "tags": [
+                        "Cellular",
+                        "Quectel"
+                    ],
+                    "prs": [
+                        2752
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Try to force open PPP channel, helps with warm boot PPP session resume in some cases"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2755
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix sockfd matching in ACM connectivity manager causing a panic"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2757
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix UART initialization issue with non-32-byte-aligned buffers"
+                }
+            ],
+            "prs": [
+                2715,
+                2730,
+                2735,
+                2736,
+                2739,
+                2741,
+                2742,
+                2743,
+                2744,
+                2745,
+                2746,
+                2747,
+                2749,
+                2750,
+                2752,
+                2754,
+                2755,
+                2756,
+                2757,
+                2758
+            ]
         }
     },
     "pulls": {
@@ -40902,6 +41111,215 @@
             "state": "closed",
             "created_at": "2024-01-22T14:20:12Z",
             "detail": "See https://github.com/particle-iot/device-os/pull/2728"
+        },
+        "2732": {
+            "url": "https://github.com/particle-iot/device-os/pull/2732",
+            "number": 2732,
+            "title": "Fix msom usb + ble setup names",
+            "state": "closed",
+            "created_at": "2024-01-29T20:08:03Z",
+            "detail": "Msom setup shows the wrong name: `Mseries`. It should be `M SoM`\nSame for P2 BLE setup."
+        },
+        "2733": {
+            "url": "https://github.com/particle-iot/device-os/pull/2733",
+            "number": 2733,
+            "title": "[gen4] support built-in GNSS in NCP client.",
+            "state": "open",
+            "created_at": "2024-01-30T13:25:31Z"
+        },
+        "2734": {
+            "url": "https://github.com/particle-iot/device-os/pull/2734",
+            "number": 2734,
+            "title": "Protected feature",
+            "state": "closed",
+            "created_at": "2024-01-30T15:57:06Z"
+        },
+        "2735": {
+            "url": "https://github.com/particle-iot/device-os/pull/2735",
+            "number": 2735,
+            "title": "Improve bg95 connection speed by only setting nwscanseq if needed",
+            "state": "closed",
+            "created_at": "2024-02-01T22:02:10Z",
+            "detail": "On warm boot, msom/BG95-M5 platforms consistently experience a dregistration event 18 seconds after boot. This causes the ongoing PPP link / server socket to fail and cellular registration to start over. This increases time for the platform to come online"
+        },
+        "2736": {
+            "url": "https://github.com/particle-iot/device-os/pull/2736",
+            "number": 2736,
+            "title": "[system] Fix bad int to bool conversion for clearCredentials",
+            "state": "closed",
+            "created_at": "2024-02-09T23:32:38Z",
+            "detail": "It was reported that `WiFi.clearCredentials()` was returning a bad value for success in this Community post [WiFi.clearCredentials() fails? on p2 @ 5.4.1](https://community.particle.io/t/wifi-clearcredentials-fails-on-p2-5-4-1).\n\nRick dug into the issue and saw that there was an integer to bool conversion gone bad."
+        },
+        "2737": {
+            "url": "https://github.com/particle-iot/device-os/pull/2737",
+            "number": 2737,
+            "title": "Enable Ledger and filesystem APIs on GCC platform",
+            "state": "closed",
+            "created_at": "2024-02-13T15:39:56Z"
+        },
+        "2738": {
+            "url": "https://github.com/particle-iot/device-os/pull/2738",
+            "number": 2738,
+            "title": "ACM MVP Behavior changes",
+            "state": "open",
+            "created_at": "2024-02-14T01:24:51Z",
+            "detail": "Changes in ACM behavior as [discussed internally](https://docs.google.com/document/d/1NuUm1-8cwR9g8Mn3gbSiZAzSM92ri-FKNh0i-qzcsBw/edit#heading=h.9249cc2g3my), and as in this [epic](https://app.shortcut.com/particle/epic/125329/automatic-connectivity-manager-acm-firmware-changes?group_by=none&vc_group_by=day&ct_workflow=all&cf_workflow=500127125)"
+        },
+        "2739": {
+            "url": "https://github.com/particle-iot/device-os/pull/2739",
+            "number": 2739,
+            "title": "[rtl872x][bootloader] Fix bootloop if system module header corrupted",
+            "state": "closed",
+            "created_at": "2024-02-17T00:47:35Z",
+            "detail": "A gen4 device was stuck in a bootloop. Examination showed that the system part binary was partially erased, starting from the start of the binary onwards. Gen4 bootloader will validate the system-part1 module CRC and detect a corrupted system part binary. If the system part is invalid, the bootloader should remain in DFU mode. This was not happening"
+        },
+        "2740": {
+            "url": "https://github.com/particle-iot/device-os/pull/2740",
+            "number": 2740,
+            "title": "[tracker] disable esp32 sdio driver text logs",
+            "state": "closed",
+            "created_at": "2024-02-19T13:54:21Z",
+            "detail": "Frees up a bit above 2K of flash space, should be sufficient for 5.8.0."
+        },
+        "2741": {
+            "url": "https://github.com/particle-iot/device-os/pull/2741",
+            "number": 2741,
+            "title": "Prevent OTA progress events from blocking system thread",
+            "state": "closed",
+            "created_at": "2024-02-19T17:10:31Z",
+            "detail": "Emitting a firmware update progress event blocks the system thread if the event queue of the application thread is full."
+        },
+        "2742": {
+            "url": "https://github.com/particle-iot/device-os/pull/2742",
+            "number": 2742,
+            "title": "[rtl872x] ota: fix bounds check, add ota/min_max_app_size test",
+            "state": "closed",
+            "created_at": "2024-02-20T10:58:34Z",
+            "detail": "See [SC125387].\n\nThe gist of the underlying problem is that due to how user module bounds are handled and because user modules \"grow\" left (i.e. end address is static/fixed) when receiving a compressed application the end address does not match the intended static/fixed end address. E.g. running a small app:\n\n```\n      moduleStartAddy: '85cc000',\n      moduleEndAddy: '85ffffc',\n```\nuser module bounds are:\n```\nmaximum_size = 0x180000, start_address = 0x85cc000, end_address = 0x8600000\n```\n\nWith compression some larger application becomes:\n```\nmodule_start_address = 0x85cc000, module_end_address = 0x85ce213\n```\nEnd address won't pass validation in `fetch_module`"
+        },
+        "2743": {
+            "url": "https://github.com/particle-iot/device-os/pull/2743",
+            "number": 2743,
+            "title": "Fixes std::call_once reentrancy problem",
+            "state": "closed",
+            "created_at": "2024-02-21T18:31:59Z",
+            "detail": "`std::call_once` implementation in libstdc++ is not re-entrant and uses a common shared mutex:\n\n```c++\n// XXX: This is not defined in our toolchain, no thread local storage (TLS)\n// XXX\n\n  template<typename _Callable, typename... _Args>\n    void\n    call_once(once_flag& __once, _Callable&& __f, _Args&&... __args)\n    {\n      // _GLIBCXX_RESOLVE_LIB_DEFECTS\n      // 2442. call_once() shouldn't DECAY_COPY()\n      auto __callable = [&] {\n\t  std::__invoke(std::forward<_Callable>(__f),\n\t\t\tstd::forward<_Args>(__args)...);\n      };\n      __once_callable = std::__addressof(__callable);\n      __once_call = []{ (*(decltype(__callable)*)__once_callable)(); };\n      unique_lock<mutex> __functor_lock(__get_once_mutex());\n      __once_functor = __callable;\n      __set_once_functor_lock_ptr(&__functor_lock);\n\n      int __e = __gthread_once(&__once._M_once, &__once_proxy);\n\n      if (__functor_lock)\n        __set_once_functor_lock_ptr(0);\n\n      // PR libstdc++/82481\n      __once_callable = nullptr;\n      __once_call = nullptr;\n\n      if (__e)\n\t__throw_system_error(__e);\n    }\n```"
+        },
+        "2744": {
+            "url": "https://github.com/particle-iot/device-os/pull/2744",
+            "number": 2744,
+            "title": "[rtl872x] fix usb high speed",
+            "state": "closed",
+            "created_at": "2024-02-22T16:10:27Z",
+            "detail": "Spend too much time on this, but surpisingly this particular mode makes re-enumeration work correctly.\n\nTest with M SoM or P2 with battery: disconnect from USB/re-connect."
+        },
+        "2745": {
+            "url": "https://github.com/particle-iot/device-os/pull/2745",
+            "number": 2745,
+            "title": "Process system tasks while cloud handshake is in progress",
+            "state": "closed",
+            "created_at": "2024-02-27T14:24:00Z",
+            "detail": "System tasks in `SystemISRTaskQueue` are not processed while the DTLS handshake or Hello request is in progress, which, among other things, prevents control requests from working. Story details: [sc-125370](https://app.shortcut.com/particle/story/125370/usb-control-requests-stuck-while-connecting-to-the-cloud)."
+        },
+        "2746": {
+            "url": "https://github.com/particle-iot/device-os/pull/2746",
+            "number": 2746,
+            "title": "Add WiFi credential check",
+            "state": "closed",
+            "created_at": "2024-02-28T20:28:20Z",
+            "detail": "`WiFi.setCredentials()` doesn't verify if the credentials is valid or not."
+        },
+        "2747": {
+            "url": "https://github.com/particle-iot/device-os/pull/2747",
+            "number": 2747,
+            "title": "[Gen4] fixes BLE scanning may break.",
+            "state": "closed",
+            "created_at": "2024-02-29T09:00:45Z",
+            "detail": "BLE scans for BLE advertisements will quickly hit a failure and become unable to scan. The BLE.scan API will start to return immediately without performing the scan."
+        },
+        "2748": {
+            "url": "https://github.com/particle-iot/device-os/pull/2748",
+            "number": 2748,
+            "title": "[wiring] fix WiFi.setCredentials() retval to be bool consistently",
+            "state": "closed",
+            "created_at": "2024-03-05T17:52:24Z"
+        },
+        "2749": {
+            "url": "https://github.com/particle-iot/device-os/pull/2749",
+            "number": 2749,
+            "title": "[rtl872x] hal: fix false TX DMA completion in SPI HAL.",
+            "state": "closed",
+            "created_at": "2024-03-07T06:49:14Z",
+            "detail": "`SPIClass::transfer(const void* tx_buffer, void* rx_buffer, size_t length, wiring_spi_dma_transfercomplete_callback_t user_callback)` exits even if the data is not fully clocked out when RX buffer is `nullptr`. If the CS pin is deasserted following the API, the on-going SPI transaction is ended up unexpectedly."
+        },
+        "2750": {
+            "url": "https://github.com/particle-iot/device-os/pull/2750",
+            "number": 2750,
+            "title": "[rtl872x] fix millis() may jump after ~37 hours.",
+            "state": "closed",
+            "created_at": "2024-03-07T12:44:51Z",
+            "detail": "If left running, the P2 millis count will suddenly skip ~3200 seconds between the 36 - 37 hour mark."
+        },
+        "2751": {
+            "url": "https://github.com/particle-iot/device-os/pull/2751",
+            "number": 2751,
+            "title": "Fix monolithic build errors.",
+            "state": "closed",
+            "created_at": "2024-03-07T16:35:21Z"
+        },
+        "2752": {
+            "url": "https://github.com/particle-iot/device-os/pull/2752",
+            "number": 2752,
+            "title": "[rtl872x] fix wifi/ble coexistence issues; USB re-enum workarounds",
+            "state": "closed",
+            "created_at": "2024-03-10T11:36:59Z"
+        },
+        "2753": {
+            "url": "https://github.com/particle-iot/device-os/pull/2753",
+            "number": 2753,
+            "title": "Fix msom usb + ble setup names",
+            "state": "closed",
+            "created_at": "2024-03-11T05:39:42Z",
+            "detail": "Msom setup shows the wrong name: Mseries. It should be M-SoM \nSame for P2 BLE setup and B-SoM.\n\nOriginal by ScottBrust"
+        },
+        "2754": {
+            "url": "https://github.com/particle-iot/device-os/pull/2754",
+            "number": 2754,
+            "title": "Refactor WiFi credential check; [Gen 4] WiFi thread safety issues, USB re-enumeration bugfix for weird USB hubs",
+            "state": "closed",
+            "created_at": "2024-03-11T18:57:26Z",
+            "detail": "1. Device will save invalid credentials if there is valid crdentials with other SSID present\n2. BLE provisioning breaks due to the Wi-Fi disconnection after setting credentials"
+        },
+        "2755": {
+            "url": "https://github.com/particle-iot/device-os/pull/2755",
+            "number": 2755,
+            "title": "[rtl872x] some more fixes",
+            "state": "closed",
+            "created_at": "2024-03-12T14:02:30Z"
+        },
+        "2756": {
+            "url": "https://github.com/particle-iot/device-os/pull/2756",
+            "number": 2756,
+            "title": "Fix communication loop errors when handling ACKs for Describe messages",
+            "state": "closed",
+            "created_at": "2024-03-12T18:47:47Z",
+            "detail": "When handling a CoAP ACK for a Describe or OTAv3 message, the protocol implementation still forwards the message to the new CoAP implementation which causes an error if the code that handled the ACK in the first place happened to overwrite the contents of the shared message buffer."
+        },
+        "2757": {
+            "url": "https://github.com/particle-iot/device-os/pull/2757",
+            "number": 2757,
+            "title": "[rtl872x] SPI and UART HAL minor fix.",
+            "state": "closed",
+            "created_at": "2024-03-13T10:00:29Z",
+            "detail": "1. SPI slave is busy once enabled\n2. Providing unaligned ring buffer for UART will result initialization failure"
+        },
+        "2758": {
+            "url": "https://github.com/particle-iot/device-os/pull/2758",
+            "number": 2758,
+            "title": "[system] network: force IFF_UP if requested and no credentials exist",
+            "state": "closed",
+            "created_at": "2024-03-15T01:53:39Z",
+            "detail": "WiFi should be connected after `joinNewNetwork` when there were no wifi credentials on the device at all as well as there were some present before."
         }
     }
 }

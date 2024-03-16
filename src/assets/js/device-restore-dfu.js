@@ -697,9 +697,7 @@ async function dfuDeviceRestore(usbDevice, options) {
 
             if (options.deviceModuleInfo && obj.moduleInfo) {
                 // Modules on device were passed 
-                const protobufModuleType = options.deviceModuleInfo.moduleTypeSystemToProtobuf(obj.moduleInfo.moduleFunction);
-
-                const m = options.deviceModuleInfo.getByModuleTypeIndex(protobufModuleType, obj.moduleInfo.moduleIndex);
+                const m = options.deviceModuleInfo.getByModuleTypeIndex(obj.moduleInfo.moduleFunctio, obj.moduleInfo.moduleIndex);
                 if (m) {
                     // console.log('partName=' + obj.name + ' m.version=' + m.version + ' obj.moduleInfo.moduleVersion=' + obj.moduleInfo.moduleVersion, m);
 

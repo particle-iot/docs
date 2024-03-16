@@ -52,6 +52,44 @@ $(document).ready(function () {
                 // Also length delimited (string, bytes, embedded messages, packed repeated fields)
                 result.value = protobuf.decodeVarint();
             }
+            if (result.wireType == 5) {
+                // fixed32, sfixed32, float
+                const bytes = protobuf.decodeBytes(4);
+                protobuf.offset += 4;
+
+                result.value = bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24);
+            }
+            if (result.wireType == 1) {
+                // fixed64, sfixed64, double
+                const bytes = protobuf.decodeBytes(8);
+                protobuf.offset += 8;
+                result.value = bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24) || (bytes[4] << 32) | (bytes[5] << 40) || (bytes[6] << 48) | (bytes[7] << 56);
+            }
+            
+
+            if (result.wireType == 2) {
+                const endOffset = protobuf.offset + result.value;
+                result.isEnd = function() {
+                    return protobuf.offset >= endOffset;   
+                }
+            }
+            else
+            if (result.wireType == 3) {
+                // This is untested. I added it because I thought I found an SGROUP but it was just because
+                // the data before it wasn't parsed correctly.
+
+                // SGROUP
+                const origField = result.field;
+
+                result.isEnd = function() {
+                    const wireType = protobuf.data[protobuf.offset] & 0x07;
+                    const field = protobuf.data[protobuf.offset] >> 3;
+                    
+                    // EGROUP
+                    return wireType == 4 && field == origField;
+                }
+            }
+
 
             return result;
         }

@@ -1024,11 +1024,11 @@
         },
         "hardware/migration-guides/p2-p1-migration-guide.md": {
             "date": "2024-03-15",
-            "hash": "c16c5ab2001dd14f664240f0f9cd45ff39f210d907e4dc4ce3f7a2008c882543"
+            "hash": "b16cc7f36092bd7a8d1feacf5076c1ce5626197bdc56e1d6c04d60a4908c689b"
         },
         "hardware/migration-guides/p2-photon-migration-guide.md": {
             "date": "2024-03-15",
-            "hash": "70c4bd5a8a6c4d889c86d028a6ea39d8823bb432c8d08c4139dce4a70a580637"
+            "hash": "174886d2f4a1fee7f7ab81666933ad2ab9491f2cc049edd4f73af0d27ff540b5"
         },
         "hardware/migration-guides/photon-2-argon-migration-guide.md": {
             "date": "2024-03-15",
@@ -1036,7 +1036,7 @@
         },
         "hardware/migration-guides/photon-2-photon-migration-guide.md": {
             "date": "2024-03-15",
-            "hash": "507b07308a77cd409f07a7ad36da1073eb059091c6ab152244314b05447d4a67"
+            "hash": "3fd0c73bc16c1575c3574d5f802cb848085da51a03c37970488a01873181611c"
         },
         "hardware/power/batteries.md": {
             "date": "2024-02-27",
@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-03-15",
-            "hash": "bff7029454aef1982cd3369a7a45ef6242cb3210b5151479564a034887a0cb35"
+            "hash": "b2ac10bec587595c5620a3ba3dabb817037bee141b80a1ef65ac490ca96549ef"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4411,8 +4411,8 @@
             "hash": "3595473a42ae46ef8b93664168ffd86ca47aef3c74126f45f7afea21cf9f054d"
         },
         "reference/device-os/api/memory/stack.md": {
-            "date": "2024-01-24",
-            "hash": "f772c58a5507ec6731bd3142bfd510cd716004ea0f303fde26c68e1164b42f20"
+            "date": "2024-03-15",
+            "hash": "eab7fba193bc5460b4921fa9607c9c6d2c1e2fcd40d05f36b5abead151bd73e6"
         },
         "reference/device-os/api/device-os-versions/device-os-versions.md": {
             "date": "2023-09-20",
@@ -8395,7 +8395,7 @@
             "date": "2024-03-15"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
-            "hash": "c3837c15a6493ceff11bb03998c58234b40e24becfc1c4794b4a4266e7fda3d2",
+            "hash": "0268c24cf4f09d459889a50b1269586855c853608c3c95f053608fb9fe571a13",
             "date": "2024-03-15"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
@@ -8403,7 +8403,7 @@
             "date": "2024-03-15"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "63308c20c32001a6de619e1dbed0dd8353cabff46b096ea29f7904111a71bee5",
+            "hash": "9a5f931ab0ccf5c6560d3571f42a0931b6e330108437f72526ecde0951fe1b12",
             "date": "2024-03-15"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
