@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 5.8.0 2024-03-16
+
+Device OS 5.8.0 is now in Device Restore USB, Hex Generator, etc.. Also fixed a bug where Device Restore USB and Web Device Doctor returned a "could not put device in DFU mode" error immediately after selecting the device when the device had Device OS 5.7.0 installed on it.
+
 ### P2, Photon 2, M-SoM baud rates 2024-03-16
 
 On the P2, Photon 2, M-SoM, and Muon UART serial, 2400, 4800, 380400, 460800, baud rates are supported but were not listed.
