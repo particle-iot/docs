@@ -166,7 +166,6 @@ const svg = require('./svg');
                                     if (!info) {
                                         continue;
                                     }
-                                    console.log('special', {infoKey, num, info})
                                 }
 
                                 if (!text) {

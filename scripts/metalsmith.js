@@ -319,8 +319,13 @@ exports.metalsmith = function () {
     // Rename files so that about.html is converted into about/index.html
     .use(permalinks({
       relative: false
-    }));
-
+    }))
+    .use(copy({
+      pattern: '**/google*.txt',
+      directory: '../build',
+      extension: '.html',
+    }))
+  ;
   return metalsmith;
 };
 
