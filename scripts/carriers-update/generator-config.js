@@ -303,6 +303,19 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        // m.2 breakout board
+        {
+            guid:'9ea389b4-0c66-4b3e-9c95-9e31e1fa6f00', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformOld: 'M.2 SoM eval board header, nRF52 SoM',
+                    platformNew: 'M.2 SoM eval board header, RTL8722 SoM',
+                    showPinNum: true,
+                }); 
+            } 
+        },                
+
         // datasheets/electron/b-series-eval-board.md
         {
             guid:'3c7bdf46-c2a2-4b04-aeb1-222b761e036b', 
