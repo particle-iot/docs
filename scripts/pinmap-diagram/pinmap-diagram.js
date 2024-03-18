@@ -2181,6 +2181,11 @@ const svg = require('./svg');
             outputPath: 'assets/images/m2eval_nRF52.svg',
         }), files);
 
+        await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'M.2 SoM eval board header, RTL8722 SoM',
+            outputPath: 'assets/images/m2eval_rtl.svg',
+        }), files);
+
         await diagram.generatePowerModule(Object.assign({
         }, generateOptions), files);
         

@@ -13,6 +13,44 @@ function sortKeys(obj) {
 }
 
 function verifyPinInfo(dir) {
+    // Pre-scan 
+    let pinInfo = [];
+
+    for(const dirEntry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const lastDotIndex = dirEntry.name.lastIndexOf('.');
+        const baseName = (lastDotIndex > 0) ? dirEntry.name.substring(0, lastDotIndex) : dirEntry.name;
+
+        if (dirEntry.isDirectory()) {
+            if (dirEntry.name == 'platforms') {
+                // Process platforms                
+                for(const dirEntry2 of fs.readdirSync(path.join(dir, dirEntry.name), { withFileTypes: true })) {
+
+                    const thisPlatformJsonPath = path.join(dir, dirEntry.name, dirEntry2.name);
+
+                    const platformPinInfo = JSON.parse(fs.readFileSync(thisPlatformJsonPath, 'utf8'));
+
+                    let add = [];
+
+                    for(const pin of platformPinInfo.pins) {
+                        if (typeof pin.morePins != 'undefined') {
+                            for(const p of pin.morePins) {
+                                let pinCopy = Object.assign({}, pin);
+                                delete pinCopy.morePins;
+                                pinCopy.num = p;
+                                add.push(pinCopy);
+                            }
+                        }
+                    }
+                    for(const pin of add) {
+                        platformPinInfo.pins.push(pin);
+                    }
+
+                    pinInfo.push(platformPinInfo);
+                }
+            }
+        }
+    }
+
     for(const dirEntry of fs.readdirSync(dir, { withFileTypes: true })) {
         const lastDotIndex = dirEntry.name.lastIndexOf('.');
         const baseName = (lastDotIndex > 0) ? dirEntry.name.substring(0, lastDotIndex) : dirEntry.name;
@@ -25,6 +63,33 @@ function verifyPinInfo(dir) {
                     const thisPlatformJsonPath = path.join(dir, dirEntry.name, dirEntry2.name);
 
                     const obj = JSON.parse(fs.readFileSync(thisPlatformJsonPath, 'utf8'));
+
+                    if (typeof obj['mapBy'] != 'undefined' && typeof obj['mapFrom'] != 'undefined') {
+                        const mapTo = (typeof obj['mapFrom'] != 'undefined') ? obj.mapTo : obj.mapBy;                        
+                        const mapFrom = pinInfo.find(e => e.name == obj.mapFrom);
+                        const preserve = (typeof obj['mapPreserve'] != 'undefined') ? obj.mapPreserve : [];     
+                        
+                        for(const pin of obj.pins) {
+                            if (pin[obj.mapBy]) {
+                                // Pin is mapped
+                                const basePin = mapFrom.pins.find(e => e[mapTo] == pin[obj.mapBy]);
+                                if (basePin) {
+                                    // console.log('map from', basePin);
+                                    for(const key in basePin) {
+                                        if (!preserve.includes(key)) {
+                                            pin[key] = basePin[key];
+                                        } 
+                                    }
+                                }
+                                else {
+                                    console.log('base does not have pin with ' + mapTo + ' ' + pin[obj.mapBy]);
+                                }
+                            }
+                            else {
+                                console.log('pin does not have ' + obj.mapBy);
+                            }
+                        }
+                    }
 
                     let newObj = {};
 
@@ -45,6 +110,7 @@ function verifyPinInfo(dir) {
                         pinsSeen: [],
                         hardwarePins: [],
                     };
+
 
                     for(const topKey of topKeys) {
                         if (topKey == 'pins') {

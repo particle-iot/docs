@@ -425,6 +425,12 @@
           "dir": "muon-datasheet",
           "title": "Muon datasheet",
           "href": "/reference/datasheets/m-series/muon-datasheet/"
+        },
+        {
+          "dir": "m2-breakout-datasheet",
+          "title": "M.2 breakout board",
+          "href": "/reference/datasheets/m-series/m2-breakout-datasheet/",
+          "internal": true
         }
       ],
       {
