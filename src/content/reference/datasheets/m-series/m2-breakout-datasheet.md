@@ -7,13 +7,15 @@ description: M.2 breakout board
 
 # {{title}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+This is a preliminary datasheet based on pre-release version of the hardware. Changes are expected.
+{{box op="end"}}
+
 The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM modules.
 
 ## Block diagram
 
 {{imageOverlay src="/assets/images/m-series/M.2-block-diagram.png" alt="Block diagram" class="full-width"}}
-
-
 
 
 ## Board features
@@ -77,7 +79,7 @@ Note that the M.2 breakout board includes a 3-pin JST-PH connector (left), not t
 
 <p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
 
-## Basic setup
+## Setup
 
 The basic setup for the B-SoM or M-SoM to be operational is shown below:
 
@@ -204,11 +206,11 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 2 (VCC)
-|   |   | B-SoM | M-SoM |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Number | 2 | 2 |
-| &nbsp; | Pin Name | VCC | VCC |
-| ∆ | Description | System power, 3.6V - 4.3V for cellular modem | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| | Unchanged between B-SoM and M-SoM |
+| :--- | :--- |
+| Pin Number | 2|
+| Pin Name | VCC|
+| Description | Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V|
 #### Module Pin 3 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
@@ -216,11 +218,11 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 4 (VCC)
-|   |   | B-SoM | M-SoM |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Number | 4 | 4 |
-| &nbsp; | Pin Name | VCC | VCC |
-| ∆ | Description | System power, 3.6V - 4.3V for cellular modem | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| | Unchanged between B-SoM and M-SoM |
+| :--- | :--- |
+| Pin Number | 4|
+| Pin Name | VCC|
+| Description | Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V|
 #### Module Pin 5 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
@@ -228,11 +230,11 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 6 (VCC)
-|   |   | B-SoM | M-SoM |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Number | 6 | 6 |
-| &nbsp; | Pin Name | VCC | VCC |
-| ∆ | Description | System power, 3.6V - 4.3V for cellular modem | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| | Unchanged between B-SoM and M-SoM |
+| :--- | :--- |
+| Pin Number | 6|
+| Pin Name | VCC|
+| Description | Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V|
 #### Module Pin 7 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
@@ -244,26 +246,26 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | :--- | :--- |
 | Pin Number | 8|
 | Pin Name | 3V3|
-| Description | System power, 3.3V at 500 mA for MCU|
+| Description | 3.3V used to power MCU|
 #### Module Pin 9 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 9|
 | Pin Name | GND|
 | Description | Ground.|
-#### Module Pin 10 (SOM10 / NC)
-|   |   | B-SoM | M-SoM |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Number | 10 | 10 |
-| ∆ | Pin Name | SOM10 | NC |
-| &nbsp; | Description | Not currently used, leave unconnected. | Not currently used, leave unconnected. |
+#### Module Pin 10 (SOM10)
+| | Unchanged between B-SoM and M-SoM |
+| :--- | :--- |
+| Pin Number | 10|
+| Pin Name | SOM10|
+| Description | Not currently used, leave unconnected.|
 #### Module Pin 11 (SOM6 / D21)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 11 | 11 |
 | ∆ | Pin Name | SOM6 | D21 |
-| &nbsp; | Pin Alternate Name | NFC1 | NFC1 |
-| ∆ | Description | NFC Antenna 1. This connection is in parallel to the U.FL connector on the eval board. | D21 GPIO |
+| ∆ | Pin Alternate Name | NFC1 | n/a |
+| ∆ | Description | NFC Antenna 1. | D21 GPIO. Is NFC1 on B-SoM. |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
@@ -279,19 +281,19 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 13 | 13 |
 | ∆ | Pin Name | SOM7 | D20 |
-| &nbsp; | Pin Alternate Name | NFC2 | NFC2 |
-| ∆ | Description | NFC Antenna 2. This connection is in parallel to the U.FL connector on the eval board. NFC2 is the center pin. | D20 GPIO |
+| ∆ | Pin Alternate Name | NFC2 | n/a |
+| ∆ | Description | NFC Antenna 2. NFC2 is the center pin. | D20 GPIO. Is NFC2 on B-SoM. |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 14 (SCL / D1)
+#### Module Pin 14 (D1)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 14 | 14 |
-| ∆ | Pin Name | SCL | D1 |
+| &nbsp; | Pin Name | D1 | D1 |
 | &nbsp; | Pin Alternate Name | D1 | D1 |
-| ∆ | Description | I2C SCL, GPIO, PMIC and fuel gauge via jumper on J13 | D1 GPIO, I2C SCL |
+| &nbsp; | Description | I2C SCL. Cannot be used as GPIO. | I2C SCL. Cannot be used as GPIO. |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
@@ -311,13 +313,13 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 42K |
-#### Module Pin 16 (SDA / D0)
+#### Module Pin 16 (D0)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 16 | 16 |
-| ∆ | Pin Name | SDA | D0 |
+| &nbsp; | Pin Name | D0 | D0 |
 | &nbsp; | Pin Alternate Name | D0 | D0 |
-| ∆ | Description | I2C SDA, GPIO, PMIC and fuel gauge via jumper on J13 | D0 GPIO, I2C SDA |
+| &nbsp; | Description | I2C SDA. Cannot be used as GPIO. | I2C SDA. Cannot be used as GPIO. |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
@@ -357,12 +359,11 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 22K |
-#### Module Pin 20 (/RESET / RST)
+#### Module Pin 20 (RST)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 20 | 20 |
-| ∆ | Pin Name | /RESET | RST |
-| &nbsp; | Pin Alternate Name | RST | RST |
+| &nbsp; | Pin Name | RST | RST |
 | ∆ | Description | Hardware reset, active low. | Hardware reset, active low. External pull-up required. |
 #### Module Pin 21 (A3)
 |   |   | B-SoM | M-SoM |
@@ -418,19 +419,19 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 25 | 25 |
 | &nbsp; | Pin Name | A4 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
-| ∆ | Description | A4 Analog in, GPIO, PMIC and fuel gauge interrupt via jumper on J13 | A4 Analog in, GPIO |
+| &nbsp; | Description | A4 Analog in, GPIO | A4 Analog in, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
-#### Module Pin 26 (CTS / D3)
+#### Module Pin 26 (D3)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 26 | 26 |
-| ∆ | Pin Name | CTS | D3 |
-| &nbsp; | Pin Alternate Name | D3 | D3 |
-| ∆ | Description | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL, SD card SPI SD_MO via jumper J12 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
+| &nbsp; | Pin Name | D3 | D3 |
+| &nbsp; | Pin Alternate Name | CTS | CTS |
+| ∆ | Description | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | UART serial | CTS. Use Serial1 object. | CTS. Use Serial1 object. |
@@ -454,13 +455,13 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Internal pull resistance | 13K | ??? |
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
-#### Module Pin 28 (RTS / D2)
+#### Module Pin 28 (D2)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 28 | 28 |
-| ∆ | Pin Name | RTS | D2 |
-| &nbsp; | Pin Alternate Name | D2 | D2 |
-| ∆ | Description | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA, SD card SPI SD_CK via jumper J12 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
+| &nbsp; | Pin Name | D2 | D2 |
+| &nbsp; | Pin Alternate Name | RTS | RTS |
+| ∆ | Description | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | UART serial | RTS. Use Serial1 object. | RTS. Use Serial1 object. |
@@ -473,7 +474,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 29 | 29 |
 | &nbsp; | Pin Name | A6 | A6 |
-| ∆ | Pin Alternate Name | n/a | D29 |
+| ∆ | Pin Alternate Name | D16 | D29 |
 | ∆ | Description | A6 Analog in, PWM, GPIO | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
@@ -488,15 +489,15 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 30 | 30 |
 | ∆ | Pin Name | SOM0 | CELL USBD+ |
 | &nbsp; | Pin Alternate Name | CELL USBD+ | CELL USBD+ |
-| ∆ | Description | Cellular Modem USB Data+. Also connected to CELLULAR_USB micro B connector with jumper on J13. | Cellular Modem USB Data+ |
+| ∆ | Description | Cellular Modem USB Data+. | Cellular Modem USB Data+ |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 31 (A7)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 31 | 31 |
 | &nbsp; | Pin Name | A7 | A7 |
-| ∆ | Pin Alternate Name | n/a | WKP |
-| ∆ | Description | A7 Analog in, GPIO, Ethernet Reset | A7 Analog In, WKP, GPIO D28 |
+| ∆ | Pin Alternate Name | D17 | WKP |
+| ∆ | Description | A7 Analog in, GPIO | A7 Analog In, WKP, GPIO D28 |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -510,7 +511,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 32 | 32 |
 | ∆ | Pin Name | SOM1 | CELL USBD- |
 | &nbsp; | Pin Alternate Name | CELL USBD- | CELL USBD- |
-| ∆ | Description | Cellular Modem USB Data-. Also connected to CELLULAR_USB micro B connector with jumper on J13. | Cellular Modem USB Data- |
+| ∆ | Description | Cellular Modem USB Data-. | Cellular Modem USB Data- |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 33 (GND)
 | | Unchanged between B-SoM and M-SoM |
@@ -518,13 +519,13 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | Pin Number | 33|
 | Pin Name | GND|
 | Description | Ground.|
-#### Module Pin 34 (CS / D8)
+#### Module Pin 34 (D8)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 34 | 34 |
-| ∆ | Pin Name | CS | D8 |
-| &nbsp; | Pin Alternate Name | D8 | D8 |
-| ∆ | Description | GPIO, SPI SS, Ethernet CS via jumper on J13 | D8 GPIO, SPI SS |
+| &nbsp; | Pin Name | D8 | D8 |
+| ∆ | Pin Alternate Name | CS | D8 |
+| ∆ | Description | GPIO, SPI SS | D8 GPIO, SPI SS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | Default SS for SPI. |
@@ -542,7 +543,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 36 | 36 |
 | &nbsp; | Pin Name | MISO | MISO |
 | &nbsp; | Pin Alternate Name | D11 | D11 |
-| ∆ | Description | SPI MISO, GPIO, Ethernet via jumper on J13 | D11 GPIO, PWM, SPI MISO |
+| ∆ | Description | SPI MISO, GPIO | D11 GPIO, PWM, SPI MISO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -572,7 +573,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 38 | 38 |
 | &nbsp; | Pin Name | MOSI | MOSI |
 | &nbsp; | Pin Alternate Name | D12 | D12 |
-| ∆ | Description | SPI MOSI, GPIO, Ethernet via jumper on J13 | D12 GPIO, PWM, SPI MOSI |
+| ∆ | Description | SPI MOSI, GPIO | D12 GPIO, PWM, SPI MOSI |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -598,7 +599,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 40 | 40 |
 | &nbsp; | Pin Name | SCK | SCK |
 | &nbsp; | Pin Alternate Name | D13 | D13 |
-| ∆ | Description | SPI SCK, GPIO, Ethernet via jumper on J13 | D13 GPIO, SPI SCK |
+| ∆ | Description | SPI SCK, GPIO | D13 GPIO, SPI SCK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
@@ -638,12 +639,12 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
-#### Module Pin 45 (R / RGBR)
+#### Module Pin 45 (RGBR)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 45 | 45 |
-| ∆ | Pin Name | R | RGBR |
-| &nbsp; | Pin Alternate Name | RGBR | RGBR |
+| &nbsp; | Pin Name | RGBR | RGBR |
+| ∆ | Pin Alternate Name | n/a | RGBR |
 | &nbsp; | Description | RGB LED Red | RGB LED Red |
 | ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
 #### Module Pin 46 (SOM13 / D25)
@@ -658,56 +659,56 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Goes high at boot |
-#### Module Pin 47 (G / RGBG)
+#### Module Pin 47 (RGBG)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 47 | 47 |
-| ∆ | Pin Name | G | RGBG |
-| &nbsp; | Pin Alternate Name | RGBG | RGBG |
+| &nbsp; | Pin Name | RGBG | RGBG |
+| ∆ | Pin Alternate Name | n/a | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
-#### Module Pin 48 (GPIO0 / D22)
+#### Module Pin 48 (D22)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 48 | 48 |
-| ∆ | Pin Name | GPIO0 | D22 |
-| &nbsp; | Pin Alternate Name | D22 | D22 |
-| ∆ | Description | GPIO, Ethernet INT via jumper on J13 | D22 GPIO |
+| &nbsp; | Pin Name | D22 | D22 |
+| ∆ | Pin Alternate Name | GPIO0 | D22 |
+| ∆ | Description | GPIO D22 | D22 GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
-#### Module Pin 49 (B / RGBB)
+#### Module Pin 49 (RGBB)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 49 | 49 |
-| ∆ | Pin Name | B | RGBB |
-| &nbsp; | Pin Alternate Name | RGBB | RGBB |
+| &nbsp; | Pin Name | RGBB | RGBB |
+| ∆ | Pin Alternate Name | n/a | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
-#### Module Pin 50 (GPIO1 / D23)
+#### Module Pin 50 (D23)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 50 | 50 |
-| ∆ | Pin Name | GPIO1 | D23 |
-| &nbsp; | Pin Alternate Name | D23 | D23 |
-| ∆ | Description | GPIO | D23 GPIO |
+| &nbsp; | Pin Name | D23 | D23 |
+| ∆ | Pin Alternate Name | GPIO1 | D23 |
+| ∆ | Description | GPIO D23 | D23 GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
-#### Module Pin 51 (SOM5 / SIM_VCC)
+#### Module Pin 51 (SOM5)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 51 | 51 |
-| ∆ | Pin Name | SOM5 | SIM_VCC |
+| &nbsp; | Pin Name | SOM5 | SOM5 |
 | &nbsp; | Pin Alternate Name | SIM_VCC | SIM_VCC |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
-#### Module Pin 52 (PWM0 / D4)
+#### Module Pin 52 (D4)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 52 | 52 |
-| ∆ | Pin Name | PWM0 | D4 |
-| &nbsp; | Pin Alternate Name | D4 | D4 |
-| ∆ | Description | SPI1 MISO, PWM, GPIO, SD card SPI SD_MI via jumper J12 | D4 GPIO, PWM |
+| &nbsp; | Pin Name | D4 | D4 |
+| &nbsp; | Pin Alternate Name | PWM0 | PWM0 |
+| ∆ | Description | SPI1 MISO, PWM, GPIO D4 | D4 GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
@@ -715,40 +716,40 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
-#### Module Pin 53 (SOM6 / SIM_RST)
+#### Module Pin 53 (SOM6)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 53 | 53 |
-| ∆ | Pin Name | SOM6 | SIM_RST |
+| &nbsp; | Pin Name | SOM6 | SOM6 |
 | &nbsp; | Pin Alternate Name | SIM_RST | SIM_RST |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
-#### Module Pin 54 (PWM1 / D5)
+#### Module Pin 54 (D5)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 54 | 54 |
-| ∆ | Pin Name | PWM1 | D5 |
-| &nbsp; | Pin Alternate Name | D5 | D5 |
-| ∆ | Description | PWM, GPIO, SD card SPI SD_CS via jumper J12 | D5 GPIO, PWM |
+| &nbsp; | Pin Name | D5 | D5 |
+| &nbsp; | Pin Alternate Name | PWM1 | PWM1 |
+| ∆ | Description | PWM, GPIO D5 | D5 GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
-#### Module Pin 55 (SOM7 / SIM_CLK)
+#### Module Pin 55 (SOM7 / SOM8)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 55 | 55 |
-| ∆ | Pin Name | SOM7 | SIM_CLK |
+| ∆ | Pin Name | SOM7 | SOM8 |
 | &nbsp; | Pin Alternate Name | SIM_CLK | SIM_CLK |
 | ∆ | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
-#### Module Pin 56 (PWM2 / D6)
+#### Module Pin 56 (D6)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 56 | 56 |
-| ∆ | Pin Name | PWM2 | D6 |
-| &nbsp; | Pin Alternate Name | D6 | D6 |
-| ∆ | Description | PWM, GPIO, SD card SPI SD_DET via jumper J12 | D6 GPIO, PWM |
+| &nbsp; | Pin Name | D6 | D6 |
+| &nbsp; | Pin Alternate Name | PWM2 | PWM2 |
+| ∆ | Description | PWM, GPIO D6 | D6 GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
@@ -762,13 +763,13 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Pin Name | SOM8 | SIM_DATA |
 | &nbsp; | Pin Alternate Name | SIM_DATA | SIM_DATA |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up. |
-#### Module Pin 58 (PWM3 / D7)
+#### Module Pin 58 (D7)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 58 | 58 |
-| ∆ | Pin Name | PWM3 | D7 |
-| &nbsp; | Pin Alternate Name | D7 | D7 |
-| ∆ | Description | PWM, GPIO, Blue LED via USER_D7 jumper J12 | D7 GPIO, PWM |
+| &nbsp; | Pin Name | D7 | D7 |
+| &nbsp; | Pin Alternate Name | PWM3 | PWM3 |
+| ∆ | Description | PWM, GPIO D7, Blue LED | D7 GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
@@ -781,11 +782,12 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | Pin Number | 59|
 | Pin Name | GND|
 | Description | Ground.|
-#### Module Pin 60 (SOM9 / CELL_RI)
+#### Module Pin 60 (SOM9 / SOM8)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 60 | 60 |
-| ∆ | Pin Name | SOM9 | CELL_RI |
+| ∆ | Pin Name | SOM9 | SOM8 |
+| ∆ | Pin Alternate Name | n/a | CELL_RI |
 | ∆ | Description | M.2 pin 75. Not currently used, leave unconnected. | CELL_RI, ring indicator output, leave unconnected. |
 
 

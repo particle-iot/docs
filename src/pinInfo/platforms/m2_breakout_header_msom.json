@@ -23,7 +23,7 @@
         {
             "num": 2,
             "name": "VCC",
-            "desc": "System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power.",
+            "desc": "Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V",
             "isPower": true,
             "m2Pin": 2,
             "morePins": [
@@ -35,14 +35,14 @@
         {
             "num": 8,
             "name": "3V3",
-            "desc": "System power, 3.3V at 500 mA for MCU",
+            "desc": "3.3V used to power MCU",
             "isPower": true,
             "m2Pin": 8,
             "somPin": "VCC"
         },
         {
             "num": 10,
-            "name": "NC",
+            "name": "SOM10",
             "desc": "Not currently used, leave unconnected.",
             "isNC": true,
             "m2Pin": 14,
@@ -51,8 +51,7 @@
         {
             "num": 11,
             "name": "D21",
-            "altName": "NFC1",
-            "desc": "D21 GPIO",
+            "desc": "D21 GPIO. Is NFC1 on B-SoM.",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -81,8 +80,7 @@
         {
             "num": 13,
             "name": "D20",
-            "altName": "NFC2",
-            "desc": "D20 GPIO",
+            "desc": "D20 GPIO. Is NFC2 on B-SoM.",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -102,7 +100,7 @@
             "num": 14,
             "name": "D1",
             "altName": "D1",
-            "desc": "D1 GPIO, I2C SCL",
+            "desc": "I2C SCL. Cannot be used as GPIO.",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -144,7 +142,7 @@
             "num": 16,
             "name": "D0",
             "altName": "D0",
-            "desc": "D0 GPIO, I2C SDA",
+            "desc": "I2C SDA. Cannot be used as GPIO.",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -217,7 +215,6 @@
         {
             "num": 20,
             "name": "RST",
-            "altName": "RST",
             "desc": "Hardware reset, active low. External pull-up required.",
             "hardwarePin": "CHIP_EN",
             "is5VTolerant": false,
@@ -312,7 +309,7 @@
         {
             "num": 26,
             "name": "D3",
-            "altName": "D3",
+            "altName": "CTS",
             "desc": "D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -356,7 +353,7 @@
         {
             "num": 28,
             "name": "D2",
-            "altName": "D2",
+            "altName": "RTS",
             "desc": "D2 GPIO, Serial RTS flow control (optional), SPI1 SCK",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -722,7 +719,7 @@
         },
         {
             "num": 51,
-            "name": "SIM_VCC",
+            "name": "SOM5",
             "altName": "SIM_VCC",
             "desc": "Leave unconnected, 1.8V/3V SIM Supply Output from R410M.",
             "is5VTolerant": false,
@@ -732,7 +729,7 @@
         {
             "num": 52,
             "name": "D4",
-            "altName": "D4",
+            "altName": "PWM0",
             "desc": "D4 GPIO, PWM",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -753,7 +750,7 @@
         },
         {
             "num": 53,
-            "name": "SIM_RST",
+            "name": "SOM6",
             "altName": "SIM_RST",
             "desc": "Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem.",
             "is5VTolerant": false,
@@ -764,7 +761,7 @@
         {
             "num": 54,
             "name": "D5",
-            "altName": "D5",
+            "altName": "PWM1",
             "desc": "D5 GPIO, PWM",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -784,7 +781,7 @@
         },
         {
             "num": 55,
-            "name": "SIM_CLK",
+            "name": "SOM8",
             "altName": "SIM_CLK",
             "desc": "Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.",
             "is5VTolerant": false,
@@ -795,7 +792,7 @@
         {
             "num": 56,
             "name": "D6",
-            "altName": "D6",
+            "altName": "PWM2",
             "desc": "D6 GPIO, PWM",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -826,7 +823,7 @@
         {
             "num": 58,
             "name": "D7",
-            "altName": "D7",
+            "altName": "PWM3",
             "desc": "D7 GPIO, PWM",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -846,7 +843,8 @@
         },
         {
             "num": 60,
-            "name": "CELL_RI",
+            "name": "SOM8",
+            "altName": "CELL_RI",
             "desc": "CELL_RI, ring indicator output, leave unconnected.",
             "isNC": true,
             "m2Pin": 75,
@@ -884,6 +882,7 @@
     "mapPreserve": [
         "num",
         "name",
+        "altName",
         "desc",
         "morePins"
     ],
