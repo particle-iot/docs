@@ -309,8 +309,10 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformOld: 'M.2 SoM eval board header, nRF52 SoM',
-                    platformNew: 'M.2 SoM eval board header, RTL8722 SoM',
+                    platformOld: 'M.2 SoM breakout board header, B-SoM',
+                    platformOldTitle: 'B-SoM',
+                    platformNew: 'M.2 SoM breakout board header, M-SoM',
+                    platformNewTitle: 'M-SoM',
                     showPinNum: true,
                 }); 
             } 
@@ -323,7 +325,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'full-details',
                     showPinNum: true,
-                    platformNew: 'M.2 SoM eval board header, nRF52 SoM'
+                    platformNew: 'M.2 SoM breakout board header, B-SoM'
                 }); 
             } 
         },                

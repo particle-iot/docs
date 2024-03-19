@@ -94,7 +94,7 @@ Since you choose the connector you have the option of using a right-angle USB co
 
 The M-SoM does not include a SWD/JTAG debugging connector on the board. The functionality is available on four pads on the bottom of the SoM. These typically mate with pogo pins on your base board, if you want to include SWD functionality.
 
-Since the M-SoM can be removed from your base board, you can also use a different board, such the M.2 SoM eval board, for rare situations where you need SWD for low-level reprogramming.
+Since the M-SoM can be removed from your base board, you can also use a different board, such the M.2 SoM breakout board, for rare situations where you need SWD for low-level reprogramming.
 
 Additionally, SWD is supported on pins on the M.2 connector:
 

@@ -1340,7 +1340,7 @@
         },
         "reference/datasheets/b-series/b-series-eval-board.md": {
             "date": "2024-03-18",
-            "hash": "594b3abe671876a9bd1794dc60663cedf2442293efe11ba191c6871d1e5fda8b"
+            "hash": "cbf7fa318eedb2423329ed14e14605fa154c95a286de53fab6d649fe61139bea"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2024-02-27",
@@ -8391,8 +8391,8 @@
             "date": "2024-03-15"
         },
         "hardware/migration-guides/msom-boron-migration-guide.md": {
-            "hash": "3143990a1ff299e6128574f4ce793d8b311e9a0fef2c23a9853ee2e20293d0da",
-            "date": "2024-03-15"
+            "hash": "45f97c2371fe1b1929b6a1e4ecd9bee6ea4fff08ee7a726e6423e93485e890d8",
+            "date": "2024-03-18"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
             "hash": "0268c24cf4f09d459889a50b1269586855c853608c3c95f053608fb9fe571a13",

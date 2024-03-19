@@ -43,8 +43,10 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 | 22 | Feather connector jumpers |
 | 23 | Feather connector jumpers |
 | 24 | VUSB jumper (only used on B-SoM) |
-| 25 | LiPo temperature sensor bypass jumper (TS) |
-
+| 25 | LiPo charge LED (yellow) |
+| 26 | LiPo temperature sensor bypass jumper (TS) |
+| 27 | Power LED (red) |
+| 28 | Power LED disable (cut trace to disable, can reenable with solder) |
 
 
 
@@ -80,41 +82,78 @@ The basic setup for the B-SoM or M-SoM to be operational is shown below:
 - Connect power the USB (1) or a LiPo battery (2).
 - Turn on the appropriate power switches (4, 6).
 
-### Using the PMIC and fuel gauge (recommended)
+## Onboard peripherals
 
-There is support for bq24195 PMIC and MAX17043 fuel gauge in Device OS so you don't need to add any additional configuration.
+### Qwiic (8)
 
-| PMIC | nRF52 Pin | SoM Pin | SoM Pin Number |
+The SparkFun Qwiic system provides an easy way to expand and test various sensors, input devices, and displays. Multiple peripherals can be daisy-chained to a single port. The Adafruit Stemma QT are compatible with Qwiic and can be mixed and matched as well.
+
+For more information, see [Qwiic](/hardware/expansion/qwiic/).
+
+### Grove connector (9)
+
+Additionally, Grove system of sensors and peripherals from Seeed Systems is another easy way to add peripheral devices. The M.2 breakout board has one Grove connectors connected to pins A1 and A2 that can be used as GPIO or analog inputs. This port cannot be used with I2C or Serial Grove peripherals.
+
+| J11 | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
-| PM\_INT | P0.05 | A6 | 45 |
-| PM\_SDA | P1.13 | D0 | 22 |
-| PM\_SCL | P1.15 | D1 | 20 |
+| GND | | |
+| 3V3 | | |
+| ADC2 | A2 | 35 |
+| ADC1 | A1 | 33 |
 
-It requires these jumpers, which should be installed at the factory:
+### Power module
 
-- ADC6 to PM\_INT
-- SDA to PM\_SDA
-- SCL to PM\_SCL
+The M.2 breakout board comes with the PMIC power module that includes the bq24195 PMIC and MAX17043 fuel gauge chips. 
 
-If you are not using the PMIC be sure to remove the jumper if you need use pin A6 as an analog input or GPIO.
+| Power module | SoM Pin | SoM Pin Number |
+| :---: |  :---: |  :---: | 
+| FUEL\_INT | A6 | 45 |
+| SDA | D0 | 22 |
+| SCL | D1 | 20 |
+
 
 ### Using ethernet
 
-The M.2 breakout board does not contain Ethernet like the previous B-Series Eval board. You can, however, add it using the Adafruit Feather connector.
-
-### Using Qwiic (8)
+The M.2 breakout board does not contain Ethernet like the previous B-Series Eval board. You can, however, add it using the [Adafruit Ethernet FeatherWing](https://www.adafruit.com/product/3201) in the Feather socket.
 
 
+|Particle Pin|Ethernet FeatherWing Pin   |
+|:-------|:--------------------------|
+|MISO    | SPI MISO                  |
+|MOSI    | SPI MOSI                  |
+|SCK     | SPI SCK                   |
+|D3      | nRESET     |
+|D4      | nINTERRUPT  |
+|D5      | nCHIP SELECT|
 
-### Using the Grove connector (9)
+| Particle Pin | M.2 Pin | Ethernet Pin |
+| :---: | :---: | :--- |
+| D8 | CS | ETH\_CS |
+| A7 | RESERVED | ETH\_RESET |
+| SCK | SCK | ETH\_CLK |
+| MISO | MISO | ETH\_MISO |
+| MOSI | MOSI | ETH\_MOSI |
+| D22 | GPIO0 | ETH\_INT |
 
-| J11 | nRF52 Pin | SoM Pin | SoM Pin Number |
-| :---: | :---: |  :---: |  :---: | 
-| GND | | | |
-| 3V3 | | | |
-| ADC2 | P0.28 | A2 | 35 |
-| ADC1 | P0.04 | A1 | 33 |
+Be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
+
+### Using SD card
+
+The M.2 breakout board does not contain a Micro SD card socket as the previous B-Series Eval board did. You can, however, add it using the Adafruit Feather connector.
+
+The [Adalogger FeatherWing - RTC + SD Add-on For All Feather Boards](https://www.adafruit.com/product/2922) contains a Micro SD card socket. 
+
+| SD Card Pin | Feather Pin | Description |
+| :--- | :--- | :--- |
+| SCK | SCK | SPI Clock |
+| MOSI | MOSI | Data (MCU to SD card) |
+| MISO | MISO | Data (SD card to MCU) |
+| SDCS | D5 | Chip select |
+
+It is also possible to cut the a trace jumper for SDCS and use a different pin for SDCS. Note that this will use `SPI` (primary SPI) but the B-Series Eval board use `SPI1` so your SD card initialization code will be different.
+
+See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-featherwing/using-the-sd-card) for additional information.
 
 
 ## Expansion header
@@ -128,72 +167,74 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 {{imageOverlay src="/assets/images/m2eval_rtl.svg" alt="Expansion header" }}
 
 
-{{!-- B SoM eval board 3c7bdf46-c2a2-4b04-aeb1-222b761e036b --}}
+### Full pin listing
+
+[Skip past this section](#schematics) (the full pin listing is long)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9ea389b4-0c66-4b3e-9c95-9e31e1fa6f00 --}}
 
 #### Module Pin 1 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 1|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 2 (VCC)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 2 | 2 |
 | &nbsp; | Pin Name | VCC | VCC |
 | ∆ | Description | System power, 3.6V - 4.3V for cellular modem | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
 #### Module Pin 3 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 3|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 4 (VCC)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 4 | 4 |
 | &nbsp; | Pin Name | VCC | VCC |
 | ∆ | Description | System power, 3.6V - 4.3V for cellular modem | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
 #### Module Pin 5 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 5|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 6 (VCC)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 6 | 6 |
 | &nbsp; | Pin Name | VCC | VCC |
 | ∆ | Description | System power, 3.6V - 4.3V for cellular modem | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
 #### Module Pin 7 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 7|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 8 (3V3)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 8|
 | Pin Name | 3V3|
 | Description | System power, 3.3V at 500 mA for MCU|
 #### Module Pin 9 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 9|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 10 (SOM10 / NC)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 10 | 10 |
 | ∆ | Pin Name | SOM10 | NC |
 | &nbsp; | Description | Not currently used, leave unconnected. | Not currently used, leave unconnected. |
 #### Module Pin 11 (SOM6 / D21)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 11 | 11 |
 | ∆ | Pin Name | SOM6 | D21 |
@@ -204,13 +245,13 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 12 (SOM11 / GNSS_TX)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 12 | 12 |
 | ∆ | Pin Name | SOM11 | GNSS_TX |
 | ∆ | Description | Not currently used, leave unconnected. | Cellular modem GNSS UART TX |
 #### Module Pin 13 (SOM7 / D20)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 13 | 13 |
 | ∆ | Pin Name | SOM7 | D20 |
@@ -221,19 +262,19 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 14 (SCL / D1)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 14 | 14 |
 | ∆ | Pin Name | SCL | D1 |
 | &nbsp; | Pin Alternate Name | D1 | D1 |
-| ∆ | Description | I2C SCL, GPIO, PMIC and fuel fauge via jumper on J13 | D1 GPIO, I2C SCL |
+| ∆ | Description | I2C SCL, GPIO, PMIC and fuel gauge via jumper on J13 | D1 GPIO, I2C SCL |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 15 (A0)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 15 | 15 |
 | &nbsp; | Pin Name | A0 | A0 |
@@ -247,19 +288,19 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 42K |
 #### Module Pin 16 (SDA / D0)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 16 | 16 |
 | ∆ | Pin Name | SDA | D0 |
 | &nbsp; | Pin Alternate Name | D0 | D0 |
-| ∆ | Description | I2C SDA, GPIO, PMIC and fuel fauge via jumper on J13 | D0 GPIO, I2C SDA |
+| ∆ | Description | I2C SDA, GPIO, PMIC and fuel gauge via jumper on J13 | D0 GPIO, I2C SDA |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 17 (A1)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 17 | 17 |
 | &nbsp; | Pin Name | A1 | A1 |
@@ -273,7 +314,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 18 (MODE)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 18 | 18 |
 | &nbsp; | Pin Name | MODE | MODE |
@@ -281,7 +322,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Description | MODE button, has internal pull-up | MODE button. Pin number constant is BTN. External pull-up required! |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 #### Module Pin 19 (A2)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 19 | 19 |
 | &nbsp; | Pin Name | A2 | A2 |
@@ -293,14 +334,14 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 22K |
 #### Module Pin 20 (/RESET / RST)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 20 | 20 |
 | ∆ | Pin Name | /RESET | RST |
 | &nbsp; | Pin Alternate Name | RST | RST |
 | ∆ | Description | Hardware reset, active low. | Hardware reset, active low. External pull-up required. |
 #### Module Pin 21 (A3)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 21 | 21 |
 | &nbsp; | Pin Name | A3 | A3 |
@@ -312,7 +353,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 22 (TX)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 22 | 22 |
 | &nbsp; | Pin Name | TX | TX |
@@ -327,13 +368,13 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 23 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 23|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 24 (RX)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 24 | 24 |
 | &nbsp; | Pin Name | RX | RX |
@@ -348,7 +389,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 25 (A4)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 25 | 25 |
 | &nbsp; | Pin Name | A4 | A4 |
@@ -360,7 +401,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 26 (CTS / D3)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 26 | 26 |
 | ∆ | Pin Name | CTS | D3 |
@@ -374,7 +415,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 27 (A5)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 27 | 27 |
 | &nbsp; | Pin Name | A5 | A5 |
@@ -390,7 +431,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 28 (RTS / D2)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 28 | 28 |
 | ∆ | Pin Name | RTS | D2 |
@@ -404,7 +445,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 29 (A6)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 29 | 29 |
 | &nbsp; | Pin Name | A6 | A6 |
@@ -418,7 +459,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 30 (SOM0 / CELL USBD+)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 30 | 30 |
 | ∆ | Pin Name | SOM0 | CELL USBD+ |
@@ -426,7 +467,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Description | Cellular Modem USB Data+. Also connected to CELLULAR_USB micro B connector with jumper on J13. | Cellular Modem USB Data+ |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 31 (A7)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 31 | 31 |
 | &nbsp; | Pin Name | A7 | A7 |
@@ -440,7 +481,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 32 (SOM1 / CELL USBD-)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 32 | 32 |
 | ∆ | Pin Name | SOM1 | CELL USBD- |
@@ -448,13 +489,13 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Description | Cellular Modem USB Data-. Also connected to CELLULAR_USB micro B connector with jumper on J13. | Cellular Modem USB Data- |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 33 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 33|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 34 (CS / D8)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 34 | 34 |
 | ∆ | Pin Name | CS | D8 |
@@ -466,13 +507,13 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 35 (SOM14)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 35|
 | Pin Name | SOM14|
 | Description | M.2 pin 51. Not currently used, leave unconnected.|
 #### Module Pin 36 (MISO)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 36 | 36 |
 | &nbsp; | Pin Name | MISO | MISO |
@@ -486,7 +527,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 37 (SOM15 / A5)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 37 | 37 |
 | ∆ | Pin Name | SOM15 | A5 |
@@ -502,7 +543,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 38 (MOSI)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 38 | 38 |
 | &nbsp; | Pin Name | MOSI | MOSI |
@@ -516,7 +557,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 39 (SOM16 / D27)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 39 | 39 |
 | ∆ | Pin Name | SOM16 | D27 |
@@ -528,7 +569,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
 | ∆ | Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### Module Pin 40 (SCK)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 40 | 40 |
 | &nbsp; | Pin Name | SCK | SCK |
@@ -540,19 +581,19 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 41 (SOM17)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 41|
 | Pin Name | SOM17|
 | Description | M.2 pin 57. Not currently used, leave unconnected.|
 #### Module Pin 42 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 42|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 43 (SOM18 / D26)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 43 | 43 |
 | ∆ | Pin Name | SOM18 | D26 |
@@ -562,7 +603,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 44 (SOM12 / D24)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 44 | 44 |
 | ∆ | Pin Name | SOM12 | D24 |
@@ -574,7 +615,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### Module Pin 45 (R / RGBR)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 45 | 45 |
 | ∆ | Pin Name | R | RGBR |
@@ -582,7 +623,7 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | &nbsp; | Description | RGB LED Red | RGB LED Red |
 | ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
 #### Module Pin 46 (SOM13 / D25)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 46 | 46 |
 | ∆ | Pin Name | SOM13 | D25 |
@@ -594,14 +635,14 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Goes high at boot |
 #### Module Pin 47 (G / RGBG)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 47 | 47 |
 | ∆ | Pin Name | G | RGBG |
 | &nbsp; | Pin Alternate Name | RGBG | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
 #### Module Pin 48 (GPIO0 / D22)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 48 | 48 |
 | ∆ | Pin Name | GPIO0 | D22 |
@@ -612,14 +653,14 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 49 (B / RGBB)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 49 | 49 |
 | ∆ | Pin Name | B | RGBB |
 | &nbsp; | Pin Alternate Name | RGBB | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
 #### Module Pin 50 (GPIO1 / D23)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 50 | 50 |
 | ∆ | Pin Name | GPIO1 | D23 |
@@ -630,14 +671,14 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 51 (SOM5 / SIM_VCC)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 51 | 51 |
 | ∆ | Pin Name | SOM5 | SIM_VCC |
 | &nbsp; | Pin Alternate Name | SIM_VCC | SIM_VCC |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
 #### Module Pin 52 (PWM0 / D4)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 52 | 52 |
 | ∆ | Pin Name | PWM0 | D4 |
@@ -651,14 +692,14 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 53 (SOM6 / SIM_RST)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 53 | 53 |
 | ∆ | Pin Name | SOM6 | SIM_RST |
 | &nbsp; | Pin Alternate Name | SIM_RST | SIM_RST |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
 #### Module Pin 54 (PWM1 / D5)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 54 | 54 |
 | ∆ | Pin Name | PWM1 | D5 |
@@ -671,14 +712,14 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 55 (SOM7 / SIM_CLK)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 55 | 55 |
 | ∆ | Pin Name | SOM7 | SIM_CLK |
 | &nbsp; | Pin Alternate Name | SIM_CLK | SIM_CLK |
 | ∆ | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
 #### Module Pin 56 (PWM2 / D6)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 56 | 56 |
 | ∆ | Pin Name | PWM2 | D6 |
@@ -691,14 +732,14 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 57 (SOM8 / SIM_DATA)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 57 | 57 |
 | ∆ | Pin Name | SOM8 | SIM_DATA |
 | &nbsp; | Pin Alternate Name | SIM_DATA | SIM_DATA |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up. |
 #### Module Pin 58 (PWM3 / D7)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 58 | 58 |
 | ∆ | Pin Name | PWM3 | D7 |
@@ -711,13 +752,13 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 59 (GND)
-| | Unchanged between M.2 SoM eval board header, nRF52 SoM and M.2 SoM eval board header, RTL8722 SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 59|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 60 (SOM9 / CELL_RI)
-|   |   | M.2 SoM eval board header, nRF52 SoM | M.2 SoM eval board header, RTL8722 SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 60 | 60 |
 | ∆ | Pin Name | SOM9 | CELL_RI |
