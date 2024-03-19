@@ -1,6 +1,6 @@
 {
     "id": 0,
-    "name": "M.2 SoM breakout board Feather, B-SoM",
+    "name": "M.2 SoM breakout board Feather, M-SoM",
     "pins": [
         {
             "num": 1,
@@ -450,7 +450,6 @@
         {
             "num": 24,
             "name": "D6",
-            "altName": "WKP",
             "desc": "D6 GPIO, PWM",
             "analogRead": false,
             "analogWriteDAC": false,

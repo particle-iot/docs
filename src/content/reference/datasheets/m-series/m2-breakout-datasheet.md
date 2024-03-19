@@ -11,6 +11,9 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 
 ## Block diagram
 
+{{imageOverlay src="/assets/images/m-series/M.2-block-diagram.png" alt="Block diagram" class="full-width"}}
+
+
 
 
 ## Board features
@@ -61,17 +64,18 @@ The M.2 breakout can be powered by:
 | 7 | VIN barrel connector 5-12 VDC (5.5mm x 2.1mm, center positive) |
 
 - There are two USB C connectors on the breakout board, be sure to use connector 1 "MCU USB".
-- The B524/B523 may require additional software settings in the PMIC when powering by USB due to the higher current requirements of 2G/3G. The B404X/B404/B402 (LTE Cat M1) can be powered by USB without a battery.
 - When powering by VIN (barrel connector), 5-12 VDC is recommended, but up to 17 VDC can be supplied.
 - Minimum power requirements are 5VDC @500mA (when the LiPo battery) or 5VDC @2000mA (without LiPo battery).
 - If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
 
 
-### Jumpers (22)
+#### LiPo connector
 
+Note that the M.2 breakout board includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack.
 
-### Jumpers (23)
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
 
+<p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
 
 ## Basic setup
 
@@ -101,30 +105,50 @@ Additionally, Grove system of sensors and peripherals from Seeed Systems is anot
 | ADC2 | A2 | 35 |
 | ADC1 | A1 | 33 |
 
+### Feather connector (21)
+
+The Feather connector can be used for Adafruit FeatherWings, such as displays, sensors, and Ethernet. You cannot plug a Feather MCU into this socket!
+
+### Feather pin mapping - M-SoM
+
+{{imageOverlay src="/assets/images/m-series/m2breakout_feather_msom.svg" alt="Expansion header" }}
+
+### Feather pin mapping - B-SoM
+
+{{imageOverlay src="/assets/images/m-series/m2breakout_feather_bsom.svg" alt="Expansion header" }}
+
+
+### Jumpers (22)
+
+These jumpers connect the Feather A pin side to the M.2 connector. They can also be used to remap pins by using jumper wires instead of solid jumpers.
+
+### Jumpers (23)
+
+These jumpers connect the Feather D pin side to the M.2 connector. They can also be used to remap pins by using jumper wires instead of solid jumpers.
+
+
 ### Power module
 
-The M.2 breakout board comes with the PMIC power module that includes the bq24195 PMIC and MAX17043 fuel gauge chips. 
+The M.2 breakout board comes with the [PMIC power module](/hardware/power/power-module-datasheet/) that includes the bq24195 PMIC and MAX17043 fuel gauge chips. 
+
+The following pins are used by the power module.
 
 | Power module | SoM Pin | SoM Pin Number |
 | :---: |  :---: |  :---: | 
 | FUEL\_INT | A6 | 45 |
 | SDA | D0 | 22 |
 | SCL | D1 | 20 |
+| Power enable | D23 / GPIO1 | 50 |
+| Power status | D4 / PWM0 | 52 |
 
 
 ### Using ethernet
 
 The M.2 breakout board does not contain Ethernet like the previous B-Series Eval board. You can, however, add it using the [Adafruit Ethernet FeatherWing](https://www.adafruit.com/product/3201) in the Feather socket.
 
+Be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
-|Particle Pin|Ethernet FeatherWing Pin   |
-|:-------|:--------------------------|
-|MISO    | SPI MISO                  |
-|MOSI    | SPI MOSI                  |
-|SCK     | SPI SCK                   |
-|D3      | nRESET     |
-|D4      | nINTERRUPT  |
-|D5      | nCHIP SELECT|
+The default mapping for the B-SoM and the original B-SoM eval board is listed below, but you may want to use [Ethernet pin remapping](/reference/device-os/api/ethernet/ethernet/#pin-configuration-ethernet) to reassign the pins.
 
 | Particle Pin | M.2 Pin | Ethernet Pin |
 | :---: | :---: | :--- |
@@ -135,7 +159,6 @@ The M.2 breakout board does not contain Ethernet like the previous B-Series Eval
 | MOSI | MOSI | ETH\_MOSI |
 | D22 | GPIO0 | ETH\_INT |
 
-Be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
 
 ### Using SD card
@@ -158,13 +181,14 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 
 ## Expansion header
 
-### Expansion header - B-SoM
-
-{{imageOverlay src="/assets/images/m2eval_nRF52.svg" alt="Expansion header" }}
 
 ### Expansion header - M-SoM
 
-{{imageOverlay src="/assets/images/m2eval_rtl.svg" alt="Expansion header" }}
+{{imageOverlay src="/assets/images/m-series/m2breakout_msom.svg" alt="Expansion header M-SoM" }}
+
+### Expansion header - B-SoM
+
+{{imageOverlay src="/assets/images/m-series/m2breakout_bsom.svg" alt="Expansion header B-SoM" }}
 
 
 ### Full pin listing

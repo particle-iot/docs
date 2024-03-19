@@ -424,7 +424,6 @@
         {
             "num": 24,
             "name": "D6",
-            "altName": "WKP",
             "desc": "PWM, GPIO",
             "analogRead": false,
             "analogWriteDAC": false,

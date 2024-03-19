@@ -1310,13 +1310,11 @@ const svg = require('./svg');
     }
 
 
-    diagram.generateFeatherPhoton2 = async function(generateOptions, files) {
+    diagram.generateFeatherAdapter = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Photon 2',
             // height="610" width="270"
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/feather.svg'),
-            outputPath: 'assets/images/photon-2-feather.svg',
             // scale to make height 500px width 221
             deviceImageTransform: 'translate(400,5) scale(1.71)',
             width: 1100,
@@ -1337,7 +1335,7 @@ const svg = require('./svg');
                     columns: [
                         {
                             width: 30,
-                            keys: ['p2Pin'],
+                            keys: ['featherName'],
                         },
                         {
                             width: 30,
@@ -1377,7 +1375,7 @@ const svg = require('./svg');
                     columns: [
                         {
                             width: 30,
-                            keys: ['p2Pin'],
+                            keys: ['featherName'],
                         },
                         {
                             width: 30,
@@ -2178,12 +2176,22 @@ const svg = require('./svg');
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, B-SoM',
-            outputPath: 'assets/images/m2eval_nRF52.svg',
+            outputPath: 'assets/images/m-series/m2breakout_bsom.svg',
         }), files);
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, M-SoM',
-            outputPath: 'assets/images/m2eval_rtl.svg',
+            outputPath: 'assets/images/m-series/m2breakout_msom.svg',
+        }), files);
+
+        await diagram.generateFeatherAdapter(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'M.2 SoM breakout board Feather, B-SoM',
+            outputPath: 'assets/images/m-series/m2breakout_feather_bsom.svg',
+        }), files);
+
+        await diagram.generateFeatherAdapter(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'M.2 SoM breakout board Feather, M-SoM',
+            outputPath: 'assets/images/m-series/m2breakout_feather_msom.svg',
         }), files);
 
         await diagram.generatePowerModule(Object.assign({
@@ -2198,9 +2206,12 @@ const svg = require('./svg');
         }, generateOptions), files);
         
         await diagram.generatePhoton2(generateOptions, files);
-        
-        await diagram.generateFeatherPhoton2(generateOptions, files);
-        
+
+        await diagram.generateFeatherAdapter(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'Photon 2',
+            outputPath: 'assets/images/photon-2-feather.svg',
+        }), files);
+                
         await diagram.generateP2Eval(generateOptions, files);
 
         await diagram.generateArgonToPhoton2(Object.assign({
