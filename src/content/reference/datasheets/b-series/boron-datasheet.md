@@ -32,7 +32,7 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
  * 3GPP Release 13 LTE Cat M1 
- * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+ * LTE Cat M1 bands: 2, 4, 5, 12, 13
  * Embedded Particle EtherSIM (BRN404)
  * Embedded Particle SIM (BRN402)
 
@@ -835,6 +835,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v009     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | v010     | 06-Sep-2022 | RK | Split BRN404X into new datasheet |
 | v011     | 28-Apr-2023 | RK | Add conformal coating and flux notes |
+| v012     | 19-Mar-2024 | RK | Incorrect bands listed for the BRN402 and BRN404 |
 
 ## Known errata
 

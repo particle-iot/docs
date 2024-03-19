@@ -1343,8 +1343,8 @@
             "hash": "7e9daec632d4ca3c8f1e31673b7774bfb612fca1b6021e541666c1fde69fc744"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "846f719c8fd7e600c9e011291c35075fe7952357d1329b6835c5ccee396e243b"
+            "date": "2024-03-19",
+            "hash": "341ac9cdc690c535dc88c131e74189f281f09b0ff7074113a35bf788c5b2c8f0"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
             "date": "2024-02-27",
@@ -1355,8 +1355,8 @@
             "hash": "84ca1e8c6da7c92146fb76c38204a9960cb1e7d758107b10866259c4e78d2714"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2024-02-20",
-            "hash": "fd48af7a0624d06430491a6ef3ca614e515523c0706c75e8fa6f5aaff775d0b9"
+            "date": "2024-03-19",
+            "hash": "a61ab52ebbdf0be5f31835b3ab4dc4ddb0aac795d0c5eb7372436fb8fae75991"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2024-02-27",
@@ -1391,8 +1391,8 @@
             "hash": "438890f21500de1d45f46da0038a731bbf12a7c7926f316283f1c0260e16983f"
         },
         "reference/datasheets/e-series/e404x-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "d14634bce0211492afb01b1ebe2793c072abc1cb0d325aaad7db66775dc841b3"
+            "date": "2024-03-19",
+            "hash": "6fb8e7de6ff6c649ee03e4fb87ba578edfd2e6def7ebc7ca6cdc4ab50b01ebf4"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
             "date": "2024-02-27",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "3cc2fbe3ab6b371bd9792abf2291c13733ac2d0737a88a4a50b353d472a027cd",
+            "hash": "9e4405d59c6afb29f58b9855927e5b64999b3a155500aee64269d303ce19a772",
             "date": "2024-03-19"
         },
         "getting-started/cloud/logic.md": {

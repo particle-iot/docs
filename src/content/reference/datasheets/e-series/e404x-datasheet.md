@@ -31,7 +31,7 @@ New designs should use the B404X (B-Series SoM) instead of the E404X.
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 14 LTE Cat M1 
-  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
+  * Cat M1 bands: 2, 4, 5, 12, 13
   * Embedded Particle EtherSIM
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -52,8 +52,6 @@ New designs should use the B404X (B-Series SoM) instead of the E404X.
  * RoHS compliant (lead-free)
  * Requires Device OS 4.0.0 LTS (or later)
 
-
-<sup>1</sup> Not all bands enabled in software by default
 
 ### Device OS support
 
@@ -757,6 +755,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 2   | 2023-02-17 | RK | Update certififed bands list |
 | 3   | 2023-05-17 | RK | Fix maximum voltage on LI pin (pin 5) |
 | 4   | 2024-01-03 | RK | Clarify use of PMID |
+| 5   | 2024-03-19 | RK | Corrected LTE M1 band list |
 
 ## Known errata
 

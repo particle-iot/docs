@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Incorrect LTE M1 bands 2024-03-19
+
+The datasheets for the B402/B404 and BRN402/BRN404 listed the wrong LTE Cat M1 bands supported. It should be LTE Cat M1 bands: 2, 4, 5, 12, 13.
+
 ### Particle.subscribe clarification 2024-03-19
 
 Clarified that subscription updates occur only after loop is running.

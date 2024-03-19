@@ -37,7 +37,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+  * LTE Cat M1 bands: 2, 4, 5, 12, 13
   * Embedded Particle EtherSIM (B404)
   * Embedded Particle SIM (B402)
 
@@ -694,3 +694,4 @@ The bootloader allows you to easily update the user application via several diff
 | 022      | 28-Apr-2023 | RK | Add conformal coating warning |
 | 023      | 07-Jun-2023 | RK | Fixed diagram of M.2 connector in schematics |
 | 024      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |
+| 025      | 19-Mar-2024 | RK | Incorrect bands listed for the B402 and B404 |
