@@ -11491,6 +11491,7 @@ int setProvisioningSvcUuid(T svcUuid) const
 BLE.setProvisioningSvcUuid("6E400021-B5A3-F393-E0A9-E50E24DCCA9E");
 ```
 
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
 
 
 #### BLE.setProvisioningTxUuid
@@ -11516,6 +11517,7 @@ int setProvisioningTxUuid(T svcUuid) const
 BLE.setProvisioningTxUuid("6E400022-B5A3-F393-E0A9-E50E24DCCA9E");
 ```
 
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
 
 
 #### BLE.setProvisioningRxUuid
@@ -11541,6 +11543,8 @@ int setProvisioningRxUuid(T svcUuid) const
 BLE.setProvisioningRxUuid("6E400023-B5A3-F393-E0A9-E50E24DCCA9E");
 ```
 
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
+
 
 #### BLE.setProvisioningVerUuid
 
@@ -11564,6 +11568,8 @@ int setProvisioningVerUuid(T svcUuid) const
 // EXAMPLE
 BLE.setProvisioningVerUuid("6E400024-B5A3-F393-E0A9-E50E24DCCA9E");
 ```
+
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
 
 #### BLE.setDeviceName 
 
@@ -11609,7 +11615,7 @@ String getDeviceName() const;
 
 {{since when="3.3.0"}}
 
-Sets the provisioning mode BLE company code. If not set, the Particle company ID is used.
+Sets the provisioning mode BLE company code. If not set, the Particle company ID (0x0662) is used.
 
 The company ID is a 16-bit integer and values are assigned by the Bluetooth SIG. The value not typically prominently displayed and you will typically filter on the service UUID, not the company name, so you can skip setting this, if desired.
 
@@ -11617,6 +11623,8 @@ The company ID is a 16-bit integer and values are assigned by the Bluetooth SIG.
 // PROTOTYPE
 int setProvisioningCompanyId(uint16_t companyId);
 ```
+
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
 
 #### BLE.provisioningMode
 
@@ -11654,6 +11662,24 @@ STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 ```
 
 Since BLE provisioning mode can run concurrently with your firmware while cloud connected, you do not need to disable it after setting Wi-Fi credentials. This also means your end-users will be able to reconfigure Wi-Fi credentials without having to press the MODE button, which may eliminate the need for an external button in your product.
+
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
+
+
+#### BLE.getProvisioningStatus
+
+{{api name1="BLE.getProvisioningStatus"}}
+
+{{since when="3.3.0"}}
+
+Returns true if BLE provisioning mode is enabled.
+
+```cpp
+bool getProvisioningStatus() const;
+```
+
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
+
 
 ### BLEScanFilter
 

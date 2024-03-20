@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE.getProvisioningStatus 2024-03-20
+
+The BLE.getProvisioningStatus method is now documented.
+
 ### Incorrect LTE M1 bands 2024-03-19
 
 The datasheets for the B402/B404 and BRN402/BRN404 listed the wrong LTE Cat M1 bands. The list of supported bands should be 2, 4, 5, 12, 13.
