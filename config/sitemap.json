@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-03-19",
-            "hash": "3fea6e5b9e17795cdeea833256091e6900f3036764b36016779ab2bf0a68d7d2"
+            "date": "2024-03-20",
+            "hash": "9ef0826a2f6db7e84017f54b707457de831d88ba43017822526b042c199c78ed"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2911,8 +2911,8 @@
             "hash": "1d233659dd97a62ba8f18e80cca831e2c13ba79d7d31dcf9461739f695a6c1cc"
         },
         "reference/device-os/api/bluetooth-le-ble/ble-class.md": {
-            "date": "2024-02-27",
-            "hash": "97555b49374cdfc3b65372f450e81cd8252c921ea4cbef029326ff8e22f21ca7"
+            "date": "2024-03-20",
+            "hash": "657566c1a9826ebc0510d39fd3ded015b5a631a48f18e8f2c37408346581f886"
         },
         "reference/device-os/api/bluetooth-le-ble/blescanfilter.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8d9b36267db602cd0395e6a4f5db743be9fa1d03c81f6fae8b4fa2823146cd76",
-            "date": "2024-03-19"
+            "hash": "a1e063bf84526ebd6db187680f9c8865f710ab36c5ef955ca51d026565d2772f",
+            "date": "2024-03-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

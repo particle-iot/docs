@@ -453,6 +453,7 @@
   "/reference/device-os/firmware/#ble-getdevicename": "/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-getdevicename",
   "/reference/device-os/firmware/#ble-setprovisioningcompanyid": "/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-setprovisioningcompanyid",
   "/reference/device-os/firmware/#ble-provisioningmode": "/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-provisioningmode",
+  "/reference/device-os/firmware/#ble-getprovisioningstatus": "/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-getprovisioningstatus",
   "/reference/device-os/firmware/#blescanfilter": "/reference/device-os/api/bluetooth-le-ble/blescanfilter/",
   "/reference/device-os/firmware/#devicename-blescanfilter-": "/reference/device-os/api/bluetooth-le-ble/blescanfilter/#devicename-blescanfilter-",
   "/reference/device-os/firmware/#serviceuuid-blescanfilter-": "/reference/device-os/api/bluetooth-le-ble/blescanfilter/#serviceuuid-blescanfilter-",
