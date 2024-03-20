@@ -61,13 +61,15 @@ The M.2 breakout can be powered by:
 
 | Num  | Description |
 | :---: | :--- |
-| 1 | USB-C ("MCU USB") |
+| 1 | USB-C ("MCU USB") (see below) |
 | 5 | LiPo battery (3.7V LiPo with 3-pin JST-PH connector)
 | 7 | VIN barrel connector 5-12 VDC (5.5mm x 2.1mm, center positive) |
 
-- There are two USB C connectors on the breakout board, be sure to use connector 1 "MCU USB".
+**When powering by USB-C ("MCU USB") (1) a LiPo Battery (5) is also required** when powering the B523, B524, or any M-Series module (M404, M523, or M635).
+
+- There are two USB-C connectors on the breakout board, be sure to use connector 1 "MCU USB".
 - When powering by VIN (barrel connector), 5-12 VDC is recommended, but up to 17 VDC can be supplied.
-- Minimum power requirements are 5VDC @500mA (when the LiPo battery) or 5VDC @2000mA (without LiPo battery).
+- Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery).
 - If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
 
 
@@ -812,3 +814,4 @@ To be provided at a later date.
 | Revision | Date       | Author | Comments |
 |:---------|:---------- |:-------|:---------|
 | pre      | 2024-03-18 | RK     | Initial Release (based on board v0.2 20240315) |
+|          | 2024-03-19 | RK     | USB-C power limitations |

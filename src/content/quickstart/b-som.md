@@ -45,7 +45,7 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 
 | Num | ID 					    | Description                                      |
 | :---: | :----------------------|:--------------------------------|
-| 1 | **External Power** | 5-12 VDC. Minimum power requirements are 5VDC @500mA (when the LiPo battery) or 5VDC @2000mA (without LiPo battery). | 
+| 1 | **External Power** | 5-12 VDC. Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery). | 
 | 2 | **LiPo Battery connector**| Plug in the LiPo battery here.|
 | 3 |  **SoM USB port**       | This is the module's main USB port that connects to the microcontroller.|
 | 4 | **JTAG connector**        | This can plug directly into the Particle debugger ribbon cable.|

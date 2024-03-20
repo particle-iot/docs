@@ -18,7 +18,7 @@ This is a simple breakout board for Particle's E series of cellular IoT modules.
 
 | ID 					    | Description                                      |
 |:--------------------------|:-------------------------------------------------|
-| **External Power**        | This is directly connected to the VIN pin. Minimum power requirements are 5VDC @500mA (when the LiPo battery) or 5VDC @2000mA (without LiPo battery).|
+| **External Power**        | This is directly connected to the VIN pin. Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery).|
 | **Mode Button**           |This is same as the MODE button on the Electron.|
 | **Reset Button**          |This is same as the RESET button on the Electron. |
 | **RGB LED enable**        | This switch allows you to enable or disable the on board RGB LED. All three pins (Red, Green, and Blue) are exposed individually. Flip all three to ON position if you want to use the on board RGB LED. |

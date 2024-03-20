@@ -26,7 +26,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 
 | Num | ID 					    | Description                                      |
 | :---: | :----------------------|:--------------------------------|
-| 1 | **External Power** | 5-12 VDC. Minimum power requirements are 5VDC @500mA (when the LiPo battery) or 5VDC @2000mA (without LiPo battery). | 
+| 1 | **External Power** | 5-12 VDC. Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery). | 
 | 2 | **LiPo Battery connector**| Plug in the LiPo battery here.|
 | 3 |  **SoM USB port**       | This is the module's main USB port that connects to the microcontroller.|
 | 4 | **JTAG connector**        | This can plug directly into the Particle debugger ribbon cable.|
@@ -72,7 +72,7 @@ The B-Series Eval Board can be powered by:
 - There are two USB Micro B connectors on the eval board, be sure to use connector 3 "SOM USB".
 - The B524/B523 require a LiPo battery when powering by USB due to the higher current requirements of 2G/3G. The B404X/B404/B402 (LTE Cat M1) can be powered by USB without a battery.
 - When powering by VIN (barrel connector), 5-12 VDC is recommended, but up to 17 VDC can be supplied.
-- Minimum power requirements are 5VDC @500mA (when the LiPo battery) or 5VDC @2000mA (without LiPo battery).
+- Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery).
 - If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the eval board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
 
 
