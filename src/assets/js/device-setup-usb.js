@@ -1106,12 +1106,12 @@ $(document).ready(function() {
             };
 
             moduleInfo.getModuleNcp = function() {
-                return moduleInfo.getByModuleTypeIndex(5);
+                return moduleInfo.getByModuleTypeIndex(7);
             };
 
             moduleInfo.getPrebootLoaderPart1 = function() {
                 // prebootloader-part1 on P2 is bootloader (1) index 2
-                return moduleInfo.getByModuleTypeIndex(1, 2);
+                return moduleInfo.getByModuleTypeIndex(2, 2);
             };
 
             moduleInfo.getSystemVersion = function() {
@@ -2649,9 +2649,9 @@ $(document).ready(function() {
                     // does not upgrade using the OTA trick. 
                     const desiredBootloaderVersion = flashDeviceOptions.moduleInfo['bootloader'].prefixInfo.moduleVersion;
 
-                    // 1 = bootloader
+                    // 2 = bootloader
                     // 0 = bootloader (1 = prebootloader-mbr, 2 = prebootloader-part1)
-                    const m = deviceModuleInfo.getByModuleTypeIndex(1, 0);
+                    const m = deviceModuleInfo.getByModuleTypeIndex(2, 0);
                     
                     if (desiredBootloaderVersion != m.version) {
                         analytics.track('P2 bootloader reflash', {category:gaCategory});
