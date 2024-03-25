@@ -16,6 +16,12 @@
       "href": "/integrations/webhook-demo/"
     },
     {
+      "dir": "org-integrations",
+      "title": "Organization integrations",
+      "href": "/integrations/org-integrations/",
+      "internal": true
+    },
+    {
       "dir": "google-cloud-platform",
       "title": "Google cloud platform",
       "href": "/integrations/google-cloud-platform/"

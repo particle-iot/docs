@@ -6551,7 +6551,7 @@ void setup() {
 }
 ```
 
-System power features are enabled or disabled using the `SystemLiwerConfiguration::feature()` method. The settings are saved in non-volatile storage so you do not need to set them on every startup.
+System power features are enabled or disabled using the `SystemPowerConfiguration::feature()` method. The settings are saved in non-volatile storage so you do not need to set them on every startup.
 
 
 #### SystemPowerFeature::PMIC_DETECTION

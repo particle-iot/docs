@@ -735,8 +735,8 @@
             "hash": "cda7b60539e868a37f716cb8574410188162b87a28e96d4a069b1c6a314b8dad"
         },
         "integrations/webhooks.md": {
-            "date": "2024-02-20",
-            "hash": "c25d395a249f1bce001629e5f46e97eb38c4c21a1cd48e0a9a15eb64e92faad9"
+            "date": "2024-03-25",
+            "hash": "eba3f8570c77f1432a5359ad051f1134f1c68e1415870b92fcfda9d303ea6a92"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2023-08-03",
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-03-20",
-            "hash": "9ef0826a2f6db7e84017f54b707457de831d88ba43017822526b042c199c78ed"
+            "date": "2024-03-25",
+            "hash": "4e0e930cd4b7d61d5a37bbb8f47a6e4caf87f4042a383bbb26cef076192f46e2"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2447,8 +2447,8 @@
             "hash": "7b703fe4a07173d9a3527623532cc6ba4abb64b5a6bc000c5cf0b509df7cfd0c"
         },
         "reference/device-os/api/power-manager/systempowerfeature.md": {
-            "date": "2024-02-27",
-            "hash": "0e1f7a51af872f5fe4b312a2c514393ffdfcaec5f9054f65dc0d382e541e0fde"
+            "date": "2024-03-25",
+            "hash": "b8de3e9bb3ae4b0f72436ceda7bf8cc363f6f869d9e631ebba4145f0f0490984"
         },
         "reference/device-os/api/power-manager/b-series-som.md": {
             "date": "2024-02-27",
@@ -8425,6 +8425,10 @@
         "getting-started/billing/migrating-to-basic.md": {
             "hash": "f064c5e82bf216631535ee18fe8d7243c6d1031b03ecad61dbaa16137767e80a",
             "date": "2024-03-13"
+        },
+        "integrations/org-integrations.md": {
+            "hash": "9d91388b1aaf2f693e355af935ab5d6c3d0c95ed696e714d9f3ad10fedfca43a",
+            "date": "2024-03-25"
         }
     }
 }
