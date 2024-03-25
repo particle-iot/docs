@@ -331,13 +331,15 @@ Integrations can either be in your developer sandbox or in your product. As a ge
 ### Sandbox integrations
 
 - Requires devices to be claimed to a specific team member account, which adds a step to device onboarding
-- Does allow a single integration to be used across multiple products, but this advantage may not be worth the downsides
+- Does allow a single integration to be used across multiple products, but organization integrations should be used instead
 
 ### Product integrations
 
 - Works with unclaimed product devices, which is the recommended mode of operation
 - Keep things related to the product associated with the product
 - Allows developers to claim devices to their own account, which makes development easier
+
+Also see [organization integrations](#organization-integrations), below. They are a special class of product integration that is automatically synchronized across multiple products.
 
 ### Moving or copying an integration
 
@@ -352,6 +354,17 @@ If you copy an integration from sandbox to product, you should disable the sandb
 
 If you have a large number of integrations you should investigate why. The event trigger is a prefix, so any event beginning with that string will trigger the integration. Using a combination of the prefix filter and mustache templates in many cases you can use a single integration for multiple tasks, eliminating the need to keep them in sync.
 
+{{!-- 
+## Organization integrations
+
+An organization integration groups together product integrations that are identical.
+
+- Available on basic (formerly growth) and enterprise plans
+- Changes to a grouped integration are automatically reflected across all integrations in the group
+- Ideal if your product runs on multiple devices and requires separate console products but share the same integrations
+
+For more information, see [organziation integrations](/integrations/org-integrations/).
+--}}
 
 ## Advanced topics
 
@@ -367,13 +380,3 @@ As a quick reference, these are the pre-defined webhook variables available for 
 - `\{{{PRODUCT_USER_ID}}}`: The user id of the device owner
 - `\{{{PRODUCT_VERSION}}}`: The firmware version that published the event
 
-
-**Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
-
-{{#if photon}}
-[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
-{{/if}}
