@@ -953,8 +953,31 @@ SE, SI, SK, TR, UA, UK(NI).
 
 The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
+### M404 - Certified bands
 
-### M523 - Country compatibility
+| Technology | Band | FCC | CE |
+| :--- | :--- | :---: | :---: |
+| 2G | 850 MHz | &check; | &nbsp; |
+| 2G | 900 MHz | &nbsp; | &nbsp; |
+| 2G | 1800 MHz | &nbsp; | &nbsp; |
+| 2G | 1900 MHz | &check; | &nbsp; |
+| LTE Cat M1 | B1 (2100 MHz) | | &check;|
+| LTE Cat M1 | B2 (1900 MHz) | &check; | |
+| LTE Cat M1 | B3 (1800 MHz) | | &check;|
+| LTE Cat M1 | B4 (1700 MHz) | &check;| |
+| LTE Cat M1 | B5 (850 MHz) | &check;| |
+| LTE Cat M1 | B8 (900 MHz) | | &check;|
+| LTE Cat M1 | B12 (700 MHz) | &check;| |
+| LTE Cat M1 | B13 (700 MHz) | &check;| |
+| LTE Cat M1 | B20 (800 MHz) | | &check;|
+| LTE Cat M1 | B25 (1900 MHz) | &check;| |
+| LTE Cat M1 | B26 (850 MHz) | &check;| |
+| LTE Cat M1 | B28 (700 MHz) | | &check;|
+| LTE Cat M1 | B66 (2100 MHz) | &check;| |
+
+
+
+### M524 - Country compatibility
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
@@ -1066,6 +1089,23 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+### M524 - Certified bands
+
+| Technology | Band | CE |
+| :--- | :--- | :---: | :---: |
+| 2G | 900 MHz | &check; |
+| 2G | 1800 MHz | &check; |
+| 3G | B1 (2100 MHz) | &check;|
+| 3G | B8 (900 MHz) | &check;|
+| LTE Cat 1 | B1 (2100 MHz) | &check;|
+| LTE Cat 1 | B3 (1800 MHz) | &check;|
+| LTE Cat 1 | B7 (2600 MHz) | &check;|
+| LTE Cat 1 | B8 (900 MHz) | &check;|
+| LTE Cat 1 | B20 (800 MHz) | &check;|
+| LTE Cat 1 | B28 (700 MHz) | &check;|
+
+
+
 ### M635 - Country compatibility
 
 Global, country list to be provided a later date.
@@ -1101,3 +1141,4 @@ Global, country list to be provided a later date.
 |          | 2024-02-20 | RK | Added pin drive strength |
 |          | 2024-03-14 | RK | M SoM pin 45 is not shared. Pins 43 and 53 are both connected to PB[2], but not pin 45. |
 |          | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
+|          | 2024-03-26 | RK | Listed certified bands for FCC and CE |

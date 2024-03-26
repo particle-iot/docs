@@ -2175,7 +2175,7 @@ const svg = require('./svg');
         }), files);
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
-            platformName: 'M.2 SoM eval board header, nRF52 SoM',
+            platformName: 'M.2 SoM breakout board header, B-SoM',
             outputPath: 'assets/images/m2eval_nRF52.svg',
         }), files);
 
