@@ -299,6 +299,7 @@
   "/ifttt": "/archives/ifttt",
   "/integrations": "/integrations/integrations",
   "/integrations/community-integrations": "/integrations/community-integrations/blynk",
+  "/integrations/org-integrations": "/integrations/organization-integrations",
   "/ios": "/reference/SDKs/ios",
   "/javascript": "/reference/cloud-apis/javascript",
   "/leak-detection-kit": "/reference/discontinued/hardware/ldk-project",

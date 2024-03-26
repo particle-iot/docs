@@ -16,9 +16,9 @@
       "href": "/integrations/webhook-demo/"
     },
     {
-      "dir": "org-integrations",
+      "dir": "organization-integrations",
       "title": "Organization integrations",
-      "href": "/integrations/org-integrations/",
+      "href": "/integrations/organization-integrations/",
       "internal": true
     },
     {
