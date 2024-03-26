@@ -31,7 +31,7 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | ANT-FLXU-50 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | &nbsp; | NRND | &nbsp; | &nbsp; |
 | ANTELEC50 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi [x50] | &nbsp; | NRND | &nbsp; | &nbsp; |
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
-| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | 3 | NRND | B524MTY | &nbsp; |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | NRND | &nbsp; | &nbsp; |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | NRND | &nbsp; | &nbsp; |
@@ -43,7 +43,6 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | BRN404XTRAY50 | &nbsp; |
 | P1REEL | P1 Wi-Fi Module, Reel [x500] | 2 | NRND | &nbsp; | &nbsp; |
 | PHNTRAYH | Photon with Headers, Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
-| PHNTRAYNOH | Photon without Headers, Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | 3 | NRND | T404MTY | &nbsp; |
 | ARGNTRAY50 | Argon, Tray [x50] | 3 | Deprecated | &nbsp; | 2025-03-31 |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | Deprecated | BRN404XTRAY50 | &nbsp; |
@@ -56,6 +55,7 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | 2 | Deprecated | &nbsp; | &nbsp; |
 | P0REEL | P0 Wi-Fi Module, Reel [x2000] | 2 | Deprecated | &nbsp; | &nbsp; |
 | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | 2 | Deprecated | &nbsp; | &nbsp; |
+| PHNTRAYNOH | Photon without Headers, Tray [x50] | 2 | Deprecated | &nbsp; | 2025-03-31 |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | 3 | Deprecated | T524MTY | &nbsp; |
 | E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | 2 | End of life | &nbsp; | &nbsp; |
 | XENNTRAY50 | Xenon [x50] | 3 | End of life | &nbsp; | 2020-12-31 |

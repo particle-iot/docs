@@ -659,12 +659,12 @@ Both require an external cellular antenna.
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2TY | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41TY | ANT-FLXU-50<sup>3</sup> | GA|
 | B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
+| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
+| B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41TY | ANT-FLXU-50<sup>3</sup> | GA|
 | Electron 2G (Global), Tray [x50] | E350TRAY50 | &nbsp; | ANTELEC50 | &nbsp; | Deprecated|
 | Electron 2G Kit (Global) | E350KIT | &check; | ANTELEC | &nbsp; | Deprecated|
 | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | &check; | ANTELEC | &nbsp; | Deprecated|
@@ -1582,8 +1582,8 @@ Most common third-party libraries work on both devices. The exceptions are libra
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
-| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |

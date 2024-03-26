@@ -56,18 +56,19 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Micro B |
 | E350KIT | Electron 2G Kit (Global) | Micro B |
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Micro B |
-| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Micro B |
+| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | USB-C |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | USB-C |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
-| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | USB-C |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | USB-C |
 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | USB-C |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | USB-C |
 | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | USB-C |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
-| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUONCB | Muon Carrier Board | USB-C |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
@@ -111,8 +112,8 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | &check; |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | &check; |
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; |
-| B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | &nbsp; |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | &nbsp; |
+| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &check; |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &check; |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | &check; |
@@ -134,21 +135,21 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | E350KIT | Electron 2G Kit (Global) | &check; |
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | &nbsp; |
 | E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; |
-| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | &nbsp; |
-| E404MOD1 | E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | &nbsp; |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | &nbsp; |
+| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | &nbsp; |
-| M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | &nbsp; |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | &nbsp; |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &nbsp; |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
-| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | &nbsp; |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | &nbsp; |
 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | &nbsp; |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | &nbsp; |
 | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | &nbsp; |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | &nbsp; |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | &nbsp; |
-| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | &nbsp; |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | &nbsp; |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | &check; |

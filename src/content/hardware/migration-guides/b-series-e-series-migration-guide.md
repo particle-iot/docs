@@ -661,12 +661,12 @@ Both require an external cellular antenna.
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2TY | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
-| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41TY | ANT-FLXU-50<sup>3</sup> | GA|
 | B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
+| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
+| B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41TY | ANT-FLXU-50<sup>3</sup> | GA|
 | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
 | E-Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
 | E-Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC50 | ANTCW2TY<sup>2</sup> | Deprecated|
@@ -675,13 +675,13 @@ Both require an external cellular antenna.
 | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
 | E-Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
 | E-Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC50 | ANTCW2TY<sup>2</sup> | NRND|
-| E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | Deprecated|
 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404XTRAY50 | &nbsp; | ANT-FLXU-50 | PARANTC41TY<sup>2</sup> | GA|
 | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 | E-Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | NRND|
+| E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE-M (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -1635,8 +1635,8 @@ Most common third-party libraries work on both devices. The exceptions are libra
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
-| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |

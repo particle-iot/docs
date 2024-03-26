@@ -103,8 +103,8 @@ For prototyping with the M-SoM module, see [Muon](#muon), below.
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| M404MTY | M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
@@ -130,8 +130,8 @@ The B-SoM includes only cellular (not Wi-Fi, satellite, or LoRaWAN). It uses the
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
-| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
@@ -220,12 +220,12 @@ The Muon can be used in a number of ways:
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
 | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

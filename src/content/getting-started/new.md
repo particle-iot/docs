@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### PHNTRAYNOH deprecation 2024-03-26
+
+PHNTRAYNOH (Photon without Headers, Tray [x50]) is now deprecated. This is the Photon 1, not the Photon 2.
+
 ### BLE.getProvisioningStatus 2024-03-20
 
 The BLE.getProvisioningStatus method is now documented.

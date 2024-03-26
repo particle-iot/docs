@@ -86,10 +86,10 @@ If you are using a different antenna, and had previously undergone intentional r
 
 | SKU | Description | Antenna | Antenna Alternative |
 | :--- | :--- | :--- | :--- |
-| B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | ANTCW2EA | &nbsp; |
-| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANTCW2EA | &nbsp; |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | PARANTC41EA | ANT-FLXU |
-| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | PARANTC41EA | ANT-FLXU |
+| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | ANTCW2EA | &nbsp; |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | ANTCW2EA | &nbsp; |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | PARANTC41EA | ANT-FLXU |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | PARANTC41EA | ANT-FLXU |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | ANT-FLXU | &nbsp; |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | ANT-FLXU | &nbsp; |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | &nbsp; |
@@ -98,15 +98,15 @@ If you are using a different antenna, and had previously undergone intentional r
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | PARANTC41EA | ANT-FLXU |
 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | PARANTC41EA |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | ANTCW2EA |
-| M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
-| M404MTY | M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | PARANTCW1EA | &nbsp; |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | PARANTCW1EA | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
-| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
-| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | 1 | &nbsp; |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | 1 | &nbsp; |
 | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | ANTCW2EA | &nbsp; |

@@ -88,10 +88,10 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Deprecated | A27K |
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | Deprecated | P006 |
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | NRND | P007 |
-| B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NRND | P033 |
-| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NRND | P033 |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | GA | P042 |
-| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA | P042 |
+| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NRND | P033 |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND | P033 |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA | P042 |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA | P042 |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | Deprecated | P019 |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND | P020 |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA | P034 |
@@ -127,28 +127,28 @@ Some older devices do not have the serial number stored on the device (E260, for
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NRND | E40K |
 | E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | Deprecated | E40M |
 | E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NRND | E40T |
-| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NRND | P030 |
-| E404MOD1 | E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NRND | P030 |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | NRND | P030 |
+| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NRND | P030 |
 | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P030 |
 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA | P052 |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | NRND | P035 |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated | E4DK |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NRND | E4DT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P036 |
-| M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | In development | P054 |
-| M404MTY | M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | In development | P054 |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | In development | P054 |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | In development | P054 |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | In development | P055 |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | In development | P055 |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P055 |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA | P031 |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA | P031 |
-| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | In development | P054 |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | In development | P054 |
 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | In development | P054 |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | In development | P055 |
 | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | In development | P055 |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P054 |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P054 |
-| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P054 |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Deprecated | P024 |
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Deprecated | P024 |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | GA | P031 |
@@ -166,7 +166,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | PHN2MEA | Photon 2 [x1] | GA | P051 |
 | PHN2MTY | Photon 2, Tray [x50] | GA | P051 |
 | PHNTRAYH | Photon with Headers, Tray [x50] | NRND | PHHT |
-| PHNTRAYNOH | Photon without Headers, Tray [x50] | NRND | PHNT |
+| PHNTRAYNOH | Photon without Headers, Tray [x50] | Deprecated | PHNT |
 | PHOTONH | Photon with Headers, [x1] | Deprecated | PHHM |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Deprecated | PHHK |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Deprecated | PHNM |
@@ -249,8 +249,8 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P029 | E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | NRND |
 | P029 | E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | Deprecated |
 | P029 | E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | NRND |
-| P030 | E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NRND |
-| P030 | E404MOD1 | E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NRND |
+| P030 | E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | NRND |
+| P030 | E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NRND |
 | P030 | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated |
 | P031 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA |
 | P031 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development |
@@ -265,14 +265,14 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P032 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
 | P032 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | GA |
 | P032 | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| P033 | B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NRND |
-| P033 | B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NRND |
+| P033 | B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NRND |
+| P033 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
 | P034 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
 | P034 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
 | P035 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | NRND |
 | P036 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated |
-| P042 | B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | GA |
-| P042 | B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
+| P042 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
+| P042 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
 | P044 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | GA |
 | P044 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | GA |
 | P044 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
@@ -283,12 +283,12 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P051 | PHN2MEA | Photon 2 [x1] | GA |
 | P051 | PHN2MTY | Photon 2, Tray [x50] | GA |
 | P052 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
-| P054 | M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | In development |
-| P054 | M404MTY | M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | In development |
-| P054 | MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | In development |
+| P054 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | In development |
+| P054 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | In development |
+| P054 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | In development |
 | P054 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | In development |
+| P054 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
 | P054 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| P054 | MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
 | P055 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | In development |
 | P055 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | In development |
 | P055 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
@@ -300,7 +300,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | PHHM | PHOTONH | Photon with Headers, [x1] | Deprecated |
 | PHHT | PHNTRAYH | Photon with Headers, Tray [x50] | NRND |
 | PHNM | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Deprecated |
-| PHNT | PHNTRAYNOH | Photon without Headers, Tray [x50] | NRND |
+| PHNT | PHNTRAYNOH | Photon without Headers, Tray [x50] | Deprecated |
 | S26K | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Deprecated |
 | S27K | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Deprecated |
 | XENT | XENNTRAY50 | Xenon [x50] | End of life |

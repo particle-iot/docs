@@ -20262,7 +20262,7 @@
     },
     {
       "name": "B404MEA",
-      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "desc": "B-Series LTE-M (NorAm, EtherSIM), [x1]",
       "lifecycle": "NRND",
       "replacement": "B404XMEA",
       "modem": "R410",
@@ -20296,7 +20296,7 @@
     },
     {
       "name": "B404MTY",
-      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "desc": "B-Series LTE-M (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "NRND",
       "replacement": "B404XMTY",
       "modem": "R410",
@@ -20332,7 +20332,7 @@
     },
     {
       "name": "B404XMEA",
-      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "desc": "B-Series LTE-M (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
@@ -20366,7 +20366,7 @@
     },
     {
       "name": "B404XMTY",
-      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "desc": "B-Series LTE-M (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
@@ -21475,7 +21475,7 @@
     },
     {
       "name": "E404KIT",
-      "desc": "E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "desc": "E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1]",
       "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
@@ -21503,7 +21503,7 @@
     },
     {
       "name": "E404MOD1",
-      "desc": "E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "desc": "E-Series LTE-M (NorAm, EtherSIM), [x1]",
       "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
@@ -21772,6 +21772,20 @@
       "batteryRequired": false
     },
     {
+      "name": "M2BREAKOUT",
+      "desc": "Particle M.2 SoM Breakout Board [x1]",
+      "lifecycle": "In development",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "skuRegion": "global",
+      "prefix": "P008",
+      "usb": "c",
+      "batteryRequired": false
+    },
+    {
       "name": "M2EVAL",
       "desc": "Particle M.2 SoM Evaluation Board [x1]",
       "lifecycle": "GA",
@@ -21787,7 +21801,7 @@
     },
     {
       "name": "M404MEA",
-      "desc": "M-Series LTE M1/2G (Global, EtherSIM), [x1]",
+      "desc": "M-Series LTE-M/2G (Global, EtherSIM), [x1]",
       "lifecycle": "In development",
       "multiple": false,
       "enterprise": false,
@@ -21824,11 +21838,11 @@
     },
     {
       "name": "M404MTY",
-      "desc": "M-Series LTE M1/2G (Global, EtherSIM), Tray [x50]",
+      "desc": "M-Series LTE-M/2G (Global, EtherSIM), Tray [x50]",
       "lifecycle": "In development",
       "multiple": true,
       "singleSku": "M404MEA",
-      "enterprise": false,
+      "enterprise": true,
       "wholesale": true,
       "retail": false,
       "modem": "BG95-M5",
@@ -21902,7 +21916,7 @@
       "lifecycle": "In development",
       "multiple": true,
       "singleSku": "M524MEA",
-      "enterprise": false,
+      "enterprise": true,
       "wholesale": true,
       "retail": false,
       "modem": "EG91-EX",
@@ -22220,12 +22234,12 @@
     },
     {
       "name": "MUON404EA",
-      "desc": "Muon LTE M1/2G Kit (Global, EtherSIM), [x1]",
+      "desc": "Muon LTE-M/2G Kit (Global, EtherSIM), [x1]",
       "lifecycle": "In development",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
-      "retail": true,
+      "retail": false,
       "modem": "BG95-M5",
       "sim": 4,
       "simPlans": [
@@ -22299,7 +22313,7 @@
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
-      "retail": true,
+      "retail": false,
       "modem": "EG91-EX",
       "sim": 4,
       "simPlans": [
@@ -22365,7 +22379,7 @@
       "batteryRequired": false
     },
     {
-      "name": "MUON635KIT",
+      "name": "MUON635EA",
       "desc": "Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1]",
       "lifecycle": "In development",
       "multiple": false,
@@ -22380,7 +22394,7 @@
       "simMff2": true,
       "family": "m series",
       "gen": "4",
-      "skuClass": "kit",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": true,
@@ -22402,7 +22416,7 @@
       "verizon": true
     },
     {
-      "name": "MUON6XXEA",
+      "name": "MUON635KIT",
       "desc": "Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1]",
       "lifecycle": "In development",
       "multiple": false,
@@ -22417,7 +22431,7 @@
       "simMff2": true,
       "family": "m series",
       "gen": "4",
-      "skuClass": "prototyping",
+      "skuClass": "kit",
       "skuRegion": "global",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": true,
@@ -22979,7 +22993,7 @@
     },
     {
       "name": "PARANTWM1EA",
-      "desc": "Particle P2/Photon2 Wi-Fi antenna 2.4/5GHz, [x1]",
+      "desc": "Particle P2/Photon2/M-SoM Wi-Fi antenna 2.4/5GHz, [x1]",
       "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
@@ -22990,7 +23004,7 @@
     },
     {
       "name": "PARANTWM1TY",
-      "desc": "Particle P2/Photon2 Wi-Fi antenna 2.4/5GHz [x50]",
+      "desc": "Particle P2/Photon2/M-SoM Wi-Fi antenna 2.4/5GHz [x50]",
       "lifecycle": "GA",
       "multiple": true,
       "singleSku": "PARANTWM1EA",
@@ -23131,7 +23145,7 @@
     {
       "name": "PHNTRAYNOH",
       "desc": "Photon without Headers, Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "singleSku": "PHOTONNOH",
       "wifi": true,

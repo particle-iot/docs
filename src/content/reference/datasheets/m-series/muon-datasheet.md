@@ -76,12 +76,12 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
 | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

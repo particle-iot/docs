@@ -651,12 +651,12 @@
             "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-03-13",
-            "hash": "2342eb97e2db637938191f5a0f2666555820f5d55a6827779e0019d05dd7f355"
+            "date": "2024-03-26",
+            "hash": "f2faac5c3e5c48484f9a3b636ae990387336727200664ade1ae4d2608b2f49d6"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-02-27",
-            "hash": "560a304e32a5c66e7a429b295face20e2213f5f220c16126dcd4dc89ceafe580"
+            "date": "2024-03-26",
+            "hash": "3c6cfd9833ee149aa2a65d74efe0b406fa8ac414d02a9e7e3ae2058afadf2e89"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -699,8 +699,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-03-15",
-            "hash": "f244867d4a8617d23c0c778780c7a1b7a04d37765062e437312cdebe765d8cb8"
+            "date": "2024-03-26",
+            "hash": "0d34c3f7003fbcb5629dad4799194ae13b2f8326a520fdb68a620f6140fbe914"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,16 +935,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-03-15",
-            "hash": "cf0d2d6bf1dabf7c86cdc3b97953e1fdbc22059a84dc45b518f72821435c34b6"
+            "date": "2024-03-26",
+            "hash": "f872d65f40206f5b925e96e678ca36b9eadf07ce9ddebb5963052c2d3c7f74b6"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-02-27",
-            "hash": "ca7bbff7bf7e2056815933e442eec5beae25f8fca68315fe1ab8189f79d8d132"
+            "date": "2024-03-26",
+            "hash": "b970a1187048fcc7208823a74dcf9f7c6b01984671e2ad3e5991c537cd94245f"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -999,24 +999,24 @@
             "hash": "e1e353090362610b1c69baac04e7a5685a98d800814c2f666ce059470b71eca9"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
-            "date": "2024-03-20",
-            "hash": "19a4b339b8ffa3c3f086c7c1538fd657202ea2b7d9216febdb89b296bf1388df"
+            "date": "2024-03-26",
+            "hash": "c80ee2bbf5064aa93f34a727b1a1a73053fd628513d668c05c7dd360ae98e046"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2024-03-20",
-            "hash": "f80bdbf296ab0ac0104f2ce6a285f83f35b6c4089784ba04e3b2abc045afcb21"
+            "date": "2024-03-26",
+            "hash": "d46cee42c7b542a08bc0ebe5612ae40c24055df3a8579c0d784d77bbdeddfa05"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2024-03-20",
-            "hash": "0f0ae33cd7326dcd09ce07d5ae27dffe4450b3ab6c0e56c008d5fd0fbce52773"
+            "date": "2024-03-26",
+            "hash": "eec2a65f5cc931f916785cded0917f6ad2cb8a71a783ce8980b167220255c94f"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2024-02-27",
-            "hash": "c54f0bf77d92e09d1e55b2f8513d66cc94aa1bce377179fc0160551f9e34fec9"
+            "date": "2024-03-26",
+            "hash": "9d8ff5649d5797a08bc3e5829926680ce040206e4b789898bbcccfc60760e530"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2024-03-15",
@@ -1323,8 +1323,8 @@
             "hash": "8ec1d044f01f999adecac71c84569f85ddc65a79a945931264287d49eae28e81"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2024-03-15",
-            "hash": "db4a17c69feaa63230423442dde87f51f6f4ad2bfbb7d6eb2995df8529154597"
+            "date": "2024-03-26",
+            "hash": "a13e4c12befadb952e214d58836dfd9a5abfc86daa65bc4e463cdaca56c5825f"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1343,12 +1343,12 @@
             "hash": "ff3abb1d0a257788dc0728594784f14623b34d30ed6b42c9a8c4d8bb3e54ee8b"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
-            "date": "2024-03-19",
-            "hash": "341ac9cdc690c535dc88c131e74189f281f09b0ff7074113a35bf788c5b2c8f0"
+            "date": "2024-03-26",
+            "hash": "dc97de8c546bec49ed3136a1a0fbb781521fdf51143a1ad154f03bc8f1962c3c"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "31327190266cd0425239f6ba801893c3af81b69c9ecf0c836adbf7a4a09cb624"
+            "date": "2024-03-26",
+            "hash": "f637a23199eb3bf616feedd2c3a1c1c4c4ae399c012dfea6354e09039dcdb399"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2024-02-27",
@@ -1379,12 +1379,12 @@
             "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "c11fe982f8b14850cdb2a1ca0d0af5d73c29af52662c5463bcbe993587bc20c8"
+            "date": "2024-03-26",
+            "hash": "e499b5e5c2d88034f3174d8545c5145e7807a1e85a725c5c2d0bf9f26741be7c"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
-            "date": "2024-03-20",
-            "hash": "e61cbe0f297161bd27e9a8fffe726af76370bc5a0361085671f89b3bba6d574a"
+            "date": "2024-03-26",
+            "hash": "c83c4976ddf85c876bd4acc5d136c85fcfe4e5f8ae652e9e48a27c4f4823d025"
         },
         "reference/datasheets/e-series/e-series-system-integration-manual.md": {
             "date": "2024-02-27",
@@ -1415,8 +1415,8 @@
             "hash": "f4906892ac3c016c2798af046a7011b41f3b7bf89a8d2e83e932c828b9615394"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "9c6efb152570fa4381b53d125e08c6145440cfb388aa408723ccde1604baa48f"
+            "date": "2024-03-26",
+            "hash": "d651d1d8ed0c39d68e81d9ab1a031d194adf0cbd088a3916016c2ae36b004a5a"
         },
         "reference/datasheets/tracker/m8-temperature-humidity.md": {
             "date": "2023-03-17",
@@ -1579,8 +1579,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2024-03-15",
-            "hash": "ed0438c0825b4a64c83becb8bd5723364552760d602b32fdae08ee104247c099"
+            "date": "2024-03-26",
+            "hash": "165f3b84b07341453b4e38d80cb69929a576c37b6ba9feebb3ae0320d33353ee"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
@@ -8175,8 +8175,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "2c2a23b9e210955933ee366f8e8b56b6be5c3b3068555f0d2dee3af6f01a7ea4",
-            "date": "2024-02-27"
+            "hash": "fc9c5fa2d747a4e26b0c80c887683962035b3386d08f00dd1e1618c2f94eb1a1",
+            "date": "2024-03-26"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a1e063bf84526ebd6db187680f9c8865f710ab36c5ef955ca51d026565d2772f",
-            "date": "2024-03-20"
+            "hash": "f67383b6684d47e9f276d8d0274cf3b94bc23e5e369cbd7a8a2afc2ad626c9c3",
+            "date": "2024-03-26"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8403,12 +8403,12 @@
             "date": "2024-03-15"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "9a5f931ab0ccf5c6560d3571f42a0931b6e330108437f72526ecde0951fe1b12",
-            "date": "2024-03-15"
+            "hash": "d206222e58db3141e400083f9a5328b90bb835fd0e80587a6b77f6e2c558b79f",
+            "date": "2024-03-26"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "9283551e4c41d31640c739d6db1f525085453fbd788f43b17e6f36d9d5c9dbbe",
-            "date": "2024-02-27"
+            "hash": "60cbdc223df1de13526c42f9daf8aba51b7762424e314aec79df25db9338bde5",
+            "date": "2024-03-26"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",

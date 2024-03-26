@@ -96,8 +96,8 @@ All designs using the B402 and B404 should migrate to the pin and software compa
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
-| B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
-| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
+| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
 
 
@@ -153,8 +153,8 @@ The B402, B404, and B404X are not certified for use in Europe at this time.
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
-| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -599,8 +599,8 @@ Additional FCC Test Reports:
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
 | E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404XTRAY50|
-| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
-| E404MOD1 | E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
+| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
 | E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | |
 | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | E404XTRAY50|
 
@@ -1069,7 +1069,7 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
 | PHNTRAYH | Photon with Headers, Tray [x50] | Global | NRND | |
-| PHNTRAYNOH | Photon without Headers, Tray [x50] | Global | NRND | |
+| PHNTRAYNOH | Photon without Headers, Tray [x50] | Global | Deprecated | |
 | PHOTONH | Photon with Headers, [x1] | Global | Deprecated | |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Global | Deprecated | |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Global | Deprecated | |

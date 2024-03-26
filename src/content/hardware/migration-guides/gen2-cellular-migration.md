@@ -76,8 +76,8 @@ Though the form-factor is different than the Electron, they are nearly identical
 | E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND | |
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
 | E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404XTRAY50|
-| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
-| E404MOD1 | E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
+| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
 | E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | |
 | E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
 | E313EA | E-Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Deprecated | |
@@ -191,13 +191,13 @@ Even though the B-Series SoM is more difficult to prototype with than the Boron,
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
-| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
-| B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
-| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
+| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | NRND | B524MTY|
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | Deprecated | B524MEA|
