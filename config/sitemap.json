@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-03-25",
-            "hash": "4e0e930cd4b7d61d5a37bbb8f47a6e4caf87f4042a383bbb26cef076192f46e2"
+            "date": "2024-03-26",
+            "hash": "1b770fcb6d406d552f9911732c2619037054c35454ebbf621e5811be5589f05b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2791,7 +2791,7 @@
             "hash": "1243500cca2559fc825d507035ae7bfa2c59b8b83bfaf15e3d433d59edb0f519"
         },
         "reference/device-os/api/wire-i2c/begin.md": {
-            "date": "2023-09-20",
+            "date": "2024-03-26",
             "hash": "861fabe701e836eaef0d8534b970bc578c8acc89ef12cac05f4af7c503a63f30"
         },
         "reference/device-os/api/wire-i2c/end.md": {
@@ -8429,6 +8429,10 @@
         "integrations/org-integrations.md": {
             "hash": "9d91388b1aaf2f693e355af935ab5d6c3d0c95ed696e714d9f3ad10fedfca43a",
             "date": "2024-03-25"
+        },
+        "reference/device-os/api/wire-i2c/slave-mode-i2c.md": {
+            "hash": "339577160aa7f7776b434b471ed5481b61f07a8c0c5bec73e70a5767a93209f3",
+            "date": "2024-03-26"
         }
     }
 }

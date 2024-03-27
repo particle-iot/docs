@@ -360,6 +360,7 @@
   "/reference/device-os/firmware/#setspeed-": "/reference/device-os/api/wire-i2c/setspeed/",
   "/reference/device-os/firmware/#stretchclock-": "/reference/device-os/api/wire-i2c/stretchclock/",
   "/reference/device-os/firmware/#begin--5": "/reference/device-os/api/wire-i2c/begin/",
+  "/reference/device-os/firmware/#slave-mode-i2c-": "/reference/device-os/api/wire-i2c/slave-mode-i2c/",
   "/reference/device-os/firmware/#end--4": "/reference/device-os/api/wire-i2c/end/",
   "/reference/device-os/firmware/#isenabled-": "/reference/device-os/api/wire-i2c/isenabled/",
   "/reference/device-os/firmware/#requestfrom-": "/reference/device-os/api/wire-i2c/requestfrom/",

@@ -9353,6 +9353,37 @@ Wire.begin(address); // I2C slave mode
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master. If address is specified, join the bus as an I2C slave. If you are communicating with I2C sensors, displays, etc. you will almost always use I2C master mode (no address specified).
 
 
+### Slave mode (I2C)
+
+This mode is generally used when you are connected to a different MCU that is the I2C master. For example, connecting to a Raspberry Pi using I2C where it is the I2C master.
+
+I2C slave mode cannot be used at the same time as I2C master mode on the Particle device on the same pins; you generally will need to use a separate `Wire` interface on different physical pins if you need both.
+
+One scenario where this can be confusing is when there are built-in I2C peripherals on the device. Some examples include:
+
+| Device | Interface | Purpose |
+| :--- | :--- | :--- |
+| B-SoM | `Wire` (D0/D1) | PMIC and Fuel Gauge on eval board |
+| Boron | `Wire1` | PMIC and Fuel Gauge |
+| M-SoM | `Wire` (D0/D1) | PMIC and Fuel Gauge on eval board |
+| Muon | `Wire` (D0/D1) | PMIC, Fuel Gauge, Temperature sensor, EEPROM |
+| Monitor One | `Wire` (A0/A1) | Temperature Sensor, User LEDs |
+| Monitor One | `Wire1` | PMIC and Fuel Gauge |
+| Tracker SoM | `Wire1` | PMIC and Fuel Gauge |
+
+For example, if you are using the B-SoM on the evaluation board, you cannot use `Wire` (D0/D1) in I2C slave mode because the power manager is already using that interface in master mode if the power manager is enabled.
+
+If you must use the same physical interface as the built-in PMIC and Fuel Gauge, you must disable the power manager using the following code:
+
+```cpp
+void setup() {
+    SystemPowerConfiguration conf;
+    System.setPowerConfiguration(conf);
+}
+```
+
+Disabling the power manager will affect charge rates and input current limits, and may cause unpredictable behavior, especially with no battery connected.
+
 ### end()
 
 {{api name1="Wire.end"}}
