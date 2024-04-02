@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### particle-api-js duplicate sections 2024-04-02
+
+Removed the duplicate sections from the particle-api-js documentation.
+
 ### Organization integrations 2024-04-02
 
 Documentation for [organization integrations](/integrations/organization-integrations/) is now available.
