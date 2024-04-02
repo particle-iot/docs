@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Organization integrations 2024-04-02
+
+Documentation for [organization integrations](/integrations/organization-integrations/) is now available.
+
 ### M SoM GA 2024-04-02
 
 The M404 and M524 are now generally available (GA).

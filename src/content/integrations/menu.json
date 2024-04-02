@@ -18,8 +18,7 @@
     {
       "dir": "organization-integrations",
       "title": "Organization integrations",
-      "href": "/integrations/organization-integrations/",
-      "internal": true
+      "href": "/integrations/organization-integrations/"
     },
     {
       "dir": "google-cloud-platform",

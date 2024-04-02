@@ -1340,7 +1340,7 @@
         },
         "reference/datasheets/b-series/b-series-eval-board.md": {
             "date": "2024-04-02",
-            "hash": "1dfd0258bb53ac0dd14dc1da20a061dbc6170f7bfc7ceb819bb452cfdf138f0f"
+            "hash": "c66f07ccdca62f04905f0e4f9401df81fc1e8c713bea6a1d2f4a41dea215dd4f"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2024-03-26",
@@ -1424,7 +1424,7 @@
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
             "date": "2024-04-02",
-            "hash": "05111bfd841371031b52de7be5c329b7ece4c7973f384a001780439593036040"
+            "hash": "0a77bdd03e738eab0f0322458824a3bd443c32f0c3bffe61cb3cd3d240518c25"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2024-02-20",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "1da3a66de90192e040375d6ec2927816d1f2789b7ed8852e5d4a04f70299926a",
+            "hash": "800ec15aa2e21bfd5f5bce8058fd0d1c5904b228925355d4e85791fb3163e339",
             "date": "2024-04-02"
         },
         "getting-started/cloud/logic.md": {
@@ -8399,7 +8399,7 @@
             "date": "2024-04-02"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
-            "hash": "d476bb4f7f4bc2b06ee5e9ef178e951d574bbd7469f13c1e2ac9554f884e0ad0",
+            "hash": "992b7978a5024939ff2f876e769e07e113716d08bf2d27d989d7d2c367c58af2",
             "date": "2024-04-02"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
@@ -8433,6 +8433,10 @@
         "reference/device-os/api/wire-i2c/slave-mode-i2c.md": {
             "hash": "339577160aa7f7776b434b471ed5481b61f07a8c0c5bec73e70a5767a93209f3",
             "date": "2024-03-26"
+        },
+        "integrations/organization-integrations.md": {
+            "hash": "3d53e16cb5a61d9aed9515d7238906452611b29d2bb7678adb7f7131d37cdd74",
+            "date": "2024-04-02"
         }
     }
 }
