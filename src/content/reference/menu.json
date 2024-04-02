@@ -389,6 +389,12 @@
           "href": "/reference/datasheets/b-series/b524-b523-datasheet/"
         },
         {
+          "dir": "b524-japan-datasheet",
+          "title": "B-Series B524 (Japan) datasheet",
+          "href": "/reference/datasheets/b-series/b524-japan-datasheet/",
+          "internal": true
+        },
+        {
           "dir": "b504-datasheet",
           "title": "B-Series B504 datasheet",
           "href": "/reference/datasheets/b-series/b504-datasheet/",
