@@ -7,11 +7,6 @@ description: M-SoM from B Series migration guide
 
 # {{title}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and changes may occur prior to release.
-{{box op="end"}}
-
-
 {{migration-guide leftImg="/assets/images/b-series/b-series-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
 <p class="attribution">The modules are the same size, but the different cellular module size makes them look different.</p>
@@ -1030,3 +1025,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |
+| 001      | 2024-04-02 | RK | General availability |

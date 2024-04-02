@@ -7,11 +7,6 @@ description: M-SoM from E-Series Migration Guide
 
 # {{title}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and changes may occur prior to release.
-{{box op="end"}}
-
-
 {{migration-guide leftImg="/assets/images/e-series/illustrations/e0-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
 <p class="attribution">Pictures are not the same scale</p>
@@ -1595,3 +1590,4 @@ To be provided at a later date
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
+| 001      | 2024-04-02 | RK | General availability |

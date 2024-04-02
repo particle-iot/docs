@@ -219,7 +219,7 @@ The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20m
 
 Also included is an adapter from screw terminals to a 5.5x2.1mm barrel jack, center positive. If you disconnect and reconnect the adapter, make sure the + screw terminal is connected to red and the - screw terminal is connected to black. An appropriate 24 VDC power adapter is included.
 
-Any 6VDC to 30VDC power adapter at 2A with a 5.5x2.1mm barrel connector, center positive can be used instead, if desired. For automotive use, you can use this power input directly to a 12V or 24V vehicle power system as the power supply is designed to handle transient voltage present on vehicle power systems.
+Any 6VDC to 30VDC power adapter at 12 watts (minimum) with a 5.5x2.1mm barrel connector, center positive can be used instead, if desired. For automotive use, you can use this power input directly to a 12V or 24V vehicle power system as the power supply is designed to handle transient voltage present on vehicle power systems.
 
 The RS485 and CAN interface pins on the M12 8-pin connector cannot be used as GPIO.
 
@@ -1100,3 +1100,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-10-18 | RK | Added FCC and ISED |
 | 2023-11-14 | RK | Renamed RS485 pins A and B instead of P and N |
 | 2024-01-29 | RK | Add battery warnings |
+| 2024-04-02 | RK | Changed power supply specification from 2A to 12W |

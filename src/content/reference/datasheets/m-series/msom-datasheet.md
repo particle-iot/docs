@@ -7,10 +7,6 @@ description: M-SoM datasheet
 
 # M-SoM datasheet
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and changes may occur prior to release.
-{{box op="end"}}
-
 ![M-SoM](/assets/images/m-series/msom-top.png)
  
 ## Overview
@@ -1142,3 +1138,4 @@ Global, country list to be provided a later date.
 |          | 2024-03-14 | RK | M SoM pin 45 is not shared. Pins 43 and 53 are both connected to PB[2], but not pin 45. |
 |          | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
 |          | 2024-03-26 | RK | Listed certified bands for FCC and CE |
+| 001      | 2024-04-02 | RK | General availability |

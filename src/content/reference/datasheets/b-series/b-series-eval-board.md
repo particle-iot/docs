@@ -14,6 +14,8 @@ This is a simple breakout board for Particle's B series of cellular IoT modules.
 
 The Eagle CAD design files, Gerber files, and bill of materials can be found in the [SoM eval board GitHub repository](https://github.com/particle-iot/som-eval-board).
 
+**This evaluation board is intended to be used with the B-SoM** (B404X, B404, B402, B524, B523) not the M-SoM (M404, M524, M635) and a new M.2 breakout board will be available in the future for the M SoM.
+
 ## Block diagram
 
 {{imageOverlay src="/assets/images/b-series/b-series-eval-block.png" alt="Block Diagram" class="full-width"}}
@@ -74,7 +76,7 @@ The B-Series Eval Board can be powered by:
 - When powering by VIN (barrel connector), 5-12 VDC is recommended, but up to 17 VDC can be supplied.
 - Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery).
 - If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the eval board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
-
+- This board is not recommended for use with the M-SoM, however it can be used if you power it using the VIN barrel connector with a 12 watt power supply, 6V minimum.
 
 ### Jumpers J12
 
@@ -1262,3 +1264,4 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | 005      |  9 Sep 2022 | RK | Correct length |
 | 006      | 19 Jan 2023 | RK | Correct pins for SD card for version 1.2 board |
 | 007      | 26 Oct 2023 | RK | Updated pin diagrams |
+| 008      | 04 Apr 2024 | RK | Added M-SoM note |

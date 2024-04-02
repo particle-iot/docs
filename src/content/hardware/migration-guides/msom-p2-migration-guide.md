@@ -7,11 +7,6 @@ description: M-SoM from P2 migration guide
 
 # {{title}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and changes may occur prior to release.
-{{box op="end"}}
-
-
 {{migration-guide leftImg="/assets/images/p2-rendering.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
 <p class="attribution">Pictures are not the same scale</p>
@@ -861,3 +856,4 @@ Most third-party libraries are believed to be compatible between the P2 and M-So
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |
+| 001      | 2024-04-02 | RK | General availability |

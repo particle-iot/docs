@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M SoM GA 2024-04-02
+
+The M404 and M524 are now generally available (GA).
+
 ### PHNTRAYNOH deprecation 2024-03-26
 
 PHNTRAYNOH (Photon without Headers, Tray [x50]) is now deprecated. This is the Photon 1, not the Photon 2.

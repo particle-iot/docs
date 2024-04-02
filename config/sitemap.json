@@ -1339,8 +1339,8 @@
             "hash": "c03df7baae427ae0dc83f723b8486ca45f648f24675afce565963b676163dcaa"
         },
         "reference/datasheets/b-series/b-series-eval-board.md": {
-            "date": "2024-03-20",
-            "hash": "ff3abb1d0a257788dc0728594784f14623b34d30ed6b42c9a8c4d8bb3e54ee8b"
+            "date": "2024-04-02",
+            "hash": "1dfd0258bb53ac0dd14dc1da20a061dbc6170f7bfc7ceb819bb452cfdf138f0f"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2024-03-26",
@@ -1423,8 +1423,8 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "25975ec4e04e467c07526abf750a07857a1d41d53e324c8a6248f58f28ddd3c5"
+            "date": "2024-04-02",
+            "hash": "05111bfd841371031b52de7be5c329b7ece4c7973f384a001780439593036040"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2024-02-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "f67383b6684d47e9f276d8d0274cf3b94bc23e5e369cbd7a8a2afc2ad626c9c3",
-            "date": "2024-03-26"
+            "hash": "1da3a66de90192e040375d6ec2927816d1f2789b7ed8852e5d4a04f70299926a",
+            "date": "2024-04-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8387,24 +8387,24 @@
             "date": "2024-02-20"
         },
         "hardware/migration-guides/msom-b-series-migration-guide.md": {
-            "hash": "6fe3890d6bb68792f774107058e6ea287af00de75d728e66cde3db1903d9e7bc",
-            "date": "2024-03-15"
+            "hash": "63419d2147209573a73e7ff2884b5f8aa20cc711196db8a53558433f20c5af15",
+            "date": "2024-04-02"
         },
         "hardware/migration-guides/msom-boron-migration-guide.md": {
-            "hash": "45f97c2371fe1b1929b6a1e4ecd9bee6ea4fff08ee7a726e6423e93485e890d8",
-            "date": "2024-03-18"
+            "hash": "8b30f5f84d4a7c4f4e79443b11a945c11fd171f14172e572d33e40b7fdf84834",
+            "date": "2024-04-02"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
-            "hash": "158747fa7268936c7759916dab99c5c7f2cc99aaa9713f6b440dcef5afa89b43",
-            "date": "2024-03-20"
+            "hash": "2fb4a8de0e553e675c3a3ef4b3139c7afdb7190eee8b560121085760bbe548d8",
+            "date": "2024-04-02"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
-            "hash": "eac46e825b2e6b989d10c0c46d50bd72b8904f9892ad011641fae6750236ccc4",
-            "date": "2024-03-15"
+            "hash": "d476bb4f7f4bc2b06ee5e9ef178e951d574bbd7469f13c1e2ac9554f884e0ad0",
+            "date": "2024-04-02"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "c657a286a9c15045ac98d6eec28f0340651b32c86405d3f2ea90ff96682bc7ef",
-            "date": "2024-03-26"
+            "hash": "b34a66333d3d60e89ca24bdd9923e8fea29dcb9851f148b3a2c62bf536b448d2",
+            "date": "2024-04-02"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "60cbdc223df1de13526c42f9daf8aba51b7762424e314aec79df25db9338bde5",
