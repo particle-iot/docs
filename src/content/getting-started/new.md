@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M SoM datasheet 2024-04-03
+
+Added additional RF transmitter information.
+
 ### particle-api-js duplicate sections 2024-04-02
 
 Removed the duplicate sections from the particle-api-js documentation.

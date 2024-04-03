@@ -747,11 +747,132 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 To be determined at a later date. When operated on LTE Cat M1 or 2G, should be similar to M404.
 
 
+### Radio specifications
+
+
+#### Realtek RTL872x for Wi-Fi 2.4 GHz
+
+{{!-- BEGIN shared-blurb 6a81f804-a969-462d-8ac6-1d7601b7f814 --}}
+| Feature | Description | Minimum | Typical | Maximum | Unit |
+| :------ | :---------- | :------ | :------ | :------ | :--- |
+| Frequency Range | Center channel | 2412 | - | 2484 | MHz |
+| Output power | 1 Mbps CCK | - | 20 | 21 | dBM |
+|              | 11 Mbps CCK | - | 18 | 21 | dBM |
+|              | BPSK rate 1/2, 6Mbps OFDM | - | 20 | 21 | dBM |
+|              | 64QAM rate 3/4, 54Mbps OFDM | - | 17 | 18 | dBM |
+|              | HT20-MCS 0, BPSK rate 1/2 | - | 19 | 20 | dBM |
+|              | HT20-MCS 7, 64QAM rate 5/6 | - | 16 | 17 | dBM |
+|              | HT40-MCS 0, BPSK rate 1/2 | - | 19 | 20 | dBM |
+|              | HT40-MCS 7, 64QAM rate 5/6 | - | 16 | 17 | dBM |
+| Tx EVM       | BPSK rate 1/2, 6Mbps OFDM | - | - | -5 | dB |
+|              | 64QAM rate 3/4, 54Mbps OFDM | - | - | -25 | dB |
+|              | HT20-MCS 0, BPSK rate 1/2 | - | - | -5 | dB |
+|              | HT20-MCS 7, 64QAM rate 5/6 | - | - | -28 | dB |
+|              | HT40-MCS 0, BPSK rate 1/2 | - | - | -5 | dB |
+|              | HT40-MCS 7, 64QAM rate 5/6 | - | - | -28 | dB |
+| Output power variation | | -1.5 | - | 1.5 | dBm |
+| Carrier suppression | | - | - | -30 | dBm |
+{{!-- END shared-blurb --}}
+
+
+#### Realtek RTL872x for Wi-Fi 5 GHz
+
+{{!-- BEGIN shared-blurb c98cb3af-178e-4fa5-86ad-3a7c07c21f8d --}}
+| Feature | Description | Minimum | Typical | Maximum | Unit |
+| :------ | :---------- | :------ | :------ | :------ | :--- |
+| Frequency Range | Center channel | 5180 | - | 5825 | MHz |
+| Output power | BPSK rate 1/2, 6Mbps OFDM | - | 19 | 19 | dBM |
+|              | 64QAM rate 3/4, 54Mbps OFDM | - | 14 | 15 | dBM |
+|              | HT20-MCS 0, BPSK rate 1/2 | - | 17 | 18 | dBM |
+|              | HT20-MCS 7, 64QAM rate 5/6 | - | 13 | 14 | dBM |
+|              | HT40-MCS 0, BPSK rate 1/2 | - | 17 | 18 | dBM |
+|              | HT40-MCS 7, 64QAM rate 5/6 | - | 13 | 14 | dBM |
+| Tx EVM       | BPSK rate 1/2, 6Mbps OFDM | - | - | -5 | dB |
+|              | 64QAM rate 3/4, 54Mbps OFDM | - | - | -25 | dB |
+|              | HT20-MCS 0, BPSK rate 1/2 | - | - | -5 | dB |
+|              | HT20-MCS 7, 64QAM rate 5/6 | - | - | -28 | dB |
+|              | HT40-MCS 0, BPSK rate 1/2 | - | - | -5 | dB |
+|              | HT40-MCS 7, 64QAM rate 5/6 | - | - | -28 | dB |
+| Output power variation | | -1.5 | - | 1.5 | dBm |
+| Carrier suppression | | - | - | -30 | dBm |
+{{!-- END shared-blurb --}}
+
+
+#### Realtek RTL872x for BLE
+
+{{!-- BEGIN shared-blurb 92c3a675-6497-44eb-b38e-f5ecbd7cdc13 --}}
+| Feature | Description | Minimum | Typical | Maximum | Unit |
+| :------ | :---------- | :------ | :------ | :------ | :--- |
+| Frequency Range |  | 2402 | - | 2480 | MHz |
+| Tx Output power |  | -10 | 4.5 |  | dBM |
+{{!-- END shared-blurb --}}
+
+#### Cellular characteristics for BG95-M5 (M404)
+
+{{!-- BEGIN shared-blurb bb8991bb-bb5f-4cd3-9966-39311448d382 --}}
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 14 |
+| RAT | LTE Cat M1 |
+| LTE FDD Bands  | Band 12 (700 MHz) |
+| | Band 13 (700 MHz) |
+| | Band 28 (700 MHz) |
+| | Band 20 (800 MHz)  |
+| | Band 5 (850 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 8 (900 MHz)  |
+| | Band 4 (1700 MHz)  |
+| | Band 3 (1800 MHz)  |
+| | Band 2 (1900 MHz)  |
+| | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
+| | Band 66 (2100 MHz)  |
+| GSM Bands | GSM850 (850 MHz) |
+| | EGSM900 (900 MHz) |
+| | DCS1800 (1800 MHz) |
+| | PCS1900 (1900 MHz) |
+| Power class | Class 4 (33dBm ± 2dB) for GSM850 | |
+| | Class 4 (33dBm ± 2dB) for EGSM900 |
+| | Class 1 (30dBm ± 2dB) for DCS1800 |
+| | Class 1 (30dBm ± 2dB) for PCS1900 |
+| | Class E2 (27dBm ± 3dB) for GSM850 8-PSK |
+| | Class E2 (27dBm ± 3dB) for EGSM900 8-PSK |
+| | Class E2 (26dBm ± 3dB) for DCS1800 8-PSK |
+| | Class E2 (26dBm ± 3dB) for PCS1900 8-PSK |
+| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
+{{!-- END shared-blurb --}}
+
+
+#### Cellular characteristics for EG91-EX (M524)
+
+{{!-- BEGIN shared-blurb 5056bd6b-9e89-4f27-a3b5-9c9b5346cbc1 --}}
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat 1 |
+| LTE FDD Bands | Band 28A (700 MHz) |
+| | Band 20 (800 MHz)  |
+| | Band 8 (900 MHz)  |
+| | Band 3 (1800 MHz)  |
+| | Band 1 (2100 MHz)  |
+| | Band 7 (2600 MHz)  |
+| WCDMA Bands | Band 8 (900 MHz) | 
+| | Band 1 (2100) |
+| GSM Bands | EGSM900 (900 MHz) |
+| | DCS1800 (1800 MHz) |
+| Power class | Class 4 (33dBm ± 2dB) for EGSM900 |
+| | Class 1 (30dBm ± 2dB) for DCS1800 |
+| | Class E2 (27dBm ± 3dB) for EGSM900 8-PSK |
+| | Class E2 (26dBm ± 3dB) for DCS1800 8-PSK |
+| | Class 3 (24dBm ± 3dB) for WCDMA bands |
+| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
+{{!-- END shared-blurb --}}
+
+
 ## Mechanical specifications
 
-### Dimensions and Weight
 
-To be provided at a later date.
+{{!-- ### Dimensions and Weight --}}
 
 
 ### Mechanical drawing
@@ -903,7 +1024,9 @@ dommages à dispositifs LAN-EL.
 
 ### European Union (CE)
 
-We, Particle Industries,Inc, declare under our sole responsibility that the product, P2, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+### M404 - European Union (CE)
+
+We, Particle Industries, Inc, declare under our sole responsibility that the product, M404, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
 
 The full text of the EU declaration of conformity is available at the followingInternet address: 
 [https://www.particle.io/](https://www.particle.io/)
@@ -914,6 +1037,26 @@ The operating frequency bands and the maximum transmitted power limit are listed
 - BLE 2402-2480MHz 10dBm
 - Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
 - Wi-Fi 5GHz band 5180-5825MHz 23dBm
+- LTE B1 B3 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+
+### M524 - European Union (CE)
+
+We, Particle Industries, Inc, declare under our sole responsibility that the product, M524, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the followingInternet address: 
+[https://www.particle.io/](https://www.particle.io/)
+
+Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+- BLE 2402-2480MHz 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
+- Wi-Fi 5GHz band 5180-5825MHz 23dBm
+- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+- EGSM900 880-915 MHz, 33 dBm
+- DCS1800 1710-1785 MHz, 30 dBm
+
 
 ### United Kingdom
 
@@ -1088,7 +1231,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 ### M524 - Certified bands
 
 | Technology | Band | CE |
-| :--- | :--- | :---: | :---: |
+| :--- | :--- | :---: |
 | 2G | 900 MHz | &check; |
 | 2G | 1800 MHz | &check; |
 | 3G | B1 (2100 MHz) | &check;|
@@ -1139,3 +1282,4 @@ Global, country list to be provided a later date.
 |          | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
 |          | 2024-03-26 | RK | Listed certified bands for FCC and CE |
 | 001      | 2024-04-02 | RK | General availability |
+| 002      | 2024-04-03 | RK | Additional transmitter information |

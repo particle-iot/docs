@@ -1351,8 +1351,8 @@
             "hash": "f637a23199eb3bf616feedd2c3a1c1c4c4ae399c012dfea6354e09039dcdb399"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "84ca1e8c6da7c92146fb76c38204a9960cb1e7d758107b10866259c4e78d2714"
+            "date": "2024-04-03",
+            "hash": "76f2b0bb0cc6727cd84ad82831866018b32c3fd15bf18f74c5dc202f4748ad05"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-03-19",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "800ec15aa2e21bfd5f5bce8058fd0d1c5904b228925355d4e85791fb3163e339",
-            "date": "2024-04-02"
+            "hash": "e8536122227de20a63a66ce7a2e87604fd35b92c19ab540e429fcc440d5efd78",
+            "date": "2024-04-03"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8403,8 +8403,8 @@
             "date": "2024-04-02"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "b34a66333d3d60e89ca24bdd9923e8fea29dcb9851f148b3a2c62bf536b448d2",
-            "date": "2024-04-02"
+            "hash": "79a964d01b2aa5436768f79db64da6f7656e93a1364fd41634f9920e34276538",
+            "date": "2024-04-03"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "60cbdc223df1de13526c42f9daf8aba51b7762424e314aec79df25db9338bde5",

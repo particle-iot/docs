@@ -136,7 +136,7 @@ VBus is connected to the USB detect pin of nRF52840 to enables the USB interface
 
 There are two radios on the B523 module. A BLE radio (nRF52840) and a cellular radio (Quectel). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
 
-![B523 Connectors](/assets/images/b-series/b523-connectors.png)
+<img class="small" src="/assets/images/b-series/b524-connectors.png" alt="B524 connectors"/>
 
 | Number | Label   | Purpose | 
 | :----: | :-----: | :--- |
