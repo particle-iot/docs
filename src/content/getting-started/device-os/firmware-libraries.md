@@ -164,12 +164,15 @@ Example `particle.include` file that includes all `.def` files:
 **/*.def
 ```
 
-Example `particle.ignore` file to not upload the `test` and `docs` directories in a library.
+Example `particle.ignore` file to not upload all files from the `test` and `docs` directories in a library.
 
 ```
-test/**
-docs/**
+test/**/*.*
+docs/**/*.*
 ```
+
+Please see this [Glob Patterns Reference](https://code.visualstudio.com/docs/editor/glob-patterns) for doing something more custom.
+
 
 ### Asset OTA
 
