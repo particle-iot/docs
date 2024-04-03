@@ -154,11 +154,11 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | NRND|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTCW1TY | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | PARANTCW1EA | &nbsp; | GA|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTCW1TY | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTCW1TY | &nbsp; | In development|
+| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &check; | PARANTCW1EA | &nbsp; | GA|
+| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTCW1TY | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | 1 | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | 1 | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | 1 | &nbsp; | GA|
@@ -282,11 +282,11 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2-50 | &nbsp; | Deprecated|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | trace | 4 | &nbsp; | GA|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1TY | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | GA|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1TY | &nbsp; | In development|
+| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | GA|
+| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | 1 | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
@@ -425,11 +425,11 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | GA|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | &check; | 4 | &nbsp; | GA|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1TY | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | GA|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1TY | &nbsp; | In development|
+| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | GA|
+| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
@@ -621,11 +621,11 @@ The following devices have GNSS capabilities:
 | Asset Tracker 2G | ASSET2GV2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | &check; | Deprecated|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | &check; | In development|
-| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | &check; | GA|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | &check; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &check; | &check; | In development|
-| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &check; | &nbsp; | In development|
+| M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &check; | &check; | GA|
+| M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &check; | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &check; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &check; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &check; | GA|

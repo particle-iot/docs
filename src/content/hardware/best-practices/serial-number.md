@@ -135,10 +135,10 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated | E4DK |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NRND | E4DT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P036 |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | In development | P054 |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | In development | P054 |
-| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | In development | P055 |
-| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | In development | P055 |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA | P054 |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA | P054 |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA | P055 |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA | P055 |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P055 |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA | P031 |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
@@ -283,14 +283,14 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P051 | PHN2MEA | Photon 2 [x1] | GA |
 | P051 | PHN2MTY | Photon 2, Tray [x50] | GA |
 | P052 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
-| P054 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | In development |
-| P054 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | In development |
+| P054 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA |
+| P054 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA |
 | P054 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | In development |
 | P054 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | In development |
 | P054 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
 | P054 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| P055 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | In development |
-| P055 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | In development |
+| P055 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
+| P055 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
 | P055 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
 | P055 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | In development |
 | P055 | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | In development |

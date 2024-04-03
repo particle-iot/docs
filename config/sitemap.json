@@ -651,12 +651,12 @@
             "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-03-26",
-            "hash": "f2faac5c3e5c48484f9a3b636ae990387336727200664ade1ae4d2608b2f49d6"
+            "date": "2024-04-03",
+            "hash": "717e08738aa5b115be1c055f4c8a33d50dd7c0eab4212e70933d8d60dfeb97b5"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-03-26",
-            "hash": "3c6cfd9833ee149aa2a65d74efe0b406fa8ac414d02a9e7e3ae2058afadf2e89"
+            "date": "2024-04-03",
+            "hash": "bf5f9e686cda0267dd77c3a3160982daa0746ab114d9fd74270e1d98a71936a6"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -935,8 +935,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-03-26",
-            "hash": "f872d65f40206f5b925e96e678ca36b9eadf07ce9ddebb5963052c2d3c7f74b6"
+            "date": "2024-04-03",
+            "hash": "9271a626f4d4a3bf2482220e58aca17e1901f07846fad10d208dd54baafb02e0"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -8175,8 +8175,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "fc9c5fa2d747a4e26b0c80c887683962035b3386d08f00dd1e1618c2f94eb1a1",
-            "date": "2024-03-26"
+            "hash": "bc70e908d0b539e554733158a496b4029c4f6bdd4208191bb4b983d079cd88c3",
+            "date": "2024-04-03"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e8536122227de20a63a66ce7a2e87604fd35b92c19ab540e429fcc440d5efd78",
+            "hash": "e7b517fa6371e77136b363c9ca6761e8d14e9530037048b670560f3ad154348f",
             "date": "2024-04-03"
         },
         "getting-started/cloud/logic.md": {
@@ -8403,7 +8403,7 @@
             "date": "2024-04-02"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "79a964d01b2aa5436768f79db64da6f7656e93a1364fd41634f9920e34276538",
+            "hash": "48778e2a02b49c1f8619c6aa3dcff3579fb6f0a8cf68d329ba37a947ec5bd171",
             "date": "2024-04-03"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {

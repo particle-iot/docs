@@ -21802,7 +21802,7 @@
     {
       "name": "M404MEA",
       "desc": "M-Series LTE-M/2G (Global, EtherSIM), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": true,
@@ -21839,7 +21839,7 @@
     {
       "name": "M404MTY",
       "desc": "M-Series LTE-M/2G (Global, EtherSIM), Tray [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": true,
       "singleSku": "M404MEA",
       "enterprise": true,
@@ -21877,7 +21877,7 @@
     {
       "name": "M524MEA",
       "desc": "M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": true,
@@ -21913,7 +21913,7 @@
     {
       "name": "M524MTY",
       "desc": "M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": true,
       "singleSku": "M524MEA",
       "enterprise": true,
