@@ -2083,6 +2083,16 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'b7b56d49-1e9a-496c-bf05-70d5b9957cf9', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('m series', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('M404');
+                    }        
+                }); 
+            } 
+        },
 
 
         // datasheets/tracker/tracker-m-datasheet.md

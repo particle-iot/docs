@@ -943,8 +943,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-03-26",
-            "hash": "b970a1187048fcc7208823a74dcf9f7c6b01984671e2ad3e5991c537cd94245f"
+            "date": "2024-04-08",
+            "hash": "f0af95bb7f31b8d94aadafa19c20128b7b88f3f95db2ceb664443f2732619618"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "b298d3bd9c01f75d8a0eca1c9f2d6546e2424ead9074815aa390fa5a91a78299",
+            "hash": "6fca9107661b6cca067e22997c6c0788b845998d22b89fec51b362f99da6923a",
             "date": "2024-04-08"
         },
         "getting-started/cloud/logic.md": {

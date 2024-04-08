@@ -802,6 +802,25 @@ Additional FCC Test Reports:
 
 - [RoHS Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
 
+## M404 M-SoM M-Series LTE-M/2G
+
+{{!-- BEGIN do not edit content below, it is automatically generated b7b56d49-1e9a-496c-bf05-70d5b9957cf9 --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | GA | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+### FCC (United States) - M404 M-SoM M-Series LTE-M/2G
+
+- [Part 15C, Digital Transmission System 2.4 GHz](/assets/pdfs/m404-fcc-DTS.pdf)
+- [Part 15E, Unlicensed national information infrastructure TX, 5 GHz](/assets/pdfs/m404-fcc-part15e.pdf)
+- [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/m404-fcc-JBP.pdf)
+- [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/m404-fcc-PCB.pdf)
+
 
 ## Monitor One 404 NorAm
 
