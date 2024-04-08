@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### M404 certification 2024-04-08
 
-Certification documents for the M404 are now available.
+[Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) are now available.
 
 ### particle.include update 2024-04-04
 

@@ -804,9 +804,15 @@ To be provided at a later date.
 
 ## Mechanical specifications
 
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -20°C to 65°C |
+
+
 ### Dimensions and weight
 
 To be provided at a later date.
+
 
 
 ## Revision history
