@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### particle.include update 2024-04-04
+
+Updated the [example patterns for filename wildcards](/getting-started/device-os/firmware-libraries/#particle-include-and-particle-ignore) for particle.include and particle.ignore.
+
 ### M SoM datasheet 2024-04-03
 
 Added additional RF transmitter information.

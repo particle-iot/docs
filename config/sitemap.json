@@ -647,8 +647,8 @@
             "hash": "36f495ab9f77354dbb6dca82cccb527e4165fe3073d7dbc624f7539bb519860e"
         },
         "getting-started/device-os/firmware-libraries.md": {
-            "date": "2023-06-26",
-            "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
+            "date": "2024-04-08",
+            "hash": "49aa00cfc7396dbb99d0721c359fb12982de674aceb4cbe38d91c9eba01f24b7"
         },
         "getting-started/hardware/cellular-overview.md": {
             "date": "2024-04-03",
@@ -1155,8 +1155,8 @@
             "hash": "74b9315484be16ea70298a49d15ff440f68b636eb3074af419bb725240c7204e"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2024-04-02",
-            "hash": "f0588ac0b3ae09c8a6601976838cb56557c68cee4ce1e67410e6b80ff219f266"
+            "date": "2024-04-08",
+            "hash": "52fd67eed145af146f05f501be0d7c509f3f18b02507f56e7b3e59b86eaa984f"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e7b517fa6371e77136b363c9ca6761e8d14e9530037048b670560f3ad154348f",
-            "date": "2024-04-03"
+            "hash": "b298d3bd9c01f75d8a0eca1c9f2d6546e2424ead9074815aa390fa5a91a78299",
+            "date": "2024-04-08"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
