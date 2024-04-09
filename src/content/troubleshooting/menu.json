@@ -275,11 +275,6 @@
       },
       [
         {
-          "dir": "what-payment-methods-can-i-use-at-checkout",
-          "title": "Payment methods",
-          "href": "/troubleshooting/faqs/orders/what-payment-methods-can-i-use-at-checkout/"
-        },
-        {
           "dir": "what-is-particles-return-refund-policy",
           "title": "Return & refund policy",
           "href": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
