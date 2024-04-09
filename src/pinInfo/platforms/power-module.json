@@ -5,10 +5,12 @@
         {
             "num": 1,
             "name": "3V3",
-            "desc": "Power output 3.3V",
-            "morePins": [
-                2
-            ]
+            "desc": "Power output 3.3V"
+        },
+        {
+            "num": 2,
+            "name": "3V3_AUX",
+            "desc": "Power output 3.3V, controllable"
         },
         {
             "num": 3,
@@ -28,13 +30,13 @@
         },
         {
             "num": 7,
-            "name": "REGN",
-            "desc": "PMIC REGN output used for temperature sensor"
+            "name": "EN_AUX",
+            "desc": "Enable 33_AUX (has 100K pull-down to default off)"
         },
         {
             "num": 8,
-            "name": "NC",
-            "desc": "Leave unconnected"
+            "name": "REGN",
+            "desc": "PMIC REGN output used for temperature sensor"
         },
         {
             "num": 9,
@@ -67,7 +69,7 @@
         {
             "num": 15,
             "name": "SDA",
-            "desc": "I2C SDA. No internal pull  on power module."
+            "desc": "I2C SDA. No internal pull on power module."
         },
         {
             "num": 16,

@@ -289,9 +289,12 @@
       "pins": [
         {
           "num": 1,
-          "name": "D27",
-          "desc": "Hardware reset. Pull low to reset; can leave unconnected in normal operation.",
-          "featherName": "RST"
+          "name": "RST",
+          "desc": "Hardware reset, active low. External pull-up required.",
+          "featherName": "RST",
+          "is5VTolerant": false,
+          "isControl": true,
+          "somPin": "RESET"
         },
         {
           "num": 2,
@@ -650,25 +653,6 @@
         },
         {
           "num": 21,
-          "name": "D5",
-          "desc": "PWM, GPIO",
-          "analogRead": false,
-          "analogWriteDAC": false,
-          "analogWritePWM": true,
-          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "digitalRead": true,
-          "digitalWrite": true,
-          "featherName": "D5",
-          "hardwarePin": "P1.10",
-          "hardwareTimer": "PWM1",
-          "internalPull": "13K",
-          "is5VTolerant": false,
-          "isIO": true,
-          "somPin": "PWM1",
-          "tone": "D4, D5, and D6 must have the same frequency."
-        },
-        {
-          "num": 22,
           "name": "D8",
           "desc": "GPIO, SPI SS, Ethernet CS",
           "analogRead": false,
@@ -686,6 +670,25 @@
           "somPin": "CS",
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "tone": false
+        },
+        {
+          "num": 22,
+          "name": "D6",
+          "desc": "PWM, GPIO",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "featherName": "D8",
+          "hardwarePin": "P1.11",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "somPin": "PWM2",
+          "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
           "num": 23,
@@ -708,7 +711,7 @@
         },
         {
           "num": 24,
-          "name": "D6",
+          "name": "D5",
           "desc": "PWM, GPIO",
           "analogRead": false,
           "analogWriteDAC": false,
@@ -716,13 +719,13 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "digitalRead": true,
           "digitalWrite": true,
-          "featherName": "D8",
-          "hardwarePin": "P1.11",
+          "featherName": "D5",
+          "hardwarePin": "P1.10",
           "hardwareTimer": "PWM1",
           "internalPull": "13K",
           "is5VTolerant": false,
           "isIO": true,
-          "somPin": "PWM2",
+          "somPin": "PWM1",
           "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
@@ -845,23 +848,13 @@
       "pins": [
         {
           "num": 1,
-          "name": "D27",
-          "desc": "D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot",
-          "analogRead": false,
-          "analogWriteDAC": false,
-          "analogWritePWM": false,
-          "attachInterrupt": true,
-          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.",
-          "digitalRead": true,
-          "digitalWrite": true,
+          "name": "RST",
+          "desc": "Hardware reset, active low. External pull-up required.",
           "featherName": "RST",
-          "hardwarePin": "PA[27]",
-          "internalPull": "42K",
+          "hardwarePin": "CHIP_EN",
           "is5VTolerant": false,
-          "isIO": true,
-          "somPin": "SWD_DATA",
-          "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
-          "tone": false
+          "isControl": true,
+          "somPin": "RESET"
         },
         {
           "num": 2,
@@ -1230,26 +1223,6 @@
         },
         {
           "num": 21,
-          "name": "D5",
-          "desc": "D5 GPIO, PWM",
-          "analogRead": false,
-          "analogWriteDAC": false,
-          "analogWritePWM": true,
-          "attachInterrupt": true,
-          "digitalRead": true,
-          "digitalWrite": true,
-          "featherName": "D5",
-          "hardwarePin": "PB[19]",
-          "hardwareTimer": "PWM1",
-          "internalPull": "???",
-          "is5VTolerant": false,
-          "isIO": true,
-          "pwmChannel": "1.11",
-          "somPin": "PWM1",
-          "tone": true
-        },
-        {
-          "num": 22,
           "name": "D8",
           "desc": "D8 GPIO, SPI SS",
           "analogRead": false,
@@ -1267,6 +1240,26 @@
           "somPin": "CS",
           "spi": "SPI (SS)|Default SS for SPI.",
           "tone": false
+        },
+        {
+          "num": 22,
+          "name": "D6",
+          "desc": "D6 GPIO, PWM",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "featherName": "D8",
+          "hardwarePin": "PB[20]",
+          "hardwareTimer": "PWM1",
+          "internalPull": "???",
+          "is5VTolerant": false,
+          "isIO": true,
+          "pwmChannel": "1.12",
+          "somPin": "PWM2",
+          "tone": true
         },
         {
           "num": 23,
@@ -1290,22 +1283,22 @@
         },
         {
           "num": 24,
-          "name": "D6",
-          "desc": "D6 GPIO, PWM",
+          "name": "D5",
+          "desc": "D5 GPIO, PWM",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": true,
           "attachInterrupt": true,
           "digitalRead": true,
           "digitalWrite": true,
-          "featherName": "D8",
-          "hardwarePin": "PB[20]",
+          "featherName": "D5",
+          "hardwarePin": "PB[19]",
           "hardwareTimer": "PWM1",
           "internalPull": "???",
           "is5VTolerant": false,
           "isIO": true,
-          "pwmChannel": "1.12",
-          "somPin": "PWM2",
+          "pwmChannel": "1.11",
+          "somPin": "PWM1",
           "tone": true
         },
         {
@@ -5066,10 +5059,12 @@
         {
           "num": 1,
           "name": "3V3",
-          "desc": "Power output 3.3V",
-          "morePins": [
-            2
-          ]
+          "desc": "Power output 3.3V"
+        },
+        {
+          "num": 2,
+          "name": "3V3_AUX",
+          "desc": "Power output 3.3V, controllable"
         },
         {
           "num": 3,
@@ -5089,13 +5084,13 @@
         },
         {
           "num": 7,
-          "name": "REGN",
-          "desc": "PMIC REGN output used for temperature sensor"
+          "name": "EN_AUX",
+          "desc": "Enable 33_AUX (has 100K pull-down to default off)"
         },
         {
           "num": 8,
-          "name": "NC",
-          "desc": "Leave unconnected"
+          "name": "REGN",
+          "desc": "PMIC REGN output used for temperature sensor"
         },
         {
           "num": 9,
@@ -5128,7 +5123,7 @@
         {
           "num": 15,
           "name": "SDA",
-          "desc": "I2C SDA. No internal pull  on power module."
+          "desc": "I2C SDA. No internal pull on power module."
         },
         {
           "num": 16,

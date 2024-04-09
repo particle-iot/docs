@@ -51,20 +51,20 @@ It can either be:
 | Pin | Pin Name | Description |
 | :---: | :--- | :--- |
 | 1 | 3V3 | Power output 3.3V |
-| 2 | 3V3 | Power output 3.3V |
+| 2 | 3V3_AUX | Power output 3.3V, controllable |
 | 3 | 5V | Power output 5V (not available on PMIC power module) |
 | 4 | 5V | Power output 5V (not available on PMIC power module) |
 | 5 | VCC | Power output 3.9V 2A for cellular modem |
 | 6 | VCC | Power output 3.9V 2A for cellular modem |
-| 7 | REGN | PMIC REGN output used for temperature sensor |
-| 8 | NC | Leave unconnected |
+| 7 | EN_AUX | Enable 33_AUX (has 100K pull-down to default off) |
+| 8 | REGN | PMIC REGN output used for temperature sensor |
 | 9 | GND | Ground |
 | 10 | GND | Ground |
 | 11 | VIN | Power in (5V - 17V on PMIC power module) |
 | 12 | VIN | Power in (5V - 17V on PMIC power module) |
 | 13 | CHG | Charge indicator output |
 | 14 | SCL | I2C SCL. No internal pull on power module. |
-| 15 | SDA | I2C SDA. No internal pull  on power module. |
+| 15 | SDA | I2C SDA. No internal pull on power module. |
 | 16 | /FUEL_INT | PMIC and FUEL_INT interrupt output open drain. Connect to SoM D22. |
 | 17 | TS | LiPo battery temperature sensor (NTC thermistor) |
 | 18 | VBAT | LiPo battery connection 3.7V |
@@ -79,11 +79,12 @@ It can either be:
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+`3V3_AUX` is powered by `3V3` via a load switch (TPS22918). It can supply up to the full 2A of `3V3`. It defaults to off due to a pull-down resistor on the pin. Pull to `3V3` to enable the `3V3_AUX` output.
 
-## Typical application
-
-{{imageOverlay src="/assets/images/power-module/power-module-example.svg" alt="Typical usage" class="full-width"}}
-
+{{!-- 
+Typical application
+imageOverlay src="/assets/images/power-module/power-module-example.svg" alt="Typical usage" class="full-width"
+--}}
 
 ## Land pattern (SMD)
 
@@ -126,3 +127,4 @@ To be provided at a later date.
 | pre      | 2024-02-27 | RK | Initial version |
 |          | 2024-02-28 | RK | Added plug-in version |
 |          | 2024-03-12 | RK | Updated to v2, dimensions changed |
+|          | 2024-04-08 | RK | Updated to v4, pin changes |

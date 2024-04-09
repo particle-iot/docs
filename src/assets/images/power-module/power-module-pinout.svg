@@ -239,7 +239,7 @@
     <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
-3V3    </text>
+3V3_AUX    </text>
   </g>
   <g transform="translate(281,556) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -309,7 +309,7 @@ VCC    </text>
     <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
-REGN    </text>
+EN_AUX    </text>
   </g>
   <g transform="translate(521,556) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -323,7 +323,7 @@ REGN    </text>
     <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
-NC    </text>
+REGN    </text>
   </g>
   <g transform="translate(569,556) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >

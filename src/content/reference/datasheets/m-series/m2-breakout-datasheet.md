@@ -37,7 +37,6 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 | 11 | Spare M.2 SoM screws |
 | 12 | NFC U.FL connector (B-SoM only, not available on M-SoM) |
 | 13 | Expansion connector |
-| 14 | D7 User LED (blue) |
 | 15 | RESET button |
 | 16 | RGB status LED |
 | 17 | MODE button |
@@ -51,7 +50,6 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 | 25 | LiPo charge LED (yellow) |
 | 26 | LiPo temperature sensor bypass jumper (TS) |
 | 27 | Power LED (red) |
-| 28 | Power LED disable (cut trace to disable, can reenable with solder) |
 
 
 
@@ -61,14 +59,10 @@ The M.2 breakout can be powered by:
 
 | Num  | Description |
 | :---: | :--- |
-| 1 | USB-C ("MCU USB") (see below) |
 | 5 | LiPo battery (3.7V LiPo with 3-pin JST-PH connector)
 | 7 | VIN barrel connector 5-12 VDC (5.5mm x 2.1mm, center positive) |
 
-**When powering by USB-C ("MCU USB") (1) a LiPo Battery (5) is also required** when powering the B523, B524, or any M-Series module (M404, M523, or M635).
-
-- There are two USB-C connectors on the breakout board, be sure to use connector 1 "MCU USB".
-- When powering by VIN (barrel connector), 5-12 VDC is recommended, but up to 17 VDC can be supplied.
+- When powering by VIN (barrel connector), 5-12 VDC is recommended at 12 watts.
 - Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery).
 - If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
 
@@ -142,9 +136,15 @@ The following pins are used by the power module.
 | FUEL\_INT | A6 | 45 |
 | SDA | D0 | 22 |
 | SCL | D1 | 20 |
-| Power enable | D23 / GPIO1 | 50 |
-| Power status | D4 / PWM0 | 52 |
+| EN_AUX | D23 / GPIO1 | 50 |
 
+`3V3_AUX` is powered by `3V3` via a load switch (TPS22918). It can supply up to the full 2A of `3V3`. It defaults to off due to a pull-down resistor on `EN_AUX`. `EN_AUX` is connected to pin `D23`; set this pin to output high to enable `3V3_AUX`.
+
+```cpp
+// Enable 3V3_AUX
+pinMode(D23, OUTPUT);
+digitalWrite(D23, HIGH);
+```
 
 ### Using ethernet
 

@@ -4,9 +4,12 @@
     "pins": [
         {
             "num": 1,
-            "name": "D27",
-            "desc": "Hardware reset. Pull low to reset; can leave unconnected in normal operation.",
-            "featherName": "RST"
+            "name": "RST",
+            "desc": "Hardware reset, active low. External pull-up required.",
+            "featherName": "RST",
+            "is5VTolerant": false,
+            "isControl": true,
+            "somPin": "RESET"
         },
         {
             "num": 2,
@@ -365,25 +368,6 @@
         },
         {
             "num": 21,
-            "name": "D5",
-            "desc": "PWM, GPIO",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": true,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "featherName": "D5",
-            "hardwarePin": "P1.10",
-            "hardwareTimer": "PWM1",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "PWM1",
-            "tone": "D4, D5, and D6 must have the same frequency."
-        },
-        {
-            "num": 22,
             "name": "D8",
             "desc": "GPIO, SPI SS, Ethernet CS",
             "analogRead": false,
@@ -401,6 +385,25 @@
             "somPin": "CS",
             "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
             "tone": false
+        },
+        {
+            "num": 22,
+            "name": "D6",
+            "desc": "PWM, GPIO",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "featherName": "D8",
+            "hardwarePin": "P1.11",
+            "hardwareTimer": "PWM1",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "somPin": "PWM2",
+            "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
             "num": 23,
@@ -423,7 +426,7 @@
         },
         {
             "num": 24,
-            "name": "D6",
+            "name": "D5",
             "desc": "PWM, GPIO",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -431,13 +434,13 @@
             "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
             "digitalRead": true,
             "digitalWrite": true,
-            "featherName": "D8",
-            "hardwarePin": "P1.11",
+            "featherName": "D5",
+            "hardwarePin": "P1.10",
             "hardwareTimer": "PWM1",
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
-            "somPin": "PWM2",
+            "somPin": "PWM1",
             "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
