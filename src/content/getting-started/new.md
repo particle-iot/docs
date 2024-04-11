@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M404 certification update 2024-04-11
+
+[Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) include an updated PCS certificate and added FCC Part 15B.
+
 ### Qubitro integration instructions 2024-04-11
 
 Added integration instructions for [Qubitro](/integrations/community-integrations/qubitro/).

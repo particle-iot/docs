@@ -339,7 +339,7 @@ Integrations can either be in your developer sandbox or in your product. As a ge
 - Keep things related to the product associated with the product
 - Allows developers to claim devices to their own account, which makes development easier
 
-Also see [organization integrations](#organization-integrations), below. They are a special class of product integration that is automatically synchronized across multiple products.
+Also see [organization integrations](/integrations/organization-integrations/). They are a special class of product integration that is automatically synchronized across multiple products.
 
 ### Moving or copying an integration
 
@@ -353,18 +353,6 @@ If you have created an integration in your sandbox and want to move it to your p
 If you copy an integration from sandbox to product, you should disable the sandbox integration, otherwise it can trigger twice, once for the sandbox and once for the product if the device is claimed.
 
 If you have a large number of integrations you should investigate why. The event trigger is a prefix, so any event beginning with that string will trigger the integration. Using a combination of the prefix filter and mustache templates in many cases you can use a single integration for multiple tasks, eliminating the need to keep them in sync.
-
-{{!-- 
-## Organization integrations
-
-An organization integration groups together product integrations that are identical.
-
-- Available on basic (formerly growth) and enterprise plans
-- Changes to a grouped integration are automatically reflected across all integrations in the group
-- Ideal if your product runs on multiple devices and requires separate console products but share the same integrations
-
-For more information, see [organziation integrations](/integrations/org-integrations/).
---}}
 
 ## Advanced topics
 

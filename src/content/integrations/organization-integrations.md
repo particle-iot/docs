@@ -12,7 +12,7 @@ Organization integrations allow you to manage the integrations across all your p
 - Changing an integration in the organization view affects all the products where this integration executes
 - Ideal if your product runs on multiple devices and requires separate console products but share the same integrations parameters
 
-Organization integrations use the same endpoints as product integrations you don't need to make any changes to your firmware or API calls in order to use them. See also [product vs. sandbox integrations](integrations/webhooks/#product-vs-sandbox-integrations).
+Organization integrations use the same endpoints as product integrations you don't need to make any changes to your firmware or API calls in order to use them. See also [product vs. sandbox integrations](/integrations/webhooks/#product-vs-sandbox-integrations).
 
 ## Organization integration list
 

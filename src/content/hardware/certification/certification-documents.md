@@ -816,6 +816,7 @@ Additional FCC Test Reports:
 
 ### FCC (United States) - M404 M-SoM M-Series LTE-M/2G
 
+- [Part 15B](/assets/pdfs/m404-fcc-part15b.pdf)
 - [Part 15C, Digital Transmission System 2.4 GHz](/assets/pdfs/m404-fcc-DTS.pdf)
 - [Part 15E, Unlicensed national information infrastructure TX, 5 GHz](/assets/pdfs/m404-fcc-part15e.pdf)
 - [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/m404-fcc-JBP.pdf)
