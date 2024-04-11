@@ -2813,6 +2813,11 @@ const generatorConfig = require('./generator-config');
             if (options.showPinNum) {
                 comparisonTags.splice(0, 0, 'num');
             }
+            if (options.showMorePins) {
+                for(const p of options.showMorePins) {
+                    comparisonTags.push(p);
+                }
+            }
 
             for(const m of mappedPins) {
                 let oldPin = m.old;

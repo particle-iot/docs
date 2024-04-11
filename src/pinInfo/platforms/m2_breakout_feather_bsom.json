@@ -455,8 +455,8 @@
         },
         {
             "num": 26,
-            "name": "D26",
-            "desc": "Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.",
+            "name": "EN",
+            "desc": "Power supply enable from FeatherWing, not connected",
             "featherName": "EN"
         },
         {

@@ -2965,13 +2965,7 @@ EN    </text>
     <rect x="34" y="-8" width="30" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D26    </text>
-    <line x1="64" y1="0" x2="338" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="338" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
-    </rect>
-    <text x="365.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PA[4]    </text>
+EN    </text>
   </g>
   <g transform="translate(628,168.39999999999986) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >

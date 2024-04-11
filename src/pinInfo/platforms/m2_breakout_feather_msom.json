@@ -469,21 +469,9 @@
         },
         {
             "num": 26,
-            "name": "D26",
-            "desc": "D26 GPIO",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": true,
-            "digitalRead": true,
-            "digitalWrite": true,
-            "featherName": "EN",
-            "hardwarePin": "PA[4]",
-            "internalPull": "???",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "RESERVED",
-            "tone": false
+            "name": "EN",
+            "desc": "Power supply enable from FeatherWing, not connected",
+            "featherName": "EN"
         },
         {
             "num": 27,

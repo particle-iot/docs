@@ -314,6 +314,10 @@ const schemaDocs = require('./schema-docs');
                     platformNew: 'M.2 SoM breakout board header, M-SoM',
                     platformNewTitle: 'M-SoM',
                     showPinNum: true,
+                    showMorePins: [
+                        'm2Pin',
+                        'somPin',
+                    ]
                 }); 
             } 
         },                

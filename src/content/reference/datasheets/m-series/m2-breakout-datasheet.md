@@ -41,12 +41,11 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 | 16 | RGB status LED |
 | 17 | MODE button |
 | 18 | Prototyping area |
-| 19 | M.2 SoM socket for B-SoM or M-SoM |
-| 20 | Power module |
-| 21 | Adafruit Feather connector (for accessories) |
-| 22 | Feather connector jumpers |
-| 23 | Feather connector jumpers |
-| 24 | VUSB jumper (only used on B-SoM) |
+| 19 | 3V3_AUX |
+| 20 | GND |
+| 21 | M.2 SoM socket for B-SoM or M-SoM |
+| 22 | Power module |
+| 23 | Adafruit Feather connector (for accessories) |
 | 25 | LiPo charge LED (yellow) |
 | 26 | LiPo temperature sensor bypass jumper (TS) |
 | 27 | Power LED (red) |
@@ -207,60 +206,80 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | Pin Number | 1|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 2 (VCC)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 2|
 | Pin Name | VCC|
 | Description | Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V|
+| M.2 connector pin number | 2|
+| SoM Common Pin Name | VCC|
 #### Module Pin 3 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 3|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 4 (VCC)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 4|
 | Pin Name | VCC|
 | Description | Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V|
+| M.2 connector pin number | 2|
+| SoM Common Pin Name | VCC|
 #### Module Pin 5 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 5|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 6 (VCC)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 6|
 | Pin Name | VCC|
 | Description | Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V|
+| M.2 connector pin number | 2|
+| SoM Common Pin Name | VCC|
 #### Module Pin 7 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 7|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 8 (3V3)
-| | Unchanged between B-SoM and M-SoM |
-| :--- | :--- |
-| Pin Number | 8|
-| Pin Name | 3V3|
-| Description | 3.3V used to power MCU|
+|   |   | B-SoM | M-SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Number | 8 | 8 |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| &nbsp; | Description | 3.3V used to power MCU | 3.3V used to power MCU |
+| ∆ | M.2 connector pin number | 10 | 8 |
+| ∆ | SoM Common Pin Name | 3V3 | VCC |
 #### Module Pin 9 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 9|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 10 (SOM10)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 10|
 | Pin Name | SOM10|
 | Description | Not currently used, leave unconnected.|
+| M.2 connector pin number | 14|
+| SoM Common Pin Name | RESERVED|
 #### Module Pin 11 (SOM6 / D21)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -272,12 +291,16 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
+| &nbsp; | M.2 connector pin number | 17 | 17 |
+| ∆ | SoM Common Pin Name | SOM3 | RESERVED |
 #### Module Pin 12 (SOM11 / GNSS_TX)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 12 | 12 |
 | ∆ | Pin Name | SOM11 | GNSS_TX |
 | ∆ | Description | Not currently used, leave unconnected. | Cellular modem GNSS UART TX |
+| &nbsp; | M.2 connector pin number | 18 | 18 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 13 (SOM7 / D20)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -289,6 +312,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
+| &nbsp; | M.2 connector pin number | 19 | 19 |
+| ∆ | SoM Common Pin Name | SOM4 | RESERVED |
 #### Module Pin 14 (D1)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -301,6 +326,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 20 | 20 |
+| &nbsp; | SoM Common Pin Name | SCL | SCL |
 #### Module Pin 15 (A0)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -315,6 +342,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 42K |
+| &nbsp; | M.2 connector pin number | 23 | 23 |
+| &nbsp; | SoM Common Pin Name | ADC0 | ADC0 |
 #### Module Pin 16 (D0)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -327,6 +356,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 22 | 22 |
+| &nbsp; | SoM Common Pin Name | SDA | SDA |
 #### Module Pin 17 (A1)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -341,6 +372,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 33 | 33 |
+| &nbsp; | SoM Common Pin Name | ADC1 | ADC1 |
 #### Module Pin 18 (MODE)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -349,6 +382,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Alternate Name | D20 | D20 |
 | ∆ | Description | MODE button, has internal pull-up | MODE button. Pin number constant is BTN. External pull-up required! |
 | ∆ | Supports attachInterrupt | n/a | Yes |
+| &nbsp; | M.2 connector pin number | 32 | 32 |
+| &nbsp; | SoM Common Pin Name | MODE | MODE |
 #### Module Pin 19 (A2)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -361,12 +396,16 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 22K |
+| &nbsp; | M.2 connector pin number | 35 | 35 |
+| &nbsp; | SoM Common Pin Name | ADC2 | ADC2 |
 #### Module Pin 20 (RST)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 20 | 20 |
 | &nbsp; | Pin Name | RST | RST |
 | ∆ | Description | Hardware reset, active low. | Hardware reset, active low. External pull-up required. |
+| &nbsp; | M.2 connector pin number | 34 | 34 |
+| &nbsp; | SoM Common Pin Name | RESET | RESET |
 #### Module Pin 21 (A3)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -379,6 +418,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 37 | 37 |
+| &nbsp; | SoM Common Pin Name | ADC3 | ADC3 |
 #### Module Pin 22 (TX)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -394,12 +435,16 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 36 | 36 |
+| &nbsp; | SoM Common Pin Name | TX | TX |
 #### Module Pin 23 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 23|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 24 (RX)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -415,6 +460,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 38 | 38 |
+| &nbsp; | SoM Common Pin Name | RX | RX |
 #### Module Pin 25 (A4)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -427,6 +474,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 41 | 41 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 26 (D3)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -441,6 +490,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | I2C interface | SCL. Use Wire1 object. | SCL. Use Wire1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 40 | 40 |
+| ∆ | SoM Common Pin Name | RESERVED | CTS |
 #### Module Pin 27 (A5)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -457,6 +508,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Internal pull resistance | 13K | ??? |
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
+| &nbsp; | M.2 connector pin number | 43 | 43 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 28 (D2)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -471,6 +524,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | I2C interface | SDA. Use Wire1 object. | SDA. Use Wire1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 42 | 42 |
+| ∆ | SoM Common Pin Name | RESERVED | RTS |
 #### Module Pin 29 (A6)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -485,6 +540,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 45 | 45 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 30 (SOM0 / CELL USBD+)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -493,6 +550,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Alternate Name | CELL USBD+ | CELL USBD+ |
 | ∆ | Description | Cellular Modem USB Data+. | Cellular Modem USB Data+ |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
+| &nbsp; | M.2 connector pin number | 44 | 44 |
+| &nbsp; | SoM Common Pin Name | SOM0 | SOM0 |
 #### Module Pin 31 (A7)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -507,6 +566,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 47 | 47 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 32 (SOM1 / CELL USBD-)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -515,12 +576,16 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Alternate Name | CELL USBD- | CELL USBD- |
 | ∆ | Description | Cellular Modem USB Data-. | Cellular Modem USB Data- |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
+| &nbsp; | M.2 connector pin number | 46 | 46 |
+| &nbsp; | SoM Common Pin Name | SOM1 | SOM1 |
 #### Module Pin 33 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 33|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 34 (D8)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -533,12 +598,16 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | Default SS for SPI. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 48 | 48 |
+| &nbsp; | SoM Common Pin Name | CS | CS |
 #### Module Pin 35 (SOM14)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 35|
 | Pin Name | SOM14|
 | Description | M.2 pin 51. Not currently used, leave unconnected.|
+| M.2 connector pin number | 51|
+| SoM Common Pin Name | RESERVED|
 #### Module Pin 36 (MISO)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -553,6 +622,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 50 | 50 |
+| &nbsp; | SoM Common Pin Name | MISO | MISO |
 #### Module Pin 37 (SOM15 / A5)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -569,6 +640,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
+| &nbsp; | M.2 connector pin number | 53 | 53 |
+| ∆ | SoM Common Pin Name | RESERVED | SWD_CLK |
 #### Module Pin 38 (MOSI)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -583,6 +656,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 52 | 52 |
+| &nbsp; | SoM Common Pin Name | MOSI | MOSI |
 #### Module Pin 39 (SOM16 / D27)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -595,6 +670,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
 | ∆ | Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
+| &nbsp; | M.2 connector pin number | 55 | 55 |
+| ∆ | SoM Common Pin Name | RESERVED | SWD_DATA |
 #### Module Pin 40 (SCK)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -607,18 +684,24 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
+| &nbsp; | M.2 connector pin number | 54 | 54 |
+| &nbsp; | SoM Common Pin Name | SCK | SCK |
 #### Module Pin 41 (SOM17)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 41|
 | Pin Name | SOM17|
 | Description | M.2 pin 57. Not currently used, leave unconnected.|
+| M.2 connector pin number | 57|
+| SoM Common Pin Name | RESERVED|
 #### Module Pin 42 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 42|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 43 (SOM18 / D26)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -629,6 +712,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
+| &nbsp; | M.2 connector pin number | 59 | 59 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 44 (SOM12 / D24)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -641,6 +726,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
+| &nbsp; | M.2 connector pin number | 58 | 58 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 45 (RGBR)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -649,6 +736,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Pin Alternate Name | n/a | RGBR |
 | &nbsp; | Description | RGB LED Red | RGB LED Red |
 | ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
+| &nbsp; | M.2 connector pin number | 61 | 61 |
+| &nbsp; | SoM Common Pin Name | RED | RED |
 #### Module Pin 46 (SOM13 / D25)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -661,6 +750,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Goes high at boot |
+| &nbsp; | M.2 connector pin number | 60 | 60 |
+| &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
 #### Module Pin 47 (RGBG)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -668,6 +759,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Name | RGBG | RGBG |
 | ∆ | Pin Alternate Name | n/a | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
+| &nbsp; | M.2 connector pin number | 63 | 63 |
+| &nbsp; | SoM Common Pin Name | GREEN | GREEN |
 #### Module Pin 48 (D22)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -679,6 +772,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 62 | 62 |
+| &nbsp; | SoM Common Pin Name | GPIO0 | GPIO0 |
 #### Module Pin 49 (RGBB)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -686,6 +781,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Name | RGBB | RGBB |
 | ∆ | Pin Alternate Name | n/a | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
+| &nbsp; | M.2 connector pin number | 65 | 65 |
+| &nbsp; | SoM Common Pin Name | BLUE | BLUE |
 #### Module Pin 50 (D23)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -697,6 +794,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 64 | 64 |
+| &nbsp; | SoM Common Pin Name | GPIO1 | GPIO1 |
 #### Module Pin 51 (SOM5)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -704,6 +803,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Name | SOM5 | SOM5 |
 | &nbsp; | Pin Alternate Name | SIM_VCC | SIM_VCC |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
+| &nbsp; | M.2 connector pin number | 67 | 67 |
+| &nbsp; | SoM Common Pin Name | SOM5 | SOM5 |
 #### Module Pin 52 (D4)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -718,6 +819,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 66 | 66 |
+| &nbsp; | SoM Common Pin Name | PWM0 | PWM0 |
 #### Module Pin 53 (SOM6)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -725,6 +828,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Name | SOM6 | SOM6 |
 | &nbsp; | Pin Alternate Name | SIM_RST | SIM_RST |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
+| &nbsp; | M.2 connector pin number | 69 | 69 |
+| &nbsp; | SoM Common Pin Name | SOM6 | SOM6 |
 #### Module Pin 54 (D5)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -738,6 +843,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 68 | 68 |
+| &nbsp; | SoM Common Pin Name | PWM1 | PWM1 |
 #### Module Pin 55 (SOM7 / SOM8)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -745,6 +852,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Pin Name | SOM7 | SOM8 |
 | &nbsp; | Pin Alternate Name | SIM_CLK | SIM_CLK |
 | ∆ | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
+| &nbsp; | M.2 connector pin number | 71 | 71 |
+| &nbsp; | SoM Common Pin Name | SOM7 | SOM7 |
 #### Module Pin 56 (D6)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -758,6 +867,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 70 | 70 |
+| &nbsp; | SoM Common Pin Name | PWM2 | PWM2 |
 #### Module Pin 57 (SOM8 / SIM_DATA)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -765,6 +876,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Pin Name | SOM8 | SIM_DATA |
 | &nbsp; | Pin Alternate Name | SIM_DATA | SIM_DATA |
 | ∆ | Description | Leave unconnected. External SIM support is not available on B-SoM. | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up. |
+| &nbsp; | M.2 connector pin number | 73 | 73 |
+| &nbsp; | SoM Common Pin Name | SOM8 | SOM8 |
 #### Module Pin 58 (D7)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -778,12 +891,16 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| &nbsp; | M.2 connector pin number | 72 | 72 |
+| &nbsp; | SoM Common Pin Name | PWM3 | PWM3 |
 #### Module Pin 59 (GND)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 59|
 | Pin Name | GND|
 | Description | Ground.|
+| M.2 connector pin number | 1|
+| SoM Common Pin Name | GND|
 #### Module Pin 60 (SOM9 / SOM8)
 |   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -791,6 +908,8 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Pin Name | SOM9 | SOM8 |
 | ∆ | Pin Alternate Name | n/a | CELL_RI |
 | ∆ | Description | M.2 pin 75. Not currently used, leave unconnected. | CELL_RI, ring indicator output, leave unconnected. |
+| &nbsp; | M.2 connector pin number | 75 | 75 |
+| &nbsp; | SoM Common Pin Name | SOM9 | SOM9 |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
