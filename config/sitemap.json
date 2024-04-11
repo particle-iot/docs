@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "adcbf9246b4bd67071fba94cb0b30e7e1d0871e2759d5ab02924a8107511292d",
-            "date": "2024-04-08"
+            "hash": "c0b4f6b3261adcb9ab49f899ea5a6820e2c74a8c1f9b4c52b2499603b8c6ea5f",
+            "date": "2024-04-11"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8433,6 +8433,10 @@
         "integrations/organization-integrations.md": {
             "hash": "3d53e16cb5a61d9aed9515d7238906452611b29d2bb7678adb7f7131d37cdd74",
             "date": "2024-04-02"
+        },
+        "integrations/community-integrations/qubitro.md": {
+            "hash": "3d018558e062004433b57a4e7963f150f34eb844c4ba83820ed048ae6efb6f84",
+            "date": "2024-04-11"
         }
     }
 }

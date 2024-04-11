@@ -61,6 +61,11 @@
         "href": "/integrations/community-integrations/pushover/"
       },
       {
+        "dir": "qubitro",
+        "title": "Qubitro",
+        "href": "/integrations/community-integrations/qubitro/"
+      },
+      {
         "dir": "questdb",
         "title": "QuestDB",
         "href": "/integrations/community-integrations/questdb/"
