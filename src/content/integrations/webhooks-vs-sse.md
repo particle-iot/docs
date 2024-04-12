@@ -1,8 +1,8 @@
 ---
-title: Integrations
+title: Webhooks vs. server-sent-events
 layout: commonTwo.hbs
 columns: two
-description: Using Integrations to access external services
+description: Webhooks vs. server-sent-events
 ---
 
 # {{title}}
