@@ -145,7 +145,64 @@ $(document).ready(function() {
             }
         }        
         
+        // modem features is before features so cellular quectel is will not always include because of cellular
+        {
+            const allModemFeatures = [];
+            for(const modemObj of releaseNotes.carriersJson.modems) {
+                const mfg = modemObj.manufacturer.toLowerCase();
+                if (!allModemFeatures.includes(mfg)) {
+                    allModemFeatures.push(mfg);
+                }
 
+                const model = modemObj.model.toLowerCase();
+                if (!allModemFeatures.includes(model)) {
+                    allModemFeatures.push(model);
+                }
+            }
+            const modemFeatures = [];
+            for(const tag of sanitizedTags) {
+                for(const feature of allModemFeatures) {
+                    if (feature.indexOf(tag) >= 0) {
+                        modemFeatures.push(tag);
+                    }
+                }
+            }
+
+            if (modemFeatures.length) {
+                // If this platform does not have a modem, don't include
+                if (!releaseNotes.filterOptions.modems) {
+                    if (options.debug) {
+                        console.log('omitting by lack of modem', {entry});
+                    }    
+                    return false;
+                }
+                
+                // If there is any feature set, any one can match, otherwise filter out
+                for(const feature of modemFeatures) {
+                    for(const modemObj of releaseNotes.filterOptions.modems) {
+                        const mfg = modemObj.manufacturer.toLowerCase();
+                        if (feature == mfg) {
+                            if (options.debug) {
+                                console.log('including by modem manufacturer', {entry, mfg});
+                            }
+                            return true;
+                        }
+    
+                        const model = modemObj.model.toLowerCase();
+                        if (feature.indexOf(model) >= 0) {
+                            if (options.debug) {
+                                console.log('including by modem model', {entry, model});
+                            }
+                            return true;
+                        }    
+                    }
+                }
+                if (options.debug) {
+                    console.log('omitting by modem features', {entry, modemFeatures});
+                }
+                return false;
+            }                   
+        }
         {
             const platforms = [];
             for(const tag of sanitizedTags) {
@@ -224,63 +281,7 @@ $(document).ready(function() {
                 return false;
             }            
         }
-        {
-            const allModemFeatures = [];
-            for(const modemObj of releaseNotes.carriersJson.modems) {
-                const mfg = modemObj.manufacturer.toLowerCase();
-                if (!allModemFeatures.includes(mfg)) {
-                    allModemFeatures.push(mfg);
-                }
 
-                const model = modemObj.model.toLowerCase();
-                if (!allModemFeatures.includes(model)) {
-                    allModemFeatures.push(model);
-                }
-            }
-            const modemFeatures = [];
-            for(const tag of sanitizedTags) {
-                for(const feature of allModemFeatures) {
-                    if (feature.indexOf(tag) >= 0) {
-                        modemFeatures.push(tag);
-                    }
-                }
-            }
-
-            if (modemFeatures.length) {
-                // If this platform does not have a modem, don't include
-                if (!releaseNotes.filterOptions.modems) {
-                    if (options.debug) {
-                        console.log('omitting by lack of modem', {entry});
-                    }    
-                    return false;
-                }
-                
-                // If there is any feature set, any one can match, otherwise filter out
-                for(const feature of modemFeatures) {
-                    for(const modemObj of releaseNotes.filterOptions.modems) {
-                        const mfg = modemObj.manufacturer.toLowerCase();
-                        if (feature == mfg) {
-                            if (options.debug) {
-                                console.log('including by modem manufacturer', {entry, mfg});
-                            }
-                            return true;
-                        }
-    
-                        const model = modemObj.model.toLowerCase();
-                        if (feature.indexOf(model) >= 0) {
-                            if (options.debug) {
-                                console.log('including by modem model', {entry, model});
-                            }
-                            return true;
-                        }    
-                    }
-                }
-                if (options.debug) {
-                    console.log('omitting by modem features', {entry, modemFeatures});
-                }
-                return false;
-            }                   
-        }
         // Generation is last, so it can be combined with other things that disqualify like "gen3 quectel"
         {
             const generations = [];
