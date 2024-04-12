@@ -4,27 +4,65 @@ $(document).ready(function() {
         return;
     }
 
-    let releaseNotesJson;
-    let lunrIndex;
-    const urlParams = new URLSearchParams(window.location.search);
+    let releaseNotes = {
+        urlParams: new URLSearchParams(window.location.search),
+        defaultSearchAfter: 'v1.4.4',
+        gaCategory: 'Release Note Search',
 
-    const defaultSearchAfter = 'v1.4.4';
-    const gaCategory = 'Release Note Search';
+        // Platforms to hide from the filter select
+        hidePlatforms: ['trackerm'],
 
-    let releaseNotePlatforms = [];
-    let allTags = [];
+        // Mapped tags (lowercased). Use this to correct misspelled tags.
+        mapTags: {
+            'asset tracker': 'tracker',
+            'e404x': 'esomx',
+            'esom': 'esomx',
+            'rtl8721x': 'rtl872x',
+        },
 
-    // Platforms to hide from the filter select
-    const hidePlatforms = ['trackerm'];
+        // Implicitly add tags based on pull request number
+        // TODO: Implement this!
+        addTags: [
+        ],
 
-    // Mapped tags (lowercased)
-    const mapTags = {
-        'm som': 'msom',
+        includeTags: [
+            'deprecation',
+            'ota',
+            'system',
+            'wiring',
+        ],
+
+        // Always ignore tags
+        ignoreTags: [
+            'ci',
+            'experimental',
+            'test',
+            'tests',
+        ],
+
+        // Ignore these sections when filtering by platform
+        ignoreSections: [
+            'INTERNAL',
+        ],
+
+        // Various things that are filled in later
+        releaseNotePlatforms: [],
+        unknownTags: [],
     };
-    const ignoreTags = [
-        'ci',
-        'test',
-    ];
+
+    const sanitizePlatform = function(platform) {
+        const m = platform.match(/([a-z][0-9]*){1}[- ]*som/);
+        if (m) {
+            // TODO: When deviceConstants changes to names like m-som may need to change this!
+            platform = m[1] + 'som';
+
+            if (releaseNotes.mapTags[platform]) {
+                platform = releaseNotes.mapTags[platform];
+            }
+        }
+
+        return platform;
+    }
 
     const includePlatform = function(entry, filterPlatform) {
         if (!filterPlatform) { 
@@ -38,9 +76,11 @@ $(document).ready(function() {
         }
 
         let sanitizedTags = [];
-        for(const tag of entry.tags) {
-            if (mapTags[tag]) {
-                sanitizedTags.push(mapTags[tag]);
+        for(let tag of entry.tags) {
+            tag = tag.toLowerCase();
+
+            if (releaseNotes.mapTags[tag]) {
+                sanitizedTags.push(releaseNotes.mapTags[tag]);
                 continue;
             }
             
@@ -48,17 +88,20 @@ $(document).ready(function() {
             if (slashParts.length > 1) {
                 for(let tag2 of slashParts) {
                     tag2 = tag2.trim();
-                    sanitizedTags.push(tag2);
+                    sanitizedTags.push(sanitizePlatform(tag2));
                 }
                 continue;
             }
 
-            sanitizedTags.push(tag);
+            sanitizedTags.push(sanitizePlatform(tag));
         }
 
         for(const tag of sanitizedTags) {
-            if (ignoreTags.includes(tag)) {
+            if (releaseNotes.ignoreTags.includes(tag)) {
                 return false;
+            }
+            if (releaseNotes.includeTags.includes(tag)) {
+                return true;
             }
         }        
         
@@ -75,30 +118,93 @@ $(document).ready(function() {
                 // If there is any gen set, any one can match, otherwise filter out
                 for(const gen of generations) {
                     if (gen == filterPlatform.generation) {
-                        console.log('filter generations allow', generations);
                         return true;
                     }
                 }
-                console.log('filter generations omit', generations);
                 return false;
+            }
+        }
+        {
+            const platforms = [];
+            for(const tag of sanitizedTags) {
+                for(const key in releaseNotes.carriersJson.deviceConstants) {
+                    if (tag == carriersJson.deviceConstants[key].name) {
+                        platforms.push(tag);
+                    }
+                }
+            }
+            if (platforms.length) {
+                // If there is any platform set, any one can match, otherwise filter out
+                for(const platform of platforms) {
+                    if (platform == filterPlatform.name) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        {
+            const mcus = [];
+            for(const tag of sanitizedTags) {
+                for(const key in releaseNotes.carriersJson.deviceConstants) {
+                    if (carriersJson.deviceConstants[key].baseMcu.startsWith(tag)) {
+                        // startsWith so nrf52 matches nrf52840
+                        mcus.push(tag);
+                    }
+                }
+            }
+            if (mcus.length) {
+                // If there is any mcu set, any one can match, otherwise filter out
+                for(const mcu of mcus) {
+                    if (filterPlatform.baseMcu.startsWith(mcu)) {
+                        return true;
+                    }
+                }
+                return false;
+            }            
+        }
+        {
+            const features = [];
+            for(const tag of sanitizedTags) {
+                for(const key in releaseNotes.carriersJson.deviceConstants) {
+                    for(const feature of carriersJson.deviceConstants[key].features) {
+                        if (feature == tag) {
+                            features.push(tag);
+                        }
+                    }
+                }
+            }
+            if (features.length) {
+                // If there is any feature set, any one can match, otherwise filter out
+                for(const feature of features) {
+                    if (filterPlatform.features.includes(feature)) {
+                        return true;
+                    }
+                }
+                return false;
+            }            
+        }
+
+
+        for(const tag of sanitizedTags) {
+            if (!releaseNotes.unknownTags.includes(tag)) {
+                releaseNotes.unknownTags.push(tag);
             }
         }
 
 
-//        console.log('sanitizedTags', sanitizedTags);
-        
-        return true;
+        return false;
     }
 
     const doSetup = function() {
         $('.apiHelperReleaseNotes').each(function() {
             const thisPartial = $(this);
     
-            analytics.track('Visit', {category:gaCategory});
+            analytics.track('Visit', {category:releaseNotes.gaCategory});
 
             const versions = [];
 
-            for(const releaseName in releaseNotesJson.releases) {
+            for(const releaseName in releaseNotes.releaseNotesJson.releases) {
                 if (releaseName.startsWith('v')) {
                     versions.push(releaseName.substring(1));
                 }
@@ -147,19 +253,12 @@ $(document).ready(function() {
                 if ($(thisPartial).find('.filterDevice').prop('checked')) {
                     const platformId = parseInt($(thisPartial).find('.filterPlatform').val());
 
-                    filterPlatform = releaseNotePlatforms.find(e => e.id == platformId);
+                    filterPlatform = releaseNotes.releaseNotePlatforms.find(e => e.id == platformId);
+                    console.log('filterPlatform', filterPlatform);
                 }
 
                 for(const entry of items) {
-                    for(let tag of entry.tags) {
-                        tag = tag.toLowerCase();
-                        if (!allTags.includes(tag)) {
-                            allTags.push(tag);
-                        }
-                    }
-
                     if (!includePlatform(entry, filterPlatform)) {
-                        console.log('includePlatform exclude', entry);
                         continue;
                     }
 
@@ -187,7 +286,7 @@ $(document).ready(function() {
                                 const aElem = document.createElement('a');
                                 $(aElem).text(pr);                              
                                 
-                                const pullObj = releaseNotesJson.pulls[pr.toString()];
+                                const pullObj = releaseNotes.releaseNotesJson.pulls[pr.toString()];
                                 if (pullObj) {
                                     $(aElem).attr('href', pullObj.url);
                                     $(aElem).attr('title', pullObj.title);                                    
@@ -204,7 +303,7 @@ $(document).ready(function() {
                         const tdElem = document.createElement('td');
                         $(tdElem).css('width', '80px');
                         if (entry.version) {
-                            const releaseObj = releaseNotesJson.releases[entry.version];
+                            const releaseObj = releaseNotes.releaseNotesJson.releases[entry.version];
                             
                             const aElem = document.createElement('a');
                             $(aElem).attr('href', releaseObj.url);
@@ -230,11 +329,12 @@ $(document).ready(function() {
                 let filterPlatform;
                 if ($(thisPartial).find('.filterDevice').prop('checked')) {
                     const platformId = parseInt($(thisPartial).find('.filterPlatform').val());
-                    filterPlatform = releaseNotePlatforms.find(e => e.id == platformId);
+                    filterPlatform = releaseNotes.releaseNotePlatforms.find(e => e.id == platformId);
                 }
 
                 for(const section in sectionData) {
-                    if (filterPlatform && section == 'INTERNAL') {
+                    if (filterPlatform && releaseNotes.ignoreSections.includes(section)) {
+                        // Removing sections like INTERNAL when filtering by platform
                         continue;
                     }
 
@@ -283,9 +383,9 @@ $(document).ready(function() {
                     }
                     searchParams.set('ver', ver);
 
-                    analytics.track('View Version', {category:gaCategory, label:ver});
+                    analytics.track('View Version', {category:releaseNotes.gaCategory, label:ver});
 
-                    const releaseObj = releaseNotesJson.releases[ver];
+                    const releaseObj = releaseNotes.releaseNotesJson.releases[ver];
 
                     let sectionData = {};
 
@@ -321,7 +421,7 @@ $(document).ready(function() {
                     searchParams.set('ver1', ver1);
                     searchParams.set('ver2', ver2);
 
-                    analytics.track('View Cumulative', {category:gaCategory, label:ver1 + '-' + ver2});
+                    analytics.track('View Cumulative', {category:releaseNotes.gaCategory, label:ver1 + '-' + ver2});
 
                     let includeVer = false;
 
@@ -337,7 +437,7 @@ $(document).ready(function() {
                         }
 
                         if (includeVer) {
-                            const releaseObj = releaseNotesJson.releases[verKey];
+                            const releaseObj = releaseNotes.releaseNotesJson.releases[verKey];
                             for(let entry of releaseObj.entries) {
                                 entry.version = verKey;
         
@@ -375,12 +475,12 @@ $(document).ready(function() {
 
                         let items = [];
 
-                        const searchResults = lunrIndex.search(searchText);
+                        const searchResults = releaseNotes.lunrIndex.search(searchText);
                         if (searchResults.length > 0) {
-                            analytics.track('Success', {category:gaCategory, label:searchText});
+                            analytics.track('Success', {category:releaseNotes.gaCategory, label:searchText});
                         }
                         else {
-                            analytics.track('No Results', {category:gaCategory, label:searchFor});                            
+                            analytics.track('No Results', {category:releaseNotes.gaCategory, label:searchFor});                            
                         }
 
                         for(const res of searchResults) {
@@ -394,7 +494,7 @@ $(document).ready(function() {
                                 }
                             }
     
-                            let entry = releaseNotesJson.releases[ver].entries[index];
+                            let entry = releaseNotes.releaseNotesJson.releases[ver].entries[index];
                             entry.version = ver;
     
                             items.push(entry);
@@ -404,7 +504,8 @@ $(document).ready(function() {
                         renderOneList(items, {showVersion:true});    
                     }
                 }
-                console.log('allTags', allTags);
+                releaseNotes.unknownTags.sort();
+                console.log('unknownTags', releaseNotes.unknownTags);
 
                 window.history.pushState({}, '', '?' + searchParams.toString());
             };
@@ -527,16 +628,16 @@ $(document).ready(function() {
 
 
 
-            if (urlParams) {
-                const filterPlatform = urlParams.get('filter');
+            if (releaseNotes.urlParams) {
+                const filterPlatform = releaseNotes.urlParams.get('filter');
                 if (filterPlatform) {
                     $(thisPartial).find('.filterPlatform').val(filterPlatform);
                     $(thisPartial).find('.filterDevice').prop('checked', true);
                 }
 
-                const mode = urlParams.get('mode');
+                const mode = releaseNotes.urlParams.get('mode');
                 if (mode == 'rel1') {
-                    const ver = urlParams.get('ver');
+                    const ver = releaseNotes.urlParams.get('ver');
                     if (ver) {
                         $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
                         $(thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
@@ -547,8 +648,8 @@ $(document).ready(function() {
                 }
                 else
                 if (mode == 'rel2') {
-                    const ver1 = urlParams.get('ver1');
-                    const ver2 = urlParams.get('ver2');
+                    const ver1 = releaseNotes.urlParams.get('ver1');
+                    const ver2 = releaseNotes.urlParams.get('ver2');
                     if (ver1 && ver2) {
                         $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
                         $(thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
@@ -562,8 +663,8 @@ $(document).ready(function() {
                 }
                 else
                 if (mode == 'search') {
-                    const text = urlParams.get('text');
-                    const ver = urlParams.get('ver') || '-';
+                    const text = releaseNotes.urlParams.get('text');
+                    const ver = releaseNotes.urlParams.get('ver') || '-';
                     if (text && ver) {
                         $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
                         $(thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
@@ -575,8 +676,8 @@ $(document).ready(function() {
                 }
             }
 
-            if (defaultSearchAfter && $(thisPartial).find('.versionAfterSelect').val() == '-') {
-                $(thisPartial).find('.versionAfterSelect').val(defaultSearchAfter);
+            if (releaseNotes.defaultSearchAfter && $(thisPartial).find('.versionAfterSelect').val() == '-') {
+                $(thisPartial).find('.versionAfterSelect').val(releaseNotes.defaultSearchAfter);
             }
         
         });
@@ -584,60 +685,64 @@ $(document).ready(function() {
     };
 
     apiHelper.getCarriersJson().then(function(carriersJson) {
+        releaseNotes.carriersJson = carriersJson;
+
         // console.log(carriersJson);
         // carriersJson.deviceConstants (object)
         //   baseMcu, features, generation, name, public, productEligible, displayName
         for(const key in carriersJson.deviceConstants) {
             if (carriersJson.deviceConstants[key].public && carriersJson.deviceConstants[key].productEligible) {
-                if (!hidePlatforms.includes(carriersJson.deviceConstants[key].name)) {
-                    releaseNotePlatforms.push(Object.assign({}, carriersJson.deviceConstants[key]));
+                if (!releaseNotes.hidePlatforms.includes(carriersJson.deviceConstants[key].name)) {
+                    releaseNotes.releaseNotePlatforms.push(Object.assign({}, carriersJson.deviceConstants[key]));
                 }
             }
         }
 
         // Sort by display name, alphabetical
-        releaseNotePlatforms.sort(function(a, b) {
+        releaseNotes.releaseNotePlatforms.sort(function(a, b) {
             return a.displayName.localeCompare(b.displayName);
         });
 
-        for(const p of releaseNotePlatforms) {
+        for(const p of releaseNotes.releaseNotePlatforms) {
             const optionElem = document.createElement('option');
             $(optionElem).attr('value', p.id.toString());
             $(optionElem).text(p.displayName);
             $('.filterPlatform').append(optionElem);
         }
+
+        fetch('/assets/files/releaseNotes.json')
+            .then(response => response.json())
+            .then(function(data) {
+                releaseNotes.releaseNotesJson = data;
+
+                // console.log('releaseNotesJson', releaseNotes.releaseNotesJson);
+
+                releaseNotes.lunrIndex = lunr(function() {
+                    const lunrThis = this;
+                    lunrThis.ref('key');
+                    lunrThis.field('prs');
+                    lunrThis.field('tags');
+                    lunrThis.field('text');
+
+                    for(const releaseName in releaseNotes.releaseNotesJson.releases) {
+                        const releaseObj = releaseNotes.releaseNotesJson.releases[releaseName];
+                        for(let ii = 0; ii < releaseObj.entries.length; ii++) {
+                            const entryObj = releaseObj.entries[ii]
+                            let doc = {
+                                key: releaseName + '/' + ii.toString(),
+                                prs: entryObj.prs.join(', '),
+                                tags: entryObj.tags.join(', '),
+                                text: entryObj.text,
+                            };
+                            lunrThis.add(doc);
+                        }
+                    }
+                });
+
+                doSetup();
+            });
     });
     
-    fetch('/assets/files/releaseNotes.json')
-        .then(response => response.json())
-        .then(function(data) {
-            releaseNotesJson = data;
 
-            // console.log('releaseNotesJson', releaseNotesJson);
-
-            lunrIndex = lunr(function() {
-                const lunrThis = this;
-                lunrThis.ref('key');
-                lunrThis.field('prs');
-                lunrThis.field('tags');
-                lunrThis.field('text');
-
-                for(const releaseName in releaseNotesJson.releases) {
-                    const releaseObj = releaseNotesJson.releases[releaseName];
-                    for(let ii = 0; ii < releaseObj.entries.length; ii++) {
-                        const entryObj = releaseObj.entries[ii]
-                        let doc = {
-                            key: releaseName + '/' + ii.toString(),
-                            prs: entryObj.prs.join(', '),
-                            tags: entryObj.tags.join(', '),
-                            text: entryObj.text,
-                        };
-                        lunrThis.add(doc);
-                    }
-                }
-            });
-
-            doSetup();
-        });
 
 });
