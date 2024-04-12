@@ -44,13 +44,18 @@ $(document).ready(function() {
             'tests',
         ],
 
+        // Map section names
+        mapSections: {
+            'BREAKING CHANGE': 'BREAKING CHANGES',
+        },
+
         // Ignore these sections when filtering by platform
         ignoreSections: [
             'INTERNAL',
         ],
 
+        // Add PR numbers to debug why that entry is included or excluded
         debugPrs: [
-            2619,
         ],
 
         // Various things that are filled in later
@@ -79,6 +84,27 @@ $(document).ready(function() {
                 console.log('no filtering enabled', {entry});
             }
             return true;
+        }
+
+        
+        if (entry.version) {
+            let ver = entry.version;
+            if (ver.startsWith('v')) {
+                ver = ver.substring(1);
+            }
+         
+            const verMinMax = releaseNotes.platformVersionInfo[releaseNotes.filterOptions.platform.name];
+            if (verMinMax) {                
+                if (apiHelper.versionSort(verMinMax.min, ver) < 0 || apiHelper.versionSort(verMinMax.max, ver) > 0 ) {
+                    // TODO: Add debug check
+                    if (options.debug) {
+                        console.log('platform not supported on version', {entry, ver, verMinMax});
+                    }
+                    return false;
+                }
+    
+            }
+
         }
 
         if (entry.tags.length == 0) {
@@ -119,31 +145,7 @@ $(document).ready(function() {
             }
         }        
         
-        {
-            const generations = [];
-            for(const tag of sanitizedTags) {
-                const m = tag.match(/gen[ ]*([0-9]+)/);
-                if (m) {
-                    generations.push(parseInt(m[1]));
-                }
-            }
-            
-            if (generations.length) {
-                // If there is any gen set, any one can match, otherwise filter out
-                for(const gen of generations) {
-                    if (gen == releaseNotes.filterOptions.platform.generation) {
-                        if (options.debug) {
-                            console.log('including by generation', {entry, gen});
-                        }
-                        return true;
-                    }
-                }
-                if (options.debug) {
-                    console.log('omitting by generation', {entry, generations});
-                }
-                return false;
-            }
-        }
+
         {
             const platforms = [];
             for(const tag of sanitizedTags) {
@@ -278,6 +280,38 @@ $(document).ready(function() {
                 }
                 return false;
             }                   
+        }
+        // Generation is last, so it can be combined with other things that disqualify like "gen3 quectel"
+        {
+            const generations = [];
+            for(const tag of sanitizedTags) {
+                const m = tag.match(/gen[ ]*([0-9]+)/);
+                if (m) {
+                    generations.push(parseInt(m[1]));
+                }
+            }
+            
+            if (generations.length) {
+                // If there is any gen set, any one can match, otherwise filter out
+                for(const gen of generations) {
+                    if (gen == releaseNotes.filterOptions.platform.generation) {
+                        if (options.debug) {
+                            console.log('including by generation', {entry, gen});
+                        }
+                        return true;
+                    }
+                    if (gen == 4 && releaseNotes.filterOptions.platform.baseMcu.startsWith('rtl872')) {
+                        if (options.debug) {
+                            console.log('including by gen4 workaround', {entry, gen});
+                        }
+                        return true;
+                    }
+                }
+                if (options.debug) {
+                    console.log('omitting by generation', {entry, generations});
+                }
+                return false;
+            }
         }
 
         for(const tag of sanitizedTags) {
@@ -464,9 +498,6 @@ $(document).ready(function() {
                     }
                 }
             }
-
-            console.log('filterOptions', releaseNotes.filterOptions);
-
         }
 
 
@@ -508,10 +539,6 @@ $(document).ready(function() {
         let searchParams = new URLSearchParams();
         searchParams.set('mode', mode);
 
-        if (releaseNotes.filterPlatform && releaseNotes.platformId) {
-            searchParams.set('filter', releaseNotes.platformId);
-        }
-
 
         if (mode == 'rel1') {
             const ver = $(releaseNotes.thisPartial).find('.versionSelect').val();
@@ -528,6 +555,10 @@ $(document).ready(function() {
 
             for(let entry of releaseObj.entries) {
                 entry.version = ver;
+
+                if (releaseNotes.mapSections[entry.section]) {
+                    entry.section = releaseNotes.mapSections[entry.section];
+                }
 
                 if (!sectionData[entry.section]) {
                     sectionData[entry.section] = [];
@@ -578,6 +609,10 @@ $(document).ready(function() {
                     for(let entry of releaseObj.entries) {
                         entry.version = verKey;
 
+                        if (releaseNotes.mapSections[entry.section]) {
+                            entry.section = releaseNotes.mapSections[entry.section];
+                        }
+        
                         if (!sectionData[entry.section]) {
                             sectionData[entry.section] = [];
                         }
@@ -634,6 +669,10 @@ $(document).ready(function() {
                     let entry = releaseNotes.releaseNotesJson.releases[ver].entries[index];
                     entry.version = ver;
 
+                    if (releaseNotes.mapSections[entry.section]) {
+                        entry.section = releaseNotes.mapSections[entry.section];
+                    }
+    
                     items.push(entry);
                 }
                 releaseNotes.dedupeList(items);
@@ -643,6 +682,10 @@ $(document).ready(function() {
         }
         releaseNotes.unknownTags.sort();
         console.log('unknownTags', releaseNotes.unknownTags);
+
+        if (releaseNotes.filterPlatform && releaseNotes.platformId) {
+            searchParams.set('filter', releaseNotes.platformId);
+        }
 
         window.history.pushState({}, '', '?' + searchParams.toString());
     };
@@ -898,7 +941,33 @@ $(document).ready(function() {
                     }
                 });
 
-                releaseNotes.doSetup();
+                fetch('/assets/files/deviceRestore.json')
+                    .then(response => response.json())
+                    .then(function(data) {
+
+                        releaseNotes.deviceRestore = data;
+
+                        releaseNotes.platformVersionInfo = {};
+                        
+                        for(const verName in releaseNotes.deviceRestore.versions) {
+                            
+                            for(const platformName of releaseNotes.deviceRestore.versions[verName]) {
+                                if (!releaseNotes.platformVersionInfo[platformName]) {
+                                    releaseNotes.platformVersionInfo[platformName] = {};
+                                }
+
+                                if (!releaseNotes.platformVersionInfo[platformName].min || apiHelper.versionSort(verName, releaseNotes.platformVersionInfo[platformName].min) > 0) {
+                                    releaseNotes.platformVersionInfo[platformName].min = verName;
+                                }
+                                if (!releaseNotes.platformVersionInfo[platformName].max || apiHelper.versionSort(verName, releaseNotes.platformVersionInfo[platformName].max) < 0) {
+                                    releaseNotes.platformVersionInfo[platformName].max = verName;
+                                }
+                            }
+                        }
+                        // console.log('platformVersionInfo', releaseNotes.platformVersionInfo);
+
+                        releaseNotes.doSetup();
+                    });
             });
     });
     
