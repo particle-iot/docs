@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Release note filter 2024-04-12
+
+The [release note tool](/reference/device-os/release-notes/) now has an option to filter by device platform.
+
 ### M524 certification update 2024-04-12
 
 [Certification documents for the M524](/hardware/certification/certification-documents/#m524-m-som-m-series-lte-cat-1) updated to include CE RED certificate.
