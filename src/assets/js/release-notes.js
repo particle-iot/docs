@@ -26,8 +26,12 @@ $(document).ready(function() {
         ],
 
         includeTags: [
+            'build',
             'deprecation',
+            'hal',
+            'network',
             'ota',
+            'services',
             'system',
             'wiring',
         ],
@@ -64,8 +68,8 @@ $(document).ready(function() {
         return platform;
     }
 
-    const includePlatform = function(entry, filterPlatform) {
-        if (!filterPlatform) { 
+    const includePlatform = function(entry, filterOptions) {
+        if (!filterOptions || !filterOptions.platform) { 
             // No filtering enabled
             return true;
         }
@@ -117,7 +121,7 @@ $(document).ready(function() {
             if (generations.length) {
                 // If there is any gen set, any one can match, otherwise filter out
                 for(const gen of generations) {
-                    if (gen == filterPlatform.generation) {
+                    if (gen == filterOptions.platform.generation) {
                         return true;
                     }
                 }
@@ -136,7 +140,7 @@ $(document).ready(function() {
             if (platforms.length) {
                 // If there is any platform set, any one can match, otherwise filter out
                 for(const platform of platforms) {
-                    if (platform == filterPlatform.name) {
+                    if (platform == filterOptions.platform.name) {
                         return true;
                     }
                 }
@@ -156,7 +160,7 @@ $(document).ready(function() {
             if (mcus.length) {
                 // If there is any mcu set, any one can match, otherwise filter out
                 for(const mcu of mcus) {
-                    if (filterPlatform.baseMcu.startsWith(mcu)) {
+                    if (filterOptions.platform.baseMcu.startsWith(mcu)) {
                         return true;
                     }
                 }
@@ -177,14 +181,62 @@ $(document).ready(function() {
             if (features.length) {
                 // If there is any feature set, any one can match, otherwise filter out
                 for(const feature of features) {
-                    if (filterPlatform.features.includes(feature)) {
+                    if (filterOptions.platform.features.includes(feature)) {
                         return true;
                     }
                 }
                 return false;
             }            
         }
+        {
+            const allModemFeatures = [];
+            for(const modemObj of releaseNotes.carriersJson.modems) {
+                const mfg = modemObj.manufacturer.toLowerCase();
+                if (!allModemFeatures.includes(mfg)) {
+                    allModemFeatures.push(mfg);
+                }
 
+                const model = modemObj.model.toLowerCase();
+                if (!allModemFeatures.includes(model)) {
+                    allModemFeatures.push(model);
+                }
+            }
+            const modemFeatures = [];
+            for(const tag of sanitizedTags) {
+                for(const feature of allModemFeatures) {
+                    if (feature.indexOf(tag) >= 0) {
+                        modemFeatures.push(tag);
+                    }
+                }
+            }
+            console.log('modem', {allModemFeatures, modemFeatures});
+
+            if (modemFeatures.length) {
+                // If this platform does not have a modem, don't include
+                if (!filterOptions.modems) {
+                    return false;
+                }
+                
+                // If there is any feature set, any one can match, otherwise filter out
+                for(const feature of modemFeatures) {
+                    for(const modemObj of filterOptions.modems) {
+                        const mfg = modemObj.manufacturer.toLowerCase();
+                        if (feature == mfg) {
+                            console.log('include by modem mfg', entry);
+                            return true;
+                        }
+    
+                        const model = modemObj.model.toLowerCase();
+                        if (feature.indexOf(model) >= 0) {
+                            console.log('include by modem model', entry);
+                            return true;
+                        }    
+                    }
+                }
+                console.log('exclude by modem features', entry);
+                return false;
+            }                   
+        }
 
         for(const tag of sanitizedTags) {
             if (!releaseNotes.unknownTags.includes(tag)) {
@@ -249,16 +301,34 @@ $(document).ready(function() {
                     textWidth -= 80;
                 }
 
-                let filterPlatform;
+                let filterOptions;
                 if ($(thisPartial).find('.filterDevice').prop('checked')) {
+                    filterOptions = {};
                     const platformId = parseInt($(thisPartial).find('.filterPlatform').val());
 
-                    filterPlatform = releaseNotes.releaseNotePlatforms.find(e => e.id == platformId);
-                    console.log('filterPlatform', filterPlatform);
+                    filterOptions.platform = releaseNotes.releaseNotePlatforms.find(e => e.id == platformId);
+                    
+                    for(const skuObj of releaseNotes.carriersJson.skus) {
+                        if (skuObj.platformId == filterOptions.platform.id) {
+                            if (!filterOptions.skus) {
+                                filterOptions.skus = [];
+                            }
+                            filterOptions.skus.push(skuObj);
+
+                            const modemObj = releaseNotes.carriersJson.modems.find(e => e.model == skuObj.modem);
+                            if (!filterOptions.modems) {
+                                filterOptions.modems = [];
+                            }
+                            filterOptions.modems.push(modemObj);
+                        }
+                    }
+
+                    console.log('filterOptions', filterOptions);
+
                 }
 
                 for(const entry of items) {
-                    if (!includePlatform(entry, filterPlatform)) {
+                    if (!includePlatform(entry, filterOptions)) {
                         continue;
                     }
 
