@@ -2097,6 +2097,16 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'3edc7960-f3e7-4034-a557-838ff3b7a480', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('m series', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('M524');
+                    }        
+                }); 
+            } 
+        },
 
 
         // datasheets/tracker/tracker-m-datasheet.md

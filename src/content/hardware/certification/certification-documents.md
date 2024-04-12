@@ -822,6 +822,22 @@ Additional FCC Test Reports:
 - [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/m404-fcc-JBP.pdf)
 - [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/m404-fcc-PCB.pdf)
 
+## M524 M-SoM M-Series LTE Cat 1
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3edc7960-f3e7-4034-a557-838ff3b7a480 --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
+
+- [Summary](/assets/pdfs/m524-ce-summary.pdf)
+
 
 ## Monitor One 404 NorAm
 
