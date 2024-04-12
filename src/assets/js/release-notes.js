@@ -49,12 +49,16 @@ $(document).ready(function() {
             'INTERNAL',
         ],
 
+        debugPrs: [
+            2619,
+        ],
+
         // Various things that are filled in later
         releaseNotePlatforms: [],
         unknownTags: [],
     };
 
-    const sanitizePlatform = function(platform) {
+    releaseNotes.sanitizePlatform = function(platform) {
         const m = platform.match(/([a-z][0-9]*){1}[- ]*som/);
         if (m) {
             // TODO: When deviceConstants changes to names like m-som may need to change this!
@@ -68,14 +72,20 @@ $(document).ready(function() {
         return platform;
     }
 
-    const includePlatform = function(entry, filterOptions) {
-        if (!filterOptions || !filterOptions.platform) { 
+    releaseNotes.includePlatform = function(entry, options = {}) {
+        if (!releaseNotes.filterOptions || !releaseNotes.filterOptions.platform) { 
             // No filtering enabled
+            if (options.debug) {
+                console.log('no filtering enabled', {entry});
+            }
             return true;
         }
 
         if (entry.tags.length == 0) {
             // No tags, include (just in case)
+            if (options.debug) {
+                console.log('no tags', {entry});
+            }
             return true;
         }
 
@@ -92,20 +102,20 @@ $(document).ready(function() {
             if (slashParts.length > 1) {
                 for(let tag2 of slashParts) {
                     tag2 = tag2.trim();
-                    sanitizedTags.push(sanitizePlatform(tag2));
+                    sanitizedTags.push(releaseNotes.sanitizePlatform(tag2));
                 }
                 continue;
             }
 
-            sanitizedTags.push(sanitizePlatform(tag));
+            sanitizedTags.push(releaseNotes.sanitizePlatform(tag));
         }
 
         for(const tag of sanitizedTags) {
             if (releaseNotes.ignoreTags.includes(tag)) {
+                if (options.debug) {
+                    console.log('in ignoreTags', {entry, tag});
+                }
                 return false;
-            }
-            if (releaseNotes.includeTags.includes(tag)) {
-                return true;
             }
         }        
         
@@ -121,9 +131,15 @@ $(document).ready(function() {
             if (generations.length) {
                 // If there is any gen set, any one can match, otherwise filter out
                 for(const gen of generations) {
-                    if (gen == filterOptions.platform.generation) {
+                    if (gen == releaseNotes.filterOptions.platform.generation) {
+                        if (options.debug) {
+                            console.log('including by generation', {entry, gen});
+                        }
                         return true;
                     }
+                }
+                if (options.debug) {
+                    console.log('omitting by generation', {entry, generations});
                 }
                 return false;
             }
@@ -140,9 +156,15 @@ $(document).ready(function() {
             if (platforms.length) {
                 // If there is any platform set, any one can match, otherwise filter out
                 for(const platform of platforms) {
-                    if (platform == filterOptions.platform.name) {
+                    if (platform == releaseNotes.filterOptions.platform.name) {
+                        if (options.debug) {
+                            console.log('including by platform', {entry, platform});
+                        }
                         return true;
                     }
+                }
+                if (options.debug) {
+                    console.log('omitting by platform', {entry, platforms});
                 }
                 return false;
             }
@@ -160,9 +182,15 @@ $(document).ready(function() {
             if (mcus.length) {
                 // If there is any mcu set, any one can match, otherwise filter out
                 for(const mcu of mcus) {
-                    if (filterOptions.platform.baseMcu.startsWith(mcu)) {
+                    if (releaseNotes.filterOptions.platform.baseMcu.startsWith(mcu)) {
+                        if (options.debug) {
+                            console.log('including by mcu', {entry, mcu});
+                        }
                         return true;
                     }
+                }
+                if (options.debug) {
+                    console.log('omitting by mcu', {entry, mcus});
                 }
                 return false;
             }            
@@ -181,9 +209,15 @@ $(document).ready(function() {
             if (features.length) {
                 // If there is any feature set, any one can match, otherwise filter out
                 for(const feature of features) {
-                    if (filterOptions.platform.features.includes(feature)) {
+                    if (releaseNotes.filterOptions.platform.features.includes(feature)) {
+                        if (options.debug) {
+                            console.log('including by feature', {entry, feature});
+                        }
                         return true;
                     }
+                }
+                if (options.debug) {
+                    console.log('omitting by feature', {entry, features});
                 }
                 return false;
             }            
@@ -209,34 +243,51 @@ $(document).ready(function() {
                     }
                 }
             }
-            console.log('modem', {allModemFeatures, modemFeatures});
 
             if (modemFeatures.length) {
                 // If this platform does not have a modem, don't include
-                if (!filterOptions.modems) {
+                if (!releaseNotes.filterOptions.modems) {
+                    if (options.debug) {
+                        console.log('omitting by lack of modem', {entry});
+                    }    
                     return false;
                 }
                 
                 // If there is any feature set, any one can match, otherwise filter out
                 for(const feature of modemFeatures) {
-                    for(const modemObj of filterOptions.modems) {
+                    for(const modemObj of releaseNotes.filterOptions.modems) {
                         const mfg = modemObj.manufacturer.toLowerCase();
                         if (feature == mfg) {
-                            console.log('include by modem mfg', entry);
+                            if (options.debug) {
+                                console.log('including by modem manufacturer', {entry, mfg});
+                            }
                             return true;
                         }
     
                         const model = modemObj.model.toLowerCase();
                         if (feature.indexOf(model) >= 0) {
-                            console.log('include by modem model', entry);
+                            if (options.debug) {
+                                console.log('including by modem model', {entry, model});
+                            }
                             return true;
                         }    
                     }
                 }
-                console.log('exclude by modem features', entry);
+                if (options.debug) {
+                    console.log('omitting by modem features', {entry, modemFeatures});
+                }
                 return false;
             }                   
         }
+
+        for(const tag of sanitizedTags) {
+            if (releaseNotes.includeTags.includes(tag)) {
+                if (options.debug) {
+                    console.log('including by includeTag', {entry, tag});
+                }
+                return true;
+            }
+        }        
 
         for(const tag of sanitizedTags) {
             if (!releaseNotes.unknownTags.includes(tag)) {
@@ -248,374 +299,412 @@ $(document).ready(function() {
         return false;
     }
 
-    const doSetup = function() {
-        $('.apiHelperReleaseNotes').each(function() {
-            const thisPartial = $(this);
-    
-            analytics.track('Visit', {category:releaseNotes.gaCategory});
+    releaseNotes.renderOneList = function(items, options = {}) {
+        const outputElem = $(releaseNotes.thisPartial).find('.apiHelperOutput');
 
-            const versions = [];
+        const tableElem = document.createElement('table');
+        $(tableElem).css('margin', '20px 0px 20px 0px');
 
-            for(const releaseName in releaseNotes.releaseNotesJson.releases) {
-                if (releaseName.startsWith('v')) {
-                    versions.push(releaseName.substring(1));
+        const theadElem = document.createElement('thead');
+        const trElem = document.createElement('tr');
+        {
+            const thElem = document.createElement('th');
+            $(thElem).text('Description');
+            $(trElem).append(thElem);
+        }
+        {
+            const thElem = document.createElement('th');
+            $(thElem).text('Tags');
+            $(trElem).append(thElem);
+        }
+        {
+            const thElem = document.createElement('th');
+            $(thElem).text('Pull Request');
+            $(trElem).append(thElem);
+        }
+        if (options.showVersion) {
+            const thElem = document.createElement('th');
+            $(thElem).text('Version');
+            $(trElem).append(thElem);
+        }
+        $(theadElem).append(trElem);
+        $(tableElem).append(theadElem);
+
+        const tbodyElem = document.createElement('tbody');
+
+        let textWidth = 500;
+        if (options.showVersion) {
+            textWidth -= 80;
+        }
+
+
+        for(const entry of items) {
+            let debug = false;
+            if (releaseNotes.debugPrs && entry.prs) {
+                for(const pr1 of releaseNotes.debugPrs) {
+                    for(const pr2 of entry.prs) {
+                        if (pr1 == pr2) {
+                            debug = true;
+                        }
+                    }
                 }
             }
 
-            versions.sort(apiHelper.versionSort);
-            const renderOneList = function(items, options = {}) {
-                const outputElem = $(thisPartial).find('.apiHelperOutput');
-
-                const tableElem = document.createElement('table');
-                $(tableElem).css('margin', '20px 0px 20px 0px');
-
-                const theadElem = document.createElement('thead');
-                const trElem = document.createElement('tr');
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Description');
-                    $(trElem).append(thElem);
+            if (!releaseNotes.includePlatform(entry, {debug})) {
+                if (debug) {
+                    console.log('entry omitted', entry);
                 }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Tags');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Pull Request');
-                    $(trElem).append(thElem);
-                }
-                if (options.showVersion) {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Version');
-                    $(trElem).append(thElem);
-                }
-                $(theadElem).append(trElem);
-                $(tableElem).append(theadElem);
+                continue;
+            }
+            if (debug) {
+                console.log('entry allowed', entry);
+            }
 
-                const tbodyElem = document.createElement('tbody');
+            // Special case: Some items have 'wifi' in the text but not a tag
+            if (releaseNotes.filterPlatform) {
+                const title = entry.text.toLowerCase();
 
-                let textWidth = 500;
-                if (options.showVersion) {
-                    textWidth -= 80;
-                }
-
-                let filterOptions;
-                if ($(thisPartial).find('.filterDevice').prop('checked')) {
-                    filterOptions = {};
-                    const platformId = parseInt($(thisPartial).find('.filterPlatform').val());
-
-                    filterOptions.platform = releaseNotes.releaseNotePlatforms.find(e => e.id == platformId);
-                    
-                    for(const skuObj of releaseNotes.carriersJson.skus) {
-                        if (skuObj.platformId == filterOptions.platform.id) {
-                            if (!filterOptions.skus) {
-                                filterOptions.skus = [];
-                            }
-                            filterOptions.skus.push(skuObj);
-
-                            const modemObj = releaseNotes.carriersJson.modems.find(e => e.model == skuObj.modem);
-                            if (!filterOptions.modems) {
-                                filterOptions.modems = [];
-                            }
-                            filterOptions.modems.push(modemObj);
-                        }
-                    }
-
-                    console.log('filterOptions', filterOptions);
-
-                }
-
-                for(const entry of items) {
-                    if (!includePlatform(entry, filterOptions)) {
+                if (title.indexOf('wifi') >= 0 && title.indexOf('cellular') < 0) {
+                    if (!releaseNotes.filterPlatform.features.includes('wifi')) {
                         continue;
                     }
+                }
+            } 
 
-                    const trElem = document.createElement('tr');
+            const trElem = document.createElement('tr');
 
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', textWidth + 'px');
-                        $(tdElem).text(entry.text);
-                        $(trElem).append(tdElem);
-                    }
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '90px');
-                        if (entry.tags) {
-                            $(tdElem).text(entry.tags.join(' '));
+            {
+                const tdElem = document.createElement('td');
+                $(tdElem).css('width', textWidth + 'px');
+                $(tdElem).text(entry.text);
+                $(trElem).append(tdElem);
+            }
+            {
+                const tdElem = document.createElement('td');
+                $(tdElem).css('width', '90px');
+                if (entry.tags) {
+                    $(tdElem).text(entry.tags.join(' '));
+                }
+                $(trElem).append(tdElem);
+            }
+            {
+                const tdElem = document.createElement('td');
+                $(tdElem).css('width', '90px');
+                if (entry.prs) {
+                    for(const pr of entry.prs) {
+                        const aElem = document.createElement('a');
+                        $(aElem).text(pr);                              
+                        
+                        const pullObj = releaseNotes.releaseNotesJson.pulls[pr.toString()];
+                        if (pullObj) {
+                            $(aElem).attr('href', pullObj.url);
+                            $(aElem).attr('title', pullObj.title);                                    
                         }
-                        $(trElem).append(tdElem);
+                        
+                        $(tdElem).append(aElem);
+                        $(tdElem).append(document.createTextNode(' ')); 
                     }
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '90px');
-                        if (entry.prs) {
-                            for(const pr of entry.prs) {
-                                const aElem = document.createElement('a');
-                                $(aElem).text(pr);                              
-                                
-                                const pullObj = releaseNotes.releaseNotesJson.pulls[pr.toString()];
-                                if (pullObj) {
-                                    $(aElem).attr('href', pullObj.url);
-                                    $(aElem).attr('title', pullObj.title);                                    
-                                }
-                                
-                                $(tdElem).append(aElem);
-                                $(tdElem).append(document.createTextNode(' ')); 
-                            }
-                            // $(tdElem).text(entry.prs.join(' '));
-                        }
-                        $(trElem).append(tdElem);
-                    }
-                    if (options.showVersion) {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '80px');
-                        if (entry.version) {
-                            const releaseObj = releaseNotes.releaseNotesJson.releases[entry.version];
-                            
-                            const aElem = document.createElement('a');
-                            $(aElem).attr('href', releaseObj.url);
-                            $(aElem).text(entry.version);
-
-                            $(tdElem).append(aElem)
-                        }
-                        $(trElem).append(tdElem);
-                    }
+                    // $(tdElem).text(entry.prs.join(' '));
+                }
+                $(trElem).append(tdElem);
+            }
+            if (options.showVersion) {
+                const tdElem = document.createElement('td');
+                $(tdElem).css('width', '80px');
+                if (entry.version) {
+                    const releaseObj = releaseNotes.releaseNotesJson.releases[entry.version];
                     
-                    $(tbodyElem).append(trElem);
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', releaseObj.url);
+                    $(aElem).text(entry.version);
+
+                    $(tdElem).append(aElem)
                 }
-
-                $(tableElem).append(tbodyElem);
-
-                $(outputElem).append(tableElem);            
+                $(trElem).append(tdElem);
             }
+            
+            $(tbodyElem).append(trElem);
+        }
+
+        $(tableElem).append(tbodyElem);
+
+        $(outputElem).append(tableElem);            
+    }
 
 
-            const renderList = function(sectionData, options = {}) {
-                const outputElem = $(thisPartial).find('.apiHelperOutput');
+    releaseNotes.renderList = function(sectionData, options = {}) {
+        const outputElem = $(releaseNotes.thisPartial).find('.apiHelperOutput');
 
-                let filterPlatform;
-                if ($(thisPartial).find('.filterDevice').prop('checked')) {
-                    const platformId = parseInt($(thisPartial).find('.filterPlatform').val());
-                    filterPlatform = releaseNotes.releaseNotePlatforms.find(e => e.id == platformId);
-                }
+        releaseNotes.filterPlatform = null;
+        releaseNotes.filterOptions = null;
 
-                for(const section in sectionData) {
-                    if (filterPlatform && releaseNotes.ignoreSections.includes(section)) {
-                        // Removing sections like INTERNAL when filtering by platform
-                        continue;
+        if ($(releaseNotes.thisPartial).find('.filterDevice').prop('checked')) {
+            releaseNotes.platformId = parseInt($(releaseNotes.thisPartial).find('.filterPlatform').val());
+            releaseNotes.filterPlatform = releaseNotes.releaseNotePlatforms.find(e => e.id == releaseNotes.platformId);
+
+            releaseNotes.filterOptions = {};
+
+            releaseNotes.filterOptions.platform = releaseNotes.releaseNotePlatforms.find(e => e.id == releaseNotes.platformId);
+            
+            for(const skuObj of releaseNotes.carriersJson.skus) {
+                if (skuObj.platformId == releaseNotes.platformId) {
+                    if (!releaseNotes.filterOptions.skus) {
+                        releaseNotes.filterOptions.skus = [];
                     }
+                    releaseNotes.filterOptions.skus.push(skuObj);
 
-                    const sectionElem = document.createElement('h3');
-                    $(sectionElem).text(section);
-                    $(outputElem).append(sectionElem);
-
-
-                    renderOneList(sectionData[section], options);
+                    const modemObj = releaseNotes.carriersJson.modems.find(e => e.model == skuObj.modem);
+                    if (modemObj) {
+                        if (!releaseNotes.filterOptions.modems) {
+                            releaseNotes.filterOptions.modems = [];
+                        }
+                        if (!releaseNotes.filterOptions.modems.find(e => e.model == modemObj.model)) {
+                            releaseNotes.filterOptions.modems.push(modemObj);
+                        }    
+                    }
                 }
             }
 
-            const dedupeList = function(items) {
+            console.log('filterOptions', releaseNotes.filterOptions);
+
+        }
+
+
+        for(const section in sectionData) {
+            if (releaseNotes.filterPlatform && releaseNotes.ignoreSections.includes(section)) {
+                // Removing sections like INTERNAL when filtering by platform
+                continue;
+            }
+
+            const sectionElem = document.createElement('h3');
+            $(sectionElem).text(section);
+            $(outputElem).append(sectionElem);
+
+
+            releaseNotes.renderOneList(sectionData[section], options);
+        }
+    }
+
+    releaseNotes.dedupeList = function(items) {
+        
+        for(let ii = 0; ii < items.length; ii++) {
+            for(let jj = 0; jj < ii; jj++) {
+                if (items[jj].text == items[ii].text && items[ii].version.startsWith(items[jj].version)) {
+                    items.splice(jj, 1);
+                    ii--;
+                    break;
+                }
+            }
+        }   
+    }
+
+    releaseNotes.renderPage = function() {
+        const outputElem = $(releaseNotes.thisPartial).find('.apiHelperOutput');
+
+        $(outputElem).empty();
+
+        const mode = $(releaseNotes.thisPartial).find('input:radio[name=mode]:checked').val();
+
+        let searchParams = new URLSearchParams();
+        searchParams.set('mode', mode);
+
+        if (releaseNotes.filterPlatform && releaseNotes.platformId) {
+            searchParams.set('filter', releaseNotes.platformId);
+        }
+
+
+        if (mode == 'rel1') {
+            const ver = $(releaseNotes.thisPartial).find('.versionSelect').val();
+            if (ver == '-') {
+                return;
+            }
+            searchParams.set('ver', ver);
+
+            analytics.track('View Version', {category:releaseNotes.gaCategory, label:ver});
+
+            const releaseObj = releaseNotes.releaseNotesJson.releases[ver];
+
+            let sectionData = {};
+
+            for(let entry of releaseObj.entries) {
+                entry.version = ver;
+
+                if (!sectionData[entry.section]) {
+                    sectionData[entry.section] = [];
+                }
                 
-                for(let ii = 0; ii < items.length; ii++) {
-                    for(let jj = 0; jj < ii; jj++) {
-                        if (items[jj].text == items[ii].text && items[ii].version.startsWith(items[jj].version)) {
-                            items.splice(jj, 1);
-                            ii--;
-                            break;
-                        }
-                    }
-                }   
+                sectionData[entry.section].push(entry);
             }
 
-            const renderPage = function() {
-                const outputElem = $(thisPartial).find('.apiHelperOutput');
-        
-                $(outputElem).empty();
-        
-                const mode = $(thisPartial).find('input:radio[name=mode]:checked').val();
+            releaseNotes.renderList(sectionData, {showVersion:false});
 
-                let searchParams = new URLSearchParams();
-                searchParams.set('mode', mode);
+            {
+                const divElem = document.createElement('div');
+                const aElem = document.createElement('a');
+                $(aElem).attr('href', releaseObj.url);
+                $(aElem).text('View full release notes on Github');
+                $(divElem).append(aElem);
+                $(outputElem).append(divElem);    
+            }
+        }
+        else
+        if (mode == 'rel2') {
+            const ver1 = $(releaseNotes.thisPartial).find('.version1Select').val();
+            if (ver1 == '-') {
+                return;
+            }
+            const ver2 = $(releaseNotes.thisPartial).find('.version2Select').val();
 
-                if ($(thisPartial).find('.filterDevice').prop('checked')) {
-                    const platformId = parseInt($(thisPartial).find('.filterPlatform').val());
-                    searchParams.set('filter', platformId);
+            searchParams.set('ver1', ver1);
+            searchParams.set('ver2', ver2);
+
+            analytics.track('View Cumulative', {category:releaseNotes.gaCategory, label:ver1 + '-' + ver2});
+
+            let includeVer = false;
+
+            let sectionData = {};
+
+            for(const curVer of releaseNotes.versions) {
+                const verKey = 'v' + curVer;
+                
+                if (!includeVer) {
+                    if (verKey == ver2) {
+                        includeVer = true;
+                    }
                 }
 
-
-                if (mode == 'rel1') {
-                    const ver = $(thisPartial).find('.versionSelect').val();
-                    if (ver == '-') {
-                        return;
-                    }
-                    searchParams.set('ver', ver);
-
-                    analytics.track('View Version', {category:releaseNotes.gaCategory, label:ver});
-
-                    const releaseObj = releaseNotes.releaseNotesJson.releases[ver];
-
-                    let sectionData = {};
-
+                if (includeVer) {
+                    const releaseObj = releaseNotes.releaseNotesJson.releases[verKey];
                     for(let entry of releaseObj.entries) {
-                        entry.version = ver;
+                        entry.version = verKey;
 
                         if (!sectionData[entry.section]) {
                             sectionData[entry.section] = [];
                         }
                         
                         sectionData[entry.section].push(entry);
-                    }
+                    }                            
+                }
 
-                    renderList(sectionData, {showVersion:false});
-
-                    {
-                        const divElem = document.createElement('div');
-                        const aElem = document.createElement('a');
-                        $(aElem).attr('href', releaseObj.url);
-                        $(aElem).text('View full release notes on Github');
-                        $(divElem).append(aElem);
-                        $(outputElem).append(divElem);    
+                if (includeVer) {
+                    if (verKey == ver1) {
+                         break;
                     }
                 }
-                else
-                if (mode == 'rel2') {
-                    const ver1 = $(thisPartial).find('.version1Select').val();
-                    if (ver1 == '-') {
-                        return;
-                    }
-                    const ver2 = $(thisPartial).find('.version2Select').val();
+            }
 
-                    searchParams.set('ver1', ver1);
-                    searchParams.set('ver2', ver2);
+            for(const sectionKey in sectionData) {
+                releaseNotes.dedupeList(sectionData[sectionKey]);
+            }
 
-                    analytics.track('View Cumulative', {category:releaseNotes.gaCategory, label:ver1 + '-' + ver2});
-
-                    let includeVer = false;
-
-                    let sectionData = {};
-
-                    for(const curVer of versions) {
-                        const verKey = 'v' + curVer;
-                        
-                        if (!includeVer) {
-                            if (verKey == ver2) {
-                                includeVer = true;
-                            }
-                        }
-
-                        if (includeVer) {
-                            const releaseObj = releaseNotes.releaseNotesJson.releases[verKey];
-                            for(let entry of releaseObj.entries) {
-                                entry.version = verKey;
+            releaseNotes.renderList(sectionData, {showVersion:true});
+        }
+        else 
+        if (mode == 'search') {
+            const searchText = $(releaseNotes.thisPartial).find('.searchInput').val();
         
-                                if (!sectionData[entry.section]) {
-                                    sectionData[entry.section] = [];
-                                }
-                                
-                                sectionData[entry.section].push(entry);
-                            }                            
-                        }
+            const afterVer = $(releaseNotes.thisPartial).find('.versionAfterSelect').val();
 
-                        if (includeVer) {
-                            if (verKey == ver1) {
-                                 break;
-                            }
-                        }
-                    }
+            if (searchText.length >= 2) {
 
-                    for(const sectionKey in sectionData) {
-                        dedupeList(sectionData[sectionKey]);
-                    }
+                searchParams.set('text', searchText);
+                searchParams.set('ver', afterVer);
 
-                    renderList(sectionData, {showVersion:true});
+                let items = [];
+
+                const searchResults = releaseNotes.lunrIndex.search(searchText);
+                if (searchResults.length > 0) {
+                    analytics.track('Success', {category:releaseNotes.gaCategory, label:searchText});
                 }
-                else 
-                if (mode == 'search') {
-                    const searchText = $(thisPartial).find('.searchInput').val();
-                
-                    const afterVer = $(thisPartial).find('.versionAfterSelect').val();
-
-                    if (searchText.length >= 2) {
-
-                        searchParams.set('text', searchText);
-                        searchParams.set('ver', afterVer);
-
-                        let items = [];
-
-                        const searchResults = releaseNotes.lunrIndex.search(searchText);
-                        if (searchResults.length > 0) {
-                            analytics.track('Success', {category:releaseNotes.gaCategory, label:searchText});
-                        }
-                        else {
-                            analytics.track('No Results', {category:releaseNotes.gaCategory, label:searchFor});                            
-                        }
-
-                        for(const res of searchResults) {
-                            const parts = res.ref.split('/');
-                            const ver = parts[0]
-                            const index = parseInt(parts[1]);
-
-                            if (afterVer != '-') {
-                                if (apiHelper.versionSort(ver, afterVer) > 0) {
-                                    continue;
-                                }
-                            }
-    
-                            let entry = releaseNotes.releaseNotesJson.releases[ver].entries[index];
-                            entry.version = ver;
-    
-                            items.push(entry);
-                        }
-                        dedupeList(items);
-    
-                        renderOneList(items, {showVersion:true});    
-                    }
+                else {
+                    analytics.track('No Results', {category:releaseNotes.gaCategory, label:searchFor});                            
                 }
-                releaseNotes.unknownTags.sort();
-                console.log('unknownTags', releaseNotes.unknownTags);
 
-                window.history.pushState({}, '', '?' + searchParams.toString());
-            };
-        
+                for(const res of searchResults) {
+                    const parts = res.ref.split('/');
+                    const ver = parts[0]
+                    const index = parseInt(parts[1]);
+
+                    if (afterVer != '-') {
+                        if (apiHelper.versionSort(ver, afterVer) > 0) {
+                            continue;
+                        }
+                    }
+
+                    let entry = releaseNotes.releaseNotesJson.releases[ver].entries[index];
+                    entry.version = ver;
+
+                    items.push(entry);
+                }
+                releaseNotes.dedupeList(items);
+
+                releaseNotes.renderOneList(items, {showVersion:true});    
+            }
+        }
+        releaseNotes.unknownTags.sort();
+        console.log('unknownTags', releaseNotes.unknownTags);
+
+        window.history.pushState({}, '', '?' + searchParams.toString());
+    };
+
+
+    
+    releaseNotes.doSetup = function() {
+        $('.apiHelperReleaseNotes').each(function() {
+            if (releaseNotes.thisPartial) {
+                // Only process first (you can only have one release notes partial per page)
+                return;
+            }
+
+            releaseNotes.thisPartial = $(this);
+    
+            analytics.track('Visit', {category:releaseNotes.gaCategory});
+
+            releaseNotes.versions = [];
+
+            for(const releaseName in releaseNotes.releaseNotesJson.releases) {
+                if (releaseName.startsWith('v')) {
+                    releaseNotes.versions.push(releaseName.substring(1));
+                }
+            }
+
+            releaseNotes.versions.sort(apiHelper.versionSort);
 
             
-            for(const ver of versions) {
+            for(const ver of releaseNotes.versions) {
                 const optionElem = document.createElement('option');
                 $(optionElem).text(ver);
                 $(optionElem).attr('value', 'v' + ver);
             
-                $(thisPartial).find('.versionSelect').append(optionElem);
+                $(releaseNotes.thisPartial).find('.versionSelect').append(optionElem);
 
                 const parsed = apiHelper.parseVersionStr(ver);
                 if (!parsed.pre) {
-                    $(thisPartial).find('.version1Select').append(optionElem.cloneNode(true));
+                    $(releaseNotes.thisPartial).find('.version1Select').append(optionElem.cloneNode(true));
 
-                    $(thisPartial).find('.versionAfterSelect').append(optionElem.cloneNode(true));    
+                    $(releaseNotes.thisPartial).find('.versionAfterSelect').append(optionElem.cloneNode(true));    
                 }
 
                 
             }
 
-            $(thisPartial).find('.versionSelect').on('change', function() {
-                const ver = $(thisPartial).find('.versionSelect').val();
+            $(releaseNotes.thisPartial).find('.versionSelect').on('change', function() {
+                const ver = $(releaseNotes.thisPartial).find('.versionSelect').val();
                 if (ver != '-') {
-                    $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                    $(thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
+                    $(releaseNotes.thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                    $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
                 }
-                renderPage();
+                releaseNotes.renderPage();
             });
 
             const buildMenuVersion2 = function() {
-                const ver = $(thisPartial).find('.version1Select').val();
+                const ver = $(releaseNotes.thisPartial).find('.version1Select').val();
                 if (ver != '-') {
-                    $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                    $(thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
+                    $(releaseNotes.thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                    $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
 
-                    $(thisPartial).find('.version2Select').empty();
-                    for(const curVer of versions) {
+                    $(releaseNotes.thisPartial).find('.version2Select').empty();
+                    for(const curVer of releaseNotes.versions) {
                         const verKey = 'v' + curVer;
 
                         const parsed = apiHelper.parseVersionStr(ver);
@@ -624,7 +713,7 @@ $(document).ready(function() {
                             $(optionElem).text(curVer);
                             $(optionElem).attr('value', verKey);
                         
-                            $(thisPartial).find('.version2Select').append(optionElem);
+                            $(releaseNotes.thisPartial).find('.version2Select').append(optionElem);
                         }
                         if (verKey == ver) {
                             break;
@@ -633,23 +722,23 @@ $(document).ready(function() {
                 }
             }
 
-            $(thisPartial).find('.version1Select').on('change', function() {
+            $(releaseNotes.thisPartial).find('.version1Select').on('change', function() {
                 buildMenuVersion2();
-                renderPage();
+                releaseNotes.renderPage();
             });
-            $(thisPartial).find('.version2Select').on('change', function() {
-                renderPage();
+            $(releaseNotes.thisPartial).find('.version2Select').on('change', function() {
+                releaseNotes.renderPage();
             });
 
-            $(thisPartial).find('.filterDevice').on('click', function() {
-                renderPage();
+            $(releaseNotes.thisPartial).find('.filterDevice').on('click', function() {
+                releaseNotes.renderPage();
             });
-            $(thisPartial).find('.filterPlatform').on('change', function() {
-                renderPage();
+            $(releaseNotes.thisPartial).find('.filterPlatform').on('change', function() {
+                releaseNotes.renderPage();
             });
 
                 
-            $(thisPartial).find('input:radio[name=mode][value=rel1]').on('change', renderPage);
+            $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel1]').on('change', releaseNotes.renderPage);
 
             let keyTimer;
 
@@ -660,38 +749,38 @@ $(document).ready(function() {
                 }
             }
 
-            $(thisPartial).find('.searchInput').on('input', function() {
-                $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                $(thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
+            $(releaseNotes.thisPartial).find('.searchInput').on('input', function() {
+                $(releaseNotes.thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                $(releaseNotes.thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
 
                 clearKeyTimer();
-                keyTimer = setTimeout(renderPage, 750);
+                keyTimer = setTimeout(releaseNotes.renderPage, 750);
             });
 
-            $(thisPartial).find('.searchInput').on('blur', function() {
+            $(releaseNotes.thisPartial).find('.searchInput').on('blur', function() {
                 clearKeyTimer();
-                renderPage();
+                releaseNotes.renderPage();
             });
 
-            $(thisPartial).find('.searchInput').on('keydown', function(ev) {
+            $(releaseNotes.thisPartial).find('.searchInput').on('keydown', function(ev) {
                 if (ev.key == 'Enter') {
                     clearKeyTimer();
-                    renderPage();
+                    releaseNotes.renderPage();
                 }
             });
 
-            $(thisPartial).find('.versionAfterSelect').on('change', function() {
+            $(releaseNotes.thisPartial).find('.versionAfterSelect').on('change', function() {
                 clearKeyTimer();
-                renderPage();
+                releaseNotes.renderPage();
             });
 
-            $(thisPartial).find('.showSearchTips').on('click', function() {
+            $(releaseNotes.thisPartial).find('.showSearchTips').on('click', function() {
                 const checked = $(this).prop('checked');
                 if (checked) {
-                    $(thisPartial).find('.searchTips').show();
+                    $(releaseNotes.thisPartial).find('.searchTips').show();
                 }
                 else {
-                    $(thisPartial).find('.searchTips').hide();
+                    $(releaseNotes.thisPartial).find('.searchTips').hide();
                 }
             });
 
@@ -701,19 +790,19 @@ $(document).ready(function() {
             if (releaseNotes.urlParams) {
                 const filterPlatform = releaseNotes.urlParams.get('filter');
                 if (filterPlatform) {
-                    $(thisPartial).find('.filterPlatform').val(filterPlatform);
-                    $(thisPartial).find('.filterDevice').prop('checked', true);
+                    $(releaseNotes.thisPartial).find('.filterPlatform').val(filterPlatform);
+                    $(releaseNotes.thisPartial).find('.filterDevice').prop('checked', true);
                 }
 
                 const mode = releaseNotes.urlParams.get('mode');
                 if (mode == 'rel1') {
                     const ver = releaseNotes.urlParams.get('ver');
                     if (ver) {
-                        $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                        $(thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
+                        $(releaseNotes.thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                        $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
         
-                        $(thisPartial).find('.versionSelect').val(ver);
-                        renderPage();
+                        $(releaseNotes.thisPartial).find('.versionSelect').val(ver);
+                        releaseNotes.renderPage();
                     }
                 }
                 else
@@ -721,14 +810,14 @@ $(document).ready(function() {
                     const ver1 = releaseNotes.urlParams.get('ver1');
                     const ver2 = releaseNotes.urlParams.get('ver2');
                     if (ver1 && ver2) {
-                        $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                        $(thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
+                        $(releaseNotes.thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                        $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
                                 
-                        $(thisPartial).find('.version1Select').val(ver1);
+                        $(releaseNotes.thisPartial).find('.version1Select').val(ver1);
                         buildMenuVersion2();
 
-                        $(thisPartial).find('.version2Select').val(ver2);
-                        renderPage();
+                        $(releaseNotes.thisPartial).find('.version2Select').val(ver2);
+                        releaseNotes.renderPage();
                     }
                 }
                 else
@@ -736,18 +825,18 @@ $(document).ready(function() {
                     const text = releaseNotes.urlParams.get('text');
                     const ver = releaseNotes.urlParams.get('ver') || '-';
                     if (text && ver) {
-                        $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                        $(thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
+                        $(releaseNotes.thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                        $(releaseNotes.thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
 
-                        $(thisPartial).find('.searchInput').val(text);
-                        $(thisPartial).find('.versionAfterSelect').val(ver);
-                        renderPage();
+                        $(releaseNotes.thisPartial).find('.searchInput').val(text);
+                        $(releaseNotes.thisPartial).find('.versionAfterSelect').val(ver);
+                        releaseNotes.renderPage();
                     }
                 }
             }
 
-            if (releaseNotes.defaultSearchAfter && $(thisPartial).find('.versionAfterSelect').val() == '-') {
-                $(thisPartial).find('.versionAfterSelect').val(releaseNotes.defaultSearchAfter);
+            if (releaseNotes.defaultSearchAfter && $(releaseNotes.thisPartial).find('.versionAfterSelect').val() == '-') {
+                $(releaseNotes.thisPartial).find('.versionAfterSelect').val(releaseNotes.defaultSearchAfter);
             }
         
         });
@@ -809,7 +898,7 @@ $(document).ready(function() {
                     }
                 });
 
-                doSetup();
+                releaseNotes.doSetup();
             });
     });
     
