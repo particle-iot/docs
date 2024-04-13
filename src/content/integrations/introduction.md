@@ -16,7 +16,7 @@ Integrations provide a way of easily and efficiently interacting with an Interne
 
 The **integration gallery** provides an easy way to access a number of third-party services.
 
-{{imageOverlay src="/assets/images/integrations/integration-gallery.png" alt="Integrations gallery" class="no-darken"}}
+{{imageOverlay src="/assets/images/integrations/integrations-gallery.png" alt="Integrations gallery" class="no-darken"}}
 
 You are not restricted to only these services; using the generic webhook integration you can integrate with most third-party services as well as your own custom servers.
 

@@ -181,20 +181,11 @@ target="_blank">firmware library API</a>.
 
 ### Particle Console
 
-Now that you've done all of the pre-configuration, you are now ready to
-enable the Google Maps integration
-on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
+Start by going to the integrations by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>) in the Particle console in your developer sandbox or in a product.
 
-Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
-by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
-for a <a href="/getting-started/console/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
-hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
-then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
+If you already have integrations configured, click the New Integration button to open the integration gallery. If this is your first integration, you will open to the integration gallery automatically. Select **Google Maps**.
 
-Once in the integrations hub, click on the "New Integration" button.
-From the list of available integrations, click on "Google Maps."
-
-<img src="/assets/images/google-maps-01.png"/>
+{{imageOverlay src="/assets/images/integrations/integrations-iot.png" alt="Integrations gallery" class="no-darken"}}
 
 You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps above, you should be good to go. Click the "I have done all these things" button to advance.
 

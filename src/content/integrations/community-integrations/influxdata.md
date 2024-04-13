@@ -177,26 +177,20 @@ You’ll notice that the system is listening on port 1619 — so Particle Webhoo
 
 ### Particle Console
 
-Now that you've done all of the pre-configuration required, you are now ready to enable the InfluxData integration
-on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
+Start by going to the integrations by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>) in the Particle console in your developer sandbox or in a product.
 
-Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
-by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
-for a <a href="/getting-started/console/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
-hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
-then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
+If you already have integrations configured, click the New Integration button to open the integration gallery. If this is your first integration, you will open to the integration gallery automatically. Select **InfluxData**.
 
-Once in the integrations hub, click on the "New Integration" button. From the list of available integrations, click on "Webhook."
+{{imageOverlay src="/assets/images/integrations/integrations-data.png" alt="Integrations gallery" class="no-darken"}}
 
-<img src="/assets/images/influx-webhook1.png"/>
 
 The next step is configuring the Webhook. Fill out the following fields:
 - **Event Name**: The name of the event that will trigger publishing an event InfluxDB. This is the name of your event when you call `Particle.publish()` in your firmware.
 - **URL**: The url or IP address of your Telegraf server in AWS. Don't forget the `:1619/particle` portion of the URL!
 - **Request Type**: The Telegraf server is expecting a `POST` so make sure that's selected.
-- **Request Format**: The Default is `Web Form` but we will be sending a JSON, so make sure that you change this to `JSON`.
+- **Request Format**: Set this to `JSON`. 
 
-<img src="/assets/images/influx-webhook2.png"/>
+{{imageOverlay src="/assets/images/integrations/integrations-influx.png" alt="Influx configuration" class="no-darken"}}
 
 You'll need to click the `Advanced Settings` area to fill out the custom `JSON` format. You can fill this out as follows:
 

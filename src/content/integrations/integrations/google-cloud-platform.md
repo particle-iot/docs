@@ -110,18 +110,11 @@ Once created, check the checkbox next to your topic name, and click on the "Perm
 
 ### Particle Console
 
-Now that you've done all of the pre-configuration required, you are now ready to enable the Google Cloud Platform integration
-on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
+Start by going to the integrations by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>) in the Particle console in your developer sandbox or in a product.
 
-Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
-by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
-for a <a href="/getting-started/console/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
-hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
-then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
+If you already have integrations configured, click the New Integration button to open the integration gallery. If this is your first integration, you will open to the integration gallery automatically. Select **Google Cloud Platform**.
 
-Once in the integrations hub, click on the "New Integration" button. From the list of available integrations, click on "Google Cloud Platform."
-
-<img src="/assets/images/new-gcp-integration.png"/>
+{{imageOverlay src="/assets/images/integrations/integrations-cloud.png" alt="Integrations gallery" class="no-darken"}}
 
 You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps outlined in
 [Preconfiguration in Google Cloud Platform](#preconfiguration-in-google-cloud-platform), you should be good to go. Click the

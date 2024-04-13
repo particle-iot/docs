@@ -735,16 +735,16 @@
             "hash": "cda7b60539e868a37f716cb8574410188162b87a28e96d4a069b1c6a314b8dad"
         },
         "integrations/webhooks.md": {
-            "date": "2024-04-12",
-            "hash": "e5c2e0a3442cd0de89ffeb126452a02d7d25b009f9b9b63e2924a9f51ef86aa9"
+            "date": "2024-04-13",
+            "hash": "0ddb3253f33c09c1681ef46dcd46effcce2639a0ef06a8ac62ee3261d5083689"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2023-08-03",
             "hash": "4f5b29804c7bde8cfede0ac3df0ae4fba901ff0f18bd17525e131311235a0164"
         },
         "integrations/community-integrations/azure-iot-hub.md": {
-            "date": "2023-08-03",
-            "hash": "b31f18612509e830508befca130c173391724032fbf0b6d2085f9dad41f3ec63"
+            "date": "2024-04-13",
+            "hash": "2c2f9afe88672ab75c479e5afe4e21763aabb58ff79c5b1a14b0871a561277d8"
         },
         "integrations/community-integrations/blynk.md": {
             "date": "2024-02-27",
@@ -755,8 +755,8 @@
             "hash": "11a2ab6e64a92e4423c88330b23d43adb5f984f0a647820582e49edc5089939d"
         },
         "integrations/community-integrations/influxdata.md": {
-            "date": "2023-11-15",
-            "hash": "7959be59119dd7dfe012f5245c0bdc107237ea67fee2469696ce459b911cc2ab"
+            "date": "2024-04-13",
+            "hash": "a12d7b239c6d6c4caca294b6409876cfa28723a3d6c7224b32ee473d04ad2134"
         },
         "integrations/community-integrations/memfault.md": {
             "date": "2024-02-27",

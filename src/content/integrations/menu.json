@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "dir": "introduction",
+      "title": "Introduction to integrations",
+      "href": "/integrations/introduction/"
+    },
+  {
+      "dir": "organization-integrations",
+      "title": "Organization integrations",
+      "href": "/integrations/organization-integrations/"
+    },
+    {
       "dir": "webhooks",
       "title": "Webhooks",
       "href": "/integrations/webhooks/"
@@ -11,20 +21,10 @@
       "href": "/integrations/webhook-demo/"
     },
     {
-      "dir": "organization-integrations",
-      "title": "Organization integrations",
-      "href": "/integrations/organization-integrations/"
-    },
-    {
       "dir": "integrations",
       "isSection": true
     },
     [
-      {
-        "dir": "introduction",
-        "title": "Introduction to integrations",
-        "href": "/integrations/integrations/introduction/"
-      },
       {
         "dir": "aws",
         "title": "Amazon Web Services",
