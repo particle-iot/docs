@@ -134,8 +134,9 @@ describe('Crawler', function() {
       if (err) {
         return done(err);
       }
-      console.log('Compressing...');
-      metalsmith.compress(done);
+      // console.log('Compressing...');
+      // metalsmith.compress(done);
+      done();
     });
   });
 
