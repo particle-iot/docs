@@ -41320,6 +41320,46 @@
             "state": "closed",
             "created_at": "2024-03-15T01:53:39Z",
             "detail": "WiFi should be connected after `joinNewNetwork` when there were no wifi credentials on the device at all as well as there were some present before."
+        },
+        "2759": {
+            "url": "https://github.com/particle-iot/device-os/pull/2759",
+            "number": 2759,
+            "title": "Query 2g registration status in addition to lte with BG95m5 modem",
+            "state": "closed",
+            "created_at": "2024-04-04T19:14:01Z",
+            "detail": "Dioptra app calls `getCellularGlobalIdentity()` to determine MCC / LAC / CELL ID\nM404 / BG95M5 devices support 2g registration\n`getCellularGlobalIdentity()` only queries LTE registration status on M404"
+        },
+        "2760": {
+            "url": "https://github.com/particle-iot/device-os/pull/2760",
+            "number": 2760,
+            "title": "[rtl872x] wifi: reset the stack when there are no scan results and scan is requested to connect to AP",
+            "state": "closed",
+            "created_at": "2024-04-04T19:22:33Z",
+            "detail": "This was reverted in 5.8.0, still seeing this happen in some cases so bringing it back in with some minor changes (`forConnect`)"
+        },
+        "2761": {
+            "url": "https://github.com/particle-iot/device-os/pull/2761",
+            "number": 2761,
+            "title": "[msom] M404/BG95M5 disable 2g, only scan for LTEM",
+            "state": "closed",
+            "created_at": "2024-04-05T17:36:58Z",
+            "detail": "Seeing unexplained connectivity / DNS errors on 2g connections sometimes with MSOM"
+        },
+        "2762": {
+            "url": "https://github.com/particle-iot/device-os/pull/2762",
+            "number": 2762,
+            "title": "Extend USB/OTA max application update testing",
+            "state": "open",
+            "created_at": "2024-04-09T16:41:45Z",
+            "detail": "Various users have encountered issues updating large applications. We should extend our testing to cover more realistic use cases."
+        },
+        "2763": {
+            "url": "https://github.com/particle-iot/device-os/pull/2763",
+            "number": 2763,
+            "title": "Add set credentials usb request",
+            "state": "open",
+            "created_at": "2024-04-10T19:30:52Z",
+            "detail": "The existing `JoinNewNetworkRequest` protobuf message has some behavior that might be undesireable in some circumstances.\n- The wifi network specified in the request must be present for the credentials to be stored\n- The device will power on wifi and attempt to connect to wifi (not necessarily using the new credentials if there are existing credentials/networks known)"
         }
     }
 }

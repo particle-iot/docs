@@ -539,7 +539,7 @@ async function fetchDeviceOsVersions() {
                 resolve(result);
             });
         });
-        console.log('result', result);
+        // console.log('result', result);
         for(const v of result.versions) {
             deviceOsVersions.push(v);
         }
