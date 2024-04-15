@@ -1,0 +1,109 @@
+{
+    "id": 0,
+    "name": "PM-DC Power Module",
+    "pins": [
+        {
+            "num": 1,
+            "name": "3V3",
+            "desc": "Power output 3.3V"
+        },
+        {
+            "num": 2,
+            "name": "3V3_AUX",
+            "desc": "Power output 3.3V, controllable"
+        },
+        {
+            "num": 3,
+            "name": "5V",
+            "desc": "Power output 5V (not available on this module)",
+            "morePins": [
+                4
+            ]
+        },
+        {
+            "num": 5,
+            "name": "VCC",
+            "desc": "Power output 3.9V 2A for cellular modem",
+            "morePins": [
+                6
+            ]
+        },
+        {
+            "num": 7,
+            "name": "EN_AUX",
+            "desc": "Enable 33_AUX (has 100K pull-down to default off)"
+        },
+        {
+            "num": 8,
+            "name": "NC",
+            "desc": "Leave unconnected"
+        },
+        {
+            "num": 9,
+            "name": "GND",
+            "desc": "Ground",
+            "morePins": [
+                10,
+                21,
+                22
+            ]
+        },
+        {
+            "num": 11,
+            "name": "VIN",
+            "desc": "Power in (4V - 40V)",
+            "morePins": [
+                12
+            ]
+        },
+        {
+            "num": 13,
+            "name": "NC",
+            "desc": "Leave unconnected (charge indicator on PM-BAT)"
+        },
+        {
+            "num": 14,
+            "name": "NC",
+            "desc": "Leave unconnected (SCL on PM-BAT)"
+        },
+        {
+            "num": 15,
+            "name": "NC",
+            "desc": "Leave unconnected (SDA on PM-BAT)"
+        },
+        {
+            "num": 16,
+            "name": "NC",
+            "desc": "Leave unconnected (FUEL_INT on PM-BAT)"
+        },
+        {
+            "num": 17,
+            "name": "NC",
+            "desc": "Leave unconnected (temperature sensor on PM-BAT)"
+        },
+        {
+            "num": 18,
+            "name": "NC",
+            "desc": "Leave unconnected (VBAT on PM-BAT)",
+            "morePins": [
+                19,
+                20
+            ]
+        },
+        {
+            "num": 23,
+            "name": "NC",
+            "desc": "Leave unconnected (MCU reset on PM-BAT)"
+        },
+        {
+            "num": 24,
+            "name": "NC",
+            "desc": "Leave unconnected (power good on PM-BAT)"
+        },
+        {
+            "num": 25,
+            "name": "ENABLE",
+            "desc": "Power output enable. Has internal pull-up to VSYS, pull to GND to disable power outputs."
+        }
+    ]
+}

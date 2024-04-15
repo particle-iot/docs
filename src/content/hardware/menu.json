@@ -323,9 +323,15 @@
         "href": "/hardware/power/power-supply-guide/"
       },
       {
-        "dir": "power-module-datasheet",
-        "title": "Power module datasheet",
-        "href": "/hardware/power/power-module-datasheet/",
+        "dir": "pm-bat-datasheet",
+        "title": "PM-BAT power module datasheet",
+        "href": "/hardware/power/pm-bat-datasheet/",
+        "internal": true
+      },
+      {
+        "dir": "pm-dc-datasheet",
+        "title": "PM-DC power module datasheet",
+        "href": "/hardware/power/pm-dc-datasheet/",
         "internal": true
       },
       {

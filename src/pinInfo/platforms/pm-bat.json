@@ -1,6 +1,6 @@
 {
     "id": 0,
-    "name": "Power Module",
+    "name": "PM-BAT Power Module",
     "pins": [
         {
             "num": 1,
@@ -15,7 +15,7 @@
         {
             "num": 3,
             "name": "5V",
-            "desc": "Power output 5V (not available on PMIC power module)",
+            "desc": "Power output 5V (not available on this module)",
             "morePins": [
                 4
             ]
@@ -51,7 +51,7 @@
         {
             "num": 11,
             "name": "VIN",
-            "desc": "Power in (5V - 17V on PMIC power module)",
+            "desc": "Power in 5V - 17V",
             "morePins": [
                 12
             ]

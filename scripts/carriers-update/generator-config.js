@@ -4400,7 +4400,19 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'modulePins',
-                    platformNew: 'Power Module',
+                    platformNew: 'PM-BAT Power Module',
+                    noPinNumbers: false,
+                    includeDesc: true,
+                    noHardwarePin: true,
+                }); 
+            } 
+        },        
+        {
+            guid: 'cccd005a-023b-4ae4-90a6-41a6764199bf',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'PM-DC Power Module',
                     noPinNumbers: false,
                     includeDesc: true,
                     noHardwarePin: true,

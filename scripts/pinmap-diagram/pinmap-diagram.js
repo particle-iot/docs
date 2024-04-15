@@ -1160,10 +1160,8 @@ const svg = require('./svg');
 
     diagram.generatePowerModule = async function(generateOptions, files) {        
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Power Module',
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/power-module/power-module.svg'),
             deviceImageTransform: 'translate(74,20) scale(0.845)',
-            outputPath: 'assets/images/power-module/power-module-pinout.svg',
             width: 820,
             height: 730,
             boxFontSize: '10px',
@@ -2200,8 +2198,15 @@ const svg = require('./svg');
         }), files);
 
         await diagram.generatePowerModule(Object.assign({
+            platformName: 'PM-BAT Power Module',
+            outputPath: 'assets/images/power-module/pm-bat-pinout.svg',
         }, generateOptions), files);
-        
+
+        await diagram.generatePowerModule(Object.assign({
+            platformName: 'PM-DC Power Module',
+            outputPath: 'assets/images/power-module/pm-dc-pinout.svg',
+        }, generateOptions), files);
+
         await diagram.generateP2(Object.assign({
             platformName: 'P1'
         }, generateOptions), files);
