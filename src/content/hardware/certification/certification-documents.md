@@ -822,6 +822,11 @@ Additional FCC Test Reports:
 - [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/m404-fcc-JBP.pdf)
 - [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/m404-fcc-PCB.pdf)
 
+### CE (European Union) - M404 M-SoM M-Series LTE-M/2G
+
+- [Summary](/assets/pdfs/m404-ce-summary.pdf)
+
+
 ## M524 M-SoM M-Series LTE Cat 1
 
 {{!-- BEGIN do not edit content below, it is automatically generated 3edc7960-f3e7-4034-a557-838ff3b7a480 --}}

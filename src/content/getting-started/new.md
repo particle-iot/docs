@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M404 certification update 2024-04-15
+
+[Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) include CE RED certification.
+
 ### Release note filter 2024-04-12
 
 The [release note tool](/reference/device-os/release-notes/) now has an option to filter by device platform.
