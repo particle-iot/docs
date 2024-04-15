@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### M404 certification update 2024-04-15
 
-[Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) include CE RED certification.
+[Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) include CE RED certification and RoHS.
 
 ### Release note filter 2024-04-12
 
@@ -31,7 +31,7 @@ The [release note tool](/reference/device-os/release-notes/) now has an option t
 
 ### M524 certification update 2024-04-12
 
-[Certification documents for the M524](/hardware/certification/certification-documents/#m524-m-som-m-series-lte-cat-1) updated to include CE RED certificate.
+[Certification documents for the M524](/hardware/certification/certification-documents/#m524-m-som-m-series-lte-cat-1) updated to include CE RED certificate and RoHS.
 
 ### M404 certification update 2024-04-11
 

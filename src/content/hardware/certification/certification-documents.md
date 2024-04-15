@@ -826,6 +826,10 @@ Additional FCC Test Reports:
 
 - [Summary](/assets/pdfs/m404-ce-summary.pdf)
 
+### RoHS - M404 M-SoM M-Series LTE-M/2G
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/m404-rohs.pdf)
+
 
 ## M524 M-SoM M-Series LTE Cat 1
 
@@ -842,6 +846,10 @@ Additional FCC Test Reports:
 ### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
 
 - [Summary](/assets/pdfs/m524-ce-summary.pdf)
+
+### RoHS - M524 M-SoM M-Series LTE Cat 1
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/m524-rohs.pdf)
 
 
 ## Monitor One 404 NorAm
