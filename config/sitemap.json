@@ -8477,6 +8477,14 @@
         "troubleshooting/guides/connectivity-troubleshooting/data-usage.md": {
             "hash": "339f788a275d45137cfd4ec20ea6f2fc92b93ead8d44db72b24a82bece143506",
             "date": "2024-04-24"
+        },
+        "integrations/integrations/aws.md": {
+            "hash": "47a1a9efbc54715af04d4591209138ba1f058231bae77de2b241b154bdb7b8e3",
+            "date": "2024-04-15"
+        },
+        "integrations/introduction.md": {
+            "hash": "922fee191bbcf82e85d7c2e0ab858583b8179b48a7e29df886235b7d37848d96",
+            "date": "2024-04-15"
         }
     }
 }

@@ -7,10 +7,8 @@ description: Introductions to integrations
 
 # {{title}}
 
-Integrations provide a way of easily and efficiently interacting with an Internet-based service. There are several advantages to this:
-
-- They take advantage of the authentication and encryption already provided with the Particle cloud connection.
-- They use significantly less data than connecting directly.
+Integrations provide a way to easily and efficiently interact with an Internet-based service, including 
+third-party services and your own custom services.
 
 ## Integration gallery
 

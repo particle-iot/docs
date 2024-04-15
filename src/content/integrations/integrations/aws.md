@@ -127,88 +127,80 @@ AWS SQS (Simple Queue Service) is a fully managed message queuing service that e
 
 ### Policy creation
 
-1. Go to ***Identity and Access Management*** (***IAM***) and in **Policies** section select `Create policy` and go to the JSON editor. 
-    1. This is the base policy JSON with the minimal actions needed to write to the S3 bucket using a **Firehose stream**. 
-        
-        Set the ARN of the Firebase stream as **Resource** in the policy and click `Next`.
-        
-        ```json
-        {
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-               "Effect": "Allow",
-               "Action": [
-                 "firehose:PutRecord",
-                 "firehose:PutRecordBatch"
-               ],
-               "Resource": "<FIREBASE ARN>"
-            }
-        	]
-        }
-        ```
-        
-    2. This is the base policy JSON with the minimal actions needed to send messages to a **SQS queue**. 
-        
-        Set the ARN of the queue as **Resource** in the policy and click `Next`.
-        
-        ```json
-        {
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-               "Effect": "Allow",
-               "Action": [
-                 "sqs:SendMessage"
-               ],
-               "Resource": "<SQS ARN>"
-            }
-        	]
-        }
-        ```
-        
-    3. This is the base policy JSON with the minimal actions needed to put items to a **DynamoDB table**. 
-        
-        Set the ARN of the TABLE as **Resource** in the policy and click `Next`.
-        
-        ```json
-        {
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-               "Effect": "Allow",
-               "Action": [
-                 "dynamodb:PutItem"
-               ],
-               "Resource": "<DYNAMO TABLE ARN>"
-            }
-        	]
-        }
-        ```
-        
-        Set the ARN of the queue as **Resource** in the policy and click `Next`.
-        
-    
-    d. This is the base policy JSON with the minimal permission needed to invoke a **Lambda** through a POST method from an **API Gateway**. 
-    
-    ```json
+Go to ***Identity and Access Management*** (***IAM***) and in **Policies** section select `Create policy` and go to the JSON editor. 
+
+- This is the base policy JSON with the minimal actions needed to write to the S3 bucket using a **Firehose stream**. Set the ARN of the Firebase stream as **Resource** in the policy and click `Next`.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-    	"Version": "2012-10-17",
-    	"Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "execute-api:Invoke"
-            ],
-            "Resource": "<POST METHOD ARN>"
-        }
-    	]
+      "Effect": "Allow",
+      "Action": [
+        "firehose:PutRecord",
+        "firehose:PutRecordBatch"
+      ],
+      "Resource": "<FIREBASE ARN>"
     }
-    ```
+  ]
+}
+```
     
-    Set the ARN of the TABLE as **Resource** in the policy and click `Next`.
+- This is the base policy JSON with the minimal actions needed to send messages to a **SQS queue**. Set the ARN of the queue as **Resource** in the policy and click `Next`.
     
-2. Name your policy and click `Create policy` at the bottom of the page.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sqs:SendMessage"
+      ],
+      "Resource": "<SQS ARN>"
+    }
+  ]
+}
+```
+    
+- This is the base policy JSON with the minimal actions needed to put items to a **DynamoDB table**. Set the ARN of the TABLE as **Resource** in the policy and click `Next`.
+    
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:PutItem"
+      ],
+      "Resource": "<DYNAMO TABLE ARN>"
+    }
+  ]
+}
+```
+    
+- This is the base policy JSON with the minimal permission needed to invoke a **Lambda** through a POST method from an **API Gateway**. Set the ARN of the queue as **Resource** in the policy and click `Next`.
+   
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "execute-api:Invoke"
+      ],
+      "Resource": "<POST METHOD ARN>"
+    }
+  ]
+}
+```
+
+Set the ARN of the TABLE as **Resource** in the policy and click `Next`.
+
+Finally, name your policy and click `Create policy` at the bottom of the page.
 
 #### User creation
 
