@@ -59,6 +59,28 @@ There are four AWS integrations available:
     
 ![Invoke URL](/assets/images/integrations/aws/invoke-url.png)
     
+### Policy creation - Lambda
+
+Go to **Identity and Access Management** (**IAM**) and in **Policies** section select `Create policy` and go to the JSON editor. 
+
+This is the base policy JSON with the minimal permission needed to invoke a **Lambda** through a POST method from an **API Gateway**. Set the ARN of the lambda as **Resource** in the policy and click `Next`.
+   
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "execute-api:Invoke"
+      ],
+      "Resource": "<POST METHOD ARN>"
+    }
+  ]
+}
+```
+
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
 
 ## AWS DynamoDB
 
@@ -70,16 +92,32 @@ DynamoDB is a fully managed NoSQL database service by Amazon Web Services (AWS).
 2. Ensure your AWS user has permissions to perform `dynamodb:PutItem` operations on the table.
 3. In the webhook configuration, insert the ARN in the designated field and provide the AWS user's key pair for authentication.
 
-## AWS Lambda
+Continue with the [AWS access configiration](#aws-access-configuration) steps below.
 
-AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers.
+### Policy creation - DynamoDB
 
-### Instructions
+Go to **Identity and Access Management** (**IAM**) and in **Policies** section select `Create policy` and go to the JSON editor. 
 
-1. Ensure your AWS user has the necessary permissions (**`execute-api:Invoke`**) for the Lambda function and API Gateway.
-2. Set up an API Gateway to act as the trigger for your Lambda function if you haven't already.
-3. Obtain the invoke URL of the API Gateway stage that connects to your Lambda function.
-4. In the webhook configuration, provide the user's key pair for AWS authentication and the API Gateway stage invoke URL.
+This is the base policy JSON with the minimal actions needed to put items to a **DynamoDB table**. Set the ARN of the TABLE as **Resource** in the policy and click `Next`.
+    
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:PutItem"
+      ],
+      "Resource": "<DYNAMO TABLE ARN>"
+    }
+  ]
+}
+```
+
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
+
+
 
 ## AWS S3
 
@@ -112,24 +150,11 @@ AWS S3 is a scalable storage service, and AWS Kinesis Firehose is a service for 
 5. Click on `Create Firehose stream` at the bottom of the page.
 6. Note the newly created Firehose stream ARN.
 
+### Policy creation - S3
 
-### AWS SQS
+Go to **Identity and Access Management** (**IAM**) and in **Policies** section select `Create policy` and go to the JSON editor. 
 
-AWS SQS (Simple Queue Service) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.
-
-### Instructions
-
-1. Ensure your AWS user has permissions to **`sqs:SendMessage`** for the desired SQS queue.
-2. Create an SQS queue if you do not have one already, and obtain its URL from the AWS Management Console.
-3. In the webhook configuration, provide the queue URL to specify where messages should be sent and the user's key pair for AWS authentication.
-
-## AWS access configuration
-
-### Policy creation
-
-Go to ***Identity and Access Management*** (***IAM***) and in **Policies** section select `Create policy` and go to the JSON editor. 
-
-- This is the base policy JSON with the minimal actions needed to write to the S3 bucket using a **Firehose stream**. Set the ARN of the Firebase stream as **Resource** in the policy and click `Next`.
+This is the base policy JSON with the minimal actions needed to write to the S3 bucket using a **Firehose stream**. Set the ARN of the Firebase stream as **Resource** in the policy and click `Next`.
 
 ```json
 {
@@ -147,7 +172,22 @@ Go to ***Identity and Access Management*** (***IAM***) and in **Policies** sec
 }
 ```
     
-- This is the base policy JSON with the minimal actions needed to send messages to a **SQS queue**. Set the ARN of the queue as **Resource** in the policy and click `Next`.
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
+
+
+### AWS SQS
+
+AWS SQS (Simple Queue Service) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.
+
+### Instructions
+
+1. Ensure your AWS user has permissions to **`sqs:SendMessage`** for the desired SQS queue.
+2. Create an SQS queue if you do not have one already, and obtain its URL from the AWS Management Console.
+3. In the webhook configuration, provide the queue URL to specify where messages should be sent and the user's key pair for AWS authentication.
+
+### Policy creation - SQS
+
+This is the base policy JSON with the minimal actions needed to send messages to a **SQS queue**. Set the ARN of the queue as **Resource** in the policy and click `Next`.
     
 ```json
 {
@@ -163,48 +203,16 @@ Go to ***Identity and Access Management*** (***IAM***) and in **Policies** sec
   ]
 }
 ```
-    
-- This is the base policy JSON with the minimal actions needed to put items to a **DynamoDB table**. Set the ARN of the TABLE as **Resource** in the policy and click `Next`.
-    
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "dynamodb:PutItem"
-      ],
-      "Resource": "<DYNAMO TABLE ARN>"
-    }
-  ]
-}
-```
-    
-- This is the base policy JSON with the minimal permission needed to invoke a **Lambda** through a POST method from an **API Gateway**. Set the ARN of the queue as **Resource** in the policy and click `Next`.
-   
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "execute-api:Invoke"
-      ],
-      "Resource": "<POST METHOD ARN>"
-    }
-  ]
-}
-```
 
-Set the ARN of the TABLE as **Resource** in the policy and click `Next`.
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
 
-Finally, name your policy and click `Create policy` at the bottom of the page.
+## AWS access configuration
 
-#### User creation
+These steps are used for all Amazon services.
 
-1. Go to ***Identity and Access Management*** (***IAM***) and in **User** section select `Create user`.
+### User creation
+
+1. Go to **Identity and Access Management** (**IAM**) and in **User** section select `Create user`.
 2. Set a name for the user and **do not** provide access to the AWS Console. Click `Next`.
 3. Select `Attach policies directly`, select the policy policies created in the previous step and click `Next`.
     
@@ -212,9 +220,9 @@ Finally, name your policy and click `Create policy` at the bottom of the page.
     
 4. Click on `Create user`
 
-#### Access Key pair creation
+### Access Key pair creation
 
-1. Go to ***Identity and Access Management*** (***IAM***) and in **User** section select the user you created in the previous step.
+1. Go to **Identity and Access Management** (**IAM**) and in **User** section select the user you created in the previous step.
 2. Click on `Create access key`.
 3. Select `Third-party service`  and click `Next`.
 4. Tag the keys at convenience. In next screen keep note of the key pair in a safe place and click on `Done`. This is the key pair needed to configure the particle webhook integrated with AWS.
