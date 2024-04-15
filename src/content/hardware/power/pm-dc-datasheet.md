@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: PM-DC power module (DC input, no battery) datasheet
 ---
 
-# Power module datasheet
+# PM-DC power module datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet for review only. Changes are likely before release.

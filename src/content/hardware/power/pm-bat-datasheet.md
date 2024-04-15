@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: PM-BAT power module (battery + PMIC + fuel gauge) datasheet
 ---
 
-# Power module datasheet
+# PM-BAT power module datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet for review only. Changes are likely before release.
