@@ -166,6 +166,18 @@ $(document).ready(function () {
                             param[key] = 'not possible';
                         }
                     }
+                    param.resTestTemperature = parseFloat($(thisPartial).find('.testTemperature').val());
+                    param.resTestResistance = resistanceForTemperature(param.resTestTemperature);
+                    param.resTestLow = 1 / (1/param.rt2 + 1/param.resTestResistance);
+                    param.resTestVoltage = (param.vref * param.resTestLow) / (param.rt1 + param.resTestLow);
+    
+                    if (param.vhtf <= param.resTestVoltage && param.resTestVoltage < param.vltf) {
+                        param.resTestStatus = 'Charging enabled';
+                    }
+                    else {
+                        param.resTestStatus = 'Charging disabled';
+                    }
+
                     lastResistanceParam = param;
                     break;
 
