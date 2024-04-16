@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### STM32 Asset OTA Update 2024-04-16
+
+Updated [STM32 Asset OTA](/reference/asset-ota/asset-ota-community/stm32-asset-ota/) example uses a library to make it
+easier to integrate into your application.
+
 ### M404 certification update 2024-04-16
 
 [Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) include ISED (Canada).

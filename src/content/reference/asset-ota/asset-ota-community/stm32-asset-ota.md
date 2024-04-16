@@ -12,6 +12,8 @@ This project shows how to bundle a firmware binary for a coprocessor (in this ca
 
 The application registers a callback using `System.onAssetOta(handleAssets)`. `handleAssets` will find the firmware binary for the coprocessor, flash it, then mark the assets as handled using `System.assetsHandled(true)` so that `handleAssets` is not called on next boot.
 
+It uses the [STM32_Flash library](https://github.com/particle-iot/STM32_Flash) to abstract common code and make it easier to add to your application.
+
 {{> project-browser project="stm32-asset-ota" default-file="src/stm32_ota.cpp" height="400" flash="false"}}
 
 

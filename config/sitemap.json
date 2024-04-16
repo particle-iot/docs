@@ -8207,8 +8207,8 @@
             "date": "2023-10-06"
         },
         "reference/asset-ota/asset-ota-community/stm32-asset-ota.md": {
-            "hash": "7b39fa04d392a3bf2b67fc40fa76ca626aec49f6909c70049e927791b10334ac",
-            "date": "2023-10-06"
+            "hash": "95aa04c9ed3f341dd3f1d5a698c037e740f3a4c148281ebef68cf480e7788e49",
+            "date": "2024-04-16"
         },
         "troubleshooting/faqs/shipping/route-package-protection.md": {
             "hash": "c442d64a06376677f653443e101e93fec4933905d9682c868ec91203e79b261c",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2a3bcdac72032becb2eeeaea2650016d29682ac213d83d2b57f34fafc7c03626",
+            "hash": "aea31203c93ff4ca78db225bb33b6d9ba04c1de1c7ffb11deaf19bda5ebd5351",
             "date": "2024-04-16"
         },
         "getting-started/cloud/logic.md": {

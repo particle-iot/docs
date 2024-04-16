@@ -8,7 +8,7 @@
  */
 
 #include <Particle.h>
-#include "stm32_flash.h"
+#include "STM32_Flash.h"
 
 SYSTEM_THREAD(ENABLED);
 
@@ -40,7 +40,7 @@ void handleAssets(spark::Vector<ApplicationAsset> assets) {
     if (asset.name() == "blink.bin") {
       // Flash the STM32 binary
       LOG(INFO, "Flashing STM32 from asset");
-      flashStm32Binary(asset, BOOT0_PIN, RESET_PIN);
+      flashStm32Binary(asset, BOOT0_PIN, RESET_PIN, STM32_RESET_NONINVERTED | STM32_BOOT_NONINVERTED);
       flashed = true;
     } else {
       LOG(WARN, "Unknown asset %s", asset.name().c_str());

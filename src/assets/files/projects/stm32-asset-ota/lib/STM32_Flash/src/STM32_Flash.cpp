@@ -2,7 +2,8 @@
  * Library to flash an asset to an STM32 microcontroller using UART, BOOT0 and RESET pins
  */
 
-#include "stm32_flash.h"
+#define LOG_CHECKED_ERRORS 1
+#include "STM32_Flash.h"
 
 // STM32 communication parameters
 const auto BAUD_RATE = 115200;
@@ -12,29 +13,34 @@ const auto ERASE_FLASH_TIMEOUT = 1000;
 const auto WRITE_BLOCK_TIMEOUT = 1000;
 
 // STM32 bootloader commands
+const uint8_t GET_INFO = 0x00;
 const uint8_t WRITE_MEMORY = 0x31;
 const uint8_t ERASE_FLASH = 0x43;
+const uint8_t ERASE_FLASH_EXTENDED = 0x44;
 const uint8_t ENTER_BOOTLOADER = 0x7F;
 const uint8_t ACK = 0x79;
 
 // STM32 memory map
 const uint32_t FLASH_START = 0x08000000;
 
+bool useExtendedErase = false;
+
 void setupStm32(pin_t boot0Pin, pin_t resetPin);
-int performFlashSteps(ApplicationAsset& asset, pin_t boot0Pin, pin_t resetPin);
-int enterBootloader(pin_t boot0Pin, pin_t resetPin);
-void resetStm32(pin_t resetPin);
-void exitBootloader(pin_t boot0Pin, pin_t resetPin);
+int performFlashSteps(ApplicationAsset& asset, pin_t boot0Pin, pin_t resetPin, uint32_t options);
+int enterBootloader(pin_t boot0Pin, pin_t resetPin, uint32_t options);
+void resetStm32(pin_t resetPin, uint32_t options);
+void exitBootloader(pin_t boot0Pin, pin_t resetPin, uint32_t options);
+int getInfo();
 int eraseFlash();
 int flashBinary(ApplicationAsset& asset);
 int writeBlock(uint32_t address, uint8_t* data, uint16_t size);
 int sendCommand(uint8_t command, uint16_t timeout = COMMAND_TIMEOUT);
 int waitForAck(uint8_t command, int timeout = COMMAND_TIMEOUT);
 
-int flashStm32Binary(ApplicationAsset& asset, pin_t boot0Pin, pin_t resetPin) {
+int flashStm32Binary(ApplicationAsset& asset, pin_t boot0Pin, pin_t resetPin, uint32_t options) {
   setupStm32(boot0Pin, resetPin);
-  int ret = performFlashSteps(asset, boot0Pin, resetPin);
-  exitBootloader(boot0Pin, resetPin);
+  int ret = performFlashSteps(asset, boot0Pin, resetPin, options);
+  exitBootloader(boot0Pin, resetPin, options);
   return ret;
 }
 
@@ -48,27 +54,31 @@ void setupStm32(pin_t boot0Pin, pin_t resetPin) {
   Serial1.begin(BAUD_RATE, SERIAL_PARITY_EVEN);
 }
 
-int performFlashSteps(ApplicationAsset& asset, pin_t boot0Pin, pin_t resetPin) {
-  CHECK(enterBootloader(boot0Pin, resetPin));
+int performFlashSteps(ApplicationAsset& asset, pin_t boot0Pin, pin_t resetPin, uint32_t options) {
+  CHECK(enterBootloader(boot0Pin, resetPin, options));
+  CHECK(getInfo());
   CHECK(eraseFlash());
   CHECK(flashBinary(asset));
   return SYSTEM_ERROR_NONE;
 }
 
-int enterBootloader(pin_t boot0Pin, pin_t resetPin) {
+int enterBootloader(pin_t boot0Pin, pin_t resetPin, uint32_t options) {
   LOG(INFO, "Resetting STM32 into bootloader mode");
 
   // Set BOOT0 pin to enter the bootloader mode
-  digitalWrite(boot0Pin, HIGH);
+  digitalWrite(boot0Pin, (options & STM32_BOOT_NONINVERTED) ? HIGH : LOW);
+  delay(1);
 
   // Reset the STM32
-  resetStm32(resetPin);
+  resetStm32(resetPin, options);
+
+  delay(10);
 
   // Send the bootloader start command
   Serial1.write(ENTER_BOOTLOADER);
 
   // Wait to get acknowledgement
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 100; i++) {
     waitFor(Serial1.available, 100);
     if (Serial1.available()) {
       auto resp = Serial1.read();
@@ -83,26 +93,61 @@ int enterBootloader(pin_t boot0Pin, pin_t resetPin) {
   return SYSTEM_ERROR_TIMEOUT;
 }
 
-void resetStm32(pin_t resetPin) {
-  digitalWrite(resetPin, LOW);
-  delay(100);
-  digitalWrite(resetPin, HIGH);
-  delay(100);
+void resetStm32(pin_t resetPin, uint32_t options) {
+  digitalWrite(resetPin, (options & STM32_RESET_NONINVERTED) ? LOW : HIGH);
+  delay(1);
+  digitalWrite(resetPin, (options & STM32_RESET_NONINVERTED) ? HIGH : LOW);
+  delay(1);
 }
 
-void exitBootloader(pin_t boot0Pin, pin_t resetPin) {
-  // Set BOOT0 pin to low to run the program
-  digitalWrite(boot0Pin, LOW);
+void exitBootloader(pin_t boot0Pin, pin_t resetPin, uint32_t options) {
+  // Set BOOT0 pin to run the program
+  digitalWrite(boot0Pin, (options & STM32_BOOT_NONINVERTED) ? LOW : HIGH);
+  delay(1);
 
-  resetStm32(resetPin);
+  resetStm32(resetPin, options);
+}
+
+int getInfo() {
+  CHECK(sendCommand(GET_INFO));
+
+  // info response shows which erase command to use
+  while (true) {
+    waitFor(Serial1.available, 100);
+    if (!Serial1.available()) {
+      LOG(ERROR, "Timeout waiting for get info response");
+      return SYSTEM_ERROR_TIMEOUT;
+    }
+    auto resp = Serial1.read();
+    switch (resp) {
+      case ERASE_FLASH:
+        useExtendedErase = false;
+        break;
+      case ERASE_FLASH_EXTENDED:
+        useExtendedErase = true;
+        break;
+      case ACK:
+        return SYSTEM_ERROR_NONE;
+    }
+  }
 }
 
 int eraseFlash() {
   LOG(INFO, "Erasing STM32 flash");
-  CHECK(sendCommand(ERASE_FLASH));
+  if (useExtendedErase) {
+    CHECK(sendCommand(ERASE_FLASH_EXTENDED));
 
-  // Erase all blocks
-  CHECK(sendCommand(0xFF, ERASE_FLASH_TIMEOUT));
+    // Global erase
+    uint8_t buf[3] = { 0xFF, 0xFF, 0x00 };
+    Serial1.write(buf, sizeof(buf));
+
+    CHECK(waitForAck(ERASE_FLASH_EXTENDED));
+  } else {
+    CHECK(sendCommand(ERASE_FLASH));
+
+    // Erase all blocks
+    CHECK(sendCommand(0xFF, ERASE_FLASH_TIMEOUT));
+  }
 
   LOG(INFO, "Erased STM32 flash");
   return SYSTEM_ERROR_NONE;
