@@ -816,15 +816,36 @@ Additional FCC Test Reports:
 
 ### FCC (United States) - M404 M-SoM M-Series LTE-M/2G
 
+- FCC ID: 2AEMI-M404
 - [Part 15B](/assets/pdfs/m404-fcc-part15b.pdf)
 - [Part 15C, Digital Transmission System 2.4 GHz](/assets/pdfs/m404-fcc-DTS.pdf)
 - [Part 15E, Unlicensed national information infrastructure TX, 5 GHz](/assets/pdfs/m404-fcc-part15e.pdf)
 - [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/m404-fcc-JBP.pdf)
 - [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/m404-fcc-PCB.pdf)
 
+### ISED (Canada) - M404 M-SoM M-Series LTE-M/2G
+
+- ISED: 20127-M504
+- [Certificate](/assets/pdfs/m404-ised-certificate.pdf)
+
+
 ### CE (European Union) - M404 M-SoM M-Series LTE-M/2G
 
 - [Summary](/assets/pdfs/m404-ce-summary.pdf)
+- [EN-62368-1 Test Report](/assets/pdfs/m404-EN-62368-1-test-report.pdf)
+- [EN 300 328 Test Report BLE](/assets/pdfs/m404-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
+- [EN 300 328 Test Report Wi-Fi](/assets/pdfs/m404-EN300-328-wifi-test-report.pdf) (Wi-Fi 2.4 GHz ISM band)
+- [EN 300 440 Test Report Wi-Fi](/assets/pdfs/m404-EN300-440-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 301 893 Test Report Wi-Fi](/assets/pdfs/m404-EN301-893-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 301 893 Test Report DFS](/assets/pdfs/m404-EN301-893-dfs-test-report.pdf) (Dynamic frequency selection clause 4.2.6)
+- [EN 303 413 Test Report](/assets/pdfs/m404-EN303-413-gnss-test-report.pdf) (GNSS)
+- [EN 301 489 Test Report](/assets/pdfs/m404-EN301-489-test-report.pdf)
+- [EN 301 511 Test Report](/assets/pdfs/m404-EN301-511-test-report.pdf) (GSM)
+- [EN 301 908 Test Report](/assets/pdfs/m404-EN301-908-test-report.pdf) 
+- [EN-62311 Test Report](/assets/pdfs/m404-EN62311-test-report.pdf)
+- [Test Report Photos](/assets/pdfs/m404-test-photos.pdf)
+
+
 
 ### RoHS - M404 M-SoM M-Series LTE-M/2G
 
@@ -846,6 +867,20 @@ Additional FCC Test Reports:
 ### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
 
 - [Summary](/assets/pdfs/m524-ce-summary.pdf)
+- [EN-62368-1 Test Report](/assets/pdfs/m524-EN-62368-1-test-report.pdf)
+- [EN 300 328 Test Report BLE](/assets/pdfs/m524-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
+- [EN 300 328 Test Report Wi-Fi](/assets/pdfs/m524-EN300-328-wifi-test-report.pdf) (Wi-Fi 2.4 GHz ISM band)
+- [EN 301 893 Test Report Wi-Fi](/assets/pdfs/m524-EN301-893-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 300 440 Test Report Wi-Fi](/assets/pdfs/m524-EN300-440-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 301 893 Test Report DFS](/assets/pdfs/m524-EN301-893-dfs-test-report.pdf) (Dynamic frequency selection clause 4.2.6)
+- [EN 303 413 Test Report](/assets/pdfs/m524-EN303-413-gnss-test-report.pdf) (GNSS)
+- [EN 301 489 Test Report](/assets/pdfs/m524-EN301-489-test-report.pdf)
+- [EN 301 511 Test Report](/assets/pdfs/m524-EN301-511-test-report.pdf) (GSM)
+- [EN 301 908 Test Report](/assets/pdfs/m524-EN301-908-test-report.pdf) 
+- [EN-62311 Test Report](/assets/pdfs/m524-EN62311-test-report.pdf)
+- [Test Report Photos](/assets/pdfs/m524-test-photos.pdf)
+
+
 
 ### RoHS - M524 M-SoM M-Series LTE Cat 1
 
