@@ -47,10 +47,8 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 | 22 | Power module |
 | 23 | Adafruit Feather connector (for accessories) |
 | 25 | LiPo charge LED (yellow) |
-| 26 | LiPo temperature sensor bypass jumper (TS) |
+| 26 | LiPo temperature sensor jumper (TS) |
 | 27 | Power LED (red) |
-
-
 
 ### Powering the board
 
@@ -68,11 +66,14 @@ The M.2 breakout can be powered by:
 
 #### LiPo connector
 
-Note that the M.2 breakout board includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack.
+Note that the M.2 breakout board includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack. The TS jumper (26) must be installed for normal operation with a temperature sensor.
 
 <div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
 
 <p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
+
+If you wish to use a battery without a temperature sensor, remove the TS jumper (26) and use a 3-pin to 2-pin JST-PH adapter, or change the shell of your JST-PH 2-pin connector to a 3-pin shell. The pin can be swapped without cutting, soldering, or crimping. See the [battery guide](/hardware/power/batteries/) for more information.
+
 
 ## Setup
 
@@ -940,3 +941,4 @@ To be provided at a later date.
 |:---------|:---------- |:-------|:---------|
 | pre      | 2024-03-18 | RK     | Initial Release (based on board v0.2 20240315) |
 |          | 2024-03-19 | RK     | USB-C power limitations |
+|          | 2024-04-16 | RK     | Description of TS jumper was backwards |

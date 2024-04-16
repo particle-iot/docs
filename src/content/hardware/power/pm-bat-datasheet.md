@@ -3,6 +3,7 @@ title: PM-BAT power module datasheet
 columns: two
 layout: commonTwo.hbs
 description: PM-BAT power module (battery + PMIC + fuel gauge) datasheet
+includeDefinitions: [api-helper, ts-calculator]
 ---
 
 # PM-BAT power module datasheet
@@ -119,6 +120,31 @@ The mating header is available from a large number of suppliers in both PTH and 
 ## Schematic 
 
 {{imageOverlay src="/assets/images/power-module/pm-bat-schematic.svg" alt="Module schematic" class="full-width"}}
+
+## Battery temperature sensor
+
+The power module PM-BAT can work with or without a battery temperature sensor.
+
+### Without a temperature sensor
+
+Leave the power module TS pin unconnected. Charging will always be enabled in hardware, but you can still control charging in 
+software if you wish to do so.
+
+### With a temperature sensor
+
+Connect the power module TS pin to a voltage divider as shown here:
+
+{{imageOverlay src="/assets/images/power-module/pm-bat-resistors.png" alt="Parallel resistors" class="full-width"}}
+
+The values for your resistors can be used to control the charge temperature range using the calculator tool below.
+
+#### Calculator
+
+{{> ts-calculator}}
+
+When calculating based on resistance, this formula from the bq24195 datasheet is used:
+
+![Resistor formula](/assets/images/power-module/formula.png)
 
 ## Ordering information
 
