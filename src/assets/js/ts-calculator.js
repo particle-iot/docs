@@ -168,9 +168,13 @@ $(document).ready(function () {
                     }
                     param.resTestTemperature = parseFloat($(thisPartial).find('.testTemperature').val());
                     param.resTestResistance = resistanceForTemperature(param.resTestTemperature);
-                    param.resTestLow = 1 / (1/param.rt2 + 1/param.resTestResistance);
+                    param.resTestLow = 1 / (1/param.rt2p + 1/param.rt2mod + 1/param.resTestResistance);
                     param.resTestVoltage = (param.vref * param.resTestLow) / (param.rt1 + param.resTestLow);
     
+                    if (param.vtco < param.resTestVoltage && param.resTestVoltage < param.vhtf) { 
+                        param.resTestStatus = 'Charging enabled (between TCO and HTF)';
+                    }
+                    else
                     if (param.vhtf <= param.resTestVoltage && param.resTestVoltage < param.vltf) {
                         param.resTestStatus = 'Charging enabled';
                     }
@@ -185,14 +189,18 @@ $(document).ready(function () {
                     param.rt1p = parseFloat($(thisPartial).find('.rt1pinput').val());
                     param.rt2p = parseFloat($(thisPartial).find('.rt2pinput').val());
 
-                    param.rt1 = (param.rt1mod * param.rt1p) / (param.rt1mod + param.rt1p);
-                    param.rt2 = (param.rt2mod * param.rt2p) / (param.rt2mod + param.rt2p);
+                    param.rt1 = 1 / (1/param.rt1mod + 1/param.rt1p);
+                    param.rt2 = 1 / (1/param.rt2mod + 1/param.rt2p); 
 
                     for(param.resTestTemperature = thermistorResistance[0].temp; param.resTestTemperature <= thermistorResistance[thermistorResistance.length - 1].temp; param.resTestTemperature++) {
                         param.resTestResistance = resistanceForTemperature(param.resTestTemperature);
-                        param.resTestLow = 1 / (1/param.rt2 + 1/param.resTestResistance);
+                        param.resTestLow = 1 / (1/param.rt2p + 1/param.rt2mod + 1/param.resTestResistance);
                         param.resTestVoltage = (param.vref * param.resTestLow) / (param.rt1 + param.resTestLow);
         
+                        if (param.vtco < param.resTestVoltage && param.resTestVoltage < param.vhtf) { 
+                            param.maxTempTCO = param.resTestTemperature;
+                        }
+                        else
                         if (param.vhtf <= param.resTestVoltage && param.resTestVoltage < param.vltf) {
                             if (typeof param.minTemp == 'undefined') {
                                 param.minTemp = param.resTestTemperature;
@@ -201,12 +209,12 @@ $(document).ready(function () {
                         }
                     }
 
-                    for(const which of [{key:'min', temp:'minTemp'}, {key:'max', temp:'maxTemp'}]) {
+                    for(const which of [{key:'min', temp:'minTemp'}, {key:'max', temp:'maxTemp'}, {key:'tco', temp:'maxTempTCO'}]) {
                         const param2 = param[which.key] = {};
                         param2.resTestResistance = param[which.temp];
 
                         param2.resTestResistance = resistanceForTemperature(param2.resTestResistance);
-                        param2.resTestLow = 1 / (1/param.rt2 + 1/param2.resTestResistance);
+                        param2.resTestLow = 1 / (1/param.rt2p + 1/param.rt2mod + 1/param2.resTestResistance);
                         param2.resTestVoltage = (param.vref * param2.resTestLow) / (param.rt1 + param2.resTestLow);
                     }
                     

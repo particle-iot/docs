@@ -146,6 +146,11 @@ When calculating based on resistance, this formula from the bq24195 datasheet is
 
 ![Resistor formula](/assets/images/power-module/formula.png)
 
+This graph shows the relationship between V<sub>LTF<sub>, V<sub>HTF<sub>, and V<sub>TCO<sub>. Note that since the thermistor is 
+NTC (negative temperature coefficient), higher voltages indicate lower temperatures.
+
+![Figure 13](/assets/images/power-module/fig13.png)
+
 ## Ordering information
 
 To be provided at a later date.

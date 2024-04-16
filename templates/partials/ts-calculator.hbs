@@ -27,13 +27,13 @@
                 <tr class="calculateTemperature calculateShowHide" style="display:none; ">
                     <td style="width: 20px; "/>
                     <td class="apiHelperProductSelectorLabel">RT1' (your resistor)</td>
-                    <td><input type="text" size="10" value="5510" class="rt1pinput"/> &ohm;</td>
+                    <td><input type="text" size="10" value="6910" class="rt1pinput"/> &ohm;</td>
                     <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none; ">
                     <td style="width: 20px; "/>
                     <td class="apiHelperProductSelectorLabel">RT2' (your resistor)</td>
-                    <td><input type="text" size="10" value="31200" class="rt2pinput"/> &ohm;</td>
+                    <td><input type="text" size="10" value="83200" class="rt2pinput"/> &ohm;</td>
                     <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none; ">
@@ -91,8 +91,13 @@
                     <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none;">
-                    <td colspan="2" class="apiHelperProductSelectorLabel">Maximum charge temperature</td>
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Maximum charge temperature (HTF)</td>
                     <td class="apiHelperProductSelectorLabel"><span data-key="maxTemp"></span> &deg;C</td>
+                    <td class="apiHelperProductSelectorLabel">&nbsp;</td>
+                </tr>
+                <tr class="calculateTemperature calculateShowHide" style="display:none;">
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Maximum charge temperature (TCO)</td>
+                    <td class="apiHelperProductSelectorLabel"><span data-key="maxTempTCO"></span> &deg;C</td>
                     <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                 </tr>
                 <tr class="calculateOutput" style="display:none;">
@@ -134,7 +139,7 @@
                 <tr class="calculateResistance calculateShowHide" style="display:none;">
                     <td colspan="2" class="apiHelperProductSelectorLabel">Test low-side resistance</td>
                     <td><span data-key="resTestLow"></span> &ohm;</td>
-                    <td class="apiHelperProductSelectorLabel">RT2 and thermistor in parallel</td>
+                    <td class="apiHelperProductSelectorLabel">RT2, RT2', thermistor in parallel</td>
                 </tr>
                 <tr class="calculateResistance calculateShowHide" style="display:none;">
                     <td colspan="2" class="apiHelperProductSelectorLabel">Test TS</td>
@@ -147,34 +152,49 @@
                 </tr>
                 
                 <tr class="calculateTemperature calculateShowHide" style="display:none;">
-                    <td colspan="2" class="apiHelperProductSelectorLabel">Min temp thermistor resistance</td>
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Min temp (LTF) thermistor resistance</td>
                     <td><span data-key="min.resTestResistance"></span> &ohm;</td>
                     <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none;">
-                    <td colspan="2" class="apiHelperProductSelectorLabel">Min temp low-side resistance</td>
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Min temp (LTF) low-side resistance</td>
                     <td class="apiHelperProductSelectorLabel"><span data-key="min.resTestLow"></span> &ohm;</td>
-                    <td>RT2 and thermistor in parallel</td>
+                    <td class="apiHelperProductSelectorLabel">RT2, RT2', thermistor in parallel</td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none;">
-                    <td colspan="2" class="apiHelperProductSelectorLabel">Min temp TS</td>
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Min temp (LTF) TS</td>
                     <td class="apiHelperProductSelectorLabel"><span data-key="min.resTestVoltage"></span V></td>
                     <td class="apiHelperProductSelectorLabel">Voltage at TS pin, must be < V<sub>LTF</sub></td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none;">
-                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp thermistor resistance</td>
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp (HTF) thermistor resistance</td>
                     <td class="apiHelperProductSelectorLabel"><span data-key="max.resTestResistance"></span> &ohm;</td>
                     <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none;">
-                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp low-side resistance</td>
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp (HTF) low-side resistance</td>
                     <td class="apiHelperProductSelectorLabel"><span data-key="max.resTestLow"></span &ohm;></td>
-                    <td>RT2 and thermistor in parallel</td>
+                    <td class="apiHelperProductSelectorLabel">RT2, RT2', thermistor in parallel</td>
                 </tr>
                 <tr class="calculateTemperature calculateShowHide" style="display:none;">
-                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp TS</td>
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp (HTF) TS</td>
                     <td class="apiHelperProductSelectorLabel"><span data-key="max.resTestVoltage"></span> V</td>
                     <td class="apiHelperProductSelectorLabel">Voltage at TS pin, must be > V<sub>HTF</sub></td>
+                </tr>
+                <tr class="calculateTemperature calculateShowHide" style="display:none;">
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp (TCO) thermistor resistance</td>
+                    <td class="apiHelperProductSelectorLabel"><span data-key="tco.resTestResistance"></span> &ohm;</td>
+                    <td class="apiHelperProductSelectorLabel">&nbsp;</td>
+                </tr>
+                <tr class="calculateTemperature calculateShowHide" style="display:none;">
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp (TCO) low-side resistance</td>
+                    <td class="apiHelperProductSelectorLabel"><span data-key="tco.resTestLow"></span &ohm;></td>
+                    <td class="apiHelperProductSelectorLabel">RT2, RT2', thermistor in parallel</td>
+                </tr>
+                <tr class="calculateTemperature calculateShowHide" style="display:none;">
+                    <td colspan="2" class="apiHelperProductSelectorLabel">Max temp (TCO) TS</td>
+                    <td class="apiHelperProductSelectorLabel"><span data-key="tco.resTestVoltage"></span> V</td>
+                    <td class="apiHelperProductSelectorLabel">Voltage at TS pin, must be > V<sub>TCO</sub></td>
                 </tr>
             </table>            
         </div>
