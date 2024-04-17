@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cellular data usage guide update 2024-04-17
+
+Added additional tips to the [cellular data usage guide](/getting-started/billing/cellular-data/).
+
 ### STM32 Asset OTA Update 2024-04-16
 
 Updated [STM32 Asset OTA](/reference/asset-ota/asset-ota-community/stm32-asset-ota/) example uses a library to make it

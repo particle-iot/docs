@@ -129,6 +129,19 @@ Whenever a cellular has to join the cellular network it will "handshake" and reg
 - Wake from stop mode (when not using `SLEEP_NETWORK_STANDBY`)
 - Cellular modem is turned off and on again
 
+**Connectivity failure**
+If the device has unreliable cellular connectivity, it may connect to a tower (get past blinking green) but may have trouble 
+fully establishing a cloud connection (cannot get to breathing cyan). When this occurs, there will be data usage but not
+data operations. Additionally, after 10 minutes of failure, the device may reset the modem, and in some cases it may require
+a cloud handshake again. These can all cause additional cellular data usage.
+
+**OTA failure**
+With Device OS 3.1 and later, resumable OTA allows the device to resume downloading where it left off. 
+
+In earlier versions of Device OS, and on Gen 2 devices, there is no support for resumable OTA so if the download fails, it will
+start again from the beginning. OTA can be interrupted by poor network connectivity or interrupting the download by
+entering sleep mode. Download retries can cause excessive cellular data usage but will not use data operations.
+
 
 ### Ways to reduce data use
 There are lots of things you can do to save data! 
