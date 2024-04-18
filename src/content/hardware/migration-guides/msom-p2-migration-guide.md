@@ -204,6 +204,23 @@ The P2 land pattern is:
 
 - PWM pins vary between the P2 and M-SoM
 
+### PDM 
+
+Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
+and the M-SoM, but only on specific pins that are different from the P2!
+
+{{!-- BEGIN do not edit content below, it is automatically generated b69d8385-7cbe-4fd1-951a-f9f93dbfd822 --}}
+
+| P2 Pin Name | P2 PDM | M-SoM Pin | M-SoM Pin Name | M-SoM PDM |
+| :--- | :--- | :---: | :--- | :--- |
+| A0 / D11 | CLK | 23 | A0 / D19 | &nbsp; |
+| A1 / D12 | DAT | 33 | A1 / D18 | &nbsp; |
+| S0 / D15 | &nbsp; | 41 | A4 / D15 | DAT |
+| S1 / D16 | &nbsp; | 37 | A3 / D16 | CLK |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 ### Boot mode pins
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
@@ -281,7 +298,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Pin Alternate Name | D11 | D19 |
-| ∆ | Description | A0 Analog in, GPIO | A0 Analog in, GPIO, PWM |
+| ∆ | Description | A0 Analog in, PDM CLK, GPIO | A0 Analog in, GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -294,7 +311,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | D12 | D18 |
-| ∆ | Description | A1 Analog in, GPIO | A1 Analog in, GPIO, PWM |
+| ∆ | Description | A1 Analog in, PDM DAT, GPIO | A1 Analog in, GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -442,7 +459,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S0 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
-| ∆ | Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | A4 Analog in, GPIO |
+| ∆ | Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | A4 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | No | Yes |
@@ -457,7 +474,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S1 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
-| ∆ | Description | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | A3 Analog in, GPIO |
+| ∆ | Description | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | A3 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | No | Yes |
@@ -857,3 +874,4 @@ Most third-party libraries are believed to be compatible between the P2 and M-So
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |
 | 001      | 2024-04-02 | RK | General availability |
+| 002      | 2024-04-18 | RK | Add PDM microphone |

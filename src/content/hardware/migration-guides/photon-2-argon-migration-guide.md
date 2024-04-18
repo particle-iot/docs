@@ -310,6 +310,22 @@ Neither the Argon nor the Photon 2 support CAN.
 - Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to the Photon 2.
 
 
+### PDM 
+
+Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
+and the P2, but only on specific pins. The Argon and Boron can use any pins for PDM (with the same library).
+
+{{!-- BEGIN do not edit content below, it is automatically generated 99012761-fa31-40d4-b657-0233111b81cb --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| A0 / D11 | A0 Analog in, PDM CLK, GPIO | CLK | PB[1] |
+| A1 / D12 | A1 Analog in, PDM DAT, GPIO | DAT | PB[2] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
 ### I2S (Sound)
 
 The Argon supports I2S (sound) input and output with a third-party library.
@@ -424,7 +440,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Pin Alternate Name | D19 | D11 |
-| ∆ | Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO |
+| ∆ | Description | A0 Analog in, GPIO, PWM | A0 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -437,7 +453,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | D18 | D12 |
-| ∆ | Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO |
+| ∆ | Description | A1 Analog in, GPIO, PWM | A1 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -792,3 +808,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2024-03-11 | RK | Update CHG documentation |
 |     | 2024-03-11 | RK | Photon 2 has a USB Micro B, not USB C |
 |     | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
+      | 2024-04-18 | RK | Add PDM microphone |

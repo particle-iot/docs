@@ -952,7 +952,7 @@
           "num": 8,
           "name": "A3",
           "altName": "D16",
-          "desc": "A3 Analog in, GPIO",
+          "desc": "A3 Analog in, PDM CLK, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -966,6 +966,7 @@
           "internalPull": "2.1K",
           "is5VTolerant": false,
           "isIO": true,
+          "pdm": "CLK",
           "somPin": "ADC3",
           "tone": false
         },
@@ -973,7 +974,7 @@
           "num": 9,
           "name": "A4",
           "altName": "D15",
-          "desc": "A4 Analog in, GPIO",
+          "desc": "A4 Analog in, PDM DAT, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -987,6 +988,7 @@
           "internalPull": "2.1K",
           "is5VTolerant": false,
           "isIO": true,
+          "pdm": "DAT",
           "somPin": "RESERVED",
           "tone": false
         },
@@ -2419,7 +2421,7 @@
           "num": 21,
           "name": "A3",
           "altName": "D16",
-          "desc": "A3 Analog in, GPIO",
+          "desc": "A3 Analog in, PDM CLK, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -2432,6 +2434,7 @@
           "is5VTolerant": false,
           "isIO": true,
           "m2Pin": 37,
+          "pdm": "CLK",
           "somPin": "ADC3",
           "tone": false
         },
@@ -2483,7 +2486,7 @@
           "num": 25,
           "name": "A4",
           "altName": "D15",
-          "desc": "A4 Analog in, GPIO",
+          "desc": "A4 Analog in, PDM DAT, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -2496,6 +2499,7 @@
           "is5VTolerant": false,
           "isIO": true,
           "m2Pin": 41,
+          "pdm": "DAT",
           "somPin": "RESERVED",
           "tone": false
         },
@@ -4470,7 +4474,7 @@
           "num": 5,
           "name": "A0",
           "altName": "D11",
-          "desc": "A0 Analog in, GPIO",
+          "desc": "A0 Analog in, PDM CLK, GPIO",
           "altNameBefore2022_04_14": "D19",
           "analogRead": true,
           "analogWriteDAC": false,
@@ -4487,13 +4491,14 @@
           "isIO": true,
           "mcuPin": 41,
           "p2Pin": 50,
+          "pdm": "CLK",
           "tone": false
         },
         {
           "num": 6,
           "name": "A1",
           "altName": "D12",
-          "desc": "A1 Analog in, GPIO",
+          "desc": "A1 Analog in, PDM DAT, GPIO",
           "altNameBefore2022_04_14": "D18",
           "analogRead": true,
           "analogWriteDAC": false,
@@ -4510,6 +4515,7 @@
           "isIO": true,
           "mcuPin": 42,
           "p2Pin": 43,
+          "pdm": "DAT",
           "tone": false
         },
         {
@@ -13202,7 +13208,7 @@
           "num": 43,
           "name": "A1",
           "altName": "D12",
-          "desc": "A1 Analog in, GPIO",
+          "desc": "A1 Analog in, PDM DAT, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -13216,6 +13222,7 @@
           "isIO": true,
           "mcuPin": 42,
           "nameBefore2022_02_25": "D13",
+          "pdm": "DAT",
           "tone": false
         },
         {
@@ -13331,7 +13338,7 @@
           "num": 50,
           "name": "A0",
           "altName": "D11",
-          "desc": "A0 Analog in, GPIO",
+          "desc": "A0 Analog in, PDM CLK, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -13345,6 +13352,7 @@
           "isIO": true,
           "mcuPin": 41,
           "nameBefore2022_02_25": "D12",
+          "pdm": "CLK",
           "tone": false
         },
         {
@@ -13777,7 +13785,7 @@
           "num": 37,
           "name": "A3",
           "altName": "D16",
-          "desc": "A3 Analog in, GPIO",
+          "desc": "A3 Analog in, PDM CLK, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -13789,6 +13797,7 @@
           "internalPull": "2.1K",
           "is5VTolerant": false,
           "isIO": true,
+          "pdm": "CLK",
           "somPin": "ADC3",
           "tone": false
         },
@@ -13846,7 +13855,7 @@
           "num": 41,
           "name": "A4",
           "altName": "D15",
-          "desc": "A4 Analog in, GPIO",
+          "desc": "A4 Analog in, PDM DAT, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -13858,6 +13867,7 @@
           "internalPull": "2.1K",
           "is5VTolerant": false,
           "isIO": true,
+          "pdm": "DAT",
           "somPin": "RESERVED",
           "tone": false
         },
@@ -14612,7 +14622,7 @@
           "num": 18,
           "name": "A1",
           "altName": "D12",
-          "desc": "A1 Analog in, GPIO",
+          "desc": "A1 Analog in, PDM DAT, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -14627,7 +14637,8 @@
           "mcuPin": 42,
           "nameBefore2022_02_25": "D13",
           "p2pin": 43,
-          "tone": false
+          "tone": false,
+          "pdm": "DAT"
         },
         {
           "num": 19,
@@ -14760,7 +14771,7 @@
           "num": 27,
           "name": "A0",
           "altName": "D11",
-          "desc": "A0 Analog in, GPIO",
+          "desc": "A0 Analog in, PDM CLK, GPIO",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -14775,7 +14786,8 @@
           "mcuPin": 41,
           "nameBefore2022_02_25": "D12",
           "p2pin": 50,
-          "tone": false
+          "tone": false,
+          "pdm": "CLK"
         },
         {
           "num": 28,

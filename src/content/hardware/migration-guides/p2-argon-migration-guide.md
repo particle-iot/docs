@@ -430,6 +430,21 @@ The pins that support PWM are different on the Argon and P2.
 
 All available PWM pins on the P2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
+### PDM 
+
+Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
+and the P2, but only on specific pins. The Argon and Boron can use any pins for PDM (with the same library).
+
+{{!-- BEGIN do not edit content below, it is automatically generated 9974c87e-242b-4a44-8f89-eca3a455ab5f --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 43 | A1 / D12 | A1 Analog in, PDM DAT, GPIO | PB[2] |
+| 50 | A0 / D11 | A0 Analog in, PDM CLK, GPIO | PB[1] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 ### I2S (Sound)
 
 The Argon can use I2S via a 3rd-party library, however there has never been support for it in Device OS.
@@ -582,8 +597,8 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 
 | Argon Pin Name | Argon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
-| A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
+| A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
 | A2 / D17 | A2 Analog in, GPIO, PWM | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
 | A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
@@ -613,8 +628,8 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 
 | Argon Pin Name | Argon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
-| A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
+| A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
 | A2 / D17 | A2 Analog in, GPIO, PWM | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
 | A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
@@ -667,7 +682,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | ∆ | Pin Number | 6 | 43 |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | D18 | D12 |
-| ∆ | Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO |
+| ∆ | Description | A1 Analog in, GPIO, PWM | A1 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -754,7 +769,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | ∆ | Pin Number | 13 | 50 |
 | ∆ | Pin Name | MISO | A0 |
 | &nbsp; | Pin Alternate Name | D11 | D11 |
-| ∆ | Description | SPI MISO, GPIO | A0 Analog in, GPIO |
+| ∆ | Description | SPI MISO, GPIO | A0 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | No | Yes |
@@ -767,7 +782,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | ∆ | Pin Number | 12 | 43 |
 | ∆ | Pin Name | MOSI | A1 |
 | &nbsp; | Pin Alternate Name | D12 | D12 |
-| ∆ | Description | SPI MOSI, GPIO | A1 Analog in, GPIO |
+| ∆ | Description | SPI MOSI, GPIO | A1 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | No | Yes |
@@ -1202,3 +1217,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | 004 | 2023-05-05 | RK | Fix available RAM |
 | 005 | 2024-03-11 | RK | Photon 2 has a USB Micro B, not USB C |
 | 006 | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
+| 007 | 2024-04-18 | RK | Add PDM microphone |

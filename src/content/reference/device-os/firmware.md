@@ -5846,9 +5846,9 @@ The P2 and Photon 2 have four dedicated ADC pins, and two shared pins. If you ar
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | ADC_0 | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
 | 36 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
-| 43 | A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
+| 43 | A1 / D12 | A1 Analog in, PDM DAT, GPIO | ADC_5 | PB[2] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
-| 50 | A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |
+| 50 | A0 / D11 | A0 Analog in, PDM CLK, GPIO | ADC_4 | PB[1] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

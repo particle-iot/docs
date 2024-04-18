@@ -300,7 +300,7 @@
             "num": 43,
             "name": "A1",
             "altName": "D12",
-            "desc": "A1 Analog in, GPIO",
+            "desc": "A1 Analog in, PDM DAT, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -314,6 +314,7 @@
             "isIO": true,
             "mcuPin": 42,
             "nameBefore2022_02_25": "D13",
+            "pdm": "DAT",
             "tone": false
         },
         {
@@ -429,7 +430,7 @@
             "num": 50,
             "name": "A0",
             "altName": "D11",
-            "desc": "A0 Analog in, GPIO",
+            "desc": "A0 Analog in, PDM CLK, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -443,6 +444,7 @@
             "isIO": true,
             "mcuPin": 41,
             "nameBefore2022_02_25": "D12",
+            "pdm": "CLK",
             "tone": false
         },
         {

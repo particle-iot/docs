@@ -413,7 +413,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 21 | 21 |
 | &nbsp; | Pin Name | A3 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
-| &nbsp; | Description | A3 Analog in, GPIO | A3 Analog in, GPIO |
+| ∆ | Description | A3 Analog in, GPIO | A3 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -469,7 +469,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Pin Number | 25 | 25 |
 | &nbsp; | Pin Name | A4 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
-| &nbsp; | Description | A4 Analog in, GPIO | A4 Analog in, GPIO |
+| ∆ | Description | A4 Analog in, GPIO | A4 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |

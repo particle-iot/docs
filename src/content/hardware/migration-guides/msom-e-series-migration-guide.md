@@ -776,7 +776,7 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Pin Number | 23 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
 | ∆ | Pin Alternate Name | n/a | D16 |
-| ∆ | Description | A3 True analog out, analog in, GPIO. | A3 Analog in, GPIO |
+| ∆ | Description | A3 True analog out, analog in, GPIO. | A3 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -790,7 +790,7 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Pin Number | 22 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
 | ∆ | Pin Alternate Name | n/a | D15 |
-| ∆ | Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO |
+| ∆ | Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |

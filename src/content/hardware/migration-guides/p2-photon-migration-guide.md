@@ -584,8 +584,8 @@ In this mapping, the SPI pins are preserved from Photon to P2 at the expense of 
 
 | Photon Pin Name | Photon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
-| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
+| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
 | A2 | A2 Analog in, GPIO, SPI SS | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
 | A3 | A3 True analog out, analog in, GPIO. | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
@@ -615,8 +615,8 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 
 | Photon Pin Name | Photon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
-| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
+| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
 | A2 | A2 Analog in, GPIO, SPI SS | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A3 | A3 True analog out, analog in, GPIO. | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A5 | A5 Analog in, GPIO, SPI MOSI. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
@@ -665,7 +665,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Pin Number | 12 | 50 |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Pin Alternate Name | n/a | D11 |
-| &nbsp; | Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
+| ∆ | Description | A0 Analog in, GPIO | A0 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -678,7 +678,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Pin Number | 11 | 43 |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | n/a | D12 |
-| &nbsp; | Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
+| ∆ | Description | A1 Analog in, GPIO | A1 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |

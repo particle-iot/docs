@@ -262,8 +262,8 @@ The Photon 2 supports six ADC inputs.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |
-| A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
+| A0 / D11 | A0 Analog in, PDM CLK, GPIO | ADC_4 | PB[1] |
+| A1 / D12 | A1 Analog in, PDM DAT, GPIO | ADC_5 | PB[2] |
 | A2 / D13 | A2 Analog in, GPIO, PWM. | ADC_3 | PB[7] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | ADC_0 | PB[4] |
 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
@@ -357,6 +357,24 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 - External pull-up resistors are required for I2C
 - If not using I2C, pins D0 and D1 can be used as GPIO
 
+
+### PDM 
+
+Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
+and the Photon 2, but only on specific pins:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 99012761-fa31-40d4-b657-0233111b81cb --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| A0 / D11 | A0 Analog in, PDM CLK, GPIO | CLK | PB[1] |
+| A1 / D12 | A1 Analog in, PDM DAT, GPIO | DAT | PB[2] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
+
 ### Boot mode pins
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
@@ -446,8 +464,8 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 
 | Photon 2 Pin Name | Photon 2 Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D11 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
-| A1 / D12 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A0 / D11 | A0 Analog in, PDM CLK, GPIO | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
+| A1 / D12 | A1 Analog in, PDM DAT, GPIO | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
 | A2 / D13 | A2 Analog in, GPIO, PWM. | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
@@ -483,8 +501,8 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | 3V3 | Regulated 3.3V DC output, maximum load 500 mA | &nbsp; |
 | MODE | MODE button, has internal pull-up | PA[4] |
 | GND | Ground. | &nbsp; |
-| A0 / D11 | A0 Analog in, GPIO | PB[1] |
-| A1 / D12 | A1 Analog in, GPIO | PB[2] |
+| A0 / D11 | A0 Analog in, PDM CLK, GPIO | PB[1] |
+| A1 / D12 | A1 Analog in, PDM DAT, GPIO | PB[2] |
 | A2 / D13 | A2 Analog in, GPIO, PWM. | PB[7] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | PB[4] |
 | S4 / D19 | S4 GPIO, Was A4 on Gen 3. | PA[0] |
@@ -535,7 +553,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A0</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D11</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A0 Analog in, GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A0 Analog in, PDM CLK, GPIO</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
@@ -553,7 +571,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A1</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D12</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A1 Analog in, GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A1 Analog in, PDM DAT, GPIO</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
@@ -1289,6 +1307,8 @@ SE, SI, SK, TR, UA, UK(NI).
 |   9 | 2024-03-12 | RK | Fix location of VUSB diode in block diagram |
 |  10 | 2024-03-15 | RK | Update VUSB diode and descriptive text for VUSB |
 |  11 | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
+|  12 | 2024-04-18 | RK | Add PDM microphone |
+
 
 ## Known errata
 

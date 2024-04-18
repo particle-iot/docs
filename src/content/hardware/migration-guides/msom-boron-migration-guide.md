@@ -286,6 +286,22 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+### PDM 
+
+Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
+and the M-SoM, but only on specific pins. The B-SoM can use any pins for PDM (with the same library).
+
+{{!-- BEGIN do not edit content below, it is automatically generated b97d7e7b-d462-4687-8371-96e0150b106f --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 37 | A3 / D16 | A3 Analog in, PDM CLK, GPIO | PB[1] |
+| 41 | A4 / D15 | A4 Analog in, PDM DAT, GPIO | PB[2] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
 ### Boot mode pins
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
@@ -388,7 +404,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A3 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
-| ∆ | Description | A3 Analog in, GPIO, PWM | A3 Analog in, GPIO |
+| ∆ | Description | A3 Analog in, GPIO, PWM | A3 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -401,7 +417,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A4 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
-| ∆ | Description | A4 Analog in, GPIO, PWM | A4 Analog in, GPIO |
+| ∆ | Description | A4 Analog in, GPIO, PWM | A4 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -917,3 +933,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |
 | 001      | 2024-04-02 | RK | General availability |
+| 002      | 2024-04-18 | RK | Add PDM microphone |

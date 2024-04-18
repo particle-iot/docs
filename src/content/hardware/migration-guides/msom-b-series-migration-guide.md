@@ -111,11 +111,11 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | &nbsp; | 34 | RST | Hardware reset, active low. External pull-up required. | RST | Hardware reset, active low. External pull-up required. |
 | &nbsp; | 35 | A2 / D17 | A2 Analog in, GPIO | A2 / D17 | A2 Analog in, GPIO |
 | ∆ | 36 | TX / D9 | Serial TX, GPIO | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI |
-| &nbsp; | 37 | A3 / D16 | A3 Analog in, GPIO | A3 / D16 | A3 Analog in, GPIO |
+| ∆ | 37 | A3 / D16 | A3 Analog in, GPIO | A3 / D16 | A3 Analog in, PDM CLK, GPIO |
 | ∆ | 38 | RX / D10 | Serial RX, GPIO | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO |
 | &nbsp; | 39 | AGND | Analog Ground. | AGND | Analog Ground. |
 | ∆ | 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
-| &nbsp; | 41 | A4 / D15 | A4 Analog in, GPIO | A4 / D15 | A4 Analog in, GPIO |
+| ∆ | 41 | A4 / D15 | A4 Analog in, GPIO | A4 / D15 | A4 Analog in, PDM DAT, GPIO |
 | ∆ | 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
 | ∆ | 43 | A5 / D14 | A5 Analog in, GPIO | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 |
 | &nbsp; | 44 | CELL USBD+ | Cellular Modem USB Data+ | CELL USBD+ | Cellular Modem USB Data+ |
@@ -273,6 +273,22 @@ For rapidly changing signals, a voltage follower IC can be used.
 {{!-- END do not edit content above, it is automatically generated--}}
 
 On the B-SoM, multiple timers are using allowing different PWM frequencies on certain pins. On the M-SoM, all PWM pins share a single time and thus must share the same frequency, but can have different duty cycles.
+
+
+### PDM 
+
+Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
+and the M-SoM, but only on specific pins. The B-SoM can use any pins for PDM (with the same library).
+
+{{!-- BEGIN do not edit content below, it is automatically generated b97d7e7b-d462-4687-8371-96e0150b106f --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 37 | A3 / D16 | A3 Analog in, PDM CLK, GPIO | PB[1] |
+| 41 | A4 / D15 | A4 Analog in, PDM DAT, GPIO | PB[2] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
 
 ### Boot mode pins
 
@@ -580,7 +596,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Pin Number | 37 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
-| &nbsp; | Description | A3 Analog in, GPIO | A3 Analog in, GPIO |
+| ∆ | Description | A3 Analog in, GPIO | A3 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -626,7 +642,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Pin Number | 41 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
-| &nbsp; | Description | A4 Analog in, GPIO | A4 Analog in, GPIO |
+| ∆ | Description | A4 Analog in, GPIO | A4 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -1026,3 +1042,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |
 | 001      | 2024-04-02 | RK | General availability |
+| 002      | 2024-04-18 | RK | Add PDM microphone |

@@ -251,7 +251,7 @@
             "num": 37,
             "name": "A3",
             "altName": "D16",
-            "desc": "A3 Analog in, GPIO",
+            "desc": "A3 Analog in, PDM CLK, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -263,6 +263,7 @@
             "internalPull": "2.1K",
             "is5VTolerant": false,
             "isIO": true,
+            "pdm": "CLK",
             "somPin": "ADC3",
             "tone": false
         },
@@ -320,7 +321,7 @@
             "num": 41,
             "name": "A4",
             "altName": "D15",
-            "desc": "A4 Analog in, GPIO",
+            "desc": "A4 Analog in, PDM DAT, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -332,6 +333,7 @@
             "internalPull": "2.1K",
             "is5VTolerant": false,
             "isIO": true,
+            "pdm": "DAT",
             "somPin": "RESERVED",
             "tone": false
         },

@@ -823,7 +823,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | n/a | D12 |
-| &nbsp; | Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
+| ∆ | Description | A1 Analog in, GPIO | A1 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -909,7 +909,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Pin Alternate Name | n/a | D11 |
-| &nbsp; | Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
+| ∆ | Description | A0 Analog in, GPIO | A0 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |

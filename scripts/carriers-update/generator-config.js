@@ -1769,6 +1769,16 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         {
+            guid:'9974c87e-242b-4a44-8f89-eca3a455ab5f',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'P2',
+                    interface: 'pdm',
+                    noInterface: true,
+                }); 
+            } 
+        },        {
             guid:'51e324e1-6f8a-43d5-aad2-f7cbbb699804',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -1911,6 +1921,17 @@ const schemaDocs = require('./schema-docs');
                     style: 'interfacePins',
                     platformNew: 'Photon 2',
                     interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'99012761-fa31-40d4-b657-0233111b81cb',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Photon 2',
+                    interface: 'pdm',
                     noPinNumbers: true,
                 }); 
             } 
@@ -3588,6 +3609,17 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {        
+            guid:'b97d7e7b-d462-4687-8371-96e0150b106f',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M-SoM',
+                    interface: 'pdm',
+                    noInterface: true,
+                }); 
+            } 
+        },
         {
             guid:'dd39756a-80c9-4fc0-8665-7533da96152d',
             generatorFn:function(updater){
@@ -3856,6 +3888,25 @@ const schemaDocs = require('./schema-docs');
                     platformOld: 'P2',
                     port: 'analogWritePWM',
                     label: 'PWM',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M-SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },  
+        {
+            guid:'b69d8385-7cbe-4fd1-951a-f9f93dbfd822', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M-SoM',
+                    platformOld: 'P2',
+                    port: 'pdm',
+                    label: 'PDM',
+                    useShortName: true,
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',

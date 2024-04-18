@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### PDM microphone information 2024-04-18
+
+Updated the M-SoM, P2, and Photon 2 datasheets and migration guides to include information about PDM microphones.
+
 ### Cellular data usage guide update 2024-04-17
 
 Added additional tips to the [cellular data usage guide](/getting-started/billing/cellular-data/).

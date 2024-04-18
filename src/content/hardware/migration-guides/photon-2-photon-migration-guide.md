@@ -436,8 +436,8 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Electron Pin Name | Electron Description | Photon 2 Pin Name | Photon 2 Description |
 | :--- | :--- | :--- | :--- |
 | 3V3 | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | 3V3 | Regulated 3.3V DC output, maximum load 500 mA |
-| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO |
-| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO |
+| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, PDM CLK, GPIO |
+| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, PDM DAT, GPIO |
 | A2 | A2 Analog in, GPIO, SPI SS | A2 / D13 | A2 Analog in, GPIO, PWM. |
 | A3 | A3 True analog out, analog in, GPIO. | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. |
 | A4 | A4 Analog in, GPIO, SPI MISO. | S4 / D19 | S4 GPIO, Was A4 on Gen 3. |
@@ -498,7 +498,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Pin Alternate Name | n/a | D11 |
-| &nbsp; | Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
+| ∆ | Description | A0 Analog in, GPIO | A0 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -510,7 +510,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | n/a | D12 |
-| &nbsp; | Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
+| ∆ | Description | A1 Analog in, GPIO | A1 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |

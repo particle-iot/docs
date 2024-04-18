@@ -365,8 +365,8 @@ Certain GPIO will change state at boot, or cause the MCU to enter a special mode
 | 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC_0 | PB[4] |
 | 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | PB[5] |
 | 35 | A2 / D17 | A2 Analog in, GPIO | ADC_2 | PB[6] |
-| 37 | A3 / D16 | A3 Analog in, GPIO | ADC_4 | PB[1] |
-| 41 | A4 / D15 | A4 Analog in, GPIO | ADC_5 | PB[2] |
+| 37 | A3 / D16 | A3 Analog in, PDM CLK, GPIO | ADC_4 | PB[1] |
+| 41 | A4 / D15 | A4 Analog in, PDM DAT, GPIO | ADC_5 | PB[2] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
 | 45 | A6 / D29 | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT | ADC_3 | PB[7] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |
@@ -499,6 +499,22 @@ Even though the B-SoM and M-SoM both have two SPI interfaces, note that the M-So
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - All available PWM pins on the M-SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+
+
+### PDM 
+
+Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
+and the M-SoM, but only on specific pins:
+
+{{!-- BEGIN do not edit content below, it is automatically generated b97d7e7b-d462-4687-8371-96e0150b106f --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 37 | A3 / D16 | A3 Analog in, PDM CLK, GPIO | PB[1] |
+| 41 | A4 / D15 | A4 Analog in, PDM DAT, GPIO | PB[2] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
 
 
 ### USB
@@ -1283,3 +1299,4 @@ Global, country list to be provided a later date.
 |          | 2024-03-26 | RK | Listed certified bands for FCC and CE |
 | 001      | 2024-04-02 | RK | General availability |
 | 002      | 2024-04-03 | RK | Additional transmitter information |
+| 003      | 2024-04-18 | RK | Add PDM microphone |
