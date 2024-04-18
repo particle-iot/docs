@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### SPI DMA callback warning 2024-04-18
+
+Added a warning about not setting the CS pin high in a [SPI DMA transfer callback](/reference/device-os/api/spi/transfer-void-void-size_t-std-function/). 
+
 ### B-SoM eval board fix 2024-04-18
 
 The pinout diagram for the [M.2 eval board board](/reference/datasheets/b-series/b-series-eval-board/) 60-pin expansion header pin 25 (A4) was missing from the diagram. The tables are text were correct.

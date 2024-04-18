@@ -8990,7 +8990,12 @@ _Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.transfer()`.
 
-If you are using the callback, it is called as an interrupt service routine (ISR) and there are many restrictions when calling from an interrupt context. Specifically for SPI, you cannot `SPI.endTransaction()` or start another DMA transaction using `SPI.transfer()`. Thus in practice it's often better to perform your SPI operations from a worker thread instead of chained interrupts if you want asynchronous execution.
+If you are using the callback, it is called as an interrupt service routine (ISR) and there are many restrictions when calling from an interrupt context. Specifically for SPI, you cannot `SPI.endTransaction()` or start another DMA transaction using `SPI.transfer()`. 
+
+You should not set the CS pin high from the callback ISR. The callback is called when the DMA transaction is completed, which can be 
+before the data is actually transmitted out of the SPI FIFO.
+
+Thus in practice it's often better to perform your SPI operations from a worker thread instead of chained interrupts if you want asynchronous execution.
 
 {{!-- BEGIN shared-blurb 7a43657c-a231-439b-b1bd-f1d4a189dc0c --}}
 Things you should not do from an ISR:
