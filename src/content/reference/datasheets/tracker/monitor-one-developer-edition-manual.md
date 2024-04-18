@@ -227,6 +227,13 @@ The Monitor One contains highly sensitive electronic circuitry and is an Electro
 RISK OF EXPLOSION IF BATTERY IS REPLACED BY AN INCORRECT TYPE.
 DISPOSE OF USED BATTERIES ACCORDING TO THE INSTRUCTIONS.
 
+- Replacement of a battery with an incorrect type that can defeat a safeguard.
+- Disposal of a battery into fire or a hot oven, or mechanically crushing or cutting of a battery, that can result in an explosion.
+- Leaving a battery in an extremely high temperature surrounding environment that can result in an explosion or the leakage of flammable liquid or gas.
+- A battery subjected to extremely low air pressure that may result in an explosion or the leakage of flammable liquid or gas.
+
+This symbol indicates DC voltage: <img style="display: inline-block; vertical-align: middle; width: 40px; background-color: #fff" src="/assets/images/dc_symbol.svg">
+
 ### Disposal
 
 ![WEEE](/assets/images/weee.png)
@@ -242,3 +249,5 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 |:-----|:-------|:---------|
 | 2023-10-18 | RK | Initial version |
 | 2023-11-14 | RK | Renamed RS485 pins A and B instead of P and N |
+| 2024-04-18 | RK | Add battery warnings |
+
