@@ -827,6 +827,12 @@ Additional FCC Test Reports:
 
 - ISED: 20127-M504
 - [Certificate](/assets/pdfs/m404-ised-certificate.pdf)
+- [Test Report RS-130](/assets/pdfs/m404-ic-rs130.pdf)
+- [Test Report RS-132](/assets/pdfs/m404-ic-rs132.pdf)
+- [Test Report RS-133](/assets/pdfs/m404-ic-rs133.pdf)
+- [Test Report RS-139](/assets/pdfs/m404-ic-rs139.pdf)
+- [ICES-003 Issue 7:2020](/assets/pdfs/m404-ic-ices003.pdf)
+- [Test Report RS-102](/assets/pdfs/m404-ic-rs102.pdf) (RF Exposure)
 
 
 ### CE (European Union) - M404 M-SoM M-Series LTE-M/2G
