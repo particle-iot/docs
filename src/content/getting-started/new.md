@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B-SoM eval board fix 2024-04-18
+
+The pinout diagram for the [M.2 eval board board](/reference/datasheets/b-series/b-series-eval-board/) 60-pin expansion header pin 25 (A4) was missing from the diagram. The tables are text were correct.
+
+
 ### M404 certification update 2024-04-18
 
 [Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) include ISED (Canada) individual test reports; previously only the certificate was included.

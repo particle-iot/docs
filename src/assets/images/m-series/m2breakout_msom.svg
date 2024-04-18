@@ -1389,7 +1389,7 @@ PB[2]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 41    </text>
   </g>
-  <g transform="translate(504,222) " >
+  <g transform="translate(504,238) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1433,7 +1433,7 @@ PB[3]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 43    </text>
   </g>
-  <g transform="translate(504,238) " >
+  <g transform="translate(504,254) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1477,7 +1477,7 @@ PB[7]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 45    </text>
   </g>
-  <g transform="translate(504,254) " >
+  <g transform="translate(504,270) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1521,7 +1521,7 @@ PA[20]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 47    </text>
   </g>
-  <g transform="translate(504,270) " >
+  <g transform="translate(504,286) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1541,7 +1541,7 @@ GND    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 1    </text>
   </g>
-  <g transform="translate(504,286) " >
+  <g transform="translate(504,302) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1561,7 +1561,7 @@ SOM14    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 51    </text>
   </g>
-  <g transform="translate(504,302) " >
+  <g transform="translate(504,318) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1605,7 +1605,7 @@ PB[3]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 53    </text>
   </g>
-  <g transform="translate(504,318) " >
+  <g transform="translate(504,334) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1631,7 +1631,7 @@ PA[27]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 55    </text>
   </g>
-  <g transform="translate(504,334) " >
+  <g transform="translate(504,350) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1651,7 +1651,7 @@ SOM17    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 57    </text>
   </g>
-  <g transform="translate(504,350) " >
+  <g transform="translate(504,366) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1677,7 +1677,7 @@ PA[4]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 59    </text>
   </g>
-  <g transform="translate(504,366) " >
+  <g transform="translate(504,382) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1715,7 +1715,7 @@ PA[30]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 61    </text>
   </g>
-  <g transform="translate(504,382) " >
+  <g transform="translate(504,398) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1753,7 +1753,7 @@ PB[23]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 63    </text>
   </g>
-  <g transform="translate(504,398) " >
+  <g transform="translate(504,414) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1791,7 +1791,7 @@ PB[22]    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 65    </text>
   </g>
-  <g transform="translate(504,414) " >
+  <g transform="translate(504,430) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1817,7 +1817,7 @@ SIM_VCC    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 67    </text>
   </g>
-  <g transform="translate(504,430) " >
+  <g transform="translate(504,446) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1843,7 +1843,7 @@ SIM_RST    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 69    </text>
   </g>
-  <g transform="translate(504,446) " >
+  <g transform="translate(504,462) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1869,7 +1869,7 @@ SIM_CLK    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 71    </text>
   </g>
-  <g transform="translate(504,462) " >
+  <g transform="translate(504,478) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >
@@ -1895,7 +1895,7 @@ SIM_DATA    </text>
     <text x="354" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 73    </text>
   </g>
-  <g transform="translate(504,478) " >
+  <g transform="translate(504,494) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#E6AB00" >

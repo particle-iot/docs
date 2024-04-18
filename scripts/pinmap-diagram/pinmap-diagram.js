@@ -1149,9 +1149,6 @@ const svg = require('./svg');
                     ],
                 },
             ],
-            incrementFn: function(num) {
-                return num != 25;
-            },
         });
 
         await diagram.generate(options, files);
