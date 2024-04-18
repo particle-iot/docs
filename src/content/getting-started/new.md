@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M404 certification update 2024-04-18
+
+[Certification documents for the M404](/hardware/certification/certification-documents/#m404-m-som-m-series-lte-m-2g) include ISED (Canada) individual test reports; previously only the certificate was included.
+
 ### Community library update 2024-04-18
 
 The community library information in the docs has been updated with any recently updated libraries.
