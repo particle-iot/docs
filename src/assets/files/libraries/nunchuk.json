@@ -7,7 +7,7 @@
   "attributes": {
     "name": "nunchuk",
     "version": "1.0.0",
-    "installs": 647,
+    "installs": 652,
     "license": "BSD",
     "author": "Gabriel Bianconi <bianconi.gabriel@gmail.com>",
     "maintainer": "Tim Caswell <tim@creationix.com>",

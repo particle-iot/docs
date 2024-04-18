@@ -1,0 +1,114 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_MAX1704X",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_MAX1704X/archive/1.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_MAX1704X",
+    "version": "1.0.4",
+    "installs": 23,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for the MAX17048 battery monitors in the Adafruit shop",
+    "paragraph": "Arduino library for the MAX17048 battery monitors in the Adafruit shop",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_MAX1704X",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MAX1704X",
+  "versions": {
+    "1.0.4": {
+      "added": "2024-04-16T10:54:26.922Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "boron": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "bsom": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "b5som": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "tracker": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "p2": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "boron": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "bsom": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "b5som": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "tracker": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "esomx": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "electron": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit_MAX1704X [![Build Status](https://github.com/adafruit/Adafruit_MAX1704X/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_MAX1704X/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_MAX1704X/html/index.html)\n================\n\n<a href=\"https://www.adafruit.com/product/5580\"><img src=\"https://cdn-shop.adafruit.com/970x728/5580-00.jpg\" width=\"500px\"></a>\n\n# Adafruit MAX1704X Lipo Monitor / Fuel Gauge Library\nThis library is for the Adafruit MAX17048 or MAX17049 Breakouts\n\nTested and works great with Adafruit's MAX17048 Breakout Boards\n* https://www.adafruit.com/product/5580\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\n## About the MAX1704X ##\n\nThe MAX17048/MAX17049 ICs are tiny, micropower current\nfuel gauges for lithium-ion (Li+) batteries in handheld\nand portable equipment. The MAX17048 operates with\na single lithium cell and the MAX17049 with two lithium\ncells in series.\n\nMore information on the MAX1704X can be found in the datasheet: https://www.maximintegrated.com/en/products/power/battery-management/MAX17048.html\n\n## About this Driver ##\n\nWritten by ladyada for Adafruit Industries.\nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo install, use the Arduino Library Manager and search for \"Adafruit MAX1704X\" and install the library.\n",
+  "allVersions": [
+    "1.0.4",
+    "1.0.3"
+  ]
+}

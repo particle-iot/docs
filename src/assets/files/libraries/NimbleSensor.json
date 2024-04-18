@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NimbleSensor",
     "version": "0.0.10",
-    "installs": 670,
+    "installs": 676,
     "license": "",
     "author": "Ryan Kast<r.kast4321@gmail.com>",
     "sentence": "A library to handle basic sensors which map a min/max bit to a min/max reading",

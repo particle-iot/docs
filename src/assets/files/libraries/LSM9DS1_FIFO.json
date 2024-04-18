@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LSM9DS1_FIFO",
     "version": "1.0.0",
-    "installs": 277,
+    "installs": 282,
     "license": "BSD",
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",

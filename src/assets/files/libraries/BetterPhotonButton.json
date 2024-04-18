@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BetterPhotonButton",
     "version": "0.1.6",
-    "installs": 1304,
+    "installs": 1312,
     "license": "Apache License, Version 2.0",
     "author": "Kevin R. Smith <krsjunk@netscape.net>",
     "sentence": "Classes to simplify use of Particle's InternetButton with Photon.",

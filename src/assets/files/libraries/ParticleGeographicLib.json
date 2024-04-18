@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleGeographicLib",
     "version": "1.0.0",
-    "installs": 804,
+    "installs": 809,
     "author": "Zachary Olkin, Charles F. F. Karney",
     "architectures": [],
     "visibility": "public",

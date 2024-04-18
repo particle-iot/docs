@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Thermistor",
     "version": "0.0.1",
-    "installs": 1232,
+    "installs": 1244,
     "license": "none",
     "author": "Bruce Calder <brucebcalder@gmail.com>",
     "sentence": "A thermistor library",

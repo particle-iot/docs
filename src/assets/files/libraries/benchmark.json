@@ -7,7 +7,7 @@
   "attributes": {
     "name": "benchmark",
     "version": "1.0.2",
-    "installs": 63,
+    "installs": 67,
     "author": "Julien Vanier <julien@particle.io>",
     "sentence": "A simple code execution time library",
     "url": "https://github.com/monkbroc/particle-benchmark",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-hap-fork",
     "version": "1.0.25",
-    "installs": 335,
+    "installs": 340,
     "license": "MIT",
     "author": "Lukas Jezny",
     "sentence": "Homekit server for Particle Photon",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Protocentral_ADS1220",
     "version": "0.0.2",
-    "installs": 302,
+    "installs": 309,
     "license": "OIZOM",
     "author": "Sohil Patel",
     "sentence": "ADS1220 library",

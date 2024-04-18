@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DHT_I2C_Particle",
     "version": "1.0.6",
-    "installs": 5682,
+    "installs": 6454,
     "author": "Rob Parke",
     "sentence": "DHT 20 I2C library for Particle devices",
     "paragraph": "This is a DHT 20 I2C library for Particle devices (e.g. Photon, Argon, Boron) based on the Arduino library created by Rob Tillaart",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LightProtocol",
     "version": "1.0.3",
-    "installs": 337,
+    "installs": 341,
     "license": "MIT",
     "author": "Kevron Rees <tripzero.kev@gmail.com>",
     "sentence": "Fast binary light protocol for controlling lights and light strips over a network socket",

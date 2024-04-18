@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IsolatedEthernet",
     "version": "0.0.1",
-    "installs": 595,
+    "installs": 879,
     "license": "Apache 2.0",
     "sentence": "Particle library for WizNet W5500 for accessing devices on isolated Ethernet LANs",
     "url": "https://github.com/particle-iot/IsolatedEthernet",

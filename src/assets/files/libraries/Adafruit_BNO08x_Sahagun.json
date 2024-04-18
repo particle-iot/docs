@@ -1,0 +1,118 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_BNO08x_Sahagun",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_BNO08x_Sahagun/archive/1.2.6.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_BNO08x_Sahagun",
+    "version": "1.2.6",
+    "installs": 91,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for the BNO08x sensors in the Adafruit shop",
+    "paragraph": "Arduino library for the BNO08x sensors in the Adafruit shop",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_BNO08x",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "adafruit-bus-io-sahagun": "1.14.5",
+      "adafruit-unified-sensor-sahagun": "1.1.14"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BNO08x_Sahagun",
+  "versions": {
+    "1.2.6": {
+      "added": "2024-04-16T10:28:47.253Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "boron": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "bsom": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "b5som": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "tracker": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "p2": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "boron": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "bsom": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "b5som": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "tracker": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "esomx": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "electron": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit BNO08x [![Build Status](https://github.com/adafruit/Adafruit_BNO08x/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_BNO08x/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_BNO08x/html/index.html)\n\n\nThis is the Adafruit BNO08x 9-DOF Orientation IMU Fusion Breakout for Arduino\nTested and works great with the Adafruit BNO08x Breakout Board\n[<img src=\"assets/board.png?raw=true\" width=\"500px\">](https://www.adafruit.com/products/4754)\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\n# Installation\nTo install, use the Arduino Library Manager and search for \"Adafruit BNO08x\" and install the library.\n\n## Dependencies\n * [Adafruit BusIO](https://github.com/adafruit/Adafruit_BusIO)\n * [Adafruit Unified Sensor Driver](https://github.com/adafruit/Adafruit_Sensor)\n\n# Contributing\n\nContributions are welcome! Please read our [Code of Conduct](https://github.com/adafruit/Adafruit_BNO08x/blob/master/CODE_OF_CONDUCT.md>)\nbefore contributing to help this project stay welcoming.\n\n## Documentation and doxygen\nDocumentation is produced by doxygen. Contributions should include documentation for any new code added.\n\nSome examples of how to use doxygen can be found in these guide pages:\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen-tips\n\n## Formatting and clang-format\nThis library uses [`clang-format`](https://releases.llvm.org/download.html) to standardize the formatting of `.cpp` and `.h` files. \nContributions should be formatted using `clang-format`:\n\nThe `-i` flag will make the changes to the file.\n```bash\nclang-format -i *.cpp *.h\n```\nIf you prefer to make the changes yourself, running `clang-format` without the `-i` flag will print out a formatted version of the file. You can save this to a file and diff it against the original to see the changes.\n\nNote that the formatting output by `clang-format` is what the automated formatting checker will expect. Any diffs from this formatting will result in a failed build until they are addressed. Using the `-i` flag is highly recommended.\n\n### clang-format resources\n  * [Binary builds and source available on the LLVM downloads page](https://releases.llvm.org/download.html)\n  * [Documentation and IDE integration](https://clang.llvm.org/docs/ClangFormat.html)\n\n## About this Driver\nWritten by Bryan Siepert for Adafruit Industries.\nMIT license, check license.txt for more information\nAll text above must be included in any redistribution\n",
+  "allVersions": [
+    "1.2.6",
+    "1.2.5"
+  ]
+}

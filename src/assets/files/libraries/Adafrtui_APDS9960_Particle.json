@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafrtui_APDS9960_Particle",
     "version": "0.0.1",
-    "installs": 147,
+    "installs": 152,
     "author": "adafruit",
     "architectures": [],
     "visibility": "public",

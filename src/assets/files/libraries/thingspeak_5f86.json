@@ -7,7 +7,7 @@
   "attributes": {
     "name": "thingspeak_5f86",
     "version": "0.0.2",
-    "installs": 1338,
+    "installs": 1348,
     "license": "The MIT License (MIT)",
     "author": "Dan Reid <danielallenreid@gmail.com>",
     "sentence": "Spark library for sending values to thingspeak",

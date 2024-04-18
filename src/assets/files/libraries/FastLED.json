@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FastLED",
     "version": "3.1.5",
-    "installs": 164055,
+    "installs": 165433,
     "license": "MIT",
     "author": "Daniel Garcia, Mark Kriegsman",
     "sentence": "A packaging of FastLED 3.1 for sparkcore and photon",

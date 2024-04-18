@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX31865_library",
     "version": "1.0.0",
-    "installs": 8359,
+    "installs": 8711,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit RTD Amplifier breakout with MAX31865",

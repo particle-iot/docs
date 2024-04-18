@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleWebLog",
     "version": "1.0.4",
-    "installs": 8067,
+    "installs": 8151,
     "license": "MIT",
     "author": "kevinh@geeksville.com",
     "sentence": "Sends logs to the Particle servers via publish",

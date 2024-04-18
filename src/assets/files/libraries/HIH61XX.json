@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HIH61XX",
     "version": "0.0.1",
-    "installs": 4200,
+    "installs": 4205,
     "license": "GNU",
     "author": "Geert Wille <geert@appstrakt.com>",
     "sentence": "A library for using the HIH61XX in your project",

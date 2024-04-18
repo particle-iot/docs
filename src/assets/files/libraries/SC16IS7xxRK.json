@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SC16IS7xxRK",
     "version": "0.0.1",
-    "installs": 345,
+    "installs": 482,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "I2C and SPI UART driver for Particle devices",

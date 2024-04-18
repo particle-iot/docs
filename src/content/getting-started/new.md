@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Community library update 2024-04-18
+
+The community library information in the docs has been updated with any recently updated libraries.
+
 ### PDM microphone information 2024-04-18
 
 Updated the M-SoM, P2, and Photon 2 datasheets and migration guides to include information about PDM microphones.

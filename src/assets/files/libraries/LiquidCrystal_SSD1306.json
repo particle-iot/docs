@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal_SSD1306",
     "version": "1.6.0",
-    "installs": 411,
+    "installs": 430,
     "author": "Arduino, Adafruit, Neil McNeight <mcneight+github@gmail.com>",
     "maintainer": "Neil McNeight <mcneight+github@gmail.com>",
     "sentence": "Text only library for monochrome organic light-emitting diode (OLED) displays. For all Arduino boards.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-BH1749NUC",
     "version": "1.0.0",
-    "installs": 860,
+    "installs": 865,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the BH1749NUC color sensor on the SparkFun Qwiic RGB Sensor",

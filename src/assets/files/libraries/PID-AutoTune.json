@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PID-AutoTune",
     "version": "0.0.3",
-    "installs": 7347,
+    "installs": 7359,
     "license": "GPLv3",
     "author": "Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com",
     "sentence": "PID AutoTune library for Particle",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-osc",
     "version": "0.0.3",
-    "installs": 945,
+    "installs": 952,
     "license": "See LICENSE file",
     "author": "Tekin Suleyman <tekin@tekin.co.uk>",
     "sentence": "OSC encoding library for the Particle platform",

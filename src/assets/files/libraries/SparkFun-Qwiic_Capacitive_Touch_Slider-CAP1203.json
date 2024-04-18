@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-Qwiic_Capacitive_Touch_Slider-CAP1203",
     "version": "1.0.2",
-    "installs": 712,
+    "installs": 720,
     "author": "SparkFun Electronics <sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "SparkFun library for the CAP1203 cap sense IC and slider sensor",

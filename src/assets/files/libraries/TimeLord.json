@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TimeLord",
     "version": "0.0.1",
-    "installs": 7725,
+    "installs": 8170,
     "license": "mixed; be aware this contains a patchwork of code",
     "author": "Rob Cermak; based on https://github.com/probonopd/TimeLord",
     "sentence": "Port of an Arduino library with many time and date related functions.",

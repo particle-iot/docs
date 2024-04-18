@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADCDMAGen3_RK",
     "version": "0.0.2",
-    "installs": 2407,
+    "installs": 2429,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Analog to digital conversion using DMA for Particle Gen 3 devices (Argon, Boron, Xenon)",

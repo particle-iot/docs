@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BackoffHelperRK",
     "version": "0.0.1",
-    "installs": 55,
+    "installs": 57,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library to implement connection retry back-off using retained memory",

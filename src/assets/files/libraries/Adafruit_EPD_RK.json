@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_EPD_RK",
     "version": "2.3.1",
-    "installs": 5096,
+    "installs": 5263,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "ePaper display driver 1.0.2 ported to Particle by rickkas7",

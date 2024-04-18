@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HTTPSRedirect",
     "version": "1.0.0",
-    "installs": 352,
+    "installs": 366,
     "author": "me",
     "architectures": [],
     "visibility": "public",

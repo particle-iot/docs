@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Button_Arduino_Library",
     "version": "2.0.4",
-    "installs": 885,
+    "installs": 891,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Fischer Moseley <fischer.moseley@sparkfun.com>",
     "sentence": "Communicates and configures the SparkFun Qwiic Button and Switch.",

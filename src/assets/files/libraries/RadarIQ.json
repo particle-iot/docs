@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RadarIQ",
     "version": "1.0.5",
-    "installs": 318,
+    "installs": 332,
     "author": "RadarIQ Ltd (support@radariq.io)",
     "maintainer": "RadarIQ Ltd (support@radariq.io)",
     "sentence": "Adds support for the RadarIQ sensors.",

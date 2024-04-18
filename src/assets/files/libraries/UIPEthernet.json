@@ -7,7 +7,7 @@
   "attributes": {
     "name": "UIPEthernet",
     "version": "2.0.5",
-    "installs": 340,
+    "installs": 346,
     "author": "CassyArduino",
     "sentence": "Ethernet library for ENC28J60 !!!!! UNDER DEVELOPMENT !!!!!",
     "architectures": [

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TCA9534",
     "version": "0.2.1",
-    "installs": 1530,
+    "installs": 1538,
     "license": "MIT",
     "author": "David Dressner <dressner95@gmail.com>",
     "maintainer": "David Dressner <dressner95@gmail.com>",

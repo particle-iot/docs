@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_LCD_RGB_Backlight",
     "version": "1.0.1",
-    "installs": 25363,
+    "installs": 25409,
     "license": "MIT License",
     "author": "Loovee / Paul Kourany",
     "sentence": "Seeedstudio Grove LCD RGB Backlight library",

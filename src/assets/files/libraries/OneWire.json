@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OneWire",
     "version": "2.0.4",
-    "installs": 747968,
+    "installs": 756257,
     "license": "MIT",
     "author": "Hotaman, Julien Vanier <julien@particle.io>",
     "sentence": "Dallas 1-Wire protocol with support for DS18B20, DS1820, DS1822",

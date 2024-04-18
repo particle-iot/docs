@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DHT22Gen3_RK",
     "version": "0.0.2",
-    "installs": 5506,
+    "installs": 5769,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "DHT22 Sensor Library using DMA for Particle Gen 3 devices (Argon, Boron, Xenon)",

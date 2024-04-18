@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Manchester",
     "version": "1.0.2",
-    "installs": 2640,
+    "installs": 2675,
     "license": "Unspecified",
     "author": "Paul Kourany",
     "sentence": "Manchester library for 315/433MHz radios",

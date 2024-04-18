@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MMA8451",
     "version": "1.0.3",
-    "installs": 4830,
+    "installs": 4835,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the MMA8451 Accelerometer sensors in the Adafruit shop",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "W5100_Ethernet",
     "version": "1.1.5",
-    "installs": 863,
+    "installs": 896,
     "license": "GNU",
     "author": "Various (see AUTHORS file for details)",
     "maintainer": "Arduino <info@arduino.cc>",

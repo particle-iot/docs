@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FTPFileSender",
     "version": "0.1.6",
-    "installs": 747,
+    "installs": 757,
     "license": "ISC",
     "author": "wvdv2002",
     "sentence": "Send compressed and get uncompressed files over FTP to/from a server.",

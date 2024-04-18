@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MAX30105_Bearcat",
     "version": "1.0.0",
-    "installs": 1057,
+    "installs": 1067,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the MAX30102 Pulse and MAX30105 Proximity Breakout",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sht3x-i2c",
     "version": "1.0.0",
-    "installs": 4990,
+    "installs": 5417,
     "license": "Apache License, Version 2.0",
     "author": "Mariano Goluboff",
     "sentence": "Library for SHT31 I2C sensor",

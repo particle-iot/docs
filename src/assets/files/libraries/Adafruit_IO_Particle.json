@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_IO_Particle",
     "version": "1.0.1",
-    "installs": 26732,
+    "installs": 27162,
     "license": "MIT",
     "author": "Adafruit <info@adafruit.com>",
     "sentence": "Particle library to access the Adafruit IO REST API.",

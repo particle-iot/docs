@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotSwitch",
     "version": "5.1.0",
-    "installs": 1834,
+    "installs": 1839,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support switches.",

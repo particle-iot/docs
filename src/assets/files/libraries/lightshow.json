@@ -7,7 +7,7 @@
   "attributes": {
     "name": "lightshow",
     "version": "0.0.5",
-    "installs": 387,
+    "installs": 392,
     "license": "MIT",
     "author": "Jeremy Calloway <xntricweb@gmail.com>",
     "sentence": "A neopixel helper library to show off some pretty colors.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LEDBackpack_RK",
     "version": "1.1.8",
-    "installs": 11006,
+    "installs": 11167,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit LED Backpack Library for our 8x8 matrix and 7-segment LED backpacks",

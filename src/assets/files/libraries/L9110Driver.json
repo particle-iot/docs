@@ -7,7 +7,7 @@
   "attributes": {
     "name": "L9110Driver",
     "version": "0.0.10",
-    "installs": 784,
+    "installs": 812,
     "license": "GPL",
     "author": "Scott Beasley <scottbeasley@gmail.com>",
     "sentence": "L9110 Motor driver library for Particle boards",

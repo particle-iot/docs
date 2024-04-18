@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SHA1_RK",
     "version": "0.0.1",
-    "installs": 638,
+    "installs": 646,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Implementation of SHA1 hash algorithm for Particle devices",

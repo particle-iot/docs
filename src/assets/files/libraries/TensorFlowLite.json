@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TensorFlowLite",
     "version": "0.1.1",
-    "installs": 1175,
+    "installs": 1190,
     "license": "Apache 2.0",
     "author": "TensorFlow Authors, Pete Warden <petewarden@google.com>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",

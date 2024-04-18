@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Commander",
     "version": "4.2.7",
-    "installs": 372,
+    "installs": 377,
     "author": "Bill Bigge",
     "maintainer": "Bill Bigge <bbigge@gmail.com>",
     "sentence": "Command line library for Arduino.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceGroupHelperRK",
     "version": "0.0.3",
-    "installs": 173,
+    "installs": 191,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Retrieve a device's device group from the device using a webhook",

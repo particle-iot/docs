@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ThinkParticle",
     "version": "0.2.6",
-    "installs": 311,
+    "installs": 317,
     "license": "MIT",
     "author": "Steve Harris <steve@thinkautomatic.io>",
     "sentence": "Particle library for integration with Think Automatic machine learning platform.",

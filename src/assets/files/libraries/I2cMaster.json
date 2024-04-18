@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2cMaster",
     "version": "0.0.4",
-    "installs": 12140,
+    "installs": 12168,
     "license": "GPL v3",
     "author": "William Greiman <fat16lib@sbcglobal.net>",
     "sentence": "An I2C Master library for Particle.",
