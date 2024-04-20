@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-04-18",
-            "hash": "7c892034f7eaae0cd68aadff7f2d79294cc64304b945c4ac7cbb72ed0465c080"
+            "date": "2024-04-20",
+            "hash": "f0a3eaf24f8d65ac8faead458073779917c1f2e25171f25d708ff151bf812bd9"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3703,8 +3703,8 @@
             "hash": "3abfbb86aa5218a947f4eb6f4c8d592ddcae928172b0c9e6745884c2cb57aece"
         },
         "reference/device-os/api/system-events/system-events-reference.md": {
-            "date": "2023-09-20",
-            "hash": "88ac170a0a3ca696c2097220b515f7e92a6263d3e5ea650c0ae04a384dbcab8a"
+            "date": "2024-04-20",
+            "hash": "3a1394a34ffb001f60ac946d93163108566a574f1a666941b98c08e8363695e8"
         },
         "reference/device-os/api/system-modes/system-modes.md": {
             "date": "2023-09-20",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "6e86e2b7f71a7dd6407ade1e8cff66d99769791ea0484bec84caf37ebac9969c",
-            "date": "2024-04-18"
+            "hash": "b22f21cc12cc7010324ff044f9211269e984fc232c2da099162f0b8ef3537c64",
+            "date": "2024-04-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8469,6 +8469,10 @@
         "reference/device-os/libraries/s/SparkFun_u-blox_GNSS_v3.md": {
             "hash": "20cb06414ff37d7367367e20ba6a033c54c236fbe2d9fade92de13fd9384c897",
             "date": "2024-04-18"
+        },
+        "reference/device-os/api/system-events/firmware_update-256-parameter-values.md": {
+            "hash": "c1f8906e35ed69718ab8e79b5f55aa1463427891f93db89b162c646ca0cf45ff",
+            "date": "2024-04-20"
         }
     }
 }

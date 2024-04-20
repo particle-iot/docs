@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### System event parameter update 2024-04-20
+
+Added some missing [system event parameter values](/reference/device-os/api/system-events/system-events-overview/#system-events-reference).
+
 ### SPI DMA callback warning 2024-04-18
 
 Added a warning about not setting the CS pin high in a [SPI DMA transfer callback](/reference/device-os/api/spi/transfer-void-void-size_t-std-function/). 

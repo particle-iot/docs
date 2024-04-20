@@ -19000,10 +19000,10 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 |       | setup_update | 4 | periodic event signaling the device is still in setup mode. | milliseconds since setup mode was started |
 |       | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
 |       | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
-| 0.6.1 | network_status | 32 | network connection status | one of `network_status_powering_on`, `network_status_on`, `network_status_powering_off`, `network_status_off`, `network_status_connecting`, `network_status_connected`, `network_status_disconnecting`, `network_status_disconnected` |
-| 0.6.1 | cloud_status | 64 | cloud connection status | one of `cloud_status_connecting`, `cloud_status_connected`, `cloud_status_disconnecting`, `cloud_status_disconnected` |
+| 0.6.1 | network_status | 32 | network connection status | see below |
+| 0.6.1 | cloud_status | 64 | cloud connection status | see below |
 |       | button_status | 128 | button pressed or released | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
-|       | firmware_update | 256 | firmware update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
+|       | firmware_update | 256 | firmware update status | see below |
 |       | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
 |       | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
 |       | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
@@ -19014,63 +19014,52 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 | 0.8.0 | out_of_memory | 1<<18 | event generated when a request for memory could not be satisfied | the amount in bytes of memory that could not be allocated | 
 | 3.3.0 | ble_prov_mode | 1<<19 | BLE provisioning mode status |
 
-#### network_credentials param values
 
-The following param codes are used when the system event is firmware_update:
+#### network_credentials (16) param values
 
-- network_credentials_added (1)
-- network_credentials_cleared (2)
+- `network_credentials_added` (1)
+- `network_credentials_cleared` (2)
 
-#### firmware_update param values
+#### network_status (32) param values
 
-The following param codes are used when the system event is firmware_update:
+- `network_status_powering_off` (2)
+- `network_status_off` (3)
+- `network_status_powering_on` (4)
+- `network_status_on` (5)
+- `network_status_connecting` (6)
+- `network_status_connected` (7)
+- `network_status_disconnecting` (10)
+- `network_status_disconnected` (11)
 
-- firmware_update_failed (-1, or 0xfffffff as unsigned)
-- firmware_update_begin (0)
-- firmware_update_complete (1)
-- firmware_update_progress (2)
+#### cloud_status (64) parameter values
 
-#### network_status param values
+- `cloud_status_disconnected` (0)
+- `cloud_status_connecting` (1)
+- `cloud_status_handshake` (2)
+- `cloud_status_session_resume` (3)
+- `cloud_status_connected` (8)
+- `cloud_status_disconnecting`(9)
 
-The following param codes are used when the system event is network_status. Bit 0 is clear if it's a transition state, such as powering up, connecting. Bit 0 is set when it's a rest state, such as connected or ready.
-  
-- network_status_powering_off (2)
-- network_status_off (3)
-- network_status_powering_on (4)
-- network_status_on (5)
-- network_status_connecting (8)
-- network_status_connected (9)
-- network_status_disconnecting (32)
-- network_status_disconnected (33)
+### firmware_update (256) parameter values
 
-#### cloud_status param values
-
-The following param codes are used when the system event is cloud_status:
-
-- cloud_status_disconnected (0)
-- cloud_status_connecting (1)
-- cloud_status_handshake (2)
-- cloud_status_session_resume (3)
-- cloud_status_connected (8)
-- cloud_status_disconnecting (9)
+- `firmware_update_begin` (0)
+- `firmware_update_complete` (1)
+- `firmware_update_progress` (2)
+- `firmware_update_failed` (-1)
 
 
-#### time_changed param values param values
+#### time_changed (16384) param values param values
 
-The following param codes are used when the system event is time_changed:
-
-- time_changed_manually (0)
-- time_changed_sync (1)
+- `time_changed_manually` (0)
+- `time_changed_sync` (1)
 
 
 #### ble_prov_mode param values
 
-The following param codes are used when the system event is ble_prov_mode:
-
-- ble_prov_mode_connected (0)
-- ble_prov_mode_disconnected (1)
-- ble_prov_mode_handshake_failed (2)
-- ble_prov_mode_handshake_done (3)
+- `ble_prov_mode_connected` (0)
+- `ble_prov_mode_disconnected` (1)
+- `ble_prov_mode_handshake_failed` (2)
+- `ble_prov_mode_handshake_done` (3)
 
 
 
