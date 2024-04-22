@@ -158,6 +158,17 @@
 {{#contains includeDefinitions 'lunr'}}
 <script src='/assets/js/lunr.min.js'></script>
 {{/contains}}
+{{#contains includeDefinitions 'mermaid'}}
+<script src='/assets/js/mermaid-customization.js'></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ 
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: mermaidCustomization.themeVariables,
+  });
+</script>
+{{/contains}}
 {{#contains includeDefinitions 'release-notes'}}
 <script src='/assets/js/release-notes.js'></script>
 {{/contains}}

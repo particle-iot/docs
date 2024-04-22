@@ -39,6 +39,10 @@ Created by Zach Supalla.
 
   Docs.prettifyCode = function() {
     $('.content').find('pre code').each(function() {
+      if ($(this).hasClass('lang-mermaid')) {
+        $(this).addClass('mermaid');
+      }
+      else
       if (!$(this).hasClass('lang-none')) {
         $(this).addClass('prettyprint');
       }

@@ -81,6 +81,11 @@ navMenu.load = async function() {
     navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'menu.json';
 
     const fetchRes = await fetch(navMenu.menuPath);
+    if (fetchRes.status != 200) {
+        // No menus
+        return;
+    }
+
     const menuText = await fetchRes.text();
     navMenu.menuJson = JSON.parse(menuText);
     // console.log('navMenu.menuJson', navMenu.menuJson);

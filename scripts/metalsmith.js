@@ -62,6 +62,7 @@ const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
 const setupFirmware = require('./setup-firmware.js');
 const troubleshooting = require('./troubleshooting.js').metalsmith;
+const autoInclude = require('./auto-include.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -254,6 +255,8 @@ exports.metalsmith = function () {
       sources: [
         'troubleshooting/connectivity/cloud-debug.md',
       ],
+    }))
+    .use(autoInclude({
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
