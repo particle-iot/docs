@@ -1,3 +1,7 @@
+User-agent: Googlebot
+Disallow: /*.hex$
+
 User-agent: *
 Allow: /
+
 Sitemap: https://docs.particle.io/sitemap.xml

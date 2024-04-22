@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B524 Japan certification 2024-04-22
+
+Added [Japan certification documents](/hardware/certification/certification-documents/#japan-b524-b-series-som) for the B524.
+
 ### System event parameter update 2024-04-20
 
 Added some missing [system event parameter values](/reference/device-os/api/system-events/system-events-overview/#system-events-reference).
