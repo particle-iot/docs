@@ -1,8 +1,21 @@
+const { add } = require("lodash");
 
 
 function metalsmith(options) {
+
+    const codeBlocks = [
+        {
+            name: 'mermaid',
+            includeDefinitions: ['mermaid'],
+        },
+    ];
+
     return function (files, metalsmith, done) {
         
+        for(const def of codeBlocks) {
+            def.re = new RegExp('^```' + def.name);
+        }
+
         for(const filePath in files) {
             if (!filePath.endsWith('.md')) {
                 continue;
@@ -13,19 +26,31 @@ function metalsmith(options) {
                 const stringContents = f.contents.toString();
                 
                 for(const line of stringContents.split('\n')) {
-                    const m = line.match(/^```mermaid/);
-                    if (m) {
+                    let addDefinitions = [];
 
-                        if (!files[filePath].includeDefinitions) {
-                            files[filePath].includeDefinitions = [];
+                    for(const def of codeBlocks) {
+                        const m = line.match(def.re);
+                        if (m) {
+                            for(const d of def.includeDefinitions) {
+                                if (!addDefinitions.includes(d)) {
+                                    addDefinitions.push(d);
+                                }
+                            }                        
+                        }
+                    }
+
+                    if (addDefinitions.length) {
+                        if (!f.includeDefinitions) {
+                            f.includeDefinitions = [];
                         }
 
-                        if (!files[filePath].includeDefinitions.includes('mermaid')) {
-                            files[filePath].includeDefinitions.push('mermaid');
+                        for(const d of addDefinitions) {
+                            if (!f.includeDefinitions.includes(d)) {
+                                f.includeDefinitions.push(d);
+                            }    
                         }
+                    }
 
-                        // console.log('is mermaid ' + filePath, files[filePath]);
-                    }    
                 }
             }
             else {

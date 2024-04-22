@@ -29,13 +29,3 @@ If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 
 {{!-- END shared-blurb --}}
 
 - Test build 2023-01-05
-
-## Test mermaid
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
