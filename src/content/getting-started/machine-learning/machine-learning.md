@@ -6,13 +6,17 @@ columns: two
 
 # {{title}}
 
-Particle has teamed up with [Edge Impulse](https://www.edgeimpulse.com/) to provide edge machine learning (ML), artificial intelligence (AI) for the Particle platform, in particular the P2 and Photon 2. The faster processor and large RAM and flash memory on these devices are ideal for on-device machine learning.
+Particle has teamed up with [Edge Impulse](https://www.edgeimpulse.com/) to provide edge machine learning (ML), artificial intelligence (AI) for the Particle platform! You can create your own models and run them on:
+
+- P2/Photon 2 (Gen 4 Wi-Fi)
+- M-Som (Gen 4 Cellular and Wi-Fi)
+- B-SoM and Boron (Gen 3 cellular)
 
 You can find additional projects on the [Edge Impulse ML projects page](https://www.edgeimpulse.com/projects/all?search=particle).
 
 ## Tutorials
 
-We have two tutorials available that utilize the Photon 2 and the PDM digital microphone in the [Edge ML Kit](/reference/datasheets/accessories/edge-ml-kit/).
+We have two tutorials available that utilize the PDM digital microphone in the [Edge ML Kit](/reference/datasheets/accessories/edge-ml-kit/).
 
 ![Photon 2 with Microphone](/assets/images/edge-kit/mic-3.jpeg)
 
@@ -20,7 +24,7 @@ We have two tutorials available that utilize the Photon 2 and the PDM digital mi
 
 ![Doorbell SMS](/assets/images/edge-kit/doorbell.jpeg)
 
-The doorbell detector works by training a model to detect the sound of your doorbell. The Photon 2 runs a classifier to detect this sound and when detected, publishes as Particle event, which triggers a Webhook, which goes to a Twilio service to generate a SMS message. 
+The doorbell detector works by training a model to detect the sound of your doorbell. The Particle device runs a classifier to detect this sound and when detected, publishes as Particle event, which triggers a Webhook, which goes to a Twilio service to generate a SMS message. 
 
 The sound processing is done entirely on-device and no ambient audio is uploaded to the Internet and cannot be saved locally. 
 

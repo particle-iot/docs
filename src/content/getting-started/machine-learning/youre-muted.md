@@ -13,6 +13,7 @@ This detector is trained to recognize the phrase "You're muted" and generate a k
 
 ## Wiring the microphone
 
+{{!-- BEGIN shared-blurb 5da78add-01dc-4313-996c-02d8fe382e7a --}}
 You will need the following hardware, included in the [Edge ML Kit](/reference/datasheets/accessories/edge-ml-kit/)
 
 - PDM digital microphone
@@ -30,9 +31,22 @@ The connections on the breakout are:
 | CLK | Blue | A0 | PDM Clock |
 | DAT | Green | A1 | PDM Data |
 
-The pinout for the Photon 2 can be found on its [datasheet](/reference/datasheets/wi-fi/photon-2-datasheet/#pin-markings).
-
 {{imageOverlay src="/assets/images/edge-kit/mic-3.jpeg" alt="PDM Microphone Assembled" }}
+{{!-- END shared-blurb --}}
+
+This project can also used on the the P2 and M-SoM. It cannot be used on the Boron and B-SoM, which do not support USB keyboard emulation.
+
+{{!-- BEGIN shared-blurb 28fa588c-0d9b-43f6-b4fa-4d81c99d3af6 --}}
+On the M-SoM, the connections are:
+
+| Breakout | Color | M-SoM Connect To | Details |
+| :---: | :--- | :---: | :--- |
+| 3V | Red | 3V3 | 3.3V power |
+| GND | Black | GND | Ground |
+| SEL | | NC | Typically leave unconnected, left/right select |
+| CLK | Blue | A2 | PDM Clock |
+| DAT | Green | A3 | PDM Data |
+{{!-- END shared-blurb --}}
 
 ## Configure Zoom
 

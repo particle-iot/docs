@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Machine learning support 2024-04-22
+
+[Machine learning](/getting-started/machine-learning/machine-learning/) models created with Edge Impulse can now be used on the Boron, B-SoM, and M-SoM in addition to the P2/Photon 2.
+
 ### B524 Japan certification 2024-04-22
 
 Added [Japan certification documents](/hardware/certification/certification-documents/#japan-b524-b-series-som) for the B524.
