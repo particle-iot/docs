@@ -73,14 +73,6 @@ noop.exec = noop;
 var marked = require('marked');
 marked.InlineLexer.rules.gfm.url = noop;
 
-// https://marked.js.org/
-const markdownRenderer = new marked.Renderer();
-console.log('markdownRenderer', markdownRenderer);
-markdownRenderer.code = function(code, infostring, escaped) {
-  console.log('markdownRenderer.code', {code, infostring, escaped});
-  return false;
-};
-
 var environment;
 
 var gitBranch;
@@ -312,11 +304,7 @@ exports.metalsmith = function () {
     }))
     // THIS IS IT!
     // Render the main docs files into HTML
-    .use(markdown({
-      engineOptions: {
-        renderer: markdownRenderer,
-      },
-    }))
+    .use(markdown())
     // Add a toc key for each file based on the HTML header elements in the file
     .use(autotoc({
       selector: 'h2, h3',
