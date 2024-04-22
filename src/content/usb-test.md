@@ -32,10 +32,10 @@ If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 
 
 ## Test mermaid
 
-{{mermaid op="start"}}
+```mermaid
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
-{{mermaid op="end"}}
+```
