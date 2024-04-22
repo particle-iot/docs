@@ -219,7 +219,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 
 - [UKCA Certification](/assets/pdfs/b524-ukca.pdf) (updated 2022-11-09)
 
-### Japan - B524 B=Series SoM
+### Japan - B524 B-Series SoM
 
 - [Japan D 24 0029 201](/assets/pdfs/b524-japan-d-24-0029-201.pdf)
 - [Japan 201 240198](/assets/pdfs/b524-japan-201-240198.pdf)
