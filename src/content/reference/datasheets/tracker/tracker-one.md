@@ -624,6 +624,81 @@ UKCA Conformity:
 
 Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
+## Certification documents
+
+{{!-- BEGIN shared-blurb 1a043076-6022-4f12-9e4c-372a99819e1e --}}
+### FCC (United States) - ONE402 ONE404 Tracker One NorAm
+
+- FCC ID: 2AEMI-T40X
+- [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/one402-fcc-part15b.pdf)
+- [Test report FCC Part 15 Subpart B, Class B (sDoC)](/assets/pdfs/one402-fcc-part15b-test.pdf)
+- [RF exposure report FCC Part 2, Section 2.1091](/assets/pdfs/one402-fcc-rf-exposure-report.pdf)
+- [RF exposure test report FCC Part 2, Section 2.1091](/assets/pdfs/one402-fcc-rf-exposure-test-report.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/one402-fcc-part15c.pdf)
+- [Test report FCC Part 22](/assets/pdfs/one402-fcc-part22.pdf)
+- [Test report FCC Part 24](/assets/pdfs/one402-fcc-part24.pdf)
+- [Test report FCC Part 27](/assets/pdfs/one402-fcc-part27.pdf)
+
+
+### ISED (Canada) - ONE402 ONE404 Tracker One NorAm
+
+- ISED: **20127-ONE40X**.
+- [Certificate of Conformity](/assets/pdfs/one402-ic-certificate.pdf)
+- [Test Report RS-130](/assets/pdfs/one402-ic-rs130.pdf)
+- [Test Report RS-132](/assets/pdfs/one402-ic-rs132.pdf)
+- [Test Report RS-133](/assets/pdfs/one402-ic-rs133.pdf)
+- [Test Report RS-139](/assets/pdfs/one402-ic-rs139.pdf)
+- [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/one402-ic-rss247-2.pdf)
+- [RF Exposure Report](/assets/pdfs/one402-ic-rf-exposure.pdf)
+- [ISED RF Exposure Report](/assets/pdfs/one402-ic-ised-rf-exposure.pdf)
+- [ICES-003 Issue 6:2019](/assets/pdfs/one402-ic-ices003.pdf)
+- [ICES-003 Issue 6:2019 Test Report](/assets/pdfs/one402-ic-ices003-test-report.pdf)
+
+### RoHS - ONE402 ONE404 Tracker One NorAm
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/one402-rohs.pdf)
+
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb faa27f3e-5324-433a-b425-5041bc07f6ef --}}
+### CE (Europe) - ONE523 ONE524 Tracker One EMEAA
+
+- [Summary](/assets/pdfs/one523-ce-summary.pdf)
+- [EN 300 328 Test Report](/assets/pdfs/one523-EN300-328-test-report.pdf) (2.4 GHz ISM band) (updated 2022-11-15)
+- [EN 300 330 Test Report](/assets/pdfs/one523-EN300-330-test-report.pdf) (NFC) (updated 2022-11-15)
+- [EN 303 413 Test Report](/assets/pdfs/one523-EN303-413-test-report.pdf)
+- [EN 301 489 Test Report](/assets/pdfs/one523-EN301-489-test-report.pdf) (updated 2022-11-15)
+- [EN 301 511 Test Report](/assets/pdfs/one523-EN301-511-test-report.pdf) (GSM) (updated 2022-11-15)
+- [EN 301 908 Test Report](/assets/pdfs/one523-EN301-908-test-report.pdf) (updated 2022-11-15)
+- [EN-55032, EN 55035, EN 301 498 Test Report](/assets/pdfs/one523-EN-55032-test-report.pdf) (updated 2022-11-15)
+- [EN-60950-1 Test Report](/assets/pdfs/one523-EN-60950-1-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/one523-EN62311-test-report.pdf) (updated 2022-11-15)
+- [EN-62311, EN-50665 Test Report](/assets/pdfs/one523-EN50665-test-report.pdf) (updated 2022-11-15)
+- [EN-62638-1 Test Report](/assets/pdfs/one523-EN-62638-1-test-report.pdf)
+- [EN-62479, EN-50663 Test Report](/assets/pdfs/one523-EN62479-test-report.pdf) (updated 2022-11-15)
+- [RoHS 3.0 Test Reports](/assets/pdfs/one523-rohs.pdf)
+
+
+### FCC (United States) - ONE523 ONE524 Tracker One EMEAA
+
+The ONE523 and ONE524 are not FCC certified as the cellular modem does not support the cellular bands used in the United States. The ONE404 should be used instead.
+
+### ISED (Canada) - ONE523 ONE524 Tracker One EMEAA
+
+The ONE523 and ONE524 are not ISED certified as the cellular modem does not support the cellular bands used in the Canada. The ONE404 should be used instead.
+
+### RoHS - ONE523 ONE524 Tracker One EMEAA
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/one523-rohs.pdf)
+
+
+### UKCA (United Kingdom) - ONE523 ONE524 Tracker One EMEAA
+
+- [UKCA Certification](/assets/pdfs/one523-ukca.pdf) (updated 2022-11-15)
+
+{{!-- END shared-blurb --}}
+
+
 ## Product handling
 
 ### ESD precautions
@@ -675,3 +750,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 021      | 2022 Sep 23 | RK | Added pin drive strengh information |
 | 022      | 2022 Oct 01 | RK | Added additional IO characterstic information |
 | 023      | 2023 Jan 31 | RK | Add Device OS versions |
+| 024      | 2024 Apr 23 | RK | Added links to certification documents |

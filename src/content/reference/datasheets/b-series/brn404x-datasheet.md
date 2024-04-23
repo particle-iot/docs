@@ -1453,6 +1453,49 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 
+## Certification documents
+
+{{!-- BEGIN shared-blurb cff57903-4acb-47bb-b0fa-78343034a2a6 --}}
+### Bluetooth - BRN404X Boron LTE Cat M1
+
+- [Bluetooth](/assets/pdfs/brn404x-bluetooth.pdf)
+
+
+### CE (Europe) - BRN404X Boron LTE Cat M1
+
+The BRN404X are not certified for use in Europe at this time.
+
+### FCC (United States) - BRN404X Boron LTE Cat M1
+
+- FCC ID: 2AEMI-BRN404X
+- [Grant of equipment authorization (DTS)](/assets/pdfs/brn404x-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/brn404x-fcc-pcb.pdf)
+- [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/brn404x-fcc-part15b.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/brn404x-fcc-15-247.pdf)
+- [Test report FCC Part 22, Part 24, Part 27](/assets/pdfs/brn404x-fcc-part22-24-27.pdf)
+- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/brn404x-fcc-rf-exposure.pdf)
+
+
+### ISED (Canada) - BRN404X Boron LTE Cat M1
+
+- ISED: **20127-BRN404X**
+- [Certificate of Conformity](/assets/pdfs/brn404x-ic.pdf)
+- [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/brn404x-ic-rss247-2.pdf)
+- [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/brn404x-ic-ices003-7-test-report.pdf)
+- [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/brn404x-ic-rs132.pdf)
+- [ISED RF Exposure Report](/assets/pdfs/brn404x-ic-ised-rf-exposure.pdf)
+- [RSS-102 Annex A](/assets/pdfs/brn404x-ic-rss-102-annex-a.pdf)
+- [RSS-102 Annex C](/assets/pdfs/brn404x-ic-rss-102-annex-c.pdf)
+- [RSP-100 Appendix B](/assets/pdfs/brn404x-ic-rsp-100-appendix-b.pdf)
+
+
+### RoHS - BRN404X Boron LTE Cat M1
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/brn404x-rohs.pdf)
+
+{{!-- END shared-blurb --}}
+
+
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -1469,6 +1512,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 019      | 2023-04-28 | RK | Add conformal coating and flux notes |
 | 020      | 2023-07-18 | RK | Added alternate antenna ANT-FLXU |
 | 021      | 2023-11-13 | RK | Add full pin details |
+| 022      | 2024-04-23 | RK | Added links to certification documents |
 
 ## Known errata
 

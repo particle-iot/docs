@@ -2087,6 +2087,37 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 ---
 
+## Certification documents
+
+
+{{!-- BEGIN shared-blurb 97187f95-71ec-4698-8131-fe908cac95b7 --}}
+### Bluetooth - B404X B-Series SoM
+
+- [Bluetooth](/assets/pdfs/b404x-bluetooth.pdf)
+
+### CE (Europe) - B404X B-Series SoM 
+
+The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1 with 2G/3G fallback) is recommended instead.
+
+### FCC (United States) - B404X B-Series SoM 
+
+- FCC ID: 2AEMI-B404X
+- [Grant of equipment authorization (DTS)](/assets/pdfs/b404x-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/b404x-fcc-pcb.pdf)
+- [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/b404x-fcc-part15b.pdf)
+- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/b404x-fcc-rf-exposure.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/b404x-fcc-part15c.pdf)
+- [Test report FCC Part 22, Part 24, Part 27](/assets/pdfs/b404x-fcc-part22-24-27.pdf)
+
+
+### ISED (Canada) - B404X B-Series SoM 
+
+- ISED: **20127-B404X**
+- [Certificate of Conformity](/assets/pdfs/b404x-ic.pdf)
+- [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/b404x-ic-rss247-2.pdf)
+- [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/b404x-ic-ices003-7.pdf)
+- [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/b404x-ic-rs132.pdf)
+{{!-- END shared-blurb --}}
 
 ## Country compatibility
 
@@ -2138,3 +2169,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 034      | 2023-07-18 | RK | Added alternate antenna ANT-FLXU |
 | 035      | 2023-11-13 | RK | Add full pin details |
 | 036      | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
+| 037      | 2024-04-23 | RK | Added links to certification documents |

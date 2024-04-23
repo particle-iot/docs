@@ -1267,6 +1267,57 @@ MHz frequency range. This restriction applies in: AT, BE, BG, CH, CY, CZ, DE,
 DK, EE, EL, ES, FI, FR, HR, HU, IE, IS, IT, LI, LT, LU, LV, MT, NL, NO, PL, PT, RO,
 SE, SI, SK, TR, UA, UK(NI).
 
+## Certification documents
+
+{{!-- BEGIN shared-blurb f6f8ed58-0c5d-4fb4-a850-34ec5bcc4075 --}}
+### CE (Europe) - Photon 2
+
+- [Certificate of Conformity](/assets/pdfs/phn2-ce-certificate.pdf) 
+- [Attestation](/assets/pdfs/phn2-ce-attestation.pdf)
+- [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/phn2-EN300-328-btle-test-report.pdf)
+- [EN 300-328 Wi-Fi Test Report](/assets/pdfs/phn2-EN300-328-wifi-test-report.pdf)
+- [EN 300-440 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-EN300-440-wifi-test-report.pdf)
+- [EN 301-489 Test Report](/assets/pdfs/phn2-EN301-489-test-report.pdf)
+- [EN 301-893 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-EN301-893-wifi-test-report.pdf)
+- [EN 301-893 Dynamic Frequency Selection DFS Test Report](/assets/pdfs/phn2-EN301-893-dfs-test-report.pdf)
+- [EN62311 Test Report](/assets/pdfs/phn2-EN62311-test-report.pdf)
+- [EN62368 Test Report](/assets/pdfs/phn2-EN62368-test-report.pdf)
+- [EN62479 Test Report](/assets/pdfs/phn2-EN62479-test-report.pdf)
+
+
+### FCC (United States) - Photon 2
+
+- FCC ID: 2AEMI-P2 (this is the same as the P2 because the Photon 2 includes the P2 module)
+- [FCC Grant of Equipment Authorization (DTS)](/assets/pdfs/phn2-fcc-grant-dts.pdf)
+- [FCC Grant of Equipment Authorization (NII)](/assets/pdfs/phn2-fcc-grant-nii.pdf)
+{{!-- - [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/phn2-fcc-rf-exposure.pdf) --}}
+- [FCC 15.247 Bluetooth LE Test Report](/assets/pdfs/phn2-fcc-15-247-btle.pdf)
+- [FCC 15.247 Wi-Fi Test Report](/assets/pdfs/phn2-fcc-15-247-wifi.pdf)
+- [FCC 15.407 Test Report](/assets/pdfs/phn2-fcc-15-407.pdf)
+
+
+### ISED (Canada) - Photon 2
+
+- ISED: **20127-P2** (this is the same as the P2 because the Photon 2 includes the P2 module)
+- [Certificate of Conformity](/assets/pdfs/phn2-ic-certificate.pdf)
+- [ISED RSS-247 BTLE Test Report](/assets/pdfs/phn2-ic-rss247-btle.pdf)
+- [ISED RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi.pdf)
+- [ISED RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi5.pdf)
+{{!-- - [ISED RSS-247 DFS Test Report](/assets/pdfs/phn2-ic-rss247-dfs.pdf)
+  - [ISED RSS-102 RF Exposure Report](/assets/pdfs/phn2-ic-rf-exposure.pdf) --}}
+
+### RoHS - Photon 2
+
+- [RoHS Test Report](/assets/pdfs/phn2-rohs3.pdf)
+
+
+### UKCA (United Kingdom) - Photon 2
+
+- [UKCA Certification](/assets/pdfs/phn2-ukca.pdf)
+
+{{!-- END shared-blurb --}}
+
+
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -1308,6 +1359,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |  10 | 2024-03-15 | RK | Update VUSB diode and descriptive text for VUSB |
 |  11 | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
 |  12 | 2024-04-18 | RK | Add PDM microphone |
+|  13 | 2024-04-23 | RK | Added links to certification documents |
 
 
 ## Known errata

@@ -943,8 +943,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-04-22",
-            "hash": "4621e3efd2077a37eebde59611ae9818394949cf06c22e7ea1a9ef47a345613a"
+            "date": "2024-04-23",
+            "hash": "44a8a8e113f93077bd2b1e34e6ff844e25f02311f7929f69b5a5e7a432d7ca51"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -1347,20 +1347,20 @@
             "hash": "dc97de8c546bec49ed3136a1a0fbb781521fdf51143a1ad154f03bc8f1962c3c"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2024-03-26",
-            "hash": "f637a23199eb3bf616feedd2c3a1c1c4c4ae399c012dfea6354e09039dcdb399"
+            "date": "2024-04-23",
+            "hash": "de8cff873a2e636aa4ffcfdd5c3e7321a8e64c7bf2a70f3a10a8e546a2fc3556"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2024-04-03",
-            "hash": "76f2b0bb0cc6727cd84ad82831866018b32c3fd15bf18f74c5dc202f4748ad05"
+            "date": "2024-04-23",
+            "hash": "80a6face128e45dd86c181b6b410030f96f36daa4eff682dd919633d22497661"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-03-19",
             "hash": "a61ab52ebbdf0be5f31835b3ab4dc4ddb0aac795d0c5eb7372436fb8fae75991"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "66671c753c2f801617b74349c4e62ac1c6aa0dbd6cbf2a741479d47e687159f1"
+            "date": "2024-04-23",
+            "hash": "5c920ec68840b79c35085e3b9bb140556a971c84df12f0acbf3c188754dec412"
         },
         "reference/datasheets/accessories/debugger.md": {
             "date": "2024-02-27",
@@ -1407,12 +1407,12 @@
             "hash": "b99320b79b015da28ad0b476b7875be996fc4d83825800851ba9572d31cb1963"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2024-04-18",
-            "hash": "82fb07a4afbae3ef94919c325902b763290f00302465cc53f6551d6f70296aa9"
+            "date": "2024-04-23",
+            "hash": "8074a5773e9f037028890c1110aca373afbaa83976d55eda6484915cc22a04ee"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2024-04-18",
-            "hash": "5e14638623f283fc0c1f89145ea04ca16178beb7799a2b63d371a2a034b92ed0"
+            "date": "2024-04-23",
+            "hash": "f45d115d28e1f069f9476d54195ca995f78d861173417ecfd49dba5efb6fe920"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2024-03-26",
@@ -1423,12 +1423,12 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2024-04-18",
-            "hash": "ea30530c563581da4ee4ce1f156ac196e49dd3249f2df21bafb2eb405335a09c"
+            "date": "2024-04-23",
+            "hash": "1e699b849936ee16fe199cc8e297e5fd5172f267fb79eb18df6559b6061debef"
         },
         "reference/datasheets/tracker/tracker-one.md": {
-            "date": "2024-02-20",
-            "hash": "460a5df4bc13677c4a2f4fe552da669b87349ddc06c609a269a8e738661ae7d8"
+            "date": "2024-04-23",
+            "hash": "9389cb4b8d626bd5651ecd0be01baecca15b209ca632e0069a9ef2e0c54f1d20"
         },
         "reference/datasheets/tracker/tracker-m8-accessories.md": {
             "date": "2023-08-02",
@@ -8399,8 +8399,8 @@
             "date": "2024-04-18"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "08ddd333c8d23c1f0dc962ad19f982935ebdc7d3f78fb4185e0ad7b0d2f81462",
-            "date": "2024-04-18"
+            "hash": "0103b3451f4a331176af86db1d5dd7b0dbddcfc3ca2e43d5f8f445289d9ce3d0",
+            "date": "2024-04-23"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "60cbdc223df1de13526c42f9daf8aba51b7762424e314aec79df25db9338bde5",
