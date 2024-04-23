@@ -159,6 +159,7 @@ The B402, B404, and B404X are not certified for use in Europe at this time.
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+{{!-- BEGIN shared-blurb 97187f95-71ec-4698-8131-fe908cac95b7 --}}
 ### Bluetooth - B404X B-Series SoM
 
 - [Bluetooth](/assets/pdfs/b404x-bluetooth.pdf)
@@ -185,8 +186,12 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 - [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/b404x-ic-rss247-2.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/b404x-ic-ices003-7.pdf)
 - [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/b404x-ic-rs132.pdf)
+{{!-- END shared-blurb --}}
+
 
 ## B523 B524 B-Series SoM
+
+{{!-- BEGIN shared-blurb fd865543-47ff-41fb-99d3-ceec6fd99fb8 --}}
 
 ### CE (Europe) - B523 B524 B-Series SoM
 
@@ -224,6 +229,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 - [Japan D 24 0029 201](/assets/pdfs/b524-japan-d-24-0029-201.pdf)
 - [Japan 201 240198](/assets/pdfs/b524-japan-201-240198.pdf)
 
+{{!-- END shared-blurb --}}
 
 
 ## BRN310 BRN314 Boron 2G/3G
@@ -418,7 +424,7 @@ Additional FCC Test Reports:
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-
+{{!-- BEGIN shared-blurb cff57903-4acb-47bb-b0fa-78343034a2a6 --}}
 ### Bluetooth - BRN404X Boron LTE Cat M1
 
 - [Bluetooth](/assets/pdfs/brn404x-bluetooth.pdf)
@@ -456,6 +462,7 @@ The BRN404X are not certified for use in Europe at this time.
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/brn404x-rohs.pdf)
 
+{{!-- END shared-blurb --}}
 
 
 ## E260 Electron 2G/3G Americas (U260)
@@ -819,6 +826,8 @@ Additional FCC Test Reports:
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+
+{{!-- BEGIN shared-blurb 8d11397b-ce65-41f3-8a2a-70bad7cf18c3 --}}
 ### FCC (United States) - M404 M-SoM M-Series LTE-M/2G
 
 - FCC ID: 2AEMI-M404
@@ -861,6 +870,7 @@ Additional FCC Test Reports:
 ### RoHS - M404 M-SoM M-Series LTE-M/2G
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/m404-rohs.pdf)
+{{!-- END shared-blurb --}}
 
 
 ## M524 M-SoM M-Series LTE Cat 1
@@ -874,6 +884,8 @@ Additional FCC Test Reports:
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+{{!-- BEGIN shared-blurb 8f4d899f-2ed4-47fc-9b45-e28fd55e245c --}}
 
 ### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
 
@@ -896,6 +908,7 @@ Additional FCC Test Reports:
 ### RoHS - M524 M-SoM M-Series LTE Cat 1
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/m524-rohs.pdf)
+{{!-- END shared-blurb --}}
 
 
 ## Monitor One 404 NorAm
@@ -910,6 +923,7 @@ Additional FCC Test Reports:
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+{{!-- BEGIN shared-blurb 6a430768-2dae-4fd8-afb1-c989c0ac2e64 --}}
 ### FCC (United States) - MON404DE Monitor One Developer Edition NorAm
 
 - FCC ID: 2AEMI-MONEDE
@@ -945,6 +959,7 @@ Additional FCC Test Reports:
 ### RoHS - MON404 Monitor One Developer Edition NorAm
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/mon404de-rohs.pdf)
+{{!-- END shared-blurb --}}
 
 
 ## ONE402 ONE404 Tracker One NorAm
@@ -963,7 +978,7 @@ Additional FCC Test Reports:
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-
+{{!-- BEGIN shared-blurb 1a043076-6022-4f12-9e4c-372a99819e1e --}}
 ### FCC (United States) - ONE402 ONE404 Tracker One NorAm
 
 - FCC ID: 2AEMI-T40X
@@ -995,6 +1010,8 @@ Additional FCC Test Reports:
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/one402-rohs.pdf)
 
+{{!-- END shared-blurb --}}
+
 
 ## ONE523 ONE524 Tracker One EMEAA
 
@@ -1011,7 +1028,7 @@ Additional FCC Test Reports:
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-
+{{!-- BEGIN shared-blurb faa27f3e-5324-433a-b425-5041bc07f6ef --}}
 ### CE (Europe) - ONE523 ONE524 Tracker One EMEAA
 
 - [Summary](/assets/pdfs/one523-ce-summary.pdf)
@@ -1046,6 +1063,8 @@ The ONE523 and ONE524 are not ISED certified as the cellular modem does not supp
 ### UKCA (United Kingdom) - ONE523 ONE524 Tracker One EMEAA
 
 - [UKCA Certification](/assets/pdfs/one523-ukca.pdf) (updated 2022-11-15)
+
+{{!-- END shared-blurb --}}
 
 
 ## P1
@@ -1101,6 +1120,7 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 
 {{!-- END do not edit content above, it is automatically generated a201cbf3-f21d-4b34-ac10-a713ef5a857e --}}
 
+{{!-- BEGIN shared-blurb ddf2d8dc-06ca-459e-9639-fe4c0f7d1519 --}}
 ### Bluetooth - P2
 
 - [Bluetooth RF Test Report](/assets/pdfs/p2-bt-rf-test-report.pdf)
@@ -1153,6 +1173,7 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 ### UKCA (United Kingdom) - P2
 
 - [UKCA Certification](/assets/pdfs/p2-ukca.pdf)
+{{!-- END shared-blurb --}}
 
 
 ## Photon/PØ - (updated 3/20/17)
@@ -1215,6 +1236,7 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+{{!-- BEGIN shared-blurb f6f8ed58-0c5d-4fb4-a850-34ec5bcc4075 --}}
 ### CE (Europe) - Photon 2
 
 - [Certificate of Conformity](/assets/pdfs/phn2-ce-certificate.pdf) 
@@ -1259,6 +1281,8 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 ### UKCA (United Kingdom) - Photon 2
 
 - [UKCA Certification](/assets/pdfs/phn2-ukca.pdf)
+
+{{!-- END shared-blurb --}}
 
 
 ## T402 T404 Tracker SoM NorAm

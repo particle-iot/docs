@@ -1658,6 +1658,48 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 ---
 
+## Certification documents
+
+{{!-- BEGIN shared-blurb fd865543-47ff-41fb-99d3-ceec6fd99fb8 --}}
+
+### CE (Europe) - B523 B524 B-Series SoM
+
+- [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
+- [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
+- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2022-11-09)
+- [RED Cellular Test Report](/assets/pdfs/b523-cellular-ce-test-report.pdf) (updated 2021-09-16)
+- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band) (updated 2022-11-09)
+- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC) (updated 2022-11-09)
+- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf) (updated 2022-11-09)
+- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM) (updated 2022-11-09)
+- [EN 301 908 Variant Radio Test Report](/assets/pdfs/b524-EN301-908-test-report.pdf) (updated 2022-11-09)
+- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf) (updated 2022-11-09)
+- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950) (updated 2022-11-09)
+- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf) (updated 2021-09-16)
+
+### FCC (United States) - B523 B524 B-Series SoM
+
+The B523 and B524 are not FCC certified as it does not support any cellular bands used in the United States. The B404X should be used instead.
+
+### ISED (Canada) - B523 B524 B-Series SoM
+
+The B523 and B524 are not ISED certified as it does not support any cellular bands used in the Canada. The B404X should be used instead.
+
+### RoHS - B523 B524 B-Series SoM
+
+- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
+
+### UKCA (United Kingdom) - B523 B524 B-Series SoM
+
+- [UKCA Certification](/assets/pdfs/b524-ukca.pdf) (updated 2022-11-09)
+
+### Japan - B524 B-Series SoM
+
+- [Japan D 24 0029 201](/assets/pdfs/b524-japan-d-24-0029-201.pdf)
+- [Japan 201 240198](/assets/pdfs/b524-japan-201-240198.pdf)
+
+{{!-- END shared-blurb --}}
+
 
 ## Country compatibility
 
@@ -1818,3 +1860,4 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 021      | 13-Nov-2023 | RK | Add full pin details |
 | 022      | 20-Dec-2023 | RK | Clarified band power information table |
 | 023      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |
+| 024      | 23-Apr-2024 | RK | Added links to certification documents |
