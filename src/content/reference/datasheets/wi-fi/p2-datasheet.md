@@ -1995,6 +1995,65 @@ MHz frequency range. This restriction applies in: AT, BE, BG, CH, CY, CZ, DE,
 DK, EE, EL, ES, FI, FR, HR, HU, IE, IS, IT, LI, LT, LU, LV, MT, NL, NO, PL, PT, RO,
 SE, SI, SK, TR, UA, UK(NI).
 
+
+## Certification documents
+
+{{!-- BEGIN shared-blurb ddf2d8dc-06ca-459e-9639-fe4c0f7d1519 --}}
+### Bluetooth - P2
+
+- [Bluetooth RF Test Report](/assets/pdfs/p2-bt-rf-test-report.pdf)
+- [Bluetooth Profile and Service Test Report](/assets/pdfs/p2-bt-profile-test-report.pdf)
+- [Bluetooth Module Submission](/assets/pdfs/p2-bt-module-submission.pdf)
+
+### CE (Europe) - P2
+
+- [Certificate of Conformity](/assets/pdfs/p2-ce-certificate.pdf)
+- [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/p2-EN300-328-btle-test-report.pdf)
+- [EN 300-328 Wi-Fi Test Report](/assets/pdfs/p2-EN300-328-wifi-test-report.pdf)
+- [EN 300-440 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-EN300-440-wifi-test-report.pdf)
+- [EN 301-489 Test Report](/assets/pdfs/p2-EN301-489-test-report.pdf)
+- [EN 301-893 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-EN301-893-wifi-test-report.pdf)
+- [EN 301-893 Dynamic Frequency Selection DFS Test Report](/assets/pdfs/p2-EN301-893-dfs-test-report.pdf)
+- [EN62311 Test Report](/assets/pdfs/p2-EN62311-test-report.pdf)
+- [EN62368 Test Report](/assets/pdfs/p2-EN62368-test-report.pdf)
+- [EN62479 Test Report](/assets/pdfs/p2-EN62479-test-report.pdf)
+
+
+
+### FCC (United States) - P2
+
+- FCC ID: 2AEMI-P2
+- [FCC Grant of Equipment Authorization (DTS)](/assets/pdfs/p2-fcc-grant-dts.pdf)
+- [FCC Grant of Equipment Authorization (NII)](/assets/pdfs/p2-fcc-grant-nii.pdf)
+- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/p2-fcc-rf-exposure.pdf)
+- [FCC 15.247 Bluetooth LE Test Report](/assets/pdfs/p2-fcc-15-247-btle.pdf)
+- [FCC 15.247 Wi-Fi Test Report](/assets/pdfs/p2-fcc-15-247-wifi.pdf)
+- [FCC 15.407 Test Report](/assets/pdfs/p2-fcc-15-407.pdf)
+- [FCC 15.407 Test Report (5 GHz Wi-Fi)](/assets/pdfs/p2-fcc-15-407-5-ghz.pdf)
+
+
+### ISED (Canada) - P2
+
+- ISED: **20127-P2**
+- [Certificate of Conformity](/assets/pdfs/p2-ic-certificate.pdf)
+- [ISED RSS-247 BTLE Test Report](/assets/pdfs/p2-ic-rss247-btle.pdf)
+- [ISED RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi.pdf)
+- [ISED RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi5.pdf)
+- [ISED RSS-247 DFS Test Report](/assets/pdfs/p2-ic-rss247-dfs.pdf);
+- [ISED RSS-102 RF Exposure Report](/assets/pdfs/p2-ic-rf-exposure.pdf)
+
+
+### RoHS - P2
+
+- [RoHS Test Report](/assets/pdfs/p2-rohs.pdf)
+
+
+### UKCA (United Kingdom) - P2
+
+- [UKCA Certification](/assets/pdfs/p2-ukca.pdf)
+{{!-- END shared-blurb --}}
+
+
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -2038,6 +2097,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 014 | 2024-02-20 | RK | Added pin drive strength |
 | 015 | 2024-03-11 | RK | Added boot mode pin warning to GPIO pin table |
 | 016 | 2024-04-18 | RK | Add PDM microphone |
+| 017 | 2024-04-23 | RK | Added links to certification documents |
 
 
 ## Known errata

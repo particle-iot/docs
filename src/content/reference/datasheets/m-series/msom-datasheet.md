@@ -1089,6 +1089,79 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ---
 
+## Certification documents
+
+{{!-- BEGIN shared-blurb 8d11397b-ce65-41f3-8a2a-70bad7cf18c3 --}}
+### FCC (United States) - M404 M-SoM M-Series LTE-M/2G
+
+- FCC ID: 2AEMI-M404
+- [Part 15B](/assets/pdfs/m404-fcc-part15b.pdf)
+- [Part 15C, Digital Transmission System 2.4 GHz](/assets/pdfs/m404-fcc-DTS.pdf)
+- [Part 15E, Unlicensed national information infrastructure TX, 5 GHz](/assets/pdfs/m404-fcc-part15e.pdf)
+- [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/m404-fcc-JBP.pdf)
+- [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/m404-fcc-PCB.pdf)
+
+### ISED (Canada) - M404 M-SoM M-Series LTE-M/2G
+
+- ISED: 20127-M504
+- [Certificate](/assets/pdfs/m404-ised-certificate.pdf)
+- [Test Report RS-130](/assets/pdfs/m404-ic-rs130.pdf)
+- [Test Report RS-132](/assets/pdfs/m404-ic-rs132.pdf)
+- [Test Report RS-133](/assets/pdfs/m404-ic-rs133.pdf)
+- [Test Report RS-139](/assets/pdfs/m404-ic-rs139.pdf)
+- [ICES-003 Issue 7:2020](/assets/pdfs/m404-ic-ices003.pdf)
+- [Test Report RS-102](/assets/pdfs/m404-ic-rs102.pdf) (RF Exposure)
+
+
+### CE (European Union) - M404 M-SoM M-Series LTE-M/2G
+
+- [Summary](/assets/pdfs/m404-ce-summary.pdf)
+- [EN-62368-1 Test Report](/assets/pdfs/m404-EN-62368-1-test-report.pdf)
+- [EN 300 328 Test Report BLE](/assets/pdfs/m404-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
+- [EN 300 328 Test Report Wi-Fi](/assets/pdfs/m404-EN300-328-wifi-test-report.pdf) (Wi-Fi 2.4 GHz ISM band)
+- [EN 300 440 Test Report Wi-Fi](/assets/pdfs/m404-EN300-440-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 301 893 Test Report Wi-Fi](/assets/pdfs/m404-EN301-893-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 301 893 Test Report DFS](/assets/pdfs/m404-EN301-893-dfs-test-report.pdf) (Dynamic frequency selection clause 4.2.6)
+- [EN 303 413 Test Report](/assets/pdfs/m404-EN303-413-gnss-test-report.pdf) (GNSS)
+- [EN 301 489 Test Report](/assets/pdfs/m404-EN301-489-test-report.pdf)
+- [EN 301 511 Test Report](/assets/pdfs/m404-EN301-511-test-report.pdf) (GSM)
+- [EN 301 908 Test Report](/assets/pdfs/m404-EN301-908-test-report.pdf) 
+- [EN-62311 Test Report](/assets/pdfs/m404-EN62311-test-report.pdf)
+- [Test Report Photos](/assets/pdfs/m404-test-photos.pdf)
+
+
+
+### RoHS - M404 M-SoM M-Series LTE-M/2G
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/m404-rohs.pdf)
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb 8f4d899f-2ed4-47fc-9b45-e28fd55e245c --}}
+
+### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
+
+- [Summary](/assets/pdfs/m524-ce-summary.pdf)
+- [EN-62368-1 Test Report](/assets/pdfs/m524-EN-62368-1-test-report.pdf)
+- [EN 300 328 Test Report BLE](/assets/pdfs/m524-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
+- [EN 300 328 Test Report Wi-Fi](/assets/pdfs/m524-EN300-328-wifi-test-report.pdf) (Wi-Fi 2.4 GHz ISM band)
+- [EN 301 893 Test Report Wi-Fi](/assets/pdfs/m524-EN301-893-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 300 440 Test Report Wi-Fi](/assets/pdfs/m524-EN300-440-wifi-test-report.pdf) (Wi-Fi 5 GHz)
+- [EN 301 893 Test Report DFS](/assets/pdfs/m524-EN301-893-dfs-test-report.pdf) (Dynamic frequency selection clause 4.2.6)
+- [EN 303 413 Test Report](/assets/pdfs/m524-EN303-413-gnss-test-report.pdf) (GNSS)
+- [EN 301 489 Test Report](/assets/pdfs/m524-EN301-489-test-report.pdf)
+- [EN 301 511 Test Report](/assets/pdfs/m524-EN301-511-test-report.pdf) (GSM)
+- [EN 301 908 Test Report](/assets/pdfs/m524-EN301-908-test-report.pdf) 
+- [EN-62311 Test Report](/assets/pdfs/m524-EN62311-test-report.pdf)
+- [Test Report Photos](/assets/pdfs/m524-test-photos.pdf)
+
+
+
+### RoHS - M524 M-SoM M-Series LTE Cat 1
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/m524-rohs.pdf)
+{{!-- END shared-blurb --}}
+
+---
 
 ## Country compatibility
 
@@ -1300,3 +1373,4 @@ Global, country list to be provided a later date.
 | 001      | 2024-04-02 | RK | General availability |
 | 002      | 2024-04-03 | RK | Additional transmitter information |
 | 003      | 2024-04-18 | RK | Add PDM microphone |
+| 004      | 2024-04-23 | RK | Added links to certification documents |

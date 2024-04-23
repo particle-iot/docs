@@ -1056,6 +1056,48 @@ UKCA Conformity:
 
 Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
+
+## Certification documents
+
+{{!-- BEGIN shared-blurb 6a430768-2dae-4fd8-afb1-c989c0ac2e64 --}}
+### FCC (United States) - MON404DE Monitor One Developer Edition NorAm
+
+- FCC ID: 2AEMI-MONEDE
+- [Part 15B, 746 MHz - 894 MHz](/assets/pdfs/mon404de-fcc-CXX.pdf)
+- [Part 15C, Digital Transmission System 2.4 GHz](/assets/pdfs/mon404de-fcc-DTS.pdf)
+- [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/mon404de-fcc-JBP.pdf)
+- [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/mon404de-fcc-PCB.pdf)
+- [Test report FCC Part 15, Subpart B, Class B](/assets/pdfs/mon404de-fcc-part15b-test.pdf)
+- [Test report FCC Part 22](/assets/pdfs/mon404de-fcc-part22-test.pdf)
+- [Test report FCC Part 24](/assets/pdfs/mon404de-fcc-part24-test.pdf)
+- [Test report FCC Part 27](/assets/pdfs/mon404de-fcc-part27-test.pdf)
+- [Test photos, FCC Part 15B](/assets/pdfs/mon404de-fcc-15b-test-photos.pdf)
+- [Test photos, FCC External](/assets/pdfs/mon404de-fcc-external-photos.pdf)
+- [Test photos, FCC Internal](/assets/pdfs/mon404de-fcc-internal-photos.pdf)
+- [Test photos, FCC RF Test Setup](/assets/pdfs/mon404de-fcc-rf-test-photos.pdf)
+
+
+### ISED (Canada) - MON404 Monitor One Developer Edition NorAm
+
+- ISED: **20127-MONEDE**
+- [Certificate of Conformity](/assets/pdfs/mon404de-ised-certificate.pdf)
+- [Test Report RS-130](/assets/pdfs/mon404de-ic-rs130.pdf)
+- [Test Report RS-132](/assets/pdfs/mon404de-ic-rs132.pdf)
+- [Test Report RS-133](/assets/pdfs/mon404de-ic-rs133.pdf)
+- [Test Report RS-139](/assets/pdfs/mon404de-ic-rs139.pdf)
+- [ICES-003 Issue 7:2020](/assets/pdfs/mon404de-ic-ices003.pdf)
+- [Test photos, ISED ICES003](/assets/pdfs/mon404de-ised-ices003-test-photos.pdf)
+- [Test photos, ISED External](/assets/pdfs/mon404de-ised-external-photos.pdf)
+- [Test photos, ISED Internal](/assets/pdfs/mon404de-ised-internal-photos.pdf)
+- [Test photos, ISED RF Test Setup](/assets/pdfs/mon404de-ised-rf-test-photos.pdf)
+
+
+### RoHS - MON404 Monitor One Developer Edition NorAm
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/mon404de-rohs.pdf)
+{{!-- END shared-blurb --}}
+
+
 ## Product handling
 
 ### ESD precautions
@@ -1100,3 +1142,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-11-14 | RK | Renamed RS485 pins A and B instead of P and N |
 | 2024-01-29 | RK | Add battery warnings |
 | 2024-04-02 | RK | Changed power supply specification from 2A to 12W |
+| 2024-04-23 | RK | Added links to certification documents |

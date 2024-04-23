@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
@@ -270,6 +271,10 @@ async function run() {
                 key: 'show',
                 desc: 'add a hidden page to a menu',
             },
+            {
+                key: 'blurb',
+                desc: 'generate a shared-blurb UUID',
+            },
         ];
 
         for(const m of menuOptions) {
@@ -439,6 +444,13 @@ async function run() {
             await insertIntoMenu(options);
 
         }
+
+        if (cmd == 'blurb') {
+            const uuid = crypto.randomUUID();
+
+            console.log('{{!-- BEGIN shared-blurb ' + uuid + ' --}}');
+            console.log('{{!-- END shared-blurb --}}');
+        } 
 
 
         if (fixLinks) {
