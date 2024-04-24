@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Data usage troubleshooting 2024-04-24
+
+There's a new page with tips for [data usage troubleshooting](/troubleshooting/guides/connectivity-troubleshooting/data-usage/).
+
 ### Datasheet updates 2024-04-23
 
 Datasheets for current products now contain links to the individual certification documents for that SKU. It's the same content as in the [certification documents page](/hardware/certification/certification-documents/) but having it in the datasheets will make it easier to find.
