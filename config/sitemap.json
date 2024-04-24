@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "56e7355e05c577a64142856349592c5cd48f6c25f7790ff438942b1bc4d2a756",
-            "date": "2024-04-22"
+            "hash": "10be750158b3965f72f935a485e415f0b693ea6dc5ca085cb5a1dd8ba0d9dc97",
+            "date": "2024-04-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8473,6 +8473,10 @@
         "reference/device-os/api/system-events/firmware_update-256-parameter-values.md": {
             "hash": "c1f8906e35ed69718ab8e79b5f55aa1463427891f93db89b162c646ca0cf45ff",
             "date": "2024-04-20"
+        },
+        "troubleshooting/guides/connectivity-troubleshooting/data-usage.md": {
+            "hash": "339f788a275d45137cfd4ec20ea6f2fc92b93ead8d44db72b24a82bece143506",
+            "date": "2024-04-24"
         }
     }
 }

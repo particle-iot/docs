@@ -144,6 +144,10 @@
                     "url": "/troubleshooting/connectivity/cellular-usage/"
                 },
                 {
+                    "title": "Troubleshooting data usage",
+                    "url": "/troubleshooting/guides/connectivity-troubleshooting/data-usage/"
+                },
+                {
                     "title": "Managing billing and subscriptions",
                     "page": 360001730794
                 },
@@ -621,6 +625,10 @@
                 {
                     "title": "Learn about billing (data operations)",
                     "url": "/getting-started/billing/data-operations/"
+                },
+                {
+                    "title": "Troubleshooting data usage",
+                    "url": "/troubleshooting/guides/connectivity-troubleshooting/data-usage/"
                 }
             ]
         },

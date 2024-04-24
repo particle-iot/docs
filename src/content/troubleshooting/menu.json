@@ -90,6 +90,11 @@
           "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-poor-connectivity-issues-ota/"
         },
         {
+          "dir": "data-usage",
+          "title": "Data usage troubleshooting",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/data-usage/"
+        },
+        {
           "dir": "troubleshooting-wifi-on-the-particle-argon",
           "title": "Wi-Fi on argon troubleshooting",
           "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/"
