@@ -82,11 +82,11 @@ function verifyPinInfo(dir) {
                                     }
                                 }
                                 else {
-                                    console.log('base does not have pin with ' + mapTo + ' ' + pin[obj.mapBy]);
+                                    console.log('base does not have pin with pin=' + pin.name + ' mapTo=' + mapTo + ' mapBy=' + obj.mapBy  + ' in ' + dirEntry2.name);
                                 }
                             }
                             else {
-                                console.log('pin does not have ' + obj.mapBy);
+                                console.log('pin does not have pin=' + pin.name + ' mapBy=' + obj.mapBy + ' in ' + dirEntry2.name);
                             }
                         }
                     }

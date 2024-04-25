@@ -142,7 +142,6 @@ The Argon and Boron have male header pins on the bottom, and often mate with a f
 | A4 / D15 | &check; | A4 / D15 | &check; |
 | A5 / D14 | &check; | A5 / D14 | &check; |
 | &nbsp; | &nbsp; | A6 / D29 | &check; |
-| D8 / WKP | &nbsp; | A7 / WKP | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -193,8 +192,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 | A5 / D14 | SPI (SS) | A5 / D14 | &nbsp; |
 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
 | D3 | SPI1 (MOSI) | D3 | SPI1 (SS) |
-| D4 | SPI1 (MISO) | D4 | &nbsp; |
-| &nbsp; | &nbsp; | D8 | SPI (SS) |
+| D4 | SPI1 (MISO) | D4 | SPI (SS) |
 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
 | MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) |
 | RX / D10 | &nbsp; | RX / D10 | SPI1 (MISO) |
@@ -261,15 +259,15 @@ There are number of I2C peripherals on the Muon board. Makes ure external sensor
 | &nbsp; | &nbsp; | A6 / D29 | &check; |
 | D2 | &check; | D2 | &nbsp; |
 | D3 | &check; | D3 | &nbsp; |
-| D4 | &check; | D4 | &check; |
-| D5 | &check; | D5 | &check; |
+| D4 | &check; | D4 | &nbsp; |
+| D5 | &check; | &nbsp; | &nbsp; |
 | D6 | &check; | D6 | &check; |
 | D7 | &check; | D7 | &check; |
+| D8 / WKP | &check; | &nbsp; | &nbsp; |
 | MISO / D11 | &nbsp; | MISO / D11 | &check; |
 | MOSI / D12 | &nbsp; | MOSI / D12 | &check; |
 | RX / D10 | &nbsp; | RX / D10 | &check; |
 | TX / D09 | &nbsp; | TX / D9 | &check; |
-| D8 / WKP | &check; | A7 / WKP | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -282,11 +280,10 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin Name | Description | M2 Pin | MCU |
 | :--- | :--- | :--- | :--- |
-| A6 / D29 | SWCLK. 40K pull-down at boot. | 45 | PB[7] |
+| A5 / D14 | SWCLK. 40K pull-down at boot. | 43 | PB[3] |
 | RGBR | Low at boot triggers trap mode | 61 | PA[30] |
-| D24 | Low at boot triggers ISP flash download | 58 | PA[7] |
 | D25 | Goes high at boot | 60 | PA[8] |
-| D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | 55 | PA[27] |
+| D24 | Low at boot triggers ISP flash download | 58 | PA[7] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -326,10 +323,15 @@ The Boron and Argon support NFC Tag mode.
 {{!-- BEGIN do not edit content below, it is automatically generated a92768ab-8aea-4c68-8223-c1a6636141f8 --}}
 
 #### 3V3
-|   |   | Boron | Muon |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Name | 3V3 | 3V3 |
-| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | 3.3V out. 700 mA for M-SoM and 500 mA available for peripheral devices. |
+| | Removed from Boron |
+| :--- | :--- |
+| Pin Name | 3V3|
+| Description | Regulated 3.3V DC output, maximum load 1000 mA|
+#### 3V3_AUX
+| | Added to Muon |
+| :--- | :--- |
+| Pin Name | 3V3_AUX|
+| Description | 3.3V AUX out. 500 mA available for peripheral devices. Controllable.|
 #### A0
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
@@ -374,7 +376,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A3 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
-| ∆ | Description | A3 Analog in, GPIO, PWM | A3 Analog in, GPIO |
+| ∆ | Description | A3 Analog in, GPIO, PWM | A3 Analog in, PDM CLK, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -387,7 +389,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A4 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
-| ∆ | Description | A4 Analog in, GPIO, PWM | A4 Analog in, GPIO |
+| ∆ | Description | A4 Analog in, GPIO, PWM | A4 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -409,12 +411,14 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### A6
 | | Added to Muon |
 | :--- | :--- |
 | Pin Name | A6|
 | Pin Alternate Name | D29|
-| Description | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53|
+| Description | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
@@ -422,8 +426,6 @@ The Boron and Argon support NFC Tag mode.
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
-| SWD interface | SWCLK. 40K pull-down at boot.|
-| Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### CAN_5V
 | | Added to Muon |
 | :--- | :--- |
@@ -439,6 +441,11 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- |
 | Pin Name | CAN_P|
 | Description | NC on Muon. (CAN Data+ or CANH on Monitor One)|
+#### CELL_GPS_TX
+| | Added to Muon |
+| :--- | :--- |
+| Pin Name | CELL_GPS_TX|
+| Description | Cellular modem GNSS UART TX|
 #### D0
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
@@ -481,24 +488,6 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
-#### D22
-| | Added to Muon |
-| :--- | :--- |
-| Pin Name | D22|
-| Description | D22 GPIO, PMIC_INT|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports attachInterrupt | Yes|
-| Internal pull resistance | ???|
-#### D23
-| | Added to Muon |
-| :--- | :--- |
-| Pin Name | D23|
-| Description | D23 GPIO, RTC_INT|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports attachInterrupt | Yes|
-| Internal pull resistance | ???|
 #### D24
 | | Added to Muon |
 | :--- | :--- |
@@ -525,22 +514,11 @@ The Boron and Argon support NFC Tag mode.
 | | Added to Muon |
 | :--- | :--- |
 | Pin Name | D26|
-| Description | D26 GPIO, LORA_RST|
+| Description | D26 GPIO|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
-#### D27
-| | Added to Muon |
-| :--- | :--- |
-| Pin Name | D27|
-| Description | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports attachInterrupt | Yes|
-| Internal pull resistance | 42K|
-| SWD interface | SWDIO. 40K pull-up at boot.|
-| Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
@@ -558,25 +536,25 @@ The Boron and Argon support NFC Tag mode.
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D4 | D4 |
-| ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, PWM |
+| ∆ | Description | SPI1 MISO, PWM, GPIO | D8 GPIO, SPI SS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
-| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
-| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | SPI interface | MISO. Use SPI1 object. | Default SS for SPI. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D5
-|   |   | Boron | Muon |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Name | D5 | D5 |
-| ∆ | Description | PWM, GPIO | D5 GPIO, PWM |
-| &nbsp; | Supports digitalRead | Yes | Yes |
-| &nbsp; | Supports digitalWrite | Yes | Yes |
-| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
-| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull resistance | 13K | ??? |
+| | Removed from Boron |
+| :--- | :--- |
+| Pin Name | D5|
+| Description | PWM, GPIO|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| Supports analogWrite (PWM) | Yes|
+| Supports tone | D4, D5, D6, and D7 must have the same frequency.|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
+| Internal pull resistance | 13K|
 #### D6
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
@@ -600,15 +578,17 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D8
-| | Added to Muon |
+| | Removed from Boron |
 | :--- | :--- |
 | Pin Name | D8|
-| Description | D8 GPIO, SPI SS|
+| Pin Alternate Name | WKP|
+| Description | GPIO, PWM|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
-| SPI interface | Default SS for SPI.|
-| Supports attachInterrupt | Yes|
-| Internal pull resistance | 2.1K|
+| Supports analogWrite (PWM) | Yes|
+| Supports tone | D4, D5, D6, and D7 must have the same frequency.|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
+| Internal pull resistance | 13K|
 #### EN
 | | Removed from Boron |
 | :--- | :--- |
@@ -647,7 +627,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | MODE | D20 |
 | ∆ | Pin Alternate Name | D20 | n/a |
-| ∆ | Description | MODE button, has internal pull-up | D20 GPIO, relay on Monitor One I/O card |
+| ∆ | Description | MODE button, has internal pull-up | D20 GPIO |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
@@ -799,19 +779,11 @@ The Boron and Argon support NFC Tag mode.
 | Pin Name | VUSB|
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
-#### WKP
-|   |   | Boron | Muon |
-| :--- | :--- | :--- | :--- |
-| ∆ | Pin Name | D8 | A7 |
-| &nbsp; | Pin Alternate Name | WKP | WKP |
-| ∆ | Description | GPIO, PWM | A7 Analog In, WKP, GPIO D28 |
-| &nbsp; | Supports digitalRead | Yes | Yes |
-| &nbsp; | Supports digitalWrite | Yes | Yes |
-| ∆ | Supports analogRead | No | Yes |
-| ∆ | Supports analogWrite (PWM) | Yes | No |
-| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull resistance | 13K | ??? |
+#### WKP/IOEXGPA7
+| | Added to Muon |
+| :--- | :--- |
+| Pin Name | WKP/IOEXGPA7|
+| Description | Wakeup pin connected to I/O expander|
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
