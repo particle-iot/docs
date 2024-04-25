@@ -692,7 +692,18 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 {{!-- ### Wi-Fi Specifications --}}
 
 
-{{!-- ### I/O Characteristics --}}
+### I/O Characteristics
+
+{{!-- BEGIN shared-blurb 817be6c6-c2fb-43b0-be1e-c4b5b030b6e2 --}}
+| Parameter | Symbol | Min   | Typ   | Peak  | Unit  |
+| :-------- | :----- | :---: | :---: | :---: | :---: |
+| Input-High Voltage | V<sub>IH</sub> | 2.0 | | | V |
+| Input-Low Voltage | V<sub>IL</sub> |  | | 0.8 | V |
+| Output drive strength (normal drive) | | | | 4 | mA |
+| Output drive strength (high drive) | | | | 12 | mA |
+| Total output drive (all pins) | | | | 200 | mA |
+{{!-- END shared-blurb --}}
+
 
 ### Power consumption (M524) 
 
@@ -1374,3 +1385,4 @@ Global, country list to be provided a later date.
 | 002      | 2024-04-03 | RK | Additional transmitter information |
 | 003      | 2024-04-18 | RK | Add PDM microphone |
 | 004      | 2024-04-23 | RK | Added links to certification documents |
+| 005      | 2024-04-25 | RK | Added I/O characteristics |

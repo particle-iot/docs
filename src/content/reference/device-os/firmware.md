@@ -5437,7 +5437,7 @@ void loop()
 
 - Pins `D0` and `D1` can be used as analog inputs on the P2 (`A3` and `A4`) if I2C is not being used.
 
-- The drive strength on the P2 and Photon 2 is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. Drive strength selection is only available in Device OS 5.5.0 and later. There is a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
+- The drive strength on the M-SoM, P2, and Photon 2 is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. Drive strength selection is only available in Device OS 5.5.0 and later. There is a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
 {{note op="end"}}
 
 ---

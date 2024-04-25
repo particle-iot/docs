@@ -1015,7 +1015,18 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 {{!-- ### Wi-Fi Specifications --}}
 
 
-{{!-- ### I/O Characteristics --}}
+### I/O Characteristics
+
+{{!-- BEGIN shared-blurb 817be6c6-c2fb-43b0-be1e-c4b5b030b6e2 --}}
+| Parameter | Symbol | Min   | Typ   | Peak  | Unit  |
+| :-------- | :----- | :---: | :---: | :---: | :---: |
+| Input-High Voltage | V<sub>IH</sub> | 2.0 | | | V |
+| Input-Low Voltage | V<sub>IL</sub> |  | | 0.8 | V |
+| Output drive strength (normal drive) | | | | 4 | mA |
+| Output drive strength (high drive) | | | | 12 | mA |
+| Total output drive (all pins) | | | | 200 | mA |
+{{!-- END shared-blurb --}}
+
 
 
 ### Power consumption
@@ -1368,6 +1379,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |  12 | 2024-04-18 | RK | Add PDM microphone |
 |  13 | 2024-04-23 | RK | Added links to certification documents |
 |  14 | 2024-04-25 | RK | Update retained memory description |
+|  15 | 2024-04-25 | RK | Added I/O characteristics |
 
 
 ## Known errata

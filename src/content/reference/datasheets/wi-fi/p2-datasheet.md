@@ -1725,13 +1725,23 @@ Retained memory is 3068 bytes.
 {{!-- ### Wi-Fi Specifications --}}
 
 
-{{!-- ### I/O Characteristics --}}
+### I/O Characteristics
+
+{{!-- BEGIN shared-blurb 817be6c6-c2fb-43b0-be1e-c4b5b030b6e2 --}}
+| Parameter | Symbol | Min   | Typ   | Peak  | Unit  |
+| :-------- | :----- | :---: | :---: | :---: | :---: |
+| Input-High Voltage | V<sub>IH</sub> | 2.0 | | | V |
+| Input-Low Voltage | V<sub>IL</sub> |  | | 0.8 | V |
+| Output drive strength (normal drive) | | | | 4 | mA |
+| Output drive strength (high drive) | | | | 12 | mA |
+| Total output drive (all pins) | | | | 200 | mA |
+{{!-- END shared-blurb --}}
 
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Peak | Unit |
-| :---|:---|:---:|:---:|:---:|:---:
+| Parameter | Symbol | Min   | Typ   | Peak  | Unit  |
+| :-------- | :----- | :---: | :---: | :---: | :---: |
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 63.8 | 65.8 | 68.9 | mA |
 | Operating Current (uC on, BLE advertising)  | I<sub>ble_adv</sub> | 62.4 | 66.1 | 73.8 | mA |
 | Operating Current (uC on, radio connected to access point) | I<sub>wifi_conn_ap</sub> | 62.3 | 67.8 | 325 | mA |
@@ -2104,6 +2114,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 016 | 2024-04-18 | RK | Add PDM microphone |
 | 017 | 2024-04-23 | RK | Added links to certification documents |
 | 018 | 2024-04-25 | RK | Update retained memory description |
+| 019 | 2024-04-25 | RK | Added I/O characteristics |
 
 
 ## Known errata
