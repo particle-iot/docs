@@ -27,13 +27,13 @@ Logic Functions can, however, trigger an integration (webhook), and also respond
 
 For this beta version:
 
-- Logic Functions are only available in the developer sandbox (not at the organization level)
-- Maximum number of Logic Functions per sandbox: 20
+- Logic Functions are available in the both developer sandbox and the organization level
+- Maximum number of Logic Functions per sandbox or organization: 20
 - Maximum number of triggers per Logic Function: 5
 - Run logs per function retained: 100
 - Maximum logic run execution time: 30 seconds
 
-A companion feature, [Ledger](/getting-started/logic-ledger/ledger/), allows data to be stored in the cloud and synchronized with devices. Only the cloud side of ledger is available in beta now, and the device side will be added in January 2024.
+A companion feature, [Ledger](/getting-started/logic-ledger/ledger/), allows data to be stored in the cloud and synchronized with devices. Only the cloud side of ledger is available in beta now, and the device side will be added in a future version of Device OS.
 
 ## Common use cases
 
@@ -84,7 +84,7 @@ Using a template is a three step process:
 
 #### Define Logic Function
 
-The name must be unique across Logic Functions in your sandbox. When organization Logic Functions are available, they must be unique in your organization.
+The name must be unique across Logic Functions in your sandbox or organization.
 
 The description is for your use to help remember how you are using the Logic Function.
 
@@ -144,7 +144,7 @@ If you have an error in your Javascript code, or in the event data, you will get
 
 For an event triggered Logic Function, this is where you enter the **Trigger event name**. Unlike an integration, a Logic Function event name trigger is an exact match, not a prefix match.
 
-You must specify a product to associate the Logic Function with! Logic Functions only work with product devices, not sandbox devices. For the beta, only personal sandbox products can be used (not organization products).
+You must specify a product to associate the Logic Function with! Logic Functions only work with product devices, not sandbox devices. 
 
 If you add multiple triggers, if any of the triggers occurs, the Logic Function will be called. Each function can have up to 5 triggers. 
 One use case of this is if you have two products, one for the bsom and one for the b5som, but you want to use the same Logic Functions 

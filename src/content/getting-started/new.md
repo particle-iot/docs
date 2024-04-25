@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Logic for organizations 2024-04-25
+
+[Logic](/getting-started/logic-ledger/logic/) can be used at the organization level as well as in your developer sandbox.
+
 ### I/O characteristics 2024-04-25
 
 Added I/O characteristics such as input high and low levels, and pin drive strength, to the P2, Photon 2, and M-Som datasheets.
