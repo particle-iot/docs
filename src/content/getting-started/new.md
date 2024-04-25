@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Integration gallery 2024-04-25
+
+Documentation for the new [integration gallery](/integrations/introduction/) is now available.
+
 ### Logic for organizations 2024-04-25
 
 [Logic](/getting-started/logic-ledger/logic/) can be used at the organization level as well as in your developer sandbox.
