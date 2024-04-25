@@ -2825,6 +2825,18 @@ const generatorConfig = require('./generator-config');
                 if (!oldPin && !newPin) {
                     continue;
                 }
+                if (options.hideUnchanged) {
+                    if (!oldPin && newPin && newPin.isNC) {
+                        continue;
+                    }
+                    if (oldPin && oldPin.isNC && !newPin) {
+                        continue;
+                    }
+                    if (oldPin && oldPin.isNC && newPin && newPin.isNC) {
+                        continue;
+                    }    
+                }
+
                 if (!oldPin) {
                     oldPin = {
                         name: 'NC',
@@ -2845,10 +2857,10 @@ const generatorConfig = require('./generator-config');
                         continue;
                     }
 
-                   if (getPinUsage(oldPin[tag]) != getPinUsage(newPin[tag])) {
-                       hasChanges = true;
-                       break;
-                   }
+                    if (getPinUsage(oldPin[tag]) != getPinUsage(newPin[tag])) {
+                        hasChanges = true;
+                        break;
+                    }
                 }
 
                 if (hasChanges || !options.hideUnchanged) {

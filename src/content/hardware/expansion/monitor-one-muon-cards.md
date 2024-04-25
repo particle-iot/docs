@@ -83,14 +83,14 @@ With a little care, you can design a card that works in both! You can also use t
 - `TSOM_A6` (Monitor One) and `SCK`/`D13` are in the same pin position (14)
 - `TSOM_A5` (Monitor One) and `MISO`/`D11` are in the same pin position (15)
 - `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16)
-- `TSOM_A7` (Monitor One) and `D8` are in the same pin position (13) and are both `SS`. However you can use any GPIO for SPI chip select.
+- `TSOM_A7` (Monitor One) and `D4` are in the same pin position (13) and are both `SS`. However you can use any GPIO for SPI chip select.
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated d5f43cdb-55ad-41a1-bd96-5c2c7fd6fd07 --}}
 
 | Pin | Monitor One Expansion Pin Name | Monitor One Expansion SPI | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion SPI |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| 13 | TSOM_A7 / D7 | &nbsp; | 13 | D8 | SPI (SS) |
+| 13 | TSOM_A7 / D7 | &nbsp; | 13 | D4 | SPI (SS) |
 | 14 | TSOM_A6 / D6 | SPI (SCK) | 14 | SCK / D13 | SPI (SCK) |
 | 15 | TSOM_A5 / D5 | SPI (MISO) | 15 | MISO / D11 | SPI (MISO) |
 | 16 | TSOM_A4 / D4 | SPI (MOSI) | 16 | MOSI / D12 | SPI (MOSI) |
@@ -129,20 +129,19 @@ With a little care, you can design a card that works in both! You can also use t
 
 | Pin | Monitor One Expansion Pin Name | Monitor One Expansion ADC | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion ADC |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| 2 | NC | &nbsp; | 2 | A1 / D18 | ADC_1 |
-| 3 | NC | &nbsp; | 3 | A3 / D16 | ADC_4 |
-| 4 | NC | &nbsp; | 4 | A5 / D14 | ADC_6 |
-| 5 | NC | &nbsp; | 5 | A7 / WKP | ADC_7 |
-| 13 | TSOM_A7 / D7 | ADC3 | 13 | D8 | &nbsp; |
+| 2 | NC | &nbsp; | 2 | A0 / D19 | ADC_0 |
+| 3 | NC | &nbsp; | 3 | A2 / D17 | ADC_2 |
+| 4 | NC | &nbsp; | 4 | A4 / D15 | ADC_5 |
+| 5 | NC | &nbsp; | 5 | A6 / D29 | ADC_3 |
+| 13 | TSOM_A7 / D7 | ADC3 | 13 | D4 | &nbsp; |
 | 14 | TSOM_A6 / D6 | ADC2 | 14 | SCK / D13 | &nbsp; |
 | 15 | TSOM_A5 / D5 | ADC5 | 15 | MISO / D11 | &nbsp; |
 | 16 | TSOM_A4 / D4 | ADC7 | 16 | MOSI / D12 | &nbsp; |
 | 35 | TSOM_A2_BUTTON / D2 | ADC4 | 35 | D3 | &nbsp; |
 | 36 | TSOM_A3_BATT_TEMP / D3 | ADC6 | 36 | D2 | &nbsp; |
-| 50 | NC | &nbsp; | 50 | A0 / D19 | ADC_0 |
-| 51 | NC | &nbsp; | 51 | A2 / D17 | ADC_2 |
-| 52 | NC | &nbsp; | 52 | A4 / D15 | ADC_5 |
-| 53 | NC | &nbsp; | 53 | A6 / D29 | ADC_3 |
+| 50 | NC | &nbsp; | 50 | A1 / D18 | ADC_1 |
+| 51 | NC | &nbsp; | 51 | A3 / D16 | ADC_4 |
+| 52 | NC | &nbsp; | 52 | A5 / D14 | ADC_6 |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -158,9 +157,11 @@ With a little care, you can design a card that works in both! You can also use t
 
 | Pin | Monitor One Expansion Pin Name | Monitor One Expansion PWM | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion PWM |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| 2 | NC | &nbsp; | 2 | A1 / D18 | &check; |
-| 4 | NC | &nbsp; | 4 | A5 / D14 | &check; |
-| 13 | TSOM_A7 / D7 | &check; | 13 | D8 | &nbsp; |
+| 2 | NC | &nbsp; | 2 | A0 / D19 | &check; |
+| 5 | NC | &nbsp; | 5 | A6 / D29 | &check; |
+| 7 | NC | &nbsp; | 7 | D6 | &check; |
+| 8 | NC | &nbsp; | 8 | D7 | &check; |
+| 13 | TSOM_A7 / D7 | &check; | 13 | D4 | &nbsp; |
 | 14 | TSOM_A6 / D6 | &check; | 14 | SCK / D13 | &nbsp; |
 | 15 | TSOM_A5 / D5 | &check; | 15 | MISO / D11 | &check; |
 | 16 | TSOM_A4 / D4 | &check; | 16 | MOSI / D12 | &check; |
@@ -168,12 +169,8 @@ With a little care, you can design a card that works in both! You can also use t
 | 36 | TSOM_A3_BATT_TEMP / D3 | &check; | 36 | D2 | &nbsp; |
 | 45 | RX / D9 | &check; | 45 | RX / D10 | &check; |
 | 46 | TX / D8 | &check; | 46 | TX / D9 | &check; |
-| 50 | NC | &nbsp; | 50 | A0 / D19 | &check; |
-| 53 | NC | &nbsp; | 53 | A6 / D29 | &check; |
-| 61 | NC | &nbsp; | 61 | D4 | &check; |
-| 62 | NC | &nbsp; | 62 | D5 | &check; |
-| 63 | NC | &nbsp; | 63 | D6 | &check; |
-| 64 | NC | &nbsp; | 64 | D7 | &check; |
+| 50 | NC | &nbsp; | 50 | A1 / D18 | &check; |
+| 52 | NC | &nbsp; | 52 | A5 / D14 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -183,9 +180,9 @@ With a little care, you can design a card that works in both! You can also use t
 
 - `NFC2_VIN_EN`/`NFC_PIN2` (Monitor One) and `D20` are in the same pin position (9)
 - `NFC1_PERIPH_INT`/`NFC_PIN1` (Monitor One) and `D21` are in the same pin position (10)
-- `TSOM_A6` (Monitor One) and `SCK`/`D13` are in the same pin position (14), but cannot be used as GPIO if used as SPI.
 - `TSOM_A5` (Monitor One) and `MISO`/`D11` are in the same pin position (15), but cannot be used as GPIO if used as SPI.
 - `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16), but cannot be used as GPIO if used as SPI.
+- `TSOM_A6` (Monitor One) and `SCK`/`D13` are in the same pin position (14), but cannot be used as GPIO if used as SPI.
 - `TSOM_A7` (Monitor One) and `D8` are in the same pin position (13) and are both `SS`.
 - `RX` is in the same position (45) and can be used as GPIO but cannot be used as GPIO if used as UART serial.
 - `TX` is in the same position (46) and can be used as GPIO but cannot be used as GPIO if used as UART serial.
@@ -195,13 +192,15 @@ With a little care, you can design a card that works in both! You can also use t
 
 | Pin | Monitor One Expansion Pin Name | Monitor One Expansion GPIO | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion GPIO |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| 2 | NC | &nbsp; | 2 | A1 / D18 | &check; |
-| 3 | NC | &nbsp; | 3 | A3 / D16 | &check; |
-| 4 | NC | &nbsp; | 4 | A5 / D14 | &check; |
-| 5 | NC | &nbsp; | 5 | A7 / WKP | &check; |
+| 2 | NC | &nbsp; | 2 | A0 / D19 | &check; |
+| 3 | NC | &nbsp; | 3 | A2 / D17 | &check; |
+| 4 | NC | &nbsp; | 4 | A4 / D15 | &check; |
+| 5 | NC | &nbsp; | 5 | A6 / D29 | &check; |
+| 7 | NC | &nbsp; | 7 | D6 | &check; |
+| 8 | NC | &nbsp; | 8 | D7 | &check; |
 | 9 | NFC2_VIN_EN | &check; | 9 | D20 | &check; |
 | 10 | NFC1_PERIPH_INT | &check; | 10 | D21 | &check; |
-| 13 | TSOM_A7 / D7 | &check; | 13 | D8 | &check; |
+| 13 | TSOM_A7 / D7 | &check; | 13 | D4 | &check; |
 | 14 | TSOM_A6 / D6 | &check; | 14 | SCK / D13 | &check; |
 | 15 | TSOM_A5 / D5 | &check; | 15 | MISO / D11 | &check; |
 | 16 | TSOM_A4 / D4 | &check; | 16 | MOSI / D12 | &check; |
@@ -211,16 +210,9 @@ With a little care, you can design a card that works in both! You can also use t
 | 36 | TSOM_A3_BATT_TEMP / D3 | &check; | 36 | D2 | &check; |
 | 45 | RX / D9 | &check; | 45 | RX / D10 | &check; |
 | 46 | TX / D8 | &check; | 46 | TX / D9 | &check; |
-| 50 | NC | &nbsp; | 50 | A0 / D19 | &check; |
-| 51 | NC | &nbsp; | 51 | A2 / D17 | &check; |
-| 52 | NC | &nbsp; | 52 | A4 / D15 | &check; |
-| 53 | NC | &nbsp; | 53 | A6 / D29 | &check; |
-| 59 | NC | &nbsp; | 59 | D22 | &check; |
-| 60 | NC | &nbsp; | 60 | D23 | &check; |
-| 61 | NC | &nbsp; | 61 | D4 | &check; |
-| 62 | NC | &nbsp; | 62 | D5 | &check; |
-| 63 | NC | &nbsp; | 63 | D6 | &check; |
-| 64 | NC | &nbsp; | 64 | D7 | &check; |
+| 50 | NC | &nbsp; | 50 | A1 / D18 | &check; |
+| 51 | NC | &nbsp; | 51 | A3 / D16 | &check; |
+| 52 | NC | &nbsp; | 52 | A5 / D14 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -235,6 +227,10 @@ The Muon does not have a built-in 5V power supply.
 - `CAN_5V` is not supported on the Muon as it does not have a boost converter for it.
 
 
+### 3V3
+
+The Monitor One 3V3 (3.3V) line is connected to the Muon 3V3_AUX, which is controllable.
+
 ### Full combined pin details
 
 {{!-- BEGIN do not edit content below, it is automatically generated fdd63f32-8330-4bde-942f-3c707ef91eb0 --}}
@@ -245,56 +241,56 @@ The Muon does not have a built-in 5V power supply.
 | &nbsp; | Pin Number | 1 | 1 |
 | ∆ | Pin Name | GNSS_PULSE | GNSS_P |
 | ∆ | Description | GNSS time pulse output. Can be used for a GPS fix LED. | NC on Muon (GNSS pulse output on Monitor One). |
-#### Module Pin 2 (NC / A1)
+#### Module Pin 2 (NC / A0)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 2 | 2 |
-| ∆ | Pin Name | NC | A1 |
-| ∆ | Pin Alternate Name | n/a | D18 |
-| ∆ | Description | n/a | A1 Analog in, GPIO, PWM |
+| ∆ | Pin Name | NC | A0 |
+| ∆ | Pin Alternate Name | n/a | D19 |
+| ∆ | Description | n/a | A0 Analog in, GPIO, PWM |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports analogRead | n/a | Yes |
 | ∆ | Supports analogWrite (PWM) | n/a | Yes |
 | ∆ | Supports tone | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 3 (NC / A3)
+| ∆ | Internal pull resistance | n/a | 42K |
+#### Module Pin 3 (NC / A2)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 3 | 3 |
-| ∆ | Pin Name | NC | A3 |
-| ∆ | Pin Alternate Name | n/a | D16 |
-| ∆ | Description | n/a | A3 Analog in, GPIO |
+| ∆ | Pin Name | NC | A2 |
+| ∆ | Pin Alternate Name | n/a | D17 |
+| ∆ | Description | n/a | A2 Analog in, GPIO |
+| ∆ | Supports digitalRead | n/a | Yes |
+| ∆ | Supports digitalWrite | n/a | Yes |
+| ∆ | Supports analogRead | n/a | Yes |
+| ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | Internal pull resistance | n/a | 22K |
+#### Module Pin 4 (NC / A4)
+|   |   | Monitor One Expansion | Muon Expansion |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Number | 4 | 4 |
+| ∆ | Pin Name | NC | A4 |
+| ∆ | Pin Alternate Name | n/a | D15 |
+| ∆ | Description | n/a | A4 Analog in, PDM DAT, GPIO |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports analogRead | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 2.1K |
-#### Module Pin 4 (NC / A5)
+#### Module Pin 5 (NC / A6)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Number | 4 | 4 |
-| ∆ | Pin Name | NC | A5 |
-| ∆ | Pin Alternate Name | n/a | D14 |
-| ∆ | Description | n/a | A5 Analog in, PWM, GPIO, shared with pin 53 |
+| &nbsp; | Pin Number | 5 | 5 |
+| ∆ | Pin Name | NC | A6 |
+| ∆ | Pin Alternate Name | n/a | D29 |
+| ∆ | Description | n/a | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports analogRead | n/a | Yes |
 | ∆ | Supports analogWrite (PWM) | n/a | Yes |
 | ∆ | Supports tone | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 5 (NC / A7)
-|   |   | Monitor One Expansion | Muon Expansion |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | Pin Number | 5 | 5 |
-| ∆ | Pin Name | NC | A7 |
-| ∆ | Pin Alternate Name | n/a | WKP |
-| ∆ | Description | n/a | A7 Analog In, WKP, GPIO D28 |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports analogRead | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 6 (NC / GND)
@@ -303,22 +299,36 @@ The Muon does not have a built-in 5V power supply.
 | &nbsp; | Pin Number | 6 | 6 |
 | ∆ | Pin Name | NC | GND |
 | ∆ | Description | n/a | Ground. |
-#### Module Pin 7 (NC)
-| | Unchanged between Monitor One Expansion and Muon Expansion |
-| :--- | :--- |
-| Pin Number | 7|
-| Pin Name | NC|
-#### Module Pin 8 (NC)
-| | Unchanged between Monitor One Expansion and Muon Expansion |
-| :--- | :--- |
-| Pin Number | 8|
-| Pin Name | NC|
+#### Module Pin 7 (NC / D6)
+|   |   | Monitor One Expansion | Muon Expansion |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Number | 7 | 7 |
+| ∆ | Pin Name | NC | D6 |
+| ∆ | Description | n/a | D6 GPIO, PWM |
+| ∆ | Supports digitalRead | n/a | Yes |
+| ∆ | Supports digitalWrite | n/a | Yes |
+| ∆ | Supports analogWrite (PWM) | n/a | Yes |
+| ∆ | Supports tone | n/a | Yes |
+| ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | Internal pull resistance | n/a | ??? |
+#### Module Pin 8 (NC / D7)
+|   |   | Monitor One Expansion | Muon Expansion |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Number | 8 | 8 |
+| ∆ | Pin Name | NC | D7 |
+| ∆ | Description | n/a | D7 GPIO, PWM |
+| ∆ | Supports digitalRead | n/a | Yes |
+| ∆ | Supports digitalWrite | n/a | Yes |
+| ∆ | Supports analogWrite (PWM) | n/a | Yes |
+| ∆ | Supports tone | n/a | Yes |
+| ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 9 (NFC2_VIN_EN / D20)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 9 | 9 |
 | ∆ | Pin Name | NFC2_VIN_EN | D20 |
-| ∆ | Description | GPIO (used for relay on I/O Card) | D20 GPIO, relay on Monitor One I/O card |
+| ∆ | Description | GPIO (used for relay on I/O Card) | D20 GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
@@ -346,11 +356,11 @@ The Muon does not have a built-in 5V power supply.
 | &nbsp; | Pin Number | 12 | 12 |
 | ∆ | Pin Name | TSOM_RESET | RST |
 | ∆ | Description | RESET button (active low) | Hardware reset, active low. External pull-up required. |
-#### Module Pin 13 (TSOM_A7 / D8)
+#### Module Pin 13 (TSOM_A7 / D4)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 13 | 13 |
-| ∆ | Pin Name | TSOM_A7 | D8 |
+| ∆ | Pin Name | TSOM_A7 | D4 |
 | ∆ | Pin Alternate Name | D7 | n/a |
 | ∆ | Description | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | D8 GPIO, SPI SS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
@@ -412,12 +422,12 @@ The Muon does not have a built-in 5V power supply.
 | Pin Number | 17|
 | Pin Name | GND|
 | Description | Ground.|
-#### Module Pin 18 (3V3)
+#### Module Pin 18 (3V3 / 3V3_AUX)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 18 | 18 |
-| &nbsp; | Pin Name | 3V3 | 3V3 |
-| ∆ | Description | 3.3V out, 1000 mA maximum including nRF52 and other peripherals. | 3.3V out. 700 mA for M-SoM and 500 mA available for peripheral devices. |
+| ∆ | Pin Name | 3V3 | 3V3_AUX |
+| ∆ | Description | 3.3V out, 1000 mA maximum including nRF52 and other peripherals. | 3.3V AUX out. 500 mA available for peripheral devices. Controllable. |
 #### Module Pin 19 (RUN)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
@@ -657,57 +667,45 @@ The Muon does not have a built-in 5V power supply.
 | &nbsp; | Pin Number | 48 | 48 |
 | &nbsp; | Pin Name | RTC_EXTI | RTC_EXTI |
 | ∆ | Description | RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3. | RTC EXTI. Can use as a wake button. Has 100K weak pull-up to RTC 3V3. |
-#### Module Pin 49 (NC)
+#### Module Pin 49 (NC / CELL_GPS_TX)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 49 |
-| &nbsp; | Pin Name | NC | NC |
-| ∆ | Description | Leave unconnected | n/a |
-#### Module Pin 50 (NC / A0)
+| ∆ | Pin Name | NC | CELL_GPS_TX |
+| ∆ | Description | Leave unconnected | Cellular modem GNSS UART TX |
+#### Module Pin 50 (NC / A1)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 50 |
-| ∆ | Pin Name | NC | A0 |
-| ∆ | Pin Alternate Name | n/a | D19 |
-| ∆ | Description | Leave unconnected | A0 Analog in, GPIO, PWM |
+| ∆ | Pin Name | NC | A1 |
+| ∆ | Pin Alternate Name | n/a | D18 |
+| ∆ | Description | Leave unconnected | A1 Analog in, GPIO, PWM |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports analogRead | n/a | Yes |
 | ∆ | Supports analogWrite (PWM) | n/a | Yes |
 | ∆ | Supports tone | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | 42K |
-#### Module Pin 51 (NC / A2)
+| ∆ | Internal pull resistance | n/a | ??? |
+#### Module Pin 51 (NC / A3)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 51 |
-| ∆ | Pin Name | NC | A2 |
-| ∆ | Pin Alternate Name | n/a | D17 |
-| ∆ | Description | Leave unconnected | A2 Analog in, GPIO |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports analogRead | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | 22K |
-#### Module Pin 52 (NC / A4)
-|   |   | Monitor One Expansion | Muon Expansion |
-| :--- | :--- | :--- | :--- |
-| ∆ | Pin Number | n/a | 52 |
-| ∆ | Pin Name | NC | A4 |
-| ∆ | Pin Alternate Name | n/a | D15 |
-| ∆ | Description | Leave unconnected | A4 Analog in, GPIO |
+| ∆ | Pin Name | NC | A3 |
+| ∆ | Pin Alternate Name | n/a | D16 |
+| ∆ | Description | Leave unconnected | A3 Analog in, PDM CLK, GPIO |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports analogRead | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 2.1K |
-#### Module Pin 53 (NC / A6)
+#### Module Pin 52 (NC / A5)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
-| ∆ | Pin Number | n/a | 53 |
-| ∆ | Pin Name | NC | A6 |
-| ∆ | Pin Alternate Name | n/a | D29 |
-| ∆ | Description | Leave unconnected | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
+| ∆ | Pin Number | n/a | 52 |
+| ∆ | Pin Name | NC | A5 |
+| ∆ | Pin Alternate Name | n/a | D14 |
+| ∆ | Description | Leave unconnected | A5 Analog in, PWM, GPIO, shared with pin 53 |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports analogRead | n/a | Yes |
@@ -717,6 +715,12 @@ The Muon does not have a built-in 5V power supply.
 | ∆ | Internal pull resistance | n/a | ??? |
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
+#### Module Pin 53 (NC)
+|   |   | Monitor One Expansion | Muon Expansion |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | n/a | 53 |
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Leave unconnected | n/a |
 #### Module Pin 54 (NC / GND)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
@@ -747,86 +751,54 @@ The Muon does not have a built-in 5V power supply.
 | ∆ | Pin Number | n/a | 58 |
 | &nbsp; | Pin Name | NC | NC |
 | ∆ | Description | Leave unconnected | n/a |
-#### Module Pin 59 (NC / D22)
+#### Module Pin 59 (NC)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 59 |
-| ∆ | Pin Name | NC | D22 |
-| ∆ | Description | Leave unconnected | D22 GPIO, PMIC_INT |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 60 (NC / D23)
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Leave unconnected | n/a |
+#### Module Pin 60 (NC)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 60 |
-| ∆ | Pin Name | NC | D23 |
-| ∆ | Description | Leave unconnected | D23 GPIO, RTC_INT |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 61 (NC / D4)
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Leave unconnected | n/a |
+#### Module Pin 61 (NC)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 61 |
-| ∆ | Pin Name | NC | D4 |
-| ∆ | Description | Leave unconnected | D4 GPIO, PWM |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports analogWrite (PWM) | n/a | Yes |
-| ∆ | Supports tone | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 62 (NC / D5)
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Leave unconnected | n/a |
+#### Module Pin 62 (NC)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 62 |
-| ∆ | Pin Name | NC | D5 |
-| ∆ | Description | Leave unconnected | D5 GPIO, PWM |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports analogWrite (PWM) | n/a | Yes |
-| ∆ | Supports tone | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 63 (NC / D6)
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Leave unconnected | n/a |
+#### Module Pin 63 (NC)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 63 |
-| ∆ | Pin Name | NC | D6 |
-| ∆ | Description | Leave unconnected | D6 GPIO, PWM |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports analogWrite (PWM) | n/a | Yes |
-| ∆ | Supports tone | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### Module Pin 64 (NC / D7)
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Leave unconnected | n/a |
+#### Module Pin 64 (NC)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 64 |
-| ∆ | Pin Name | NC | D7 |
-| ∆ | Description | Leave unconnected | D7 GPIO, PWM |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
-| ∆ | Supports analogWrite (PWM) | n/a | Yes |
-| ∆ | Supports tone | n/a | Yes |
-| ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Leave unconnected | n/a |
 #### Module Pin 65 (NC / GND)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 65 |
 | ∆ | Pin Name | NC | GND |
 | ∆ | Description | Leave unconnected | Ground. |
-#### Module Pin 66 (NC / 3V3)
+#### Module Pin 66 (NC / 3V3_AUX)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | n/a | 66 |
-| ∆ | Pin Name | NC | 3V3 |
-| ∆ | Description | Leave unconnected | 3.3V out. 700 mA for M-SoM and 500 mA available for peripheral devices. |
+| ∆ | Pin Name | NC | 3V3_AUX |
+| ∆ | Description | Leave unconnected | 3.3V AUX out. 500 mA available for peripheral devices. Controllable. |
 #### Module Pin 67 (NC)
 |   |   | Monitor One Expansion | Muon Expansion |
 | :--- | :--- | :--- | :--- |
