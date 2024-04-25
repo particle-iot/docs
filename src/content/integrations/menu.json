@@ -1,9 +1,14 @@
 {
   "items": [
     {
-      "dir": "integrations",
-      "title": "Integrations",
-      "href": "/integrations/integrations/"
+      "dir": "introduction",
+      "title": "Introduction to integrations",
+      "href": "/integrations/introduction/"
+    },
+  {
+      "dir": "organization-integrations",
+      "title": "Organization integrations",
+      "href": "/integrations/organization-integrations/"
     },
     {
       "dir": "webhooks",
@@ -16,20 +21,26 @@
       "href": "/integrations/webhook-demo/"
     },
     {
-      "dir": "organization-integrations",
-      "title": "Organization integrations",
-      "href": "/integrations/organization-integrations/"
+      "dir": "integrations",
+      "isSection": true
     },
-    {
-      "dir": "google-cloud-platform",
-      "title": "Google cloud platform",
-      "href": "/integrations/google-cloud-platform/"
-    },
-    {
-      "dir": "google-maps",
-      "title": "Google maps",
-      "href": "/integrations/google-maps/"
-    },
+    [
+      {
+        "dir": "aws",
+        "title": "Amazon Web Services",
+        "href": "/integrations/integrations/aws/"
+      },
+      {
+        "dir": "google-maps",
+        "title": "Google maps",
+        "href": "/integrations/integrations/google-maps/"
+      },
+      {
+        "dir": "google-cloud-platform",
+        "title": "Google cloud platform",
+        "href": "/integrations/integrations/google-cloud-platform/"
+      }
+    ],
     {
       "dir": "community-integrations",
       "isSection": true
@@ -106,6 +117,11 @@
         "href": "/integrations/community-integrations/memfault/"
       }
     ],
+    {
+      "dir": "webhooks-vs-sse",
+      "title": "Webhooks vs. server-sent-events",
+      "href": "/integrations/webhooks-vs-sse/"
+    },
     {
       "title": "Machine Learning",
       "href": "/getting-started/machine-learning/machine-learning/"

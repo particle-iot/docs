@@ -54,27 +54,30 @@ Great! We have what we need from ThingSpeak. Now let's go and create the webhook
 
 ### Create the webhook
 
-The hub for managing your webhooks is the [Particle Console](https://console.particle.io). Log into your console and click on the Integrations tab. If you have created any webhooks in the past, they will appear here. Click on "New Integration" -> "Webhook" to get started.
+The hub for managing your webhooks is the [Particle Console](https://console.particle.io). Log into your console and click on the Integrations tab. 
 
-![Integrations Hub](/assets/images/integrations-hub.png)
-<p class="caption">Your Integrations Hub is where you can view and manage Particle webhooks</p>
+If you have not yet created any integrations, you'll open into the integration gallery.
+
+If you have created any webhooks in the past, they will appear in the integrations tab and clicking the  **+ ADD NEW INTEGRATION** button will open the Integration gallery.
+
+{{imageOverlay src="/assets/images/integrations/integrations-gallery.png" alt="Integrations gallery" class="no-darken"}}
+
+Search for **Thingspeak**, select this integration, and proceed to edit it.
+
+{{imageOverlay src="/assets/images/integrations/thingspeak.png" alt="Thingspeak" class="no-darken"}}
 
 Let's configure our webhook:
+
 - Set the event name to `temp` to match the field in ThingSpeak
-- Set the URL to `https://api.thingspeak.com/update`
-- Make sure the request type is set to `POST` and the request format is "Web Form"
-- If you'd like to limit the webhook triggering to a single one of your devices, choose it from the device dropdown
+- The URL should already be set to `https://api.thingspeak.com/update`
+- The other settings such as POST, Web Form, should be set to the correct values already.
 
 Note that webhook event name is a prefix filter. If you set a webhook event name of `temp` the webhook will trigger for events `temp`, `temperature` and `temperature/basement`, but not `high_temp`.
 
-Next, click on "Advanced Settings," and chose "Custom" in the "Form Fields" section. Drop in the following key/value pairs:
+In the **Form Fields** you need to set the `api_key`. `field1` should already have the correct default value.
 
 - `api_key`: `YOUR_API_KEY`<br/>
 - `field1`: `\{{{PARTICLE_EVENT_VALUE}}}`
-
-The form should look something like this:
-
-![Thingspeak Webhook](/assets/images/thingspeak-webhook.png)
 
 Click the "Create Webhook" button, and boom! You've created your first webhook.
 
@@ -284,14 +287,13 @@ As devices in your product's fleet will be running the same firmware, product we
 
 ### Create a product webhook
 
-If you don't have one already, you'll need to [define a product](/getting-started/console/console/#defining-a-product) before you will be able to create product webhooks. 
+Start by going to the integrations by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>) in the Particle console within your product.
 
-Product webhook management can also be done from the [Particle Console](https://console.particle.io). To create a webhook, navigate to your product's hub on the console and click on the Integrations tab (<i class="im-integrations-icon"></i>). You'll see a very similar view to the Integrations hub as a developer.
+If you already have integrations configured, click the New Integration button to open the integration gallery. If this is your first integration, you will open to the integration gallery automatically. Select **Custom webhook**.
 
-![Product Integrations Hub](/assets/images/product-integrations-hub.png)
+{{imageOverlay src="/assets/images/integrations/integrations-gallery.png" alt="Integrations gallery" class="no-darken"}}
 
-
-Click on "New Integration" -> "Webhook." Again, the view will be very similar to what you would see in your developer console. However, you will notice that the "Devices" dropdown has been replaced by a checkbox. This has to do with responses to product webhooks, which we'll cover in the next section.
+The view will be very similar to what you would see in your developer console. However, you will notice that the "Devices" dropdown has been replaced by a checkbox. This has to do with responses to product webhooks, which we'll cover in the next section.
 
 ![Create product webhook](/assets/images/create-product-webhook.png)
 <p class="caption">Create a product webhook from the Particle Console</p>
