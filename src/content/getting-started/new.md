@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Retained memory clarification 2024-04-25
+
+Updated the description of retained memory on RTL872x devices (P2, Photon 2, M-SoM) in the datasheets, migration guides, and Device OS API reference.
+
 ### Data usage troubleshooting 2024-04-24
 
 There's a new page with tips for [data usage troubleshooting](/troubleshooting/guides/connectivity-troubleshooting/data-usage/).

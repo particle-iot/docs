@@ -17273,17 +17273,24 @@ On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM), retained memory is o
 {{note op="start" type="P2"}}
 The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later.
 
-Retained memory is preserved with the following limitations:
+{{!-- BEGIN shared-blurb f960cc9c-6e25-4205-adf9-03bfd50b9da7 --}}
+Retained memory is preserved on RTL872x devices in the following cases:
 
-- When entering `HIBERNATE` sleep mode.
-- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
-- In limited cases when using pin reset (RESET button or externally triggered reset).
+| Case | Saved |
+| :--- | :--- |
+| When entering sleep modes | 5.3.1 and later |
+| OTA firmware updates | 5.3.1 and later |
+| `System.backupRamSync()` | 5.3.1 and later |
+| `System.reset()` | Not saved |
+| Reset button or reset pin | Not saved  |
+| Every 10 seconds | 5.3.1 to 5.8.0 only |
 
-By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
-be lost. Calling [`System.backupRamSync`](#backupramsync) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
-however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory to a dedicated flash page on the RTL872x processor and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
 
-Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+Prior to Device OS 5.3.1, retained memory is not supported on RTL872x devices. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
+Retained memory is 3068 bytes. 
+{{!-- END shared-blurb --}}
 {{note op="end"}}
 
 ---
@@ -20157,17 +20164,26 @@ This overloaded method accepts an arbitrary 32-bit value, stores it to the backu
 
 {{since when="5.3.1"}}
 
-The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later. Retained memory is preserved with the following limitations:
+The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later. 
 
-- When entering `HIBERNATE` sleep mode.
-- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
-- In limited cases when using pin reset (RESET button or externally triggered reset).
+{{!-- BEGIN shared-blurb f960cc9c-6e25-4205-adf9-03bfd50b9da7 --}}
+Retained memory is preserved on RTL872x devices in the following cases:
 
-By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
-be lost. Calling `System.backupRamSync` on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
-however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+| Case | Saved |
+| :--- | :--- |
+| When entering sleep modes | 5.3.1 and later |
+| OTA firmware updates | 5.3.1 and later |
+| `System.backupRamSync()` | 5.3.1 and later |
+| `System.reset()` | Not saved |
+| Reset button or reset pin | Not saved  |
+| Every 10 seconds | 5.3.1 to 5.8.0 only |
 
-Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory to a dedicated flash page on the RTL872x processor and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
+
+Prior to Device OS 5.3.1, retained memory is not supported on RTL872x devices. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
+Retained memory is 3068 bytes. 
+{{!-- END shared-blurb --}}
 
 ```cpp
 // PROTOTYPE
