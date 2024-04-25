@@ -9,7 +9,7 @@ columns: two
 Particle has teamed up with [Edge Impulse](https://www.edgeimpulse.com/) to provide edge machine learning (ML), artificial intelligence (AI) for the Particle platform! You can create your own models and run them on:
 
 - P2/Photon 2 (Gen 4 Wi-Fi)
-- M-Som (Gen 4 Cellular and Wi-Fi)
+- M-SoM (Gen 4 cellular and Wi-Fi)
 - B-SoM and Boron (Gen 3 cellular)
 
 You can find additional projects on the [Edge Impulse ML projects page](https://www.edgeimpulse.com/projects/all?search=particle).

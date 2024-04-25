@@ -194,7 +194,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 
 ### EU declaration of conformity
 
-We, Particle Industries, Inc., declare under our sole responsibility that the product, MON524E01C01KIT, to which this
+We, Particle Industries, Inc., declare under our sole responsibility that the product, MON524, to which this
 declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
 
 The full text of the EU declaration of conformity is available at the following Internet address [https://www.particle.io/](https://www.particle.io/).
