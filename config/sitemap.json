@@ -539,8 +539,8 @@
             "hash": "eb430d291cf7911c3f2cd5ff80c10900d754006d085cd5c0e6a84a69f4923acc"
         },
         "firmware/software-design/threading-explainer.md": {
-            "date": "2024-02-27",
-            "hash": "6eb9428ae15e4e1618f2201a18c78a32822fae56da53ff6ed1302130545cda13"
+            "date": "2024-04-26",
+            "hash": "dfc7ef2097c08a6d47265f55bafaa3ea0a961724d21a0e67ee04fe83aaed6676"
         },
         "firmware/tracker-edge/monitor-edge-api-reference.md": {
             "date": "2024-03-12",
@@ -8497,6 +8497,58 @@
         "integrations/integrations/google-maps.md": {
             "hash": "f63a055968a9a9f25be44739c92b577d8f19396cad8a9e0ff593992b32ad3299",
             "date": "2024-04-25"
+        },
+        "reference/device-os/api/threading/threading.md": {
+            "hash": "8b1af061e95ccf7ad2c611b2b06140ea23e73dde3b997f9059eadf4425cfe1ae",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/yielding-to-other-threds-threading.md": {
+            "hash": "49901068c4733b9518313918d25ba7f0165fe848b893dc36e6d529b41443a329",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/os_thread_prio_t-threading.md": {
+            "hash": "f2a15f51eb0ed66e39b8a01382647d233f7d3f065b5419445d7de7a268f39188",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/thread-stack-size-threading.md": {
+            "hash": "f0e368d68618746a309a88132ea537381d8265336a8944c6bcf6e7297fd0cbbb",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/thread-class-threading.md": {
+            "hash": "3432e73c85c6cfe4503e0b84c8f59d866a942d1b3f43e03b6fceccfabddd7bd5",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/thread-dispose-threading.md": {
+            "hash": "d3011ee07f998158a080398a34a32f94aeed6b8c318af87fd837ea68d45cd86e",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/thread-isvalid-threading.md": {
+            "hash": "13baba75448be309b524480296df1c0b4ef4924facb1d0925c2b875aefc20c89",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/thread-iscurrent-threading.md": {
+            "hash": "8b5e5f38ae431aee8ea55642fe49568ef24d82c399f8a8002bf67fbfea47bbeb",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/thread-isrunning-threading.md": {
+            "hash": "73bdb8482773f1600c9b36af09306ab4ea24834234f27f5095f5f2658712d4be",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/mutex-class-threading.md": {
+            "hash": "b1cd926f666e085c6e253b96a03275386c44b3a78e2eef81b1528f7d9bddea9a",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/recursivemutex-class-threading.md": {
+            "hash": "abe29ba9b1978684b337e54ddeef2b185faaff645c18dfd0382536b7144587f0",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/locking-threading.md": {
+            "hash": "9a4e5b691fc4cd0238dd4ee47c6fa81b09a543a829c037762e67141a299d15df",
+            "date": "2024-04-26"
+        },
+        "reference/device-os/api/threading/serial-debugging-threading.md": {
+            "hash": "581029af72cb107ee963ea87384254574d30ca93ed530e64e4c70c27a962efd3",
+            "date": "2024-04-26"
         }
     }
 }

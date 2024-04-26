@@ -19636,6 +19636,31 @@ delay(1);
 
 This yields the thread until its next schedule execution. It doesn't literally wait one millisecond.
 
+### os_thread_prio_t - Threading
+
+When creating a thread, you pass a `os_thread_prio_t`. If you omit the parameter, `OS_THREAD_PRIORITY_DEFAULT` is used, which is generally a good default value.
+
+| Constant | Value |
+| :--- | :--- |
+| `OS_THREAD_PRIORITY_DEFAULT` | 2 |
+| `OS_THREAD_PRIORITY_NETWORK` | 7 |
+| `OS_THREAD_PRIORITY_NETWORK_HIGH` | 8 |
+| `OS_THREAD_PRIORITY_CRITICAL` | 9 |
+
+The valid range is from 0 to 9, inclusive, however it's recommended that user threads only use 1 to 6, inclusive, and having a thread a higher priority than networking can lead to poor system performance.
+
+### Thread stack size - Threading
+
+| Constant | Size | Notes |
+| :--- | :--- | :--- |
+| | 1 K byte | Software timers run with a 1024 byte stack |
+| `OS_THREAD_STACK_SIZE_DEFAULT` | 3072 bytes | Default if parameter is omitted |
+| `OS_THREAD_STACK_SIZE_DEFAULT_HIGH` | 4096 bytes | |
+| `OS_THREAD_STACK_SIZE_DEFAULT_NETWORK` | 6144 bytes | The application loop thread is 6 Kbytes |
+
+Because of the limited size of the RAM (particularly on Gen 3 and earlier), and a lack of virtual memory, stack sizes are very small compared
+to desktop operating system applications and Java.
+
 ### Thread class - Threading
 
 #### Thread constructor os_thread_fn_t - Threading
@@ -19651,7 +19676,16 @@ Thread(const char* name,
 // os_thread_fn_t
 typedef os_thread_return_t (*os_thread_fn_t)(void* param);
 typedef void os_thread_return_t;
+
+// Thread function prototype
+void myThreadFunction(void *param)
 ```
+
+- `name` a short string that can be used to identify your thread as a c-string of up to 16 ASCII characters.
+- `function` The function that will be run in the new thread.
+- `function_param` A parameter passed to the new thread. Often this is used for a class instance pointer (`this`).
+- `priority` The thread priority, typically `OS_THREAD_PRIORITY_DEFAULT`. See [os_thread_prio_t](/reference/device-os/api/threading/os_thread_prio_t-threading/), above, for other values.
+- `stack_size` The stack size in bytes, typically `OS_THREAD_STACK_SIZE_DEFAULT` (3 Kbytes). See [Thread stack size](/reference/device-os/api/threading/thread-stack-size-threading/), above, for more information.
 
 #### Thread constructor wiring_thread_fn_t - Threading
 
@@ -19665,7 +19699,17 @@ Thread(const char *name,
 // wiring_thread_fn_t
 typedef std::function<os_thread_return_t(void)> wiring_thread_fn_t;
 typedef void os_thread_return_t;
+
+// Thread function prototype
+void myThreadFunction()
 ```
+
+- `name` a short string that can be used to identify your thread as a c-string of up to 16 ASCII characters.
+- `function` The function that will be run in the new thread.
+- `priority` The thread priority, typically `OS_THREAD_PRIORITY_DEFAULT`. See [os_thread_prio_t](/reference/device-os/api/threading/os_thread_prio_t-threading/), above, for other values.
+- `stack_size` The stack size in bytes, typically `OS_THREAD_STACK_SIZE_DEFAULT` (3 Kbytes). See [Thread stack size](/reference/device-os/api/threading/thread-stack-size-threading/), above, for more information.
+
+The `function` parameter is a `std::function` which means it can be:
 
 ### Thread::dispose - Threading
 
@@ -19698,14 +19742,16 @@ bool isCurrent() const
 bool isRunning() const 
 ```
 
-
 ### Mutex class - Threading
 
 #### Mutex constructor - Threading
 
 ```cpp
 // PROTOTYPE
+Mutex()
 ```
+
+Construct a new Mutex object. You will often include a `Mutex` either as a member of your class, or you can make `Mutex` a public superclass of your class, which will make the lock, try_lock, and unlock methods automatically available to your class. 
 
 #### Mutex::lock - Threading
 
@@ -19713,6 +19759,12 @@ bool isRunning() const
 // PROTOTYPE
 void lock();
 ```
+
+Lock the mutex. If the mutex is already locked, blocks the current thread until is is unlocked.
+
+A `Mutex` can only be locked once, even from the same thread. If you need to be able to lock a mutex multiple times, you should use `RecursiveMutex` instead. 
+
+You cannot lock a mutex from an ISR.
 
 #### Mutex::trylock - Threading
 
@@ -19722,6 +19774,10 @@ bool trylock();
 bool try_lock();
 ```
 
+Attempts to lock the mutex If it is unlocked, it will be locked and `true` is returned. If it is already locked, `false` is returned and the thread that previously held the lock will continue to hold the lock.
+
+You cannot lock a mutex from an ISR.
+
 #### Mutex::unlock - Threading
 
 ```cpp
@@ -19729,8 +19785,61 @@ bool try_lock();
 void unlock();
 ```
 
+Unlocks the mutex. Typically only the thread that locked the mutex will unlock it.
+
+You cannot unlock a mutex from an ISR.
 
 ### RecursiveMutex class - Threading
+
+A `Mutex` can only be locked once, even from the same thread. `RecursiveMutex`, on the other hand, allows the same thread to lock the mutex multiple times and maintains a counter so the underlying resource is freed only after the last balanced `unlock()`. This is useful if you lock a shared resource in a low-level of your code, but also may need to lock your resource in a higher level of your code in some cases, so the low-level lock could be called when already locked.
+
+
+#### RecursiveMutex constructor - Threading
+
+```cpp
+// PROTOTYPE
+RecursiveMutex()
+```
+
+Construct a new RecursiveMutex object. You will often include a `RecursiveMutex` either as a member of your class, or you can make `RecursiveMutex` a public superclass of your class, which will make the lock, try_lock, and unlock methods automatically available to your class. 
+
+#### RecursiveMutex::lock - Threading
+
+```cpp
+// PROTOTYPE
+void lock();
+```
+
+Lock the recursive mutex. If the mutex is already locked from a different thread, blocks the current thread until is is unlocked.
+
+If the recursive mutex is already locked from this thread, the lock will proceed without blocking, and the resource will only be released when the last balanced `unlock()` is called.
+
+You cannot lock a recursive mutex from an ISR.
+
+#### RecursiveMutex::trylock - Threading
+
+```cpp
+// PROTOTYPE
+bool trylock();
+bool try_lock();
+```
+
+Attempts to lock the recursive mutex If it is unlocked or locked from this thread, it will be locked and `true` is returned. If it is already locked, `false` is returned and the thread that previously held the lock will continue to hold the lock.
+
+You cannot lock a recursive mutex from an ISR.
+
+#### RecursiveMutexMutex::unlock - Threading
+
+```cpp
+// PROTOTYPE
+void unlock();
+```
+
+Unlocks the recursive mutex. Typically only the thread that locked the mutex will unlock it.
+
+Within a single thread, multiple nested lock() and unlock() pairs are counted, so the underlying resource is only released to other threads after the last balanced unlock().
+
+You cannot unlock a recursive mutex from an ISR.
 
 ### Locking - Threading
 
