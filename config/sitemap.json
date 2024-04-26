@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-04-25",
-            "hash": "5935ff2d3ff789fafa7b767f3aafde212c281492032d92a15a50768ea73b3c27"
+            "date": "2024-04-26",
+            "hash": "b0da0995ae56e69cc38cc0ca1ebe1060f55626fb93d4ffacdc7721f9a5894c44"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4295,8 +4295,8 @@
             "hash": "b1d89bc457c664515e458efbb38b96abae4b280def0d359b43982406e53340f4"
         },
         "reference/device-os/api/logging/log-handlers.md": {
-            "date": "2023-09-20",
-            "hash": "d54d5ecdc4b638174da9641d4bbbcd47afd751d7aafbaf484a458327e7d15680"
+            "date": "2024-04-26",
+            "hash": "1a817edcece528cd1ea79681d9f6452bdc7c30ff6e41b242bbde62d31c01571f"
         },
         "reference/device-os/api/logging/logger-class.md": {
             "date": "2023-09-20",
