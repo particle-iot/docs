@@ -236,9 +236,9 @@ VFB=0.5V
 <circle class='j91' cx='148.590000' cy='-21.590000' r='0.508000'/>
 <circle class='j91' cx='152.400000' cy='-21.590000' r='0.508000'/>
 <line class='l91' x1='58.420000' y1='-13.970000' x2='58.420000' y2='-3.810000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l91' x1='58.420000' y1='-19.050000' x2='58.420000' y2='-13.970000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='63.500000' y1='-13.970000' x2='58.420000' y2='-13.970000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='63.500000' y1='-13.970000' x2='63.500000' y2='-20.320000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l91' x1='58.420000' y1='-20.320000' x2='58.420000' y2='-13.970000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <circle class='j91' cx='58.420000' cy='-13.970000' r='0.508000'/>
 <line class='l91' x1='264.160000' y1='6.350000' x2='264.160000' y2='5.080000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='220.980000' y1='-1.270000' x2='220.980000' y2='-13.970000' style='stroke-width:0.152400; stroke-linecap:round'/>
@@ -437,7 +437,7 @@ VFB=0.5V
 <g><title>NET REGN</title>
 <line class='l91' x1='147.320000' y1='-95.250000' x2='162.560000' y2='-95.250000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='162.560000' y1='-95.250000' x2='167.640000' y2='-95.250000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l91' x1='162.560000' y1='-92.710000' x2='162.560000' y2='-95.250000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l91' x1='162.560000' y1='-91.440000' x2='162.560000' y2='-95.250000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <circle class='j91' cx='162.560000' cy='-95.250000' r='0.508000'/>
 <text class='l95' style='font-size:1.955800pt;' transform='translate(153.670000, -95.250000)'>REGN</text>
 <line class='l91' x1='125.730000' y1='35.560000' x2='125.730000' y2='19.050000' style='stroke-width:0.152400; stroke-linecap:round'/>
@@ -480,8 +480,8 @@ VFB=0.5V
 <line class='l91' x1='162.560000' y1='-74.930000' x2='168.910000' y2='-74.930000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='158.750000' y1='-82.550000' x2='158.750000' y2='-74.930000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='158.750000' y1='-82.550000' x2='147.320000' y2='-82.550000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l91' x1='162.560000' y1='-82.550000' x2='162.560000' y2='-74.930000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l91' x1='162.560000' y1='-72.390000' x2='162.560000' y2='-74.930000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l91' x1='162.560000' y1='-81.280000' x2='162.560000' y2='-74.930000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l91' x1='162.560000' y1='-71.120000' x2='162.560000' y2='-74.930000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <circle class='j91' cx='158.750000' cy='-74.930000' r='0.508000'/>
 <circle class='j91' cx='162.560000' cy='-74.930000' r='0.508000'/>
 <text class='l95' style='font-size:1.955800pt;' transform='translate(165.100000, -74.930000)'>TS</text>
@@ -582,12 +582,12 @@ VFB=0.5V
 <line class='l91' x1='73.660000' y1='-34.290000' x2='68.580000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='68.580000' y1='-34.290000' x2='63.500000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='63.500000' y1='-34.290000' x2='58.420000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l91' x1='58.420000' y1='-29.210000' x2='58.420000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='81.280000' y1='-33.655000' x2='81.280000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='73.660000' y1='-27.940000' x2='73.660000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='68.580000' y1='-27.940000' x2='68.580000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='63.500000' y1='-27.940000' x2='63.500000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <line class='l91' x1='86.360000' y1='-33.401000' x2='86.360000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l91' x1='58.420000' y1='-27.940000' x2='58.420000' y2='-34.290000' style='stroke-width:0.152400; stroke-linecap:round'/>
 <circle class='j91' cx='63.500000' cy='-34.290000' r='0.508000'/>
 <circle class='j91' cx='81.280000' cy='-34.290000' r='0.508000'/>
 <circle class='j91' cx='73.660000' cy='-34.290000' r='0.508000'/>
@@ -800,19 +800,15 @@ VFB=0.5V
 <text class='l96' style='font-size:1.955800pt;' transform='translate(87.223600, -139.039600)'>1000pF</text>
 </g>
 <g><title>PART C12</title>
-<line class='l94' x1='58.420000' y1='-29.210000' x2='58.420000' y2='-26.670000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l94' x1='58.420000' y1='-19.050000' x2='58.420000' y2='-21.590000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l94' x1='58.420000' y1='-26.670000' x2='59.436000' y2='-26.162000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='59.436000' y1='-26.162000' x2='57.404000' y2='-25.654000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='57.404000' y1='-25.654000' x2='59.436000' y2='-24.892000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='59.436000' y1='-24.892000' x2='57.404000' y2='-24.384000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='57.404000' y1='-24.384000' x2='59.436000' y2='-23.622000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='59.436000' y1='-23.622000' x2='57.404000' y2='-23.114000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='57.404000' y1='-23.114000' x2='59.436000' y2='-22.606000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='59.436000' y1='-22.606000' x2='57.404000' y2='-22.098000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<line class='l94' x1='57.404000' y1='-22.098000' x2='58.420000' y2='-21.590000' style='stroke-width:0.254000; stroke-linecap:round'/>
-<text class='l95' style='font-size:1.397000pt;' transform='translate(57.150000, -28.575000) rotate(-90.000000)'>C12</text>
-<text class='l96' style='font-size:1.397000pt;' transform='translate(57.150000, -15.875000) rotate(-90.000000)'>22uF 10V</text>
+<line class='l94' x1='58.420000' y1='-27.940000' x2='58.420000' y2='-25.400000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l94' x1='58.420000' y1='-20.320000' x2='58.420000' y2='-22.860000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l94' x1='56.896000' y1='-24.776000' x2='59.944000' y2='-24.776000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='56.896000' y1='-23.460000' x2='58.420000' y2='-23.460000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='58.420000' y1='-23.460000' x2='59.944000' y2='-23.460000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='58.420000' y1='-22.860000' x2='58.420000' y2='-23.460000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l94' x1='58.420000' y1='-25.360000' x2='58.420000' y2='-24.760000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<text class='l95' style='font-size:1.397000pt;' transform='translate(57.150000, -26.035000) rotate(-90.000000)'>C12</text>
+<text class='l96' style='font-size:1.397000pt;' transform='translate(57.150000, -14.605000) rotate(-90.000000)'>22uF 10V</text>
 </g>
 <g><title>PART C13</title>
 <line class='l94' x1='63.500000' y1='-27.940000' x2='63.500000' y2='-25.400000' style='stroke-width:0.152400; stroke-linecap:round'/>
@@ -1217,7 +1213,7 @@ VFB=0.5V
 <text class='l94' style='font-size:2.794000pt;' transform='translate(309.880000, 42.545000)'>REV:</text>
 <text class='l94' style='font-size:2.794000pt;' transform='translate(222.250000, 34.925000)'>TITLE:</text>
 <text class='l94' style='font-size:2.794000pt;' transform='translate(222.250000, 42.545000)'>Document Number:</text>
-<text class='l94' style='font-size:2.794000pt;' transform='translate(233.680000, 52.705000)'>4/8/24 12:04/PM</text>
+<text class='l94' style='font-size:2.794000pt;' transform='translate(233.680000, 52.705000)'>4/26/24 4:13/AM</text>
 <text class='l94' style='font-size:2.794000pt;' transform='translate(307.340000, 52.705000)'>1/1</text>
 <text class='l94' style='font-size:2.794000pt;' transform='translate(238.760000, 34.925000)'>PM-BAT v0.4-35X22.86</text>
 </g>
@@ -1541,7 +1537,7 @@ VFB=0.5V
 <path class='l94' d='M 120.650000,-50.800000 A 1.270000 1.270000 0 0 0 119.380000,-49.530000' style='stroke-width:0.254000; stroke-linecap:butt'/>
 <path class='l94' d='M 121.920000,-49.530000 A 1.270000 1.270000 0 0 0 120.650000,-50.800000' style='stroke-width:0.254000; stroke-linecap:butt'/>
 <text class='l95' style='font-size:1.955800pt;' transform='translate(106.680000, -52.070000)'>L1</text>
-<text class='l96' style='font-size:1.955800pt;' transform='translate(112.395000, -52.070000)'>2.2uH</text>
+<text class='l96' style='font-size:1.955800pt;' transform='translate(112.395000, -52.070000)'>1.5uH</text>
 </g>
 <g><title>PART L3</title>
 <line class='l94' x1='223.520000' y1='-46.990000' x2='226.060000' y2='-46.990000' style='stroke-width:0.152400; stroke-linecap:round'/>
@@ -1555,7 +1551,7 @@ VFB=0.5V
 <path class='l94' d='M 234.950000,-48.260000 A 1.270000 1.270000 0 0 0 233.680000,-46.990000' style='stroke-width:0.254000; stroke-linecap:butt'/>
 <path class='l94' d='M 236.220000,-46.990000 A 1.270000 1.270000 0 0 0 234.950000,-48.260000' style='stroke-width:0.254000; stroke-linecap:butt'/>
 <text class='l95' style='font-size:1.955800pt;' transform='translate(220.980000, -49.530000)'>L3</text>
-<text class='l96' style='font-size:1.955800pt;' transform='translate(226.695000, -49.530000)'>2.2uH</text>
+<text class='l96' style='font-size:1.955800pt;' transform='translate(226.695000, -49.530000)'>1.5uH</text>
 </g>
 <g><title>PART L7</title>
 <line class='l94' x1='166.370000' y1='-109.220000' x2='168.910000' y2='-109.220000' style='stroke-width:0.152400; stroke-linecap:round'/>
@@ -1887,34 +1883,34 @@ VFB=0.5V
 <text class='l96' style='font-size:1.955800pt;' transform='translate(100.965000, -104.648000)'>160R</text>
 </g>
 <g><title>PART R34</title>
-<line class='l94' x1='162.560000' y1='-72.390000' x2='162.560000' y2='-69.850000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l94' x1='162.560000' y1='-62.230000' x2='162.560000' y2='-64.770000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l94' x1='162.560000' y1='-69.850000' x2='163.576000' y2='-69.469000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-69.469000' x2='161.544000' y2='-68.834000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-68.834000' x2='163.576000' y2='-68.199000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-68.199000' x2='161.544000' y2='-67.564000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-67.564000' x2='163.576000' y2='-66.929000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-66.929000' x2='161.544000' y2='-66.294000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-66.294000' x2='163.576000' y2='-65.659000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-65.659000' x2='161.544000' y2='-65.024000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-65.024000' x2='162.560000' y2='-64.770000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<text class='l95' style='font-size:1.955800pt;' transform='translate(164.846000, -66.548000)'>R34</text>
-<text class='l96' style='font-size:1.117600pt;' transform='translate(165.100000, -65.278000)'>49.9K</text>
+<line class='l94' x1='162.560000' y1='-60.960000' x2='162.560000' y2='-63.500000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l94' x1='162.560000' y1='-71.120000' x2='162.560000' y2='-68.580000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l94' x1='162.560000' y1='-63.500000' x2='161.544000' y2='-64.008000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-64.008000' x2='163.576000' y2='-64.516000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-64.516000' x2='161.544000' y2='-65.278000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-65.278000' x2='163.576000' y2='-65.786000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-65.786000' x2='161.544000' y2='-66.548000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-66.548000' x2='163.576000' y2='-67.056000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-67.056000' x2='161.544000' y2='-67.564000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-67.564000' x2='163.576000' y2='-68.072000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-68.072000' x2='162.560000' y2='-68.580000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<text class='l95' style='font-size:1.955800pt;' transform='translate(161.417000, -68.656200) rotate(-90.000000)'>R34</text>
+<text class='l96' style='font-size:1.117600pt;' transform='translate(160.883600, -63.576200) rotate(-90.000000)'>49.9K</text>
 </g>
 <g><title>PART R35</title>
-<line class='l94' x1='162.560000' y1='-92.710000' x2='162.560000' y2='-90.170000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l94' x1='162.560000' y1='-82.550000' x2='162.560000' y2='-85.090000' style='stroke-width:0.152400; stroke-linecap:round'/>
-<line class='l94' x1='162.560000' y1='-90.170000' x2='163.576000' y2='-89.789000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-89.789000' x2='161.544000' y2='-89.154000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-89.154000' x2='163.576000' y2='-88.519000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-88.519000' x2='161.544000' y2='-87.884000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-87.884000' x2='163.576000' y2='-87.249000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-87.249000' x2='161.544000' y2='-86.614000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-86.614000' x2='163.576000' y2='-85.979000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='163.576000' y1='-85.979000' x2='161.544000' y2='-85.344000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<line class='l94' x1='161.544000' y1='-85.344000' x2='162.560000' y2='-85.090000' style='stroke-width:0.203200; stroke-linecap:round'/>
-<text class='l95' style='font-size:1.955800pt;' transform='translate(164.846000, -86.868000)'>R35</text>
-<text class='l96' style='font-size:1.117600pt;' transform='translate(165.100000, -85.598000)'>27.4K</text>
+<line class='l94' x1='162.560000' y1='-81.280000' x2='162.560000' y2='-83.820000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l94' x1='162.560000' y1='-91.440000' x2='162.560000' y2='-88.900000' style='stroke-width:0.152400; stroke-linecap:round'/>
+<line class='l94' x1='162.560000' y1='-83.820000' x2='161.544000' y2='-84.328000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-84.328000' x2='163.576000' y2='-84.836000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-84.836000' x2='161.544000' y2='-85.598000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-85.598000' x2='163.576000' y2='-86.106000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-86.106000' x2='161.544000' y2='-86.868000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-86.868000' x2='163.576000' y2='-87.376000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-87.376000' x2='161.544000' y2='-87.884000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='161.544000' y1='-87.884000' x2='163.576000' y2='-88.392000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<line class='l94' x1='163.576000' y1='-88.392000' x2='162.560000' y2='-88.900000' style='stroke-width:0.254000; stroke-linecap:round'/>
+<text class='l95' style='font-size:1.955800pt;' transform='translate(161.417000, -88.976200) rotate(-90.000000)'>R35</text>
+<text class='l96' style='font-size:1.117600pt;' transform='translate(160.883600, -83.896200) rotate(-90.000000)'>27.4K</text>
 </g>
 <g><title>PART R36</title>
 <line class='l94' x1='71.755000' y1='-87.630000' x2='74.295000' y2='-87.630000' style='stroke-width:0.152400; stroke-linecap:round'/>
