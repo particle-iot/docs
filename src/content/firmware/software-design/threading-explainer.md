@@ -9,17 +9,11 @@ Threads allow concurrent execution of multiple bits of code. They're popular in 
 
 Though the semantics are a bit different, you might use threads in the same way you would use separate processes in Unix as well.
 
-Particle devices (Gen 2 and Gen 3, including the Photon, P1, Electron, E-Series, Argon, Boron, B-Series SoM, and Tracker SoM) all include support for threaded execution of code.
-
-
-
 Threading in Device OS is stable, and threads are used by Device OS internally and can be used judiciously.
 
 Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
 
 As with threaded programs on all platforms, you have to be careful with thread safety across API calls, preventing simultaneous access to resources by using a lock, and preventing deadlock.
-
-Threads are an advanced programming feature and very powerful when used correctly. Used incorrectly they can introduce new and novel issues into your code that are often more difficult to debug than single-threaded code. Exercise caution and consider alternate designs such as finite state machines when your requirements allow.
 
 ## Using threads
 

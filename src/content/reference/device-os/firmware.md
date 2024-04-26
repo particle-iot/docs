@@ -19606,6 +19606,161 @@ To delay the application only for a period of time or the condition is not met (
 Note: `waitForNot` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
+## Threading
+
+Threads allow concurrent execution of multiple bits of code. They're popular in desktop operating systems like Windows and in languages like Java. Threads have limited support in the Particle platform, but exist.
+
+Though the semantics are a bit different, you might use threads in the same way you would use separate processes in Unix as well.
+
+Threading in Device OS is stable, and threads are used by Device OS internally and can be used judiciously.
+
+Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
+
+As with threaded programs on all platforms, you have to be careful with thread safety across API calls, preventing simultaneous access to resources by using a lock, and preventing deadlock.
+
+We recommend always enabling the system thread in your application firmware using `SYSTEM_THREAD(ENABLED);`. The threading features below are available whether you enable the system thead or not.
+
+See also the [threading explainer](/firmware/software-design/threading-explainer/) for additional information.
+
+### Yielding to other threds - Threading
+
+Threading in Device OS is a thin layer on top of FreeRTOS threads. The threads are preemptive and a 1 millisecond tick thread scheduler.
+
+For best efficiency, however, if you have no processing left to do, you should yield the CPU to other threads. For example, if you are
+reading data from the UART serial port from your thread and there is no data available, you should yield execution rather than busy
+wait until preempted. This is done by using:
+
+```
+delay(1);
+```
+
+This yields the thread until its next schedule execution. It doesn't literally wait one millisecond.
+
+### Thread class - Threading
+
+#### Thread constructor os_thread_fn_t - Threading
+
+```cpp
+// PROTOTYPE
+Thread(const char* name, 
+  os_thread_fn_t function, 
+  void* function_param=NULL,
+  os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, 
+  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT)
+
+// os_thread_fn_t
+typedef os_thread_return_t (*os_thread_fn_t)(void* param);
+typedef void os_thread_return_t;
+```
+
+#### Thread constructor wiring_thread_fn_t - Threading
+
+```cpp
+// PROTOTYPE
+Thread(const char *name, 
+  wiring_thread_fn_t function,
+  os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, 
+  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT)
+
+// wiring_thread_fn_t
+typedef std::function<os_thread_return_t(void)> wiring_thread_fn_t;
+typedef void os_thread_return_t;
+```
+
+### Thread::dispose - Threading
+
+```cpp
+// PROTOTYPE
+void dispose()
+```
+
+
+### Thread::isValid - Threading
+
+```cpp
+// PROTOTYPE
+bool isValid() const 
+```
+
+
+### Thread::isCurrent - Threading
+
+```cpp
+// PROTOTYPE
+bool isCurrent() const 
+```
+
+
+### Thread::isRunning - Threading
+
+```cpp
+// PROTOTYPE
+bool isRunning() const 
+```
+
+
+### Mutex class - Threading
+
+#### Mutex constructor - Threading
+
+```cpp
+// PROTOTYPE
+```
+
+#### Mutex::lock - Threading
+
+```cpp
+// PROTOTYPE
+void lock();
+```
+
+#### Mutex::trylock - Threading
+
+```cpp
+// PROTOTYPE
+bool trylock();
+bool try_lock();
+```
+
+#### Mutex::unlock - Threading
+
+```cpp
+// PROTOTYPE
+void unlock();
+```
+
+
+### RecursiveMutex class - Threading
+
+### Locking - Threading
+
+When using threads, it's important to lock shared resources so that multiple threads do not attempt to access the resource at the same time. Some classes that include locking functions:
+
+- [SPI](/reference/device-os/api/spi/spi/)
+- [I2C](/reference/device-os/api/wire-i2c/wire-i2c/)
+- [Serial](/reference/device-os/api/serial/serial/)
+
+These classes implment these functions:
+
+```cpp
+bool try_lock();
+
+void lock();
+
+void unlock();
+```
+
+They can also be with [`WITH_LOCK()`](/reference/device-os/api/system-thread/synchronizing-access-to-shared-system-resources/).
+
+
+### Serial debugging - Threading
+
+When using threads, it's highly recommended that you use `Log.info()` instead of `Serial.print` statements. The `Log` class is thread-safe, but `Serial` is not. In order to use `Serial` safely you need to surround all serial calls with a lock.
+
+You also should not mix both `Log` and `Serial` debugging logs.
+
+See [USB serial debugging](/firmware/best-practices/usb-serial/) and [Logging](/reference/device-os/api/logging/logging/) in the Device OS API reference for more information.
+
 ## System calls
 
 ### version()
