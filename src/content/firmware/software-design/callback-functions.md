@@ -222,7 +222,7 @@ void setup() {
 ### Static class member with self pointer
 
 We generally recommend an allocated singleton as above, but some code has a single instance stored as a global variable. In this scenario, you save
-the instance pointer from the constructor.
+the instance pointer (`this`) from the constructor. The downside of this technique is that only works for classes that are effectively singletons, as only one class instance can be remembered. 
 
 The code:
 
@@ -274,13 +274,16 @@ This is the code that was used to test all of the examples above. It was only in
 Running this code on a device will generate something like this. The "this" and "value" may be different in your output.
 
 ```
-0000021982 [app] INFO: ExampleService1 10012398 about to call callback s=test1a
-0000022001 [app] INFO: test1a lambda called test1a
-0000022014 [app] INFO: myClass1b value=765869854
-0000022026 [app] INFO: ExampleService1 100123a8 about to call callback s=test1b
-0000022046 [app] INFO: MyClass1 serviceCallback called this=10012398 s=test1b value=765869854
-0000022069 [app] INFO: ExampleService2 100123a8 about to call callback s=test2
-0000022089 [app] INFO: MyClass2 serviceCallback called this=10012398 s=test2
-0000022107 [app] INFO: MyStateMachine::startState
+0000002839 [app] INFO: test starting
+0000002849 [app] INFO: ExampleService1 1007ae14 about to call callback s=test1a
+0000002868 [app] INFO: test1a lambda called test1a
+0000002881 [app] INFO: myClass1b value=1230612671
+0000002894 [app] INFO: ExampleService1 1007ae24 about to call callback s=test1b
+0000002913 [app] INFO: MyClass1 serviceCallback called this=1007ae0c s=test1b value=1230612671
+0000002935 [app] INFO: myClass2 instance 1007ae10
+0000002947 [app] INFO: ExampleService2 1007ae34 about to call callback s=test2
+0000002965 [app] INFO: MyClass2 serviceCallback called this=1007ae10 s=test2
+0000002984 [app] INFO: MyStateMachine::startState
+0000002997 [app] INFO: test complete!
 ```
 
