@@ -203,10 +203,14 @@ The full text of the EU declaration of conformity is available at the following 
 
 The operating frequency bands and the maximum transmitted power limit are listed below:
 
+The operating frequency bands and the maximum transmitted power limit are listed below:
+
 - BLE 2402-2480MHz, 10dBm
-- Wi-Fi 2.4GHz band 2412-2484MHz, 21.5dBm
-- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
-- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+- Wi-Fi 2.4GHz band 20dBm
+- LTE  (CAT-1 bands B1 B3 B7 B8 B20 B28), Frequency Ranges: 703-960MHz, 1710-2170MHz, 2550-2690MHz, Max TX Power: 25dBm
+- 3G (WCDMA sits on LTE B1, B8), Frequency Ranges: 880-960MHz, 1920-2170 MHz, Max TX Power: 25dBm
+- 2G (EGSM900 sits on LTE B8), Frequency Ranges: 880-915MHz, 925-960 MHz, Max TX Power: 35dBm
+- 2G (DCS1800 sits on LTE B3), Frequency Ranges: 1710.2-1784.8MHz, 1805.2-1879.8MHz, Max TX Power: 32dBm
 
 ### United Kingdom
 
@@ -250,4 +254,5 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-10-18 | RK | Initial version |
 | 2023-11-14 | RK | Renamed RS485 pins A and B instead of P and N |
 | 2024-04-18 | RK | Add battery warnings |
+| 2024-04-29 | RK | Updated EU certification band information |
 

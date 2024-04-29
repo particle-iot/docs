@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### MON524 datasheet update 2024-04-29
+
+Updated the [EU declaration of conformity for the MON524](/reference/datasheets/tracker/monitor-one-datasheet/#eu-declaration-of-conformity).
+
 ### Integration gallery 2024-04-25
 
 Documentation for the new [integration gallery](/integrations/introduction/) is now available.
