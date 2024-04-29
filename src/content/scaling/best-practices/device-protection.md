@@ -69,3 +69,37 @@ You can see the device protection status in the [Particle console](https://conso
 
 Once device protection is enabled, there is no way to turn it back off! We recommend using a separate product for software development so you can still access local flashing and the SWD/JTAG debugger for devices in that product during development.
 
+## Testing with Device OS 6.0
+
+Device Protection can only be tested with enterprise accounts that have one or more products with it enabled at this time. Once Particle has enabled a product with device protection:
+
+- Add your device to the device protection enabled product using the **Add devices** button. You will need the device ID or serial number of your device for this step.
+
+![](/assets/images/device-protection/console-add-devices.png)
+
+- Select **...** then **Mark as development device**. This is only for initial testing, and is not necessary when you deploy to a fleet of devices.
+
+- In Particle Workbench, click the settings (gear) icon in the lower left, **Settings**, **Extensions**, **Particle**, then enable pre-release Device OS builds:
+
+![](/assets/images/device-protection/workbench-enable-prerelease.png)
+
+- Connect the device by USB to your computer. This is only necessary for initial testing; later on you can do the whole process OTA.
+
+- Use **Particle: Configure project for device** and select the device you have added and Device OS 6.0.0.
+
+- Open the source for your product firmware. 
+
+- For initial testing, you will use **Particle: Flash application and Device OS (local)** to flash your product firmware and Device OS to the device over USB.
+
+![](/assets/images/device-protection/workbench-flash.png)
+
+- If this works successfully, upload the product firmware binary you created in the previous step as product firmware for your product with device protection enabled. Mark this firmware as product default.
+	
+- In the devices tab of your product, from the **...** menu for the device you added, select **Unmark as development**. 
+
+- Your device will OTA the protected bootloader, and will go into Protected Mode once the OTA is complete. Refresh the device details page and you will now see see the following in the top section:
+
+![](/assets/images/device-protection/console-active.png)
+
+- If you want to test with additional devices, you can now simply add them to your product and they will be upgraded OTA.
+
