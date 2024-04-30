@@ -1,4 +1,4 @@
-0---
+---
 title: What's new
 columns: two
 layout: commonTwo.hbs
@@ -20,6 +20,11 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+
+### Disable optimization typo 2024-04-03
+
+Fixed a typo in the command `#pragma GCC optimize ("O0")` which previously had a lowercase oh in `O0` which does not work
+in the [Workbench reference](/getting-started/developer-tools/workbench/#disabling-optimization).
 
 ### Thread and mutex documentation 2024-04-30
 

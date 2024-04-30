@@ -639,8 +639,8 @@
             "hash": "ed28d33626fdcc277f534862716109ef0416d8bd033056d50f9b4a8d3c3a9622"
         },
         "getting-started/developer-tools/workbench.md": {
-            "date": "2024-02-27",
-            "hash": "eb5dc9401d901c817808e6ef5997a8b7ca89ae296f6ea64e2707c794ba2f3f96"
+            "date": "2024-04-30",
+            "hash": "429a46f8570247522d3f2dfaf9a9cf05a9517c8012753f3ec2dcd92f32c04bf2"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
             "date": "2024-02-27",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "f66b3001bba94d045e56cda8a910617f81da7089a9cb90f4ddb38e53b4070686",
+            "hash": "093c4dc742d5938d267ea8af453c68d03c7edb0f1638224933c7232d2aca2345",
             "date": "2024-04-30"
         },
         "getting-started/cloud/logic.md": {

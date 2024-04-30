@@ -465,7 +465,18 @@ This is only necessary on Gen 3 devices with an nRF52 processor including the Bo
 In the TinkerBreak.cpp source file, you'll notice this at the top of the file. This is helpful to add to your source files to turn off compiler optimization, making it easier to debug. Otherwise you can't break on some lines, and some local variables won't be available.
 
 ```
-#pragma GCC optimize ("o0")
+#pragma GCC optimize ("O0")
+```
+
+You can also save and restore the optimization level around certain code:
+
+```
+#pragma GCC push_options
+#pragma GCC optimize ("O0")
+
+// Code to compile with optimization disabled goes here
+
+#pragma GCC pop_options
 ```
 
 #### Debugging FreeRTOS
