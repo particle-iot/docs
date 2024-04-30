@@ -7,6 +7,8 @@ $(document).ready(function() {
     const searchHistorySize = 10;
     const autocompleteDelay = 750; // milliseconds
 
+    let lunrIndex;
+
     let savedSearchObj;
     try {
         const str = localStorage.getItem(savedSearchKey);
@@ -249,6 +251,16 @@ $(document).ready(function() {
             }
         });
 
+        fetch('/assets/files/prioritySearch.json')
+            .then(response => response.json())
+            .then(function(result) {
+                console.log('prioritySearch', result);
+                $.getScript('/assets/js/lunr.min.js', function(data, textStatus, jqxhr) {
+                    lunrIndex = lunr.Index.load(result);
+                    console.log('lunrIndex', lunrIndex);
+                });
+            });
+
         $('#searchOverlay').show();
         $('.searchOverlayQueryInput').focus();
 
@@ -321,6 +333,11 @@ $(document).ready(function() {
 
         const query = $('.searchOverlayQueryInput').val();
     
+        if (lunrIndex) {
+            const prioritySearch = lunrIndex.search(query);
+            console.log('prioritySearch', prioritySearch);
+        }
+
         savedSearchObj.q = query;
         savedSearchObj.items = [];
 

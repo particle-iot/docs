@@ -3,8 +3,6 @@ const lunr = require('lunr');
 
 function metalsmith(options) {
     return function (files, metalsmith, done) {
-        console.log('priority-search');
-
         let resources = [];
 
         const processArray = function(array) {
@@ -66,6 +64,12 @@ function metalsmith(options) {
         //     a menu item with dir, title, href
         
         // console.log('menus', menus);
+        if (menus.length < 5) {
+            // This was a partial refresh during development; don't rebuild index
+            console.log('prioritySearch index not rebuilt');
+            done();
+            return;
+        }
 
         for(const menuKey in menus) {
             processArray(menus[menuKey].items);            
@@ -103,7 +107,11 @@ function metalsmith(options) {
         });
 
         const s = JSON.stringify(lunrIndex);
-        console.log('lunrIndex ' + s.length + ' bytes');
+        console.log('prioritySearch index ' + s.length + ' bytes');
+
+        files['assets/files/prioritySearch.json'] = {
+            contents: Buffer.from(s),
+        }
 
         done();
     };
