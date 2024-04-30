@@ -152,6 +152,11 @@
     },
     [
       {
+        "dir": "callback-functions",
+        "title": "Callback functions",
+        "href": "/firmware/software-design/callback-functions/"
+      },
+      {
         "dir": "finite-state-machines",
         "title": "Finite State Machines",
         "href": "/firmware/software-design/finite-state-machines/"

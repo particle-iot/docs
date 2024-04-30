@@ -19606,6 +19606,342 @@ To delay the application only for a period of time or the condition is not met (
 Note: `waitForNot` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
+## Threading
+
+Threads allow concurrent execution of multiple bits of code. They're popular in desktop operating systems like Windows and in languages like Java. Threads have limited support in the Particle platform, but exist.
+
+Though the semantics are a bit different, you might use threads in the same way you would use separate processes in Unix as well.
+
+Threading in Device OS is stable, and threads are used by Device OS internally and can be used judiciously.
+
+Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
+
+As with threaded programs on all platforms, you have to be careful with thread safety across API calls, preventing simultaneous access to resources by using a lock, and preventing deadlock.
+
+We recommend always enabling the system thread in your application firmware using `SYSTEM_THREAD(ENABLED);`. The threading features below are available whether you enable the system thead or not.
+
+See also the [threading explainer](/firmware/software-design/threading-explainer/) for additional information.
+
+### os_thread_prio_t - Threading
+
+When creating a thread, you pass a `os_thread_prio_t`. If you omit the parameter, `OS_THREAD_PRIORITY_DEFAULT` is used, which is generally a good default value.
+
+| Constant | Value |
+| :--- | :--- |
+| `OS_THREAD_PRIORITY_DEFAULT` | 2 |
+| `OS_THREAD_PRIORITY_NETWORK` | 7 |
+| `OS_THREAD_PRIORITY_NETWORK_HIGH` | 8 |
+| `OS_THREAD_PRIORITY_CRITICAL` | 9 |
+
+The valid range is from 0 to 9, inclusive, however it's recommended that user threads only use 1 to 6, inclusive, and having a thread a higher priority than networking can lead to poor system performance.
+
+### Thread stack size - Threading
+
+| Constant | Size | Notes |
+| :--- | :--- | :--- |
+| | 1024 bytes | Software timers run with a 1 Kbyte stack |
+| `OS_THREAD_STACK_SIZE_DEFAULT` | 3072 bytes | Default if parameter is omitted |
+| `OS_THREAD_STACK_SIZE_DEFAULT_HIGH` | 4096 bytes | |
+| `OS_THREAD_STACK_SIZE_DEFAULT_NETWORK` | 6144 bytes | The application loop thread is 6 Kbytes |
+
+Because of the limited size of the RAM (particularly on Gen 3 and earlier), and a lack of virtual memory, stack sizes are very small compared
+to desktop operating system applications and Java.
+
+### Thread functions - Threading
+
+While we do not recommend blocking the `loop()` thread from returning, worker thread functions require a loop to function properly.
+
+```cpp
+void MyClass7::threadFunction() {
+    while(true) {
+        // put your code here
+        delay(1);
+    }
+}
+```
+
+
+### Yielding to other threds - Threading
+
+Threading in Device OS is a thin layer on top of FreeRTOS threads. The threads are preemptive and a 1 millisecond tick thread scheduler.
+
+For best efficiency, however, if you have no processing left to do, you should yield the CPU to other threads. For example, if you are
+reading data from the UART serial port from your thread and there is no data available, you should yield execution rather than busy
+wait until preempted. This is done by using:
+
+```
+delay(1);
+```
+
+This yields the thread until its next scheduled execution. It doesn't literally wait one millisecond.
+
+
+### Thread class - Threading
+
+
+#### Thread constructor os_thread_fn_t - Threading
+
+```cpp
+// PROTOTYPE
+Thread(const char* name, 
+  os_thread_fn_t function, 
+  void* function_param=NULL,
+  os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, 
+  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT)
+
+// os_thread_fn_t
+typedef os_thread_return_t (*os_thread_fn_t)(void* param);
+typedef void os_thread_return_t;
+
+// Thread function prototype
+void myThreadFunction(void *param)
+```
+
+- `name` a short string that can be used to identify your thread as a c-string of up to 16 ASCII characters.
+- `function` The function that will be run in the new thread.
+- `function_param` A parameter passed to the new thread. Often this is used for a class instance pointer (`this`).
+- `priority` The thread priority, typically `OS_THREAD_PRIORITY_DEFAULT`. See [os_thread_prio_t](/reference/device-os/api/threading/os_thread_prio_t-threading/), above, for other values.
+- `stack_size` The stack size in bytes, typically `OS_THREAD_STACK_SIZE_DEFAULT` (3 Kbytes). See [Thread stack size](/reference/device-os/api/threading/thread-stack-size-threading/), above, for more information.
+
+#### Thread constructor wiring_thread_fn_t - Threading
+
+```cpp
+// PROTOTYPE
+Thread(const char *name, 
+  wiring_thread_fn_t function,
+  os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, 
+  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT)
+
+// wiring_thread_fn_t
+typedef std::function<os_thread_return_t(void)> wiring_thread_fn_t;
+typedef void os_thread_return_t;
+
+// Thread function prototype
+void myThreadFunction()
+```
+
+- `name` a short string that can be used to identify your thread as a c-string of up to 16 ASCII characters.
+- `function` The function that will be run in the new thread.
+- `priority` The thread priority, typically `OS_THREAD_PRIORITY_DEFAULT`. See [os_thread_prio_t](/reference/device-os/api/threading/os_thread_prio_t-threading/), above, for other values.
+- `stack_size` The stack size in bytes, typically `OS_THREAD_STACK_SIZE_DEFAULT` (3 Kbytes). See [Thread stack size](/reference/device-os/api/threading/thread-stack-size-threading/), above, for more information.
+
+The `function` parameter is a `std::function` which means it can be a C++11 lambda, which makes it easy to make the thread function a class member. For example:
+
+```cpp
+class MyClass7 {
+public:
+    MyClass7();
+    virtual ~MyClass7();
+
+    void start(os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT);
+
+protected:
+    void threadFunction();
+
+    // This class cannot be copied
+    MyClass7(const MyClass7&) = delete;
+    MyClass7& operator=(const MyClass7&) = delete;
+
+    Thread *thread = nullptr;
+    int counter = 0;
+};
+
+MyClass7::MyClass7() {
+}
+
+MyClass7::~MyClass7() {
+    delete thread;
+}
+
+void MyClass7::start(os_thread_prio_t priority, size_t stack_size)  {
+    thread = new Thread("MyClass7", [this]() { threadFunction(); }, priority, stack_size);
+}
+
+void MyClass7::threadFunction() {
+    while(true) {
+        Log.info("MyClass7::threadFunction counter=%d", ++counter);
+        delay(10000);
+    }
+}
+```
+
+Calling the code:
+
+```cpp
+MyClass7 *myClass7 = new MyClass7();
+myClass7->start();
+```
+
+See [callback functions](/firmware/software-design/callback-functions/) for more information.
+
+
+### Thread::dispose - Threading
+
+```cpp
+// PROTOTYPE
+void dispose()
+```
+
+Stop a thread and release the resources used by the thread. This cannot be used to stop the currently running thread; you should exit the thread function instead.
+
+
+### Thread::isValid - Threading
+
+```cpp
+// PROTOTYPE
+bool isValid() const 
+```
+
+Returns true if the underlying thread object has been allocated.
+
+
+### Thread::isCurrent - Threading
+
+```cpp
+// PROTOTYPE
+bool isCurrent() const 
+```
+
+Returns true if this thread is the currently running thread.
+
+
+### Thread::isRunning - Threading
+
+```cpp
+// PROTOTYPE
+bool isRunning() const 
+```
+
+Returns true if this thread is running (has started and has not exited yet).
+
+### Mutex class - Threading
+
+#### Mutex constructor - Threading
+
+```cpp
+// PROTOTYPE
+Mutex()
+```
+
+Construct a new Mutex object. You will often include a `Mutex` either as a member of your class, or you can make `Mutex` a public superclass of your class, which will make the lock, try_lock, and unlock methods automatically available to your class. 
+
+#### Mutex::lock - Threading
+
+```cpp
+// PROTOTYPE
+void lock();
+```
+
+Lock the mutex. If the mutex is already locked, blocks the current thread until is is unlocked.
+
+A `Mutex` can only be locked once, even from the same thread. If you need to be able to lock a mutex multiple times, you should use `RecursiveMutex` instead. 
+
+You cannot lock a mutex from an ISR.
+
+#### Mutex::trylock - Threading
+
+```cpp
+// PROTOTYPE
+bool trylock();
+bool try_lock();
+```
+
+Attempts to lock the mutex If it is unlocked, it will be locked and `true` is returned. If it is already locked, `false` is returned and the thread that previously held the lock will continue to hold the lock.
+
+You cannot lock a mutex from an ISR.
+
+#### Mutex::unlock - Threading
+
+```cpp
+// PROTOTYPE
+void unlock();
+```
+
+Unlocks the mutex. Typically only the thread that locked the mutex will unlock it.
+
+You cannot unlock a mutex from an ISR.
+
+### RecursiveMutex class - Threading
+
+A `Mutex` can only be locked once, even from the same thread. `RecursiveMutex`, on the other hand, allows the same thread to lock the mutex multiple times and maintains a counter so the underlying resource is freed only after the last balanced `unlock()`. This is useful if you lock a shared resource in a low-level of your code, but also may need to lock your resource in a higher level of your code in some cases, so the low-level lock could be called when already locked.
+
+
+#### RecursiveMutex constructor - Threading
+
+```cpp
+// PROTOTYPE
+RecursiveMutex()
+```
+
+Construct a new RecursiveMutex object. You will often include a `RecursiveMutex` either as a member of your class, or you can make `RecursiveMutex` a public superclass of your class, which will make the lock, try_lock, and unlock methods automatically available to your class. 
+
+#### RecursiveMutex::lock - Threading
+
+```cpp
+// PROTOTYPE
+void lock();
+```
+
+Lock the recursive mutex. If the mutex is already locked from a different thread, blocks the current thread until is is unlocked.
+
+If the recursive mutex is already locked from this thread, the lock will proceed without blocking, and the resource will only be released when the last balanced `unlock()` is called.
+
+You cannot lock a recursive mutex from an ISR.
+
+#### RecursiveMutex::trylock - Threading
+
+```cpp
+// PROTOTYPE
+bool trylock();
+bool try_lock();
+```
+
+Attempts to lock the recursive mutex If it is unlocked or locked from this thread, it will be locked and `true` is returned. If it is already locked, `false` is returned and the thread that previously held the lock will continue to hold the lock.
+
+You cannot lock a recursive mutex from an ISR.
+
+#### RecursiveMutexMutex::unlock - Threading
+
+```cpp
+// PROTOTYPE
+void unlock();
+```
+
+Unlocks the recursive mutex. Typically only the thread that locked the mutex will unlock it.
+
+Within a single thread, multiple nested lock() and unlock() pairs are counted, so the underlying resource is only released to other threads after the last balanced unlock().
+
+You cannot unlock a recursive mutex from an ISR.
+
+### Locking - Threading
+
+When using threads, it's important to lock shared resources so that multiple threads do not attempt to access the resource at the same time. Some classes that include locking functions:
+
+- [SPI](/reference/device-os/api/spi/spi/)
+- [I2C](/reference/device-os/api/wire-i2c/wire-i2c/)
+- [Serial](/reference/device-os/api/serial/serial/)
+
+These classes implment these functions:
+
+```cpp
+bool try_lock();
+
+void lock();
+
+void unlock();
+```
+
+They can also be with [`WITH_LOCK()`](/reference/device-os/api/system-thread/synchronizing-access-to-shared-system-resources/).
+
+
+### Serial debugging - Threading
+
+When using threads, it's highly recommended that you use `Log.info()` instead of `Serial.print` statements. The `Log` class is thread-safe, but `Serial` is not. In order to use `Serial` safely you need to surround all serial calls with a lock.
+
+You also should not mix both `Log` and `Serial` debugging logs.
+
+See [USB serial debugging](/firmware/best-practices/usb-serial/) and [Logging](/reference/device-os/api/logging/logging/) in the Device OS API reference for more information.
+
 ## System calls
 
 ### version()
