@@ -55,6 +55,11 @@ $(document).ready(function() {
                 return false;
             }
         }
+        if (filteredUrl.startsWith('/assets/files/')) {
+            // Ignore all files in /assets/files, in particular app-notes and projects,
+            // as they won't render properly.
+            return false;
+        }
 
         return true;
     }

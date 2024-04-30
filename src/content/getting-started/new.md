@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Search fixed 2024-04-30
+
+Search results now filter out assets including the app-note README files, which won't render properly if opened directly.
+
 ### M-SoM SPI speed 2024-04-30
 
 Corrected the M-SoM SPI and SPI1 port maximum speeds; they're opposite of the P2/Photon 2.
