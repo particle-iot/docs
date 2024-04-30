@@ -3,6 +3,7 @@ title: Callback functions
 columns: two
 layout: commonTwo.hbs
 description: Callback functions
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 ---
 
 # {{title}}
@@ -13,13 +14,14 @@ Callback functions provide a way for your code to be "called back" at a later ti
 - Subscription handlers: When a Particle event that you have subscribed is received by your device.
 - System event handlers: When a system event occurs.
 - Software timers: When the timer expires.
+- Thread function: Executes a worker thread.
 - Interrupt handlers: When a hardware interrupt occurs (attachInterrupt).
 
 ## Kinds of callbacks
 
 ### Simple C/C++ function callback
 
-The simplest callback is a standard C/C++ function. This code calls a global function when the "test1" Particle function is called from the cloud.
+The simplest callback is a standard C/C++ function. This code calls a global function `functionHandler1` when the "test1" Particle function is called from the cloud.
 
 ```cpp
 int functionHandler1(String cmd) {
@@ -36,7 +38,7 @@ void setup() {
 
 What if you want to call a class member instead of a plain function? Several Particle API calls allow this. The syntax must be followed very carefully:
 
-- `&MyClass6::functionHandler` specifies the method to call. It must be a non-static method.
+- `&MyClass6::functionHandler` specifies the method to call. It must be a non-static method, and note the required `&` before the class name.
 - `&myClass6` is the pointer to the class instance. If you already have a pointer (because you allocated it with `new`) then leave off the `&`.
 
 ```cpp
@@ -67,70 +69,112 @@ void setup() {
 
 ### Static class member with parameter
 
-Using a static class member is common when you have to pass a callback to something that only takes a plain C/C++ function and an optional parameter.
+Using a static class member is common when you have to pass a callback to something that only takes a plain C/C++ function and an optional parameter. One example is the `Thread` class, which does not have the option to pass a C++ class member directly, like `Particle.function` does.
 
 The "trick" is to store the class instance pointer in the parameter, and recover it from a static class member, allowing you to call a class instance method.
 
 Code:
 
 ```cpp
-class ExampleService2 {
+class MyClass8 {
 public:
-    typedef void (*ExampleCallback)(const char *s, void *param);
+    void threadFunction();
 
-    void setCallback(ExampleCallback callback, void *param);
+    static os_thread_return_t threadFunctionStatic(void *param);
 
-    void callCallback(const char *s);
-
-protected:
-    ExampleCallback callback = 0;
-    void *param = 0;
+    int counter = 0;
 };
-ExampleService2 testService2;
 
-void ExampleService2::setCallback(ExampleCallback callback, void *param) {
-    this->callback = callback;
-    this->param = param;
+void MyClass8::threadFunction() {
+    while(true) {
+        Log.info("MyClass68::threadFunction counter=%d", ++counter);
+        delay(10000);
+    }
 }
 
-void ExampleService2::callCallback(const char *s) {
-    if (callback) {
-        Log.info("ExampleService2 %x about to call callback s=%s", this, s);
-        callback(s, param);
-    }
-};
+// static
+os_thread_return_t MyClass8::threadFunctionStatic(void *param) {
+    MyClass8 *This = (MyClass8 *)param;
 
-class MyClass2 {
-public:
-    void serviceCallback(const char *s) {
-        Log.info("MyClass2 serviceCallback called this=%x s=%s", this, s);
-    }
+    This->threadFunction();
+}
 
-    static void serviceCallbackStatic(const char *s, void *param) {
-        MyClass2 *This = (MyClass2 *)param;
-
-        This->serviceCallback(s);
-    }
-};
-MyClass2 myClass2;
 ```
 
 Calling the code:
 
 ```cpp
-Log.info("myClass2 instance %x", &myClass2);
-
-testService2.setCallback(myClass2.serviceCallbackStatic, &myClass2);
-testService2.callCallback("test2");
+void setup() {
+    MyClass8 *myClass8 = new MyClass8();
+    new Thread("MyClass8", MyClass8::threadFunctionStatic, myClass8);
+}
 ```
 
-Output:
+### Calling a class member with a lambda
 
+When the call function is a `std::function()`, as is the case with `Thread`, it can be easier to structure the code like this.
+
+The code:
+
+```cpp
+class MyClass7 {
+public:
+    MyClass7();
+    virtual ~MyClass7();
+
+    void start(os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT);
+
+protected:
+    void threadFunction();
+
+    // This class cannot be copied
+    MyClass7(const MyClass7&) = delete;
+    MyClass7& operator=(const MyClass7&) = delete;
+
+    Thread *thread = nullptr;
+    int counter = 0;
+};
+
+MyClass7::MyClass7() {
+}
+
+MyClass7::~MyClass7() {
+    delete thread;
+}
+
+void MyClass7::start(os_thread_prio_t priority, size_t stack_size)  {
+    thread = new Thread("MyClass7", [this]() { threadFunction(); }, priority, stack_size);
+}
+
+void MyClass7::threadFunction() {
+    while(true) {
+        Log.info("MyClass7::threadFunction counter=%d", ++counter);
+        delay(10000);
+    }
+}
 ```
-0000002935 [app] INFO: myClass2 instance 1007ae10
-0000002947 [app] INFO: ExampleService2 1007ae34 about to call callback s=test2
-0000002965 [app] INFO: MyClass2 serviceCallback called this=1007ae10 s=test2
+
+Calling the code:
+
+```cpp
+void setup() {
+    MyClass7 *myClass7 = new MyClass7();
+    myClass7->start();
+}
 ```
+
+- The `Thread` object is owned by `MyClass7` which takes care of allocating an deallocating it.
+- The `threadFunction` is class member and can take advantage of class member variables like `counter`.
+- The "magic" is the lambda passes as the second parameter to the `new Thread` call:
+
+```cpp
+[this]() { 
+    threadFunction(); 
+}
+```
+
+What this does is capture `this` (pointer to the instance of `MyClass7`) and use it later, when the callback is called, to invoke the class member function `threadFunction()` which is possible because the `this` pointer has been saved (captured). Using the lambda eliminates the need to have a separate static member function.
+
 
 ### Static class member with singleton
 
@@ -261,29 +305,91 @@ void setup() {
 
 ### Using std::function in your code
 
+It's a good practice to use `std::function` for your callbacks instead of using plain C/C++ callback function pointers.
 
-### C++ class member callback in your code
+- It allows the optional use of a lambda as the function.
+- It makes it easy to call a C++ class member without having to create a static wrapper.
+- It eliminates the need to have an optional parameter to pass instance data.
+
+The code:
+
+```cpp
+class MyClass9 {
+public:
+    void setCallback(std::function<void(int value)> callback) { 
+        this->callback = callback; 
+    };
+
+    void callCallback(int value) {
+        if (callback) {
+            callback(value);
+        }
+    };
+
+protected:
+    std::function<void(int value)> callback = nullptr;
+};
+MyClass9 myClass9;
+```
+
+
+Calling the code:
+
+```cpp
+void setup() {
+    int param9a = 1234;
+    const char *param9b = "testing!";
+    myClass9.setCallback([param9a, param9b](int value) {
+        Log.info("myClass9 callback called value=%d param9a=%d param9b=%s", value, param9a, param9b);
+    });
+    Log.info("about to myClass9.callCallback(1234)");
+    myClass9.callCallback(1234);    
+}
+```
+
+Debugging output:
+
+```
+0000002868 [app] INFO: about to myClass9.callCallback(1234)
+0000002907 [app] INFO: myClass9 callback called value=1234 param9a=1234 param9b=testing!
+```
+
+Note the lambda in this code. The capture section `[param9a, param9b]` saves a copy of two local variables, `param9a` and `param9b`. This is a good way to pass additional information to the body of the lambda.
+
+
+```cpp
+[param9a, param9b](int value) {
+    Log.info("myClass9 callback called value=%d param9a=%d param9b=%s", value, param9a, param9b);
+}
+```
 
 
 ## Sample code
 
 This is the code that was used to test all of the examples above. It was only intended to exercise all of the examples above, but is provided in case you need some extra context beyond what was included above.
 
+{{> project-browser project="StdFunctionExample" default-file="src/StdFunctionExample.cpp" height="400" flash="false"}}
+
+
 ### Sample output
 
 Running this code on a device will generate something like this. The "this" and "value" may be different in your output.
 
 ```
-0000002839 [app] INFO: test starting
-0000002849 [app] INFO: ExampleService1 1007ae14 about to call callback s=test1a
-0000002868 [app] INFO: test1a lambda called test1a
-0000002881 [app] INFO: myClass1b value=1230612671
-0000002894 [app] INFO: ExampleService1 1007ae24 about to call callback s=test1b
-0000002913 [app] INFO: MyClass1 serviceCallback called this=1007ae0c s=test1b value=1230612671
-0000002935 [app] INFO: myClass2 instance 1007ae10
-0000002947 [app] INFO: ExampleService2 1007ae34 about to call callback s=test2
-0000002965 [app] INFO: MyClass2 serviceCallback called this=1007ae10 s=test2
-0000002984 [app] INFO: MyStateMachine::startState
-0000002997 [app] INFO: test complete!
+0000002708 [app] INFO: test starting
+0000002718 [app] INFO: ExampleService1 1007ae14 about to call callback s=test1a
+0000002737 [app] INFO: test1a lambda called test1a
+0000002750 [app] INFO: myClass1b value=2098003830
+0000002761 [app] INFO: ExampleService1 1007ae24 about to call callback s=test1b
+0000002781 [app] INFO: MyClass1 serviceCallback called this=1007adfc s=test1b value=2098003830
+0000002804 [app] INFO: myClass2 instance 1007ae00
+0000002816 [app] INFO: ExampleService2 1007ae34 about to call callback s=test2
+0000002834 [app] INFO: MyClass2 serviceCallback called this=1007ae00 s=test2
+0000002852 [app] INFO: MyStateMachine::startState
+0000002865 [app] INFO: MyClass7::threadFunction counter=1
+0000002867 [app] INFO: MyClass8::threadFunction counter=1
+0000002868 [app] INFO: about to myClass9.callCallback(1234)
+0000002907 [app] INFO: myClass9 callback called value=1234 param9a=1234 param9b=testing!
+0000002928 [app] INFO: test complete!
 ```
 

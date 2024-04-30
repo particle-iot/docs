@@ -19634,7 +19634,7 @@ wait until preempted. This is done by using:
 delay(1);
 ```
 
-This yields the thread until its next schedule execution. It doesn't literally wait one millisecond.
+This yields the thread until its next scheduled execution. It doesn't literally wait one millisecond.
 
 ### os_thread_prio_t - Threading
 
@@ -19653,7 +19653,7 @@ The valid range is from 0 to 9, inclusive, however it's recommended that user th
 
 | Constant | Size | Notes |
 | :--- | :--- | :--- |
-| | 1 K byte | Software timers run with a 1024 byte stack |
+| | 1024 bytes | Software timers run with a 1 Kbyte stack |
 | `OS_THREAD_STACK_SIZE_DEFAULT` | 3072 bytes | Default if parameter is omitted |
 | `OS_THREAD_STACK_SIZE_DEFAULT_HIGH` | 4096 bytes | |
 | `OS_THREAD_STACK_SIZE_DEFAULT_NETWORK` | 6144 bytes | The application loop thread is 6 Kbytes |
@@ -19709,7 +19709,54 @@ void myThreadFunction()
 - `priority` The thread priority, typically `OS_THREAD_PRIORITY_DEFAULT`. See [os_thread_prio_t](/reference/device-os/api/threading/os_thread_prio_t-threading/), above, for other values.
 - `stack_size` The stack size in bytes, typically `OS_THREAD_STACK_SIZE_DEFAULT` (3 Kbytes). See [Thread stack size](/reference/device-os/api/threading/thread-stack-size-threading/), above, for more information.
 
-The `function` parameter is a `std::function` which means it can be:
+The `function` parameter is a `std::function` which means it can be a C++11 lambda, which makes it easy to make the thread function a class member. For example:
+
+```cpp
+class MyClass7 {
+public:
+    MyClass7();
+    virtual ~MyClass7();
+
+    void start(os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT);
+
+protected:
+    void threadFunction();
+
+    // This class cannot be copied
+    MyClass7(const MyClass7&) = delete;
+    MyClass7& operator=(const MyClass7&) = delete;
+
+    Thread *thread = nullptr;
+    int counter = 0;
+};
+
+MyClass7::MyClass7() {
+}
+
+MyClass7::~MyClass7() {
+    delete thread;
+}
+
+void MyClass7::start(os_thread_prio_t priority, size_t stack_size)  {
+    thread = new Thread("MyClass7", [this]() { threadFunction(); }, priority, stack_size);
+}
+
+void MyClass7::threadFunction() {
+    while(true) {
+        Log.info("MyClass7::threadFunction counter=%d", ++counter);
+        delay(10000);
+    }
+}
+```
+
+Calling the code:
+
+```cpp
+MyClass7 *myClass7 = new MyClass7();
+myClass7->start();
+```
+
+See [callback functions](/firmware/software-design/callback-functions/) for more information.
 
 ### Thread::dispose - Threading
 
@@ -19717,6 +19764,8 @@ The `function` parameter is a `std::function` which means it can be:
 // PROTOTYPE
 void dispose()
 ```
+
+Stop a thread and release the resources used by the thread. This cannot be used to stop the currently running thread; you should exit the thread function instead.
 
 
 ### Thread::isValid - Threading
@@ -19726,6 +19775,8 @@ void dispose()
 bool isValid() const 
 ```
 
+Returns true if the underlying thread object has been allocated.
+
 
 ### Thread::isCurrent - Threading
 
@@ -19734,6 +19785,8 @@ bool isValid() const
 bool isCurrent() const 
 ```
 
+Returns true if this thread is the currently running thread.
+
 
 ### Thread::isRunning - Threading
 
@@ -19741,6 +19794,8 @@ bool isCurrent() const
 // PROTOTYPE
 bool isRunning() const 
 ```
+
+Returns true if this thread is running (has started and has not exited yet).
 
 ### Mutex class - Threading
 
