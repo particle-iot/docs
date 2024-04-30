@@ -63,6 +63,7 @@ const sharedBlurb = require('./shared-blurb.js');
 const setupFirmware = require('./setup-firmware.js');
 const troubleshooting = require('./troubleshooting.js').metalsmith;
 const autoInclude = require('./auto-include.js').metalsmith;
+const prioritySearch = require('./priority-search.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -280,6 +281,9 @@ exports.metalsmith = function () {
       output: '../build/sitemap.xml',
       troubleshooting: '../src/assets/files/troubleshooting.json',
       baseUrl: 'https://docs.particle.io/'
+    }))
+    .use(prioritySearch({
+
     }))
     // Create HTML pages with meta http-equiv='refresh' redirects
     .use(redirects({
