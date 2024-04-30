@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Thread and mutex documentation 2024-04-30
+
+The [thread and mutex functions](/reference/device-os/api/threading/threading/) are now documented in the Device OS API reference. There's also a new explainer for [callback functions](/firmware/software-design/callback-functions/).
+
 ### Search fixed 2024-04-30
 
 Search results now filter out assets including the app-note README files, which won't render properly if opened directly.

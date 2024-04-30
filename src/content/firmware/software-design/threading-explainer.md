@@ -15,6 +15,8 @@ Because Particle Devices have limited RAM and no virtual memory it's impractical
 
 As with threaded programs on all platforms, you have to be careful with thread safety across API calls, preventing simultaneous access to resources by using a lock, and preventing deadlock.
 
+See also [Threading](/reference/device-os/api/threading/threading/) in the Device OS API reference.
+
 ## Using threads
 
 A bit of background:

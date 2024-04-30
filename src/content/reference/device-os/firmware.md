@@ -19622,20 +19622,6 @@ We recommend always enabling the system thread in your application firmware usin
 
 See also the [threading explainer](/firmware/software-design/threading-explainer/) for additional information.
 
-### Yielding to other threds - Threading
-
-Threading in Device OS is a thin layer on top of FreeRTOS threads. The threads are preemptive and a 1 millisecond tick thread scheduler.
-
-For best efficiency, however, if you have no processing left to do, you should yield the CPU to other threads. For example, if you are
-reading data from the UART serial port from your thread and there is no data available, you should yield execution rather than busy
-wait until preempted. This is done by using:
-
-```
-delay(1);
-```
-
-This yields the thread until its next scheduled execution. It doesn't literally wait one millisecond.
-
 ### os_thread_prio_t - Threading
 
 When creating a thread, you pass a `os_thread_prio_t`. If you omit the parameter, `OS_THREAD_PRIORITY_DEFAULT` is used, which is generally a good default value.
@@ -19661,7 +19647,37 @@ The valid range is from 0 to 9, inclusive, however it's recommended that user th
 Because of the limited size of the RAM (particularly on Gen 3 and earlier), and a lack of virtual memory, stack sizes are very small compared
 to desktop operating system applications and Java.
 
+### Thread functions - Threading
+
+While we do not recommend blocking the `loop()` thread from returning, worker thread functions require a loop to function properly.
+
+```cpp
+void MyClass7::threadFunction() {
+    while(true) {
+        // put your code here
+        delay(1);
+    }
+}
+```
+
+
+### Yielding to other threds - Threading
+
+Threading in Device OS is a thin layer on top of FreeRTOS threads. The threads are preemptive and a 1 millisecond tick thread scheduler.
+
+For best efficiency, however, if you have no processing left to do, you should yield the CPU to other threads. For example, if you are
+reading data from the UART serial port from your thread and there is no data available, you should yield execution rather than busy
+wait until preempted. This is done by using:
+
+```
+delay(1);
+```
+
+This yields the thread until its next scheduled execution. It doesn't literally wait one millisecond.
+
+
 ### Thread class - Threading
+
 
 #### Thread constructor os_thread_fn_t - Threading
 
@@ -19757,6 +19773,7 @@ myClass7->start();
 ```
 
 See [callback functions](/firmware/software-design/callback-functions/) for more information.
+
 
 ### Thread::dispose - Threading
 
