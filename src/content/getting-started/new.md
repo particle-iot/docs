@@ -1,4 +1,4 @@
----
+0---
 title: What's new
 columns: two
 layout: commonTwo.hbs
@@ -20,6 +20,10 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+
+### M-SoM SPI speed 2024-04-30
+
+Corrected the M-SoM SPI and SPI1 port maximum speeds; they're opposite of the P2/Photon 2.
 
 ### MON524 datasheet update 2024-04-29
 
