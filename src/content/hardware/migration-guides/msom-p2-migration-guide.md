@@ -155,6 +155,10 @@ The P2 land pattern is:
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - Two SPI interfaces on both
+- SPI uses the RTL872x SPI0 peripheral (50 MHz maximum speed) on M-SoM
+- SPI1 uses the RTL872x SPI1 peripheral (25 MHz maximum speed) on M-SoM
+- Note: The P2/Photon 2 maximum speeds for SPI and SPI1 are reversed from the M-SoM
+
 
 ### I2C
 

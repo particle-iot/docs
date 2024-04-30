@@ -188,7 +188,7 @@ $ particle flash 0123456789abcdef78901234 .
 You can also target a specific version of Device OS in the `particle flash` command:
 
 ```sh
-$ particle flash 0123456789abcdef78901234 . --target 5.3.1
+$ particle flash 0123456789abcdef78901234 . --target 5.6.0
 ```
 
 #### Flashing a directory with assets
@@ -252,7 +252,7 @@ commands.
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
-should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
 
@@ -264,15 +264,15 @@ This is useful if you are not ready to upgrade to the latest Device OS
 version on your device, try a release candidate version, or switch between LTS and developer preview release lines.
 
 ```sh
-# compile your application with the 5.3.1 Device OS version and flash it
-$ particle flash --target 5.3.1 0123456789abcdef78901234 my_project
+# compile your application with the 5.6.0 Device OS version and flash it
+$ particle flash --target 5.6.0 0123456789abcdef78901234 my_project
 ```
 
 A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
-should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
 
@@ -364,7 +364,7 @@ If you specify a directory containing a `project.properties` file that contains 
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
-should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
 
@@ -411,7 +411,7 @@ If you want to build a library that can be used for both Arduino and Particle, h
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
-should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
 
@@ -438,7 +438,7 @@ $ particle compile p2 . --saveTo firmware.bin
 You can also target a specific version of Device OS in the `particle flash` command:
 
 ```sh
-$ particle flash 0123456789abcdef78901234 . --target 5.3.1
+$ particle flash 0123456789abcdef78901234 . --target 5.6.0
 ```
 
 While compiling source code using the cloud compiler there are limits:
@@ -450,7 +450,7 @@ A list of valid version numbers can be found in the [release notes](/reference/d
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
-should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
 
@@ -492,7 +492,7 @@ assetOtaDir=assets
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
-should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
 
@@ -534,7 +534,7 @@ $ particle compile core --target 1.4.4 my_project
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
-should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
 

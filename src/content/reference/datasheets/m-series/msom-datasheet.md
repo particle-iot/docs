@@ -434,8 +434,9 @@ For rapidly changing signals, a voltage follower IC can be used.
 - If not using a SPI port, its pins can be used as GPIO
 - Any pins can be used as the SPI chip select
 - Multiple devices can generally share a single SPI port
-- SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
-- SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+- SPI uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+- SPI1 uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
+- Note: The P2/Photon 2 maximum speeds for SPI and SPI1 are reversed from the M-SoM
 
 Even though the B-SoM and M-SoM both have two SPI interfaces, note that the M-SoM SPI1 is on different pins.
 
@@ -1386,3 +1387,4 @@ Global, country list to be provided a later date.
 | 003      | 2024-04-18 | RK | Add PDM microphone |
 | 004      | 2024-04-23 | RK | Added links to certification documents |
 | 005      | 2024-04-25 | RK | Added I/O characteristics |
+| 006      | 2024-04-30 | RK | Corrected SPI interface speeds |

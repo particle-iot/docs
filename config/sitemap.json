@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-02-27",
-            "hash": "407b187f4a4dcceced1deebf30cd58ae17d08d901db4f49687b0d387c1c1e921"
+            "date": "2024-04-30",
+            "hash": "9d169f3e2664a4711b940caa164185836a85d32640f1e1cb578c89000167faa1"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-04-26",
-            "hash": "b0da0995ae56e69cc38cc0ca1ebe1060f55626fb93d4ffacdc7721f9a5894c44"
+            "date": "2024-04-30",
+            "hash": "847a3d876d6bc242092d2187677d4d3204bc8b3aceb0b34f172ceca51d6d1ff8"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1823,8 +1823,8 @@
             "hash": "92aa2922ce92a8e2d80d84d8d309cc1d47247f1149bd6d0606885f873b34da44"
         },
         "reference/device-os/api/ethernet/ethernet.md": {
-            "date": "2024-02-27",
-            "hash": "ce772f052460f84a3cd778ca8561c25ce67370c1687fb6256e6162bbc043253b"
+            "date": "2024-04-30",
+            "hash": "7d3ed9cb3ac5666a5ff88e19b4da672750a2c267ac3a7fc6e28ea730ebee9ce8"
         },
         "reference/device-os/api/ethernet/pin-configuration-ethernet.md": {
             "date": "2023-09-20",
@@ -1939,8 +1939,8 @@
             "hash": "7b12a10b03d457ae8a200b44260eaaea5a58ef566346200d7d10e1e0aee0d888"
         },
         "reference/device-os/api/wifi/selectantenna-antenna.md": {
-            "date": "2024-01-10",
-            "hash": "e7f7b99049452cd9df674b4a4c416a0f3e5bc1ec0215b3910a419d2738656ca3"
+            "date": "2024-04-30",
+            "hash": "037030ed8ea0c5eff8387f3e99cda6dea3ca50dc1ba2010dca46e68fb5152f4b"
         },
         "reference/device-os/api/wifi/listen.md": {
             "date": "2023-09-20",
@@ -1959,8 +1959,8 @@
             "hash": "b5d2ab0b081fbc1d82ec0ec52dc658d425816fb2e869d26a4b509aa26f3d83ac"
         },
         "reference/device-os/api/wifi/setcredentials.md": {
-            "date": "2024-01-31",
-            "hash": "da7382ffce2745ce5021de70c548be23d11b855e58889da09fe9dd76d084d03e"
+            "date": "2024-04-30",
+            "hash": "b9b1d555b07df8d1f5cd9f3ffc42b1af165f48bc4b4b1e7e7667c005212a1552"
         },
         "reference/device-os/api/wifi/getcredentials.md": {
             "date": "2023-09-20",
@@ -2047,12 +2047,12 @@
             "hash": "a17c60954bba9002b4f3a9f379d48b6114dbd15c9f32e77864d1f081a78541a8"
         },
         "reference/device-os/api/wifi/wlan_get_country_code.md": {
-            "date": "2023-09-20",
-            "hash": "fcd778a97cf2ecd0909980200a253117555488b838a58599d508f53c3b21fb3a"
+            "date": "2024-04-30",
+            "hash": "e703c7426cfbe936a8bfcda31af751608c0dffbfdf0f845f6a4544bc23ae35f6"
         },
         "reference/device-os/api/wifi/wlan_set_country_code.md": {
-            "date": "2023-09-20",
-            "hash": "cad2655304f5974aa90f1f80f7cc78374c8999d6ca12adc27af563952436cdb4"
+            "date": "2024-04-30",
+            "hash": "a51c7ffaea46064889b6fba9c7903927a35748b69821ad96cc4426a316fffad2"
         },
         "reference/device-os/api/wifi/wificredentials-class.md": {
             "date": "2024-01-31",
@@ -2335,11 +2335,11 @@
             "hash": "7f553c466a9a749f218dd3061b284953fd09f1d709f01b2b30169880b6a845c6"
         },
         "reference/device-os/api/input-output/input-output.md": {
-            "date": "2023-09-20",
+            "date": "2024-04-30",
             "hash": "fe7e39d012c22fcada695b4deb155baac4d8d7e7bee2def6915f3b3a323dc6d5"
         },
         "reference/device-os/api/input-output/pinmode.md": {
-            "date": "2024-02-27",
+            "date": "2024-04-30",
             "hash": "dc7c2c6e94f96ce4f046aaf45c121f48a5604bd02f170b2b6da3c1e155fd2d57"
         },
         "reference/device-os/api/input-output/getpinmode-pin.md": {
@@ -2347,20 +2347,20 @@
             "hash": "7b6595c065fed479010f5a151b0c31e68c75f3e60fe46437e9394449a97c62df"
         },
         "reference/device-os/api/input-output/digitalwrite.md": {
-            "date": "2024-04-25",
-            "hash": "e510635e09669e74554b49208b9403b205f231343b511922ff0c4531f4a509d1"
+            "date": "2024-04-30",
+            "hash": "636f46357c7267d28976a8b738e6afbf21af63cd8ec1ba7aa212c3568fc44c76"
         },
         "reference/device-os/api/input-output/digitalread.md": {
-            "date": "2024-02-27",
+            "date": "2024-04-30",
             "hash": "eedf0b5acec12dade49bc53cf63b81ce1d62e0698b0caacb34fd92c9095111fd"
         },
         "reference/device-os/api/input-output/pinsetdrivestrength.md": {
-            "date": "2024-02-27",
-            "hash": "509d52fea5b6dc40021ba5f3bcfe30ec00068027fdb09f9e64ebfeb3aae4cd34"
+            "date": "2024-04-30",
+            "hash": "3087ca7b4bd067cfb998c77680c813672b2ad42b777eda062c6b9511cd57affd"
         },
         "reference/device-os/api/input-output/analogwrite-pwm.md": {
-            "date": "2024-02-27",
-            "hash": "50fb465960c1fccd396050c4399b28fde65a108b494af0217453f96523c8e460"
+            "date": "2024-04-30",
+            "hash": "421a3d516b4efdc0ef18008e12da003cfa8d3394331d6e57f9af03ccecec2f9b"
         },
         "reference/device-os/api/input-output/analogwriteresolution-pwm.md": {
             "date": "2024-02-27",
@@ -2375,7 +2375,7 @@
             "hash": "e0659a030f1fd8944f1d253622afab6e4d9ee4f3f1e9b4d3fdc4853688072a7d"
         },
         "reference/device-os/api/input-output/analogread-adc.md": {
-            "date": "2024-04-18",
+            "date": "2024-04-30",
             "hash": "572920cdc8e414e34920f9b2ae10190e5e0cf41adbe5f9f2bd958bc0caba0cac"
         },
         "reference/device-os/api/input-output/setadcsampletime.md": {
@@ -2403,8 +2403,8 @@
             "hash": "8be3779b4b0f520689714b12bcc7282ad7e42d33d9850da553ecb6e55ca5da85"
         },
         "reference/device-os/api/input-output-advanced/tone.md": {
-            "date": "2024-02-27",
-            "hash": "af8a47a1cb85952289ceda450eaabeb69a420b6592fa2cb67b4b3e61f0234304"
+            "date": "2024-04-30",
+            "hash": "cb5f9b7d025fab51267b299009d57ca4fb6a0be538c9583d000bf04aed8aef69"
         },
         "reference/device-os/api/input-output-advanced/notone.md": {
             "date": "2023-09-20",
@@ -2519,12 +2519,12 @@
             "hash": "5c63720e7b179dde9162ba7bd8469d7d93a3037f4bb4a027278c2b1274148c12"
         },
         "reference/device-os/api/serial/serial.md": {
-            "date": "2024-02-27",
-            "hash": "8a2506da2deac41bd7616592c49e7e64f4e0a47bdc52795f81b075493848e35e"
+            "date": "2024-04-30",
+            "hash": "51b49dc96574c7c2ac067bd475427a1b02e08f0883a351968ad5819dbc3fbf5a"
         },
         "reference/device-os/api/serial/begin.md": {
-            "date": "2024-03-15",
-            "hash": "df05cc565c0750f94cddf29b57b5c5f6bef43de1857db6bd5b629de42d294e0a"
+            "date": "2024-04-30",
+            "hash": "39ac51924aea2edc63009f0b2b386087608816d173c58456f5fe1cb8234c4f4e"
         },
         "reference/device-os/api/serial/end.md": {
             "date": "2023-09-20",
@@ -2699,8 +2699,8 @@
             "hash": "3cec9cad3b57457921979a4705266431e5b9bf7576073677cf3c081c988e8b9d"
         },
         "reference/device-os/api/spi/spi.md": {
-            "date": "2024-02-27",
-            "hash": "7bd1b2086d420665428d0f98ee65b5e57137f16e13b69f6b0e6494c0820ba5ca"
+            "date": "2024-04-30",
+            "hash": "3ea9107c54501d7d3726520bd1fcafba6a92a8b585a4e6693e4829eba29df07b"
         },
         "reference/device-os/api/spi/begin.md": {
             "date": "2023-09-20",
@@ -2775,12 +2775,12 @@
             "hash": "0e3aa2db5085cf3ef822b78836deb0e794e27a8293f931b10cec4d49ba09c568"
         },
         "reference/device-os/api/wire-i2c/pins-i2c.md": {
-            "date": "2024-02-27",
-            "hash": "61582b36a1f68e5352e0db8fcf05ba74209c6c20b9de3cc2a480112065cbed38"
+            "date": "2024-04-30",
+            "hash": "ad0a5b06d170b13aa6c6ad0f709e423df6a3747b5700bc9ba4b91096756ddc98"
         },
         "reference/device-os/api/wire-i2c/setspeed.md": {
-            "date": "2023-10-11",
-            "hash": "4c2fd1639ed1d9e572f5752e5640da21739e8485737be5ba9293424f17e4a291"
+            "date": "2024-04-30",
+            "hash": "2f715ed53caebbbc1bd51212046ae29febd2923e4866f4b597e8744d59c66dec"
         },
         "reference/device-os/api/wire-i2c/stretchclock.md": {
             "date": "2023-09-20",
@@ -3531,8 +3531,8 @@
             "hash": "e1fe964869ebbb2f92ae298bdb12889e92368671500fc81c093845149d64744d"
         },
         "reference/device-os/api/eeprom/eeprom.md": {
-            "date": "2024-02-27",
-            "hash": "e8c835ad86ced52ed939fc90db1cf35e96aa7c649a204cab050646a78e9f1787"
+            "date": "2024-04-30",
+            "hash": "dafc50772514afbdb52be84de6243f25d6a4e7933cfad04f0496bfa42420b97a"
         },
         "reference/device-os/api/eeprom/length.md": {
             "date": "2024-02-27",
@@ -3567,8 +3567,8 @@
             "hash": "79c22576948eea6e9114a7ab8b49eccbb8e8a0a059e2c5bbc5f235ff472fc9c2"
         },
         "reference/device-os/api/retained-memory/retained-memory.md": {
-            "date": "2024-04-25",
-            "hash": "1836a9d65d2f21af55c78ce86dd892d06fb318a7e5010d3fdffb6c9036d70dbd"
+            "date": "2024-04-30",
+            "hash": "ef69f764605e33b9831a7b15bddb68511b631a7b6f483180436939ad040fbdc4"
         },
         "reference/device-os/api/retained-memory/storing-data-in-backup-ram-sram.md": {
             "date": "2023-09-20",
@@ -3619,8 +3619,8 @@
             "hash": "bedbbb063012f695ccbca407e14272328b8dc31486e64cce9eeb6a9f9fbe869b"
         },
         "reference/device-os/api/sleep-sleep/hibernate-systemsleepmode.md": {
-            "date": "2024-02-27",
-            "hash": "a278f36685fb6720d5f727cbdbe3a1776f06bf90c0b9df6ad3f9e51262e001da"
+            "date": "2024-04-30",
+            "hash": "79d38b06a13fa81ecbdcde8fdd1681d51cd828315f9a9f7fc0202ca7dedae7fb"
         },
         "reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration.md": {
             "date": "2024-03-11",
@@ -3635,20 +3635,20 @@
             "hash": "421b98c241efd972d65d4c27cff734c4eda72eb5d3ec5f17e89273c6598f6fd3"
         },
         "reference/device-os/api/sleep-sleep/network-systemsleepconfiguration.md": {
-            "date": "2023-09-20",
-            "hash": "9deb13b28ff18a0db7161db1684be3b1ce5b7e9bf9c17b2bfbbc089a24cafd6a"
+            "date": "2024-04-30",
+            "hash": "81a515d96703b7a0860566aec799e49d9278e93d1490460159c0b6161c1d1ed9"
         },
         "reference/device-os/api/sleep-sleep/analog-systemsleepconfiguration.md": {
-            "date": "2023-09-20",
-            "hash": "e20235142ad12341c8db8b6e41199e504ba3b4ca24b1494813521cce58ea123f"
+            "date": "2024-04-30",
+            "hash": "746fb8c2fb0b8380e547597c8aa697ed1790d38567ceecd204b8d477ce0d3356"
         },
         "reference/device-os/api/sleep-sleep/usart-systemsleepconfiguration.md": {
-            "date": "2023-09-20",
-            "hash": "3269fc1bf81fe75edf08a116e77b224b1ea6d50faf0d747416189b6654633ecc"
+            "date": "2024-04-30",
+            "hash": "b6e5100d64bf223c586e083ec2cd1683697176b8aa79fc5929933a8d57d0e16c"
         },
         "reference/device-os/api/sleep-sleep/ble-systemsleepconfiguration.md": {
-            "date": "2024-02-27",
-            "hash": "4ed5f4d1d77c64d048959deb8c21129729fb7094ad0427acd29b0d9e264e1279"
+            "date": "2024-04-30",
+            "hash": "4e75fd3f9298a50ee6c724da0ae89760f383c20da6c4631d915ad6ef1890066b"
         },
         "reference/device-os/api/sleep-sleep/systemsleepresult-class.md": {
             "date": "2023-09-20",
@@ -8295,8 +8295,8 @@
             "date": "2024-03-11"
         },
         "reference/device-os/api/wifi/getantenna.md": {
-            "hash": "30671851a719452e22b9fc74542b6cd5b2ea78f63f2947d07ad3b6f08a732519",
-            "date": "2024-01-10"
+            "hash": "6ba7be41647b11824b2b0afc0df7633157d0213f67785a96de7ab5ab0816a74c",
+            "date": "2024-04-30"
         },
         "tools/developer-tools/class-generator.md": {
             "hash": "80a163d90da3e284d37882d194a6c15dab9eb730b0b92e69c2115aa7df66ae60",
@@ -8395,12 +8395,12 @@
             "date": "2024-04-25"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
-            "hash": "a8bce022d37d2c459c2d715821ba7807d025398615305ae8ffcb23fed90febe8",
-            "date": "2024-04-18"
+            "hash": "531ee34825b50c5c93a0738489a6a601c1e6537681c22699c9487ce961778028",
+            "date": "2024-04-30"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "16929792e84c2c0bca1aca3a014962f919398294e36dbe1d80d6055129b6c140",
-            "date": "2024-04-25"
+            "hash": "d6caffd9b188ee55550192e43db76ad7b13a2d6e811e71ec31b4dd3e6cc0a00b",
+            "date": "2024-04-30"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "60cbdc223df1de13526c42f9daf8aba51b7762424e314aec79df25db9338bde5",

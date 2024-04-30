@@ -1460,7 +1460,7 @@ void setup() {
 
 Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B-Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
 
-On the P2 and Photon 2, it is highly recommended that you use Device OS 5.7.0 or later when using Ethernet due to important
+On the P2, Photon 2, and M-SoM it is highly recommended that you use Device OS 5.7.0 or later when using Ethernet due to important
 bugs that were fixed in 5.6.0 and 5.7.0 that can affect Ethernet usability on RTL872x devices.
 
 It is not available on Gen 2 devices (Photon, P1, Electron, and E-Series except the E404X).
@@ -2077,7 +2077,7 @@ particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 {{api name1="WiFi.selectAntenna"}}
 
 {{note op="start" type="note"}}
-On ths P2 and Photon 2 this is only supported on Device OS 5.3.2 and later.
+On ths P2, Photon 2, and M-SoM this is only supported on Device OS 5.3.2 and later.
 
 The Argon (Gen 3) does not have an antenna switch for Wi-Fi; it can only use an external antenna. There is a separate setting
 for the Argon BLE antenna (BLE.selectAntenna).
@@ -2130,7 +2130,7 @@ void loop() {
 {{api name1="WiFi.getAntenna"}}
 
 {{note op="start" type="note"}}
-On ths P2 and Photon 2 this is only supported on Device OS 5.3.2 and later.
+On ths P2, Photon 2, and M-SoM this is only supported on Device OS 5.3.2 and later.
 {{note op="end"}}
 
 ```cpp
@@ -2286,7 +2286,7 @@ uint16_t seconds = WiFi.getListenTimeout();
 Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
 
 - The P2, Photon 2, and Argon remember the 10 most recently set credentials.
-- The P2 and Photon 2 do not currently support WPA Enterprise.
+- The P2, Photon 2, and M-SoM do not currently support WPA Enterprise.
 - The Argon does not support WPA Enterprise.
 - The Photon and P1 remember the 5 most recently set credentials.
 - The Photon and P1 can store one set of WPA Enterprise credentials in Device OS 0.7.0 and later.
@@ -2968,7 +2968,7 @@ wlan_country_code_t ccType = wlan_get_country_code(nullptr);
 
 See the list of code in [wlan_set_country_code](#wlan_set_country_code).
 
-This API is available only on the P2 and Photon 2 in Device OS 5.0.0 and later.
+This API is available only on the P2, Photon 2, and M-SoM in Device OS 5.0.0 and later.
 
 ### wlan_set_country_code
 
@@ -3000,7 +3000,7 @@ wlan_set_country_code(wlan_country_code_t::WLAN_CC_JP, nullptr);
 | wlan_country_code_t::WLAN_CC_KR | 0x4B52 |
 | wlan_country_code_t::WLAN_CC_WORLD | 0xFFFE |
 
-This API is available only on the P2 and Photon 2 in Device OS 5.0.0 and later.
+This API is available only on the P2, Photon 2, and M-SoM in Device OS 5.0.0 and later.
 
 This setting is stored at the DCT offset `DCT_COUNTRY_CODE_OFFSET` (`country_code`, offset 1758, 2 bytes) and thus can also be set in DFU mode using the `-a 1` to store in alt bank 1 (DCT).
 
@@ -5432,7 +5432,7 @@ void loop()
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 - All GPIO pins (`A0`, `A1`, `A2`, `A5`, `D0`..`D10`, `MOSI`, `MISO`, `SCK`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 - Pins `D0` and `D1` can be used as analog inputs on the P2 (`A3` and `A4`) if I2C is not being used.
@@ -5554,8 +5554,8 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 
 ---
 
-{{note op="start" type="P2"}}
-- The drive strength on the P2 and Photon 2 is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. 
+{{note op="start" type="gen4"}}
+- The drive strength on the P2, Photon 2, and M-SoM is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. 
 - There is a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
 - Drive strength selection is only available in Device OS 5.5.0 and later on RTL872x devices. 
 {{note op="end"}}
@@ -5672,9 +5672,9 @@ On the E404X, the following groups are defined. Each group must share the same f
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 
-On the P2 and Photon 2, all PWM pins and the RGB LED share the same PWM timer and must share the same PWM frequency, though each pin can have a separate duty cycle.
+On the P2, Photon 2, and M-SoM, all PWM pins and the RGB LED share the same PWM timer and must share the same PWM frequency, though each pin can have a separate duty cycle.
 
 {{!-- BEGIN do not edit content below, it is automatically generated d68a9c54-a380-11ec-b909-0242ac120002 --}}
 
@@ -6194,8 +6194,8 @@ On the Tracker SoM:
 
 ---
 
-{{note op="start" type="P2"}}
-All PWM compatible pins on the P2 and Photon 2 share a single timer. Thus only one frequency of tone can be generated at a time.
+{{note op="start" type="gen4"}}
+All PWM compatible pins on the P2, Photon 2, and M-SoM share a single timer. Thus only one frequency of tone can be generated at a time.
 {{note op="end"}}
 
 
@@ -7200,7 +7200,32 @@ The P2 and Photon 2 support three serial interfaces, two with hardware flow cont
 
 ---
 
-`Serial2:` On the P2 and Photon 2, this channel is available. It uses the same pins as `SPI1`, so you can only use `Serial2` or `SPI1`, not both.
+{{note op="start" type="M-SoM"}}
+
+The P2 and Photon 2 support two serial interfaces, one with hardware flow control:
+
+{{!-- BEGIN do not edit content below, it is automatically generated d3ffb099-2b14-45d6-b006-71efef7af3ff --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | Serial1 (TX) | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | PA[13] |
+| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | PA[15] |
+| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | PA[14] |
+| 58 | D24 | D24 GPIO, Serial2 TX, do not pull down at boot | Serial2 (TX)  | PA[7] |
+| 60 | D25 | GPIO25, Serial2 RX | Serial2 (RX)  | PA[8] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
+- Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
+
+{{note op="end"}}
+
+---
+
+`Serial2:` On the P2, Photon 2, and M-SoM, this channel is available. It uses the same pins as `SPI1`, so you can only use `Serial2` or `SPI1`, not both.
 
 On the Photon, this channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/reference/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed. If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 
@@ -7346,8 +7371,8 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 
 ---
 
-{{note op="start" type="P2"}}
-On the P2 and Photon 2:
+{{note op="start" type="gen4"}}
+On the P2, Photon 2, and M-SoM:
 
 Supported baud rates: 110, 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 380400, 460800, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
 
@@ -8710,12 +8735,50 @@ The P2 and Photon 2 supports two SPI (serial peripheral interconnect) ports.
 - Multiple devices can generally share a single SPI port
 - SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
 - SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+- Note: The P2/Photon 2 maximum speeds for SPI and SPI1 are reversed from the M-SoM
 - SPI1 shares the same pins as Serial2
 
 If you are using SPI, Device OS 5.3.1 or later is recommended. Prior to that version, SPI ran at half of the set speed, and SPI1 ran at double the set speed. 
 Timing has also been improved for large DMA transfers; prior to 5.3.1, there could be 1 µs gaps for every 16 bytes of data transferred.
 
 {{note op="end"}}
+
+---
+
+{{note op="start" type="M-SoM"}}
+
+The M-SoM supports two SPI (serial peripheral interconnect) ports.
+
+{{!-- BEGIN do not edit content below, it is automatically generated fd3eed60-17cc-4294-9a39-7f3d01bf7487 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | SPI1 (MOSI) | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | SPI1 (MISO) | PA[13] |
+| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | PA[15] |
+| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 (SCK) | PA[14] |
+| 48 | D8 | D8 GPIO, SPI SS | SPI (SS) | PA[19] |
+| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | SPI (MISO) | PA[17] |
+| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | SPI (MOSI) | PA[16] |
+| 54 | SCK / D13 | D13 GPIO, SPI SCK | SPI (SCK) | PA[18] |
+
+
+{{!-- END do not edit content above, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+
+- The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
+- If not using a SPI port, its pins can be used as GPIO
+- Any pins can be used as the SPI chip select
+- Multiple devices can generally share a single SPI port
+- SPI uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+- SPI1 uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
+- Note: The M-SoM maximum speeds for SPI and SPI1 are reversed from the P2/Photon 2
+- SPI1 shares the same pins as Serial2
+
+If you are using SPI, Device OS 5.3.1 or later is recommended. Prior to that version, SPI ran at half of the set speed, and SPI1 ran at double the set speed. 
+Timing has also been improved for large DMA transfers; prior to 5.3.1, there could be 1 µs gaps for every 16 bytes of data transferred.
+
+{{note op="end"}}
+
 
 
 ---
@@ -9271,7 +9334,7 @@ Additionally, on the Argon and B-Series SoM there is a second I2C port that can 
 {{note op="end"}}
 
 ---
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 On the P2 and Photon there there is a single I2C port, D0 is SDA and D1 is SCL.
 
 Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor (1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor (1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
@@ -9321,7 +9384,7 @@ Parameters:
 - `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
 ---
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 On the P2 and Photon 2 the only valid values are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 {{note op="end"}}
 
@@ -17010,7 +17073,7 @@ the EEPROM emulation is stored as a file on the flash file system. Since the dat
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 The P2 and Photon 2 also uses a file a file on the flash file system for EEPROM emulation.
 {{note op="end"}}
 
@@ -17270,7 +17333,7 @@ On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM), retained memory is o
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later.
 
 {{!-- BEGIN shared-blurb f960cc9c-6e25-4205-adf9-03bfd50b9da7 --}}
@@ -17835,7 +17898,7 @@ In this mode on wake, device is reset, running setup() again.
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 - The P2 and Photon 2 do not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
 
 - The P2 and Photon 2 can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
@@ -18049,7 +18112,7 @@ For more information on using network sleep modes, see [Learn more about sleep m
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 Wake on network is not supported on the P2, Photon 2, or Tracker M.
 {{note op="end"}}
 
@@ -18085,7 +18148,7 @@ The `AnalogInterruptMode` is one of:
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 Wake on analog is not supported on the P2, Photon 2, or Tracker M.
 {{note op="end"}}
 
@@ -18117,7 +18180,7 @@ Note: Keeping the USART active in ultra-low power mode significanly increases th
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 Wake on serial is not supported on the P2, Photon 2, or Tracker M.
 {{note op="end"}}
 
@@ -18155,7 +18218,7 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 
 ---
 
-{{note op="start" type="P2"}}
+{{note op="start" type="gen4"}}
 Wake on BLE is not supported on the P2, Photon 2, or Tracker M.
 {{note op="end"}}
 

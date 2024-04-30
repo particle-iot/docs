@@ -91,20 +91,31 @@ module.exports = function(context) {
         }
         else
         if (context.hash.type.indexOf("gen3") >= 0) {
-            message = 'Gen 3 Devices';
+            message = 'Gen 3 Devices (nRF52)';
             deviceList = 'B-Series SoM, Tracker SoM, Tracker One, Boron, Argon, and E404X';
             cssClass = 'note-gen3';
         }
         else
         if (context.hash.type.indexOf("gen2") >= 0) {
-            message = 'Gen 2 Devices';
+            message = 'Gen 2 Devices (STM32)';
             deviceList = 'E-Series, Electron, Photon, and P2; does not include E404X';
             cssClass = 'note-gen2';
         }
         else
+        if (context.hash.type.indexOf("gen4") >= 0) {
+            message = 'Gen 4 Devices (RTL872x)';
+            deviceList = 'P2, Photon 2, and M-SoM';
+            cssClass = 'note-gen4';
+        }
+        else
+        if (context.hash.type.indexOf("M-SoM") >= 0) {
+            message = 'M-SoM Devices (RTL872x)';
+            cssClass = 'note-gen4';
+        }
+        else
         if (context.hash.type.indexOf("P2") >= 0) {
-            message = 'P2 and Photon 2 Devices';
-            cssClass = 'note-p2';
+            message = 'P2 and Photon 2 Devices (RTL872x)';
+            cssClass = 'note-gen4';
         }
         else
         if (context.hash.type.indexOf("product") >= 0) {
