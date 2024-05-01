@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-05-01",
-            "hash": "acd06a0fcc98583fd86f97221ce832040cff5f61fd78d700ad4f26c49a9c27c2"
+            "hash": "f3e88b185fdab868bbab26c9d08c2b267cf0940d3786ee6077964adbf5c9da8f"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8575,11 +8575,11 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/cloud-functions/particle-ledger.md": {
-            "hash": "6464b2a862423754d0ff4a1973783f6b9a1a64db86a45f57e12cd49281fe0ff5",
+            "hash": "cd322bfb4ff1cf8f024a4e82bc9d1041c7b569853fbb8bf26620de5b67f7c580",
             "date": "2024-05-01"
         },
         "reference/device-os/api/ledger/ledger.md": {
-            "hash": "9c72b5a6569f8dfffa444eca484bef4e76440c36b1d9202b60ef57a4d2bec2a5",
+            "hash": "6a9eaf01aaae8ae4effeb9610b7bbb0dd5c0904ba8d2774df91bd815a34e00dc",
             "date": "2024-05-01"
         },
         "reference/device-os/api/ledger/set-ledger-class.md": {
@@ -8679,7 +8679,7 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/variant.md": {
-            "hash": "777290d6aab51863f034719fb2ae503d68ae76863bade71b260eaba3d99163b2",
+            "hash": "2d035219fff6ae6880ed02510532c7c57ccdc6c46ec51a933e5ebc0491e33bec",
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/set-variant-class.md": {
@@ -8835,7 +8835,7 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/map/map.md": {
-            "hash": "18752a35b6abd80c691d0a52fa4835bf14c83d3c70a646a2d3690563fef65fb3",
+            "hash": "b6fbe2a561f7a7154b2dc9563b5de07731e56b9fde925f462fe3002ef104a51d",
             "date": "2024-05-01"
         },
         "reference/device-os/api/map/map-map-template.md": {
