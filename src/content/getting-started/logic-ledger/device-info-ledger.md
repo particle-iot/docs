@@ -40,7 +40,7 @@ viewing the information for devices in your product.
 
 ## Creating a product
 
-This example requires device-side Ledger, which requires Device OS 5.9.0 or later. Additionally, it can only be used 
+This example requires device-side Ledger, which requires Device OS 6.1.0 or later. Additionally, it can only be used 
 with devices in a product, and only developer sandbox products (not organization products).
 
 If running the example, we recommend that you create a new product for testing, adding a device or two

@@ -26,7 +26,7 @@ The three types of Ledgers are:
 
 Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
 
-Device to Cloud and Cloud to Device ledgers require Device OS 5.9.0 or later. This feature is currently in beta and will not be available in a Device OS 4.x LTS release. Device ledger support will not be available on Gen 2 devices (E Series other than the E404X, Electron, P1, and Photon 1).
+Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. This feature is currently in beta and will not be available in a Device OS 4.x LTS release. Device ledger support will not be available on Gen 2 devices (E Series other than the E404X, Electron, P1, and Photon 1).
 
 {{!-- BEGIN shared-blurb f77c1afd-51d7-488a-a090-9786b7133e73 --}}
 {{!-- END shared-blurb --}}
