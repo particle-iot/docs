@@ -21,10 +21,16 @@ The three types of Ledgers are:
 | Scope | Description | Availability |
 | :--- | :--- | :--- |
 | Cloud Ledger | Stores information in the cloud without syncing to the edge. | In Beta Now |
-| Device to Cloud Ledger | Device storage that syncs automatically to the cloud | Beta soon |
-| Cloud to Device Ledger | Set data in the cloud that will sync to devices | Beta soon |
+| Device to Cloud Ledger | Device storage that syncs automatically to the cloud | In Beta Now |
+| Cloud to Device Ledger | Set data in the cloud that will sync to devices | In Beta Now |
 
-Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays.
+Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
+
+Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. This feature is currently in beta and will not be available in a Device OS 4.x LTS release. Device ledger support will not be available on Gen 2 devices (E Series other than the E404X, Electron, P1, and Photon 1).
+
+{{!-- BEGIN shared-blurb f77c1afd-51d7-488a-a090-9786b7133e73 --}}
+{{!-- END shared-blurb --}}
+
 
 ## Console
 
@@ -44,24 +50,21 @@ To access Ledger, open the console and select the **Ledger** icon in the left-ha
 
 {{imageOverlay src="/assets/images/ledger/ledger-select.png" class="no-darken"}}
 
-### Cloud ledger uses - console
+| Scope | Read Ledger | Write Ledger |
+| :--- | :--- | :--- |
+| Cloud Ledger | Console, Logic, Cloud API | Console, Logic, Cloud API |
+| Device to Cloud Ledger | Console, Logic, Cloud API  | Device |
+| Cloud to Device Ledger (Owner) | Device in product owned by owner | Console, Logic, Cloud API |
+| Cloud to Device Ledger (Product) | Device in specified product | Console, Logic, Cloud API |
+| Cloud to Device Ledger (Device) | Device | Console, Logic, Cloud API |
 
-- Stores information about a device, product or your entire fleet in the cloud.
-- Data can be read and written by your applications through the Particle API and Logic Functions.
-- Cloud Ledgers cannot be read by a device.
 
-Common Use Cases:
-- Aggregate data about devices using a Logic Function.
-- Managing device lifecycle data.
-- Parameters for processing in Logic Functions.
 
-{{imageOverlay src="/assets/images/ledger/ledger-cloud.png" class="no-darken"}}
-
-### Cloud ledger options - console
+### Ledger options - console
 
 | Option | Description |
 | :--- | :--- |
-| Ledger Name | Lowercase alphanumeric and dash, up to 32 characters, unique in scope |
+| Ledger Name | Lowercase alphanumeric and dash, up to 32 characters, unique across all scopes |
 | Description | Description for your use |
 | Scope | Product, Device, Owner |
 
@@ -71,7 +74,7 @@ Likewise, when scoped to device, whenever that device accesses the ledger an ins
 
 {{imageOverlay src="/assets/images/ledger/ledger-options.png" class="no-darken"}}
 
-### Cloud ledger instances - console
+### Ledger instances - console
 
 For Owner scoped ledger, there will only be one instance listed:
 
@@ -93,7 +96,75 @@ In the **Advanced** tab, you can set arbitrary JSON data, including nested objec
 
 {{imageOverlay src="/assets/images/ledger/ledger-advanced.png" class="no-darken"}}
 
-When using the Cloud API you get back the entire JSON data structure for a ledger instance.
+When using the [Cloud API](/reference/cloud-apis/api/#ledger) you get back the entire JSON data structure for a ledger instance.
+
+## Cloud ledger - console
+
+- Stores information about a device, product or your entire fleet in the cloud.
+- Data can be read and written by your applications through the Particle API and Logic Functions.
+- Cloud Ledgers cannot be read by a device.
+
+Common use cases:
+
+- Aggregate data about devices using a Logic Function.
+- Managing device lifecycle data.
+- Parameters for processing in Logic Functions.
+
+{{imageOverlay src="/assets/images/ledger/ledger-cloud.png" class="no-darken"}}
+
+## Device to Cloud ledger - console
+
+- Store information on a device in a structured manner.
+- Device OS reliably sends the data to the cloud automatically when device is online.
+- Data can be read by your applications through the Particle API and Logic Functions.
+
+Common use cases:
+
+- Make latest device state accessible whether device is online or not.
+- Record anomalous events for maintenance and diagnostics.
+- Aggregate data on the edge and make a summary available to the cloud.
+
+{{imageOverlay src="/assets/images/ledger/device-to-cloud.png" class="no-darken"}}
+
+For an example of using a Device to Cloud Ledger to store sensor data, see [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/).
+
+
+## Cloud to Device ledger - console
+
+- Stores information about a device, product or your entire fleet in the cloud.
+- Cloud reliably sends latest data to devices as soon as devices get online.
+- Data can be scoped to an individual device, to the devices in a product, or to all your devices.
+- Data can be read and written by your applications through the Particle API and Logic Functions.
+
+Common use cases:
+
+- Send commands to devices regardless if device is online or not.
+- Setting individual device thresholds or parameters.
+- Implement policies for a fleet of devices.
+
+{{imageOverlay src="/assets/images/ledger/cloud-to-device.png" class="no-darken"}}
+
+A copy of the ledger is stored locally in the flash file system, so it can be available before connecting to the cloud 
+after it has been synchronized once. Of course if the ledger has been updated in the cloud, the changes will not be
+available until cloud connected and the ledger synchronized, so in some cases you may want to wait for that to occur.
+
+If the local copy of the ledger is the same as the cloud version, it will not be downloaded again, saving data. 
+
+During Ledger beta, data operations are not charged for ledger synchronization. In the future, ledger downloads 
+may incur data operations at a rate of 1 data operations per 1 Kbyte download. Ledgers can be up to 16 Kbyte, so a 
+maximum ledger could incur 16 data operations.
+
+The maximum ledger size is dependent on a number of factors including RAM and flash size limitations, so on some
+platforms, particularly Gen 3 devices like the B Series SoM, Tracker SoM, Boron, and Argon, the limit could be lower.
+RAM usage is dependent not only on the total size of the data in the ledger, but also the shape of the data. Arrays 
+of small objects, for instance, will use more RAM than a long character string.
+
+### Using Ledger for configuration
+
+One common use case is to store configuration using Ledger. Since each Ledger is scoped to an organization, owner, product, or device, you can implement a custom hierarchy of configuration. For example, you can have product defaults in a product ledger, and device-specific values in a device-specific ledger. You can read both ledgers on-device and implement your own desired override behavior.
+
+For an example of using a Ledger for configuration, see [Ledger configuration](/getting-started/logic-ledger/ledger-configuration/).
+
 
 ## Using Ledger from Logic
 
@@ -104,5 +175,8 @@ You can easily access owner, product, and device ledgers from Logic.
 
 See [Using Ledger from Logic](/getting-started/logic-ledger/logic/#using-ledger-from-logic) in the Logic documentation for more information.
 
+## Using Ledger from the Cloud API
+
+Ledger can be also be accessed using the Particle Cloud REST API. See the [Cloud API reference](/reference/cloud-apis/api/#ledger) for more information.
 
 

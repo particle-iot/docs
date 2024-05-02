@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device-side ledger 2024-05-02
+
+[Ledger](/getting-started/logic-ledger/ledger/) support on Particle devices is now available in Device OS 6.1.0.
+
 ### Disable optimization typo 2024-04-03
 
 Fixed a typo in the command `#pragma GCC optimize ("O0")` which previously had a lowercase oh in `O0` which does not work
@@ -378,7 +382,7 @@ Clarified the band power table for the [B524](/reference/datasheets/b-series/b52
 
 ### Ledger documentation 2023-12-29
 
-Added preliminary documentation for [Ledger beta](/getting-started/logic-ledger/ledger/). 
+Added preliminary documentation for [Ledger alpha](/getting-started/logic-ledger/ledger/). 
 
 ### Photon 2 schematic 2023-12-19
 

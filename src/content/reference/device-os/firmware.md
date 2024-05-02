@@ -781,6 +781,34 @@ Particle.unsubscribe();
 
 There is no function to unsubscribe a single event handler. 
 
+### Particle.ledger
+
+{{api name1="Particle.ledger"}}
+
+{{since when="6.1.0"}}
+
+Request a ledger from the cloud. Returns a [`Ledger`](#ledger) object to read or write the data in the ledger. 
+
+This operation is asynchronous and the data will not be available until synchronized with the cloud. You will typically call this from `setup()` and you can do so before connected to the cloud.
+
+The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger. You must first create a ledger definition in the cloud; you cannot create a new ledger definition using the device-side API. 
+
+The first time a device comes online specifying a device to cloud ledger, a new ledger instance will be created for the device, however.
+
+Ledger names consist only of lowercase alphanumeric and dash, up to 32 characters, and are unique across all scopes.
+
+```cpp
+// PROTOTYPE
+Ledger ledger(const char* name);
+
+// EXAMPLE
+Ledger sensors;
+
+void setup() {
+    sensors = Particle.ledger("sensors");
+}
+```
+
 ### Particle.maxEventDataSize()
 
 {{api name1="Particle.maxEventDataSize"}}
@@ -13123,6 +13151,1794 @@ int8_t measurePower() const;
 
 In Device OS 3.0.0 and later there are accessors to read the values out of the iBeacon class.
 
+## Ledger
+
+{{api name1="Ledger"}}
+
+{{since when="6.1.0"}}
+
+Ledger provides device to cloud and cloud to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger. 
+
+You will typically request a ledger using [Particle.ledger()](#particle-ledger) like this:
+
+```cpp
+Ledger sensors;
+
+void setup() {
+    sensors = Particle.ledger("sensors");
+}
+```
+
+The `Particle.ledger` function is asynchronous and the data will not be available until the device comes online and has synchronized with the cloud.
+
+The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger. You must first create a ledger definition in the cloud; you cannot create a new ledger definition using the device-side API. 
+
+The first time a device comes online specifying a device to cloud ledger, a new ledger instance will be created for the device, however.
+
+You will typically store the `Ledger` object you receive from `Particle.ledger()` as a global variable so you can access it again later easily.
+
+Ledger names consist only of lowercase alphanumeric and dash, up to 32 characters, and are unique across all scopes.
+
+
+
+### set() [Ledger class]
+
+Sets a value in the ledger. The data is saved to local flash storage immediately, but will be synchronized to the cloud at a later time.
+
+```cpp
+// PROTOTYPE
+int set(const LedgerData& data, SetMode mode = SetMode::REPLACE);
+
+// EXAMPLE
+Variant data;
+data.set("sensor", sensorValue);
+data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
+sensors.set(data);
+```
+
+While the parameter `data` is a `LedgerData` object, you will typically pass a `Variant`. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full example.
+
+See [SetMode](#setmode-ledger-class-), below, for valid values.
+
+
+### SetMode [Ledger class]
+
+| Constant | Description |
+| :--- | :--- |
+| `SetMode::REPLACE` | Replace the current ledger data |
+| `SetMode::MERGE` | Update some of the entries of the ledger data |
+
+### Ledger synchronization
+
+When a ledger is first modified, Device OS initiates a sync right away and start a 5 seconds cooldown timer.
+
+- If the ledger is modified again within the 5 second interval, the interval is started over.
+- When the cooldown timer expires, another sync is initiated.
+- The maximum delay between when the ledger is modified and when a sync is started is 30 seconds.
+
+A ledger can be modified while the device is offline, and will be synchronized when the device comes back online.
+
+A cloud to device ledger is stored locally in the flash file system on the device. This allows it to be used
+before cloud connecting, but if you do this, the device will not have received any updates queued in the cloud.
+If the ledger has not changed since the last synchronization, it will not be transferred again, saving data.
+
+### get() [Ledger class]
+
+```cpp
+// PROTOTYPE
+LedgerData get() const;
+```
+
+The get() method gets the Ledger data. This call does not block, so the data may be empty if the ledger has not yet been retrieved from the cloud.
+
+### lastUpdated() [Ledger class]
+
+Get the time the ledger was last updated, in milliseconds since the Unix epoch (January 1, 1970), or 0 if unknown.
+
+```cpp
+// PROTOTYPE
+int64_t lastUpdated() const;
+```
+
+### lastSynced() [Ledger class]
+
+Get the time the ledger was last synchronized with the Cloud, in milliseconds since the Unix epoch (January 1, 1970), or 0 if unknown.
+
+```cpp
+// PROTOTYPE
+int64_t lastSynced() const;
+```
+
+### dataSize [Ledger class]
+
+Returns the size of the ledger data in bytes.
+
+```cpp
+// PROTOTYPE
+size_t dataSize() const;
+```
+
+### name() [Ledger class]
+
+Returns the name of the ledger. This is typically set during setup().
+
+```cpp
+// 
+const char* name() const;
+```
+
+
+### scope() [Ledger class]
+
+```cpp
+// PROTOTYPE
+LedgerScope scope() const;
+```
+
+See [LedgerScope](#ledgerscope-ledger-class-), below, for constants.
+
+### LedgerScope [Ledger class]
+
+The scope of a ledger is defined on the cloud side, so before the ledger is first retrieved the scope will be unknown on the device.
+
+| Constant | Description |
+| :--- | :--- |
+| `LedgerScope::UNKNOWN` | Unknown |
+| `LedgerScope::DEVICE` | Device |
+| `LedgerScope::PRODUCT` | Product |
+| `LedgerScope::OWNER` | User or organization |
+
+
+### isWritable() [Ledger class]
+
+Returns true if the ledger can be written to. Cloud to device ledgers cannot be written to.
+
+```cpp
+// PROTOTYPE
+bool isWritable() const;
+```
+
+### onSync(OnSyncCallback) [Ledger class]
+
+Registers a function to be called when the ledger is synchronized. This method takes a C function and an `arg` value. The arg can be a pointer to a C++ object instance, a pointer to some other structure, or can be 0 if you don't need an additional argument.
+
+```cpp
+// PROTOTYPE
+int onSync(OnSyncCallback callback, void* arg = nullptr);
+
+// CALLBACK DEFINITION
+typedef void (*OnSyncCallback)(Ledger ledger, void* arg);
+
+// CALLBACK PROTOTYPE
+void myCallback(Ledger ledger, void* arg)
+```
+
+### onSync(OnSyncFunction) [Ledger class]
+
+Registers a function to be called when the ledger is synchronized. This method takes a std::function which can be a C++ lambda, which can be useful for calling a method implemented in a non-static C++ class.
+
+```cpp
+// PROTOTYPE
+int onSync(OnSyncFunction callback);
+
+// CALLBACK DEFINITIONS
+typedef std::function<void(Ledger)> OnSyncFunction;
+
+// CALLBACK PROTOTYPE
+void myCallback(Ledger ledger)
+
+// CALLBACK LAMBDA
+myLedger.onSync([](Ledger ledger) {
+  // Code to run when synchronization completes goes here
+}
+```
+
+### remove() [Ledger class]
+
+Remove any data associated with a ledger from the device.
+
+The device must not be connected to the Cloud. The operation will fail if any of the ledgers are in use.
+
+The data is not guaranteed to be removed in an irrecoverable way.
+
+See also [Ledger::removeAll](#removeall-ledger-class-) to remove all ledger data and includes a code example.
+
+```cpp
+// PROTOTYPE
+static int remove(const char* name);
+```
+
+### removeAll() [Ledger class]
+
+Remove any ledger data from the device.
+
+The device must not be connected to the Cloud. The operation will fail if any of the ledgers are in use.
+
+The data is not guaranteed to be removed in an irrecoverable way.
+
+```cpp
+// PROTOTYPE
+static int removeAll();
+
+// EXAMPLE
+#include "Particle.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+SYSTEM_THREAD(ENABLED);
+
+SerialLogHandler logHandler(LOG_LEVEL_INFO);
+
+void setup() {
+    // Remove any ledger data from the device.    
+    // The device must not be connected to the Cloud. The operation will fail if any of the ledgers are in use.
+    Ledger::removeAll();
+
+    Particle.connect();
+}
+
+void loop() {
+}
+
+```
+
+## LedgerData
+
+The `LedgerData` class provides a subset of methods of the `Variant` class that are relevant to map operations. The Ledger class [set()](#set-ledger-class-) and [get()](#get-ledger-class-) take a LedgerData object. 
+
+Because a `Variant` is transparently converted into `LedgerData` you may never need to create a `LedgerData` object. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for an example of this technique.
+
+
+### constructor (Variant) [LedgerData class]
+
+Construct a LedgerData from a Variant. The Variant must be a `VariantMap`, if not then the LedgerData will be empty.
+
+```cpp
+// PROTOTYPE
+LedgerData(Variant var);
+```
+
+### constructor (std::initializer_list<Entry>) [LedgerData class]
+
+Construct a LedgerData option from statically defined entries.
+
+```cpp
+// PROTOTYPE
+LedgerData(std::initializer_list<Entry> entries);
+
+// EXAMPLE
+LedgerData data = { { "key1", "value1" }, { "key2", 2 } };
+```
+
+### set() [LedgerData class]
+
+Set a top-level key in the LedgerData to a value stored in a `Variant`.
+
+```cpp
+// PROTOTYPES
+bool set(const char* name, Variant val);
+bool set(const String& name, Variant val);
+bool set(String&& name, Variant val);
+```
+
+### remove() [LedgerData class]
+
+Remove a top-level key in the LedgerData.
+
+```cpp
+// PROTOTYPES
+bool remove(const char* name);
+bool remove(const String& name);
+```
+
+### get() [LedgerData class]
+
+Get the value of an entry with the name `name`.
+
+This method is inefficient for complex value types, as it returns a copy of
+the value. Use `operator[]` to get a reference to the value.
+
+A null `Variant` is returned if the entry doesn't exist.
+
+```cpp
+// PROTOTYPES
+Variant get(const char* name) const;
+Variant get(const String& name) const;
+```
+
+### operator[name] [LedgerData class]
+
+Get a reference to the entry value with the given `name`.
+
+The entry is created if it doesn't exist.
+
+The device will panic if it fails to allocate memory for the new entry. Use `set()`
+or the methods provided by `VariantMap` if you need more control over how memory allocation
+errors are handled.
+
+```cpp
+// PROTOTYPES
+Variant& operator[](const char* name);
+Variant& operator[](const String& name);
+
+// EXAMPLE - Create an array if necessary and add an element to the array.
+data["alarm"].append(reasonCode);
+
+// EXAMPLE - Create an object if necessary and add a key/value pair to it.
+data["sensors"].set("temp", tempValue);
+```
+
+
+### has() [LedgerData class]
+
+Check if an entry with the given name exists.
+
+```cpp
+// PROTOTYPES
+bool has(const char* name) const;
+bool has(const String& name) const;
+```
+
+### isEmpty() [LedgerData class]
+
+Returns true if the ledger data is empty (has no entries).
+
+```cpp
+// PROTOTYPE
+bool isEmpty() const;
+```
+
+See [Variant](#variant) and [Map](#map) for additional information.
+
+
+## Variant
+
+{{api name1="Variant"}}
+
+{{since when="6.1.0"}}
+
+The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON.
+
+
+### set() [Variant class]
+
+One common use-case of Variant is setting values in a ledger. In this code, a fake sensor value is stored in `int sensorValue`. In a real application, you'd read an actual sensor there.
+
+Then a `Variant` object is created on the stack that will be filled with data.
+
+The `set()` method is described below in [VariantMap](#set-variantmap-). It takes a key name (such as "sensor" or "time") and a value, which is also a `Variant`. Because there are Variant constructors for many variable types (see [variant constructor](#constructor-variant-class-), below), you can pass a variable directly to set and the compiler will handle it appropriately. In the time example, the returned object from `Time.format` is a `String`.
+
+```cpp
+int sensorValue = readSensor();
+
+Variant data;
+data.set("sensor", sensorValue);
+data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
+sensors.set(data);
+```
+
+See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full example.
+
+### Variant::Type
+
+Variants have an explicit type, unlike JSON. The following
+
+| Constant | C++ Type |
+| :--- | :--- |
+| Variant::Type::NULL | Null type (`std::monostate`) |
+| Variant::Type::BOOL | `bool` |
+| Variant::Type::INT | `int` |
+| Variant::Type::UINT | `unsigned` |
+| Variant::Type::INT64 | `int64_t` |
+| Variant::Type::UINT64 | `uint64_t` |
+| Variant::Type::DOUBLE | `double` |
+| Variant::Type::STRING | `String` |
+| Variant::Type::ARRAY | `VariantArray` |
+| Variant::Type::MAP | `VariantMap` |
+
+
+### constructor [Variant class]
+
+{{api name1="Variant::Variant()"}}
+
+You can construct a `Variant` object with a parameter of an explict type to create a variant of that type.
+
+```cpp
+// PROTOTYPES
+Variant();
+Variant(const std::monostate& val);
+Variant(bool val);
+Variant(int val);
+Variant(unsigned val);
+Variant(long val);
+Variant(unsigned long val);
+Variant(long val);
+Variant(unsigned long val);
+Variant(long long val);
+Variant(unsigned long long val);
+Variant(double val);
+Variant(const char* val);
+Variant(String val);
+Variant(VariantArray val);
+Variant(VariantMap val);'
+```
+
+### value() [Variant class]
+
+{{api name1="Variant::value()"}}
+
+The `value` method is a template that returns a reference to the stored value of the variant. The allowable types are listed in [Variant::Type](#variant-type). This can be done to either get or set a value.
+
+```cpp
+// PROTOTYPES
+template<typename T>
+T& value();
+
+template<typename T>
+const T& value() const;
+
+// EXAMPLES
+int value1 = variant1.value<int>();
+bool value2 = variant2.value<bool>();
+String value3 = variant3.value<String>();
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the value() vs. other accessors.
+
+
+### value, as, and to [Variant class]
+
+There are several variations of accessors to Variant values used for different purposes:
+
+| Accessor | Description |
+| :--- | :--- |
+| value<T>() | Returns a reference to the currently held value. Requires it be of the type T otherwise would cause undefined behavior. |
+| as<T>() or asXXX() | converts the underlying value of the variant to T in place, modifying the variant, and returns a reference to it. Safe to call if the types don't match but requires T to be one of the supported types, otherwise it will cause a compilation error. |
+| to<T>() or toXXX() | converts the underlying value to T without modifying the variant and returns the result by value. Safe to call if the types don't match, T can be arbitrary. |
+
+
+- When reading complex values like string, array, and map, using the value operator uses a reference (not a copy) so it's more efficient.
+- When assigning a value to a `Variant`, the `asXXX()` methods can be set the variant to be that type. Useful when building the data structure to set ledger values.
+- When reading values from a `Variant`, the `toXXX()` methods can be used to copy the data convert it as necessary, without modifying the original.
+
+
+### type() [Variant class]
+
+{{api name1="Variant::type()"}}
+
+Return the type of the `Variant`. See [Variant::Type](#variant-type) for a list of valid types. There are also [accessors to check for a specific type](#isxxx-variant-class-) such as `isInt()`.
+
+```cpp
+// PROTOTYPE
+Type type() const;
+```
+
+### isXXX() [Variant class]
+
+Returns true if the Variant is of the specified type.
+
+```cpp
+// PROTOTYPES
+bool isNull() const;
+bool isBool() const;
+bool isInt() const;
+bool isUInt() const;
+bool isInt64() const;
+bool isUInt64() const;
+bool isDouble() const;
+bool isNumber() const;
+bool isString() const;
+bool isArray() const;
+bool isMap() const;
+```
+
+### toBool() [Variant class]
+
+{{api name1="Variant::toBool()"}}
+
+Returns value of the variant to an `bool` (boolean, `true` or `false`), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | unchanged |
+| numeric | zero (`0`) &rarr; `false`, non-zero &rarr; `true` |
+| String | `false` &rarr; `false`, 'true' &rarr; "true" |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+bool toBool() const;
+bool toBool(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+### asBool() [Variant class]
+
+{{api name1="Variant::asBool()"}}
+
+Returns a reference to the value contained in this variant as a `bool`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+bool& asBool();
+```
+
+This method will convert the type of the variant to bool if necessary, see [toBool](#tobool-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+### toInt() [Variant class]
+
+{{api name1="Variant::toInt()"}}
+
+Returns the value of the variant to an `int` (32-bit signed), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; "false", true &rarr; "true" |
+| numeric | unchanged |
+| String | string number &rarr; 32-bit integer |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+int toInt() const;
+int toInt(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
+### asInt() [Variant class]
+
+{{api name1="Variant::asInt()"}}
+
+Returns a reference to the value contained in this variant as an `int`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+int& asInt();
+```
+
+This method will convert the type of the variant to `int` if necessary, see [toInt](#toint-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+
+### toUInt() [Variant class]
+
+{{api name1="Variant::toUInt()"}}
+
+Returns the value of the variant to `unsigned` (`unsigned int`, 32-bit unsigned), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0`, true &rarr; `1` |
+| numeric | unchanged |
+| String | string number &rarr; 32-bit unsigned integer |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+unsigned toUInt() const;
+unsigned toUInt(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
+### asUInt() [Variant class]
+
+{{api name1="Variant::asUInt()"}}
+
+Returns a reference to the value contained in this variant as an `unsigned`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+unsigned& asUnsigned();
+```
+
+This method will convert the type of the variant to `unsigned` if necessary, see [toUInt](#touint-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+
+### toInt64() [Variant class]
+
+{{api name1="Variant::toInt64()"}}
+
+Returns the value of the variant to an `int64_t` (64-bit signed integer), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0`, true &rarr; `1` |
+| numeric | unchanged |
+| String | string number &rarr; 64-bit signed integer |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+int64_t toInt64() const;
+int64_t toInt64(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
+### asInt64() [Variant class]
+
+{{api name1="Variant::asInt64()"}}
+
+Returns a reference to the value contained in this variant as an `int64_t`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+int64_t& asInt64();
+```
+
+This method will convert the type of the variant to `int64_t` if necessary, see [toInt64](#toint64-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+
+### toUInt64() [Variant class]
+
+{{api name1="Variant::toUInt64()"}}
+
+Returns the value of the variant to `uint64_t` (64-bit unsigned integer), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0`, true &rarr; `1` |
+| numeric | unchanged |
+| String | string number &rarr; 64-bit unsigned integer |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+uint64_t toUInt64() const;
+uint64_t toUInt64(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
+### asUInt64() [Variant class]
+
+{{api name1="Variant::asUInt64()"}}
+
+Returns a reference to the value contained in this variant as an `uint64_t`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+uint64_t& asUInt64();
+```
+
+This method will convert the type of the variant to `uint64_t` if necessary, see [toUInt64](#touint64-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+
+### toDouble() [Variant class]
+
+{{api name1="Variant::toDouble()"}}
+
+Returns the value of the variant to an `double` (8 byte or 64-bit double precision floating point), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0.0`, true &rarr; `1.0` |
+| numeric | unchanged |
+| String | string number &rarr; double floating point |
+| other | conversion fails |
+
+If the value of the `double` it within the bounds of a `float` you can static cast from `double` to `float`. A `float` (single precision, 4-byte or 32-bit) will be promoted to a `double` automatically if necessary.
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+double toDouble() const;
+double toDouble(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+### asDouble() [Variant class]
+
+{{api name1="Variant::asDouble()"}}
+
+Returns a reference to the value contained in this variant as an `double`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+double& asDouble();
+```
+
+This method will convert the type of the variant to `double` if necessary, see [toDouble](#todouble-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+
+### toString() [Variant class]
+
+{{api name1="Variant::toString()"}}
+
+Returns the value of the variant to an `String` (an ASCII or UTF-8 string) and returns a copy of it, converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; "0", true &rarr; "1" |
+| numeric | converted to a string (decimal ASCII) |
+| String | unchanged |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+String toString() const;
+String toString(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+### asString() [Variant class]
+
+{{api name1="Variant::asString()"}}
+
+Returns a reference to the value contained in this variant as an `String`. This can be used to modify the value of the variant and to more efficiently read the string without having to copy it.
+
+```cpp
+// PROTOTYPE
+String& asString();
+```
+
+This method will convert the type of the variant to `String` if necessary, see [toString](#tostring-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+
+### toArray() [Variant class]
+
+{{api name1="Variant::toArray()"}}
+
+Returns the value of the variant as an array.
+
+| Source | Result | 
+| :--- | :--- |
+| VariantArray | unchanged |
+| other | conversion fails |
+
+This method takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type.
+
+```cpp
+// PROTOTYPES
+VariantArray toArray(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
+### asArray() [Variant class]
+
+{{api name1="Variant::asArray()"}}
+
+Returns a reference to the value contained in this variant as an `VariantArray`. This can be used to modify the value of the variant and to more efficiently read the array without having to copy it.
+
+```cpp
+// PROTOTYPE
+VariantArray& asArray();
+```
+
+This method will not convert the type of variant. If the Variant is not already a `VariantArray` then this method will assert.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+### toMap() [Variant class]
+
+{{api name1="Variant::toMap()"}}
+
+Returns the value of the variant as an map.
+
+| Source | Result | 
+| :--- | :--- |
+| VariantMap | unchanged |
+| other | conversion fails |
+
+This method takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type.
+
+```cpp
+// PROTOTYPES
+VariantMap toMap(bool& ok) const;
+```
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
+### asMap() [Variant class]
+
+{{api name1="Variant::asMap()"}}
+
+Returns a reference to the value contained in this variant as an `VariantMap`. This can be used to modify the value of the variant and to more efficiently read the map without having to copy it.
+
+```cpp
+// PROTOTYPE
+VariantMap& asMap();
+```
+
+This method will not convert the type of variant. If the Variant is not already a `VariantMap` then this method will assert.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+### toJSON [Variant class]
+
+{{api name1="Variant::toJSON()"}}
+
+Serializes a VariantArray or VariantMap as JSON and returns it in a `String` object.
+
+```cpp
+// PROTOTYPE
+String toJSON() const;
+```
+
+
+### fromJSON [Variant class]
+
+{{api name1="Variant::fromJSON()"}}
+
+Given a JSON object as a c-string or `JSONValue`, returns a `Variant` object.
+
+```cpp
+// PROTOTYPE
+static Variant fromJSON(const char* json);
+static Variant fromJSON(const JSONValue& val);
+
+// EXAMPLE
+const char *jsonStr = "{\"a\":123}";
+Variant data = Variant::fromJson(jsonStr);
+```
+
+## VariantArray
+
+{{api name1="VariantArray"}}
+
+The `VariantArray` is a [Vector](#vector), essentially a dynamically-sized array of Variants, which are containers for arbitrary data. Think of this as a container to hold arbitrary data in Variant objects before converting to a JSON array before sending across the network.
+
+```
+// DEFINITION
+typedef Vector<Variant> VariantArray;
+```
+
+The methods below are implemented in the `Variant` class, so you can use them update a `Variant`.
+
+### append() [VariantArray]
+
+{{api name1="Variant::append(val)"}}
+
+Appends an element to the end of a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPES
+bool append(Variant val);
+```
+
+### prepend() [VariantArray]
+
+{{api name1="Variant::prepend(val)"}}
+
+Prepend (insert at the beginning) an element to a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPES
+bool prepend(Variant val);
+```
+
+
+### insertAt() [VariantArray]
+
+{{api name1="insertAt(index, val)"}}
+
+Inserts an element with value `val` at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPES
+bool insertAt(int index, Variant val);
+```
+
+
+### removeAt() [VariantArray]
+
+{{api name1="removeAt()"}}
+
+Removes the element at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+void removeAt(int index);
+```
+
+### at() [VariantArray]
+
+{{api name1="at(index)"}}
+
+Returns a copy of the element (by value, not by reference) at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+Variant at(int index) const;
+```
+
+
+## VariantMap
+
+The `VariantMap` class is a [Map](#map) of a [String](#string-class) to a [Variant](#variant). Think of this as a container to store key-value pair of arbitrary data. This is used to hold data before converting it to JSON for sending over the network.
+
+```
+// DEFINITION
+typedef Map<String, Variant> VariantMap;
+```
+
+The methods below are implemented in the `Variant` class, so you can use them update a `Variant`.
+
+### set() [VariantMap]
+
+{{api name1="Variant::set(key, value)"}}
+
+Add or update an element with key `key` in the map, setting the value to `value`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+bool set(const char* key, Variant val);
+bool set(const String& key, Variant val);
+```
+
+If the stored value of this `Variant` is not a map, it is converted to a map in place prior to the operation.
+
+### remove() [VariantMap]
+
+{{api name1="Variant::remove(key)"}}
+
+Remove an key `key` in the map. Returns true if this variant is a map and the key exists, otherwise returns false. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+bool remove(const char* key);
+bool remove(const String& key);
+```
+
+### get() [VariantMap]
+
+{{api name1="Variant::get(key)"}}
+
+Get the value of an element in the map. This method is implemented in `Variant`.
+
+This method copies the value, which is inefficient for complex variant values. operator[] can be used
+to get a reference to the value instead of copying it.
+
+If this variant is not a map, or the key does not exist, a null variant is returned.
+
+```cpp
+// PROTOTYPES
+Variant get(const char* key) const;
+Variant get(const String& key) const;
+```
+
+
+### has() [VariantMap]
+
+{{api name1="Variant::has(key)"}}
+
+Returns true if this variant is a map and contains `key`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+bool has(const char* key) const;
+bool has(const String& key) const;
+```
+
+
+## Map
+
+{{api name1="Map"}}
+
+{{since when="6.1.0"}}
+
+The `Map` C++ template holds key-value pairs. The template parameters determine the type of the key and value.
+
+The [VariantMap](#variantmap) is used by [Ledger](#ledger) to map [String](#string-class) to a [Variant](#variant) in [Ledger](#ledger). 
+
+
+### Map() [Map template]
+
+{{api name1="Map::Map()"}}
+
+Allocates an empty Map object. As it is a template you will also need to include template parameters or use a predefined class like [VariantMap](#variantmap).
+
+```cpp
+// PROTOTYPE
+Map();
+```
+
+### Map(std::initializer_list<Entry> entries) [Map template]
+
+{{api name1="Map::Map(initializer_list)"}}
+
+Create a map from static initalization, typically to seed values from code.
+
+```cpp
+// PROTOTYPE
+Map(std::initializer_list<Entry> entries);
+
+// EXAMPLE
+Map<String, int> m1({ {"a", 123}, {"b", 456} });
+```
+
+
+### Map(const Map& map) [Map template]
+
+{{api name1="Map::Map(map)"}}
+
+Makes a new map that's a copy of an existing map. After copying, changes in the original map won't affect the copy.
+
+```cpp
+// PROTOTYPE
+Map(const Map& map);
+```
+
+
+### set(const T& key, ValueT val) [Map template]
+
+{{api name1="Map::set(key, value)"}}
+
+Replace an existing key-value pair in the map, or create a new one if `key` does not already exist.
+
+Returns true if the operation succeeded or false, typically because there wasn't enough free memory to add the entry.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+bool set(const T& key, ValueT val);
+```
+
+
+### get(const T& key) [Map template]
+
+{{api name1="Map::get(key)"}}
+
+Gets the value of an entry in the map from its `key`. If the key does not exist, returns an empty value. See also the overload that allows you to specify the default value to be returned if the key does not exist.
+
+This returns a copy of the value, so it's less efficient for complex values. See also `operator[]` which returns a reference to the value instead of a copy, and `find()` which returns an iterator for the value.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ValueT get(const T& key) const;
+```
+
+
+### get(const T& key, const ValueT& defaultVal) [Map template]
+
+{{api name1="Map::get(key, defaultVal)"}}
+
+Gets the value of an entry in the map from its `key`. If the key does not exist, returns `defaultVal`.
+
+This returns a copy of the value, so it's less efficient for complex values. See also `operator[]` which returns a reference to the value instead of a copy, and `find()` which returns an iterator for the value.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ValueT get(const T& key, const ValueT& defaultVal) const;
+```
+
+### has(const T& key) [Map template]
+
+{{api name1="Map::has(key)"}}
+
+Returns true if the map has an entry with a key `key`.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+bool has(const T& key) const;
+```
+
+
+
+### find(const T& key) [Map template]
+
+{{api name1="Map::find(key)"}}
+
+Returns a `Map::Iterator` or `Map::ConstIterator` for an element with a key `key`. The iterator has a value of `end()` if the key is not found.
+
+```cpp
+// PROTOTYPES
+template<typename T>
+Iterator find(const T& key);
+
+template<typename T>
+ConstIterator find(const T& key) const;
+```
+
+### begin() [Map template]
+
+{{api name1="Map::begin()"}}
+
+Returns a `Map::Iterator` or `Map::ConstIterator` for iterating the entries in a map. 
+
+```cpp
+// PROTOTYPES
+Iterator begin();
+ConstIterator begin() const;
+
+// EXAMPLE
+Map<String, int> m1({ {"a", 123}, {"b", 456} });
+for(auto it = m1.begin(); it != m1.end(); it++) {
+    Log.info("key=%s value=%d", it->first.c_str(), it->second);
+}
+```
+
+### end() [Map template]
+
+{{api name1="Map::end()"}}
+
+Returns a `Map::Iterator` or `Map::ConstIterator` for the entry after the last element of the map.
+
+```cpp
+// PROTOTYPES
+Iterator end();
+ConstIterator end() const;
+```
+
+### erase(ConstIterator pos) [Map template]
+
+{{api name1="Map::erase(pos)"}}
+
+Removes the entry at the current iterator position and returns the value to use to continue iteration.
+
+```cpp
+// PROTOTYPE
+Iterator erase(ConstIterator pos);
+```
+
+### remove(const T& key) [Map template]
+
+{{api name1="Map::remove(key)"}}
+
+Remove entry with key `key` from the map. Returns true if the item existed and was removed, false if it did not exist.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+bool remove(const T& key);
+```
+
+
+### clear() [Map template]
+
+{{api name1="Map::clear()"}}
+
+Removes all entries from the map
+
+```cpp
+// PROTOTYPE
+void clear();
+```
+
+
+### size() [Map template]
+
+{{api name1="Map::size()"}}
+
+Returns the number of entries in the map.
+
+```cpp
+// PROTOTYPE
+int size() const;
+```
+
+
+### isEmpty() [Map template]
+
+{{api name1="Map::isEmpty()"}}
+
+Returns true if the map has no entries (size == 0).
+
+```cpp
+// PROTOTYPE
+ool isEmpty() const;
+```
+
+
+### operator[] (key) [Map template]
+
+{{api name1="Map::operator[](key)"}}
+
+Gets a reference to an entry with key `key`. This will create the entry if it does not exist. If there is insufficient memory to allocate a new entry, it will cause a SOS panic. Using `set()` can provide more control over error conditions.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ValueT& operator[](const T& key);
+
+// EXAMPLE
+Map<String, int> m1({ {"a", 123}, {"b", 456} });
+m1["a"] = 999;
+```
+
+
+
+## Vector
+
+{{api name1="Vector"}}
+
+{{since when="0.6.1"}}
+
+The `Vector` C++ template is a dynamically-sized vector, essentially a dynamically-sized array, with additional convenience functions. It's similar to `std::vector` but does not require linking std::vector into the user application, which can save on flash usage. Vector is used by [Ledger](#ledger). 
+
+As it a template, it can be used to store arbitrary C++ data types as well as standard built-in types. Some examples of types used in Device OS include:
+
+```cpp
+Vector<WifiNetworkConfig>
+Vector<NetworkInterfaceConfig>
+Vector<SockAddr>
+Vector<WifiScanResult>
+Vector<BleCharacteristic>
+Vector<BleService>
+Vector<Asset>
+Vector<String>
+Vector<char>
+Vector<char *>
+Vector<void *>
+Vector<uint8_t>
+```
+
+As it is a vector (not a linked list), it's efficient to randomly access elements in the list by their index.
+
+### Vector() [Vector template]
+
+{{api name1="Vector::Vector()"}}
+
+Allocates a Vector object that is empty. It will be expanded as necessary. If you know the number of elements or the element contents, there are other constructors that can be used.
+
+```cpp
+// PROTOTYPE
+Vector();
+```
+
+### Vector(int n) [Vector template]
+
+{{api name1="Vector::Vector(n)"}}
+
+Allocates a Vector object of size n elements. It can be expanded later if desired.
+
+```cpp
+// PROTOTYPE
+explicit Vector(int n);
+```
+
+### Vector(int n, const T& value) [Vector template]
+
+{{api name1="Vector::Vector(n, value)"}}
+
+Allocates a Vector object of size `n` elements with each item in the vector set to value.
+
+```cpp
+// PROTOTYPE
+explicit Vector(int n, const T& value);
+```
+
+
+### Vector(std::initializer_list<T> values) [Vector template]
+
+{{api name1="std::initializer_list<T> values"}}
+
+Allocates a Vector object from a `std::initializer_list<T>`. This is often used to initialize a list of values from code, see the example.
+
+```cpp
+// PROTOTYPE
+Vector(std::initializer_list<T> values);
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+```
+
+### Vector(const Vector<T, AllocatorT>& vector) [Vector template]
+
+{{api name1="Vector(Vector)"}}
+
+Allocates a new vector object that is a copy of an existing Vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after allocation.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+```cpp
+// PROTOTYPE
+Vector(const Vector<T, AllocatorT>& vector);
+```
+
+### append(T value) [Vector template]
+
+{{api name1="Vector::append(value)"}}
+
+Appends a value to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(T value);
+```
+
+### append(int n, const T& value) [Vector template]
+
+{{api name1="Vector::append(n, value)"}}
+
+Appends `n` copies of `value` to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(int n, const T& value);
+```
+
+### append(const T* values, int n) [Vector template]
+
+{{api name1="Vector::append(values, n)"}}
+
+Appends the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to append those items to your vector. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(const T* values, int n);
+```
+
+
+### append(const Vector<T, AllocatorT>& vecto) [Vector template]
+
+{{api name1="Vector::append(Vector)"}}
+
+Appends an existing vector to the end of this vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after appending.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(const Vector<T, AllocatorT>& vecto);
+```
+
+
+### prepend(T value) [Vector template]
+
+{{api name1="Vector::prepend(value)"}}
+
+Prepend (insert at beginning) a value to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(T value);
+```
+
+### prepend(int n, const T& value) [Vector template]
+
+{{api name1="Vector::prepend(n, value)"}}
+
+Prepend (insert at beginning) `n` copies of `value` to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(int n, const T& value);
+```
+
+### prepend(const T* values, int n) [Vector template]
+
+{{api name1="Vector::prepend(values, n)"}}
+
+Prepend (insert at beginning) the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to prepend those items to your vector. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(const T* values, int n);
+```
+
+
+### prepend(const Vector<T, AllocatorT>& vector) [Vector template]
+
+{{api name1="Vector::prepend(Vector)"}}
+
+Prepend (insert at beginning) an existing vector to the end of this vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after appending.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(const Vector<T, AllocatorT>& vecto);
+```
+
+
+### insert(int i, T value) [Vector template]
+
+{{api name1="Vector::insert(index, value)"}}
+
+Insert at location `i` (0 = beginning) a value to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(int i, T value);
+```
+
+### insert(int i, int n, const T& value) [Vector template]
+
+{{api name1="Vector::insert(index, n, value)"}}
+
+Insert at location `i` (0 = beginning) `n` copies of `value` to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(int i, int n, const T& value);
+```
+
+### insert(int i, const T* values, int n) [Vector template]
+
+{{api name1="Vector::insert(index, values, n)"}}
+
+Insert at location `i` (0 = beginning) the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to insert those items to your vector. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(int i, const T* values, int n);
+```
+
+
+### insert(const Vector<T, AllocatorT>& vector) [Vector template]
+
+{{api name1="Vector::insert(vector)"}}
+
+Insert at location `i` (0 = beginning) an existing vector to the end of this vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after appending.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(const Vector<T, AllocatorT>& vecto);
+```
+
+### removeAt(removeAt(int i, int n = 1) [Vector template]
+
+{{api name1="Vector::removeAt(index, n)"}}
+
+Removes `n` elements (default" 1) at location `i` (0 = beginning) from a vector.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers are not deleted or freed; you must maintain your own object lifecycle.
+
+
+```cpp
+// PROTOTYPE
+void removeAt(int i, int n = 1);
+```
+
+
+### bool removeOne(const T& value) [Vector template]
+
+{{api name1="Vector::removeOne(value)"}}
+
+Removes the first element whose value is `value`. This works for primitive types (int, etc.) as well as classes that support `operator==` like `String`.
+
+If the value is a pointer (such as `char *`) it will compare the pointer itself, not the thing being pointed to.
+
+Returns true if the item existed and was removed.
+
+```cpp
+// PROTOTYPE
+bool removeOne(const T& value);
+```
+
+
+### bool removeAll(const T& value) [Vector template]
+
+{{api name1="Vector::removeAll(value)"}}
+
+Removes all elements whose value is `value`. This works for primitive types (int, etc.) as well as classes that support `operator==` like `String`.
+
+If the value is a pointer (such as `char *`) it will compare the pointer itself, not the thing being pointed to.
+
+Returns true if the item existed and at least one was removed.
+
+```cpp
+// PROTOTYPE
+bool removeAll(const T& value);
+```
+
+
+### T takeFirst() [Vector template]
+
+{{api name1="Vector::takeFirst()"}}
+
+Removes the first element of the vector and returns it. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPE
+T takeFirst();
+```
+
+### T takeLast() [Vector template]
+
+{{api name1="Vector::takeLast()"}}
+
+Removes the last element of the vector and returns it. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPE
+T takeLast();
+```
+
+### T takeAt(int i) [Vector template]
+
+{{api name1="Vector::takeAt(index)"}}
+
+Removes the element of the vector at index `i` and returns it. `i` is zero-based (0 = same as takeFirst). 
+Make sure the item exists before calling.
+
+```cpp
+// PROTOTYPE
+T takeAt(int i);
+```
+
+### T first() [Vector template]
+
+{{api name1="Vector::first()"}}
+
+Peek at the first item in the vector. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPES
+T& first();
+const T& first() const;
+```
+
+### T last() [Vector template]
+
+{{api name1="Vector::last()"}}
+
+Peek at the last item in the vector. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPES
+T& last();
+const T& last() const;
+```
+
+### T at(int i) [Vector template]
+
+{{api name1="Vector::at(index)"}}
+
+Peek at item `i` in the vector (zero-based). Only call this if the item exists.
+
+```cpp
+// PROTOTYPES
+T& at(int i);
+const T& at(int i) const;
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+Log.info("%d", v.at(0));
+```
+
+### operator[] (int i) [Vector template]
+
+{{api name1="Vector::operator[](index)"}}
+
+Peek at item `i` in the vector (zero-based) using `operator[]` instead of `at()`. Only call this if the item exists.
+
+When used on the left side an expression, sets the value at that location. The array must already contain that element; you cannot 
+increase the size of the array using operator[].
+
+```cpp
+// PROTOTYPES
+T& operator[](int i);
+const T& operator[](int i) const;
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+Log.info("%d", v[0]);
+v[0] = 999;
+```
+
+
+### indexOf(const T& value, int i = 0) [Vector template]
+
+{{api name1="Vector::indexOf(value, index)"}}
+
+Find the index (zero-based) of an item whose value is `value` starting at index `i` (optional, if not specified from the start at index 0).
+
+Returns -1 if the item does not exist.
+
+```cpp
+// PROTOTYPE
+int indexOf(const T& value, int i = 0) const;
+```
+
+
+### lastIndexOf(const T& value) [Vector template]
+
+{{api name1="Vector::lastIndexOf(value)"}}
+
+Find the index (zero-based) of the last item whose value is `value` in the vector.
+
+Returns -1 if the item does not exist.
+
+```cpp
+// PROTOTYPE
+int lastIndexOf(const T& value) const;
+```
+
+### lastIndexOf(const T& value, int i) [Vector template]
+
+{{api name1="Vector::lastIndexOf(value, index)"}}
+
+Find the index (zero-based) of the last item whose value is `value` in the vector starting at index `i`.
+
+Returns -1 if the item does not exist.
+
+```cpp
+// PROTOTYPE
+int lastIndexOf(const T& value, int i) const;
+```
+
+### contains(const T& value) [Vector template]
+
+{{api name1="contains(value)"}}
+
+Returns true if the vector contains an item whose value is `value`. Essentially the same as `indexOf() >= 0`.
+
+```cpp
+// PROTOTYPE
+bool contains(const T& value) const;
+```
+
+
+### size() [Vector template]
+
+{{api name1="Vector::size()"}}
+
+Returns the size of the vector. 0 = empty. This operation is constant time regardless of the size of the vector.
+
+```cpp
+// PROTOTYPE
+int size() const;
+```
+
+
+
+### isEmpty() [Vector template]
+
+{{api name1="Vector::isEmpty()"}}
+
+Returns true if the vector is empty (size == 0).
+
+```cpp
+// PROTOTYPE
+bool isEmpty() const;
+```
+
+
+### isEmpty() [Vector template]
+
+{{api name1="Vector::clear()"}}
+
+Removes all items in the vector, leaving it with a size of 0.
+
+```cpp
+// PROTOTYPE
+void clear();
+```
+
+
+### begin() [Vector template]
+
+{{api name1="Vector::begin()"}}
+
+Returns a `Vector::Iterator` or `Vector::ConstIterator` to iterate the vector. Since the vector provides efficient random access
+to elements you can also access the items by index using `at()` and an incrementing or decrementing loop instead of using an iterator.
+
+```cpp
+// PROTOTYPES
+Iterator begin();
+ConstIterator begin() const;
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+for(auto it = v.begin(); it != v.end(); it++) {
+    Log.info("value %d", *it);
+}
+```
+
+### end() [Vector template]
+
+{{api name1="Vector::end()"}}
+
+Returns a `Vector::Iterator` or `Vector::ConstIterator` of the end of the vector.
+
+```cpp
+// PROTOTYPES
+Iterator end();
+ConstIterator end() const;
+```
+
+### insert(ConstIterator pos, T value) [Vector template]
+
+{{api name1="Vector::insert(pos, value)"}}
+
+Inserts `value` at the current position of iterator `pos`, making the vector larger. Returns a new value
+to continue iteration.
+
+```cpp
+// PROTOTYPE
+Iterator insert(ConstIterator pos, T value);
+```
+
+
+### insert(ConstIterator pos, T value) [Vector template]
+
+{{api name1="Vector::insert(pos, value)"}}
+
+Removes the item at the current position of iterator `pos`, making the vector smaller. Returns a new value
+to continue iteration.
+
+```cpp
+// PROTOTYPE
+Iterator erase(ConstIterator pos);
+```
+
+
 
 ## NFC
 
@@ -16866,7 +18682,7 @@ sensVal = constrain(sensVal, 10, 150);
 // limits range of sensor values to between 10 and 150
 ```
 
-### map()
+### map() [value tranformation]
 
 ```cpp
 // EXAMPLE USAGE
