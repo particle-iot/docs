@@ -13,6 +13,8 @@ This is a preliminary datasheet based on pre-release version of the hardware. Ch
 
 The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM modules.
 
+{{imageOverlay src="/assets/images/m-series/m2breakout_top.png" alt="Illustration" class="full-width"}}
+
 ## Block diagram
 
 {{imageOverlay src="/assets/images/m-series/M.2-block-diagram.png" alt="Block diagram" class="full-width"}}
