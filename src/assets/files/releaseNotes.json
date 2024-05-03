@@ -28086,6 +28086,324 @@
                 2757,
                 2758
             ]
+        },
+        "v6.1.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.1.0",
+            "tag_name": "v6.1.0",
+            "name": "v6.1.0 (Argon/Boron/B SoM/B5 SoM/Tracker/E SoM X)",
+            "prerelease": true,
+            "created_at": "2024-04-30T00:02:56Z",
+            "published_at": "2024-05-03T15:52:42Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2715,
+                        2756
+                    ],
+                    "section": "FEATURES",
+                    "text": "Ledger"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2746,
+                        2754,
+                        2758
+                    ],
+                    "section": "FEATURES",
+                    "text": "`WiFi.setCredentials()` with credentials validation"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2766
+                    ],
+                    "section": "FEATURES",
+                    "text": "Backup RAM is no longer automatically written to flash periodically. Backup RAM will be saved when entering sleep. If users are going to reset, `hal_backup_ram_sync()` should be called first"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2735
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Improve BG95 connection speed by only setting `nwscanseq` if needed"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2730
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Include IMEI in `CTRL_REQUEST_CELLULAR_GET_ICCID` control request"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2745
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Process system tasks while cloud handshake is in progress"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2736
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix incorrect `int` to `bool` conversion in `WiFi.clearCredentials()`"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2739
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix boot loop if system-part module info is corrupted"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2742
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix OTA bounds check, add `ota/min_max_app_size` test"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2743
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix `std::call_once` re-entrancy problem"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2741
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Prevent OTA progress events from blocking system thread"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2747,
+                        2752,
+                        2755,
+                        2754
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix WiFi/BLE coexistence and WiFi/BLE stability issues"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2744,
+                        2752,
+                        2754
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix USB re-enumeration issues"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2749,
+                        2757
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix incorrect timing of SPI TX-only transaction completion notification"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2750
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix an issue with `micros()` and `millis()` occasionally jumping forward after ~37 hours"
+                },
+                {
+                    "tags": [
+                        "Cellular",
+                        "Quectel"
+                    ],
+                    "prs": [
+                        2752
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Try to force open PPP channel, helps with warm boot PPP session resume in some cases"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2755
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix sockfd matching in ACM connectivity manager causing a panic"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2757
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix UART initialization issue with non-32-byte-aligned buffers"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2766
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Reinitialize internal wifi stack if scan or connect fails  [#2760](https://github.com/particle-iot/device-os/pull/2760/)"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2765
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Resolve deadlock with USB serial monitoring on boot in some cases"
+                },
+                {
+                    "tags": [
+                        "Tracker"
+                    ],
+                    "prs": [
+                        2740
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Disable ESP32 SDIO debug logs"
+                },
+                {
+                    "tags": [
+                        "GCC"
+                    ],
+                    "prs": [
+                        2737
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Enable Ledger and filesystem APIs on GCC platform"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2751
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix monolithic build errors"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2752
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Upgrade `ambd_sdk` WiFi and BLE subsystems to `6.2_patch_integrated_231211_25b3bc38`"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2753
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update USB/BLE platform names to use hyphenated notation"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2761
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Prevent M404/BG95M5 modems from connecting on 2G networks for the time being"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2761
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Query 2G registration status for M404/BG95M5 modems when querying CGMI"
+                }
+            ],
+            "prs": [
+                2715,
+                2730,
+                2735,
+                2736,
+                2737,
+                2739,
+                2740,
+                2741,
+                2742,
+                2743,
+                2744,
+                2745,
+                2746,
+                2747,
+                2749,
+                2750,
+                2751,
+                2752,
+                2753,
+                2754,
+                2755,
+                2756,
+                2757,
+                2758,
+                2761,
+                2765,
+                2766
+            ]
         }
     },
     "pulls": {
@@ -41360,6 +41678,43 @@
             "state": "open",
             "created_at": "2024-04-10T19:30:52Z",
             "detail": "The existing `JoinNewNetworkRequest` protobuf message has some behavior that might be undesireable in some circumstances.\n- The wifi network specified in the request must be present for the credentials to be stored\n- The device will power on wifi and attempt to connect to wifi (not necessarily using the new credentials if there are existing credentials/networks known)"
+        },
+        "2764": {
+            "url": "https://github.com/particle-iot/device-os/pull/2764",
+            "number": 2764,
+            "title": "[Gen 4] change coexistence behavior in wifi connecting or wifi connected states with background BLE low prio activity",
+            "state": "open",
+            "created_at": "2024-04-22T14:48:59Z"
+        },
+        "2765": {
+            "url": "https://github.com/particle-iot/device-os/pull/2765",
+            "number": 2765,
+            "title": "[usb][rtl872x] Resolves deadlocks on boot with usbd_isr_ and app threads",
+            "state": "closed",
+            "created_at": "2024-04-22T22:29:57Z",
+            "detail": "MSOM devices deadlock when a USB serial terminal is left connected to them on boot. Examples are when doing DFU flashing via command line / workbench with either minicom or `particle serial monitor` running."
+        },
+        "2766": {
+            "url": "https://github.com/particle-iot/device-os/pull/2766",
+            "number": 2766,
+            "title": "[rtl872x] disable periodic backup ram sync, reset wifi stack on no scan results",
+            "state": "closed",
+            "created_at": "2024-04-23T16:51:43Z"
+        },
+        "2767": {
+            "url": "https://github.com/particle-iot/device-os/pull/2767",
+            "number": 2767,
+            "title": "Device OS v5.8.1",
+            "state": "closed",
+            "created_at": "2024-04-23T18:43:48Z"
+        },
+        "2768": {
+            "url": "https://github.com/particle-iot/device-os/pull/2768",
+            "number": 2768,
+            "title": "[RTL872x] multiple SPI fixes",
+            "state": "open",
+            "created_at": "2024-04-27T05:41:00Z",
+            "detail": "1. `SPI.transfer(byte)` may lose data\n2. SPI settings before `SPI.begin()` won't apply\n3. `SPI.transfer(txBuf, nullptr, size, callback)` will lose data if CS pin is deasserted after the callback is invoked\n4. SPI slave DMA state machine is messed up if master just toggles the CS pin"
         }
     }
 }
