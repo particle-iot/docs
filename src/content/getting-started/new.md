@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.1.0 2024-05-03
+
+Device OS 6.1.0 is now in Device Restore USB, Hex Generator, etc.. Note that this releases is for Gen 3 (nRF52) only; it is not supported on P2, Photon 2, and M-SoM (RTL872x).
+
 ### Device-side ledger 2024-05-02
 
 [Ledger](/getting-started/logic-ledger/ledger/) support on Particle devices is now available in Device OS 6.1.0.
