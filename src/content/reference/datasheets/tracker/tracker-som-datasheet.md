@@ -22,7 +22,7 @@ description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 - LTE Cat 1 (selected countries in the EMEAA region) or LTE Cat M1 (North America) cellular modem
-- GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
+- GNSS (supports GPS and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
 - Support for CAN bus and 5V power for CAN devices
 - Built-in Inertial Measurement Unit (IMU)
 - Castellated module can be reflow soldered to your base board, and is available on an evaluation board or carrier board
@@ -40,7 +40,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 
  * GNSS u-blox Neo M8U for GNSS with on-board dead-reckoning for up to 1.8m CEP50 GPS accuracy
-  * Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, Galileo E1B/C
+  * Supports GPS L1C/A, Galileo E1B/C
   * Support for battery-backup for almanac and ephemeris data
  * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
@@ -658,8 +658,8 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 - u-blox NEO-M8U untethered dead reckoning module including 3D inertial sensors
 - SPI Interface 
-- Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, and Galileo E1B/C
-
+* Supports GPS L1C/A, Galileo E1B/C
+  
 | Parameter | Specification |
 | :--- | :--- |
 | Dynamics operational limit<sup>1</sup> | &le; 4g | 
@@ -670,18 +670,18 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Max navigation update rate<sup>3</sup> | 30 Hz |
 | Max navigation latency<sup>3</sup> | < 10 ms | 
 
-| Parameter |                                       | GPS & GLONASS | GPS      | GLONASS  | BeiDou   | Galileo  |
-| :--- | :---                                       | :---          | :---     | :---     | :---     | :---     |
-| Time-To-First Fix<sup>5</sup> | Cold start        | 26s           | 30s      | 31s      | 39s      | 57s      |
-|                               | Hot start         | 1.5s          | 1.5s     | 1.5s     | 1.5s     | 1.5s     |
-|                  | Aided start<sup>6</sup>        | 3s            | 3s       | 3s       | 7s       | 7s       |
-| Sensitivity <sup>78</sup> | Tracking & Navigation | -160 dBm      | -160 dBm | -157 dBm | -160 dBm | -154 dBm |
-|                           | Reacquisiton          | -160 dBm      | -159 dBm | -156 dBm | -155 dBm | -152 dBm |
-|                           | Cold Start            | -148 dBm      | -147 dBm | -145 dBm | -143 dBm | -133 dBm |
-|                           | Hot Start             | -157 dBm      | -156 dBm | -155 dBm | -155 dBm | -151 dBm |
-| Horizontal positioning accuracy | Autonomous <sup>9</sup> | 2.5m  | 2.5m     | 4.0m     | 3.0m     | TBC<sup>10</sup> |
-|                         | With SBAS<sup>11</sup>  | 1.5m          | 1.5m     | -        | -        | -        |
-| Altitude accuracy       | With SBAS<sup>12</sup>  | 3.5m          | 3.0m     | 7.0m     | 5.0m     | -        |
+| Parameter |                                       | GPS      | Galileo  |
+| :--- | :---                                       | :---     | :---     |
+| Time-To-First Fix<sup>5</sup> | Cold start        | 30s      | 57s      |
+|                               | Hot start         | 1.5s     | 1.5s     |
+|                  | Aided start<sup>6</sup>        | 3s       | 7s       |
+| Sensitivity <sup>78</sup> | Tracking & Navigation | -160 dBm | -154 dBm |
+|                           | Reacquisiton          | -159 dBm | -152 dBm |
+|                           | Cold Start            | -147 dBm | -133 dBm |
+|                           | Hot Start             | -156 dBm | -151 dBm |
+| Horizontal positioning accuracy | Autonomous <sup>9</sup>    | TBC<sup>10</sup> |
+|                         | With SBAS<sup>11</sup>  | 1.5m     | -        |
+| Altitude accuracy       | With SBAS<sup>12</sup>  | 3.0m     | -        |
 
 <sup>1</sup> Configured for Airborne < 4g platform
 
@@ -1398,3 +1398,4 @@ The bootloader allows you to easily update the user application via several diff
 | 026      | 2023 Jul 19 | RK | Block diagram had incorrect RGB pins |
 | 027      | 2023 Nov 20 | RK | Added link to footprint and restrict information |
 | 028      | 2023 Dec 23 | RK | Clarify use of PMID pin |
+| 029      | 2024 May 06 | RK | Updated list of supported GNSS |

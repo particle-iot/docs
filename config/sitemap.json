@@ -1435,8 +1435,8 @@
             "hash": "f2e75f5229b4625cbd15c3082ed36c031ca5c17c6d4fd2ebdf727386518b4d1a"
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "f7e80510ed4498324a8d5180e33a11babf4fc6ce826f57ec6e367f441e352cad"
+            "date": "2024-05-06",
+            "hash": "c2b0427c8ea4771249cf302a1fa608af17fa070a7d55b139d27ffe562f392c05"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
             "date": "2023-03-30",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "4a3d82c922de1ec4cf1c44dda3224a28780b9788c80f91f5bd504a772b7fee40",
-            "date": "2024-05-03"
+            "hash": "613f9674850fc1adc1d0feea6119add5655e902760cdab8a65bfb540652a42f5",
+            "date": "2024-05-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

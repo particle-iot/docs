@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker SoM supported GNSS 2024-05-06
+
+Updated the list of supported GNSS systems for the [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/).
+
 ### Device OS 6.1.0 2024-05-03
 
 Device OS 6.1.0 is now in Device Restore USB, Hex Generator, etc.. Note that this releases is for Gen 3 (nRF52) only; it is not supported on P2, Photon 2, and M-SoM (RTL872x).

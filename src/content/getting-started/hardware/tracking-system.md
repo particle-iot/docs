@@ -28,7 +28,7 @@ The [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/) system-o
 Features include:
 
 - LTE Cat 1 (EMEAA) or LTE Cat M1 (North America) cellular modem
-- GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
+- GNSS (supports GPS and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
 - Support for CAN bus and 5V power for CAN devices
 - Built-in Inertial Measurement Unit (IMU)
 
