@@ -4898,7 +4898,7 @@ void setup() {
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
 {{since when="0.9.0"}}
-On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supported on 0.8.0-rc versions.
+On the Boron, Cellular.command requires Device OS 0.9.0 or later.
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
 
@@ -16292,8 +16292,6 @@ void loop()
 
 **NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
-**NOTE:** Servo is only supported on Gen 3 devices in Device OS 0.8.0-rc.26 and later.
-
 
 ### attach()
 
@@ -20147,7 +20145,7 @@ Using the current sleep APIs is recommended on all cellular devices. The legacy 
 ---
 
 {{note op="start" type="gen3"}}
-Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for Gen 3 devices.
+Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM) only support sleep modes in 0.9.0 and later.
 
 On the Argon, Boron, and Xenon, WKP is pin D8.
 

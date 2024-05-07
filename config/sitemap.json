@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-05-01",
-            "hash": "f3e88b185fdab868bbab26c9d08c2b267cf0940d3786ee6077964adbf5c9da8f"
+            "date": "2024-05-07",
+            "hash": "f60ede0c220c28f3f0d4bf9bdd80bfbc8222fd23c4e1f8cf8ed705824fa2f56d"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1435,8 +1435,8 @@
             "hash": "f2e75f5229b4625cbd15c3082ed36c031ca5c17c6d4fd2ebdf727386518b4d1a"
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
-            "date": "2024-05-06",
-            "hash": "c2b0427c8ea4771249cf302a1fa608af17fa070a7d55b139d27ffe562f392c05"
+            "date": "2024-05-07",
+            "hash": "2f5c7224dd4b2df0fe60186f05d026062d2815afcb65250389f426f92ab67fd3"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
             "date": "2023-03-30",
@@ -2271,8 +2271,8 @@
             "hash": "345b7c777cb5dfc70f5aa0d0daa6c5d3ae104094ea7d8b8d50e6a4a1b692840c"
         },
         "reference/device-os/api/cellular/command.md": {
-            "date": "2023-09-20",
-            "hash": "f7ec692f347895ea420dd589741a8d823570eef6641364262b9f226fc8cec9ae"
+            "date": "2024-05-07",
+            "hash": "35b46dcada83fdff04508a7f49f77d0bb7d6808528e8ab2ceeb37ec0bb3139bb"
         },
         "reference/device-os/api/battery-voltage/battery-voltage-photon-2.md": {
             "date": "2023-10-21",
@@ -3171,8 +3171,8 @@
             "hash": "1ba4e7575e507381796f62798f86ca9b47ad6233d9519b558850370ccde5bf1d"
         },
         "reference/device-os/api/servo/servo.md": {
-            "date": "2023-09-20",
-            "hash": "f79d65ed1078ef4831aaf0b9e4b2a389e9651f2aa8a52d9cd6735ef9ef410d9e"
+            "date": "2024-05-07",
+            "hash": "512311c4e138604bdd1e04048f30acb0acab84bc01a6ac9193565c098e346964"
         },
         "reference/device-os/api/servo/attach.md": {
             "date": "2024-02-27",
@@ -3659,8 +3659,8 @@
             "hash": "216b745b7cb507fd1ca444ce5a365ea459d5049cbb808ab5f58b5ba6c90e4335"
         },
         "reference/device-os/api/sleep-classic-api/sleep-classic-api.md": {
-            "date": "2024-02-27",
-            "hash": "2d2dfcb99037b8820557106276ecea3f75f3d150ff71877e1e61d61e44f72c60"
+            "date": "2024-05-07",
+            "hash": "bde57e558a8fb8a834aac5d6dba67207db5f3b3d6c4cf717d6556d99d8159bf2"
         },
         "reference/device-os/api/sleep-classic-api/sleep-transitioning-from-classic-api.md": {
             "date": "2023-09-20",

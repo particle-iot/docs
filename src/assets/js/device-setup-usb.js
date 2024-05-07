@@ -2696,27 +2696,30 @@ $(document).ready(function() {
 
             if (deviceInfo.platformVersionInfo.hasNCP) {
                 let updateNcp = false;
+                let minNcpVersion = 0;
 
+                // TODO: Don't hardcode the version and path here!
                 if (deviceInfo.platformVersionInfo.isTracker) {
-                    if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
-                        // Is a tracker, could need NCP
-                        const m = deviceModuleInfo.getModuleNcp();
-                        if (m) {
-                            // TODO: Get this from the NCP binary
-                            if (m.version < 7) {
-                                updateNcp = true;                            
-                            }
-                        }
-                    }
-                    else {
-                        updateNcp = flashDeviceOptions.updateNcp;
-                    }
-                    flashDeviceOptions.ncpPath = '/assets/files/ncp/tracker-esp32-ncp@0.0.7.bin';                    
+                    minNcpVersion = 7;               
+                    flashDeviceOptions.ncpPath = '/assets/files/ncp/tracker-esp32-ncp@0.0.7.bin';     
                 }
                 else {
-                    // TODO: Probably add the logic above if we ever have a required Argon NCP upgrade
-                    updateNcp = flashDeviceOptions.updateNcp;
+                    minNcpVersion = 5;
                     flashDeviceOptions.ncpPath = '/assets/files/ncp/argon-ncp-firmware-0.0.5-ota.bin';
+                }
+
+                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
+                    const m = deviceModuleInfo.getModuleNcp();
+                    if (m) {
+                        if (m.version < minNcpVersion) {
+                            updateNcp = true;                            
+                        }
+                        console.log('version on device=' + m.version + ' minNcpVersion=' + minNcpVersion);
+                    }
+                }
+                else {
+                    updateNcp = flashDeviceOptions.updateNcp;
+                    console.log('forcing ncp update updateNcp=' + updateNcp);
                 }
 
                 if (updateNcp) {
