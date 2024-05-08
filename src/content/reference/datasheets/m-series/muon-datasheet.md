@@ -17,7 +17,7 @@ This is a preliminary overview of the Muon. A full datasheet will be released at
 The Muon is a developer kit based on the M-SoM with additional peripherals for easy prototyping.
 
 - LoRaWAN module (Quectel KG200Z, 862 – 928 MHz)
-- 96-pin expansion connector
+- Expansion connector
 - Temperature sensor (TMP112A)
 - Configuration EEPROM (24CW640T)
 - Real-time clock and watchdog chip (AM1805)

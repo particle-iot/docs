@@ -180,7 +180,7 @@ The Asset Tracker SoM is a castellated SoM designed to be reflow soldered to you
 The Muon contains an M-SoM module in a M.2 socket and a carrier board with an expansion connector, along with additional peripherals, including:
 
 - LoRaWAN module (Quectel KG200Z, 862 – 928 MHz)
-- 96-pin expansion connector
+- Expansion connector
 - Temperature sensor (TMP112A)
 - Configuration EEPROM (24CW640T)
 - Real-time clock and watchdog chip (AM1805)
