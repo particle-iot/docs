@@ -343,7 +343,7 @@ The Boron and Argon support NFC Tag mode.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
 
 
@@ -530,14 +530,25 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+#### D20
+| | Added to M-SoM |
+| :--- | :--- |
+| Pin Name | D20|
+| Description | D20 GPIO, I2S TX|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| Supports attachInterrupt | Yes|
+| I2S interface | TX|
+| Internal pull resistance | ???|
 #### D21
 | | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D21|
-| Description | D21 GPIO|
+| Description | D21 GPIO, I2S RX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | RX|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
 | | Added to M-SoM |
@@ -639,23 +650,25 @@ The Boron and Argon support NFC Tag mode.
 |   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D6 | D6 |
-| ∆ | Description | PWM, GPIO | D6 GPIO, PWM |
+| ∆ | Description | PWM, GPIO | D6 GPIO, PWM, I2S CLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | CLK |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D7
 |   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D7 | D7 |
-| ∆ | Description | PWM, GPIO | D7 GPIO, PWM |
+| ∆ | Description | PWM, GPIO | D7 GPIO, PWM, I2S WS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | WS |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D8
 | | Added to M-SoM |
@@ -703,19 +716,9 @@ The Boron and Argon support NFC Tag mode.
 #### MODE
 |   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
-| ∆ | Pin Name | MODE | D20 |
-| ∆ | Pin Alternate Name | D20 | n/a |
-| ∆ | Description | MODE button, has internal pull-up | D20 GPIO |
-| ∆ | Supports digitalRead | n/a | Yes |
-| ∆ | Supports digitalWrite | n/a | Yes |
+| &nbsp; | Pin Name | MODE | MODE |
+| ∆ | Description | MODE button, has internal pull-up | MODE button. Pin number constant is BTN. External pull-up required! |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull resistance | n/a | ??? |
-#### MODE
-| | Added to M-SoM |
-| :--- | :--- |
-| Pin Name | MODE|
-| Description | MODE button. Pin number constant is BTN. External pull-up required!|
-| Supports attachInterrupt | Yes|
 #### MOSI
 |   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
@@ -805,7 +808,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Pin Alternate Name | D09 | D9 |
-| ∆ | Description | Serial TX, GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
+| ∆ | Description | Serial TX, GPIO | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -813,6 +816,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | MCLK |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### USBDATA-
 | | Added to M-SoM |

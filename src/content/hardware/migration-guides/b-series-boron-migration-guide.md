@@ -783,7 +783,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 3 | 32 |
 | &nbsp; | Pin Name | MODE | MODE |
-| &nbsp; | Pin Alternate Name | D20 | D20 |
+| ∆ | Pin Alternate Name | n/a | D20 |
 | &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
 #### MOSI
 |   |   | Boron | B-Series SoM |

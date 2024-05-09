@@ -633,7 +633,7 @@ M-SoM pins related to `HIBERNATE` sleep mode:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
 
 
@@ -1082,20 +1082,22 @@ The M-SoM has U.FL antenna connectors:
 | :--- | :--- |
 | Pin Number | 19|
 | Pin Name | D20|
-| Description | D20 GPIO|
+| Description | D20 GPIO, I2S TX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | TX|
 | Internal pull resistance | ???|
 #### D21
 | | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 17|
 | Pin Name | D21|
-| Description | D21 GPIO|
+| Description | D21 GPIO, I2S RX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | RX|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
 | | Added to M-SoM |
@@ -1219,12 +1221,13 @@ The M-SoM has U.FL antenna connectors:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 36 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
-| ∆ | Description | D6 GPIO | D6 GPIO, PWM |
+| ∆ | Description | D6 GPIO | D6 GPIO, PWM, I2S CLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | CLK |
 | ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
@@ -1235,12 +1238,13 @@ The M-SoM has U.FL antenna connectors:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 35 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
-| ∆ | Description | D7 GPIO | D7 GPIO, PWM |
+| ∆ | Description | D7 GPIO | D7 GPIO, PWM, I2S WS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | No. Shared with BAT_INT_PC13 | Yes |
+| ∆ | I2S interface | n/a | WS |
 | ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
@@ -1430,7 +1434,7 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Pin Number | 16 | 36 |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Pin Alternate Name | n/a | D9 |
-| ∆ | Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial TX, PWM, GPIO, SPI1 MOSI |
+| ∆ | Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
@@ -1438,6 +1442,7 @@ The M-SoM has U.FL antenna connectors:
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes |
+| ∆ | I2S interface | n/a | MCLK |
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-

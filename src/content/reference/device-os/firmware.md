@@ -5710,7 +5710,7 @@ On the P2, Photon 2, and M-SoM, all PWM pins and the RGB LED share the same PWM 
 | :---: | :--- | :--- | :--- |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | PA[12] |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | PA[13] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
 
@@ -7206,7 +7206,7 @@ The P2 and Photon 2 support three serial interfaces, two with hardware flow cont
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Serial3 (CTS) | PA[15] |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | Serial3 (TX) | PA[12] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | Serial3 (TX) | PA[12] |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | Serial3 (RX) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | Serial3 (RTS) | PA[14] |
 | 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Serial2 (RTS) | PA[16] |
@@ -7236,7 +7236,7 @@ The P2 and Photon 2 support two serial interfaces, one with hardware flow contro
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | Serial1 (TX) | PA[12] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Serial1 (TX) | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | PA[13] |
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | PA[15] |
 | 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | PA[14] |
@@ -8745,10 +8745,10 @@ The P2 and Photon 2 supports two SPI (serial peripheral interconnect) ports.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | SPI (SCK) | PA[14] |
-| 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | SPI (SS) | PB[26] |
+| 44 | S3 / D18 | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS | SPI (SS) | PB[26] |
 | 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | SPI1 (MOSI) | PA[16] |
 | 51 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | SPI1 (MISO) | PA[17] |
 | 52 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | SPI1 (SCK) | PA[18] |
@@ -8781,7 +8781,7 @@ The M-SoM supports two SPI (serial peripheral interconnect) ports.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | SPI1 (MOSI) | PA[12] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | SPI1 (MOSI) | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | SPI1 (MISO) | PA[13] |
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | PA[15] |
 | 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 (SCK) | PA[14] |

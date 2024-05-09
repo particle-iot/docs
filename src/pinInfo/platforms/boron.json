@@ -19,7 +19,6 @@
         {
             "num": 3,
             "name": "MODE",
-            "altName": "D20",
             "desc": "MODE button, has internal pull-up",
             "hardwarePin": "P0.11",
             "is5VTolerant": false,

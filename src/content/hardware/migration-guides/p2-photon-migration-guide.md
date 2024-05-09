@@ -453,6 +453,11 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 | D2 | I2S3_SD | D2 | &nbsp; |
 | D4 | I2S3_SCK | D4 | &nbsp; |
 | D5 | I2S3_WS | D5 | &nbsp; |
+| &nbsp; | &nbsp; | S0 / D15 | MCLK |
+| &nbsp; | &nbsp; | S3 / D18 | TX |
+| &nbsp; | &nbsp; | S4 / D19 | RX |
+| &nbsp; | &nbsp; | S5 / D20 | CLK |
+| &nbsp; | &nbsp; | S6 / D21 | WS |
 | SETUP | I2S3_MCK | &nbsp; | &nbsp; |
 
 
@@ -567,13 +572,13 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | 5 | 3V3_IO | 3.3V power to MCU IO. |
 | 2 | 3V3_RF | 3.3V power to RF module |
 | 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
-| 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS |
-| 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) |
-| 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) |
-| 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) |
+| 44 | S3 / D18 | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS |
+| 47 | S4 / D19 | S4 GPIO, I2S RX. (Was P1S4 on P1.) |
+| 48 | S5 / D20 | S5 GPIO, I2S CLK. (Was P1S5 on P1.) |
+| 33 | S6 / D21 | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) |
 | 12 | VBAT_MEAS | Battery voltage measurement (optional). |
 
 
@@ -591,10 +596,10 @@ In this mapping, the SPI pins are preserved from Photon to P2 at the expense of 
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
 | A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
-| A2 | A2 Analog in, GPIO, SPI SS | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| A2 | A2 Analog in, GPIO, SPI SS | S3 / D18 | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
 | A3 | A3 True analog out, analog in, GPIO. | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
-| A5 | A5 Analog in, GPIO, SPI MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
+| A5 | A5 Analog in, GPIO, SPI MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | 40 | PA[12] |
 | D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
 | D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
@@ -603,10 +608,10 @@ In this mapping, the SPI pins are preserved from Photon to P2 at the expense of 
 | D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | 48 | PB[29] |
+| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | S5 / D20 | S5 GPIO, I2S CLK. (Was P1S5 on P1.) | 48 | PB[29] |
 | RX | Serial1 RX (received data), GPIO, PWM. | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
-| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | 33 | PB[31] |
+| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | S6 / D21 | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) | 33 | PB[31] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -633,10 +638,10 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | 48 | PB[29] |
+| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | S5 / D20 | S5 GPIO, I2S CLK. (Was P1S5 on P1.) | 48 | PB[29] |
 | RX | Serial1 RX (received data), GPIO, PWM. | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
-| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | 33 | PB[31] |
+| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | S6 / D21 | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) | 33 | PB[31] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -965,7 +970,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 40|
 | Pin Name | S0|
 | Pin Alternate Name | D15|
-| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.)|
+| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
@@ -973,6 +978,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
+| I2S interface | MCLK|
 | Internal pull resistance | 2.1K|
 #### S1
 | | Added to P2 |
@@ -1008,11 +1014,12 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 44|
 | Pin Name | S3|
 | Pin Alternate Name | D18|
-| Description | S3 GPIO. (Was P1S3 on P1.), SPI SS|
+| Description | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
+| I2S interface | TX|
 | Internal pull resistance | 2.1K|
 #### S4
 | | Added to P2 |
@@ -1020,10 +1027,11 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 47|
 | Pin Name | S4|
 | Pin Alternate Name | D19|
-| Description | S4 GPIO. (Was P1S4 on P1.)|
+| Description | S4 GPIO, I2S RX. (Was P1S4 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | RX|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### S5
 | | Added to P2 |
@@ -1031,9 +1039,10 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 48|
 | Pin Name | S5|
 | Pin Alternate Name | D20|
-| Description | S5 GPIO. (Was P1S5 on P1.)|
+| Description | S5 GPIO, I2S CLK. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | CLK|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
 #### S6
 | | Added to P2 |
@@ -1041,10 +1050,11 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 33|
 | Pin Name | S6|
 | Pin Alternate Name | D21|
-| Description | S6 GPIO. (Was P1S6/TESTMODE on P1.)|
+| Description | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | WS|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### SETUP
 | | Removed from Photon |

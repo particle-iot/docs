@@ -99,9 +99,9 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | &nbsp; | 14 | NC | &nbsp; | NC | &nbsp; |
 | &nbsp; | 15 | GND | Ground. | GND | Ground. |
 | ∆ | 16 | VUSB | USB VUSB power pin | NC | &nbsp; |
-| ∆ | 17 | NFC1 | NFC Antenna 1 | D21 | D21 GPIO |
+| ∆ | 17 | NFC1 | NFC Antenna 1 | D21 | D21 GPIO, I2S RX |
 | ∆ | 18 | NC | &nbsp; | GNSS_TX | Cellular modem GNSS UART TX |
-| ∆ | 19 | NFC2 | NFC Antenna 2 | D20 | D20 GPIO |
+| ∆ | 19 | NFC2 | NFC Antenna 2 | D20 | D20 GPIO, I2S TX |
 | ∆ | 20 | D1 | I2C SCL, GPIO | D1 | D1 GPIO, I2C SCL |
 | &nbsp; | 21 | GND | Ground. | GND | Ground. |
 | ∆ | 22 | D0 | I2C SDA, GPIO | D0 | D0 GPIO, I2C SDA |
@@ -110,7 +110,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | &nbsp; | 33 | A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D18 | A1 Analog in, GPIO, PWM |
 | &nbsp; | 34 | RST | Hardware reset, active low. External pull-up required. | RST | Hardware reset, active low. External pull-up required. |
 | &nbsp; | 35 | A2 / D17 | A2 Analog in, GPIO | A2 / D17 | A2 Analog in, GPIO |
-| ∆ | 36 | TX / D9 | Serial TX, GPIO | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI |
+| ∆ | 36 | TX / D9 | Serial TX, GPIO | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK |
 | ∆ | 37 | A3 / D16 | A3 Analog in, GPIO | A3 / D16 | A3 Analog in, PDM CLK, GPIO |
 | ∆ | 38 | RX / D10 | Serial RX, GPIO | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO |
 | &nbsp; | 39 | AGND | Analog Ground. | AGND | Analog Ground. |
@@ -144,9 +144,9 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | &nbsp; | 67 | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
 | ∆ | 68 | D5 | PWM, GPIO | D5 | D5 GPIO, PWM |
 | ∆ | 69 | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
-| ∆ | 70 | D6 | PWM, GPIO | D6 | D6 GPIO, PWM |
+| ∆ | 70 | D6 | PWM, GPIO | D6 | D6 GPIO, PWM, I2S CLK |
 | ∆ | 71 | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
-| ∆ | 72 | D7 | PWM, GPIO | D7 | D7 GPIO, PWM |
+| ∆ | 72 | D7 | PWM, GPIO | D7 | D7 GPIO, PWM, I2S WS |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -358,7 +358,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
 
 
@@ -472,10 +472,11 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 17 | 17 |
 | ∆ | Pin Name | NFC1 | D21 |
-| ∆ | Description | NFC Antenna 1 | D21 GPIO |
+| ∆ | Description | NFC Antenna 1 | D21 GPIO, I2S RX |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | I2S interface | n/a | RX |
 | ∆ | Internal pull resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 18 (NC / GNSS_TX)
 |   |   | B-SoM | M-SoM |
@@ -488,10 +489,11 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 19 | 19 |
 | ∆ | Pin Name | NFC2 | D20 |
-| ∆ | Description | NFC Antenna 2 | D20 GPIO |
+| ∆ | Description | NFC Antenna 2 | D20 GPIO, I2S TX |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | I2S interface | n/a | TX |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 20 (D1)
 |   |   | B-SoM | M-SoM |
@@ -581,7 +583,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Pin Number | 36 | 36 |
 | &nbsp; | Pin Name | TX | TX |
 | &nbsp; | Pin Alternate Name | D9 | D9 |
-| ∆ | Description | Serial TX, GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
+| ∆ | Description | Serial TX, GPIO | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -589,6 +591,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | MCLK |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 37 (A3)
 |   |   | B-SoM | M-SoM |
@@ -935,12 +938,13 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 70 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
-| ∆ | Description | PWM, GPIO | D6 GPIO, PWM |
+| ∆ | Description | PWM, GPIO | D6 GPIO, PWM, I2S CLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | CLK |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 71 (SIM_CLK)
 |   |   | B-SoM | M-SoM |
@@ -953,12 +957,13 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 72 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
-| ∆ | Description | PWM, GPIO | D7 GPIO, PWM |
+| ∆ | Description | PWM, GPIO | D7 GPIO, PWM, I2S WS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | WS |
 | ∆ | Internal pull resistance | 13K | ??? |
 
 

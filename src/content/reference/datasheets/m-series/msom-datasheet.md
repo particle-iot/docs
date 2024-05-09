@@ -394,7 +394,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | Serial1 (TX) | PA[12] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Serial1 (TX) | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | PA[13] |
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | PA[15] |
 | 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | PA[14] |
@@ -418,7 +418,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | SPI1 (MOSI) | PA[12] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | SPI1 (MOSI) | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | SPI1 (MISO) | PA[13] |
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | PA[15] |
 | 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 (SCK) | PA[14] |
@@ -484,7 +484,7 @@ Even though the B-SoM and M-SoM both have two SPI interfaces, note that the M-So
 | :---: | :--- | :--- | :--- |
 | 23 | A0 / D19 | A0 Analog in, GPIO, PWM | PB[4] |
 | 33 | A1 / D18 | A1 Analog in, GPIO, PWM | PB[5] |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | PA[12] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
 | 45 | A6 / D29 | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT | PB[7] |
@@ -493,8 +493,8 @@ Even though the B-SoM and M-SoM both have two SPI interfaces, note that the M-So
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | PB[3] |
 | 66 | D4 | D4 GPIO, PWM | PB[18] |
 | 68 | D5 | D5 GPIO, PWM | PB[19] |
-| 70 | D6 | D6 GPIO, PWM | PB[20] |
-| 72 | D7 | D7 GPIO, PWM | PB[21] |
+| 70 | D6 | D6 GPIO, PWM, I2S CLK | PB[20] |
+| 72 | D7 | D7 GPIO, PWM, I2S WS | PB[21] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -624,7 +624,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
 
 

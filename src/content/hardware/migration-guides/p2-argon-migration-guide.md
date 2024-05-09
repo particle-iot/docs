@@ -579,11 +579,11 @@ The following pins did not exist on the Argon but are available on the P2.
 | 32 | RGBG | RGB LED Green |
 | 29 | RGBR | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. |
 | 63 | RX / D9 | Serial1 RX (received data), GPIO |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) |
-| 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS |
-| 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) |
-| 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) |
+| 44 | S3 / D18 | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS |
+| 48 | S5 / D20 | S5 GPIO, I2S CLK. (Was P1S5 on P1.) |
+| 33 | S6 / D21 | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) |
 | 62 | USBDATA- | USB Data- |
 | 61 | USBDATA+ | USB Data+ |
 | 12 | VBAT_MEAS | Battery voltage measurement (optional). |
@@ -605,8 +605,8 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 | A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
 | A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
 | A2 / D17 | A2 Analog in, GPIO, PWM | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
-| A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
-| A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
+| A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO, I2S RX. (Was P1S4 on P1.) | 47 | PA[0] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
 | D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | I2C SCL, GPIO | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
@@ -617,7 +617,7 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
 | MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
-| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
@@ -636,8 +636,8 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, PDM CLK, GPIO | 50 | PB[1] |
 | A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, PDM DAT, GPIO | 43 | PB[2] |
 | A2 / D17 | A2 Analog in, GPIO, PWM | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
-| A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
-| A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
+| A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO, I2S RX. (Was P1S4 on P1.) | 47 | PA[0] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
 | D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | I2C SCL, GPIO | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
@@ -648,7 +648,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
 | MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
-| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
@@ -831,13 +831,14 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | ∆ | Pin Number | 5 | 47 |
 | ∆ | Pin Name | A0 | S4 |
 | &nbsp; | Pin Alternate Name | D19 | D19 |
-| ∆ | Description | A0 Analog in, GPIO, PWM | S4 GPIO. (Was P1S4 on P1.) |
+| ∆ | Description | A0 Analog in, GPIO, PWM | S4 GPIO, I2S RX. (Was P1S4 on P1.) |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | Yes | No |
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | RX |
 | ∆ | Internal pull resistance | 13K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### D2
 |   |   | Argon | P2 |
@@ -1013,7 +1014,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 40|
 | Pin Name | S0|
 | Pin Alternate Name | D15|
-| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.)|
+| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
@@ -1021,6 +1022,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
+| I2S interface | MCLK|
 | Internal pull resistance | 2.1K|
 #### S1
 | | Added to P2 |
@@ -1043,11 +1045,12 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 44|
 | Pin Name | S3|
 | Pin Alternate Name | D18|
-| Description | S3 GPIO. (Was P1S3 on P1.), SPI SS|
+| Description | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
+| I2S interface | TX|
 | Internal pull resistance | 2.1K|
 #### S5
 | | Added to P2 |
@@ -1055,9 +1058,10 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 48|
 | Pin Name | S5|
 | Pin Alternate Name | D20|
-| Description | S5 GPIO. (Was P1S5 on P1.)|
+| Description | S5 GPIO, I2S CLK. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | CLK|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
 #### S6
 | | Added to P2 |
@@ -1065,10 +1069,11 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 33|
 | Pin Name | S6|
 | Pin Alternate Name | D21|
-| Description | S6 GPIO. (Was P1S6/TESTMODE on P1.)|
+| Description | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | WS|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### TX
 |   |   | Argon | P2 |

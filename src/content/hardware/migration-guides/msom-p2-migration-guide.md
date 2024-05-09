@@ -255,7 +255,7 @@ M-SoM pins related to `HIBERNATE` sleep mode:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
 
 
@@ -268,9 +268,9 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
-| 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[31] |
-| 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
-| 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[29] |
+| 33 | S6 / D21 | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[31] |
+| 47 | S4 / D19 | S4 GPIO, I2S RX. (Was P1S4 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 48 | S5 / D20 | S5 GPIO, I2S CLK. (Was P1S5 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[29] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -463,7 +463,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S0 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
-| ∆ | Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | A4 Analog in, PDM DAT, GPIO |
+| ∆ | Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | A4 Analog in, PDM DAT, GPIO |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | No | Yes |
@@ -472,6 +472,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | UART serial | TX. Use Serial3 object. | n/a |
 | ∆ | SPI interface | MOSI. Use SPI object. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | MCLK | n/a |
 | &nbsp; | Internal pull resistance | 2.1K | 2.1K |
 #### D16
 |   |   | P2 | M-SoM |
@@ -506,7 +507,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S3 | A1 |
 | &nbsp; | Pin Alternate Name | D18 | D18 |
-| ∆ | Description | S3 GPIO. (Was P1S3 on P1.), SPI SS | A1 Analog in, GPIO, PWM |
+| ∆ | Description | S3 GPIO, I2S TX. (Was P1S3 on P1.), SPI SS | A1 Analog in, GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | No | Yes |
@@ -514,19 +515,21 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | Supports tone | No | Yes |
 | ∆ | SPI interface | Default SS for SPI. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | TX | n/a |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D19
 |   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S4 | A0 |
 | &nbsp; | Pin Alternate Name | D19 | D19 |
-| ∆ | Description | S4 GPIO. (Was P1S4 on P1.) | A0 Analog in, GPIO, PWM |
+| ∆ | Description | S4 GPIO, I2S RX. (Was P1S4 on P1.) | A0 Analog in, GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | No | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | RX | n/a |
 | ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 42K |
 #### D2
 |   |   | P2 | M-SoM |
@@ -640,12 +643,13 @@ P2 pins related to `HIBERNATE` sleep mode:
 |   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D6 | D6 |
-| ∆ | Description | D6 GPIO, SWCLK | D6 GPIO, PWM |
+| ∆ | Description | D6 GPIO, SWCLK | D6 GPIO, PWM, I2S CLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | CLK |
 | ∆ | Internal pull resistance | 42K | ??? |
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
 | ∆ | Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
@@ -653,12 +657,13 @@ P2 pins related to `HIBERNATE` sleep mode:
 |   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D7 | D7 |
-| ∆ | Description | D7 GPIO, SWDIO | D7 GPIO, PWM |
+| ∆ | Description | D7 GPIO, SWDIO | D7 GPIO, PWM, I2S WS |
 | ∆ | Supports digitalRead | Yes. | Yes |
 | ∆ | Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | WS |
 | ∆ | Internal pull resistance | 42K | ??? |
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
@@ -677,7 +682,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | RX | TX |
 | &nbsp; | Pin Alternate Name | D9 | D9 |
-| ∆ | Description | Serial1 RX (received data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
+| ∆ | Description | Serial1 RX (received data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -685,6 +690,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | UART serial | RX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | MCLK |
 | ∆ | Internal pull resistance | 42K | 2.1K |
 #### GND
 |   |   | P2 | M-SoM |
@@ -762,20 +768,22 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S5 | D20 |
 | ∆ | Pin Alternate Name | D20 | n/a |
-| ∆ | Description | S5 GPIO. (Was P1S5 on P1.) | D20 GPIO |
+| ∆ | Description | S5 GPIO, I2S CLK. (Was P1S5 on P1.) | D20 GPIO, I2S TX |
 | ∆ | Supports digitalRead | No | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | CLK | TX |
 | ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode | ??? |
 #### S6
 |   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S6 | D21 |
 | ∆ | Pin Alternate Name | D21 | n/a |
-| ∆ | Description | S6 GPIO. (Was P1S6/TESTMODE on P1.) | D21 GPIO |
+| ∆ | Description | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) | D21 GPIO, I2S RX |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | WS | RX |
 | &nbsp; | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### SCK
 | | Added to M-SoM |
@@ -813,7 +821,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Pin Alternate Name | D8 | D9 |
-| ∆ | Description | Serial1 TX (transmitted data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
+| ∆ | Description | Serial1 TX (transmitted data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -821,6 +829,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | MCLK |
 | ∆ | Internal pull resistance | 42K | 2.1K |
 | ∆ | Signal used at boot | Low at boot triggers ISP flash download | n/a |
 #### USBDATA-
