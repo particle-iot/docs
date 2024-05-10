@@ -47,12 +47,12 @@
             "hash": "7206fa4b639b68770d7e79f74255d15ac6a6e2b212247c7c162727578ee444a3"
         },
         "archives/installing-dfu-util.md": {
-            "date": "2023-02-24",
-            "hash": "2eeca2d1757d50f57cd916bdf23c55780e847927b277285d302d498229889236"
+            "date": "2024-05-10",
+            "hash": "a289d9ce3d61ac4ac25f34364f60695d7e1931a3cdf29c00188d0b571fa915db"
         },
         "archives/local-build-using-gcc-arm.md": {
-            "date": "2022-06-29",
-            "hash": "e5e86c7e04dc0e85b4ab097f3b4428f1605314d227e1438c28bd152d55730751"
+            "date": "2024-05-10",
+            "hash": "153a1b080696e4dab395bb90820c3c96585376f848e3bc99dbe8aaf5fe0738dc"
         },
         "archives/maker-kit.md": {
             "date": "2023-08-03",
@@ -431,8 +431,8 @@
             "hash": "d507045eb5293dcf6a35b0dc4aec9e36809393c9ab9f3ec694226c9e8dfcf123"
         },
         "community/particle-101-workshop/device-cloud.md": {
-            "date": "2023-03-22",
-            "hash": "73d4ff447fc4b4fe55459d8704621e96553cf632d82b538ee6c8922be9941313"
+            "date": "2024-05-10",
+            "hash": "4eaa2015f7b9a56082054a5cdf78380e193608505f9393bfa6a2a1ad9ecebabe"
         },
         "community/particle-101-workshop/integrations.md": {
             "date": "2023-03-22",
@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2024-02-27",
-            "hash": "257af48cd64c5fafa46fce45ca0a6b7084993fd593889064eaaf44d08b5b1042"
+            "date": "2024-05-10",
+            "hash": "978712529ea3f2e76532becf22c75e3b1fcc76fbbc39c3771dd6a0077fe1ffd5"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2023-11-15",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-04-30",
-            "hash": "9d169f3e2664a4711b940caa164185836a85d32640f1e1cb578c89000167faa1"
+            "date": "2024-05-10",
+            "hash": "334cba9f6de44c2e104f59882572052d5d05a02471c15334ebc52d94c3aeaa71"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
@@ -1587,16 +1587,16 @@
             "hash": "5eb86510d02810037678d5f563a36d3f7ea78e4e1019c83525fe77587c6cf057"
         },
         "troubleshooting/guides/build-tools-troubleshooting/specific-cli-version.md": {
-            "date": "2023-11-17",
-            "hash": "9b2711c46962df3ad4f48eaecd22d25bfe955ed00593dee11a3330c0859dce62"
+            "date": "2024-05-10",
+            "hash": "ae058dff6b931be3078f90114358b6e9bf5827efcbfcc616a913e92e49df0f6e"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-flashing-code.md": {
             "date": "2022-08-24",
             "hash": "72fab738d3f63b366b714a80870f871c96a5da1d008f2daa0e2e063a604e1b48"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli.md": {
-            "date": "2023-11-17",
-            "hash": "63fac10ab32c37543ddfeab638d6e75e18a5ea07c6fb793fb23cd4478646fe41"
+            "date": "2024-05-10",
+            "hash": "ab053f5d69c15ad699eed6dfa46f55d3501e93f0ae3aab7f213ce161968a5427"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench.md": {
             "date": "2023-11-15",
@@ -8247,8 +8247,8 @@
             "date": "2023-11-16"
         },
         "troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon.md": {
-            "hash": "21ce1ae7a8e20dd0b3e06c3d3d9b335d2b33c213ce9363f65662286d083c2e13",
-            "date": "2023-11-16"
+            "hash": "ddb3fdcded021c183d01906c475b9c38c15bda74f1f2e04adbd12ba41955136b",
+            "date": "2024-05-10"
         },
         "getting-started/cloud/ledger.md": {
             "hash": "73f03df391df72360f5ce9739918d7a1885064c7d8ed56919aca2e23f781cde9",

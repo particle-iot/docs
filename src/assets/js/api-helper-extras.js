@@ -3199,6 +3199,63 @@ $(document).ready(function() {
 
     });
 
+    $('.windowsCliDownloads').each(async function() {
+        const thisPartial = $(this);
+
+        const installerManifest = await new Promise(function(resolve, reject) {
+            fetch('https://binaries.particle.io/particle-cli/installer/manifest.json')
+            .then(response => response.json())
+            .then(function(data) {
+                resolve(data);
+            });
+        });
+
+        // console.log('installerManifest', installerManifest);
+        // installers: array of objects
+        //   released_at (ISO date)
+        //   version (string)
+        //   platforms (object)
+        //     key: platform name (currently "win32")
+        //     value: object
+        //       url: download URL (binaries.particle.io)
+        //       manifest: manifest JSON URL for that release
+        const versionTableBodyElem = $(thisPartial).find('.versionTable > tbody');
+
+        $(versionTableBodyElem).empty();
+
+        for(let ii = installerManifest.installers.length - 1; ii >= 0; ii--) {
+            const releaseObj = installerManifest.installers[ii];
+            if (typeof releaseObj.platforms['win32'] == undefined) {
+                continue;
+            }
+
+            const trElem = document.createElement('tr');
+
+            {
+                const tdElem = document.createElement('td');
+                $(tdElem).text(releaseObj.version);
+                $(trElem).append(tdElem);
+            }
+            {
+                const tdElem = document.createElement('td');
+                $(tdElem).text(releaseObj.released_at.split('T')[0]);
+                $(trElem).append(tdElem);
+            }
+            {
+                const tdElem = document.createElement('td');
+                
+                const aElem = document.createElement('a');
+                $(aElem).attr('href', releaseObj.platforms.win32.url);
+                $(aElem).text('Download');
+                $(tdElem).append(aElem);
+
+                $(trElem).append(tdElem);
+            }
+
+            $(versionTableBodyElem).append(trElem);
+        }
+    });
+
 
 
     apiHelper.flattenObject = function(objIn) {

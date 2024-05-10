@@ -130,7 +130,7 @@ git --help
 
 #### Install dfu-util - Windows
 
-If you have not already done so, you should install dfu-util and the necessary drivers. If you have used the [Particle Windows CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), this will have been already.
+If you have not already done so, you should install dfu-util and the necessary drivers. If you have used the [Particle Windows CLI installer](https://binaries.particle.io/particle-cli/installer/win32/ParticleCLISetup.exe ), this will have been already.
 
 There are also additional instructions in the [FAQ for installing dfu-util](/archives/installing-dfu-util/).
 

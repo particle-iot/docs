@@ -21,7 +21,7 @@ and the Particle Device Cloud.  The CLI uses [Node.js](https://nodejs.org/) and 
 The easiest way to install the CLI is to open a Terminal and type:
 
 ```sh
-bash <( curl -sL https://particle.io/install-cli )
+bash <( curl -sL https://binaries.particle.io/particle-cli/installer/install-cli)
 ```
 
 This command downloads the `particle` command to your home directory at `~/bin`, installs a version of Node.js to `~/.particle` and installs the `particle-cli` Node.js module that contain the code of the CLI.
@@ -32,7 +32,7 @@ If you are using a Mac with Apple silicon (M1, M2, M3, ...) and have previously 
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/archives/installing-dfu-util/).
+Download the [Windows CLI Installer](https://binaries.particle.io/particle-cli/installer/win32/ParticleCLISetup.exe ) and run it to install the Particle CLI, the device drivers and [DFU-util](/archives/installing-dfu-util/).
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
@@ -110,6 +110,30 @@ $ npm start -- help
 ```
 
 View [README#Development](https://github.com/particle-iot/particle-cli#development) for more
+
+#### Disabling automatic updates
+
+If you wish to prevent automatic updates from occurring you can do so with the following command. This might be appropriate on an assembly line where you want to keep the configuration and binaries constant, however in general we recommend always using the current version.
+
+```sh
+$ particle update-cli --disable-updates
+```
+
+#### Reenabling automatic updates
+
+To resume updates and update if necessary now:
+
+```sh
+$ particle update-cli --enable-updates
+```
+
+#### Installing a specific version
+
+```sh
+$ particle update-cli --version <version>
+```
+
+<version> can be any version 3.23.0 or later. This also disables automatic updates.
 
 
 ## Getting started

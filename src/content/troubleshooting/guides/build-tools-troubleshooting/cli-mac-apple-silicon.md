@@ -7,6 +7,12 @@ description: Particle CLI and Mac with Apple silicon
 
 # {{title}}
 
+The Particle CLI should be installed using the [Particle CLI installer](/getting-started/developer-tools/cli). The current versions of the installer should eliminate issues on computer with Apple silicon (M1, M2, M3, ...). 
+
+You can view the older instruction by expanding the section below. This should only be necessary if you want to run the Particle CLI from source or want to run an older version with support for discontinued platforms such as the Spark Core.
+
+{{collapse op="start" label="Show older information"}}
+
 There are potentially a few issues with using the Particle CLI on a computer with Apple silicon (M1, M2, M3, ...) that are especially pronounced if you have imported your settings and applications from an Intel-based Mac.
 
 ## Working scenarios
@@ -139,7 +145,7 @@ You cannot use the Particle installer to install the Particle CLI natively for A
 
 
 ```
-% bash <( curl -sL https://particle.io/install-cli )
+% bash <( curl -sL https://binaries.particle.io/particle-cli/installer/install-cli)
 
 PARTICLE CLI SETUP...
 
@@ -179,3 +185,4 @@ Then reinstall Workbench; instructions can be found in the [Workbench quickstart
 Note that local compiles will still require Rosetta because the gcc-arm compilers and other tools are only installed as Intel binaries. If you are prompted to install Rosetta you should do so to use local compile.
 
 
+{{collapse op="end"}}
