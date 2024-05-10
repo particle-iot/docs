@@ -25,7 +25,7 @@ The M8 Temperature/Humidity sensor provides an easy way to measure temperature a
 
 ### Details
 
-The sensor (in the metal case) is a weatherproof [Sensiron SHT-31D](https://www.sensirion.com/en/environmental-sensors/humidity-sensors/digital-humidity-sensors-for-various-applications/), I2C temperature and humidity sensor.
+The sensor (in the metal case) is a weatherproof Sensiron SHT-31D, I2C temperature and humidity sensor.
 
 The sensor is powered by the CAN_PWR output on the M8 connector. It can be powered down when not sensing temperature to reduce power consumption, if desired.
 
