@@ -260,56 +260,54 @@ From the USB logs, you can see that the file size is small, because it cannot be
 
 The process starts out the same as before, with `spark/status` events.
 
+```event-viewer
+{"data":"offline","ttl":60,"published_at":"2024-05-13T16:16:48.213Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/status"}
+{"data":"online","ttl":60,"published_at":"2024-05-13T16:16:48.237Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status"}
+```
+
 ### spark/status/safe-mode (v4)
 
 The difference is that the log next contains a `spark/status/safe-mode` event. This indicates that the user firmware that was just flashed requires a Device OS update. 
 
 ```event-viewer
-{"data":"{\"m\":[{\"f\":\"b\",\"n\":\"0\",\"v\":1200,\"s\":49152,\"l\":\"m\",\"vc\":30,\"vv\":30,\"d\":[]},{\"f\":\"s\",\"n\":\"1\",\"v\":5800,\"s\":671744,\"l\":\"m\",\"vc\":30,\"vv\":26,\"d\":[{\"f\":\"b\",\"n\":\"0\",\"v\":2300},{\"f\":\"a\",\"n\":\"0\",\"v\":202}]},{\"f\":\"u\",\"n\":\"2\",\"v\":6,\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":30,\"u\":\"b2571e11ce3a472cff1ae575ae5f63c86f11aaf6e80c0aa7191bf2323d4b37f1\",\"d\":[{\"f\":\"s\",\"n\":\"1\",\"v\":4006}]},{\"f\":\"a\",\"n\":\"0\",\"v\":202,\"s\":192512,\"l\":\"m\",\"vc\":30,\"vv\":30,\"d\":[]}],\"imei\":\"352753094038575\",\"iccid\":\"89014103271226581328\",\"cellfw\":\"L0.0.00.00.05.06,A.02.00\",\"protectedState\":false,\"p\":13}","ttl":60,"published_at":"2024-05-13T15:21:25.740Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/status/safe-mode"}
+{"data":"{\"p\":13,\"imei\":\"352753094038575\",\"iccid\":\"89014103271226581328\",\"cellfw\":\"L0.0.00.00.05.06,A.02.00\",\"m\":[{\"s\":49152,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"b\",\"n\":\"0\",\"v\":1101,\"d\":[]},{\"s\":671744,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"1\",\"v\":4006,\"d\":[{\"f\":\"b\",\"n\":\"0\",\"v\":1101},{\"f\":\"a\",\"n\":\"0\",\"v\":202}]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":26,\"u\":\"a67c3ce8a8abab5d75adbfd2a9a533df1a82179347c6fc0a2bc390e145a15ba3\",\"f\":\"u\",\"n\":\"2\",\"v\":6,\"d\":[{\"f\":\"s\",\"n\":\"1\",\"v\":4200}]},{\"s\":192512,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"a\",\"n\":\"0\",\"v\":202,\"d\":[]}]}","ttl":60,"published_at":"2024-05-13T16:16:50.064Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status/safe-mode"}
 ```
 
-You can paste this text into the [Device Inspect Tool](/tools/developer-tools/device-inspect/) to decode it.
+You can paste the event data into the [Device Inspect Tool](/tools/developer-tools/device-inspect/) to decode your own events.
 
 
+### Device OS update 1 (v4)
 
-
-### Device OS updates
-
-There are multiple 
+At first glance, this might look the same as the previous one, but you can see the bootloader was upgraded from 1001 to 1200. The cloud did this because it knows that Device OS 4200 (4.2.0) requires this bootloader.
 
 ```event-viewer
-{"data":"started ","ttl":60,"published_at":"2024-05-13T15:21:25.755Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/flash/status"}
-{"data":"dfu_mode","ttl":60,"published_at":"2024-05-13T15:21:25.887Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/device/last_reset"}
-{"data":"true","ttl":60,"published_at":"2024-05-13T15:21:25.897Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"particle/device/updates/enabled"}
-{"data":"false","ttl":60,"published_at":"2024-05-13T15:21:25.903Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"particle/device/updates/forced"}
-{"data":"success ","ttl":60,"published_at":"2024-05-13T15:21:32.927Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/flash/status"}
-{"data":"offline","ttl":60,"published_at":"2024-05-13T15:21:46.068Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/status"}
-{"data":"online","ttl":60,"published_at":"2024-05-13T15:21:46.104Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/status"}
-{"data":"update","ttl":60,"published_at":"2024-05-13T15:21:46.759Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/device/last_reset"}
-{"data":"true","ttl":60,"published_at":"2024-05-13T15:21:46.768Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"particle/device/updates/enabled"}
-{"data":"false","ttl":60,"published_at":"2024-05-13T15:21:46.775Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"particle/device/updates/forced"}
-{"data":"false","ttl":60,"published_at":"2024-05-13T15:21:47.780Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"particle/device/updates/pending"}
-{"data":"{\"t\":20,\"v\":3}","ttl":60,"published_at":"2024-05-13T15:22:13.352Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"tempmon"}
-{"data":"auto-update","ttl":60,"published_at":"2024-05-13T15:22:34.901Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/status"}
-{"data":"started ","ttl":60,"published_at":"2024-05-13T15:22:34.906Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/flash/status"}
-{"data":"success ","ttl":60,"published_at":"2024-05-13T15:22:38.927Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/flash/status"}
+{"data":"online","ttl":60,"published_at":"2024-05-13T16:18:11.770Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status"}
+{"data":"{\"p\":13,\"imei\":\"352753094038575\",\"iccid\":\"89014103271226581328\",\"cellfw\":\"L0.0.00.00.05.06,A.02.00\",\"m\":[{\"s\":49152,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"b\",\"n\":\"0\",\"v\":1200,\"d\":[]},{\"s\":671744,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"1\",\"v\":4006,\"d\":[{\"f\":\"b\",\"n\":\"0\",\"v\":1101},{\"f\":\"a\",\"n\":\"0\",\"v\":202}]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":26,\"u\":\"a67c3ce8a8abab5d75adbfd2a9a533df1a82179347c6fc0a2bc390e145a15ba3\",\"f\":\"u\",\"n\":\"2\",\"v\":6,\"d\":[{\"f\":\"s\",\"n\":\"1\",\"v\":4200}]},{\"s\":192512,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"a\",\"n\":\"0\",\"v\":202,\"d\":[]}]}","ttl":60,"published_at":"2024-05-13T16:18:12.137Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status/safe-mode"}
 ```
 
+### Device OS update 2 (v4)
 
-Finally, you can see the device offline event (running v3) and online event (running v4).
+This is the final step before the device boots with the new firmware.
 
 ```event-viewer
-{"data":"offline","ttl":60,"published_at":"2024-05-13T15:23:59.370Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/status"}
-{"data":"online","ttl":60,"published_at":"2024-05-13T15:23:59.390Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"spark/status"}
-{"data":"a67c3ce8a8abab5d75adbfd2a9a533df1a82179347c6fc0a2bc390e145a15ba3","ttl":60,"published_at":"2024-05-13T15:23:59.978Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"spark/device/app-hash"}
-{"data":"update","ttl":60,"published_at":"2024-05-13T15:24:00.036Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"spark/device/last_reset"}
-{"data":"true","ttl":60,"published_at":"2024-05-13T15:24:00.048Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"particle/device/updates/enabled"}
-{"data":"false","ttl":60,"published_at":"2024-05-13T15:24:00.051Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"particle/device/updates/forced"}
-{"data":"false","ttl":60,"published_at":"2024-05-13T15:24:01.060Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"particle/device/updates/pending"}
-{"data":"{\"t\":21,\"v\":4}","ttl":60,"published_at":"2024-05-13T15:24:16.439Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"tempmon"}
+{"data":"online","ttl":60,"published_at":"2024-05-13T16:18:11.770Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status"}
+{"data":"{\"p\":13,\"imei\":\"352753094038575\",\"iccid\":\"89014103271226581328\",\"cellfw\":\"L0.0.00.00.05.06,A.02.00\",\"m\":[{\"s\":49152,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"b\",\"n\":\"0\",\"v\":1200,\"d\":[]},{\"s\":671744,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"1\",\"v\":4006,\"d\":[{\"f\":\"b\",\"n\":\"0\",\"v\":1101},{\"f\":\"a\",\"n\":\"0\",\"v\":202}]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":26,\"u\":\"a67c3ce8a8abab5d75adbfd2a9a533df1a82179347c6fc0a2bc390e145a15ba3\",\"f\":\"u\",\"n\":\"2\",\"v\":6,\"d\":[{\"f\":\"s\",\"n\":\"1\",\"v\":4200}]},{\"s\":192512,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"a\",\"n\":\"0\",\"v\":202,\"d\":[]}]}","ttl":60,"published_at":"2024-05-13T16:18:12.137Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status/safe-mode"}
 ```
 
+### Upgrade complete (v4)
 
+This time there is no safe mode event since all dependencies are valid and you can see that firmware v4 is running.
+
+```event-viewer
+{"data":"success ","ttl":60,"published_at":"2024-05-13T16:19:07.015Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/flash/status"}
+{"data":"offline","ttl":60,"published_at":"2024-05-13T16:19:32.227Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status"}
+{"data":"online","ttl":60,"published_at":"2024-05-13T16:19:32.239Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"spark/status"}
+{"data":"update","ttl":60,"published_at":"2024-05-13T16:19:32.920Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"spark/device/last_reset"}
+{"data":"true","ttl":60,"published_at":"2024-05-13T16:19:32.929Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"particle/device/updates/enabled"}
+{"data":"false","ttl":60,"published_at":"2024-05-13T16:19:32.931Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"particle/device/updates/forced"}
+{"data":"false","ttl":60,"published_at":"2024-05-13T16:19:33.939Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"particle/device/updates/pending"}
+{"data":"{\"t\":20,\"v\":4}","ttl":60,"published_at":"2024-05-13T16:19:49.168Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":4,"public":false,"productID":30301,"name":"tempmon"}
+```
 
 ## Test firmware
 
