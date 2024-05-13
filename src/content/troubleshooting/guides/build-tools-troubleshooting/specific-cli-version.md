@@ -59,3 +59,12 @@ version you can download previous versions here. We recommend that you always in
 between CLI and version and Device OS versions.
 
 {{> windows-cli-downloads}}
+
+
+## Mac OS or Linux installer historical version
+
+To install a specific version of the CLI on Mac OS or Linux, specify the `VERSION` environment variable.
+
+VERSION=3.23.4 && bash <( curl -sL https://particle.io/install-cli )
+
+The available version numbers are the same as the Windows installer historical versions, above.

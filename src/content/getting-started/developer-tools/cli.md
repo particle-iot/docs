@@ -67,7 +67,9 @@ $ particle update-cli --enable-updates
 $ particle update-cli --version <version>
 ```
 
-<version> can be any version 3.23.0 or later. This also disables automatic updates.
+<version> can be any version 3.23.0 or later. This also disables automatic updates. 
+
+For more information about installing a specific version, see [specific CLI version](/troubleshooting/guides/build-tools-troubleshooting/specific-cli-version/).
 
 
 ## Getting started
