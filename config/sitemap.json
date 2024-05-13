@@ -9053,6 +9053,10 @@
         "reference/device-os/api/math/map-value-tranformation.md": {
             "hash": "a2d3af9f1caf11a31e318c81caa3a55d2390897994853d03a793a08c224e653d",
             "date": "2024-05-01"
+        },
+        "reference/cloud-apis/firmware-update-events.md": {
+            "hash": "010f036225c5dbc8cf7c93cf5e9b3bea9908754fd0aaae179a6818d6fa91588c",
+            "date": "2024-05-13"
         }
     }
 }

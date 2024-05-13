@@ -93,6 +93,92 @@ apiHelper.eventViewer.start = function(elem) {
 
 
 $(document).ready(function() {
+    $('.event-viewer').each(function() {
+        const rows = [
+            {
+                key: 'name',
+                title: 'Event name',
+            },
+            {
+                key: 'data',
+                title: 'Event data',
+            },
+            {
+                key: 'published_at',
+                title: 'Published at',
+            },
+            {
+                key: 'coreid',
+                title: 'Device ID',
+            },
+            {
+                key: 'userid',
+                title: 'User ID',
+            },
+            {
+                key: 'productID',
+                title: 'Product ID',
+            },
+            {
+                key: 'version',
+                title: 'Firmware version',
+            },
+        ];
+
+        // event-viewer is a <code> element, which is in a <pre>
+        const eventData = $(this).text();
+        const preEvent = $(this).parent();
+
+        const outerDivElem = document.createElement('div');
+
+        for(let line of eventData.split('\n')) {
+            line = line.trim();
+            if (line == '') {
+                continue;
+            }
+            let eventJson;
+            try {
+                eventJson = JSON.parse(line);
+            }
+            catch(e) {
+                continue;
+            }
+
+            const tableElem = document.createElement('table');
+            $(tableElem).addClass('apiHelperEventViewerTable');
+
+            const tbodyElem = document.createElement('tbody');
+
+            for(const rowObj of rows) {
+                if (typeof eventJson[rowObj.key] == 'undefined') {
+                    continue;
+                }
+                const trElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
+                    $(tdElem).text(rowObj.title);
+                    $(tdElem).attr('title', rowObj.key);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(eventJson[rowObj.key]);
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+            }
+
+            $(tableElem).append(tbodyElem);
+            $(outerDivElem).append(tableElem);    
+        }
+
+        $(preEvent).replaceWith(outerDivElem);
+
+    });
+
     if ($('.apiHelper').length == 0) {
         return;
     }
@@ -159,5 +245,7 @@ $(document).ready(function() {
             });
         }    
     });
+
+
 
 });
