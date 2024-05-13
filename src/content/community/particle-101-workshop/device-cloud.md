@@ -22,7 +22,7 @@ In this session, we'll take a look at the Particle CLI and Device Cloud API. If 
 ## The Particle CLI
 1.  If you haven't already, [install the Particle CLI](/guide/tools-and-features/cli/photon/). Open a terminal window and type the following command:
 ```bash
-bash <( curl -sL https://binaries.particle.io/particle-cli/installer/install-cli)
+bash <( curl -sL https://particle.io/install-cli )
 ```
 <br /><br />
 2.  Type `particle login` and enter your Particle account email and password when prompted.

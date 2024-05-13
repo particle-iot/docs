@@ -145,7 +145,7 @@ You cannot use the Particle installer to install the Particle CLI natively for A
 
 
 ```
-% bash <( curl -sL https://binaries.particle.io/particle-cli/installer/install-cli)
+% bash <( curl -sL https://particle.io/install-cli )
 
 PARTICLE CLI SETUP...
 

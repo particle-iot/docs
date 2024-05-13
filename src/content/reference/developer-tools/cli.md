@@ -18,7 +18,7 @@ description: Command line interface for managing your devices for Windows, Mac O
 The easiest way to install the CLI is to open a Terminal and type:
 
 ```sh
-bash <( curl -sL https://binaries.particle.io/particle-cli/installer/install-cli)
+bash <( curl -sL https://particle.io/install-cli )
 ```
 
 This command downloads the `particle` command to your home directory at `~/bin`.
