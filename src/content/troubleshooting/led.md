@@ -369,14 +369,9 @@ You can also use the [`particle usb safe-mode`](/reference/developer-tools/cli/#
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/archives/installing-dfu-util/)
-
-Installation tutorial can be found [here.](/getting-started/developer-tools/cli/)
-
-And a usage guide [here.](/reference/developer-tools/cli/)
+DFU mode allows Device OS, user firmware, and other firmware to be reprogrammed on your device
 
 To enter DFU Mode:
-
 
 1. Hold down BOTH buttons
 2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.

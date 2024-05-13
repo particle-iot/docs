@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2024-05-10",
-            "hash": "978712529ea3f2e76532becf22c75e3b1fcc76fbbc39c3771dd6a0077fe1ffd5"
+            "date": "2024-05-13",
+            "hash": "13966b6429ff85f199f5291b8f29095374bb7d10a699429ddecf1488af3fa16f"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2023-11-15",
@@ -1379,8 +1379,8 @@
             "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2024-03-26",
-            "hash": "e499b5e5c2d88034f3174d8545c5145e7807a1e85a725c5c2d0bf9f26741be7c"
+            "date": "2024-05-13",
+            "hash": "75507a5fbef21a151a4efbdcaf01a401fa1e32c72c46d86753f7ce505f8faeaa"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
             "date": "2024-03-26",
