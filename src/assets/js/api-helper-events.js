@@ -93,7 +93,22 @@ apiHelper.eventViewer.start = function(elem) {
 
 
 $(document).ready(function() {
-    $('.event-viewer').each(function() {
+    let eventViewer;
+
+    $('.event-viewer').each(async function() {
+        if (!eventViewer) {
+            eventViewer = {};
+
+            // Download the module version to semver mapping table
+            eventViewer.versionInfo = await new Promise(function(resolve, reject) {
+                fetch('/assets/files/versionInfo.json')
+                    .then(response => response.json())
+                    .then(function(res) {
+                        resolve(res);
+                    });
+            });
+        }
+
         const rows = [
             {
                 key: 'name',
@@ -124,6 +139,93 @@ $(document).ready(function() {
                 title: 'Firmware version',
             },
         ];
+
+        const createSafeModeTable = function(describeObj) {
+            const tableElem = document.createElement('table');
+            $(tableElem).addClass('apiHelperEventViewerTable');
+
+            const tbodyElem = document.createElement('tbody');
+
+            {
+                const trElem = document.createElement('tr');
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).attr('colspan', '2');
+                    $(tdElem).text('Safe Mode Event');
+                    $(trElem).append(tdElem);
+                }
+                $(tbodyElem).append(trElem);    
+            }
+
+
+            const displayParts = [
+                {
+                    id: 'u',
+                    title: 'User firmware'
+                },
+                {
+                    id: 's',
+                    title: 'Device OS (System firmware)'
+                },
+                {
+                    id: 'b',
+                    title: 'Bootloader'
+                },
+                {
+                    id: 'a',
+                    title: 'Softdevice (Radio Stack)'
+                },
+                {
+                    id: 'c',
+                    title: 'Network Coprocessor (NCP)'
+                }
+            ];
+
+            // Module version information (m)
+            for(const moduleObj of describeObj.m) {
+                const trElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
+                    $(tdElem).text(displayParts.find(e => e.id == moduleObj.f).title);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(trElem).append(tdElem);
+                }
+                $(tbodyElem).append(trElem);
+            }
+
+            // Other parameters
+            for(const key in describeObj) {
+                const trElem = document.createElement('tr');
+
+                if (key == 'm') {
+                    continue;
+                }
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
+                    $(tdElem).text(key);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(describeObj[key]);
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+            }
+
+
+            $(tableElem).append(tbodyElem);
+
+            return tableElem;
+        }
 
         // event-viewer is a <code> element, which is in a <pre>
         const eventData = $(this).text();
@@ -158,8 +260,8 @@ $(document).ready(function() {
                 {
                     const tdElem = document.createElement('td');
                     $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
-                    $(tdElem).text(rowObj.title);
-                    $(tdElem).attr('title', rowObj.key);
+                    $(tdElem).text(rowObj.key);
+                    $(tdElem).attr('title', rowObj.title);
                     $(trElem).append(tdElem);
                 }
                 {
@@ -173,6 +275,17 @@ $(document).ready(function() {
 
             $(tableElem).append(tbodyElem);
             $(outerDivElem).append(tableElem);    
+
+
+            if (eventJson.name == 'spark/status/safe-mode') {
+                // Decode safe mode events in a new table
+                try {
+                    $(outerDivElem).append(createSafeModeTable(JSON.parse(eventJson.data)));    
+                }
+                catch(e) {
+
+                }
+            }
         }
 
         $(preEvent).replaceWith(outerDivElem);

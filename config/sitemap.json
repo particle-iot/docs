@@ -1139,8 +1139,8 @@
             "hash": "3365c544cbe9b5f2e389145a088d91eb0881ede71a5f863ec6d49a05838fc72e"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2023-12-19",
-            "hash": "68d1ac3b823760bb03261865f42ab116efb2d628eaa88b16bb3180a2fdf9af9f"
+            "date": "2024-05-13",
+            "hash": "e310e5ca2a5b6defce35b58af75502365770e9d95a110420a5adf06f0f058b62"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2023-07-12",
@@ -9055,7 +9055,7 @@
             "date": "2024-05-01"
         },
         "reference/cloud-apis/firmware-update-events.md": {
-            "hash": "010f036225c5dbc8cf7c93cf5e9b3bea9908754fd0aaae179a6818d6fa91588c",
+            "hash": "ab870837f0d997e794cc8204edca69e7aaca5440886d8a70e5c8fff1e3efb04b",
             "date": "2024-05-13"
         }
     }
