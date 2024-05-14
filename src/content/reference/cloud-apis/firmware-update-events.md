@@ -44,7 +44,7 @@ The `spark/device/app-hash" specifies the unique app hash for the firmware on th
 {"data":"09ad0870ed14795cbd3fc86c1d7cf67e0e77614484c5955ad00e2d7c30b64142","ttl":60,"published_at":"2024-05-13T10:55:13.738Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"597771d1f92bae142dbb7559","version":1,"public":false,"productID":30301,"name":"spark/device/app-hash"}
 ```
 
-### last_rset
+### last_reset
 
 The `spark/device/last_reset` event indicates the reason why the device last rebooted.
 
@@ -226,7 +226,6 @@ This event is for device diagnostics.
 
 ```event-viewer
 {"data":"{\"device\":{\"network\":{\"cellular\":{\"radio_access_technology\":\"LTE\",\"operator\":\"AT&T Wireless Inc.\",\"cell_global_identity\":{\"mobile_country_code\":310,\"mobile_network_code\":\"410\",\"location_area_code\":3339,\"cell_id\":205999999}},\"signal\":{\"at\":\"LTE Cat-M1\",\"strength\":88.33,\"strength_units\":\"%\",\"strengthv\":-77,\"strengthv_units\":\"dBm\",\"strengthv_type\":\"RSRP\",\"quality\":45.83,\"quality_units\":\"%\",\"qualityv\":-11,\"qualityv_units\":\"dB\",\"qualityv_type\":\"RSRQ\"},\"connection\":{\"status\":\"connected\",\"error\":0,\"disconnects\":0,\"attempts\":1,\"disconnect_reason\":\"unknown\"}},\"cloud\":{\"connection\":{\"status\":\"connecting\",\"error\":-160,\"attempts\":2,\"disconnects\":0,\"disconnect_reason\":\"none\"},\"coap\":{\"transmit\":10,\"retransmit\":4,\"unack\":1,\"round_trip\":872},\"publish\":{\"rate_limited\":0}},\"power\":{\"battery\":{\"charge\":{\"err\":-210},\"state\":\"disconnected\"},\"source\":\"USB host\"},\"system\":{\"uptime\":99,\"memory\":{\"used\":73976,\"total\":167688}}},\"service\":{\"device\":{\"status\":\"ok\"},\"cloud\":{\"uptime\":2,\"publish\":{\"sent\":2}},\"coap\":{\"round_trip\":228}}}","ttl":60,"published_at":"2024-05-13T11:11:42.463Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"spark/device/diagnostics/update"}
-{"data":"{\"t\":20,\"v\":3}","ttl":60,"published_at":"2024-05-13T11:11:57.350Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":3,"public":false,"productID":30301,"name":"tempmon"}
 ```
 
 ## Upgrade to version 4
@@ -267,11 +266,18 @@ The process starts out the same as before, with `spark/status` events.
 
 ### spark/status/safe-mode (v4)
 
-The difference is that the log next contains a `spark/status/safe-mode` event. This indicates that the user firmware that was just flashed requires a Device OS update. 
+The difference is that the log next contains a `spark/status/safe-mode` event. This indicates that the user firmware that was just flashed requires a Device OS update. Once the device connects to the cloud (blinking green, blinking cyan, fast blinking cyan) it will go into breathing magenta, however that phase is often so short that you will only see the next step, blinking magenta (red and blue at the same time).
 
 ```event-viewer
 {"data":"{\"p\":13,\"imei\":\"352753094038575\",\"iccid\":\"89014103271226581328\",\"cellfw\":\"L0.0.00.00.05.06,A.02.00\",\"m\":[{\"s\":49152,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"b\",\"n\":\"0\",\"v\":1101,\"d\":[]},{\"s\":671744,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"1\",\"v\":4006,\"d\":[{\"f\":\"b\",\"n\":\"0\",\"v\":1101},{\"f\":\"a\",\"n\":\"0\",\"v\":202}]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":26,\"u\":\"a67c3ce8a8abab5d75adbfd2a9a533df1a82179347c6fc0a2bc390e145a15ba3\",\"f\":\"u\",\"n\":\"2\",\"v\":6,\"d\":[{\"f\":\"s\",\"n\":\"1\",\"v\":4200}]},{\"s\":192512,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"a\",\"n\":\"0\",\"v\":202,\"d\":[]}]}","ttl":60,"published_at":"2024-05-13T16:16:50.064Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status/safe-mode"}
 ```
+
+From the decoded safe-mode event, you can see:
+
+- The upgraded user firmware requires a Device OS update to 4.2.0.
+- `p` is the platform ID (Boron, in this case)
+- `imei` and `iccid` identify the device that is in safe mode (for cellular devices)
+- `cellfw` is the cellular modem firmware version number (if available)
 
 You can paste the event data into the [Device Inspect Tool](/tools/developer-tools/device-inspect/) to decode your own events.
 
@@ -287,7 +293,7 @@ At first glance, this might look the same as the previous one, but you can see t
 
 ### Device OS update 2 (v4)
 
-This is the final step before the device boots with the new firmware.
+This is the final reboot before the device boots with the new firmware and Device OS.
 
 ```event-viewer
 {"data":"online","ttl":60,"published_at":"2024-05-13T16:18:11.770Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"","version":0,"public":false,"productID":30301,"name":"spark/status"}
