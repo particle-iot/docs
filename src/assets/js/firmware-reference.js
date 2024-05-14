@@ -254,6 +254,14 @@ $(document).ready(function() {
             }
         }
 
+        let activeElem = $('.navLinkActive');
+        if (activeElem.length == 0) {
+            activeElem = $('.navActive2');
+        }
+        if (activeElem.length) {
+            activeElem[0].scrollIntoView();  
+        }
+        
 
         /*
 */

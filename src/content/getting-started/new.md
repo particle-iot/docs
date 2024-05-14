@@ -21,6 +21,16 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Monitor One M12 connector 2024-05-14
+
+Added [M12 connector ratings](/reference/datasheets/tracker/monitor-one-datasheet#m12-connector-ratings) to the Monitor One datasheet with voltage and current limits for this connector.
+
+### Device OS API reference scrolling 2024-05-14
+
+Fixed a bug in the [Device OS API reference](/reference/device-os/api/) where the left navigation did not
+scroll to the active item on page open with direct link, or when clicking links to other pages within
+the reference.
+
 ### Tracker SoM supported GNSS 2024-05-06
 
 Updated the list of supported GNSS systems for the [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/).

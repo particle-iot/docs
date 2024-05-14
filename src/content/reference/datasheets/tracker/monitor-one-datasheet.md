@@ -223,6 +223,8 @@ Any 6VDC to 30VDC power adapter at 12 watts (minimum) with a 5.5x2.1mm barrel co
 
 The RS485 and CAN interface pins on the M12 8-pin connector cannot be used as GPIO.
 
+See [M12 connector ratings](#m12-connector-ratings) below for voltage and current limits for this connector.
+
 ### I/O Card M12 4-pin to flying leads
 
 The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20mm (about 60 inches or 5 feet).
@@ -236,6 +238,7 @@ The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20m
 | 3 | Black | Ground | |
 | 4 | Blue | Relay (NO) | NFC_PIN2 |
 
+See [M12 connector ratings](#m12-connector-ratings) below for voltage and current limits for this connector.
 
 
 ### I/O Card details
@@ -272,7 +275,6 @@ The M12 4-pin bulkhead connector has flying leads that are connected to the scre
 | 2 | Green | COM |
 | 3 | Black | GND |
 | 4 | Blue | NO |
-
 
 ### Customizing the I/O Card
 
@@ -459,6 +461,7 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 
 {{imageOverlay src="/assets/images/monitor-one/m12-hole.png" alt="M12 hole" class="full-width"}}
 
+See [M12 connector ratings](#m12-connector-ratings) below for voltage and current limits for this connector.
 
 ### GPIO
 
@@ -845,6 +848,15 @@ To be provided at a later date.
 - [Datasheet](/assets/datasheets/ZN18650-4P.pdf)
 
 
+### M12 connector ratings
+
+The maximum ratings for the M12 bulkhead connectors and flying lead connectors are:
+
+- M12 8pin: 30V AC/DC, 2A
+- M12 4pin: 250V AC/DC, 4A
+
+The connectors are rated IP67 in both connected and unconnected state.
+
 ## Country compatibility
 
 To be provided at a later date.
@@ -1146,3 +1158,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2024-04-02 | RK | Changed power supply specification from 2A to 12W |
 | 2024-04-23 | RK | Added links to certification documents |
 | 2024-04-29 | RK | Updated EU certification band information |
+| 2024-05-14 | RK | Added voltage and current limits for M12 connectors |
