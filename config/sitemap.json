@@ -1139,8 +1139,8 @@
             "hash": "3365c544cbe9b5f2e389145a088d91eb0881ede71a5f863ec6d49a05838fc72e"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2023-12-19",
-            "hash": "68d1ac3b823760bb03261865f42ab116efb2d628eaa88b16bb3180a2fdf9af9f"
+            "date": "2024-05-13",
+            "hash": "e310e5ca2a5b6defce35b58af75502365770e9d95a110420a5adf06f0f058b62"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2023-07-12",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c023d52e02c52295136c7e30938d443dd024bf81e9b113bb7921bb7542f3740b",
+            "hash": "386c92451a7d4a7712f2cf82e75ad9f32d56c889ea1360c731a0b03cb42de3fd",
             "date": "2024-05-14"
         },
         "getting-started/cloud/logic.md": {
@@ -9053,6 +9053,10 @@
         "reference/device-os/api/math/map-value-tranformation.md": {
             "hash": "a2d3af9f1caf11a31e318c81caa3a55d2390897994853d03a793a08c224e653d",
             "date": "2024-05-01"
+        },
+        "reference/cloud-apis/firmware-update-events.md": {
+            "hash": "d14f7ea78ab6df8ed887de37c2353c9c2f080bbecf899e0b993ac0a4bee0c398",
+            "date": "2024-05-14"
         }
     }
 }

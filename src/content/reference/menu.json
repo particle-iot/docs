@@ -230,6 +230,11 @@
       {
         "dir": "data-report-tutorial",
         "href": "/reference/cloud-apis/data-report-tutorial/"
+      },
+      {
+        "dir": "firmware-update-events",
+        "title": "Firmware update events",
+        "href": "/reference/cloud-apis/firmware-update-events/"
       }
     ],
     {

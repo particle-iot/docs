@@ -1149,8 +1149,13 @@ $(document).ready(function() {
                 $(outputElem).html('');
                 setStatus('');
 
+                let text = $(rawJsonElem).val();
+
+                // Remove string escapes
+                text = text.replaceAll('\\"', '"');
+
                 try {
-                    const parsedJson = JSON.parse($(rawJsonElem).val());
+                    const parsedJson = JSON.parse(text);
                     outputModuleInfo(parsedJson);
                 }
                 catch(e) {

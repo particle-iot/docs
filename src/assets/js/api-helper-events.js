@@ -93,6 +93,276 @@ apiHelper.eventViewer.start = function(elem) {
 
 
 $(document).ready(function() {
+
+    if ($('.event-viewer').length) {
+        let eventViewer = {};
+
+        // Download the module version to semver mapping table
+        fetch('/assets/files/versionInfo.json')
+            .then(response => response.json())
+            .then(function(res) {
+                eventViewer.versionInfo = res;
+
+                $('.event-viewer').each(async function() {
+    
+                    const rows = [
+                        {
+                            key: 'name',
+                            title: 'Event name',
+                        },
+                        {
+                            key: 'data',
+                            title: 'Event data',
+                        },
+                        {
+                            key: 'published_at',
+                            title: 'Published at',
+                        },
+                        {
+                            key: 'coreid',
+                            title: 'Device ID',
+                        },
+                        {
+                            key: 'userid',
+                            title: 'User ID',
+                            omitIfEmpty: true,
+                        },
+                        {
+                            key: 'productID',
+                            title: 'Product ID',
+                        },
+                        {
+                            key: 'version',
+                            title: 'Firmware version',                            
+                        },
+                    ];
+            
+                    const createSafeModeTable = function(describeObj) {
+                        const tableElem = document.createElement('table');
+                        $(tableElem).addClass('apiHelperEventViewerTable');
+            
+                        const tbodyElem = document.createElement('tbody');
+            
+                        {
+                            const trElem = document.createElement('tr');
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).attr('colspan', '2');
+                                $(tdElem).text('Safe Mode Event');
+                                $(tdElem).addClass('apiHelperEventViewerTableHeaderAlt');
+                                $(trElem).append(tdElem);
+                            }
+                            $(tbodyElem).append(trElem);    
+                        }
+            
+            
+                        const displayParts = [
+                            {
+                                id: 'u',
+                                title: 'User firmware'
+                            },
+                            {
+                                id: 's',
+                                title: 'Device OS'
+                            },
+                            {
+                                id: 'b',
+                                title: 'Bootloader'
+                            },
+                            {
+                                id: 'a',
+                                title: 'Softdevice'
+                            },
+                            {
+                                id: 'c',
+                                title: 'NCP'
+                            }
+                        ];
+            
+                        const systemVersionToSemVer = function(sysVer) {
+                            for(let obj of eventViewer.versionInfo.versions) {
+                                if (obj.sys == sysVer) {
+                                    return obj.semVer;
+                                }
+                            }
+                            return null;
+                        };
+            
+                        const versionText = function(f, v) {
+                            let text = v.toString();
+            
+                            // Takes a module array (m) element or a dependency array element
+                            if (f == 's') {
+                                const semVer = systemVersionToSemVer(v);
+                                if (semVer) {
+                                    text += ' (' + semVer + ')';
+                                }
+                            }
+                            return text;
+                        }
+            
+                        // Module version information (m)
+                        for(const moduleObj of describeObj.m) {
+                            const trElem = document.createElement('tr');
+            
+                            console.log('moduleObj', moduleObj);
+            
+                            let title = displayParts.find(e => e.id == moduleObj.f).title;
+                            
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
+                                $(tdElem).text(title);
+                                $(trElem).append(tdElem);
+                            }
+                            {
+                                const tdElem = document.createElement('td');
+            
+                                let text = '';
+                                
+                                if (moduleObj.f != 'u') {
+                                    text += 'version ' + moduleObj.v + ', ';
+                                }
+            
+                                if (moduleObj.vc != moduleObj.vv) {
+                                    text += 'required dependencies are missing: ';
+                                    for(const depObj of moduleObj.d) {
+                                        const depModuleObj = describeObj.m.find(e => e.f == depObj.f && e.n == depObj.n);
+                                        if (depModuleObj) {
+                                            const depModuleTitle = displayParts.find(e => e.id == depObj.f).title;   
+                                            text += depModuleTitle + ' is currently version ' + versionText(depModuleObj.f, depModuleObj.v) +
+                                                    ' must be ' + versionText(depObj.f, depObj.v);
+                                        }
+                                    }
+                                }
+                                else {
+                                    text += 'dependencies are valid';
+                                }
+            
+                                $(tdElem).addClass('apiHelperEventViewerTableRightColumn');
+                                $(tdElem).text(text);
+                                $(trElem).append(tdElem);
+                            }
+                            $(tbodyElem).append(trElem);
+                        }
+            
+                        // Other parameters
+                        for(const key in describeObj) {
+                            const trElem = document.createElement('tr');
+            
+                            if (key == 'm') {
+                                continue;
+                            }
+            
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
+                                $(tdElem).text(key);
+                                $(trElem).append(tdElem);
+                            }
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableRightColumn');
+                                $(tdElem).text(describeObj[key]);
+                                $(trElem).append(tdElem);
+                            }
+            
+                            $(tbodyElem).append(trElem);
+                        }
+            
+            
+                        $(tableElem).append(tbodyElem);
+            
+                        return tableElem;
+                    }
+            
+                    // event-viewer is a <code> element, which is in a <pre>
+                    const eventData = $(this).text();
+                    const preEvent = $(this).parent();
+            
+                    const outerDivElem = document.createElement('div');
+            
+                    for(let line of eventData.split('\n')) {
+                        line = line.trim();
+                        if (line == '') {
+                            continue;
+                        }
+                        let eventJson;
+                        try {
+                            eventJson = JSON.parse(line);
+                        }
+                        catch(e) {
+                            continue;
+                        }
+            
+                        const tableElem = document.createElement('table');
+                        $(tableElem).addClass('apiHelperEventViewerTable');
+            
+                        const tbodyElem = document.createElement('tbody');
+            
+                        {
+                            const trElem = document.createElement('tr');
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).attr('colspan', '2');
+                                $(tdElem).text('Particle Event');
+                                $(tdElem).addClass('apiHelperEventViewerTableHeader');
+                                $(trElem).append(tdElem);
+                            }
+                            $(tbodyElem).append(trElem);    
+                        }
+
+                        for(const rowObj of rows) {
+                            if (typeof eventJson[rowObj.key] == 'undefined') {
+                                continue;
+                            }
+                            if (eventJson[rowObj.key] == '' && rowObj.omitIfEmpty) {
+                                continue;
+                            }
+                            
+                            const trElem = document.createElement('tr');
+            
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
+                                $(tdElem).text(rowObj.key);
+                                $(tdElem).attr('title', rowObj.title);
+                                $(trElem).append(tdElem);
+                            }
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableRightColumn');
+                                $(tdElem).text(eventJson[rowObj.key]);
+                                $(trElem).append(tdElem);
+                            }
+            
+                            $(tbodyElem).append(trElem);
+                        }
+            
+                        $(tableElem).append(tbodyElem);
+                        $(outerDivElem).append(tableElem);    
+            
+            
+                        if (eventJson.name == 'spark/status/safe-mode') {
+                            // Decode safe mode events in a new table
+                            try {
+                                $(outerDivElem).append(createSafeModeTable(JSON.parse(eventJson.data)));    
+                            }
+                            catch(e) {
+            
+                            }
+                        }
+                    }
+            
+                    $(preEvent).replaceWith(outerDivElem);
+            
+                });
+            
+
+            });
+
+    }
+
     if ($('.apiHelper').length == 0) {
         return;
     }
@@ -159,5 +429,7 @@ $(document).ready(function() {
             });
         }    
     });
+
+
 
 });

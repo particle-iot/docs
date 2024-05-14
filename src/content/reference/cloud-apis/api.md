@@ -663,6 +663,7 @@ These events are used for controlling OTA updates.
 
 #### spark/device/last_reset
 
+{{!-- BEGIN shared-blurb ececa6c1-db6d-4658-b47f-74b82f32af27 --}}
 The event data will be the reason for the most recent reset:
 
 | Data | Description |
@@ -707,6 +708,8 @@ If the reason is `RESET_REASON_PANIC`, then a comma and either a known panic cod
 | 14 | `HeapError` (14) |
 
 For example: `panic, hard_fault`.
+{{!-- END shared-blurb --}}
+
 
 #### Future reserved events
 
