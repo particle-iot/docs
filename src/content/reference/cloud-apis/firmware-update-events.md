@@ -12,13 +12,13 @@ When you upgrade the product firmware on a device a number of events are generat
 
 For this example, the device (e00fce68ece1d3d21a73dcc9, "boron4") is part of the product 30301 ("tempmon-boron").
 
-## Manual flashing
+## Manual flashing OTA
 
 In this series of events (oldest first), the device is manually flashed OTA with version 1 of the product firmware. The product firmware targets the same version of Device OS as is on the device (4.0.1), so a Device OS upgrade is not necessary.
 
 ### spark/flash/status
 
-The `spark/flash/status` is generated when the flash is started (`started `) and when it's complete (`success `). Note that success only means that the device was online and was able to start the flashing process.
+The `spark/flash/status` is generated when the flash is started (`started `) and when it's complete (`success `). Note that success only means that the device was online and was able to start the flashing process, not that the update was completed successfully!
 
 ```event-viewer
 {"data":"started ","ttl":60,"published_at":"2024-05-13T10:55:02.520Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"597771d1f92bae142dbb7559","version":0,"public":false,"productID":30301,"name":"spark/flash/status"}
@@ -111,7 +111,7 @@ There are multiple events for particle/device/updates that control Intelligent O
 
 ### Our event
 
-The firmware below generates an event with an imaginary temperature value (`t`). It also includes the product firmware version in the `v` key.
+The [user firmware](#test-firmware) below generates an event with an imaginary temperature value (`t`). It also includes the product firmware version in the `v` key.
 
 ```event-viewer
 {"data":"{\"t\":19,\"v\":1}","ttl":60,"published_at":"2024-05-13T10:55:40.306Z","coreid":"e00fce68ece1d3d21a73dcc9","userid":"597771d1f92bae142dbb7559","version":1,"public":false,"productID":30301,"name":"tempmon"}

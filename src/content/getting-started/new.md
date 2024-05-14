@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Firmware update events 2024-05-14
+
+Added a new guide to [firmware update events](/reference/cloud-apis/firmware-update-events/) in the product event stream when 
+updating firmware and Device OS OTA.
+
 ### Monitor One M12 connector 2024-05-14
 
 Added [M12 connector ratings](/reference/datasheets/tracker/monitor-one-datasheet#m12-connector-ratings) to the Monitor One datasheet with voltage and current limits for this connector.

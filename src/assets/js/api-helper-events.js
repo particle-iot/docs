@@ -149,6 +149,7 @@ $(document).ready(function() {
                                 const tdElem = document.createElement('td');
                                 $(tdElem).attr('colspan', '2');
                                 $(tdElem).text('Safe Mode Event');
+                                $(tdElem).addClass('apiHelperEventViewerTableHeaderAlt');
                                 $(trElem).append(tdElem);
                             }
                             $(tbodyElem).append(trElem);    
@@ -210,6 +211,7 @@ $(document).ready(function() {
                             
                             {
                                 const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
                                 $(tdElem).text(title);
                                 $(trElem).append(tdElem);
                             }
@@ -237,6 +239,7 @@ $(document).ready(function() {
                                     text += 'dependencies are valid';
                                 }
             
+                                $(tdElem).addClass('apiHelperEventViewerTableRightColumn');
                                 $(tdElem).text(text);
                                 $(trElem).append(tdElem);
                             }
@@ -259,6 +262,7 @@ $(document).ready(function() {
                             }
                             {
                                 const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableRightColumn');
                                 $(tdElem).text(describeObj[key]);
                                 $(trElem).append(tdElem);
                             }
@@ -296,6 +300,18 @@ $(document).ready(function() {
             
                         const tbodyElem = document.createElement('tbody');
             
+                        {
+                            const trElem = document.createElement('tr');
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).attr('colspan', '2');
+                                $(tdElem).text('Particle Event');
+                                $(tdElem).addClass('apiHelperEventViewerTableHeader');
+                                $(trElem).append(tdElem);
+                            }
+                            $(tbodyElem).append(trElem);    
+                        }
+
                         for(const rowObj of rows) {
                             if (typeof eventJson[rowObj.key] == 'undefined') {
                                 continue;
@@ -315,6 +331,7 @@ $(document).ready(function() {
                             }
                             {
                                 const tdElem = document.createElement('td');
+                                $(tdElem).addClass('apiHelperEventViewerTableRightColumn');
                                 $(tdElem).text(eventJson[rowObj.key]);
                                 $(trElem).append(tdElem);
                             }
