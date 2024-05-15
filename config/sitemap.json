@@ -1020,15 +1020,15 @@
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2024-05-15",
-            "hash": "24c459713b9353945843732fafb8f257f8f5ae69c325e19ef3a18f8f0d953b98"
+            "hash": "ac7882058baedf0422428ed4e4d4b72a2941b5a530083fa23b0113ee78ba87d7"
         },
         "hardware/migration-guides/p2-p1-migration-guide.md": {
             "date": "2024-05-15",
-            "hash": "f8aaab8551c86f3d488c684535ca93cfa32ed2acda79aaa3f070ae2da7735312"
+            "hash": "30577d12b4bb3f91e3d3441a9d870d502d39759bcde356ead47afc2bf1cb9c41"
         },
         "hardware/migration-guides/p2-photon-migration-guide.md": {
             "date": "2024-05-15",
-            "hash": "145652efc199d6e48b1e04637e1585770414fad7508d784e567a133c90afe8f4"
+            "hash": "1679e462139b01b420cc13c6347539508ac3831110492f05ec24a45e0074a0ee"
         },
         "hardware/migration-guides/photon-2-argon-migration-guide.md": {
             "date": "2024-04-25",
@@ -1408,7 +1408,7 @@
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
             "date": "2024-05-15",
-            "hash": "4c4f94f095ee20e2839df87e8f50abee10c805a8cd7cfa556162b32a822fa416"
+            "hash": "3448a796ae145c2e2632f73d041271f25e87c7ea5d7a7bead04476ea9f240d8d"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
             "date": "2024-05-10",
@@ -8383,19 +8383,19 @@
             "date": "2024-04-29"
         },
         "hardware/migration-guides/msom-b-series-migration-guide.md": {
-            "hash": "9639a4af6dd3152c4dbed2887c827487c3d7af00ab941f88b78d32f4072eddcd",
+            "hash": "4b4941a5abddcdee6726d04e117b6785ea7c81f0b79d44de5370e4cf8d4ef195",
             "date": "2024-05-15"
         },
         "hardware/migration-guides/msom-boron-migration-guide.md": {
-            "hash": "8934fcbb46a8100c9cd8b5216e0ee8afd1238a68b10cd5b9f3300916c89c5f82",
+            "hash": "2193107026be17d814208c185a46c780b67977405f45eb6d11c5eccefdbf1ecc",
             "date": "2024-05-15"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
-            "hash": "8284f25d252d8fa080ab768aa1af5c872ff67a3cc718ac992957a8fab80ff53c",
+            "hash": "48a9cd36bbf4933ec7caceb91475d6b6c994e221656f5fc3d823673c6777ab98",
             "date": "2024-05-15"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
-            "hash": "df2655ce62f09cef100bfbcde1fe2d1f276520f6d70b6c326d1e8bd577c6691a",
+            "hash": "c419612bdefa2459574b1435e83fc5388d8f4dcbc0293dec767b956351f46c1b",
             "date": "2024-05-15"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
