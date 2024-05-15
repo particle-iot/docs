@@ -169,14 +169,6 @@ The DCT area of flash memory has been mapped to a separate DFU media device so t
 | led theme | 3759 | 64 |
 | reserved2 | 3823 | 435 |
 
-**Note:** Writing 0xFF to offset 34 (DEFAULT) or 3106 (ALTERNATE) will cause the device to re-generate a new private key on the next boot. Alternate keys are currently unsupported on the P1 but are used on the Electron as UDP/ECC keys.  You should not need to use this feature unless your keys are corrupted.
-
-```
-// Regenerate Default Keys
-echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
-// Regenerate Alternate Keys
-echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
-```
 
 {{!-- ### Memory Map --}}
 

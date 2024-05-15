@@ -24,60 +24,15 @@ The easiest way to install the CLI is to open a Terminal and type:
 bash <( curl -sL https://particle.io/install-cli )
 ```
 
-This command downloads the `particle` command to your home directory at `~/bin`, installs a version of Node.js to `~/.particle` and installs the `particle-cli` Node.js module that contain the code of the CLI.
-
-It will also try to install [DFU-util](/archives/installing-dfu-util/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](/archives/installing-dfu-util/) if the installer is not able to automatically install dfu-util.
-
-If you are using a Mac with Apple silicon (M1, M2, M3, ...) and have previously imported your settings and applications from an Intel Mac, you may run into issues. See [CLI on Mac with Apple silicon](/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/).
+This command downloads the `particle` command to your home directory at `~/bin`.
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/archives/installing-dfu-util/).
+Download the [Windows CLI Installer](https://binaries.particle.io/particle-cli/installer/win32/ParticleCLISetup.exe ) and run it to install the Particle CLI. The Windows CLI installer is self-contained and can be run on a computer without Internet access, however CLI commands that interact with the Particle clould will of course need Internet access.
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
 {{!-- END shared-blurb --}}
-
-### Advanced install
-
-You can manually install the `particle-cli` Node.js package if you need the CLI installed in a different location or you need to install a specific version of the CLI. 
-
-Make sure you have a recent [LTS version of Node.js](http://nodejs.org/) installed.
-
-```sh
-# check that you have node.js 16 or above. Check http://nodejs.org on how to update node.js
-$ node -v
-v16.20.0
-# check that you have npm 8 or above
-$ npm -v
-8.19.4
-```
-
-Next, open a command prompt or terminal, and install by typing:
-
-```sh
-# how to install the particle-cli
-$ npm install -g particle-cli
-$ particle login
-```
-
-If you experience permission errors, we recommend you change the directory where npm installs global packages (ones installed with `-g`) to another directory as documented [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory). If you must install `particle-cli` to the default global package location as the superuser, you have to use the `--unsafe-perm` flag to successfully install all dependencies: `sudo npm install -g --unsafe-perm particle-cli`.
-
-For more OS-specific install instructions, see below.
-
-On Windows, make sure to download and install the [Windows Drivers](https://binaries.particle.io/drivers/windows/particle_drivers.exe) if you installed the CLI through `npm` and did not use the [Windows CLI Installer](#using-windows).
-
-To use the local flash and key features you'll also need to install [dfu-util](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
-
-Here are some great tutorials on the community for full installs:
-
-[Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
-
-[Installing on Ubuntu 12.04](https://community.particle.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
-
-[Installing on Ubuntu 14.04](https://community.particle.io/t/how-to-install-the-spark-toolchain-in-ubuntu-14-04/4139)
-
-[Installing on Mac](https://community.particle.io/t/tutorial-particle-cli-on-mac-osx-07-jun-2015/5225)
 
 
 ### Upgrading to the latest version
@@ -87,34 +42,39 @@ If you installed the Particle CLI through the installer, it will periodically up
 To force it to update, run the installer script again or enter this command:
 
 ```sh
-# how to update the installed CLI
 $ particle update-cli
 ```
 
-If the CLI is outputing unexpected errors after an update, delete the `~/.particle` (Mac OS and Linux) or `C:\Users\<username>\AppData\Local\particle` directory and run the installer script again to start over.
+#### Disabling automatic updates
 
-**To prevent the Particle CLI from automatically updating, set the environment variable `PARTICLE_DISABLE_UPDATE=true` for your system. Use `particle update-cli` to manually update.**
-
-If you installed manually using `npm install`, you can upgrade by running the same command you used to install the tool.
-
-### Running from source (advanced)
-
-To grab the CLI source and play with it locally
+If you wish to prevent automatic updates from occurring you can do so with the following command. This might be appropriate on an assembly line where you want to keep the configuration and binaries constant, however in general we recommend always using the current version.
 
 ```sh
-# how to get the source code for the CLI
-$ git clone https://github.com/particle-iot/particle-cli.git
-$ cd particle-cli
-$ npm install
-$ npm start -- help
+$ particle update-cli --disable-updates
 ```
 
-View [README#Development](https://github.com/particle-iot/particle-cli#development) for more
+#### Reenabling automatic updates
+
+To resume updates and update if necessary now:
+
+```sh
+$ particle update-cli --enable-updates
+```
+
+#### Installing a specific version
+
+```sh
+$ particle update-cli --version <version>
+```
+
+<version> can be any version 3.23.0 or later. This also disables automatic updates. 
+
+For more information about installing a specific version, see [specific CLI version](/troubleshooting/guides/build-tools-troubleshooting/specific-cli-version/).
 
 
 ## Getting started
 
-  These next two commands are all you need to get started setting up an account, claiming a device, and discovering new features.
+These next two commands are all you need to get started setting up an account, claiming a device, and discovering new features.
 
 
 ### particle help

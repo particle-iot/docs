@@ -7,11 +7,14 @@ columns: two
 # {{{title}}}
 ## Installing dfu-util
 
+The Particle CLI no longer uses dfu-util to flash devices in DFU mode (blinking yellow) and it is no longer necessary
+to install it. 
+
+{{collapse op="start" label="Show older information"}}
+
 This guide explains how to install [dfu-util](http://dfu-util.sourceforge.net), the utility for programming the flash memory on Particle devices like the Core, Photon, P1 (with USB) and Electron over USB.
 
 It can be used to program both Device OS and application firmware, and save and restore configurations.
-
-If you are using Windows, you can use the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install dfu-util and the CLI rather than using these instructions.
 
 ### Activating DFU mode (blinking yellow)
 
@@ -23,7 +26,7 @@ If your device is in a particularly odd and confused state, sometimes you may ne
 
 ### Installation - Windows
 
-The easiest way to install dfu-util under Windows is to use the [Particle CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), which installs it automatically.
+The easiest way to install dfu-util under Windows is to use the [Particle CLI installer](https://binaries.particle.io/particle-cli/installer/win32/ParticleCLISetup.exe ), which installs it automatically.
 
 ### Seriously, use the installer if you can.
 
@@ -351,3 +354,6 @@ Restoring keys:
 dfu-util -d 2b04:d006 -a 1 -s 34 -D keys.bin
 
 ```
+
+
+{{collapse op="end"}}

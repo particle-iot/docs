@@ -185,15 +185,6 @@ _DCD layout as of v0.4.9_ [found here in firmware](https://github.com/particle-i
 | alt server address | 3490 | 128 |
 | reserved2 | 3618 | 1280 |
 
-**Note:** Writing 0xFF to offset 3106 (DEFAULT key used on E series module) will cause the device to re-generate a new private UDP/ECC key on the next boot. TCP keys are currently unsupported on the E series module but would be located at offset 34.  You should not need to use this feature unless your keys are corrupted.
-
-```
-// Regenerate Alternate Keys (Default)
-echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
-// Regenerate TCP Keys (Unsupported)
-echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
-```
-
 ### Memory map (common)
 
 | Region | Start Address | End Address | Size |

@@ -206,15 +206,6 @@ _DCD layout in `release/stable`_ <a href="https://github.com/particle-iot/device
 | led theme | 3759 | 64 |
 | reserved2 | 3823 | 435 |
 
-**Note:** Writing 0xFF to offset 3106 (DEFAULT key used on Electron) will cause the device to re-generate a new private UDP/ECC key on the next boot. TCP keys are currently unsupported on the Electron but would be located at offset 34.  You should not need to use this feature unless your keys are corrupted.
-
-```
-// Regenerate Alternate Keys (Default)
-echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
-// Regenerate TCP Keys (Unsupported)
-echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
-```
-
 ### Memory map (common)
 
 | Region | Start Address | End Address | Size |

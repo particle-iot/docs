@@ -21,15 +21,11 @@ The easiest way to install the CLI is to open a Terminal and type:
 bash <( curl -sL https://particle.io/install-cli )
 ```
 
-This command downloads the `particle` command to your home directory at `~/bin`, installs a version of Node.js to `~/.particle` and installs the `particle-cli` Node.js module that contain the code of the CLI.
-
-It will also try to install [DFU-util](/archives/installing-dfu-util/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](/archives/installing-dfu-util/) if the installer is not able to automatically install dfu-util.
-
-If you are using a Mac with Apple silicon (M1, M2, M3, ...) and have previously imported your settings and applications from an Intel Mac, you may run into issues. See [CLI on Mac with Apple silicon](/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/).
+This command downloads the `particle` command to your home directory at `~/bin`.
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/archives/installing-dfu-util/).
+Download the [Windows CLI Installer](https://binaries.particle.io/particle-cli/installer/win32/ParticleCLISetup.exe ) and run it to install the Particle CLI. The Windows CLI installer is self-contained and can be run on a computer without Internet access, however CLI commands that interact with the Particle clould will of course need Internet access.
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 

@@ -38,7 +38,6 @@ If you are experiencing these problems on Windows 10 you may have a driver issue
 
 - No serial device identified in the web-based tools despite using a current version of Chrome or Edge.
 - `particle serial list` returns no devices.
-- `dfu-util -l`` returns no devices.
 
 See [Windows 10 device driver issues](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/) for more information.
 
@@ -100,16 +99,6 @@ Hardware peripheral issues have several main causes. In order:
 2. **Make sure your USB cable is not damaged in some way**. Again, cross-testing against another device and against another cable is strongly recommended.
 3. **Bypass USB hub / extension**s - if you are working with a device and are seeing issues related to its USB connection, try disconnecting all USB devices and reconnecting only your Particle device directly to you computer’s USB port.
 4. For Windows devices, you may need to ensure that the appropriate drivers are installed. IF you see the error `LIBUSB_ERROR_NOT_SUPPORTED`, you may need to install the latest [Particle USB/serial drivers](http://binaries.particle.io/cli/installer/windows/ParticleDriversSetup.exe). Please see our extensive troubleshooting documentation for fixing Windows driver issues here: ([link](https://github.com/rickkas7/particle%5Fnotes/tree/master/fixing-windows-10-serial-drivers)).
-5. Check your computer's Device Manager to ensure that your computer is able to identify the device. For Mac OS, you will need to go to `Applications/Utilities` and open up the application called "System Information." For Windows, this is your Device Manager.  
-    
-When in DFU mode, the Device Manager looks like this: (Note that it may say **Photon DFU Mode** regardless of device type.)  
-    
-![DFU driver](/assets/images/support/installing-dfu-util-22dfu.png)
-    
-And when in normal operating mode or listening mode (blinking blue), the Device Manager looks like this:  
-    
-![COM driver](/assets/images/support/installing-dfu-util-23com.png)
-6. If your device is recognized in DFU Mode but not in any other mode, you may need to perform an update to that device in order for it to recognize Serial commands. In order to do so, as always, place the device in DFU Mode (hold down BOTH buttons, then release only the `RESET` button, while holding down the `MODE` button. Wait for the LED to start flashing yellow (it will flash magenta first) and release the `MODE` button once it's flashing yellow). Then run the CLI commands `particle update` followed by `particle flash --local tinker`.
 
 ## How to report CLI issues
 
