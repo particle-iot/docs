@@ -838,7 +838,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | I2S interface | n/a | RX |
+| ∆ | I2S interface | n/a | I2S RX |
 | ∆ | Internal pull resistance | 13K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### D2
 |   |   | Argon | P2 |
@@ -1022,7 +1022,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| I2S interface | MCLK|
+| I2S interface | I2S MCLK|
 | Internal pull resistance | 2.1K|
 #### S1
 | | Added to P2 |
@@ -1050,7 +1050,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-| I2S interface | TX|
+| I2S interface | I2S TX|
 | Internal pull resistance | 2.1K|
 #### S5
 | | Added to P2 |
@@ -1061,7 +1061,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Description | S5 GPIO, I2S CLK. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| I2S interface | CLK|
+| I2S interface | I2S CLK|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
 #### S6
 | | Added to P2 |
@@ -1073,7 +1073,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| I2S interface | WS|
+| I2S interface | I2S WS|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### TX
 |   |   | Argon | P2 |

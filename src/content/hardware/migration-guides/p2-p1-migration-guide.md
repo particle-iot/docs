@@ -359,13 +359,13 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 
 | Pin | P1 Pin Name | P1 I2S | P2 Pin Name | P2 I2S |
 | :---: | :--- | :--- | :--- | :--- |
-| 33 | P1S6 | &nbsp; | S6 / D21 | WS |
-| 40 | P1S0 | &nbsp; | S0 / D15 | MCLK |
-| 44 | P1S3 | &nbsp; | S3 / D18 | TX |
+| 33 | P1S6 | &nbsp; | S6 / D21 | I2S WS |
+| 40 | P1S0 | &nbsp; | S0 / D15 | I2S MCLK |
+| 44 | P1S3 | &nbsp; | S3 / D18 | I2S TX |
 | 45 | D2 | I2S3_SD | D2 | &nbsp; |
 | 46 | MODE | I2S3_MCK | MODE | &nbsp; |
-| 47 | P1S4 | &nbsp; | S4 / D19 | RX |
-| 48 | P1S5 | &nbsp; | S5 / D20 | CLK |
+| 47 | P1S4 | &nbsp; | S4 / D19 | I2S RX |
+| 48 | P1S5 | &nbsp; | S5 / D20 | I2S CLK |
 | 52 | D4 | I2S3_SCK | D4 | &nbsp; |
 | 53 | D5 | I2S3_WS | D5 | &nbsp; |
 
@@ -730,7 +730,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | n/a | WS |
+| ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 34 (RST)
 | | Unchanged between P1 and P2 |
@@ -797,7 +797,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | UART serial | n/a | TX. Use Serial3 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
-| ∆ | I2S interface | n/a | MCLK |
+| ∆ | I2S interface | n/a | I2S MCLK |
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 41 (P1S1 / S1)
@@ -853,7 +853,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports analogRead | Yes | No |
 | ∆ | SPI interface | n/a | Default SS for SPI. |
 | ∆ | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | Yes |
-| ∆ | I2S interface | n/a | TX |
+| ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (D2)
@@ -888,7 +888,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
-| ∆ | I2S interface | n/a | RX |
+| ∆ | I2S interface | n/a | I2S RX |
 | ∆ | Internal pull resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 48 (P1S5 / S5)
@@ -901,7 +901,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | Yes | No |
 | ∆ | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
-| ∆ | I2S interface | n/a | CLK |
+| ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (A2)

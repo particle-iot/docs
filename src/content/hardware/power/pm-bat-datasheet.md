@@ -68,7 +68,7 @@ battery support and want to power from an external DC source.
 | 13 | CHG | Charge indicator output |
 | 14 | SCL | I2C SCL. No internal pull on power module. |
 | 15 | SDA | I2C SDA. No internal pull on power module. |
-| 16 | /FUEL_INT | PMIC and FUEL_INT interrupt output open drain. Connect to SoM D22. |
+| 16 | /FUEL_INT | PMIC and FUEL_INT interrupt output open drain. Connect to M.2 SoM pin 46 (A6) for both B-SoM and M-SoM. |
 | 17 | TS | LiPo battery temperature sensor (NTC thermistor) |
 | 18 | VBAT | LiPo battery connection 3.7V |
 | 19 | VBAT | LiPo battery connection 3.7V |
@@ -86,6 +86,11 @@ battery support and want to power from an external DC source.
 
 The I2C connection is required; the module will not operate correctly without configuration by I2C to 
 adjust the input current limit and other settings.
+
+The `/FUEL_INT` is an open-drain output that goes low if the PMIC or fuel gauge chip signals an interrupt
+condition. This should be connected to M.2 SoM pin 46 (A6) for both B-SoM and M-SoM. On the M-SoM, pin A6 
+pin cannot wake the M-SoM from hibernate sleep mode, but can wake from stop or ULP sleep modes.
+
 
 {{!-- 
 Typical application
@@ -164,3 +169,4 @@ To be provided at a later date.
 |          | 2024-02-28 | RK | Added plug-in version |
 |          | 2024-03-12 | RK | Updated to v2, dimensions changed |
 |          | 2024-04-08 | RK | Updated to v4, pin changes |
+|          | 2024-04-15 | RK | Corrected the /FUEL_INT pin description |

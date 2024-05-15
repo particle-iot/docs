@@ -1086,7 +1086,7 @@ The M-SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| I2S interface | TX|
+| I2S interface | I2S TX|
 | Internal pull resistance | ???|
 #### D21
 | | Added to M-SoM |
@@ -1097,7 +1097,7 @@ The M-SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| I2S interface | RX|
+| I2S interface | I2S RX|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
 | | Added to M-SoM |
@@ -1227,7 +1227,7 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | n/a | CLK |
+| ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
@@ -1244,7 +1244,7 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | No. Shared with BAT_INT_PC13 | Yes |
-| ∆ | I2S interface | n/a | WS |
+| ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
@@ -1442,7 +1442,7 @@ The M-SoM has U.FL antenna connectors:
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes |
-| ∆ | I2S interface | n/a | MCLK |
+| ∆ | I2S interface | n/a | I2S MCLK |
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-

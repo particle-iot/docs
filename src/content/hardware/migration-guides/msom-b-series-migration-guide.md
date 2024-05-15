@@ -476,7 +476,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | I2S interface | n/a | RX |
+| ∆ | I2S interface | n/a | I2S RX |
 | ∆ | Internal pull resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 18 (NC / GNSS_TX)
 |   |   | B-SoM | M-SoM |
@@ -493,7 +493,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | I2S interface | n/a | TX |
+| ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 20 (D1)
 |   |   | B-SoM | M-SoM |
@@ -591,7 +591,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | I2S interface | n/a | MCLK |
+| ∆ | I2S interface | n/a | I2S MCLK |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 37 (A3)
 |   |   | B-SoM | M-SoM |
@@ -944,7 +944,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | I2S interface | n/a | CLK |
+| ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 71 (SIM_CLK)
 |   |   | B-SoM | M-SoM |
@@ -963,7 +963,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | I2S interface | n/a | WS |
+| ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 13K | ??? |
 
 

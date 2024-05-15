@@ -293,7 +293,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | I2S interface | n/a | RX |
+| ∆ | I2S interface | n/a | I2S RX |
 | ∆ | Internal pull resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 | &nbsp; | M.2 connector pin number | 17 | 17 |
 | ∆ | SoM Common Pin Name | SOM3 | RESERVED |
@@ -315,7 +315,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | I2S interface | n/a | TX |
+| ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | n/a | ??? |
 | &nbsp; | M.2 connector pin number | 19 | 19 |
 | ∆ | SoM Common Pin Name | SOM4 | RESERVED |
@@ -439,7 +439,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | I2S interface | n/a | MCLK |
+| ∆ | I2S interface | n/a | I2S MCLK |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 | &nbsp; | M.2 connector pin number | 36 | 36 |
 | &nbsp; | SoM Common Pin Name | TX | TX |
@@ -872,7 +872,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | I2S interface | n/a | CLK |
+| ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 13K | ??? |
 | &nbsp; | M.2 connector pin number | 70 | 70 |
 | &nbsp; | SoM Common Pin Name | PWM2 | PWM2 |
@@ -897,7 +897,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | I2S interface | n/a | WS |
+| ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 13K | ??? |
 | &nbsp; | M.2 connector pin number | 72 | 72 |
 | &nbsp; | SoM Common Pin Name | PWM3 | PWM3 |

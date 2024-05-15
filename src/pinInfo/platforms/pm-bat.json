@@ -74,7 +74,7 @@
         {
             "num": 16,
             "name": "/FUEL_INT",
-            "desc": "PMIC and FUEL_INT interrupt output open drain. Connect to SoM D22."
+            "desc": "PMIC and FUEL_INT interrupt output open drain. Connect to M.2 SoM pin 46 (A6) for both B-SoM and M-SoM."
         },
         {
             "num": 17,

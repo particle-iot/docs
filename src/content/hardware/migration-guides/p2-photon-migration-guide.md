@@ -453,11 +453,11 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 | D2 | I2S3_SD | D2 | &nbsp; |
 | D4 | I2S3_SCK | D4 | &nbsp; |
 | D5 | I2S3_WS | D5 | &nbsp; |
-| &nbsp; | &nbsp; | S0 / D15 | MCLK |
-| &nbsp; | &nbsp; | S3 / D18 | TX |
-| &nbsp; | &nbsp; | S4 / D19 | RX |
-| &nbsp; | &nbsp; | S5 / D20 | CLK |
-| &nbsp; | &nbsp; | S6 / D21 | WS |
+| &nbsp; | &nbsp; | S0 / D15 | I2S MCLK |
+| &nbsp; | &nbsp; | S3 / D18 | I2S TX |
+| &nbsp; | &nbsp; | S4 / D19 | I2S RX |
+| &nbsp; | &nbsp; | S5 / D20 | I2S CLK |
+| &nbsp; | &nbsp; | S6 / D21 | I2S WS |
 | SETUP | I2S3_MCK | &nbsp; | &nbsp; |
 
 
@@ -978,7 +978,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| I2S interface | MCLK|
+| I2S interface | I2S MCLK|
 | Internal pull resistance | 2.1K|
 #### S1
 | | Added to P2 |
@@ -1019,7 +1019,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-| I2S interface | TX|
+| I2S interface | I2S TX|
 | Internal pull resistance | 2.1K|
 #### S4
 | | Added to P2 |
@@ -1031,7 +1031,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| I2S interface | RX|
+| I2S interface | I2S RX|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### S5
 | | Added to P2 |
@@ -1042,7 +1042,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Description | S5 GPIO, I2S CLK. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| I2S interface | CLK|
+| I2S interface | I2S CLK|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
 #### S6
 | | Added to P2 |
@@ -1054,7 +1054,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| I2S interface | WS|
+| I2S interface | I2S WS|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### SETUP
 | | Removed from Photon |

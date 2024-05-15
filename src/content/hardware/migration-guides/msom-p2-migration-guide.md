@@ -472,7 +472,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | UART serial | TX. Use Serial3 object. | n/a |
 | ∆ | SPI interface | MOSI. Use SPI object. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | MCLK | n/a |
+| ∆ | I2S interface | I2S MCLK | n/a |
 | &nbsp; | Internal pull resistance | 2.1K | 2.1K |
 #### D16
 |   |   | P2 | M-SoM |
@@ -515,7 +515,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | Supports tone | No | Yes |
 | ∆ | SPI interface | Default SS for SPI. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | TX | n/a |
+| ∆ | I2S interface | I2S TX | n/a |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D19
 |   |   | P2 | M-SoM |
@@ -529,7 +529,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | RX | n/a |
+| ∆ | I2S interface | I2S RX | n/a |
 | ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 42K |
 #### D2
 |   |   | P2 | M-SoM |
@@ -649,7 +649,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | n/a | CLK |
+| ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 42K | ??? |
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
 | ∆ | Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
@@ -663,7 +663,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | n/a | WS |
+| ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 42K | ??? |
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
@@ -690,7 +690,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | UART serial | RX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | n/a | MCLK |
+| ∆ | I2S interface | n/a | I2S MCLK |
 | ∆ | Internal pull resistance | 42K | 2.1K |
 #### GND
 |   |   | P2 | M-SoM |
@@ -772,7 +772,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | Supports digitalRead | No | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | CLK | TX |
+| ∆ | I2S interface | I2S CLK | I2S TX |
 | ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode | ??? |
 #### S6
 |   |   | P2 | M-SoM |
@@ -783,7 +783,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | WS | RX |
+| ∆ | I2S interface | I2S WS | I2S RX |
 | &nbsp; | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### SCK
 | | Added to M-SoM |
@@ -829,7 +829,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | n/a | MCLK |
+| ∆ | I2S interface | n/a | I2S MCLK |
 | ∆ | Internal pull resistance | 42K | 2.1K |
 | ∆ | Signal used at boot | Low at boot triggers ISP flash download | n/a |
 #### USBDATA-
