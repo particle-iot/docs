@@ -61,6 +61,9 @@ _Quick tip_: If you prefer, you can also [call the Particle
 API](/reference/cloud-apis/api/#create-device-group) directly to create a device
 group.
 
+Group names can consist of the letters a - z, numbers 0-9, hyphen, and underscore. The maximum
+length of a group name is 64 characters.
+
 ## Assigning groups to devices
 
 Now that you have created your group(s), you'll need to assign groups

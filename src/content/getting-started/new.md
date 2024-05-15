@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device group name limits 2024-05-15
+
+Added the limits for device group names to the [device group page](/getting-started/console/device-groups/): Group names can consist of the letters a - z, numbers 0-9, hyphen, and underscore. The maximum length of a group name is 64 characters.
+
 ### Firmware update events 2024-05-14
 
 Added a new guide to [firmware update events](/reference/cloud-apis/firmware-update-events/) in the product event stream when 
