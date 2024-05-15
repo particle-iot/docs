@@ -431,8 +431,8 @@
             "hash": "d507045eb5293dcf6a35b0dc4aec9e36809393c9ab9f3ec694226c9e8dfcf123"
         },
         "community/particle-101-workshop/device-cloud.md": {
-            "date": "2024-05-10",
-            "hash": "4eaa2015f7b9a56082054a5cdf78380e193608505f9393bfa6a2a1ad9ecebabe"
+            "date": "2024-05-15",
+            "hash": "73d4ff447fc4b4fe55459d8704621e96553cf632d82b538ee6c8922be9941313"
         },
         "community/particle-101-workshop/integrations.md": {
             "date": "2023-03-22",
@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2024-05-13",
-            "hash": "13966b6429ff85f199f5291b8f29095374bb7d10a699429ddecf1488af3fa16f"
+            "date": "2024-05-15",
+            "hash": "855b41341c9d3ee8879716a26b7df38cbb0fc1c7a03eecb480ac7def38cf5bbd"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2023-11-15",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-05-10",
-            "hash": "334cba9f6de44c2e104f59882572052d5d05a02471c15334ebc52d94c3aeaa71"
+            "date": "2024-05-15",
+            "hash": "981e30e6ffb8b615a95bb8bd4fd552d48f7a0bb80ca7a51dc05dc1db75a0b1ea"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
@@ -1395,28 +1395,28 @@
             "hash": "6fb8e7de6ff6c649ee03e4fb87ba578edfd2e6def7ebc7ca6cdc4ab50b01ebf4"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2024-02-27",
-            "hash": "fe09fbb48e2df788d74402d7b5edd612a3687c2c85dd6fa4ee92da880674c7ae"
+            "date": "2024-05-15",
+            "hash": "8dd94b6cc3daab048b28d14ffe86cc06340549f9e984296a0b6adadc27751ab3"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2024-03-15",
             "hash": "a02198eddbeb9c67326d2b877f6fd7df9b706ebd2add5e11eb6df67e2a63f30d"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "b99320b79b015da28ad0b476b7875be996fc4d83825800851ba9572d31cb1963"
+            "date": "2024-05-15",
+            "hash": "a25ee15997fd92068f24b92fa506611af0f0bcbae34daaa769917bec984a3de0"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
             "date": "2024-05-15",
-            "hash": "3448a796ae145c2e2632f73d041271f25e87c7ea5d7a7bead04476ea9f240d8d"
+            "hash": "b3171865423c6ee9f389d64ee495a7f31cbdc54914c333888daf0e12cbee8b12"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2024-05-10",
-            "hash": "aeba6e470e264e4956f5244cff064944d5c5558c0ca6727195325b90681981b8"
+            "date": "2024-05-15",
+            "hash": "6f47239e4e6c35e2028c2db2ddd3925d4783f12801bb6fa498ef39dd7532be78"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
-            "date": "2024-03-26",
-            "hash": "d651d1d8ed0c39d68e81d9ab1a031d194adf0cbd088a3916016c2ae36b004a5a"
+            "date": "2024-05-15",
+            "hash": "7eab60df5d8d7fa2cf4046e228b60f96cf7d6f5d3edb820223a93bd80e1d293d"
         },
         "reference/datasheets/tracker/m8-temperature-humidity.md": {
             "date": "2024-05-10",
@@ -1587,8 +1587,8 @@
             "hash": "5eb86510d02810037678d5f563a36d3f7ea78e4e1019c83525fe77587c6cf057"
         },
         "troubleshooting/guides/build-tools-troubleshooting/specific-cli-version.md": {
-            "date": "2024-05-10",
-            "hash": "ae058dff6b931be3078f90114358b6e9bf5827efcbfcc616a913e92e49df0f6e"
+            "date": "2024-05-15",
+            "hash": "2dcd5ab1a8d99f646dd77aa203c340b1a47fdaf930a0152496db4f2092b01f98"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-flashing-code.md": {
             "date": "2022-08-24",
@@ -8139,28 +8139,28 @@
             "hash": "3ebab9ebdc993d4e50eb5139d4fd48dd591bcdf9bf594a0458718ceb74a4b268"
         },
         "troubleshooting/led/boron.md": {
-            "date": "2024-02-27",
-            "hash": "89a7c2918cc58495a0d51ffa039e6d414423200f562a3a0885b78c855c9f1386"
+            "date": "2024-05-15",
+            "hash": "644b16af86f70e45e4fa272d0fd78e694d4de1d3d5b5ad0f9fdb1c529d61d0bc"
         },
         "troubleshooting/led/photon.md": {
-            "date": "2024-02-27",
-            "hash": "89a7c2918cc58495a0d51ffa039e6d414423200f562a3a0885b78c855c9f1386"
+            "date": "2024-05-15",
+            "hash": "644b16af86f70e45e4fa272d0fd78e694d4de1d3d5b5ad0f9fdb1c529d61d0bc"
         },
         "troubleshooting/led/electron.md": {
-            "date": "2024-02-27",
-            "hash": "89a7c2918cc58495a0d51ffa039e6d414423200f562a3a0885b78c855c9f1386"
+            "date": "2024-05-15",
+            "hash": "644b16af86f70e45e4fa272d0fd78e694d4de1d3d5b5ad0f9fdb1c529d61d0bc"
         },
         "troubleshooting/led/argon.md": {
-            "date": "2024-02-27",
-            "hash": "89a7c2918cc58495a0d51ffa039e6d414423200f562a3a0885b78c855c9f1386"
+            "date": "2024-05-15",
+            "hash": "644b16af86f70e45e4fa272d0fd78e694d4de1d3d5b5ad0f9fdb1c529d61d0bc"
         },
         "troubleshooting/led/xenon.md": {
-            "date": "2024-02-27",
-            "hash": "89a7c2918cc58495a0d51ffa039e6d414423200f562a3a0885b78c855c9f1386"
+            "date": "2024-05-15",
+            "hash": "644b16af86f70e45e4fa272d0fd78e694d4de1d3d5b5ad0f9fdb1c529d61d0bc"
         },
         "troubleshooting/led/tracker-som.md": {
-            "date": "2024-02-27",
-            "hash": "89a7c2918cc58495a0d51ffa039e6d414423200f562a3a0885b78c855c9f1386"
+            "date": "2024-05-15",
+            "hash": "644b16af86f70e45e4fa272d0fd78e694d4de1d3d5b5ad0f9fdb1c529d61d0bc"
         },
         "getting-started/developer-tools/developer-tools.md": {
             "hash": "ec6dc8ce26b04fc5f72521d8cccd72f5ce2c350b6656fcf27bf6e6ac7cdb7f12",
@@ -8247,8 +8247,8 @@
             "date": "2023-11-16"
         },
         "troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon.md": {
-            "hash": "ddb3fdcded021c183d01906c475b9c38c15bda74f1f2e04adbd12ba41955136b",
-            "date": "2024-05-10"
+            "hash": "b7e3de5cdacb38d3a8a48c32de5a004afb0ed2ea47722260e8bfe1e85edca593",
+            "date": "2024-05-15"
         },
         "getting-started/cloud/ledger.md": {
             "hash": "73f03df391df72360f5ce9739918d7a1885064c7d8ed56919aca2e23f781cde9",
