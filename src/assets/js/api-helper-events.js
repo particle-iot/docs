@@ -200,13 +200,27 @@ $(document).ready(function() {
                             }
                             return text;
                         }
+
+                        const moduleTitle = function(f, n) {
+                            let title = displayParts.find(e => e.id == f).title;
+
+                            let count = 0;
+                            for(const moduleObj of describeObj.m) {
+                                if (moduleObj.f == f) {
+                                    count++;
+                                }
+                            }
+                            if (count > 1) {
+                                title += ' (index ' + n + ')';
+                            }
+
+                            return title;
+                        }
             
                         // Module version information (m)
                         for(const moduleObj of describeObj.m) {
                             const trElem = document.createElement('tr');
-            
-                            console.log('moduleObj', moduleObj);
-            
+                        
                             let title = displayParts.find(e => e.id == moduleObj.f).title;
                             
                             {
@@ -225,15 +239,11 @@ $(document).ready(function() {
                                 }
             
                                 if (moduleObj.vc != moduleObj.vv) {
-                                    text += 'required dependencies are missing: ';
-                                    for(const depObj of moduleObj.d) {
-                                        const depModuleObj = describeObj.m.find(e => e.f == depObj.f && e.n == depObj.n);
-                                        if (depModuleObj) {
-                                            const depModuleTitle = displayParts.find(e => e.id == depObj.f).title;   
-                                            text += depModuleTitle + ' is currently version ' + versionText(depModuleObj.f, depModuleObj.v) +
-                                                    ' must be ' + versionText(depObj.f, depObj.v);
-                                        }
-                                    }
+                                    text += 'dependencies require updates';
+                                }
+                                else
+                                if (!moduleObj.d || moduleObj.d.length == 0) {
+                                    text += 'module is valid';
                                 }
                                 else {
                                     text += 'dependencies are valid';
@@ -244,6 +254,43 @@ $(document).ready(function() {
                                 $(trElem).append(tdElem);
                             }
                             $(tbodyElem).append(trElem);
+
+                            // Dependencies
+                            for(const depObj of moduleObj.d) {
+                                const depModuleObj = describeObj.m.find(e => e.f == depObj.f && e.n == depObj.n);
+                                if (!depModuleObj) {
+                                    continue;
+                                }
+                                const trElem = document.createElement('tr');
+                                {
+                                    const tdElem = document.createElement('td');
+                                    $(tdElem).addClass('apiHelperEventViewerTableLeftColumn');
+                                    $(trElem).append(tdElem);
+                                }
+                                {
+                                    const tdElem = document.createElement('td');
+
+                                    let text = '';
+
+                                    const depModuleTitle = moduleTitle(depObj.f, depObj.n);
+                                    
+                                    if (depModuleObj.v < depObj.v) {
+                                        text += 'requires ' + depModuleTitle + ' is currently version ' + versionText(depModuleObj.f, depModuleObj.v) +
+                                            ' must be ' + versionText(depObj.f, depObj.v);
+                                    }
+                                    else {
+                                        text += 'requires ' + depModuleTitle + ' version ' + versionText(depObj.f, depObj.v);
+                                    }
+
+                                    $(tdElem).addClass('apiHelperEventViewerTableRightColumn');
+                                    $(tdElem).text(text);
+                                    $(trElem).append(tdElem);
+                                }
+
+    
+                                
+                                $(tbodyElem).append(trElem);
+                            }
                         }
             
                         // Other parameters
