@@ -30,7 +30,7 @@
         {{/if}}
 
 		{{#if parameter.fields}}
-			<ul class='api-attributes api-request' data-title='Request Arguments'>
+			<ul class='api-attributes api-request' data-title='Request URL Parameters'>
 				{{#each parameter.fields.Parameter}}
 					<li>
 						<div class='api-field'>{{field}}{{#unless optional}}<span class='field-required'>REQUIRED</span>{{/unless}}
@@ -41,7 +41,32 @@
 			</ul>
 		{{/if}}
 
-		{{#each examples}}
+        {{#if query}}
+            <ul class='api-attributes api-request' data-title='Query Parameters'>
+                {{#each query}}
+                    <li>
+                        <div class='api-field'>{{field}}{{#unless optional}}<span class='field-required'>REQUIRED</span>{{/unless}}
+                            <small>{{#if allowedValues}}{{join allowedValues ','}}{{else}}{{type}}{{/if}}</small></div>
+                        <div class='field-desc'>{{#if description}}{{{description}}}{{else}}&mdash;{{/if}}</div>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+
+
+        {{#if body}}
+            <ul class='api-attributes api-request' data-title='Request Attributes'>
+                {{#each body}}
+                    <li>
+                        <div class='api-field'>{{field}}{{#unless optional}}<span class='field-required'>REQUIRED</span>{{/unless}}
+                            <small>{{#if allowedValues}}{{join allowedValues ','}}{{else}}{{type}}{{/if}}</small></div>
+                        <div class='field-desc'>{{#if description}}{{{description}}}{{else}}&mdash;{{/if}}</div>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+
+        {{#each examples}}
 <pre class='api-code api-request-example' data-title='{{#starts-with content title}}Example Request{{else}}{{title}}{{/starts-with}}'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
 		{{/each}}
 

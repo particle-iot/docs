@@ -8,8 +8,6 @@
   "customers:list",
   "customers:remove",
   "customers:update",
-  "devices.diagnostics.metadata:get",
-  "devices.diagnostics.summary:get",
   "devices.diagnostics:get",
   "devices.diagnostics:update",
   "devices.function:call",

@@ -5,74 +5,77 @@
     "title": "List libraries",
     "name": "listLibraries",
     "description": "<p>List firmware libraries. This includes private libraries visibile only to the user.</p>",
-    "group": "Libraries_1",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "filter",
-            "description": "<p>Search for libraries with this partial name</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"1\""
-            ],
-            "optional": true,
-            "field": "page",
-            "description": "<p>Page number</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"10\""
-            ],
-            "optional": true,
-            "field": "limit",
-            "description": "<p>Items per page (max 100)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"popularity\""
-            ],
-            "optional": true,
-            "field": "sort",
-            "description": "<p>Sort order for results. Prefix with <code>-</code> for descending order.</p> <ul> <li><code>name</code></li> <li><code>installs</code></li> <li><code>popularity</code></li> <li><code>published</code></li> <li><code>updated</code></li> <li><code>created</code></li> <li><code>official</code></li> <li><code>verified</code></li> </ul>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"all\""
-            ],
-            "optional": true,
-            "field": "scope",
-            "description": "<p>Which subset of libraries to list.</p> <ul> <li><code>all</code> to retrieve public libraries and any private libraries belonging to the user</li> <li><code>official</code> to retrieve official public libraries</li> <li><code>public</code> to retrieve public libraries</li> <li><code>mine</code> to retrieve only public libraries belonging to the current user</li> <li><code>private</code> to retrieve only private libraries (belonging to the current user).</li> </ul>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "excludeScopes",
-            "description": "<p>Which subsets of libraries to avoid listing, separated by comma. Same values as <code>scope</code>.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "architectures",
-            "description": "<p>Architectures to list, separated by comma. Missing means all architectures.</p>"
-          }
-        ]
+    "group": "Libraries.1",
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "filter",
+        "isArray": false,
+        "description": "<p>Search for libraries with this partial name</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "allowedValues": [
+          "\"1\""
+        ],
+        "optional": true,
+        "field": "page",
+        "isArray": false,
+        "description": "<p>Page number</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "allowedValues": [
+          "\"10\""
+        ],
+        "optional": true,
+        "field": "limit",
+        "isArray": false,
+        "description": "<p>Items per page (max 100)</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "allowedValues": [
+          "\"popularity\""
+        ],
+        "optional": true,
+        "field": "sort",
+        "isArray": false,
+        "description": "<p>Sort order for results. Prefix with <code>-</code> for descending order.</p> <ul> <li><code>name</code></li> <li><code>installs</code></li> <li><code>popularity</code></li> <li><code>published</code></li> <li><code>updated</code></li> <li><code>created</code></li> <li><code>official</code></li> <li><code>verified</code></li> </ul>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "allowedValues": [
+          "\"all\""
+        ],
+        "optional": true,
+        "field": "scope",
+        "isArray": false,
+        "description": "<p>Which subset of libraries to list.</p> <ul> <li><code>all</code> to retrieve public libraries and any private libraries belonging to the user</li> <li><code>official</code> to retrieve official public libraries</li> <li><code>public</code> to retrieve public libraries</li> <li><code>mine</code> to retrieve only public libraries belonging to the current user</li> <li><code>private</code> to retrieve only private libraries (belonging to the current user).</li> </ul>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "excludeScopes",
+        "isArray": false,
+        "description": "<p>Which subsets of libraries to avoid listing, separated by comma. Same values as <code>scope</code>.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "architectures",
+        "isArray": false,
+        "description": "<p>Architectures to list, separated by comma. Missing means all architectures.</p>"
       }
-    },
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -81,6 +84,7 @@
             "type": "Object[]",
             "optional": false,
             "field": "data",
+            "isArray": true,
             "description": "<p>Array of library objects. Described in <a href=\"#get-library-details\">Get library details</a></p>"
           }
         ]
@@ -93,44 +97,24 @@
         }
       ]
     },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access Token</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Authorization-Example",
-          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
-          "type": "json"
-        }
-      ]
-    },
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name&access_token=1234\"",
-        "content": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name&access_token=1234\"",
+        "title": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       }
     ],
     "version": "0.0.0",
-    "filename": "api-service-libraries/src/LibrariesController.js",
-    "groupTitle": "Libraries_1"
+    "filename": "src/LibrariesController.js",
+    "groupTitle": "Libraries.1"
   },
   {
     "type": "get",
-    "url": "/v1/libraries/:libraryName:",
+    "url": "/v1/libraries/:libraryName",
     "title": "Get library details",
     "name": "getLibrary",
     "description": "<p>Get details for a firmware library.</p>",
-    "group": "Libraries_2",
+    "group": "Libraries.2",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -139,31 +123,36 @@
             "type": "String",
             "optional": false,
             "field": "libraryName",
+            "isArray": false,
             "description": "<p>Name of library to retrieve (case insensitive)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"latest\""
-            ],
-            "optional": true,
-            "field": "version",
-            "description": "<p>Version to retrieve. Defaults to the latest version.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"all\""
-            ],
-            "optional": true,
-            "field": "scope",
-            "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"
           }
         ]
       }
     },
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "allowedValues": [
+          "\"latest\""
+        ],
+        "optional": true,
+        "field": "version",
+        "isArray": false,
+        "description": "<p>Version to retrieve. Defaults to the latest version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "allowedValues": [
+          "\"all\""
+        ],
+        "optional": true,
+        "field": "scope",
+        "isArray": false,
+        "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -172,27 +161,49 @@
             "type": "object",
             "optional": false,
             "field": "data",
+            "isArray": false,
             "description": "<p>The library version in <a href=\"http://jsonapi.org/\">JSON API format</a></p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
+            "parentNode": {
+              "path": "data",
+              "field": "data",
+              "type": "Object[]",
+              "isArray": true
+            },
             "field": "data.id",
+            "isArray": false,
             "description": "<p>The name of the library</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
+            "parentNode": {
+              "path": "data",
+              "field": "data",
+              "type": "Object[]",
+              "isArray": true
+            },
             "field": "data.links.download",
+            "isArray": false,
             "description": "<p>The URL to download the files for this library</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
+            "parentNode": {
+              "path": "data",
+              "field": "data",
+              "type": "Object[]",
+              "isArray": true
+            },
             "field": "data.attributes",
+            "isArray": false,
             "description": "<p>Additional meta data for the library. Not all fields are available for every library.</p>"
           }
         ]
@@ -205,44 +216,24 @@
         }
       ]
     },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access Token</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Authorization-Example",
-          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
-          "type": "json"
-        }
-      ]
-    },
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/libraries/internetbutton?access_token=1234\"",
-        "content": "$ curl \"https://api.particle.io/v1/libraries/internetbutton?access_token=1234\"",
+        "title": "$ curl https://api.particle.io/v1/libraries/internetbutton \\",
+        "content": "$ curl https://api.particle.io/v1/libraries/internetbutton \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       }
     ],
     "version": "0.0.0",
-    "filename": "api-service-libraries/src/LibrariesController.js",
-    "groupTitle": "Libraries_2"
+    "filename": "src/LibrariesController.js",
+    "groupTitle": "Libraries.2"
   },
   {
     "type": "get",
-    "url": "/v1/libraries/:libraryName:/versions",
+    "url": "/v1/libraries/:libraryName/versions",
     "title": "Get library versions",
     "name": "getLibraryVersions",
     "description": "<p>Get details for all versions of a firmware library.</p>",
-    "group": "Libraries_3",
+    "group": "Libraries.3",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -251,21 +242,25 @@
             "type": "String",
             "optional": false,
             "field": "libraryName",
+            "isArray": false,
             "description": "<p>Name of library to retrieve (case insensitive)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"all\""
-            ],
-            "optional": true,
-            "field": "scope",
-            "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"
           }
         ]
       }
     },
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "allowedValues": [
+          "\"all\""
+        ],
+        "optional": true,
+        "field": "scope",
+        "isArray": false,
+        "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -274,6 +269,7 @@
             "type": "Object[]",
             "optional": false,
             "field": "data",
+            "isArray": true,
             "description": "<p>Array of library version objects. Described in <a href=\"#get-library-details\">Get library details</a></p>"
           }
         ]
@@ -286,37 +282,24 @@
         }
       ]
     },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access Token</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Authorization-Example",
-          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
-          "type": "json"
-        }
-      ]
-    },
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/libraries/internetbutton\\versions \\",
+        "content": "$ curl https://api.particle.io/v1/libraries/internetbutton\\versions \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
     "version": "0.0.0",
-    "filename": "api-service-libraries/src/LibrariesController.js",
-    "groupTitle": "Libraries_3"
+    "filename": "src/LibrariesController.js",
+    "groupTitle": "Libraries.3"
   },
   {
     "type": "post",
-    "url": "/v1/libraries/:libraryName:",
+    "url": "/v1/libraries/:libraryName",
     "title": "Upload library version",
     "name": "uploadLibrary",
     "description": "<p>Upload a private version of a firmware library. If the library doesn't exist it is created.</p> <p>The library will be validated and an error response returned if invalid.</p>",
-    "group": "Libraries_4",
+    "group": "Libraries.4",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -325,18 +308,22 @@
             "type": "String",
             "optional": false,
             "field": "libraryName",
+            "isArray": false,
             "description": "<p>Name of library to retrieve (case insensitive)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "archive",
-            "description": "<p>A tar-gzip archive of all the files for the library.</p> <p>The meta data like name and version is taken from <code>library.properties.</code> See <a href=\"https://github.com/spark/uber-library-example\">the example library</a> for other files to include.</p>"
           }
         ]
       }
     },
+    "body": [
+      {
+        "group": "Body",
+        "type": "File",
+        "optional": false,
+        "field": "archive",
+        "isArray": false,
+        "description": "<p>A tar-gzip archive of all the files for the library.</p> <p>The meta data like name and version is taken from <code>library.properties.</code> See <a href=\"https://github.com/spark/uber-library-example\">the example library</a> for other files to include.</p>"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -345,6 +332,7 @@
             "type": "Object",
             "optional": false,
             "field": "data",
+            "isArray": false,
             "description": "<p>The library version created. Described in <a href=\"#get-library-details\">Get library details</a></p>"
           }
         ]
@@ -357,30 +345,10 @@
         }
       ]
     },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access Token</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Authorization-Example",
-          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
-          "type": "json"
-        }
-      ]
-    },
     "examples": [
       {
-        "title": "$ curl -F \"archive=@library.tar.gz\" \"https://api.particle.io/v1/libraries?access_token=1234\"",
-        "content": "$ curl -F \"archive=@library.tar.gz\" \"https://api.particle.io/v1/libraries?access_token=1234\"",
+        "title": "$ curl https://api.particle.io/v1/libraries \\",
+        "content": "$ curl https://api.particle.io/v1/libraries \\\n       -F \"archive=@library.tar.gz\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       }
     ],
@@ -394,16 +362,16 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "api-service-libraries/src/LibrariesController.js",
-    "groupTitle": "Libraries_4"
+    "filename": "src/LibrariesController.js",
+    "groupTitle": "Libraries.4"
   },
   {
     "type": "patch",
-    "url": "/v1/libraries/:libraryName:",
+    "url": "/v1/libraries/:libraryName",
     "title": "Make a library version public",
     "name": "publishLibrary",
     "description": "<p>Make the latest private version of a firmware library public. You must do this before others can access your uploaded library.</p>",
-    "group": "Libraries_5",
+    "group": "Libraries.5",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -412,18 +380,22 @@
             "type": "String",
             "optional": false,
             "field": "libraryName",
+            "isArray": false,
             "description": "<p>Name of library to retrieve (case insensitive)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "visibility",
-            "description": "<p>Must be set to <code>public</code> to publish a library.</p>"
           }
         ]
       }
     },
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "visibility",
+        "isArray": false,
+        "description": "<p>Must be set to <code>public</code> to publish a library.</p>"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -432,6 +404,7 @@
             "type": "Object",
             "optional": false,
             "field": "data",
+            "isArray": false,
             "description": "<p>The library version published. Described in <a href=\"#get-library-details\">Get library details</a></p>"
           }
         ]
@@ -444,35 +417,15 @@
         }
       ]
     },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access Token</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Authorization-Example",
-          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
-          "type": "json"
-        }
-      ]
-    },
     "examples": [
       {
-        "title": "$ curl -X PATCH -d \"visibility=public\" \"https://api.particle.io/v1/libraries/testlib43?access_token=1234\"",
-        "content": "$ curl -X PATCH -d \"visibility=public\" \"https://api.particle.io/v1/libraries/testlib43?access_token=1234\"",
+        "title": "$ curl -X PATCH https://api.particle.io/v1/libraries/testlib43 \\",
+        "content": "$ curl -X PATCH https://api.particle.io/v1/libraries/testlib43 \\\n       -d \"visibility=public\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       }
     ],
     "version": "0.0.0",
-    "filename": "api-service-libraries/src/LibrariesController.js",
-    "groupTitle": "Libraries_5"
+    "filename": "src/LibrariesController.js",
+    "groupTitle": "Libraries.5"
   }
 ]
