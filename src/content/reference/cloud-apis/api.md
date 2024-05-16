@@ -17,7 +17,7 @@ The Particle Device Cloud API is a [REST](http://en.wikipedia.org/wiki/Represent
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
 as a "Uniform Resource Locator".
 
-In this case, the unique "resource" in question is your device (Core, Photon, Electron).
+In this case, the unique "resource" in question is your device (Argon, Boron, Photon 2).
 Every device has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
 The variables and functions that you have written in your firmware are exposed as *subresources* under the device.
 
@@ -44,10 +44,11 @@ The Particle API accepts requests in [JSON](https://www.w3schools.com/js/js_json
 # Example with form encoded format
 curl https://api.particle.io/v1/devices/mydevice/wakeup \
      -d arg=please \
-     -d access_token=1234
+     -H "Authorization: Bearer :access_token"
 
 # Same example with JSON
-curl "https://api.particle.io/v1/devices/mydevice/wakeup?access_token=1234" \
+curl https://api.particle.io/v1/devices/mydevice/wakeup \
+     -H "Authorization: Bearer :access_token" \
      -H "Content-Type: application/json" \
      -d "{\"arg\": \"please\"}"
 ```
@@ -144,13 +145,13 @@ Permissions for controlling and communicating with your Particle device are mana
 ```bash
 # You type in your terminal
 curl https://api.particle.io/v1/devices/0123456789abcdef01234567/brew \
-     -d access_token=9876987698769876987698769876987698769876
+     -H "Authorization: Bearer 9876987698769876987698769876987698769876"
 # Response status is 200 OK, which means
 # the device says, "Yes ma'am!"
 
 # Sneaky Pete tries the same thing in his terminal
 curl https://api.particle.io/v1/devices/0123456789abcdef01234567/brew \
-     -d access_token=1234123412341234123412341234123412341234
+     -H "Authorization: Bearer 1234123412341234123412341234123412341234"
 # Response status is 403 Forbidden, which means
 # the device says, "You ain't the boss of me."
 
@@ -169,8 +170,8 @@ and only you will have permission to control your Particle device—using your a
 There are three ways to send your access token in a request.
 
 * In an HTTP Authorization header (always works)
-* In the URL query string (only works with GET requests)
-* In the request body (only works for POST, PUT and DELETE when body is form encoded)
+* **Deprecated**: In the URL query string (only works with GET requests)
+* **Deprecated**: In the request body (only works for POST and PUT when body is form encoded)
 
 ---
 
@@ -185,10 +186,11 @@ curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55" \
 
 ---
 
-The query string is the part of the URL after a `?` question mark.
-To send the access token in the query string just add `access_token=38bb...`.
-Because your terminal may think the question mark is special, enclose
-the entire URL in double quotes.
+Sending the access token in the query string is **deprecated and discouraged for new application**
+since many tools log query strings so there's a chance for your access token to be logged in places
+where you don't expect it. Legacy applications sending `access_token=38bb...` in the query string
+should be updated to use the HTTP Authorization header. When using a query string in the terminal,
+enclose the entire URL in double quotes to avoid issues with special characters.
 
 ``` bash
 curl "https://api.particle.io/v1/devices?access_token=38bb7b318cc6898c80317decb34525844bc9db55"
@@ -196,11 +198,8 @@ curl "https://api.particle.io/v1/devices?access_token=38bb7b318cc6898c80317decb3
 
 ---
 
-The request body is how form contents are submitted on the web.
-Using curl, each parameter you send, including the access token is preceded by a `-d` flag.
-By default, if you add a `-d` flag, curl assumes that the request is a POST.
-If you need a different request type, you have to specifically say so with the `-X` flag,
-for example `-X PUT`.
+Sending the access token as part of the request body is **deprecated** since it only works for POST
+and PUT requests. Prefer using the HTTP Authorization header since it works for all request types.
 
 ``` bash
 curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55 \
@@ -290,11 +289,12 @@ Pass a request to the relevant endpoint with a friendly name, and the desired sc
 #### Create an API user scoped to an organization
 
 ```
-curl "https://api.particle.io/v1/orgs/:orgIDorSlug/team?access_token=xxxx" \\
-	-H "Content-Type: application/json" \\
-	-d '{ \\
-		"friendly_name": "org api user", \\
-		"scopes": [ "devices:list" ] \\
+curl https://api.particle.io/v1/orgs/:orgIDorSlug/team \
+	-H "Authorization: Bearer :access_token" \
+	-H "Content-Type: application/json" \
+	-d '{ \
+		"friendly_name": "org api user", \
+		"scopes": [ "devices:list" ] \
 	}'
 ```
 
@@ -305,11 +305,12 @@ The resulting access token can then be used by programmatic processes. As always
 #### Create an API user scoped to a product
 
 ```
-curl "https://api.particle.io/v1/products/:productIDorSlug/team?access_token=xxxx" \\
-	-H "Content-Type: application/json" \\
-	-d '{ \\
-		"friendly_name": "product api user", \\
-		"scopes": [ "devices:list" ] \\
+curl https://api.particle.io/v1/products/:productIDorSlug/team \
+	-H "Authorization: Bearer :access_token" \
+	-H "Content-Type: application/json" \
+	-d '{ \
+		"friendly_name": "product api user", \
+		"scopes": [ "devices:list" ] \
 	}'
 ```
 
@@ -342,11 +343,12 @@ The Particle API documentation includes the required scopes needed to call a par
 ### Updating an API user
 
 ```
-curl -X PUT "https://api.particle.io/v1/products/12857/team/example-api-user+6fbl2q577b@api.particle.io?access_token=xxxxxx" \\
-	-H "Content-Type: application/json" \\
-	-d '{  \\
-		"friendly_name": "Updated API user",  \\
-		"scopes": [ "devices:list", "sims:list", "customers:list" ]  \\
+curl -X PUT https://api.particle.io/v1/products/12857/team/example-api-user+6fbl2q577b@api.particle.io \
+	-H "Authorization: Bearer :access_token" \
+	-H "Content-Type: application/json" \
+	-d '{  \
+		"friendly_name": "Updated API user",  \
+		"scopes": [ "devices:list", "sims:list", "customers:list" ]  \
 	}'
 ```
 
@@ -357,7 +359,8 @@ To update the API user, you pass in the full username, in this case example-api-
 ### Listing API users
 
 ```
-curl -X GET "https://api.particle.io/v1/products/12857/team/?access_token=xxxxxx" \\
+curl -X GET https://api.particle.io/v1/products/12857/team/ \
+	-H "Authorization: Bearer :access_token" \
 	-H "Content-Type: application/json"
 ```
 
@@ -374,10 +377,10 @@ Listing API users is done by getting the team member list of the product or for 
         "name": "Administrator"
       }
     },
-	{
-		"username": "example-api-user+6fbl2q577b@api.particle.io",
-		"is_programmatic": true
-	}
+    {
+      "username": "example-api-user+6fbl2q577b@api.particle.io",
+      "is_programmatic": true
+    }
   ]
 }
 ```
@@ -385,7 +388,8 @@ Listing API users is done by getting the team member list of the product or for 
 ### Deleting an API user
 
 ```
-curl -X DELETE "https://api.particle.io/v1/products/12857/team/example-api-user+6fbl2q577b@api.particle.io?access_token=xxxxx"
+curl -X DELETE https://api.particle.io/v1/products/12857/team/example-api-user+6fbl2q577b@api.particle.io \
+     -H "Authorization: Bearer :access_token"
 ```
 
 To delete an API user and its associated access token, simply:
