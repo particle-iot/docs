@@ -73,8 +73,7 @@ when you enable the Google Cloud Platform integration.
 
 If you don't already have one, you'll need to sign up for a Google Cloud Platform Account to use this integration.
 
-Visit the <a href="https://cloud.google.com/free-trial/" target="_blank">Google Cloud Platform signup page</a>. Click the "Try it Free" button, and enter the requested information.
-Upon signup, you will be enrolled in a 60-day free trial of the service, with $300 in Google Cloud Platform credit.
+Visit the <a href="https://cloud.google.com/" target="_blank">Google Cloud Platform signup page</a> to sign up.
 
 You can use the <a href="https://cloud.google.com/products/calculator/" target="_blank">Google Cloud Platform Pricing Calculator</a>
 to estimate costs of any Google Cloud Platform product.

@@ -1139,8 +1139,8 @@
             "hash": "3365c544cbe9b5f2e389145a088d91eb0881ede71a5f863ec6d49a05838fc72e"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2024-05-16",
-            "hash": "365cebd2389866279f7913855f3559b686110687eaf97e8ca0393aa9be3f3414"
+            "date": "2024-05-17",
+            "hash": "f53b67771aa22007a2e7e47d4f07aee3ccddb93ddf3ab55fdc0886647a753b00"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2023-07-12",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c29d7082e6a979f29f5f5345757cbba9b08475ee5173919c6c0c05c32b14f25d",
-            "date": "2024-05-15"
+            "hash": "e3f5e2f877cbc1b16f146bf4cc1f8229f21459ea03d286f8343bdb78b73e13f4",
+            "date": "2024-05-17"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8491,8 +8491,8 @@
             "date": "2024-04-25"
         },
         "integrations/integrations/google-cloud-platform.md": {
-            "hash": "8099f9e57e35c4f4d40d25a1efc0560c485906ce0d3a95396dfcb6856a4fd1be",
-            "date": "2024-04-25"
+            "hash": "01827c4445159e7f0f7ac17618d68834d595328b24258741dabd2b4417915bf1",
+            "date": "2024-05-17"
         },
         "integrations/integrations/google-maps.md": {
             "hash": "f63a055968a9a9f25be44739c92b577d8f19396cad8a9e0ff593992b32ad3299",

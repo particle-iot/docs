@@ -63,6 +63,7 @@ const sharedBlurb = require('./shared-blurb.js');
 const setupFirmware = require('./setup-firmware.js');
 const troubleshooting = require('./troubleshooting.js').metalsmith;
 const autoInclude = require('./auto-include.js').metalsmith;
+const postman = require('./postman.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -173,6 +174,12 @@ exports.metalsmith = function () {
         ]
       })
     )
+    .use(postman({
+      apiServiceSourceDir: '../../api-service/',
+      postmanBuiltFile: '../../api-service/apidoc/particle_api.postman_collection.json',
+      postmanGeneratedFile: '../generated/particle_api.postman_collection.json',
+      assetPath: 'assets/files/particle_api.postman_collection.json',
+    }))
     .use(deviceRestoreInfo({
       sourceDir: '../src',
       inputFile: 'assets/files/deviceRestore.json'

@@ -21,6 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated Postman files 2024-05-17
+
+The files to using the Particle cloud API from Postman have been updated, and are now generated automatically
+from the Cloud API definitions. They were previously manually generated.
+
+### Updated cloud API docs 2024-05-16
+
+The [cloud API documentation](/reference/cloud-apis/api/) has been updated to make it more consistent.
+
 ### Device group name limits 2024-05-15
 
 Added the limits for device group names to the [device group page](/getting-started/console/device-groups/): Group names can consist of the letters a - z, numbers 0-9, hyphen, and underscore. The maximum length of a group name is 64 characters.

@@ -61,12 +61,12 @@ The examples use form encoded data to make them easier to read and type but unle
 
 In addition to using curl, you can use [Postman](https://www.postman.com/) a 3rd-party product that provides a web-based graphical interface for making API calls.
 
-To making using Postman significantly easier, download [postman.zip](/assets/files/postman.zip) and extract the two files:
+To making using Postman significantly easier, download these two files:
 
-- Particle Device Cloud API.postman_collection.json
-- Particle Postman Environment.postman_environment.json
+- [Particle API](/assets/files/particle_api.postman_collection.json)
+- [Particle API Environment](/assets/files/particle_api.postman_environment.json)
 
-Use the **Import** feature to import these two files into Postman.
+Use the **Import** feature to import these two files into Postman. The Particle API file will be updated periodically as new APIs are added, but the environment file is intended to be imported only once and then updated with your settings, like your Particle account username.
 
 Last updated: July 2021.
 
