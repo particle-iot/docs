@@ -3485,7 +3485,7 @@
         "name": "devices.diagnostics:update"
       }
     ],
-    "description": "<p>The device publishes a Particle event named <code>spark/device/diagnostics/update</code> in response to <a href=\"#refresh-device-vitals\">a Device Cloud request to refresh device vitals</a>. The body of the event will contain the diagnostic vitals for the device. The payload of the diagnostics payload will differ per device type.</p> <p>To contextualize and interpret raw device vitals published by the device, please see the <a href=\"#get-device-vitals-metadata\">get device vitals metadata</a> API documentation.</p>",
+    "description": "<p>The device publishes a Particle event named <code>spark/device/diagnostics/update</code> in response to <a href=\"#refresh-device-vitals\">a Device Cloud request to refresh device vitals</a>. The body of the event will contain the diagnostic vitals for the device. The payload of the diagnostics payload will differ per device type.</p>",
     "group": "Diagnostics.2",
     "success": {
       "fields": {
