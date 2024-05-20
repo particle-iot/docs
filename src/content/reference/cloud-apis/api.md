@@ -68,8 +68,6 @@ To making using Postman significantly easier, download these two files:
 
 Use the **Import** feature to import these two files into Postman. The Particle API file will be updated periodically as new APIs are added, but the environment file is intended to be imported only once and then updated with your settings, like your Particle account username.
 
-Last updated: July 2021.
-
 {{imageOverlay src="/assets/images/postman/import.png" alt="Import"}}
 
 Once you've imported the Particle Postman Environment you can select it from the popup in the upper right corner of the Postman workspace window.
@@ -87,7 +85,7 @@ The parameter is the number of seconds, so 3600 is one hour. If you leave off th
 particle token create --expires-in 3600
 `
 
-- To use this token, select **Particle Postman Environment** in the upper right corner of the Postman workspace  (1). 
+- To use this token, select **Particle API Environment** in the upper right corner of the Postman workspace  (1). 
 
 - Click the eye icon next to it to view the configuration (2).
 
@@ -102,7 +100,7 @@ It's also possible to enter your username and password in the Postman environmen
 
 A good way to test out your access token is use **List devices**.
 
-- Open **Collections** then **Particle Device Cloud API** then **Devices** then **List devices**.
+- Open **Collections** then **Particle API** then **Devices** then **List devices**.
 
 - If you've entered the access_token in the previous step, there should be a small green circle on the **Authorization** tab.
 
@@ -118,7 +116,7 @@ You should get output with information about your devices in the bottom pane.
 
 ### Example: Calling a function
 
-- Open **Collections** then **Particle Device Cloud API** then **Devices** then **Call a function**.
+- Open **Collections** then **Particle API** then **Devices** then **Call a function**.
 
 - In the **Params** tab, enter the device ID you want to call in **deviceid** and the function name in **functionName**. 
 In this case, we're using the Blink and LED firmware on the device, so it will respond to the **led** function.
