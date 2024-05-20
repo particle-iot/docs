@@ -324,4 +324,19 @@ Created by Zach Supalla.
   if (window.location.hash && !window.location.hash.startsWith("#search=1&")) {
     Docs.scrollToElement(window.location.hash);
   }
+
+  setTimeout(function() {
+    let status = 'unsupported';
+
+    if (window.matchMedia) {
+      // Check if the dark-mode Media-Query matches
+      if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        status = 'dark';
+      } 
+      else {
+        status = 'light';
+      }
+    } 
+    analytics.track('colorMode', {category: 'env30s', label: status});
+  }, 30000);
 })(jQuery);
