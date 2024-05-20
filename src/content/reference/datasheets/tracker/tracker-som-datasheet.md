@@ -837,7 +837,6 @@ CAN Transceiver Characteristics
 #### Wi-Fi Geolocation
 
 The Wi-Fi module is intended for Wi-Fi geolocation only. It cannot be used as a network interface instead of using cellular. 
-An external service provider such as the Google Geolocation Service is required for mapping Wi-Fi networks to a location.
 
 - ESP32-D2WD
 - SPI Interface 
@@ -1399,3 +1398,4 @@ The bootloader allows you to easily update the user application via several diff
 | 027      | 2023 Nov 20 | RK | Added link to footprint and restrict information |
 | 028      | 2023 Dec 23 | RK | Clarify use of PMID pin |
 | 029      | 2024 May 06 | RK | Updated list of supported GNSS |
+| 030      | 2024 May 20 | RK | Remove sentence about an external Wi-Fi geolocation service being required |
