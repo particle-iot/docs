@@ -586,10 +586,11 @@ P2 pins related to `HIBERNATE` sleep mode:
 | | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D26|
-| Description | D26 GPIO|
+| Description | D26 GPIO, I2S WS|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | I2S WS|
 | Internal pull resistance | ???|
 #### D27
 | | Added to M-SoM |
@@ -630,7 +631,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 |   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
-| ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | D5 GPIO, PWM |
+| ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | D5 GPIO, PWM, I2S TX |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -638,6 +639,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | UART serial | RX. Use Serial2 object. | n/a |
 | ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D6
 |   |   | P2 | M-SoM |

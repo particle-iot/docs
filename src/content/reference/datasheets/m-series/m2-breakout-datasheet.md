@@ -717,6 +717,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | n/a | ??? |
 | &nbsp; | M.2 connector pin number | 59 | 59 |
 | &nbsp; | SoM Common Pin Name | RESERVED | RESERVED |
@@ -848,6 +849,7 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | 13K | ??? |
 | &nbsp; | M.2 connector pin number | 68 | 68 |
 | &nbsp; | SoM Common Pin Name | PWM1 | PWM1 |

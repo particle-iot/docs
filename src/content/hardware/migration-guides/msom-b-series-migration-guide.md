@@ -133,7 +133,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | &nbsp; | 56 | GND | Ground. | GND | Ground. |
 | &nbsp; | 57 | NC | &nbsp; | NC | &nbsp; |
 | ∆ | 58 | NC | &nbsp; | D24 | D24 GPIO, Serial2 TX, do not pull down at boot |
-| ∆ | 59 | NC | &nbsp; | D26 | D26 GPIO |
+| ∆ | 59 | NC | &nbsp; | D26 | D26 GPIO, I2S WS |
 | ∆ | 60 | NC | &nbsp; | D25 | GPIO25, Serial2 RX |
 | &nbsp; | 61 | RGBR | RGB LED Red | RGBR | RGB LED Red |
 | ∆ | 62 | D22 | GPIO, Ethernet INT | D22 | D22 GPIO |
@@ -142,7 +142,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | &nbsp; | 65 | RGBB | RGB LED Blue | RGBB | RGB LED Blue |
 | ∆ | 66 | D4 | SPI1 MISO, PWM, GPIO | D4 | D4 GPIO, PWM |
 | &nbsp; | 67 | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
-| ∆ | 68 | D5 | PWM, GPIO | D5 | D5 GPIO, PWM |
+| ∆ | 68 | D5 | PWM, GPIO | D5 | D5 GPIO, PWM, I2S TX |
 | ∆ | 69 | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
 | ∆ | 70 | D6 | PWM, GPIO | D6 | D6 GPIO, PWM, I2S CLK |
 | ∆ | 71 | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
@@ -840,10 +840,11 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 59 | 59 |
 | ∆ | Pin Name | NC | D26 |
-| ∆ | Description | n/a | D26 GPIO |
+| ∆ | Description | n/a | D26 GPIO, I2S WS |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 60 (NC / D25)
 |   |   | B-SoM | M-SoM |
@@ -920,12 +921,13 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 68 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
-| ∆ | Description | PWM, GPIO | D5 GPIO, PWM |
+| ∆ | Description | PWM, GPIO | D5 GPIO, PWM, I2S TX |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 69 (SIM_RST)
 |   |   | B-SoM | M-SoM |

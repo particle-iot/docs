@@ -1148,10 +1148,11 @@ The M-SoM has U.FL antenna connectors:
 | :--- | :--- |
 | Pin Number | 59|
 | Pin Name | D26|
-| Description | D26 GPIO|
+| Description | D26 GPIO, I2S WS|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | I2S WS|
 | Internal pull resistance | ???|
 #### D27
 | | Added to M-SoM |
@@ -1204,14 +1205,14 @@ The M-SoM has U.FL antenna connectors:
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 37 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
-| ∆ | Description | D5 GPIO, SPI1 | D5 GPIO, PWM |
+| ∆ | Description | D5 GPIO, SPI1 | D5 GPIO, PWM, I2S TX |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | I2S interface | I2S3_WS | n/a |
+| ∆ | I2S interface | I2S3_WS | I2S TX |
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |

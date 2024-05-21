@@ -492,7 +492,7 @@ Even though the B-SoM and M-SoM both have two SPI interfaces, note that the M-So
 | 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | PA[16] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | PB[3] |
 | 66 | D4 | D4 GPIO, PWM | PB[18] |
-| 68 | D5 | D5 GPIO, PWM | PB[19] |
+| 68 | D5 | D5 GPIO, PWM, I2S TX | PB[19] |
 | 70 | D6 | D6 GPIO, PWM, I2S CLK | PB[20] |
 | 72 | D7 | D7 GPIO, PWM, I2S WS | PB[21] |
 

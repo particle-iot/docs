@@ -801,7 +801,7 @@
         {
             "num": 95,
             "name": "D26",
-            "desc": "D26 GPIO",
+            "desc": "D26 GPIO, I2S WS",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -809,6 +809,7 @@
             "digitalRead": true,
             "digitalWrite": true,
             "hardwarePin": "PA[4]",
+            "i2s": "I2S WS",
             "internalPull": "???",
             "is5VTolerant": false,
             "isIO": true,

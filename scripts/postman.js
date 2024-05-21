@@ -34,15 +34,20 @@ function metalsmith(options) {
                 }
                 
                 const newFile = fs.readFileSync(optionsPaths.postmanBuiltFile, 'utf8');
+                const newJson = JSON.parse(newFile);
+                const newFormatted = JSON.stringify(newJson, null, 2);
+
                 let oldFile = '';
+                let oldJson;
                 if (fs.existsSync(optionsPaths.postmanGeneratedFile)) {
                     oldFile = fs.readFileSync(optionsPaths.postmanGeneratedFile, 'utf8');
                 }
-                if (oldFile != newFile) {
-                    fs.writeFileSync(optionsPaths.postmanGeneratedFile, newFile);
-                    // console.log('updated postman ' + options.postmanGeneratedFile);
+
+                if (oldFile != newFormatted) {
+                    fs.writeFileSync(optionsPaths.postmanGeneratedFile, newFormatted);
+                    console.log('updated postman ' + options.postmanGeneratedFile);
                 }
-                assetFile = newFile;
+                assetFile = newFormatted;
             }
             catch(e) {
                 console.log('failed to build postman files', e);

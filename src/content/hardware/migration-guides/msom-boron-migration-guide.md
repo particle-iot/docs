@@ -594,10 +594,11 @@ The Boron and Argon support NFC Tag mode.
 | | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D26|
-| Description | D26 GPIO|
+| Description | D26 GPIO, I2S WS|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
+| I2S interface | I2S WS|
 | Internal pull resistance | ???|
 #### D27
 | | Added to M-SoM |
@@ -639,12 +640,13 @@ The Boron and Argon support NFC Tag mode.
 |   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
-| ∆ | Description | PWM, GPIO | D5 GPIO, PWM |
+| ∆ | Description | PWM, GPIO | D5 GPIO, PWM, I2S TX |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D6
 |   |   | Boron | M-SoM |

@@ -445,7 +445,7 @@
         {
             "num": 24,
             "name": "D5",
-            "desc": "D5 GPIO, PWM",
+            "desc": "D5 GPIO, PWM, I2S TX",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": true,
@@ -455,6 +455,7 @@
             "featherName": "D5",
             "hardwarePin": "PB[19]",
             "hardwareTimer": "PWM1",
+            "i2s": "I2S TX",
             "internalPull": "???",
             "is5VTolerant": false,
             "isIO": true,
