@@ -36,14 +36,38 @@ function metalsmith(options) {
                 const newFile = fs.readFileSync(optionsPaths.postmanBuiltFile, 'utf8');
                 const newJson = JSON.parse(newFile);
                 const newFormatted = JSON.stringify(newJson, null, 2);
+                const newLines = newFormatted.split('\n');
 
                 let oldFile = '';
-                let oldJson;
+                let oldLines = [];
                 if (fs.existsSync(optionsPaths.postmanGeneratedFile)) {
                     oldFile = fs.readFileSync(optionsPaths.postmanGeneratedFile, 'utf8');
+
+                    oldLines = oldFile.split('\n');
                 }
 
-                if (oldFile != newFormatted) {
+                let changed = false;
+                if (oldLines.length != newLines.length) {
+                    changed = true;
+                }
+                else {
+                    const valueRE = /"value": "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z"/;
+
+                    for(let lineNum = 0; lineNum < oldLines.length; lineNum++) {
+                        if (oldLines[lineNum] != newLines[lineNum]) {
+                            const m = oldLines[lineNum].match(valueRE);
+                            if (!m) {
+                                changed = true; 
+                                console.log('postman changed', {old: oldLines[lineNum], new: newLines[lineNum]});    
+                            }
+                            else {
+                                console.log('postman ignoring date change', {old: oldLines[lineNum], new: newLines[lineNum]});    
+                            }
+                        }
+                    }
+                }
+
+                if (changed) {
                     fs.writeFileSync(optionsPaths.postmanGeneratedFile, newFormatted);
                     console.log('updated postman ' + options.postmanGeneratedFile);
                 }
