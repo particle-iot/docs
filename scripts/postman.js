@@ -58,10 +58,10 @@ function metalsmith(options) {
                             const m = oldLines[lineNum].match(valueRE);
                             if (!m) {
                                 changed = true; 
-                                console.log('postman changed', {old: oldLines[lineNum], new: newLines[lineNum]});    
+                                // console.log('postman changed', {old: oldLines[lineNum], new: newLines[lineNum]});    
                             }
                             else {
-                                console.log('postman ignoring date change', {old: oldLines[lineNum], new: newLines[lineNum]});    
+                                // console.log('postman ignoring date change', {old: oldLines[lineNum], new: newLines[lineNum]});    
                             }
                         }
                     }
