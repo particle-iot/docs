@@ -3167,6 +3167,55 @@ Parameters:
 
 The password is limited to 64 7-bit ASCII characters. If you pass in a longer password, only the first 64 characters will be saved.
 
+#### setHidden()
+
+{{since when="5.5.0"}}
+
+Allows connecting to a Wi-Fi network with a hidden SSID.
+
+Normally, the P2, Photon 2, M-SoM, and Argon do a Wi-Fi scan and compare this against the list of configured 
+networks to choose a network to connect to. If no connection made to non-hidden networks, then an attempt 
+is made to connect to each hidden network. This will be slower, as each connection attempt needs to time out.
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setHidden(bool hidden = true) 
+
+// EXAMPLE
+WiFiCredentials creds;
+creds.setSsid("My Secret Network");
+creds.setPassword("secret");
+creds.setSecurity(SecurityType::WPA2);
+creds.setHidden(true);
+WiFi.setCredentials(creds);
+```
+
+#### setValidate()
+
+{{since when="5.8.0"}}
+
+When set, validate that the Wi-Fi network can be connected to before setting the credentials. The default is to 
+save without validating when using WiFi.setCredentials().
+
+If Wi-Fi is off, it will be turned on to validate credentials.
+
+If Wi-Fi is on and connected, the current network will be disconnected (including the cloud connection, if 
+connected) to attempt to connect to the new network.
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setValidate(bool validate = true)
+
+// EXAMPLE
+WiFiCredentials creds;
+creds.setSsid("My Network");
+creds.setPassword("secret");
+creds.setSecurity(SecurityType::WPA2);
+creds.setValidate(true);
+WiFi.setCredentials(creds);
+```
+
+
 #### setChannel()
 
 {{api name1="WiFiCredentials::setChannel"}}

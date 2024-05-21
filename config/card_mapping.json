@@ -104,6 +104,8 @@
   "/reference/device-os/firmware/#setsecurity-": "/reference/device-os/api/wifi/wificredentials-class/#setsecurity-",
   "/reference/device-os/firmware/#setcipher-": "/reference/device-os/api/wifi/wificredentials-class/#setcipher-",
   "/reference/device-os/firmware/#setpassword-": "/reference/device-os/api/wifi/wificredentials-class/#setpassword-",
+  "/reference/device-os/firmware/#sethidden-": "/reference/device-os/api/wifi/wificredentials-class/#sethidden-",
+  "/reference/device-os/firmware/#setvalidate-": "/reference/device-os/api/wifi/wificredentials-class/#setvalidate-",
   "/reference/device-os/firmware/#setchannel-": "/reference/device-os/api/wifi/wificredentials-class/#setchannel-",
   "/reference/device-os/firmware/#seteaptype-": "/reference/device-os/api/wifi/wificredentials-class/#seteaptype-",
   "/reference/device-os/firmware/#setidentity-": "/reference/device-os/api/wifi/wificredentials-class/#setidentity-",

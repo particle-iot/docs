@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-05-10",
-            "hash": "33eb40664a2c23e9281a79e65bc4ebf9cdd4509a2723ae3574ed6f65bc4a51d9"
+            "date": "2024-05-21",
+            "hash": "41c7e1e0dc20ef1aed621c736356aa0ceef6750c8fa267327e94b3e11662360e"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2055,8 +2055,8 @@
             "hash": "a51c7ffaea46064889b6fba9c7903927a35748b69821ad96cc4426a316fffad2"
         },
         "reference/device-os/api/wifi/wificredentials-class.md": {
-            "date": "2024-01-31",
-            "hash": "d9ffcbc3e26e81def2293d4750096b3bee8103e37221b0e8289d74a9254d2c1c"
+            "date": "2024-05-21",
+            "hash": "c7e2a10e137706585332475e31aedfa38bc08dc28a5dd9553e781bdc3d9cb2ca"
         },
         "reference/device-os/api/wifi/wlaneaptype-enum.md": {
             "date": "2024-01-31",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e3f5e2f877cbc1b16f146bf4cc1f8229f21459ea03d286f8343bdb78b73e13f4",
-            "date": "2024-05-17"
+            "hash": "515e1c5e8b0f241c2993b71a8d9fe4fdc7cbceec1fc32e989e16bc7484d3cd9c",
+            "date": "2024-05-21"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

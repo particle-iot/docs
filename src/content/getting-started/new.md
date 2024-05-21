@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### WiFiCredentials setHidden and setValidate
+
+Documentation is now available for setHidden (added in 5.5.0) and setValidate (added in 5.8.0) in the [WiFiCredentials class](/reference/device-os/api/wifi/wificredentials-class/#wificredentials-).
+
 ### Updated Postman files 2024-05-17
 
 The files to using the Particle cloud API from Postman have been updated, and are now generated automatically
