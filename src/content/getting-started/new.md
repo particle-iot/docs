@@ -21,10 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS API sleep updates 2024-05-22
+
+The  [Device OS Firmware API sleep reference](/reference/device-os/api/sleep-sleep/sleep-sleep/) includes additional information for Gen 4 devices 
+(P2, Photon 2, M-SoM).
+
 ### M-SoM PWM in Device OS Firmware API 2024-05-22
 
-The list of PWM pins for the M-SoM is different than the P2/Photon 2; the table in the [Device OS Firmware API reference](/reference/device-os/api/input-output/analogwrite-pwm/) was not
-correct for the M-SoM.
+The list of PWM pins for the M-SoM is different than the P2/Photon 2; the table in the [Device OS Firmware API reference](/reference/device-os/api/input-output/analogwrite-pwm/) was not correct for the M-SoM.
 
 ### WiFiCredentials setHidden and setValidate 2024-05-21
 

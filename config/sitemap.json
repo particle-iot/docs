@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-05-22",
-            "hash": "d73b64bbff1392741a5d9e15140a804fedb4edc787162715f8a9504c92ff05cd"
+            "hash": "947685684f2d331227ad86e98dac19e25a08308a3683ff54939b86b34771aa48"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3611,44 +3611,44 @@
             "hash": "a26a123fd0fd04a15ad5ac32ffc61c8931847c577898717faee8ba068d960caf"
         },
         "reference/device-os/api/sleep-sleep/stop-systemsleepmode.md": {
-            "date": "2024-03-11",
-            "hash": "dd1b32ed9952844df16f80542440e8db9cf88ba8c1bdfe94619f5785329ab3de"
+            "date": "2024-05-22",
+            "hash": "e136e9a43e3a894fdf48f84604c97dadaae7eada0b0ebf9a547d82ced58819ac"
         },
         "reference/device-os/api/sleep-sleep/ultra_low_power-systemsleepmode.md": {
-            "date": "2024-03-11",
-            "hash": "bedbbb063012f695ccbca407e14272328b8dc31486e64cce9eeb6a9f9fbe869b"
+            "date": "2024-05-22",
+            "hash": "0387339af191a39f4ff81d6717cf738def2f37d1aa381b3de52dddd2c6727e65"
         },
         "reference/device-os/api/sleep-sleep/hibernate-systemsleepmode.md": {
-            "date": "2024-04-30",
-            "hash": "79d38b06a13fa81ecbdcde8fdd1681d51cd828315f9a9f7fc0202ca7dedae7fb"
+            "date": "2024-05-22",
+            "hash": "2d65be2d9242af53d02374697dba00353f5bbedce0424a753ecd656a95bc5f10"
         },
         "reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration.md": {
-            "date": "2024-03-11",
-            "hash": "5be1cc2a15776c87c268be907911fc1fb1dcf77c76ae536cfad1dc0196ef7091"
+            "date": "2024-05-22",
+            "hash": "08ea54748060bed1bf7864aa41379d8839f95f12b999ddf971646c241fb68284"
         },
         "reference/device-os/api/sleep-sleep/gpio-systemsleepconfiguration.md": {
-            "date": "2024-02-27",
-            "hash": "8c6bcf3fdbf81b4e5a15983891e4a88a9f4bf02e00a33fb04b8a093851e0531b"
+            "date": "2024-05-22",
+            "hash": "02dadc589018c4b0dbf812729614a350cb9dc464e406a49b8182b37d71fbc81d"
         },
         "reference/device-os/api/sleep-sleep/flag-systemsleepconfiguration.md": {
             "date": "2023-09-20",
             "hash": "421b98c241efd972d65d4c27cff734c4eda72eb5d3ec5f17e89273c6598f6fd3"
         },
         "reference/device-os/api/sleep-sleep/network-systemsleepconfiguration.md": {
-            "date": "2024-04-30",
-            "hash": "81a515d96703b7a0860566aec799e49d9278e93d1490460159c0b6161c1d1ed9"
+            "date": "2024-05-22",
+            "hash": "59a46a102cd08b2ccd78f16c5384bd75824e235b886b57d1fa7b425a8219e199"
         },
         "reference/device-os/api/sleep-sleep/analog-systemsleepconfiguration.md": {
-            "date": "2024-04-30",
-            "hash": "746fb8c2fb0b8380e547597c8aa697ed1790d38567ceecd204b8d477ce0d3356"
+            "date": "2024-05-22",
+            "hash": "dff41a7f536fddee5080461f638e261707b9ed424a1a3044a83f86646517d0e6"
         },
         "reference/device-os/api/sleep-sleep/usart-systemsleepconfiguration.md": {
-            "date": "2024-04-30",
-            "hash": "b6e5100d64bf223c586e083ec2cd1683697176b8aa79fc5929933a8d57d0e16c"
+            "date": "2024-05-22",
+            "hash": "d2e0e0bf4577a525537e3ad6aded7ec4a02cbc129ed4e15f4105361ad532010d"
         },
         "reference/device-os/api/sleep-sleep/ble-systemsleepconfiguration.md": {
-            "date": "2024-04-30",
-            "hash": "4e75fd3f9298a50ee6c724da0ae89760f383c20da6c4631d915ad6ef1890066b"
+            "date": "2024-05-22",
+            "hash": "3981502c6ca21a9f4d36ea0316688dc9353eb582d89eaa21eab2bb1d4de841ce"
         },
         "reference/device-os/api/sleep-sleep/systemsleepresult-class.md": {
             "date": "2023-09-20",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "0695a02431730ec28897220ecc207c2e8efe99c2e3c4d5e7285a0e4c7b4caa46",
+            "hash": "a14f982743f278b5ea60e88478670d393db041da61e937e3c6e3d9bf25c16422",
             "date": "2024-05-22"
         },
         "getting-started/cloud/logic.md": {

@@ -19619,41 +19619,46 @@ config.mode(SystemSleepMode::STOP)
 
 The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). 
 
-- Real-time clock (RTC) is kept running.
-- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`.
-- On the Argon, network can optionally be kept running for Wi-Fi.
-- BLE is kept on if used as a wake-up source (Gen 3 devices only).
-- UART, ADC are only kept on if used as a wake-up source. 
-- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
-- Can wake from: Time, GPIO, analog, serial, and cellular. On Gen 3 also BLE and Wi-Fi.
-- At least one wake source must be specified in STOP sleep mode.
-- On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
-
-
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | &check; | &check; |
-| Time (RTC) | &check; | &check; | 
-| Analog | &check; | &check; | 
-| Serial | &check; | &check; | 
-| BLE | &nbsp; | &check; |
-| Cellular | &check; | &check; |
-| Wi-Fi | &nbsp; | &check; |
+| Wake Mode | Gen 2 | Gen 3 | Gen 4 |
+| :--- | :---: | :---: | :---: |
+| GPIO | &check; | &check; | &check; |
+| Time (RTC) | &check; | &check; | &check; |
+| Analog | &check; | &check; |  &nbsp; |
+| Serial | &check; | &check; |  &nbsp; |
+| BLE | &nbsp; | &check; | &nbsp; |
+| Cellular | &check; | &check; | &check; |
+| Wi-Fi | &nbsp; | &check; | &nbsp; |
 
 Typical power consumption in STOP sleep mode, based on the wakeup source:
 
 | Device      | GPIO      | RTC       | Analog    | Serial    | BLE       | Network   |
 | :---------- | --------: | --------: | --------: | --------: | --------: | --------: |
+| P2          |    579 uA |    572 uA |       n/a |       n/a |       n/a |       n/a |
+| M404        |    547 uA |    515 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
+| M524        |    421 uA |    415 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
 | T523 Eval   |    872 uA |    873 uA |    852 uA |    840 uA |    919 uA |   21.5 mA |
 | T402 Eval   |    807 uA |    835 uA |    831 uA |    798 uA |    858 uA |   17.2 mA |
 | Boron 2G/3G |    631 uA |    607 uA |    585 uA |    606 uA |    907 uA |   15.6 mA |
 | Boron LTE   |    575 uA |    584 uA |    577 uA |    587 uA |    885 uA |   12.1 mA |
 | B402 SoM    |    555 uA |    556 uA |    557 uA |    556 uA |    631 uA |    9.7 mA |
 | B523 SoM    |    538 uA |    537 uA |    537 uA |    537 uA |    604 uA |   23.1 mA |
-| P2          |    579 uA |    572 uA |           |           |           |           |
 | Argon       |    396 uA |    398 uA |    398 uA |    397 uA |    441 uA |   22.2 mA |
 | Electron    |   2.40 mA |   2.53 mA |   6.03 mA |   13.1 mA |       n/a |   28.1 mA |  
 | Photon      |   2.75 mA |   2.82 mA |   7.56 mA |   18.2 mA |       n/a |       n/a |
+
+<sup>1</sup>On the M-SoM, sleep with network active is only available for cellular, not for Wi-Fi, and only in STOP or ULP mode (not HIBERNATE). Power consumption in this mode to be provided at a later date.
+
+
+- Real-time clock (RTC) is kept running.
+- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`.
+- On the Argon, network can optionally be kept running for Wi-Fi.
+- BLE is kept on if used as a wake-up source (Gen 3 devices only).
+- UART and ADC are only kept on if used as a wake-up source (Gen 2 and Gen 3 only)
+- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
+- Can wake from: Time, GPIO. On some devices: analog, serial, BLE, cellular, and Wi-Fi.
+- At least one wake source must be specified in STOP sleep mode.
+- On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
+
 
 ---
 
@@ -19682,43 +19687,47 @@ System.sleep(config);
 
 The `SystemSleepMode::ULTRA_LOW_POWER` mode is similar to STOP mode however internal peripherals such as GPIO, UART, ADC, and DAC are turned off. Like STOP mode, the RTC continues to run but since many more peripherals are disabled, the current used is closer to HIBERNATE. It is available in Device OS 2.0.0 and later.
 
-In this mode:
-
-- Real-time clock (RTC) is kept running.
-- Network is kept on if used as a wake-up source (Gen 3 devices only).
-- BLE is kept on if used as a wake-up source (Gen 3 devices only).
-- GPIO, UART, ADC are only kept on if used as a wake-up source. 
-- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
-- Can wake from: Time or GPIO. On Gen 3 also analog, serial, BLE, and network.
-- At least one wake source must be specified in ULP sleep mode.
-- On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
-
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | &check; | &check; |
-| Time (RTC) | &check; | &check; | 
-| Analog | &nbsp; | &check; | 
-| Serial | &nbsp; | &check; | 
-| BLE | &nbsp; | &check; |
-| Cellular | &nbsp; | &check; |
-| Wi-Fi | &nbsp; | &check; |
+| Wake Mode | Gen 2 | Gen 3 | Gen 4|
+| :--- | :---: | :---: | :---: |
+| GPIO | &check; | &check; | &check; |
+| Time (RTC) | &check; | &check; | &check; |
+| Analog | &nbsp; | &check; | &nbsp; |
+| Serial | &nbsp; | &check; | &nbsp; |
+| BLE | &nbsp; | &check; | &nbsp; |
+| Cellular | &nbsp; | &check; | &check; |
+| Wi-Fi | &nbsp; | &check; | &nbsp; |
 
 
 Typical power consumption in ultra-low power (ULP) sleep mode, based on the wakeup source:
 
 | Device      | GPIO      | RTC       | Analog    | Serial    | BLE       | Network   |
 | :---------- | --------: | --------: | --------: | --------: | --------: | --------: |
+| P2          |    579 uA |    572 uA |       n/a |       n/a |       n/a |       n/a |
+| M404        |    547 uA |    515 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
+| M524        |    421 uA |    415 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
 | T523 Eval   |    139 uA |    139 uA |    140 uA |    564 uA |    214 uA |   21.7 mA |
 | T402 Eval   |    114 uA |    114 uA |    117 uA |    530 uA |    186 uA |   16.9 mA |
 | Boron 2G/3G |    171 uA |    174 uA |    178 uA |    610 uA |    494 uA |   16.4 mA |
 | Boron LTE   |    127 uA |    128 uA |    130 uA |    584 uA |    442 uA |   14.2 mA |
 | B402 SoM    |     48 uA |     47 uA |     48 uA |    557 uA |    130 uA |    9.5 mA |
 | B523 SoM    |     54 uA |     55 uA |     56 uA |    537 uA |    139 uA |   22.8 mA |
-| P2          |    579 uA |    572 uA |           |           |           |           |
 | Argon       |     82 uA |     81 uA |     82 uA |    520 uA |    141 uA |   21.3 mA |
 | Electron    |   2.42 mA |   2.55 mA |       n/a |       n/a |       n/a |       n/a |  
 | Photon      |   2.76 mA |   2.83 mA |       n/a |       n/a |       n/a |       n/a |
 
+<sup>1</sup>On the M-SoM, sleep with network active is only available for cellular, not for Wi-Fi, and only in STOP or ULP mode (not HIBERNATE). Power consumption in this mode to be provided at a later date.
+
+In this mode:
+
+- Real-time clock (RTC) is kept running.
+- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`.
+- On the Argon, network can optionally be kept running for Wi-Fi.
+- BLE is kept on if used as a wake-up source (Gen 3 devices only).
+- UART and ADC are only kept on if used as a wake-up source (Gen 2 and Gen 3 only)
+- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
+- Can wake from: Time, GPIO. On some devices: analog, serial, BLE, cellular, and Wi-Fi.
+- At least one wake source must be specified in ULP sleep mode.
+- On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
 ---
 
@@ -19744,8 +19753,8 @@ System.sleep(config);
 
 The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. It is the lowest power mode, however there are limited ways you can wake:
 
-| Wake Mode | Gen 2 | Gen 3 | P2/Photon 2 |
-| :--- | :---: | :---: | :---: |
+| Wake Mode | Gen 2 | Gen 3 | Gen 4 |
+| :--- | :---: | :---: | :---: | :---
 | GPIO | WKP RISING Only | &check; | WKP |
 | Time (RTC) | &check; | <sup>1</sup> | &check; |
 | Analog | &nbsp; | &check; | &nbsp; |
@@ -19756,13 +19765,15 @@ Typical power consumption in hibernate sleep mode, based on the wakeup source:
 
 | Device      | GPIO      | RTC       |
 | :---------- | --------: | --------: |
+| P2          |    114 uA |    115 uA |
+| M404        |     44 uA |     43 uA |
+| M524        |     26 uA |     27 uA |
 | T523 Eval   |    103 uA |     95 uA |
 | T402 Eval   |    103 uA |     95 uA |
 | Boron 2G/3G |    146 uA |       n/a |
 | Boron LTE   |    106 uA |       n/a |
 | B402 SoM    |     26 uA |       n/a |
 | B523 SoM    |     30 uA |       n/a |
-| P2          |    114 uA |    115 uA |
 | Argon       |     65 uA |       n/a |
 | Electron    |    114 uA |    114 uA |
 | Photon      |    114 uA |    114 uA |
@@ -19788,10 +19799,10 @@ In this mode on wake, device is reset, running setup() again.
 
 ---
 
-{{note op="start" type="gen4"}}
+{{note op="start" type="P2"}}
 - The P2 and Photon 2 do not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
 
-- The P2 and Photon 2 can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
+- The P2, Photon 2 can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
 
 - On the Photon 2, pin D10 is in the same position as the Argon/Feather pin D8. 
 
@@ -19799,10 +19810,23 @@ In this mode on wake, device is reset, running setup() again.
 
 - On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 
-- The P2, Photon 2, and Tracker M do not support wake on analog.
+- The P2 and Photon 2 do not support wake on analog, BLE, or UART serial.
 {{note op="end"}}
 
 ---
+
+{{note op="start" type="M-SoM"}}
+- The M-SoM does not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
+
+- The M-SoM can only wake from `HIBERNATE` mode on `WKP` (A7), `RISING`, `FALLING`, or `CHANGE`.
+
+- On the M-SoM, pin D21 does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- The M-SoM does not support wake on analog, BLE, or UART serial.
+{{note op="end"}}
+
+---
+
 
 {{note op="start" type="gen2"}}
 - On the Photon, P1, Electron, and E-Series you can only wake on time or `WKP` `RISING` in `HIBERNATE` mode.
@@ -19835,6 +19859,12 @@ config.mode(SystemSleepMode::HIBERNATE)
 Specifies the sleep duration in milliseconds. Note that this is different than the classic API, which was in seconds.
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `.duration(15min)` for 15 minutes.
+
+---
+
+{{note op="start" type="gen4"}}
+On the P2, Photon 2, and M-SoM, even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
+{{note op="end"}}
 
 ---
 
@@ -19913,6 +19943,18 @@ On the Tracker SoM, you can pass GPIO connected to the IO Expander directly to t
 
 ---
 
+
+{{note op="start" type="P2"}}
+- The P2, Photon 2 can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="M-SoM"}}
+- The M-SoM can only wake from `HIBERNATE` mode on `WKP` (A7), `RISING`, `FALLING`, or `CHANGE`.
+{{note op="end"}}
+---
+
 {{note op="start" type="gen3"}}
 - You can wake on any pins on Gen 3 devices, however there is as limit of 8 total pins for wake.
 
@@ -19980,11 +20022,11 @@ config.mode(SystemSleepMode::ULTRA_LOW_POWER)
 
 This option not only allows wake from network activity, but also keeps the network connected, making resume from sleep significantly faster. This is a superset of the `SLEEP_NETWORK_STANDBY` feature. This should also be used with cellular devices with sleep periods of less than 10 minutes to prevent your SIM from being banned for aggressively reconnecting to the cellular network.
 
-| Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) |
-| :--- | :---: | :---: | :---: |
-| Wake from STOP sleep | | &check; | &check; |
-| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; |
-| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
+| Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) | Gen 4 Wi-Fi | Gen 4 Cellular |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Wake from STOP sleep | | &check; | &check; | &nbsp; | &check; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; | &nbsp; | &check; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 The first example configures the cellular modem to both stay awake and for the network to be a wake source. If incoming data, from a function call, variable request, subscribed event, or OTA request arrives, the device will wake from sleep mode.
 
@@ -20003,7 +20045,7 @@ For more information on using network sleep modes, see [Learn more about sleep m
 ---
 
 {{note op="start" type="gen4"}}
-Wake on network is not supported on the P2, Photon 2, or Tracker M.
+Wake on network is not supported on the P2, Photon 2, M-SoM (for Wi-Fi).
 {{note op="end"}}
 
 ---
@@ -20030,16 +20072,16 @@ The `AnalogInterruptMode` is one of:
 - AnalogInterruptMode::BELOW - Voltage falls below the threshold `voltage`.
 - AnalogInterruptMode::CROSS - Voltage crosses the threshold `volage` in either direction.
 
-| Analog Wake Support | Gen 2 | Gen 3|
-| :--- | :---: | :---: |
-| Wake from STOP sleep | &check; | &check; |
-| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
-| Wake from HIBERNATE sleep | &nbsp; | &nbsp;  |
+| Analog Wake Support | Gen 2 | Gen 3 | Gen 4 |
+| :--- | :---: | :---: | :---: |
+| Wake from STOP sleep | &check; | &check; | &nbsp; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; | &nbsp; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
 
 ---
 
 {{note op="start" type="gen4"}}
-Wake on analog is not supported on the P2, Photon 2, or Tracker M.
+Wake on analog is not supported on the P2, Photon 2, or M-SoM.
 {{note op="end"}}
 
 ---
@@ -20062,16 +20104,16 @@ Wake from a hardware UART (USART). This can only be done with a hardware serial 
 
 Note: Keeping the USART active in ultra-low power mode significanly increases the current used while sleeping.
 
-| USART Wake Support | Gen 2 | Gen 3|
-| :--- | :---: | :---: |
-| Wake from STOP sleep | &check; | &check; |
-| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
-| Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
+| USART Wake Support | Gen 2 | Gen 3 | Gen 4 |
+| :--- | :---: | :---: | :---: |
+| Wake from STOP sleep | &check; | &check; | &nbsp; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; | &nbsp; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
 
 ---
 
 {{note op="start" type="gen4"}}
-Wake on serial is not supported on the P2, Photon 2, or Tracker M.
+Wake on serial is not supported on the P2, Photon 2, or M-SoM.
 {{note op="end"}}
 
 ---
@@ -20100,16 +20142,16 @@ In addition to Wake on BLE, this keeps the BLE subsystem activated so the nRF52 
 
 This brief wake-up only services the radio. User firmware and Device OS do not resume execution if waking only to service the radio. If the radio receives incoming data or connection attempt packets, then the MCU completely wakes up in order to handle those events.
 
-| BLE Wake Support | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| Wake from STOP sleep | &nbsp; | &check; |
-| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
-| Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
+| BLE Wake Support | Gen 2 | Gen 3 | Gen 4 |
+| :--- | :---: | :---: | :---: |
+| Wake from STOP sleep | &nbsp; | &check; | &nbsp; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; | &nbsp; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
 
 ---
 
 {{note op="start" type="gen4"}}
-Wake on BLE is not supported on the P2, Photon 2, or Tracker M.
+Wake on BLE is not supported on the P2, Photon 2, or M-SoM.
 {{note op="end"}}
 
 ---
