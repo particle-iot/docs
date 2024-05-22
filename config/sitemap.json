@@ -9057,6 +9057,10 @@
         "reference/cloud-apis/firmware-update-events.md": {
             "hash": "d14f7ea78ab6df8ed887de37c2353c9c2f080bbecf899e0b993ac0a4bee0c398",
             "date": "2024-05-14"
+        },
+        "reference/datasheets/m-series/m2-breakout-datasheet.md": {
+            "hash": "c3a337324527c09c08183ef29002d872e88ec038afc46bb751f489d1fa9a98ba",
+            "date": "2024-05-22"
         }
     }
 }

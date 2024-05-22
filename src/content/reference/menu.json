@@ -440,8 +440,7 @@
         {
           "dir": "m2-breakout-datasheet",
           "title": "M.2 breakout board",
-          "href": "/reference/datasheets/m-series/m2-breakout-datasheet/",
-          "internal": true
+          "href": "/reference/datasheets/m-series/m2-breakout-datasheet/"
         }
       ],
       {

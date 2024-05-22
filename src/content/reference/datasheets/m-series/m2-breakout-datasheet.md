@@ -8,7 +8,7 @@ description: M.2 breakout board
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet based on pre-release version of the hardware. Changes are expected.
+This is a preliminary datasheet. Changes are possible before general availability (GA).
 {{box op="end"}}
 
 The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM modules.
@@ -951,3 +951,4 @@ To be provided at a later date.
 | pre      | 2024-03-18 | RK     | Initial Release (based on board v0.2 20240315) |
 |          | 2024-03-19 | RK     | USB-C power limitations |
 |          | 2024-04-16 | RK     | Description of TS jumper was backwards |
+|        1 | 2024-05-22 | RK     | Public release |
