@@ -21,7 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### WiFiCredentials setHidden and setValidate
+### M-SoM PWM in Device OS Firmware API 2024-05-22
+
+The list of PWM pins for the M-SoM is different than the P2/Photon 2; the table in the [Device OS Firmware API reference](/reference/device-os/api/input-output/analogwrite-pwm/) was not
+correct for the M-SoM.
+
+### WiFiCredentials setHidden and setValidate 2024-05-21
 
 Documentation is now available for setHidden (added in 5.5.0) and setValidate (added in 5.8.0) in the [WiFiCredentials class](/reference/device-os/api/wifi/wificredentials-class/#wificredentials-).
 

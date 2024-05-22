@@ -5753,6 +5753,8 @@ On the E404X, the following groups are defined. Each group must share the same f
 
 On the P2, Photon 2, and M-SoM, all PWM pins and the RGB LED share the same PWM timer and must share the same PWM frequency, though each pin can have a separate duty cycle.
 
+The PWM pins for the P2 and Photon 2 are:
+
 {{!-- BEGIN do not edit content below, it is automatically generated d68a9c54-a380-11ec-b909-0242ac120002 --}}
 
 | Pin | Pin Name | Description | MCU |
@@ -5765,6 +5767,31 @@ On the P2, Photon 2, and M-SoM, all PWM pins and the RGB LED share the same PWM 
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
+
+The PWM pins for the M-SoM are:
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated ce50aa3a-b76c-4140-bf85-100dded18864 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | PB[4] |
+| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | PB[5] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
+| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT | PB[7] |
+| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | PA[17] |
+| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | PA[16] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | PB[3] |
+| 66 | D4 | D4 GPIO, PWM | PB[18] |
+| 68 | D5 | D5 GPIO, PWM, I2S TX | PB[19] |
+| 70 | D6 | D6 GPIO, PWM, I2S CLK | PB[20] |
+| 72 | D7 | D7 GPIO, PWM, I2S WS | PB[21] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 {{note op="end"}}
 
