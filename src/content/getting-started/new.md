@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Telstra Australia 3G sunset 2024-05-24
+
+In Australia, the Telstra 3G shutdown date have been moved to August 31, 2024 (was previously June 2024).
+
 ### Community integration submission 2024-05-24
 
 Updated the [community integration submission](/integrations/community-integrations/about-community-integrations/) page with additional instructions.

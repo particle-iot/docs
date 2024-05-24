@@ -4871,8 +4871,8 @@
         "3G": [
           {
             "state": "active",
-            "end": "2024-06-30",
-            "note": "3G service ending June 2024"
+            "end": "2024-08-31",
+            "note": "3G service ending August 2024"
           }
         ]
       },

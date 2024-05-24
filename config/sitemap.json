@@ -8215,8 +8215,8 @@
             "date": "2023-10-19"
         },
         "reference/discontinued/cellular/au-nz-sunset.md": {
-            "hash": "a721378ee0859e002efb73bda3969bdca65f3c98d7123fea1ca9c56edf235f7f",
-            "date": "2023-11-02"
+            "hash": "202f9eb0a2602c87de74cb34a946b7a38b04514f9476ea607e5abf58c690304d",
+            "date": "2024-05-24"
         },
         "integrations/community-integrations/ilert.md": {
             "hash": "044fcb9e450d74983e5b4636c6609bb14fe07dc83167242875ce1a06aede7887",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "9248880a7a72a17c5af6a540b17938c8ef9dab3fae596fb923f3b4475f03140a",
+            "hash": "5ffbdf9d5e735c85f1d34230a38eaf226f0e0b59ff93cc8e85711856297374f8",
             "date": "2024-05-24"
         },
         "getting-started/cloud/logic.md": {
