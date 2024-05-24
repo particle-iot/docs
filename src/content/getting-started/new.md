@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Community integration submission 2024-05-24
+
+Updated the [community integration submission](/integrations/community-integrations/about-community-integrations/) page with additional instructions.
+
 ### Device OS API sleep updates 2024-05-22
 
 The  [Device OS Firmware API sleep reference](/reference/device-os/api/sleep-sleep/sleep-sleep/) includes additional information for Gen 4 devices 

@@ -739,8 +739,8 @@
             "hash": "0ddb3253f33c09c1681ef46dcd46effcce2639a0ef06a8ac62ee3261d5083689"
         },
         "integrations/community-integrations/about-community-integrations.md": {
-            "date": "2023-08-03",
-            "hash": "4f5b29804c7bde8cfede0ac3df0ae4fba901ff0f18bd17525e131311235a0164"
+            "date": "2024-05-24",
+            "hash": "64a933f42e71c4d2ce1417a133ce53df490171b3ead888223fae5e1797f93e9a"
         },
         "integrations/community-integrations/azure-iot-hub.md": {
             "date": "2024-04-13",
@@ -8191,8 +8191,8 @@
             "date": "2023-10-06"
         },
         "reference/asset-ota/asset-ota-community/asset-ota-community.md": {
-            "hash": "12b06699d5f034a3ea8d3c3b4a947231a623085c1530c315d98ac67373f4a54a",
-            "date": "2023-10-06"
+            "hash": "3e9fd175acac4b9991bfbeac78f5bdee9801505519fb9789a82d97f6cb72f1be",
+            "date": "2024-05-24"
         },
         "reference/asset-ota/asset-ota-community/sound-asset-ota.md": {
             "hash": "8948bb51f42ccad3d86304279f3e9b9b6ffb26249677d7d17b457746b0fc9d99",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a14f982743f278b5ea60e88478670d393db041da61e937e3c6e3d9bf25c16422",
-            "date": "2024-05-22"
+            "hash": "9248880a7a72a17c5af6a540b17938c8ef9dab3fae596fb923f3b4475f03140a",
+            "date": "2024-05-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9059,8 +9059,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "c3a337324527c09c08183ef29002d872e88ec038afc46bb751f489d1fa9a98ba",
-            "date": "2024-05-22"
+            "hash": "2500b7bfbd6ac65f3db8b4a4ed4b68f40eaaa181d5bf3213ffe099f639f35bfc",
+            "date": "2024-05-24"
         }
     }
 }
