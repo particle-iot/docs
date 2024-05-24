@@ -740,7 +740,7 @@
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2024-05-24",
-            "hash": "64a933f42e71c4d2ce1417a133ce53df490171b3ead888223fae5e1797f93e9a"
+            "hash": "c7ecaa346d59eb9163cf94d30262740966eea6f81369f1b0c31ec16a86b4a7b4"
         },
         "integrations/community-integrations/azure-iot-hub.md": {
             "date": "2024-04-13",
@@ -8191,7 +8191,7 @@
             "date": "2023-10-06"
         },
         "reference/asset-ota/asset-ota-community/asset-ota-community.md": {
-            "hash": "3e9fd175acac4b9991bfbeac78f5bdee9801505519fb9789a82d97f6cb72f1be",
+            "hash": "3b3756c6936fc2be7c9cc8b2534fbc1fe5ec1e37fee250ddbb76e59d91e45b36",
             "date": "2024-05-24"
         },
         "reference/asset-ota/asset-ota-community/sound-asset-ota.md": {

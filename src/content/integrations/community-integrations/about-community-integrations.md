@@ -42,7 +42,7 @@ If you have device firmware, create a standard project with a [project.propertie
 {{> project-browser project="logic-cloud-alerts" default-file="src/logic-cloud-alerts.cpp" height="400"}}
 
 
-If you design files such as Eagle CAD files, for hardware projects, Just include the files in a subdirectory; the zip file download link will be generated in the docs if necessary. If you are using Eagle CAD, an interactive viewer for your schematic can be added.
+If you design files such as Eagle CAD files, for hardware projects, just include the files in a subdirectory; the zip file download link will be generated in the docs if necessary. If you are using Eagle CAD, an interactive viewer for your schematic can be added so users can zoom in and print a high resolution version even if they don't have Eagle CAD.
 
 {{imageOverlay src="/assets/images/m2-eval/1.2/p1.png" large="/assets/images/m2-eval/1.2/p1.svg" alt="Schematic Page 1"}}
 
