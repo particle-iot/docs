@@ -25,7 +25,7 @@ This command downloads the `particle` command to your home directory at `~/bin`.
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/particle-cli/installer/win32/ParticleCLISetup.exe ) and run it to install the Particle CLI. The Windows CLI installer is self-contained and can be run on a computer without Internet access, however CLI commands that interact with the Particle clould will of course need Internet access.
+Download the [Windows CLI Installer](https://binaries.particle.io/particle-cli/installer/win32/ParticleCLISetup.exe ) and run it to install the Particle CLI. The Windows CLI installer is self-contained and can be run on a computer without Internet access, however CLI commands that interact with the Particle cloud will of course need Internet access.
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 

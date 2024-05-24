@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2024-05-15",
-            "hash": "855b41341c9d3ee8879716a26b7df38cbb0fc1c7a03eecb480ac7def38cf5bbd"
+            "date": "2024-05-24",
+            "hash": "f687eba196af3be4d408b1dab8b120ceee88e9b038457a803025c606964e53cb"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2023-11-15",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-05-15",
-            "hash": "981e30e6ffb8b615a95bb8bd4fd552d48f7a0bb80ca7a51dc05dc1db75a0b1ea"
+            "date": "2024-05-24",
+            "hash": "c31ff604c003e63b0040d45f8a740cacae0cf086a6c2f624b9b0aff999c056ee"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
