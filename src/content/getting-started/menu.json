@@ -317,7 +317,24 @@
         "dir": "device-info-ledger",
         "title": "Device information in Ledger",
         "href": "/getting-started/logic-ledger/device-info-ledger/"
-      }
+      },
+      {
+        "dir": "logic-ledger-community",
+        "title": "Logic & Ledger community projects",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "logic-ledger-community",
+          "title": "Logic and ledger community projects",
+          "href": "/getting-started/logic-ledger/logic-ledger-community/logic-ledger-community/"
+        }, 
+        {
+          "dir": "cloud-to-device-ledger-getting-started",
+          "title": "Cloud to device ledger getting started",
+          "href": "/getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started/"
+        }  
+      ]
     ],
     {
       "dir": "products",

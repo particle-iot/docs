@@ -222,6 +222,8 @@
   "/getting-started/integrations/integrations": "/integrations/integrations",
   "/getting-started/integrations/webhook-demo": "/integrations/webhook-demo",
   "/getting-started/integrations/webhooks": "/integrations/webhooks",
+  "/getting-started/logic-ledger": "/getting-started/logic-ledger/logic",
+  "/getting-started/logic-ledger/logic-ledger-community": "/getting-started/logic-ledger/logic-ledger-community/logic-ledger-community",
   "/getting-started/machine-learning": "/getting-started/machine-learning/machine-learning",
   "/getting-started/products": "/getting-started/products/introduction-to-products",
   "/getting-started/setup": "/getting-started/setup/setup-options",

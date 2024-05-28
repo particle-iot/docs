@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5ffbdf9d5e735c85f1d34230a38eaf226f0e0b59ff93cc8e85711856297374f8",
-            "date": "2024-05-24"
+            "hash": "7ee72f6075b7e9c773b22c87329745e4df5bfaa18c9c10a4c72e422dc9d3af25",
+            "date": "2024-05-28"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9061,6 +9061,14 @@
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
             "hash": "2500b7bfbd6ac65f3db8b4a4ed4b68f40eaaa181d5bf3213ffe099f639f35bfc",
             "date": "2024-05-24"
+        },
+        "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
+            "hash": "8fe3dfe5bf049045235aaeb22cc4216b949808e392cd66c361f04ed47266b404",
+            "date": "2024-05-28"
+        },
+        "getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started.md": {
+            "hash": "3aa3b22bd9ed612779407e4d25e8739d930d1590dafe4195e54888c1a72ce490",
+            "date": "2024-05-28"
         }
     }
 }

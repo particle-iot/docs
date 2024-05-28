@@ -1,4 +1,4 @@
----
+0---
 title: What's new
 columns: two
 layout: commonTwo.hbs
@@ -20,6 +20,10 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+
+### Getting started with cloud to device ledger 2024-05-28
+
+New [Getting started with cloud to device](/getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started/) tutorial.
 
 ### Telstra Australia 3G sunset 2024-05-24
 
