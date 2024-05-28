@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Getting started with cloud to device ledger 2024-05-28
 
-New [Getting started with cloud to device](/getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started/) tutorial.
+New [Getting started with cloud to device ledger](/getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started/) tutorial.
 
 ### Telstra Australia 3G sunset 2024-05-24
 
