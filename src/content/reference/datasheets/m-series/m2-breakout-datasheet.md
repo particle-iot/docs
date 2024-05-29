@@ -78,7 +78,7 @@ The [PM-BAT power module](/hardware/power/pm-bat-datasheet/) allows the Particle
 - Connect the LiPo battery (2). 
 - Optionally connect the AC power adapter to VIN (7). With PM-BAT, VIN must be 5-12 VDC.
 - You must use the LiPo battery, AC power adapter, or both, when using PM-BAT. You cannot power by USB only.
-- The LiPo battery can be charged by USB or VIN.
+- The LiPo battery can be only be charged by VIN, it cannot be charged from USB.
 
 #### PM-DC power module
 
