@@ -9277,6 +9277,11 @@
         "description": "<p>List only versions replaced after this date</p>"
       }
     ],
+    "permission": [
+      {
+        "name": "ledger.instances.versions:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions\" \\",
@@ -9349,6 +9354,11 @@
         "description": "<p>Filter for archived definitions</p>"
       }
     ],
+    "permission": [
+      {
+        "name": "ledger.definitions:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/ledgers\" \\",
@@ -9403,6 +9413,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.definitions:get"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\",
@@ -9449,6 +9464,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.definitions:create"
+      }
+    ],
     "body": [
       {
         "group": "Body",
@@ -9513,6 +9533,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.definitions:update"
+      }
+    ],
     "body": [
       {
         "group": "Body",
@@ -9577,6 +9602,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.definitions:archive"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl -X DELETE \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\",
@@ -9649,6 +9679,11 @@
         "description": "<p>Number of instances per page</p>"
       }
     ],
+    "permission": [
+      {
+        "name": "ledger.instances:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances\" \\",
@@ -9711,6 +9746,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.instances:get"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\",
@@ -9781,6 +9821,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.instances.versions:get"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\",
@@ -9843,6 +9888,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.instances:set"
+      }
+    ],
     "body": [
       {
         "group": "Body",
@@ -9915,6 +9965,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "ledger.instances:remove"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl -X DELETE \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\",
@@ -10181,6 +10236,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.stats:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/stats\" \\",
@@ -10227,6 +10287,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.functions:execute"
+      }
+    ],
     "body": [
       {
         "group": "Body",
@@ -10386,6 +10451,11 @@
         "description": "<p>Include today's stats</p>"
       }
     ],
+    "permission": [
+      {
+        "name": "logic.functions:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/logic/functions?today_stats=true\" \\",
@@ -10440,6 +10510,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.functions:get"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\",
@@ -10486,6 +10561,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.functions:create"
+      }
+    ],
     "body": [
       {
         "group": "Body",
@@ -10550,6 +10630,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.functions:update"
+      }
+    ],
     "body": [
       {
         "group": "Body",
@@ -10614,6 +10699,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.functions:remove"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl -X DELETE \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\",
@@ -10668,6 +10758,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.runs:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs\" \\",
@@ -10730,6 +10825,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.runs:get"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId\" \\",
@@ -10792,6 +10892,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "logic.logs:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\",
