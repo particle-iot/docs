@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M.2 breakout updates 2024-05-29
+
+Minor updates to the [M.2 breakout datasheet](/reference/datasheets/m-series/m2-breakout-datasheet/).
+
 ### Getting started with cloud to device ledger 2024-05-28
 
 New [Getting started with cloud to device ledger](/getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started/) tutorial.

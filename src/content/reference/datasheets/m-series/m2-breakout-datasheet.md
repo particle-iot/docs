@@ -7,10 +7,6 @@ description: M.2 breakout board
 
 # {{title}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet. Changes are possible before general availability (GA).
-{{box op="end"}}
-
 The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM modules.
 
 {{imageOverlay src="/assets/images/m-series/m2breakout_top.png" alt="Illustration" class="full-width"}}
@@ -26,13 +22,13 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 
 | Label | Description |
 | :--- | :--- |
-|  1 | MCU USB-C (use this one) |
+|  1 | Cellular modem USB-C (not normally used) |
 |  2 | SWD debugging connector |
-|  3 | Cellular modem USB-C (not normally used) |
+|  3 | MCU USB-C (use this one) |
 |  4 | LiPo battery power switch |
 |  5 | LiPo battery connector (3-pin, with temperature sensor) |
 |  6 | DC power switch |
-|  7 | DC power barrel connector, 5-12 VDC (5.5mm x 2.1mm, center positive) |
+|  7 | DC power barrel connector (5.5mm x 2.1mm, center positive) |
 |  8 | QWIIC (3.3V I2C connector) |
 |  9 | Grove expansion connector |
 | 10 | U.FL to SMA connectors |
@@ -52,39 +48,58 @@ The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM
 | 26 | LiPo temperature sensor jumper (TS) |
 | 27 | Power LED (red) |
 
-### Powering the board
-
-The M.2 breakout can be powered by:
-
-| Num  | Description |
-| :---: | :--- |
-| 5 | LiPo battery (3.7V LiPo with 3-pin JST-PH connector)
-| 7 | VIN barrel connector 5-12 VDC (5.5mm x 2.1mm, center positive) |
-
-- When powering by VIN (barrel connector), 5-12 VDC is recommended at 12 watts.
-- Minimum power requirements are 5VDC @500mA (when using the LiPo battery) or 5VDC @2000mA (without LiPo battery).
-- If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
-
-
-#### LiPo connector
-
-Note that the M.2 breakout board includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack. The TS jumper (26) must be installed for normal operation with a temperature sensor.
-
-<div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
-
-<p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
-
-If you wish to use a battery without a temperature sensor, remove the TS jumper (26) and use a 3-pin to 2-pin JST-PH adapter, or change the shell of your JST-PH 2-pin connector to a 3-pin shell. The pin can be swapped without cutting, soldering, or crimping. See the [battery guide](/hardware/power/batteries/) for more information.
-
-
 ## Setup
 
-The basic setup for the B-SoM or M-SoM to be operational is shown below:
+### Install the SoM
+
+The M.2 SoM breakout board requires a Particle M-SoM or B-SoM module. Install it in the M.2 socket (21) and secure it with a thumbscrew.
+
+
+### Connect antennas
+
+The M.2 breakout board can be used with the standard flexible Particle antennas or the SMA adapters included on the breakout board. 
 
 - Plug the cellular antenna into the U.FL connector labeled **CELL** on the SoM. Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the u-blox module if no antenna is connected.
-- If you are going to use BLE, connect the 2.4 GHz antenna (the smaller one) to the **BT** U.FL connector on the SoM.
-- Connect power the USB (1) or a LiPo battery (2).
-- Turn on the appropriate power switches (4, 6).
+- If you are planning to use BLE, connect the 2.4 GHz antenna (the smaller one) to the **BT** U.FL connector on the SoM.
+- The flexible Particle cellular and BLE antennas should be included in the M.2 SoM package, not the breakout board package.
+- SMA antennas are not included with the M.2 breakout board. If used in a product, additional certification would be required to use a SMA antenna.
+
+### Install a power module
+
+The M.2 breakout board includes two power modules; select and install the module you wish to use and install it in the power module socket (22).
+
+Note the position of the notch to make sure the power module is installed in the correct orientation and make sure all of the pins are aligned with the socket on the breakout board.
+
+#### PM-BAT power module
+
+The [PM-BAT power module](/hardware/power/pm-bat-datasheet/) allows the Particle SoM to be powered by a LiPo battery or DC adapter.
+
+- Install the PM-BAT module in the power module socket (22).
+- Connect the LiPo battery (2). 
+- Optionally connect the AC power adapter to VIN (7). With PM-BAT, VIN must be 5-12 VDC.
+- You must use the LiPo battery, AC power adapter, or both, when using PM-BAT. You cannot power by USB only.
+- The LiPo battery can be charged by USB or VIN.
+
+#### PM-DC power module
+
+The [PM-DC power module](/hardware/power/pm-dc-datasheet/) allows the Particle SoM to be powered by an AC power adapter or external DC power source.
+
+- Install the PM-DC module in the power module socket (22).
+- Connect the power adapter to VIN (7). When powering PM-DC by VIN (barrel connector), 4-40 VDC is required at 12 watts.
+- Power on the VIN barrel connector is required when using PM-DC; you cannot power the breakout board only by USB power.
+
+
+### Power on device
+
+Turn on the appropriate power switches (4, 6). 
+
+The RGB status LED should turn on. Typically it will blink white once, then blink green though it may display a different pattern.
+
+### Device setup and claiming
+
+Connect the USB connector (3) to your computer. This is needed only for setup.
+
+Visit [https://setup.particle.io/](https://setup.particle.io/) to finish setting up your device.
 
 ## Onboard peripherals
 
@@ -127,26 +142,44 @@ These jumpers connect the Feather A pin side to the M.2 connector. They can also
 These jumpers connect the Feather D pin side to the M.2 connector. They can also be used to remap pins by using jumper wires instead of solid jumpers.
 
 
-### Power module
+### LiPo connector
 
-The M.2 breakout board comes with the [PMIC power module](/hardware/power/power-module-datasheet/) that includes the bq24195 PMIC and MAX17043 fuel gauge chips. 
+Note that the M.2 breakout board includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack. The TS jumper (26) must be installed for normal operation with a temperature sensor.
 
-The following pins are used by the power module.
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
+
+<p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
+
+If you wish to use a battery without a temperature sensor, remove the TS jumper (26) and use a 3-pin to 2-pin JST-PH adapter, or change the shell of your JST-PH 2-pin connector to a 3-pin shell. The pin can be swapped without cutting, soldering, or crimping. See the [battery guide](/hardware/power/batteries/) for more information.
+
+If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
+
+
+### 3V3_AUX power
+
+Both the PM-BAT and PM-DC power modules support an auxiliary 3.3V power supply. This is used to power the Feather socket 3V3 and the `3V3_AUX` rail.
 
 | Power module | SoM Pin | SoM Pin Number |
 | :---: |  :---: |  :---: | 
-| FUEL\_INT | A6 | 45 |
-| SDA | D0 | 22 |
-| SCL | D1 | 20 |
 | EN_AUX | D23 / GPIO1 | 50 |
 
-`3V3_AUX` is powered by `3V3` via a load switch (TPS22918). It can supply up to the full 2A of `3V3`. It defaults to off due to a pull-down resistor on `EN_AUX`. `EN_AUX` is connected to pin `D23`; set this pin to output high to enable `3V3_AUX`.
+`3V3_AUX` is powered from `3V3` via a load switch (TPS22918). It can supply up to the full 2A of `3V3`. It defaults to off due to a pull-down resistor on `EN_AUX`. `EN_AUX` is connected to pin `D23`; set this pin to output high to enable `3V3_AUX`.
 
 ```cpp
 // Enable 3V3_AUX
 pinMode(D23, OUTPUT);
 digitalWrite(D23, HIGH);
 ```
+
+### PM-BAT interface
+
+The M.2 breakout board can be used with the [PM-BAT power module](/hardware/power/pm-bat-datasheet/) that includes the bq24195 PMIC and MAX17043 fuel gauge chips which interface by the pins below
+
+| Power module | SoM Pin | SoM Pin Number |
+| :---: |  :---: |  :---: | 
+| FUEL\_INT | A6 | 45 |
+| SDA | D0 | 22 |
+| SCL | D1 | 20 |
 
 ### Using ethernet
 
@@ -952,3 +985,4 @@ To be provided at a later date.
 |          | 2024-03-19 | RK     | USB-C power limitations |
 |          | 2024-04-16 | RK     | Description of TS jumper was backwards |
 |        1 | 2024-05-22 | RK     | Public release |
+|        2 | 2024-05-29 | RK     | Descriptions for labels 1 and 3 were reversed |

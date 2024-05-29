@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "7ee72f6075b7e9c773b22c87329745e4df5bfaa18c9c10a4c72e422dc9d3af25",
-            "date": "2024-05-28"
+            "hash": "71418ddf08b5cb62dbbbbf1e68f5d636f75019f8f3f9900eb2caba7dd63fd236",
+            "date": "2024-05-29"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9059,8 +9059,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "2500b7bfbd6ac65f3db8b4a4ed4b68f40eaaa181d5bf3213ffe099f639f35bfc",
-            "date": "2024-05-24"
+            "hash": "0e1c84ad9e894ca1ecc14ba684465e3ba7bc0a0566222e8fdca8c62bc6559fea",
+            "date": "2024-05-29"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "8fe3dfe5bf049045235aaeb22cc4216b949808e392cd66c361f04ed47266b404",
@@ -9069,6 +9069,14 @@
         "getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started.md": {
             "hash": "3aa3b22bd9ed612779407e4d25e8739d930d1590dafe4195e54888c1a72ce490",
             "date": "2024-05-28"
+        },
+        "hardware/power/pm-bat-datasheet.md": {
+            "hash": "4e3f91e7a1392ea6cbf63d6378ec4a180de41c9f88f3beca82bdef29e68ffbd9",
+            "date": "2024-05-29"
+        },
+        "hardware/power/pm-dc-datasheet.md": {
+            "hash": "f2f9599905b26fef001d6c8d558d0e592a17ee64ccafc0d34b59b13216da6a65",
+            "date": "2024-05-29"
         }
     }
 }

@@ -325,14 +325,12 @@
       {
         "dir": "pm-bat-datasheet",
         "title": "PM-BAT power module datasheet",
-        "href": "/hardware/power/pm-bat-datasheet/",
-        "internal": true
+        "href": "/hardware/power/pm-bat-datasheet/"
       },
       {
         "dir": "pm-dc-datasheet",
         "title": "PM-DC power module datasheet",
-        "href": "/hardware/power/pm-dc-datasheet/",
-        "internal": true
+        "href": "/hardware/power/pm-dc-datasheet/"
       },
       {
         "dir": "batteries",
