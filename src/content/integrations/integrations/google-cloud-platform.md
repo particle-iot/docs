@@ -40,7 +40,6 @@ Some of the most relevant Google Cloud Platform products to use with Particle ar
 - <a href="https://cloud.google.com/bigquery/" target="_blank">BigQuery</a>: A fast, economical and fully managed data warehouse for large-scale data analytics
 - <a href="https://cloud.google.com/sql/" target="_blank">SQL</a>: A fully managed MySQL database service
 - <a href="https://cloud.google.com/dataflow/" target="_blank">Cloud Dataflow</a>: A fully-managed cloud service and programming model for batch and streaming big data processing
-- <a href="https://cloud.google.com/prediction/" target="_blank">Prediction API</a>: Machine learning to analyze your data and make predictions
 
 This tutorial will focus on the first example use case: storing data from
 Particle devices into Google Cloud Platform Datastore.
