@@ -290,9 +290,9 @@ Pass a request to the relevant endpoint with a friendly name, and the desired sc
 curl https://api.particle.io/v1/orgs/:orgIDorSlug/team \
 	-H "Authorization: Bearer :access_token" \
 	-H "Content-Type: application/json" \
-	-d '{ \
-		"friendly_name": "org api user", \
-		"scopes": [ "devices:list" ] \
+	-d '{
+		"friendly_name": "org api user",
+		"scopes": [ "devices:list" ]
 	}'
 ```
 
@@ -306,9 +306,9 @@ The resulting access token can then be used by programmatic processes. As always
 curl https://api.particle.io/v1/products/:productIDorSlug/team \
 	-H "Authorization: Bearer :access_token" \
 	-H "Content-Type: application/json" \
-	-d '{ \
-		"friendly_name": "product api user", \
-		"scopes": [ "devices:list" ] \
+	-d '{
+		"friendly_name": "product api user",
+		"scopes": [ "devices:list" ]
 	}'
 ```
 
@@ -344,9 +344,9 @@ The Particle API documentation includes the required scopes needed to call a par
 curl -X PUT https://api.particle.io/v1/products/12857/team/example-api-user+6fbl2q577b@api.particle.io \
 	-H "Authorization: Bearer :access_token" \
 	-H "Content-Type: application/json" \
-	-d '{  \
-		"friendly_name": "Updated API user",  \
-		"scopes": [ "devices:list", "sims:list", "customers:list" ]  \
+	-d '{
+		"friendly_name": "Updated API user",
+		"scopes": [ "devices:list", "sims:list", "customers:list" ]
 	}'
 ```
 
@@ -1017,6 +1017,10 @@ please see [the guide](/getting-started/console/device-groups/).
 ## Ledger
 
 {{> api group=apiGroups.Ledger}}
+
+## Fleet Health
+
+{{> api group=apiGroups.FleetHealth }}
 
 ## Customers
 
