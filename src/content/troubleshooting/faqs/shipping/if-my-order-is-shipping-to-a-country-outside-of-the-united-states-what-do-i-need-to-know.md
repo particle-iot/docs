@@ -8,7 +8,7 @@ columns: two
 
 ## Overview
 
-If you live outside of the United States and placed an order through either our retail or wholesale store, you might be wondering what additional steps there are before you receive your package from us. Hopefully, the information here can help you better understand our international shipping policies.
+If you live outside of the United States and placed an order through the Particle store, you might be wondering what additional steps there are before you receive your package from us. Hopefully, the information here can help you better understand our international shipping policies.
 
 ## Customs fees and other charges
 
