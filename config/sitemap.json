@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "71418ddf08b5cb62dbbbbf1e68f5d636f75019f8f3f9900eb2caba7dd63fd236",
-            "date": "2024-05-29"
+            "hash": "0f3c0292a0bbba51df06aa9c5d944ba5d062c140f42a2011b953edad52f2ec37",
+            "date": "2024-05-31"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9077,6 +9077,14 @@
         "hardware/power/pm-dc-datasheet.md": {
             "hash": "f2f9599905b26fef001d6c8d558d0e592a17ee64ccafc0d34b59b13216da6a65",
             "date": "2024-05-29"
+        },
+        "hardware/community/monitor-one-modbus.md": {
+            "hash": "98bb3deab9db5bb30e57d050d6c579617f67266879b7dfa4f88ead34521e06c6",
+            "date": "2024-05-31"
+        },
+        "hardware/community/hardware-community.md": {
+            "hash": "63270446c4ec9e1212a38f2396d33e2f2803ecbd8359c0ab9661c7a22d1c0db5",
+            "date": "2024-05-31"
         }
     }
 }

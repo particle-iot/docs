@@ -405,6 +405,23 @@
         "title": "Serial number management",
         "href": "/hardware/best-practices/serial-number/"
       }
+    ],
+    {
+      "dir": "community",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "hardware-community",
+        "title": "Community projects",
+        "href": "/hardware/community/hardware-community/"
+      },
+      {
+        "dir": "monitor-one-modbus",
+        "title": "Monitor One getting started with Modbus",
+        "href": "/hardware/community/monitor-one-modbus/"
+      }
     ]
+
   ]
 }

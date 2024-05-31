@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Getting started with Monitor One and Modbus 2024-05-31
+
+There is a new tutorial for [Getting started with the Monitor One with Modbus](/hardware/community/monitor-one-modbus/)!
+
 ### M.2 breakout updates 2024-05-29
 
 Minor updates to the [M.2 breakout datasheet](/reference/datasheets/m-series/m2-breakout-datasheet/).
