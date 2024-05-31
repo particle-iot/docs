@@ -7086,7 +7086,7 @@
     "title": "Get integration traffic health metrics",
     "name": "getIntegrationMetrics",
     "group": "FleetHealth.3",
-    "description": "<p>Reports outbound integration requests that are sent on behalf of this product fleet and the outcome.</p> <p>Each time bucket contains counts of:</p> <ul> <li><code>success</code>: the integration request was accepted by the destination service (2xx response code).</li> <li><code>failure</code>: the integration request was rejected by the destination service (network error, 4xx or 5xx response code) after 3 attempts.</li> <li><code>sleep</code> (skipped): the integration request was not attempted because there have been too many previous failures in rapid succession.</li> </ul> <p>Can be filtered to include only integrations triggered by devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "description": "<p>Reports outbound integration requests that are sent on behalf of this product fleet and the outcome.</p> <p>Each time bucket contains counts of (keys with a value of 0 will be omitted):</p> <ul> <li><code>success</code>: the integration request was accepted by the destination service (2xx response code).</li> <li><code>failure</code>: the integration request was rejected by the destination service (network error, 4xx or 5xx response code) after 3 attempts.</li> <li><code>sleep</code> (skipped): the integration request was not attempted because there have been too many previous failures in rapid succession.</li> </ul> <p>Can be filtered to include only integrations triggered by devices with a certain firmware version, Device OS version or in a certain group.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -7251,7 +7251,7 @@
     "title": "Get cloud function call health metrics",
     "name": "getFunctionsMetrics",
     "group": "FleetHealth.4",
-    "description": "<p>Reports each time a <code>Particle.function()</code> in firmware is called on a device in this product and the outcome.</p> <p>Each time bucket contains counts of:</p> <ul> <li><code>success</code>: the target device successfully received and responded to the function call.</li> <li><code>failure</code>: the target device was unable to process the function call, or was unreachable by the cloud.</li> <li><code>offline</code>: the function call attempt was skipped because the device was not connected to the cloud at the time the call was made.</li> </ul> <p>Can be filtered to include only function calls for devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "description": "<p>Reports each time a <code>Particle.function()</code> in firmware is called on a device in this product and the outcome.</p> <p>Each time bucket contains counts of (keys with a value of 0 will be omitted):</p> <ul> <li><code>success</code>: the target device successfully received and responded to the function call.</li> <li><code>failure</code>: the target device was unable to process the function call, or was unreachable by the cloud.</li> <li><code>offline</code>: the function call attempt was skipped because the device was not connected to the cloud at the time the call was made.</li> </ul> <p>Can be filtered to include only function calls for devices with a certain firmware version, Device OS version or in a certain group.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -7416,7 +7416,7 @@
     "title": "Get cloud variable request health metrics",
     "name": "getVariablesMetrics",
     "group": "FleetHealth.5",
-    "description": "<p>Reports each time a <code>Particle.variable()</code> in firmware is read on a device in this product and the outcome.</p> <p>Each time bucket contains counts of:</p> <ul> <li><code>success</code>: the target device successfully received and responded to the variable request.</li> <li><code>failure</code>: the target device was unable to process the variable request, or was unreachable by the cloud.</li> <li><code>offline</code>: the variable request was skipped because the device was not connected to the cloud at the time the call was made.</li> </ul> <p>Can be filtered to include only variable requests for devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "description": "<p>Reports each time a <code>Particle.variable()</code> in firmware is read on a device in this product and the outcome.</p> <p>Each time bucket contains counts of (keys with a value of 0 will be omitted):</p> <ul> <li><code>success</code>: the target device successfully received and responded to the variable request.</li> <li><code>failure</code>: the target device was unable to process the variable request, or was unreachable by the cloud.</li> <li><code>offline</code>: the variable request was skipped because the device was not connected to the cloud at the time the call was made.</li> </ul> <p>Can be filtered to include only variable requests for devices with a certain firmware version, Device OS version or in a certain group.</p>",
     "parameter": {
       "fields": {
         "Parameter": [

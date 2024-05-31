@@ -218,7 +218,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-05-30T15:58:45.263Z",
+                  "value": "2024-05-31T16:48:25.431Z",
                   "disabled": true
                 }
               ]
@@ -283,7 +283,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-05-30T15:58:45.267Z",
+                      "value": "2024-05-31T16:48:25.437Z",
                       "disabled": true
                     }
                   ]
@@ -1700,7 +1700,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-05-30T15:58:45.299Z",
+                  "value": "2024-05-31T16:48:25.476Z",
                   "disabled": true
                 },
                 {
@@ -1760,7 +1760,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-05-30T15:58:45.300Z",
+                      "value": "2024-05-31T16:48:25.477Z",
                       "disabled": true
                     },
                     {
@@ -3314,13 +3314,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-30T15:58:45.323Z",
+                  "value": "2024-05-31T16:48:25.507Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-30T15:58:45.323Z",
+                  "value": "2024-05-31T16:48:25.507Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4737,13 +4737,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-30T15:58:45.344Z",
+                  "value": "2024-05-31T16:48:25.531Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-30T15:58:45.344Z",
+                  "value": "2024-05-31T16:48:25.531Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4844,13 +4844,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-30T15:58:45.347Z",
+                  "value": "2024-05-31T16:48:25.534Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-30T15:58:45.348Z",
+                  "value": "2024-05-31T16:48:25.534Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4951,13 +4951,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-30T15:58:45.351Z",
+                  "value": "2024-05-31T16:48:25.537Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-30T15:58:45.351Z",
+                  "value": "2024-05-31T16:48:25.538Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4995,7 +4995,7 @@
                 }
               ]
             },
-            "description": "Reports outbound integration requests that are sent on behalf of this product fleet and the outcome. \n\nEach time bucket contains counts of: \n\n- success: the integration request was accepted by the destination service (2xx response code).\n- failure: the integration request was rejected by the destination service (network error, 4xx or 5xx response code) after 3 attempts.\n- sleep (skipped): the integration request was not attempted because there have been too many previous failures in rapid succession. \n\nCan be filtered to include only integrations triggered by devices with a certain firmware version, Device OS version or in a certain group."
+            "description": "Reports outbound integration requests that are sent on behalf of this product fleet and the outcome. \n\nEach time bucket contains counts of (keys with a value of 0 will be omitted): \n\n- success: the integration request was accepted by the destination service (2xx response code).\n- failure: the integration request was rejected by the destination service (network error, 4xx or 5xx response code) after 3 attempts.\n- sleep (skipped): the integration request was not attempted because there have been too many previous failures in rapid succession. \n\nCan be filtered to include only integrations triggered by devices with a certain firmware version, Device OS version or in a certain group."
           },
           "response": [
             {
@@ -5058,13 +5058,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-30T15:58:45.355Z",
+                  "value": "2024-05-31T16:48:25.541Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-30T15:58:45.355Z",
+                  "value": "2024-05-31T16:48:25.541Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5102,7 +5102,7 @@
                 }
               ]
             },
-            "description": "Reports each time a Particle.function() in firmware is called on a device in this product and the outcome. \n\nEach time bucket contains counts of: \n\n- success: the target device successfully received and responded to the function call.\n- failure: the target device was unable to process the function call, or was unreachable by the cloud.\n- offline: the function call attempt was skipped because the device was not connected to the cloud at the time the call was made. \n\nCan be filtered to include only function calls for devices with a certain firmware version, Device OS version or in a certain group."
+            "description": "Reports each time a Particle.function() in firmware is called on a device in this product and the outcome. \n\nEach time bucket contains counts of (keys with a value of 0 will be omitted): \n\n- success: the target device successfully received and responded to the function call.\n- failure: the target device was unable to process the function call, or was unreachable by the cloud.\n- offline: the function call attempt was skipped because the device was not connected to the cloud at the time the call was made. \n\nCan be filtered to include only function calls for devices with a certain firmware version, Device OS version or in a certain group."
           },
           "response": [
             {
@@ -5165,13 +5165,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-30T15:58:45.359Z",
+                  "value": "2024-05-31T16:48:25.545Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-30T15:58:45.359Z",
+                  "value": "2024-05-31T16:48:25.545Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5209,7 +5209,7 @@
                 }
               ]
             },
-            "description": "Reports each time a Particle.variable() in firmware is read on a device in this product and the outcome. \n\nEach time bucket contains counts of: \n\n- success: the target device successfully received and responded to the variable request.\n- failure: the target device was unable to process the variable request, or was unreachable by the cloud.\n- offline: the variable request was skipped because the device was not connected to the cloud at the time the call was made. \n\nCan be filtered to include only variable requests for devices with a certain firmware version, Device OS version or in a certain group."
+            "description": "Reports each time a Particle.variable() in firmware is read on a device in this product and the outcome. \n\nEach time bucket contains counts of (keys with a value of 0 will be omitted): \n\n- success: the target device successfully received and responded to the variable request.\n- failure: the target device was unable to process the variable request, or was unreachable by the cloud.\n- offline: the variable request was skipped because the device was not connected to the cloud at the time the call was made. \n\nCan be filtered to include only variable requests for devices with a certain firmware version, Device OS version or in a certain group."
           },
           "response": [
             {
