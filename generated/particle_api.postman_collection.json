@@ -218,7 +218,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-05-21T14:37:36.126Z",
+                  "value": "2024-05-31T16:48:25.431Z",
                   "disabled": true
                 }
               ]
@@ -283,7 +283,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-05-21T14:37:36.129Z",
+                      "value": "2024-05-31T16:48:25.437Z",
                       "disabled": true
                     }
                   ]
@@ -1700,7 +1700,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-05-21T14:37:36.143Z",
+                  "value": "2024-05-31T16:48:25.476Z",
                   "disabled": true
                 },
                 {
@@ -1760,7 +1760,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-05-21T14:37:36.143Z",
+                      "value": "2024-05-31T16:48:25.477Z",
                       "disabled": true
                     },
                     {
@@ -3314,13 +3314,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-21T14:37:36.151Z",
+                  "value": "2024-05-31T16:48:25.507Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-21T14:37:36.151Z",
+                  "value": "2024-05-31T16:48:25.507Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4707,6 +4707,546 @@
                 }
               ],
               "body": "PUT /v1/products/:productIdOrSlug/devices/12345\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"development\": false\n  \"updated_at\": \"2017-03-10T20:21:49.059Z\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FleetHealth",
+      "item": [
+        {
+          "name": "Get online devices metrics",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/online",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "metrics",
+                "online"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2024-05-31T16:48:25.531Z",
+                  "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "2024-05-31T16:48:25.531Z",
+                  "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "bucket_size",
+                  "value": 0,
+                  "description": "Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.",
+                  "disabled": true
+                },
+                {
+                  "key": "product_fw",
+                  "value": 0,
+                  "description": "Filter for this product firmware version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_os_version",
+                  "value": "string",
+                  "description": "Filter for this Device OS version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_group",
+                  "value": "string",
+                  "description": "Filter for this device group.",
+                  "disabled": true
+                }
+              ],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or slug.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Reports the number of devices online in this product. \n\nEach time bucket contains: \n\n- count: the number of devices with an active cloud connection. \n\nDevices that recently went offline (due to being powered off or losing network connectivity) will be counted as online until the device misses sending a keep-alive message to the cloud. This is typically 25 seconds for Wi-Fi networks and 23 minutes for cellular networks. \n\nCan be filtered to include only devices with a certain firmware version, Device OS version or in a certain group."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/online",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "metrics",
+                    "online"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/products/12345/metrics/online\nHTTP/1.1 200 OK\n{\n  \"online\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"count\": 37\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"count\": 42\n    },\n    ...\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get event traffic health metrics",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/events",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "metrics",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2024-05-31T16:48:25.534Z",
+                  "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "2024-05-31T16:48:25.534Z",
+                  "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "bucket_size",
+                  "value": 0,
+                  "description": "Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.",
+                  "disabled": true
+                },
+                {
+                  "key": "product_fw",
+                  "value": 0,
+                  "description": "Filter for this product firmware version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_os_version",
+                  "value": "string",
+                  "description": "Filter for this Device OS version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_group",
+                  "value": "string",
+                  "description": "Filter for this device group.",
+                  "disabled": true
+                }
+              ],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or slug.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Reports each time a device publishes an event in this product. \n\nEach time bucket contains counts of: \n\n- received: the cloud received an event from a device. \n\nCan be filtered to include only events from devices with a certain firmware version, Device OS version or in a certain group."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "metrics",
+                    "events"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/products/12345/metrics/events\nHTTP/1.1 200 OK\n{\n  \"events\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"received\": 256\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"received\": 1024\n    },\n    ...\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get integration traffic health metrics",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/integration",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "metrics",
+                "integration"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2024-05-31T16:48:25.537Z",
+                  "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "2024-05-31T16:48:25.538Z",
+                  "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "bucket_size",
+                  "value": 0,
+                  "description": "Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.",
+                  "disabled": true
+                },
+                {
+                  "key": "product_fw",
+                  "value": 0,
+                  "description": "Filter for this product firmware version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_os_version",
+                  "value": "string",
+                  "description": "Filter for this Device OS version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_group",
+                  "value": "string",
+                  "description": "Filter for this device group.",
+                  "disabled": true
+                }
+              ],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or slug.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Reports outbound integration requests that are sent on behalf of this product fleet and the outcome. \n\nEach time bucket contains counts of (keys with a value of 0 will be omitted): \n\n- success: the integration request was accepted by the destination service (2xx response code).\n- failure: the integration request was rejected by the destination service (network error, 4xx or 5xx response code) after 3 attempts.\n- sleep (skipped): the integration request was not attempted because there have been too many previous failures in rapid succession. \n\nCan be filtered to include only integrations triggered by devices with a certain firmware version, Device OS version or in a certain group."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/integration",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "metrics",
+                    "integration"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/products/12345/metrics/integration\nHTTP/1.1 200 OK\n{\n  \"integrations\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"success\": 40,\n      \"failure\": 3,\n      \"sleep\": 1\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"success\": 40,\n      \"failure\": 3,\n      \"sleep\": 1\n    },\n    ...\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get cloud function call health metrics",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/functions",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "metrics",
+                "functions"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2024-05-31T16:48:25.541Z",
+                  "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "2024-05-31T16:48:25.541Z",
+                  "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "bucket_size",
+                  "value": 0,
+                  "description": "Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.",
+                  "disabled": true
+                },
+                {
+                  "key": "product_fw",
+                  "value": 0,
+                  "description": "Filter for this product firmware version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_os_version",
+                  "value": "string",
+                  "description": "Filter for this Device OS version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_group",
+                  "value": "string",
+                  "description": "Filter for this device group.",
+                  "disabled": true
+                }
+              ],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or slug.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Reports each time a Particle.function() in firmware is called on a device in this product and the outcome. \n\nEach time bucket contains counts of (keys with a value of 0 will be omitted): \n\n- success: the target device successfully received and responded to the function call.\n- failure: the target device was unable to process the function call, or was unreachable by the cloud.\n- offline: the function call attempt was skipped because the device was not connected to the cloud at the time the call was made. \n\nCan be filtered to include only function calls for devices with a certain firmware version, Device OS version or in a certain group."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/functions",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "metrics",
+                    "functions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/products/12345/metrics/functions\nHTTP/1.1 200 OK\n{\n  \"functions\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    ...\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get cloud variable request health metrics",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/variables",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "metrics",
+                "variables"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2024-05-31T16:48:25.545Z",
+                  "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "2024-05-31T16:48:25.545Z",
+                  "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
+                  "disabled": true
+                },
+                {
+                  "key": "bucket_size",
+                  "value": 0,
+                  "description": "Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.",
+                  "disabled": true
+                },
+                {
+                  "key": "product_fw",
+                  "value": 0,
+                  "description": "Filter for this product firmware version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_os_version",
+                  "value": "string",
+                  "description": "Filter for this Device OS version.",
+                  "disabled": true
+                },
+                {
+                  "key": "device_group",
+                  "value": "string",
+                  "description": "Filter for this device group.",
+                  "disabled": true
+                }
+              ],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or slug.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Reports each time a Particle.variable() in firmware is read on a device in this product and the outcome. \n\nEach time bucket contains counts of (keys with a value of 0 will be omitted): \n\n- success: the target device successfully received and responded to the variable request.\n- failure: the target device was unable to process the variable request, or was unreachable by the cloud.\n- offline: the variable request was skipped because the device was not connected to the cloud at the time the call was made. \n\nCan be filtered to include only variable requests for devices with a certain firmware version, Device OS version or in a certain group."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/metrics/variables",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "metrics",
+                    "variables"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/products/12345/metrics/variables\nHTTP/1.1 200 OK\n{\n  \"variables\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    ...\n  ]\n}"
             }
           ]
         }
@@ -7202,7 +7742,7 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/products/:productIdOrSlug/location",
+              "raw": "{{url}}/v1/products/:productIdOrSlug/locations",
               "host": [
                 "{{url}}"
               ],
@@ -7210,7 +7750,7 @@
                 "v1",
                 "products",
                 ":productIdOrSlug",
-                "location"
+                "locations"
               ],
               "query": [
                 {
@@ -7289,7 +7829,7 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/products/:productIdOrSlug/location",
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/locations",
                   "host": [
                     "{{url}}"
                   ],
@@ -7297,7 +7837,7 @@
                     "v1",
                     "products",
                     ":productIdOrSlug",
-                    "location"
+                    "locations"
                   ]
                 }
               },
@@ -7322,7 +7862,7 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/products/:productIdOrSlug/location",
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/locations",
                   "host": [
                     "{{url}}"
                   ],
@@ -7330,7 +7870,7 @@
                     "v1",
                     "products",
                     ":productIdOrSlug",
-                    "location"
+                    "locations"
                   ]
                 }
               },
@@ -7353,7 +7893,7 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/products/:productIdOrSlug/location/:deviceId",
+              "raw": "{{url}}/v1/products/:productIdOrSlug/locations/:deviceId",
               "host": [
                 "{{url}}"
               ],
@@ -7361,7 +7901,7 @@
                 "v1",
                 "products",
                 ":productIdOrSlug",
-                "location",
+                "locations",
                 ":deviceId"
               ],
               "query": [
@@ -7414,7 +7954,7 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/products/:productIdOrSlug/location/:deviceId",
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/locations/:deviceId",
                   "host": [
                     "{{url}}"
                   ],
@@ -7422,7 +7962,7 @@
                     "v1",
                     "products",
                     ":productIdOrSlug",
-                    "location",
+                    "locations",
                     ":deviceId"
                   ]
                 }
@@ -7448,7 +7988,7 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/products/:productIdOrSlug/location/:deviceId",
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/locations/:deviceId",
                   "host": [
                     "{{url}}"
                   ],
@@ -7456,7 +7996,7 @@
                     "v1",
                     "products",
                     ":productIdOrSlug",
-                    "location",
+                    "locations",
                     ":deviceId"
                   ]
                 }

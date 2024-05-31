@@ -6808,6 +6808,775 @@
   },
   {
     "type": "get",
+    "url": "/v1/products/:productIdOrSlug/metrics/online",
+    "title": "Get online devices metrics",
+    "name": "getOnlineMetrics",
+    "group": "FleetHealth.1",
+    "description": "<p>Reports the number of devices online in this product.</p> <p>Each time bucket contains:</p> <ul> <li><code>count</code>: the number of devices with an active cloud connection.</li> </ul> <p>Devices that recently went offline (due to being powered off or losing network connectivity) will be counted as online until the device misses sending a keep-alive message to the cloud. This is typically 25 seconds for Wi-Fi networks and 23 minutes for cellular networks.</p> <p>Can be filtered to include only devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or slug.</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "start_date",
+        "isArray": false,
+        "description": "<p>DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "end_date",
+        "isArray": false,
+        "description": "<p>DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "bucket_size",
+        "isArray": false,
+        "defaultValue": "900",
+        "description": "<p>Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "product_fw",
+        "isArray": false,
+        "description": "<p>Filter for this product firmware version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_os_version",
+        "isArray": false,
+        "description": "<p>Filter for this Device OS version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_group",
+        "isArray": false,
+        "description": "<p>Filter for this device group.</p>"
+      }
+    ],
+    "permission": [
+      {
+        "name": "metrics.online:get"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "online",
+            "isArray": true,
+            "description": "<p>An array of online devices metrics</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "online",
+              "field": "online",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "online.time",
+            "isArray": false,
+            "description": "<p>The start of the time bucket. Date in ISO8601 format.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "online",
+              "field": "online",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "online.count",
+            "isArray": false,
+            "description": "<p>The number of devices online in this bucket.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/products/12345/metrics/online",
+          "content": "GET /v1/products/12345/metrics/online\nHTTP/1.1 200 OK\n{\n  \"online\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"count\": 37\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"count\": 42\n    },\n    ...\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Retrieve metrics for a given period (2023-04-01 to 2023-04-03) with a bucket size of 1 hour:",
+        "content": "$ curl \"https://api.particle.io/v1/products/12345/metrics/online?start_date=2023-04-01T00:00:00.000Z&end_date=2023-04-03T00:00:00.000Z&bucket_size=3600\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "FleetHealth.1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/products/:productIdOrSlug/metrics/events",
+    "title": "Get event traffic health metrics",
+    "name": "getEventsMetrics",
+    "group": "FleetHealth.2",
+    "description": "<p>Reports each time a device publishes an event in this product.</p> <p>Each time bucket contains counts of:</p> <ul> <li><code>received</code>: the cloud received an event from a device.</li> </ul> <p>Can be filtered to include only events from devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or slug.</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "start_date",
+        "isArray": false,
+        "description": "<p>DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "end_date",
+        "isArray": false,
+        "description": "<p>DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "bucket_size",
+        "isArray": false,
+        "defaultValue": "900",
+        "description": "<p>Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "product_fw",
+        "isArray": false,
+        "description": "<p>Filter for this product firmware version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_os_version",
+        "isArray": false,
+        "description": "<p>Filter for this Device OS version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_group",
+        "isArray": false,
+        "description": "<p>Filter for this device group.</p>"
+      }
+    ],
+    "permission": [
+      {
+        "name": "metrics.events:get"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "events",
+            "isArray": true,
+            "description": "<p>An array of events metrics</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "events",
+              "field": "events",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "events.time",
+            "isArray": false,
+            "description": "<p>The start of the time bucket. Date in ISO8601 format.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "events",
+              "field": "events",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "events.received",
+            "isArray": false,
+            "description": "<p>The number of events received in this bucket.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/products/12345/metrics/events",
+          "content": "GET /v1/products/12345/metrics/events\nHTTP/1.1 200 OK\n{\n  \"events\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"received\": 256\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"received\": 1024\n    },\n    ...\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Retrieve metrics for a given period (2023-04-01 to 2023-04-03) with a bucket size of 1 hour:",
+        "content": "$ curl \"https://api.particle.io/v1/products/12345/metrics/events?start_date=2023-04-01T00:00:00.000Z&end_date=2023-04-03T00:00:00.000Z&bucket_size=3600\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "FleetHealth.2"
+  },
+  {
+    "type": "get",
+    "url": "/v1/products/:productIdOrSlug/metrics/integration",
+    "title": "Get integration traffic health metrics",
+    "name": "getIntegrationMetrics",
+    "group": "FleetHealth.3",
+    "description": "<p>Reports outbound integration requests that are sent on behalf of this product fleet and the outcome.</p> <p>Each time bucket contains counts of (keys with a value of 0 will be omitted):</p> <ul> <li><code>success</code>: the integration request was accepted by the destination service (2xx response code).</li> <li><code>failure</code>: the integration request was rejected by the destination service (network error, 4xx or 5xx response code) after 3 attempts.</li> <li><code>sleep</code> (skipped): the integration request was not attempted because there have been too many previous failures in rapid succession.</li> </ul> <p>Can be filtered to include only integrations triggered by devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or slug.</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "start_date",
+        "isArray": false,
+        "description": "<p>DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "end_date",
+        "isArray": false,
+        "description": "<p>DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "bucket_size",
+        "isArray": false,
+        "defaultValue": "900",
+        "description": "<p>Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "product_fw",
+        "isArray": false,
+        "description": "<p>Filter for this product firmware version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_os_version",
+        "isArray": false,
+        "description": "<p>Filter for this Device OS version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_group",
+        "isArray": false,
+        "description": "<p>Filter for this device group.</p>"
+      }
+    ],
+    "permission": [
+      {
+        "name": "metrics.integrations:get"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "integrations",
+            "isArray": true,
+            "description": "<p>An array of integration metrics</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "integrations",
+              "field": "integrations",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "integrations.time",
+            "isArray": false,
+            "description": "<p>The start of the time bucket. Date in ISO8601 format.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "integrations",
+              "field": "integrations",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "integrations.success",
+            "isArray": false,
+            "description": "<p>The number of successful integrations in this bucket.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "integrations",
+              "field": "integrations",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "integrations.failure",
+            "isArray": false,
+            "description": "<p>The number of failed integrations in this bucket.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "integrations",
+              "field": "integrations",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "integrations.sleep",
+            "isArray": false,
+            "description": "<p>The number of skipped integrations in this bucket.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/products/12345/metrics/integration",
+          "content": "GET /v1/products/12345/metrics/integration\nHTTP/1.1 200 OK\n{\n  \"integrations\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"success\": 40,\n      \"failure\": 3,\n      \"sleep\": 1\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"success\": 40,\n      \"failure\": 3,\n      \"sleep\": 1\n    },\n    ...\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Retrieve metrics for a given period (2023-04-01 to 2023-04-03) with a bucket size of 1 hour:",
+        "content": "$ curl \"https://api.particle.io/v1/products/12345/metrics/integration?start_date=2023-04-01T00:00:00.000Z&end_date=2023-04-03T00:00:00.000Z&bucket_size=3600\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "FleetHealth.3"
+  },
+  {
+    "type": "get",
+    "url": "/v1/products/:productIdOrSlug/metrics/functions",
+    "title": "Get cloud function call health metrics",
+    "name": "getFunctionsMetrics",
+    "group": "FleetHealth.4",
+    "description": "<p>Reports each time a <code>Particle.function()</code> in firmware is called on a device in this product and the outcome.</p> <p>Each time bucket contains counts of (keys with a value of 0 will be omitted):</p> <ul> <li><code>success</code>: the target device successfully received and responded to the function call.</li> <li><code>failure</code>: the target device was unable to process the function call, or was unreachable by the cloud.</li> <li><code>offline</code>: the function call attempt was skipped because the device was not connected to the cloud at the time the call was made.</li> </ul> <p>Can be filtered to include only function calls for devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or slug.</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "start_date",
+        "isArray": false,
+        "description": "<p>DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "end_date",
+        "isArray": false,
+        "description": "<p>DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "bucket_size",
+        "isArray": false,
+        "defaultValue": "900",
+        "description": "<p>Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "product_fw",
+        "isArray": false,
+        "description": "<p>Filter for this product firmware version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_os_version",
+        "isArray": false,
+        "description": "<p>Filter for this Device OS version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_group",
+        "isArray": false,
+        "description": "<p>Filter for this device group.</p>"
+      }
+    ],
+    "permission": [
+      {
+        "name": "metrics.functions:get"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "functions",
+            "isArray": true,
+            "description": "<p>An array of functions metrics</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "functions",
+              "field": "functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "functions.time",
+            "isArray": false,
+            "description": "<p>The start of the time bucket. Date in ISO8601 format.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "functions",
+              "field": "functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "functions.success",
+            "isArray": false,
+            "description": "<p>The number of successful function calls in this bucket.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "functions",
+              "field": "functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "functions.failure",
+            "isArray": false,
+            "description": "<p>The number of failed function calls in this bucket.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "functions",
+              "field": "functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "functions.offline",
+            "isArray": false,
+            "description": "<p>The number of skipped function calls due to device being offline in this bucket.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/products/12345/metrics/functions",
+          "content": "GET /v1/products/12345/metrics/functions\nHTTP/1.1 200 OK\n{\n  \"functions\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    ...\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Retrieve metrics for a given period (2023-04-01 to 2023-04-03) with a bucket size of 1 hour:",
+        "content": "$ curl \"https://api.particle.io/v1/products/12345/metrics/functions?start_date=2023-04-01T00:00:00.000Z&end_date=2023-04-03T00:00:00.000Z&bucket_size=3600\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "FleetHealth.4"
+  },
+  {
+    "type": "get",
+    "url": "/v1/products/:productIdOrSlug/metrics/variables",
+    "title": "Get cloud variable request health metrics",
+    "name": "getVariablesMetrics",
+    "group": "FleetHealth.5",
+    "description": "<p>Reports each time a <code>Particle.variable()</code> in firmware is read on a device in this product and the outcome.</p> <p>Each time bucket contains counts of (keys with a value of 0 will be omitted):</p> <ul> <li><code>success</code>: the target device successfully received and responded to the variable request.</li> <li><code>failure</code>: the target device was unable to process the variable request, or was unreachable by the cloud.</li> <li><code>offline</code>: the variable request was skipped because the device was not connected to the cloud at the time the call was made.</li> </ul> <p>Can be filtered to include only variable requests for devices with a certain firmware version, Device OS version or in a certain group.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or slug.</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "start_date",
+        "isArray": false,
+        "description": "<p>DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Date",
+        "optional": true,
+        "field": "end_date",
+        "isArray": false,
+        "description": "<p>DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "bucket_size",
+        "isArray": false,
+        "defaultValue": "900",
+        "description": "<p>Number of seconds for each bucket, defaults to 900 (15 minutes). Must be greater than 15.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "product_fw",
+        "isArray": false,
+        "description": "<p>Filter for this product firmware version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_os_version",
+        "isArray": false,
+        "description": "<p>Filter for this Device OS version.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_group",
+        "isArray": false,
+        "description": "<p>Filter for this device group.</p>"
+      }
+    ],
+    "permission": [
+      {
+        "name": "metrics.variables:get"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "variables",
+            "isArray": true,
+            "description": "<p>An array of variables metrics</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "variables",
+              "field": "variables",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "variables.time",
+            "isArray": false,
+            "description": "<p>The start of the time bucket. Date in ISO8601 format.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "variables",
+              "field": "variables",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "variables.success",
+            "isArray": false,
+            "description": "<p>The number of successful variable requests in this bucket.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "variables",
+              "field": "variables",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "variables.failure",
+            "isArray": false,
+            "description": "<p>The number of failed variable requests in this bucket.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "variables",
+              "field": "variables",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "variables.offline",
+            "isArray": false,
+            "description": "<p>The number of skipped variable requests due to device being offline in this bucket.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/products/12345/metrics/variables",
+          "content": "GET /v1/products/12345/metrics/variables\nHTTP/1.1 200 OK\n{\n  \"variables\": [\n    {\n      \"time\": \"2024-04-01T00:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    {\n      \"time\": \"2024-04-01T01:00:00.000Z\",\n      \"success\": 10,\n      \"failure\": 3,\n      \"offline\": 42\n    },\n    ...\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Retrieve metrics for a given period (2023-04-01 to 2023-04-03) with a bucket size of 1 hour:",
+        "content": "$ curl \"https://api.particle.io/v1/products/12345/metrics/variables?start_date=2023-04-01T00:00:00.000Z&end_date=2023-04-03T00:00:00.000Z&bucket_size=3600\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "FleetHealth.5"
+  },
+  {
+    "type": "get",
     "url": "/v1/products/:productIdOrSlug/groups/:groupName",
     "title": "Get device group",
     "name": "getDeviceGroup",
@@ -9998,7 +10767,7 @@
   },
   {
     "type": "get",
-    "url": "/v1/products/:productIdOrSlug/location",
+    "url": "/v1/products/:productIdOrSlug/locations",
     "title": "Query location for devices within a product",
     "name": "GetLocations",
     "group": "Location.1",
@@ -10120,7 +10889,7 @@
   },
   {
     "type": "get",
-    "url": "/v1/products/:productIdOrSlug/location/:deviceId",
+    "url": "/v1/products/:productIdOrSlug/locations/:deviceId",
     "title": "Query location for one device within a product",
     "name": "getLocation",
     "group": "Location.2",
