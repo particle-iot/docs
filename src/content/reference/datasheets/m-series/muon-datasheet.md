@@ -19,8 +19,8 @@ The Muon is a developer kit based on the M-SoM with additional peripherals for e
 - LoRaWAN module (Quectel KG200Z, 862 – 928 MHz)
 - Expansion connector
 - Temperature sensor (TMP112A)
-- Configuration EEPROM (24CW640T)
 - Real-time clock and watchdog chip (AM1805)
+- Ethernet (WIZnet W5500)
 - Reset and mode buttons
 - RGB status LED
 - Power input options
@@ -28,7 +28,8 @@ The Muon is a developer kit based on the M-SoM with additional peripherals for e
   - VIN (6-12 VDC)
   - LiPo battery with temperature sensor (3-pin JST-PH)
 
-![](/assets/images/m-series/muon-iso.jpg)
+{{imageOverlay src="/assets/images/m-series/muon-rendering-top.png" alt="Rendering Top" class="full-width"}}
+
 
 ### M-SoM
 
@@ -69,6 +70,80 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 | :--- | :---: | :---: | :---: |
 | Developer devices | Boron | Muon | Photon 2 |
 | Production module | B-SoM | M-SoM | P2 |
+
+### Features
+
+{{imageOverlay src="/assets/images/m-series/muon-labeled.png" alt="Features labeled" class="full-width"}}
+
+| Label | Feature |
+| :---: | :--- |
+|  1 | M SoM |
+|  2 | Expansion connector |
+|  3 | USB-C |
+|  4 | USB Power LED ("PD") |
+|  5 | Charge LED ("CHG") |
+|  6 | VIN (6-12 VDC) |
+|  7 | LiPo battery connector (3-pin) |
+|  8 | SWD/JTAG debugging connector |
+|  9 | Ethernet RJ-45 connector |
+| 10 | LoRaWAN antenna |
+| 11 | LoRaWAN status LED |
+| 12 | QWIIC (3.3V I2C) connector |
+| 13 | RESET button | 
+| 14 | RGB status LED |
+| 15 | MODE button |
+
+### Dimensions
+
+Overall dimensions are 56mm x 85mm (2.2" x 3.35").
+
+{{imageOverlay src="/assets/images/m-series/muon-dims.png" alt="Dimensions" class="full-width"}}
+
+<p class="attribution">Dimensions in millimeters (mm)</p>
+
+### Expansion connector
+
+The Muon has a 40-pin (2x20) male header pin expansion connector on the top of the board, allowing the use of many 
+Raspberry Pi-compatible "hat" expansion cards that sit on top of the Muon. 
+
+The expansion connector includes:
+
+- GPIO
+- I2C
+- SPI
+- UART serial
+- PWM (pulse-width modulation)
+- 3.3V power
+- 5V power
+
+All GPIO and ports are 3.3V only and are not 5V tolerant.
+
+### Power
+
+Power can be supplied to Muon by:
+
+- USB-C
+- VIN (6 - 12 VDC, via screw terminals)
+- LiPo battery (via 3-pin JST battery connector)
+
+## Expansion card
+
+The Muon can be expanded in several ways:
+
+- Qwiic or Stemma-QT I2C peripherals
+- Dupont wires or ribbon cables to a solderless breadboard
+- A custom expansion card that sits on top of the Muon
+
+### Custom expansion cards
+
+{{imageOverlay src="/assets/images/m-series/muon-dims2.png" alt="Expansion card dimensions" class="full-width"}}
+
+<p class="attribution">Dimensions in millimeters (mm)</p>
+
+The expansion card is intended to be 65mm x 56mm and connects to the Muon using a 40-pin female socket (0.1" pitch, 2x20). The expansion card has a female socket on the bottom that mates with the male header pins on the top of the Muon. It's a "hat" configuration.
+
+The sample design uses a PTH (through-hole) female socket for strength and to make it easier to assemble with SMD components on the top of the expansion card, but you can use a SMD header reflowed to bottom instead if you prefer.
+
 
 ## Ordering information
 
