@@ -534,6 +534,30 @@ should always manually target 5.3.1 or later, for example, `--target 5.6.0`, ins
 {{note op="end"}}
 
 
+## particle bundle
+
+If you wish to create an Asset OTA bundle, you will typically do so with the commands above to both compile
+the binary and generate the assets. If you have already generated the .bin file, such as from a Workbench 
+local build, you can do so using the `particle bundle` command.
+
+You will typically add `assetOtaDir=assets` to your project.properties file to bundle assets from the
+asset directory. The assets path should be relative to the project root.
+
+Optionally, you can use the `--assets <path>` option to override the directory used for assets.
+
+To override the default filename to save to, use the `--saveTo <filename>` option. It should be a .zip file. 
+
+Example usage:
+
+| Command | Description |
+| :--- | :--- |
+| `particle bundle myApp.bin` | Creates a bundle of application binary and assets. The assets are obtained from the project.properties in the current directory |
+| `particle bundle myApp.bin --assets /path/to/assets` | Creates a bundle of application binary and assets. The assets are obtained from /path/to/assets directory |
+| `particle bundle myApp.bin --assets /path/to/project.properties` | Creates a bundle of application binary and assets. The assets are picked up from the provided project.properties file |
+| `particle bundle myApp.bin --assets /path/ --saveTo myApp.zip` | Creates a bundle of application binary and assets, and saves it to the myApp.zip file |
+| `particle bundle myApp.bin --saveTo myApp.zip` | Creates a bundle of application binary and assets as specified in the assetOtaDir if available, and saves the bundle to the myApp.zip file |
+
+
 ## particle project
 
 Use the project structure when you want to use libraries or you want to organize your source code better.
