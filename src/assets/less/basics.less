@@ -89,10 +89,13 @@ div {
 }
 
 [data-theme="dark"] {
+	--theme-api-field-required-color: @COLOR_ParticleBlue_500;
   --theme-api-helper-box-color: @COLOR_Midnight_500;
   --theme-api-helper-grouped-box-outer: @COLOR_Gray_400;
   --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_900;
   --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
+	--theme-api-li-border: 1px solid @COLOR_Midnight_500;
+	--theme-api-small-color: @COLOR_Gray_300;
   --theme-background-color: @COLOR_Midnight_800;
   --theme-hover-link-color: @COLOR_Gray_100;
   --theme-main-bottom-color: @COLOR_Gray_200;
@@ -120,10 +123,13 @@ div {
 }
 
 [data-theme="light"] {
+	--theme-api-field-required-color: @COLOR_ParticleBlue_500;
   --theme-api-helper-box-color: @NC_MORNING_MIST;
   --theme-api-helper-grouped-box-outer: @COLOR_Midnight_300;
   --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_400;
   --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
+	--theme-api-li-border-top: 1px solid @NC_MORNING_MIST;
+	--theme-api-small-color: @COLOR_Gray_300;
   --theme-background-color: @COLOR_White_0;
   --theme-hover-link-color: @COLOR_Midnight_500;
   --theme-main-bottom-color: @COLOR_Midnight_500;
@@ -149,42 +155,6 @@ div {
   --theme-visited-link-color: @COLOR_Midnight_500;
   --theme-webhook-demo-product-config-banner: @COLOR_ParticleBlue_400;
 }
-
-
-[data-theme="dark"] {
-  // content color is COLOR_Gray_100
-  .searchOverlayQuery {
-      background-color: @COLOR_Midnight_500;
-  }
-  /*
-  // This does not work
-  a.searchOverlayLink:visited {
-    color: @COLOR_Gray_400;
-  }
-  */
-}
-
-[data-theme="light"] {
-  // content color is COLOR_Midnight_500
-  .searchOverlayQuery {
-      background-color: @NC_MORNING_MIST;
-  }
-  #searchOverlay {
-    background-color: rgba(255,255,255,0.96);
-  }
-
-  .document-search-container {
-    background-color: @COLOR_Gray_100;
-  }
-  /*
-  // This does not work
-  a.searchOverlayLink:visited {
-    color: @COLOR_Midnight_300;
-    
-  }
-  */
-}
-
 
 
 body {
