@@ -12,10 +12,6 @@ integration with <a href="https://azure.microsoft.com/en-us/services/iot-hub/" t
 Azure IoT Hub provides a seamless way to send Particle device data
 into Azure, effective both during prototyping and when at scale.
 
-<img src="/assets/images/azure-iot-hub/particle+iot-hub.png"
-alt="Particle + Azure IoT Hub"/>
-<p class="caption">Send device data from Particle into Azure IoT Hub with ease</p>
-
 Acting as the "front door" to Azure, streaming from Particle into IoT Hub will
 make it easy to forward device data onto any of
 <a href="https://azure.microsoft.com/en-us/services/"
