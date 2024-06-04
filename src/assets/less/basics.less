@@ -88,82 +88,58 @@ div {
   .STYLE_body_md_r();
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    line-height: 1;
-    color: @COLOR_Gray_100;
-    background: @COLOR_Midnight_800;
+[data-theme="dark"] {
+  --theme-primary-text-color: @COLOR_Gray_100;
+  --theme-background-color: @COLOR_Midnight_800;
+  --theme-visited-link-color: @COLOR_Gray_100;
+  --theme-hover-link-color: @COLOR_Gray_100;
+  --theme-password-input: @COLOR_Gray_100;
+  --theme-password-input-background: @COLOR_Midnight_600;
+}
+[data-theme="light"] {
+  --theme-primary-text-color: @COLOR_Midnight_500;
+  --theme-background-color: @COLOR_White_0;
+  --theme-visited-link-color: @COLOR_Midnight_500;
+  --theme-hover-link-color: @COLOR_Midnight_500;
+  --theme-password-input: @COLOR_Midnight_500;
+  --theme-password-input-background: @COLOR_Gray_200;
+}
+
+
+body {
+  line-height: 1;
+  color: var(--theme-primary-text-color);
+  background: var(--theme-background-color);
+}
+
+a {
+  .STYLE_link_inline_md_r(); // Use bold Grafik
+  // .STYLE_link_md_r(); // Use MDIO
+  color: var(--theme-primary-text-color);
+
+  &:visited {
+    color: var(--theme-visited-link-color);
   }
-
-  a {
-    .STYLE_link_inline_md_r(); // Use bold Grafik
-    // .STYLE_link_md_r(); // Use MDIO
-    color: @COLOR_Gray_100;
-
-    &:visited {
-      color: @COLOR_Gray_100;
-    }
-    &:hover {
-      text-decoration: underline;
-    }
-    &.menu {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
+    color: var(--theme-hover-link-color);
   }
-
-  input[type=text],input[type=password] {
-    .STYLE_body_md_r();
-    color: @COLOR_Gray_100;
-    background-color: @COLOR_Midnight_600;
-    border: 0px;
-    &:focus {
-      color: @COLOR_Gray_100;
-      background-color: @COLOR_Midnight_600;  
-    }
-  }
-
-  img:not(.no-darken) {
-    filter: brightness(0.8) contrast(1.2);
+  &.menu {
+    text-decoration: underline;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    line-height: 1;
-    color: @COLOR_Midnight_500;
-    background: @COLOR_White_0;
-  }
-
-  a {
-    color: @COLOR_Midnight_300;
-    .STYLE_link_inline_md_r(); // Use bold Grafik
-    // .STYLE_link_md_r(); // Use MDIO
-
-    &:visited {
-      color: @COLOR_Midnight_300;
-      text-decoration: none;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &.menu {
-      text-decoration: underline;
-    }
-  }
-
-  input[type=text],input[type=password] {
-    .STYLE_body_md_r();
-    color: @COLOR_Midnight_500;
-    background-color: @COLOR_Gray_200;
-    border: 0px;
-    &:focus {
-      color: @COLOR_Midnight_500;
-      background-color: @COLOR_Gray_200;  
-    }
+input[type=text],input[type=password] {
+  .STYLE_body_md_r();
+  color: var(--theme-password-input);
+  background-color: var(--theme-password-input-background);
+  border: 0px;
+  &:focus {
+    color: var(--theme-password-input);
+    background-color: var(--theme-password-input-background);  
   }
 }
+
 
 ol,
 ul {

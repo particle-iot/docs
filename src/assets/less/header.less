@@ -75,7 +75,7 @@ a.nav-device {
   z-index: @headerZindex;
 }
 
-@media (prefers-color-scheme: dark) {
+[data-theme="dark"] {
   .header {
     background: @COLOR_Midnight_600;
   }
@@ -92,7 +92,7 @@ a.nav-device {
   
 }
 
-@media (prefers-color-scheme: light) {
+[data-theme="light"] {
   .header {
     background: @COLOR_Gray_100; // @almost-white
   }

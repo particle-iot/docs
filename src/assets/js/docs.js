@@ -194,10 +194,22 @@ $(document).ready(function () {
     };
 
     function applyDarkMode() {
+        console.log('applyDarkMode');
+        $('html').attr('data-theme', 'dark');
         $(logoElem).prop('src', $(logoElem).data('dark-src'));
+
+        // TODO: Fix this! (move to JS)
+        /*
+        img:not(.no-darken) {
+        filter: brightness(0.8) contrast(1.2);
+        }
+        */
+
     }
 
     function applyLightMode() {
+        console.log('applyLightMode');
+        $('html').attr('data-theme', 'light');
         $(logoElem).prop('src', $(logoElem).data('light-src'));
     }
 
@@ -205,7 +217,10 @@ $(document).ready(function () {
         if (event.matches) {
             applyDarkMode();
         }
-        else {
+    });
+
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
+        if (event.matches) {
             applyLightMode();
         }
     });

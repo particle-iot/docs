@@ -272,67 +272,51 @@ textarea.usbSerialConsoleTextArea:focus {
     color: #000000;
 };
 
-@media (prefers-color-scheme: dark) {
-    div.apiHelper, div.codeboxBanner {
-        background-color: @COLOR_Midnight_500;
-    }
-    select.apiHelperSelect,
-    select.apiHelperSelect24,
-    select.apiHelperSelectMultiple,
-    select.codeboxFlashDeviceSelect, 
-    select.apiHelperConfigSchemaProductSelect {
-        background-color: @COLOR_Midnight_500;
-        color: @COLOR_Gray_100;
-    }
-    .apiHelperGiantButton {
-        background-color: @COLOR_ParticleBlue_900;
-        color: @COLOR_Gray_100;
-    }
-    .apiHelperGiantButtonSelected {
-        background-color: @COLOR_ParticleBlue_700;
-    }
-    .apiHelperGroupedBoxOuter {
-        color: @COLOR_Gray_400;
-    }
-    .apiHelperGroupedBoxInner {
-        // This is the default color in body, defined in basics.less
-        color: @COLOR_Gray_100;
-    }    
-    .webhookDemoProductConfigBanner {
-        background-color: @COLOR_ParticleBlue_700;
-    }
 
+[data-theme="dark"] {
+    --theme-api-helper-box-color: @COLOR_Midnight_500;
+    --theme-api-helper-grouped-box-outer: @COLOR_Gray_400;
+    --theme-api-helper-select-background-color: @COLOR_Midnight_500;
+    --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_900;
+    --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
+    --theme-webhook-demo-product-config-banner: @COLOR_ParticleBlue_700;
 }
 
 
-@media (prefers-color-scheme: light) {
-    div.apiHelper, div.codeboxBanner {
-        background-color: @NC_MORNING_MIST;
-    }
-    select.apiHelperSelect,
-    select.apiHelperSelect24,
-    select.apiHelperSelectMultiple,
-    select.codeboxFlashDeviceSelect, 
-    select.apiHelperConfigSchemaProductSelect {
-        background-color:#EFEFEF;
-        color: @COLOR_Midnight_500;
-    }
-    .apiHelperGiantButton {
-        background-color: @COLOR_ParticleBlue_400;
-        color: @COLOR_Midnight_500;
-    }
-    .apiHelperGiantButtonSelected {
-        background-color: @COLOR_ParticleBlue_700;
-    }
-    .apiHelperGroupedBoxOuter {
-        color: @COLOR_Midnight_300;
-    }
-    .apiHelperGroupedBoxInner {
-        // This is the default color in body, defined in basics.less
-        color: @COLOR_Midnight_500;
-    };
-    .webhookDemoProductConfigBanner {
-        background-color: @COLOR_ParticleBlue_400;
-    }
-   
+[data-theme="light"] {
+    --theme-api-helper-box-color: @NC_MORNING_MIST;
+    --theme-api-helper-grouped-box-outer: @COLOR_Midnight_300;
+    --theme-api-helper-select-background-color: @NC_MORNING_MIST;
+    --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_400;
+    --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
+    --theme-webhook-demo-product-config-banner: @COLOR_ParticleBlue_400;
+}
+
+div.apiHelper, div.codeboxBanner {
+    background-color: var(--theme-api-helper-box-color);
+}
+select.apiHelperSelect,
+select.apiHelperSelect24,
+select.apiHelperSelectMultiple,
+select.codeboxFlashDeviceSelect, 
+select.apiHelperConfigSchemaProductSelect {
+    background-color: var(--theme-api-helper-select-background-color);
+    color: var(--theme-primary-text-color);
+}
+.apiHelperGiantButton {
+    background-color: var(--theme-api-helper-giant-button-background-color);
+    color: var(--theme-primary-text-color);
+}
+.apiHelperGiantButtonSelected {
+    background-color: var(--theme-api-helper-giant-button-selected-color);
+}
+.apiHelperGroupedBoxOuter {
+    color: var(--theme-api-helper-grouped-box-outer);
+}
+.apiHelperGroupedBoxInner {
+    // This is the default color in body, defined in basics.less
+    color: var(--theme-primary-text-color);
+}    
+.webhookDemoProductConfigBanner {
+    background-color: var(--theme-webhook-demo-product-config-banner);
 }
