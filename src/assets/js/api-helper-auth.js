@@ -26,6 +26,7 @@ $(document).ready(function() {
         localStorage.removeItem('apiHelperLocalLogin');
         localStorage.removeItem('apiHelperTestLogin');
         localStorage.removeItem('savedSearch');
+        localStorage.removeItem('docsGeneral');
         apiHelper.isInternal = false;
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {

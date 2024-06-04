@@ -193,8 +193,9 @@ $(document).ready(function () {
         }
     };
 
+    const logoElem = $('#logo');
+
     function applyDarkMode() {
-        console.log('applyDarkMode');
         $('html').attr('data-theme', 'dark');
         $(logoElem).prop('src', $(logoElem).data('dark-src'));
 
@@ -208,31 +209,94 @@ $(document).ready(function () {
     }
 
     function applyLightMode() {
-        console.log('applyLightMode');
         $('html').attr('data-theme', 'light');
         $(logoElem).prop('src', $(logoElem).data('light-src'));
     }
 
+
+    const storage = localStorage.getItem('docsGeneral');
+    if (storage) {
+        try {
+            Docs.settings = JSON.parse(storage);
+        }
+        catch(e) {            
+        }
+    }
+    if (!Docs.settings) {
+        Docs.settings = {};
+    }
+    if (!Docs.settings.colorMode) {
+        Docs.settings.colorMode = 'dark';
+    }
+
+    // lightDarkModeMenuIndicator darkModeMenuIndicator darkModeMenuClick lightMode autoMode
+
+    Docs.saveSettings = function() {
+        localStorage.setItem('docsGeneral', JSON.stringify(Docs.settings));
+    }
+
+    Docs.updateColorMode = function(options = {}) {
+        $('.lightDarkModeMenuIndicator').attr('style', 'display: hidden;');
+        switch(options.colorMode) {
+            default:
+            case 'dark':
+                $('.darkModeMenuIndicator').show();
+                Docs.settings.colorMode = 'dark';
+                applyDarkMode();
+                break;
+    
+            case 'light':
+                $('.lightModeMenuIndicator').show();
+                Docs.settings.colorMode = 'light';
+                applyLightMode();
+                break;
+    
+            case 'auto':
+                $('.autoModeMenuIndicator').show();
+                Docs.settings.colorMode = 'auto';
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                if (prefersDarkScheme.matches) {
+                    applyDarkMode();
+                }
+                else {
+                    applyLightMode();
+                }        
+                break;
+        }
+        if (options.save) {
+            Docs.saveSettings();
+        }        
+    }
+    Docs.updateColorMode({colorMode: Docs.settings.colorMode, save: false});
+
+    $('.darkModeMenuClick').on('click', function() {
+        Docs.updateColorMode({colorMode: 'dark', save: true});
+    });
+    $('.lightModeMenuClick').on('click', function() {
+        Docs.updateColorMode({colorMode: 'light', save: true});
+    });
+    $('.autoModeMenuClick').on('click', function() {
+        Docs.updateColorMode({colorMode: 'auto', save: true});
+    });
+
+
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
         if (event.matches) {
-            applyDarkMode();
+            if (Docs.settings.colorMode == 'auto') {
+                applyDarkMode();
+            }
         }
     });
 
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
         if (event.matches) {
-            applyLightMode();
+            if ( Docs.settings.colorMode == 'auto') {
+                applyLightMode();
+            }
         }
     });
 
-    const logoElem = $('#logo');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (prefersDarkScheme.matches) {
-        applyDarkMode();
-    }
-    else {
-        applyLightMode();
-    }
+
 
     const windowResizeHandler = function () {
 
