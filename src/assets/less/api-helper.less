@@ -273,25 +273,6 @@ textarea.usbSerialConsoleTextArea:focus {
 };
 
 
-[data-theme="dark"] {
-    --theme-api-helper-box-color: @COLOR_Midnight_500;
-    --theme-api-helper-grouped-box-outer: @COLOR_Gray_400;
-    --theme-api-helper-select-background-color: @COLOR_Midnight_500;
-    --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_900;
-    --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
-    --theme-webhook-demo-product-config-banner: @COLOR_ParticleBlue_700;
-}
-
-
-[data-theme="light"] {
-    --theme-api-helper-box-color: @NC_MORNING_MIST;
-    --theme-api-helper-grouped-box-outer: @COLOR_Midnight_300;
-    --theme-api-helper-select-background-color: @NC_MORNING_MIST;
-    --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_400;
-    --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
-    --theme-webhook-demo-product-config-banner: @COLOR_ParticleBlue_400;
-}
-
 div.apiHelper, div.codeboxBanner {
     background-color: var(--theme-api-helper-box-color);
 }
@@ -300,7 +281,7 @@ select.apiHelperSelect24,
 select.apiHelperSelectMultiple,
 select.codeboxFlashDeviceSelect, 
 select.apiHelperConfigSchemaProductSelect {
-    background-color: var(--theme-api-helper-select-background-color);
+    background-color: var(--theme-select-background-color);
     color: var(--theme-primary-text-color);
 }
 .apiHelperGiantButton {

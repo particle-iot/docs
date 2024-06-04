@@ -89,21 +89,96 @@ div {
 }
 
 [data-theme="dark"] {
-  --theme-primary-text-color: @COLOR_Gray_100;
+  --theme-api-helper-box-color: @COLOR_Midnight_500;
+  --theme-api-helper-grouped-box-outer: @COLOR_Gray_400;
+  --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_900;
+  --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
   --theme-background-color: @COLOR_Midnight_800;
-  --theme-visited-link-color: @COLOR_Gray_100;
   --theme-hover-link-color: @COLOR_Gray_100;
+  --theme-main-bottom-color: @COLOR_Gray_200;
+  --theme-main-box-title-color: @COLOR_Gray_200;
+  --theme-main-box-description-color: @COLOR_Gray_200;
+  --theme-main-grid-button-color: @COLOR_Gray_200;
+  --theme-main-mini-link-color: @COLOR_Gray_200;
+  --theme-main-no-pic-rect-border: solid 1px @COLOR_Gray_400;
+  --theme-main-square-border: solid 1px @COLOR_Gray_400;
+  --theme-menubar-color: @COLOR_Gray_100;
+  --theme-menubar-background-color: @COLOR_Midnight_600;
   --theme-password-input: @COLOR_Gray_100;
   --theme-password-input-background: @COLOR_Midnight_600;
+  --theme-primary-text-color: @COLOR_Gray_100;
+  --theme-search-container-background-color: @COLOR_Midnight_600;
+  --theme-search-overlay-background-color: rgba(0,0,0,0.9);
+  --theme-search-overlay-query-background-color: @COLOR_Midnight_500;
+  --theme-select-background-color: @COLOR_Midnight_500;
+  --theme-visited-link-color: @COLOR_Gray_100;
+  --theme-webhook-demo-product-config-banner: @COLOR_ParticleBlue_700;
 }
+
 [data-theme="light"] {
-  --theme-primary-text-color: @COLOR_Midnight_500;
+  --theme-api-helper-box-color: @NC_MORNING_MIST;
+  --theme-api-helper-grouped-box-outer: @COLOR_Midnight_300;
+  --theme-api-helper-giant-button-background-color: @COLOR_ParticleBlue_400;
+  --theme-api-helper-giant-button-selected-color: @COLOR_ParticleBlue_700;
   --theme-background-color: @COLOR_White_0;
-  --theme-visited-link-color: @COLOR_Midnight_500;
   --theme-hover-link-color: @COLOR_Midnight_500;
+  --theme-main-bottom-color: @COLOR_Midnight_500;
+  --theme-main-box-title-color: @COLOR_Midnight_500;
+  --theme-main-box-description-color: @COLOR_Midnight_500;
+  --theme-main-grid-button-color: @COLOR_Midnight_500;
+  --theme-main-mini-link-color: @COLOR_Midnight_500;
+  --theme-main-no-pic-rect-border: solid 1px @COLOR_Midnight_500;
+  --theme-main-square-border: solid 1px @COLOR_Midnight_500;
+  --theme-menubar-color: @COLOR_Midnight_300;
+  --theme-menubar-background-color: COLOR_Gray_100;
   --theme-password-input: @COLOR_Midnight_500;
   --theme-password-input-background: @COLOR_Gray_200;
+  --theme-primary-text-color: @COLOR_Midnight_500;
+  --theme-search-container-background-color: @COLOR_Gray_100;
+  --theme-search-overlay-background-color:  rgba(255,255,255,0.96);
+  --theme-search-overlay-query-background-color: @COLOR_Midnight_500;
+  --theme-select-background-color: @NC_MORNING_MIST;
+  --theme-visited-link-color: @COLOR_Midnight_500;
+  --theme-webhook-demo-product-config-banner: @COLOR_ParticleBlue_400;
 }
+
+  
+
+
+[data-theme="dark"] {
+  // content color is COLOR_Gray_100
+  .searchOverlayQuery {
+      background-color: @COLOR_Midnight_500;
+  }
+  /*
+  // This does not work
+  a.searchOverlayLink:visited {
+    color: @COLOR_Gray_400;
+  }
+  */
+}
+
+[data-theme="light"] {
+  // content color is COLOR_Midnight_500
+  .searchOverlayQuery {
+      background-color: @NC_MORNING_MIST;
+  }
+  #searchOverlay {
+    background-color: rgba(255,255,255,0.96);
+  }
+
+  .document-search-container {
+    background-color: @COLOR_Gray_100;
+  }
+  /*
+  // This does not work
+  a.searchOverlayLink:visited {
+    color: @COLOR_Midnight_300;
+    
+  }
+  */
+}
+
 
 
 body {

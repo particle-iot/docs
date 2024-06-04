@@ -12,6 +12,8 @@
   width: @menubarWidth;
   box-sizing: border-box;
   z-index: @menuZindex;
+  color: var(--theme-menubar-color);
+  background-color: var(--theme-menubar-background-color);
 
   // Start with menu hidden on mobile
   @media(max-width: @medium-size) {
@@ -39,22 +41,6 @@
 
 .internalMenuItem {
   color: @COLOR_ParticleBlue_500;
-}
-
-[data-theme="dark"] {
-  .menubar {
-    color: @COLOR_Gray_100;
-    background: @COLOR_Midnight_600;
-    // border-right: solid 1px @COLOR_Midnight_400;
-  }
-}
-
-[data-theme="light"] {
-  .menubar {
-    color: @COLOR_Midnight_300;
-    background: @COLOR_Gray_100; // @almost-white
-    // border-right: solid 1px @NC_MORNING_MIST;
-  }
 }
 
 @media(max-width: @medium-size) {
