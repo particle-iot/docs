@@ -1,4 +1,4 @@
-0---
+---
 title: What's new
 columns: two
 layout: commonTwo.hbs
