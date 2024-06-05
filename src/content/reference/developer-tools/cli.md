@@ -891,7 +891,7 @@ Prior to March 2023, webhook events like hook-sent, hook-error, and hook-respons
 
 ## particle wifi
 
-These commands are available in Device OS 5.8.2 and later and Device OS 6.2.0 and later on Wi-Fi devices including the P2, Photon 2, M-SoM, and Argon. They are recommended instead of [particle serial wifi](#particle-serial-wifi) on these versions of Device OS as they provide additional functionality and can more easily be scripted.
+These commands are available on Wi-Fi devices including the P2, Photon 2, M-SoM, and Argon. They are recommended instead of [particle serial wifi](#particle-serial-wifi) on these versions of Device OS as they provide additional functionality and can more easily be scripted.
 
 These commands work in listening mode and in normal operating mode (such as breathing cyan or breathing magenta). They cannot be used in DFU mode (blinking yellow).
 
@@ -901,7 +901,7 @@ Add Wi-Fi credentials to a device.
 
 - This command does not attempt to connect to the network so it can be used for configuring a device to be used in another location.
 - This command can be used to set credentials for a network with a hidden SSID.
-- See [`particle wifi join`](#particle-wifi-join) if you want to add credentials and connect.
+- See [`particle wifi join`](#particle-wifi-join) if you want to add credentials and connect, or need compatibility with older versions of Device OS.
 
 | Command | Description |
 | :--- | :--- |
@@ -927,7 +927,7 @@ The available security types are:
 - `WPA2_PSK`
 - `WPA3_PSK`
 
-Requires Device OS 5.8.2 and or and Device OS 6.2.0 and later.
+The `particle wifi add` command requires Device OS 5.8.2 and or and Device OS 6.2.0 and later.
 
 ### particle wifi join
 
@@ -941,7 +941,7 @@ Add credentials and join a Wi-Fi network, or connect to a specific SSID.
 
 See [particle wifi add](#particle-wifi-add) for the format of the credentials.json file.
 
-Requires Device OS 5.8.2 and or and Device OS 6.2.0 and later.
+This command, unlike `particle wifi add`, can be used on Device OS 0.9.0 and later on Gen 3 and Gen 4 Wi-Fi devices.
 
 ### particle wifi list
 
