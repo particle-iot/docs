@@ -901,6 +901,7 @@ Add Wi-Fi credentials to a device.
 
 - This command does not attempt to connect to the network so it can be used for configuring a device to be used in another location.
 - This command can be used to set credentials for a network with a hidden SSID.
+- See [`particle wifi join`](#particle-wifi-join) if you want to add credentials and connect.
 
 | Command | Description |
 | :--- | :--- |
