@@ -877,11 +877,6 @@ $ particle publish eventName "some data with spaces"
 
 Prior to August 2020, there were both public and private event streams. The public event stream no longer exists, thus you do not need to explicitly specify the `--private` flag. All events are private, and will be received whether `MY_DEVICES` is specified or not when subscribing on a device.
 
-```sh
-$ particle publish eventName --private
-$ particle publish eventName someData --private
-```
-
 ---
 
 To send events to a product's event stream, set the `--product` flag to your product's id.
@@ -894,12 +889,102 @@ $ particle publish temp 25.0 --product 12345
 
 Prior to March 2023, webhook events like hook-sent, hook-error, and hook-response only went to the device owner's event stream. If the device was unclaimed, the events disappeared. Now, these events also appear in the product event stream, in the console, SSE event stream, and webhooks. 
 
+## particle wifi
+
+These commands are available in Device OS 5.8.2 and later and Device OS 6.2.0 and later on Wi-Fi devices including the P2, Photon 2, M-SoM, and Argon. They are recommended instead of [particle serial wifi](#particle-serial-wifi) on these versions of Device OS as they provide additional functionality and can more easily be scripted.
+
+These commands work in listening mode and in normal operating mode (such as breathing cyan or breathing magenta). They cannot be used in DFU mode (blinking yellow).
+
+### particle wifi add
+
+Add Wi-Fi credentials to a device. 
+
+- This command does not attempt to connect to the network so it can be used for configuring a device to be used in another location.
+- This command can be used to set credentials for a network with a hidden SSID.
+
+| Command | Description |
+| :--- | :--- |
+| `particle wifi add` | Prompt for Wi-Fi credentials and sends them to a device |
+| `particle wifi add --file credentials.json` | Read Wi-Fi credentials from credentials.json and send them to a device |
+
+The format of the credentials file is:
+
+```json
+{
+  "network": "my_ssid",
+  "security": "WPA2_PSK",
+  "password": "my_password",
+  "hidden": false
+}
+```
+
+The available security types are:
+
+- `NONE`
+- `WEP`
+- `WPA`
+- `WPA2_PSK`
+- `WPA3_PSK`
+
+Requires Device OS 5.8.2 and or and Device OS 6.2.0 and later.
+
+### particle wifi join
+
+Add credentials and join a Wi-Fi network, or connect to a specific SSID.
+
+| Command | Description |
+| :--- | :--- |
+| `particle wifi join` | Prompt for Wi-Fi credentials, sends them to a device, then attempts to join the network |
+| `particle wifi add --file credentials.json` | Read Wi-Fi credentials from credentials.json, sends them to a device, then joins |
+| `particle wifi join --ssid <SSID>`  | Join a pre-configured network specified by SSID. Pre-configure a network using `particle wifi add` |
+
+See [particle wifi add](#particle-wifi-add) for the format of the credentials.json file.
+
+Requires Device OS 5.8.2 and or and Device OS 6.2.0 and later.
+
+### particle wifi list
+
+Lists Wi-Fi networks visible to the device.
+
+```
+% particle wifi list
+List of Wi-Fi networks:
+- mySSID1 (WPA2_PSK) - current network
+- mySSID2 (WPA2_PSK)
+```
+
+### particle wifi clear
+
+Clears all Wi-Fi credentials from the device. If the device is currently connected to Wi-Fi, it is not disconnected.
+
+```
+% particle wifi clear
+```
+
+### particle wifi remove
+
+Removes a Wi-Fi credential for a specific SSID from the device. If the device is currently connected to Wi-Fi, it is not disconnected.
+
+```
+% particle wifi remove --ssid <ssid>
+```
+
+### particle wifi status
+
+Show the status of the network that is currently connected to.
+
+```
+% particle wifi status
+```
+
 
 ## particle serial
 
 ### particle serial wifi
 
-Configure Wi-Fi credentials over serial on the Photon, P1, Argon, P2, and Photon 2.
+Configure Wi-Fi credentials over serial on the Photon, P1, Argon, P2, and Photon 2. 
+
+For devices using Device OS 6.2 or later, it is recommended that you use [`particle wifi`](#particle-wifi) instead of `particle serial wifi`.
 
 ```sh
 # Configure new Wi-Fi credentials for a Photon or Argon over a serial connection
@@ -907,8 +992,6 @@ $ particle serial wifi
 ```
 
 You will need to use this command to set up a device using WPA2 Enterprise and services like EduRoam that use it.
-
-Note: The Argon, P2, and Photon 2 cannot connect to a Wi-Fi network with a hidden SSID, even using the CLI. The reason is that prior to connecting, a Wi-Fi scan is done to find the BSSID with the strongest signal and connect to that. Otherwise, on network with multiple access points, the devices would not necessarily connect to the best AP.
 
 It's possible to read Wi-Fi credentials from a file and send them to a device over serial.
 

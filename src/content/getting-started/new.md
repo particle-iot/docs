@@ -21,9 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### particle wifi 2024-06-05
+
+Added documentation for [`particle wifi`](/reference/developer-tools/cli/#particle-wifi) commands.
+
 ### particle bundle 2024-06-03
 
-Added documentation for the Particle CLI [`particle bundle`](/reference/developer-tools/cli/#particle-bundle) command.
+Added documentation for the Particle CLI [`particle bundle`](/reference/developer-tools/cli/#particle-bundle) commands.
 
 ### Getting started with Monitor One and Modbus 2024-05-31
 
