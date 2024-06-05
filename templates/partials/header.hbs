@@ -37,8 +37,12 @@
     </div>
     {{/unless}}
 
-    <div class="dropdown narrow" style="width: 110px">
-      <a id="userMenu" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon ion-person"></i><span id="userMenuLabel">User</span></a>
+    <div class="menuLoggedInUser"></div>
+
+    <div class="dropdown narrow" style="width: 30px">
+      <a id="userMenu" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <img width="24" height="24" data-light-src="/assets/images/menu-3dots-light.png" data-dark-src="/assets/images/menu-3dots-light.png" />
+      </a>
       <ul class="dropdown-menu pull-right" aria-labelledby="userMenu">
         <li id="userMenuLoggedInAs" class="loginMenuItem"></li>
         <li id="userMenuConsole"><a href="https://console.particle.io" target="_blank">Console</a></li>
@@ -50,6 +54,8 @@
         <li><a class="autoModeMenuClick"><span class="lightDarkModeMenuIndicator autoModeMenuIndicator" style="display: hidden;">&check; </span>Automatic mode</a></li>
       </ul>
     </div>
+
+    <div class="menuRightSpacer"></div>
 
     {{!-- Currently disabled always due to lack of use
     {{#unless noEditButton}}

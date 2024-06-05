@@ -141,6 +141,8 @@ $(document).ready(function() {
     
             $('#userMenuLoggedInAs').text('Logged in as ' + auth.username)
     
+            $('.menuLoggedInUser').text(auth.username);
+
             if (localAuth) {
                 $('#userMenuConsole').hide();
                 $('#userMenuEditAccount').hide();
@@ -170,6 +172,8 @@ $(document).ready(function() {
             $('#userMenuLabel').text('User');
 
             $('.apiHelperNotLoggedIn').show();
+            $('.menuLoggedInUser').text('');
+
             if (window.location.hostname.endsWith('particle.io')) {
                 $('.apiHelperCouldSSO').show();
     
@@ -239,6 +243,16 @@ $(document).ready(function() {
         $('.apiHelperLocalLogIn').show(); 
         $('.apiHelperLocalLoginLogInUsingRow').find('input[value="userPass"]').trigger('click');
     });
+
+    window.addEventListener('resize', function() {
+        if ($('.menuLoggedInUser').is(':visible')) {
+            $('#userMenuLoggedInAs').hide();
+        }
+        else {
+            $('#userMenuLoggedInAs').show();
+        }
+    });
+
     checkLogin();
 
     if (typeof apiHelper == 'undefined') {
