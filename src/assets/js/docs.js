@@ -193,26 +193,27 @@ $(document).ready(function () {
         }
     };
 
-    const logoElem = $('#logo');
+    Docs.applyColorMode = function(which) {
+        $('html').attr('data-theme', which);
 
-    function applyDarkMode() {
-        $('html').attr('data-theme', 'dark');
-        $(logoElem).prop('src', $(logoElem).data('dark-src'));
+        $('img[data-dark-src]').each(function() {
+            const src = $(this).data(which + '-src');
+            if (src) {
+                $(this).prop('src', src);
+            }
+        });
 
-        // TODO: Fix this! (move to JS)
-        /*
-        img:not(.no-darken) {
-        filter: brightness(0.8) contrast(1.2);
+        switch(which) {
+            default:
+            case 'dark':
+                $('img:not(.no-darken)').prop('filter', 'brightness(0.8) contrast(1.2);');
+                break;
+
+            case 'light':
+                $('img.no-darken').prop('filter', 'brightness(1) contrast(1);');
+                break;
         }
-        */
-
     }
-
-    function applyLightMode() {
-        $('html').attr('data-theme', 'light');
-        $(logoElem).prop('src', $(logoElem).data('light-src'));
-    }
-
 
     const storage = localStorage.getItem('docsGeneral');
     if (storage) {
@@ -240,29 +241,30 @@ $(document).ready(function () {
         switch(options.colorMode) {
             default:
             case 'dark':
-                $('.darkModeMenuIndicator').show();
                 Docs.settings.colorMode = 'dark';
-                applyDarkMode();
+                $('.darkModeMenuIndicator').show();
+                Docs.applyColorMode(options.colorMode);
                 break;
     
             case 'light':
+                Docs.settings.colorMode = options.colorMode;
                 $('.lightModeMenuIndicator').show();
-                Docs.settings.colorMode = 'light';
-                applyLightMode();
+                Docs.applyColorMode(options.colorMode);
                 break;
     
             case 'auto':
+                Docs.settings.colorMode = options.colorMode;
                 $('.autoModeMenuIndicator').show();
-                Docs.settings.colorMode = 'auto';
                 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
                 if (prefersDarkScheme.matches) {
-                    applyDarkMode();
+                    Docs.applyColorMode('dark');
                 }
                 else {
-                    applyLightMode();
+                    Docs.applyColorMode('light');
                 }        
                 break;
         }
+
         if (options.save) {
             Docs.saveSettings();
         }        
