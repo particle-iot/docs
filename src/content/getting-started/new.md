@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Muon datasheet 2024-06-05
+
+Updated the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) with the updated expansion connector.
+
 ### particle wifi 2024-06-05
 
 Added documentation for [`particle wifi`](/reference/developer-tools/cli/#particle-wifi) commands.
