@@ -1172,7 +1172,7 @@
         },
         "reference/developer-tools/cli.md": {
             "date": "2024-06-05",
-            "hash": "9dd16974f7b5ca06ad6fc5cd2eeb9db1c985df4f136e3430cdf0c39e349a7d96"
+            "hash": "a52026b6c479c6ab01cf5a2f2b6f3f785c8832a38d7f88fda2e4dcce9088f86b"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "64de8ea1b0becb88913a36866a58239b2cdf726031e9765ab49214940907bf08",
+            "hash": "cbd2a323151f5262ce3e91147e07e19cb99c2aebf410a7fc21645e6fe8246028",
             "date": "2024-06-05"
         },
         "getting-started/cloud/logic.md": {
@@ -8403,8 +8403,8 @@
             "date": "2024-05-21"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "1da811641cbc3dc0f0ff65e3340af90b073ea918d66f54ec6acf0bae6da41006",
-            "date": "2024-05-08"
+            "hash": "247388be227dc1cae81cfbfb3b3f77b45e68e77dfde52528ac71a0a73e4d84bb",
+            "date": "2024-06-03"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
