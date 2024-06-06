@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HX711_SWE",
     "version": "0.0.2",
-    "installs": 311,
+    "installs": 337,
     "author": "Scott Alexander Gray",
     "sentence": "A library for the HX711 chip that gets a correct reading the first time, and correct timeout restrictions and read checking.",
     "url": "https://github.com/scottalexgray/HX711_SWE",

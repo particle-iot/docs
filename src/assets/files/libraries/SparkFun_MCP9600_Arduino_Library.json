@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MCP9600_Arduino_Library",
     "version": "1.0.3",
-    "installs": 2535,
+    "installs": 2580,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Fischer Moseley <fischer.moseley@sparkfun.com>",
     "sentence": "Driver for Microchip's MCP9600 Thermocouple Amplifier.",

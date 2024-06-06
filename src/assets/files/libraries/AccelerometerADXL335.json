@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AccelerometerADXL335",
     "version": "1.0.0",
-    "installs": 551,
+    "installs": 557,
     "license": "MIT License",
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CellularHelper",
     "version": "0.2.7",
-    "installs": 141113,
+    "installs": 143154,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Handy utility functions for cellular devices",

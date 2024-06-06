@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Power_Switch_Arduino_Library",
     "version": "1.0.0",
-    "installs": 93,
+    "installs": 94,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Arduino library for the Qwiic Power Switch",

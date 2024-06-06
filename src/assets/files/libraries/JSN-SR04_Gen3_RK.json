@@ -7,7 +7,7 @@
   "attributes": {
     "name": "JSN-SR04_Gen3_RK",
     "version": "0.0.2",
-    "installs": 395,
+    "installs": 398,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for JSN-SR04 ultrasonic distance sensor for Particle Gen 3 devices",

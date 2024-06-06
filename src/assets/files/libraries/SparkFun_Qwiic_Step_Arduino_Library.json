@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Step_Arduino_Library",
     "version": "2.0.1",
-    "installs": 96,
+    "installs": 100,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Control one or more stepper motors by sending I2C commands over the easy-to-use Qwiic system to your SparkFun Qwiic Step Board.",

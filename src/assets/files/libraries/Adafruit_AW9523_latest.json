@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_AW9523_latest",
     "version": "1.0.1",
-    "installs": 947,
+    "installs": 951,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the AW9523 GPIO expanders in the Adafruit shop",

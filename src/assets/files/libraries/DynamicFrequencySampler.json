@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DynamicFrequencySampler",
     "version": "0.0.8",
-    "installs": 566,
+    "installs": 572,
     "license": "LGPL",
     "author": "calvin@particle.io",
     "sentence": "Create \"dynamic\" or \"smart\" publishing frequencies for sensor data that you want to send to the Particle Cloud.",

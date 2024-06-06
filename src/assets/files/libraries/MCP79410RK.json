@@ -2,12 +2,12 @@
   "type": "libraries",
   "id": "MCP79410RK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/MCP79410RK/archive/0.0.4.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/MCP79410RK/archive/0.0.5.tar.gz"
   },
   "attributes": {
     "name": "MCP79410RK",
-    "version": "0.0.4",
-    "installs": 2509,
+    "version": "0.0.5",
+    "installs": 2567,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for MCP79410 RTC",
@@ -365,10 +365,148 @@
         }
       },
       "added": "2022-06-17T10:16:53.931Z"
+    },
+    "0.0.5": {
+      "added": "2024-06-05T18:13:40.116Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "boron": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "bsom": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "b5som": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "tracker": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "p2": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "boron": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "bsom": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "b5som": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "tracker": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "esomx": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          },
+          "electron": {
+            "1-wake": false,
+            "3-self-test": false,
+            "4-sram-test": false,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": false,
+            "7-board-id-set": false,
+            "8-board-id": false
+          }
+        }
+      }
     }
   },
-  "readme": "# MCP79410RK\n*Particle library for MCP79410 real-time clock (RTC) chip with I2C interface*\n\nYou can find the full browsable API docs [here](http://rickkas7.github.io/MCP79410RK/class_m_c_p79410.html).\n\n## Hardware\n\nSample Board (image removed) \n\nThis is a sample board that includes an MCP79410 in an Adafruit FeatherWing form-factor. The documentation and Eagle CAD files for this project can be [found here](https://github.com/rickkas7/RtcFlashFeatherWingRK).\n\nThe MCP79410 is a tiny 8-pin chip:\n\nPinout (image removed)\n\nWith a simple application circuit:\n\nTypical Application (image removed)\n\nYou only need some pull-up resistors, a 32.768 kHz crystal, and a few capacitors.\n\nIt connects by I2C and uses addresses 0x6f (registers and SRAM) and 0x57 (EEPROM). \n\n\n## The MFP pull-up\n\nThe MFP (multi-function pin) is useful when waking up from SLEEP\\_MODE\\_DEEP based on time on Gen 3 devices (Argon, Boron, Xenon). You connect MFP to D8 for this purpose.\n\nHowever, you must be careful: Using D8 as a wake-up pin is active high, rising. The MFP is open-collector and requires a pull-up.\n\nHowever, in SLEEP\\_MODE\\_DEEP, an internal pull-down (about 13K) is applied to D8 so it doesn't float if not connected. Thus you must use a small-resistance pull-up or the signal won't go high enough because of the conflicting pull-up and pull-down.\n\nA 2.2K pull-up works fine for this purpose.\n\nOr you could use an actual inverter or transistor, if you prefer.\n\nIf you use a typical 10K pull-up on MFP, in wake the signal will only reach 1.9V because of the 10K pull-up and the 13K internal pull-down, and that's too low of a voltage to register as high and end sleep mode.\n\n## Common Patterns\n\n### RTC Clock Synchronization\n\nBy default, bi-directional clock synchronization is done. \n\n- During setup() if Time is not valid but the RTC is, then Time is set from RTC. This is useful because Time is not maintained in SLEEP\\_MODE\\_DEEP.\n- During loop(), after Time is synchronized with the cloud, the RTC is updated. This only happens once at boot.\n\nYou must call the setup() and loop() methods, as shown in the following example.\n\n### Using RTC to wake from SLEEP\\_MODE\\_DEEP\n\nHere's a simple program to wake from SLEEP\\_MODE\\_DEEP:\n\n```\n#include \"MCP79410RK.h\"\n\nSerialLogHandler logHandler;\n\nMCP79410 rtc;\n\nvoid setup() {\n\t// Make sure you call rtc.setup() from setup!\n\trtc.setup();\n}\n\nvoid loop() {\n\t// Make sure you call rtc.loop() from loop!\n\trtc.loop();\n\n\n\t// Wait 20 seconds after boot to try sleep\n\tif (millis() > 20000) {\n\t\tif (rtc.setAlarm(10)) {\n\t\t\tLog.info(\"About to SLEEP_MODE_DEEP for 10 seconds\");\n\t\t\tSystem.sleep(SLEEP_MODE_DEEP);\n\t\t}\n\t\telse {\n\t\t\tLog.info(\"Failed to setAlarm, not sleeping\");\n\t\t\tdelay(10000);\n\t\t}\n\t}\n}\n```\n\nFor Gen 2 devices, you might do something like:\n\n```\nSystem.sleep(SLEEP_MODE_DEEP, 10);\n```\n\nbut using the RTC it would be:\n\n```\nif (rtc.setAlarm(10)) {\n    System.sleep(SLEEP_MODE_DEEP);\n}\n```\n\nThe reason for the error check around setAlarm is that the alarm can only be set after the RTC has been set to the correct time. Upon cold boot (no 3V3, no battery) the RTC won't be set and sleep cannot be used until the first clock synchronization. This is true even when delaying by seconds.\n\nYou can also use rtc.isRTCValid() to determine if the RTC is believed to be correct. If isRTCValid() returns true, then setAlarm() will typically return true as well. This is handy if you want to preflight setAlarm() before turning off the network connection, for example.\n\n### Using SRAM\n\nThe MCP79410 contains 64 bytes of battery-backed SRAM. This is handy if you want to store data data. This can be written to quickly and does not wear out. The data is preserved by the backup battery (CR1220 in the design above) when there is no power on 3V3.\n\nThe API works like the EEPROM API in Device OS:\n\n```\nint a = 1234;\nrtc.sram().put(0, a);\n\na = 0;\n\nrtc.sram().get(0, a);\n\n// a = 1234 again\n```\n\nThe first parameter is 0, and that is a byte offset. Make sure you leave enough room! The next data should be written at 4, leaving enough room to save the 4-byte (32-bit) integer.\n\nYou can get and put simple data bytes (int, bool, uint32_t, etc.) and struct.\n\nNote that you cannot put a String variable or char *! You need to set aside enough bytes and copy the string to the bytes.\n\n### Using EEPROM\n\nThe MCP79410 contains 128 bytes of byte-writable EEPROM. This is slower to write to, but the data is preserved forever, even with no battery. The EEPROM can also wear out; it's rated for 1 million erase-write cycles for each byte.\n\nThe API works like the EEPROM API in Device OS:\n\n```\nint a = 1234;\nrtc.eeprom().put(0, a);\n\na = 0;\n\nrtc.eeprom().get(0, a);\n\n// a = 1234 again\n```\n\n\n### Using the Protected EEPROM Block\n\nIn addition to the 128 bytes of EEPROM, there's a special block of 8 additional bytes of EEPROM. This is harder to access and accidentally erase. \n\nThis is often used for things like MAC addresses, however I think it would be perfect for storing board revision and capability information.\n\nThe 7-board-id-set example shows how to store data in the protected EEPROM.\n\nThe 8-board-id example shows how to read it:\n\n```\n// This example shows how you'd read an 8-byte structure with information about your board (that has the RTC on it)\n// from protected block EEPROM.\n//\n// You'd run code like the 7-board-id-set example to set the values during manufacture.\n//\n// You'd add code like the following to your own firmware to read the structure and presumably do something with it other\n// than just print it to debug serial.\n\n#include \"MCP79410RK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\nMCP79410 rtc;\n\ntypedef union {\n\tstruct {\n\t\tuint16_t boardType;\n\t\tuint16_t boardVersion;\n\t\tuint32_t featureFlags;\n\t} data;\n\tuint8_t bytes[MCP79410::EEPROM_PROTECTED_BLOCK_SIZE]; // 8 bytes\n} BoardId;\n\n\nvoid setup() {\n\trtc.setup();\n\n\t// Wait for a USB serial connection for up to 10 seconds. This is just so you can see the Log.info\n\t// statement, you'd probably leave this out of real code\n\twaitFor(Serial.isConnected, 10000);\n\n\t// Read the BoardId structure from the protected block EEPROM\n\tBoardId boardId;\n\trtc.eeprom().protectedBlockRead(boardId.bytes);\n\n\tLog.info(\"boardType=%04x boardVersion=%04x featureFlags=%08x\", boardId.data.boardType, boardId.data.boardVersion, boardId.data.featureFlags);\n}\n\nvoid loop() {\n\trtc.loop();\n}\n```\n\n## Version History\n\n### 0.0.4 (2020-03-10)\n\n- Fix compiler warning for ambiguous requestFrom with 1.5.0-rc.2.\n\n### 0.0.3 (2019-05-05)\n\n- Fixed a bug in polarity=false where the bit would not get cleared once set\n\n\n",
+  "readme": "# MCP79410RK\n*Particle library for MCP79410 real-time clock (RTC) chip with I2C interface*\n\nYou can find the full browsable API docs [here](http://rickkas7.github.io/MCP79410RK/class_m_c_p79410.html).\n\n## Hardware\n\nSample Board (image removed) \n\nThis is a sample board that includes an MCP79410 in an Adafruit FeatherWing form-factor. The documentation and Eagle CAD files for this project can be [found here](https://github.com/rickkas7/RtcFlashFeatherWingRK).\n\nThe MCP79410 is a tiny 8-pin chip:\n\nPinout (image removed)\n\nWith a simple application circuit:\n\nTypical Application (image removed)\n\nYou only need some pull-up resistors, a 32.768 kHz crystal, and a few capacitors.\n\nIt connects by I2C and uses addresses 0x6f (registers and SRAM) and 0x57 (EEPROM). \n\n\n## The MFP pull-up\n\nThe MFP (multi-function pin) is useful when waking up from SLEEP\\_MODE\\_DEEP based on time on Gen 3 devices (Argon, Boron, Xenon). You connect MFP to D8 for this purpose.\n\nHowever, you must be careful: Using D8 as a wake-up pin is active high, rising. The MFP is open-collector and requires a pull-up.\n\nHowever, in SLEEP\\_MODE\\_DEEP, an internal pull-down (about 13K) is applied to D8 so it doesn't float if not connected. Thus you must use a small-resistance pull-up or the signal won't go high enough because of the conflicting pull-up and pull-down.\n\nA 2.2K pull-up works fine for this purpose.\n\nOr you could use an actual inverter or transistor, if you prefer.\n\nIf you use a typical 10K pull-up on MFP, in wake the signal will only reach 1.9V because of the 10K pull-up and the 13K internal pull-down, and that's too low of a voltage to register as high and end sleep mode.\n\n## Common Patterns\n\n### RTC Clock Synchronization\n\nBy default, bi-directional clock synchronization is done. \n\n- During setup() if Time is not valid but the RTC is, then Time is set from RTC. This is useful because Time is not maintained in SLEEP\\_MODE\\_DEEP.\n- During loop(), after Time is synchronized with the cloud, the RTC is updated. This only happens once at boot.\n\nYou must call the setup() and loop() methods, as shown in the following example.\n\n### Using RTC to wake from SLEEP\\_MODE\\_DEEP\n\nHere's a simple program to wake from SLEEP\\_MODE\\_DEEP:\n\n```\n#include \"MCP79410RK.h\"\n\nSerialLogHandler logHandler;\n\nMCP79410 rtc;\n\nvoid setup() {\n\t// Make sure you call rtc.setup() from setup!\n\trtc.setup();\n}\n\nvoid loop() {\n\t// Make sure you call rtc.loop() from loop!\n\trtc.loop();\n\n\n\t// Wait 20 seconds after boot to try sleep\n\tif (millis() > 20000) {\n\t\tif (rtc.setAlarm(10)) {\n\t\t\tLog.info(\"About to SLEEP_MODE_DEEP for 10 seconds\");\n\t\t\tSystem.sleep(SLEEP_MODE_DEEP);\n\t\t}\n\t\telse {\n\t\t\tLog.info(\"Failed to setAlarm, not sleeping\");\n\t\t\tdelay(10000);\n\t\t}\n\t}\n}\n```\n\nFor Gen 2 devices, you might do something like:\n\n```\nSystem.sleep(SLEEP_MODE_DEEP, 10);\n```\n\nbut using the RTC it would be:\n\n```\nif (rtc.setAlarm(10)) {\n    System.sleep(SLEEP_MODE_DEEP);\n}\n```\n\nThe reason for the error check around setAlarm is that the alarm can only be set after the RTC has been set to the correct time. Upon cold boot (no 3V3, no battery) the RTC won't be set and sleep cannot be used until the first clock synchronization. This is true even when delaying by seconds.\n\nYou can also use rtc.isRTCValid() to determine if the RTC is believed to be correct. If isRTCValid() returns true, then setAlarm() will typically return true as well. This is handy if you want to preflight setAlarm() before turning off the network connection, for example.\n\n### Using SRAM\n\nThe MCP79410 contains 64 bytes of battery-backed SRAM. This is handy if you want to store data data. This can be written to quickly and does not wear out. The data is preserved by the backup battery (CR1220 in the design above) when there is no power on 3V3.\n\nThe API works like the EEPROM API in Device OS:\n\n```\nint a = 1234;\nrtc.sram().put(0, a);\n\na = 0;\n\nrtc.sram().get(0, a);\n\n// a = 1234 again\n```\n\nThe first parameter is 0, and that is a byte offset. Make sure you leave enough room! The next data should be written at 4, leaving enough room to save the 4-byte (32-bit) integer.\n\nYou can get and put simple data bytes (int, bool, uint32_t, etc.) and struct.\n\nNote that you cannot put a String variable or char *! You need to set aside enough bytes and copy the string to the bytes.\n\n### Using EEPROM\n\nThe MCP79410 contains 128 bytes of byte-writable EEPROM. This is slower to write to, but the data is preserved forever, even with no battery. The EEPROM can also wear out; it's rated for 1 million erase-write cycles for each byte.\n\nThe API works like the EEPROM API in Device OS:\n\n```\nint a = 1234;\nrtc.eeprom().put(0, a);\n\na = 0;\n\nrtc.eeprom().get(0, a);\n\n// a = 1234 again\n```\n\n\n### Using the Protected EEPROM Block\n\nIn addition to the 128 bytes of EEPROM, there's a special block of 8 additional bytes of EEPROM. This is harder to access and accidentally erase. \n\nThis is often used for things like MAC addresses, however I think it would be perfect for storing board revision and capability information.\n\nThe 7-board-id-set example shows how to store data in the protected EEPROM.\n\nThe 8-board-id example shows how to read it:\n\n```\n// This example shows how you'd read an 8-byte structure with information about your board (that has the RTC on it)\n// from protected block EEPROM.\n//\n// You'd run code like the 7-board-id-set example to set the values during manufacture.\n//\n// You'd add code like the following to your own firmware to read the structure and presumably do something with it other\n// than just print it to debug serial.\n\n#include \"MCP79410RK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\nMCP79410 rtc;\n\ntypedef union {\n\tstruct {\n\t\tuint16_t boardType;\n\t\tuint16_t boardVersion;\n\t\tuint32_t featureFlags;\n\t} data;\n\tuint8_t bytes[MCP79410::EEPROM_PROTECTED_BLOCK_SIZE]; // 8 bytes\n} BoardId;\n\n\nvoid setup() {\n\trtc.setup();\n\n\t// Wait for a USB serial connection for up to 10 seconds. This is just so you can see the Log.info\n\t// statement, you'd probably leave this out of real code\n\twaitFor(Serial.isConnected, 10000);\n\n\t// Read the BoardId structure from the protected block EEPROM\n\tBoardId boardId;\n\trtc.eeprom().protectedBlockRead(boardId.bytes);\n\n\tLog.info(\"boardType=%04x boardVersion=%04x featureFlags=%08x\", boardId.data.boardType, boardId.data.boardVersion, boardId.data.featureFlags);\n}\n\nvoid loop() {\n\trtc.loop();\n}\n```\n\n## Version History\n\n### 0.0.5 (2024-06-05)\n\n- Fixed the redeclaration error for `log` \n\n### 0.0.4 (2020-03-10)\n\n- Fix compiler warning for ambiguous requestFrom with 1.5.0-rc.2.\n\n### 0.0.3 (2019-05-05)\n\n- Fixed a bug in polarity=false where the bit would not get cleared once set\n\n\n",
   "allVersions": [
+    "0.0.5",
     "0.0.4",
     "0.0.3",
     "0.0.2",

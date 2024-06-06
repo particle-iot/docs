@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Pixycam5",
     "version": "0.0.5",
-    "installs": 1494,
+    "installs": 1498,
     "license": "GNU General Public License 3+",
     "author": "Jeremy Ellis",
     "sentence": "Beginner startup programs to use the pixy camera with the Particle.io Photon",

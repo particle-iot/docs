@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MAX31855K_Thermocouple_Breakout_Arduino_Library",
     "version": "1.0.1",
-    "installs": 139,
+    "installs": 143,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <techsupport@SparkFun.com>",
     "sentence": "K type thermocouple digitizer board.",

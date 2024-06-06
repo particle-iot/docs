@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HM330X_CNM",
     "version": "1.0.1",
-    "installs": 721,
+    "installs": 757,
     "license": "MIT",
     "author": "Brian Rashap",
     "sentence": "Seeed Studios HM330X library revised for Particle Gen 3 processors",

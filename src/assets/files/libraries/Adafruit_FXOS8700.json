@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_FXOS8700",
     "version": "1.0.2",
-    "installs": 661,
+    "installs": 665,
     "author": "Matthew Salaciak",
     "sentence": "Ported Arduino library for Adafruit's FXOS8700. Adapted by Matthew Salaciak.",
     "architectures": [],

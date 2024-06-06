@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Steinhart-Thermistor",
     "version": "2.0.1",
-    "installs": 873,
+    "installs": 1064,
     "license": "GPL",
     "author": "Christian Vallières",
     "sentence": "4 coefficients Steinhart version of Thermistor library.",

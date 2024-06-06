@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RdWebServer",
     "version": "1.0.17",
-    "installs": 5015,
+    "installs": 5101,
     "license": "MIT",
     "author": "Rob Dobson",
     "sentence": "Simple web server supporting REST API and static files",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PL_microEPD",
     "version": "1.0.12",
-    "installs": 3006,
+    "installs": 3010,
     "license": "BSD-3-clause",
     "author": "Robert Poser <paperino.display@gmail.com>",
     "maintainer": "Robert Poser <paperino.display@gmail.com>",

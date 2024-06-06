@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_I2C_Mux_Arduino_Library",
     "version": "1.0.0",
-    "installs": 1845,
+    "installs": 1879,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Library to control I2C multiplexers including the TCA9548/PCA9548.",

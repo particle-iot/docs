@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BusIO_Register",
     "version": "1.9.8",
-    "installs": 13183,
+    "installs": 14064,
     "license": "MIT License",
     "author": "Nathan Matos<than.matos@gmail.com>",
     "sentence": "Uploading this library to Particle",

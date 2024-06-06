@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LC709203F",
     "version": "1.3.4",
-    "installs": 19,
+    "installs": 26,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the LC709203F battery monitors in the Adafruit shop",

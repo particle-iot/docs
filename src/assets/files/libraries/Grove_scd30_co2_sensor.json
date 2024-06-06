@@ -1,0 +1,39 @@
+{
+  "type": "libraries",
+  "id": "Grove_scd30_co2_sensor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Grove_scd30_co2_sensor/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Grove_scd30_co2_sensor",
+    "version": "1.0.0",
+    "installs": 332,
+    "license": "MIT",
+    "author": "Seeed Studio",
+    "maintainer": "Seeed Studio <techsupport@seeed.cc>",
+    "sentence": "Library for ",
+    "paragraph": "An Arduino Library for Grove- to measure carbon dioxide concentration",
+    "category": "Sensors",
+    "url": "https://github.com/Seeed-Studio/Seeed_SCD30",
+    "repository": "https://github.com/Seeed-Studio/Seeed_SCD30/",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_scd30_co2_sensor",
+  "versions": {
+    "1.0.0": {
+      "added": "2024-06-05T18:16:31.919Z",
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# Seeed SCD30 Library  [![Build Status](https://travis-ci.com/Seeed-Studio/Seeed_SCD30.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Seeed_SCD30)\n\nThis is the Arduino library for Seeed's SCD30 based products.\n\n## Usage\n    1.Git clone this resp to your Arduino IDE's libraries directory.\n\t2.Run the demo \"SCD30_Example\" on examples directory.\n\n***\n\n## Notice\n* The on-board RH/T sensor is influenced by thermal self-heating of SCD30 and other electrical components.   \n    Design-in alters the thermal properties of SCD30 such that temperature and humidity offsets may occur when operating the sensor in end-customer devices.  \n    Compensation of those effects is achievable by writing the temperature offset found in continuous operation of the device into the sensor.\n    User can use \"setTemperatureOffset(offset)\" to set temperature offset,The param \"offset\" is type of uint16_t,one tick corresponding to 0.01℃.  \n    When user set the temperature offset,the measurement result of temperature won't change immediately,but a slow change process.  \n    Take notice that the humidity value will change with the temperature value changes.\n* The sensor needs to be calibrated at the first time it is used.  \n\n    When activated for the first time a period of minimum 7 days is needed so that the algorithm can find its initial parameter set for ASC. The sensor has to be exposed to fresh air for at least 1 hour every day.  \n\n    **the sensor may not be disconnected from the power supply,otherwise the procedure to find calibration parameters is aborted and has to be restarted from the beginning**\n\n    User can run the SCD30_auto_calibration.ino to start the calibration.\n***\n\n\n\n\nThis software is written by Wayen Weng for seeed studio and is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/grove-human-presence-sensor)](https://github.com/igrigorik/ga-beacon)\n\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

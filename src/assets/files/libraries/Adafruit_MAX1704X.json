@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX1704X",
     "version": "1.0.4",
-    "installs": 23,
+    "installs": 63,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the MAX17048 battery monitors in the Adafruit shop",

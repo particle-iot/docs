@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AzureIotHubClient",
     "version": "2.1.0",
-    "installs": 8394,
+    "installs": 8407,
     "license": "MIT",
     "author": "Dave Glover",
     "sentence": "Azure IoT Hub Client library.",

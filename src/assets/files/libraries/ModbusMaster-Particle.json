@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ModbusMaster-Particle",
     "version": "1.0.3",
-    "installs": 13368,
+    "installs": 13709,
     "license": "APA2",
     "author": "Philippe Hilger <phil@peergum.com>",
     "sentence": "Alternate ModbusMaster library port from Arduino",

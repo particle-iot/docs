@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Bus_IO",
     "version": "1.7.3",
-    "installs": 3568,
+    "installs": 3616,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "This is a library for abstracting away UART, I2C and SPI interfacing",

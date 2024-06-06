@@ -7,7 +7,7 @@
   "attributes": {
     "name": "wolfssl_particle",
     "version": "0.0.3",
-    "installs": 320,
+    "installs": 328,
     "author": "Andrew Pullin, WolfSSL Inc",
     "architectures": [
       "particle-photon",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particleflux-Si7021",
     "version": "1.2.1",
-    "installs": 1005,
+    "installs": 1075,
     "license": "MIT",
     "author": "Stefan Linke",
     "sentence": "Si 7021 Temperature and Humidity Sensor",

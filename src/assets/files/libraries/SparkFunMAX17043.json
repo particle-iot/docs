@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMAX17043",
     "version": "1.1.2",
-    "installs": 76173,
+    "installs": 76289,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A library to drive the MAX17043 LiPo fuel gauge.",

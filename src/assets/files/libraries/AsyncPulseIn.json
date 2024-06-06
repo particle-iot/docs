@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AsyncPulseIn",
     "version": "0.0.2",
-    "installs": 5288,
+    "installs": 5320,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "An asynchronous version of pulseIn for Particle Photon, Electron, etc.",

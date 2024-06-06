@@ -2,12 +2,12 @@
   "type": "libraries",
   "id": "AB1805_RK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/AB1805_RK/archive/0.0.1.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/AB1805_RK/archive/0.0.2.tar.gz"
   },
   "attributes": {
     "name": "AB1805_RK",
-    "version": "0.0.1",
-    "installs": 1817,
+    "version": "0.0.2",
+    "installs": 1974,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for AB1805/AM1805 RTC/Watchdog for Particle devices",
@@ -365,10 +365,148 @@
         }
       },
       "added": "2022-06-17T10:16:54.032Z"
+    },
+    "0.0.2": {
+      "added": "2024-06-05T18:14:55.076Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "boron": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "bsom": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "b5som": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "tracker": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "p2": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "boron": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "bsom": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "b5som": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "tracker": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "esomx": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "electron": {
+            "01-minimal": false,
+            "02-typical": false,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": false,
+            "06-supercap": false,
+            "07-deep-power": false
+          }
+        }
+      }
     }
   },
-  "readme": "# AB1805_RK\n\n*Library for AB1805/AM1805 RTC/Watchdog for Particle devices*\n\nYou can [browse the generated API documentation](https://rickkas7.github.io/AB1805_RK/index.html).\n\nThe examples and AB1805_RK.h header file should be mostly self-explanatory. There will be a Particle application note that shows the hardware design used with this library shortly.\n\n## Examples\n\n### 01-minimal\n\nThis is just the minimal implement of using the RTC and Watchdog Timer (WDT). Here's the complete code:\n\n```cpp\n#include \"AB1805_RK.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nSerialLogHandler logHandler;\n\nAB1805 ab1805(Wire);\n\nvoid setup() {\n    // The sample board has D8 connected to FOUT for wake interrupts, though this\n    // example does not use this feature.\n    ab1805.withFOUT(D8).setup();\n\n    // Reset the AB1805 configuration to default values\n    ab1805.resetConfig();\n\n    // Enable watchdog\n    ab1805.setWDT(AB1805::WATCHDOG_MAX_SECONDS);\n\n    // Connect to the Particle cloud\n    Particle.connect();\n}\n\n\nvoid loop() {\n    // Be sure to call ab1805.loop() on every call to loop()\n    ab1805.loop();\n}\n\n```\n\nThings to note in this code:\n\nDeclare an `AB1805` object in your code as a global variable. Only do this once in your main source file. The parameter is the I2C interface the AB1805 is connected to, typically `Wire` (D0/D1).\n\n```cpp\nAB1805 ab1805(Wire);\n```\n\nIn setup(), call the `ab1805.setup()` method.\n\n```cpp\n    ab1805.setup();\n```\n\nReset the settings on the AB1805. This isn't strictly necessary since it resets the chip to power-on defaults, but it's not a bad idea to be safe:\n\n```cpp\n    ab1805.resetConfig();\n```\n\nIf you want to use the hardware watchdog, enable it:\n\n```cpp\n    ab1805.setWDT(AB1805::WATCHDOG_MAX_SECONDS);\n```\n\nAnd from loop(), make sure you call the loop method:\n\n```cpp\n    ab1805.loop();\n```\n\nThe `ab1805.loop()` method takes care of:\n\n- Serving the watchdog timer.\n- Synchronizing the hardware RTC with the cloud time.\n- Turning off the watchdog before System.reset() in case an OTA firmware update is in progress.\n\n\n### 02-typical\n\nThe \"typical\" example adds in a few helpful features:\n\n- An out of memory handler, which will reset the device if a RAM allocation fails.\n- A failure to connect detector, so if it takes longer than 11 minutes to connect to the cloud, a deep power down for 30 seconds is done to hopefully reset things complete.\n\n\n### 03-periodic-wake\n\nThis example has the device wake up once per hour and publish a value. It illustrates:\n\n- Using the RTC to wake up the device periodically.\n- Using the 256-byte non-volatile RAM in the RTC.\n- An out of memory handler, which will reset the device if a RAM allocation fails.\n- A failure to connect detector, so if it takes longer than 11 minutes to connect to the cloud, a deep power down for 30 seconds is done to hopefully reset things complete.\n \n### 04-selftest\n\nThe self-test code is used to do a quick check of the hardware to make sure it's visible by I2C. It's helpful when you've soldered up a new board to make sure the AB1805 at least has working I2C communications.\n\n### 05-hwtest\n\nThis is the hardware test suite that allows various modes to be tested via commands from the cloud.\n\n### 06-supercap\n\nThis is an example of using a board with a super capacitor.\n\n- It enables the supercap trickle charger\n- When the MODE button is tapped, the device goes into 30 second deep power down (with the RTC powered by supercap)\n\n### 07-deep-power\n\nThis is the deep power down example that uses a LiPo powered RTC to a deep power down, not using a supercap.\n\n- When the MODE button is tapped, the device goes into 30 second deep power down (with the RTC powered by the LiPo)\n",
+  "readme": "# AB1805_RK\n\n*Library for AB1805/AM1805 RTC/Watchdog for Particle devices*\n\nYou can [browse the generated API documentation](https://rickkas7.github.io/AB1805_RK/index.html).\n\nThe examples and AB1805_RK.h header file should be mostly self-explanatory. There will be a Particle application note that shows the hardware design used with this library shortly.\n\n## Examples\n\n### 01-minimal\n\nThis is just the minimal implement of using the RTC and Watchdog Timer (WDT). Here's the complete code:\n\n```cpp\n#include \"AB1805_RK.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nSerialLogHandler logHandler;\n\nAB1805 ab1805(Wire);\n\nvoid setup() {\n    // The sample board has D8 connected to FOUT for wake interrupts, though this\n    // example does not use this feature.\n    ab1805.withFOUT(D8).setup();\n\n    // Reset the AB1805 configuration to default values\n    ab1805.resetConfig();\n\n    // Enable watchdog\n    ab1805.setWDT(AB1805::WATCHDOG_MAX_SECONDS);\n\n    // Connect to the Particle cloud\n    Particle.connect();\n}\n\n\nvoid loop() {\n    // Be sure to call ab1805.loop() on every call to loop()\n    ab1805.loop();\n}\n\n```\n\nThings to note in this code:\n\nDeclare an `AB1805` object in your code as a global variable. Only do this once in your main source file. The parameter is the I2C interface the AB1805 is connected to, typically `Wire` (D0/D1).\n\n```cpp\nAB1805 ab1805(Wire);\n```\n\nIn setup(), call the `ab1805.setup()` method.\n\n```cpp\n    ab1805.setup();\n```\n\nReset the settings on the AB1805. This isn't strictly necessary since it resets the chip to power-on defaults, but it's not a bad idea to be safe:\n\n```cpp\n    ab1805.resetConfig();\n```\n\nIf you want to use the hardware watchdog, enable it:\n\n```cpp\n    ab1805.setWDT(AB1805::WATCHDOG_MAX_SECONDS);\n```\n\nAnd from loop(), make sure you call the loop method:\n\n```cpp\n    ab1805.loop();\n```\n\nThe `ab1805.loop()` method takes care of:\n\n- Serving the watchdog timer.\n- Synchronizing the hardware RTC with the cloud time.\n- Turning off the watchdog before System.reset() in case an OTA firmware update is in progress.\n\n\n### 02-typical\n\nThe \"typical\" example adds in a few helpful features:\n\n- An out of memory handler, which will reset the device if a RAM allocation fails.\n- A failure to connect detector, so if it takes longer than 11 minutes to connect to the cloud, a deep power down for 30 seconds is done to hopefully reset things complete.\n\nFull firmware:\n\n```cpp\n#include \"AB1805_RK.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nSerialLogHandler logHandler;\n\n// This is the maximum amount of time to allow for connecting to cloud. If this time is\n// exceeded, do a deep power down. This should not be less than 10 minutes. 11 minutes\n// is a reasonable value to use.\nconst std::chrono::milliseconds connectMaxTime = 11min;\n\nAB1805 ab1805(Wire);\nint outOfMemory = -1;\nbool cloudConnected = false;\nuint64_t cloudConnectStarted = 0;\n\nvoid outOfMemoryHandler(system_event_t event, int param);\n\nvoid setup() {\n    // Enabling an out of memory handler is a good safety tip. If we run out of\n    // memory a System.reset() is done.\n    System.on(out_of_memory, outOfMemoryHandler);\n    \n    // Optional: Enable to make it easier to see debug USB serial messages at startup\n    waitFor(Serial.isConnected, 15000);\n    delay(1000);\n\n    // Make sure you set up the AB1805 library from setup()!\n    ab1805.setup();\n\n    // This is how to check if we did a deep power down (optional)\n    AB1805::WakeReason wakeReason = ab1805.getWakeReason();\n    if (wakeReason == AB1805::WakeReason::DEEP_POWER_DOWN) {\n        Log.info(\"woke from DEEP_POWER_DOWN\");\n    }\n\n    // Reset the AB1805 configuration to default values\n    ab1805.resetConfig();\n    \n    // If using the supercap, enable trickle charging here. \n    // Do not enable this for the AB1805-Li example!\n    // ab1805.setTrickle(AB1805::REG_TRICKLE_DIODE_0_3 | AB1805::REG_TRICKLE_ROUT_3K);\n    \n    // Enable watchdog\n    ab1805.setWDT(AB1805::WATCHDOG_MAX_SECONDS);\n\n    // Connect to the Particle cloud\n    Particle.connect();\n}\n\n\nvoid loop() {\n    // Be sure to call ab1805.loop() on every call to loop()\n    ab1805.loop();\n\n    if (outOfMemory >= 0) {\n        // An out of memory condition occurred - reset device.\n        Log.info(\"out of memory occurred size=%d\", outOfMemory);\n        delay(100);\n\n        System.reset();\n    }\n\n    // Monitor the cloud connection state and do a deep power down if a \n    // failure to connect exceeds connectMaxTime (typically 11 minutes).\n    if (Particle.connected()) {\n        if (!cloudConnected) {\n            cloudConnected = true;\n            uint32_t elapsed = (uint32_t)(System.millis() - cloudConnectStarted);\n            Log.info(\"cloud connected in %lu ms\", elapsed);\n        }\n    }\n    else {\n        if (cloudConnected) {\n            cloudConnected = false;\n            cloudConnectStarted = System.millis();\n            Log.info(\"lost cloud connection\");\n        }\n        uint32_t elapsed = (uint32_t)(System.millis() - cloudConnectStarted);\n        if (elapsed > connectMaxTime.count()) {\n            Log.info(\"failed to connect to cloud, doing deep reset\");\n            delay(100);\n            ab1805.deepPowerDown();\n        }\n    }\n}\n\nvoid outOfMemoryHandler(system_event_t event, int param) {\n    outOfMemory = param;\n}\n```\n\n#### Out of Memory Handler\n\nThe out of memory handler is a good feature to have in your code. This is different than a check of `System.freeMemory()`. The out of memory handler is called when an allocation fails and returns NULL. Note that this is not in itself fatal, as your code might then do something to free up some memory and try again. However, in practice, if you are running that low on RAM, a reset is often a reasonable alternative. C/C++ do not have garbage collection and thus it's possible for memory to be fragmented into unusably small chunks. A reset is the only way to clean this up in most cases. Note that on Gen 2 devices and Gen 3 devices with Device OS 2.0.0 and later, a System.reset() should be fast because it stays connected to the cellular modem.\n\n\nYou need a global variable, because it's not a good idea to reset directly from the system event handler.\n\n```cpp\nint outOfMemory = -1;\n```\n\nYou need to register the out of memory handler from setup():\n\n```cpp\nSystem.on(out_of_memory, outOfMemoryHandler);\n```\n\nThe handler function just sets the global variable:\n\n```cpp\nvoid outOfMemoryHandler(system_event_t event, int param) {\n    outOfMemory = param;\n}\n```\n\nAnd finally, from loop(), we take action if outOfMemory is >= 0:\n\n```cpp\n    if (outOfMemory >= 0) {\n        // An out of memory condition occurred - reset device.\n        Log.info(\"out of memory occurred size=%d\", outOfMemory);\n        delay(100);\n\n        System.reset();\n    }\n```\n\n#### Connection Failure Deep Power Off\n\nYou can configure the amount of time to fail to connect to the cloud before doing a deep power off for 30 seconds. The default is 11 minutes, and you should not set it less than 10. You can set it higher if you want.\n\n```cpp\nconst std::chrono::milliseconds connectMaxTime = 11min;\n```\n\nThese global variables are used:\n\n```cpp\nbool cloudConnected = false;\nuint64_t cloudConnectStarted = 0;\n```\n\nAnd this code is added to loop to do the detection:\n\n```cpp\n    if (Particle.connected()) {\n        if (!cloudConnected) {\n            cloudConnected = true;\n            uint32_t elapsed = (uint32_t)(System.millis() - cloudConnectStarted);\n            Log.info(\"cloud connected in %lu ms\", elapsed);\n        }\n    }\n    else {\n        if (cloudConnected) {\n            cloudConnected = false;\n            cloudConnectStarted = System.millis();\n            Log.info(\"lost cloud connection\");\n        }\n        uint32_t elapsed = (uint32_t)(System.millis() - cloudConnectStarted);\n        if (elapsed > connectMaxTime.count()) {\n            Log.info(\"failed to connect to cloud, doing deep reset\");\n            delay(100);\n            ab1805.deepPowerDown();\n        }\n    }\n```\n\nThis code just writes a message to debug serial both before resetting and after. However you may want to add some code to publish an event so you can keep track of how often this is happening. The wake reason is set during setup() and will remain valid so you can perform this check as necessary. Note that the existing block in setup() is a bad place to put a publish as you're not yet cloud connected.\n\n```\n    AB1805::WakeReason wakeReason = ab1805.getWakeReason();\n    if (wakeReason == AB1805::WakeReason::DEEP_POWER_DOWN) {\n        Log.info(\"woke from DEEP_POWER_DOWN\");\n    }\n```\n\n\n### 03-periodic-wake\n\nThis example has the device wake up once per hour and publish a value. It illustrates:\n\n- Using the RTC to wake up the device periodically.\n- Using the 256-byte non-volatile RAM in the RTC.\n- An out of memory handler, which will reset the device if a RAM allocation fails.\n- A failure to connect detector, so if it takes longer than 11 minutes to connect to the cloud, a deep power down for 30 seconds is done to hopefully reset things complete.\n \n### 04-selftest\n\nThe self-test code is used to do a quick check of the hardware to make sure it's visible by I2C. It's helpful when you've soldered up a new board to make sure the AB1805 at least has working I2C communications.\n\n### 05-hwtest\n\nThis is the hardware test suite that allows various modes to be tested via commands from the cloud.\n\n### 06-supercap\n\nThis is an example of using a board with a super capacitor.\n\n- It enables the supercap trickle charger\n- When the MODE button is tapped, the device goes into 30 second deep power down (with the RTC powered by supercap)\n\n### 07-deep-power\n\nThis is the deep power down example that uses a LiPo powered RTC to a deep power down, not using a supercap.\n\n- When the MODE button is tapped, the device goes into 30 second deep power down (with the RTC powered by the LiPo)\n\n## Version history\n\n### 0.0.2 (2024-05-29)\n\n- Disable SET_D8_LOW by default; it was accidentally left on in the previous version.",
   "allVersions": [
+    "0.0.2",
     "0.0.1"
   ]
 }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotNCD8Light",
     "version": "5.1.0",
-    "installs": 1331,
+    "installs": 1334,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support NCD 8 PWM Controller board",

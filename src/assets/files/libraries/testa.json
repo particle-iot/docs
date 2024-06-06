@@ -7,7 +7,7 @@
   "attributes": {
     "name": "testa",
     "version": "0.1.15",
-    "installs": 55,
+    "installs": 56,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`",

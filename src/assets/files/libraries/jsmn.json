@@ -7,7 +7,7 @@
   "attributes": {
     "name": "jsmn",
     "version": "1.0.1",
-    "installs": 607,
+    "installs": 645,
     "license": "MIT",
     "author": "zserge",
     "sentence": "Minimalistic JSON parser in C",

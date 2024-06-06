@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Print64",
     "version": "0.0.1",
-    "installs": 686,
+    "installs": 687,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Library for 64-bit number to ASCII conversion",

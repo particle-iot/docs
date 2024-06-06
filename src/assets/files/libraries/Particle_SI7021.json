@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle_SI7021",
     "version": "0.0.1",
-    "installs": 12419,
+    "installs": 12469,
     "license": "OIZOM",
     "author": "Sohil Patel",
     "sentence": "SI7021 library",
