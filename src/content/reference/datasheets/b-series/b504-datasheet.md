@@ -29,7 +29,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
   * LTE Cat 1 module with 3G fallback with Americas bands
   * Support for United States, Canada, and Mexico only
   * 3GPP E-UTRA Release 13 
-  * LTE Cat 1 bands: 2, 4, 5, 12, 13
+  * LTE Cat 1 bands: 2, 4, 5, 12, 13, 25, 26
   * UMTS (3G) bands: 2, 4, 5
   * Embedded Particle EtherSIM
   * GNSS (GPS)
@@ -1820,8 +1820,10 @@ The B-Series SoM has two radio modules.
 | LTE FDD Bands | Band 12 (700 MHz) | &check; |
 | | Band 13 (750 MHz)  | &check; |
 | | Band 5 (850 MHz) | &check; |
+| | Band 26 (850 MHz)  | &nbsp; |
 | | Band 4 (1700 MHz) | &nbsp; |
 | | Band 2 (1900 MHz) | &check; |
+| | Band 25 (1900 MHz)  | &nbsp; |
 | WCDMA Bands | Band 5 (850 MHz) | 
 | | Band 4 (1700) |
 | | Band 2 (1900) |
@@ -2045,4 +2047,3 @@ To be provided at a later date
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-02-28 | RK | Preliminary version |
-|          | 2024-05-31 | RK | Update bands |
