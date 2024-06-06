@@ -20228,7 +20228,7 @@
     {
       "name": "B402MTY",
       "desc": "B-Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
@@ -20263,7 +20263,7 @@
     {
       "name": "B404MEA",
       "desc": "B-Series LTE-M (NorAm, EtherSIM), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B404XMEA",
       "modem": "R410",
       "sim": 4,
@@ -22971,7 +22971,7 @@
     {
       "name": "PARANTGN1EA",
       "desc": "Particle GNSS FPC antenna, [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -22982,7 +22982,7 @@
     {
       "name": "PARANTGN1TY",
       "desc": "Particle GNSS FPC antenna, [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": true,
       "singleSku": "PARANTGN1EA",
       "enterprise": false,

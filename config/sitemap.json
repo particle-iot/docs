@@ -651,8 +651,8 @@
             "hash": "49aa00cfc7396dbb99d0721c359fb12982de674aceb4cbe38d91c9eba01f24b7"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-04-03",
-            "hash": "717e08738aa5b115be1c055f4c8a33d50dd7c0eab4212e70933d8d60dfeb97b5"
+            "date": "2024-06-06",
+            "hash": "4ab8050471dd09debe4daf66c3c77ac692e23430c5b3b1fd3957b40dc57c2f19"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2024-05-08",
@@ -935,16 +935,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-04-03",
-            "hash": "9271a626f4d4a3bf2482220e58aca17e1901f07846fad10d208dd54baafb02e0"
+            "date": "2024-06-06",
+            "hash": "a4003afe9e2b97b97094584c487942c9261dc8b76e81388262f29d1520a7a286"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-04-23",
-            "hash": "44a8a8e113f93077bd2b1e34e6ff844e25f02311f7929f69b5a5e7a432d7ca51"
+            "date": "2024-06-06",
+            "hash": "226370d8bc862a0ba344eece26314e5d7a71d5a0f32f880ad8e429dc7c307c9b"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -1003,20 +1003,20 @@
             "hash": "def4016b762dbafcac48ced5de63b83b48364f22c36a03d04b2d394279ce0f56"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2024-03-26",
-            "hash": "d46cee42c7b542a08bc0ebe5612ae40c24055df3a8579c0d784d77bbdeddfa05"
+            "date": "2024-06-06",
+            "hash": "64c6c58f9994ede091a7767b8fd9809baad20f31bda5af1571a977621f30713b"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2024-03-26",
-            "hash": "eec2a65f5cc931f916785cded0917f6ad2cb8a71a783ce8980b167220255c94f"
+            "date": "2024-06-06",
+            "hash": "9d0a3dea9f807c8ac3288d55d450e0a428572bccc48315049cf3ec417c0f60b2"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2024-03-26",
-            "hash": "9d8ff5649d5797a08bc3e5829926680ce040206e4b789898bbcccfc60760e530"
+            "date": "2024-06-06",
+            "hash": "0cc2ab15937615e9d50fd90f4447865e1f4952d15d3779b0a0d79eb2c329139c"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2024-05-15",
@@ -1156,7 +1156,7 @@
         },
         "reference/cloud-apis/javascript.md": {
             "date": "2024-06-06",
-            "hash": "0293b23938423152611b57f75866a4cf7e30f5a18130df70d09e48b9a12ec5c8"
+            "hash": "d91629ebb1cee06b2dbdb9c38bc9c9f83623f5e2e3b2901a9a8f6c79eaf31c95"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -1323,8 +1323,8 @@
             "hash": "8ec1d044f01f999adecac71c84569f85ddc65a79a945931264287d49eae28e81"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2024-03-26",
-            "hash": "a13e4c12befadb952e214d58836dfd9a5abfc86daa65bc4e463cdaca56c5825f"
+            "date": "2024-06-06",
+            "hash": "f562cea21446555dbdf601a49001f9156e12584bd27b2df47283f5aee6466ebf"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1343,8 +1343,8 @@
             "hash": "c66f07ccdca62f04905f0e4f9401df81fc1e8c713bea6a1d2f4a41dea215dd4f"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
-            "date": "2024-03-26",
-            "hash": "dc97de8c546bec49ed3136a1a0fbb781521fdf51143a1ad154f03bc8f1962c3c"
+            "date": "2024-06-06",
+            "hash": "3e2604e03f6370353aadeed6efed9a05c203edd264ad56174f9978826c20f0f1"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
             "date": "2024-04-23",
@@ -8171,8 +8171,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "bc70e908d0b539e554733158a496b4029c4f6bdd4208191bb4b983d079cd88c3",
-            "date": "2024-04-03"
+            "hash": "a983c9b3bfb5de2775348b7d65b5030b62b596c5b9ee6d6803385774822c4b0f",
+            "date": "2024-06-06"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",

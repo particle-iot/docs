@@ -108,8 +108,8 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
 | B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
-| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
-| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2TY | &nbsp; | Deprecated|
+| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B-Series LTE-M (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
 | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2TY | &nbsp; | NRND|
 | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41TY | ANT-FLXU-50<sup>3</sup> | GA|
@@ -405,8 +405,8 @@ These devices include Bluetooth LE (BLE) capabilities.
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | NRND|
 | B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
-| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | NRND|
-| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | Deprecated|
+| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | B-Series LTE-M (NorAm, EtherSIM), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | NRND|
 | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | GA|
@@ -525,8 +525,8 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | Deprecated|
 | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &check; | &nbsp; | NRND|
 | B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | &nbsp; | Deprecated|
-| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | NRND|
-| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &check; | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | Deprecated|
+| B-Series LTE-M (NorAm, EtherSIM), [x1] | B404MEA | &check; | &nbsp; | Deprecated|
 | B-Series LTE-M (NorAm, EtherSIM), [x1] | B404XMEA | &check; | &nbsp; | GA|
 | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404MTY | &check; | &nbsp; | NRND|
 | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
