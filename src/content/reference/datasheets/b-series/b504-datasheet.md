@@ -11,9 +11,7 @@ description: Datasheet for the Particle B-Series B504 SoM, Gen 3 cellular LTE Ca
 This is a preliminary datasheet and there may be corrections and changes before release.
 {{box op="end"}}
 
-<div align=center><img src="/assets/images/b-series/b523-top.png" ></div>
-
-<p class="attribution">This is a graphic of the B523. The B504 has the same exterior and cellular module dimensions but the label will vary.</p>
+<div align=center><img src="/assets/images/b-series/b504-top.png" ></div>
 
 ## Functional description
 
@@ -2047,3 +2045,5 @@ To be provided at a later date
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-02-28 | RK | Preliminary version |
+|          | 2024-05-31 | RK | Update bands |
+|          | 2024-06-06 | RK | Update bands |
