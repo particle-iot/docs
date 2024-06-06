@@ -414,12 +414,19 @@ These variables are predefined for any webhook (use triple braces to avoid HTML 
 - `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
 - `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the event
 - `\{{{PARTICLE_PUBLISHED_AT}}}`: When the event was published
+- `\{{{PARTICLE_EVENT_ID}}}`: A unique ID generated for this event
 - `\{{{PRODUCT_ID}}}`: The Product ID of the device that triggered the webhook
 
 Product webhooks also have access to:
 
 - `\{{{PRODUCT_USER_ID}}}`: The user id of the device owner
 - `\{{{PRODUCT_VERSION}}}`: The firmware version that published the event
+
+When using an integration that needs to receive the entire event body, you
+can also use of these convenience variables:
+
+- `{{{PARTICLE_EVENT_JSON}}}`: The entire event (name, value, published at, etc) as a JSON string.
+- `{{{PARTICLE_EVENT_BASE64}}}`: The entire event (name, value, published at, etc) as a Base64-encoded JSON string.
 
 ### Custom variables
 

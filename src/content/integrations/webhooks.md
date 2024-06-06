@@ -366,7 +366,10 @@ As a quick reference, these are the pre-defined webhook variables available for 
 - `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
 - `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the webhook event
 - `\{{{PARTICLE_PUBLISHED_AT}}}`: When the webhook was sent
+- `\{{{PARTICLE_EVENT_ID}}}`: A unique ID generated for this event
 - `\{{{PRODUCT_ID}}}`: The Product ID of the device that triggered the webhook
 - `\{{{PRODUCT_USER_ID}}}`: The user id of the device owner
 - `\{{{PRODUCT_VERSION}}}`: The firmware version that published the event
+- `{{{PARTICLE_EVENT_JSON}}}`: The entire event (name, value, published at, etc) as a JSON string.
+- `{{{PARTICLE_EVENT_BASE64}}}`: The entire event (name, value, published at, etc) as a Base64-encoded JSON string.
 
