@@ -49257,6 +49257,11 @@
           "type": "userPart",
           "storage": "internalFlash",
           "maxSize": 131072
+        },
+        {
+          "type": "monoFirmware",
+          "index": 1,
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -49312,6 +49317,11 @@
           "type": "userPart",
           "storage": "internalFlash",
           "maxSize": 131072
+        },
+        {
+          "type": "monoFirmware",
+          "index": 1,
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -49375,6 +49385,11 @@
           "type": "userPart",
           "storage": "internalFlash",
           "maxSize": 131072
+        },
+        {
+          "type": "monoFirmware",
+          "index": 1,
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -49465,6 +49480,10 @@
         {
           "type": "ncpFirmware",
           "storage": "externalMcu"
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -49540,6 +49559,10 @@
         {
           "type": "radioStack",
           "storage": "internalFlash"
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -49613,6 +49636,10 @@
         {
           "type": "radioStack",
           "storage": "internalFlash"
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -49648,7 +49675,7 @@
     "esomx": {
       "id": 15,
       "name": "esomx",
-      "displayName": "E SoM X",
+      "displayName": "E-SoM-X",
       "generation": 3,
       "baseMcu": "nrf52840",
       "features": [
@@ -49676,6 +49703,10 @@
         },
         {
           "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "monoFirmware",
           "storage": "internalFlash"
         }
       ],
@@ -49720,7 +49751,7 @@
     "asom": {
       "id": 22,
       "name": "asom",
-      "displayName": "A SoM",
+      "displayName": "A-SoM",
       "generation": 3,
       "baseMcu": "nrf52840",
       "features": [
@@ -49754,6 +49785,10 @@
         {
           "type": "ncpFirmware",
           "storage": "externalMcu"
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -49789,7 +49824,7 @@
     "bsom": {
       "id": 23,
       "name": "bsom",
-      "displayName": "B SoM",
+      "displayName": "B-SoM",
       "generation": 3,
       "baseMcu": "nrf52840",
       "features": [
@@ -49818,6 +49853,10 @@
         },
         {
           "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "monoFirmware",
           "storage": "internalFlash"
         }
       ],
@@ -49862,7 +49901,7 @@
     "xsom": {
       "id": 24,
       "name": "xsom",
-      "displayName": "X SoM",
+      "displayName": "X-SoM",
       "generation": 3,
       "baseMcu": "nrf52840",
       "features": [
@@ -49888,6 +49927,10 @@
         },
         {
           "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "monoFirmware",
           "storage": "internalFlash"
         }
       ],
@@ -49924,7 +49967,7 @@
     "b5som": {
       "id": 25,
       "name": "b5som",
-      "displayName": "B5 SoM",
+      "displayName": "B5-SoM",
       "generation": 3,
       "baseMcu": "nrf52840",
       "features": [
@@ -49953,6 +49996,10 @@
         },
         {
           "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "monoFirmware",
           "storage": "internalFlash"
         }
       ],
@@ -50035,6 +50082,10 @@
         {
           "type": "ncpFirmware",
           "storage": "externalMcu"
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -50078,7 +50129,7 @@
     "trackerm": {
       "id": 28,
       "name": "trackerm",
-      "displayName": "Tracker M",
+      "displayName": "Tracker-M",
       "generation": 3,
       "baseMcu": "rtl872x",
       "features": [
@@ -50118,6 +50169,10 @@
           "storage": "internalFlash",
           "growsLeft": true,
           "maxSize": 1572864
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -50211,6 +50266,10 @@
           "storage": "internalFlash",
           "growsLeft": true,
           "maxSize": 1572864
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
@@ -50242,7 +50301,7 @@
     "msom": {
       "id": 35,
       "name": "msom",
-      "displayName": "M SoM",
+      "displayName": "M-SoM",
       "generation": 3,
       "baseMcu": "rtl872x",
       "features": [
@@ -50285,6 +50344,10 @@
           "storage": "internalFlash",
           "growsLeft": true,
           "maxSize": 1572864
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
         }
       ],
       "usb": {
