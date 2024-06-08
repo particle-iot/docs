@@ -651,8 +651,8 @@
             "hash": "49aa00cfc7396dbb99d0721c359fb12982de674aceb4cbe38d91c9eba01f24b7"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-06-06",
-            "hash": "4ab8050471dd09debe4daf66c3c77ac692e23430c5b3b1fd3957b40dc57c2f19"
+            "date": "2024-06-08",
+            "hash": "9da4e9f2b2828edcefbed32e3573f3d655ba23484b15bbcbcbd68d139c712cc4"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2024-05-08",
@@ -735,16 +735,16 @@
             "hash": "cda7b60539e868a37f716cb8574410188162b87a28e96d4a069b1c6a314b8dad"
         },
         "integrations/webhooks.md": {
-            "date": "2024-04-13",
-            "hash": "0ddb3253f33c09c1681ef46dcd46effcce2639a0ef06a8ac62ee3261d5083689"
+            "date": "2024-06-08",
+            "hash": "23212a069467075aa10c877a70b1304a13b3bf712b3b421d807dfcab7fac94fe"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2024-05-24",
             "hash": "c7ecaa346d59eb9163cf94d30262740966eea6f81369f1b0c31ec16a86b4a7b4"
         },
         "integrations/community-integrations/azure-iot-hub.md": {
-            "date": "2024-06-04",
-            "hash": "a13e93cb754117045457e159515049799a94ae79340b875c27fcb0bcd02a05d7"
+            "date": "2024-06-08",
+            "hash": "2ecdca02489d2d385b6cec2eae17bc442a1b28fda47bdbe8cc39ea826a528755"
         },
         "integrations/community-integrations/blynk.md": {
             "date": "2024-02-27",
@@ -935,16 +935,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-06-06",
-            "hash": "a4003afe9e2b97b97094584c487942c9261dc8b76e81388262f29d1520a7a286"
+            "date": "2024-06-08",
+            "hash": "f6274ae126032cf649d4247aa74ff8eb690b9d441767446017542cd3f378f871"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-06-06",
-            "hash": "226370d8bc862a0ba344eece26314e5d7a71d5a0f32f880ad8e429dc7c307c9b"
+            "date": "2024-06-08",
+            "hash": "c02f0a42b8e54408356f0b0b85b088691b4fd6b8e5f594e891196285779b8d03"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -1003,20 +1003,20 @@
             "hash": "def4016b762dbafcac48ced5de63b83b48364f22c36a03d04b2d394279ce0f56"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2024-06-06",
-            "hash": "64c6c58f9994ede091a7767b8fd9809baad20f31bda5af1571a977621f30713b"
+            "date": "2024-06-08",
+            "hash": "bbe05bdb09e4259abd5e24a6dad916b28dcc0329c70ed0026fcc95db267b4350"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2024-06-06",
-            "hash": "9d0a3dea9f807c8ac3288d55d450e0a428572bccc48315049cf3ec417c0f60b2"
+            "date": "2024-06-08",
+            "hash": "be42ed106a1ef15c70ab6946f548d4ec5aa3d87db992de3b9f28439750bd6ecf"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2024-06-06",
-            "hash": "0cc2ab15937615e9d50fd90f4447865e1f4952d15d3779b0a0d79eb2c329139c"
+            "date": "2024-06-08",
+            "hash": "73b3cd019cdd5db62faedf70fc22d4bc85df8835ecd738caa041ab430d692c35"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2024-05-15",
@@ -1167,8 +1167,8 @@
             "hash": "40f46b9083bb58fd20e3e38ce3f0a00d7d6098f579d5d6962e2821d4e41e43e9"
         },
         "reference/cloud-apis/webhooks.md": {
-            "date": "2023-08-03",
-            "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
+            "date": "2024-06-08",
+            "hash": "1b0d8258dbea7c81ec53fe033d7986750b266a71baf61f2878ebc25635b77424"
         },
         "reference/developer-tools/cli.md": {
             "date": "2024-06-06",
@@ -1323,8 +1323,8 @@
             "hash": "8ec1d044f01f999adecac71c84569f85ddc65a79a945931264287d49eae28e81"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2024-06-06",
-            "hash": "f562cea21446555dbdf601a49001f9156e12584bd27b2df47283f5aee6466ebf"
+            "date": "2024-06-08",
+            "hash": "93e01ed7c70fe9993c3a35e41f6ce1b739e4035f7cb8f7c81859ac88eda70500"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1343,8 +1343,8 @@
             "hash": "c66f07ccdca62f04905f0e4f9401df81fc1e8c713bea6a1d2f4a41dea215dd4f"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
-            "date": "2024-06-06",
-            "hash": "3e2604e03f6370353aadeed6efed9a05c203edd264ad56174f9978826c20f0f1"
+            "date": "2024-06-08",
+            "hash": "8f956a956e7bd88e819f27093557d5b6a9ff9a57515021b1a1290c42bd49111e"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
             "date": "2024-04-23",
@@ -1507,8 +1507,8 @@
             "hash": "6f1839fec624aef7273a1796f976193bc448932e4e8203302727e706106dba37"
         },
         "troubleshooting/connectivity/cloud-debug.md": {
-            "date": "2023-11-27",
-            "hash": "6191122c94cf465dd21ebd6dbac6d165b6594d1580e2aac155431ff8f34f8b91"
+            "date": "2024-06-08",
+            "hash": "24eaaf81d44af99f9e66b246c5c457232655c67a2fd460dfeb0fbb38d4850673"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug-2.md": {
             "date": "2024-02-27",
@@ -8171,8 +8171,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "a983c9b3bfb5de2775348b7d65b5030b62b596c5b9ee6d6803385774822c4b0f",
-            "date": "2024-06-06"
+            "hash": "5e65b2c75b8bec55f4799a88e7673103e47bae634edc96786764f0d7fba7696f",
+            "date": "2024-06-08"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
