@@ -228,6 +228,10 @@ alt="Access shared IoT Hub policy info"/>
 Awesome! You now have everything you need to move on to enabling the
 integration on the Particle Console.
 
+### Provide network access
+
+Provide the Particle Cloud access to your Hub by going to Networking page (under Security Settings) and clicking **Public network access: All networks**. Access to your Hub will still requires proper authorization, so ensure you have the shared access policy configured above.
+
 ## Enabling the integration
 
 ### Particle Console
