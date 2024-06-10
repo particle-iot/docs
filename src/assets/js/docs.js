@@ -193,7 +193,7 @@ $(document).ready(function () {
         }
     };
 
-    Docs.applyColorMode = function(which) {
+    Docs.applyColorTheme = function(which) {
         $('html').attr('data-theme', which);
 
         $('img[data-dark-src]').each(function() {
@@ -226,40 +226,38 @@ $(document).ready(function () {
     if (!Docs.settings) {
         Docs.settings = {};
     }
-    if (!Docs.settings.colorMode) {
-        Docs.settings.colorMode = 'dark';
+    if (!Docs.settings.colorTheme) {
+        Docs.settings.colorTheme = 'dark';
     }
-
-    // lightDarkModeMenuIndicator darkModeMenuIndicator darkModeMenuClick lightMode autoMode
-
+    
     Docs.saveSettings = function() {
         localStorage.setItem('docsGeneral', JSON.stringify(Docs.settings));
     }
 
-    Docs.updateColorMode = function(options = {}) {        
+    Docs.updateColorTheme = function(options = {}) {        
         $('input[name="theme-menu-radio"]').prop('checked', false);
-        $('input[name="theme-menu-radio"][data-theme="' + options.colorMode + '"]').prop('checked', true);
+        $('input[name="theme-menu-radio"][data-theme="' + options.colorTheme + '"]').prop('checked', true);
         
-        switch(options.colorMode) {
+        switch(options.colorTheme) {
             default:
             case 'dark':
-                Docs.settings.colorMode = 'dark';
-                Docs.applyColorMode(options.colorMode);
+                Docs.settings.colorTheme = 'dark';
+                Docs.applyColorTheme(options.colorTheme);
                 break;
     
             case 'light':
-                Docs.settings.colorMode = options.colorMode;
-                Docs.applyColorMode(options.colorMode);
+                Docs.settings.colorTheme = options.colorTheme;
+                Docs.applyColorTheme(options.colorTheme);
                 break;
     
             case 'auto':
-                Docs.settings.colorMode = options.colorMode;
+                Docs.settings.colorTheme = options.colorTheme;
                 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
                 if (prefersDarkScheme.matches) {
-                    Docs.applyColorMode('dark');
+                    Docs.applyColorTheme('dark');
                 }
                 else {
-                    Docs.applyColorMode('light');
+                    Docs.applyColorTheme('light');
                 }        
                 break;
         }
@@ -268,7 +266,7 @@ $(document).ready(function () {
             Docs.saveSettings();
         }        
     }
-    Docs.updateColorMode({colorMode: Docs.settings.colorMode, save: false});
+    Docs.updateColorTheme({colorTheme: Docs.settings.colorTheme, save: false});
 
 
     $('#userMenuChangeTheme > a').on('click', function() {
@@ -284,23 +282,23 @@ $(document).ready(function () {
         }
     });
     $('input[name="theme-menu-radio"]').on('click', function() {
-        const colorMode = $(this).data('theme');
-        Docs.updateColorMode({colorMode, save: true});
+        const colorTheme = $(this).data('theme');
+        Docs.updateColorTheme({colorTheme, save: true});
     });
 
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
         if (event.matches) {
-            if (Docs.settings.colorMode == 'auto') {
-                Docs.applyColorMode('dark');
+            if (Docs.settings.colorTheme == 'auto') {
+                Docs.applyColorTheme('dark');
             }
         }
     });
 
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
         if (event.matches) {
-            if ( Docs.settings.colorMode == 'auto') {
-                Docs.applyColorMode('light');
+            if ( Docs.settings.colorTheme == 'auto') {
+                Docs.applyColorTheme('light');
             }
         }
     });
