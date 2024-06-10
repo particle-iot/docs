@@ -8,7 +8,7 @@ includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-
 
 # {{title}}
 
-This page includes information on how to set up Wi-Fi on P2, Photon 2, or Argon devices that are used by your customers who are using a product that you have created on the Particle platform. 
+This page includes information on how to set up Wi-Fi on P2, Photon 2, M-SoM or Argon devices that are used by your customers who are using a product that you have created on the Particle platform. 
 
 If you are interested in setting up a single device for your own software development, see [setup options](/getting-started/setup/setup-options).
 

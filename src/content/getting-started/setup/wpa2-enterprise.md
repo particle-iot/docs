@@ -9,7 +9,7 @@ description: WPA2 Enterprise Wi-Fi Setup
 
 You can use the P1 and Photon on a WPA2 Enterprise Wi-Fi network. This type of network is common in university and corporate networks. If you see a reference to RADIUS, 802.1(x), need to enter both a username and password, or have a certificate or key file, you probably have a WPA2 Enterprise network. 
 
-The Argon, P2, and Photon 2 cannot be used on WPA2 Enterprise.
+The Argon, P2, Photon 2. and M-SoM cannot be used on WPA2 Enterprise.
 
 Most home networks use WPA2 Personal and have a simpler setup that only requires a SSID (network name) and a password and do not require these steps.
 
