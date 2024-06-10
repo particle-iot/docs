@@ -231,21 +231,6 @@ $(document).ready(function() {
         }
     }
     
-    $('#userMenuChangeTheme > a').on('click', function() {
-        if ($('.theme-menu-sub').first().is(':visible')) {
-            console.log('collapse theme');
-            $('.changeThemeExpand').show();
-            $('.changeThemeCollapse').hide();
-            $('.theme-menu-sub').hide();
-        }
-        else {
-            console.log('show theme');
-            $('.changeThemeExpand').hide();
-            $('.changeThemeCollapse').show();
-            $('.theme-menu-sub').show();
-        }
-    });
-
     $('.apiHelperLoginButton').on('click', handleLogin);
 
     $('.apiHelperLogoutButton').on('click', handleLogout);

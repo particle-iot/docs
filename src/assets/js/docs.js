@@ -236,25 +236,24 @@ $(document).ready(function () {
         localStorage.setItem('docsGeneral', JSON.stringify(Docs.settings));
     }
 
-    Docs.updateColorMode = function(options = {}) {
-        $('.lightDarkModeMenuIndicator').attr('style', 'display: hidden;');
+    Docs.updateColorMode = function(options = {}) {        
+        $('input[name="theme-menu-radio"]').prop('checked', false);
+        $('input[name="theme-menu-radio"][data-theme="' + options.colorMode + '"]').prop('checked', true);
+        
         switch(options.colorMode) {
             default:
             case 'dark':
                 Docs.settings.colorMode = 'dark';
-                $('.darkModeMenuIndicator').show();
                 Docs.applyColorMode(options.colorMode);
                 break;
     
             case 'light':
                 Docs.settings.colorMode = options.colorMode;
-                $('.lightModeMenuIndicator').show();
                 Docs.applyColorMode(options.colorMode);
                 break;
     
             case 'auto':
                 Docs.settings.colorMode = options.colorMode;
-                $('.autoModeMenuIndicator').show();
                 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
                 if (prefersDarkScheme.matches) {
                     Docs.applyColorMode('dark');
@@ -271,21 +270,29 @@ $(document).ready(function () {
     }
     Docs.updateColorMode({colorMode: Docs.settings.colorMode, save: false});
 
-    $('.darkModeMenuClick').on('click', function() {
-        Docs.updateColorMode({colorMode: 'dark', save: true});
+
+    $('#userMenuChangeTheme > a').on('click', function() {
+        if ($('.theme-menu-sub').first().is(':visible')) {
+            $('.changeThemeExpand').show();
+            $('.changeThemeCollapse').hide();
+            $('.theme-menu-sub').hide();
+        }
+        else {
+            $('.changeThemeExpand').hide();
+            $('.changeThemeCollapse').show();
+            $('.theme-menu-sub').show();
+        }
     });
-    $('.lightModeMenuClick').on('click', function() {
-        Docs.updateColorMode({colorMode: 'light', save: true});
-    });
-    $('.autoModeMenuClick').on('click', function() {
-        Docs.updateColorMode({colorMode: 'auto', save: true});
+    $('input[name="theme-menu-radio"]').on('click', function() {
+        const colorMode = $(this).data('theme');
+        Docs.updateColorMode({colorMode, save: true});
     });
 
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
         if (event.matches) {
             if (Docs.settings.colorMode == 'auto') {
-                applyDarkMode();
+                Docs.applyColorMode('dark');
             }
         }
     });
@@ -293,7 +300,7 @@ $(document).ready(function () {
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
         if (event.matches) {
             if ( Docs.settings.colorMode == 'auto') {
-                applyLightMode();
+                Docs.applyColorMode('light');
             }
         }
     });
