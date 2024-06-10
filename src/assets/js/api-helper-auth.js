@@ -140,16 +140,23 @@ $(document).ready(function() {
             $('#userMenuLabel').text('Logged In');
     
             $('#userMenuLoggedInAs').text('Logged in as ' + auth.username)
+            if ($('.menuLoggedInUser').is(':visible')) {
+                $('#userMenuLoggedInAs').hide();
+            }
+            else {
+                $('#userMenuLoggedInAs').show();
+            }
     
+
             $('.menuLoggedInUser').text(auth.username);
 
+            /*
             if (localAuth) {
                 $('#userMenuConsole').hide();
                 $('#userMenuEditAccount').hide();
             }
-            else {
-                $('#userMenuEditAccount > a').on('click', handleEditAccount);
-            }
+            */
+            $('#userMenuEditAccount > a').on('click', handleEditAccount);
             
 
             $('#userMenuLogout > a').on('click', handleLogout);
@@ -224,6 +231,21 @@ $(document).ready(function() {
         }
     }
     
+    $('#userMenuChangeTheme > a').on('click', function() {
+        if ($('.theme-menu-sub').first().is(':visible')) {
+            console.log('collapse theme');
+            $('.changeThemeExpand').show();
+            $('.changeThemeCollapse').hide();
+            $('.theme-menu-sub').hide();
+        }
+        else {
+            console.log('show theme');
+            $('.changeThemeExpand').hide();
+            $('.changeThemeCollapse').show();
+            $('.theme-menu-sub').show();
+        }
+    });
+
     $('.apiHelperLoginButton').on('click', handleLogin);
 
     $('.apiHelperLogoutButton').on('click', handleLogout);

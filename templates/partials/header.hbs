@@ -41,16 +41,37 @@
 
     <div class="dropdown narrow" style="width: 30px">
       <a id="userMenu" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <img width="24" height="24" data-light-src="/assets/images/menu-3dots-light.png" data-dark-src="/assets/images/menu-3dots-light.png" />
+        <img width="24" height="24" data-light-src="/assets/images/menu-3dots-light.png" data-dark-src="/assets/images/menu-3dots-dark.png" />
       </a>
       <ul class="dropdown-menu pull-right" aria-labelledby="userMenu">
         <li id="userMenuLoggedInAs" class="loginMenuItem"></li>
-        <li id="userMenuConsole"><a href="https://console.particle.io" target="_blank">Console</a></li>
-        <li id="userMenuEditAccount"><a>Edit Account</a></li>
-        <li id="userMenuLogout"><a>Logout</a></li>
+        <li id="userMenuConsole"><a href="https://console.particle.io" target="_blank">
+          <img width="20" height="20" data-light-src="/assets/images/menu-console-light.png" data-dark-src="/assets/images/menu-console-dark.png" />
+          Go to console</a></li>
+        <li id="userMenuChangeTheme"><a>
+          <img width="20" height="20" data-light-src="/assets/images/menu-theme-light.png" data-dark-src="/assets/images/menu-theme-dark.png" />
+          Change theme
+          <img width="20" height="20" class="changeThemeExpand" data-light-src="/assets/images/menu-expand-light.png" data-dark-src="/assets/images/menu-expand-dark.png" />
+          <img width="20" height="20" class="changeThemeCollapse"style="display:none" data-light-src="/assets/images/menu-collapse-light.png" data-dark-src="/assets/images/menu-collapse-dark.png" />
+          </a></li>          
+        <li class="dropdown-menu-sub theme-menu-sub"><a>
+          <label><input type="radio" />Light</label>
+          </a></li>
+        <li class="dropdown-menu-sub theme-menu-sub"><a>
+          <label><input type="radio" />Dark</label>
+          </a></li>
+        <li class="dropdown-menu-sub theme-menu-sub"><a>
+          <label><input type="radio" />Auto</label>
+          </a></li>
+        <li id="userMenuEditAccount"><a>
+          <img width="20" height="20" data-light-src="/assets/images/menu-edit-account-light.png" data-dark-src="/assets/images/menu-edit-account-dark.png" />
+          Edit Account</a></li>
+        <li id="userMenuLogout"><a>
+          <img width="20" height="20" data-light-src="/assets/images/menu-logout-light.png" data-dark-src="/assets/images/menu-logout-dark.png" />
+          Logout</a></li>
         <li>---</li>
-        <li><a class="darkModeMenuClick"><span class="lightDarkModeMenuIndicator darkModeMenuIndicator" style="display: hidden;">&check; </span>Dark mode</a></li>
         <li><a class="lightModeMenuClick"><span class="lightDarkModeMenuIndicator lightModeMenuIndicator" style="display: hidden;">&check; </span>Light mode</a></li>
+        <li><a class="darkModeMenuClick"><span class="lightDarkModeMenuIndicator darkModeMenuIndicator" style="display: hidden;">&check; </span>Dark mode</a></li>
         <li><a class="autoModeMenuClick"><span class="lightDarkModeMenuIndicator autoModeMenuIndicator" style="display: hidden;">&check; </span>Automatic mode</a></li>
       </ul>
     </div>

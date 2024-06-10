@@ -168,14 +168,10 @@ a.nav-device {
   font-size: 16px;
   text-align: left;
   list-style: none;
-  background-color: @NC_WHITE;
+  background-color: var(--theme-dropdown-menu-background-color);
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
-  border: 1px solid @NC_MORNING_MIST;
-  border: 1px solid rgba(0, 0, 0, .15);
-  border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  border-radius: 12px;
   li {
     overflow-x: hidden;
   }
@@ -205,7 +201,7 @@ a.nav-device {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: @NC_HEADER;
+  color: var(--theme-primary-text-color);
   white-space: nowrap;
   width: 100%;
 }
@@ -216,7 +212,7 @@ a.nav-device {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: @NC_HEADER;
+  color: var(--theme-primary-text-color);
   white-space: nowrap;
   width: 100%;
 }
@@ -228,28 +224,25 @@ a.nav-device {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: @NC_HEADER;
+  color: var(--theme-primary-text-color);
+  text-decoration: none;
   white-space: nowrap;
   width: 100%;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  color: @NC_MIDNIGHT;
-  text-decoration: none;
-  background-color: @NC_ALMOST_WHITE;
+  text-decoration: underline;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  color: @NC_WHITE;
-  text-decoration: none;
-  background-color: @NC_CYAN_HOVER;
+  text-decoration: underline;
   outline: 0;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
-  color: @NC_COOL_GRAY;
+  text-decoration: none;
 }
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
@@ -259,6 +252,20 @@ a.nav-device {
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+
+
+.dropdown-menu > li.dropdown-menu-sub {
+  display: none;
+}
+
+// Theme radio buttons in the dropdown menu
+.dropdown-menu > li.dropdown-menu-sub > a {
+  margin-left: 18px;
+  font-size: 13px;
+  line-height: 15.6px;
+  color: var(--theme-dropdown-menu-minor-text-color);
+}
+
 .open > .dropdown-menu {
   display: block;
 }
