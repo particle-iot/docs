@@ -229,7 +229,7 @@ $(document).ready(function () {
     if (!Docs.settings.colorTheme) {
         Docs.settings.colorTheme = 'dark';
     }
-    
+
     Docs.saveSettings = function() {
         localStorage.setItem('docsGeneral', JSON.stringify(Docs.settings));
     }
@@ -274,13 +274,19 @@ $(document).ready(function () {
             $('.changeThemeExpand').show();
             $('.changeThemeCollapse').hide();
             $('.theme-menu-sub').hide();
+            $('.changeThemeIcon').show();
+            $('.changeThemeOpenIcon').hide();
         }
         else {
             $('.changeThemeExpand').hide();
             $('.changeThemeCollapse').show();
             $('.theme-menu-sub').show();
+            $('.changeThemeIcon').hide();
+            $('.changeThemeOpenIcon').show();
         }
     });
+
+
     $('input[name="theme-menu-radio"]').on('click', function() {
         const colorTheme = $(this).data('theme');
         Docs.updateColorTheme({colorTheme, save: true});
