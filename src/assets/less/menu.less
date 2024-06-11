@@ -79,7 +79,9 @@ div.navMenu1 {
   .STYLE_left_nav_heading();
   margin-top: 2px;
   margin-bottom: 5px;
+  color: var(--theme-menubar-color);
 }
+
 
 div.navMenu2 {
   .STYLE_left_nav_heading();
@@ -87,6 +89,7 @@ div.navMenu2 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
 
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
@@ -115,6 +118,7 @@ div.navMenu3 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
 
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
@@ -128,6 +132,7 @@ div.navMenu4 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
 
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
@@ -141,6 +146,7 @@ div.navMenu5 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
 
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
@@ -214,7 +220,8 @@ div.navContent {
 };
 
 a.navLink {
-  .STYLE_left_nav_page();
+  color: var(--theme-menubar-minor-color);
+  // .STYLE_left_nav_page();
 };
 
 a.navLink {
