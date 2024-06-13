@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Integration gallery update 2024-06-10
+
+The [Integration gallery](/integrations/introduction/) has new, easier to configure, forms.
+
 ### Muon datasheet 2024-06-05
 
 Updated the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) with the updated expansion connector.
