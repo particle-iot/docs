@@ -919,8 +919,8 @@
             "hash": "5467d7f2eb2c89c12d32d04e24c92bf57ff698f413dfcee251700ced984a6c89"
         },
         "hardware/best-practices/watchdog-timers.md": {
-            "date": "2023-08-30",
-            "hash": "947194e65ea5f2cf04a11b6e18c431b5a5f0e070a9cacf9e77fdee2445945454"
+            "date": "2024-06-14",
+            "hash": "358d8e8737eb0609bd6ba66d2e7ddea707ae89282514c57c89909b66f57f47d5"
         },
         "hardware/b-series-som/b-series-som-flexibility.md": {
             "date": "2024-02-27",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2d56c7827d4cdcb8ca6d1155026f0bfd5986b539ae7fb50dcf3681b5d5680ba3",
+            "hash": "495a6fce7ac63c757179c052ae7ff3a9dc5781550daaae05d33bc94e3c4dd40f",
             "date": "2024-06-14"
         },
         "getting-started/cloud/logic.md": {

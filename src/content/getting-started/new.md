@@ -22,6 +22,10 @@ The header format must be exactly that because the search feature uses that to d
 --}}
 
 
+### FeatherAB1805-Li fix 2024-06-14
+
+Updated the design files for [FeatherAB1805-Li](/hardware/best-practices/watchdog-timers/#featherwing-ab1805-li) to add a missing pull-up resistor that would affect using it with the Photon 2.
+
 ### FCC permissive change 2024-06-14
 
 Added link to the FCC permissive change policy document to the [Certification guide](/hardware/certification/certification/#fcc-united-states-rf-certifications).

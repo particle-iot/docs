@@ -18,7 +18,7 @@ void setup() {
     waitFor(Serial.isConnected, 15000);
     delay(1000);
 
-    ab1805.withFOUT(D8).setup();
+    ab1805.withFOUT(WKP).setup();
 
     AB1805::WakeReason wakeReason = ab1805.getWakeReason();
     if (wakeReason == AB1805::WakeReason::DEEP_POWER_DOWN) {

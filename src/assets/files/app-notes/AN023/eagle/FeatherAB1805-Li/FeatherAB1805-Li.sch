@@ -1123,6 +1123,7 @@ https://www.digikey.com/product-detail/en/torex-semiconductor-ltd/XC6215B332MR-G
 <part name="Q2" library="rickk2" deviceset="2N7002L" device=""/>
 <part name="U1" library="rickk2" deviceset="XC6215" device="" value="XC6215"/>
 <part name="GND3" library="rickk2" deviceset="GND" device=""/>
+<part name="R1" library="rickk2" deviceset="RES-100K-0603" device="" value="100K"/>
 </parts>
 <sheets>
 <sheet>
@@ -1135,6 +1136,9 @@ https://www.digikey.com/product-detail/en/torex-semiconductor-ltd/XC6215B332MR-G
 <text x="170.18" y="76.2" size="1.778" layer="97">3V3R is the 3.3V power for the RTC.
 It's generated from the XC6215 regulator
 and stays on even if EN is pulled low.</text>
+<text x="101.6" y="160.02" size="1.27" layer="97">The D8 pull-up was missing from v1
+of the FeatherAB1805-Li board and added in v2.
+It was already present in the Feather AB1805-Sc board.</text>
 </plain>
 <instances>
 <instance part="MS1" gate="G$1" x="96.52" y="96.52" smashed="yes"/>
@@ -1195,6 +1199,10 @@ and stays on even if EN is pulled low.</text>
 </instance>
 <instance part="GND3" gate="1" x="149.86" y="55.88" smashed="yes">
 <attribute name="VALUE" x="147.32" y="53.34" size="1.778" layer="96"/>
+</instance>
+<instance part="R1" gate="G$1" x="119.38" y="149.86" smashed="yes" rot="R90">
+<attribute name="NAME" x="117.8814" y="146.05" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="122.682" y="146.05" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -1284,6 +1292,7 @@ and stays on even if EN is pulled low.</text>
 <pinref part="MS1" gate="G$1" pin="D8"/>
 <wire x1="119.38" y1="134.62" x2="119.38" y2="144.78" width="0.1524" layer="91"/>
 <label x="119.38" y="137.16" size="1.778" layer="95" rot="R90"/>
+<pinref part="R1" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="FOUT"/>
@@ -1355,6 +1364,10 @@ and stays on even if EN is pulled low.</text>
 <wire x1="152.4" y1="157.48" x2="152.4" y2="162.56" width="0.1524" layer="91"/>
 <junction x="152.4" y="157.48"/>
 <pinref part="SUPPLY2" gate="G$1" pin="3V3"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="144.78" y1="157.48" x2="119.38" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="157.48" x2="119.38" y2="154.94" width="0.1524" layer="91"/>
+<junction x="144.78" y="157.48"/>
 </segment>
 </net>
 <net name="EN" class="0">

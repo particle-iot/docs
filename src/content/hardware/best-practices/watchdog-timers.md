@@ -266,6 +266,8 @@ The AB1805-SC (supercap) version can be used when powered by USB or LiPo.
 
 ![AB1805-Li Bottom](/assets/images/app-notes/AN023/ab1805-li-bottom.jpg)
 
+These pictures are of v1 of the board.
+
 #### Schematic and Board - AB1805-Li
 
 ![Schematic](/assets/images/app-notes/AN023/ab1805-li-schematic.png)
@@ -273,6 +275,8 @@ The AB1805-SC (supercap) version can be used when powered by USB or LiPo.
 ![Board Layout](/assets/images/app-notes/AN023/ab1805-li-board.png)
 
 The Eagle files are in the eagle/FeatherAB1805-Li directory.
+
+- V2 of the board added R1, a 100K pull-up from D8 to 3V3. This was present on the FeatherAB1805-Sc board, but missing from the Li board.
 
 #### BoM (Bill of Materials) - AB1805-Li
 
@@ -282,7 +286,7 @@ The Eagle files are in the eagle/FeatherAB1805-Li directory.
 | 1 | C2 | CAP CER 0.1UF 25V X7R 0603 | [Samsung CL10B104KA8NNNC](https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8NNNC/1276-1006-1-ND/3889092) | |
 | 1 | C3 | CAP CER 47PF 100V C0G/NP0 0603 | [Murata GCM1885C2A470FA16D](https://www.digikey.com/product-detail/en/murata-electronics/GCM1885C2A470FA16D/490-16408-1-ND/7363390) | |
 | 2 | R2, R3 | RES SMD 10K OHM 5% 1/4W 0603 | [Panasonic ERJ-PA3J103V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PA3J103V/P10KBZCT-ND/5036237) | | 
-| 1 | R5 | RES SMD 100K OHM 1% 1/10W 0603 | [Panasonic ERJ-3EKF1003V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF1003V/P100KHCT-ND/198110) | |
+| 2 | R1, R5 | RES SMD 100K OHM 1% 1/10W 0603 | [Panasonic ERJ-3EKF1003V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF1003V/P100KHCT-ND/198110) | |
 | 1 | Q1 | CRYSTAL 32.7680KHZ 6PF SMD | [Abracon ABS07-120-32.768KHZ-T](https://www.digikey.com/product-detail/en/abracon-llc/ABS07-120-32-768KHZ-T/535-11937-1-ND/3724046) | $0.77 |
 | 1 | Q2 | MOSFET N-CH 60V 0.115A SOT-23 | [On Semiconductor 2N7002LT1G](https://www.digikey.com/product-detail/en/on-semiconductor/2N7002LT3G/2N7002LT3GOSCT-ND/2704932) | |
 | 1 | U1 | IC REG LINEAR 3.3V 200MA SOT25 | [Torex XC6215B332MR-G](https://www.digikey.com/product-detail/en/torex-semiconductor-ltd/XC6215B332MR-G/893-1078-1-ND/2138269) | $0.71 |
@@ -300,6 +304,12 @@ Of note in this design is the use of a separate regulator to power the AB1805. T
 ![XC6215](/assets/images/app-notes/AN023/xc6215.png)
 
 This power supply (3V3R) is connected to VCC on the AB1805 so it will stay fully powered. This is necessary because deep power down mode uses the EN pin to turn off the MCU 3V3 power, so we can't power the AB1805 from 3V3 without external power. The AB1805-SC design, below, uses a supercap instead of a separate regulator.
+
+### Software note for Photon 2 - AB1805-Li
+
+If you are using the wake from hibernate sleep feature with the Photon 2, note that the pin next to D7 is D10, but is in the same position as the Boron/Argon D8. If you use the constant `WKP` the correct pin name will be used, but be aware of this if you hardcode D8 or D10 in your code.
+
+Only the WKP pin can be used to wake the P2, Photon 2, and M-SoM from hibernate sleep. Also, WKP does not support software pull-up while in hibernate sleep mode.
 
 
 ### FeatherWing - AB1805-SC
@@ -344,6 +354,13 @@ The Eagle files are in the eagle/FeatherAB1805-SC directory.
 
 
 ### Hardware design - AB1805-SC
+
+### Software note for Photon 2 - AB1805-Sc
+
+If you are using the wake from hibernate sleep feature with the Photon 2, note that the pin next to D7 is D10, but is in the same position as the Boron/Argon D8. If you use the constant `WKP` the correct pin name will be used, but be aware of this if you hardcode D8 or D10 in your code.
+
+Only the WKP pin can be used to wake the P2, Photon 2, and M-SoM from hibernate sleep. Also, WKP does not support software pull-up while in hibernate sleep mode.
+
 
 ### Supercap calculations - AB1805-SC
 

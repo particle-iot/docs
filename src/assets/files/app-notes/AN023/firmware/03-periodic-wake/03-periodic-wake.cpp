@@ -39,8 +39,8 @@ void setup() {
     waitFor(Serial.isConnected, 15000);
     delay(1000);
 
-    // The sample board has D8 connected to FOUT for wake interrupts
-    ab1805.withFOUT(D8).setup();
+    // The sample board has D8 (Argon/Boron) or D10 (Photon 2) connected to FOUT for wake interrupts
+    ab1805.withFOUT(WKP).setup();
 
     // Note whether the RTC is set before calling resetConfig() as this will make
     // isRTCSet return false.
@@ -109,7 +109,7 @@ void loop() {
 
         SystemSleepConfiguration config;
         config.mode(SystemSleepMode::HIBERNATE)
-            .gpio(D8, FALLING);
+            .gpio(WKP, FALLING);
         System.sleep(config);
 
         // This should never be reached
