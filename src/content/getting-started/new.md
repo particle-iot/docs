@@ -24,7 +24,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### FCC permissive change 2024-06-14
 
-Added links to the FCC guide to [permissive changes](https://apps.fcc.gov/kdb/GetAttachment.html?id=N0FeGuIZalHwpzYoaFJpjA%3D%3D) in the certification guides.
+Added link to the FCC permissive change policy document to the [Certification guide](/hardware/certification/certification/#fcc-united-states-rf-certifications).
 
 ### Integration gallery update 2024-06-10
 

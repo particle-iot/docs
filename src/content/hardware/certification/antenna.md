@@ -44,8 +44,7 @@ The PARANTCW1EA, PARANTC41EA, ANTCW2EA, ANT-FLXU are generally compatible across
 
 **Particle recommends you use a Particle antenna that has already been certified for the device.**
 
-In the United States, you can generally substitute an antenna that is of the same type and equal or lesser gain, both total and in all bands. We still recommend using the certified antenna, as you will need [FCC permissive change](https://apps.fcc.gov/kdb/GetAttachment.html?id=N0FeGuIZalHwpzYoaFJpjA%3D%3D)
-approval to substitute an antenna with equal or lesser gain.
+In the United States, you can generally substitute an antenna that is of the same type and equal or lesser gain, both total and in all bands. We still recommend using the certified antenna, as you will need FCC permissive change approval to substitute an antenna with equal or lesser gain. For more information, see the  [certification guide](/hardware/certification/certification/#fcc-united-states-rf-certifications).
 
 - If the device is certified with PARANTCW1EA, other antennas have lower gain, but this will result in lower performance
 - If the device is certified with PARANTC41EA, substituting ANTCW2EA requires recertification because ANTCW2EA has higher gain in the high frequency bands

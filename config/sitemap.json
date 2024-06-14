@@ -936,7 +936,7 @@
         },
         "hardware/certification/antenna.md": {
             "date": "2024-06-14",
-            "hash": "fe60bc9e3e650b27a0517c8472faa5aee66ec8e2a0b21732a4f56d1536d2340a"
+            "hash": "48bf20b7d320dd01d3874c1e1343cd57af9d06ce5a82b3fd29773219cbdd71ec"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -948,7 +948,7 @@
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
-            "hash": "e489b851dd76836385a5e22c60b60930efe2e6390fbf78243ff30374e189e146"
+            "hash": "a8984daba6950f9956cf376d9df5a306a96b81e526052b17f8c6a673238a22f2"
         },
         "hardware/certification/enabling-wifi-rf-test-for-esp32.md": {
             "date": "2024-01-25",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "14f36e51e25aacbbf35ac082f928fbf802d3777272d4b6e2c0e68ffdc8fcf5ac",
+            "hash": "2d56c7827d4cdcb8ca6d1155026f0bfd5986b539ae7fb50dcf3681b5d5680ba3",
             "date": "2024-06-14"
         },
         "getting-started/cloud/logic.md": {

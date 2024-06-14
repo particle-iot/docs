@@ -24,7 +24,7 @@ Additionally, these resources can be helpful:
 - [Electronic Code of Federal Regulation for Telecommunications, Part 15: Radio Frequencies Devices](http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&SID=a9f9d244cc20be8b56099003689d6cc3&rgn=div5&view=text&node=47:1.0.1.1.16&idno=47)
 - [Additional details about Part 15](https://www.fcc.gov/oet/ea/rfdevice)
 - [Additional guidance on types of certification you may need](https://apps.fcc.gov/oetcf/kdb/forms/FTSSearchResultPage.cfm?id=44637&switch=P)
-- [What is a permissive change?](https://apps.fcc.gov/kdb/GetAttachment.html?id=N0FeGuIZalHwpzYoaFJpjA%3D%3D)
+- [FCC permissive change policy](https://apps.fcc.gov/kdb/GetAttachment.html?id=N0FeGuIZalHwpzYoaFJpjA%3D%3D)
 
 In the United States, all Particle devices are classified as Class B devices.
 
