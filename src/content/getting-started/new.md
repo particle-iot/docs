@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+
+### FCC permissive change 2024-06-14
+
+Added links to the FCC guide to [permissive changes](https://apps.fcc.gov/kdb/GetAttachment.html?id=N0FeGuIZalHwpzYoaFJpjA%3D%3D) in the certification guides.
+
 ### Integration gallery update 2024-06-10
 
 The [Integration gallery](/integrations/introduction/) has new, easier to configure, forms.

@@ -22,7 +22,7 @@ The pins used for reset, interrupt, and chip select are hardcoded into Device OS
 
 ### FeatherWing Pinouts
 
-These pinouts are using for the Ethernet FeatherWing, Argon, Boron, P2, and Photon 2.
+These are the default pins for the Ethernet FeatherWing, Argon, Boron, P2, and Photon 2.
 
 |Particle Pin|Ethernet FeatherWing Pin   |
 |:-------|:--------------------------|
@@ -33,14 +33,13 @@ These pinouts are using for the Ethernet FeatherWing, Argon, Boron, P2, and Phot
 |D4      | nINTERRUPT  |
 |D5      | nCHIP SELECT|
 
-Pins D3 and D4 are the same as `SPI1` on the Argon and Boron thus you cannot use Ethernet and SPI1 at the same time. It is possible to move SPI1 to other pins using [this unsupported technique](https://github.com/rickkas7/spi1-reconfiguration).
-
+Pins D3 and D4 are the same as `SPI1` on the Argon and Boron. You can use [pin reconfiguration](/device-os/api/ethernet/ethernet/#pin-configuration-ethernet) to change the pins used for reset, interrupt, and chip select.
 
 ### Adafruit FeatherWing
 
 If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
-### B-Series Pinouts
+### B-SoM and M-SoM default pins
 
 | Particle Pin | M.2 Pin | Ethernet Pin |
 | :---: | :---: | :--- |
@@ -51,7 +50,8 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 | MOSI | MOSI | ETH\_MOSI |
 | D22 | GPIO0 | ETH\_INT |
 
-# Tracker Pinouts
+
+### Tracker default pins
 
 |Particle Pin|Ethernet Pin   |
 |:-------|:--------------------------|

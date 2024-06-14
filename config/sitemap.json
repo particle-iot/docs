@@ -935,8 +935,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-06-08",
-            "hash": "f6274ae126032cf649d4247aa74ff8eb690b9d441767446017542cd3f378f871"
+            "date": "2024-06-14",
+            "hash": "fe60bc9e3e650b27a0517c8472faa5aee66ec8e2a0b21732a4f56d1536d2340a"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -947,8 +947,8 @@
             "hash": "c02f0a42b8e54408356f0b0b85b088691b4fd6b8e5f594e891196285779b8d03"
         },
         "hardware/certification/certification.md": {
-            "date": "2023-11-06",
-            "hash": "0e83f377423caf547523059c10ccdd671de607bfcd2a31971b93320d608fc3c1"
+            "date": "2024-06-14",
+            "hash": "e489b851dd76836385a5e22c60b60930efe2e6390fbf78243ff30374e189e146"
         },
         "hardware/certification/enabling-wifi-rf-test-for-esp32.md": {
             "date": "2024-01-25",
@@ -959,8 +959,8 @@
             "hash": "cb6ffee72fadd318093fd10e2c513ababa11bcb734e31dae3634ed6fae658c02"
         },
         "hardware/ethernet/ethernet.md": {
-            "date": "2024-02-27",
-            "hash": "86338b792f1a5092b8f4a28358949eafcf8e335784244915dffb4a0a6a8b190d"
+            "date": "2024-06-14",
+            "hash": "c84daa717185faaf3d7634b1ae0463ac5dc1a2b1bcb2424a0a76587415230e15"
         },
         "hardware/expansion/about-i2c.md": {
             "date": "2024-02-27",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "3dd46173c24c9822f53d61a8dc17201742431f73162e2e93fc08fee5fb595de2",
-            "date": "2024-06-13"
+            "hash": "14f36e51e25aacbbf35ac082f928fbf802d3777272d4b6e2c0e68ffdc8fcf5ac",
+            "date": "2024-06-14"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
