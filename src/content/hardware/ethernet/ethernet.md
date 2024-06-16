@@ -33,7 +33,7 @@ These are the default pins for the Ethernet FeatherWing, Argon, Boron, P2, and P
 |D4      | nINTERRUPT  |
 |D5      | nCHIP SELECT|
 
-Pins D3 and D4 are the same as `SPI1` on the Argon and Boron. You can use [pin reconfiguration](/device-os/api/ethernet/ethernet/#pin-configuration-ethernet) to change the pins used for reset, interrupt, and chip select.
+Pins D3 and D4 are the same as `SPI1` on the Argon and Boron. You can use [pin reconfiguration](/reference/device-os/api/ethernet/ethernet/#pin-configuration-ethernet) to change the pins used for reset, interrupt, and chip select.
 
 ### Adafruit FeatherWing
 

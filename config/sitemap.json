@@ -919,8 +919,8 @@
             "hash": "5467d7f2eb2c89c12d32d04e24c92bf57ff698f413dfcee251700ced984a6c89"
         },
         "hardware/best-practices/watchdog-timers.md": {
-            "date": "2024-06-14",
-            "hash": "358d8e8737eb0609bd6ba66d2e7ddea707ae89282514c57c89909b66f57f47d5"
+            "date": "2024-06-15",
+            "hash": "cb237387a2fff62e12a531d92e9102c4c104d3ab1f77f8a5e1cd818001f6ea4f"
         },
         "hardware/b-series-som/b-series-som-flexibility.md": {
             "date": "2024-02-27",
@@ -959,8 +959,8 @@
             "hash": "cb6ffee72fadd318093fd10e2c513ababa11bcb734e31dae3634ed6fae658c02"
         },
         "hardware/ethernet/ethernet.md": {
-            "date": "2024-06-14",
-            "hash": "c84daa717185faaf3d7634b1ae0463ac5dc1a2b1bcb2424a0a76587415230e15"
+            "date": "2024-06-15",
+            "hash": "c6a4cd3302b150cfa8ff95b93d4163023ff97b20df51005779586e84c450aeb4"
         },
         "hardware/expansion/about-i2c.md": {
             "date": "2024-02-27",
