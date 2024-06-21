@@ -80,7 +80,7 @@ This is the base policy JSON with the minimal permission needed to invoke a **La
 }
 ```
 
-Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configuration](#aws-access-configuration) steps below.
 
 ## AWS DynamoDB
 
@@ -92,7 +92,7 @@ DynamoDB is a fully managed NoSQL database service by Amazon Web Services (AWS).
 2. Ensure your AWS user has permissions to perform `dynamodb:PutItem` operations on the table.
 3. In the webhook configuration, insert the ARN in the designated field and provide the AWS user's key pair for authentication.
 
-Continue with the [AWS access configiration](#aws-access-configuration) steps below.
+Continue with the [AWS access configuration](#aws-access-configuration) steps below.
 
 ### Policy creation - DynamoDB
 
@@ -115,7 +115,7 @@ This is the base policy JSON with the minimal actions needed to put items to a *
 }
 ```
 
-Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configuration](#aws-access-configuration) steps below.
 
 
 
@@ -172,7 +172,7 @@ This is the base policy JSON with the minimal actions needed to write to the S3 
 }
 ```
     
-Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configuration](#aws-access-configuration) steps below.
 
 
 ### AWS SQS
@@ -204,7 +204,7 @@ This is the base policy JSON with the minimal actions needed to send messages to
 }
 ```
 
-Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configiration](#aws-access-configuration) steps below.
+Name your policy and click `Create policy` at the bottom of the page. Continue with the [AWS access configuration](#aws-access-configuration) steps below.
 
 ## AWS access configuration
 
