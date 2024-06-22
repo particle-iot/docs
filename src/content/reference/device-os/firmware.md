@@ -9270,7 +9270,7 @@ You must, however:
 - Never pass NULL for a buffer pointer.
 - Never pass a buffer located in flash memory, such as constant arrays of bytes embedded in code.
 
-The problem is that in the prohibited cases, a temporary buffer is located in RAM, and heap allocation is now allowed from an ISR.
+The problem is that in the prohibited cases, a temporary buffer is located in RAM, and heap allocation is not allowed from an ISR.
 {{note op="end"}}
 
 ---

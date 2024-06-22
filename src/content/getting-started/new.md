@@ -21,6 +21,9 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.1.1 2024-06-21
+
+Device OS 6.1.1 is now in Device Restore USB, Hex Generator, etc.. Note that this releases is for Gen 3 (nRF52) only; it is not supported on P2, Photon 2, and M-SoM (RTL872x).
 
 ### FeatherAB1805-Li fix 2024-06-14
 
