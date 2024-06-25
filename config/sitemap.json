@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-06-22",
-            "hash": "65bed58dcf4df3ae78e16b0a7d4feb0cd28a12773fe729c230dc13c4d5898427"
+            "date": "2024-06-25",
+            "hash": "166759f41d59d700fdc2781b3f768d2233e64fd24c7890428847c284127090fe"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3699,8 +3699,8 @@
             "hash": "81ef9003e1f36030ebd256525033f52a64a8c162e306c5c084b48320155d04c9"
         },
         "reference/device-os/api/system-events/system-events-overview.md": {
-            "date": "2023-09-20",
-            "hash": "3abfbb86aa5218a947f4eb6f4c8d592ddcae928172b0c9e6745884c2cb57aece"
+            "date": "2024-06-25",
+            "hash": "16fd9a59d9caac1dd9b799c6bb1185fb8f76934b0cb013276669f1167da7e326"
         },
         "reference/device-os/api/system-events/system-events-reference.md": {
             "date": "2024-04-20",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e636639e349a7c1dc1d9bebd642b31f4bb2f17b237a24d800db6003c02938060",
-            "date": "2024-06-22"
+            "hash": "c571cf2af15d662a3a9a3d6f851d149a21f987a33f6b8f2a429ad733437cbbf9",
+            "date": "2024-06-25"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8479,8 +8479,8 @@
             "date": "2024-04-24"
         },
         "integrations/integrations/aws.md": {
-            "hash": "22345855655bac8b3a4b228a6f4e2d446dde6decec6814f77cafc00035c835e9",
-            "date": "2024-04-15"
+            "hash": "b848e84a8195dc744b7019322bcc5b22502f53f121bcff3a41d7d19f02567141",
+            "date": "2024-06-25"
         },
         "integrations/introduction.md": {
             "hash": "b45b9c824f4ee707b7d3834e10f6eb03e7648e7b5b033380fd3f662de9e69c24",

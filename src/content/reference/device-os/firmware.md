@@ -20959,7 +20959,7 @@ Some event types provide additional information. For example the `button_click` 
 void button_clicked(system_event_t event, int param)
 {
 	int times = system_button_clicks(param);
-	Serial.printlnf("button was clicked %d times", times);
+	Log.info("button was clicked %d times", times);
 }
 ```
 
@@ -20970,7 +20970,7 @@ It's possible to subscribe to multiple events with the same handler in cases whe
 ```
 void handle_all_the_events(system_event_t event, int param)
 {
-	Serial.printlnf("got event %d with value %d", event, param);
+	Log.info("got event %d with value %d", (int)event, param);
 }
 
 void setup()
