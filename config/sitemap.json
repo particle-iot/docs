@@ -651,12 +651,12 @@
             "hash": "49aa00cfc7396dbb99d0721c359fb12982de674aceb4cbe38d91c9eba01f24b7"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-06-08",
-            "hash": "9da4e9f2b2828edcefbed32e3573f3d655ba23484b15bbcbcbd68d139c712cc4"
+            "date": "2024-06-25",
+            "hash": "f51716ddb4568232717a2eb7ce864206aff1ab048f89ae55b9a110ae61b83df4"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-05-08",
-            "hash": "85d9118aabbfb35992a21b8fc149c1bb8ace4023de255ad46fc31892a2ce1fe3"
+            "date": "2024-06-25",
+            "hash": "67bc970673a6718e6875c7d39c5bd261ea2a248bf3d28320af63987e1bb5d60e"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -699,8 +699,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-03-26",
-            "hash": "0d34c3f7003fbcb5629dad4799194ae13b2f8326a520fdb68a620f6140fbe914"
+            "date": "2024-06-25",
+            "hash": "6bb6fae0b33a1437343837f7873873ce780cc07028df7f983a03ac60a662997d"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,8 +935,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-06-14",
-            "hash": "48bf20b7d320dd01d3874c1e1343cd57af9d06ce5a82b3fd29773219cbdd71ec"
+            "date": "2024-06-25",
+            "hash": "aa077eaba4586ff5b40b95a12fd2a9b320001218bce4b25dca9224cde2400886"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -999,24 +999,24 @@
             "hash": "e1e353090362610b1c69baac04e7a5685a98d800814c2f666ce059470b71eca9"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
-            "date": "2024-05-10",
-            "hash": "def4016b762dbafcac48ced5de63b83b48364f22c36a03d04b2d394279ce0f56"
+            "date": "2024-06-25",
+            "hash": "f554318e8337e4562efa0c663bc5a551a14c5cd0ffadd039f44639baacbb44ac"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2024-06-08",
-            "hash": "bbe05bdb09e4259abd5e24a6dad916b28dcc0329c70ed0026fcc95db267b4350"
+            "date": "2024-06-25",
+            "hash": "4fe6dde8e177ca3fc7280a91750438888d3d50b0174a4d580bc90a94b7f7f707"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2024-06-08",
-            "hash": "be42ed106a1ef15c70ab6946f548d4ec5aa3d87db992de3b9f28439750bd6ecf"
+            "date": "2024-06-25",
+            "hash": "e4d4667b151e08c185b79606d1a606b228e38bd7e547d26da1ef4cb0ed150b51"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2024-06-08",
-            "hash": "73b3cd019cdd5db62faedf70fc22d4bc85df8835ecd738caa041ab430d692c35"
+            "date": "2024-06-25",
+            "hash": "5f2fb513adff9348be2ba78fcd49cac461d2cd0d5ea2baa01763e6c2ef7fb71d"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2024-05-15",
@@ -1351,7 +1351,7 @@
             "hash": "de8cff873a2e636aa4ffcfdd5c3e7321a8e64c7bf2a70f3a10a8e546a2fc3556"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2024-04-23",
+            "date": "2024-06-25",
             "hash": "80a6face128e45dd86c181b6b410030f96f36daa4eff682dd919633d22497661"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
@@ -1579,8 +1579,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2024-03-26",
-            "hash": "165f3b84b07341453b4e38d80cb69929a576c37b6ba9feebb3ae0320d33353ee"
+            "date": "2024-06-25",
+            "hash": "785a4458035dcab3cc2c0a378fceb04d4d9beead7556c809edfa92046f1fbed9"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
@@ -8171,8 +8171,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "5e65b2c75b8bec55f4799a88e7673103e47bae634edc96786764f0d7fba7696f",
-            "date": "2024-06-08"
+            "hash": "268399e594dcfb375f26cfd111f0d9c199f9ec741dec630a5bcc0c0a4325f88c",
+            "date": "2024-06-25"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c571cf2af15d662a3a9a3d6f851d149a21f987a33f6b8f2a429ad733437cbbf9",
+            "hash": "5815bb736da78f23dc1c443cdcaef99c8567730795a8a1d5fdec0a721e850ffa",
             "date": "2024-06-25"
         },
         "getting-started/cloud/logic.md": {
@@ -9059,8 +9059,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "f4ab27650a67b63d1a36b4ef71821aebff4bc57bf6bb353fb9f9ff2e7cbd789c",
-            "date": "2024-05-30"
+            "hash": "41ee994e16d1793bb5bebf7e9ffc69cffbb482d578b5239bb323e3494fb59078",
+            "date": "2024-06-25"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "8fe3dfe5bf049045235aaeb22cc4216b949808e392cd66c361f04ed47266b404",
@@ -9075,8 +9075,8 @@
             "date": "2024-05-29"
         },
         "hardware/power/pm-dc-datasheet.md": {
-            "hash": "f2f9599905b26fef001d6c8d558d0e592a17ee64ccafc0d34b59b13216da6a65",
-            "date": "2024-05-29"
+            "hash": "ece78b5598f1f617b71822dd5d49188c9b4286001343fc3d43791a309ef303d3",
+            "date": "2024-06-25"
         },
         "hardware/community/monitor-one-modbus.md": {
             "hash": "98bb3deab9db5bb30e57d050d6c579617f67266879b7dfa4f88ead34521e06c6",
@@ -9089,6 +9089,10 @@
         "reference/device-os/libraries/g/Grove_scd30_co2_sensor.md": {
             "hash": "9881a2f3eed2f841563ac180a23bb3cd8c78fb8ffc87ea8d6160aa62bf867a51",
             "date": "2024-06-06"
+        },
+        "reference/datasheets/b-series/b504-datasheet.md": {
+            "hash": "ff6aa653e2a15ff05046ea77a4291141cd1344ab3e01350ce00c04f6a675afb8",
+            "date": "2024-06-25"
         }
     }
 }

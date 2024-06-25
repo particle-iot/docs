@@ -103,6 +103,8 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Asset Tracker 2G | ASSET2GV2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | PARANTCW1EA | &nbsp; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &nbsp; | PARANTCW1TY | &nbsp; | In development|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2TY | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
@@ -357,7 +359,7 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 
 | Family | SKUs |
 | :----- | :--- |
-| B-Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B404XMEA, B404XMTY, B523MEA, B523MTY, B524MEA, B524MTY|
+| B-Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B404XMEA, B404XMTY, B504MEA, B504MTY, B523MEA, B523MTY, B524MEA, B524MTY|
 | Boron | BRN310KIT, BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402-AQKT, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50, BRN404X, BRN404XKIT, BRN404XTRAY50|
 | E-Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
@@ -400,6 +402,8 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | Deprecated|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &nbsp; | ANT-FLXV2 | &check; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | In development|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
@@ -520,6 +524,8 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | Deprecated|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | &nbsp; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &check; | &nbsp; | In development|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | Deprecated|
@@ -621,6 +627,8 @@ The following devices have GNSS capabilities:
 | Asset Tracker 2G | ASSET2GV2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | &check; | Deprecated|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | &check; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &check; | &nbsp; | In development|
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | &check; | GA|
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | &check; | In development|

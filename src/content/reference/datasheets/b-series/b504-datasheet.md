@@ -7,10 +7,6 @@ description: Datasheet for the Particle B-Series B504 SoM, Gen 3 cellular LTE Ca
 
 # B504 Datasheet
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and there may be corrections and changes before release.
-{{box op="end"}}
-
 <div align=center><img src="/assets/images/b-series/b504-top.png" ></div>
 
 ## Functional description

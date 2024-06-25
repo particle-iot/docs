@@ -402,8 +402,7 @@
         {
           "dir": "b504-datasheet",
           "title": "B-Series B504 datasheet",
-          "href": "/reference/datasheets/b-series/b504-datasheet/",
-          "internal": true
+          "href": "/reference/datasheets/b-series/b504-datasheet/"
         },
         {
           "dir": "b-series-eval-board",

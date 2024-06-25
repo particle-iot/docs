@@ -7,15 +7,11 @@ description: PM-DC power module (DC input, no battery) datasheet
 
 # PM-DC power module datasheet
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet for review only. Changes are likely before release.
-{{box op="end"}}
-
 ## Overview
 
 The Particle PM-DC power module is a small module that contains:
 
-- 4V to 40VDC input
+- 5 - 24VDC input
 - 3.3V regulated output for MCU (1A)
 - 4.0V output for cellular modem (2.5A)
 
@@ -128,4 +124,5 @@ To be provided at a later date.
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 2024-04-15 | RK | Initial version |
+| pre      | 2024-04-15 | RK | Pre-release |
+| 001      | 2024-06-27 | RK | Initial version |

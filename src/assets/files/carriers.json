@@ -20400,6 +20400,75 @@
       "verizon": true
     },
     {
+      "name": "B504MEA",
+      "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "b series",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": true,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "batteryConn": true,
+      "prefix": "P056",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
+    },
+    {
+      "name": "B504MTY",
+      "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50]",
+      "lifecycle": "In development",
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "modem": "EG91-NAX",
+      "singleSku": "B504MEA",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "b series",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": false,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": false,
+      "batteryConn": true,
+      "prefix": "P056",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
+    },
+    {
       "name": "B523MEA",
       "desc": "B-Series LTE CAT-1/3G/2G (Europe) [x1]",
       "lifecycle": "Deprecated",
@@ -22477,6 +22546,22 @@
       "batteryRequired": false
     },
     {
+      "name": "MUONCB-BETA",
+      "desc": "Muon Carrier Board - Beta Sample",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
+    },
+    {
+      "name": "MUONCBKIT",
+      "desc": "Muon Carrier Board",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
+    },
+    {
       "name": "ONE402MEA",
       "desc": "Tracker One LTE M1 (NorAm), [x1]",
       "lifecycle": "Deprecated",
@@ -24041,6 +24126,17 @@
           "mapColor": 0
         },
         {
+          "name": "B-Series B504 LTE M1 (NorAm) EtherSIM",
+          "short": [
+            "B504"
+          ],
+          "region": "noram",
+          "lifecycle": "GA",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "EG91-NAX"
+        },
+        {
           "name": "B-Series B524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "B524"
@@ -24677,6 +24773,13 @@
       "simPlan": 20,
       "modem": "EG91-EX",
       "desc": "Tracker LTE Cat1/3G/2G EMEAA",
+      "lifecycle": "GA"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "EG91-NAX",
+      "desc": "B504 Cat1/3G NorAm EtherSIM",
       "lifecycle": "GA"
     },
     {

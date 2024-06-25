@@ -85,7 +85,7 @@ The [PM-BAT power module](/hardware/power/pm-bat-datasheet/) allows the Particle
 The [PM-DC power module](/hardware/power/pm-dc-datasheet/) allows the Particle SoM to be powered by an AC power adapter or external DC power source.
 
 - Install the PM-DC module in the power module socket (22).
-- Connect the power adapter to VIN (7). When powering PM-DC by VIN (barrel connector), 4-40 VDC is required at 12 watts.
+- Connect the power adapter to VIN (7). When powering PM-DC by VIN (barrel connector), 5 - 24 VDC is required at 12 watts.
 - Power on the VIN barrel connector is required when using PM-DC; you cannot power the breakout board only by USB power.
 
 
