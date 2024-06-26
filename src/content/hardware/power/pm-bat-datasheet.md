@@ -156,9 +156,21 @@ NTC (negative temperature coefficient), higher voltages indicate lower temperatu
 
 ![Figure 13](/assets/images/power-module/fig13.png)
 
+---
 ## Ordering information
 
-To be provided at a later date.
+{{!-- BEGIN do not edit content below, it is automatically generated 3d1db546-0b6a-44a5-ba46-fc58a360e33e --}}
+
+| SKU | Description | Lifecycle |
+| :--- | :--- | :--- |
+| PMBATH1EA  | Particle Power Module, Battery, with Header | In development |
+| PMBATH1TY  | Particle Power Module, Battery, with Header | In development |
+| PMBATNH1EA | Particle Power Module, Battery, No Header | In development |
+| PMBATNH1TY | Particle Power Module, Battery, No Header | In development |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 
 
 ## Version history

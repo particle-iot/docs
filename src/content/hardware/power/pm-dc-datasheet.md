@@ -115,9 +115,22 @@ The mating header is available from a large number of suppliers in both PTH and 
 
 {{imageOverlay src="/assets/images/power-module/pm-dc-schematic.svg" alt="Module schematic" class="full-width"}}
 
+---
 ## Ordering information
 
-To be provided at a later date.
+{{!-- BEGIN do not edit content below, it is automatically generated ce788a12-7fda-4377-adc4-cd86329af29c --}}
+
+| SKU | Description | Lifecycle |
+| :--- | :--- | :--- |
+| PMDCH1EA | Particle Power Module, DC, with Header | In development |
+| PMDCH1TY | Particle Power Module, DC, with Header | In development |
+| PMDCNH1EA | Particle Power Module, DC, No Header | In development |
+| PMDCNH1TY | Particle Power Module, DC, No Header | In development |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 
 
 ## Version history

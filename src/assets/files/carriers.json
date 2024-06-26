@@ -23309,6 +23309,122 @@
       "batteryRequired": false
     },
     {
+      "name": "PMBATH1EA ",
+      "desc": "Particle Power Module, Battery, with Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PMBATH1TY ",
+      "desc": "Particle Power Module, Battery, with Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "singleSku": "PMBATH1EA ",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PMBATNH1EA",
+      "desc": "Particle Power Module, Battery, No Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PMBATNH1TY",
+      "desc": "Particle Power Module, Battery, No Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "singleSku": "PMBATNH1EA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PMDCH1EA",
+      "desc": "Particle Power Module, DC, with Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PMDCH1TY",
+      "desc": "Particle Power Module, DC, with Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "singleSku": "PMDCH1EA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PMDCNH1EA",
+      "desc": "Particle Power Module, DC, No Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PMDCNH1TY",
+      "desc": "Particle Power Module, DC, No Header",
+      "lifecycle": "In development",
+      "skuClass": "power",
+      "singleSku": "PMDCNH1EA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
       "name": "PROGSHIELD",
       "desc": "Programmer Shield, [x1]",
       "lifecycle": "NRND",
@@ -23988,6 +24104,10 @@
     {
       "name": "eval",
       "desc": "Evaluation kit for production module"
+    },
+    {
+      "name": "power",
+      "desc": "Power module"
     }
   ],
   "skuFamily": [
@@ -25529,7 +25649,8 @@
       "country": "Anguilla",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Anguilla",
@@ -25762,7 +25883,7 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "May work in some areas"
+      "reason": "Not officially supported, may work but is untested. May not work in all areas."
     },
     {
       "country": "Antigua and Barbuda",
@@ -25876,7 +25997,8 @@
       "country": "Argentina",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Argentina",
@@ -26559,7 +26681,8 @@
       "country": "Bahamas",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Bahamas",
@@ -26899,7 +27022,7 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "May work in some areas"
+      "reason": "Not officially supported, may work but is untested. May not work in all areas."
     },
     {
       "country": "Barbados",
@@ -27236,7 +27359,8 @@
       "country": "Belize",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Belize",
@@ -27584,7 +27708,8 @@
       "country": "Bolivia",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Bolivia",
@@ -29087,7 +29212,8 @@
       "country": "Cayman Islands",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Cayman Islands",
@@ -29431,7 +29557,7 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "May work in some areas"
+      "reason": "Not officially supported, may work but is untested. May not work in all areas."
     },
     {
       "country": "Chile",
@@ -29668,7 +29794,8 @@
       "country": "Colombia",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Colombia",
@@ -30009,7 +30136,7 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "May work in some areas"
+      "reason": "Not officially supported, may work but is untested. May not work in all areas."
     },
     {
       "country": "Costa Rica",
@@ -30915,7 +31042,8 @@
       "country": "Dominica",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Dominica",
@@ -31029,7 +31157,8 @@
       "country": "Dominican Republic",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Dominican Republic",
@@ -31143,7 +31272,8 @@
       "country": "Ecuador",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Ecuador",
@@ -31372,7 +31502,8 @@
       "country": "El Salvador",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "El Salvador",
@@ -33411,7 +33542,8 @@
       "country": "Grenada",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Grenada",
@@ -33525,7 +33657,8 @@
       "country": "Guadeloupe",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Guadeloupe",
@@ -33757,7 +33890,8 @@
       "country": "Guatemala",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Guatemala",
@@ -34332,7 +34466,8 @@
       "country": "Haiti",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Haiti",
@@ -34561,7 +34696,8 @@
       "country": "Honduras",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Honduras",
@@ -35928,7 +36064,8 @@
       "country": "Jamaica",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Jamaica",
@@ -40853,7 +40990,8 @@
       "country": "Nicaragua",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Nicaragua",
@@ -41772,7 +41910,8 @@
       "country": "Panama",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Panama",
@@ -42003,7 +42142,8 @@
       "country": "Paraguay",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Paraguay",
@@ -42119,7 +42259,8 @@
       "country": "Peru",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Peru",
@@ -43366,7 +43507,8 @@
       "country": "Saint Kitts and Nevis",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Saint Kitts and Nevis",
@@ -43480,7 +43622,8 @@
       "country": "Saint Lucia",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Saint Lucia",
@@ -43712,7 +43855,8 @@
       "country": "Saint Vincent and the Grenadines",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -47029,7 +47173,8 @@
       "country": "Trinidad and Tobago",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Trinidad and Tobago",
@@ -47391,7 +47536,8 @@
       "country": "Turks and Caicos Islands",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -48077,7 +48223,8 @@
       "country": "Uruguay",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Uruguay",
@@ -48425,7 +48572,8 @@
       "country": "Venezuela",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Venezuela",
@@ -48654,7 +48802,8 @@
       "country": "Virgin Islands (British)",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested"
     },
     {
       "country": "Virgin Islands (British)",
