@@ -9075,7 +9075,7 @@
             "date": "2024-06-26"
         },
         "hardware/power/pm-dc-datasheet.md": {
-            "hash": "446b8b3911e90c4e45773cbfe851acc5f37c274ea5af5a9e7522cf077f1e0a7d",
+            "hash": "1c23f424ff29a2cbb98177649073bb0ce83bc1e47a573ec5a7a9f3d64a734471",
             "date": "2024-06-26"
         },
         "hardware/community/monitor-one-modbus.md": {
@@ -9091,7 +9091,7 @@
             "date": "2024-06-06"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "c564d8621b88b2328ea8ffc3f026e9d35fe6eb4cbb1be222ec69ea17bff9a586",
+            "hash": "2301c374166496d93638e26ad37f1d6ed32230f8579a8ecf892173c1484562db",
             "date": "2024-06-26"
         }
     }

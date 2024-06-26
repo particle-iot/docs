@@ -341,10 +341,19 @@ const generatorConfig = require('./generator-config');
         let countryModemSimFiltered = [];
 
         updater.datastore.data.countryModemSim.forEach(function(cmsObj) {
-            if (cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
-                // Wrong SIM or not recommended, skip
-                return;
+            if (options.possibleSkusOnly) {
+                if (cmsObj.sim != 4 || cmsObj.recommendation != 'POSS') {
+                    // Wrong SIM or not recommended, skip
+                    return;
+                }    
             }
+            else {
+                if (cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
+                    // Wrong SIM or not recommended, skip
+                    return;
+                }    
+            }
+            
             if (!modems.includes(cmsObj.modem)) {
                 return;
             }

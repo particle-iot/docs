@@ -729,6 +729,16 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         {
+            guid:'4dd8ccc8-d597-4a5b-8ed9-174666f1dd3b',
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['EG91-NAX'],
+                    noModel: true,
+                    possibleSkusOnly: true,
+                }); 
+            } 
+        },
+        {
             guid:'86efb1c7-a248-4821-8403-6f949b5b0285', 
             generatorFn:function(updater) {
                 return updater.generateFamilySkus('b series', {

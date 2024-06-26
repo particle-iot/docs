@@ -7,6 +7,10 @@ description: Datasheet for the Particle B-Series B504 SoM, Gen 3 cellular LTE Ca
 
 # B504 Datasheet
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/b504-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 <div align=center><img src="/assets/images/b-series/b504-top.png" ></div>
 
 ## Functional description
@@ -2003,6 +2007,50 @@ The OEM integrator has to be aware not to provide information to the end user re
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+### Additional countries
+
+The following countries are not officially supported at this time, but may be compatible. Countries in this list can be used for prototyping and development work, but contact Particle prior to fleet deployment in these additional countries.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 4dd8ccc8-d597-4a5b-8ed9-174666f1dd3b --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Anguilla | 3G, Cat1 | Flow |
+| Antigua and Barbuda | 3G, Cat1 | Flow |
+| Argentina | 3G, Cat1 | Claro, Movistar, Personal |
+| Bahamas | 3G, Cat1 | Aliv, BTC Bahamas |
+| Barbados | 3G, Cat1 | Flow |
+| Belize | 3G, Cat1 | Smart |
+| Bolivia | 3G, Cat1 | NuevaTel |
+| Cayman Islands | 3G, Cat1 | Flow |
+| Chile | 3G, Cat1 | Claro, Entel, Movistar |
+| Colombia | 3G, Cat1 | Movistar, Tigo |
+| Costa Rica | 3G, Cat1 | Movistar |
+| Dominica | 3G, Cat1 | Flow |
+| Dominican Republic | 3G, Cat1 | Altice Dominicana, Claro, Viva |
+| Ecuador | 3G, Cat1 | Claro, Movistar |
+| El Salvador | 3G, Cat1 | Claro, Telefonica |
+| Guadeloupe | 3G, Cat1 | Orange |
+| Guatemala | 3G, Cat1 | Claro, Movistar |
+| Haiti | 3G | Digicel |
+| Honduras | 3G, Cat1 | Claro, Tigo |
+| Jamaica | 3G, Cat1 | Digicel, Flow |
+| Nicaragua | 3G | Movistar |
+| Panama | 3G, Cat1 | Digicel, Movistar |
+| Paraguay | 3G, Cat1 | Claro, Personal, Tigo, Vox |
+| Peru | 3G, Cat1 | Claro, Entel, Movistar |
+| Saint Kitts and Nevis | 3G, Cat1 | Flow |
+| Saint Lucia | 3G | Flow |
+| Saint Vincent and the Grenadines | 3G, Cat1 | Flow |
+| Trinidad and Tobago | 3G, Cat1 | Digicel, TSTT |
+| Turks and Caicos Islands | 3G, Cat1 | Flow |
+| Uruguay | 3G, Cat1 | Antel, Claro, Movistar |
+| Venezuela | 3G, Cat1 | Movistar |
+| Virgin Islands (British) | 3G, Cat1 | CCT, Flow |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 
 ---
 ## Ordering information
@@ -2020,6 +2068,7 @@ To be provided at a later date
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
+
 
 
 
