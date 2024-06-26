@@ -1344,15 +1344,15 @@
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2024-06-26",
-            "hash": "2e3fdc0a8d1fd93a01fe9ac38fe72f4869c64fcc81c5dd626e7c21c5b72d3975"
+            "hash": "f367e34d191578dff357382ad5a3c4879ab87cc05736d645b9ab578be44d163f"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
             "date": "2024-06-26",
-            "hash": "48453eb173e48aad76b68bcdbd4674ac400b7197ca6f230847018869935d5cb9"
+            "hash": "17428b2d1a5af6f5e854a596ed2a742c24e9b6cf1901a495565e94e30b9d2551"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2024-06-26",
-            "hash": "5f34c753a0c42bd390cc9c69108ef288dab70d2bb23d49e547b347a0b2aec080"
+            "hash": "388972864a3aff5ec26076c4bfb244407edd24746187b30b1e0bbec0f6bb5235"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-03-19",
@@ -9071,7 +9071,7 @@
             "date": "2024-05-28"
         },
         "hardware/power/pm-bat-datasheet.md": {
-            "hash": "c1df05bb593f3ce007be0d44f3e4d25257f5f396689decda7273cb75104681d0",
+            "hash": "632c89b6244b3eceb322452eb16161e3279b7aa105fc039308e156e74954032a",
             "date": "2024-06-26"
         },
         "hardware/power/pm-dc-datasheet.md": {
@@ -9091,7 +9091,7 @@
             "date": "2024-06-06"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "2301c374166496d93638e26ad37f1d6ed32230f8579a8ecf892173c1484562db",
+            "hash": "14c9e68310b42cef6413c119cd87630d714e1fa3d0ded6af328ca92d0004189c",
             "date": "2024-06-26"
         }
     }

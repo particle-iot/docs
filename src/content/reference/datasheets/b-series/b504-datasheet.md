@@ -66,7 +66,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 - NorAm: North America (United States, Canada, and Mexico)
 - Americas: North America, Central, and South America (not all countries supported)
 - LTE Cat M1: Low-power cellular intended for IoT devices
-- LTE Cat 1: More widely available and has higher data rates
+- LTE Cat 1: Available in more countries and has higher data rates
 - EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
 - NRND: Not recommended for new designs
 - See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
@@ -2055,10 +2055,6 @@ The following countries are not officially supported at this time, but may be co
 ---
 ## Ordering information
 
-To be provided at a later date
-
-
-
 {{!-- BEGIN do not edit content below, it is automatically generated 86efb1c7-a248-4821-8403-6f949b5b0285 --}}
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
@@ -2079,3 +2075,4 @@ To be provided at a later date
 | pre      | 2024-02-28 | RK | Preliminary version |
 |          | 2024-05-31 | RK | Update bands |
 |          | 2024-06-06 | RK | Update bands |
+| 001      | 2024-06-26 | RK | Initial version |
