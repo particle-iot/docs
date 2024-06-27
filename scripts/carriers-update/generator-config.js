@@ -652,14 +652,36 @@ const schemaDocs = require('./schema-docs');
                     }        
                 }); 
             } 
-        },        
+        },      
+        // power modules
+        {
+            
+            guid:'3d1db546-0b6a-44a5-ba46-fc58a360e33e', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('PMBAT')
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'ce788a12-7fda-4377-adc4-cd86329af29c', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('PMDC')
+                    }        
+                }); 
+            }             
+        }, 
         // datasheets/boron/b404-b402-datasheet.md
         {
             guid:'91d8b83c-76ce-11eb-9439-0242ac130002', 
             generatorFn:function(updater) {
                 return updater.generateFamilySkus('b series', {
                     filterFn:function(skuObj) {
-                        //return skuObj.skuRegion != 'noram';
                         return skuObj.modem != 'R410';
                     }        
                 }); 
@@ -706,6 +728,26 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'4dd8ccc8-d597-4a5b-8ed9-174666f1dd3b',
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['EG91-NAX'],
+                    noModel: true,
+                    possibleSkusOnly: true,
+                }); 
+            } 
+        },
+        {
+            guid:'86efb1c7-a248-4821-8403-6f949b5b0285', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('b series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'EG91-NAX';
+                    }        
+                }); 
+            } 
+        },        
         // BRN404X
         {
             guid:'4b3e02b9-2be9-40ff-8486-90fa48a9e518', 

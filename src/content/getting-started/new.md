@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B504 datasheet 2024-06-27
+
+The B-SoM [B504 datasheet](/reference/datasheets/b-series/b504-datasheet/) is now available.
+
 ### FeatherAB1805-Li fix 2024-06-14
 
 Updated the design files for [FeatherAB1805-Li](/hardware/best-practices/watchdog-timers/#featherwing-ab1805-li) to add a missing pull-up resistor that would affect using it with the Photon 2.

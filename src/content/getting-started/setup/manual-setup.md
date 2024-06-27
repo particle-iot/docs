@@ -70,6 +70,8 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUONCB | Muon Carrier Board | USB-C |
+| MUONCB-BETA | Muon Carrier Board - Beta Sample | &nbsp; |
+| MUONCBKIT | Muon Carrier Board | &nbsp; |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |
@@ -114,6 +116,7 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; |
 | B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &check; |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &check; |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &check; |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | &check; |

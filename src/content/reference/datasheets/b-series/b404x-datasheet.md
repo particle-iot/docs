@@ -49,8 +49,8 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
  * 24 mixed signal GPIO (8 x Analog, 8 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
- * RGB status pins for LED
- * Reset and Mode pins for buttons
+ * Pins for RGB LED used for connection status
+ * Pins for reset and mode buttons
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
  * M.2 interface
@@ -60,16 +60,21 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 ### Model comparison
 
 {{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
-
-| | B404X | B404 | B402 | B524 | B523 |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Region | NorAm | NorAm | NorAm | EMEAA | Europe |
-| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; |
-| Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; |
-| Lifecycle | GA | NRND | Deprecated | GA | Deprecated |
+| | B404X | B404 | B402 | B524 | B523 | B504 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Region | NorAm | NorAm | NorAm | EMEAA | Europe | Americas |
+| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; | &check; |
+| Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; | &check; |
+| Lowest power (LTE Cat M1) | &check; | &check; | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Fastest speed (LTE Cat 1) | &nbsp; | &nbsp; | &nbsp; | &check; | &check; | &check; |
+| Cellular fallback | &nbsp; | &nbsp; | &nbsp; | 3G, 2G | 3G, 2G | 3G | 
+| Lifecycle | GA | NRND | Deprecated | GA | Deprecated | In development |
 
 - EtherSIM devices generally have a larger number of carriers and more may be added in the future
 - NorAm: North America (United States, Canada, and Mexico)
+- Americas: North America, Central, and South America (not all countries supported)
+- LTE Cat M1: Low-power cellular intended for IoT devices
+- LTE Cat 1: Available in more countries and has higher data rates
 - EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
 - NRND: Not recommended for new designs
 - See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility

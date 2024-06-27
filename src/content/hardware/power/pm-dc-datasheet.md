@@ -7,15 +7,11 @@ description: PM-DC power module (DC input, no battery) datasheet
 
 # PM-DC power module datasheet
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet for review only. Changes are likely before release.
-{{box op="end"}}
-
 ## Overview
 
 The Particle PM-DC power module is a small module that contains:
 
-- 4V to 40VDC input
+- 5 - 24VDC input
 - 3.3V regulated output for MCU (1A)
 - 4.0V output for cellular modem (2.5A)
 
@@ -119,13 +115,27 @@ The mating header is available from a large number of suppliers in both PTH and 
 
 {{imageOverlay src="/assets/images/power-module/pm-dc-schematic.svg" alt="Module schematic" class="full-width"}}
 
+---
 ## Ordering information
 
-To be provided at a later date.
+{{!-- BEGIN do not edit content below, it is automatically generated ce788a12-7fda-4377-adc4-cd86329af29c --}}
+
+| SKU | Description | Lifecycle |
+| :--- | :--- | :--- |
+| PMDCH1EA | Particle Power Module, DC, with Header | In development |
+| PMDCH1TY | Particle Power Module, DC, with Header | In development |
+| PMDCNH1EA | Particle Power Module, DC, No Header | In development |
+| PMDCNH1TY | Particle Power Module, DC, No Header | In development |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 
 
 ## Version history
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 2024-04-15 | RK | Initial version |
+| pre      | 2024-04-15 | RK | Pre-release |
+| 001      | 2024-06-27 | RK | Initial version |

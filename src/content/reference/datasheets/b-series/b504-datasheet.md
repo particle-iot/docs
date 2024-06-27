@@ -7,9 +7,9 @@ description: Datasheet for the Particle B-Series B504 SoM, Gen 3 cellular LTE Ca
 
 # B504 Datasheet
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and there may be corrections and changes before release.
-{{box op="end"}}
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/b504-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/b-series/b504-top.png" ></div>
 
@@ -42,8 +42,8 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
  * 24 mixed signal GPIO (8 x Analog, 8 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
- * RGB status pins for LED
- * Reset and Mode pins for buttons
+ * Pins for RGB LED used for connection status
+ * Pins for reset and mode buttons
  * On-module MFF2 Particle SIM 
  * Three on-module U.FL connectors for external antennas
  * Connects to your base board or eval board that has a Particle M.2 connector
@@ -52,23 +52,30 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 
 ### Model comparison
 
-{{!-- Eventually change this back to shared blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
-
+{{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
 | | B404X | B404 | B402 | B524 | B523 | B504 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Region | NorAm | NorAm | NorAm | EMEAA | Europe | Americas |
 | EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; | &check; |
 | Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; | &check; |
+| Lowest power (LTE Cat M1) | &check; | &check; | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Fastest speed (LTE Cat 1) | &nbsp; | &nbsp; | &nbsp; | &check; | &check; | &check; |
+| Cellular fallback | &nbsp; | &nbsp; | &nbsp; | 3G, 2G | 3G, 2G | 3G | 
 | Lifecycle | GA | NRND | Deprecated | GA | Deprecated | In development |
 
 - EtherSIM devices generally have a larger number of carriers and more may be added in the future
 - NorAm: North America (United States, Canada, and Mexico)
 - Americas: North America, Central, and South America (not all countries supported)
+- LTE Cat M1: Low-power cellular intended for IoT devices
+- LTE Cat 1: Available in more countries and has higher data rates
 - EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
 - NRND: Not recommended for new designs
 - See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
 - See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
 - See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+{{!-- END shared-blurb --}}
+
 
 ### Device OS support
 
@@ -1989,23 +1996,37 @@ The OEM integrator has to be aware not to provide information to the end user re
 
 ## Country compatibility
 
-{{box op="start" cssClass="boxed warningBox"}}
-This list of compatible countries is preliminary and may change before release.
-{{box op="end"}}
-
-
 {{!-- BEGIN do not edit content below, it is automatically generated 716800d6-7c3f-45f7-8cc4-91af58795240 --}}
 
 | Country | Technologies | Carriers |
 | :--- | :--- | :--- |
+| Canada | 3G, Cat1 | Bell Mobility, Rogers Wireless, Telus, Videotron |
+| Mexico | 3G, Cat1 | AT&T, Telcel |
+| Puerto Rico | 3G, Cat1 | Claro |
+| United States | 3G, Cat1 | Alaska Wireless, AT&T, T-Mobile (USA), Union Telephone |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### Additional countries
+
+The following countries are not officially supported at this time, but may be compatible. Countries in this list can be used for prototyping and development work, but contact Particle prior to fleet deployment in these additional countries.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 4dd8ccc8-d597-4a5b-8ed9-174666f1dd3b --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
 | Anguilla | 3G, Cat1 | Flow |
+| Antigua and Barbuda | 3G, Cat1 | Flow |
 | Argentina | 3G, Cat1 | Claro, Movistar, Personal |
 | Bahamas | 3G, Cat1 | Aliv, BTC Bahamas |
+| Barbados | 3G, Cat1 | Flow |
 | Belize | 3G, Cat1 | Smart |
 | Bolivia | 3G, Cat1 | NuevaTel |
-| Canada | 3G, Cat1 | Bell Mobility, Rogers Wireless, Telus, Videotron |
 | Cayman Islands | 3G, Cat1 | Flow |
+| Chile | 3G, Cat1 | Claro, Entel, Movistar |
 | Colombia | 3G, Cat1 | Movistar, Tigo |
+| Costa Rica | 3G, Cat1 | Movistar |
 | Dominica | 3G, Cat1 | Flow |
 | Dominican Republic | 3G, Cat1 | Altice Dominicana, Claro, Viva |
 | Ecuador | 3G, Cat1 | Claro, Movistar |
@@ -2015,18 +2036,15 @@ This list of compatible countries is preliminary and may change before release.
 | Haiti | 3G | Digicel |
 | Honduras | 3G, Cat1 | Claro, Tigo |
 | Jamaica | 3G, Cat1 | Digicel, Flow |
-| Mexico | 3G, Cat1 | AT&T, Telcel |
 | Nicaragua | 3G | Movistar |
 | Panama | 3G, Cat1 | Digicel, Movistar |
 | Paraguay | 3G, Cat1 | Claro, Personal, Tigo, Vox |
 | Peru | 3G, Cat1 | Claro, Entel, Movistar |
-| Puerto Rico | 3G, Cat1 | Claro |
 | Saint Kitts and Nevis | 3G, Cat1 | Flow |
 | Saint Lucia | 3G | Flow |
 | Saint Vincent and the Grenadines | 3G, Cat1 | Flow |
 | Trinidad and Tobago | 3G, Cat1 | Digicel, TSTT |
 | Turks and Caicos Islands | 3G, Cat1 | Flow |
-| United States | 3G, Cat1 | Alaska Wireless, AT&T, T-Mobile (USA), Union Telephone |
 | Uruguay | 3G, Cat1 | Antel, Claro, Movistar |
 | Venezuela | 3G, Cat1 | Movistar |
 | Virgin Islands (British) | 3G, Cat1 | CCT, Flow |
@@ -2038,7 +2056,18 @@ This list of compatible countries is preliminary and may change before release.
 ---
 ## Ordering information
 
-To be provided at a later date
+{{!-- BEGIN do not edit content below, it is automatically generated 86efb1c7-a248-4821-8403-6f949b5b0285 --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | &check; | In development | |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | &check; | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+
 
 ## Revision history
 
@@ -2047,3 +2076,4 @@ To be provided at a later date
 | pre      | 2024-02-28 | RK | Preliminary version |
 |          | 2024-05-31 | RK | Update bands |
 |          | 2024-06-06 | RK | Update bands |
+| 001      | 2024-06-26 | RK | Initial version |

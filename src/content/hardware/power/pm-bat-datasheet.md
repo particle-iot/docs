@@ -8,10 +8,6 @@ includeDefinitions: [api-helper, ts-calculator]
 
 # PM-BAT power module datasheet
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet for review only. Changes are likely before release.
-{{box op="end"}}
-
 ## Overview
 
 The Particle PM-BAT power module is a small module that contains:
@@ -156,9 +152,21 @@ NTC (negative temperature coefficient), higher voltages indicate lower temperatu
 
 ![Figure 13](/assets/images/power-module/fig13.png)
 
+---
 ## Ordering information
 
-To be provided at a later date.
+{{!-- BEGIN do not edit content below, it is automatically generated 3d1db546-0b6a-44a5-ba46-fc58a360e33e --}}
+
+| SKU | Description | Lifecycle |
+| :--- | :--- | :--- |
+| PMBATH1EA  | Particle Power Module, Battery, with Header | In development |
+| PMBATH1TY  | Particle Power Module, Battery, with Header | In development |
+| PMBATNH1EA | Particle Power Module, Battery, No Header | In development |
+| PMBATNH1TY | Particle Power Module, Battery, No Header | In development |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 
 
 ## Version history
@@ -170,3 +178,4 @@ To be provided at a later date.
 |          | 2024-03-12 | RK | Updated to v2, dimensions changed |
 |          | 2024-04-08 | RK | Updated to v4, pin changes |
 |          | 2024-04-15 | RK | Corrected the /FUEL_INT pin description |
+| 001      | 2024-06-27 | RK | Initial version |

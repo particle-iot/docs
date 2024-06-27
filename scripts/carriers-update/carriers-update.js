@@ -341,10 +341,19 @@ const generatorConfig = require('./generator-config');
         let countryModemSimFiltered = [];
 
         updater.datastore.data.countryModemSim.forEach(function(cmsObj) {
-            if (cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
-                // Wrong SIM or not recommended, skip
-                return;
+            if (options.possibleSkusOnly) {
+                if (cmsObj.sim != 4 || cmsObj.recommendation != 'POSS') {
+                    // Wrong SIM or not recommended, skip
+                    return;
+                }    
             }
+            else {
+                if (cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
+                    // Wrong SIM or not recommended, skip
+                    return;
+                }    
+            }
+            
             if (!modems.includes(cmsObj.modem)) {
                 return;
             }
@@ -625,6 +634,51 @@ const generatorConfig = require('./generator-config');
 
         // Render
         return updater.generateTable(tableOptions, tableData);   
+    }
+
+    updater.generateSimpleSkus = function(options) {
+        let skus = [];
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'sku',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'lifecycle',
+                    title: 'Lifecycle',
+                },
+            ],
+        };
+
+        let tableData = [];
+
+        for(const skuObj of updater.datastore.data.skus) {
+            if (skuObj.lifecycle == 'Hidden') {
+                continue;
+            }
+            if (options.filterFn && options.filterFn(skuObj)) {
+                continue;
+            }
+
+            tableData.push({
+                sku: skuObj.name,
+                desc: skuObj.desc,
+                lifecycle: skuObj.lifecycle,
+            });
+        }
+
+        tableData.sort(function(a, b) {
+            return a.sku.localeCompare(b.sku);
+        });
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);           
     }
 
     updater.generateFamilySkus = function(skuFamily, options) {

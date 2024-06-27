@@ -441,8 +441,6 @@ The large number of SPI peripherals on the Tracker M and expansion card exceed t
 ## Tracker feature comparison
 
 
-{{!-- BEGIN shared-blurb 742666de-f91d-45c6-b17c-915bac5f5ea6 --}}
-
 | | Tracker SoM | Tracker M | Tracker One | Monitor One |
 | :--- | :---: | :---: | :---: | :---: |
 | Style | SMD Module | Module | All-in-one | All-in-one |
@@ -482,8 +480,6 @@ The large number of SPI peripherals on the Tracker M and expansion card exceed t
 <sup>5</sup>The Tracker M uses a shared antenna for BLE and Wi-Fi geolocation. You can use the built-in trace antenna or an external 2.4 GHz/5 GHz dual-band antenna, selectable in software.
 
 <sup>6</sup>A small portion of the flash file system is used by the system, and a configurable portion can be used for store and forward, to optionally allow location publishes to be saved when the device is offline to be uploaded later. The remainder of the flash file system can be used by user applications.
-
-{{!-- END shared-blurb --}}
 
 
 
