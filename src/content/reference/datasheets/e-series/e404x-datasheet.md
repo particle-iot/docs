@@ -44,8 +44,8 @@ New designs should use the B404X (B-Series SoM) instead of the E404X.
  * USB 2.0 full speed (12 Mbps)
  * Included PMIC and Fuel Gauge for easy use in battery-powered applications
  * JTAG (SWD) pins
- * RGB status pins for LED
- * Reset and Mode pins for buttons
+ * Pins for RGB LED used for connection status
+ * Pins for reset and mode buttons
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
  * FCC (United States) and ISED (Canada) certified

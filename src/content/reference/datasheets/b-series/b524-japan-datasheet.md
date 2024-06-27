@@ -43,8 +43,8 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
  * 24 mixed signal GPIO (8 x Analog, 8 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
- * RGB status pins for LED
- * Reset and Mode pins for buttons
+ * Pins for RGB LED used for connection status
+ * Pins for reset and mode buttons
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
  * M.2 interface
