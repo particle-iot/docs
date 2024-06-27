@@ -746,33 +746,33 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 
 {{!-- BEGIN shared-blurb 742666de-f91d-45c6-b17c-915bac5f5ea6 --}}
 
-| | Tracker SoM | Tracker M | Tracker One | Monitor One |
-| :--- | :---: | :---: | :---: | :---: |
-| Style | SMD Module | Module | All-in-one | All-in-one |
-| Enclosure | Your design | Your design | Included | Included |
-| MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
-| CPU Speed | 60 MHz | 200 MHz | 64 MHz | 64 MHz |
-| Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
-| Flash file system<sup>6</sup> | 4 MB | 2 MB | 4 MB | 4 MB |
-| Base board | Your design | Included | Included | Included |
-| Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
-| GNSS Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
-| Cellular Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
-| Wi-Fi geolocation antenna | Your design | Int/Ext<sup>5</sup> | Internal | Internal |
-| BLE Antenna | Your design | Int/Ext<sup>5</sup>  | Internal | Internal<sup>4</sup> |
-| NFC Tag | Your design | n/a | Included | n/a |
-| USB Connector | Your design | Micro B | USB C | Micro B (Int)<sup>3</sup> |
-| System RGB LED | Your design | Included | Included | Included |
-| External user button | n/a | n/a | | &check; |
-| User RGB LEDs | | | | 2 |
-| SETUP and MODE buttons | Your design | On board | Inside Enclosure | Inside Enclosure |
-| External power | 3.9 - 17 VDC | 6 - 90 VDC | 6 - 30 VDC | 6 - 90 VDC |
-| SPI | &check; | Expansion card | n/a | Expansion card |
-| I2C | &check; | Expansion card | M8 | Expansion card |
-| Serial | &check; | Expansion card | M8 | Expansion card |
-| Internal temperature sensor | Your design | &check; | &check; | &check; |
-| Battery temperature sensor | n/a | &check; | n/a | &check; |
-| Controlling charging by temperature | Your design | In hardware | In software | In software |
+| | Tracker SoM | Tracker One | Monitor One |
+| :---| :---: | :---: | :---: |
+| Style | SMD Module | All-in-one | All-in-one |
+| Enclosure | Your design | Included | Included |
+| MCU | nRF52840 | nRF52840 | nRF52840 |
+| CPU Speed | 64 MHz | 64 MHz | 64 MHz |
+| Maximum user binary | 256 KB | 256 KB | 256 KB |
+| Flash file system<sup>6</sup> | 4 MB| 4 MB | 4 MB |
+| Base board | Included | Included | Included |
+| Expansion connector | Your design | M8 8-pin | Multiple options |
+| GNSS Antenna | Your design  | Internal | Int/Ext<sup>2</sup> |
+| Cellular Antenna | Your design | Internal | Int/Ext<sup>2</sup> |
+| Wi-Fi geolocation antenna | Your design | Internal | Internal |
+| BLE Antenna | Your design | Internal | Internal<sup>4</sup> |
+| NFC Tag | Your design | Included | n/a |
+| USB Connector | Your design | USB C | Micro B (Int)<sup>3</sup> |
+| System RGB LED | Your design | Included | Included |
+| External user button | Your design | | &check; |
+| User RGB LEDs | | | 2 |
+| SETUP and MODE buttons | Your design | Inside Enclosure | Inside Enclosure |
+| External power | 3.9 - 17 VDC | 6 - 30 VDC | 6 - 30 VDC |
+| SPI | &check; | n/a | Expansion card |
+| I2C | &check; | M8 | Expansion card |
+| Serial | &check;  | M8 | Expansion card |
+| Internal temperature sensor | Your design | &check; | &check; |
+| Battery temperature sensor | n/a | n/a | &check; |
+| Controlling charging by temperature | Your design | In software | In software |
 
 <sup>1</sup>On the Tracker One, the M8 can be configured for GPIO, I2C (SDA and SCL), or Serial (RX and TX) on two pins.
 
@@ -781,8 +781,6 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 <sup>3</sup>There is no external MCU USB connector on the Monitor One.
 
 <sup>4</sup>The Monitor One uses the Tracker SoM BLE chip antenna on the board and does not include a separate BLE antenna, but one could be added using the BLE U.FL connector.
-
-<sup>5</sup>The Tracker M uses a shared antenna for BLE and Wi-Fi geolocation. You can use the built-in trace antenna or an external 2.4 GHz/5 GHz dual-band antenna, selectable in software.
 
 <sup>6</sup>A small portion of the flash file system is used by the system, and a configurable portion can be used for store and forward, to optionally allow location publishes to be saved when the device is offline to be uploaded later. The remainder of the flash file system can be used by user applications.
 

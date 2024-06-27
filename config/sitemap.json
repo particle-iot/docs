@@ -1344,15 +1344,15 @@
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2024-06-27",
-            "hash": "6b534c042b7a5817e65a73c5a97d803720caf7ca58f9f5b5d2ece65b4c3c291c"
+            "hash": "6eec1fa72eea8650d05ff3efe4561373c92a575dba7d5e5cbb2c3b5b0ed4c459"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
             "date": "2024-06-27",
-            "hash": "ae989a73317801a63d2be972bbd73baa6dd192f5a8e21eb8a965132cc7dca38b"
+            "hash": "d41939e2c1a64dd0d36ccf28b53d212fefc0e26ef796d553366ca622f28bb8c4"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2024-06-27",
-            "hash": "c936e0cb38be72d3cf62c3096a1c6d3ec352abd3089fa33e586d82cbca16204e"
+            "hash": "6f796dd4d4309224f75148a9f0071211e3193e6415a177d3d6523d3f91af4620"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-03-19",
@@ -1391,8 +1391,8 @@
             "hash": "438890f21500de1d45f46da0038a731bbf12a7c7926f316283f1c0260e16983f"
         },
         "reference/datasheets/e-series/e404x-datasheet.md": {
-            "date": "2024-03-19",
-            "hash": "6fb8e7de6ff6c649ee03e4fb87ba578edfd2e6def7ebc7ca6cdc4ab50b01ebf4"
+            "date": "2024-06-27",
+            "hash": "20c7a2790d197f5584cbd8c9e23b9098a132b44bab1382b9edf4a358df2f3476"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
             "date": "2024-05-15",
@@ -1423,8 +1423,8 @@
             "hash": "f8d9c44479044bee8f53f30f3aeb0a50d3233d0bbd40154dca569cf300849f54"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2024-05-14",
-            "hash": "b762e8b700263fe79e6a99be3389e5cb7ece1f5e1f24b82515f807f6508ba823"
+            "date": "2024-06-27",
+            "hash": "6bdbe7290f56b549c8a1832410cbd3041602283431866dc3afcaead40da97ee9"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2024-04-23",
@@ -9091,7 +9091,7 @@
             "date": "2024-06-06"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "1328cbb3c7703ac9ac07e9c8e62d004729d4aa262fd113de5aed1e0472cca30b",
+            "hash": "bc36568de8febb0a7282a810064909ea4de6c9e5617cb1cbb02e9c183c663c26",
             "date": "2024-06-27"
         }
     }
