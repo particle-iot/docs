@@ -1343,16 +1343,16 @@
             "hash": "c66f07ccdca62f04905f0e4f9401df81fc1e8c713bea6a1d2f4a41dea215dd4f"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
-            "date": "2024-06-26",
-            "hash": "f367e34d191578dff357382ad5a3c4879ab87cc05736d645b9ab578be44d163f"
+            "date": "2024-06-27",
+            "hash": "6b534c042b7a5817e65a73c5a97d803720caf7ca58f9f5b5d2ece65b4c3c291c"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2024-06-26",
-            "hash": "17428b2d1a5af6f5e854a596ed2a742c24e9b6cf1901a495565e94e30b9d2551"
+            "date": "2024-06-27",
+            "hash": "ae989a73317801a63d2be972bbd73baa6dd192f5a8e21eb8a965132cc7dca38b"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2024-06-26",
-            "hash": "388972864a3aff5ec26076c4bfb244407edd24746187b30b1e0bbec0f6bb5235"
+            "date": "2024-06-27",
+            "hash": "c936e0cb38be72d3cf62c3096a1c6d3ec352abd3089fa33e586d82cbca16204e"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-03-19",
@@ -9091,8 +9091,8 @@
             "date": "2024-06-06"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "14c9e68310b42cef6413c119cd87630d714e1fa3d0ded6af328ca92d0004189c",
-            "date": "2024-06-26"
+            "hash": "1328cbb3c7703ac9ac07e9c8e62d004729d4aa262fd113de5aed1e0472cca30b",
+            "date": "2024-06-27"
         }
     }
 }

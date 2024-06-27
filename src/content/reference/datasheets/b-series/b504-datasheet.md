@@ -60,6 +60,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 | Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; | &check; |
 | Lowest power (LTE Cat M1) | &check; | &check; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Fastest speed (LTE Cat 1) | &nbsp; | &nbsp; | &nbsp; | &check; | &check; | &check; |
+| Cellular fallback | &nbsp; | &nbsp; | &nbsp; | 3G, 2G | 3G, 2G | 3G | 
 | Lifecycle | GA | NRND | Deprecated | GA | Deprecated | In development |
 
 - EtherSIM devices generally have a larger number of carriers and more may be added in the future
