@@ -20223,7 +20223,8 @@
       "prefix": "P006",
       "platformId": 23,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "m2som": true
     },
     {
       "name": "B402MTY",
@@ -20258,7 +20259,8 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "m2som": true
     },
     {
       "name": "B404MEA",
@@ -20292,7 +20294,8 @@
       "platformId": 23,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "m2som": true
     },
     {
       "name": "B404MTY",
@@ -20328,7 +20331,8 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "m2som": true
     },
     {
       "name": "B404XMEA",
@@ -20362,7 +20366,8 @@
       "retail": true,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "m2som": true
     },
     {
       "name": "B404XMTY",
@@ -20397,7 +20402,8 @@
       "retail": false,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "m2som": true
     },
     {
       "name": "B504MEA",
@@ -20431,7 +20437,8 @@
       "prefix": "P056",
       "platformId": 25,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "m2som": true
     },
     {
       "name": "B504MTY",
@@ -20466,7 +20473,8 @@
       "prefix": "P056",
       "platformId": 25,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "m2som": true
     },
     {
       "name": "B523MEA",
@@ -20500,7 +20508,8 @@
       "prefix": "P019",
       "platformId": 25,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "m2som": true
     },
     {
       "name": "B523MTY",
@@ -20536,7 +20545,8 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "m2som": true
     },
     {
       "name": "B524MEA",
@@ -20568,7 +20578,8 @@
       "prefix": "P034",
       "platformId": 25,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "m2som": true
     },
     {
       "name": "B524MTY",
@@ -20601,7 +20612,8 @@
       "prefix": "P034",
       "platformId": 25,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "m2som": true
     },
     {
       "name": "BAT1800",
@@ -21903,7 +21915,8 @@
       "batteryConn": false,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "m2som": true
     },
     {
       "name": "M404MTY",
@@ -21941,7 +21954,8 @@
       "batteryConn": false,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "m2som": true
     },
     {
       "name": "M524MEA",
@@ -21977,7 +21991,8 @@
       "platformId": 35,
       "batteryConn": false,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "m2som": true
     },
     {
       "name": "M524MTY",
@@ -22014,7 +22029,8 @@
       "platformId": 35,
       "batteryConn": false,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "m2som": true
     },
     {
       "name": "M635MEA",
@@ -22050,7 +22066,8 @@
       "platformId": 35,
       "batteryConn": false,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "m2som": true
     },
     {
       "name": "M8CAB3VEA",

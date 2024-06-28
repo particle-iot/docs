@@ -748,6 +748,17 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },        
+        // SoM guide
+        {
+            guid:'9e1f59dd-fe76-4361-85a0-daaed2736a85', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return !skuObj.m2som
+                    }        
+                }); 
+            } 
+        },        
         // BRN404X
         {
             guid:'4b3e02b9-2be9-40ff-8486-90fa48a9e518', 

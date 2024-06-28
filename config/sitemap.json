@@ -1360,7 +1360,7 @@
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2024-06-28",
-            "hash": "90c2a7fde997515682a72e0297bf95cdc253c96b1e5cf33767e467f111d2b7ae"
+            "hash": "176383aa9ec7ba8b8e8e3c7abbff80f5ffa42c0b61e28531e55e397079009178"
         },
         "reference/datasheets/accessories/debugger.md": {
             "date": "2024-02-27",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8996cc9ab37329ee12a18777fe2adda42ca0f0e6a369407ff281e638f7cb2cd3",
+            "hash": "9ab7e5bd11d938c9018f928e973e8ddc0468a2b4b4a129aa875393f142ee0c71",
             "date": "2024-06-28"
         },
         "getting-started/cloud/logic.md": {
@@ -9093,6 +9093,38 @@
         "reference/datasheets/b-series/b504-datasheet.md": {
             "hash": "bc36568de8febb0a7282a810064909ea4de6c9e5617cb1cbb02e9c183c663c26",
             "date": "2024-06-27"
+        },
+        "hardware/m.2-som/basic-som-design.md": {
+            "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
+            "date": "2024-06-28"
+        },
+        "hardware/m.2-som/som-first-board.md": {
+            "hash": "b68d6d837be2b6a36a900749e8ce77ee638e03bd8e1986535b740ba6478b2490",
+            "date": "2024-06-28"
+        },
+        "hardware/m.2-som/som-guide.md": {
+            "hash": "f28c76aa2635cf9f14e7b88064208c3f200b708648e741829313feae88ff7dea",
+            "date": "2024-06-28"
+        },
+        "hardware/m.2-som/b-series-som-flexibility.md": {
+            "hash": "8d6fce12e6ee097351815bb9df4e1f3e08f6776ece170ecf70370154f42af8ea",
+            "date": "2024-06-28"
+        },
+        "hardware/som/b-series-som-flexibility.md": {
+            "hash": "8d6fce12e6ee097351815bb9df4e1f3e08f6776ece170ecf70370154f42af8ea",
+            "date": "2024-06-28"
+        },
+        "hardware/som/basic-som-design.md": {
+            "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
+            "date": "2024-06-28"
+        },
+        "hardware/som/som-first-board.md": {
+            "hash": "b68d6d837be2b6a36a900749e8ce77ee638e03bd8e1986535b740ba6478b2490",
+            "date": "2024-06-28"
+        },
+        "hardware/som/som-guide.md": {
+            "hash": "7c7ac5080307a177302936895d1b30c52cce797747be20e8c824c9afc574e53c",
+            "date": "2024-06-28"
         }
     }
 }
