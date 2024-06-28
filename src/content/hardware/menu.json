@@ -142,24 +142,30 @@
       ]
     ],
     {
-      "dir": "b-series-som",
-      "isSection": true
+      "dir": "som",
+      "isSection": true,
+      "title": "M.2 SoM"
     },
     [
       {
+        "dir": "som-guide",
+        "title": "M.2 SoM guide",
+        "href": "/hardware/som/som-guide/"
+      },
+      {
         "dir": "b-series-som-flexibility",
         "title": "Designing for B-Series SoM flexibility",
-        "href": "/hardware/b-series-som/b-series-som-flexibility/"
+        "href": "/hardware/som/b-series-som-flexibility/"
       },
       {
         "dir": "som-first-board",
         "title": "B-Series SoM First Board",
-        "href": "/hardware/b-series-som/som-first-board/"
+        "href": "/hardware/som/som-first-board/"
       },
       {
         "dir": "basic-som-design",
         "title": "Basic SoM design",
-        "href": "/hardware/b-series-som/basic-som-design/"
+        "href": "/hardware/som/basic-som-design/"
       }
     ],
     {
@@ -422,6 +428,5 @@
         "href": "/hardware/community/monitor-one-modbus/"
       }
     ]
-
   ]
 }
