@@ -424,7 +424,15 @@ Additional FCC Test Reports:
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+
 {{!-- BEGIN shared-blurb cff57903-4acb-47bb-b0fa-78343034a2a6 --}}
+### Australia - BRN404X Boron LTE Cat M1
+
+- [Compliance declaration](/assets/pdfs/brn404x-au-compliance.pdf)
+- [Letter of authorization](/assets/pdfs/brn404x-au-letter-of-authorization.pdf)
+- [Supplier's declaration of conformity](/assets/pdfs/brn404x-au-suppliers-declaration-of-conformity.pdf)
+
+
 ### Bluetooth - BRN404X Boron LTE Cat M1
 
 - [Bluetooth](/assets/pdfs/brn404x-bluetooth.pdf)
@@ -432,7 +440,7 @@ Additional FCC Test Reports:
 
 ### CE (Europe) - BRN404X Boron LTE Cat M1
 
-The BRN404X are not certified for use in Europe at this time.
+The BRN404X is not certified for use in Europe at this time.
 
 ### FCC (United States) - BRN404X Boron LTE Cat M1
 

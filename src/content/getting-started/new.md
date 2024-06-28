@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BRN404X Australia certification 2024-06-28
+
+The [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) is now certified for use in Australia.
+
 ### B504 datasheet 2024-06-27
 
 The B-SoM [B504 datasheet](/reference/datasheets/b-series/b504-datasheet/) is now available.

@@ -943,8 +943,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-06-08",
-            "hash": "c02f0a42b8e54408356f0b0b85b088691b4fd6b8e5f594e891196285779b8d03"
+            "date": "2024-06-28",
+            "hash": "8fbd30d7332b4c64463aa9ff85843a1d8e12a180241ef3edb7aedde7e34ecd18"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1359,8 +1359,8 @@
             "hash": "a61ab52ebbdf0be5f31835b3ab4dc4ddb0aac795d0c5eb7372436fb8fae75991"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
-            "date": "2024-05-10",
-            "hash": "29c2401f6a6b5918eb8e01920754e61fef68df8f0292f1272acb9606ca26d957"
+            "date": "2024-06-28",
+            "hash": "90c2a7fde997515682a72e0297bf95cdc253c96b1e5cf33767e467f111d2b7ae"
         },
         "reference/datasheets/accessories/debugger.md": {
             "date": "2024-02-27",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5815bb736da78f23dc1c443cdcaef99c8567730795a8a1d5fdec0a721e850ffa",
-            "date": "2024-06-25"
+            "hash": "8996cc9ab37329ee12a18777fe2adda42ca0f0e6a369407ff281e638f7cb2cd3",
+            "date": "2024-06-28"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
