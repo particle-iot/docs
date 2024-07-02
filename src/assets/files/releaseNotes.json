@@ -28404,6 +28404,276 @@
                 2765,
                 2766
             ]
+        },
+        "v5.8.2": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.8.2",
+            "tag_name": "v5.8.2",
+            "name": "v5.8.2 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2024-07-02T17:35:27Z",
+            "published_at": "2024-07-02T18:18:29Z",
+            "entries": [
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2764
+                    ],
+                    "section": "FEATURES",
+                    "text": "Improve coexistence between Wifi and BLE when both are used simultaneously"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2766
+                    ],
+                    "section": "FEATURES",
+                    "text": "Backup RAM is no longer automatically written to flash periodically. Backup RAM will be saved when entering sleep. If users are going to reset, `hal_backup_ram_sync()` should be called first"
+                },
+                {
+                    "tags": [
+                        "eg91e",
+                        "eg91ex"
+                    ],
+                    "prs": [
+                        2782
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "enable 921600 baud rate"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2784
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "SPI hal: set sample delay for SPI0@25MHz"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "msom"
+                    ],
+                    "prs": [
+                        2738
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "ACM Behavior changes"
+                },
+                {
+                    "tags": [],
+                    "prs": [],
+                    "section": "ENHANCEMENTS",
+                    "text": "Update heap5 implementation to latest [6d1d9bff2](https://github.com/particle-iot/device-os/commit/6d1d9bff2a0f39ae2e331686357c593fc18108ed)[07104a8dc2](https://github.com/particle-iot/device-os/commit/07104a8dc26611ec4a312ec113824ffbd9bbed02)"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2783,
+                        2778
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix wifi setup not connecting when in listening mode"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2769
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Resumable OTA fixes"
+                },
+                {
+                    "tags": [
+                        "quectel"
+                    ],
+                    "prs": [
+                        2772
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes PPP resume during warm boot"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "bootloader"
+                    ],
+                    "prs": [
+                        2773
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Implement bootloader reset reasons"
+                },
+                {
+                    "tags": [
+                        "RTL872x"
+                    ],
+                    "prs": [
+                        2768
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "multiple SPI fixes"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2766
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Reinitialize internal wifi stack if scan or connect fails  [#2760](https://github.com/particle-iot/device-os/pull/2760/)"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2765
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Resolve deadlock with USB serial monitoring on boot in some cases"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2787
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: fix gpio glitch"
+                },
+                {
+                    "tags": [
+                        "ACM"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "Dont change cloud connection to preferred network during OTA update [9abfb7c72](https://github.com/particle-iot/device-os/commit/9abfb7c721b7d68b0378eebe2f31483583343b86)"
+                },
+                {
+                    "tags": [],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "Avoid malloc/realloc while under ATOMIC_BLOCK in system event subscription [63fcc6b26](https://github.com/particle-iot/device-os/commit/63fcc6b26921fa75cd686972e74aba6e5ba83b0e)"
+                },
+                {
+                    "tags": [
+                        "gen 4"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "network: Increase rtlkncp thread stack [29433d38c](https://github.com/particle-iot/device-os/commit/29433d38c567b57dc69f3d364b2080f4711feb0e)"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2779
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Display Photon 2 instead of P2, dont allow extended advertising data on rtl platforms"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2763
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add set credentials usb request"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2761
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Prevent M404/BG95M5 modems from connecting on 2G networks for the time being"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2761
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Query 2G registration status for M404/BG95M5 modems when querying CGMI"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2789
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update sdk submoudle ref to fix compiler warnings"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [],
+                    "section": "INTERNAL",
+                    "text": "Adjust OTA tests [8ec558e63](https://github.com/particle-iot/device-os/commit/8ec558e63d8545856ff7ac37db1dda1546df8786)"
+                }
+            ],
+            "prs": [
+                2738,
+                2761,
+                2763,
+                2764,
+                2765,
+                2766,
+                2768,
+                2769,
+                2772,
+                2773,
+                2778,
+                2779,
+                2782,
+                2783,
+                2784,
+                2787,
+                2789
+            ]
+        },
+        "v6.1.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.1.1",
+            "tag_name": "v6.1.1",
+            "name": "v6.1.1 (Argon/Boron/B SoM/B5 SoM/Tracker/E SoM X)",
+            "prerelease": true,
+            "created_at": "2024-06-20T09:31:35Z",
+            "published_at": "2024-06-21T16:41:37Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2770
+                    ],
+                    "section": "FEATURES",
+                    "text": "Allow temporarily disabling device protection"
+                }
+            ],
+            "prs": [
+                2770
+            ]
         }
     },
     "pulls": {
@@ -41715,6 +41985,202 @@
             "state": "open",
             "created_at": "2024-04-27T05:41:00Z",
             "detail": "1. `SPI.transfer(byte)` may lose data\n2. SPI settings before `SPI.begin()` won't apply\n3. `SPI.transfer(txBuf, nullptr, size, callback)` will lose data if CS pin is deasserted after the callback is invoked\n4. SPI slave DMA state machine is messed up if master just toggles the CS pin"
+        },
+        "2769": {
+            "url": "https://github.com/particle-iot/device-os/pull/2769",
+            "number": 2769,
+            "title": "Resumable OTA fixes",
+            "state": "closed",
+            "created_at": "2024-05-13T14:31:08Z",
+            "detail": "- `DISCARD_DATA` flag has no effect when it's set in a `StartUpdate` OTA request as opposed to `FinishUpdate`.\n- Cached module data isn't invalidated if the module validation failed."
+        },
+        "2770": {
+            "url": "https://github.com/particle-iot/device-os/pull/2770",
+            "number": 2770,
+            "title": "Allow temporarily disabling device protection",
+            "state": "closed",
+            "created_at": "2024-05-20T21:44:05Z",
+            "detail": "Implement a challenge-response protocol between the device and the cloud to temporarily disable device protection. An external tool like the CLI transfers the information from the device to the API and back."
+        },
+        "2771": {
+            "url": "https://github.com/particle-iot/device-os/pull/2771",
+            "number": 2771,
+            "title": "Publish last reset event on session resumption",
+            "state": "closed",
+            "created_at": "2024-05-21T00:24:25Z",
+            "detail": "When the device reboots and resumes its session (for example after `System.reset()` and after pin reset on Gen 3), the `spark/device/last_reset` event is not published. It's only published when a new session is established."
+        },
+        "2772": {
+            "url": "https://github.com/particle-iot/device-os/pull/2772",
+            "number": 2772,
+            "title": "[quectel] fixes PPP resume during warm boot",
+            "state": "closed",
+            "created_at": "2024-05-22T17:50:37Z",
+            "detail": "- `slo/connect_time` failing warm boot times of < 30s on EG91-NAX due to PPP data link not resuming, requiring a modem power cycle and cold boot, which adds ~30s to the connection time.  So instead of 6-10s warm boot times, we were seeing 31-33s warm boot times about 50% of the time."
+        },
+        "2773": {
+            "url": "https://github.com/particle-iot/device-os/pull/2773",
+            "number": 2773,
+            "title": "[bootloader] Implement bootloader reset reasons",
+            "state": "closed",
+            "created_at": "2024-05-22T22:00:50Z",
+            "detail": "The RTL bootloader has not been updated to use the backup register HAL to communicate reset reason to the system part application. This leads to undefined reset reasons in the following scenarios\n\n1. When completing OTA bootloader update\n2. When completing DFU update via button reset/hold"
+        },
+        "2774": {
+            "url": "https://github.com/particle-iot/device-os/pull/2774",
+            "number": 2774,
+            "title": "Supports auxiliary power control.",
+            "state": "open",
+            "created_at": "2024-05-23T19:12:05Z"
+        },
+        "2775": {
+            "url": "https://github.com/particle-iot/device-os/pull/2775",
+            "number": 2775,
+            "title": "Makes the Ethernet interrupt pin optional.",
+            "state": "open",
+            "created_at": "2024-05-24T19:08:30Z",
+            "detail": "Currently W5500 interrupt pin is essential for Ethernet to be functional. However, for the Ethernet feather wing from Adafruit doesn't expose the interrupt pin to side headers, indicating that the interrupt pin is optional to the Ethernet interface."
+        },
+        "2776": {
+            "url": "https://github.com/particle-iot/device-os/pull/2776",
+            "number": 2776,
+            "title": "Fix deprecated docker build",
+            "state": "closed",
+            "created_at": "2024-05-28T16:44:34Z",
+            "detail": "[Circle CI is deprecating our docker image](https://support.circleci.com/hc/en-us/articles/23614965074459-2024-Image-Deprecations-and-Brownouts-Android-Linux-VM-Remote-Docker-Linux-VM)"
+        },
+        "2777": {
+            "url": "https://github.com/particle-iot/device-os/pull/2777",
+            "number": 2777,
+            "title": "[system] power: add method to specify the PMIC/FuelGauge interrupt pin.",
+            "state": "open",
+            "created_at": "2024-05-29T15:59:59Z",
+            "detail": "1. Currently the pin for PMIC interrupt is pre-defined per platform in DVOS and customer has to designed their own board according to the pin number for the PMIC interrupt.\n\n2. We have allocated the A6 pin for the PMIC interrupt on the MSoM. For Muon, we'd like to make PMIC be capable of waking up device from hibernate mode, however the A6 pin doesn't not have this ability. Thus, for Muon we connect the PMIC interrupt pin to A7, which is capable of doing what we want. But DVOS doesn't has a method to change the default pin for PMIC interrupt."
+        },
+        "2778": {
+            "url": "https://github.com/particle-iot/device-os/pull/2778",
+            "number": 2778,
+            "title": "Scan needs NcpState to be ON",
+            "state": "closed",
+            "created_at": "2024-05-31T00:02:33Z",
+            "detail": "For a brand new factory fresh P2, joining a new network via control requests throws an error."
+        },
+        "2779": {
+            "url": "https://github.com/particle-iot/device-os/pull/2779",
+            "number": 2779,
+            "title": "Display Photon 2 instead of P2, dont allow extended advertising data on rtl platforms",
+            "state": "closed",
+            "created_at": "2024-05-31T23:12:49Z",
+            "detail": "1. Photon 2 devices show \"P2\" as the platform name in USB and in BLE advertising names by default\n2. RTL platforms allow buffering of advertising data > 31 bytes, but truncate that data when starting advertisement, resulting in undefined behavior"
+        },
+        "2781": {
+            "url": "https://github.com/particle-iot/device-os/pull/2781",
+            "number": 2781,
+            "title": "[quectel][msom] re-enable 2G support for M404, fix for M524",
+            "state": "open",
+            "created_at": "2024-06-06T03:52:28Z",
+            "detail": "- 2G support was disabled for M-SoM temporarily due to some issues with operation on M524"
+        },
+        "2782": {
+            "url": "https://github.com/particle-iot/device-os/pull/2782",
+            "number": 2782,
+            "title": "[eg91e][eg91ex] enable 921600 baud rate",
+            "state": "closed",
+            "created_at": "2024-06-06T14:00:27Z",
+            "detail": "- EG91-E modems require A08 or above modem firmware version to support 921600 baud speeds, otherwise the default 460800 should be used.\n- EG91-EX modems all support 921600 baud, but still using 460800."
+        },
+        "2783": {
+            "url": "https://github.com/particle-iot/device-os/pull/2783",
+            "number": 2783,
+            "title": "Fix wifi setup not connecting when in listening mode",
+            "state": "closed",
+            "created_at": "2024-06-12T19:41:46Z",
+            "detail": "When a P2/Photon 2 device does not have any wifi credentials set, it will boot into listening mode.\nWhen using `particle wifi join` or using setup.particle.io to set credentials on the device, the credentials will be stored to the device, but the device will not connect to the network and remain blinking green (ie network connecting). \nSee comment [here](https://s.slack.com/archives/C8QH35A73/p1717971924968089)\n\nThe root of the problem is a state mismatch between Network Manager and the RTK NCP Netif.\nWhen validating the network credentials, the RTK NCP client will connect to the given SSID. When `network_connect()` is called, the NCP client is already connected, but the NCP connection event is ignored since it does not expect to be in that state. \n\nAdditionally, `network_connect()` will not connect at all if no credentials are stored, even with the `NETWORK_CONNECT_FLAG_FORCE` flag set."
+        },
+        "2784": {
+            "url": "https://github.com/particle-iot/device-os/pull/2784",
+            "number": 2784,
+            "title": "[rtl872x] SPI hal: set sample delay for SPI0@25MHz",
+            "state": "closed",
+            "created_at": "2024-06-13T06:01:53Z",
+            "detail": "Under some circumstances, e.g. on the M.2 breakout board v0.5, the SPI0@25MHz may receive incorrect data on MISO."
+        },
+        "2785": {
+            "url": "https://github.com/particle-iot/device-os/pull/2785",
+            "number": 2785,
+            "title": "Device OS v5.8.2 ",
+            "state": "closed",
+            "created_at": "2024-06-13T17:54:12Z"
+        },
+        "2786": {
+            "url": "https://github.com/particle-iot/device-os/pull/2786",
+            "number": 2786,
+            "title": "Bump braces from 3.0.2 to 3.0.3 in /user/tests/integration",
+            "state": "closed",
+            "created_at": "2024-06-17T03:25:16Z"
+        },
+        "2787": {
+            "url": "https://github.com/particle-iot/device-os/pull/2787",
+            "number": 2787,
+            "title": "[gen3] hal: fix gpio glitch",
+            "state": "closed",
+            "created_at": "2024-06-19T14:16:55Z",
+            "detail": "`pinMode(pin, OUTPUT_OPEN_DRAIN)` or `pinMode(pin, OUTPUT_OPEN_DRAIN_PULLUP)` cause I/O glitch."
+        },
+        "2788": {
+            "url": "https://github.com/particle-iot/device-os/pull/2788",
+            "number": 2788,
+            "title": "Fix CircleCI Darwin builds",
+            "state": "closed",
+            "created_at": "2024-06-20T09:43:45Z",
+            "detail": "Since June 20 CircleCI is deprecating x86 darwin workers."
+        },
+        "2789": {
+            "url": "https://github.com/particle-iot/device-os/pull/2789",
+            "number": 2789,
+            "title": "update sdk sumboule ref to fix compiler warnings",
+            "state": "closed",
+            "created_at": "2024-06-21T01:50:12Z"
+        },
+        "2790": {
+            "url": "https://github.com/particle-iot/device-os/pull/2790",
+            "number": 2790,
+            "title": "Fix 5.8.2 test failures",
+            "state": "closed",
+            "created_at": "2024-06-21T21:33:48Z",
+            "detail": "5.8.2 integration testing [shows various failures](https://s.slack.com/archives/CS0T32ZKK/p1718325908065589?thread_ts=1718296230.094369&cid=CS0T32ZKK)"
+        },
+        "2791": {
+            "url": "https://github.com/particle-iot/device-os/pull/2791",
+            "number": 2791,
+            "title": "Export hal_spi_get_clock_divider()",
+            "state": "open",
+            "created_at": "2024-06-25T15:24:17Z",
+            "detail": "The `hal_spi_get_clock_divider()` is invoked by spi_lock.h. Under some circumstances, e.g. the IO expander driver that is copied from DVOS and is used in user application, the user application may fail to compile."
+        },
+        "2792": {
+            "url": "https://github.com/particle-iot/device-os/pull/2792",
+            "number": 2792,
+            "title": "Fixes NETWORK_02 msom test",
+            "state": "closed",
+            "created_at": "2024-06-25T22:33:16Z",
+            "detail": "`NETWORK_02_network_connection_recovers_after_ncp_failure` Started failing for msom platforms.\nRoot cause was due to network manager incorrectly disabling the cloud auto reconnect flag when a network interface is brought link down.\n\n_Unrelated, but this test was also potentially not working as intended on msom, due to the wifi network being enabled and the cloud connection failing over to it. The test will explicitly verify that the cellular USART/interface can be recovered_\n\n_Also not explicitly related, but the `wifi_no_fixture` test `WIFI_01_resolve_3_levels` fails sometimes on msom platforms. I believe this is due to the assumption that the device will connect to the cloud only via wifi and that sometimes msoms are connected on cellular before wifi in this test, and then wifi DNS resolution fails even though the cloud is connected. I added a check to explicitly wait for wifi to be ready before continuing the tests_"
+        },
+        "2793": {
+            "url": "https://github.com/particle-iot/device-os/pull/2793",
+            "number": 2793,
+            "title": "[system] battery state might be wrong when it is detached",
+            "state": "open",
+            "created_at": "2024-06-27T18:46:11Z",
+            "detail": "Under some circumstances, battery state remains not charging even if the battery is detached. For instance, on the M.2 breakout board, when it is powered through DC jack only."
+        },
+        "2794": {
+            "url": "https://github.com/particle-iot/device-os/pull/2794",
+            "number": 2794,
+            "title": "Makes the Ethernet reset pin optional.",
+            "state": "open",
+            "created_at": "2024-06-28T16:14:37Z",
+            "detail": "The Ethernet reset pin on Muon is controlled by a reset IC, instead of GPIO. The reset IC will delay up to 200ms after the Ethernet interface is powered up to reset the Ethernet, which is too late to add the Ethernet interface."
         }
     }
 }

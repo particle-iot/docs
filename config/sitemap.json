@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-06-25",
-            "hash": "166759f41d59d700fdc2781b3f768d2233e64fd24c7890428847c284127090fe"
+            "date": "2024-07-02",
+            "hash": "024b52bf28c80345c5d114566fee8019d011675dd08a46e7b9bac6e17741636b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1827,8 +1827,8 @@
             "hash": "7d3ed9cb3ac5666a5ff88e19b4da672750a2c267ac3a7fc6e28ea730ebee9ce8"
         },
         "reference/device-os/api/ethernet/pin-configuration-ethernet.md": {
-            "date": "2023-09-20",
-            "hash": "a71e3baadc73724ac46b9d075ec93e9aff0849e6387ed9b6ac8497f33ab7468b"
+            "date": "2024-07-02",
+            "hash": "aeca558495ed27ec15ddfe1964ef220f40680e64bc59d7690d983099757655ca"
         },
         "reference/device-os/api/ethernet/on.md": {
             "date": "2023-09-20",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "9ab7e5bd11d938c9018f928e973e8ddc0468a2b4b4a129aa875393f142ee0c71",
-            "date": "2024-06-28"
+            "hash": "a55fadeeffb8601980ed086b4ded81b9242a1d291e64570aed93070c68bc8e7c",
+            "date": "2024-07-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

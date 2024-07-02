@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 5.8.2 2024-07-02
+
+Device OS 5.8.2 is now in Device Restore USB, Hex Generator, etc.
+
 ### BRN404X Australia certification 2024-06-28
 
 The [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) is now certified for use in Australia.

@@ -1568,13 +1568,9 @@ System.enableFeature(FEATURE_ETHERNET_DETECTION);
 System.reset();
 ```
 
-- If you want to restore one or more pins as their default value, use PIN_INVALID, and the default will be used for that pin.
-
-```cpp
-remap.cs_pin = PIN_INVALID; // default
-remap.reset_pin = PIN_INVALID; // default
-remap.int_pin = PIN_INVALID; // default
-```
+In Device OS 6.1.1 and earlier, if you wanted to restore a pin to its default value, you could set it to `PIN_INVALID`. This is no 
+longer possible as `PIN_INVALID` is now a usable value for the `int_pin` for operation without a hardware interrupt pin.
+You must set it back to the actual default pin to restore default pin mapping.
 
 Here's a full sample application for testing:
 
