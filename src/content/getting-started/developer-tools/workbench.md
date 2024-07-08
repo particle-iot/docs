@@ -323,7 +323,30 @@ To remove a library, you should:
 
 You'll notice a copy of the libraries you've added in the `lib` directory in the top level of your project. This is handy for viewing the source and examples.
 
-If you want to make modifications to the library, be sure to remove the library from the `project.properties` file in the top level of your project. If you leave the library in project.properties the official release will be used to build. If you remove it, then the local version you modified in your `lib` directory will be used instead.
+Libraries work slightly differently for local vs. cloud compiles, which can cause some confusion.
+
+For cloud compiles, libraries in `project.properties` are used even if there is a local copy downloaded in your project. This also applies to using the Particle CLI `particle compile` command.
+
+For local compiles, you must have a local copy of the library in the `lib` directory. This is done automatically by **Particle: Install Library** in the command palette, or by using `particle library copy` from the CLI. 
+
+If you want use a modified version of a community library that builds consistently for both cloud and local compiles, edit the project.properties file:
+
+Before example:
+
+```
+name=discombobulator
+dependencies.CellularHelper=0.2.5
+```
+
+After editing:
+
+```
+name=discombobulator
+disabled_dependencies.CellularHelper=0.2.5
+```
+
+You could also just delete the dependencies line, but marking it with `disabled_` is a good reminder of the version you started with.
+
 
 ### Snippets
 

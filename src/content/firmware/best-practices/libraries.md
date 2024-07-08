@@ -83,6 +83,16 @@ For cloud compiles, libraries in `project.properties` are used even if there is 
 
 For local compiles, you must have a local copy of the library in the `lib` directory. This is done automatically by **Particle: Install Library** in the command palette, or by using `particle library copy` from the CLI. 
 
+If you want use a modified version of a community library that builds consistently for both cloud and local compiles, edit the project.properties file:
+
+```
+name=discombobulator
+disabled_dependencies.CellularHelper=0.2.5
+```
+
+You could also just delete the dependencies line, but marking it with `disabled_` is a good reminder of the version you started with.
+
+
 ### Customizing libraries
 
 If you are modifying a community library that you previously installed using **Particle: Install Library** in the command palette, or by using `particle library copy` from the CLI, you should remove the dependencies entry in `project.properties` in the dependency section. If you do not do this, cloud compiles will pick up the official version instead of your modified version. Even if you normally use local compiles, it's good practice to do this to prevent future confusion.

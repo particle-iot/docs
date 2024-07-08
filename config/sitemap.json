@@ -507,8 +507,8 @@
             "hash": "e32112bd1b9af0d40ddbda35900ea98b3addbb573018af61c9757a3e7f44dbfe"
         },
         "firmware/best-practices/libraries.md": {
-            "date": "2022-06-14",
-            "hash": "920cc5355bb9feaebe937bdd50f13441df89b5faed4ee634fca0db259992252e"
+            "date": "2024-07-08",
+            "hash": "3c4699cfec4496e7bfd7450944cd585dddc44d7b0e20524d7ce978ecda5442a0"
         },
         "firmware/best-practices/scheduling.md": {
             "date": "2024-02-27",
@@ -639,8 +639,8 @@
             "hash": "ed28d33626fdcc277f534862716109ef0416d8bd033056d50f9b4a8d3c3a9622"
         },
         "getting-started/developer-tools/workbench.md": {
-            "date": "2024-04-30",
-            "hash": "429a46f8570247522d3f2dfaf9a9cf05a9517c8012753f3ec2dcd92f32c04bf2"
+            "date": "2024-07-08",
+            "hash": "7e860f21463ad5a2dd7aa8e3b3ce4129d4a2695409c51d4e628c6d06efa5aa64"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
             "date": "2024-02-27",
