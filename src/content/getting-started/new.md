@@ -21,6 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device restore fixes 2024-07-09
+
+Fixed an issue with Device restore DFU and Web device doctor when upgrading or downgrading 
+P2/Photon 2 or M-SoM with Device OS 5.5.0 and later. It was particularly noticeable with 
+5.8.2.
+
 ### Device OS 5.8.2 2024-07-02
 
 Device OS 5.8.2 is now in Device Restore USB, Hex Generator, etc.

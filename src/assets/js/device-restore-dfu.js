@@ -668,6 +668,7 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
         
             if (options.prebootloader) {
+                // This option is not currently used
                 let obj = { name: 'prebootloader-part1', title: 'Prebootloader' };
                 await updateBinary(obj);
             }
@@ -686,10 +687,6 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
         }
 
-        if (options.progressDfuParts) {
-            options.progressDfuParts(dfuParts);
-        }
-        
         // Skip parts that are up-to-date 
         for(let ii = 0; ii < dfuParts.length; ii++) {
             let obj = dfuParts[ii];
@@ -697,7 +694,7 @@ async function dfuDeviceRestore(usbDevice, options) {
 
             if (options.deviceModuleInfo && obj.moduleInfo) {
                 // Modules on device were passed 
-                const m = options.deviceModuleInfo.getByModuleTypeIndex(obj.moduleInfo.moduleFunctio, obj.moduleInfo.moduleIndex);
+                const m = options.deviceModuleInfo.getByModuleTypeIndex(obj.moduleInfo.moduleFunction, obj.moduleInfo.moduleIndex);
                 if (m) {
                     // console.log('partName=' + obj.name + ' m.version=' + m.version + ' obj.moduleInfo.moduleVersion=' + obj.moduleInfo.moduleVersion, m);
 
@@ -711,11 +708,24 @@ async function dfuDeviceRestore(usbDevice, options) {
     
                         dfuParts.splice(ii, 1);
                         ii--; // Is incremented in for loop
+                        continue;
                     }
                 }
             }
+
+            if (dfuParts[ii].name == 'bootloader' && options.platformVersionInfo.isRTL872x) {
+                // Bootloader on RTL872x is updated using control requests, not DFU
+                dfuParts.splice(ii, 1);
+                ii--; // Is incremented in for loop
+                continue;
+            }
+
         }
 
+        if (options.progressDfuParts) {
+            options.progressDfuParts(dfuParts);
+        }
+        
         // If the bootloader is still in the list, we need use the OTA trick (except on the P2)
         for(let ii = 0; ii < dfuParts.length; ii++) {
             let obj = dfuParts[ii];
@@ -873,7 +883,10 @@ async function dfuDeviceRestore(usbDevice, options) {
                 else
                 if (partName == 'system-part1' && options.platformVersionInfo.isRTL872x) {
                     // System part is special on RTL872x because the OTA sector is appended
+                    // however we currently do not use the OTA trick for bootloader on
+                    // RTL872x
 
+                    /*
                     const bootloaderPart = await getPartBinary('bootloader');
                     if (bootloaderPart) {
                         // Pad system-part1 out to a 4K sector alignment
@@ -885,25 +898,6 @@ async function dfuDeviceRestore(usbDevice, options) {
                         part = newPart;                                                
                         setOTAFlag = true;
                     }
-
-                    // This does not currently work
-                    /*
-                    const bootloaderPart = await getPartBinary('bootloader');
-                    const preBootloaderPart = await getPartBinary('prebootloader-part1');
-
-                    if (bootloaderPart && preBootloaderPart) {
-                        // Set the combined flag on the prebootloader part
-                        // offset 9, 1-byte: module flags (module_info_flags_t)
-                        // It must be first because the bootloader does not have a module header
-                        console.log('module flags ' + preBootloaderPart[9]);
-                        preBootloaderPart[9] |= 0x4; // MODULE_INFO_FLAG_COMBINED
-
-                        let newPart = new Uint8Array(part.length + preBootloaderPart.length + bootloaderPart.length);
-                        newPart.set(part);
-                        newPart.set(preBootloaderPart, part.length);
-                        newPart.set(bootloaderPart, part.length + preBootloaderPart.length);
-                        part = newPart;                                                
-                    }
                     */
 
                     await dfuseDevice.do_download(4096, part, {});
@@ -911,6 +905,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                 else
                 if (partName == 'prebootloader-part1') {
                     // Only P2 (options.platformVersionInfo.isRTL872x)
+                    // This is not currently used; control requests are used instead
 
                     dfuseDevice.startAddress = parseInt(options.moduleInfo['system-part1'].prefixInfo.moduleStartAddy, 16);
                     

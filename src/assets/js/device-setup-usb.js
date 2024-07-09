@@ -2586,112 +2586,108 @@ $(document).ready(function() {
                 // TODO: Do something here
             }    
 
-            let flashPrebootloaderFirst = false;
-            let flashPrebootloaderLast = false;
-
-            const flashPrebootloader = async function() {
-                flashDeviceOptions.prebootloader = true;
-                await flashDeviceInternal();
-                flashDeviceOptions.prebootloader = false;    
-            }
-
-            // Check for P2 prebootloader update. Maybe do this after?
-            if (deviceInfo.platformVersionInfo.isRTL872x) {       
-                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
-                    const m = deviceModuleInfo.getPrebootLoaderPart1();
-                    if (m) {
-                        const newVersion = flashDeviceOptions.moduleInfo['prebootloader-part1'].prefixInfo.moduleVersion;
-                        
-                        // console.log('prebootloader-part1', {onDevice: m.version, desired: newVersion});
-
-                        if (m.version < newVersion) {
-                            // Upgrade prebootloader
-                            flashPrebootloaderFirst = true;
-                            analytics.track('Upgrade Prebootloader to ' + newVersion, {category:gaCategory});
-                        }
-                        else
-                        if (m.version > newVersion) {
-                            // Downgrade prebootloader
-                            flashPrebootloaderFirst = false;
-                            flashPrebootloaderLast = true;
-                            analytics.track('Downgrade Prebootloader to ' + newVersion, {category:gaCategory});
-                        }
-                    }
-                } 
-                else {
-                    // Either no module info (already in DFU) or fore update
-                    console.log('flashing prebootloader because no module info or force update deviceModuleInfo=', deviceModuleInfo);
-                    flashPrebootloaderFirst = true;
-                }                            
-            }
-
-            if (flashPrebootloaderFirst) {
-                await flashPrebootloader();
-                analytics.track('Flash Prebootloader First', {category:gaCategory});
-            }
         
             // Flash Device OS
             await flashDeviceInternal();
             analytics.track('Flash Device', {category:gaCategory});
             
-            if (flashPrebootloaderLast) {
-                await flashPrebootloader();
-                analytics.track('Flash Prebootloader Last', {category:gaCategory});
-            }
-
+    
             if (deviceInfo.platformVersionInfo.isRTL872x) {          
+                const controlRequestParts = [
+                    {
+                        moduleInfoName: 'prebootloader-part1',  
+                        moduleType: 2,
+                        moduleIndex: 2,
+                        zipName: 'prebootloader-part1.bin',
+                        step: 'setupStepFlashControlRequestsPrebootloader',
+                    },
+                    {
+                        moduleInfoName: 'bootloader',  
+                        moduleType: 2,
+                        moduleIndex: 0,
+                        zipName: 'bootloader.bin',
+                        step: 'setupStepFlashControlRequestsBootloader',
+                    },
+                ]
+
                 for(let tries = 1; !deviceModuleInfo && tries <= 3; tries++) {
                     deviceModuleInfo = await getModuleInfoCtrlRequest();                    
                 }
+
+                setSetupStep('setupStepFlashControlRequests');
+
+                const showStep = function(step) {
+                    $(thisElem).find('.setupStepFlashControlRequests').children().each(function() {
+                        $(this).hide();
+                    });
+                    $(thisElem).find('.' + step).show();    
+                }
                 
-                if (deviceModuleInfo) {                    
-                    // When upgrading from 5.3.0 to 5.5.0 and possibly other situations, the bootloader
-                    // does not upgrade using the OTA trick. 
-                    const desiredBootloaderVersion = flashDeviceOptions.moduleInfo['bootloader'].prefixInfo.moduleVersion;
 
-                    // 2 = bootloader
-                    // 0 = bootloader (1 = prebootloader-mbr, 2 = prebootloader-part1)
-                    const m = deviceModuleInfo.getByModuleTypeIndex(2, 0);
+                for(const controlRequestPart of controlRequestParts) {
+                    if (deviceModuleInfo) {
+                        // When upgrading from 5.3.0 to 5.5.0 and possibly other situations, the bootloader
+                        // does not upgrade using the OTA trick. 
+                        const desiredVersion = flashDeviceOptions.moduleInfo[controlRequestPart.moduleInfoName].prefixInfo.moduleVersion;
+    
+                        const m = deviceModuleInfo.getByModuleTypeIndex(controlRequestPart.moduleType, controlRequestPart.moduleIndex);
+                        
+                        if (desiredVersion != m.version) {
+                            analytics.track('flashing ' + controlRequestPart.moduleInfoName + ' by control request', {category:gaCategory});
+    
+                            showStep(controlRequestPart.step);
+
+                            const zipEntry = flashDeviceOptions.zipFs.find(controlRequestPart.zipName);
+                            if (zipEntry) {
+                                let part = await zipEntry.getUint8Array();
+                
+                                /*
+                                if ((options.moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
+                                    part = part.slice(24); // MODULE_PREFIX_SIZE
+                                }
+                                */
+                                                            
+                                const res = await usbDevice.updateFirmware(part, {timeout:60000}); 
+
+                                showStep('setupStepFlashControlRequestsWaiting');
+
+                                // Wait a little extra before trying to reconnect
+                                await new Promise(function(resolve) {
+                                    setTimeout(function() {
+                                        resolve();
+                                    }, 3000);
+                                });
                     
-                    if (desiredBootloaderVersion != m.version) {
-                        analytics.track('P2 bootloader reflash', {category:gaCategory});
+                                await reconnectToDevice();
 
-                        const zipEntry = flashDeviceOptions.zipFs.find('bootloader.bin');
-                        if (zipEntry) {
-                            let part = await zipEntry.getUint8Array();
-            
-                            /*
-                            if ((options.moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
-                                part = part.slice(24); // MODULE_PREFIX_SIZE
-                            }
-                            */
-                                                        
-                            const res = await usbDevice.updateFirmware(part, {timeout:30000}); 
-
-                            // Fetch module info again
-                            deviceModuleInfo = null;
-                            for(let tries = 1; !deviceModuleInfo && tries <= 10; tries++) {
-                                try {
-                                    deviceModuleInfo = await getModuleInfoCtrlRequest();
+                                // Fetch module info again
+                                deviceModuleInfo = null;
+                                for(let tries = 1; !deviceModuleInfo && tries <= 10; tries++) {
+                                    try {
+                                        deviceModuleInfo = await getModuleInfoCtrlRequest();
+                                    }
+                                    catch(e) {
+                                        console.log('exception getting module info', e);
+                                    }
+    
+                                    if (!deviceModuleInfo) {
+                                        await new Promise(function(resolve, reject) {
+                                            setTimeout(function() {
+                                                resolve();
+                                            }, 3000);
+                                        });
+                                    }
                                 }
-                                catch(e) {
-                                    console.log('exception getting module info', e);
-                                }
-
-                                if (!deviceModuleInfo) {
-                                    await new Promise(function(resolve, reject) {
-                                        setTimeout(function() {
-                                            resolve();
-                                        }, 3000);
-                                    });
-                                }
-                            }
-            
-
-                        }    
-            
+                
+    
+                            }    
+                
+                        }
                     }
                 }
+
+
+               
             }
 
             if (deviceInfo.platformVersionInfo.hasNCP) {
