@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### API minimum TLS version 2024-07-09
+
+Requests to api.particle.io now require TLSv1.2+ or later.
+
 ### Device restore fixes 2024-07-09
 
 Fixed an issue with Device restore DFU and Web device doctor when upgrading or downgrading 

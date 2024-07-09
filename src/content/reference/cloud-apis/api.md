@@ -21,7 +21,7 @@ In this case, the unique "resource" in question is your device (Argon, Boron, Ph
 Every device has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
 The variables and functions that you have written in your firmware are exposed as *subresources* under the device.
 
-All requests to the device come through our API server using TLS security.
+All requests to the API server require TLSv1.2+ or later.
 
 ```
 PROTOCOL AND HOST
