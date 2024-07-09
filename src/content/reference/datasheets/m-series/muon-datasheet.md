@@ -41,7 +41,7 @@ The Muon contains a Particle M-SoM that the following functional units:
 - Cellular modem 
   - M404: Quectel BG95-M5 LTE Cat M1/2G (Global)
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
-  - M635: Quectel BG95-M5 LTE Cat M1/2G (Global with satellite)
+  - M635: Quectel BG95-S5 LTE Cat M1/2G (Global with satellite)
 
 The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
@@ -155,8 +155,8 @@ The sample design uses a PTH (through-hole) female socket for strength and to ma
 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
 | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
-| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

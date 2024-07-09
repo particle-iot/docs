@@ -19,7 +19,7 @@ The Particle M-SoM contains the following functional units:
 - Cellular modem 
   - M404: Quectel BG95-M5 LTE Cat M1/2G (Global)
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
-  - M635: Quectel BG95-M5 LTE Cat M1/2G (Global with satellite)
+  - M635: Quectel BG95-S5 LTE Cat M1/2G (Global with satellite)
 
 The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
@@ -1362,7 +1362,7 @@ Global, country list to be provided a later date.
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | GA | |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
-| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -1388,3 +1388,4 @@ Global, country list to be provided a later date.
 | 004      | 2024-04-23 | RK | Added links to certification documents |
 | 005      | 2024-04-25 | RK | Added I/O characteristics |
 | 006      | 2024-04-30 | RK | Corrected SPI interface speeds |
+| 007      | 2024-07-09 | RK | Updated cellular modem on M635 to BG95-S5 |

@@ -19466,6 +19466,40 @@
       ]
     },
     {
+      "model": "BG95-S5",
+      "manufacturer": "quectel",
+      "name": "LTE Cat M1/2G/NTN Satellite",
+      "globalM1": true,
+      "bands": [
+        "2G-850",
+        "2G-900",
+        "2G-1800",
+        "2G-1900",
+        "M1-1",
+        "M1-2",
+        "M1-3",
+        "M1-4",
+        "M1-5",
+        "M1-8",
+        "M1-12",
+        "M1-13",
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-25",
+        "M1-26",
+        "M1-27",
+        "M1-28",
+        "M1-31",
+        "M1-66",
+        "M1-85"
+      ],
+      "technologies": [
+        "2G",
+        "M1"
+      ]
+    },
+    {
       "model": "EG91-E",
       "manufacturer": "quectel",
       "name": "Europe LTE Cat 1",
@@ -22040,7 +22074,7 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "modem": "BG95-M5",
+      "modem": "BG95-S5",
       "sim": 4,
       "simPlans": [
         40
@@ -22472,7 +22506,7 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "modem": "BG95-M5",
+      "modem": "BG95-S5",
       "sim": 4,
       "simPlans": [
         40
@@ -22509,7 +22543,7 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "modem": "BG95-M5",
+      "modem": "BG95-S5",
       "sim": 4,
       "simPlans": [
         40
@@ -24972,6 +25006,13 @@
     {
       "sim": 4,
       "simPlan": 40,
+      "modem": "BG95-S5",
+      "desc": "M-Series LTE M1/2G/NTN Satellite Global EtherSIM",
+      "lifecycle": "In development"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
       "modem": "U201",
       "desc": "Boron, E-Series, Electron 2G/3G Global EtherSIM",
       "lifecycle": "Deprecated"
@@ -25043,6 +25084,13 @@
     {
       "country": "Afghanistan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Afghanistan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25159,6 +25207,13 @@
     },
     {
       "country": "Albania",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Albania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25265,6 +25320,13 @@
     {
       "country": "Algeria",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Algeria",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25380,6 +25442,13 @@
     {
       "country": "Andorra",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Andorra",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25498,6 +25567,13 @@
     {
       "country": "Angola",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Angola",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25616,6 +25692,13 @@
     {
       "country": "Anguilla",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Anguilla",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25737,6 +25820,13 @@
     },
     {
       "country": "Antarctica",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Antarctica",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25849,6 +25939,13 @@
     {
       "country": "Antigua and Barbuda",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25970,6 +26067,13 @@
     },
     {
       "country": "Argentina",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Argentina",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26079,6 +26183,13 @@
     {
       "country": "Armenia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Armenia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26195,6 +26306,13 @@
     {
       "country": "Aruba",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Aruba",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26316,6 +26434,13 @@
     },
     {
       "country": "Australia",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Australia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26430,6 +26555,13 @@
     },
     {
       "country": "Austria",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Austria",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26534,6 +26666,13 @@
     {
       "country": "Azerbaijan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Azerbaijan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26648,6 +26787,13 @@
     {
       "country": "Bahamas",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bahamas",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26770,6 +26916,13 @@
     },
     {
       "country": "Bahrain",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bahrain",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26876,6 +27029,13 @@
     {
       "country": "Bangladesh",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bangladesh",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26988,6 +27148,13 @@
     {
       "country": "Barbados",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Barbados",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27109,6 +27276,13 @@
     },
     {
       "country": "Belarus",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belarus",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27216,6 +27390,13 @@
     {
       "country": "Belgium",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belgium",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27326,6 +27507,13 @@
     {
       "country": "Belize",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belize",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27450,6 +27638,13 @@
     },
     {
       "country": "Benin",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Benin",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27559,6 +27754,13 @@
     {
       "country": "Bermuda",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27675,6 +27877,13 @@
     {
       "country": "Bolivia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bolivia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27791,6 +28000,13 @@
     {
       "country": "Bonaire",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bonaire",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27910,6 +28126,13 @@
     {
       "country": "Bosnia and Herzegovina",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28023,6 +28246,13 @@
     {
       "country": "Botswana",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Botswana",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28138,6 +28368,14 @@
     {
       "country": "Brazil",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Brazil",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
@@ -28270,6 +28508,13 @@
     },
     {
       "country": "Brunei",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Brunei",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28378,6 +28623,13 @@
     {
       "country": "Bulgaria",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bulgaria",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28488,6 +28740,13 @@
     {
       "country": "Burkina Faso",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Burkina Faso",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28605,6 +28864,13 @@
     {
       "country": "Burundi",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Burundi",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28723,6 +28989,13 @@
     {
       "country": "Cabo Verde",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cabo Verde",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28838,6 +29111,13 @@
     {
       "country": "Cambodia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cambodia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28952,6 +29232,13 @@
     {
       "country": "Cameroon",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cameroon",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -29068,6 +29355,12 @@
     {
       "country": "Canada",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Canada",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "YES"
     },
@@ -29179,6 +29472,13 @@
     {
       "country": "Cayman Islands",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cayman Islands",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -29300,6 +29600,13 @@
     },
     {
       "country": "Central African Republic",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Central African Republic",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29409,6 +29716,13 @@
     {
       "country": "Chad",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Chad",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -29523,6 +29837,13 @@
     {
       "country": "Chile",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Chile",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -29638,6 +29959,14 @@
     {
       "country": "China",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "China",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
@@ -29767,6 +30096,13 @@
     },
     {
       "country": "Colombia",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Colombia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29882,6 +30218,13 @@
     },
     {
       "country": "Congo (Brazzaville)",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Congo (Brazzaville)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29988,6 +30331,13 @@
     {
       "country": "Congo (Kinshasa)",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Congo (Kinshasa)",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30102,6 +30452,13 @@
     {
       "country": "Costa Rica",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Costa Rica",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30223,6 +30580,13 @@
     },
     {
       "country": "Côte d'Ivoire",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Côte d'Ivoire",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30332,6 +30696,13 @@
     {
       "country": "Croatia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Croatia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30442,6 +30813,13 @@
     {
       "country": "Cuba",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cuba",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30561,6 +30939,13 @@
     {
       "country": "Curaçao",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Curaçao",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30677,6 +31062,13 @@
     {
       "country": "Cyprus",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cyprus",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30789,6 +31181,13 @@
     {
       "country": "Czechia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Czechia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30899,6 +31298,13 @@
     {
       "country": "Denmark",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Denmark",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31009,6 +31415,13 @@
     {
       "country": "Dominica",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Dominica",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31124,6 +31537,13 @@
     {
       "country": "Dominican Republic",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Dominican Republic",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31239,6 +31659,13 @@
     {
       "country": "Ecuador",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ecuador",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31354,6 +31781,13 @@
     {
       "country": "Egypt",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Egypt",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31469,6 +31903,13 @@
     {
       "country": "El Salvador",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "El Salvador",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31584,6 +32025,13 @@
     {
       "country": "Equatorial Guinea",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31702,6 +32150,13 @@
     {
       "country": "Estonia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Estonia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31812,6 +32267,13 @@
     {
       "country": "eSwatini",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "eSwatini",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31927,6 +32389,13 @@
     {
       "country": "Ethiopia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ethiopia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32044,6 +32513,13 @@
     {
       "country": "Faroe Islands",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Faroe Islands",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32156,6 +32632,13 @@
     {
       "country": "Fiji",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Fiji",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32271,6 +32754,13 @@
     {
       "country": "Finland",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Finland",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32381,6 +32871,13 @@
     {
       "country": "France",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "France",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32491,6 +32988,13 @@
     {
       "country": "French Guiana",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "French Guiana",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32607,6 +33111,13 @@
     {
       "country": "Gabon",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gabon",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32719,6 +33230,13 @@
     {
       "country": "Gambia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gambia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32837,6 +33355,13 @@
     {
       "country": "Georgia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Georgia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32951,6 +33476,13 @@
     {
       "country": "Germany",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Germany",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33061,6 +33593,13 @@
     {
       "country": "Ghana",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ghana",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33173,6 +33712,13 @@
     {
       "country": "Gibraltar",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gibraltar",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33283,6 +33829,13 @@
     {
       "country": "Greece",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Greece",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33393,6 +33946,13 @@
     {
       "country": "Greenland",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Greenland",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33509,6 +34069,13 @@
     {
       "country": "Grenada",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Grenada",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33624,6 +34191,13 @@
     {
       "country": "Guadeloupe",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guadeloupe",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33741,6 +34315,13 @@
     {
       "country": "Guam",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guam",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33857,6 +34438,13 @@
     {
       "country": "Guatemala",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guatemala",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33972,6 +34560,13 @@
     {
       "country": "Guernsey",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guernsey",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34087,6 +34682,13 @@
     {
       "country": "Guinea",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guinea",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34204,6 +34806,13 @@
     {
       "country": "Guinea-Bissau",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34319,6 +34928,13 @@
     {
       "country": "Guyana",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guyana",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34433,6 +35049,13 @@
     {
       "country": "Haiti",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Haiti",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34548,6 +35171,13 @@
     {
       "country": "Holy See (Vatican City)",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Holy See (Vatican City)",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34663,6 +35293,13 @@
     {
       "country": "Honduras",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Honduras",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34778,6 +35415,13 @@
     {
       "country": "Hong Kong",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Hong Kong",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34893,6 +35537,13 @@
     {
       "country": "Hungary",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Hungary",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35003,6 +35654,13 @@
     {
       "country": "Iceland",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iceland",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35113,6 +35771,14 @@
     {
       "country": "India",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "India",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
@@ -35242,6 +35908,13 @@
     },
     {
       "country": "Indonesia",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Indonesia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35348,6 +36021,13 @@
     {
       "country": "Iran",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iran",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35466,6 +36146,13 @@
     {
       "country": "Iraq",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iraq",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35584,6 +36271,13 @@
     {
       "country": "Ireland",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ireland",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35694,6 +36388,13 @@
     {
       "country": "Isle of Man",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Isle of Man",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35809,6 +36510,13 @@
     {
       "country": "Israel",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Israel",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35921,6 +36629,13 @@
     {
       "country": "Italy",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Italy",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36031,6 +36746,13 @@
     {
       "country": "Jamaica",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jamaica",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36146,6 +36868,13 @@
     {
       "country": "Japan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Japan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36266,6 +36995,13 @@
     },
     {
       "country": "Jersey",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jersey",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36370,6 +37106,13 @@
     {
       "country": "Jordan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jordan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36484,6 +37227,13 @@
     {
       "country": "Kazakhstan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kazakhstan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36599,6 +37349,13 @@
     {
       "country": "Kenya",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kenya",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36711,6 +37468,13 @@
     {
       "country": "Kiribati",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kiribati",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36829,6 +37593,13 @@
     {
       "country": "Kosovo",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kosovo",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36947,6 +37718,13 @@
     {
       "country": "Kuwait",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kuwait",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37059,6 +37837,13 @@
     {
       "country": "Kyrgyzstan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37176,6 +37961,13 @@
     {
       "country": "Lao People's Democratic Republic",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lao People's Democratic Republic",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37294,6 +38086,13 @@
     {
       "country": "Latvia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Latvia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37404,6 +38203,13 @@
     {
       "country": "Lebanon",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lebanon",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37522,6 +38328,13 @@
     {
       "country": "Lesotho",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lesotho",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37637,6 +38450,13 @@
     {
       "country": "Liechtenstein",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Liechtenstein",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37747,6 +38567,13 @@
     {
       "country": "Lithuania",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37857,6 +38684,13 @@
     {
       "country": "Luxembourg",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Luxembourg",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37967,6 +38801,13 @@
     {
       "country": "Macao",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Macao",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38084,6 +38925,13 @@
     {
       "country": "Madagascar",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Madagascar",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38196,6 +39044,13 @@
     {
       "country": "Malawi",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Malawi",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38310,6 +39165,13 @@
     {
       "country": "Malaysia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Malaysia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38422,6 +39284,13 @@
     {
       "country": "Maldives",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Maldives",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38540,6 +39409,13 @@
     {
       "country": "Mali",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mali",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38658,6 +39534,13 @@
     {
       "country": "Malta",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Malta",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38768,6 +39651,13 @@
     {
       "country": "Martinique",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Martinique",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38886,6 +39776,13 @@
     {
       "country": "Mauritania",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mauritania",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39004,6 +39901,13 @@
     {
       "country": "Mauritius",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mauritius",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39122,6 +40026,13 @@
     {
       "country": "Mayotte",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mayotte",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39240,6 +40151,12 @@
     {
       "country": "Mexico",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Mexico",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "YES"
     },
@@ -39351,6 +40268,13 @@
     {
       "country": "Moldova",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Moldova",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39464,6 +40388,13 @@
     {
       "country": "Monaco",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Monaco",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39582,6 +40513,13 @@
     {
       "country": "Mongolia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mongolia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39694,6 +40632,13 @@
     {
       "country": "Montenegro",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Montenegro",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39804,6 +40749,13 @@
     {
       "country": "Montserrat",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Montserrat",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39920,6 +40872,13 @@
     {
       "country": "Morocco",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Morocco",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40035,6 +40994,13 @@
     {
       "country": "Mozambique",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mozambique",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40147,6 +41113,13 @@
     {
       "country": "Myanmar",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Myanmar",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40264,6 +41237,13 @@
     {
       "country": "Namibia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Namibia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40381,6 +41361,13 @@
     {
       "country": "Nauru",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nauru",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40496,6 +41483,13 @@
     {
       "country": "Nepal",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nepal",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40614,6 +41608,13 @@
     {
       "country": "Netherlands",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Netherlands",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40724,6 +41725,13 @@
     {
       "country": "Netherlands Antilles",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Netherlands Antilles",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40843,6 +41851,13 @@
     {
       "country": "New Zealand",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "New Zealand",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40963,6 +41978,13 @@
     },
     {
       "country": "Nicaragua",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nicaragua",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41078,6 +42100,13 @@
     },
     {
       "country": "Niger",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Niger",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41185,6 +42214,13 @@
     {
       "country": "Nigeria",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nigeria",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41297,6 +42333,13 @@
     {
       "country": "North Macedonia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "North Macedonia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41407,6 +42450,13 @@
     {
       "country": "Norway",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Norway",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41517,6 +42567,14 @@
     {
       "country": "Oman",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Oman",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
@@ -41654,6 +42712,13 @@
     },
     {
       "country": "Pakistan",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Pakistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41760,6 +42825,13 @@
     {
       "country": "Palestine",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Palestine",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41877,6 +42949,13 @@
     {
       "country": "Panama",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Panama",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41998,6 +43077,13 @@
     },
     {
       "country": "Papua New Guinea",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Papua New Guinea",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42109,6 +43195,13 @@
     {
       "country": "Paraguay",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Paraguay",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42226,6 +43319,13 @@
     {
       "country": "Peru",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Peru",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42341,6 +43441,13 @@
     {
       "country": "Philippines",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Philippines",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42451,6 +43558,13 @@
     {
       "country": "Poland",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Poland",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42561,6 +43675,13 @@
     {
       "country": "Portugal",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Portugal",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42671,6 +43792,13 @@
     {
       "country": "Puerto Rico",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Puerto Rico",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42786,6 +43914,13 @@
     {
       "country": "Qatar",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Qatar",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42898,6 +44033,13 @@
     {
       "country": "Réunion",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Réunion",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -43011,6 +44153,13 @@
     {
       "country": "Romania",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Romania",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -43121,6 +44270,14 @@
     {
       "country": "Russia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Russia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
@@ -43250,6 +44407,13 @@
     },
     {
       "country": "Rwanda",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Rwanda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43356,6 +44520,13 @@
     {
       "country": "Saint Barthélemy",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Barthélemy",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -43474,6 +44645,13 @@
     {
       "country": "Saint Kitts and Nevis",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -43589,6 +44767,13 @@
     {
       "country": "Saint Lucia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Lucia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -43704,6 +44889,13 @@
     {
       "country": "Saint Martin (French part)",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Martin (French part)",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -43822,6 +45014,13 @@
     {
       "country": "Saint Vincent and the Grenadines",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -43937,6 +45136,13 @@
     {
       "country": "Samoa",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Samoa",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -44055,6 +45261,13 @@
     {
       "country": "San Marino",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "San Marino",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -44170,6 +45383,14 @@
     {
       "country": "Saudi Arabia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
@@ -44298,6 +45519,13 @@
     {
       "country": "Senegal",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -44416,6 +45644,13 @@
     {
       "country": "Serbia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Serbia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -44526,6 +45761,13 @@
     {
       "country": "Seychelles",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Seychelles",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -44637,6 +45879,13 @@
     {
       "country": "Sierra Leone",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sierra Leone",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -44755,6 +46004,14 @@
     {
       "country": "Singapore",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Singapore",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
@@ -44882,6 +46139,13 @@
     },
     {
       "country": "Sint Maarten",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Sint Maarten",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44999,6 +46263,13 @@
     },
     {
       "country": "Slovakia",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Slovakia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45103,6 +46374,13 @@
     {
       "country": "Slovenia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Slovenia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -45213,6 +46491,13 @@
     {
       "country": "Solomon Islands",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Solomon Islands",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -45328,6 +46613,13 @@
     {
       "country": "Somalia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Somalia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -45446,6 +46738,13 @@
     {
       "country": "South Africa",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "South Africa",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -45558,6 +46857,13 @@
     {
       "country": "South Korea",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "South Korea",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -45670,6 +46976,13 @@
     {
       "country": "South Sudan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "South Sudan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -45784,6 +47097,13 @@
     {
       "country": "Spain",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Spain",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -45894,6 +47214,13 @@
     {
       "country": "Sri Lanka",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sri Lanka",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46006,6 +47333,13 @@
     {
       "country": "Suriname",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Suriname",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46120,6 +47454,13 @@
     {
       "country": "Svalbard and Jan Mayen",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46235,6 +47576,13 @@
     {
       "country": "Sweden",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sweden",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46345,6 +47693,13 @@
     {
       "country": "Switzerland",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Switzerland",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46455,6 +47810,13 @@
     {
       "country": "Taiwan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Taiwan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46566,6 +47928,13 @@
     {
       "country": "Tajikistan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tajikistan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46683,6 +48052,13 @@
     {
       "country": "Tanzania",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tanzania",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46795,6 +48171,13 @@
     {
       "country": "Thailand",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Thailand",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -46907,6 +48290,13 @@
     {
       "country": "Togo",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Togo",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -47022,6 +48412,13 @@
     {
       "country": "Tonga",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tonga",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -47140,6 +48537,13 @@
     {
       "country": "Trinidad and Tobago",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -47255,6 +48659,13 @@
     {
       "country": "Tunisia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tunisia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -47370,6 +48781,14 @@
     {
       "country": "Turkey",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Turkey",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
@@ -47509,6 +48928,13 @@
     },
     {
       "country": "Turks and Caicos Islands",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Turks and Caicos Islands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47626,6 +49052,13 @@
     },
     {
       "country": "Uganda",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uganda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47732,6 +49165,13 @@
     {
       "country": "Ukraine",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ukraine",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -47846,6 +49286,14 @@
     {
       "country": "United Arab Emirates",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "United Arab Emirates",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
@@ -47976,6 +49424,13 @@
     },
     {
       "country": "United Kingdom",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "United Kingdom",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48080,6 +49535,12 @@
     {
       "country": "United States",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "United States",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "YES"
     },
@@ -48190,6 +49651,13 @@
     {
       "country": "Uruguay",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uruguay",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -48305,6 +49773,13 @@
     {
       "country": "Uzbekistan",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uzbekistan",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -48421,6 +49896,13 @@
     {
       "country": "Vanuatu",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Vanuatu",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -48539,6 +50021,13 @@
     {
       "country": "Venezuela",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Venezuela",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -48654,6 +50143,13 @@
     {
       "country": "Vietnam",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Vietnam",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -48769,6 +50265,13 @@
     {
       "country": "Virgin Islands (British)",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Virgin Islands (British)",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -48884,6 +50387,13 @@
     {
       "country": "Virgin Islands (U.S.)",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -49003,6 +50513,13 @@
     {
       "country": "Yemen",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Yemen",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -49119,6 +50636,13 @@
     {
       "country": "Zambia",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Zambia",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -49233,6 +50757,13 @@
     {
       "country": "Zimbabwe",
       "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Zimbabwe",
+      "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"

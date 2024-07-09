@@ -651,12 +651,12 @@
             "hash": "49aa00cfc7396dbb99d0721c359fb12982de674aceb4cbe38d91c9eba01f24b7"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-06-25",
-            "hash": "f51716ddb4568232717a2eb7ce864206aff1ab048f89ae55b9a110ae61b83df4"
+            "date": "2024-07-09",
+            "hash": "d29a2c853c388564fc66693c93b146475c68e67fb49c1c7ac60cc722b1d2dae5"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-06-25",
-            "hash": "67bc970673a6718e6875c7d39c5bd261ea2a248bf3d28320af63987e1bb5d60e"
+            "date": "2024-07-09",
+            "hash": "8d345ec4914ae033dcb8c21b57c867279c7bd0f4bef47d333c97d9323701c95e"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ae0c19dd4a1e1790ee6f3203a955b455098d27e84a34d3def0e4e0dd509fea4b",
+            "hash": "d6adc485f20b6e96ea910eaa31ac1fc14403c57eb0fa7421e7f2f06d1b97f26c",
             "date": "2024-07-09"
         },
         "getting-started/cloud/logic.md": {
@@ -8399,12 +8399,12 @@
             "date": "2024-05-21"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "8b1d16d190ad8dba211686729f7b37cb9f19e8bd2bf84a4d4879272de310dd12",
-            "date": "2024-05-21"
+            "hash": "0f4f6eb54e37649218c89a6ea1e2b1c0b3ece2c6e550a1451668be68d0020d81",
+            "date": "2024-07-09"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "247388be227dc1cae81cfbfb3b3f77b45e68e77dfde52528ac71a0a73e4d84bb",
-            "date": "2024-06-03"
+            "hash": "3c76986de6559a6b43c5aec83d896c366a2d4064fd51da227e3feafc933c7399",
+            "date": "2024-07-09"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
