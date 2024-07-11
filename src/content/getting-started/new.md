@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE concurrent advertising and scanning 2024-07-11
+
+Added a warning to the BLE documentation that scanning and advertising at the same time
+is not recommended.
+
 ### M635 M-SoM and Muon update 2024-07-09
 
 Updated the cellular modem model number of the M635 M-SoM and Muon from BG95-M5 to BG95-S5. 

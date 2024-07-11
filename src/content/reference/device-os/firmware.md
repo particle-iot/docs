@@ -10327,6 +10327,13 @@ Returns 0 on success or a non-zero error code.
 
 You cannot use BLE advertising while in listening mode (blinking dark blue). The device will be advertising its configuration capabilities to the Particle app when in listening mode.
 
+{{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
+Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
+transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
+will be used.
+{{!-- END shared-blurb --}}
+
 #### BLE.advertise(iBeacon)
 
 You can advertise as an Apple iBeacon. See the [`iBeacon`](#ibeacon) section for more information.
@@ -10339,6 +10346,13 @@ int advertise(const iBeacon& beacon) const;
 Returns 0 on success or a non-zero error code.
 
 You cannot use BLE advertising including iBeacon while in listening mode (blinking dark blue). The device will be advertising its configuration capabilities to the Particle app when in listening mode.
+
+{{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
+Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
+transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
+will be used.
+{{!-- END shared-blurb --}}
 
 #### BLE.advertise()
 
@@ -10353,6 +10367,14 @@ BLE.advertise();
 ```
 
 Returns 0 on success or a non-zero error code.
+
+{{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
+Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
+transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
+will be used.
+{{!-- END shared-blurb --}}
+
 
 #### BLE.stopAdvertising()
 
@@ -10683,6 +10705,14 @@ In Device OS 3.1.0 only, you may get error -270 when attempting to scan. To work
 #endif
 ```
 
+{{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
+Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
+transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
+will be used.
+{{!-- END shared-blurb --}}
+
+
 #### BLE.scan(Vector)
 
 The `Vector` version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
@@ -10778,6 +10808,13 @@ must access them as:
 - `advertisingData()` The advertising data sent by the device
 - `scanData()` The scan data (optional)
 - `rssi()` The signal strength of the advertising message.
+
+{{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
+Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
+transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
+will be used.
+{{!-- END shared-blurb --}}
 
 
 #### BLE.scan(callback)
@@ -10892,6 +10929,12 @@ In Device OS 3.0.0 and later, it's also possible to pass to have the scan result
 void scanResultCallback(const BleScanResult &scanResult, void *context)
 ```
 
+{{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
+Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
+transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
+will be used.
+{{!-- END shared-blurb --}}
 
 #### BLE.scanWithFilter()
 
@@ -10935,6 +10978,14 @@ void scanResultCallback(const BleScanResult *scanResult, void *context) {
 	BLE.stopScanning();
 }
 ```
+
+{{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
+Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
+transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
+will be used.
+{{!-- END shared-blurb --}}
+
 
 #### BLE.setScanTimeout()
 
