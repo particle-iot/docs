@@ -10329,7 +10329,7 @@ You cannot use BLE advertising while in listening mode (blinking dark blue). The
 
 {{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
 Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
-transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+transmit or receive. While it will switch between these modes if you activate both scanning and advertising at 
 the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
 will be used.
 {{!-- END shared-blurb --}}
@@ -10349,7 +10349,7 @@ You cannot use BLE advertising including iBeacon while in listening mode (blinki
 
 {{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
 Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
-transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+transmit or receive. While it will switch between these modes if you activate both scanning and advertising at 
 the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
 will be used.
 {{!-- END shared-blurb --}}
@@ -10370,7 +10370,7 @@ Returns 0 on success or a non-zero error code.
 
 {{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
 Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
-transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+transmit or receive. While it will switch between these modes if you activate both scanning and advertising at 
 the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
 will be used.
 {{!-- END shared-blurb --}}
@@ -10707,7 +10707,7 @@ In Device OS 3.1.0 only, you may get error -270 when attempting to scan. To work
 
 {{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
 Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
-transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+transmit or receive. While it will switch between these modes if you activate both scanning and advertising at 
 the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
 will be used.
 {{!-- END shared-blurb --}}
@@ -10811,7 +10811,7 @@ must access them as:
 
 {{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
 Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
-transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+transmit or receive. While it will switch between these modes if you activate both scanning and advertising at 
 the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
 will be used.
 {{!-- END shared-blurb --}}
@@ -10931,7 +10931,7 @@ void scanResultCallback(const BleScanResult &scanResult, void *context)
 
 {{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
 Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
-transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+transmit or receive. While it will switch between these modes if you activate both scanning and advertising at 
 the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
 will be used.
 {{!-- END shared-blurb --}}
@@ -10981,7 +10981,7 @@ void scanResultCallback(const BleScanResult *scanResult, void *context) {
 
 {{!-- BEGIN shared-blurb dbdad266-7181-4641-82ef-59c737678e43 --}}
 Scanning and advertising at the same time is not recommended. Since there is only one BLE radio, it can either
-transmit or receive. While it will switch between these modes if you activate both scanning and advertsing at 
+transmit or receive. While it will switch between these modes if you activate both scanning and advertising at 
 the same time, if the scanning and advertising parameters conflict, an unpredictable combination of the parameters
 will be used.
 {{!-- END shared-blurb --}}

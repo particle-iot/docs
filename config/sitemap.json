@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-07-11",
-            "hash": "ceaaabb2be89a9934217d6f62768108889623ca2f64384873fba59f15b53dacc"
+            "hash": "dd1fedd70d57bdd2cf75695e956b4d60619cf98bc319d76e46f660ae745bc2d4"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2908,7 +2908,7 @@
         },
         "reference/device-os/api/bluetooth-le-ble/ble-class.md": {
             "date": "2024-07-11",
-            "hash": "2defcdbd40b0edf8e98fa901f07a82692bfe9edc3bc06200188f30277c0bad25"
+            "hash": "3e51772befa599b7d047f1e1a6c91aaca608af4298d679f2cc8e060970299f86"
         },
         "reference/device-os/api/bluetooth-le-ble/blescanfilter.md": {
             "date": "2023-09-20",
