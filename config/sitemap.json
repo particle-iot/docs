@@ -2908,7 +2908,7 @@
         },
         "reference/device-os/api/bluetooth-le-ble/ble-class.md": {
             "date": "2024-07-11",
-            "hash": "3e51772befa599b7d047f1e1a6c91aaca608af4298d679f2cc8e060970299f86"
+            "hash": "5941d2a4fc8c746e82770916d79fe2819cff0b18af065196c0903f0aa4b611eb"
         },
         "reference/device-os/api/bluetooth-le-ble/blescanfilter.md": {
             "date": "2023-09-20",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "6dcd263310c02608eee10a6dae8aefcf4d8d6289f047ee8151436e904acc2f78",
+            "hash": "878970454018b5d2d3f8b803bb2aaeb10cb140c2145a733b975174dc9dc63976",
             "date": "2024-07-11"
         },
         "getting-started/cloud/logic.md": {
