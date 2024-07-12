@@ -15,11 +15,16 @@ includeDefinitions: [api-helper, lunr, whats-new]
 {{!--
 When adding new items to this page:
 
-- New items go newest first be;low this comment
+- New items go newest first below this comment
 - Be sure to follow the header style exactly: A L3 (###) header, followed by a short description, then the date in YYYY-MM-DD format. Make sure MM and DD have a leading 0 if < 10.
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+
+### Dual-band Wi-Fi antenna datasheet update 2024-07-12
+
+Updated the Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz antenna [datasheet](/assets/datasheets/PARANTWM1EA.pdf) (PARANTWM1EA and PARANTWM1TY).
+The shipping product is unchanged; the previous datasheet was for an earlier version, not the version that shipped.
 
 ### Device OS 6.1.1 2024-07-11
 
