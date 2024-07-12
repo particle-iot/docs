@@ -997,25 +997,6 @@ Connecting to the cloud does not use Data Operation from your monthly or yearly 
 
 On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
-
-{{since when="5.6.0"}}
-
-In Device OS 5.6.0 and later you can choose which interface to connect to. Normally you should use [automatic connection management](/reference/device-os/connection-management/), but in special cases you can force a specific interface to be used.
-
-{{box op="start" cssClass="boxed warningBox"}}
-Specifying an interface with `Particle.connect()` will only connect to that interface with no fallback to other interfaces, and is not recommended in most cases.
-{{box op="end"}}
-
-```cpp
-// PROTOTYPE
-static void connect(const spark::NetworkClass& network = spark::Network);
-
-// EXAMPLES
-Particle.connect(WiFi);
-Particle.connect(Ethernet);
-Particle.connect(Cellular);
-```
-
 ### Particle.connectionInterface()
 
 {{api name1="Particle.connectionInterface"}}

@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Particle.connect change 2024-07-12
+
+Particle.connect() with a network type, such as Particle.connect(WiFi) was available in 5.6.0 to 5.8.1, but is removed from 5.8.2 
+and later because using it can lead to unpredictable behavior with automatic connection management.
+
 ### Dual-band Wi-Fi antenna datasheet update 2024-07-12
 
 Updated the Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz antenna [datasheet](/assets/datasheets/PARANTWM1EA.pdf) (PARANTWM1EA and PARANTWM1TY).

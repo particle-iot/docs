@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-07-11",
-            "hash": "dd1fedd70d57bdd2cf75695e956b4d60619cf98bc319d76e46f660ae745bc2d4"
+            "date": "2024-07-12",
+            "hash": "6b928fc1a7dc48d32e8bda5d3f954a9edb69c534d768618879c8eed26f4780ae"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1763,8 +1763,8 @@
             "hash": "936a3cc1be02321b1322e853d7b55f561f5994c05c8b9671b717ab3137416e24"
         },
         "reference/device-os/api/cloud-functions/particle-connect.md": {
-            "date": "2024-02-27",
-            "hash": "6d1b195344decb52e943946b87633887e90582f6a8f7a3112fc3fa22fc07dd61"
+            "date": "2024-07-12",
+            "hash": "0cd53bf2b5bc9b2db71a6a20e74dfe326835d1f84e7e4752fbe91c392dac8295"
         },
         "reference/device-os/api/cloud-functions/particle-disconnect.md": {
             "date": "2024-01-30",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "7a7bb1c28dc5484baf73974d577a27c9e03eb912883713f8462e843b95b242fe",
+            "hash": "bdafa129d8d55420dfb3cc5b1eb33b8cd8c0232de75db03390b5109c1e14b9c4",
             "date": "2024-07-12"
         },
         "getting-started/cloud/logic.md": {
