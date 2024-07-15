@@ -105,6 +105,9 @@ The amount of memory used by the device, combining the heap and the user applica
 
 If a device consumes too much of its available memory, certain unexpected failures in its firmware application can occur. Memory usage is displayed as a percentage from 0-100% — the closer to 0, the less available memory is being consumed.
 
+We strongly recommend leaving a minimum of 10K of available RAM at all times to assure proper operation of 
+the system. See [out of memory handler](/firmware/best-practices/code-size-tips/#out-of-memory-handler) in Code Size Tips for more information.
+
 ### Battery state of charge
 The state of charge of the device’s connected battery, represented as a percentage.
 

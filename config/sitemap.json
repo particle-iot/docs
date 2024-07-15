@@ -487,8 +487,8 @@
             "hash": "62e2853282649c51aa46fb6f35ef34431aec650a5cd24e04b4ec00750802551c"
         },
         "firmware/best-practices/code-size-tips.md": {
-            "date": "2024-02-27",
-            "hash": "2191bc4a6a76c6342ae176ab845613b568a1a80a7c2dd7fd524a39dfd56c3d3e"
+            "date": "2024-07-15",
+            "hash": "2045fe2912e06af2b7b1518fb7b6bfc4e2daea7c6870ecef7bb7967123a6f1e8"
         },
         "firmware/best-practices/firmware-build-options.md": {
             "date": "2024-02-27",
@@ -603,8 +603,8 @@
             "hash": "1e6063dd5390a328f24367fe727df6c3b83af2ddf8ea5bef8315ca765338e3d2"
         },
         "getting-started/console/device-vitals.md": {
-            "date": "2024-02-27",
-            "hash": "99237f98edd0ca9e0da7e5d657b4f30640720720ebff112ce399d6b3b210b999"
+            "date": "2024-07-15",
+            "hash": "8c917406bfdbdae39d2f4fa10d11bc6dcc77ff2a66187d78fa52b7d239218514"
         },
         "getting-started/console/device-groups.md": {
             "date": "2024-05-15",
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-07-12",
-            "hash": "6b928fc1a7dc48d32e8bda5d3f954a9edb69c534d768618879c8eed26f4780ae"
+            "date": "2024-07-15",
+            "hash": "0d2b343950466bd0b6f5fcf80c7597bc5bb8d8d555396b752d4404e556119e38"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3775,8 +3775,8 @@
             "hash": "35d0a2153166b246bc87fb1e1ab042496a8906bf92ead989b8c1e7d3671c7262"
         },
         "reference/device-os/api/system-calls/freememory.md": {
-            "date": "2023-09-20",
-            "hash": "6c02b9de691a1400aeadfbad67ef3ac3a1818921d1ff648da3938c440e246cfd"
+            "date": "2024-07-15",
+            "hash": "96f6779b7884ae5698b97d2b1d1c37629a62106ace3bcecec407d1619ad22e27"
         },
         "reference/device-os/api/system-calls/reset.md": {
             "date": "2023-09-20",

@@ -793,6 +793,16 @@ void loop() {
 
 When a heap allocation such as `new`, `malloc`, `strdup`, etc. fails, the out of memory handler is called, then the allocation returns null, as exceptions are not enabled on Particle devices.
 
+We strongly recommend leaving a minimum of 10K of available RAM at all times to assure proper operation of the system. Failure to keep enough
+free memory and not using an out of memory handler can cause failure to reconnect to the network or the cloud. 
+
+{{collapse op="start" label="Why isn't this automatic?"}}
+
+The reason low memory (under 10K or so) causes unexpected behavior such as connection failure, is that memory needs to be dynamically allocated during the connection process. When the free memory is low, it is also likely to be fragmented, preventing being able to allocate even blocks that are smaller than 10K. This causes the connection process to be aborted and restart. But since there is no way to defragment RAM except by restarting the device, the process tends to fail repeatedly unless an out of memory handler triggers the device to reset.
+
+Other than OTA, Device OS never resets the device spontaneously, because this could adversely affect things that are gathering data even if offline. The reason there is no default out of memory handler is that some applications will want to do something other than reset when out of memory. They might have large temporary data in RAM that they want to save to the file system instead of resetting, for example.
+{{collapse op="end"}}
+
 Using an out of memory handler, you can flag this situation, then from loop, you can reset the device. This is not the default behavior in Device OS, because in some cases you may want to continue execution, free some memory in an application-specific manner, or use other techniques to resolve the situation.
 
 ```cpp

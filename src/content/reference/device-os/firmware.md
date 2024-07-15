@@ -22080,6 +22080,9 @@ Serial.println(freemem);
 
 To get the largest allocatable block, see [fragmentation](/firmware/best-practices/code-size-tips/#fragmentation).
 
+We strongly recommend leaving a minimum of 10K of available RAM at all times to assure proper operation of 
+the system. See [out of memory handler](/firmware/best-practices/code-size-tips/#out-of-memory-handler) in Code Size Tips for more information.
+
 ### reset()
 
 {{api name1="System.reset"}}
