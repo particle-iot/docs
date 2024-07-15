@@ -65,14 +65,6 @@ div.mainSquare:hover {
   transition-duration: .2s;
 } 
   
-div.mainContent {
-  position:absolute;
-  text-align:center;
-  height:75%; 
-  width:90%;
-  padding: 10% 5%;
-}
-
 
 // div.mainTopBottom 
 
@@ -104,34 +96,18 @@ div.mainBoxDescription {
 	color: var(--theme-description-box-title-color);
 }
 
-@media all and (max-width: 599px) {
-	div.mainNoPicRect {
-	  float:left;
-	  position: relative;
-	  width: 90%;
-	  padding-bottom: 45%;
-	  margin-right:1.66%;
-	  margin-bottom: 1.66%;
-	  overflow:hidden;
-	  background-color: var(--theme-main-button-background-color);
-	  border: var(--theme-main-no-pic-rect-border);
-	  border-radius: 8px;
-	}
+div.mainNoPicRect {
+	float:left;
+	position: relative;
+	width: 274px;
+	height: 77px;
+	margin: 12px 24px 12px 0px;
+	overflow:hidden;
+	background-color: var(--theme-main-button-background-color);
+	border: var(--theme-main-no-pic-rect-border);
+	border-radius: 8px;
 }
-@media all and (min-width: 600px) {
-	div.mainNoPicRect {
-	  float:left;
-	  position: relative;
-	  width: 28%;
-	  padding-bottom: 20%;
-	  margin-right:1.66%;
-	  margin-bottom: 1.66%;
-	  overflow:hidden;
-	  background-color: var(--theme-main-button-background-color);
-	  border: var(--theme-main-no-pic-rect-border);
-	  border-radius: 8px;
-	}
-}
+
 
 div.mainNoPicRect:hover { 
   position: relative; 
@@ -144,30 +120,24 @@ div.mainNoPicRect:hover {
 div.mainNoPicTop {
 	.STYLE_body_md_r();
 	font-weight: 500; // Default in body_md_r is 400, override this
-    position:absolute;
 	text-align:left;
-    vertical-align:center;
-    padding: 15% 0%;
-    top:0;
-    height:40%;
-    width:90%;
+	padding: 12px 12px 4px 12px;
 }
 div.mainNoPicBottom {
 	.STYLE_body_sm_r();
-    position:absolute;
 	text-align:left;
     vertical-align:center;
-    top:40%;
-    height:60%;
-    width:90%;
+	padding: 4px 12px 12px 12px;
 	color: var(--theme-main-bottom-color);
 }
 a.mainMiniLink {
 	.STYLE_body_sm_r();
+	text-decoration: none;
 	color: var(--theme-main-mini-link-color);
 };
 
 a.mainGridButton {
+	text-decoration: none;
 	color: var(--theme-main-grid-button-color);
 }
 
