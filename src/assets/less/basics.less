@@ -165,21 +165,30 @@ pre code {
   color: @NC_WHITE;
 }
 button {
-  .STYLE_button_md();
-  border-radius: 0px;
+  font-family: @FONT_Grafik;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  border-radius: 20px;
   height: 32px;
-  color: @COLOR_Midnight_500;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
   &:enabled {
-      background-color: @COLOR_ParticleBlue_500;
+      color: var(--theme-button-primary-text-color);
+      border: var(--theme-button-primary-border);
+      background-color: var(--theme-button-primary-background-color);
   }
   &:hover:enabled {
-      text-decoration: underline;
+      text-decoration: none;
+      color: var(--theme-button-primary-text-hover-color);
+      border: var(--theme-button-primary-border-hover);
+      background-color: var(--theme-button-primary-background-hover-color);
   }
   &:disabled {
-      background-color: @COLOR_ParticleBlue_800;
-  }
+    color: var(--theme-button-primary-border-disabled-color);
+    border: var(--theme-button-primary-border-disabled);
+    background-color: var(--theme-button-primary-background-disabled-color);
+}
 
 };
 
