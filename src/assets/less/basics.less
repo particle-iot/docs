@@ -188,9 +188,37 @@ button {
     color: var(--theme-button-primary-border-disabled-color);
     border: var(--theme-button-primary-border-disabled);
     background-color: var(--theme-button-primary-background-disabled-color);
-}
-
+  }
 };
+
+button.secondaryButton, button.downloadButton {
+  font-family: @FONT_Grafik;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  border-radius: 20px;
+  height: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  &:enabled {
+      color: var(--theme-button-secondary-text-color);
+      border: var(--theme-button-secondary-border);
+      background-color: var(--theme-button-secondary-background-color);
+  }
+  &:hover:enabled {
+      text-decoration: none;
+      color: var(--theme-button-secondary-text-hover-color);
+      border: var(--theme-button-secondary-border-hover);
+      background-color: var(--theme-button-secondary-background-hover-color);
+  }
+  &:disabled {
+    color: var(--theme-button-secondary-border-disabled-color);
+    border: var(--theme-button-secondary-border-disabled);
+    background-color: var(--theme-button-secondary-background-disabled-color);
+  }
+};
+
+
 
 button.smallButton {
   .STYLE_button_sm();
