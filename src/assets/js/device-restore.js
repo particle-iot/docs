@@ -23,10 +23,10 @@ $(document).ready(function() {
             const userBinFiles = $('#userBinFile').prop('files');
             if (!imageFile || !userBinFiles || userBinFiles.length != 1) {
                 // Not valid settings
-                $('#hexGeneratorForm').find('button').attr('disabled', 'disabled');
+                $('#hexGeneratorForm').find('.generateHex').attr('disabled', 'disabled');
             }
             else {
-                $('#hexGeneratorForm').find('button').removeAttr('disabled');
+                $('#hexGeneratorForm').find('.generateHex').removeAttr('disabled');
             }
         };
         
