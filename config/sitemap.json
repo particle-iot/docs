@@ -9125,6 +9125,10 @@
         "hardware/som/som-guide.md": {
             "hash": "7c7ac5080307a177302936895d1b30c52cce797747be20e8c824c9afc574e53c",
             "date": "2024-06-28"
+        },
+        "getting-started/getting-started.md": {
+            "hash": "ae625053e81b7eb53c24ce1608fedeff29140eb0d8a9e60ca4c4f189b3023423",
+            "date": "2024-07-17"
         }
     }
 }

@@ -80,9 +80,16 @@ div.navContainer {
 
 div.navMenu1 {
   .STYLE_left_nav_heading();
-  margin-top: 2px;
+  margin-top: 4px;
   margin-bottom: 5px;
   color: var(--theme-menubar-color);
+}
+
+div.navActive1 {
+  .STYLE_left_nav_heading();
+  margin-top: 4px;
+  margin-bottom: 5px;
+  color: var(--theme-menubar-selected-color);
 }
 
 
@@ -103,7 +110,7 @@ div.navActive2 {
   .STYLE_left_nav_page();
   font-weight: 500;
   color: var(--theme-menubar-selected-color);
-  text-decoration: underline;
+  text-decoration: none;
   padding-bottom: 3px;
   width: 230px;
   overflow: hidden;
@@ -112,7 +119,6 @@ div.navActive2 {
   @media (min-width: @screenWidthForMenubarWide) {
     width: 230px + @menubarWideExtra;
   }
-
 };
 
 div.navMenu3 {
@@ -228,6 +234,19 @@ a.navLink {
 };
 
 a.navLink {
+  &:link {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: underline;
+  }  
+}
+
+div.navMenu1 > a {
+  font-weight: 500;
   &:link {
     text-decoration: none;
   }
