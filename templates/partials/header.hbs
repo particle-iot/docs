@@ -50,11 +50,11 @@
           <img width="20" height="20" data-light-src="/assets/images/menu-console-light.png" data-dark-src="/assets/images/menu-console-dark.png" />
           Go to console</a></li>
         <li id="userMenuChangeTheme"><a>
-          <img width="16" height="16" class="changeThemeIcon" data-light-src="/assets/images/menu-theme-light.png" data-dark-src="/assets/images/menu-theme-dark.png" />
-          <img width="16" height="16" class="changeThemeOpenIcon" data-light-src="/assets/images/menu-theme-open-light.png" data-dark-src="/assets/images/menu-theme-open-dark.png" style="display:none;"/>
+          <img width="16" height="16" class="changeThemeIcon" data-light-src="/assets/images/menu-theme-light.png" data-dark-src="/assets/images/menu-theme-dark.png" style="margin-left: 4px;" />
+          <img width="16" height="16" class="changeThemeOpenIcon" data-light-src="/assets/images/menu-theme-open-light.png" data-dark-src="/assets/images/menu-theme-open-dark.png" style="display:none; margin-left: 4px;"/>
           Change theme
-          <img width="16" height="16" class="changeThemeExpand" data-light-src="/assets/images/menu-expand-light.png" data-dark-src="/assets/images/menu-expand-dark.png" />
-          <img width="26" height="16" class="changeThemeCollapse"style="display:none" data-light-src="/assets/images/menu-collapse-light.png" data-dark-src="/assets/images/menu-collapse-dark.png" />
+          <img width="16" height="16" class="changeThemeExpand" data-light-src="/assets/images/menu-expand-light.png" data-dark-src="/assets/images/menu-expand-dark.png" style="margin-left: 4px;" />
+          <img width="16" height="16" class="changeThemeCollapse" data-light-src="/assets/images/menu-collapse-light.png" data-dark-src="/assets/images/menu-collapse-dark.png" style="display:none; margin-left: 4px;" />
           </a></li>          
         <li class="dropdown-menu-sub theme-menu-sub"><a>
           <label><input type="radio" name="theme-menu-radio" class="theme-menu-sub-radio" data-theme="light" />Light</label>
@@ -66,10 +66,10 @@
           <label><input type="radio" name="theme-menu-radio" class="theme-menu-sub-radio" data-theme="auto"/>Auto</label>
           </a></li>
         <li id="userMenuEditAccount"><a>
-          <img width="12" height="12" data-light-src="/assets/images/menu-edit-account-light.png" data-dark-src="/assets/images/menu-edit-account-dark.png" />
+          <img width="12" height="12" style="margin-left: 8px;" data-light-src="/assets/images/menu-edit-account-light.png" data-dark-src="/assets/images/menu-edit-account-dark.png" />
           Edit Account</a></li>
         <li id="userMenuLogout"><a>
-          <img width="12" height="12" data-light-src="/assets/images/menu-logout-light.png" data-dark-src="/assets/images/menu-logout-dark.png" />
+          <img width="12" height="12" style="margin-left: 8px;" data-light-src="/assets/images/menu-logout-light.png" data-dark-src="/assets/images/menu-logout-dark.png" />
           Logout</a></li>
       </ul>
     </div>
@@ -79,7 +79,7 @@
     {{!-- Currently disabled always due to lack of use
     {{#unless noEditButton}}
     <a href='{{edit-link branch path.href path.name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
-    {{/unless}}
+    {{/unless}} 
     --}}
 
   </div>
