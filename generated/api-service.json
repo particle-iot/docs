@@ -13022,12 +13022,6 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "parentNode": {
-              "path": "product",
-              "field": "product",
-              "type": "Object",
-              "isArray": false
-            },
             "field": "product.name",
             "isArray": false,
             "description": "<p>Product Name</p>"
