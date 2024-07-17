@@ -10,6 +10,7 @@
 }
 
 .header .left {
+  margin-left: 38px;
   float: left;
   a {
     display: inline-block;
@@ -81,12 +82,22 @@ a.nav-device {
   color: @spark-blue;
 }
 
-.header {
+.topLogo {
   zoom: 1;
   height: @headerHeight;
   position: absolute;
   top: 0;
   left: 0;
+  right: @menubarWidth;
+  z-index: @headerZindex;
+}
+
+.header {
+  zoom: 1;
+  height: @headerHeight;
+  position: absolute;
+  top: 0;
+  left: @menubarWidth;;
   right: 0;
   z-index: @headerZindex;
 }
@@ -125,7 +136,7 @@ a.nav-device {
 @media (min-width: 1250px) {
   .menuLoggedInUser {
     display: inline-block;
-    max-width: 140px;
+    max-width: 180px;
     margin-left: 5px;
     margin-right: 5px;
     overflow: hidden;
@@ -358,5 +369,11 @@ a.nav-device {
         margin-right: 8px !important; // because of important in `.dropdown a` rule from line 126
       }
     }
+  }
+  .header {
+    left: 0px;
+  }
+  .topLogo {
+    display: none;
   }
 }
