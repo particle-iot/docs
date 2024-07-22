@@ -2,35 +2,35 @@
     "items":[
         {
             "title": "Getting Started",
-            "href": "/getting-started/"
+            "href": "/getting-started/getting-started/"
         },
         {
             "title": "Integrations",
-            "href": "/integrations/"
+            "href": "/integrations/introduction/"
         },
         {
             "title": "Reference",
-            "href": "/reference/"
+            "href": "/reference/reference/"
         },
         {
             "title": "Hardware",
-            "href": "/hardware/"
+            "href": "/hardware/hardware/"
         },
         {
             "title": "Firmware",
-            "href": "/firmware/"
+            "href": "/firmware/firmware/"
         },
         {
             "title": "Scaling",
-            "href": "/scaling/"
+            "href": "/scaling/scaling/"
         },
         {
             "title": "Tools",
-            "href": "/tools/"
+            "href": "/tools/tools/"
         },
         {
             "title": "Support & Troubleshooting",
-            "href": "/troubleshooting/"
+            "href": "/troubleshooting/troubleshooting/"
         }
     ]
 }
