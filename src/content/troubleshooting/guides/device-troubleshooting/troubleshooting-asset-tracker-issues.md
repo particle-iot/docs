@@ -25,7 +25,7 @@ The Tracker One contains the Tracker SoM so you can find additional information 
 
 ## Setup & claim
 
-If you have used other Particle Devices, you will have noticed that the setup flow is different. This is mainly because it requires a Product and GPS / GNSS signal lock. Please read [here](/tutorials/asset-tracking/setup/#setup).
+If you have used other Particle Devices, you will have noticed that the setup flow is different. This is mainly because it requires a Product and GPS / GNSS signal lock. Please read [here](/getting-started/tracker/tracker-setup/#setup).
 
 Asset Trackers must first be **claimed to a Product before they can be claimed by a user**, [create a product](/getting-started/tracker/tracker-setup/#create-a-product). Asset Trackers don't operate outside of a Product. 
 

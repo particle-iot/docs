@@ -151,7 +151,7 @@ tutorial](/integrations/webhooks/)
 - [Azure IoT Hub
 tutorial](/integrations/community-integrations/azure-iot-hub/)
 - [Google Cloud Platform
-tutorial](/integrations/google-cloud-platform/)
+tutorial](/integrations/integrations/google-cloud-platform/)
 
 ## Billing & usage
 

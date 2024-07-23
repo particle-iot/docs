@@ -168,9 +168,9 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 The B-Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-- [B-Series SoM First Board](/hardware/b-series-som/som-first-board/) is a simple SoM base board powered by USB only, no battery support.
+- [B-Series SoM First Board](/hardware/som/som-first-board/) is a simple SoM base board powered by USB only, no battery support.
 
-- [AN001 Basic SoM Design](/hardware/b-series-som/basic-som-design/) is a simple SoM base board. Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
+- [AN001 Basic SoM Design](/hardware/som/basic-som-design/) is a simple SoM base board. Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 
 Even though the B-Series SoM is more difficult to prototype with than the Boron, the B-Series module is designed for enterprise deployment and production at scale. The larger width of the module allows for a wider selection of cellular modems, which is why there's LTE Cat 1 (with 2G/3G fallback) for the B-Series SoM but not for the Boron. The Quectel EG91-E modem is physically too wide to fit in the Boron (Adafruit feather) form-factor.
 

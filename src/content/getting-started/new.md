@@ -147,7 +147,7 @@ Added [M12 connector ratings](/reference/datasheets/tracker/monitor-one-datashee
 
 ### Device OS API reference scrolling 2024-05-14
 
-Fixed a bug in the [Device OS API reference](/reference/device-os/api/) where the left navigation did not
+Fixed a bug in the [Device OS API reference](/reference/device-os/api/introduction/getting-started/) where the left navigation did not
 scroll to the active item on page open with direct link, or when clicking links to other pages within
 the reference.
 

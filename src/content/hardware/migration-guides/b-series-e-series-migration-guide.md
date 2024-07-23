@@ -143,7 +143,7 @@ For more information, see the [Mikroe community page](/hardware/expansion/mikroe
 
 ### First SoM board tutorial
 
-The [SoM first board tutorial](/hardware/b-series-som/som-first-board/) shows how to get started with the M.2 SoM boards by making the simplest possible design. It's an introduction to working with surface mount components you will need in order to make your own SoM base board.
+The [SoM first board tutorial](/hardware/som/som-first-board/) shows how to get started with the M.2 SoM boards by making the simplest possible design. It's an introduction to working with surface mount components you will need in order to make your own SoM base board.
 
 ![Board Image](/assets/images/som-first-board/main.png)
 
