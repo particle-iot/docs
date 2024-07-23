@@ -304,7 +304,7 @@ void cellularScan() {
 }
 
 void bleCommandReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
-    // Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X:", peer.address()[0], peer.address()[1], peer.address()[2], peer.address()[3], peer.address()[4], peer.address()[5]);
+    // Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X:", peer.address()[5], peer.address()[4], peer.address()[3], peer.address()[2], peer.address()[1], peer.address()[0]);
 
     parser.clear();
     parser.addData((const char *)data, len);

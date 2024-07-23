@@ -102,8 +102,8 @@ void loop() {
 				BlePeerDevice peer = BLE.connect(scanResults[ii].address);
 				if (peer.connected()) {
 					Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
-							scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
-							scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+							scanResults[ii].address[5], scanResults[ii].address[4], scanResults[ii].address[3],
+							scanResults[ii].address[2], scanResults[ii].address[1], scanResults[ii].address[0]);
 
 					// Get the button characteristic
 					peer.getCharacteristicByUUID(buttonCharacteristic[availableButtonIndex], buttonCharacteristicUuid);
@@ -133,7 +133,7 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 
 		Log.info("got %06lx from %02X:%02X:%02X:%02X:%02X:%02X",
 				lastColor,
-				peer.address()[0], peer.address()[1], peer.address()[2],
-				peer.address()[3], peer.address()[4], peer.address()[5]);
+				peer.address()[5], peer.address()[4], peer.address()[3],
+				peer.address()[2], peer.address()[1], peer.address()[0]);
 	}
 }

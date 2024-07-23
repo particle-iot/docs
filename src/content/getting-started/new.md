@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE peer address 2024-07-23
+
+BLE peer address printing examples previously printed the 6-byte MAC addresses in reverse byte order. This 
+has been corrected.
+
 ### Style update 2024-07-23
 
 Updated styles in the docs! You can change the color mode from the three dots menu in the upper right corner of the tab 

@@ -48,8 +48,8 @@ void loop() {
 
 				Log.info("colorCode: 0x%lx rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
 						colorCode, scanResults[ii].rssi(),
-						scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
-						scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5]);
+						scanResults[ii].address()[5], scanResults[ii].address()[4], scanResults[ii].address()[3],
+						scanResults[ii].address()[2], scanResults[ii].address()[1], scanResults[ii].address()[0]);
 
 				if (scanResults[ii].rssi() > curRssi) {
 					// Show whatever device has the strongest signal

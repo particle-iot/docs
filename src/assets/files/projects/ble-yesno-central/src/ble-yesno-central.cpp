@@ -87,16 +87,16 @@ void scanResultCallback(const BleScanResult *scanResult, void *context) {
 	if (svcCount == 0 || !(foundServiceUuid == serviceUuid)) {
 		/*
 		Log.info("ignoring %02X:%02X:%02X:%02X:%02X:%02X, not our service",
-				scanResult->address()[0], scanResult->address()[1], scanResult->address()[2],
-				scanResult->address()[3], scanResult->address()[4], scanResult->address()[5]);
+				scanResult->address()[5], scanResult->address()[4], scanResult->address()[3],
+				scanResult->address()[2], scanResult->address()[1], scanResult->address()[0]);
 		*/
 		return;
 	}
 
 	Log.info("found server rssi=%d addr=%02X:%02X:%02X:%02X:%02X:%02X",
 			scanResult->rssi(),
-			scanResult->address()[0], scanResult->address()[1], scanResult->address()[2],
-			scanResult->address()[3], scanResult->address()[4], scanResult->address()[5]);
+			scanResult->address()[5], scanResult->address()[4], scanResult->address()[3],
+			scanResult->address()[2], scanResult->address()[1], scanResult->address()[0]);
 
 	serverAddr = scanResult->address();
 	state = State::CONNECT;

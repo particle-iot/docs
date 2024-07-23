@@ -73,8 +73,8 @@ void loop() {
 
 						Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
 								scanResults[ii].rssi,
-								scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
-								scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+								scanResults[ii].address[5], scanResults[ii].address[4], scanResults[ii].address[3],
+								scanResults[ii].address[2], scanResults[ii].address[1], scanResults[ii].address[0]);
 
 						peer = BLE.connect(scanResults[ii].address);
 						if (peer.connected()) {

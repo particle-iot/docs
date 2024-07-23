@@ -518,6 +518,7 @@
   "/reference/device-os/firmware/#bleaddress": "/reference/device-os/api/bluetooth-le-ble/bleaddress/",
   "/reference/device-os/firmware/#copy-bleaddress-": "/reference/device-os/api/bluetooth-le-ble/bleaddress/#copy-bleaddress-",
   "/reference/device-os/firmware/#address-byte-bleaddress-": "/reference/device-os/api/bluetooth-le-ble/bleaddress/#address-byte-bleaddress-",
+  "/reference/device-os/firmware/#tostring-bleaddress-": "/reference/device-os/api/bluetooth-le-ble/bleaddress/#tostring-bleaddress-",
   "/reference/device-os/firmware/#equality-bleaddress-": "/reference/device-os/api/bluetooth-le-ble/bleaddress/#equality-bleaddress-",
   "/reference/device-os/firmware/#valid-bleaddress-": "/reference/device-os/api/bluetooth-le-ble/bleaddress/#valid-bleaddress-",
   "/reference/device-os/firmware/#getters": "/reference/device-os/api/bluetooth-le-ble/bleaddress/#getters",

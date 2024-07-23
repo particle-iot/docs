@@ -18,7 +18,7 @@ BleCharacteristic txCharacteristic("tx", BleCharacteristicProperty::NOTIFY, txUu
 BleCharacteristic rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP, rxUuid, serviceUuid, onDataReceived, NULL);
 
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
-    // Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X:", peer.address()[0], peer.address()[1], peer.address()[2], peer.address()[3], peer.address()[4], peer.address()[5]);
+    // Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X:", peer.address()[5], peer.address()[4], peer.address()[3], peer.address()[2], peer.address()[1], peer.address()[0]);
 
     for (size_t ii = 0; ii < len; ii++) {
         Serial.write(data[ii]);

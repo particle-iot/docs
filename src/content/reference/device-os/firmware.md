@@ -10724,10 +10724,7 @@ void loop() {
         Log.info("%d devices found", scanResults.size());
 
         for (int ii = 0; ii < scanResults.size(); ii++) {
-            // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
-            Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
-                    scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
-                    scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
+            Log.info("MAC: %s | RSSI: %dBm", scanResults[ii].address().toString().c_str(), scanResults[ii].rssi());
 
             String name = scanResults[ii].advertisingData().deviceName();
             if (name.length() > 0) {
@@ -10759,8 +10756,8 @@ void loop() {
         for (int ii = 0; ii < scanResults.size(); ii++) {
             // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
             Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
-                    scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
-                    scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5], scanResults[ii].rssi);
+                    scanResults[ii].address[5], scanResults[ii].address[4], scanResults[ii].address[3],
+                    scanResults[ii].address[2], scanResults[ii].address[1], scanResults[ii].address[0], scanResults[ii].rssi);
 
             String name = scanResults[ii].advertisingData().deviceName();
             if (name.length() > 0) {
@@ -10841,10 +10838,7 @@ void loop() {
 }
 
 void scanResultCallback(const BleScanResult *scanResult, void *context) {
-  // For Device OS 2.x and earlier, use scanResults->address[0], etc. without the ()
-  Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
-          scanResult->address()[0], scanResult->address()[1], scanResult->address()[2],
-          scanResult->address()[3], scanResult->address()[4], scanResult->address()[5], scanResult->rssi());
+  Log.info("MAC: %s | RSSI: %dBm", scanResult->address().toString().c_str(), scanResult->rssi());
 
 	String name = scanResult->advertisingData().deviceName();
 	if (name.length() > 0) {
@@ -11084,9 +11078,7 @@ Returns a [`BlePeerDevice`](#blepeerdevice) object. You typically use a construc
 // EXAMPLE - Device OS 3.0.0 and later:
 BlePeerDevice peer = BLE.connect(scanResults[ii].address());
 if (peer.connected()) {
-	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
-							scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
-							scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5]);
+	Log.info("successfully connected %s!", scanResults[ii].address().toString().c_str());
 	// ...
 }
 else {
@@ -11098,8 +11090,8 @@ else {
 BlePeerDevice peer = BLE.connect(scanResults[ii].address);
 if (peer.connected()) {
 	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
-							scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
-							scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+							scanResults[ii].address[5], scanResults[ii].address[4], scanResults[ii].address[3],
+							scanResults[ii].address[2], scanResults[ii].address[1], scanResults[ii].address[0]);
 	// ...
 }
 else {
@@ -12918,8 +12910,12 @@ Get the BLE address of the peripheral device.
 // PROTOTYPE
 const BleAddress& address() const;
 
-// EXAMPLE
-Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X", peer.address()[0], peer.address()[1], peer.address()[2], peer.address()[3], peer.address()[4], peer.address()[5]);
+// EXAMPLE 1
+Log.trace("Received data from: %s", peer.address().toString().c_str());
+
+
+// EXAMPLE 2
+Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X", peer.address()[5], peer.address()[4], peer.address()[3], peer.address()[2], peer.address()[1], peer.address()[0]);
 ```
 
 See [`BleAddress`](#bleaddress) for more information.
@@ -13034,15 +13030,37 @@ uint8_t operator[](uint8_t i) const;
 // EXAMPLE - Device OS 3.0 and later
 Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
 		scanResults[ii].rssi(),
-		scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
-		scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5]);
+		scanResults[ii].address()[5], scanResults[ii].address()[4], scanResults[ii].address()[3],
+		scanResults[ii].address()[2], scanResults[ii].address()[1], scanResults[ii].address()[0]);
 
 // EXAMPLE - Device OS 2.x and earlier
 Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
 		scanResults[ii].rssi,
-		scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
-		scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+		scanResults[ii].address[5], scanResults[ii].address[4], scanResults[ii].address[3],
+		scanResults[ii].address[2], scanResults[ii].address[1], scanResults[ii].address[0]);
 ```
+
+See also toString() for an easier way to print address string.
+
+#### toString (BleAddress)
+
+{{api name1="BleAddress::toString()"}}
+
+{{since when="1.3.1"}}
+
+```
+// PROTOTYPE
+String toString(bool stripped = false) const;
+
+// EXAMPLE
+Log.info("rssi=%d address=%%s", scanResults[ii].rssi(), scanResults[ii].address().toString().c_str());
+
+```
+
+Converts a BleAddress to a `String`. The default value of `stripped` is false, which results in the 
+standard colon-separated format. If `stripped` is true, then the raw 12 hex bytes with no separators
+is returned.
+
 
 #### equality (BleAddress)
 
@@ -13087,8 +13105,8 @@ Log.info("found device %s", scanResult->address.toString().c_str());
 
 // EXAMPLE 2
 Log.info("found device %02X:%02X:%02X:%02X:%02X:%02X",
-			scanResult->address[0], scanResult->address[1], scanResult->address[2],
-			scanResult->address[3], scanResult->address[4], scanResult->address[5]);
+			scanResult->address[5], scanResult->address[4], scanResult->address[3],
+			scanResult->address[2], scanResult->address[1], scanResult->address[0]);
 ```
 
 #### Constructor
