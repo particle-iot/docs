@@ -1919,7 +1919,7 @@ The M.2 SoM requires a screw to hold the SoM in place because the M.2 connector 
 
 ![Screw Assembly](/assets/images/b-series/new-standoff.png)
 
-- An [alternative design](/hardware/b-series-som/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
+- An [alternative design](/hardware/som/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
 - The screw should be connected to the ground plane on your base board.
 
 ### Design considerations

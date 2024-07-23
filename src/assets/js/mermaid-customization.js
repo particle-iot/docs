@@ -6,6 +6,6 @@ mermaidCustomization = {
         secondaryColor: '#B0E5C9', // @COLOR_Mint_50
         tertiaryColor: '#FF802E', // @COLOR_Tangerine_500
         noteBkgColor: '#D9F2F7', // @COLOR_Sky_500
-        fontFamily: 'Grafik, sans-serif', // @FONT_Grafik
+        fontFamily: 'Graphik, sans-serif', // @FONT_Graphik
     },
 };

@@ -1,3 +1,8 @@
+<div class="topLogo">
+    <a href="/">
+      <img src="/assets/images/particle-docs.png" id="logo" class="no-darken" data-light-src="/assets/images/particle-docs.png" data-dark-src="/assets/images/particle-docs-dark.png">
+    </a>
+</div>
 <div class='header'>
 
   <div class='left' data-swiftype-index='false'>
@@ -8,10 +13,6 @@
         <i class="ion-navicon" title="show/hide the navigation"></i>
       </a>
     </div>
-
-    <a href="/">
-      <img src="/assets/images/particle-docs.png" id="logo" class="no-darken" data-light-src="/assets/images/particle-docs.png" data-dark-src="/assets/images/particle-docs-dark.png">
-    </a>
 
     <div class="sections">
       {{{topMenu}}}
@@ -33,24 +34,52 @@
 
     {{#unless noSearch}}
     <div class="searchIcon">
-      <a><i class="ion-search" title="Search"></i></a>
+      <a><img width="14" height="14" data-light-src="/assets/images/menu-search-light.png" data-dark-src="/assets/images/menu-search-dark.png" /></a>
     </div>
     {{/unless}}
 
-    <div class="dropdown narrow" style="width: 110px">
-      <a id="userMenu" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon ion-person"></i><span id="userMenuLabel">User</span></a>
+    <div class="menuLoggedInUser"></div>
+
+    <div class="dropdown narrow" style="width: 30px">
+      <a id="userMenu" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <img width="24" height="24" data-light-src="/assets/images/menu-3dots-light.png" data-dark-src="/assets/images/menu-3dots-dark.png" />
+      </a>
       <ul class="dropdown-menu pull-right" aria-labelledby="userMenu">
         <li id="userMenuLoggedInAs" class="loginMenuItem"></li>
-        <li id="userMenuConsole"><a href="https://console.particle.io" target="_blank">Console</a></li>
-        <li id="userMenuEditAccount"><a>Edit Account</a></li>
-        <li id="userMenuLogout"><a>Logout</a></li>
+        <li id="userMenuConsole"><a href="https://console.particle.io" target="_blank">
+          <img width="20" height="20" data-light-src="/assets/images/menu-console-light.png" data-dark-src="/assets/images/menu-console-dark.png" />
+          Go to console</a></li>
+        <li id="userMenuChangeTheme"><a>
+          <img width="16" height="16" class="changeThemeIcon" data-light-src="/assets/images/menu-theme-light.png" data-dark-src="/assets/images/menu-theme-dark.png" style="margin-left: 4px;" />
+          <img width="16" height="16" class="changeThemeOpenIcon" data-light-src="/assets/images/menu-theme-open-light.png" data-dark-src="/assets/images/menu-theme-open-dark.png" style="display:none; margin-left: 4px;"/>
+          Change theme
+          <img width="16" height="16" class="changeThemeExpand" data-light-src="/assets/images/menu-expand-light.png" data-dark-src="/assets/images/menu-expand-dark.png" style="margin-left: 4px;" />
+          <img width="16" height="16" class="changeThemeCollapse" data-light-src="/assets/images/menu-collapse-light.png" data-dark-src="/assets/images/menu-collapse-dark.png" style="display:none; margin-left: 4px;" />
+          </a></li>          
+        <li class="dropdown-menu-sub theme-menu-sub"><a>
+          <label><input type="radio" name="theme-menu-radio" class="theme-menu-sub-radio" data-theme="light" />Light</label>
+          </a></li>
+        <li class="dropdown-menu-sub theme-menu-sub"><a>
+          <label><input type="radio" name="theme-menu-radio" class="theme-menu-sub-radio" data-theme="dark"/>Dark</label>
+          </a></li>
+        <li class="dropdown-menu-sub theme-menu-sub"><a>
+          <label><input type="radio" name="theme-menu-radio" class="theme-menu-sub-radio" data-theme="auto"/>Auto</label>
+          </a></li>
+        <li id="userMenuEditAccount"><a>
+          <img width="12" height="12" style="margin-left: 8px;" data-light-src="/assets/images/menu-edit-account-light.png" data-dark-src="/assets/images/menu-edit-account-dark.png" />
+          Edit Account</a></li>
+        <li id="userMenuLogout"><a>
+          <img width="12" height="12" style="margin-left: 8px;" data-light-src="/assets/images/menu-logout-light.png" data-dark-src="/assets/images/menu-logout-dark.png" />
+          Logout</a></li>
       </ul>
     </div>
+
+    <div class="menuRightSpacer"></div>
 
     {{!-- Currently disabled always due to lack of use
     {{#unless noEditButton}}
     <a href='{{edit-link branch path.href path.name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
-    {{/unless}}
+    {{/unless}} 
     --}}
 
   </div>

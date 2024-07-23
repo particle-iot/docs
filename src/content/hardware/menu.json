@@ -3,7 +3,7 @@
     {
       "dir": "hardware",
       "title": "Hardware",
-      "href": "/hardware/",
+      "href": "/hardware/hardware/",
       "tiles": [
         {
           "title": "First board examples",

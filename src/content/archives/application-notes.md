@@ -14,7 +14,7 @@ Most of the application notes are now integrated into other topics within the do
 
 ## Hardware designs
 
-- [AN001 Basic SoM Design](/hardware/b-series-som/basic-som-design/) is a simple SoM base board. 
+- [AN001 Basic SoM Design](/hardware/som/basic-som-design/) is a simple SoM base board. 
 Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, 
 USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 - [AN006 Vehicle Power](/hardware/power/vehicle-power/) provides sample designs for powering Particle devices in vehicles.
@@ -98,7 +98,7 @@ interpret cloud debugging logs to troubleshoot various common issues.
 
 ## Numerical list
 
-- [AN001 Basic SoM Design](/hardware/b-series-som/basic-som-design/)
+- [AN001 Basic SoM Design](/hardware/som/basic-som-design/)
 - [AN002 Device Powerdown](/firmware/low-power/device-powerdown/)
 - [AN003 Interpreting Cloud Debug](/troubleshooting/connectivity/interpreting-cloud-debug/) 
 - [AN004 Interpreting Cloud Debug-2](/troubleshooting/connectivity/interpreting-cloud-debug-2/) is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.

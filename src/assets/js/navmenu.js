@@ -153,6 +153,22 @@ navMenu.generateNavHtml = function(menuJson) {
     };
 
     const makeNavMenu2 = function (item, indent) {
+        // console.log('makeNavMenu2 indent=' + indent, item);
+
+        let navActiveClass;
+        let navClass;
+        let useNavLink;
+        if (indent == 0) {
+            navActiveClass = 'navActive1';
+            navClass = 'navMenu1';    
+            useNavLink = false;
+        }
+        else {
+            navActiveClass = 'navActive2';
+            navClass = 'navMenu2';    
+            useNavLink = true;
+        }
+
         const divElem = document.createElement('div');
         $(divElem).addClass('navContainer');
         if (item.addClass) {
@@ -174,7 +190,7 @@ navMenu.generateNavHtml = function(menuJson) {
 
         if (item.activeItem) {
             let innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass('navActive2');
+            $(innerDivElem).addClass(navActiveClass);
             $(innerDivElem).text(makeTitle(item));
             $(divElem).append(innerDivElem);
             
@@ -187,14 +203,16 @@ navMenu.generateNavHtml = function(menuJson) {
         }
         else {
             let innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass('navMenu2');
+            $(innerDivElem).addClass(navClass);
             const aElem = document.createElement('a');
             $(aElem).on('click', function(ev) {
                 ev.preventDefault();
                 navMenu.openAnchor(item.href);
             });
             $(aElem).attr('href', item.href);
-            $(aElem).addClass('navLink');
+            if (useNavLink) {
+                $(aElem).addClass('navLink');
+            }
             $(aElem).text(makeTitle(item));
             $(innerDivElem).append(aElem);
             $(divElem).append(innerDivElem);
@@ -213,7 +231,6 @@ navMenu.generateNavHtml = function(menuJson) {
 
     const navElem = document.createElement('div');
     $(navElem).addClass('navMenuOuter');
-    $(navElem).data('testing', 'testing replacement');
 
     let itemsFlat = [];
     let cardSections = [];
@@ -285,6 +302,8 @@ navMenu.generateNavHtml = function(menuJson) {
             if (item.activeItem || !item.hidden) {
                 $(navElem).append(makeNavMenu2(item, indent));
                 itemsFlat.push(item);
+            }
+            else {
             }
 
             if (item.activeItem) {

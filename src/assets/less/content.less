@@ -208,6 +208,10 @@ h1 .header-permalinks {
   .header-permalinks {
     left: -25px;
   }
+
+  .topLogo {
+    border-bottom: var(--theme-menubar-border);
+  }
 }
 
 .header-permalinks {
@@ -228,7 +232,7 @@ h1 .header-permalinks {
 @media screen {
   .content-root {
     position: absolute;
-    top: 53px;
+    top: @headerHeight;
     left: 0;
     right: 0;
     bottom: 0;
@@ -241,7 +245,7 @@ h1 .header-permalinks {
   padding-left: 40px;
   padding-right: 40px;
   zoom: 1;
-  max-width: 700px;
+  max-width: 900px;
 }
 @media screen {
   .content-inner {
@@ -284,25 +288,25 @@ h1 .header-permalinks {
   padding-top: 10px;
 }
 .content h1 {
-  //color: @dark-gray;
-  .STYLE_display_md();
+  font-family: @FONT_Graphik;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28.8px;
 }
 
 .content h2 {
-  //color: @dark-gray;
-  .STYLE_display_sm();
+  color: var(--theme-header-blue);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
 }
-/*
-.content h1:first-child,
-.content h1:first-child a,
-.content h1:first-child a:visited {
-  //color: @dark-gray;
-  .STYLE_display_md();
-}
-*/
+
 .content h3 {
-  .STYLE_heading_lg_e();
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19.2px;
 }
+
 .content h1,
 .content h2,
 .content h3 {
@@ -337,23 +341,25 @@ h1 .header-permalinks {
   }
 }
 .content h4 {
-  //color: @gray;
   padding-top: 15px;
   padding-bottom: 10px;
-  .STYLE_heading_lg_r();
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
 }
 .content.reference h4 {
   text-transform: none;
 }
 .content h5,
 .content .small-heading {
-  .STYLE_heading_lg_e();
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
   padding-top: 30px;
   position: relative;
 }
 
 .content h3 {
-  .STYLE_heading_lg_e();
   padding-top: 40px;
   margin-bottom: 0px;
   position: relative;
@@ -450,56 +456,33 @@ h1 .header-permalinks {
     box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
   }
 }
-.button {
-  text-rendering: optimizeLegibility;
-  //font-weight: bold;
-  //font-size: 14px;
-  //letter-spacing: 0.7px;
-  //border: solid 2px @NC_TEAL_DARK;
-  display: inline-block;
-  padding: 8px 12px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  margin-right: 4px;
-  text-decoration: none;
-}
-.button,
-.button:visited {
-  .STYLE_button_primary_regular();
-//  background: @NC_TEAL_DARK;
-//  color: @NC_WHITE;
-//  text-shadow: none;
-}
-.button:hover {
-  .STYLE_button_primary_hover();
-//  border-color: @NC_MIDNIGHT;
-//  background: @NC_MIDNIGHT;
-//  color: @NC_WHITE;
-}
-.button.light,
-.button.light:visited {
-  .STYLE_button_primary_regular();
-//  background: transparent;
-//  color: @NC_PURPLE_GRAY;
-//  border-color: @NC_PURPLE_GRAY;
-//  text-shadow: none;
-}
-.button.light:hover {
-  .STYLE_button_primary_hover();
-//  border-color: @NC_PURPLE_GRAY;
-//  background: @NC_PURPLE_GRAY;
-//  color: @NC_WHITE;
-}
-.content .button + em {
-  color: @NC_PURPLE_GRAY;
-}
 
-.downloadButton {
-  .STYLE_button_primary_regular();
+// This class is used in the landing and quickstart pages to make a button from an anchor
+a.button {
+  font-family: @FONT_Graphik;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  border-radius: 20px;
+  height: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  color: var(--theme-button-primary-text-color);
+  border: var(--theme-button-primary-border);
+  background-color: var(--theme-button-primary-background-color);
+  text-decoration: none;
+  &:visited {
+    color: var(--theme-button-primary-text-color);
+  }
   &:hover {
-    .STYLE_button_primary_hover();
-  };
-}
+      text-decoration: none;
+      color: var(--theme-button-primary-text-hover-color);
+      border: var(--theme-button-primary-border-hover);
+      background-color: var(--theme-button-primary-background-hover-color);
+  }
+};
 
 // Don't actually position the upper right buttons in the upper right on mobile, since they'll
 // obscure the header
@@ -787,8 +770,8 @@ hr {
 .one-column {
   .content {
     padding: 40px 30px 80px;
-    margin: 0 auto;
-    max-width: 700px;
+    margin: 0 0 0 22px;
+    max-width: 900px;
   }
   .content p.img {
     padding-top: 0;
@@ -858,7 +841,7 @@ hr {
 .two-columns {
   .content {
     padding: 40px 30px 80px;
-    margin: 0 auto;
+    margin: 0 0 0 22px;
   }
   .content p.img {
     padding-top: 0;

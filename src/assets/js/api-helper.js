@@ -367,7 +367,6 @@ apiHelper.getReleaseAndLatestRcVersionOnly = function() {
     });
 };
 
-
 apiHelper.confirmFlash = function() {
     if (!apiHelper.flashConfirmed) {
         const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
@@ -1109,6 +1108,19 @@ apiHelper.getAllSims = async function(options) {
 };
 
 $(document).ready(function() {
+    $('.apiHelperFileSelector').each(function() {
+        const thisPartial = $(this);
+
+        const inputId = $(thisPartial).data('input-id');
+        console.log('inputId=' + inputId);
+
+        $(thisPartial).on('click', function(ev) {
+            console.log('click apiHelperFileSelector');
+            $('#' + inputId).trigger('click');
+            ev.preventDefault();
+        });
+    });        
+
     if ($('.apiHelper').length == 0) {
         return;
     }

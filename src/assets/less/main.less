@@ -1,7 +1,7 @@
 
 img.mainGridImg {
-  max-width:100% !important;
-  max-height:70% !important;
+  max-width: 230px !important;
+  max-height: 230px !important;
 }
 
 h1.mainTitle {
@@ -28,29 +28,18 @@ div.mainGridHome {
 	margin-top: 20px;
   }
   
-@media all and (max-width: 599px) {
-	div.mainSquare {
-	  float:left;
-	  position: relative;
-	  width: 90%;
-	  padding-bottom: 90%;
-	  margin-right: 1.66%;
-	  margin-bottom: 1.66%;
-	  overflow:hidden;
-	}
+  div.mainSquare {
+	float:left;
+	position: relative;
+	width: 274px;
+	height: 333px;
+	margin: 12px 24px 12px 0px;
+	overflow:hidden;
+	background-color: var(--theme-main-button-background-color);
+	border: var(--theme-main-no-pic-rect-border);
+	border-radius: 8px;
 }
 
-@media all and (min-width: 600px) {
-	div.mainSquare {
-	  float:left;
-	  position: relative;
-	  width: 28%;
-	  padding-bottom: 30%;
-	  margin-right:1.66%;
-	  margin-bottom: 1.66%;
-	  overflow:hidden;
-	}
-}
 
 div.mainSquare:hover { 
   position: relative; 
@@ -59,66 +48,57 @@ div.mainSquare:hover {
   transition-duration: .2s;
 } 
   
-div.mainContent {
-  position:absolute;
-  text-align:center;
-  height:75%; 
-  width:90%;
-  padding: 10% 5%;
-}
-
 
 // div.mainTopBottom 
 
+// This is the box with the image in the home page grid
 div.mainTop {
-    position:absolute;
-    vertical-align:center;
-    top:0;
-    height:75%;
-    width:90%;
-}
-div.mainBottom {
-    position:absolute;
-    vertical-align:center;
-    top:75%;
-    height:25%;
-    width:90%;
+	width: 250px;
+	height: 250px;
+	display: flex;
+	align-items: center;
+	margin: 12px 12px 0px 12px;
 }
 
+// This is the box with the text description lines in the home page grid
+// div.mainBottom {}
+
+// This is the top line of text in the home page grid
 div.mainBoxTitle {
-	.STYLE_body_md_r();
-	font-weight: 500; // Default in body_md_r is 400, override this
-	// Color is set below based on light/dark mode
+	font-family: @FONT_Graphik;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17.8px;
+	text-align: left;
+	padding: 12px 12px 4px 12px;
 }
+
+
+// This is the bottom line of text in the home page grid
 
 div.mainBoxDescription {
-	.STYLE_body_sm_r();
-	font-weight: 500; // Default in body_sm_r is 400, override this
-	// Color is set below based on light/dark mode
+	font-family: @FONT_Graphik;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.4px;
+	text-align: left;
+    vertical-align: center;
+	padding: 4px 12px 12px 12px;
+	color: var(--theme-main-bottom-color);
 }
 
-@media all and (max-width: 599px) {
-	div.mainNoPicRect {
-	  float:left;
-	  position: relative;
-	  width: 90%;
-	  padding-bottom: 45%;
-	  margin-right:1.66%;
-	  margin-bottom: 1.66%;
-	  overflow:hidden;
-	}
+div.mainNoPicRect {
+	float:left;
+	position: relative;
+	width: 274px;
+	height: 77px;
+	margin: 12px 24px 12px 0px;
+	overflow:hidden;
+	background-color: var(--theme-main-button-background-color);
+	border: var(--theme-main-no-pic-rect-border);
+	border-radius: 8px;
 }
-@media all and (min-width: 600px) {
-	div.mainNoPicRect {
-	  float:left;
-	  position: relative;
-	  width: 28%;
-	  padding-bottom: 20%;
-	  margin-right:1.66%;
-	  margin-bottom: 1.66%;
-	  overflow:hidden;
-	}
-}
+
 
 div.mainNoPicRect:hover { 
   position: relative; 
@@ -129,99 +109,30 @@ div.mainNoPicRect:hover {
   
 
 div.mainNoPicTop {
-	.STYLE_body_md_r();
-	font-weight: 500; // Default in body_md_r is 400, override this
-    position:absolute;
-	text-align:left;
-    vertical-align:center;
-    padding: 15% 0%;
-    top:0;
-    height:40%;
-    width:90%;
+	font-family: @FONT_Graphik;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17.8px;
+	text-align: left;
+	padding: 12px 12px 4px 12px;
 }
 div.mainNoPicBottom {
-	.STYLE_body_sm_r();
-    position:absolute;
-	text-align:left;
-    vertical-align:center;
-    top:40%;
-    height:60%;
-    width:90%;
+	font-family: @FONT_Graphik;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.4px;
+	text-align: left;
+    vertical-align: center;
+	padding: 4px 12px 12px 12px;
+	color: var(--theme-main-bottom-color);
 }
 a.mainMiniLink {
 	.STYLE_body_sm_r();
+	color: var(--theme-main-mini-link-color);
 };
 
-
-@media (prefers-color-scheme: dark) {
-	a.mainGridButton {
-		color: @COLOR_Gray_200;
-	}
-
-	div.mainBoxTitle {
-		color: @COLOR_Gray_200;
-	}
-
-	div.mainBoxDescription {
-		color: @COLOR_Gray_200;
-	}
-
-	div.mainBottom {
-		color :@COLOR_Gray_200;
-	}
-	
-	div.mainNoPicBottom {
-		color:@COLOR_Gray_200;
-	}
-
-	a.mainMiniLink {
-		color:@COLOR_Gray_200;
-	}
-
-	div.mainSquare {
-		border: solid 1px @COLOR_Gray_400;
-	}
-
-	div.mainNoPicRect {
-		border: solid 1px @COLOR_Gray_400;
-	}
-
+a.mainGridButton {
+	text-decoration: none;
+	color: var(--theme-main-grid-button-color);
 }
-  
-@media (prefers-color-scheme: light) {
-	a.mainGridButton {
-		color: @COLOR_Midnight_500;
-	}
-
-	div.mainBoxTitle {
-		color: @COLOR_Midnight_500;
-	}
-
-	div.mainBoxDescription {
-		color: @COLOR_Midnight_500;
-	}
-
-	div.mainBottom {
-		color :@COLOR_Midnight_500;
-	}
-
-	div.mainNoPicBottom {
-		color:@COLOR_Midnight_500;
-	}
-
-	a.mainMiniLink {
-		color:@COLOR_Midnight_500;
-	}
-
-	div.mainSquare {
-		border: solid 1px @COLOR_Midnight_500;
-	}
-
-	div.mainNoPicRect {
-		border: solid 1px @COLOR_Midnight_500;
-	}
-	
-}
-  
-
 

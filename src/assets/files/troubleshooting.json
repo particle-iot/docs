@@ -531,7 +531,7 @@
             "buttons": [
                 {
                     "title": "Visit the integrations getting started guide",
-                    "url": "/integrations/integrations"
+                    "url": "/integrations/integrations/aws"
                 },
                 {
                     "title": "Visit the console to manage integrations",

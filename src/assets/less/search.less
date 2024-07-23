@@ -8,7 +8,7 @@
   right: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: @COLOR_Midnight_600;
+  background-color: var(--theme-search-container-background-color);
   z-index: 80; 
 }
 
@@ -57,7 +57,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.9);
+  background-color: var(--theme-search-overlay-background-color);
   overflow: auto;
   z-index: 300; 
 }
@@ -65,8 +65,8 @@
 .searchIcon {
   display: inline-block;
   width: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-top: 18px;
+  vertical-align: top;
 }
 
 .searchOverlayCloseIcon {
@@ -90,6 +90,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  background-color: var(--theme-search-overlay-query-background-color);
 }
 
 .searchOverlayQueryFlex {
@@ -158,36 +159,3 @@
   padding-bottom: 1px;
 }
 
-@media (prefers-color-scheme: dark) {
-  // content color is COLOR_Gray_100
-  .searchOverlayQuery {
-      background-color: @COLOR_Midnight_500;
-  }
-  /*
-  // This does not work
-  a.searchOverlayLink:visited {
-    color: @COLOR_Gray_400;
-  }
-  */
-}
-
-@media (prefers-color-scheme: light) {
-  // content color is COLOR_Midnight_500
-  .searchOverlayQuery {
-      background-color: @NC_MORNING_MIST;
-  }
-  #searchOverlay {
-    background-color: rgba(255,255,255,0.96);
-  }
-
-  .document-search-container {
-    background-color: @COLOR_Gray_100;
-  }
-  /*
-  // This does not work
-  a.searchOverlayLink:visited {
-    color: @COLOR_Midnight_300;
-    
-  }
-  */
-}

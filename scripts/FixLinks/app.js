@@ -60,6 +60,7 @@ for(const old in redirects) {
 const cardMapping = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/card_mapping.json')));
 
 let mdFiles = [];
+let menuJsonFiles = [];
 
 function processDir(dir) {
     fs.readdirSync(dir, {withFileTypes:true}).forEach(function(dirent, index) {
@@ -69,6 +70,9 @@ function processDir(dir) {
         else {
             if (dirent.name.match(/md$/i)) {
                 mdFiles.push(path.join(dir, dirent.name));
+            }
+            if (dirent.name == 'menu.json') {
+                menuJsonFiles.push(path.join(dir, dirent.name));
             }
         }
     });
@@ -154,9 +158,50 @@ function processTroubleshooting() {
     }
 };
 
+function processMenuJsonArray(array) {
+    for(let obj of array) {
+        if (Array.isArray(obj)) {
+            processMenuJsonArray(obj);
+        }
+        else {
+            if (typeof obj['href'] == 'string') {
+                if (redirects[obj.href]) {
+                    console.log('menu.json href changed '+ obj.href + ' -> ' + redirects[obj.href] + '/');
+                    obj.href = redirects[obj.href] + '/';
+                }
+                else {
+                    // console.log('menu json ok ' + obj.href);
+                }
+            }
+        }
+    }
+}
+
+function processMenuJsonFiles() {
+    for(const menuJsonFile of menuJsonFiles) {
+        const orig = fs.readFileSync(menuJsonFile, 'utf8');
+        let json = JSON.parse(orig);
+
+        for(const key in json) {
+            if (Array.isArray(json[key])) {
+                processMenuJsonArray(json[key]);
+            }
+        }
+
+        const final = JSON.stringify(json, null, 2);
+        if (orig != final) {
+            fs.writeFileSync(menuJsonFile, final);
+            console.log(menuJsonFile + ' updated');
+        }        
+    }
+}
+
 processTroubleshooting();
 
 processDir(contentRoot);
+
+processMenuJsonFiles();
+
 processNextMdFile();
 
 // console.log('mdFiles', mdFiles);

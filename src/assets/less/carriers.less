@@ -60,17 +60,9 @@ td.schemaParameterLabel {
     width: 160px;
 };
 
-
-@media (prefers-color-scheme: dark) {
-	div.countryPopup {
-		color: @COLOR_Gray_100;
-		background-color: @COLOR_Midnight_500;
-	}
+div.countryPopup {
+	color: var(--theme-primary-text-color);
+	background-color: var(--theme-select-background-color);
 }
-
-@media (prefers-color-scheme: light) {
-	div.countryPopup {
-		color: @COLOR_Midnight_500;
-		background-color: @COLOR_Gray_100;
-	}
-}
+  
+  

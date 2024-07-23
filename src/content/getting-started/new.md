@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Style update 2024-07-23
+
+Updated styles in the docs! You can change the color mode from the three dots menu in the upper right corner of the tab 
+or have it automatically match your operating system setting.
+
 ### Particle.connect change 2024-07-12
 
 Particle.connect() with a network type, such as Particle.connect(WiFi) was available in 5.6.0 to 5.8.1, but is removed from 5.8.2 
@@ -147,7 +152,7 @@ Added [M12 connector ratings](/reference/datasheets/tracker/monitor-one-datashee
 
 ### Device OS API reference scrolling 2024-05-14
 
-Fixed a bug in the [Device OS API reference](/reference/device-os/api/) where the left navigation did not
+Fixed a bug in the [Device OS API reference](/reference/device-os/api/introduction/getting-started/) where the left navigation did not
 scroll to the active item on page open with direct link, or when clicking links to other pages within
 the reference.
 

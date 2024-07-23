@@ -26,6 +26,7 @@ $(document).ready(function() {
         localStorage.removeItem('apiHelperLocalLogin');
         localStorage.removeItem('apiHelperTestLogin');
         localStorage.removeItem('savedSearch');
+        localStorage.removeItem('docsGeneral');
         apiHelper.isInternal = false;
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
@@ -139,14 +140,23 @@ $(document).ready(function() {
             $('#userMenuLabel').text('Logged In');
     
             $('#userMenuLoggedInAs').text('Logged in as ' + auth.username)
+            if ($('.menuLoggedInUser').is(':visible')) {
+                $('#userMenuLoggedInAs').hide();
+            }
+            else {
+                $('#userMenuLoggedInAs').show();
+            }
     
+
+            $('.menuLoggedInUser').text(auth.username);
+
+            /*
             if (localAuth) {
                 $('#userMenuConsole').hide();
                 $('#userMenuEditAccount').hide();
             }
-            else {
-                $('#userMenuEditAccount > a').on('click', handleEditAccount);
-            }
+            */
+            $('#userMenuEditAccount > a').on('click', handleEditAccount);
             
 
             $('#userMenuLogout > a').on('click', handleLogout);
@@ -169,6 +179,8 @@ $(document).ready(function() {
             $('#userMenuLabel').text('User');
 
             $('.apiHelperNotLoggedIn').show();
+            $('.menuLoggedInUser').text('');
+
             if (window.location.hostname.endsWith('particle.io')) {
                 $('.apiHelperCouldSSO').show();
     
@@ -238,6 +250,16 @@ $(document).ready(function() {
         $('.apiHelperLocalLogIn').show(); 
         $('.apiHelperLocalLoginLogInUsingRow').find('input[value="userPass"]').trigger('click');
     });
+
+    window.addEventListener('resize', function() {
+        if ($('.menuLoggedInUser').is(':visible')) {
+            $('#userMenuLoggedInAs').hide();
+        }
+        else {
+            $('#userMenuLoggedInAs').show();
+        }
+    });
+
     checkLogin();
 
     if (typeof apiHelper == 'undefined') {

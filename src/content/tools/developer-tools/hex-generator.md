@@ -2,6 +2,7 @@
 title: Hex File Generator
 layout: device-restore.hbs
 description: Hex File Generator
+includeDefinitions: [api-helper]
 ---
 
 # Hex file generator
@@ -23,8 +24,8 @@ This tool takes the [restore binaries](/reference/developer-tools/jtag/#restore-
 - Select your user firmware .bin file:
 
 <form id="hexGeneratorForm">
-<p><input type="file" id="userBinFile" name="userBinFile" accept=".bin"></p>
-<p><button type="button" onclick="downloadHex()">Generate and Download Hex File</button></p>
+<p><button class="apiHelperFileSelector secondaryButton" data-input-id="userBinFile">Select user binary file</button><input type="file" id="userBinFile" name="userBinFile" accept=".bin" style="display:none;"></p>
+<p><button type="button" class="generateHex" onclick="downloadHex()">Generate and Download Hex File</button></p>
 </form>
 
 The hex file is generated entirely in your web browser. Your user firmware binary is not uploaded to any servers.
