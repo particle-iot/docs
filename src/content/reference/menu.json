@@ -3,7 +3,7 @@
     {
       "dir": "reference",
       "title": "Reference",
-      "href": "/reference/",
+      "href": "/reference/reference/",
       "tiles": [
         {
           "title": "Device OS API",
@@ -47,7 +47,7 @@
         "title": "Device OS API",
         "isSection": true,
         "insertLoc": "device-os-api",
-        "href": "/reference/device-os/api/introduction/introduction/",
+        "href": "/reference/device-os/api/introduction/getting-started/",
         "noSeparator": true,
         "addClass": "deviceOsApiNavMenu"
       },
@@ -250,7 +250,7 @@
       {
         "dir": "verizon-faq2",
         "title": "Verizon FAQ",
-        "href": "/reference/cellular/verizon-faq2/"
+        "href": "/reference/cellular/verizon-faq/"
       },
       {
         "dir": "lte-cat-1-expansion",
@@ -753,7 +753,7 @@
         {
           "dir": "dev",
           "title": "Desktop IDE (Dev)",
-          "href": "/reference/discontinued/software/dev/"
+          "href": "/getting-started/developer-tools/workbench/"
         },
         {
           "dir": "windows",

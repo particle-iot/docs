@@ -3,7 +3,7 @@
     {
       "dir": "firmware",
       "title": "Firmware",
-      "href": "/firmware/",
+      "href": "/firmware/firmware/",
       "tiles": [
         {
           "title": "Best practices",

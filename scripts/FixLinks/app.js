@@ -159,18 +159,18 @@ function processTroubleshooting() {
 };
 
 function processMenuJsonArray(array) {
-    for(const obj of array) {
+    for(let obj of array) {
         if (Array.isArray(obj)) {
             processMenuJsonArray(obj);
         }
         else {
-            if (typeof obj['href'] != 'undefined') {
+            if (typeof obj['href'] == 'string') {
                 if (redirects[obj.href]) {
-                    console.log('menu.jon href changed '+ obj.href + ' -> ' + redirects[obj.href]);
-                    obj.href = redirects[obj.href];
+                    console.log('menu.json href changed '+ obj.href + ' -> ' + redirects[obj.href] + '/');
+                    obj.href = redirects[obj.href] + '/';
                 }
                 else {
-                    console.log('menu json ok ' + obj.href);
+                    // console.log('menu json ok ' + obj.href);
                 }
             }
         }
@@ -178,7 +178,6 @@ function processMenuJsonArray(array) {
 }
 
 function processMenuJsonFiles() {
-    console.log('menuJsonFiles', menuJsonFiles);
     for(const menuJsonFile of menuJsonFiles) {
         const orig = fs.readFileSync(menuJsonFile, 'utf8');
         let json = JSON.parse(orig);
@@ -189,7 +188,7 @@ function processMenuJsonFiles() {
             }
         }
 
-        const final = JSON.stringify(json, null, 4);
+        const final = JSON.stringify(json, null, 2);
         if (orig != final) {
             fs.writeFileSync(menuJsonFile, final);
             console.log(menuJsonFile + ' updated');

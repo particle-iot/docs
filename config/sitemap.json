@@ -9129,6 +9129,26 @@
         "getting-started/getting-started.md": {
             "hash": "ae625053e81b7eb53c24ce1608fedeff29140eb0d8a9e60ca4c4f189b3023423",
             "date": "2024-07-17"
+        },
+        "firmware/firmware.md": {
+            "hash": "ed124065eafd7ded63a4850f62225c8f65db07622e11b6e91e86506a19af19f8",
+            "date": "2024-07-23"
+        },
+        "scaling/scaling.md": {
+            "hash": "ed124065eafd7ded63a4850f62225c8f65db07622e11b6e91e86506a19af19f8",
+            "date": "2024-07-23"
+        },
+        "hardware/hardware.md": {
+            "hash": "86aceaf0436707213d5fc13c949f8320810e591decf840c3d32ec7c0d5c61af1",
+            "date": "2024-07-23"
+        },
+        "reference/reference.md": {
+            "hash": "ed124065eafd7ded63a4850f62225c8f65db07622e11b6e91e86506a19af19f8",
+            "date": "2024-07-23"
+        },
+        "reference/cellular/verizon-faq.md": {
+            "hash": "c660ee178f0cc094815ed9a069f7d426c58cb5b2e2c57c190c8c9103cca3a608",
+            "date": "2024-07-23"
         }
     }
 }
