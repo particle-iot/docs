@@ -27,6 +27,7 @@ $(document).ready(function() {
         localStorage.removeItem('apiHelperTestLogin');
         localStorage.removeItem('savedSearch');
         localStorage.removeItem('docsGeneral');
+        
         if (typeof apiHelper != 'undefined') {
             apiHelper.isInternal = false;
         }
