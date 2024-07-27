@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceNotesHelperRK",
     "version": "0.0.2",
-    "installs": 85,
+    "installs": 87,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions to save and retrieve data in the Device Notes field for a Particle devices",

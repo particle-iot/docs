@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BlueDot_BME280_TSL2591",
     "version": "1.0.3",
-    "installs": 817,
+    "installs": 819,
     "license": "CC BY-SA 4.0",
     "author": "BlueDot",
     "maintainer": "BlueDot <info@bluedot.space>",

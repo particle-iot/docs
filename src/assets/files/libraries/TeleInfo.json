@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TeleInfo",
     "version": "0.1.0",
-    "installs": 812,
+    "installs": 815,
     "license": "MIT",
     "author": "Thibault <thibault.chauffage@gmail.com>",
     "sentence": "Cette librairie permet de décoder les trames Téléinfo des compteurs ERDF",

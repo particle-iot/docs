@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_AM2315",
     "version": "1.0.1",
-    "installs": 27114,
+    "installs": 27115,
     "license": "BSD",
     "author": "Limor Fried/Ladyada",
     "sentence": "This is a library for the AM2315 Humidity + Temp sensor",

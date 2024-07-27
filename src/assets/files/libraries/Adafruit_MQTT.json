@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MQTT",
     "version": "1.6.1",
-    "installs": 29391,
+    "installs": 29529,
     "license": "MIT",
     "author": "Adafruit <info@adafruit.com>",
     "sentence": "A simple library that allows connection to Adafruit.io",

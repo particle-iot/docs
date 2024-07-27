@@ -1,0 +1,87 @@
+{
+  "type": "libraries",
+  "id": "CircularBufferSpiFlashRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CircularBufferSpiFlashRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "CircularBufferSpiFlashRK",
+    "version": "0.0.1",
+    "installs": 36,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Particle library for Allegro ACS37800 power monitor IC",
+    "url": "https://github.com/rickkas7/CircularBufferSpiFlashRK",
+    "repository": "https://github.com/rickkas7/CircularBufferSpiFlashRK.git",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "spi-flash-rk": "0.0.9"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/reference/device-os/libraries/c/CircularBufferSpiFlashRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2024-07-27T10:18:10.167Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "1-automated-test": true
+          },
+          "boron": {
+            "1-automated-test": true
+          },
+          "bsom": {
+            "1-automated-test": true
+          },
+          "b5som": {
+            "1-automated-test": true
+          },
+          "tracker": {
+            "1-automated-test": true
+          },
+          "p2": {
+            "1-automated-test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-automated-test": true
+          },
+          "boron": {
+            "1-automated-test": true
+          },
+          "bsom": {
+            "1-automated-test": true
+          },
+          "b5som": {
+            "1-automated-test": true
+          },
+          "tracker": {
+            "1-automated-test": true
+          },
+          "esomx": {
+            "1-automated-test": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-automated-test": true
+          },
+          "electron": {
+            "1-automated-test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CircularBufferSpiFlashRK\n\n*Circular buffer storage in external SPI flash chips for Particle devices*\n\nThis library is designed to hold a circular buffer of variable-sized records in a FIFO queue stored \nin SPI NOR flash memory. It can only be used with external SPI flash chips; it cannot be used with the \nbuilt-in SPI flash on Particle Gen 3 and Gen 4 devices.\n\nIt works with SPI flash chips that are compatible with [SpiFlashRK](https://github.com/rickkas7/SpiFlashRK)\nincluding most from Winbond, Macronix, and ISSI. It supports all sizes of devices, including those \nthat require 4-byte addressing (larger than 16 Mbyte). It requires 4096 byte sectors, however.\n\nIt can use any portion, divided at a sector boundary, or the entire chip.\n\nIt limited to 16-bit sector numbers within the circular buffer, so the maximum size circular buffer is \n256 Mbyte but the chip can be larger than that.\n\nA chip can contain multiple separate buffers if desired by instantiating multiple CircularBufferSpiFlashRK\nobjects sharing a single SpiFlash object. You can also use other portions of the flash for other purposes as \nlong as the other uses properly lock the SPI bus or access it using the shared SpiFlash object.\n\nThe main advantage of this library is that it does not require a file system, like LittleFS or SPIFFS.\nIt takes advantage of the natural circularity of the buffer to wear level across all sectors.\n\nIt can store text or binary data, up to the sector size of 4096 bytes minus overhead of 10 bytes. Multiple \nrecords will be packed into a sector, but records won't span sector boundaries, so certain sizes,\nsuch as exactly 2048 byte records, will be inefficient because they do not efficiently pack into\nsectors.\n\nOne use case of this library is [PublishQueueSpiFlashRK](https://github.com/rickkas7/PublishQueueSpiFlashRK)\nwhich uses the circular buffer to store events when offline.\n\n## Version history\n\n### 0.0.1 (2024-07-26)\n\nInitial version.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

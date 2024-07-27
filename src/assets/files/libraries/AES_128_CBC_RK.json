@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AES_128_CBC_RK",
     "version": "0.0.1",
-    "installs": 3399,
+    "installs": 3448,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Implementation of AES 128 CBC hash algorithm for Particle devices",

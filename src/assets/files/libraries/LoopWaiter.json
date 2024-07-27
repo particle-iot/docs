@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LoopWaiter",
     "version": "1.0.2",
-    "installs": 375,
+    "installs": 378,
     "license": "MIT",
     "author": "Jidesh Veeramachaneni",
     "sentence": "A header only timer library to simplify waiting without using delay.",

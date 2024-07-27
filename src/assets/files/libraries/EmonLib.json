@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EmonLib",
     "version": "1.1.2",
-    "installs": 31780,
+    "installs": 31893,
     "license": "MIT",
     "author": "glynhudson <glyn.hudson@openenergymonitor.org>, toonnelissen <toon@appsaloon.be>",
     "sentence": "Arduino Energy Monitoring Library - compatible with Arduino 1.0 - Ported to Spark",

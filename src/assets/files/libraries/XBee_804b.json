@@ -7,7 +7,7 @@
   "attributes": {
     "name": "XBee_804b",
     "version": "0.0.11",
-    "installs": 461,
+    "installs": 463,
     "license": "n/a",
     "author": "Forked by Neil Savant from atomic1976",
     "sentence": "A library for XBee on Spark Core/Photon",

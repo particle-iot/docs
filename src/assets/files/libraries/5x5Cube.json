@@ -7,7 +7,7 @@
   "attributes": {
     "name": "5x5Cube",
     "version": "0.0.11",
-    "installs": 333,
+    "installs": 334,
     "license": "MIT",
     "author": "Bryan Schremp <netnut@outlook.com>",
     "sentence": "A fork of the L3DCube Library for a 5x5x5 cube w/8mm through hole WS2812B LEDs.",

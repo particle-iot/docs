@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_TMP102_Arduino_Library",
     "version": "1.0.3",
-    "installs": 147,
+    "installs": 148,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "A library to drive the Texas Instruments TMP102 using I2C.",

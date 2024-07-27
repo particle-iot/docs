@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_GFX_RK",
     "version": "1.11.7",
-    "installs": 152374,
+    "installs": 153517,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit GFX graphics core library, this is the 'core' class that all our other graphics libraries derive from. Ported by rickkas7.",

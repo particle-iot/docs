@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-wdgs",
     "version": "1.0.1",
-    "installs": 13959,
+    "installs": 13961,
     "license": "MIT",
     "author": "phsacar & amp",
     "sentence": "Use forced OTA and firmware > 1.2! Library to employ independent and window watch dogs of STM32F205 for the Particle Photon.",

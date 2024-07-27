@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Seesaw",
     "version": "0.0.6",
-    "installs": 11171,
+    "installs": 11182,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
     "sentence": "This is a (Particle-compatible) library for the Adafruit seesaw helper IC.",

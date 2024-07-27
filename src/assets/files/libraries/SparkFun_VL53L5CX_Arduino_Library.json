@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VL53L5CX_Arduino_Library",
     "version": "1.0.0",
-    "installs": 1253,
+    "installs": 1261,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Distance sensing (VL53L5CX) with 64 pixels up to 4 meters at 15Hz.",

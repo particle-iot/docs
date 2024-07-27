@@ -7,7 +7,7 @@
   "attributes": {
     "name": "elapsedMillis1",
     "version": "0.0.1",
-    "installs": 309,
+    "installs": 310,
     "license": "none",
     "author": "Bruce Calder <brucebcalder@gmail.com>",
     "sentence": "A elapsedMillis library",

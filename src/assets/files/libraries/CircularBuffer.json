@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CircularBuffer",
     "version": "1.3.3",
-    "installs": 3261,
+    "installs": 3273,
     "author": "AgileWare",
     "maintainer": "Roberto Lo Giacco <rlogiacco@gmail.com>",
     "sentence": "Arduino circular buffer library",

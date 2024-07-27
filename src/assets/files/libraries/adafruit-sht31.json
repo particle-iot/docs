@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-sht31",
     "version": "0.0.7",
-    "installs": 90347,
+    "installs": 91703,
     "license": "GNU GPLv3",
     "author": "Adafruit, brolly759",
     "sentence": "Adafruit SHT31 port to Particle",

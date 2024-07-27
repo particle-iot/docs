@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_TCS34725",
     "version": "1.0.0",
-    "installs": 23533,
+    "installs": 23798,
     "license": "BSD",
     "author": "Krishnaraj Varma",
     "sentence": "Spark Core library for the TCS34725 sensor",

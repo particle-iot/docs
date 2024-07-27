@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VL53L1X_Arduino_Library",
     "version": "1.2.9",
-    "installs": 5116,
+    "installs": 5158,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic 4m Distance Sensor - VL53L1X",

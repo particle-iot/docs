@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TM1638",
     "version": "1.0.0",
-    "installs": 1809,
+    "installs": 1811,
     "author": "rjbatista",
     "sentence": "A library for interacting an arduino with a TM1638/TM1640",
     "url": "https://github.com/rjbatista/tm1638-library",

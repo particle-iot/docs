@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TM1637Display",
     "version": "0.0.1",
-    "installs": 25317,
+    "installs": 25554,
     "license": "GNU",
     "author": "Orlando Aguirre <oraguirre@gmail.com>",
     "sentence": "A library for TM1637 (LED Driver)",

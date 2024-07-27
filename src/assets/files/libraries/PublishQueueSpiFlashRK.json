@@ -1,0 +1,102 @@
+{
+  "type": "libraries",
+  "id": "PublishQueueSpiFlashRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PublishQueueSpiFlashRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "PublishQueueSpiFlashRK",
+    "version": "0.0.1",
+    "installs": 0,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Particle library for Allegro ACS37800 power monitor IC",
+    "url": "https://github.com/rickkas7/PublishQueueSpiFlashRK",
+    "repository": "https://github.com/rickkas7/PublishQueueSpiFlashRK.git",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "background-publish-rk": "0.0.2",
+      "circular-buffer-spi-flash-rk": "0.0.1"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/reference/device-os/libraries/p/PublishQueueSpiFlashRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2024-07-27T10:20:59.199Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# PublishQueueSpiFlashRK\n\n*Particle offline event queue storage on external SPI flash chips*\n\n**Typical uses case:** When you have a large number of events you want to store offline and you\nhave an external SPI NOR flash chip available in your design.\n\nThis library is designed to hold a circular buffer of events in a FIFO queue stored \nin SPI NOR flash memory. It can only be used with external SPI flash chips; it cannot be used with the \nbuilt-in SPI flash on Particle Gen 3 and Gen 4 devices. It cannot be used with SD cards.\n\nThe main advantage of this library is that it does not require a file system, like LittleFS or SPIFFS.\nIt takes advantage of the natural circularity of the buffer to wear level across all sectors.\nIt works up to the maximum event size and can pack multiple events into a single sector for efficiency.\n\nIt also is highly reliable: All events are written to flash before attempting to send, so if the device\nis reset the events will be safely stored. The format of the flash is designed to be resilient in the case\nof unexpected resets, even while writing.\n\nIt limited to 16-bit sector numbers within the circular buffer, so the maximum size circular buffer is \n256 Mbyte but the chip can be larger than that.\n\n## SPI flash\n\nIt works with SPI flash chips that are compatible with [SpiFlashRK](https://github.com/rickkas7/SpiFlashRK)\nincluding most from Winbond, Macronix, and ISSI. It supports all sizes of devices, including those \nthat require 4-byte addressing (larger than 16 Mbyte). It requires 4096 byte sectors, however.\n\nIt can use any portion, divided at a sector boundary, or the entire chip.\n\nA chip can contain multiple separate buffers if desired by instantiating multiple CircularBuffer SpiFlashRK\nobjects sharing a single SpiFlash object. You can also use other portions of the flash for other purposes as \nlong as the other uses properly lock the SPI bus or access it using the shared SpiFlash object.\n\nIt can also be used with most other vendors of SPI NOR flash chip by creating an adapter subclass, which\ncan be done from your code without modifying SpIFlashRK. Note that it cannot be used with NAND flash chips\nthat are commonly used with SD cards.\n\n## Example\n\nSee the example 1-simple for using this library.\n\n### Create a SpiFlash object for your chip\n\nYou will typically create a global object for your SPI flash chip by using one of the following \nlines, possibly with a different CS pin:\n\n```cpp\n// Pick a chip, port, and CS line\n// SpiFlashISSI spiFlash(SPI, A2);\n// SpiFlashWinbond spiFlash(SPI, A4);\nSpiFlashMacronix spiFlash(SPI, A4);\n// SpiFlashWinbond spiFlash(SPI1, D5);\n```\n\n### setup\n\nFrom setup, you need to call `spiFlash.begin()` and initialize the `PublishQueueSpiFlash` object:\n\n```cpp\nspiFlash.begin();\n\nPublishQueueSpiFlashRK::instance()\n    .withSpiFlash(&spiFlash, 0, 100 * 4096)\n    .setup();\n```\n\nNote the `withSpiFlash` call; you use this to specify the `SpiFlash` object for your chip, and also the start \nand end addresses to use for your chip. The parameters are:\n\n- spiFlash The SpiFlashRK object for the SPI NOR flash chip.\n- addrStart Address to start at (typically 0). Must be sector aligned (multiple of 4096 bytes).\n- addrEnd Address to end at (not inclusive). Must be sector aligned (multiple of 4096 bytes).\n\n### loop\n\nFrom loop(), make sure you call this, or publishing will not occur:\n\n```cpp\nPublishQueueSpiFlashRK::instance().loop();\n```\n\nWhile the actual publish occurs in its own thread, the processing of the queue only occurs\nfrom the loop thread when this is called.\n\n### publish\n\nInstead of using `Particle.publish()` you use code that looks like this:\n\n```cpp\nPublishQueueSpiFlashRK::instance().publish(\"testEvent\", buf, WITH_ACK);\n```\n\nYou can call this whether online or offline, and the event will be queued for sending later.\nIt does not block, other than if the SPI flash is currently in use.\n\n## Additional resources\n\n- [CircularBufferSpiFlashRK](https://github.com/rickkas7/CircularBufferSpiFlashRK) - the library that manages the circular buffer on the flash chip\n- [SpiFlashRK](https://github.com/rickkas7/SpiFlashRK)] - the library that manages the SPI flash chip\n- [BackgroundPublishRK](https://github.com/rickkas7/BackgroundPublishRK) - class for publishing in the background\n- [PublishQueuePosixRK](https://github.com/rickkas7/PublishQueuePosixRK) - alternative to this library that stores events on the built-in flash file system on Particle Gen 3 and Gen 4 devices.\n\n\n## Version history\n\n### 0.0.1 (2024-07-26)\n\nInitial version.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

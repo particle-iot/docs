@@ -7,7 +7,7 @@
   "attributes": {
     "name": "telnet-server-lib",
     "version": "0.1.0",
-    "installs": 610,
+    "installs": 613,
     "license": "GNU LESSER V3",
     "author": "Spivack <spivack@outlook.com>",
     "sentence": "A telnet server library and a Command entry library in one.",

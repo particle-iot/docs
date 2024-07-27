@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Si7021",
     "version": "1.0.0",
-    "installs": 53806,
+    "installs": 53918,
     "license": "BSD",
     "author": "Adafruit info@adafruit.com",
     "sentence": "library for Si7021 humidity/temp sensor, Designed specifically to work with the Si7021 breakout in the Adafruit shop, modified for Particle Photon/Electron",

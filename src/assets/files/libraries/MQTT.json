@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT",
     "version": "0.4.32",
-    "installs": 592570,
+    "installs": 595007,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/MQTT/",

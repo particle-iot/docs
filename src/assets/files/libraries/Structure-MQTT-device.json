@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Structure-MQTT-device",
     "version": "0.0.2",
-    "installs": 770,
+    "installs": 774,
     "license": "MIT",
     "author": "Charif Mahmoudi <charif.mahmoudi.us@gmail.com>",
     "sentence": "Enabling an MQTT comunicating <Device> object dedicated to the integration to Structure platform broker - http://app.getstructure.io/",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LIS3MDL_magnetometer",
     "version": "1.0.0",
-    "installs": 1678,
+    "installs": 1680,
     "author": "Pololu <inbox@pololu.com>",
     "sentence": "LIS3MDL magnetometer library",
     "paragraph": "This is a library ported from Arduino IDE that helps interface with ST's LIS3MDL magnetometer.",

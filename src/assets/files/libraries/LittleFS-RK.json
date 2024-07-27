@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LittleFS-RK",
     "version": "0.0.1",
-    "installs": 178,
+    "installs": 183,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "LittleFS port for Particle Gen 2 devices",

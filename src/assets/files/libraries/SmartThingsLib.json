@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SmartThingsLib",
     "version": "1.0.12",
-    "installs": 444,
+    "installs": 445,
     "license": "GNU Lesser GPL v3",
     "author": "Juvenal Guzman",
     "sentence": "Helps to integrates with SmartThings custom device handler, this lib uses a custom copy of WebDuino for support special method.",

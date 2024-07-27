@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ble-wifi-setup-manager",
     "version": "1.0.0",
-    "installs": 2864,
+    "installs": 2891,
     "license": "MIT",
     "author": "Dan Kouba <dan.kouba@particle.io>",
     "maintainer": "Dan Kouba <dan.kouba@particle.io>",

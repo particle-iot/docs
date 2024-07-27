@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EveAssetTracker",
     "version": "0.0.12",
-    "installs": 178,
+    "installs": 180,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Functions for the Asset Tracker use Electron",

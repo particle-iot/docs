@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HMC5883",
     "version": "1.0.8",
-    "installs": 4026,
+    "installs": 4029,
     "license": "",
     "author": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit HMC5883L 3-Axis Magnetometer Breakout library using Adafruit's Unified Sensor Library. Ported to Particle by Ben Artin <ben@artins.org>",

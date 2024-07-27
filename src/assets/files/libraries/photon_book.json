@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon_book",
     "version": "0.0.10",
-    "installs": 7579,
+    "installs": 7582,
     "license": "MIT",
     "author": "Simon Monk <simon@monkmakes.com>",
     "sentence": "The code for the book Getting Started with Photon",

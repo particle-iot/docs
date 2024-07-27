@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_BQ27441",
     "version": "1.0.1",
-    "installs": 1035,
+    "installs": 1042,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "An Arduino library for interfacing with the BQ72441-G1 LiPo Fuel Gauge",

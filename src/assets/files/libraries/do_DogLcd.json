@@ -7,7 +7,7 @@
   "attributes": {
     "name": "do_DogLcd",
     "version": "0.1.7",
-    "installs": 354,
+    "installs": 356,
     "license": "LGPL",
     "author": "Douglas Freymann <jaldilabs@gmail.com>",
     "sentence": "port of the EA DOGM LCD Display library for the Spark Core",

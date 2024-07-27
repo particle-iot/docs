@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LP5562-RK",
     "version": "0.0.2",
-    "installs": 72,
+    "installs": 74,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for TI LP5562 LED driver",

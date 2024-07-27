@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ds18x20",
     "version": "0.0.4",
-    "installs": 11051,
+    "installs": 11055,
     "license": "GPL",
     "author": "MORA99 <jkn@air-port.dk>",
     "sentence": "DS18B20/DS18S20 library with support for multiple sensors",
