@@ -1,0 +1,58 @@
+<div class="bleTdmCalculator">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <div>
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">Wi-Fi/BLE TDMA Window Size</td>
+                            <td><input type="text" size="10" value="18" class="inputParam" data-key="windowSize,ws" /></td>
+                            <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 18)</td>
+                        </tr>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">BLE window percentage</td>
+                            <td><input type="text" size="10" value="50" class="inputParam" data-key="blePct,b" /></td>
+                            <td class="apiHelperProductSelectorLabel">% (default: 50)</td>
+                        </tr>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">TDMA window offset</td>
+                            <td><input type="text" size="10" value="4.5" class="inputParam" data-key="tdmaOffset,o" /></td>
+                            <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 4.5)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sensorsDiv">
+                <div class="sensorDiv" data-sensor="0" style="margin-top:15px;">
+                    <h3>Sensor 1</h3>
+                    <table class="apiHelperTableNoMargin">
+                        <tbody>
+                            <tr>
+                                <td class="apiHelperProductSelectorLabel">Advertising rate</td>
+                                <td><input type="text" size="10" value="30000" class="sensorInputParam" data-key="rate,r" /></td>
+                                <td class="apiHelperProductSelectorLabel">ms (milliseconds)</td>
+                            </tr>
+                            <tr>
+                                <td class="apiHelperProductSelectorLabel">Packet length</td>
+                                <td><input type="text" size="10" value="0.125" class="sensorInputParam" data-key="length,l" /></td>
+                                <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 0.125)</td>
+                            </tr>
+                            <tr>
+                                <td class="apiHelperProductSelectorLabel">Offset</td>
+                                <td><input type="text" size="10" value="0" class="sensorInputParam" data-key="offset,o" /></td>
+                                <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 0)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+                <button class="addSensor secondaryButton">Add sensor</button>
+            </div>                
+            <div class="bleTdmTimeline">
+                <canvas id="bleTdmCanvas" width="880" height="300"></canvas>
+            </div>            
+        </div>
+    </div>
+</div>
+
