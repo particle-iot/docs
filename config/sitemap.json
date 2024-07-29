@@ -1039,8 +1039,8 @@
             "hash": "49738456e66a02cd233164a2eb69ddba54c3409822b828aefa6edd75944b6302"
         },
         "hardware/power/batteries.md": {
-            "date": "2024-02-27",
-            "hash": "98bff8da65548f0b79c14261e16d06cf8b11dad9fdd2ecc1b143872057940fbb"
+            "date": "2024-07-29",
+            "hash": "fbb5a44c98715f779eab4b64a3d87999882d95277b47edb674f712916f3e2d71"
         },
         "hardware/power/power-supply-guide.md": {
             "date": "2024-02-27",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5d69d03229ba01263d9f633a81189d50467c0bacef3688d08e30be1cec30a2a3",
-            "date": "2024-07-26"
+            "hash": "70178dd7eefd45b161d8ec8b2e6acd07d9844cc823c6df5b5a4edba436c21b5a",
+            "date": "2024-07-29"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9059,8 +9059,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "41ee994e16d1793bb5bebf7e9ffc69cffbb482d578b5239bb323e3494fb59078",
-            "date": "2024-06-25"
+            "hash": "1fc2a209e0176b413c5de1c4df2ef65b3f2cbf52b6b1777174019e3d8de05a49",
+            "date": "2024-07-29"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "8fe3dfe5bf049045235aaeb22cc4216b949808e392cd66c361f04ed47266b404",

@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M.2 breakout battery 2024-07-29
+
+The [M.2 breakout datasheet](/reference/datasheets/m-series/m2-breakout-datasheet/) now includes information about the 
+battery as does the [battery guide](/hardware/power/batteries/).
+
 ### Logout fix 2024-07-26
 
 Fixed a bug where the Logout menu item did nothing when attempted on a page with no active content 

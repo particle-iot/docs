@@ -63,6 +63,20 @@ Particle devices must use batteries wired like this: With the key facing down an
 
 We do not recommend wiring multiple batteries in parallel. The Fuel Gauge (battery monitor) is only designed for a single cell, and in the case of failure of one battery, excess current can flow into the defective battery, causing damage or even fire. 
 
+### 3100 mAh cylindrical
+
+The M.2 breakout board includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack. The TS jumper (26) must be installed for normal operation with a temperature sensor.
+
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
+
+<p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
+
+The included battery is a 3100 mAh 3.7V LiPo battery with temperature sensor. [Battery datasheet](/assets/pdfs/ZN18650-3100mAh-V04.pdf).
+
+![Cylindrical battery](/assets/images/battery-cylindrical.jpg)
+
+
+
 ### Reversing polarity
 
 If you buy batteries with the reverse polarity, it is possible to swap the pins. This video shows how to do it. Make sure you never connect a reverse polarity battery to a device is there is no reverse voltage protection and you will permanently damage the device.

@@ -154,6 +154,8 @@ If you wish to use a battery without a temperature sensor, remove the TS jumper 
 
 If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
 
+The included battery is a 3100 mAh 3.7V LiPo battery with temperature sensor. [Battery datasheet](/assets/pdfs/ZN18650-3100mAh-V04.pdf).
+
 
 ### 3V3_AUX power
 
