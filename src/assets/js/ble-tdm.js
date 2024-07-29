@@ -26,13 +26,7 @@ $(document).ready(function() {
             }
             else {
                 result.key = parts[0].trim();
-                result.urlParam = parts[1].trim();
-                
-                const m = result.urlParam.match(/([A-Za-z]+)([0-9]+)/);
-                if (m) {
-                    result.urlParam = m[1];
-                    result.index = parseInt(m[2]);
-                }
+                result.urlParam = parts[1].trim();                
             }
             return result;
         }
@@ -166,17 +160,44 @@ $(document).ready(function() {
             calc.inputValues.sensors = [];
 
             for (const [key, value] of calc.urlParams.entries()) {
-                const keyObj = calc.parseKey(key);
-                if (typeof keyObj.index != 'undefined') {
-                    // Is a sensor indexed key
-                    if (typeof calc.inputValues.sensors[keyObj.index] == 'undefined') {
-                        calc.inputValues.sensors[keyObj.index] = {};
+                const m = key.match(/([A-Za-z]+)([0-9]+)/);
+                if (m) {
+                    const urlParamKey = m[1];
+                    const sensorIndex = parseInt(m[2]);
+
+                    const sensorKeyEntry = calc.sensorKeys.find(e => e.key.urlParam == urlParamKey);
+                    // console.log('read urlParams', {sensorKeys: calc.sensorKeys, sensorKeyEntry, urlParamKey, sensorIndex});
+                    const valueKey = sensorKeyEntry.key.key;
+
+                    if (typeof calc.inputValues.sensors[sensorIndex] == 'undefined') {
+                        calc.inputValues.sensors[sensorIndex] = {};
                     }                    
-                    calc.inputValues.sensors[keyObj.index][keyObj.key] = value;
+                    calc.inputValues.sensors[sensorIndex][valueKey] = value;
                 }
+
             }
             
             console.log('calc.inputValues.sensors', calc.inputValues.sensors);
+
+            for(let ii = $(thisPartial).find('.sensorDiv').length; ii < calc.inputValues.sensors.length; ii++) {
+                calc.addSensor();   
+            }
+
+            let sensorIndex = 0;
+            $(thisPartial).find('.sensorDiv').each(function() {
+                const sensorDivElem = $(this);
+
+                $(sensorDivElem).find('.sensorInputParam').each(function() {
+                    const inputElem = $(this);
+        
+                    const key = calc.parseKey($(inputElem).data('key'));
+                    if (key) {
+                        $(inputElem).val(calc.inputValues.sensors[sensorIndex][key.key]);
+                    }
+                });    
+
+                sensorIndex++;
+            })
 
             /*
             for(const keyObj of calc.sensorKeys) {
