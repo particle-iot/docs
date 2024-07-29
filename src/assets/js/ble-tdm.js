@@ -27,6 +27,12 @@ $(document).ready(function() {
             else {
                 result.key = parts[0].trim();
                 result.urlParam = parts[1].trim();
+                
+                const m = result.urlParam.match(/([A-Za-z]+)([0-9]+)/);
+                if (m) {
+                    result.urlParam = m[1];
+                    result.index = parseInt(m[2]);
+                }
             }
             return result;
         }
@@ -50,7 +56,7 @@ $(document).ready(function() {
             $(thisPartial).find('.sensorDiv').each(function() {
                 const sensorDivElem = $(this);
 
-                const sensorIndex = parseInt($(sensorDivElem).data('sensor'));
+                const sensorIndex = calc.inputValues.sensors.length;
 
                 let sensorObj = {};
 
@@ -71,6 +77,8 @@ $(document).ready(function() {
 
                 calc.inputValues.sensors[sensorIndex] = sensorObj;
             });
+
+            console.log('readInput', {inputValues:calc.inputValues, inputUrlParams:calc.inputUrlParams});
 
         };
 
@@ -94,8 +102,7 @@ $(document).ready(function() {
             history.pushState(null, '', '?' + searchStr);     
         };
 
-        calc.inputHandler = function() {
-            const inputElem = $(this);
+        calc.addInputHandlers = function(inputElem) {
             const key = calc.parseKey($(inputElem).data('key'));
             if (key) {
                 // TODO: Handle radio buttons, etc.
@@ -121,14 +128,18 @@ $(document).ready(function() {
             }
         });
 
-        $(thisPartial).find('.inputParam,.sensorInputElem').each(calc.inputHandler);
+        calc.addInputHandlers($(thisPartial).find('.inputParam,.sensorInputParam')); 
 
         calc.addSensor = function() {
+            const sensorIndex = $(thisPartial).find('.sensorDiv').length;
+
+            console.log('addSensor sensorIndex=' + sensorIndex);
             const sensorElem = calc.sensorDivTemplateElem.cloneNode(true);
-            $(sensorElem).data('sensor', calc.inputValues.sensors.length);
-            $(sensorElem).find('h3').text('Sensor ' + (calc.inputValues.sensors.length + 1));
-            $(sensorElem).find('.sensorInputElem').each(calc.inputHandler);
+            $(sensorElem).find('h3').text('Sensor ' + (sensorIndex + 1));
+            calc.addInputHandlers($(sensorElem).find('.sensorInputParam')); 
+
             $(thisPartial).find('.sensorsDiv').append(sensorElem);
+
         }
 
         $(thisPartial).find('.addSensor').on('click', calc.addSensor);
@@ -154,6 +165,20 @@ $(document).ready(function() {
 
             calc.inputValues.sensors = [];
 
+            for (const [key, value] of calc.urlParams.entries()) {
+                const keyObj = calc.parseKey(key);
+                if (typeof keyObj.index != 'undefined') {
+                    // Is a sensor indexed key
+                    if (typeof calc.inputValues.sensors[keyObj.index] == 'undefined') {
+                        calc.inputValues.sensors[keyObj.index] = {};
+                    }                    
+                    calc.inputValues.sensors[keyObj.index][keyObj.key] = value;
+                }
+            }
+            
+            console.log('calc.inputValues.sensors', calc.inputValues.sensors);
+
+            /*
             for(const keyObj of calc.sensorKeys) {
                 for(let sensorIndex = 0; true; sensorIndex++) {
                     const value = calc.urlParams.get(keyObj.key.urlParam + sensorIndex);
@@ -174,7 +199,6 @@ $(document).ready(function() {
                 }
             }
 
-            /*
             $(thisPartial).find('.sensorDiv').each(function() {
                 const sensorDivElem = $(this);
 
