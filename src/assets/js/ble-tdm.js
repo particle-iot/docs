@@ -13,8 +13,11 @@ $(document).ready(function() {
 
         calc.canvasElem = $('#bleTdmCanvas');  
 
-        calc.timeSliderElem = $(thisPartial).find('timeSlider');
-        calc.zoomSliderElem = $(thisPartial).find('zoomSlider');
+        calc.timeSliderElem = $(thisPartial).find('.timeSlider');
+        calc.timePositionElem = $(thisPartial).find('.timePosition');
+        calc.zoomSliderElem = $(thisPartial).find('.zoomSlider');
+
+        calc.cssPropertyRoot = getComputedStyle($('html')[0]);
 
         calc.parseKey = function(key) {
             if (typeof key != 'string') {
@@ -34,21 +37,70 @@ $(document).ready(function() {
             return result;
         }
 
+        calc.padNumber = function(n, places) {
+            let s = ((typeof n == 'number') ? n.toString() : n);
+
+            if (s.length < places) {
+                s = '000000000000000'.substring(0, places - s.length) + s;
+            }
+
+            return s;
+        }
+
+        calc.updateTimeDisplay = function() {
+            // Convert to 0-1 instead of 0-100
+            const sliderPct = parseInt($(calc.timeSliderElem).val()) / 100;
+
+            let timeText = '0:00.000';
+
+            const testDurationMs = calc.inputValues.duration * 1000;
+            if (testDurationMs > 0) {
+                let posTemp = Math.floor(testDurationMs * sliderPct);
+
+                const ms = posTemp % 1000;
+                posTemp = Math.floor(posTemp / 1000);
+
+                const sec = posTemp % 60;
+                posTemp = Math.floor(posTemp / 60);
+
+                const min = posTemp;
+
+                timeText = min + ':' + calc.padNumber(sec, 2) + ':' + calc.padNumber(ms, 3);
+            }
+            $(calc.timePositionElem).text(timeText);
+        }
+
         calc.render = function() {
-            let renderParam = {
-                time: $(calc.timeSliderElem).val(),
-                zoom: $(calc.zoomSliderElem).val(),
+            let p = {
+                time: parseInt($(calc.timeSliderElem).val()),
+                zoom: parseInt($(calc.zoomSliderElem).val()),
+                width: $(calc.canvasElem).width(),
+                height: $(calc.canvasElem).height(),
+                backgroundColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-background-color'),
+                primaryColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-primary-color'),
             };
-            console.log('render' , renderParam);
 
-            const ctx = calc.canvasElem[0].getContext('2d');                
+            console.log('render' , p);
 
-            ctx.moveTo(0, 0);
-            ctx.lineTo(200, 100);
-            ctx.stroke();
+            calc.updateTimeDisplay();
+
+
+            const ctx = calc.canvasElem[0].getContext('2d');
+
+            ctx.fillStyle = p.backgroundColor; // @COLOR_Gray_200
+            ctx.fillRect(0, 0, p.width, p.height);
+
+            //ctx.moveTo(0, 0);
+            // ctx.lineTo(200, 100);
+            //ctx.stroke();
 
         }
+
+
+
         $(calc.timeSliderElem).on('change', calc.render);
+        $(calc.timeSliderElem).on('input', calc.updateTimeDisplay); // Runs continuously while dragging
+        
         $(calc.zoomSliderElem).on('change', calc.render);
 
         calc.readInput = function() {
@@ -93,7 +145,7 @@ $(document).ready(function() {
             });
 
             calc.render();
-            console.log('readInput', {inputValues:calc.inputValues, inputUrlParams:calc.inputUrlParams});
+            // console.log('readInput', {inputValues:calc.inputValues, inputUrlParams:calc.inputUrlParams});
 
         };
 
@@ -134,7 +186,7 @@ $(document).ready(function() {
                             eventTrigger = 'input';
                             break;
                     }
-                    console.log('addInputHandlers', {inputType, eventTrigger});
+                    // console.log('addInputHandlers', {inputType, eventTrigger});
                     
                     $(inputElem).on(eventTrigger, function() {
                         calc.readInput();
@@ -166,11 +218,29 @@ $(document).ready(function() {
             $(sensorElem).find('h3').text('Sensor ' + (sensorIndex + 1));
             calc.addInputHandlers($(sensorElem).find('.sensorInputParam')); 
 
+            $(sensorElem).find('.sensorRemoveDiv > a').on('click', function() {
+                console.log('remove sensor');
+                $(sensorElem).remove();
+
+                // Renumber sensors
+                let tempSensorIndex = 0;
+                $(thisPartial).find('.sensorsDiv').each(function() {
+                    $(this).find('h3').text('Sensor ' + (tempSensorIndex + 1));
+                    tempSensorIndex++;
+                })
+                calc.readInput();
+                calc.saveUrlParams();
+            });
+            $(sensorElem).find('.sensorRemoveDiv').show();
+    
             $(thisPartial).find('.sensorsDiv').append(sensorElem);
 
+            calc.readInput();
+            calc.saveUrlParams();
         }
 
         $(thisPartial).find('.addSensor').on('click', calc.addSensor);
+
 
         if (calc.urlParams) {
             $(thisPartial).find('.inputParam').each(function() {
@@ -211,7 +281,7 @@ $(document).ready(function() {
 
             }
             
-            console.log('calc.inputValues.sensors', calc.inputValues.sensors);
+            // console.log('calc.inputValues.sensors', calc.inputValues.sensors);
 
             for(let ii = $(thisPartial).find('.sensorDiv').length; ii < calc.inputValues.sensors.length; ii++) {
                 calc.addSensor();   
@@ -231,7 +301,9 @@ $(document).ready(function() {
                 });    
 
                 sensorIndex++;
-            })
+            });
+
+            calc.updateTimeDisplay();
 
         }    
 

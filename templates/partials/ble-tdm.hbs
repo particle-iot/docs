@@ -47,6 +47,13 @@
                                 <td><input type="text" size="10" value="0" class="sensorInputParam" data-key="offset,o" /></td>
                                 <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 0)</td>
                             </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="sensorTools" style="display:flex;">
+                                        <div class="sensorRemoveDiv" style="display:none;"><a class="apiHelperLink">Delete this sensor</a></div>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -58,7 +65,7 @@
                 <canvas id="bleTdmCanvas" width="880" height="300"></canvas>
             </div>            
             <div class="bleTdmTools" style="display: flex; margin-top: 10px; margin-bottom: 10px;">
-                <div style="margin-right: 50px;">
+                <div style="width: 625px;">
                     Time: <input type="range" min="0" max="100" value="0" class="apiHelperSlider timeSlider inputParam" data-key="time,t" style="width: 475px;" /> 
                     <span class="timePosition">0:00.000</span>
                 </div>

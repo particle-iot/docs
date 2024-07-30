@@ -397,8 +397,64 @@
 };
 
 // Theme colors using CSS variables
+:root {
+  --theme-body-font: @body-font;
+  --theme-color-gray-100 : @COLOR_Gray_100;
+  --theme-color-gray-200 : @COLOR_Gray_200;
+  --theme-color-gray-300 : @COLOR_Gray_300;
+  --theme-color-gray-400 : @COLOR_Gray_400;
+  --theme-color-midnight-300 : @COLOR_Midnight_300;
+  --theme-color-midnight-400 : @COLOR_Midnight_400;
+  --theme-color-midnight-500 : @COLOR_Midnight_500;
+  --theme-color-midnight-600 : @COLOR_Midnight_600;
+  --theme-color-midnight-700 : @COLOR_Midnight_700;
+  --theme-color-midnight-800 : @COLOR_Midnight_800;
+  --theme-color-midnight-900 : @COLOR_Midnight_900;
+  --theme-color-mint-400 : @COLOR_Mint_400;
+  --theme-color-mint-500 : @COLOR_Mint_500;
+  --theme-color-mint-600 : @COLOR_Mint_600;
+  --theme-color-mint-700 : @COLOR_Mint_700;
+  --theme-color-mint-800 : @COLOR_Mint_800;
+  --theme-color-mint-900 : @COLOR_Mint_900;
+  --theme-color-particle-blue-400 : @COLOR_ParticleBlue_400;
+  --theme-color-particle-blue-500 : @COLOR_ParticleBlue_500;
+  --theme-color-particle-blue-600 : @COLOR_ParticleBlue_600;
+  --theme-color-particle-blue-700 : @COLOR_ParticleBlue_700;
+  --theme-color-particle-blue-800 : @COLOR_ParticleBlue_800;
+  --theme-color-particle-blue-900 : @COLOR_ParticleBlue_900;
+  --theme-color-sky-400 : @COLOR_Sky_400;
+  --theme-color-sky-400 : @COLOR_Sky_400;
+  --theme-color-sky-500 : @COLOR_Sky_500;
+  --theme-color-sky-600 : @COLOR_Sky_600;
+  --theme-color-sky-700 : @COLOR_Sky_700;
+  --theme-color-sky-800 : @COLOR_Sky_800;
+  --theme-color-sky-900 : @COLOR_Sky_900;
+  --theme-color-tangerine-400 : @COLOR_Tangerine_400;
+  --theme-color-tangerine-500 : @COLOR_Tangerine_500;
+  --theme-color-tangerine-600 : @COLOR_Tangerine_600;
+  --theme-color-tangerine-700 : @COLOR_Tangerine_700;
+  --theme-color-tangerine-800 : @COLOR_Tangerine_800;
+  --theme-color-tangerine-900 : @COLOR_Tangerine_900;
+  --theme-color-watermelon-400 : @COLOR_Watermelon_400;
+  --theme-color-watermelon-500 : @COLOR_Watermelon_500;
+  --theme-color-watermelon-600 : @COLOR_Watermelon_600;
+  --theme-color-watermelon-700 : @COLOR_Watermelon_700;
+  --theme-color-watermelon-800 : @COLOR_Watermelon_800;
+  --theme-color-watermelon-900 : @COLOR_Watermelon_900;
+  --theme-color-white-0 : @COLOR_White_0;
+  --theme-header-font: @header-font;
+  --theme-monospace-font: @monospace-font;
+  --theme-graphic1-background-color: @COLOR_Gray_200;
+  --theme-graphic1-primary-color: @COLOR_Midnight_800;
+  --theme-status-danger-color: #F45151;
+  --theme-status-warning-color: #FF993D;
+  --theme-status-ready-color: #3AD599;
+  --theme-status-success-color: #00D2E6;
+}
+
 
 [data-theme="dark"] {
+  --theme-accent-primary-color: #FF5979;
 	--theme-api-field-required-color: @COLOR_ParticleBlue_500;
   --theme-api-helper-box-color: #191D20;
   --theme-api-helper-grouped-box-outer: @COLOR_Gray_400;
@@ -407,6 +463,9 @@
 	--theme-api-li-border: 1px solid @COLOR_Midnight_500;
 	--theme-api-small-color: @COLOR_Gray_300;
   --theme-background-color: #131517;
+  --theme-border-primary-color: #F5F6FA;
+  --theme-border-secondary-color: #00D2E6;
+  --theme-border-tertiary-color: #565A65;
   --theme-button-primary-background-color: @COLOR_Midnight_800;
   --theme-button-primary-border: 0.5px solid @COLOR_ParticleBlue_600;
   --theme-button-primary-text-color: @COLOR_ParticleBlue_600;
@@ -425,6 +484,10 @@
   --theme-button-secondary-background-disabled-color: #565A65;
   --theme-button-secondary-border-disabled: 0.5px solid #565A65;
   --theme-button-secondary-text-disabled-color: @COLOR_Midnight_800;
+  --theme-container-background-color: #131517;
+  --theme-container-nav-color: #131719;
+  --theme-container-regular-color: #191D20;
+  --theme-container-popup-color: #24292F;
   --theme-dropdown-menu-background-color: #24292F;
   --theme-dropdown-menu-minor-text-color: #BBBDC4;
   --theme-header-blue: @COLOR_ParticleBlue_600;
@@ -448,6 +511,10 @@
   --theme-search-overlay-background-color: rgba(0,0,0,0.9);
   --theme-search-overlay-query-background-color: @COLOR_Midnight_500;
   --theme-select-background-color: @COLOR_Midnight_500;
+  --theme-text-primary-color: #F5F6FA;
+  --theme-text-secondary-color: #00D2E6;
+  --theme-text-tertiary-color: #858A9B;
+  --theme-text-quaternary-color: #BBBDC4;
   --theme-top-nav-background:  #131719;
   --theme-top-nav-link-nav-color: COLOR_Gray_200;
   --theme-top-nav-link-nav-active-border-bottom: 2px solid;
@@ -457,6 +524,7 @@
 }
 
 [data-theme="light"] {
+  --theme-accent-primary-color: #4AC3B7;
 	--theme-api-field-required-color: @COLOR_ParticleBlue_500;
   --theme-api-helper-box-color: #D8E0EC;
   --theme-api-helper-grouped-box-outer: @COLOR_Midnight_300;
@@ -465,6 +533,9 @@
 	--theme-api-li-border-top: 1px solid @NC_MORNING_MIST;
 	--theme-api-small-color: @COLOR_Gray_300;
   --theme-background-color: @COLOR_White_0;
+  --theme-border-primary-color: #162E39;
+  --theme-border-secondary-color: #007580;
+  --theme-border-tertiary-color: #858A9B;
   --theme-button-primary-background-color: @COLOR_White_0;
   --theme-button-primary-border: 0.5px solid @COLOR_ParticleBlue_700;
   --theme-button-primary-text-color: @COLOR_ParticleBlue_700;
@@ -483,6 +554,10 @@
   --theme-button-secondary-background-disabled-color: @COLOR_White_0;
   --theme-button-secondary-border-disabled: 0.5px solid #BAC8DE;
   --theme-button-secondary-text-disabled-color:#BAC8DE;
+  --theme-container-background-color: #162E39;
+  --theme-container-nav-color: #F3F5F9;
+  --theme-container-regular-color: #D8E0EC;
+  --theme-container-popup-color: #BAC8DE;
   --theme-dropdown-menu-background-color: #BAC8DE;
   --theme-dropdown-menu-minor-text-color: #565A65;
   --theme-header-blue: @COLOR_ParticleBlue_800;
@@ -506,6 +581,10 @@
   --theme-search-overlay-background-color:  rgba(255,255,255,0.96);
   --theme-search-overlay-query-background-color: @COLOR_Midnight_500;
   --theme-select-background-color: @NC_MORNING_MIST;
+  --theme-text-primary-color:#162E39;
+  --theme-text-secondary-color: #007580;
+  --theme-text-tertiary-color: #565A65;
+  --theme-text-quaternary-color: #858A9B;
   --theme-top-nav-background: #F3F5F9;
   --theme-top-nav-link-nav-color: @COLOR_Midnight_500;
   --theme-top-nav-link-nav-active-border-bottom: 2px solid; // This might need a color @spark-blue
