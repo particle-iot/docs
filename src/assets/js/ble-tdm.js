@@ -13,6 +13,9 @@ $(document).ready(function() {
 
         calc.canvasElem = $('#bleTdmCanvas');  
 
+        calc.timeSliderElem = $(thisPartial).find('timeSlider');
+        calc.zoomSliderElem = $(thisPartial).find('zoomSlider');
+
         calc.parseKey = function(key) {
             if (typeof key != 'string') {
                 return null;
@@ -30,6 +33,23 @@ $(document).ready(function() {
             }
             return result;
         }
+
+        calc.render = function() {
+            let renderParam = {
+                time: $(calc.timeSliderElem).val(),
+                zoom: $(calc.zoomSliderElem).val(),
+            };
+            console.log('render' , renderParam);
+
+            const ctx = calc.canvasElem[0].getContext('2d');                
+
+            ctx.moveTo(0, 0);
+            ctx.lineTo(200, 100);
+            ctx.stroke();
+
+        }
+        $(calc.timeSliderElem).on('change', calc.render);
+        $(calc.zoomSliderElem).on('change', calc.render);
 
         calc.readInput = function() {
             $(thisPartial).find('.inputParam').each(function() {
@@ -72,41 +92,56 @@ $(document).ready(function() {
                 calc.inputValues.sensors[sensorIndex] = sensorObj;
             });
 
+            calc.render();
             console.log('readInput', {inputValues:calc.inputValues, inputUrlParams:calc.inputUrlParams});
 
         };
 
-        /*
-        calc.updateInput = function() {
-            $(thisPartial).find('.inputParam').each(function() {
+
+        calc.saveUrlParams = function() {    
+            const searchStr = $.param(calc.inputUrlParams);
+
+            if (calc.lastSearchParam != searchStr) {
+                calc.lastSearchParam = searchStr;
+                if (calc.saveTimer) {
+                    clearTimeout(calc.saveTimer);
+                    calc.saveTimer = 0;
+                }
+                calc.saveTimer = setTimeout(function() {
+                    history.pushState(null, '', '?' + searchStr);
+                }, 2000);
+            }  
+
+        };
+
+        calc.addInputHandlers = function(inputElems) {
+            $(inputElems).each(function() {
                 const inputElem = $(this);
-    
+
                 const key = calc.parseKey($(inputElem).data('key'));
                 if (key) {
-                    if (typeof calc.inputValues[key] != 'undefined') {
-                        $(inputElem).val(calc.inputValues[key.key]);
-                    }    
+                    // TODO: Handle radio buttons, etc.
+                    const inputType = $(inputElem).prop('type');
+                    let eventTrigger;
+                    
+                    switch(inputType) {
+                        case 'range':
+                        case 'select':
+                            eventTrigger = 'change';
+                            break;
+                        
+                        default:
+                            eventTrigger = 'input';
+                            break;
+                    }
+                    console.log('addInputHandlers', {inputType, eventTrigger});
+                    
+                    $(inputElem).on(eventTrigger, function() {
+                        calc.readInput();
+                        calc.saveUrlParams();
+                    });
                 }
             });
-        };
-        */
-
-        calc.saveUrlParams = function() {                            
-            const searchStr = $.param(calc.inputUrlParams);
-            history.pushState(null, '', '?' + searchStr);     
-        };
-
-        calc.addInputHandlers = function(inputElem) {
-            const key = calc.parseKey($(inputElem).data('key'));
-            if (key) {
-                // TODO: Handle radio buttons, etc.
-                const inputType = $(inputElem).prop('type');
-                                
-                $(inputElem).on('input', function() {
-                    calc.readInput();
-                    calc.saveUrlParams();
-                });
-            }
         };
 
         calc.sensorKeys = [];
@@ -127,7 +162,6 @@ $(document).ready(function() {
         calc.addSensor = function() {
             const sensorIndex = $(thisPartial).find('.sensorDiv').length;
 
-            console.log('addSensor sensorIndex=' + sensorIndex);
             const sensorElem = calc.sensorDivTemplateElem.cloneNode(true);
             $(sensorElem).find('h3').text('Sensor ' + (sensorIndex + 1));
             calc.addInputHandlers($(sensorElem).find('.sensorInputParam')); 
@@ -199,57 +233,7 @@ $(document).ready(function() {
                 sensorIndex++;
             })
 
-            /*
-            for(const keyObj of calc.sensorKeys) {
-                for(let sensorIndex = 0; true; sensorIndex++) {
-                    const value = calc.urlParams.get(keyObj.key.urlParam + sensorIndex);
-                    if (!value) {
-                        break;
-                    }
-
-                    let sensorDivElem;
-
-                    for(let tries = 0; tries < 10; tries++) {
-                        sensorDivElem = $(thisPartial).find('sensorDiv[data-index=' + sensorIndex + ']');
-                        if (sensorDivElem.length) {
-                            break;
-                        }
-                        calc.addSensor();
-                    }
-
-                }
-            }
-
-            $(thisPartial).find('.sensorDiv').each(function() {
-                const sensorDivElem = $(this);
-
-                let sensorObj = {};
-                const sensorIndex = parseInt($(sensorDivElem).data('sensor'));
-
-
-                $(sensorDivElem).find('.sensorInputParam').each(function() {
-                    const inputElem = $(this);
-    
-                    // TODO: Handle radio buttons, etc.
-                    const inputType = $(inputElem).prop('type');
-                        
-                    const key = calc.parseKey($(inputElem).data('key'));
-                    if (key) {
-                        const value = calc.urlParams.get(key.urlParam + calc.inputValues.sensors.length);
-                        if (value) {
-                            sensorObj[key.key] = value;                    
-                            calc.inputUrlParams[key.urlParam + inputValues.sensors.length] = value;
-                        }
-                    }
-    
-                });
-
-                calc.inputValues.sensors.push(sensorObj);
-            });
-            */
         }    
-
-        console.log('loaded ble-tdm');
 
     })
 });

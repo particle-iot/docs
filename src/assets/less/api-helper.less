@@ -301,3 +301,32 @@ select.apiHelperConfigSchemaProductSelect {
 .webhookDemoProductConfigBanner {
     background-color: var(--theme-webhook-demo-product-config-banner);
 }
+
+.apiHelperSlider {
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;  
+    background: @COLOR_Gray_300;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .apiHelperSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: @COLOR_ParticleBlue_700;
+    cursor: pointer;
+  }
+  
+  .apiHelperSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: @COLOR_ParticleBlue_700;
+    cursor: pointer;
+  }

@@ -19,6 +19,11 @@
                             <td><input type="text" size="10" value="4.5" class="inputParam" data-key="tdmaOffset,o" /></td>
                             <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 4.5)</td>
                         </tr>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">Test Duration</td>
+                            <td><input type="text" size="10" value="300" class="inputParam" data-key="duration,d" /></td>
+                            <td class="apiHelperProductSelectorLabel">seconds (default: 300)</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -52,6 +57,15 @@
             <div class="bleTdmTimeline">
                 <canvas id="bleTdmCanvas" width="880" height="300"></canvas>
             </div>            
+            <div class="bleTdmTools" style="display: flex; margin-top: 10px; margin-bottom: 10px;">
+                <div style="margin-right: 50px;">
+                    Time: <input type="range" min="0" max="100" value="0" class="apiHelperSlider timeSlider inputParam" data-key="time,t" style="width: 475px;" /> 
+                    <span class="timePosition">0:00.000</span>
+                </div>
+                <div>
+                    Zoom: <input type="range" min="0" max="100" value="20" class="apiHelperSlider zoomSlider inputParam" data-key="zoom,z" style="width: 125px;" />
+                </div>
+            </div>
         </div>
     </div>
 </div>
