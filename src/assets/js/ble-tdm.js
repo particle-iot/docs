@@ -78,7 +78,56 @@ $(document).ready(function() {
                 height: $(calc.canvasElem).height(),
                 backgroundColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-background-color'),
                 primaryColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-primary-color'),
+                testDurationMs: calc.inputValues.duration * 1000,                
             };
+
+            p.leftTimeMs = p.testDurationMs * p.time;
+
+            // The canvas is 680px wide
+            // To fit 300 seconds (300,000 milliseconds)
+            //   - Each pixel is 0.5 seconds (500 ms) (calculated value is 441 milliseconds, but round)
+            //   - This is maximum zoon out
+            // At 9 pixels per millisecond
+            //   - Each BLE and Wi-Fi interval is 1 pixel wide (at 18 ms. window)
+            // At 1 pixel per millisecond:
+            //   - 0.680 seconds side
+            //   - 37 Wi-Fi and 37 BLE intervals
+            // At 1 pixel per 1/8 millisecond:
+            //   - Each sensor transit frame is 1px wide
+            // At 10 pixels per millisecond (each pixel is 0.1 milliseconds)
+            //   - This is a good maximum zoom in
+            
+            // Since each interval may be only 1 pixel wide it needs to be high enough to see, maybe
+            // 10 px high for each sensor?
+            
+            // Wi-Fi interval will be --theme-color-tangerine-400 
+            // BLE interval will be --theme-color-particle-blue-500
+            // Only display intervals 
+
+            // BLE received is --theme-status-success-color (Particle blue)
+            // BLE missed is --theme-status-danger-color:
+
+            // Zoom range control is 0 - 100 but maps in a somewhat logarithmic fashion
+            // to 0.1 ms per pixel to 500 ms per pixel with the middle range around 10 ms per pixels
+            // Value 0 - 50: Maps to 0.1 to 1
+            // Value 26 - 50: Maps 1 to 10 (default is 50, or 10 ms per pixel)
+            // Value 50 - 75: Maps 10 to 100
+            // Value 75 to 100: Maps 100 to 500
+            if (p.zoom < 25) {
+                p.msPerPixel = p.zoom * 0.9 / 25 + 0.1;
+            }
+            else
+            if (p.zoom < 50) {
+                p.msPerPixel = (p.zoom - 25) * 10 / 25 + 1.0;
+            }
+            else 
+            if (p.zoom < 75) {
+                p.msPerPixel = (p.zoom - 50) * 100 / 25 + 10.0;
+            }
+            else {
+                p.msPerPixel = (p.zoom - 75) * 500 / 25 + 100.0;
+            }
+
 
             console.log('render' , p);
 
