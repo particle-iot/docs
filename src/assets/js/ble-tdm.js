@@ -18,6 +18,11 @@ $(document).ready(function() {
         calc.zoomSliderElem = $(thisPartial).find('.zoomSlider');
 
         calc.cssPropertyRoot = getComputedStyle($('html')[0]);
+        calc.bleColor = calc.cssPropertyRoot.getPropertyValue('--theme-color-particle-blue-700');
+        calc.wifiColor = calc.cssPropertyRoot.getPropertyValue('--theme-color-tangerine-400');
+        calc.successColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-success-color');
+        calc.failureColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-danger-color');
+        calc.labelFont = '12px Arial';
 
         calc.parseKey = function(key) {
             if (typeof key != 'string') {
@@ -70,7 +75,52 @@ $(document).ready(function() {
             $(calc.timePositionElem).text(timeText);
         }
 
+        calc.getIntervals = function(ms) {
+            let result = {};
+
+            result.windowStartBle = calc.inputValues.tdmaOffset;
+            result.windowStartWiFi = result.windowStartBle + (calc.inputValues.windowSize * calc.inputValues.blePct / 100);
+
+            const numWindowsBefore = Math.floor((ms - result.windowStartBle) / calc.inputValues.windowSize);
+            result.windowStartBle += numWindowsBefore + calc.inputValues.windowSize;
+            result.windowEndBle = result.windowStartWiFi += numWindowsBefore + calc.inputValues.windowSize;
+            result.windowEndWiFi = result.windowEnd += numWindowsBefore + calc.inputValues.windowSize;
+
+            return result;
+        }
+
+        /*
+        calc.bleSuccess = function(ms) {
+            let p = {
+                leftTimeMs: ms,
+            };
+
+            p.windowStartBle = calc.inputValues.tdmaOffset;
+            p.windowStartWiFi = p.windowStartBle + (calc.inputValues.windowSize * calc.inputValues.blePct / 100);
+
+            const numWindowsBefore = Math.floor((p.leftTimeMs - p.windowStartBle) / calc.inputValues.windowSize);
+            p.windowStartBle += numWindowsBefore + calc.inputValues.windowSize;
+            p.windowStartWiFi += numWindowsBefore + calc.inputValues.windowSize;
+            p.windowEnd += numWindowsBefore + calc.inputValues.windowSize;
+        }
+        */
+
+        calc.calculate = function() {
+
+            const testDurationMs = calc.inputValues.duration * 1000;
+            
+            for(const sensorObj of calc.inputValues.sensors) {
+                sensorObj.packets = [];
+
+                // for(ms = 0;)
+            }
+            
+
+        }
+
         calc.render = function() {
+            calc.calculate();
+
             let p = {
                 time: parseInt($(calc.timeSliderElem).val()),
                 zoom: parseInt($(calc.zoomSliderElem).val()),
@@ -78,23 +128,30 @@ $(document).ready(function() {
                 height: $(calc.canvasElem).height(),
                 backgroundColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-background-color'),
                 primaryColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-primary-color'),
-                testDurationMs: calc.inputValues.duration * 1000,                
+                testDurationMs: calc.inputValues.duration * 1000,     
+                labelLeft: 4,
+                labelTop: 5,
+                graphLeft: 50,           
             };
+
 
             p.leftTimeMs = p.testDurationMs * p.time;
 
-            // The canvas is 680px wide
+            // The canvas is 680px wide, assume 600 pixels of graphs area with margins and labels
+            // 
             // To fit 300 seconds (300,000 milliseconds)
-            //   - Each pixel is 0.5 seconds (500 ms) (calculated value is 441 milliseconds, but round)
+            //   - Each pixel is 0.5 seconds (500 ms per pixel)
             //   - This is maximum zoon out
-            // At 9 pixels per millisecond
+            //   - Can't show BLE and Wi-Fi intervals at this zoom level
+            // At 1 pixel = 9 milliseconds:
             //   - Each BLE and Wi-Fi interval is 1 pixel wide (at 18 ms. window)
-            // At 1 pixel per millisecond:
-            //   - 0.680 seconds side
-            //   - 37 Wi-Fi and 37 BLE intervals
-            // At 1 pixel per 1/8 millisecond:
+            //   - This is the farthest zoom out where BLE and Wi-Fi intervals can be shown
+            // At 1 pixel = 1 millisecond (default zoom)
+            //   - 0.6 seconds (600 ms) across window
+            //   - 33 Wi-Fi and 33 BLE intervals (each 9 pixels wide)
+            // At 1 pixel = 1/8 millisecond (1 pixel = 0.125 millisecond)
             //   - Each sensor transit frame is 1px wide
-            // At 10 pixels per millisecond (each pixel is 0.1 milliseconds)
+            // At 1 pixel = 0.1 millseconds
             //   - This is a good maximum zoom in
             
             // Since each interval may be only 1 pixel wide it needs to be high enough to see, maybe
@@ -109,8 +166,8 @@ $(document).ready(function() {
 
             // Zoom range control is 0 - 100 but maps in a somewhat logarithmic fashion
             // to 0.1 ms per pixel to 500 ms per pixel with the middle range around 10 ms per pixels
-            // Value 0 - 50: Maps to 0.1 to 1
-            // Value 26 - 50: Maps 1 to 10 (default is 50, or 10 ms per pixel)
+            // Value 0 - 25: Maps to 0.1 to 1 (default is 25, or 1 ms per pixel)
+            // Value 26 - 50: Maps 1 to 10 
             // Value 50 - 75: Maps 10 to 100
             // Value 75 to 100: Maps 100 to 500
             if (p.zoom < 25) {
@@ -128,6 +185,31 @@ $(document).ready(function() {
                 p.msPerPixel = (p.zoom - 75) * 500 / 25 + 100.0;
             }
 
+            if (p.msPerPixel <= 9) {
+                // Show BLE and Wi-Fi intervals
+                p.showIntervals = true;
+                p.intervalsTop = 0;
+                p.intervalsMargin = 5;
+                p.intervalsBarHeight = 15;
+                p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * p.intervalsMargin;
+                p.sensorsTop = p.intervalsTop + p.intervalsHeight; 
+            }
+            else {
+                // No intervals, only results
+                p.showIntervals = false;
+                p.sensorsTop = 0;
+            }
+
+            /*
+            p.windowStartBle = calc.inputValues.tdmaOffset;
+            p.windowStartWiFi = p.windowStartBle + (calc.inputValues.windowSize * calc.inputValues.blePct / 100);
+            p.windowEnd = p.windowStartBle + calc.inputValues.windowSize;
+
+            const numWindowsBefore = Math.floor((p.leftTimeMs - p.windowStartBle) / calc.inputValues.windowSize);
+            p.windowStartBle += numWindowsBefore + calc.inputValues.windowSize;
+            p.windowStartWiFi += numWindowsBefore + calc.inputValues.windowSize;
+            p.windowEnd += numWindowsBefore + calc.inputValues.windowSize;
+            */
 
             console.log('render' , p);
 
@@ -138,6 +220,45 @@ $(document).ready(function() {
 
             ctx.fillStyle = p.backgroundColor; // @COLOR_Gray_200
             ctx.fillRect(0, 0, p.width, p.height);
+
+            let ms = p.leftTimeMs;
+
+            ctx.textBaseline = 'top';
+            ctx.textAlign = 'right';
+            ctx.font = calc.labelFont;
+            ctx.fillStyle = p.primaryColor;
+            ctx.fillText('Wi-Fi', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop);
+            ctx.fillText('BLE', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop + p.intervalsBarHeight);
+
+
+            for(let x = p.graphLeft; x < p.width; x++) {
+                p.intervals = calc.getIntervals(ms);
+                
+                if (p.showIntervals) {
+                    let intervalColor;
+                    let top;
+
+                    if (p.intervals.windowStartBle <= ms && ms < p.intervals.windowEndBle) {
+                        top = p.intervalsTop + p.intervalsMargin + p.intervalsBarHeight;
+                        intervalColor = calc.bleColor;
+                    }
+                    else
+                    if (p.intervals.windowStartWiFi <= ms && ms < p.intervals.windowEndWiFi) {
+                        top = p.intervalsTop + p.intervalsMargin;
+                        intervalColor = calc.wifiColor;
+                    }
+
+                    if (intervalColor) {
+                        ctx.fillStyle = intervalColor;
+                        ctx.fillRect(x, top, 1, p.intervalsBarHeight);
+                    }
+                }
+                
+    
+                ms += p.msPerPixel;
+            }
+
+
 
             //ctx.moveTo(0, 0);
             // ctx.lineTo(200, 100);
@@ -161,7 +282,7 @@ $(document).ready(function() {
 
                 const key = calc.parseKey($(inputElem).data('key'));
                 if (key) {
-                    calc.inputValues[key.key] = $(inputElem).val();                    
+                    calc.inputValues[key.key] = parseFloat($(inputElem).val());
 
                     calc.inputUrlParams[key.urlParam] = calc.inputValues[key.key];
                 }
