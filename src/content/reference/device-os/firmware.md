@@ -19909,7 +19909,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 ---
 
 {{note op="start" type="gen4"}}
-On the P2, Photon 2, and M-SoM, even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
+On the P2, Photon 2, and M-SoM, even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds. The maximum sleep duration is 546 minutes (approximately 9.1 hours).
 {{note op="end"}}
 
 ---

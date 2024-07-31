@@ -1039,7 +1039,7 @@
             "hash": "49738456e66a02cd233164a2eb69ddba54c3409822b828aefa6edd75944b6302"
         },
         "hardware/power/batteries.md": {
-            "date": "2024-07-29",
+            "date": "2024-07-31",
             "hash": "fbb5a44c98715f779eab4b64a3d87999882d95277b47edb674f712916f3e2d71"
         },
         "hardware/power/power-supply-guide.md": {
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-07-23",
-            "hash": "fdf3cf242bde7c7c0191833d78bf43f2b5eec3e9118ebe402a3e20db4f1b35bb"
+            "date": "2024-07-31",
+            "hash": "ddb315233801ddb169475c303b38b5e5cb03636e5ff28ce68a7ec81fd90a88a6"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3623,8 +3623,8 @@
             "hash": "2d65be2d9242af53d02374697dba00353f5bbedce0424a753ecd656a95bc5f10"
         },
         "reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration.md": {
-            "date": "2024-05-22",
-            "hash": "08ea54748060bed1bf7864aa41379d8839f95f12b999ddf971646c241fb68284"
+            "date": "2024-07-31",
+            "hash": "cf57304a844c7261eb9df49acd5530b143456de700e52ad046507604458b9be3"
         },
         "reference/device-os/api/sleep-sleep/gpio-systemsleepconfiguration.md": {
             "date": "2024-05-22",
@@ -8232,7 +8232,7 @@
         },
         "getting-started/new.md": {
             "hash": "70178dd7eefd45b161d8ec8b2e6acd07d9844cc823c6df5b5a4edba436c21b5a",
-            "date": "2024-07-29"
+            "date": "2024-07-31"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9060,7 +9060,7 @@
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
             "hash": "1fc2a209e0176b413c5de1c4df2ef65b3f2cbf52b6b1777174019e3d8de05a49",
-            "date": "2024-07-29"
+            "date": "2024-07-31"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "8fe3dfe5bf049045235aaeb22cc4216b949808e392cd66c361f04ed47266b404",

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Gen 4 maximum sleep duration 2024-07-30
+
+Documented the [maximum sleep duration](/reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration/) for Gen 4 devices (P2, Photon 2, M-SoM).
+
 ### M.2 breakout battery 2024-07-29
 
 The [M.2 breakout datasheet](/reference/datasheets/m-series/m2-breakout-datasheet/) now includes information about the 
