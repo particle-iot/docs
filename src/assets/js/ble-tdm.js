@@ -93,21 +93,6 @@ $(document).ready(function() {
             return result;
         }
 
-        /*
-        calc.bleSuccess = function(ms) {
-            let p = {
-                leftTimeMs: ms,
-            };
-
-            p.windowStartBle = calc.inputValues.tdmaOffset;
-            p.windowStartWiFi = p.windowStartBle + (calc.inputValues.windowSize * calc.inputValues.blePct / 100);
-
-            const numWindowsBefore = Math.floor((p.leftTimeMs - p.windowStartBle) / calc.inputValues.windowSize);
-            p.windowStartBle += numWindowsBefore + calc.inputValues.windowSize;
-            p.windowStartWiFi += numWindowsBefore + calc.inputValues.windowSize;
-            p.windowEnd += numWindowsBefore + calc.inputValues.windowSize;
-        }
-        */
 
         calc.calculate = function() {
 
@@ -116,9 +101,51 @@ $(document).ready(function() {
             for(const sensorObj of calc.inputValues.sensors) {
                 sensorObj.packets = [];
 
-                // for(ms = 0;)
+                ms = sensorObj.offset;
+                sensorObj.successCount = 0;
+
+                while(ms < testDurationMs) {
+                    const intervals = calc.getIntervals(ms);
+
+                    let packet = {
+                        startMs: ms,
+                        endMs: ms + sensorObj.length,                        
+                    };
+
+                    packet.success = (packet.startMs >= intervals.windowStartBle && packet.endMs <= intervals.windowEndBle);
+                    if (packet.success) {
+                        sensorObj.successCount++;
+                    }
+
+                    sensorObj.packets.push(packet);
+
+                    ms += sensorObj.rate;
+                }
+
+                sensorObj.numSamples = sensorObj.packets.length;
+
+                if (sensorObj.numSamples > 0) {
+                    sensorObj.successPct = sensorObj.successCount * 100 / sensorObj.numSamples;
+                }
+                else {
+                    sensorObj.successPct = 0;
+                }
+                sensorObj.failurePct = 100 - sensorObj.successPct;
             }
-            
+
+            for(const sensorObj of calc.inputValues.sensors) {
+                $(sensorObj.sensorDivElem).find('.sensorResult').each(function() {
+                    const sensorResultElem = $(this);
+                    const key = $(sensorResultElem).data('key');
+                    if (key && sensorObj[key]) {
+                        $(sensorResultElem).text(sensorObj[key]);
+                    }
+                    else {
+                        $(sensorResultElem).text('');
+                    }
+                });
+            }        
+        
 
         }
 
@@ -264,13 +291,6 @@ $(document).ready(function() {
     
                 ms += p.msPerPixel;
             }
-
-
-
-            //ctx.moveTo(0, 0);
-            // ctx.lineTo(200, 100);
-            //ctx.stroke();
-
         }
 
 
@@ -301,7 +321,10 @@ $(document).ready(function() {
 
                 const sensorIndex = calc.inputValues.sensors.length;
 
-                let sensorObj = {};
+                let sensorObj = {
+                    sensorDivElem,
+                    sensorIndex,
+                };
 
                 $(sensorDivElem).find('.sensorInputParam').each(function() {
                     const inputElem = $(this);
@@ -311,7 +334,7 @@ $(document).ready(function() {
     
                     const key = calc.parseKey($(inputElem).data('key'));
                     if (key) {
-                        sensorObj[key.key] = $(inputElem).val();                    
+                        sensorObj[key.key] = parseFloat($(inputElem).val());
     
                         calc.inputUrlParams[key.urlParam + sensorIndex] = sensorObj[key.key];
                     }
