@@ -80,11 +80,15 @@ $(document).ready(function() {
 
             result.windowStartBle = calc.inputValues.tdmaOffset;
             result.windowStartWiFi = result.windowStartBle + (calc.inputValues.windowSize * calc.inputValues.blePct / 100);
+            result.windowEnd = result.windowStartBle + calc.inputValues.windowSize;
 
             const numWindowsBefore = Math.floor((ms - result.windowStartBle) / calc.inputValues.windowSize);
-            result.windowStartBle += numWindowsBefore + calc.inputValues.windowSize;
-            result.windowEndBle = result.windowStartWiFi += numWindowsBefore + calc.inputValues.windowSize;
-            result.windowEndWiFi = result.windowEnd += numWindowsBefore + calc.inputValues.windowSize;
+            result.windowStartBle += numWindowsBefore * calc.inputValues.windowSize;
+            result.windowStartWiFi += numWindowsBefore * calc.inputValues.windowSize;
+            result.windowEnd += numWindowsBefore * calc.inputValues.windowSize;
+
+            result.windowEndBle = result.windowStartWiFi;
+            result.windowEndWiFi = result.windowEnd;
 
             return result;
         }
@@ -223,12 +227,14 @@ $(document).ready(function() {
 
             let ms = p.leftTimeMs;
 
+            const labelOffsetY = 2;
+
             ctx.textBaseline = 'top';
             ctx.textAlign = 'right';
             ctx.font = calc.labelFont;
             ctx.fillStyle = p.primaryColor;
-            ctx.fillText('Wi-Fi', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop);
-            ctx.fillText('BLE', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop + p.intervalsBarHeight);
+            ctx.fillText('Wi-Fi', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop + labelOffsetY);
+            ctx.fillText('BLE', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop + p.intervalsBarHeight + labelOffsetY);
 
 
             for(let x = p.graphLeft; x < p.width; x++) {
@@ -252,6 +258,7 @@ $(document).ready(function() {
                         ctx.fillStyle = intervalColor;
                         ctx.fillRect(x, top, 1, p.intervalsBarHeight);
                     }
+                    //console.log('interval', {x, intervals:p.intervals});
                 }
                 
     
@@ -465,16 +472,18 @@ $(document).ready(function() {
                     const inputElem = $(this);
         
                     const key = calc.parseKey($(inputElem).data('key'));
-                    if (key) {
+                    if (key && calc.inputValues.sensors && calc.inputValues.sensors[sensorIndex]) {
                         $(inputElem).val(calc.inputValues.sensors[sensorIndex][key.key]);
                     }
                 });    
 
                 sensorIndex++;
-            });
+            });    
+            
 
             calc.updateTimeDisplay();
-
+            calc.readInput();
+            calc.saveUrlParams();
         }    
 
     })
