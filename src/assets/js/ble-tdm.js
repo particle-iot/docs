@@ -126,7 +126,7 @@ $(document).ready(function() {
                 sensorObj.numSamples = sensorObj.packets.length;
 
                 if (sensorObj.numSamples > 0) {
-                    sensorObj.successPct = sensorObj.successCount * 100 / sensorObj.numSamples;
+                    sensorObj.successPct = Math.round(sensorObj.successCount * 100 / sensorObj.numSamples);
                 }
                 else {
                     sensorObj.successPct = 0;
@@ -252,8 +252,6 @@ $(document).ready(function() {
             ctx.fillStyle = p.backgroundColor; // @COLOR_Gray_200
             ctx.fillRect(0, 0, p.width, p.height);
 
-            let ms = p.leftTimeMs;
-
             ctx.textBaseline = 'top';
             ctx.textAlign = 'right';
             ctx.font = calc.labelFont;
@@ -267,26 +265,31 @@ $(document).ready(function() {
                 ctx.fillText('Sensor ' + (sensorObj.sensorIndex + 1), p.graphLeft - calc.areaMargin, sensorTop + p.labelOffsetY);
 
                 for(const packet of sensorObj.packets) {
-                    const left = msToPixel(packet.startMs);
-                    let right = msToPixel(packet.startMs);
+                    const left = Math.floor(msToPixel(packet.startMs));
+                    let right = Math.floor(msToPixel(packet.startMs));
                     if (left == right) {
                         right++;
                     }
-                    if (left >= -(right - left) && left <= p.width) {
+                    if (left < p.graphLeft) {
+                        left = p.graphLeft;
+                    }
+
+
+                    if (right >= p.graphLeft && left <= p.width) {
                         // At least partially visible
                         let packetColor = packet.success ? calc.successColor : calc.failureColor;
 
                         console.log('packet', {sensorTop, left, right, packetColor, packet});
 
                         ctx.fillStyle = packetColor;
-                        ctx.fillRect(left, sensorTop, right - left, p.intervalsBarHeight);
+                        ctx.fillRect(left, sensorTop, 2 /* calc.inputValues.duration */, p.intervalsBarHeight);
                     }
                 }
 
                 sensorTop += p.intervalsBarHeight + 2 * calc.areaMargin;
             }
 
-            ms = p.leftTimeMs;
+            let ms = p.leftTimeMs;
             for(let x = p.graphLeft; x < p.width; x++) {
                 p.intervals = calc.getIntervals(ms);
                 
@@ -365,6 +368,19 @@ $(document).ready(function() {
 
                 calc.inputValues.sensors[sensorIndex] = sensorObj;
             });
+
+            if (calc.inputValues.duration < 1) {
+                calc.inputValues.duration = 1;
+            }
+
+            for(const sensorObj of calc.inputValues.sensors) {
+                if (sensorObj.rate < 1) {
+                    sensorObj.rate = 1;
+                }
+                if (sensorObj.length < 0.1) {
+                    sensorObj.length = 0.1;
+                }            
+            }
 
             calc.render();
             // console.log('readInput', {inputValues:calc.inputValues, inputUrlParams:calc.inputUrlParams});
