@@ -147,6 +147,7 @@ $(document).ready(function() {
                 });
             }        
         
+            console.log('sensors', calc.inputValues.sensors);
 
         }
 
@@ -238,6 +239,14 @@ $(document).ready(function() {
             calc.updateTimeDisplay();
 
 
+            const msToPixel = function(ms) {
+                let result;
+
+                result = p.graphLeft + (ms - p.leftTimeMs) * p.msPerPixel;
+
+                return result;
+            }
+
             const ctx = calc.canvasElem[0].getContext('2d');
 
             ctx.fillStyle = p.backgroundColor; // @COLOR_Gray_200
@@ -254,12 +263,30 @@ $(document).ready(function() {
 
             let sensorTop = p.sensorsTop + calc.areaMargin;
             for(const sensorObj of calc.inputValues.sensors) {
+                ctx.fillStyle = p.primaryColor;
                 ctx.fillText('Sensor ' + (sensorObj.sensorIndex + 1), p.graphLeft - calc.areaMargin, sensorTop + p.labelOffsetY);
-                sensorObj.sensorTop = sensorTop;
+
+                for(const packet of sensorObj.packets) {
+                    const left = msToPixel(packet.startMs);
+                    let right = msToPixel(packet.startMs);
+                    if (left == right) {
+                        right++;
+                    }
+                    if (left >= -(right - left) && left <= p.width) {
+                        // At least partially visible
+                        let packetColor = packet.success ? calc.successColor : calc.failureColor;
+
+                        console.log('packet', {sensorTop, left, right, packetColor, packet});
+
+                        ctx.fillStyle = packetColor;
+                        ctx.fillRect(left, sensorTop, right - left, p.intervalsBarHeight);
+                    }
+                }
 
                 sensorTop += p.intervalsBarHeight + 2 * calc.areaMargin;
             }
 
+            ms = p.leftTimeMs;
             for(let x = p.graphLeft; x < p.width; x++) {
                 p.intervals = calc.getIntervals(ms);
                 
@@ -283,8 +310,7 @@ $(document).ready(function() {
                     }
                     //console.log('interval', {x, intervals:p.intervals});
                 }
-                
-    
+                            
                 ms += p.msPerPixel;
             }
         }
