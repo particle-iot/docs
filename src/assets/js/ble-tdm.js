@@ -23,6 +23,7 @@ $(document).ready(function() {
         calc.successColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-success-color');
         calc.failureColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-danger-color');
         calc.labelFont = '12px Arial';
+        calc.areaMargin = 5;
 
         calc.parseKey = function(key) {
             if (typeof key != 'string') {
@@ -162,7 +163,8 @@ $(document).ready(function() {
                 testDurationMs: calc.inputValues.duration * 1000,     
                 labelLeft: 4,
                 labelTop: 5,
-                graphLeft: 50,           
+                graphLeft: 70,     
+                labelOffsetY: 2,      
             };
 
 
@@ -220,9 +222,8 @@ $(document).ready(function() {
                 // Show BLE and Wi-Fi intervals
                 p.showIntervals = true;
                 p.intervalsTop = 0;
-                p.intervalsMargin = 5;
                 p.intervalsBarHeight = 15;
-                p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * p.intervalsMargin;
+                p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * calc.areaMargin;
                 p.sensorsTop = p.intervalsTop + p.intervalsHeight; 
             }
             else {
@@ -231,16 +232,6 @@ $(document).ready(function() {
                 p.sensorsTop = 0;
             }
 
-            /*
-            p.windowStartBle = calc.inputValues.tdmaOffset;
-            p.windowStartWiFi = p.windowStartBle + (calc.inputValues.windowSize * calc.inputValues.blePct / 100);
-            p.windowEnd = p.windowStartBle + calc.inputValues.windowSize;
-
-            const numWindowsBefore = Math.floor((p.leftTimeMs - p.windowStartBle) / calc.inputValues.windowSize);
-            p.windowStartBle += numWindowsBefore + calc.inputValues.windowSize;
-            p.windowStartWiFi += numWindowsBefore + calc.inputValues.windowSize;
-            p.windowEnd += numWindowsBefore + calc.inputValues.windowSize;
-            */
 
             console.log('render' , p);
 
@@ -254,15 +245,20 @@ $(document).ready(function() {
 
             let ms = p.leftTimeMs;
 
-            const labelOffsetY = 2;
-
             ctx.textBaseline = 'top';
             ctx.textAlign = 'right';
             ctx.font = calc.labelFont;
             ctx.fillStyle = p.primaryColor;
-            ctx.fillText('Wi-Fi', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop + labelOffsetY);
-            ctx.fillText('BLE', p.graphLeft - p.intervalsMargin, p.intervalsMargin + p.intervalsTop + p.intervalsBarHeight + labelOffsetY);
+            ctx.fillText('Wi-Fi', p.graphLeft - calc.areaMargin, calc.areaMargin + p.intervalsTop + p.labelOffsetY);
+            ctx.fillText('BLE', p.graphLeft - calc.areaMargin, calc.areaMargin + p.intervalsTop + p.intervalsBarHeight + p.labelOffsetY);
 
+            let sensorTop = p.sensorsTop + calc.areaMargin;
+            for(const sensorObj of calc.inputValues.sensors) {
+                ctx.fillText('Sensor ' + (sensorObj.sensorIndex + 1), p.graphLeft - calc.areaMargin, sensorTop + p.labelOffsetY);
+                sensorObj.sensorTop = sensorTop;
+
+                sensorTop += p.intervalsBarHeight + 2 * calc.areaMargin;
+            }
 
             for(let x = p.graphLeft; x < p.width; x++) {
                 p.intervals = calc.getIntervals(ms);
@@ -272,12 +268,12 @@ $(document).ready(function() {
                     let top;
 
                     if (p.intervals.windowStartBle <= ms && ms < p.intervals.windowEndBle) {
-                        top = p.intervalsTop + p.intervalsMargin + p.intervalsBarHeight;
+                        top = p.intervalsTop + calc.areaMargin + p.intervalsBarHeight;
                         intervalColor = calc.bleColor;
                     }
                     else
                     if (p.intervals.windowStartWiFi <= ms && ms < p.intervals.windowEndWiFi) {
-                        top = p.intervalsTop + p.intervalsMargin;
+                        top = p.intervalsTop + calc.areaMargin;
                         intervalColor = calc.wifiColor;
                     }
 
