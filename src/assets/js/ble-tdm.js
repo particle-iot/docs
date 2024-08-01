@@ -219,20 +219,11 @@ $(document).ready(function() {
                 p.msPerPixel = (p.zoom - 75) * 500 / 25 + 100.0;
             }
 
-            if (p.msPerPixel <= 9) {
-                // Show BLE and Wi-Fi intervals
-                p.showIntervals = true;
-                p.intervalsTop = 0;
-                p.intervalsBarHeight = 15;
-                p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * calc.areaMargin;
-                p.sensorsTop = p.intervalsTop + p.intervalsHeight; 
-            }
-            else {
-                // No intervals, only results
-                p.showIntervals = false;
-                p.sensorsTop = 0;
-            }
-
+            p.showIntervals = true;
+            p.intervalsTop = 0;
+            p.intervalsBarHeight = 15;
+            p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * calc.areaMargin;
+            p.sensorsTop = p.intervalsTop + p.intervalsHeight; 
 
             console.log('render' , p);
 
@@ -265,7 +256,7 @@ $(document).ready(function() {
                 ctx.fillText('Sensor ' + (sensorObj.sensorIndex + 1), p.graphLeft - calc.areaMargin, sensorTop + p.labelOffsetY);
 
                 for(const packet of sensorObj.packets) {
-                    const left = Math.floor(msToPixel(packet.startMs));
+                    let left = Math.floor(msToPixel(packet.startMs));
                     let right = Math.floor(msToPixel(packet.startMs));
                     if (left == right) {
                         right++;
@@ -279,10 +270,10 @@ $(document).ready(function() {
                         // At least partially visible
                         let packetColor = packet.success ? calc.successColor : calc.failureColor;
 
-                        console.log('packet', {sensorTop, left, right, packetColor, packet});
+                        console.log('packet', {sensorTop, left, right, packetColor, packet, height: p.intervalsBarHeight});
 
                         ctx.fillStyle = packetColor;
-                        ctx.fillRect(left, sensorTop, 2 /* calc.inputValues.duration */, p.intervalsBarHeight);
+                        ctx.fillRect(left, sensorTop, right - left, p.intervalsBarHeight);
                     }
                 }
 
