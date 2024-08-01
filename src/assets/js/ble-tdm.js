@@ -135,10 +135,64 @@ $(document).ready(function() {
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
+                sensorObj.latency1 = 0;
+                sensorObj.latency2 = 0;
+                sensorObj.latency3 = 0;
+                sensorObj.latencyMore = 0;
+
+                for(let ii = 0; ii < sensorObj.packets.length - 1; ii++) {
+                    if (sensorObj.packets[ii].success) {
+                        let thisPacketLatency;
+                        for(let jj = ii + 1; jj < sensorObj.packets.length; jj++) {
+                            if (sensorObj.packets[jj].success) {
+                                thisPacketLatency = jj - ii;
+                                break;
+                            }
+                        }
+                        if (thisPacketLatency) {
+                            sensorObj.packets[ii].latency = thisPacketLatency;
+                        
+                            switch(thisPacketLatency) {
+                                case 1:
+                                    sensorObj.latency1++;
+                                    break;
+    
+                                case 2:
+                                    sensorObj.latency2++;
+                                    break;
+    
+                                case 3:
+                                    sensorObj.latency3++;
+                                    break;
+    
+                                default:
+                                    sensorObj.latencyMore++;
+                                    break;
+                            }                    
+                        }
+                    }
+                }
+
+            }
+
+            for(const sensorObj of calc.inputValues.sensors) {
+                let total = sensorObj.latency1 + sensorObj.latency2 + sensorObj.latency3 + sensorObj.latencyMore;
+                if (!total) {
+                    total = 1;
+                }
+
+                sensorObj.latency1Pct = Math.round(sensorObj.latency1 * 100 / total);
+                sensorObj.latency2Pct = Math.round(sensorObj.latency2 * 100 / total);
+                sensorObj.latency3Pct = Math.round(sensorObj.latency3 * 100 / total);
+                sensorObj.latencyMorePct = Math.round(sensorObj.latencyMore * 100 / total);
+                
+            }
+
+            for(const sensorObj of calc.inputValues.sensors) {
                 $(sensorObj.sensorDivElem).find('.sensorResult').each(function() {
                     const sensorResultElem = $(this);
                     const key = $(sensorResultElem).data('key');
-                    if (key && sensorObj[key]) {
+                    if (key && typeof sensorObj[key] != 'undefined') {
                         $(sensorResultElem).text(sensorObj[key]);
                     }
                     else {
