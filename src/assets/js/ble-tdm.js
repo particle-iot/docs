@@ -141,38 +141,36 @@ $(document).ready(function() {
                 sensorObj.latencyMore = 0;
 
                 for(let ii = 0; ii < sensorObj.packets.length - 1; ii++) {
-                    if (sensorObj.packets[ii].success) {
-                        let thisPacketLatency;
-                        for(let jj = ii + 1; jj < sensorObj.packets.length; jj++) {
-                            if (sensorObj.packets[jj].success) {
-                                thisPacketLatency = jj - ii;
-                                break;
-                            }
-                        }
-                        if (thisPacketLatency) {
-                            sensorObj.packets[ii].latency = thisPacketLatency;
-                        
-                            switch(thisPacketLatency) {
-                                case 1:
-                                    sensorObj.latency1++;
-                                    break;
-    
-                                case 2:
-                                    sensorObj.latency2++;
-                                    break;
-    
-                                case 3:
-                                    sensorObj.latency3++;
-                                    break;
-    
-                                default:
-                                    sensorObj.latencyMore++;
-                                    break;
-                            }                    
+                    let thisPacketLatency;
+                    for(let jj = ii + 1; jj < sensorObj.packets.length; jj++) {
+                        if (sensorObj.packets[jj].success) {
+                            thisPacketLatency = jj - ii;
+                            break;
                         }
                     }
-                }
+                    if (thisPacketLatency) {
+                        sensorObj.packets[ii].latency = thisPacketLatency;
+                    
+                        switch(thisPacketLatency) {
+                            case 1:
+                                sensorObj.latency1++;
+                                break;
 
+                            case 2:
+                                sensorObj.latency2++;
+                                break;
+
+                            case 3:
+                                sensorObj.latency3++;
+                                break;
+
+                            default:
+                                console.log('latencyMore ' + thisPacketLatency);
+                                sensorObj.latencyMore++;
+                                break;
+                        }                    
+                    }
+                }
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
