@@ -16,8 +16,8 @@
                         </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">TDMA window offset</td>
-                            <td><input type="text" size="10" value="4.5" class="inputParam" data-key="tdmaOffset,o" /></td>
-                            <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 4.5)</td>
+                            <td><input type="text" size="10" value="0" class="inputParam" data-key="tdmaOffset,o" /></td>
+                            <td class="apiHelperProductSelectorLabel">ms (milliseconds)</td>
                         </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Test Duration</td>
@@ -73,7 +73,7 @@
                                         <td class="apiHelperProductSelectorLabel">%</td>
                                     </tr>
                                     <tr>
-                                        <td class="apiHelperProductSelectorLabel">BLE failure</td>
+                                        <td class="apiHelperProductSelectorLabel">BLE missed</td>
                                         <td class="apiHelperProductSelectorLabel"><span class="sensorResult" data-key="failurePct"></span></td>
                                         <td class="apiHelperProductSelectorLabel">%</td>
                                     </tr>
@@ -123,7 +123,10 @@
             </div>            
             <div class="bleTdmTools" style="display: flex; margin-top: 10px; margin-bottom: 10px;">
                 <div style="width: 625px;">
-                    Time: <input type="range" min="0" max="100" value="0" class="apiHelperSlider timeSlider inputParam" data-key="time,t" style="width: 475px;" /> 
+                    Time: 
+                    <button class="prevButton secondaryButtonSmall">&lt;</button>
+                    <button class="nextButton secondaryButtonSmall">&gt;</button>
+                    <input type="range" min="0" max="100" value="0" class="apiHelperSlider timeSlider inputParam" data-key="time,t" style="width: 400px;" /> 
                     <span class="timePosition">0:00.000</span>
                 </div>
                 <div>

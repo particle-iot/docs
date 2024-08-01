@@ -98,6 +98,8 @@ $(document).ready(function() {
         calc.calculate = function() {
 
             const testDurationMs = calc.inputValues.duration * 1000;
+
+            calc.packetTimes = [];
             
             for(const sensorObj of calc.inputValues.sensors) {
                 sensorObj.packets = [];
@@ -119,6 +121,10 @@ $(document).ready(function() {
                     }
 
                     sensorObj.packets.push(packet);
+
+                    if (!calc.packetTimes.includes(ms)) {
+                        calc.packetTimes.push(ms);
+                    }
 
                     ms += sensorObj.rate;
                 }
@@ -199,29 +205,21 @@ $(document).ready(function() {
                 });
             }        
         
-            console.log('sensors', calc.inputValues.sensors);
+            // console.log('sensors', calc.inputValues.sensors);
 
+            calc.packetTimes.sort();
+            
         }
 
-        calc.render = function() {
-            calc.calculate();
-
-            let p = {
-                time: parseInt($(calc.timeSliderElem).val()),
-                zoom: parseInt($(calc.zoomSliderElem).val()),
-                width: $(calc.canvasElem).width(),
-                height: $(calc.canvasElem).height(),
-                backgroundColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-background-color'),
-                primaryColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-primary-color'),
-                testDurationMs: calc.inputValues.duration * 1000,     
-                labelLeft: 4,
-                labelTop: 5,
-                graphLeft: 70,     
-                labelOffsetY: 2,      
-            };
-
-
-            p.leftTimeMs = p.testDurationMs * p.time;
+        calc.updateCommon = function(p) {
+            p.time = parseInt($(calc.timeSliderElem).val()); // 0 - 100
+            p.zoom = parseInt($(calc.zoomSliderElem).val()); // 0 - 100
+            p.width = $(calc.canvasElem).width();
+            p.height = $(calc.canvasElem).height();
+            p.testDurationMs = calc.inputValues.duration * 1000;
+            p.leftTimeMs = p.testDurationMs * p.time / 100.0;
+            p.graphLeft = 70;
+            p.graphWidth = p.width - p.graphLeft - calc.areaMargin;
 
             // The canvas is 680px wide, assume 600 pixels of graphs area with margins and labels
             // 
@@ -271,24 +269,43 @@ $(document).ready(function() {
                 p.msPerPixel = (p.zoom - 75) * 500 / 25 + 100.0;
             }
 
-            p.showIntervals = true;
-            p.intervalsTop = 0;
-            p.intervalsBarHeight = 15;
-            p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * calc.areaMargin;
-            p.sensorsTop = p.intervalsTop + p.intervalsHeight; 
+            p.rightTimeMs = p.leftTimeMs + p.graphWidth * p.msPerPixel;
 
-            console.log('render' , p);
-
-            calc.updateTimeDisplay();
-
-
-            const msToPixel = function(ms) {
+            p.msToPixel = function(ms) {
                 let result;
 
                 result = p.graphLeft + (ms - p.leftTimeMs) * p.msPerPixel;
 
                 return result;
             }
+        }
+
+        calc.render = function() {
+            calc.calculate();
+
+            let p = {                
+                backgroundColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-background-color'),
+                primaryColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-primary-color'),
+                labelLeft: 4,
+                labelTop: 5,
+                labelOffsetY: 2,      
+            };
+            calc.updateCommon(p);
+
+
+
+            p.showIntervals = true;
+            p.intervalsTop = 0;
+            p.intervalsBarHeight = 15;
+            p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * calc.areaMargin;
+            p.sensorsTop = p.intervalsTop + p.intervalsHeight; 
+            p.sensorsBottom = p.sensorsTop + (p.intervalsBarHeight + 2 * calc.areaMargin) * calc.inputValues.sensors.length;
+
+            $(calc.canvasElem).prop('height', p.sensorsBottom);
+
+            // console.log('render' , p);
+
+            calc.updateTimeDisplay();
 
             const ctx = calc.canvasElem[0].getContext('2d');
 
@@ -308,8 +325,8 @@ $(document).ready(function() {
                 ctx.fillText('Sensor ' + (sensorObj.sensorIndex + 1), p.graphLeft - calc.areaMargin, sensorTop + p.labelOffsetY);
 
                 for(const packet of sensorObj.packets) {
-                    let left = Math.floor(msToPixel(packet.startMs));
-                    let right = Math.floor(msToPixel(packet.startMs));
+                    let left = Math.floor(p.msToPixel(packet.startMs));
+                    let right = Math.floor(p.msToPixel(packet.startMs));
                     if (left == right) {
                         right++;
                     }
@@ -322,7 +339,7 @@ $(document).ready(function() {
                         // At least partially visible
                         let packetColor = packet.success ? calc.successColor : calc.failureColor;
 
-                        console.log('packet', {sensorTop, left, right, packetColor, packet, height: p.intervalsBarHeight});
+                        // console.log('packet', {sensorTop, left, right, packetColor, packet, height: p.intervalsBarHeight});
 
                         ctx.fillStyle = packetColor;
                         ctx.fillRect(left, sensorTop, right - left, p.intervalsBarHeight);
@@ -361,6 +378,43 @@ $(document).ready(function() {
             }
         }
 
+        calc.scrollToMs = function(ms) {
+            let p = {};
+            calc.updateCommon(p);
+
+            console.log('scrollToMs', {ms, p});
+
+            let pct = Math.floor(ms * 100 / p.testDurationMs);
+
+
+            $(calc.timeSliderElem).val(pct);
+            calc.render();
+        }
+
+
+        $(thisPartial).find('.prevButton').on('click', function() {
+            let p = {};
+            calc.updateCommon(p);
+
+            for(let ii = calc.packetTimes.length - 1; ii >= 0; ii--) {
+                if (calc.packetTimes[ii] < p.leftTimeMs) {
+                    calc.scrollToMs(calc.packetTimes[ii]);
+                    break;
+                }
+            }
+        });
+
+        $(thisPartial).find('.nextButton').on('click', function() {
+            let p = {};
+            calc.updateCommon(p);
+
+            for(let ii = 0; ii < calc.packetTimes.length; ii++) {
+                if (calc.packetTimes[ii] >= p.rightTimeMs) {
+                    calc.scrollToMs(calc.packetTimes[ii]);
+                    break;
+                }
+            }
+        });
 
 
         $(calc.timeSliderElem).on('change', calc.render);
@@ -520,7 +574,10 @@ $(document).ready(function() {
             calc.saveUrlParams();
         }
 
-        $(thisPartial).find('.addSensor').on('click', calc.addSensor);
+        $(thisPartial).find('.addSensor').on('click', function() {
+            calc.addSensor();
+            calc.render();
+        });
 
 
         if (calc.urlParams) {

@@ -218,6 +218,32 @@ button.secondaryButton, button.downloadButton {
   }
 };
 
+button.secondaryButtonSmall {
+  font-family: @FONT_Graphik;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  border-radius: 8px;
+  height: 22px;
+  padding-left: 10px;
+  padding-right: 10px;
+  &:enabled {
+      color: var(--theme-button-secondary-text-color);
+      border: var(--theme-button-secondary-border);
+      background-color: var(--theme-button-secondary-background-color);
+  }
+  &:hover:enabled {
+      text-decoration: none;
+      color: var(--theme-button-secondary-text-hover-color);
+      border: var(--theme-button-secondary-border-hover);
+      background-color: var(--theme-button-secondary-background-hover-color);
+  }
+  &:disabled {
+    color: var(--theme-button-secondary-border-disabled-color);
+    border: var(--theme-button-secondary-border-disabled);
+    background-color: var(--theme-button-secondary-background-disabled-color);
+  }
+};
 
 
 button.smallButton {
