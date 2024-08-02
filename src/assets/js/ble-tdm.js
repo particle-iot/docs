@@ -55,7 +55,7 @@ $(document).ready(function() {
 
         calc.updateTimeDisplay = function() {
             // Convert to 0-1 instead of 0-100
-            const sliderPct = parseInt($(calc.timeSliderElem).val()) / 100;
+            const sliderPct = parseInt($(calc.timeSliderElem).val()) / 1000;
 
             let timeText = '0:00.000';
 
@@ -171,7 +171,6 @@ $(document).ready(function() {
                                 break;
 
                             default:
-                                console.log('latencyMore ' + thisPacketLatency);
                                 sensorObj.latencyMore++;
                                 break;
                         }                    
@@ -212,7 +211,7 @@ $(document).ready(function() {
         }
 
         calc.updateCommon = function(p) {
-            p.time = parseInt($(calc.timeSliderElem).val()); // 0 - 100
+            p.time = parseInt($(calc.timeSliderElem).val()); // 0 - 1000
             p.zoom = parseInt($(calc.zoomSliderElem).val()); // 0 - 100
             p.width = $(calc.canvasElem).width();
             p.height = $(calc.canvasElem).height();
@@ -382,12 +381,11 @@ $(document).ready(function() {
             let p = {};
             calc.updateCommon(p);
 
-            console.log('scrollToMs', {ms, p});
+            let val = Math.floor(ms * 1000 / p.testDurationMs);
 
-            let pct = Math.floor(ms * 100 / p.testDurationMs);
+            console.log('scrollToMs', {ms, p, val});
 
-
-            $(calc.timeSliderElem).val(pct);
+            $(calc.timeSliderElem).val(val);
             calc.render();
         }
 
@@ -471,8 +469,8 @@ $(document).ready(function() {
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
-                if (sensorObj.rate < 1) {
-                    sensorObj.rate = 1;
+                if (sensorObj.rate < 10) {
+                    sensorObj.rate = 10;
                 }
                 if (sensorObj.length < 0.1) {
                     sensorObj.length = 0.1;
