@@ -11,19 +11,13 @@ $(document).ready(function() {
         calc.inputValues = {};
         calc.inputUrlParams = {};
 
-        calc.canvasElem = $('#bleTdmCanvas');  
-
         calc.timeSliderElem = $(thisPartial).find('.timeSlider');
         calc.timePositionElem = $(thisPartial).find('.timePosition');
         calc.zoomSliderElem = $(thisPartial).find('.zoomSlider');
 
         calc.cssPropertyRoot = getComputedStyle($('html')[0]);
-        calc.bleColor = calc.cssPropertyRoot.getPropertyValue('--theme-color-particle-blue-700');
-        calc.wifiColor = calc.cssPropertyRoot.getPropertyValue('--theme-color-tangerine-400');
         calc.successColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-success-color');
         calc.failureColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-danger-color');
-        calc.labelFont = '12px Arial';
-        calc.areaMargin = 5;
 
         calc.parseKey = function(key) {
             if (typeof key != 'string') {
@@ -53,29 +47,21 @@ $(document).ready(function() {
             return s;
         }
 
-        calc.updateTimeDisplay = function() {
-            // Convert to 0-1 instead of 0-100
-            const sliderPct = parseInt($(calc.timeSliderElem).val()) / 1000;
+        calc.msToText = function(msIn) {
+            let temp = msIn;
+            
+            const ms = temp % 1000;
+            temp = Math.floor(temp / 1000);
 
-            let timeText = '0:00.000';
+            const sec = temp % 60;
+            temp = Math.floor(temp / 60);
 
-            const testDurationMs = calc.inputValues.duration * 1000;
-            if (testDurationMs > 0) {
-                let posTemp = Math.floor(testDurationMs * sliderPct);
+            const min = temp;
 
-                const ms = posTemp % 1000;
-                posTemp = Math.floor(posTemp / 1000);
+            return min + ':' + calc.padNumber(sec, 2) + ':' + calc.padNumber(ms, 3);
+        }  
 
-                const sec = posTemp % 60;
-                posTemp = Math.floor(posTemp / 60);
-
-                const min = posTemp;
-
-                timeText = min + ':' + calc.padNumber(sec, 2) + ':' + calc.padNumber(ms, 3);
-            }
-            $(calc.timePositionElem).text(timeText);
-        }
-
+      
         calc.getIntervals = function(ms) {
             let result = {};
 
@@ -94,9 +80,21 @@ $(document).ready(function() {
             return result;
         }
 
+        calc.setStatus = function(s) {
+            $(thisPartial).find('.bleTdmStatus').text(s);
+        }
 
         calc.calculate = function() {
 
+            if (!calc.isValid) {
+                calc.setStatus(calc.inputError);
+                $(thisPartial).find('.bleTdmTimeline').hide();
+                return;
+            }
+
+            calc.setStatus('');
+            $(thisPartial).find('.bleTdmTimeline').show();
+            
             const testDurationMs = calc.inputValues.duration * 1000;
 
             calc.packetTimes = [];
@@ -113,6 +111,8 @@ $(document).ready(function() {
                     let packet = {
                         startMs: ms,
                         endMs: ms + sensorObj.length,                        
+                        windowStartBle: intervals.windowStartBle,
+                        windowEndBle: intervals.windowEndBle,
                     };
 
                     packet.success = (packet.startMs >= intervals.windowStartBle && packet.endMs <= intervals.windowEndBle);
@@ -207,218 +207,100 @@ $(document).ready(function() {
             // console.log('sensors', calc.inputValues.sensors);
 
             calc.packetTimes.sort();
-            
-        }
 
-        calc.updateCommon = function(p) {
-            p.time = parseInt($(calc.timeSliderElem).val()); // 0 - 1000
-            p.zoom = parseInt($(calc.zoomSliderElem).val()); // 0 - 100
-            p.width = $(calc.canvasElem).width();
-            p.height = $(calc.canvasElem).height();
-            p.testDurationMs = calc.inputValues.duration * 1000;
-            p.leftTimeMs = p.testDurationMs * p.time / 100.0;
-            p.graphLeft = 70;
-            p.graphWidth = p.width - p.graphLeft - calc.areaMargin;
+            // Build table
+            const theadElem = $(thisPartial).find('.bleTdmTimeline > table > thead');
+            $(theadElem).empty();
 
-            // The canvas is 680px wide, assume 600 pixels of graphs area with margins and labels
-            // 
-            // To fit 300 seconds (300,000 milliseconds)
-            //   - Each pixel is 0.5 seconds (500 ms per pixel)
-            //   - This is maximum zoon out
-            //   - Can't show BLE and Wi-Fi intervals at this zoom level
-            // At 1 pixel = 9 milliseconds:
-            //   - Each BLE and Wi-Fi interval is 1 pixel wide (at 18 ms. window)
-            //   - This is the farthest zoom out where BLE and Wi-Fi intervals can be shown
-            // At 1 pixel = 1 millisecond (default zoom)
-            //   - 0.6 seconds (600 ms) across window
-            //   - 33 Wi-Fi and 33 BLE intervals (each 9 pixels wide)
-            // At 1 pixel = 1/8 millisecond (1 pixel = 0.125 millisecond)
-            //   - Each sensor transit frame is 1px wide
-            // At 1 pixel = 0.1 millseconds
-            //   - This is a good maximum zoom in
-            
-            // Since each interval may be only 1 pixel wide it needs to be high enough to see, maybe
-            // 10 px high for each sensor?
-            
-            // Wi-Fi interval will be --theme-color-tangerine-400 
-            // BLE interval will be --theme-color-particle-blue-500
-            // Only display intervals 
+            {
+                // Top row: Sensor name header
+                const trElem = document.createElement('tr');
 
-            // BLE received is --theme-status-success-color (Particle blue)
-            // BLE missed is --theme-status-danger-color:
-
-            // Zoom range control is 0 - 100 but maps in a somewhat logarithmic fashion
-            // to 0.1 ms per pixel to 500 ms per pixel with the middle range around 10 ms per pixels
-            // Value 0 - 25: Maps to 0.1 to 1 (default is 25, or 1 ms per pixel)
-            // Value 26 - 50: Maps 1 to 10 
-            // Value 50 - 75: Maps 10 to 100
-            // Value 75 to 100: Maps 100 to 500
-            if (p.zoom < 25) {
-                p.msPerPixel = p.zoom * 0.9 / 25 + 0.1;
-            }
-            else
-            if (p.zoom < 50) {
-                p.msPerPixel = (p.zoom - 25) * 10 / 25 + 1.0;
-            }
-            else 
-            if (p.zoom < 75) {
-                p.msPerPixel = (p.zoom - 50) * 100 / 25 + 10.0;
-            }
-            else {
-                p.msPerPixel = (p.zoom - 75) * 500 / 25 + 100.0;
-            }
-
-            p.rightTimeMs = p.leftTimeMs + p.graphWidth * p.msPerPixel;
-
-            p.msToPixel = function(ms) {
-                let result;
-
-                result = p.graphLeft + (ms - p.leftTimeMs) * p.msPerPixel;
-
-                return result;
-            }
-        }
-
-        calc.render = function() {
-            calc.calculate();
-
-            let p = {                
-                backgroundColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-background-color'),
-                primaryColor: calc.cssPropertyRoot.getPropertyValue('--theme-graphic1-primary-color'),
-                labelLeft: 4,
-                labelTop: 5,
-                labelOffsetY: 2,      
-            };
-            calc.updateCommon(p);
-
-
-
-            p.showIntervals = true;
-            p.intervalsTop = 0;
-            p.intervalsBarHeight = 15;
-            p.intervalsHeight = 2 * p.intervalsBarHeight + 2 * calc.areaMargin;
-            p.sensorsTop = p.intervalsTop + p.intervalsHeight; 
-            p.sensorsBottom = p.sensorsTop + (p.intervalsBarHeight + 2 * calc.areaMargin) * calc.inputValues.sensors.length;
-
-            $(calc.canvasElem).prop('height', p.sensorsBottom);
-
-            // console.log('render' , p);
-
-            calc.updateTimeDisplay();
-
-            const ctx = calc.canvasElem[0].getContext('2d');
-
-            ctx.fillStyle = p.backgroundColor; // @COLOR_Gray_200
-            ctx.fillRect(0, 0, p.width, p.height);
-
-            ctx.textBaseline = 'top';
-            ctx.textAlign = 'right';
-            ctx.font = calc.labelFont;
-            ctx.fillStyle = p.primaryColor;
-            ctx.fillText('Wi-Fi', p.graphLeft - calc.areaMargin, calc.areaMargin + p.intervalsTop + p.labelOffsetY);
-            ctx.fillText('BLE', p.graphLeft - calc.areaMargin, calc.areaMargin + p.intervalsTop + p.intervalsBarHeight + p.labelOffsetY);
-
-            let sensorTop = p.sensorsTop + calc.areaMargin;
-            for(const sensorObj of calc.inputValues.sensors) {
-                ctx.fillStyle = p.primaryColor;
-                ctx.fillText('Sensor ' + (sensorObj.sensorIndex + 1), p.graphLeft - calc.areaMargin, sensorTop + p.labelOffsetY);
-
-                for(const packet of sensorObj.packets) {
-                    let left = Math.floor(p.msToPixel(packet.startMs));
-                    let right = Math.floor(p.msToPixel(packet.startMs));
-                    if (left == right) {
-                        right++;
-                    }
-                    if (left < p.graphLeft) {
-                        left = p.graphLeft;
-                    }
-
-
-                    if (right >= p.graphLeft && left <= p.width) {
-                        // At least partially visible
-                        let packetColor = packet.success ? calc.successColor : calc.failureColor;
-
-                        // console.log('packet', {sensorTop, left, right, packetColor, packet, height: p.intervalsBarHeight});
-
-                        ctx.fillStyle = packetColor;
-                        ctx.fillRect(left, sensorTop, right - left, p.intervalsBarHeight);
-                    }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).html('&nbsp;');
+                    $(trElem).append(thElem);
                 }
 
-                sensorTop += p.intervalsBarHeight + 2 * calc.areaMargin;
+                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                    const thElem = document.createElement('th');
+                    $(thElem).attr('colspan', "2");
+                    $(thElem).text('Sensor ' + (ii + 1));
+                    $(trElem).append(thElem);                    
+                }
+
+                $(theadElem).append(trElem);
             }
 
-            let ms = p.leftTimeMs;
-            for(let x = p.graphLeft; x < p.width; x++) {
-                p.intervals = calc.getIntervals(ms);
+            {
+                // Bottom row: Fields
+                const trElem = document.createElement('tr');
                 
-                if (p.showIntervals) {
-                    let intervalColor;
-                    let top;
-
-                    if (p.intervals.windowStartBle <= ms && ms < p.intervals.windowEndBle) {
-                        top = p.intervalsTop + calc.areaMargin + p.intervalsBarHeight;
-                        intervalColor = calc.bleColor;
-                    }
-                    else
-                    if (p.intervals.windowStartWiFi <= ms && ms < p.intervals.windowEndWiFi) {
-                        top = p.intervalsTop + calc.areaMargin;
-                        intervalColor = calc.wifiColor;
-                    }
-
-                    if (intervalColor) {
-                        ctx.fillStyle = intervalColor;
-                        ctx.fillRect(x, top, 1, p.intervalsBarHeight);
-                    }
-                    //console.log('interval', {x, intervals:p.intervals});
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Time');
+                    $(trElem).append(thElem);
                 }
-                            
-                ms += p.msPerPixel;
+
+                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                    {
+                        const thElem = document.createElement('th');
+                        $(thElem).text('Packet');
+                        $(trElem).append(thElem);    
+                    }                    
+                    {
+                        const thElem = document.createElement('th');
+                        $(thElem).text('BLE Interval');
+                        $(trElem).append(thElem);    
+                    }                    
+                }
+                $(theadElem).append(trElem);
+            }
+
+
+
+            const tbodyElem = $(thisPartial).find('.bleTdmTimeline > table > tbody');
+            $(tbodyElem).empty();
+            for(const ms of calc.packetTimes) {
+                const trElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('text-align', 'right');
+                    $(tdElem).text(calc.msToText(ms));
+                    $(trElem).append(tdElem);    
+                }                    
+
+                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                    const sensorObj = calc.inputValues.sensors[ii];
+                    let packetStr = '';
+                    let bleStr = ''
+
+                    const packetObj = sensorObj.packets.find(e => e.startMs == ms);
+                    if (packetObj) {
+                        packetStr = calc.msToText(packetObj.startMs);
+
+                        bleStr = calc.msToText(packetObj.windowStartBle) + ' - ' + calc.msToText(packetObj.windowEndBle);
+                    }
+
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(packetStr);
+                        $(trElem).append(tdElem);    
+                    }                    
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(bleStr);
+                        $(trElem).append(tdElem);    
+                    }                    
+                }
+            
+
+                $(tbodyElem).append(trElem);
             }
         }
-
-        calc.scrollToMs = function(ms) {
-            let p = {};
-            calc.updateCommon(p);
-
-            let val = Math.floor(ms * 1000 / p.testDurationMs);
-
-            console.log('scrollToMs', {ms, p, val});
-
-            $(calc.timeSliderElem).val(val);
-            calc.render();
-        }
-
-
-        $(thisPartial).find('.prevButton').on('click', function() {
-            let p = {};
-            calc.updateCommon(p);
-
-            for(let ii = calc.packetTimes.length - 1; ii >= 0; ii--) {
-                if (calc.packetTimes[ii] < p.leftTimeMs) {
-                    calc.scrollToMs(calc.packetTimes[ii]);
-                    break;
-                }
-            }
-        });
-
-        $(thisPartial).find('.nextButton').on('click', function() {
-            let p = {};
-            calc.updateCommon(p);
-
-            for(let ii = 0; ii < calc.packetTimes.length; ii++) {
-                if (calc.packetTimes[ii] >= p.rightTimeMs) {
-                    calc.scrollToMs(calc.packetTimes[ii]);
-                    break;
-                }
-            }
-        });
-
-
-        $(calc.timeSliderElem).on('change', calc.render);
-        $(calc.timeSliderElem).on('input', calc.updateTimeDisplay); // Runs continuously while dragging
         
-        $(calc.zoomSliderElem).on('change', calc.render);
 
         calc.readInput = function() {
             $(thisPartial).find('.inputParam').each(function() {
@@ -464,20 +346,27 @@ $(document).ready(function() {
                 calc.inputValues.sensors[sensorIndex] = sensorObj;
             });
 
-            if (calc.inputValues.duration < 1) {
-                calc.inputValues.duration = 1;
+            calc.isValid = true;
+            calc.inputError = null;
+
+            if (calc.inputValues.duration < 6) {
+                calc.isValid = false;
+                calc.inputError = 'duration must be >= 6 seconds';
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
                 if (sensorObj.rate < 10) {
-                    sensorObj.rate = 10;
+                    calc.isValid = false;
+                    calc.inputError = 'sensor rate must be >= 10';
                 }
+
                 if (sensorObj.length < 0.1) {
-                    sensorObj.length = 0.1;
+                    calc.isValid = false;
+                    calc.inputError = 'sensor length must be >= 0.1';
                 }            
             }
 
-            calc.render();
+            calc.calculate();
             // console.log('readInput', {inputValues:calc.inputValues, inputUrlParams:calc.inputUrlParams});
 
         };
@@ -574,7 +463,7 @@ $(document).ready(function() {
 
         $(thisPartial).find('.addSensor').on('click', function() {
             calc.addSensor();
-            calc.render();
+            calc.calculate();
         });
 
 
@@ -640,7 +529,6 @@ $(document).ready(function() {
             });    
             
 
-            calc.updateTimeDisplay();
             calc.readInput();
             calc.saveUrlParams();
         }    

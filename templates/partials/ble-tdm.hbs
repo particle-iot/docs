@@ -118,21 +118,16 @@
             <div style="margin-top: 10px; margin-bottom: 10px;">
                 <button class="addSensor secondaryButton">Add sensor</button>
             </div>                
-            <div class="bleTdmTimeline">
-                <canvas id="bleTdmCanvas" width="880" height="300"></canvas>
+            <div class="bleTdmStatus" style="margin-top: 10px; margin-bottom: 10px;">
             </div>            
-            <div class="bleTdmTools" style="display: flex; margin-top: 10px; margin-bottom: 10px;">
-                <div style="width: 625px;">
-                    Time: 
-                    <button class="prevButton secondaryButtonSmall">&lt;</button>
-                    <button class="nextButton secondaryButtonSmall">&gt;</button>
-                    <input type="range" min="0" max="1000" step="10" value="0" class="apiHelperSlider timeSlider inputParam" data-key="time,t" style="width: 400px;" /> 
-                    <span class="timePosition">0:00.000</span>
-                </div>
-                <div>
-                    Zoom: <input type="range" min="0" max="100" value="25" class="apiHelperSlider zoomSlider inputParam" data-key="zoom,z" style="width: 125px;" />
-                </div>
-            </div>
+            <div class="bleTdmTimeline" style="margin-top: 10px; margin-bottom: 10px;">
+                <table class="apiHelperTableNoMargin">
+                    <thead>
+                    </thead>
+                    <tbody>                        
+                    </tbody>
+                </table>
+            </div>            
         </div>
     </div>
 </div>
