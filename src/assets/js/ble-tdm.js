@@ -188,7 +188,10 @@ $(document).ready(function() {
                 sensorObj.latency2Pct = Math.round(sensorObj.latency2 * 100 / total);
                 sensorObj.latency3Pct = Math.round(sensorObj.latency3 * 100 / total);
                 sensorObj.latencyMorePct = Math.round(sensorObj.latencyMore * 100 / total);
-                
+
+                sensorObj.latency1Time = calc.msToText(sensorObj.rate);
+                sensorObj.latency2Time = calc.msToText(sensorObj.rate * 2);
+                sensorObj.latency3Time = calc.msToText(sensorObj.rate * 3);
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
