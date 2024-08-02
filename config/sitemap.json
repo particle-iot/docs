@@ -539,8 +539,8 @@
             "hash": "eb430d291cf7911c3f2cd5ff80c10900d754006d085cd5c0e6a84a69f4923acc"
         },
         "firmware/software-design/threading-explainer.md": {
-            "date": "2024-04-30",
-            "hash": "0431be8728ad5faa3c1ab018533ef1e481b0eb381c48815b6f10f310e09e69ba"
+            "date": "2024-08-02",
+            "hash": "170a455847f8c0f7d5cbc68f193f74d5b11da1ca8a6475356167f9a9a3253e87"
         },
         "firmware/tracker-edge/monitor-edge-api-reference.md": {
             "date": "2024-03-12",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "70178dd7eefd45b161d8ec8b2e6acd07d9844cc823c6df5b5a4edba436c21b5a",
-            "date": "2024-07-31"
+            "hash": "7b692bb301990b43431274d5a61f2ca4765532c0be29d6d777c8a6a2ff863819",
+            "date": "2024-08-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
