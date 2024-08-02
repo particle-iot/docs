@@ -206,34 +206,15 @@ $(document).ready(function() {
         
             // console.log('sensors', calc.inputValues.sensors);
 
-            calc.packetTimes.sort();
+            calc.packetTimes.sort(function(a, b) {
+                return a - b;
+            });
 
             // Build table
             const theadElem = $(thisPartial).find('.bleTdmTimeline > table > thead');
             $(theadElem).empty();
 
             {
-                // Top row: Sensor name header
-                const trElem = document.createElement('tr');
-
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).html('&nbsp;');
-                    $(trElem).append(thElem);
-                }
-
-                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
-                    const thElem = document.createElement('th');
-                    $(thElem).attr('colspan', "2");
-                    $(thElem).text('Sensor ' + (ii + 1));
-                    $(trElem).append(thElem);                    
-                }
-
-                $(theadElem).append(trElem);
-            }
-
-            {
-                // Bottom row: Fields
                 const trElem = document.createElement('tr');
                 
                 {
@@ -241,23 +222,27 @@ $(document).ready(function() {
                     $(thElem).text('Time');
                     $(trElem).append(thElem);
                 }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('BLE Interval Start');
+                    $(trElem).append(thElem);    
+                }                    
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('BLE Interval End');
+                    $(trElem).append(thElem);    
+                }                    
+
 
                 for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
                     {
                         const thElem = document.createElement('th');
-                        $(thElem).text('Packet');
-                        $(trElem).append(thElem);    
-                    }                    
-                    {
-                        const thElem = document.createElement('th');
-                        $(thElem).text('BLE Interval');
+                        $(thElem).text('Sensor ' + (ii + 1));
                         $(trElem).append(thElem);    
                     }                    
                 }
                 $(theadElem).append(trElem);
             }
-
-
 
             const tbodyElem = $(thisPartial).find('.bleTdmTimeline > table > tbody');
             $(tbodyElem).empty();
@@ -271,27 +256,56 @@ $(document).ready(function() {
                     $(trElem).append(tdElem);    
                 }                    
 
+                let bleStartStr = '';
+                let bleEndStr = '';
+
+                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                    const sensorObj = calc.inputValues.sensors[ii];
+
+                    const packetObj = sensorObj.packets.find(e => e.startMs == ms);
+                    if (packetObj) {
+                        bleStartStr = calc.msToText(packetObj.windowStartBle);
+                        bleEndStr = calc.msToText(packetObj.windowEndBle);
+                        break;
+                    }
+                }
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('text-align', 'right');
+                    $(tdElem).text(bleStartStr);
+                    $(trElem).append(tdElem);    
+                }                    
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('text-align', 'right');
+                    $(tdElem).text(bleEndStr);
+                    $(trElem).append(tdElem);    
+                }                    
+
+
+
                 for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
                     const sensorObj = calc.inputValues.sensors[ii];
                     let packetStr = '';
                     let bleStr = ''
 
                     const packetObj = sensorObj.packets.find(e => e.startMs == ms);
-                    if (packetObj) {
-                        packetStr = calc.msToText(packetObj.startMs);
-
-                        bleStr = calc.msToText(packetObj.windowStartBle) + ' - ' + calc.msToText(packetObj.windowEndBle);
-                    }
-
-
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text(packetStr);
-                        $(trElem).append(tdElem);    
-                    }                    
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).text(bleStr);
+                        if (packetObj) {
+                            if (packetObj.success) {
+                                $(tdElem).css('background-color', calc.successColor);
+                                $(tdElem).text('Success');
+                            }
+                            else {
+                                $(tdElem).css('background-color', calc.failureColor);
+                                $(tdElem).text('Missed');
+                            }                
+                        }
+                        else {
+                            $(tdElem).text('');
+                        }
                         $(trElem).append(tdElem);    
                     }                    
                 }
