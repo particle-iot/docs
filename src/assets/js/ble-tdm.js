@@ -20,6 +20,12 @@ $(document).ready(function() {
         calc.cssPropertyRoot = getComputedStyle($('html')[0]);
         calc.successColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-success-color');
         calc.failureColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-danger-color');
+        calc.monospaceFont = calc.cssPropertyRoot.getPropertyValue('--theme-monospace-font');
+
+        
+
+        calc.numDecimalPlaces = 0;
+        
 
         calc.parseKey = function(key) {
             if (typeof key != 'string') {
@@ -62,6 +68,36 @@ $(document).ready(function() {
 
             return min + ':' + calc.padNumber(sec, 2) + ':' + calc.padNumber(ms, 3);
         }  
+
+        calc.msWithDecimal = function(msIn, options) {
+            let msStr = msIn.toString();
+            const eOffset = msStr.indexOf('e');
+            if (eOffset >= 0) {
+                // Probably could do something better with scientific notation here, but it's an edge case
+                return msStr;
+            }
+
+            let whole;
+            let dec;
+
+            const dotOffset = msStr.indexOf('.');
+            if (dotOffset >= 0) {
+                // Has decimal
+                whole = msStr.substring(0, dotOffset);
+                dec = msStr.substring(dotOffset + 1) + '000000000000000';
+            }
+            else {
+                whole = msStr;
+                dec = '000000000000000';
+            }
+
+            if (options.places > 0) {
+                return whole + '.' + substring(dec, options.places);
+            }
+            else {
+                return whole;
+            }
+        }
 
       
         calc.getIntervals = function(ms) {
@@ -248,7 +284,7 @@ $(document).ready(function() {
                 
                 {
                     const thElem = document.createElement('th');
-                    $(thElem).text('Time');
+                    $(thElem).text('Advertising Start');
                     $(trElem).append(thElem);
                 }
                 {
@@ -281,9 +317,11 @@ $(document).ready(function() {
                 {
                     const tdElem = document.createElement('td');
                     $(tdElem).css('text-align', 'right');
-                    $(tdElem).text(calc.msToText(ms));
+                    $(tdElem).css('font-family', calc.monospaceFont);
+                    $(tdElem).text(calc.msWithDecimal(ms, {places: calc.numDecimalPlaces, commas:true}));
                     $(trElem).append(tdElem);    
                 }                    
+
 
                 let bleStartStr = '';
                 let bleEndStr = '';
@@ -293,8 +331,8 @@ $(document).ready(function() {
 
                     const packetObj = sensorObj.packets.find(e => e.startMs == ms);
                     if (packetObj) {
-                        bleStartStr = calc.msToText(packetObj.windowStartBle);
-                        bleEndStr = calc.msToText(packetObj.windowEndBle);
+                        bleStartStr = calc.msWithDecimal(packetObj.windowStartBle, {places: calc.numDecimalPlaces, commas:true});
+                        bleEndStr = calc.msWithDecimal(packetObj.windowEndBle, {places: calc.numDecimalPlaces, commas:true});
                         break;
                     }
                 }
@@ -302,12 +340,14 @@ $(document).ready(function() {
                 {
                     const tdElem = document.createElement('td');
                     $(tdElem).css('text-align', 'right');
+                    $(tdElem).css('font-family', calc.monospaceFont);
                     $(tdElem).text(bleStartStr);
                     $(trElem).append(tdElem);    
                 }                    
                 {
                     const tdElem = document.createElement('td');
                     $(tdElem).css('text-align', 'right');
+                    $(tdElem).css('font-family', calc.monospaceFont);
                     $(tdElem).text(bleEndStr);
                     $(trElem).append(tdElem);    
                 }                    
@@ -322,6 +362,10 @@ $(document).ready(function() {
                     const packetObj = sensorObj.packets.find(e => e.startMs == ms);
                     {
                         const tdElem = document.createElement('td');
+                        $(tdElem).css('width', '60px');
+                        $(tdElem).css('text-align', 'center');
+                        $(tdElem).css('padding-left', '5px');
+                        
                         if (packetObj) {
                             if (packetObj.success) {
                                 $(tdElem).css('background-color', calc.successColor);
@@ -396,11 +440,15 @@ $(document).ready(function() {
                 calc.isValid = false;
                 calc.inputError = 'duration must be >= 6 seconds';
             }
+            if (calc.inputValues.duration > 3600) {
+                calc.isValid = false;
+                calc.inputError = 'duration must be < 3600 seconds';
+            }
 
             for(const sensorObj of calc.inputValues.sensors) {
-                if (sensorObj.rate < 10) {
+                if (sensorObj.rate < 50) {
                     calc.isValid = false;
-                    calc.inputError = 'sensor rate must be >= 10';
+                    calc.inputError = 'sensor rate must be >= 50';
                 }
 
                 if (sensorObj.length < 0.1) {
@@ -431,6 +479,13 @@ $(document).ready(function() {
 
         };
 
+        calc.clearInputTimer = function() {
+            if (calc.inputTimer) {
+                clearInterval(calc.inputTimer);
+                calc.inputTimer();
+            }
+        }
+
         calc.addInputHandlers = function(inputElems) {
             $(inputElems).each(function() {
                 const inputElem = $(this);
@@ -454,9 +509,21 @@ $(document).ready(function() {
                     // console.log('addInputHandlers', {inputType, eventTrigger});
                     
                     $(inputElem).on(eventTrigger, function() {
+                        calc.clearInputTimer();
+                        setTimeout(function() {
+                            calc.inputTimer = 0;
+                            calc.readInput();
+                            calc.saveUrlParams();    
+                        }, 500);
+                    });
+
+                    $(inputElem).on('blur', function() {
+                        calc.clearInputTimer();
                         calc.readInput();
                         calc.saveUrlParams();
                     });
+
+
                 }
             });
         };
