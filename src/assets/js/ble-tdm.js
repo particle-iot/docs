@@ -5,6 +5,8 @@ $(document).ready(function() {
     $('.bleTdmCalculator').each(function() {
         const thisPartial = calc.partial = $(this);
 
+        $(thisPartial).data('calc', calc);
+
         calc.urlParams = new URLSearchParams(window.location.search);
 
 
@@ -145,6 +147,12 @@ $(document).ready(function() {
                 sensorObj.latency2 = 0;
                 sensorObj.latency3 = 0;
                 sensorObj.latencyMore = 0;
+                sensorObj.latencyCount = 0;
+                sensorObj.latencyMeanStr = '';
+                sensorObj.latencyMin = undefined;
+                sensorObj.latencyMax = undefined;
+
+                let latencySum = 0;
 
                 for(let ii = 0; ii < sensorObj.packets.length - 1; ii++) {
                     let thisPacketLatency;
@@ -155,8 +163,18 @@ $(document).ready(function() {
                         }
                     }
                     if (thisPacketLatency) {
+                        const thisPacketLatencyMs = thisPacketLatency * sensorObj.rate;
                         sensorObj.packets[ii].latency = thisPacketLatency;
-                    
+                        latencySum += thisPacketLatencyMs;
+                        sensorObj.latencyCount++;
+
+                        if (sensorObj.latencyMin == undefined || sensorObj.latencyMin > thisPacketLatencyMs) {
+                            sensorObj.latencyMin = thisPacketLatencyMs;
+                        }
+                        if (sensorObj.latencyMax == undefined || sensorObj.latencyMax < thisPacketLatencyMs) {
+                            sensorObj.latencyMax = thisPacketLatencyMs;
+                        }
+                        
                         switch(thisPacketLatency) {
                             case 1:
                                 sensorObj.latency1++;
@@ -176,6 +194,14 @@ $(document).ready(function() {
                         }                    
                     }
                 }
+
+                if (sensorObj.latencyCount > 0) {
+                    sensorObj.latencyMeanStr = Math.round(latencySum / sensorObj.latencyCount) + ' ms';
+                }
+
+                sensorObj.latencyMinStr = (sensorObj.latencyMin != undefined) ? (sensorObj.latencyMin + ' ms') : '';
+                sensorObj.latencyMaxStr = (sensorObj.latencyMax != undefined) ? (sensorObj.latencyMax + ' ms') : '';
+
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
@@ -450,7 +476,7 @@ $(document).ready(function() {
 
         calc.addInputHandlers($(thisPartial).find('.inputParam,.sensorInputParam')); 
 
-        calc.addSensor = function() {
+        calc.addSensor = function(options = {}) {
             const sensorIndex = $(thisPartial).find('.sensorDiv').length;
 
             const sensorElem = calc.sensorDivTemplateElem.cloneNode(true);
@@ -474,8 +500,10 @@ $(document).ready(function() {
     
             $(thisPartial).find('.sensorsDiv').append(sensorElem);
 
-            calc.readInput();
-            calc.saveUrlParams();
+            if (!options.noReadSave) {
+                calc.readInput();
+                calc.saveUrlParams();    
+            }
         }
 
         $(thisPartial).find('.addSensor').on('click', function() {
@@ -484,7 +512,7 @@ $(document).ready(function() {
         });
 
 
-        if (calc.urlParams) {
+        calc.loadUrlParams = function() {
             $(thisPartial).find('.inputParam').each(function() {
                 const inputElem = $(this);
     
@@ -504,6 +532,7 @@ $(document).ready(function() {
             });
 
             calc.inputValues.sensors = [];
+            $(thisPartial).find('.sensorsDiv').not(':first').remove();
 
             for (const [key, value] of calc.urlParams.entries()) {
                 const m = key.match(/([A-Za-z]+)([0-9]+)/);
@@ -526,7 +555,7 @@ $(document).ready(function() {
             // console.log('calc.inputValues.sensors', calc.inputValues.sensors);
 
             for(let ii = $(thisPartial).find('.sensorDiv').length; ii < calc.inputValues.sensors.length; ii++) {
-                calc.addSensor();   
+                calc.addSensor({noReadSave: true});   
             }
 
             let sensorIndex = 0;
@@ -540,6 +569,8 @@ $(document).ready(function() {
                     if (key && calc.inputValues.sensors && calc.inputValues.sensors[sensorIndex]) {
                         $(inputElem).val(calc.inputValues.sensors[sensorIndex][key.key]);
                     }
+                    // console.log('set values', {key, sensorIndex, sensorObj: calc.inputValues.sensors[sensorIndex]});
+
                 });    
 
                 sensorIndex++;
@@ -549,6 +580,16 @@ $(document).ready(function() {
             calc.readInput();
             calc.saveUrlParams();
         }    
+
+        calc.loadParamStr = function(s) {
+            calc.urlParams = new URLSearchParams(window.location.search);
+            calc.loadUrlParams();
+        }
+
+
+        calc.loadUrlParams();
+
+
 
     })
 });

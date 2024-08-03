@@ -18,7 +18,7 @@ There is one use case that requires some tuning, however:
 If you are using a P2, Photon 2, or M-SoM to receive BLE advertisements only (no connection), you may need to adjust
 your scan parameters or advertising parameters to make sure you do not miss an excessive number of transmissions.
 In most cases, if the BLE advertising devices are transmitting frequently, this will not be an issue, but if 
-transmissions from from battery powered beacons that transmit less frequent;y, you may need to make adjustments.
+transmissions from from battery powered beacons that transmit less frequently, you may need to make adjustments.
 
 {{> ble-tdm }}
 
