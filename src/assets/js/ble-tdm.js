@@ -297,6 +297,12 @@ $(document).ready(function() {
                     $(thElem).text('BLE Interval End');
                     $(trElem).append(thElem);    
                 }                    
+                {
+                    // Spacer between left columns and sensors
+                    const thElem = document.createElement('th');
+                    $(thElem).css('width', '5px');
+                    $(trElem).append(thElem);    
+                }                    
 
 
                 for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
@@ -351,6 +357,12 @@ $(document).ready(function() {
                     $(tdElem).text(bleEndStr);
                     $(trElem).append(tdElem);    
                 }                    
+                {
+                    // Spacer between left columns and sensors
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('width', '5px');
+                    $(trElem).append(tdElem);    
+                }                    
 
 
 
@@ -364,7 +376,6 @@ $(document).ready(function() {
                         const tdElem = document.createElement('td');
                         $(tdElem).css('width', '60px');
                         $(tdElem).css('text-align', 'center');
-                        $(tdElem).css('padding-left', '5px');
                         
                         if (packetObj) {
                             if (packetObj.success) {
