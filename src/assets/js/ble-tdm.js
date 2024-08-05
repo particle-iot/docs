@@ -1,13 +1,22 @@
 let calc = {};
 
 $(document).ready(function() {
-    $('.bleTdmExample').each(function() {
-        const buttonElem = calc.partial = $(this);
+    $('.bleTdmCalculatorExample').each(function() {
+        const thisPartial= $(this);
+
+        const buttonElem = $(thisPartial).find(".bleTdmExample");
+        const loadedElem = $(thisPartial).find('.loadedDiv')
 
         const param = $(buttonElem).data('param');
         if (param && param.length > 0) {            
             $(buttonElem).on('click', function() {
+                $(buttonElem).prop('disabled', true);
                 calc.loadParamStr(param);
+                $(loadedElem).show();
+                setTimeout(function() {
+                    $(loadedElem).hide();
+                    $(buttonElem).prop('disabled', false);
+                }, 1000);
             })
         }
     });
@@ -566,19 +575,18 @@ $(document).ready(function() {
 
         calc.addSensor = function(options = {}) {
             const sensorIndex = $(thisPartial).find('.sensorDiv').length;
-
+            
             const sensorElem = calc.sensorDivTemplateElem.cloneNode(true);
-            $(sensorElem).find('h3').text('Sensor ' + (sensorIndex + 1));
+            $(sensorElem).find('h4').text('Sensor ' + (sensorIndex + 1));
             calc.addInputHandlers($(sensorElem).find('.sensorInputParam')); 
 
             $(sensorElem).find('.sensorRemoveDiv > a').on('click', function() {
-                console.log('remove sensor');
                 $(sensorElem).remove();
 
                 // Renumber sensors
                 let tempSensorIndex = 0;
                 $(thisPartial).find('.sensorsDiv').each(function() {
-                    $(this).find('h3').text('Sensor ' + (tempSensorIndex + 1));
+                    $(this).find('h4').text('Sensor ' + (tempSensorIndex + 1));
                     tempSensorIndex++;
                 })
                 calc.readInput();
@@ -672,7 +680,6 @@ $(document).ready(function() {
         }    
 
         calc.loadParamStr = function(s) {
-            console.log('loadParamStr ' + s);
             calc.urlParams = new URLSearchParams(s);
             calc.loadUrlParams();
         }

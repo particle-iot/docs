@@ -20,16 +20,10 @@ your scan parameters or advertising parameters to make sure you do not miss an e
 In most cases, if the BLE advertising devices are transmitting frequently, this will not be an issue, but if 
 transmissions from from battery powered beacons that transmit less frequently, you may need to make adjustments.
 
-- [Scroll down to instructions](#instructions)
 - [Scroll down to examples](#examples)
 
-## Tool
-
-{{> ble-tdm }}
-
-## Instructions
-
-### Global parameters
+{{collapse op="start" label="Show instructions for tool"}}
+#### Global parameters
 
 - **Wi-Fi/BLE TDMA Window Size** This is the period of time devoted to a Wi-Fi and BLE cycle. The default is 18 ms. and you should leave it at the default as this is not a parameter that you can change in the RTL872x.
 
@@ -40,7 +34,7 @@ transmissions from from battery powered beacons that transmit less frequently, y
 - **Test Duration** This is how long the simulation is run. It's not in real-time, but if the number is very large calculation may take a while and the result table will be very large. The success and missed percentages tend to reach a stable average fairly quickly, which is why the default is 900 seconds.
 
 
-### Sensor parameters
+#### Sensor parameters
 
 - **Advertising interval** How often this sensor transmits its data in milliseconds.
 
@@ -48,7 +42,7 @@ transmissions from from battery powered beacons that transmit less frequently, y
 
 - **Offset** Where the transmission occurs relative to the simulation time clock.
 
-### Sensor results
+#### Sensor results
 
 - **Samples in test period** Number of samples that were transmitted during the simulated test run
 
@@ -69,8 +63,11 @@ transmissions from from battery powered beacons that transmit less frequently, y
 - **Minimum latency** Lowest latency. This is typically the advertising interval.
 
 - **Maximum latency** Maximum latency.
+{{collapse op="end"}}
 
-- [Scroll up to tool](#tool)
+## Tool
+
+{{> ble-tdm }}
 
 
 ## Examples
