@@ -4303,6 +4303,12 @@ const schemaDocs = require('./schema-docs');
                     platformNew: 'Muon',
                     noPinNumbers: false,
                     showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }             
         },

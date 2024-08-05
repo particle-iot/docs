@@ -3434,6 +3434,12 @@ const generatorConfig = require('./generator-config');
                     title: 'MCU'
                 });
             }
+            if (options.rightColumns) {
+                for(const obj of options.rightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
+
             let tableData = [];
             for(const pin of pins) {
                 let rowData = Object.assign({}, pin);
@@ -3489,6 +3495,11 @@ const generatorConfig = require('./generator-config');
                 key: 'hardwarePin',
                 title: 'MCU'
             });
+            if (options.rightColumns) {
+                for(const obj of options.rightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
 
             let tableData = [];
             for(const pin of pins) {

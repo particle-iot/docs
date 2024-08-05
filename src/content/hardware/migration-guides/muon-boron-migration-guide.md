@@ -11,7 +11,7 @@ description: Muon from Boron or Argon migration guide
 This is a preliminary guide and is subject to change.
 {{box op="end"}}
 
-{{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/m-series/muon-top.png"}}
+{{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/m-series/muon-rendering-top.png"}}
 
 <p class="attribution">Pictures are not the same scale</p>
 
@@ -22,7 +22,9 @@ This is a preliminary guide and is subject to change.
 
 The Argon and Boron are pin-based modules that can be installed in solderless breadboard for prototyping, can be installed in a socket on your custom board, or soldered directly to your board. The modules are in Adafruit Feather form-factor. There are male header pins on the bottom.
 
-The Muon is a larger development module. There is an expansion connector on the top of the Muon, 40-pin arranged as 2x20 male pins, 0.1" (2.54mm) pitch in both direction. An expansion card can be mounted directly on top pf the Muon ("a hat"), or can be connected to a solderless breadboard using Dupont wires or ribbon cable. The Muon contains a Particle M-SoM mounted in a M.2 NGFF socket, a power supply, and various peripheral chips.
+The Muon is a larger development module and contains a Particle M-SoM mounted in a M.2 NGFF socket, a power supply, and various peripheral chips.
+
+There is an expansion connector on the top of the Muon, 40 pins (2x20), 0.1" (2.54mm) pitch. An expansion card can be mounted directly on top pf the Muon ("a hat"), or can be connected to a solderless breadboard using Dupont wires or ribbon cable. 
 
 The expansion connector is mostly compatible with the Raspberry Pi expansion connector and some Pi hats can be used on the Muon for expansion.
 
@@ -31,7 +33,7 @@ The expansion connector is mostly compatible with the Raspberry Pi expansion con
 | Argon/Boron | 0.9" x 2.0" | 22.86mm x 50.8mm |
 | Muon | 2.2" x 3.35" | 56mm x 85mm |
 
-You can use the Muon as a development module, or use it as a base for your you own product. The 96-pin socket mates with standard 0.1" male header pins, making it easy to build your own expansion card.
+You can use the Muon as a development module, or use it as a base for your you own product. 
 
 {{imageOverlay src="/assets/images/m-series/muon-dims.png" alt="Dimensions" class="full-width"}}
 
@@ -60,7 +62,7 @@ You can use the Muon as a development module, or use it as a base for your you o
 
 ## Certification
 
-When migrating to a new device, recertification is typically required. If you are using the standard Particle antennas 
+When migrating to a new device, re-certification is typically required. If you are using the standard Particle antennas 
 you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
 in some cases intentional radiator testing could be required.
 
@@ -116,6 +118,11 @@ The Argon uses a Torex XC6208A42 LiPo charge controller.
 
 The Muon uses the same PMIC and fuel gauge chips as the Boron.
 
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+
+<p class="attribution">Facing the plug on the battery side</p>
+
+
 ### EN pin
 
 The Argon and Boron have EN pin which can shut down the Torex XC9258 3.3V regulator to power down the 3.3V supply to the Argon nRF52840 MCU and the ESP32 Wi-Fi coprocessor. A similar feature exists on the Boron, using a load switch to control the 3.3V power supply and the 3.7V cellular modem power supply.
@@ -124,8 +131,10 @@ This feature does not exist on the Muon.
 
 ### Land pattern
 
-*To be provided at a later date*
+The Muon is not intended to be placed on a carrier board, so doesn't have a land pattern, per se.
 
+The expansion connector dimensions can be found in the Muon datasheet, but the expansion connector is on the top of the Muon
+and intended to be used with a small expansion card on top ("hat") not with a bottom-mounted carrier, like the Argon or Boron.
 
 ### GPIO
 
@@ -348,12 +357,12 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 {{!-- BEGIN do not edit content below, it is automatically generated c9e7a163-b53c-4c4f-81ff-f84ec7344a0c --}}
 
-| Pin | Pin Name | Description | M2 Pin | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 13 | A5 / D14 | SWCLK. 40K pull-down at boot. | 43 | PB[3] |
-| 15 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | 55 | PA[27] |
-| 16 | D24 | Low at boot triggers ISP flash download | 58 | PA[7] |
-| 18 | D25 | Goes high at boot | 60 | PA[8] |
+| Pin | Pin Name | Description | M2 Pin | MCU | Raspberry Pi |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| 13 | A5 / D14 | SWCLK. 40K pull-down at boot. | 43 | PB[3] | GPIO27 |
+| 15 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | 55 | PA[27] | GPIO22 |
+| 16 | D24 | Low at boot triggers ISP flash download | 58 | PA[7] | GPIO23 |
+| 18 | D25 | Goes high at boot | 60 | PA[8] | GPIO24 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

@@ -697,12 +697,12 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 {{!-- BEGIN do not edit content below, it is automatically generated c9e7a163-b53c-4c4f-81ff-f84ec7344a0c --}}
 
-| Pin | Pin Name | Description | M2 Pin | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 13 | A5 / D14 | SWCLK. 40K pull-down at boot. | 43 | PB[3] |
-| 15 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | 55 | PA[27] |
-| 16 | D24 | Low at boot triggers ISP flash download | 58 | PA[7] |
-| 18 | D25 | Goes high at boot | 60 | PA[8] |
+| Pin | Pin Name | Description | M2 Pin | MCU | Raspberry Pi |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| 13 | A5 / D14 | SWCLK. 40K pull-down at boot. | 43 | PB[3] | GPIO27 |
+| 15 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | 55 | PA[27] | GPIO22 |
+| 16 | D24 | Low at boot triggers ISP flash download | 58 | PA[7] | GPIO23 |
+| 18 | D25 | Goes high at boot | 60 | PA[8] | GPIO24 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -838,6 +838,8 @@ Of note:
 - Pi pin 3 (GPIO2, SDA) and pin 5 (GPIO3, SCL) can only be used for I2C and not GPIO, as the I2C port is shared with the Muon.
 - Pi pin 19 (GPIO10, MOSI), pin 21 (GPIO9, MISO), and pin 23 (GPIO11, SCLK) can only be used for SPI and not GPIO, as the SPI port is shared with the Muon
 - Pi pin 7 (GPIO4) and pin 37 (GPIO26) are connected to the I/O expander, not directly to the MCU, so there may be limitations.
+- See also [boot mode pins](#boot-mode-pins), above, for other pins with special functions to be aware of.
+
 
 
 
