@@ -382,49 +382,49 @@ Future modules with a different MCU may have different pin functions. An effort 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 50c2d429-c8a8-4dd1-9afa-5ceab1fdb714 --}}
 
-| Pin Name | Module Pin |   |   |   |   | MCU |
-| :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | 23 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.03 |
-| A1 / D18 | 33 | ADC2 | &nbsp; | &nbsp; | &nbsp; | P0.04 |
-| A2 / D17 | 35 | ADC4 | &nbsp; | &nbsp; | &nbsp; | P0.28 |
-| A3 / D16 | 37 | ADC5 | &nbsp; | &nbsp; | &nbsp; | P0.29 |
-| A4 / D15 | 41 | ADC6 | &nbsp; | &nbsp; | &nbsp; | P0.30 |
-| A5 / D14 | 43 | ADC7 | &nbsp; | &nbsp; | &nbsp; | P0.31 |
-| A6 | 45 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.05 |
-| A7 | 47 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.02 |
-| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | P0.26 |
-| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | P0.27 |
-| D2 | 42 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | P1.02 |
-| D3 | 40 | &nbsp; | Wire1 (SCL) | SPI1 (MOSI) | Serial1 CTS | P1.01 |
-| D4 | 66 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | P1.08 |
-| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.10 |
-| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.11 |
-| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.12 |
-| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | P1.03 |
-| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.24 |
-| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.09 |
-| MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | P1.14 |
-| MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | P1.13 |
-| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| NC | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| NFC1 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.09 |
-| NFC2 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.10 |
-| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.15 |
-| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.14 |
-| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.13 |
-| RX / D10 | 38 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | P0.08 |
-| SCK / D13 | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | P1.15 |
-| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| TX / D9 | 36 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | P0.06 |
-| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| VUSB | 16 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Pin Name | Module Pin |   |   |   |   | PWM | MCU |
+| :--- | :---: | :--- | :--- | :--- | :--- | :---: | :--- |
+| A0 / D19 | 23 | ADC1 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.03 |
+| A1 / D18 | 33 | ADC2 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.04 |
+| A2 / D17 | 35 | ADC4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.28 |
+| A3 / D16 | 37 | ADC5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.29 |
+| A4 / D15 | 41 | ADC6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.30 |
+| A5 / D14 | 43 | ADC7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.31 |
+| A6 | 45 | ADC3 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.05 |
+| A7 | 47 | ADC0 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.02 |
+| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | &nbsp; | P0.26 |
+| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | &nbsp; | P0.27 |
+| D2 | 42 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | &nbsp; | P1.02 |
+| D3 | 40 | &nbsp; | Wire1 (SCL) | SPI1 (MOSI) | Serial1 CTS | &nbsp; | P1.01 |
+| D4 | 66 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | &check; | P1.08 |
+| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 |
+| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.11 |
+| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.12 |
+| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | &nbsp; | P1.03 |
+| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.24 |
+| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.09 |
+| MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | &nbsp; | P1.14 |
+| MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | &nbsp; | P1.13 |
+| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| NC | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| NFC1 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.09 |
+| NFC2 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.10 |
+| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.15 |
+| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.14 |
+| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.13 |
+| RX / D10 | 38 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | &nbsp; | P0.08 |
+| SCK / D13 | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; | P1.15 |
+| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| TX / D9 | 36 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 |
+| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| VUSB | 16 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

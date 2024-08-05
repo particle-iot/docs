@@ -77,7 +77,7 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 
 | Label | Feature |
 | :---: | :--- |
-|  1 | M SoM |
+|  1 | M-SoM |
 |  2 | Expansion connector |
 |  3 | USB-C |
 |  4 | USB Power LED ("PD") |

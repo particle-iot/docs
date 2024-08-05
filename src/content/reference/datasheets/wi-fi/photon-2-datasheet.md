@@ -215,28 +215,28 @@ The DCT area of flash memory has been mapped to a separate DFU media device so t
 
 {{!-- BEGIN do not edit content below, it is automatically generated ed19d7a3-f59d-4eec-85ba-2f67859e87b2 --}}
 
-| Pin Name |   |   |   |   | MCU |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D11 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
-| A1 / D12 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| A2 / D13 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
-| A5 / D14 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
-| D0 / A3 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | PB[6] |
-| D1 / A4 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | PB[5] |
-| D2 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
-| D3 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
-| D4 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (TX) | PA[18] |
-| D5 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | PA[19] |
-| D6 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| D7 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| D10 / WKP | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | PA[15] |
-| MISO / D16 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (RX) | PA[13] |
-| MOSI / D15 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (TX) | PA[12] |
-| RX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |
-| S3 / D18 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PB[26] |
-| S4 / D19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
-| SCK / D17 | &nbsp; | &nbsp; | SPI (SCK) | Serial3 (RTS) | PA[14] |
-| TX / D8 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | PA[7] |
+| Pin Name |   |   |   |   | PWM | MCU |
+| :--- | :--- | :--- | :--- | :--- | :---: | :--- |
+| A0 / D11 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A1 / D12 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A2 / D13 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[7] |
+| A5 / D14 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[4] |
+| D0 / A3 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | &nbsp; | PB[6] |
+| D1 / A4 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | &check; | PB[5] |
+| D2 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (RTS) | &nbsp; | PA[16] |
+| D3 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (CTS) | &nbsp; | PA[17] |
+| D4 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (TX) | &nbsp; | PA[18] |
+| D5 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | &nbsp; | PA[19] |
+| D6 | &nbsp; | SWCLK | &nbsp; | &nbsp; | &nbsp; | PB[3] |
+| D7 | &nbsp; | SWDIO | &nbsp; | &nbsp; | &nbsp; | PA[27] |
+| D10 / WKP | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | &nbsp; | PA[15] |
+| MISO / D16 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (RX) | &check; | PA[13] |
+| MOSI / D15 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (TX) | &check; | PA[12] |
+| RX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | &nbsp; | PA[8] |
+| S3 / D18 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | &nbsp; | PB[26] |
+| S4 / D19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| SCK / D17 | &nbsp; | &nbsp; | SPI (SCK) | Serial3 (RTS) | &nbsp; | PA[14] |
+| TX / D8 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | &nbsp; | PA[7] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

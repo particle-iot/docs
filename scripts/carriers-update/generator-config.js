@@ -4101,9 +4101,54 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'pinFunction',
                     platformNew: 'Muon',
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     pinFilterFn: p => typeof p.hardwarePin == 'undefined',
-                    includeDesc: false, // Maybe turn on, but it's a little wide
+                    includeDesc: false, 
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                    functionCols: [["hardwareADC", "i2s"], ["i2c","swd"], ["spi"], ["serial"]],
+                }); 
+            } 
+        },        
+        {
+            guid: '5e824205-fd34-4c55-b256-be28273fdaf2',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Muon',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                    functionCols: [["hardwareADC", "i2s"], ["i2c","swd"], ["spi"], ["serial"]],
+                }); 
+            } 
+        },        
+        {
+            guid: '07ff48d2-f1ec-418c-be98-5f5e0d808dc0',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Muon',
+                    noPinNumbers: false,
+                    sortByNum: 'rpiGPIO',
+                    includeDesc: false,
+                    leftColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                    functionCols: [["hardwareADC", "i2s"], ["i2c","swd"], ["spi"], ["serial"]],
                 }); 
             } 
         },        
@@ -4117,7 +4162,13 @@ const schemaDocs = require('./schema-docs');
                     label: 'GPIO',
                     newMCU: 'MCU',
                     showBootMode: true,
-                    noPinNumbers: true,
+                    noPinNumbers: false,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             } 
         },
@@ -4128,8 +4179,14 @@ const schemaDocs = require('./schema-docs');
                     style: 'interfacePins',
                     platformNew: 'Muon',
                     interface: 'hardwareADC',
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             } 
         },
@@ -4140,8 +4197,14 @@ const schemaDocs = require('./schema-docs');
                     style: 'interfacePins',
                     platformNew: 'Muon',
                     interface: 'serial',
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }                     
         },
@@ -4152,8 +4215,14 @@ const schemaDocs = require('./schema-docs');
                     style: 'interfacePins',
                     platformNew: 'Muon',
                     interface: 'spi',
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }                     
         },
@@ -4164,8 +4233,14 @@ const schemaDocs = require('./schema-docs');
                     style: 'interfacePins',
                     platformNew: 'Muon',
                     interface: 'i2c',
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }                     
         },
@@ -4178,32 +4253,44 @@ const schemaDocs = require('./schema-docs');
                     interface: 'analogWritePWM',
                     noInterface: true,
                     showHardwareTimer: false, // temporary until assigned
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             } 
         },
-        {
-            guid:'066637c0-a644-495e-982d-2698326b39f4',
+        {        
+            guid:'1fbd4565-425c-4e5f-9136-130f4558d675',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
                     platformNew: 'Muon',
-                    interface: 'isLED',
+                    interface: 'i2s',
                     noInterface: true,
-                    noPinNumbers: true,
+                    showHardwareTimer: false, // temporary until assigned
+                    noPinNumbers: false,
                     showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             } 
-        },
-        {
+        }, {
             guid:'2629e77b-eb69-4f63-8f0e-011032c72782',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
                     platformNew: 'Muon',
                     interface: 'hibernate',
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     showM2Pin: true,
                 }); 
             }                     
@@ -4214,7 +4301,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'bootPins',
                     platformNew: 'Muon',
-                    noPinNumbers: true,
+                    noPinNumbers: false,
                     showM2Pin: true,
                 }); 
             }             
@@ -4224,12 +4311,144 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-details',
-                    showPinNum: false,
-                    platformNew: 'Muon'
+                    noPinNumbers: false,
+                    platformNew: 'Muon',
+                    moreComparisonTags: [
+                        'rpi'
+                    ],
                 }); 
             } 
         },  
+        // Muon expansion cards
+        {
+            guid:'e09ec63f-a037-4dac-b8ca-8038186e5515',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'rpiSPI',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'8b0e89b2-549c-47a2-bb14-bfb86825687b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'rpiI2C',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'eefd3c21-afb4-4412-b457-accaf0fa2413',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'rpiSerial',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'a5166ee1-a72a-401d-ae99-6e1ebf2a7082',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'rpiPWM',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'258144bf-ccd6-430f-be0d-9a0867b8b015',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'rpiPCM',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid: '547410e9-fa4c-4166-9b92-4d365b9a8471',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'piPins',
+                    platformNew: 'Muon',
+                    noPinNumbers: false,
+                    showM2Pin: false,
+                    showHardwarePin: false,
+                    showPorts: true,
+                });
+            },
+        },
+        
         // Muon <- Argon/Boron Migration Guide
+        {
+            guid:'18b9d26a-9a58-48ee-98e5-c375ee7f15a5', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'digitalWrite',
+                    label: 'GPIO',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }
+        },  
         {
             guid:'7569c844-d0ac-4468-b317-3c9c6d9b7198', 
             generatorFn:function(updater){
@@ -4240,11 +4459,17 @@ const schemaDocs = require('./schema-docs');
                     port: 'analogRead',
                     label: 'ADC',
                     noPinNumbers: true,
-                    newPinNumber: false,
+                    newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
                     platformNewTitle: 'Muon',
                     newHardwarePin: true,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }
         },        
@@ -4259,11 +4484,17 @@ const schemaDocs = require('./schema-docs');
                     label: 'Serial',
                     useShortName: true,
                     noPinNumbers: true,
-                    newPinNumber: false,
+                    newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
                     platformNewTitle: 'Muon',
                     newHardwarePin: true,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }
         },        
@@ -4278,11 +4509,17 @@ const schemaDocs = require('./schema-docs');
                     label: 'SPI',
                     useShortName: true,
                     noPinNumbers: true,
-                    newPinNumber: false,
+                    newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
                     platformNewTitle: 'Muon',
                     newHardwarePin: true,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }
         },      
@@ -4297,11 +4534,17 @@ const schemaDocs = require('./schema-docs');
                     label: 'I2C',
                     useShortName: true,
                     noPinNumbers: true,
-                    newPinNumber: false,
+                    newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
                     platformNewTitle: 'Muon',
                     newHardwarePin: true,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }
         },      
@@ -4315,11 +4558,17 @@ const schemaDocs = require('./schema-docs');
                     port: 'analogWritePWM',
                     label: 'PWM',
                     noPinNumbers: true,
-                    newPinNumber: false,
+                    newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
                     platformNewTitle: 'Muon',
                     newHardwarePin: true,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
                 }); 
             }
         },  
@@ -4331,21 +4580,12 @@ const schemaDocs = require('./schema-docs');
                     platformNew: 'Muon',
                     platformOld: 'Boron',
                     noPinNumbers: true,
-                    newPinNumber: false,
+                    newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
                     platformNewTitle: 'Muon',
                 }); 
             } 
-        },
-        {
-            guid:'b2602ec5-53ed-49e2-9c61-15545edcf63e', 
-            generatorFn:function(updater){
-                return updater.generatePinInfo({
-                    style: 'expansion-muon-monitor-one',
-                    platformNew: 'Muon'
-                });
-            }
         },
         {
             // Country compatibility - M404

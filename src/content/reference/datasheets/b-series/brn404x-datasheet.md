@@ -425,28 +425,28 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 
 {{!-- BEGIN do not edit content below, it is automatically generated ac335968-6a40-4e3a-9493-46510917cf20 --}}
 
-| Pin Name |   |   |   |   | MCU |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.03 |
-| A1 / D18 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.04 |
-| A2 / D17 | ADC2 | &nbsp; | &nbsp; | &nbsp; | P0.28 |
-| A3 / D16 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.29 |
-| A4 / D15 | ADC4 | &nbsp; | &nbsp; | &nbsp; | P0.30 |
-| A5 / D14 | ADC5 | &nbsp; | SPI (SS) | &nbsp; | P0.31 |
-| D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | P0.26 |
-| D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | P0.27 |
-| D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 RTS | P1.01 |
-| D3 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 CTS | P1.02 |
-| D4 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | P1.08 |
-| D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.10 |
-| D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.11 |
-| D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.12 |
-| D8 / WKP | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.03 |
-| MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | P1.14 |
-| MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | P1.13 |
-| RX / D10 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | P0.08 |
-| SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | P1.15 |
-| TX / D09 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | P0.06 |
+| Pin Name |   |   |   |   | PWM | MCU |
+| :--- | :--- | :--- | :--- | :--- | :---: | :--- |
+| A0 / D19 | ADC0 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.03 |
+| A1 / D18 | ADC1 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.04 |
+| A2 / D17 | ADC2 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.28 |
+| A3 / D16 | ADC3 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.29 |
+| A4 / D15 | ADC4 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.30 |
+| A5 / D14 | ADC5 | &nbsp; | SPI (SS) | &nbsp; | &check; | P0.31 |
+| D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | &nbsp; | P0.26 |
+| D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | &nbsp; | P0.27 |
+| D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 RTS | &check; | P1.01 |
+| D3 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 CTS | &check; | P1.02 |
+| D4 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | &check; | P1.08 |
+| D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 |
+| D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.11 |
+| D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.12 |
+| D8 / WKP | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.03 |
+| MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | &nbsp; | P1.14 |
+| MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | &nbsp; | P1.13 |
+| RX / D10 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | &nbsp; | P0.08 |
+| SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; | P1.15 |
+| TX / D09 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
