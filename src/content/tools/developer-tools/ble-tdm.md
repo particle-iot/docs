@@ -79,14 +79,14 @@ are spaced out and do not significantly affect the mean latency. Note in the wil
 are often missed because of RF interference from other devices and sensors, or even people walking
 between the beacon and the receiver.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=60&i0=750&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=100&b=50&o=0&d=60&i0=750&l0=0.125&o0=0"}}
 
 ### 30-second advertising
 
 With a sensor advertising less frequently (30 seconds), the missed samples do affect the latency
 because the 
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=100&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0"}}
 
 - [Scroll up to see results](#tool)
 
@@ -96,7 +96,7 @@ This example compares 30-second advertising and 15-second advertising. With an a
 of 15 seconds the mean latency of 20 seconds is less than it would be for 100% success at 30 second interval.
 Also, the maximum latency is 30 seconds.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0&i1=15000&l1=0.125&o1=0"}}
+{{> ble-tdm-example param="?ws=100&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0&i1=15000&l1=0.125&o1=0"}}
 
 - [Scroll up to see results](#tool)
 
@@ -104,15 +104,15 @@ Also, the maximum latency is 30 seconds.
 
 Beware of making settings that appear to eliminate the missed packets entirely.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&i0=18000&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=100&b=50&o=0&d=300&i0=18000&l0=0.125&o0=0"}}
 
 Since the transmitted and receiver are not synchronized you can just as easily end up in entirely in the Wi-Fi range.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&i0=18000&l0=0.125&o0=12"}}
+{{> ble-tdm-example param="?ws=100&b=50&o=0&d=300&i0=18000&l0=0.125&o0=12"}}
 
 Also likely is that the clocks aren't exactly the same, causing poor performance when they drift to certain offsets
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=18000.5&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=100&b=50&o=0&d=900&i0=18000.5&l0=0.125&o0=0"}}
 
 All of these situations can be eliminated by not picking an advertising interval a multiple of 18 milliseconds.
 
