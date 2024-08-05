@@ -46,23 +46,7 @@ $(document).ready(function() {
         calc.numDecimalPlaces = 0;
         
 
-        calc.parseKey = function(key) {
-            if (typeof key != 'string') {
-                return null;
-            }
 
-            let result = {};
-
-            const parts = key.split(',');
-            if (parts.length == 1) {
-                result.key = result.urlParam = parts[0].trim();
-            }
-            else {
-                result.key = parts[0].trim();
-                result.urlParam = parts[1].trim();                
-            }
-            return result;
-        }
 
         calc.padNumber = function(n, places) {
             let s = ((typeof n == 'number') ? n.toString() : n);
@@ -122,14 +106,14 @@ $(document).ready(function() {
         calc.getIntervals = function(ms) {
             let result = {};
 
-            result.windowStartBle = calc.inputValues.tdmaOffset;
-            result.windowStartWiFi = result.windowStartBle + (calc.inputValues.windowSize * calc.inputValues.blePct / 100);
-            result.windowEnd = result.windowStartBle + calc.inputValues.windowSize;
+            result.windowStartBle = calc.inputValues.o;
+            result.windowStartWiFi = result.windowStartBle + (calc.inputValues.ws * calc.inputValues.b / 100);
+            result.windowEnd = result.windowStartBle + calc.inputValues.ws;
 
-            const numWindowsBefore = Math.floor((ms - result.windowStartBle) / calc.inputValues.windowSize);
-            result.windowStartBle += numWindowsBefore * calc.inputValues.windowSize;
-            result.windowStartWiFi += numWindowsBefore * calc.inputValues.windowSize;
-            result.windowEnd += numWindowsBefore * calc.inputValues.windowSize;
+            const numWindowsBefore = Math.floor((ms - result.windowStartBle) / calc.inputValues.ws);
+            result.windowStartBle += numWindowsBefore * calc.inputValues.ws;
+            result.windowStartWiFi += numWindowsBefore * calc.inputValues.ws;
+            result.windowEnd += numWindowsBefore * calc.inputValues.ws;
 
             result.windowEndBle = result.windowStartWiFi;
             result.windowEndWiFi = result.windowEnd;
@@ -152,14 +136,14 @@ $(document).ready(function() {
             calc.setStatus('');
             $(thisPartial).find('.bleTdmTimeline').show();
             
-            const testDurationMs = calc.inputValues.duration * 1000;
+            const testDurationMs = calc.inputValues.d * 1000;
 
             calc.packetTimes = [];
             
             for(const sensorObj of calc.inputValues.sensors) {
                 sensorObj.packets = [];
 
-                ms = sensorObj.offset;
+                ms = sensorObj.o;
                 sensorObj.successCount = 0;
 
                 while(ms < testDurationMs) {
@@ -167,7 +151,7 @@ $(document).ready(function() {
 
                     let packet = {
                         startMs: ms,
-                        endMs: ms + sensorObj.length,                        
+                        endMs: ms + sensorObj.l,                        
                         windowStartBle: intervals.windowStartBle,
                         windowEndBle: intervals.windowEndBle,
                     };
@@ -183,7 +167,7 @@ $(document).ready(function() {
                         calc.packetTimes.push(ms);
                     }
 
-                    ms += sensorObj.interval;
+                    ms += sensorObj.i;
                 }
 
                 sensorObj.numSamples = sensorObj.packets.length;
@@ -218,7 +202,7 @@ $(document).ready(function() {
                         }
                     }
                     if (thisPacketLatency) {
-                        const thisPacketLatencyMs = thisPacketLatency * sensorObj.interval;
+                        const thisPacketLatencyMs = thisPacketLatency * sensorObj.i;
                         sensorObj.packets[ii].latency = thisPacketLatency;
                         latencySum += thisPacketLatencyMs;
                         sensorObj.latencyCount++;
@@ -270,9 +254,9 @@ $(document).ready(function() {
                 sensorObj.latency3Pct = Math.round(sensorObj.latency3 * 100 / total);
                 sensorObj.latencyMorePct = Math.round(sensorObj.latencyMore * 100 / total);
 
-                sensorObj.latency1Time = calc.msToText(sensorObj.interval);
-                sensorObj.latency2Time = calc.msToText(sensorObj.interval * 2);
-                sensorObj.latency3Time = calc.msToText(sensorObj.interval * 3);
+                sensorObj.latency1Time = calc.msToText(sensorObj.i);
+                sensorObj.latency2Time = calc.msToText(sensorObj.i * 2);
+                sensorObj.latency3Time = calc.msToText(sensorObj.i * 3);
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
@@ -425,13 +409,17 @@ $(document).ready(function() {
 
                 // TODO: Handle radio buttons, etc.
                 const inputType = $(inputElem).prop('type');
-
-                const key = calc.parseKey($(inputElem).data('key'));
-                if (key) {
-                    calc.inputValues[key.key] = parseFloat($(inputElem).val());
-
-                    calc.inputUrlParams[key.urlParam] = calc.inputValues[key.key];
+                
+                switch(inputType) {                
+                default:
+                    const key = $(inputElem).data('key');
+                    if (key) {
+                        calc.inputValues[key] = parseFloat($(inputElem).val());
+    
+                        calc.inputUrlParams[key] = calc.inputValues[key];
+                    }                    
                 }
+
             });
 
             calc.inputValues.sensors = [];
@@ -450,13 +438,16 @@ $(document).ready(function() {
     
                     // TODO: Handle radio buttons, etc.
                     const inputType = $(inputElem).prop('type');
-    
-                    const key = calc.parseKey($(inputElem).data('key'));
-                    if (key) {
-                        sensorObj[key.key] = parseFloat($(inputElem).val());
-    
-                        calc.inputUrlParams[key.urlParam + sensorIndex] = sensorObj[key.key];
+                    switch(inputType) {
+                    default:
+                        const key = $(inputElem).data('key');
+                        if (key) {
+                            sensorObj[key] = parseFloat($(inputElem).val());
+        
+                            calc.inputUrlParams[key + sensorIndex] = sensorObj[key];
+                        }
                     }
+    
     
                 });
 
@@ -466,22 +457,22 @@ $(document).ready(function() {
             calc.isValid = true;
             calc.inputError = null;
 
-            if (calc.inputValues.duration < 6) {
+            if (calc.inputValues.d < 6) {
                 calc.isValid = false;
                 calc.inputError = 'duration must be >= 6 seconds';
             }
-            if (calc.inputValues.duration > 3600) {
+            if (calc.inputValues.d > 3600) {
                 calc.isValid = false;
                 calc.inputError = 'duration must be < 3600 seconds';
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
-                if (sensorObj.interval < 50) {
+                if (sensorObj.i < 50) {
                     calc.isValid = false;
                     calc.inputError = 'sensor interval must be >= 50';
                 }
 
-                if (sensorObj.length < 0.1) {
+                if (sensorObj.l < 0.1) {
                     calc.isValid = false;
                     calc.inputError = 'sensor length must be >= 0.1';
                 }            
@@ -520,7 +511,7 @@ $(document).ready(function() {
             $(inputElems).each(function() {
                 const inputElem = $(this);
 
-                const key = calc.parseKey($(inputElem).data('key'));
+                const key = $(inputElem).data('key');
                 if (key) {
                     // TODO: Handle radio buttons, etc.
                     const inputType = $(inputElem).prop('type');
@@ -565,7 +556,7 @@ $(document).ready(function() {
 
             let obj = {};
             obj.inputType = $(inputElem).prop('type');
-            obj.key = calc.parseKey($(inputElem).data('key'));
+            obj.key = $(inputElem).data('key');
             if (obj.key) {
                 calc.sensorKeys.push(obj);
             }
@@ -612,18 +603,22 @@ $(document).ready(function() {
             $(thisPartial).find('.inputParam').each(function() {
                 const inputElem = $(this);
     
-                const key = calc.parseKey($(inputElem).data('key'));
+                const key = $(inputElem).data('key');
                 if (key) {
                     // TODO: Handle radio buttons, etc.
                     const inputType = $(inputElem).prop('type');
+                    switch(inputType) {
+                    default:
+                        const value = calc.urlParams.get(key);
+                        if (value) {
+                            calc.inputUrlParams[key] = value;
+    
+                            calc.inputValues[key] = calc.inputUrlParams[key];
+                            $(inputElem).val(calc.inputValues[key]);
+                        }        
+                        break;
+                    }
 
-                    const value = calc.urlParams.get(key.urlParam);
-                    if (value) {
-                        calc.inputUrlParams[key.urlParam] = value;
-
-                        calc.inputValues[key.key] = calc.inputUrlParams[key.urlParam];
-                        $(inputElem).val(calc.inputValues[key.key]);
-                    }    
                 }
             });
 
@@ -636,15 +631,13 @@ $(document).ready(function() {
                     const urlParamKey = m[1];
                     const sensorIndex = parseInt(m[2]);
 
-                    const sensorKeyEntry = calc.sensorKeys.find(e => e.key.urlParam == urlParamKey);
+                    const sensorKeyEntry = calc.sensorKeys.find(e => e.key == urlParamKey);
                     if (sensorKeyEntry) {
                         // console.log('read urlParams', {sensorKeys: calc.sensorKeys, sensorKeyEntry, urlParamKey, sensorIndex});
-                        const valueKey = sensorKeyEntry.key.key;
-
                         if (typeof calc.inputValues.sensors[sensorIndex] == 'undefined') {
                             calc.inputValues.sensors[sensorIndex] = {};
                         }                    
-                        calc.inputValues.sensors[sensorIndex][valueKey] = value;
+                        calc.inputValues.sensors[sensorIndex][sensorKeyEntry.key] = value;
                     }
                 }
 
@@ -663,9 +656,9 @@ $(document).ready(function() {
                 $(sensorDivElem).find('.sensorInputParam').each(function() {
                     const inputElem = $(this);
         
-                    const key = calc.parseKey($(inputElem).data('key'));
+                    const key = $(inputElem).data('key');
                     if (key && calc.inputValues.sensors && calc.inputValues.sensors[sensorIndex]) {
-                        $(inputElem).val(calc.inputValues.sensors[sensorIndex][key.key]);
+                        $(inputElem).val(calc.inputValues.sensors[sensorIndex][key]);
                     }
                     // console.log('set values', {key, sensorIndex, sensorObj: calc.inputValues.sensors[sensorIndex]});
 

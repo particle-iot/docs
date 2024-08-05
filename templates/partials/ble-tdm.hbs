@@ -6,23 +6,23 @@
                     <tbody>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Wi-Fi + BLE TDMA Window Size</td>
-                            <td><input type="text" size="10" value="100" class="inputParam" data-key="windowSize,ws" /></td>
-                            <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 100)</td>
+                            <td><input type="text" size="10" value="100" class="inputParam" data-key="ws" />
+                                ms (milliseconds) (default: 100)</td>
                         </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">BLE window percentage</td>
-                            <td><input type="text" size="10" value="50" class="inputParam" data-key="blePct,b" /></td>
-                            <td class="apiHelperProductSelectorLabel">% (default: 50)</td>
+                            <td><input type="text" size="10" value="50" class="inputParam" data-key="b" />
+                                % (default: 50)</td>
                         </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">TDMA window offset</td>
-                            <td><input type="text" size="10" value="0" class="inputParam" data-key="tdmaOffset,o" /></td>
-                            <td class="apiHelperProductSelectorLabel">ms (milliseconds)</td>
+                            <td><input type="text" size="10" value="0" class="inputParam" data-key="o" />
+                                ms (milliseconds)</td>
                         </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Test Duration</td>
-                            <td><input type="text" size="10" value="900" class="inputParam" data-key="duration,d" /></td>
-                            <td class="apiHelperProductSelectorLabel">seconds (default: 900)</td>
+                            <td><input type="text" size="10" value="900" class="inputParam" data-key="d" />
+                                seconds (default: 900)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -35,22 +35,32 @@
                             <table class="apiHelperTableNoMargin">
                                 <tbody>
                                     <tr>
-                                        <td class="apiHelperProductSelectorLabel">Advertising interval</td>
-                                        <td><input type="text" size="10" value="10000" class="sensorInputParam" data-key="interval,i" /></td>
-                                        <td class="apiHelperProductSelectorLabel">ms (milliseconds)</td>
+                                        <td class="apiHelperProductSelectorLabel">
+                                            <label><input type="radio" value="f" name="it" class="sensorInputParam" checked/>Fixed advertising interval</label></td>
+                                        <td><input type="text" size="10" value="10000" class="sensorInputParam" data-key="i" />
+                                            ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="apiHelperProductSelectorLabel">
+                                            <label><input type="radio" value="r" name="it" class="sensorInputParam"/>Random advertising interval</label></td>
+                                        <td>
+                                            Min: <input type="text" size="10" value="9000" class="sensorInputParam" data-key="rmin" /> 
+                                            Max: <input type="text" size="10" value="11000" class="sensorInputParam" data-key="rmax" />
+                                            ms
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="apiHelperProductSelectorLabel">Packet length</td>
-                                        <td><input type="text" size="10" value="0.125" class="sensorInputParam" data-key="length,l" /></td>
-                                        <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 0.125)</td>
+                                        <td><input type="text" size="10" value="0.125" class="sensorInputParam" data-key="l" />
+                                            ms</td>
                                     </tr>
                                     <tr>
                                         <td class="apiHelperProductSelectorLabel">Offset</td>
-                                        <td><input type="text" size="10" value="0" class="sensorInputParam" data-key="offset,o" /></td>
-                                        <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 0)</td>
+                                        <td><input type="text" size="10" value="0" class="sensorInputParam" data-key="o" />
+                                            ms (default: 0)</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="2">
                                             <div class="sensorTools" style="display:flex;">
                                                 <div class="sensorRemoveDiv" style="display:none;"><a class="apiHelperLink">Delete this sensor</a></div>
                                             </div>
