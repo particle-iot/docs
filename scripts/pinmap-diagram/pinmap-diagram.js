@@ -390,12 +390,13 @@ const svg = require('./svg');
             num: '#E6AB00', // (old: gold color)
             p2pin: '#E6AB00', // (old: gold)
             p2Pin: '#E6AB00', // (old: gold)
+            rpi: '#CD2355', // Raspberry Pi color 
             serial: '#AFE4EE', // Sky_600 (old: periwinkle)
             spi: '#36CE7E', // Mint_800 (old: light gray)
             swd: '#858A9B', // Gray_400 (old: blueish-gray same as jtag)
             somPin: '#FF9F61', // Tangerine_400 (old: peach)
         },
-        featureTextWhite: ['isPower', 'isGnd', 'analogWritePWM'],
+        featureTextWhite: ['isPower', 'isGnd', 'analogWritePWM', 'rpi'],
     };
 
 
@@ -1812,167 +1813,32 @@ const svg = require('./svg');
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Muon',
-            // 104 818 
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/muon-expansion-blank.svg'),
             outputPath: generateOptions.outputPath,
-            // scale to make height 500px
-            deviceImageTransform: 'translate(285,0) scale(2.6)',
-            width: 1100,
-            height: 800,
+            width: 1000,
+            height: 500,
             background: 'white',
             pins: [
-                {   // Left side (outside, shared with Monitor One)
+                {   // Left side
                     num: 1,
-                    x: 290,
-                    y: 202,
-                    numDelta: 1,
+                    x: 498,
+                    y: 50,
+                    numDelta: 2,
                     xDelta: 0,
                     yDelta: 21,
-                    count: 24,
+                    count: 20,
                     xDir: -1,
                     yDir: 0,
                     columns: generateOptions.columns,
                 },
-                {   // Right side (outside, shared with Monitor One)
-                    num: 25,
-                    x: 714,
-                    y: 685,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: -21,
-                    count: 24,
-                    xDir: 1,
-                    yDir: 0,
-                    columns: generateOptions.columns,
-                },
-                {   // Left side (inside)
-                    num: 49,
-                    x: 345,
-                    y: 202,
-                    numDelta: 1,
+                {   // Right side 
+                    num: 2,
+                    x: 502,
+                    y: 50,
+                    numDelta: 2,
                     xDelta: 0,
                     yDelta: 21,
-                    count: 24,
+                    count: 20,
                     xDir: 1,
-                    yDir: 0,
-                    columns: generateOptions.columns,
-                },
-                {   // Right side (inside)
-                    num: 73,
-                    x: 659,
-                    y: 685,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: -21,
-                    count: 24,
-                    xDir: -1,
-                    yDir: 0,
-                    columns: generateOptions.columns,
-                },
-            ]
-        });
-
-        await diagram.generate(options, files);
-    }
-
-
-    diagram.generateMuonMonitorOneCombined = async function(generateOptions, files) {
-        
-        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Muon',
-            morePlatforms: {
-                'mon': 'Monitor One Expansion',
-            },
-            // 104 818 
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/muon-expansion-blank.svg'),
-            outputPath: generateOptions.outputPath,
-            // scale to make height 500px
-            deviceImageTransform: 'translate(285,0) scale(2.6)',
-            width: 1100,
-            height: 800,
-            background: 'white',
-            pins: [
-                {   // Left side Monitor One pins
-                    num: 1,
-                    x: 130,
-                    y: 202,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: 21,
-                    count: 24,
-                    xDir: -1,
-                    yDir: 0,
-                    columns: [
-                        {
-                            width: 90,
-                            keys: ['mon.name'],
-                            bgColor: '#B0E5C9', // Mint_500 
-                        },                            
-                    ],
-            },
-                {   // Left side (outside, shared with Monitor One)
-                    num: 1,
-                    x: 290,
-                    y: 202,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: 21,
-                    count: 24,
-                    xDir: -1,
-                    yDir: 0,
-                    columns: generateOptions.columns,
-                },
-                {   // Right side (outside, shared with Monitor One)
-                    num: 25,
-                    x: 714,
-                    y: 685,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: -21,
-                    count: 24,
-                    xDir: 1,
-                    yDir: 0,
-                    columns: generateOptions.columns,
-                },
-                {   // Right side (outside, shared with Monitor One)
-                    num: 25,
-                    x: 874,
-                    y: 685,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: -21,
-                    count: 24,
-                    xDir: 1,
-                    yDir: 0,
-                    columns: [
-                        {
-                            width: 90,
-                            keys: ['mon.name'],
-                            bgColor: '#B0E5C9', // Mint_500 
-                        },                            
-                    ],
-                },
-                {   // Left side (inside)
-                    num: 49,
-                    x: 345,
-                    y: 202,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: 21,
-                    count: 24,
-                    xDir: 1,
-                    yDir: 0,
-                    columns: generateOptions.columns,
-                },
-                {   // Right side (inside)
-                    num: 73,
-                    x: 659,
-                    y: 685,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: -21,
-                    count: 24,
-                    xDir: -1,
                     yDir: 0,
                     columns: generateOptions.columns,
                 },
@@ -2298,12 +2164,20 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
                 {
                     width: 100,
                     keys: ['net'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
                 },
             ],
             outputPath: 'assets/images/muon-pins.svg',
@@ -2312,12 +2186,42 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['digitalWrite'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-gpio.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
                 {
                     width: 100,
                     keys: ['hardwareADC'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
                 },
             ],
             outputPath: 'assets/images/m-series/muon-adc.svg',
@@ -2326,12 +2230,20 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
                 {
                     width: 100,
                     keys: ['spi'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
                 },
             ],
             outputPath: 'assets/images/m-series/muon-spi.svg',
@@ -2340,12 +2252,20 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
                 {
                     width: 100,
                     keys: ['i2c'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
                 },
             ],
             outputPath: 'assets/images/m-series/muon-i2c.svg',
@@ -2354,12 +2274,20 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
                 {
                     width: 100,
                     keys: ['serial'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
                 },
             ],
             outputPath: 'assets/images/m-series/muon-uart.svg',
@@ -2368,12 +2296,20 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
                 {
                     width: 100,
                     keys: ['analogWritePWM'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
                 },
             ],
             outputPath: 'assets/images/m-series/muon-pwm.svg',
@@ -2382,12 +2318,43 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['i2s'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-i2s.svg',
+        }, generateOptions), files);
+
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
                 {
                     width: 100,
                     keys: ['swd'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
                 },
             ],
             outputPath: 'assets/images/m-series/muon-swd.svg',
@@ -2396,6 +2363,10 @@ const svg = require('./svg');
         await diagram.generateMuon(Object.assign({
             columns: [
                 {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
                     width: 50,
                     keys: ['name'],
                 },
@@ -2403,23 +2374,14 @@ const svg = require('./svg');
                     width: 100,
                     keys: ['digitalRead'],
                 },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
             ],
             outputPath: 'assets/images/m-series/muon-gpio.svg',
         }, generateOptions), files);
 
-        await diagram.generateMuonMonitorOneCombined(Object.assign({
-            columns: [
-                {
-                    width: 50,
-                    keys: ['name'],
-                },
-                {
-                    width: 100,
-                    keys: ['net'],
-                },
-            ],
-            outputPath: 'assets/images/muon-monitor-one-pins.svg',
-        }, generateOptions), files);
     }
 
     diagram.buildP2Eval = function(pinInfo) {

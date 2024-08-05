@@ -197,54 +197,54 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1ef65384-3694-4999-a6d8-4ee9432ca08d --}}
 
-| Pin Name | Module Pin |   |   |   |   | MCU |
-| :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
-| A1 / D18 | 33 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
-| A2 / D17 | 35 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
-| A3 / D16 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
-| A4 / D15 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| A5 / D14 | 43 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| A6 / D29 | 45 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
-| A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
-| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL_RI | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
-| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
-| D2 | 42 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
-| D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
-| D4 | 66 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
-| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
-| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
-| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
-| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
-| D20 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
-| D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
-| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
-| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
-| D24 | 58 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | PA[7] |
-| D25 | 60 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | PA[8] |
-| D26 | 59 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
-| D27 | 55 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| GNSS_TX | 18 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
-| MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
-| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
-| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
-| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
-| RX / D10 | 38 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
-| SCK / D13 | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
-| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| TX / D9 | 36 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
-| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
-| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
+| Pin Name | Module Pin |   |   |   |   | PWM | MCU |
+| :--- | :---: | :--- | :--- | :--- | :--- | :---: | :--- |
+| A0 / D19 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[4] |
+| A1 / D18 | 33 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[5] |
+| A2 / D17 | 35 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[6] |
+| A3 / D16 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A4 / D15 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A5 / D14 | 43 | ADC_6 | SWCLK | &nbsp; | &nbsp; | &check; | PB[3] |
+| A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | &check; | PB[3] |
+| A6 / D29 | 45 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[7] |
+| A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[20] |
+| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL_RI | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | &nbsp; | PB[0] |
+| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | &nbsp; | PA[31] |
+| D2 | 42 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | &nbsp; | PA[14] |
+| D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | &nbsp; | PA[15] |
+| D4 | 66 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[18] |
+| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[19] |
+| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[20] |
+| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[21] |
+| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | &nbsp; | PA[19] |
+| D20 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
+| D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
+| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
+| D24 | 58 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | &nbsp; | PA[7] |
+| D25 | 60 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | &nbsp; | PA[8] |
+| D26 | 59 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
+| D27 | 55 | &nbsp; | SWDIO | &nbsp; | &nbsp; | &nbsp; | PA[27] |
+| GNSS_TX | 18 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | &check; | PA[17] |
+| MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | &check; | PA[16] |
+| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
+| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
+| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
+| RX / D10 | 38 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | &check; | PA[13] |
+| SCK / D13 | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; | PA[18] |
+| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| TX / D9 | 36 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | &check; | PA[12] |
+| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
+| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -253,54 +253,54 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5feb3f9e-2bf4-4e73-a2c8-b6584b125391 --}}
 
-| Module Pin | Pin Name |   |   |   |   | MCU |
-| :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 11 | USBDATA+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
-| 13 | USBDATA- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
-| 14 | NC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 17 | D21 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
-| 18 | GNSS_TX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 19 | D20 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
-| 20 | D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
-| 22 | D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
-| 23 | A0 / D19 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
-| 33 | A1 / D18 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
-| 35 | A2 / D17 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
-| 36 | TX / D9 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
-| 37 | A3 / D16 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
-| 38 | RX / D10 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
-| 40 | D3 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
-| 41 | A4 / D15 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| 42 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
-| 43 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| 44 | CELL USBD+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 45 | A6 / D29 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
-| 46 | CELL USBD- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 47 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
-| 48 | D8 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
-| 50 | MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
-| 52 | MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
-| 53 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| 54 | SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
-| 55 | D27 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| 58 | D24 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | PA[7] |
-| 59 | D26 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
-| 60 | D25 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | PA[8] |
-| 61 | RGBR | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
-| 62 | D22 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
-| 63 | RGBG | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
-| 64 | D23 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
-| 65 | RGBB | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
-| 66 | D4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
-| 67 | SIM_VCC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 68 | D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
-| 69 | SIM_RST | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 70 | D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
-| 71 | SIM_CLK | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 72 | D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
-| 73 | SIM_DATA | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 74 | CELL VBUS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 75 | CELL_RI | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Module Pin | Pin Name |   |   |   |   | PWM | MCU |
+| :---: | :--- | :--- | :--- | :--- | :--- | :---: | :--- |
+| 11 | USBDATA+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
+| 13 | USBDATA- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
+| 14 | NC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 17 | D21 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| 18 | GNSS_TX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 19 | D20 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
+| 20 | D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | &nbsp; | PA[31] |
+| 22 | D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | &nbsp; | PB[0] |
+| 23 | A0 / D19 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[4] |
+| 33 | A1 / D18 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[5] |
+| 35 | A2 / D17 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[6] |
+| 36 | TX / D9 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | &check; | PA[12] |
+| 37 | A3 / D16 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| 38 | RX / D10 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | &check; | PA[13] |
+| 40 | D3 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | &nbsp; | PA[15] |
+| 41 | A4 / D15 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| 42 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | &nbsp; | PA[14] |
+| 43 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | &check; | PB[3] |
+| 44 | CELL USBD+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 45 | A6 / D29 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[7] |
+| 46 | CELL USBD- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 47 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[20] |
+| 48 | D8 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | &nbsp; | PA[19] |
+| 50 | MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | &check; | PA[17] |
+| 52 | MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | &check; | PA[16] |
+| 53 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | &check; | PB[3] |
+| 54 | SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; | PA[18] |
+| 55 | D27 | &nbsp; | SWDIO | &nbsp; | &nbsp; | &nbsp; | PA[27] |
+| 58 | D24 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | &nbsp; | PA[7] |
+| 59 | D26 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
+| 60 | D25 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | &nbsp; | PA[8] |
+| 61 | RGBR | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
+| 62 | D22 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
+| 63 | RGBG | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
+| 64 | D23 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
+| 65 | RGBB | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
+| 66 | D4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[18] |
+| 67 | SIM_VCC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 68 | D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[19] |
+| 69 | SIM_RST | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 70 | D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[20] |
+| 71 | SIM_CLK | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 72 | D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[21] |
+| 73 | SIM_DATA | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 74 | CELL VBUS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 75 | CELL_RI | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}

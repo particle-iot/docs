@@ -805,6 +805,10 @@ const generatorConfig = require('./generator-config');
         for(const d of data) {
             line = '';
             for(const c of options.columns) {
+                if (c.onlyCheckmark && d[c.key]) {
+                    line += '| &check; ';
+                }
+                else
                 if (c.checkmark && d[c.key] === true ) {
                     line += '| &check; ';
                 }
@@ -814,7 +818,10 @@ const generatorConfig = require('./generator-config');
                         line += '| ' + c.map[d[c.key]] + ' ';
                         continue;
                     }
-
+                    if (c.useShortName) {
+                        line += '| ' + updater.getShortName(d[c.key]) + ' ';
+                    }
+                    else
                     if (c.capitalizeValue) {
                         line += '| ' + d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1) + ' ';
                     }
@@ -1997,6 +2004,30 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);
     };
 
+
+
+    // Some fields use the format "short|a much longer description" using a vertical bar to
+    // separate the parts.
+    // This function gets the short (first) part or the whole string if there is no |.
+    updater.getShortName = function(t) {
+        if (typeof t == 'number') {
+            return t.toString();
+        }
+        else
+        if (typeof t != 'string') {
+            return t;
+        }
+        
+        var index = t.indexOf("|");
+        if (index > 0) {
+            return t.substring(0, index); 
+        }
+        else {
+            return t;
+        }
+    }
+
+
     updater.generatePinInfo = function(options) {
 
         const expandMorePins = function(pinArray) {
@@ -2014,27 +2045,6 @@ const generatorConfig = require('./generator-config');
             return pins;
         }
 
-
-        // Some fields use the format "short|a much longer description" using a vertical bar to
-        // separate the parts.
-        // This function gets the short (first) part or the whole string if there is no |.
-        const getShortName = function(t) {
-            if (typeof t == 'number') {
-                return t.toString();
-            }
-            else
-            if (typeof t != 'string') {
-                return t;
-            }
-            
-            var index = t.indexOf("|");
-            if (index > 0) {
-                return t.substring(0, index); 
-            }
-            else {
-                return t;
-            }
-        }
 
         // Some fields use the format "short|a much longer description" using a vertical bar to
         // separate the parts.
@@ -2102,7 +2112,7 @@ const generatorConfig = require('./generator-config');
         const portColumnValue = function(value) {
             if (value) {
                 if (options.useShortName) {
-                    return getShortName(value);
+                    return updater.getShortName(value);
                 }
                 else {
                     return '&check;';
@@ -2390,8 +2400,7 @@ const generatorConfig = require('./generator-config');
         let md = '';
 
         if (options.style == 'pinFunction') {
-            const functionCols = [["hardwareADC"], ["i2c","swd"], ["spi"], ["serial"]];
-
+            const functionCols = options.functionCols || [["hardwareADC"], ["i2c","swd"], ["spi"], ["serial"]];
 
             let pins = [];
             for(const pin of platformInfoNew.pins) {
@@ -2406,7 +2415,13 @@ const generatorConfig = require('./generator-config');
             let tableOptions = {
                 columns: [],
             };
-            
+
+            if (options.leftColumns) {
+                for(const obj of options.leftColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
+
             tableOptions.columns.push({
                 key: 'pinName',
                 title: 'Pin Name',
@@ -2418,7 +2433,7 @@ const generatorConfig = require('./generator-config');
                     align: 'center',
                 });    
             }
-            if (options.sortByNum) {
+            if (options.sortByNum === true) {
                 // Put module pin first
                 tableOptions.columns.reverse();
             }
@@ -2431,6 +2446,12 @@ const generatorConfig = require('./generator-config');
                 });    
             }
             tableOptions.columns.push({
+                key: 'analogWritePWM',
+                title: 'PWM',
+                align: 'center',
+                onlyCheckmark: true,
+            });
+            tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'
             });
@@ -2440,8 +2461,11 @@ const generatorConfig = require('./generator-config');
                     title: 'Description'
                 });    
             }
-
-
+            if (options.rightColumns) {
+                for(const obj of options.rightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
             let tableData = [];
             for(const pin of pins) {
                 let rowData = Object.assign({}, pin);
@@ -2466,8 +2490,23 @@ const generatorConfig = require('./generator-config');
             }
 
             if (options.sortByNum) {
+                const key = typeof options.sortByNum === 'boolean' ? 'num' : options.sortByNum;
                 tableData.sort(function(a, b) {
-                    return a.num - b.num;
+                    if (typeof a[key] === 'number' && typeof b[key] === 'number') {
+                        return a[key] - b[key];
+                    }
+                    else if (!a[key] && !b[key]) {
+                        return 0;
+                    }
+                    else if (!a[key]) {
+                        return -1;
+                    }
+                    else if (!b[key]) {
+                        return -1;
+                    }
+                    else {
+                        a[key].localeCompare(b[key]);
+                    }
                 });
             }
 
@@ -2805,6 +2844,12 @@ const generatorConfig = require('./generator-config');
 
             comparisonTags.push('hardwarePin', 'm2Pin');
 
+            if (options.moreComparisonTags) {
+                for(const tag of options.moreComparisonTags) {
+                    comparisonTags.push(tag);
+                }
+            }
+
             let pinsExpanded = [];
 
             if (options.showPinNum) {
@@ -2847,6 +2892,10 @@ const generatorConfig = require('./generator-config');
 
                 for(const tag of comparisonTags) {
                     if (!pin[tag]) {
+                        continue;
+                    }
+                    if (!detailsForTag[tag]) {
+                        console.log('processing tag=' + tag + ' detailsForTag is not defined');
                         continue;
                     }
 
@@ -3046,6 +3095,11 @@ const generatorConfig = require('./generator-config');
                 title: oldTitle + ' ' + options.label,
                 checkmark: !!options.checkmark,
             });    
+            if (options.oldRightColumns) {
+                for(const obj of options.oldRightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
             if (options.newPinNumber) {
                 tableOptions.columns.push({
                     key: 'newNum',
@@ -3068,6 +3122,11 @@ const generatorConfig = require('./generator-config');
                     title: newTitle + ' Hardware Timer'
                 });        
             }
+            if (options.newRightColumns) {
+                for(const obj of options.newRightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
 
             let tableData = [];
 
@@ -3080,12 +3139,18 @@ const generatorConfig = require('./generator-config');
                         rowData.oldNum = m.old.num;
                         rowData.oldPinName = getPinNameWithAlt(m.old);
                         rowData.oldPort = portColumnValue(m.old[options.port]);
+                        for(const key in m.old) {
+                            rowData['old_' + key] = m.old[key];
+                        }
                     }
                     if (m.new) {
                         rowData.newNum = m.new.num;
                         rowData.newPinName = getPinNameWithAlt(m.new);
                         rowData.newPort = portColumnValue(m.new[options.port]);
                         rowData.newHardwareTimer = m.new.hardwareTimer;
+                        for(const key in m.new) {
+                            rowData['new_' + key] = m.new[key];
+                        }
                     }
                     tableData.push(rowData);
                 }
@@ -3105,6 +3170,7 @@ const generatorConfig = require('./generator-config');
             let tableOptions = {
                 columns: [],
             };
+
 
             if (!options.noPinNumbers) {
                 tableOptions.columns.push({
@@ -3146,6 +3212,11 @@ const generatorConfig = require('./generator-config');
                     title: 'Special boot function'
                 });    
             }
+            if (options.newRightColumns) {
+                for(const obj of options.newRightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
 
             
             let tableData = [];
@@ -3167,6 +3238,9 @@ const generatorConfig = require('./generator-config');
                         rowData.newPort = portColumnValue(m.new[options.port]);
                         rowData.newHardwarePin = m.new.hardwarePin;
                         rowData.newBoot = m.new.boot;
+                        for(const key in m.new) {
+                            rowData['new_' + key] = m.new[key];
+                        }
                     }
                     tableData.push(rowData);
                 }
@@ -3269,16 +3343,111 @@ const generatorConfig = require('./generator-config');
                     title: 'MCU'
                 });    
             }
+            if (options.rightColumns) {
+                for(const obj of options.rightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
 
             let tableData = [];
             for(const pin of pins) {
                 let rowData = Object.assign({}, pin);
                 rowData.pinName = getPinNameWithAlt(pin);
-                rowData.interface = getShortName(pin[options.interface]);
+                rowData.interface = updater.getShortName(pin[options.interface]);
                 
                 tableData.push(rowData);
             }
             sortTableData(tableData);
+
+            md += updater.generateTable(tableOptions, tableData);
+        }
+
+        
+        if (options.style == 'piPins') {
+
+            let pins = [];
+            for(const pin of expandMorePins(platformInfoNew.pins)) {
+                if (pin.rpi) {
+                    pins.push(pin);
+                }    
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'rpi',
+                title: 'Pi Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'pinName',
+                title: 'Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'desc',
+                title: 'Description'
+            });
+            if (options.showPorts) {
+                tableOptions.columns.push({
+                    key: 'serial',
+                    title: 'Serial',
+                    useShortName: true,
+                });
+                tableOptions.columns.push({
+                    key: 'spi',
+                    title: 'SPI',
+                    useShortName: true,
+                });
+                tableOptions.columns.push({
+                    key: 'i2c',
+                    title: 'I2C',
+                    useShortName: true,
+                });
+                tableOptions.columns.push({
+                    key: 'i2s',
+                    title: 'I2S',
+                    useShortName: true,
+                });
+    
+            }
+            if (options.showM2Pin) {
+                tableOptions.columns.push({
+                    key: 'm2Pin',
+                    title: 'M2 Pin'
+                });    
+            }
+            if (options.showHardwarePin) {
+                    tableOptions.columns.push({
+                    key: 'hardwarePin',
+                    title: 'MCU'
+                });
+            }
+            if (options.rightColumns) {
+                for(const obj of options.rightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
+
+            let tableData = [];
+            for(const pin of pins) {
+                let rowData = Object.assign({}, pin);
+                rowData.pinName = getPinNameWithAlt(pin);
+                rowData.interface = updater.getShortName(pin[options.interface]);
+                
+                tableData.push(rowData);
+            }
 
             md += updater.generateTable(tableOptions, tableData);
         }
@@ -3326,12 +3495,17 @@ const generatorConfig = require('./generator-config');
                 key: 'hardwarePin',
                 title: 'MCU'
             });
+            if (options.rightColumns) {
+                for(const obj of options.rightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
 
             let tableData = [];
             for(const pin of pins) {
                 let rowData = Object.assign({}, pin);
                 rowData.pinName = getPinNameWithAlt(pin);
-                rowData.interface = getShortName(pin[options.interface]);
+                rowData.interface = updater.getShortName(pin[options.interface]);
                 
                 tableData.push(rowData);
             }
