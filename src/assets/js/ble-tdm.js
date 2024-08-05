@@ -1,6 +1,16 @@
 let calc = {};
 
 $(document).ready(function() {
+    $('.bleTdmExample').each(function() {
+        const buttonElem = calc.partial = $(this);
+
+        const param = $(buttonElem).data('param');
+        if (param && param.length > 0) {            
+            $(buttonElem).on('click', function() {
+                calc.loadParamStr(param);
+            })
+        }
+    });
 
     $('.bleTdmCalculator').each(function() {
         const thisPartial = calc.partial = $(this);
@@ -284,17 +294,17 @@ $(document).ready(function() {
                 
                 {
                     const thElem = document.createElement('th');
-                    $(thElem).text('Advertising Start');
+                    $(thElem).text('Adv. Start');
                     $(trElem).append(thElem);
                 }
                 {
                     const thElem = document.createElement('th');
-                    $(thElem).text('BLE Interval Start');
+                    $(thElem).text('BLE Start');
                     $(trElem).append(thElem);    
                 }                    
                 {
                     const thElem = document.createElement('th');
-                    $(thElem).text('BLE Interval End');
+                    $(thElem).text('BLE End');
                     $(trElem).append(thElem);    
                 }                    
                 {
@@ -610,7 +620,7 @@ $(document).ready(function() {
             });
 
             calc.inputValues.sensors = [];
-            $(thisPartial).find('.sensorsDiv').not(':first').remove();
+            $(thisPartial).find('.sensorDiv').not(':first').remove();
 
             for (const [key, value] of calc.urlParams.entries()) {
                 const m = key.match(/([A-Za-z]+)([0-9]+)/);
@@ -660,7 +670,8 @@ $(document).ready(function() {
         }    
 
         calc.loadParamStr = function(s) {
-            calc.urlParams = new URLSearchParams(window.location.search);
+            console.log('loadParamStr ' + s);
+            calc.urlParams = new URLSearchParams(s);
             calc.loadUrlParams();
         }
 
