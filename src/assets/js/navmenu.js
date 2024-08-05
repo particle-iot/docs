@@ -138,7 +138,9 @@ navMenu.openAnchor = function(href) {
     if (window.history) {
         history.pushState({hash: href}, 'New Hash', '#' + href);
     }
-    Docs.scrollToElement($('#' + href));
+    if (typeof Docs != 'undefined') {
+        Docs.scrollToElement($('#' + href));
+    }
 }
 
 navMenu.generateNavHtml = function(menuJson) {
