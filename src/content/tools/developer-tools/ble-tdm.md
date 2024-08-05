@@ -37,13 +37,12 @@ transmissions from from battery powered beacons that transmit less frequently, y
 
 - **TDMA window offset** Where the transition occurs relative to the simulation time clock. Unless the sensors and MCU are synchronized, this generally does not make a significant difference.
 
-- **Test Duration** This is how long the simulation is run. It's not in real-time, but if the number is very large it may take a while and the result table
-will be very large. The success and missed percentages tend to reach a stable average fairly quickly, which is why the default is 900 seconds.
+- **Test Duration** This is how long the simulation is run. It's not in real-time, but if the number is very large calculation may take a while and the result table will be very large. The success and missed percentages tend to reach a stable average fairly quickly, which is why the default is 900 seconds.
 
 
 ### Sensor parameters
 
-- **Advertising rate** How often this sensor transmits its data.
+- **Advertising interval** How often this sensor transmits its data in milliseconds.
 
 - **Packet length** How long it takes to advertise. You generally don't need to change this, but a transmission is considered successful 
 
@@ -67,7 +66,7 @@ will be very large. The success and missed percentages tend to reach a stable av
 
 - **Mean latency** The average (mean) latency.
 
-- **Minimum latency** Lowest latency. This is typically the advertising rate.
+- **Minimum latency** Lowest latency. This is typically the advertising interval.
 
 - **Maximum latency** Maximum latency.
 
@@ -83,22 +82,24 @@ are spaced out and do not significantly affect the mean latency. Note in the wil
 are often missed because of RF interference from other devices and sensors, or even people walking
 between the beacon and the receiver.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=60&r0=750&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=18&b=50&o=0&d=60&i0=750&l0=0.125&o0=0"}}
 
 ### 30-second advertising
 
 With a sensor advertising less frequently (30 seconds), the missed samples do affect the latency
 because the 
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&r0=30000&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0"}}
 
 - [Scroll up to see results](#tool)
 
 ### 15-second advertising
 
-This example compares 30-second advertising and 15-second advertising.
+This example compares 30-second advertising and 15-second advertising. With an advertising interval
+of 15 seconds the mean latency of 20 seconds is less than it would be for 100% success at 30 second interval.
+Also, the maximum latency is 30 seconds.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&r0=30000&l0=0.125&o0=0&r1=15000&l1=0.125&o1=0"}}
+{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0&i1=15000&l1=0.125&o1=0"}}
 
 - [Scroll up to see results](#tool)
 
@@ -106,17 +107,17 @@ This example compares 30-second advertising and 15-second advertising.
 
 Beware of making settings that appear to eliminate the missed packets entirely.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&r0=18000&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&i0=18000&l0=0.125&o0=0"}}
 
 Since the transmitted and receiver are not synchronized you can just as easily end up in entirely in the Wi-Fi range.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&r0=18000&l0=0.125&o0=12"}}
+{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&i0=18000&l0=0.125&o0=12"}}
 
 Also likely is that the clocks aren't exactly the same, causing poor performance when they drift to certain offsets
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&r0=18000.5&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=18000.5&l0=0.125&o0=0"}}
 
-All of these situations can be eliminated by not picking an advertising rate a multiple of 18 milliseconds.
+All of these situations can be eliminated by not picking an advertising interval a multiple of 18 milliseconds.
 
 - [Scroll up to see results](#tool)
 

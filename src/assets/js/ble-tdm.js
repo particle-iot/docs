@@ -174,7 +174,7 @@ $(document).ready(function() {
                         calc.packetTimes.push(ms);
                     }
 
-                    ms += sensorObj.rate;
+                    ms += sensorObj.interval;
                 }
 
                 sensorObj.numSamples = sensorObj.packets.length;
@@ -209,7 +209,7 @@ $(document).ready(function() {
                         }
                     }
                     if (thisPacketLatency) {
-                        const thisPacketLatencyMs = thisPacketLatency * sensorObj.rate;
+                        const thisPacketLatencyMs = thisPacketLatency * sensorObj.interval;
                         sensorObj.packets[ii].latency = thisPacketLatency;
                         latencySum += thisPacketLatencyMs;
                         sensorObj.latencyCount++;
@@ -261,9 +261,9 @@ $(document).ready(function() {
                 sensorObj.latency3Pct = Math.round(sensorObj.latency3 * 100 / total);
                 sensorObj.latencyMorePct = Math.round(sensorObj.latencyMore * 100 / total);
 
-                sensorObj.latency1Time = calc.msToText(sensorObj.rate);
-                sensorObj.latency2Time = calc.msToText(sensorObj.rate * 2);
-                sensorObj.latency3Time = calc.msToText(sensorObj.rate * 3);
+                sensorObj.latency1Time = calc.msToText(sensorObj.interval);
+                sensorObj.latency2Time = calc.msToText(sensorObj.interval * 2);
+                sensorObj.latency3Time = calc.msToText(sensorObj.interval * 3);
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
@@ -467,9 +467,9 @@ $(document).ready(function() {
             }
 
             for(const sensorObj of calc.inputValues.sensors) {
-                if (sensorObj.rate < 50) {
+                if (sensorObj.interval < 50) {
                     calc.isValid = false;
-                    calc.inputError = 'sensor rate must be >= 50';
+                    calc.inputError = 'sensor interval must be >= 50';
                 }
 
                 if (sensorObj.length < 0.1) {
@@ -629,13 +629,15 @@ $(document).ready(function() {
                     const sensorIndex = parseInt(m[2]);
 
                     const sensorKeyEntry = calc.sensorKeys.find(e => e.key.urlParam == urlParamKey);
-                    // console.log('read urlParams', {sensorKeys: calc.sensorKeys, sensorKeyEntry, urlParamKey, sensorIndex});
-                    const valueKey = sensorKeyEntry.key.key;
+                    if (sensorKeyEntry) {
+                        // console.log('read urlParams', {sensorKeys: calc.sensorKeys, sensorKeyEntry, urlParamKey, sensorIndex});
+                        const valueKey = sensorKeyEntry.key.key;
 
-                    if (typeof calc.inputValues.sensors[sensorIndex] == 'undefined') {
-                        calc.inputValues.sensors[sensorIndex] = {};
-                    }                    
-                    calc.inputValues.sensors[sensorIndex][valueKey] = value;
+                        if (typeof calc.inputValues.sensors[sensorIndex] == 'undefined') {
+                            calc.inputValues.sensors[sensorIndex] = {};
+                        }                    
+                        calc.inputValues.sensors[sensorIndex][valueKey] = value;
+                    }
                 }
 
             }
