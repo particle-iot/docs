@@ -96,6 +96,12 @@
         "dir": "json",
         "title": "JSON tools",
         "href": "/tools/developer-tools/json/"
+      },
+      {
+        "dir": "ble-tdm",
+        "title": "BLE TDM calculator",
+        "href": "/tools/developer-tools/ble-tdm/",
+        "internal": true
       }
     ],
     {
