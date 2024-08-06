@@ -50,7 +50,59 @@ $(document).ready(function() {
             bleStart: 60,
             bleEnd: 60,
             sensorValue: 70,
+            sensorResultLabel: (65 + 60 + 60 + (3 * 6)),    
         };
+
+
+        calc.testRunSensorResultFields = [
+            {
+                title: 'Sample in period',
+                key: 'numSamples',
+            },
+            {
+                title: 'BLE success',
+                key: 'successPct',
+                append: '%',
+            },
+            {
+                title: 'BLE missed',
+                key: 'failurePct',
+                append: '%',
+            },
+            {
+                title: 'Latency normal',
+                key: 'latency1Pct',
+                append: '%',
+            },
+            {
+                title: 'Latency missed 1',
+                key: 'latency2Pct',
+                append: '%',
+            },
+            {
+                title: 'Latency missed 2',
+                key: 'latency2Pct',
+                append: '%',
+            },
+            {
+                title: 'Latency missed 3+',
+                key: 'latency2Pct',
+                append: '%',
+            },
+            {
+                title: 'Mean latency',
+                key: 'latencyMeanStr',
+            },
+            {
+                title: 'Minimim latency',
+                key: 'latencyMinStr',
+            },
+            {
+                title: 'Maximum latency',
+                key: 'latencyMaxStr',
+            },
+
+        ];
 
         calc.sensorResultElem = $(thisPartial).find('.sensorResultTable')[0].cloneNode(true);
 
@@ -135,6 +187,52 @@ $(document).ready(function() {
             $(thisPartial).find('.bleTdmStatus').text(s);
         }
 
+        /*
+        // This logic is wrong - need to fix
+        calc.sensorAggregate = function(testRunSensorObj, key) {
+            let result = {
+                min: undefined,
+                max: undefined,
+                total: 0,
+                count: 0,
+                mean: 0,
+            };
+
+            for(const testRunSensorObj of testRunObj.sensors) {
+                if (key && typeof testRunSensorObj.results[key] != 'undefined') {
+                    result.count++;
+                    result.total += testRunSensorObj.results[key];;
+
+                    if (result.min == undefined || result.min > testRunSensorObj.results[key]) {
+                        result.min = testRunSensorObj.results[key];
+                    }
+                    if (result.max == undefined || result.max < testRunSensorObj.results[key]) {
+                        result.max = testRunSensorObj.results[key];
+                    }
+                }
+            }
+            if (result.count > 0) {
+                result.mean = result.total / result.count;
+            }
+
+            return result;
+        }
+        */
+        
+        calc.updateResults = function(sensorResultElem, results) {
+            $(sensorResultElem).find('.sensorResult').each(function() {
+                const sensorResultElem = $(this);
+                const key = $(sensorResultElem).data('key');
+                if (key && typeof results[key] != 'undefined') {
+                    $(sensorResultElem).text(results[key]);
+                }
+                else {
+                    $(sensorResultElem).text('');
+                }
+            });
+
+        }
+
         calc.calculate = function() {
 
             if (!calc.isValid) {
@@ -167,14 +265,10 @@ $(document).ready(function() {
 
                 $(thisPartial).find('.bleTdmTimelineContainer').append(timelineElem);
 
-                const sensorResultElem = calc.sensorResultElem.cloneNode(true);
-                $(timelineElem).find('.sensorResultTableDiv').append(sensorResultElem);
-
                 calc.testRuns.push({
                     index: ii,
                     offset: calc.offsets[ii],
                     timelineElem,
-                    sensorResultElem,
                 });
             }
             
@@ -191,6 +285,7 @@ $(document).ready(function() {
                     testRunObj.sensors.push({
                         packets: [],
                         results: {},
+                        index: ii,
                         sensorObj: calc.inputValues.sensors[ii],
                     });
                 }
@@ -313,156 +408,222 @@ $(document).ready(function() {
                     testRunSensorObj.results.latency3Time = calc.msToText(testRunSensorObj.results.i * 3);
                 }
     
-                for(const testRunSensorObj of testRunObj.sensors) {
-                    $(testRunObj.sensorResultElem).find('.sensorResult').each(function() {
-                        const sensorResultElem = $(this);
-                        const key = $(sensorResultElem).data('key');
-                        if (key && typeof testRunSensorObj.results[key] != 'undefined') {
-                            $(sensorResultElem).text(testRunSensorObj.results[key]);
-                        }
-                        else {
-                            $(sensorResultElem).text('');
-                        }
-                    });
-                }        
-            
+
                 // console.log('sensors', calc.inputValues.sensors);
     
                 testRunObj.packetTimes.sort(function(a, b) {
                     return a - b;
                 });
     
-                // Build tables
-                const tableElem = $(testRunObj.timelineElem).find('.testRunResultsTable');
-    
-                $(tableElem).css('width', (calc.columnWidths.advStart + calc.columnWidths.bleStart + calc.columnWidths.bleEnd + calc.inputValues.sensors.length * calc.columnWidths.sensorValue + 5) + 'px');
-    
-                const theadElem = $(tableElem).find('thead');
-                $(theadElem).empty();
-    
+                // Build sensor result tables
                 {
-                    const trElem = document.createElement('tr');
-                    
+                    const tableElem = $(testRunObj.timelineElem).find('.sensorResultTable');
+
+                    $(tableElem).css('width', (calc.columnWidths.advStart + calc.columnWidths.bleStart + calc.columnWidths.bleEnd + calc.inputValues.sensors.length * calc.columnWidths.sensorValue + 5) + 'px');
+
+                    const theadElem = $(tableElem).find('thead');
+                    $(theadElem).empty();
+
                     {
-                        const thElem = document.createElement('th');
-                        $(thElem).css('text-align', 'right');
-                        $(thElem).text('Adv. Start');
-                        $(trElem).append(thElem);
-                    }
-                    {
-                        const thElem = document.createElement('th');
-                        $(thElem).css('text-align', 'right');
-                        $(thElem).text('BLE Start');
-                        $(trElem).append(thElem);    
-                    }                    
-                    {
-                        const thElem = document.createElement('th');
-                        $(thElem).css('text-align', 'right');
-                        $(thElem).text('BLE End');
-                        $(trElem).append(thElem);    
-                    }                    
-                    {
-                        // Spacer between left columns and sensors
-                        const thElem = document.createElement('th');
-                        $(thElem).css('width', '5px');
-                        $(trElem).append(thElem);    
-                    }                    
-            
-    
-                    for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                        const trElem = document.createElement('tr');
+                        
                         {
                             const thElem = document.createElement('th');
-                            $(thElem).css('text-align', 'center');
-                            $(thElem).text('Sensor ' + (ii + 1));
-                            $(trElem).append(thElem);    
-                        }                    
-                    }
-                    $(theadElem).append(trElem);
-                }
-    
-                
-                const tbodyElem = $(tableElem).find('tbody');
-                $(tbodyElem).empty();
-                for(const ms of testRunObj.packetTimes) {
-                    const trElem = document.createElement('tr');
-    
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('text-align', 'right');
-                        $(tdElem).css('font-family', calc.monospaceFont);
-                        $(tdElem).css('width', calc.columnWidths.advStart + 'px');
-                        $(tdElem).text(calc.msWithDecimal(ms, {places: calc.numDecimalPlaces, commas:true}));
-                        $(trElem).append(tdElem);    
-                    }                    
-    
-                    let bleStartStr = '';
-                    let bleEndStr = '';
-    
-                    for(const testRunSensorObj of testRunObj.sensors) {
-    
-                        const packetObj = testRunSensorObj.packets.find(e => e.startMs == ms);
-                        if (packetObj) {
-                            bleStartStr = calc.msWithDecimal(packetObj.windowStartBle, {places: calc.numDecimalPlaces, commas:true});
-                            bleEndStr = calc.msWithDecimal(packetObj.windowEndBle, {places: calc.numDecimalPlaces, commas:true});
-                            break;
+                            $(thElem).css('text-align', 'left');
+                            $(thElem).text('');
+                            $(trElem).append(thElem);
                         }
+                        {
+                            // Spacer between left columns and sensors
+                            const thElem = document.createElement('th');
+                            $(thElem).css('width', '5px');
+                            $(trElem).append(thElem);    
+                        }                                    
+        
+                        for(const testRunSensorObj of testRunObj.sensors) {
+                            const thElem = document.createElement('th');
+                            $(thElem).css('text-align', 'left');
+                            $(thElem).text('Sensor ' + (testRunSensorObj.index + 1));
+                            $(trElem).append(thElem);    
+                        }
+                        $(theadElem).append(trElem);
                     }
-    
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('text-align', 'right');
-                        $(tdElem).css('font-family', calc.monospaceFont);
-                        $(tdElem).css('width', calc.columnWidths.bleStart + 'px');
-                        $(tdElem).text(bleStartStr);
-                        $(trElem).append(tdElem);    
-                    }                    
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('text-align', 'right');
-                        $(tdElem).css('font-family', calc.monospaceFont);
-                        $(tdElem).css('width', calc.columnWidths.bleEnd + 'px');
-                        $(tdElem).text(bleEndStr);
-                        $(trElem).append(tdElem);    
-                    }                    
-                    {
-                        // Spacer between left columns and sensors
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '5px');
-                        $(trElem).append(tdElem);    
-                    }                    
-    
-    
-    
-                    for(const testRunSensorObj of testRunObj.sensors) {
-                        let packetStr = '';
-                        let bleStr = ''
-    
-                        const packetObj = testRunSensorObj.packets.find(e => e.startMs == ms);
+
+                    const tbodyElem = $(tableElem).find('tbody');
+                    $(tbodyElem).empty();
+
+                    for(const fieldObj of calc.testRunSensorResultFields) {
+                        const trElem = document.createElement('tr');
+
                         {
                             const tdElem = document.createElement('td');
-                            $(tdElem).css('width', calc.columnWidths.sensorValue + 'px');
-                            $(tdElem).css('text-align', 'center');
-                            
-                            if (packetObj) {
-                                if (packetObj.success) {
-                                    $(tdElem).css('background-color', calc.successColor);
-                                    $(tdElem).text('Success');
-                                }
-                                else {
-                                    $(tdElem).css('background-color', calc.failureColor);
-                                    $(tdElem).text('Missed');
-                                }                
-                            }
-                            else {
-                                $(tdElem).text('');
-                            }
+                            $(tdElem).css('text-align', 'left');
+                            $(tdElem).css('width', (calc.columnWidths.sensorResultLabel) + 'px');
+                            $(tdElem).text(fieldObj.title);
+                            $(trElem).append(tdElem);    
+                        }                                
+
+                        {
+                            // Spacer between left columns and sensors
+                            const tdElem = document.createElement('td');
+                            $(tdElem).css('width', '5px');
                             $(trElem).append(tdElem);    
                         }                    
+
+                        for(const testRunSensorObj of testRunObj.sensors) {
+                            const tdElem = document.createElement('td');
+                            $(tdElem).css('text-align', 'left');
+                            $(tdElem).css('width', calc.columnWidths.sensorValue + 'px');
+                            let text = '';
+                            if (fieldObj.key) {
+                                if (typeof testRunSensorObj.results[fieldObj.key] != 'undefined') {
+                                    text = testRunSensorObj.results[fieldObj.key];
+                                    if (fieldObj.append) {
+                                        text += fieldObj.append;
+                                    }
+                                }
+                            }
+                            $(tdElem).text(text);
+                            $(trElem).append(tdElem);    
+                        }                                
+
+                        $(tbodyElem).append(trElem);
                     }
-                
-    
-                    $(tbodyElem).append(trElem);
+
                 }
+
+                // Build packet result tables
+                {
+                    const tableElem = $(testRunObj.timelineElem).find('.testRunResultsTable');
+    
+                    $(tableElem).css('width', (calc.columnWidths.advStart + calc.columnWidths.bleStart + calc.columnWidths.bleEnd + calc.inputValues.sensors.length * calc.columnWidths.sensorValue + 5) + 'px');
+        
+                    const theadElem = $(tableElem).find('thead');
+                    $(theadElem).empty();
+        
+                    {
+                        const trElem = document.createElement('tr');
+                        
+                        {
+                            const thElem = document.createElement('th');
+                            $(thElem).css('text-align', 'right');
+                            $(thElem).text('Adv. Start');
+                            $(trElem).append(thElem);
+                        }
+                        {
+                            const thElem = document.createElement('th');
+                            $(thElem).css('text-align', 'right');
+                            $(thElem).text('BLE Start');
+                            $(trElem).append(thElem);    
+                        }                    
+                        {
+                            const thElem = document.createElement('th');
+                            $(thElem).css('text-align', 'right');
+                            $(thElem).text('BLE End');
+                            $(trElem).append(thElem);    
+                        }                    
+                        {
+                            // Spacer between left columns and sensors
+                            const thElem = document.createElement('th');
+                            $(thElem).css('width', '5px');
+                            $(trElem).append(thElem);    
+                        }                    
+                
+        
+                        for(const testRunSensorObj of testRunObj.sensors) {
+                            const thElem = document.createElement('th');
+                            $(thElem).css('text-align', 'center');
+                            $(thElem).text('Sensor ' + (testRunSensorObj.index + 1));
+                            $(trElem).append(thElem);    
+                        }
+                        $(theadElem).append(trElem);
+                    }
+        
+                    
+                    const tbodyElem = $(tableElem).find('tbody');
+                    $(tbodyElem).empty();
+                    for(const ms of testRunObj.packetTimes) {
+                        const trElem = document.createElement('tr');
+        
+                        {
+                            const tdElem = document.createElement('td');
+                            $(tdElem).css('text-align', 'right');
+                            $(tdElem).css('font-family', calc.monospaceFont);
+                            $(tdElem).css('width', calc.columnWidths.advStart + 'px');
+                            $(tdElem).text(calc.msWithDecimal(ms, {places: calc.numDecimalPlaces, commas:true}));
+                            $(trElem).append(tdElem);    
+                        }                    
+        
+                        let bleStartStr = '';
+                        let bleEndStr = '';
+        
+                        for(const testRunSensorObj of testRunObj.sensors) {
+        
+                            const packetObj = testRunSensorObj.packets.find(e => e.startMs == ms);
+                            if (packetObj) {
+                                bleStartStr = calc.msWithDecimal(packetObj.windowStartBle, {places: calc.numDecimalPlaces, commas:true});
+                                bleEndStr = calc.msWithDecimal(packetObj.windowEndBle, {places: calc.numDecimalPlaces, commas:true});
+                                break;
+                            }
+                        }
+        
+                        {
+                            const tdElem = document.createElement('td');
+                            $(tdElem).css('text-align', 'right');
+                            $(tdElem).css('font-family', calc.monospaceFont);
+                            $(tdElem).css('width', calc.columnWidths.bleStart + 'px');
+                            $(tdElem).text(bleStartStr);
+                            $(trElem).append(tdElem);    
+                        }                    
+                        {
+                            const tdElem = document.createElement('td');
+                            $(tdElem).css('text-align', 'right');
+                            $(tdElem).css('font-family', calc.monospaceFont);
+                            $(tdElem).css('width', calc.columnWidths.bleEnd + 'px');
+                            $(tdElem).text(bleEndStr);
+                            $(trElem).append(tdElem);    
+                        }                    
+                        {
+                            // Spacer between left columns and sensors
+                            const tdElem = document.createElement('td');
+                            $(tdElem).css('width', '5px');
+                            $(trElem).append(tdElem);    
+                        }                    
+        
+        
+        
+                        for(const testRunSensorObj of testRunObj.sensors) {
+                            let packetStr = '';
+                            let bleStr = ''
+        
+                            const packetObj = testRunSensorObj.packets.find(e => e.startMs == ms);
+                            {
+                                const tdElem = document.createElement('td');
+                                $(tdElem).css('width', calc.columnWidths.sensorValue + 'px');
+                                $(tdElem).css('text-align', 'center');
+                                
+                                if (packetObj) {
+                                    if (packetObj.success) {
+                                        $(tdElem).css('background-color', calc.successColor);
+                                        $(tdElem).text('Success');
+                                    }
+                                    else {
+                                        $(tdElem).css('background-color', calc.failureColor);
+                                        $(tdElem).text('Missed');
+                                    }                
+                                }
+                                else {
+                                    $(tdElem).text('');
+                                }
+                                $(trElem).append(tdElem);    
+                            }                    
+                        }
+                    
+        
+                        $(tbodyElem).append(trElem);
+                    }
+                }
+
 
             }
 
