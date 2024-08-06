@@ -51,6 +51,9 @@ $(document).ready(function() {
             bleEnd: 60,
             sensorValue: 70,
         };
+
+        calc.sensorResultElem = $(thisPartial).find('.sensorResultTable')[0].cloneNode(true);
+
         
         // Empty timeline
         calc.timelineElem = $(thisPartial).find('.bleTdmTimeline')[0].cloneNode(true);
@@ -164,10 +167,14 @@ $(document).ready(function() {
 
                 $(thisPartial).find('.bleTdmTimelineContainer').append(timelineElem);
 
+                const sensorResultElem = calc.sensorResultElem.cloneNode(true);
+                $(timelineElem).find('.sensorResultTableDiv').append(sensorResultElem);
+
                 calc.testRuns.push({
                     index: ii,
                     offset: calc.offsets[ii],
                     timelineElem,
+                    sensorResultElem,
                 });
             }
             
@@ -307,11 +314,11 @@ $(document).ready(function() {
                 }
     
                 for(const testRunSensorObj of testRunObj.sensors) {
-                    $(testRunSensorObj.results.sensorDivElem).find('.sensorResult').each(function() {
+                    $(testRunObj.sensorResultElem).find('.sensorResult').each(function() {
                         const sensorResultElem = $(this);
                         const key = $(sensorResultElem).data('key');
-                        if (key && typeof sensorObj[key] != 'undefined') {
-                            $(sensorResultElem).text(sensorObj[key]);
+                        if (key && typeof testRunSensorObj.results[key] != 'undefined') {
+                            $(sensorResultElem).text(testRunSensorObj.results[key]);
                         }
                         else {
                             $(sensorResultElem).text('');
@@ -326,7 +333,7 @@ $(document).ready(function() {
                 });
     
                 // Build tables
-                const tableElem = $(testRunObj.timelineElem).find('table');
+                const tableElem = $(testRunObj.timelineElem).find('.testRunResultsTable');
     
                 $(tableElem).css('width', (calc.columnWidths.advStart + calc.columnWidths.bleStart + calc.columnWidths.bleEnd + calc.inputValues.sensors.length * calc.columnWidths.sensorValue + 5) + 'px');
     
