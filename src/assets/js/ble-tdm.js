@@ -44,12 +44,16 @@ $(document).ready(function() {
         calc.failureColor = calc.cssPropertyRoot.getPropertyValue('--theme-status-danger-color');
         calc.monospaceFont = calc.cssPropertyRoot.getPropertyValue('--theme-monospace-font');
 
-        
-
         calc.numDecimalPlaces = 0;
+        calc.columnWidths = {
+            advStart: 65,
+            bleStart: 60,
+            bleEnd: 60,
+            sensorValue: 70,
+        };
         
-
-
+        // Empty timeline
+        calc.timelineElem = $(thisPartial).find('.bleTdmTimeline')[0].cloneNode(true);
 
         calc.padNumber = function(n, places) {
             let s = ((typeof n == 'number') ? n.toString() : n);
@@ -146,275 +150,316 @@ $(document).ready(function() {
             for(let ii = 0; ii < calc.inputValues.ws; ii += offsetIncrement) {
                 calc.offsets.push(ii);
             }
-            console.log('offsets', calc.offsets);
+            // calc.offsets = [calc.offsets[0]]; // TEMPORARY
 
+            calc.testRuns = [];
+
+            // Remove old timelines
+            $(thisPartial).find('.bleTdmTimelineContainer').empty();
+
+            for(let ii = 0; ii < calc.offsets.length; ii++) {
+                const timelineElem = calc.timelineElem.cloneNode(true);
+
+                $(timelineElem).find('.testRunLabel').text((ii + 1) + ' (' + calc.offsets[ii] + ' ms offset)');
+
+                $(thisPartial).find('.bleTdmTimelineContainer').append(timelineElem);
+
+                calc.testRuns.push({
+                    index: ii,
+                    offset: calc.offsets[ii],
+                    timelineElem,
+                });
+            }
+            
             calc.setStatus('');
             $(thisPartial).find('.bleTdmTimeline').show();
             
             const testDurationMs = calc.inputValues.d * 1000;
 
-            calc.packetTimes = [];
+            for(const testRunObj of calc.testRuns) {
+                testRunObj.packetTimes = [];
+
+                testRunObj.sensors = [];
+                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                    testRunObj.sensors.push({
+                        packets: [],
+                        results: {},
+                        sensorObj: calc.inputValues.sensors[ii],
+                    });
+                }
+                
+                for(const testRunSensorObj of testRunObj.sensors) {
+                    
+                    ms = testRunObj.offset; 
+                    testRunSensorObj.results.successCount = 0;
+    
+                    while(ms < testDurationMs) {
+                        const intervals = calc.getIntervals(ms);
+    
+                        let packet = {
+                            startMs: ms,
+                            endMs: ms + testRunSensorObj.sensorObj.l,                        
+                            windowStartBle: intervals.windowStartBle,
+                            windowEndBle: intervals.windowEndBle,
+                        };
+    
+                        packet.success = (packet.startMs >= intervals.windowStartBle && packet.endMs <= intervals.windowEndBle);
+                        if (packet.success) {
+                            testRunSensorObj.results.successCount++;
+                        }
+    
+                        testRunSensorObj.packets.push(packet);
+    
+                        if (!testRunObj.packetTimes.includes(ms)) {
+                            testRunObj.packetTimes.push(ms);
+                        }
+    
+                        ms += testRunSensorObj.sensorObj.i;
+                    }
+    
+                    testRunSensorObj.results.numSamples = testRunSensorObj.packets.length;
+    
+                    if (testRunSensorObj.results.numSamples > 0) {
+                        testRunSensorObj.results.successPct = Math.round(testRunSensorObj.results.successCount * 100 / testRunSensorObj.results.numSamples);
+                    }
+                    else {
+                        testRunSensorObj.results.successPct = 0;
+                    }
+                    testRunSensorObj.results.failurePct = 100 - testRunSensorObj.results.successPct;
+                }
+    
+                for(const testRunSensorObj of testRunObj.sensors) {
+                    testRunSensorObj.results.latency1 = 0;
+                    testRunSensorObj.results.latency2 = 0;
+                    testRunSensorObj.results.latency3 = 0;
+                    testRunSensorObj.results.latencyMore = 0;
+                    testRunSensorObj.results.latencyCount = 0;
+                    testRunSensorObj.results.latencyMeanStr = '';
+                    testRunSensorObj.results.latencyMin = undefined;
+                    testRunSensorObj.results.latencyMax = undefined;
+    
+                    let latencySum = 0;
+    
+                    for(let ii = 0; ii < testRunSensorObj.packets.length - 1; ii++) {
+                        let thisPacketLatency;
+                        for(let jj = ii + 1; jj < testRunSensorObj.packets.length; jj++) {
+                            if (testRunSensorObj.packets[jj].success) {
+                                thisPacketLatency = jj - ii;
+                                break;
+                            }
+                        }
+                        if (thisPacketLatency) {
+                            const thisPacketLatencyMs = thisPacketLatency * testRunSensorObj.sensorObj.i;
+                            testRunSensorObj.packets[ii].latency = thisPacketLatency;
+                            latencySum += thisPacketLatencyMs;
+                            testRunSensorObj.results.latencyCount++;
+    
+                            if (testRunSensorObj.results.latencyMin == undefined || testRunSensorObj.results.latencyMin > thisPacketLatencyMs) {
+                                testRunSensorObj.results.latencyMin = thisPacketLatencyMs;
+                            }
+                            if (testRunSensorObj.results.latencyMax == undefined || testRunSensorObj.results.latencyMax < thisPacketLatencyMs) {
+                                testRunSensorObj.results.latencyMax = thisPacketLatencyMs;
+                            }
+                            
+                            switch(thisPacketLatency) {
+                                case 1:
+                                    testRunSensorObj.results.latency1++;
+                                    break;
+    
+                                case 2:
+                                    testRunSensorObj.results.latency2++;
+                                    break;
+    
+                                case 3:
+                                    testRunSensorObj.results.latency3++;
+                                    break;
+    
+                                default:
+                                    testRunSensorObj.results.latencyMore++;
+                                    break;
+                            }                    
+                        }
+                    }
+    
+                    if (testRunSensorObj.results.latencyCount > 0) {
+                        testRunSensorObj.results.latencyMeanStr = Math.round(latencySum / testRunSensorObj.results.latencyCount) + ' ms';
+                    }
+    
+                    testRunSensorObj.results.latencyMinStr = (testRunSensorObj.results.latencyMin != undefined) ? (testRunSensorObj.results.latencyMin + ' ms') : '';
+                    testRunSensorObj.results.latencyMaxStr = (testRunSensorObj.results.latencyMax != undefined) ? (testRunSensorObj.results.latencyMax + ' ms') : '';
+    
+                }
+    
+                for(const testRunSensorObj of testRunObj.sensors) {
+                    let total = testRunSensorObj.results.latency1 + testRunSensorObj.results.latency2 + testRunSensorObj.results.latency3 + testRunSensorObj.results.latencyMore;
+                    if (!total) {
+                        total = 1;
+                    }
+    
+                    testRunSensorObj.results.latency1Pct = Math.round(testRunSensorObj.results.latency1 * 100 / total);
+                    testRunSensorObj.results.latency2Pct = Math.round(testRunSensorObj.results.latency2 * 100 / total);
+                    testRunSensorObj.results.latency3Pct = Math.round(testRunSensorObj.results.latency3 * 100 / total);
+                    testRunSensorObj.results.latencyMorePct = Math.round(testRunSensorObj.results.latencyMore * 100 / total);
+    
+                    testRunSensorObj.results.latency1Time = calc.msToText(testRunSensorObj.results.i);
+                    testRunSensorObj.results.latency2Time = calc.msToText(testRunSensorObj.results.i * 2);
+                    testRunSensorObj.results.latency3Time = calc.msToText(testRunSensorObj.results.i * 3);
+                }
+    
+                for(const testRunSensorObj of testRunObj.sensors) {
+                    $(testRunSensorObj.results.sensorDivElem).find('.sensorResult').each(function() {
+                        const sensorResultElem = $(this);
+                        const key = $(sensorResultElem).data('key');
+                        if (key && typeof sensorObj[key] != 'undefined') {
+                            $(sensorResultElem).text(sensorObj[key]);
+                        }
+                        else {
+                            $(sensorResultElem).text('');
+                        }
+                    });
+                }        
             
-            for(const sensorObj of calc.inputValues.sensors) {
-                sensorObj.packets = [];
-
-                ms = 0; // Previously set to sensorObj.o;
-                sensorObj.successCount = 0;
-
-                while(ms < testDurationMs) {
-                    const intervals = calc.getIntervals(ms);
-
-                    let packet = {
-                        startMs: ms,
-                        endMs: ms + sensorObj.l,                        
-                        windowStartBle: intervals.windowStartBle,
-                        windowEndBle: intervals.windowEndBle,
-                    };
-
-                    packet.success = (packet.startMs >= intervals.windowStartBle && packet.endMs <= intervals.windowEndBle);
-                    if (packet.success) {
-                        sensorObj.successCount++;
+                // console.log('sensors', calc.inputValues.sensors);
+    
+                testRunObj.packetTimes.sort(function(a, b) {
+                    return a - b;
+                });
+    
+                // Build tables
+                const tableElem = $(testRunObj.timelineElem).find('table');
+    
+                $(tableElem).css('width', (calc.columnWidths.advStart + calc.columnWidths.bleStart + calc.columnWidths.bleEnd + calc.inputValues.sensors.length * calc.columnWidths.sensorValue + 5) + 'px');
+    
+                const theadElem = $(tableElem).find('thead');
+                $(theadElem).empty();
+    
+                {
+                    const trElem = document.createElement('tr');
+                    
+                    {
+                        const thElem = document.createElement('th');
+                        $(thElem).css('text-align', 'right');
+                        $(thElem).text('Adv. Start');
+                        $(trElem).append(thElem);
                     }
-
-                    sensorObj.packets.push(packet);
-
-                    if (!calc.packetTimes.includes(ms)) {
-                        calc.packetTimes.push(ms);
+                    {
+                        const thElem = document.createElement('th');
+                        $(thElem).css('text-align', 'right');
+                        $(thElem).text('BLE Start');
+                        $(trElem).append(thElem);    
+                    }                    
+                    {
+                        const thElem = document.createElement('th');
+                        $(thElem).css('text-align', 'right');
+                        $(thElem).text('BLE End');
+                        $(trElem).append(thElem);    
+                    }                    
+                    {
+                        // Spacer between left columns and sensors
+                        const thElem = document.createElement('th');
+                        $(thElem).css('width', '5px');
+                        $(trElem).append(thElem);    
+                    }                    
+            
+    
+                    for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                        {
+                            const thElem = document.createElement('th');
+                            $(thElem).css('text-align', 'center');
+                            $(thElem).text('Sensor ' + (ii + 1));
+                            $(trElem).append(thElem);    
+                        }                    
                     }
-
-                    ms += sensorObj.i;
+                    $(theadElem).append(trElem);
                 }
-
-                sensorObj.numSamples = sensorObj.packets.length;
-
-                if (sensorObj.numSamples > 0) {
-                    sensorObj.successPct = Math.round(sensorObj.successCount * 100 / sensorObj.numSamples);
-                }
-                else {
-                    sensorObj.successPct = 0;
-                }
-                sensorObj.failurePct = 100 - sensorObj.successPct;
-            }
-
-            for(const sensorObj of calc.inputValues.sensors) {
-                sensorObj.latency1 = 0;
-                sensorObj.latency2 = 0;
-                sensorObj.latency3 = 0;
-                sensorObj.latencyMore = 0;
-                sensorObj.latencyCount = 0;
-                sensorObj.latencyMeanStr = '';
-                sensorObj.latencyMin = undefined;
-                sensorObj.latencyMax = undefined;
-
-                let latencySum = 0;
-
-                for(let ii = 0; ii < sensorObj.packets.length - 1; ii++) {
-                    let thisPacketLatency;
-                    for(let jj = ii + 1; jj < sensorObj.packets.length; jj++) {
-                        if (sensorObj.packets[jj].success) {
-                            thisPacketLatency = jj - ii;
+    
+                
+                const tbodyElem = $(tableElem).find('tbody');
+                $(tbodyElem).empty();
+                for(const ms of testRunObj.packetTimes) {
+                    const trElem = document.createElement('tr');
+    
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('text-align', 'right');
+                        $(tdElem).css('font-family', calc.monospaceFont);
+                        $(tdElem).css('width', calc.columnWidths.advStart + 'px');
+                        $(tdElem).text(calc.msWithDecimal(ms, {places: calc.numDecimalPlaces, commas:true}));
+                        $(trElem).append(tdElem);    
+                    }                    
+    
+                    let bleStartStr = '';
+                    let bleEndStr = '';
+    
+                    for(const testRunSensorObj of testRunObj.sensors) {
+    
+                        const packetObj = testRunSensorObj.packets.find(e => e.startMs == ms);
+                        if (packetObj) {
+                            bleStartStr = calc.msWithDecimal(packetObj.windowStartBle, {places: calc.numDecimalPlaces, commas:true});
+                            bleEndStr = calc.msWithDecimal(packetObj.windowEndBle, {places: calc.numDecimalPlaces, commas:true});
                             break;
                         }
                     }
-                    if (thisPacketLatency) {
-                        const thisPacketLatencyMs = thisPacketLatency * sensorObj.i;
-                        sensorObj.packets[ii].latency = thisPacketLatency;
-                        latencySum += thisPacketLatencyMs;
-                        sensorObj.latencyCount++;
-
-                        if (sensorObj.latencyMin == undefined || sensorObj.latencyMin > thisPacketLatencyMs) {
-                            sensorObj.latencyMin = thisPacketLatencyMs;
-                        }
-                        if (sensorObj.latencyMax == undefined || sensorObj.latencyMax < thisPacketLatencyMs) {
-                            sensorObj.latencyMax = thisPacketLatencyMs;
-                        }
-                        
-                        switch(thisPacketLatency) {
-                            case 1:
-                                sensorObj.latency1++;
-                                break;
-
-                            case 2:
-                                sensorObj.latency2++;
-                                break;
-
-                            case 3:
-                                sensorObj.latency3++;
-                                break;
-
-                            default:
-                                sensorObj.latencyMore++;
-                                break;
-                        }                    
-                    }
-                }
-
-                if (sensorObj.latencyCount > 0) {
-                    sensorObj.latencyMeanStr = Math.round(latencySum / sensorObj.latencyCount) + ' ms';
-                }
-
-                sensorObj.latencyMinStr = (sensorObj.latencyMin != undefined) ? (sensorObj.latencyMin + ' ms') : '';
-                sensorObj.latencyMaxStr = (sensorObj.latencyMax != undefined) ? (sensorObj.latencyMax + ' ms') : '';
-
-            }
-
-            for(const sensorObj of calc.inputValues.sensors) {
-                let total = sensorObj.latency1 + sensorObj.latency2 + sensorObj.latency3 + sensorObj.latencyMore;
-                if (!total) {
-                    total = 1;
-                }
-
-                sensorObj.latency1Pct = Math.round(sensorObj.latency1 * 100 / total);
-                sensorObj.latency2Pct = Math.round(sensorObj.latency2 * 100 / total);
-                sensorObj.latency3Pct = Math.round(sensorObj.latency3 * 100 / total);
-                sensorObj.latencyMorePct = Math.round(sensorObj.latencyMore * 100 / total);
-
-                sensorObj.latency1Time = calc.msToText(sensorObj.i);
-                sensorObj.latency2Time = calc.msToText(sensorObj.i * 2);
-                sensorObj.latency3Time = calc.msToText(sensorObj.i * 3);
-            }
-
-            for(const sensorObj of calc.inputValues.sensors) {
-                $(sensorObj.sensorDivElem).find('.sensorResult').each(function() {
-                    const sensorResultElem = $(this);
-                    const key = $(sensorResultElem).data('key');
-                    if (key && typeof sensorObj[key] != 'undefined') {
-                        $(sensorResultElem).text(sensorObj[key]);
-                    }
-                    else {
-                        $(sensorResultElem).text('');
-                    }
-                });
-            }        
-        
-            // console.log('sensors', calc.inputValues.sensors);
-
-            calc.packetTimes.sort(function(a, b) {
-                return a - b;
-            });
-
-            // Build table
-            const theadElem = $(thisPartial).find('.bleTdmTimeline > table > thead');
-            $(theadElem).empty();
-
-            {
-                const trElem = document.createElement('tr');
-                
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Adv. Start');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('BLE Start');
-                    $(trElem).append(thElem);    
-                }                    
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('BLE End');
-                    $(trElem).append(thElem);    
-                }                    
-                {
-                    // Spacer between left columns and sensors
-                    const thElem = document.createElement('th');
-                    $(thElem).css('width', '5px');
-                    $(trElem).append(thElem);    
-                }                    
-
-
-                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
-                    {
-                        const thElem = document.createElement('th');
-                        $(thElem).text('Sensor ' + (ii + 1));
-                        $(trElem).append(thElem);    
-                    }                    
-                }
-                $(theadElem).append(trElem);
-            }
-
-            const tbodyElem = $(thisPartial).find('.bleTdmTimeline > table > tbody');
-            $(tbodyElem).empty();
-            for(const ms of calc.packetTimes) {
-                const trElem = document.createElement('tr');
-
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).css('text-align', 'right');
-                    $(tdElem).css('font-family', calc.monospaceFont);
-                    $(tdElem).text(calc.msWithDecimal(ms, {places: calc.numDecimalPlaces, commas:true}));
-                    $(trElem).append(tdElem);    
-                }                    
-
-
-                let bleStartStr = '';
-                let bleEndStr = '';
-
-                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
-                    const sensorObj = calc.inputValues.sensors[ii];
-
-                    const packetObj = sensorObj.packets.find(e => e.startMs == ms);
-                    if (packetObj) {
-                        bleStartStr = calc.msWithDecimal(packetObj.windowStartBle, {places: calc.numDecimalPlaces, commas:true});
-                        bleEndStr = calc.msWithDecimal(packetObj.windowEndBle, {places: calc.numDecimalPlaces, commas:true});
-                        break;
-                    }
-                }
-
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).css('text-align', 'right');
-                    $(tdElem).css('font-family', calc.monospaceFont);
-                    $(tdElem).text(bleStartStr);
-                    $(trElem).append(tdElem);    
-                }                    
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).css('text-align', 'right');
-                    $(tdElem).css('font-family', calc.monospaceFont);
-                    $(tdElem).text(bleEndStr);
-                    $(trElem).append(tdElem);    
-                }                    
-                {
-                    // Spacer between left columns and sensors
-                    const tdElem = document.createElement('td');
-                    $(tdElem).css('width', '5px');
-                    $(trElem).append(tdElem);    
-                }                    
-
-
-
-                for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
-                    const sensorObj = calc.inputValues.sensors[ii];
-                    let packetStr = '';
-                    let bleStr = ''
-
-                    const packetObj = sensorObj.packets.find(e => e.startMs == ms);
+    
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '60px');
-                        $(tdElem).css('text-align', 'center');
-                        
-                        if (packetObj) {
-                            if (packetObj.success) {
-                                $(tdElem).css('background-color', calc.successColor);
-                                $(tdElem).text('Success');
-                            }
-                            else {
-                                $(tdElem).css('background-color', calc.failureColor);
-                                $(tdElem).text('Missed');
-                            }                
-                        }
-                        else {
-                            $(tdElem).text('');
-                        }
+                        $(tdElem).css('text-align', 'right');
+                        $(tdElem).css('font-family', calc.monospaceFont);
+                        $(tdElem).css('width', calc.columnWidths.bleStart + 'px');
+                        $(tdElem).text(bleStartStr);
                         $(trElem).append(tdElem);    
                     }                    
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('text-align', 'right');
+                        $(tdElem).css('font-family', calc.monospaceFont);
+                        $(tdElem).css('width', calc.columnWidths.bleEnd + 'px');
+                        $(tdElem).text(bleEndStr);
+                        $(trElem).append(tdElem);    
+                    }                    
+                    {
+                        // Spacer between left columns and sensors
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', '5px');
+                        $(trElem).append(tdElem);    
+                    }                    
+    
+    
+    
+                    for(const testRunSensorObj of testRunObj.sensors) {
+                        let packetStr = '';
+                        let bleStr = ''
+    
+                        const packetObj = testRunSensorObj.packets.find(e => e.startMs == ms);
+                        {
+                            const tdElem = document.createElement('td');
+                            $(tdElem).css('width', calc.columnWidths.sensorValue + 'px');
+                            $(tdElem).css('text-align', 'center');
+                            
+                            if (packetObj) {
+                                if (packetObj.success) {
+                                    $(tdElem).css('background-color', calc.successColor);
+                                    $(tdElem).text('Success');
+                                }
+                                else {
+                                    $(tdElem).css('background-color', calc.failureColor);
+                                    $(tdElem).text('Missed');
+                                }                
+                            }
+                            else {
+                                $(tdElem).text('');
+                            }
+                            $(trElem).append(tdElem);    
+                        }                    
+                    }
+                
+    
+                    $(tbodyElem).append(trElem);
                 }
-            
 
-                $(tbodyElem).append(trElem);
             }
+
+
         }
         
 
