@@ -1,5 +1,9 @@
 let calc = {};
 
+// Requires:
+// https://github.com/DomenicoDeFelice/jsrand
+
+
 $(document).ready(function() {
     $('.bleTdmCalculatorExample').each(function() {
         const thisPartial= $(this);
@@ -27,7 +31,6 @@ $(document).ready(function() {
         $(thisPartial).data('calc', calc);
 
         calc.urlParams = new URLSearchParams(window.location.search);
-
 
         calc.inputValues = {};
         calc.inputUrlParams = {};
@@ -106,7 +109,7 @@ $(document).ready(function() {
         calc.getIntervals = function(ms) {
             let result = {};
 
-            result.windowStartBle = calc.inputValues.o;
+            result.windowStartBle = 0; // Formerly calc.inputValues.o;
             result.windowStartWiFi = result.windowStartBle + (calc.inputValues.ws * calc.inputValues.b / 100);
             result.windowEnd = result.windowStartBle + calc.inputValues.ws;
 
@@ -133,6 +136,18 @@ $(document).ready(function() {
                 return;
             }
 
+            // Psuedo random number generator is always seeded on calc so restoring the page with the same
+            // parameters always results in the same results. This is intentional!
+            calc.rnd = new Srand(10);
+
+            // Calculate offsets
+            const offsetIncrement = Math.ceil(calc.inputValues.ws / 5); // Default ws (window size) is 100
+            calc.offsets = [];
+            for(let ii = 0; ii < calc.inputValues.ws; ii += offsetIncrement) {
+                calc.offsets.push(ii);
+            }
+            console.log('offsets', calc.offsets);
+
             calc.setStatus('');
             $(thisPartial).find('.bleTdmTimeline').show();
             
@@ -143,7 +158,7 @@ $(document).ready(function() {
             for(const sensorObj of calc.inputValues.sensors) {
                 sensorObj.packets = [];
 
-                ms = sensorObj.o;
+                ms = 0; // Previously set to sensorObj.o;
                 sensorObj.successCount = 0;
 
                 while(ms < testDurationMs) {
@@ -410,16 +425,16 @@ $(document).ready(function() {
                 // TODO: Handle radio buttons, etc.
                 const inputType = $(inputElem).prop('type');
                 
-                switch(inputType) {                
-                default:
-                    const key = $(inputElem).data('key');
-                    if (key) {
+                const key = $(inputElem).data('key');
+                if (key) {
+                    switch(inputType) {                
+                    default:
                         calc.inputValues[key] = parseFloat($(inputElem).val());
     
                         calc.inputUrlParams[key] = calc.inputValues[key];
-                    }                    
+                        break;
+                    }
                 }
-
             });
 
             calc.inputValues.sensors = [];
@@ -437,17 +452,17 @@ $(document).ready(function() {
                     const inputElem = $(this);
     
                     // TODO: Handle radio buttons, etc.
-                    const inputType = $(inputElem).prop('type');
-                    switch(inputType) {
-                    default:
-                        const key = $(inputElem).data('key');
-                        if (key) {
+                    const key = $(inputElem).data('key');
+                    if (key) {
+                        const inputType = $(inputElem).prop('type');
+                        switch(inputType) {
+                        default:
                             sensorObj[key] = parseFloat($(inputElem).val());
-        
+
                             calc.inputUrlParams[key + sensorIndex] = sensorObj[key];
+                            break;
                         }
                     }
-    
     
                 });
 
@@ -611,9 +626,7 @@ $(document).ready(function() {
                     default:
                         const value = calc.urlParams.get(key);
                         if (value) {
-                            calc.inputUrlParams[key] = value;
-    
-                            calc.inputValues[key] = calc.inputUrlParams[key];
+                            calc.inputValues[key] = calc.inputUrlParams[key] = value;    
                             $(inputElem).val(calc.inputValues[key]);
                         }        
                         break;
