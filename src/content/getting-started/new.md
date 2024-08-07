@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cloud ledger size 2024-08-07
+
+Cloud ledgers can now be up to 1 Mbyte in size. Device to cloud and Cloud to device ledgers are still limited to 16 Kbyte.
+
 ### Gen 4 maximum sleep duration 2024-07-30
 
 Documented the [maximum sleep duration](/reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration/) for Gen 4 devices (P2, Photon 2, M-SoM).
