@@ -253,6 +253,22 @@ $(document).ready(function() {
                     testRunSensorObj.results.successCount = 0;
     
                     while(ms < testDurationMs) {
+                        const advStart = ms;
+                        let msNext;
+
+                        if (testRunSensorObj.sensorObj.it == 'f') {
+                            // Fixed interval
+                            msNext = ms + testRunSensorObj.sensorObj.i;
+                        }
+                        else {
+                            msNext = ms + calc.rnd.intInRange(Math.ceil(testRunSensorObj.sensorObj.rmin), Math.floor(testRunSensorObj.sensorObj.rmax));
+                        }
+
+                        if (testRunSensorObj.sensorObj.j > 0) {
+                            // Random jitter
+                            ms += calc.rnd.intInRange(0, testRunSensorObj.sensorObj.j);
+                        }
+
                         const intervals = calc.getIntervals(ms);
     
                         let packet = {
@@ -273,7 +289,7 @@ $(document).ready(function() {
                             testRunObj.packetTimes.push(ms);
                         }
     
-                        ms += testRunSensorObj.sensorObj.i;
+                        ms = msNext;
                     }
     
                     testRunSensorObj.results.numSamples = testRunSensorObj.packets.length;
