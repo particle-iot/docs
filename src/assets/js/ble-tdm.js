@@ -164,6 +164,7 @@ $(document).ready(function() {
             }
         }
 
+
       
         calc.getIntervals = function(ms) {
             let result = {};
@@ -265,8 +266,7 @@ $(document).ready(function() {
                         }
 
                         // Handle repeats
-                        let firstPacket;
-                        let successPacket;
+                        let savePacket;
 
                         for(let repeatNum = 0; repeatNum <= testRunSensorObj.sensorObj.r; repeatNum++) {
                             if (testRunSensorObj.sensorObj.j > 0) {
@@ -284,29 +284,26 @@ $(document).ready(function() {
                             };
         
                             packet.success = (packet.startMs >= intervals.windowStartBle && packet.endMs <= intervals.windowEndBle);
-                            if (packet.success && !successPacket) {
-                                successPacket = packet;
+                            if (packet.success) {
+                                savePacket = packet;
                                 break;
                             }
         
-                            if (!firstPacket) {
-                                firstPacket = packet;
+                            if (!savePacket) {
+                                savePacket = packet;
                             }
                         }
 
-                        if (successPacket) {
-                            testRunSensorObj.results.successCount++;
-                            ms = successPacket.startMs;
-                            testRunSensorObj.packets.push(successPacket);
-                        }
-                        else {
-                            ms = firstPacket.startMs;
-                            testRunSensorObj.packets.push(firstPacket);
-                        }
-  
+                        if (savePacket) {
+                            if (savePacket.success) {
+                                testRunSensorObj.results.successCount++;
+                            }
+                            ms = savePacket.startMs;
+                            testRunSensorObj.packets.push(savePacket);
 
-                        if (!testRunObj.packetTimes.includes(ms)) {
-                            testRunObj.packetTimes.push(ms);
+                            if (!testRunObj.packetTimes.includes(ms)) {
+                                testRunObj.packetTimes.push(ms);
+                            }
                         }
     
                         ms = msNext;
@@ -377,7 +374,8 @@ $(document).ready(function() {
                     }
     
                     if (testRunSensorObj.results.latencyCount > 0) {
-                        testRunSensorObj.results.latencyMeanStr = Math.round(latencySum / testRunSensorObj.results.latencyCount) + ' ms';
+                        testRunSensorObj.results.latencyMean = Math.round(latencySum / testRunSensorObj.results.latencyCount);
+                        testRunSensorObj.results.latencyMeanStr = testRunSensorObj.results.latencyMean + ' ms';
                     }
     
                     testRunSensorObj.results.latencyMinStr = (testRunSensorObj.results.latencyMin != undefined) ? (testRunSensorObj.results.latencyMin + ' ms') : '';
@@ -624,18 +622,36 @@ $(document).ready(function() {
             for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
                 const sensorObj = calc.inputValues.sensors[ii];
 
-                sensorObj.results = {
-                    numSamplesSum: 0,
-                };
+                const fields = ['numSamples', 'successPct', 'failurePct', 'latency1Pct', 'latency2Pct', 'latency3Pct', 'latencyMorePct',
+                    'latencyMean', 'latencyMin', 'latencyMax'
+                ];
+
+                let sums = {};
+                let counts = {};
+                for(const f of fields) {
+                    sums[f] = counts[f]= 0;
+                }
                 
                 for(const testRunObj of calc.testRuns) {
-                    // console.log('aggregate testRun', testRunObj.sensors[ii].results);
-                    sensorObj.numSamplesSum += testRunObj.sensors[ii].results.numSamples;
+                    for(const f of fields) {
+                        if (typeof testRunObj.sensors[ii].results[f] != 'undefined') {
+                            sums[f] += testRunObj.sensors[ii].results[f];
+                            counts[f]++;
+                        }
+                    }
                 }
 
-                sensorObj.results.numSamples = Math.round(sensorObj.results.numSamplesSum / calc.testRuns.length);
+                sensorObj.results = {};
+                for(const f of fields) {
+                    sensorObj.results[f] = Math.round(sums[f] / counts[f]);
+                }
 
-                // console.log('aggregate sensorObj.results ii=' + ii, sensorObj.results);
+                const stringFields = ['latencyMean', 'latencyMin', 'latencyMax'];
+                for(const f of stringFields) {
+                    if (typeof sensorObj.results[f] != 'undefined') {
+                        sensorObj.results[f + 'Str'] = Math.round(sensorObj.results[f]) + 'ms';
+                    }
+                }
             }
 
             // Update sensor UI
@@ -703,7 +719,6 @@ $(document).ready(function() {
                             // it - interval type fixed (f) or random (r)
                             if ($(inputElem).prop('checked')) {
                                 sensorObj[key] = $(inputElem).val();
-                                console.log('radio checked key=' + key + ' value=' + sensorObj[key]);
                             }
                             break;
                                     
