@@ -5,24 +5,19 @@
                 <table class="apiHelperTableNoMargin">
                     <tbody>
                         <tr>
-                            <td class="apiHelperProductSelectorLabel">Wi-Fi/BLE TDMA Window Size</td>
-                            <td><input type="text" size="10" value="18" class="inputParam" data-key="windowSize,ws" /></td>
-                            <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 18)</td>
+                            <td class="apiHelperProductSelectorLabel">Test Duration</td>
+                            <td><input type="text" size="10" value="900" class="inputParam" data-key="d" />
+                                seconds (default: 900)</td>
+                        </tr>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">Wi-Fi + BLE TDMA Window Size</td>
+                            <td><input type="text" size="10" value="100" class="inputParam" data-key="ws" />
+                                ms (milliseconds) (leave at 100)</td>
                         </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">BLE window percentage</td>
-                            <td><input type="text" size="10" value="50" class="inputParam" data-key="blePct,b" /></td>
-                            <td class="apiHelperProductSelectorLabel">% (default: 50)</td>
-                        </tr>
-                        <tr>
-                            <td class="apiHelperProductSelectorLabel">TDMA window offset</td>
-                            <td><input type="text" size="10" value="0" class="inputParam" data-key="tdmaOffset,o" /></td>
-                            <td class="apiHelperProductSelectorLabel">ms (milliseconds)</td>
-                        </tr>
-                        <tr>
-                            <td class="apiHelperProductSelectorLabel">Test Duration</td>
-                            <td><input type="text" size="10" value="900" class="inputParam" data-key="duration,d" /></td>
-                            <td class="apiHelperProductSelectorLabel">seconds (default: 900)</td>
+                            <td><input type="text" size="10" value="50" class="inputParam" data-key="b" />
+                                % (leave at 50)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -35,22 +30,42 @@
                             <table class="apiHelperTableNoMargin">
                                 <tbody>
                                     <tr>
-                                        <td class="apiHelperProductSelectorLabel">Advertising interval</td>
-                                        <td><input type="text" size="10" value="10000" class="sensorInputParam" data-key="interval,i" /></td>
-                                        <td class="apiHelperProductSelectorLabel">ms (milliseconds)</td>
+                                        <td class="apiHelperProductSelectorLabel">
+                                            <label><input type="radio" value="f" class="sensorInputParam fixedRandomRadio" data-key="it" checked/>Fixed advertising interval</label></td>
+                                        <td><input type="text" size="10" value="10000" class="sensorInputParam" data-key="i" />
+                                            ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="apiHelperProductSelectorLabel">
+                                            <label><input type="radio" value="r" class="sensorInputParam fixedRandomRadio" data-key="it"/>Random advertising interval</label></td>
+                                        <td>
+                                            Min: <input type="text" size="10" value="9000" class="sensorInputParam" data-key="rmin" /> 
+                                            Max: <input type="text" size="10" value="11000" class="sensorInputParam" data-key="rmax" />
+                                            ms
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="apiHelperProductSelectorLabel">Packet length</td>
-                                        <td><input type="text" size="10" value="0.125" class="sensorInputParam" data-key="length,l" /></td>
-                                        <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 0.125)</td>
+                                        <td><input type="text" size="10" value="0.125" class="sensorInputParam" data-key="l" />
+                                            ms</td>
                                     </tr>
                                     <tr>
-                                        <td class="apiHelperProductSelectorLabel">Offset</td>
-                                        <td><input type="text" size="10" value="0" class="sensorInputParam" data-key="offset,o" /></td>
-                                        <td class="apiHelperProductSelectorLabel">ms (milliseconds) (default: 0)</td>
+                                        <td class="apiHelperProductSelectorLabel">Retransmit repeats</td>
+                                        <td><input type="text" size="10" value="3" class="sensorInputParam" data-key="r" />
+                                            </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="3">
+                                        <td class="apiHelperProductSelectorLabel">Retransmit delay</td>
+                                        <td><input type="text" size="10" value="100" class="sensorInputParam" data-key="d" />
+                                            ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="apiHelperProductSelectorLabel">Random transmit jitter</td>
+                                        <td><input type="text" size="10" value="10" class="sensorInputParam" data-key="j" />
+                                            ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
                                             <div class="sensorTools" style="display:flex;">
                                                 <div class="sensorRemoveDiv" style="display:none;"><a class="apiHelperLink">Delete this sensor</a></div>
                                             </div>
@@ -60,7 +75,7 @@
                             </table>
                         </div>
                         <div style="margin-left: 30px;">
-                            <table class="apiHelperTableNoMargin">
+                            <table class="apiHelperTableNoMargin sensorResultTable">
                                 <tbody>
                                     <tr>
                                         <td class="apiHelperProductSelectorLabel">Samples in test period</td>
@@ -78,40 +93,30 @@
                                         <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td class="apiHelperProductSelectorLabel">Latency normal 
-                                            (<span class="sensorResult" data-key="latency1Time"></span>)
-                                        </td>
+                                        <td class="apiHelperProductSelectorLabel">Latency normal</td>
                                         <td class="apiHelperProductSelectorLabel">
-                                            <span class="sensorResult" data-key="latency1"></span> times 
-                                            (<span class="sensorResult" data-key="latency1Pct"></span> %) 
+                                            <span class="sensorResult" data-key="latency1Pct"></span> %
                                         </td>
                                         <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td class="apiHelperProductSelectorLabel">Latency missed 1 packet 
-                                            (<span class="sensorResult" data-key="latency2Time"></span>)
-                                        </td>
+                                        <td class="apiHelperProductSelectorLabel">Latency missed 1 packet</td>
                                         <td class="apiHelperProductSelectorLabel">
-                                            <span class="sensorResult" data-key="latency2"></span> times 
-                                            (<span class="sensorResult" data-key="latency2Pct"></span> %) 
+                                            <span class="sensorResult" data-key="latency2Pct"></span> %
                                         </td>
                                         <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td class="apiHelperProductSelectorLabel">Latency missed 2 packets 
-                                            (<span class="sensorResult" data-key="latency3Time"></span>)
-                                        </td>
+                                        <td class="apiHelperProductSelectorLabel">Latency missed 2 packets</td>
                                         <td class="apiHelperProductSelectorLabel">
-                                            <span class="sensorResult" data-key="latency3"></span> times 
-                                            (<span class="sensorResult" data-key="latency3Pct"></span> %) 
+                                            <span class="sensorResult" data-key="latency3Pct"></span> %
                                         </td>
                                         <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td class="apiHelperProductSelectorLabel">Latency missed 3 or more packets</td>
                                         <td class="apiHelperProductSelectorLabel">
-                                            <span class="sensorResult" data-key="latencyMore"></span> times 
-                                            (<span class="sensorResult" data-key="latencyMorePct"></span> %)
+                                            <span class="sensorResult" data-key="latencyMorePct"></span> %
                                         </td>
                                         <td class="apiHelperProductSelectorLabel">&nbsp;</td>
                                     </tr>
@@ -147,13 +152,26 @@
             </div>                
             <div class="bleTdmStatus" style="margin-top: 10px; margin-bottom: 10px;">
             </div>            
-            <div class="bleTdmTimeline" style="margin-top: 10px; margin-bottom: 10px;">
-                <table class="apiHelperTableNoMargin">
-                    <thead>
-                    </thead>
-                    <tbody>                        
-                    </tbody>
-                </table>
+            <div class="bleTdmTimelineContainer" style="margin-top: 10px; margin-bottom: 10px; display: flex; overflow-x: auto;">
+                <div class="bleTdmTimeline" style="display:none; margin-right: 20px;">
+                    <h4>Test run <span class="testRunLabel"></span></h4>
+                    <div class="sensorResultTableDiv">
+                        <table class="apiHelperTableNoMargin sensorResultTable">
+                            <thead>
+                            </thead>
+                            <tbody>                        
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div class="testRunResultsTableDiv">
+                        <table class="apiHelperTableNoMargin testRunResultsTable">
+                            <thead>
+                            </thead>
+                            <tbody>                        
+                            </tbody>
+                        </table>                        
+                    </div>
+                </div>
             </div>            
         </div>
     </div>

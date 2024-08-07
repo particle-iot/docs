@@ -25,22 +25,32 @@ transmissions from from battery powered beacons that transmit less frequently, y
 {{collapse op="start" label="Show instructions for tool"}}
 #### Global parameters
 
-- **Wi-Fi/BLE TDMA Window Size** This is the period of time devoted to a Wi-Fi and BLE cycle. The default is 18 ms. and you should leave it at the default as this is not a parameter that you can change in the RTL872x.
+- **Test Duration** This is how long the simulation is run. It's not in real-time, but if the number is very large calculation may take a while and the result table will be very large. The success and missed percentages tend to reach a stable average fairly quickly, which is why the default is 900 seconds.
+
+- **Wi-Fi/BLE TDMA Window Size** This is the period of time devoted to a Wi-Fi and BLE cycle. The default is 100 ms. and you should leave it at the default as this is not a parameter that you can change in the RTL872x.
 
 - **BLE window percentage** Amount of time devote to BLE vs. Wi-Fi. The default is 50% and you should leave it at the default as this is not a parameter that you can change in the RTL872x. Setting this to 100% does simulate how it would work if it had a dedicated BLE peripheral, however.
-
-- **TDMA window offset** Where the transition occurs relative to the simulation time clock. Unless the sensors and MCU are synchronized, this generally does not make a significant difference.
-
-- **Test Duration** This is how long the simulation is run. It's not in real-time, but if the number is very large calculation may take a while and the result table will be very large. The success and missed percentages tend to reach a stable average fairly quickly, which is why the default is 900 seconds.
 
 
 #### Sensor parameters
 
-- **Advertising interval** How often this sensor transmits its data in milliseconds.
+- **Fixed advertising interval** You specify often this sensor transmits its data in milliseconds.
+
+- **Random advertising interval** The sensor will transmit with a random delay in the range specified.
 
 - **Packet length** How long it takes to advertise. You generally don't need to change this, but a transmission is considered successful 
 
-- **Offset** Where the transmission occurs relative to the simulation time clock.
+- **Retransmit repeats** Beacons will often transmit the data multiple times within the advertising interval. This
+can be on different channels, and can also be done in case of RF interference. A value is typically between 0 and 3.
+
+- **Retransmit delay** How long of a delay for retransmits. The jitter (below) is also added. Note that the
+number of repeats * the retransmit delay must be less than the advertising interval. When retransmitting, if
+any of the retransmissions succeeds, the packet is marked as success. If all are missed, then it is marked as missed.
+
+- **Random transmit jitter** Most BLE sensors will add a random delay before transmitting. This prevents beacons 
+from transmitting at exactly the same time, every time, causing interference on every packet. This only affects
+the transmission within the advertising interval, so the interval does not drift.
+
 
 #### Sensor results
 
@@ -60,9 +70,20 @@ transmissions from from battery powered beacons that transmit less frequently, y
 
 - **Mean latency** The average (mean) latency.
 
-- **Minimum latency** Lowest latency. This is typically the advertising interval.
+- **Minimum latency** Lowest latency.
 
 - **Maximum latency** Maximum latency.
+
+#### Test runs
+
+Since you have little control over the synchronization between the BLE advertiser and the Particle BLE receiver, 
+a series of test runs is done to see if offset affects the results.
+
+This is particularly helpful if you accidentally make the advertising interval a multiple of the 
+TDMA window size, as it's possible that the BLE beacon could forever transmit in the Wi-Fi interval and
+every packet would be lost.
+
+
 {{collapse op="end"}}
 
 ## Tool
@@ -72,49 +93,39 @@ transmissions from from battery powered beacons that transmit less frequently, y
 
 ## Examples
 
-### Normal fast advertising
+### 750 ms advertising
 
 With your sensor advertising frequently (750 ms), the missed samples may seem a little alarming, but 
 are spaced out and do not significantly affect the mean latency. Note in the wild, advertisements 
 are often missed because of RF interference from other devices and sensors, or even people walking
 between the beacon and the receiver.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=60&i0=750&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?d=60&ws=100&b=50&it0=f&i0=750&rmin0=9000&rmax0=11000&l0=0.125&r0=0&d0=100&j0=10"}}
 
-### 30-second advertising
+### 1 second advertising
 
-With a sensor advertising less frequently (30 seconds), the missed samples do affect the latency
-because the 
+One thing to beware of, however, is making the advertising interval a multiple of the BLE + Wi-Fi TDM
+window, which is 100 milliseconds. Scroll to the right in the results to view runs 4 and 5 to see the problem.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?d=300&ws=100&b=50&it0=f&i0=1000&rmin0=9000&rmax0=11000&l0=0.125&r0=0&d0=100&j0=10"}}
 
-- [Scroll up to see results](#tool)
+### 10 second advertising
 
-### 15-second advertising
+The same problem can be seen at a 10 second interval, though in this example repeats are enabled which 
+helps somewhat.
 
-This example compares 30-second advertising and 15-second advertising. With an advertising interval
-of 15 seconds the mean latency of 20 seconds is less than it would be for 100% success at 30 second interval.
-Also, the maximum latency is 30 seconds.
+A repeat of 3 with a delay of 100 ms means that the advertising interval, the same data is transmitted
+3 times, 100 ms apart. Since jitter of 10 ms is also enabled, a random amount of jitter delay is added as well.
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=30000&l0=0.125&o0=0&i1=15000&l1=0.125&o1=0"}}
+{{> ble-tdm-example param="?d=900&ws=100&b=50&it0=f&i0=10000&rmin0=9000&rmax0=11000&l0=0.125&r0=3&d0=100&j0=10"}}
 
-- [Scroll up to see results](#tool)
+### 10.75 second advertising
 
-### Beware of overfitting
+By adjusting the advertising interval to not be a multiple of the TDM window, the results are much more consistent.
 
-Beware of making settings that appear to eliminate the missed packets entirely.
+{{> ble-tdm-example param="?d=900&ws=100&b=50&it0=f&i0=10750&rmin0=9000&rmax0=11000&l0=0.125&r0=3&d0=100&j0=10"}}
 
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&i0=18000&l0=0.125&o0=0"}}
 
-Since the transmitted and receiver are not synchronized you can just as easily end up in entirely in the Wi-Fi range.
-
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=300&i0=18000&l0=0.125&o0=12"}}
-
-Also likely is that the clocks aren't exactly the same, causing poor performance when they drift to certain offsets
-
-{{> ble-tdm-example param="?ws=18&b=50&o=0&d=900&i0=18000.5&l0=0.125&o0=0"}}
-
-All of these situations can be eliminated by not picking an advertising interval a multiple of 18 milliseconds.
 
 - [Scroll up to see results](#tool)
 
