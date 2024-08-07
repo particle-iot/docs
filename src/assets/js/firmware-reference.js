@@ -4,6 +4,8 @@ $(document).ready(function() {
     const scrollableContent = $('div.content-inner');
 
     let apiIndex;
+    let deferPopulateFolder = false;
+
 
     const parsePath = function(pathname) {
         let result = {};
@@ -41,6 +43,10 @@ $(document).ready(function() {
     }
 
     const populateFolder = function(folder) {
+        if (!apiIndex) {
+            deferPopulateFolder = folder;
+            return;
+        }
 
         if (apiIndex.folders[folder].folderItems) {
             return;
@@ -141,6 +147,10 @@ $(document).ready(function() {
 
         const pathParts = parsePath(href);
         const folder = pathParts.folder;
+        if (!apiIndex) {
+            deferPopulateFolder = folder;
+            return;
+        }
         populateFolder(folder);
 
         // Mark current page as active
@@ -483,6 +493,8 @@ $(document).ready(function() {
                 else {
                     console.log('close folder from click');
                     closeFolder(folder);
+                    $('.navMenu4').hide();
+                    $('.navMenu5').hide();
                 }  
             });
             $(divNavContainer).append(d);
@@ -512,7 +524,8 @@ $(document).ready(function() {
 
         navMenu.searchContent();
 
-        populateFolder(parsePath(thisUrl.pathname).folder);
+        populateFolder(deferPopulateFolder ? deferPopulateFolder : parsePath(thisUrl.pathname).folder);
+        deferPopulateFolder = null;
 
         syncNavigation(thisUrl.pathname);
 
