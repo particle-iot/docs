@@ -264,27 +264,47 @@ $(document).ready(function() {
                             msNext = ms + calc.rnd.intInRange(Math.ceil(testRunSensorObj.sensorObj.rmin), Math.floor(testRunSensorObj.sensorObj.rmax));
                         }
 
-                        if (testRunSensorObj.sensorObj.j > 0) {
-                            // Random jitter
-                            ms += calc.rnd.intInRange(0, testRunSensorObj.sensorObj.j);
+                        // Handle repeats
+                        let firstPacket;
+                        let successPacket;
+
+                        for(let repeatNum = 0; repeatNum <= testRunSensorObj.sensorObj.r; repeatNum++) {
+                            if (testRunSensorObj.sensorObj.j > 0) {
+                                // Random jitter
+                                ms += calc.rnd.intInRange(0, testRunSensorObj.sensorObj.j);
+                            }
+    
+                            const intervals = calc.getIntervals(ms);
+        
+                            let packet = {
+                                startMs: ms,
+                                endMs: ms + testRunSensorObj.sensorObj.l,                        
+                                windowStartBle: intervals.windowStartBle,
+                                windowEndBle: intervals.windowEndBle,
+                            };
+        
+                            packet.success = (packet.startMs >= intervals.windowStartBle && packet.endMs <= intervals.windowEndBle);
+                            if (packet.success && !successPacket) {
+                                successPacket = packet;
+                                break;
+                            }
+        
+                            if (!firstPacket) {
+                                firstPacket = packet;
+                            }
                         }
 
-                        const intervals = calc.getIntervals(ms);
-    
-                        let packet = {
-                            startMs: ms,
-                            endMs: ms + testRunSensorObj.sensorObj.l,                        
-                            windowStartBle: intervals.windowStartBle,
-                            windowEndBle: intervals.windowEndBle,
-                        };
-    
-                        packet.success = (packet.startMs >= intervals.windowStartBle && packet.endMs <= intervals.windowEndBle);
-                        if (packet.success) {
+                        if (successPacket) {
                             testRunSensorObj.results.successCount++;
+                            ms = successPacket.startMs;
+                            testRunSensorObj.packets.push(successPacket);
                         }
-    
-                        testRunSensorObj.packets.push(packet);
-    
+                        else {
+                            ms = firstPacket.startMs;
+                            testRunSensorObj.packets.push(firstPacket);
+                        }
+  
+
                         if (!testRunObj.packetTimes.includes(ms)) {
                             testRunObj.packetTimes.push(ms);
                         }
