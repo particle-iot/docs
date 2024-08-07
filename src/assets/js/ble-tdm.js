@@ -629,7 +629,7 @@ $(document).ready(function() {
                 
                 const key = $(inputElem).data('key');
                 if (key) {
-                    switch(inputType) {                
+                    switch(inputType) {           
                     default:
                         // d - test duration seconds (float)
                         // ws - window size ms (float)
@@ -661,19 +661,30 @@ $(document).ready(function() {
                     const key = $(inputElem).data('key');
                     if (key) {
                         const inputType = $(inputElem).prop('type');
-                        switch(inputType) {
-                        default:
-                        // i fixed advertising interval ms (float)
-                        // rmin random advertising interval minimum ms (float)
-                        // rmax random advertising interval minimum ms (float)
-                        // l (ell) - packet length ms (float)
-                        // r - retransmit repeats
-                        // d - retransmit delay (ms)
-                        // j - random transmit jitter (ms)
-                        sensorObj[key] = parseFloat($(inputElem).val());
 
-                            calc.inputUrlParams[key + sensorIndex] = sensorObj[key];
+                        switch(inputType) {
+                        case 'radio':
+                            // it - interval type fixed (f) or random (r)
+                            if ($(inputElem).prop('checked')) {
+                                sensorObj[key] = $(inputElem).val();
+                                console.log('radio checked key=' + key + ' value=' + sensorObj[key]);
+                            }
                             break;
+                                    
+                        default:
+                            // i fixed advertising interval ms (float)
+                            // rmin random advertising interval minimum ms (float)
+                            // rmax random advertising interval minimum ms (float)
+                            // l (ell) - packet length ms (float)
+                            // r - retransmit repeats
+                            // d - retransmit delay (ms)
+                            // j - random transmit jitter (ms)
+                            sensorObj[key] = parseFloat($(inputElem).val());
+                            break;
+                        }
+
+                        if (typeof sensorObj[key] != 'undefined') {
+                            calc.inputUrlParams[key + sensorIndex] = sensorObj[key];
                         }
                     }
     
@@ -848,18 +859,16 @@ $(document).ready(function() {
     
                 const key = $(inputElem).data('key');
                 if (key) {
-                    // TODO: Handle radio buttons, etc.
-                    const inputType = $(inputElem).prop('type');
-                    switch(inputType) {
-                    default:
-                        const value = calc.urlParams.get(key);
-                        if (value) {
+                    const value = calc.urlParams.get(key);
+                    if (value !== null) {
+                        const inputType = $(inputElem).prop('type');
+                        switch(inputType) {
+                        default:
                             calc.inputValues[key] = calc.inputUrlParams[key] = value;    
                             $(inputElem).val(calc.inputValues[key]);
-                        }        
-                        break;
+                            break;
+                        }
                     }
-
                 }
             });
 
@@ -896,10 +905,19 @@ $(document).ready(function() {
 
                 $(sensorDivElem).find('.sensorInputParam').each(function() {
                     const inputElem = $(this);
-        
+
                     const key = $(inputElem).data('key');
                     if (key && calc.inputValues.sensors && calc.inputValues.sensors[sensorIndex]) {
-                        $(inputElem).val(calc.inputValues.sensors[sensorIndex][key]);
+                        const inputType = $(inputElem).prop('type');
+                        switch(inputType) {
+                        case 'radio':
+                            $(inputElem).prop('checked', $(inputElem).prop('value') == calc.inputValues.sensors[sensorIndex][key]);
+                            break;
+
+                        default:
+                            $(inputElem).val(calc.inputValues.sensors[sensorIndex][key]);
+                            break;
+                        }
                     }
                     // console.log('set values', {key, sensorIndex, sensorObj: calc.inputValues.sensors[sensorIndex]});
 
