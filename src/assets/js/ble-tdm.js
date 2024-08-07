@@ -81,12 +81,12 @@ $(document).ready(function() {
             },
             {
                 title: 'Latency missed 2',
-                key: 'latency2Pct',
+                key: 'latency3Pct',
                 append: '%',
             },
             {
                 title: 'Latency missed 3+',
-                key: 'latency2Pct',
+                key: 'latencyMorePct',
                 append: '%',
             },
             {
@@ -334,15 +334,18 @@ $(document).ready(function() {
     
                     for(let ii = 0; ii < testRunSensorObj.packets.length - 1; ii++) {
                         let thisPacketLatency;
+                        let thisPacketLatencyMs;
+
                         for(let jj = ii + 1; jj < testRunSensorObj.packets.length; jj++) {
                             if (testRunSensorObj.packets[jj].success) {
                                 thisPacketLatency = jj - ii;
+                                thisPacketLatencyMs = testRunSensorObj.packets[jj].startMs - testRunSensorObj.packets[ii].startMs;
                                 break;
                             }
                         }
                         if (thisPacketLatency) {
-                            const thisPacketLatencyMs = thisPacketLatency * testRunSensorObj.sensorObj.i;
                             testRunSensorObj.packets[ii].latency = thisPacketLatency;
+                            testRunSensorObj.packets[ii].latencyMs = thisPacketLatencyMs;
                             latencySum += thisPacketLatencyMs;
                             testRunSensorObj.results.latencyCount++;
     
@@ -392,11 +395,7 @@ $(document).ready(function() {
                     testRunSensorObj.results.latency1Pct = Math.round(testRunSensorObj.results.latency1 * 100 / total);
                     testRunSensorObj.results.latency2Pct = Math.round(testRunSensorObj.results.latency2 * 100 / total);
                     testRunSensorObj.results.latency3Pct = Math.round(testRunSensorObj.results.latency3 * 100 / total);
-                    testRunSensorObj.results.latencyMorePct = Math.round(testRunSensorObj.results.latencyMore * 100 / total);
-    
-                    testRunSensorObj.results.latency1Time = calc.msToText(testRunSensorObj.results.i);
-                    testRunSensorObj.results.latency2Time = calc.msToText(testRunSensorObj.results.i * 2);
-                    testRunSensorObj.results.latency3Time = calc.msToText(testRunSensorObj.results.i * 3);
+                    testRunSensorObj.results.latencyMorePct = Math.round(testRunSensorObj.results.latencyMore * 100 / total);    
                 }
     
 
@@ -618,6 +617,7 @@ $(document).ready(function() {
 
             }
 
+            
             // Aggregate results over test runs
             for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
                 const sensorObj = calc.inputValues.sensors[ii];
@@ -643,7 +643,9 @@ $(document).ready(function() {
 
                 sensorObj.results = {};
                 for(const f of fields) {
-                    sensorObj.results[f] = Math.round(sums[f] / counts[f]);
+                    if (counts[f] > 0) {
+                        sensorObj.results[f] = Math.round(sums[f] / counts[f]);
+                    }
                 }
 
                 const stringFields = ['latencyMean', 'latencyMin', 'latencyMax'];
@@ -655,6 +657,7 @@ $(document).ready(function() {
             }
 
             // Update sensor UI
+            
             for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
                 const sensorObj = calc.inputValues.sensors[ii];
 
@@ -668,7 +671,8 @@ $(document).ready(function() {
                         $(sensorResultElem).text('');
                     }
                 });
-            }            
+            } 
+                
         }
         
 

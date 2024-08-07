@@ -72,14 +72,17 @@ transmissions from from battery powered beacons that transmit less frequently, y
 
 ## Examples
 
-### Normal fast advertising
+### 750 advertising
 
 With your sensor advertising frequently (750 ms), the missed samples may seem a little alarming, but 
 are spaced out and do not significantly affect the mean latency. Note in the wild, advertisements 
 are often missed because of RF interference from other devices and sensors, or even people walking
 between the beacon and the receiver.
 
-{{> ble-tdm-example param="?ws=100&b=50&o=0&d=60&i0=750&l0=0.125&o0=0"}}
+{{> ble-tdm-example param="?d=300&ws=100&b=50&it0=f&i0=750&rmin0=9000&rmax0=11000&l0=0.125&r0=0&d0=100&j0=10"}}
+
+### 10 second advertising
+
 
 ### 30-second advertising
 
