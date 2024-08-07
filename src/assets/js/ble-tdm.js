@@ -187,51 +187,7 @@ $(document).ready(function() {
             $(thisPartial).find('.bleTdmStatus').text(s);
         }
 
-        /*
-        // This logic is wrong - need to fix
-        calc.sensorAggregate = function(testRunSensorObj, key) {
-            let result = {
-                min: undefined,
-                max: undefined,
-                total: 0,
-                count: 0,
-                mean: 0,
-            };
 
-            for(const testRunSensorObj of testRunObj.sensors) {
-                if (key && typeof testRunSensorObj.results[key] != 'undefined') {
-                    result.count++;
-                    result.total += testRunSensorObj.results[key];;
-
-                    if (result.min == undefined || result.min > testRunSensorObj.results[key]) {
-                        result.min = testRunSensorObj.results[key];
-                    }
-                    if (result.max == undefined || result.max < testRunSensorObj.results[key]) {
-                        result.max = testRunSensorObj.results[key];
-                    }
-                }
-            }
-            if (result.count > 0) {
-                result.mean = result.total / result.count;
-            }
-
-            return result;
-        }
-        */
-        
-        calc.updateResults = function(sensorResultElem, results) {
-            $(sensorResultElem).find('.sensorResult').each(function() {
-                const sensorResultElem = $(this);
-                const key = $(sensorResultElem).data('key');
-                if (key && typeof results[key] != 'undefined') {
-                    $(sensorResultElem).text(results[key]);
-                }
-                else {
-                    $(sensorResultElem).text('');
-                }
-            });
-
-        }
 
         calc.calculate = function() {
 
@@ -254,6 +210,7 @@ $(document).ready(function() {
             // calc.offsets = [calc.offsets[0]]; // TEMPORARY
 
             calc.testRuns = [];
+            calc.results = {};
 
             // Remove old timelines
             $(thisPartial).find('.bleTdmTimelineContainer').empty();
@@ -627,7 +584,39 @@ $(document).ready(function() {
 
             }
 
+            // Aggregate results over test runs
+            for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                const sensorObj = calc.inputValues.sensors[ii];
 
+                sensorObj.results = {
+                    numSamplesSum: 0,
+                };
+                
+                for(const testRunObj of calc.testRuns) {
+                    console.log('aggregate testRun', testRunObj.sensors[ii].results);
+                    sensorObj.numSamplesSum += testRunObj.sensors[ii].results.numSamples;
+                }
+
+                sensorObj.results.numSamples = Math.round(sensorObj.results.numSamplesSum / calc.testRuns.length);
+
+                console.log('aggregate sensorObj.results ii=' + ii, sensorObj.results);
+            }
+
+            // Update sensor UI
+            for(let ii = 0; ii < calc.inputValues.sensors.length; ii++) {
+                const sensorObj = calc.inputValues.sensors[ii];
+
+                $(sensorObj.sensorDivElem).find('.sensorResult').each(function() {
+                    const sensorResultElem = $(this);
+                    const key = $(sensorResultElem).data('key');
+                    if (key && typeof sensorObj.results[key] != 'undefined') {
+                        $(sensorResultElem).text(sensorObj.results[key]);
+                    }
+                    else {
+                        $(sensorResultElem).text('');
+                    }
+                });
+            }            
         }
         
 
