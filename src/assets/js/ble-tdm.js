@@ -292,6 +292,8 @@ $(document).ready(function() {
                             if (!savePacket) {
                                 savePacket = packet;
                             }
+
+                            ms += testRunSensorObj.sensorObj.d;
                         }
 
                         if (savePacket) {
