@@ -593,13 +593,13 @@ $(document).ready(function() {
                 };
                 
                 for(const testRunObj of calc.testRuns) {
-                    console.log('aggregate testRun', testRunObj.sensors[ii].results);
+                    // console.log('aggregate testRun', testRunObj.sensors[ii].results);
                     sensorObj.numSamplesSum += testRunObj.sensors[ii].results.numSamples;
                 }
 
                 sensorObj.results.numSamples = Math.round(sensorObj.results.numSamplesSum / calc.testRuns.length);
 
-                console.log('aggregate sensorObj.results ii=' + ii, sensorObj.results);
+                // console.log('aggregate sensorObj.results ii=' + ii, sensorObj.results);
             }
 
             // Update sensor UI
@@ -631,6 +631,9 @@ $(document).ready(function() {
                 if (key) {
                     switch(inputType) {                
                     default:
+                        // d - test duration seconds (float)
+                        // ws - window size ms (float)
+                        // b - BLE window percentage (float, 0 - 100)
                         calc.inputValues[key] = parseFloat($(inputElem).val());
     
                         calc.inputUrlParams[key] = calc.inputValues[key];
@@ -638,6 +641,7 @@ $(document).ready(function() {
                     }
                 }
             });
+            
 
             calc.inputValues.sensors = [];
             $(thisPartial).find('.sensorDiv').each(function() {
@@ -659,7 +663,14 @@ $(document).ready(function() {
                         const inputType = $(inputElem).prop('type');
                         switch(inputType) {
                         default:
-                            sensorObj[key] = parseFloat($(inputElem).val());
+                        // i fixed advertising interval ms (float)
+                        // rmin random advertising interval minimum ms (float)
+                        // rmax random advertising interval minimum ms (float)
+                        // l (ell) - packet length ms (float)
+                        // r - retransmit repeats
+                        // d - retransmit delay (ms)
+                        // j - random transmit jitter (ms)
+                        sensorObj[key] = parseFloat($(inputElem).val());
 
                             calc.inputUrlParams[key + sensorIndex] = sensorObj[key];
                             break;
@@ -693,6 +704,21 @@ $(document).ready(function() {
                     calc.isValid = false;
                     calc.inputError = 'sensor length must be >= 0.1';
                 }            
+                if (sensorObj.r < 0 || sensorObj.r > 10) {
+                    calc.isValid = false;
+                    calc.inputError = 'retransmit repeats must be >= 0 and <= 10';
+                }   
+
+                // TODO: Fix this to work with random interval         
+                if ((sensorObj.r * sensorObj.d) > sensorObj.i) {
+                    calc.isValid = false;
+                    calc.inputError = 'retransmit repeats times retransmit delay must be <= advertising interval';
+                }
+
+                if (sensorObj.j < 0 || sensorObj.j > 100) {
+                    calc.isValid = false;
+                    calc.inputError = 'jitter must be >= 0 and <= 100';
+                }
             }
 
             calc.calculate();
