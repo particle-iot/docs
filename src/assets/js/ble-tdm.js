@@ -651,7 +651,7 @@ $(document).ready(function() {
                 const stringFields = ['latencyMean', 'latencyMin', 'latencyMax'];
                 for(const f of stringFields) {
                     if (typeof sensorObj.results[f] != 'undefined') {
-                        sensorObj.results[f + 'Str'] = Math.round(sensorObj.results[f]) + 'ms';
+                        sensorObj.results[f + 'Str'] = Math.round(sensorObj.results[f]) + ' ms';
                     }
                 }
             }
@@ -871,7 +871,15 @@ $(document).ready(function() {
             }
         });
 
-        calc.addInputHandlers($(thisPartial).find('.inputParam,.sensorInputParam')); 
+        calc.addInputHandlers($(thisPartial).find('.inputParam,.sensorInputParam'));
+        
+        calc.addSensorHandlers = function(sensorElem) {
+            $(sensorElem).find('.fixedRandomRadio').on('click', function() {
+                $(sensorElem).find('.fixedRandomRadio').prop('checked', false);
+                $(this).prop('checked', true);
+            });
+        }
+        calc.addSensorHandlers($(thisPartial).find('.sensorDiv'));
 
         calc.addSensor = function(options = {}) {
             const sensorIndex = $(thisPartial).find('.sensorDiv').length;
@@ -896,6 +904,8 @@ $(document).ready(function() {
     
             $(thisPartial).find('.sensorsDiv').append(sensorElem);
 
+            calc.addSensorHandlers(sensorElem);
+
             if (!options.noReadSave) {
                 calc.readInput();
                 calc.saveUrlParams();    
@@ -909,6 +919,11 @@ $(document).ready(function() {
 
 
         calc.loadUrlParams = function() {
+            if (calc.urlParams.get('o') != null) {
+                // Old version of the configuration, ignore
+                return;
+            }
+
             $(thisPartial).find('.inputParam').each(function() {
                 const inputElem = $(this);
     
