@@ -76,7 +76,7 @@ The [PM-BAT power module](/hardware/power/pm-bat-datasheet/) allows the Particle
 
 - Install the PM-BAT module in the power module socket (22).
 - Connect the LiPo battery (2). 
-- Optionally connect the AC power adapter to VIN (7). With PM-BAT, VIN must be 5-12 VDC.
+- Optionally connect the AC power adapter to VIN (7). With PM-BAT, VIN must be 5 - 12 VDC.
 - You must use the LiPo battery, AC power adapter, or both, when using PM-BAT. You cannot power by USB only.
 - The LiPo battery can be only be charged by VIN, it cannot be charged from USB.
 
@@ -85,7 +85,7 @@ The [PM-BAT power module](/hardware/power/pm-bat-datasheet/) allows the Particle
 The [PM-DC power module](/hardware/power/pm-dc-datasheet/) allows the Particle SoM to be powered by an AC power adapter or external DC power source.
 
 - Install the PM-DC module in the power module socket (22).
-- Connect the power adapter to VIN (7). When powering PM-DC by VIN (barrel connector), 5 - 24 VDC is required at 12 watts.
+- Connect the power adapter to VIN (7). When powering PM-DC by VIN (barrel connector), 5 - 12 VDC is required at 12 watts.
 - Power on the VIN barrel connector is required when using PM-DC; you cannot power the breakout board only by USB power.
 
 
@@ -988,3 +988,4 @@ To be provided at a later date.
 |          | 2024-04-16 | RK     | Description of TS jumper was backwards |
 |        1 | 2024-05-22 | RK     | Public release |
 |        2 | 2024-05-29 | RK     | Descriptions for labels 1 and 3 were reversed |
+|        3 | 2024-08-08 | RK     | Input voltage is 5 - 12 VDC, not 24 |
