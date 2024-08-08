@@ -547,7 +547,7 @@ When using the I/O Card:
 {{!-- END do not edit content above, it is automatically generated --}}
 
 - On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED and temperature sensor. Pins A0 and A1 cannot be used as GPIO.
-- On the Monitor One (and Tracker SoM), `Wire` and `Wire3` are two different I2C peripherals and can be used at the same time.
+- On the Monitor One (and Tracker SoM), `Wire` and `Wire3` share the same I2C peripheral and cannot be used at the same time.
 - On the Monitor One (and Tracker SoM), `Wire3` and `Serial1` share the same pins and only one can be used at a time.
 - I2C is 3.3V only and is not 5V tolerant.
 - There are 4.7K pull-up resistors on `TSOM_A0_SDA` and `TSOM_A1_SCL` to 3.3V on the base board.
@@ -1157,3 +1157,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2024-04-23 | RK | Added links to certification documents |
 | 2024-04-29 | RK | Updated EU certification band information |
 | 2024-05-14 | RK | Added voltage and current limits for M12 connectors |
+| 2024-08-08 | RK | Wire and Wire3 share the same I2C peripheral, it was reversed in the I2C section |

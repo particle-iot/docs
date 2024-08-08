@@ -11,7 +11,7 @@ description: PM-DC power module (DC input, no battery) datasheet
 
 The Particle PM-DC power module is a small module that contains:
 
-- 5 - 24VDC input
+- 5 - 12VDC input
 - 3.3V regulated output for MCU (1A)
 - 4.0V output for cellular modem (2.5A)
 
@@ -139,3 +139,4 @@ The mating header is available from a large number of suppliers in both PTH and 
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-04-15 | RK | Pre-release |
 | 001      | 2024-06-27 | RK | Initial version |
+| 002      | 2024-08-08 | RK | Input voltage range is 5-12 VDC |

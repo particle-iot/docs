@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### PM-DC input voltage 2024-08-08
+
+The [PM-DC power module](/hardware/power/pm-dc-datasheet/) input voltage range is 5 - 12 VDC (not 24).
+
 ### API user tool 2024-08-08
 
 The [API user tool](/tools/cloud-tools/api-users/) now allows scopes that are not listed in the checkboxes to

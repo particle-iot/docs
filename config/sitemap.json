@@ -1423,8 +1423,8 @@
             "hash": "f8d9c44479044bee8f53f30f3aeb0a50d3233d0bbd40154dca569cf300849f54"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2024-06-27",
-            "hash": "6bdbe7290f56b549c8a1832410cbd3041602283431866dc3afcaead40da97ee9"
+            "date": "2024-08-08",
+            "hash": "270f129988cc78f8bba9ae2be5eb3e7adf7315185cbd6aa23e5c64cabbccf9af"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2024-04-23",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "0d76881f92a1914b4d533813a9f4be5fddae2a8cb562820403db15506abf430f",
+            "hash": "e3056fd9ed9c9ebf1795c6ef9558bdd0fb384eb451129b67b53f0c5e2468c62e",
             "date": "2024-08-08"
         },
         "getting-started/cloud/logic.md": {
@@ -9075,8 +9075,8 @@
             "date": "2024-06-26"
         },
         "hardware/power/pm-dc-datasheet.md": {
-            "hash": "1c23f424ff29a2cbb98177649073bb0ce83bc1e47a573ec5a7a9f3d64a734471",
-            "date": "2024-06-26"
+            "hash": "c49e1d4f6a8eb29c9c275163855ae098bb25215bccc569640c4c519119f50ae8",
+            "date": "2024-08-08"
         },
         "hardware/community/monitor-one-modbus.md": {
             "hash": "98bb3deab9db5bb30e57d050d6c579617f67266879b7dfa4f88ead34521e06c6",
