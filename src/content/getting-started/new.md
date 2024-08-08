@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### API user tool 2024-08-08
+
+The [API user tool](/tools/cloud-tools/api-users/) now allows scopes that are not listed in the checkboxes to
+be entered manually.
+
 ### Cloud ledger size 2024-08-07
 
 Cloud ledgers can now be up to 1 Mbyte in size. Device to cloud and Cloud to device ledgers are still limited to 16 Kbyte.

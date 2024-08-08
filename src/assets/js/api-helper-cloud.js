@@ -3126,6 +3126,7 @@ $(document).ready(function () {
         const productSelectElem = $(thisElem).find('.apiHelperProductSelect');
         const orgSelectElem = $(thisElem).find('.apiHelperOrgSelect');
         const friendlyNameElem = isCreate ? $(thisElem).find('.apiHelperFriendlyName') : undefined;
+        const manualScopesElem = isCreate ? $(thisElem).find('.manualScopes') : undefined;
         const actionButtonElem = $(thisElem).find('.apiHelperActionButton,.apiHelperDeleteButton');
 
         let curScopes = [];
@@ -3197,6 +3198,16 @@ $(document).ready(function () {
             }
         };
 
+        const addManualScopes = function(array) {
+
+            const manualScopesCommaSeparated = $(manualScopesElem).val().trim();
+            for(let s of manualScopesCommaSeparated.split(',')) {
+                s = s.trim();
+                if (s.length) {
+                    array.push(s);   
+                }
+            }
+        }
 
         const enableButton = function() {
             const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
@@ -3208,7 +3219,8 @@ $(document).ready(function () {
                 $(thisElem).find('.scopeCheckbox:checked').each(function() {
                     curScopes.push($(this).val());
                 });    
-
+                addManualScopes(curScopes);
+                
                 const friendlyName = $(friendlyNameElem).val();
 
                 const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
@@ -3365,6 +3377,9 @@ $(document).ready(function () {
         $(orgSelectElem).on('change', updateProductList);
 
         $(friendlyNameElem).on('input', enableButton);
+
+        $(manualScopesElem).on('input', enableButton);
+        
 
         updateProductList();
 
