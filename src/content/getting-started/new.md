@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Monitor One I2C 2024-08-08
+
+In the I2C section of the [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/), Wire and Wire3 share
+the same I2C peripheral. It was previously reversed here, but correct in the Device OS firmware API reference.
+
 ### PM-DC input voltage 2024-08-08
 
 The [PM-DC power module](/hardware/power/pm-dc-datasheet/) input voltage range is 5 - 12 VDC (not 24).
