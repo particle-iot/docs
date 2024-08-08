@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS API collapse menu fix 2024-08-08
+
+Fixed a bug where using the collapse triangle in the [Device OS API reference](/reference/device-os/api/) would leave
+deeply nested items visible. For example, collapsing "Bluetooth LE (BLE)" when viewing BLE.advertising().
+
 ### Monitor One I2C 2024-08-08
 
 In the I2C section of the [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/), Wire and Wire3 share
