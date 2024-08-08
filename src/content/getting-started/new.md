@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Publish to Google sheets 2024-08-08
+
+Updated [Publish to Google sheets](/integrations/community-integrations/publish-to-google-sheets/) 
+community integration with the updated user interface for Apps Script.
+
 ### Device OS API collapse menu fix 2024-08-08
 
 Fixed a bug where using the collapse triangle in the [Device OS API reference](/reference/device-os/api/) would leave

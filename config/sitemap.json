@@ -763,8 +763,8 @@
             "hash": "a4ea8f6c9905eebd01616e9a1706006477a361e833bb3471bf68bf3eaf85557f"
         },
         "integrations/community-integrations/publish-to-google-sheets.md": {
-            "date": "2023-08-03",
-            "hash": "4f546c7718e3a7ab04ef841129c2a181e9b12fe647cad0cac8b4b4fec95e42e6"
+            "date": "2024-08-08",
+            "hash": "3e09056a5328f51935160d215009df3c8e4136368c9322fad84506cefcd9f537"
         },
         "integrations/community-integrations/pushover.md": {
             "date": "2023-08-03",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "902e9440d6001f0a213725cdbbf66b9333c0f91faee83ba9be6a96a06b3f883b",
+            "hash": "3b80075c0125fec30799b0a89bc17687c751ec60bb798cdb751ed91d4713bacc",
             "date": "2024-08-08"
         },
         "getting-started/cloud/logic.md": {

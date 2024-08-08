@@ -1,11 +1,12 @@
 ---
-title: AN011 Publish to Google Sheets
+title: Publish to Google Sheets
 layout: commonTwo.hbs
 columns: two
 ---
-# AN011 - Publish to Google sheets
 
-You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN011.zip).
+# Publish to Google sheets
+
+You can download the files associated with this page [as a zip file](/assets/files/app-notes/AN011.zip).
 
 If you have relatively small amounts of data to store, and don't want to implement a more complex database scheme, using a Google G Suite spreadsheet might be a good solution. For more complex or large amounts of data using [Google Cloud Datastore or Firebase](https://github.com/rickkas7/sse-examples) might be more appropriate. It's also possible to use a third-party service like IFTTT to save to Google Sheets, but this technique is faster and more reliable.
 
@@ -24,9 +25,9 @@ If you're like to learn more about Google Apps Script, these two resources are a
 
 The first step is to create a regular Google G Suite Spreadsheet. In this case, I named mine **Test Sheet 1**. 
 
-Click on the **Tools** menu and select **Script Editor** this opens a new tab.
+Click on the **Extensions** menu and select **Apps Script** this opens a new tab.
 
-![Script Editor](/assets/images/app-notes/AN011/script-editor.png)
+![Apps Script Editor](/assets/images/app-notes/AN011/script-editor.png)
 
 The first time you open the script there will be an empty function in the **Code.gs** tab. Replace it with this code:
 
@@ -72,7 +73,7 @@ function doPost(e) {
 }
 ```
 
-The `test()` function is used for testing within the Script Editor, described below.
+The `test()` function is used for testing within the Apps Script Editor, described below.
 
 When the function is called, it will have POST arguments from the webhook. These are parsed into `e.parameter` before calling `doPost()`.
 
@@ -121,11 +122,27 @@ return ContentService.createTextOutput(JSON.stringify(result))
 .setMimeType(ContentService.MimeType.JSON);
 ```
 
-### Run a test in the script editor
+### Run a test in the apps script editor
 
-Save the script (**Save** icon in the toolbar, **File - Save**, or Command-S (Mac) or Ctrl-S (Windows)).
+![Test Function](/assets/images/app-notes/AN011/rename-deploy.png)
 
-Using the `test()` function makes it much easier to troubleshoot code! Exceptions are shown in the Script Editor and **View - Logs** shows the debugging log. This script doesn't have any logging statements but later ones do.
+
+Click on the untitled item at the top of the tab, to the right of **Apps Script** to name the script (1). I used **Test Sheet 1**.
+
+Click the blue **Deploy** (2) button at the top of the tab for a **New deployment**.
+
+Click **Select type** and **Web app**.
+
+![Test Function](/assets/images/app-notes/AN011/new-deployment.png)
+
+Enter a description, and select:
+
+- **Execute as:** must be set to **Me**. Because the Particle webhook server is the sender of the event, it will not be logged into Google so the other options cannot be used.
+- **Who has access** must be set to **Anyone**. This seems a little scary, but it only means that anyone with the web app URL will be able to post values to the script. They won't be able to do anything with the document itself or other files in your Google Drive.
+
+When you click **Deploy** you may be asked to Authorize access. Follow the prompts to authorize, if requested.
+
+Using the `test()` function makes it much easier to troubleshoot code! Exceptions are shown in the Apps Script Editor.
 
 ```js
 function test() {
@@ -139,7 +156,7 @@ function test() {
 }
 ```
 
-In the **Script Editor** make sure **test** is the selected function (1) and click **Run** (2). 
+In the **Apps Script Editor** make sure **test** is the selected function (1) and click **Run** (2). 
 
 ![Test Function](/assets/images/app-notes/AN011/test-function.png)
 
@@ -147,30 +164,14 @@ Now if you switch to the **Test Sheet 1** you should see a newly added row!
 
 ![Test Script Output](/assets/images/app-notes/AN011/test-script.png)
 
-### Save version and publish the script
-
-From the **File** menu select **Manage Versions**.
-
-![Manage Versions](/assets/images/app-notes/AN011/manage-versions.png)
-
-Just saving the script does not update the active version. You must create a version and publish it for the changes to take effect!
-
-From the **Publish** menu, select **Deploy as web app**.
-
-![Deploy as Web App](/assets/images/app-notes/AN011/deploy-as-web-app.png)
-
-In the Deploy as web app screen, there are several things to note:
-
-- The **Current web app URL** is what you'll need to use in the webhook. This is long and random, but should be kept a secret, because anyone with that URL will be able to append to your spreadsheet.
-- The **Project version** is 1 initially. As you save updated versions of the script you can change the deployed version without changing the URL, so you don't have to edit the webhook every time.
-- **Execute the app as:** must be set to **Me**. Because the Particle webhook server is the sender of the event, it will not be logged into Google so the other options cannot be used.
-- **Who has access to this app:** must be set to **Anyone, even anonymous**. This seems a little scary, but it only means that anyone with the web app URL will be able to post values to the script. They won't be able to do anything with the document itself or other files in your Google Drive.
-
-![Deploy Screen](/assets/images/app-notes/AN011/deploy-screen.png)
-
-For more information about deploying webapps, see the [Google apps script page](https://developers.google.com/apps-script/guides/web).
-
 ### Create the webhook
+
+Before you leave the Google Apps Script editor, click the blue Deploy button, then **Manage deployments**.
+
+Copy the **Web app URL** to the clipboard as you will need it to create the webhook. Keep this a secret
+as anyone with this URL will be able to append to your spreadsheet. 
+
+![Test Script Output](/assets/images/app-notes/AN011/web-app-url.png)
 
 The next step is to create the webhook. 
 
@@ -178,17 +179,17 @@ The next step is to create the webhook.
 
 - Use the **New Integration** button (+ icon) to create a new integration.
 
-- Select the **Webhook** option for the kind of integration to create.
+- Select the **Custom Webhook** option for the kind of integration to create.
 
 - Set the **Event Name**. For this test I used **sheetTest1** but you can use any event name as long as you match the webhook and device firmware. Remember that the event name is a prefix, so the event name sheetTest10 will also trigger this event!
 
-- Set the **URL** field to the URL of the webapp you just deployed. Remember to keep this a secret!
+- Set the **URL** field to the URL of the webapp you just deployed.
 
 - Set the **Request Type** to **POST**. 
 
 - Set the **Request Format** to **Web Form**.
 
-- If you expand the **Advanced Settings** make sure the **Form Fields** are set to **Default**. 
+- If you expand the **Extra Settings** make sure the **Form Fields** are set to **Default**. 
 
 - Save the webhook
 
@@ -198,11 +199,30 @@ The next step is to create the webhook.
 
 ![Test Button](/assets/images/app-notes/AN011/test-button.png)
 
+- In the test parameters window, enter `[2,4567]` in the **Event data** box and leave the Device ID field blank.
+
+![Test Parameters](/assets/images/app-notes/AN011/test-parameters.png)
+
 - Go back to your spreadsheet, there should be a new row!
 
 ![Test Sheet](/assets/images/app-notes/AN011/test-sheet.png)
 
 The column A is **api** because the test button just uses the API, not a specific device ID. Column B is the date and time. Columns C and to the right are empty because the test button does not have any data associated with it.
+
+
+### Updating the Apps Script code
+
+When you make a change to the Apps Script code in the Google Apps Script Editor, you must deploy the changed version.
+
+Click **Deploy** then **Manage Deployments**.
+
+![Test Sheet](/assets/images/app-notes/AN011/manage-deployments.png)
+
+- Click the pencil icon (1) to edit the deployments
+- Select **New version**
+- Click **Deploy**
+
+You always want to create a new version, not a new deployment. Creating a new deployment changes the URL, which requires that you update the webhook.
 
 ### Device firmware
 
@@ -712,7 +732,7 @@ Take the returned token and save it in this line in the script. Remember the tok
 var particleApiToken = 'afd38dc999ee0ad9ffffffffffffffffffffffff';
 ```
 
-In the **Script Editor** make sure **test** is the selected function (1) and click **Run** (2). This is necessary because the new script makes an external API call and you must authorize it, or it won't work.
+In the **Apps Script Editor** make sure **test** is the selected function (1) and click **Run** (2). This is necessary because the new script makes an external API call and you must authorize it, or it won't work.
 
 ![Test Function](/assets/images/app-notes/AN011/test-function.png)
 
