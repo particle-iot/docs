@@ -207,7 +207,11 @@ The next step is to create the webhook.
 
 ![Test Sheet](/assets/images/app-notes/AN011/test-sheet.png)
 
-The column A is **api** because the test button just uses the API, not a specific device ID. Column B is the date and time. Columns C and to the right are empty because the test button does not have any data associated with it.
+If you left the Device ID field in the Test Parameters window blank, column A will be **api**.
+
+Column B is the date and time the event was received by the cloud. 
+
+Columns C and to the right have the data that you entered in the event data box (if it was valid JSON).
 
 
 ### Updating the Apps Script code
