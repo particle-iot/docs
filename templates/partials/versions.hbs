@@ -8,7 +8,7 @@
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Show platforms</td>
                             <td class="apiHelperProductSelectorLabel">
-                                <select class="showPlatformsSelect apiHelperSelect">
+                                <select class="showPlatformsSelect apiHelperSelect versionsParam" data-key="pl">
                                     <option value="-" selected>All</option>
                                 </select>
                             </td>
@@ -16,14 +16,14 @@
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Show release state</td>
                             <td class="apiHelperProductSelectorLabel">
-                                <label><input type="checkbox" class="releaseStateCheckbox releaseStatePreview" checked>Preview</label><br />
-                                <label><input type="checkbox" class="releaseStateCheckbox releaseStateGA" checked>GA (generally available)</label>
+                                <label><input type="checkbox" class="releaseStateCheckbox releaseStatePreview versionsParam"  data-key="pr" checked>Preview</label><br />
+                                <label><input type="checkbox" class="releaseStateCheckbox releaseStateGA versionsParam"  data-key="ga" checked>GA (generally available)</label>
                             </td>
                         </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Show release lines</td>
                             <td class="apiHelperProductSelectorLabel">
-                                <select class="showReleaseLinesSelect apiHelperSelect">
+                                <select class="showReleaseLinesSelect apiHelperSelect versionsParam" data-key="rl">
                                     <option value="-" selected>All</option>
                                 </select>
                             </td>
@@ -32,6 +32,8 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="versionList">        
     </div>
 </div>
 
