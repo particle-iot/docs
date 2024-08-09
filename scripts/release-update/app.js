@@ -27,6 +27,8 @@ const releaseNotesPath = path.join(filesDir, 'releaseNotes.json');
 
 const deviceRestoreJson = JSON.parse(fs.readFileSync(path.join(filesDir, 'deviceRestore.json'), 'utf8'));
 
+const deviceOsVersionsJsonPath = path.join(filesDir, 'deviceOsVersions.json');
+
 // deviceRestoreDir has a directory for each version name (semver) with no 'v'
 const deviceRestoreDir = path.join(filesDir, 'device-restore');
 
@@ -916,6 +918,9 @@ async function runDeviceOs() {
     const ignoreVersions = ['3.2.1-p2.1', '3.0.1-p2.4', '3.0.1-p2.5'];
 
     const deviceOsVersions = await fetchDeviceOsVersions();
+
+    fs.writeFileSync(deviceOsVersionsJsonPath, JSON.stringify(deviceOsVersions, null, 2));
+
     for(const ver of deviceOsVersions) {
         if (ver.internal_version < 2100) {
             // Ignore versions older than 2.1.0
@@ -1589,6 +1594,15 @@ async function run() {
             }
         
             releasesJson.updated = now;
+
+            // Remove the download_count as it changes frequently and is not needed
+            for(const rel of releasesJson.releases) {
+                if (rel.assets) {
+                    for(const asset of rel.assets) {
+                        delete asset.download_count;
+                    }
+                }
+            }
         
             // Save releases file
             fs.writeFileSync(releasesJsonPath, JSON.stringify(releasesJson, null, 4));
