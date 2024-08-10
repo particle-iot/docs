@@ -105,7 +105,7 @@ $(document).ready(function() {
             const versionsArray = [];
 
             for(const verObj of versions.deviceOsVersions) {
-                if (verObj.release_state != 'internal' && verObj.release_state != 'archived') {
+                if (verObj.release_state != 'internal') {
                     if (!versions.inputValues.pr) {
                         if (verObj.release_state == 'preview') {
                             continue;
@@ -116,7 +116,34 @@ $(document).ready(function() {
                             continue;
                         }
                     }
-                    if (versions.inputValues.pl != '-') {
+                    if (!versions.inputValues.ar) {
+                        if (verObj.release_state == 'archived') {
+                            continue;
+                        }
+                    }                  
+
+                    // Platform filtering
+                    if (versions.inputValues.pl == '-') {
+                        // No filtering
+                    }
+                    else
+                    if (versions.inputValues.pl.startsWith("gen")) {
+                        const genNum = parseInt(versions.inputValues.pl.substring(3));
+
+                        let found = false;
+
+                        for(const platformId of verObj.supported_platforms) {
+                            const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
+                            if (tempPlatformObj && tempPlatformObj.generation == genNum) {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            continue;
+                        }
+                    }
+                    else {
                         const targetPlatform = parseInt(versions.inputValues.pl);
                         if (!verObj.supported_platforms.includes(targetPlatform)) {
                             console.log('skipping targetPlatform=' + targetPlatform, verObj);
@@ -124,9 +151,8 @@ $(document).ready(function() {
                         }
                     }
 
+                    // Release line
                     const verNumObj = apiHelper.parseVersionStr(verObj.version);
-                    
-                    // TODO: Check release line
                     if (versions.inputValues.rl != '-') {
                         const releaseLine = parseInt(versions.inputValues.rl);
                         if (verNumObj.major != releaseLine) {
@@ -168,6 +194,78 @@ $(document).ready(function() {
     
                 }
 
+                const tableElem = document.createElement('table');
+                $(tableElem).addClass('apiHelperTableNoMargin');
+                
+                const tbodyElem = document.createElement('tbody');
+
+                {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text('Version');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(verObj.version);
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(tbodyElem).append(trElem);
+                }
+                {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text('Release state');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(versions.releaseStateTitle(verObj.release_state));
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(tbodyElem).append(trElem);
+                }
+                {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text('Supported platforms');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        
+                        let names = [];
+
+                        for(const platformId of verObj.supported_platforms) {
+                            const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
+                            if (tempPlatformObj) {
+                                names.push(tempPlatformObj.displayName);
+                            }
+                        }
+                        names.sort((a, b) => a.localeCompare(b));
+
+                        $(tdElem).text(names.join(', '));
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(tbodyElem).append(trElem);
+                }
+
+
+
+                $(tableElem).append(tbodyElem);
+
+                $(verDivElem).append(tableElem);
+    
+
                 $(versions.versionListElem).append(verDivElem);
             }
 
@@ -201,18 +299,33 @@ $(document).ready(function() {
             console.log('loaded versions', versions);
 
             // carriersJson.deviceConstants - object key platform name, contains id, name, displayName, etc.
-            const platforms = [];
+            versions.platforms = [];
 
             for(const key in versions.carriersJson.deviceConstants) {
                 const platformObj = versions.carriersJson.deviceConstants[key];
-                if (platformObj.public && platformObj.productEligible) {
-                    platforms.push(platformObj);
-                }                
-            }
-            //platformDisplayNames.sort((a, b) => { return a.localeCompare(b); });
-            platforms.sort((a, b) => a.displayName.localeCompare(b.displayName));
 
-            for(const platformObj of platforms) {
+                if (platformObj.generation == 3 && platformObj.baseMcu == 'rtl872x') {
+                    platformObj.generation = 4;
+                }
+
+                if (platformObj.public && platformObj.productEligible) {
+                    versions.platforms.push(platformObj);
+                }
+
+                /* This does not work because the support_platforms data is not backfilled for core and xenon
+                else
+                if ([0, 14].includes(platformObj.id)) {
+                    // Also include core and xenon, even though they're not product eligible
+                    versions.platforms.push(platformObj);
+                }
+                */
+
+            }
+            
+            //platformDisplayNames.sort((a, b) => { return a.localeCompare(b); });
+            versions.platforms.sort((a, b) => a.displayName.localeCompare(b.displayName));
+
+            for(const platformObj of versions.platforms) {
                 const optionElem = document.createElement('option');
                 $(optionElem).attr('value', platformObj.id.toString());
                 $(optionElem).text(platformObj.displayName);
