@@ -199,6 +199,7 @@ $(document).ready(function() {
                 
                 const tbodyElem = document.createElement('tbody');
 
+                /*
                 {
                     const trElem = document.createElement('tr');
 
@@ -231,6 +232,7 @@ $(document).ready(function() {
 
                     $(tbodyElem).append(trElem);
                 }
+                */
                 {
                     const trElem = document.createElement('tr');
 
@@ -255,16 +257,84 @@ $(document).ready(function() {
                         $(tdElem).text(names.join(', '));
                         $(trElem).append(tdElem);
                     }
-
                     $(tbodyElem).append(trElem);
                 }
 
+                {
+                    const trElem = document.createElement('tr');
 
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text('Github');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        const baseUrl = verObj.base_url;
+                        if (baseUrl) {
+                            const lastSlashIndex = baseUrl.lastIndexOf('/');
+                            if (lastSlashIndex >= 0) {
+                                const tag = baseUrl.substring(lastSlashIndex + 1);
+
+                                const url = 'https://github.com/particle-iot/device-os/releases/tag/' + tag;
+
+                                const aElem = document.createElement('a');
+                                $(aElem).attr('href', url);
+                                $(aElem).text(url);
+                                $(tdElem).append(aElem);
+                            }
+
+                        }
+
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(tbodyElem).append(trElem);
+                }
+    
 
                 $(tableElem).append(tbodyElem);
-
                 $(verDivElem).append(tableElem);
-    
+
+                // Release notes 
+                {
+                    const releaseNotesDivElem = document.createElement('div');
+
+                    const releaseNotesControlDivElem = document.createElement('div');
+                    const releaseNotesContentDivElem = document.createElement('div');
+
+                    const labelElem = document.createElement('label');
+
+                    const inputElem = document.createElement('input');
+                    $(inputElem).attr('type', 'checkbox');
+                    $(inputElem).on('click', function() {
+                        const show = $(this).prop('checked');
+                        console.log('showHide=' + show);
+
+                        $(releaseNotesContentDivElem).empty();
+                        if (show) {
+                            const releaseNotes = $('.apiHelperVersionsReleaseNotes').data('releaseNotes');
+
+                            if (releaseNotes) {            
+                                releaseNotes.renderSingleVersion({ver: 'v' + verObj.version, outputElem: verDivElem, linkToGithub:false});                            
+                            }        
+                        }
+                    })
+                    $(labelElem).append(inputElem);
+                
+                    $(labelElem).append(document.createTextNode('Show release notes'));
+
+
+                    $(releaseNotesControlDivElem).append(labelElem);
+
+                    $(releaseNotesDivElem).append(releaseNotesControlDivElem);
+
+
+
+                    $(releaseNotesDivElem).append(releaseNotesContentDivElem);
+
+                    $(verDivElem).append(releaseNotesDivElem);
+                }
 
                 $(versions.versionListElem).append(verDivElem);
             }

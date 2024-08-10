@@ -3,7 +3,7 @@ title: Versions and upgrades
 layout: commonTwo.hbs
 columns: two
 description: Device OS versions, upgrades, and downgrades
-includeDefinitions: [api-helper, api-helper-versions]
+includeDefinitions: [api-helper, api-helper-versions, release-notes]
 ---
 
 # {{title}}
