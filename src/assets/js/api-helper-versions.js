@@ -97,69 +97,97 @@ $(document).ready(function() {
             });
         }
 
+        versions.platformListString = function(arrayOfPlatformIds) {
+            let names = [];
+
+            for(const platformId of arrayOfPlatformIds) {
+                const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
+                if (tempPlatformObj) {
+                    names.push(tempPlatformObj.displayName);
+                }
+            }
+            names.sort((a, b) => a.localeCompare(b));
+
+            return names.join(', ');
+        }
+
         versions.updateUI = function() {
             versions.saveUrlParams();
 
             versions.versionListElem.empty();
 
+            if (versions.inputValues.def) {
+                $('.hideForDefaultReleasesOnly').hide();
+            }
+            else {
+                $('.hideForDefaultReleasesOnly').show();
+            }
+    
             const versionsArray = [];
 
             for(const verObj of versions.deviceOsVersions) {
                 if (verObj.release_state != 'internal') {
-                    if (!versions.inputValues.pr) {
-                        if (verObj.release_state == 'preview') {
-                            continue;
-                        }
-                    }                  
-                    if (!versions.inputValues.ga) {
-                        if (verObj.release_state == 'ga') {
-                            continue;
-                        }
-                    }
-                    if (!versions.inputValues.ar) {
-                        if (verObj.release_state == 'archived') {
-                            continue;
-                        }
-                    }                  
-
-                    // Platform filtering
-                    if (versions.inputValues.pl == '-') {
-                        // No filtering
-                    }
-                    else
-                    if (versions.inputValues.pl.startsWith("gen")) {
-                        const genNum = parseInt(versions.inputValues.pl.substring(3));
-
-                        let found = false;
-
-                        for(const platformId of verObj.supported_platforms) {
-                            const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
-                            if (tempPlatformObj && tempPlatformObj.generation == genNum) {
-                                found = true;
-                                break;
-                            }
-                        }
-                        if (!found) {
+                    if (versions.inputValues.def) {
+                        if (!verObj.default_platforms || verObj.default_platforms.length == 0) {
                             continue;
                         }
                     }
                     else {
-                        const targetPlatform = parseInt(versions.inputValues.pl);
-                        if (!verObj.supported_platforms.includes(targetPlatform)) {
-                            continue;
+                        if (!versions.inputValues.pr) {
+                            if (verObj.release_state == 'preview') {
+                                continue;
+                            }
+                        }                  
+                        if (!versions.inputValues.ga) {
+                            if (verObj.release_state == 'ga') {
+                                continue;
+                            }
                         }
-                    }
-
-                    // Release line
-                    const verNumObj = apiHelper.parseVersionStr(verObj.version);
-                    if (versions.inputValues.rl != '-') {
-                        const releaseLine = parseInt(versions.inputValues.rl);
-                        if (verNumObj.major != releaseLine) {
-                            continue;
+                        if (!versions.inputValues.ar) {
+                            if (verObj.release_state == 'archived') {
+                                continue;
+                            }
+                        }                  
+    
+                        // Platform filtering
+                        if (versions.inputValues.pl == '-') {
+                            // No filtering
                         }
+                        else
+                        if (versions.inputValues.pl.startsWith("gen")) {
+                            const genNum = parseInt(versions.inputValues.pl.substring(3));
+    
+                            let found = false;
+    
+                            for(const platformId of verObj.supported_platforms) {
+                                const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
+                                if (tempPlatformObj && tempPlatformObj.generation == genNum) {
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if (!found) {
+                                continue;
+                            }
+                        }
+                        else {
+                            const targetPlatform = parseInt(versions.inputValues.pl);
+                            if (!verObj.supported_platforms.includes(targetPlatform)) {
+                                continue;
+                            }
+                        }
+    
+                        // Release line
+                        const verNumObj = apiHelper.parseVersionStr(verObj.version);
+                        if (versions.inputValues.rl != '-') {
+                            const releaseLine = parseInt(versions.inputValues.rl);
+                            if (verNumObj.major != releaseLine) {
+                                continue;
+                            }
+                        }    
                     }
-
                     
+
 
                     versionsArray.push(verObj);
                 }
@@ -232,7 +260,24 @@ $(document).ready(function() {
                     $(tbodyElem).append(trElem);
                 }
                 */
-                {
+                if (verObj.default_platforms && verObj.default_platforms.length) {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text('Default release for');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                    
+                        $(tdElem).text(versions.platformListString(verObj.default_platforms));
+                        $(trElem).append(tdElem);
+                    }
+                    $(tbodyElem).append(trElem);
+                }
+                
+                if (!versions.inputValues.def) {
                     const trElem = document.createElement('tr');
 
                     {
@@ -242,22 +287,13 @@ $(document).ready(function() {
                     }
                     {
                         const tdElem = document.createElement('td');
-                        
-                        let names = [];
-
-                        for(const platformId of verObj.supported_platforms) {
-                            const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
-                            if (tempPlatformObj) {
-                                names.push(tempPlatformObj.displayName);
-                            }
-                        }
-                        names.sort((a, b) => a.localeCompare(b));
-
-                        $(tdElem).text(names.join(', '));
+                    
+                        $(tdElem).text(versions.platformListString(verObj.supported_platforms));
                         $(trElem).append(tdElem);
                     }
                     $(tbodyElem).append(trElem);
                 }
+
 
                 {
                     const trElem = document.createElement('tr');
@@ -384,14 +420,11 @@ $(document).ready(function() {
                 if (platformObj.public && platformObj.productEligible) {
                     versions.platforms.push(platformObj);
                 }
-
-                /* This does not work because the support_platforms data is not backfilled for core and xenon
                 else
                 if ([0, 14].includes(platformObj.id)) {
                     // Also include core and xenon, even though they're not product eligible
                     versions.platforms.push(platformObj);
                 }
-                */
 
             }
             
@@ -438,7 +471,10 @@ $(document).ready(function() {
                 versions.updateUI();
             });
 
- 
+            
+            $('.onlyShowDefaultReleases').on('click', function() {
+                versions.updateUI();
+            });
 
             versions.loadUrlParams();
 
