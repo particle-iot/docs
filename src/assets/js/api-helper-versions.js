@@ -201,6 +201,7 @@ $(document).ready(function() {
 
             for(const verObj of versionsArray) {
                 const verDivElem = document.createElement('div');
+                $(verDivElem).css('margin-top', '10px');
 
                 {
                     const hElem = document.createElement('h4');
@@ -276,7 +277,7 @@ $(document).ready(function() {
                     }
                     $(tbodyElem).append(trElem);
                 }
-                
+
                 if (!versions.inputValues.def) {
                     const trElem = document.createElement('tr');
 
@@ -294,6 +295,23 @@ $(document).ready(function() {
                     $(tbodyElem).append(trElem);
                 }
 
+                {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text('Published at');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        if (verObj.publishedAt) {
+                            $(tdElem).text(verObj.publishedAt.split('T')[0]);
+                        }
+                        $(trElem).append(tdElem);
+                    }
+                    $(tbodyElem).append(trElem);                    
+                }
 
                 {
                     const trElem = document.createElement('tr');

@@ -919,7 +919,15 @@ async function runDeviceOs() {
 
     const deviceOsVersions = await fetchDeviceOsVersions();
 
-    fs.writeFileSync(deviceOsVersionsJsonPath, JSON.stringify(deviceOsVersions, null, 2));
+    {
+        for(const verObj of deviceOsVersions) {
+            const releaseObj = releaseNotesJson.releases['v' + verObj.version];
+            if (releaseObj) {
+                verObj.publishedAt = releaseObj.published_at;
+            }
+        }
+        fs.writeFileSync(deviceOsVersionsJsonPath, JSON.stringify(deviceOsVersions, null, 2));
+    }
 
     for(const ver of deviceOsVersions) {
         if (ver.internal_version < 2100) {
