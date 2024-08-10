@@ -470,6 +470,7 @@ $(document).ready(function() {
 
     releaseNotes.renderList = function(sectionData, options = {}) {
         const outputElem = options.outputElem || $(releaseNotes.thisPartial).find('.apiHelperOutput');
+        const headerTag = options.headerTag || 'h3';
 
         releaseNotes.filterPlatform = null;
         releaseNotes.filterOptions = null;
@@ -509,7 +510,7 @@ $(document).ready(function() {
                 continue;
             }
 
-            const sectionElem = document.createElement('h3');
+            const sectionElem = document.createElement(headerTag);
             $(sectionElem).text(section);
             $(outputElem).append(sectionElem);
 

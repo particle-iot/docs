@@ -146,7 +146,6 @@ $(document).ready(function() {
                     else {
                         const targetPlatform = parseInt(versions.inputValues.pl);
                         if (!verObj.supported_platforms.includes(targetPlatform)) {
-                            console.log('skipping targetPlatform=' + targetPlatform, verObj);
                             continue;
                         }
                     }
@@ -300,38 +299,39 @@ $(document).ready(function() {
                 {
                     const releaseNotesDivElem = document.createElement('div');
 
-                    const releaseNotesControlDivElem = document.createElement('div');
+                    const detailsElem = document.createElement('details');
+                    $(detailsElem).css('margin-left', '5px');
+                    $(detailsElem).css('margin-top', '5px');
+                    $(detailsElem).css('font-size', '11px');
+                    
+                    const summaryElem = document.createElement('summary');
+                    $(summaryElem).text('Show release notes for this version');
+                    $(detailsElem).append(summaryElem);
+
+
                     const releaseNotesContentDivElem = document.createElement('div');
+                    $(detailsElem).append(releaseNotesContentDivElem);
 
-                    const labelElem = document.createElement('label');
-
-                    const inputElem = document.createElement('input');
-                    $(inputElem).attr('type', 'checkbox');
-                    $(inputElem).on('click', function() {
-                        const show = $(this).prop('checked');
-                        console.log('showHide=' + show);
+                    $(detailsElem).on('click', function() {
+                        const show = !$(this).prop('open');
 
                         $(releaseNotesContentDivElem).empty();
                         if (show) {
                             const releaseNotes = $('.apiHelperVersionsReleaseNotes').data('releaseNotes');
 
                             if (releaseNotes) {            
-                                releaseNotes.renderSingleVersion({ver: 'v' + verObj.version, outputElem: verDivElem, linkToGithub:false});                            
+                                releaseNotes.renderSingleVersion({
+                                    ver: 'v' + verObj.version, 
+                                    outputElem: releaseNotesContentDivElem, 
+                                    linkToGithub:false,
+                                    headerTag: 'h5'
+                                });                            
                             }        
                         }
                     })
-                    $(labelElem).append(inputElem);
-                
-                    $(labelElem).append(document.createTextNode('Show release notes'));
 
 
-                    $(releaseNotesControlDivElem).append(labelElem);
-
-                    $(releaseNotesDivElem).append(releaseNotesControlDivElem);
-
-
-
-                    $(releaseNotesDivElem).append(releaseNotesContentDivElem);
+                    $(releaseNotesDivElem).append(detailsElem);
 
                     $(verDivElem).append(releaseNotesDivElem);
                 }
@@ -339,6 +339,11 @@ $(document).ready(function() {
                 $(versions.versionListElem).append(verDivElem);
             }
 
+            if (versionsArray.length == 0) {
+                const noVersionsElem = document.createElement('div');
+                $(noVersionsElem).text('No versions match search criteria');
+                $(versions.versionListElem).append(noVersionsElem);
+            }
             
         }
 
@@ -365,8 +370,6 @@ $(document).ready(function() {
             }));
     
             await Promise.all(promises);
-
-            console.log('loaded versions', versions);
 
             // carriersJson.deviceConstants - object key platform name, contains id, name, displayName, etc.
             versions.platforms = [];
@@ -403,7 +406,6 @@ $(document).ready(function() {
             }
 
             $(versions.showPlatformsSelectElem).on('change', function() {
-                console.log('select platform');
                 versions.updateUI();
             });
 
