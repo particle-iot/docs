@@ -247,11 +247,11 @@ $(document).ready(function() {
     
                 }
 
-                const tableElem = document.createElement('table');
+                let tableElem = document.createElement('table');
                 $(tableElem).addClass('apiHelperTableNoMargin');
                 $(tableElem).css('overflow-x', 'auto');
                 
-                const tbodyElem = document.createElement('tbody');
+                let tbodyElem = document.createElement('tbody');
 
             
 
@@ -299,8 +299,6 @@ $(document).ready(function() {
 
                 const leftColumnWidth = '120px';
                 const platformColumnWidth = '82px';
-                const platformColumnCount = (versionPlatforms.length > 4) ? versionPlatforms.length : 4;
-
             
                 {
                     const trElem = document.createElement('tr');
@@ -313,16 +311,14 @@ $(document).ready(function() {
                     }
                     for(const versionPlatformObj of versionPlatforms) {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('text-align', 'center');
                         if (platformColumnWidth) {
                             $(tdElem).css('width', platformColumnWidth);
                         }
                         $(tdElem).html(versionPlatformObj.displayName);
                         $(trElem).append(tdElem);                        
                     }
-                    for(let ii = versionPlatforms.length; ii < platformColumnCount; ii++) {
+                    for(let ii = versionPlatforms.length; ii < versionPlatforms.length ; ii++) {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('text-align', 'center');
                         if (platformColumnWidth) {
                             $(tdElem).css('width', platformColumnWidth);
                         }
@@ -342,7 +338,6 @@ $(document).ready(function() {
                     }
                     for(const versionPlatformObj of versionPlatforms) {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('text-align', 'center');
                         const html = (versionPlatformObj.isDefault) ? '&check;' : '&nbsp;';
                         $(tdElem).html(html);
                         $(trElem).append(tdElem);                        
@@ -361,7 +356,6 @@ $(document).ready(function() {
                     }
                     for(const versionPlatformObj of versionPlatforms) {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('text-align', 'center');
 
                         if (versionPlatformObj.zip) {
                             const aElem = document.createElement('a');
@@ -377,6 +371,19 @@ $(document).ready(function() {
 
                 }
 
+                $(tableElem).append(tbodyElem);
+                $(verDivElem).append(tableElem);
+
+
+                // Start new table
+
+                tableElem = document.createElement('table');
+                $(tableElem).css('padding-top', '12px');
+                $(tableElem).addClass('apiHelperTableNoMargin');
+                
+                tbodyElem = document.createElement('tbody');
+
+
                 {
                     const trElem = document.createElement('tr');
 
@@ -388,7 +395,6 @@ $(document).ready(function() {
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).attr('colspan', platformColumnCount);
                         
                         if (verObj.publishedAt) {
                             $(tdElem).text(verObj.publishedAt.split('T')[0]);
@@ -409,8 +415,7 @@ $(document).ready(function() {
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).attr('colspan', platformColumnCount);
- 
+                        
                         const baseUrl = verObj.base_url;
                         if (baseUrl) {
                             const lastSlashIndex = baseUrl.lastIndexOf('/');
@@ -445,7 +450,7 @@ $(document).ready(function() {
 
                     const detailsElem = document.createElement('details');
                     $(detailsElem).css('margin-left', '5px');
-                    $(detailsElem).css('margin-top', '5px');
+                    $(detailsElem).css('margin-top', '10px');
                     $(detailsElem).css('font-size', '11px');
                     
                     const summaryElem = document.createElement('summary');
