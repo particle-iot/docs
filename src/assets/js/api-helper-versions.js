@@ -226,7 +226,7 @@ $(document).ready(function() {
 
             for(const verObj of versionsArray) {
                 const verDivElem = document.createElement('div');
-                $(verDivElem).css('margin-top', '10px');
+                $(verDivElem).css('margin-top', '15px');
 
                 {
                     const hElem = document.createElement('h4');
@@ -442,7 +442,6 @@ $(document).ready(function() {
                 $(tableElem).append(tbodyElem);
                 $(verDivElem).append(tableElem);
 
-                // Show SKUs?
 
                 // Release notes 
                 {
@@ -484,6 +483,93 @@ $(document).ready(function() {
 
                     $(verDivElem).append(releaseNotesDivElem);
                 }
+                // SKUs div
+                {
+                    const skusDivElem = document.createElement('div');
+
+                    const detailsElem = document.createElement('details');
+                    $(detailsElem).css('margin-left', '5px');
+                    $(detailsElem).css('margin-top', '10px');
+                    $(detailsElem).css('font-size', '11px');
+                    
+                    const summaryElem = document.createElement('summary');
+                    $(summaryElem).text('Show SKUs compatible with this version');
+                    $(detailsElem).append(summaryElem);
+
+
+                    const skusContentDivElem = document.createElement('div');
+                    $(detailsElem).append(skusContentDivElem);
+
+                    $(detailsElem).on('click', function() {
+                        const show = !$(this).prop('open');
+
+                        $(skusContentDivElem).empty();
+                        if (show) {
+                            const tableElem = document.createElement('table');
+                            $(tableElem).addClass('apiHelperTableNoMargin');
+
+                            const theadElem = document.createElement('thead');                            
+                            {
+                                const trElem = document.createElement('tr');
+
+                                {
+                                    const thElem = document.createElement('th');
+                                    $(thElem).text('SKU');
+                                    $(trElem).append(thElem);
+                                }
+                                {
+                                    const thElem = document.createElement('th');
+                                    $(thElem).text('Description');
+                                    $(trElem).append(thElem);
+                                }
+                                {
+                                    const thElem = document.createElement('th');
+                                    $(thElem).text('Lifecycle');
+                                    $(trElem).append(thElem);
+                                }
+                            
+                                $(theadElem).append(trElem);
+                            }
+                            $(tableElem).append(theadElem);
+
+                            const tbodyElem = document.createElement('tbody');
+                            $(tableElem).append(tbodyElem);
+
+                            for(const skuObj of versions.carriersJson.skus) {
+                                if (verObj.supported_platforms.includes(skuObj.platformId)) {
+                                    const trElem = document.createElement('tr');
+
+                                    {
+                                        const tdElem = document.createElement('td');
+                                        $(tdElem).text(skuObj.name);
+                                        $(trElem).append(tdElem);
+                                    }
+                                    {
+                                        const tdElem = document.createElement('td');
+                                        $(tdElem).text(skuObj.desc);
+                                        $(trElem).append(tdElem);
+                                    }
+                                    {
+                                        const tdElem = document.createElement('td');
+                                        $(tdElem).text(skuObj.lifecycle);
+                                        $(trElem).append(tdElem);
+                                    }
+
+                                    $(tbodyElem).append(trElem);
+                                }
+                            }
+                            
+                            $(skusContentDivElem).append(tableElem);
+                        }
+                    })
+
+
+                    $(skusDivElem).append(detailsElem);
+
+                    $(verDivElem).append(skusDivElem);
+                }
+
+
 
                 $(versions.versionListElem).append(verDivElem);
             }
