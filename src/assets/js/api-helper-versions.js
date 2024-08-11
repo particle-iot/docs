@@ -97,6 +97,30 @@ $(document).ready(function() {
             });
         }
 
+
+        /*
+        versions.displayNameFromPlatformId = function(platformId, options = {}) {
+            let result;
+
+            const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
+            if (tempPlatformObj) {
+                result = tempPlatformObj.displayName;
+            }
+            else {
+                result = 'Platform ' + platformId.toString();
+            }
+
+            if (options.splitParts) {
+                const parts = result.split('/');
+                for(let part of parts) {
+                    part = part.trim();
+                }
+                result = parts.join(options.splitParts);
+            }
+
+            return result;
+        }
+
         versions.platformListString = function(arrayOfPlatformIds) {
             let names = [];
 
@@ -110,6 +134,7 @@ $(document).ready(function() {
 
             return names.join(', ');
         }
+        */
 
         versions.updateUI = function() {
             versions.saveUrlParams();
@@ -224,74 +249,89 @@ $(document).ready(function() {
 
                 const tableElem = document.createElement('table');
                 $(tableElem).addClass('apiHelperTableNoMargin');
+                $(tableElem).css('overflow-x', 'auto');
                 
                 const tbodyElem = document.createElement('tbody');
 
-                /*
+            
+
+                // Idea: Add row with links to download zip
+
+                let versionPlatforms = [];
+
+                for(const platformId of verObj.supported_platforms) {            
+                    const versionPlatformObj = {
+                        platformId,
+                        isDefault: (verObj.default_platforms && verObj.default_platforms.includes(platformId)),
+                    };
+
+                    const tempPlatformObj = versions.platforms.find(e => e.id == platformId);
+                    if (!tempPlatformObj) {
+                        continue;
+                    }
+        
+                    const parts = tempPlatformObj.displayName.split('/');
+                    for(let part of parts) {
+                        part = part.trim();
+                    }
+                    versionPlatformObj.displayName = parts.join('<br />');
+    
+
+                    versionPlatforms.push(versionPlatformObj);
+                }
+                versionPlatforms.sort((a, b) => a.displayName.localeCompare(b.displayName));
+
+                const leftColumnWidth = '120px';
+                const platformColumnWidth = '82px';
+                const platformColumnCount = (versionPlatforms.length > 4) ? versionPlatforms.length : 4;
+
+            
                 {
                     const trElem = document.createElement('tr');
 
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text('Version');
-                        $(trElem).append(tdElem);
-                    }
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).text(verObj.version);
-                        $(trElem).append(tdElem);
-                    }
-
-                    $(tbodyElem).append(trElem);
-                }
-                {
-                    const trElem = document.createElement('tr');
-
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).text('Release state');
-                        $(trElem).append(tdElem);
-                    }
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).text(versions.releaseStateTitle(verObj.release_state));
-                        $(trElem).append(tdElem);
-                    }
-
-                    $(tbodyElem).append(trElem);
-                }
-                */
-                if (verObj.default_platforms && verObj.default_platforms.length) {
-                    const trElem = document.createElement('tr');
-
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).text('Default release for');
-                        $(trElem).append(tdElem);
-                    }
-                    {
-                        const tdElem = document.createElement('td');
-                    
-                        $(tdElem).text(versions.platformListString(verObj.default_platforms));
-                        $(trElem).append(tdElem);
-                    }
-                    $(tbodyElem).append(trElem);
-                }
-
-                if (!versions.inputValues.def) {
-                    const trElem = document.createElement('tr');
-
-                    {
-                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', leftColumnWidth);
                         $(tdElem).text('Supported platforms');
                         $(trElem).append(tdElem);
                     }
+                    for(const versionPlatformObj of versionPlatforms) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('text-align', 'center');
+                        if (platformColumnWidth) {
+                            $(tdElem).css('width', platformColumnWidth);
+                        }
+                        $(tdElem).html(versionPlatformObj.displayName);
+                        $(trElem).append(tdElem);                        
+                    }
+                    for(let ii = versionPlatforms.length; ii < platformColumnCount; ii++) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('text-align', 'center');
+                        if (platformColumnWidth) {
+                            $(tdElem).css('width', platformColumnWidth);
+                        }
+                        $(trElem).append(tdElem);                        
+                    }
+
+                    $(tbodyElem).append(trElem);
+                }
+                if (verObj.default_platforms && verObj.default_platforms.length > 0) {
+                    const trElem = document.createElement('tr');
+
                     {
                         const tdElem = document.createElement('td');
-                    
-                        $(tdElem).text(versions.platformListString(verObj.supported_platforms));
+                        $(tdElem).css('width', leftColumnWidth);
+                        $(tdElem).text('Default release');
                         $(trElem).append(tdElem);
                     }
+                    for(const versionPlatformObj of versionPlatforms) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('text-align', 'center');
+                        const html = (versionPlatformObj.isDefault) ? '&check;' : '&nbsp;';
+                        $(tdElem).html(html);
+                        $(trElem).append(tdElem);                        
+                    }
+
                     $(tbodyElem).append(trElem);
                 }
 
@@ -300,11 +340,14 @@ $(document).ready(function() {
 
                     {
                         const tdElem = document.createElement('td');
+                        $(tdElem).css('width', leftColumnWidth);
                         $(tdElem).text('Published at');
                         $(trElem).append(tdElem);
                     }
                     {
                         const tdElem = document.createElement('td');
+                        $(tdElem).attr('colspan', platformColumnCount);
+                        
                         if (verObj.publishedAt) {
                             $(tdElem).text(verObj.publishedAt.split('T')[0]);
                         }
@@ -318,11 +361,14 @@ $(document).ready(function() {
 
                     {
                         const tdElem = document.createElement('td');
+                        $(tdElem).css('width', leftColumnWidth);
                         $(tdElem).text('Github');
                         $(trElem).append(tdElem);
                     }
                     {
                         const tdElem = document.createElement('td');
+                        $(tdElem).attr('colspan', platformColumnCount);
+ 
                         const baseUrl = verObj.base_url;
                         if (baseUrl) {
                             const lastSlashIndex = baseUrl.lastIndexOf('/');
@@ -348,6 +394,8 @@ $(document).ready(function() {
 
                 $(tableElem).append(tbodyElem);
                 $(verDivElem).append(tableElem);
+
+                // Show SKUs?
 
                 // Release notes 
                 {
