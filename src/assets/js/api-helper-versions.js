@@ -258,6 +258,7 @@ $(document).ready(function() {
                 // Idea: Add row with links to download zip
 
                 let versionPlatforms = [];
+                let hasDownloadZip = false;
 
                 for(const platformId of verObj.supported_platforms) {            
                     const versionPlatformObj = {
@@ -269,6 +270,7 @@ $(document).ready(function() {
                     if (!tempPlatformObj) {
                         continue;
                     }
+                    console.log('tempPlatformObj', tempPlatformObj);
         
                     const parts = tempPlatformObj.displayName.split('/');
                     for(let part of parts) {
@@ -276,6 +278,20 @@ $(document).ready(function() {
                     }
                     versionPlatformObj.displayName = parts.join('<br />');
     
+                    if (versions.deviceRestoreJson.versions[verObj.version]) {
+                        if (versions.deviceRestoreJson.versions[verObj.version].includes(tempPlatformObj.name)) {
+                            const dir = '/assets/files/device-restore/' + verObj.version + '/';
+
+                            versionPlatformObj.hex = dir + tempPlatformObj.name + '.hex';
+
+                            if (versions.deviceRestoreJson.versionsZipByPlatform[tempPlatformObj.name].includes(verObj.version)) {
+                                versionPlatformObj.zipName = tempPlatformObj.name + '.zip';
+                                versionPlatformObj.zip = dir + versionPlatformObj.zipName;
+                                hasDownloadZip = true;
+                            }
+                        }
+                    }
+
 
                     versionPlatforms.push(versionPlatformObj);
                 }
@@ -333,6 +349,32 @@ $(document).ready(function() {
                     }
 
                     $(tbodyElem).append(trElem);
+                }
+                if (hasDownloadZip) {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', leftColumnWidth);
+                        $(tdElem).text('Download zip');
+                        $(trElem).append(tdElem);
+                    }
+                    for(const versionPlatformObj of versionPlatforms) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('text-align', 'center');
+
+                        if (versionPlatformObj.zip) {
+                            const aElem = document.createElement('a');
+                            $(aElem).attr('href', versionPlatformObj.zip);
+                            $(aElem).text(versionPlatformObj.zipName);
+                            $(tdElem).append(aElem);
+                        }
+
+                        $(trElem).append(tdElem);                        
+                    }
+
+                    $(tbodyElem).append(trElem);
+
                 }
 
                 {
@@ -470,7 +512,16 @@ $(document).ready(function() {
                     resolve();
                 });        
             }));
-    
+
+            promises.push(new Promise(function(resolve, reject) {
+                fetch('/assets/files/deviceRestore.json')
+                .then(response => response.json())
+                .then(function(res) {
+                    versions.deviceRestoreJson = res;
+                    resolve();
+                });        
+            }));
+
             await Promise.all(promises);
 
             // carriersJson.deviceConstants - object key platform name, contains id, name, displayName, etc.
