@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS version page 2024-08-12
+
+There is a new [Device OS version listing](/reference/device-os/versions/) page that shows the release state of the releases and has various controls for filtering. You can also view the release notes, and the SKUs are compatible with any version. 
+
 ### Modifying a public library 2024-08-12
 
 Added information on modifying a public library to the [library guide](/getting-started/device-os/firmware-libraries/#modifying-a-public-library).

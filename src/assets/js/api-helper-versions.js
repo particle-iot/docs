@@ -15,6 +15,13 @@ $(document).ready(function() {
         versions.versionListElem = $(thisPartial).find('.versionList');
 
         versions.urlParams = new URLSearchParams(window.location.search);
+        if (window.location.hash.startsWith('#')) {
+            versions.hash = window.location.hash;
+        }
+
+        versions.versionToId = function(version) {
+            return 'v' + version.replaceAll('.', '_');
+        }
 
         versions.releaseStateTitle = function(release_state) {
             let result;
@@ -230,11 +237,11 @@ $(document).ready(function() {
 
                 {
                     const hElem = document.createElement('h4');
-                    $(hElem).attr('id', verObj.version);
+                    $(hElem).attr('id', versions.versionToId(verObj.version));
                     $(hElem).text(verObj.version + ' (' + versions.releaseStateTitle(verObj.release_state) + ')');
                     
                     const aElem = document.createElement('a');
-                    $(aElem).attr('href', '#' + verObj.version);
+                    $(aElem).attr('href', '#' + versions.versionToId(verObj.version));
                     $(aElem).addClass('header-permalinks');
 
                     const iElem = document.createElement('i');
@@ -270,7 +277,6 @@ $(document).ready(function() {
                     if (!tempPlatformObj) {
                         continue;
                     }
-                    console.log('tempPlatformObj', tempPlatformObj);
         
                     const parts = tempPlatformObj.displayName.split('/');
                     for(let part of parts) {
@@ -567,9 +573,8 @@ $(document).ready(function() {
                     $(skusDivElem).append(detailsElem);
 
                     $(verDivElem).append(skusDivElem);
+            
                 }
-
-
 
                 $(versions.versionListElem).append(verDivElem);
             }
@@ -579,7 +584,16 @@ $(document).ready(function() {
                 $(noVersionsElem).text('No versions match search criteria');
                 $(versions.versionListElem).append(noVersionsElem);
             }
-            
+
+            if (versions.hash) {
+                const verDivElem = $(versions.hash);
+                if (verDivElem.length) {
+                    $(verDivElem)[0].scrollIntoView();
+                }
+                
+                delete versions.hash;
+            }
+
         }
 
         versions.run = async function() {
