@@ -1,0 +1,49 @@
+<div class="apiHelperVersions">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <div>
+                <table class="apiHelperTableNoMargin">                
+                    <thead></thead>
+                    <tbody>
+                        <tr class="hideForDefaultReleasesOnly">
+                            <td class="apiHelperProductSelectorLabel">Show platforms</td>
+                            <td class="apiHelperProductSelectorLabel">
+                                <select class="showPlatformsSelect apiHelperSelect versionsParam" data-key="pl">
+                                    <option value="-" selected>All</option>
+                                    <option value="gen4">Gen 4 (RTL872x)</option>
+                                    <option value="gen3">Gen 3 (nRF52840)</option>
+                                    <option value="gen2">Gen 2 (STM32F2xx)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="hideForDefaultReleasesOnly">
+                            <td class="apiHelperProductSelectorLabel">Show release state</td>
+                            <td class="apiHelperProductSelectorLabel">
+                                <label><input type="checkbox" class="releaseStateCheckbox releaseStateGA versionsParam"  data-key="ga" checked>GA (generally available)</label><br />
+                                <label><input type="checkbox" class="releaseStateCheckbox releaseStatePreview versionsParam"  data-key="pr" checked>Preview</label><br />
+                                <label><input type="checkbox" class="releaseStateCheckbox releaseStateArchived versionsParam"  data-key="ar">Archived (not recommended)</label><br />
+                            </td>
+                        </tr>
+                        <tr class="hideForDefaultReleasesOnly">
+                            <td class="apiHelperProductSelectorLabel">Show release lines</td>
+                            <td class="apiHelperProductSelectorLabel">
+                                <select class="showReleaseLinesSelect apiHelperSelect versionsParam" data-key="rl">
+                                    <option value="-" selected>All</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel" colspan="2">
+                                <label><input type="checkbox" class="onlyShowDefaultReleases versionsParam" data-key="def">Only show default releases</label><br />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="versionList">        
+    </div>
+    <div class="apiHelperVersionsReleaseNotes"></div>
+</div>
+

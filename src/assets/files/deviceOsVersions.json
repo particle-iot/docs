@@ -1,0 +1,2583 @@
+[
+  {
+    "version": "6.1.1",
+    "internal_version": 6101,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v6.1.1",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      26
+    ],
+    "default_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      26
+    ],
+    "publishedAt": "2024-06-21T16:41:37Z"
+  },
+  {
+    "version": "6.1.0",
+    "internal_version": 6100,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v6.1.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      26
+    ],
+    "publishedAt": "2024-05-03T15:52:42Z"
+  },
+  {
+    "version": "6.0.0",
+    "internal_version": 6000,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v6.0.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      26
+    ],
+    "publishedAt": "2024-03-28T13:13:42Z"
+  },
+  {
+    "version": "5.8.2",
+    "internal_version": 5802,
+    "state": "pre_release",
+    "release_state": "preview",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.8.2",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2024-07-02T18:18:29Z"
+  },
+  {
+    "version": "5.8.0",
+    "internal_version": 5800,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.8.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "default_platforms": [
+      35,
+      32,
+      28
+    ],
+    "publishedAt": "2024-03-15T22:39:55Z"
+  },
+  {
+    "version": "5.7.0",
+    "internal_version": 5700,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.7.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2024-01-24T12:39:36Z"
+  },
+  {
+    "version": "5.6.0",
+    "internal_version": 5600,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.6.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2023-12-07T22:46:10Z"
+  },
+  {
+    "version": "5.5.0",
+    "internal_version": 5501,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.5.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2023-08-31T14:58:01Z"
+  },
+  {
+    "version": "5.5.0-rc.1",
+    "internal_version": 5500,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.5.0-rc.1",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2023-08-16T22:11:18Z"
+  },
+  {
+    "version": "5.4.1",
+    "internal_version": 5410,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.4.1",
+    "supported_platforms": [
+      25,
+      23,
+      28,
+      13,
+      12,
+      15,
+      26,
+      32
+    ],
+    "publishedAt": "2023-07-20T23:36:44Z"
+  },
+  {
+    "version": "5.4.0",
+    "internal_version": 5400,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.4.0",
+    "supported_platforms": [
+      25,
+      23,
+      28,
+      13,
+      12,
+      15,
+      26,
+      32
+    ],
+    "publishedAt": "2023-06-16T15:39:09Z"
+  },
+  {
+    "version": "5.3.2",
+    "internal_version": 5302,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.3.2",
+    "supported_platforms": [
+      32,
+      15,
+      12,
+      13,
+      26,
+      23,
+      25,
+      28
+    ],
+    "publishedAt": "2023-05-18T20:15:26Z"
+  },
+  {
+    "version": "5.3.1",
+    "internal_version": 5301,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.3.1",
+    "supported_platforms": [
+      32,
+      12,
+      15,
+      26,
+      13,
+      25,
+      23,
+      28
+    ],
+    "publishedAt": "2023-04-13T17:03:42Z"
+  },
+  {
+    "version": "5.3.0",
+    "internal_version": 5300,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.3.0",
+    "supported_platforms": [
+      32,
+      12,
+      15,
+      26,
+      13,
+      25,
+      23,
+      28
+    ],
+    "publishedAt": "2023-02-22T05:19:02Z"
+  },
+  {
+    "version": "5.2.0",
+    "internal_version": 5200,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.2.0",
+    "supported_platforms": [
+      25,
+      28,
+      13,
+      15,
+      12,
+      26,
+      32,
+      23
+    ],
+    "publishedAt": "2022-12-19T18:23:27Z"
+  },
+  {
+    "version": "5.1.0",
+    "internal_version": 5004,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.1.0",
+    "supported_platforms": [
+      12,
+      26,
+      32,
+      23,
+      25,
+      13,
+      28,
+      15
+    ],
+    "publishedAt": "2022-10-01T00:01:40Z"
+  },
+  {
+    "version": "5.0.1",
+    "internal_version": 5003,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.0.1",
+    "supported_platforms": [
+      25,
+      23,
+      28,
+      13,
+      12,
+      15,
+      26,
+      32
+    ],
+    "publishedAt": "2022-09-03T14:50:20Z"
+  },
+  {
+    "version": "5.0.0",
+    "internal_version": 5002,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.0.0",
+    "supported_platforms": [
+      32,
+      15,
+      12,
+      13,
+      26,
+      23,
+      25,
+      28
+    ],
+    "publishedAt": "2022-08-19T21:07:41Z"
+  },
+  {
+    "version": "5.0.0-alpha.2",
+    "internal_version": 5001,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.0.0-alpha.2",
+    "supported_platforms": [
+      25,
+      13,
+      15,
+      12,
+      26,
+      32,
+      23
+    ],
+    "publishedAt": "2022-07-22T22:09:44Z"
+  },
+  {
+    "version": "5.0.0-alpha.1",
+    "internal_version": 5000,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.0.0-alpha.1",
+    "supported_platforms": [
+      25,
+      13,
+      15,
+      12,
+      26,
+      32,
+      23
+    ],
+    "publishedAt": "2022-07-16T01:29:24Z"
+  },
+  {
+    "version": "4.2.0",
+    "internal_version": 4200,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.2.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      26
+    ],
+    "publishedAt": "2023-09-26T14:53:15Z"
+  },
+  {
+    "version": "4.1.0",
+    "internal_version": 4100,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.1.0",
+    "supported_platforms": [
+      12,
+      15,
+      26,
+      13,
+      25,
+      23
+    ],
+    "publishedAt": "2023-06-01T00:34:01Z"
+  },
+  {
+    "version": "4.0.2",
+    "internal_version": 4006,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.0.2",
+    "supported_platforms": [
+      12,
+      26,
+      23,
+      25,
+      13,
+      15
+    ],
+    "publishedAt": "2022-12-15T23:36:00Z"
+  },
+  {
+    "version": "4.0.1",
+    "internal_version": 4005,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.0.1",
+    "supported_platforms": [
+      12,
+      15,
+      26,
+      13,
+      25,
+      23
+    ],
+    "publishedAt": "2022-11-14T21:21:24Z"
+  },
+  {
+    "version": "4.0.1-rc.1",
+    "internal_version": 4004,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.0.1-rc.1",
+    "supported_platforms": [
+      12,
+      26,
+      23,
+      25,
+      13,
+      15
+    ],
+    "publishedAt": "2022-10-26T17:05:02Z"
+  },
+  {
+    "version": "4.0.0",
+    "internal_version": 4003,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.0.0",
+    "supported_platforms": [
+      15,
+      12,
+      13,
+      26,
+      23,
+      25
+    ],
+    "publishedAt": "2022-08-30T17:34:52Z"
+  },
+  {
+    "version": "4.0.0-beta.1",
+    "internal_version": 4002,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.0.0-beta.1",
+    "supported_platforms": [
+      25,
+      13,
+      15,
+      12,
+      26,
+      23
+    ],
+    "publishedAt": "2022-07-28T18:59:05Z"
+  },
+  {
+    "version": "4.0.0-alpha.2",
+    "internal_version": 4001,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.0.0-alpha.2",
+    "supported_platforms": [
+      13,
+      25,
+      23,
+      12,
+      15,
+      26
+    ],
+    "publishedAt": "2022-06-23T18:25:33Z"
+  },
+  {
+    "version": "4.0.0-alpha.1",
+    "internal_version": 4000,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v4.0.0-alpha.1",
+    "supported_platforms": [
+      25,
+      23,
+      12,
+      26,
+      13
+    ],
+    "publishedAt": "2022-05-21T16:58:18Z"
+  },
+  {
+    "version": "3.3.1",
+    "internal_version": 3302,
+    "state": "pre_release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.3.1",
+    "supported_platforms": [
+      25,
+      6,
+      10,
+      13,
+      12,
+      8,
+      26,
+      23
+    ],
+    "default_platforms": [
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2022-11-14T20:10:20Z"
+  },
+  {
+    "version": "3.3.0",
+    "internal_version": 3301,
+    "state": "pre_release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.3.0",
+    "supported_platforms": [
+      25,
+      6,
+      10,
+      13,
+      12,
+      8,
+      26,
+      23
+    ],
+    "publishedAt": "2022-04-04T14:03:09Z"
+  },
+  {
+    "version": "3.3.0-rc.1",
+    "internal_version": 3300,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.3.0-rc.1",
+    "supported_platforms": [
+      25,
+      6,
+      10,
+      13,
+      12,
+      8,
+      26,
+      23
+    ],
+    "publishedAt": "2022-03-18T16:33:27Z"
+  },
+  {
+    "version": "3.2.1-p2.3",
+    "internal_version": 3212,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.2.1-p2.3",
+    "supported_platforms": [
+      32
+    ]
+  },
+  {
+    "version": "3.2.1-p2.2",
+    "internal_version": 3211,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.2.1-p2.2",
+    "supported_platforms": [
+      32
+    ]
+  },
+  {
+    "version": "3.2.1-p2.1",
+    "internal_version": 3210,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.2.1-p2.1",
+    "supported_platforms": [
+      32
+    ]
+  },
+  {
+    "version": "3.2.0",
+    "internal_version": 3201,
+    "state": "pre_release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.2.0",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      23,
+      25,
+      12,
+      13,
+      26
+    ],
+    "publishedAt": "2022-01-18T16:57:56Z"
+  },
+  {
+    "version": "3.2.0-rc.1",
+    "internal_version": 3200,
+    "state": "hidden_pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.2.0-rc.1",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      23,
+      25,
+      12,
+      13,
+      26
+    ],
+    "publishedAt": "2021-11-12T16:40:40Z"
+  },
+  {
+    "version": "3.1.0",
+    "internal_version": 3103,
+    "state": "pre_release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.1.0",
+    "supported_platforms": [
+      25,
+      6,
+      10,
+      13,
+      12,
+      8,
+      26,
+      23
+    ],
+    "publishedAt": "2021-07-13T16:33:33Z"
+  },
+  {
+    "version": "3.1.0-rc.1",
+    "internal_version": 3102,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.1.0-rc.1",
+    "supported_platforms": [
+      13,
+      6,
+      10,
+      25,
+      23,
+      8,
+      12,
+      26
+    ],
+    "publishedAt": "2021-06-22T16:45:03Z"
+  },
+  {
+    "version": "3.0.1-p2.5",
+    "internal_version": 3014,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.0.1-p2.5",
+    "supported_platforms": [
+      32
+    ]
+  },
+  {
+    "version": "3.0.1-p2.4",
+    "internal_version": 3013,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.0.1-p2.4",
+    "supported_platforms": [
+      32
+    ]
+  },
+  {
+    "version": "3.0.0",
+    "internal_version": 3005,
+    "state": "pre_release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.0.0",
+    "supported_platforms": [
+      12,
+      26,
+      13,
+      25,
+      23,
+      8,
+      6,
+      10
+    ],
+    "publishedAt": "2021-04-08T21:11:58Z"
+  },
+  {
+    "version": "3.0.0-rc.2",
+    "internal_version": 3004,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.0.0-rc.2",
+    "supported_platforms": [
+      12,
+      26,
+      13,
+      25,
+      23,
+      8,
+      6,
+      10
+    ],
+    "publishedAt": "2021-03-16T21:53:15Z"
+  },
+  {
+    "version": "3.0.0-rc.1",
+    "internal_version": 3003,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.0.0-rc.1",
+    "supported_platforms": [
+      8,
+      25,
+      23,
+      13,
+      12,
+      26,
+      6,
+      10
+    ],
+    "publishedAt": "2021-01-22T18:21:02Z"
+  },
+  {
+    "version": "3.0.0-beta.1",
+    "internal_version": 3002,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v3.0.0-beta.1",
+    "supported_platforms": [
+      8,
+      25,
+      23,
+      13,
+      12,
+      26,
+      6,
+      10
+    ],
+    "publishedAt": "2020-12-24T19:04:52Z"
+  },
+  {
+    "version": "2.3.1",
+    "internal_version": 2302,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.3.1",
+    "supported_platforms": [
+      25,
+      6,
+      10,
+      13,
+      12,
+      8,
+      26,
+      23
+    ],
+    "publishedAt": "2022-11-14T19:42:28Z"
+  },
+  {
+    "version": "2.3.0",
+    "internal_version": 2301,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.3.0",
+    "supported_platforms": [
+      10,
+      23,
+      25,
+      8,
+      12,
+      26,
+      13,
+      6
+    ],
+    "publishedAt": "2022-01-25T21:16:12Z"
+  },
+  {
+    "version": "2.3.0-rc.1",
+    "internal_version": 2300,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.3.0-rc.1",
+    "supported_platforms": [
+      12,
+      26,
+      6,
+      10,
+      8,
+      23,
+      25,
+      13
+    ],
+    "publishedAt": "2021-10-07T02:08:34Z"
+  },
+  {
+    "version": "2.2.0",
+    "internal_version": 2202,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.2.0",
+    "supported_platforms": [
+      26,
+      6,
+      10,
+      8,
+      25,
+      23,
+      13,
+      12
+    ],
+    "publishedAt": "2021-09-16T03:58:32Z"
+  },
+  {
+    "version": "2.2.0-rc.2",
+    "internal_version": 2201,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.2.0-rc.2",
+    "supported_platforms": [
+      13,
+      12,
+      8,
+      26,
+      23,
+      25,
+      6,
+      10
+    ],
+    "publishedAt": "2021-08-27T21:24:39Z"
+  },
+  {
+    "version": "2.2.0-rc.1",
+    "internal_version": 2200,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.2.0-rc.1",
+    "supported_platforms": [
+      13,
+      6,
+      10,
+      25,
+      23,
+      8,
+      12,
+      26
+    ],
+    "publishedAt": "2021-06-24T19:58:15Z"
+  },
+  {
+    "version": "2.1.0",
+    "internal_version": 2101,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.1.0",
+    "supported_platforms": [
+      8,
+      25,
+      23,
+      13,
+      12,
+      26,
+      6,
+      10
+    ],
+    "publishedAt": "2021-04-29T23:37:10Z"
+  },
+  {
+    "version": "2.1.0-rc.1",
+    "internal_version": 2100,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.1.0-rc.1",
+    "supported_platforms": [
+      8,
+      25,
+      23,
+      13,
+      12,
+      26,
+      6,
+      10
+    ],
+    "publishedAt": "2021-04-16T01:30:36Z"
+  },
+  {
+    "version": "2.0.2",
+    "internal_version": 2021,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.2",
+    "supported_platforms": [
+      26,
+      6,
+      10,
+      8,
+      25,
+      23,
+      13,
+      12
+    ],
+    "publishedAt": "2021-09-24T18:25:53Z"
+  },
+  {
+    "version": "2.0.2-rc.1",
+    "internal_version": 2020,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.2-rc.1",
+    "supported_platforms": [
+      12,
+      13,
+      26,
+      23,
+      25,
+      8,
+      6,
+      10
+    ],
+    "publishedAt": "2021-09-22T16:51:36Z"
+  },
+  {
+    "version": "2.0.1",
+    "internal_version": 2011,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.1",
+    "supported_platforms": [
+      12,
+      26,
+      6,
+      10,
+      8,
+      23,
+      25,
+      13
+    ],
+    "publishedAt": "2020-12-17T03:00:29Z"
+  },
+  {
+    "version": "2.0.0",
+    "internal_version": 2008,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.0",
+    "supported_platforms": [
+      13,
+      6,
+      10,
+      25,
+      23,
+      8,
+      12,
+      26
+    ],
+    "publishedAt": "2020-12-03T18:11:19Z"
+  },
+  {
+    "version": "2.0.0-rc.4",
+    "internal_version": 2007,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.0-rc.4",
+    "supported_platforms": [
+      26,
+      6,
+      10,
+      23,
+      8,
+      25,
+      12,
+      13
+    ],
+    "publishedAt": "2020-10-30T16:27:34Z"
+  },
+  {
+    "version": "2.0.0-rc.3",
+    "internal_version": 2006,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.0-rc.3",
+    "supported_platforms": [
+      13,
+      12,
+      26,
+      8,
+      25,
+      23,
+      6,
+      10
+    ],
+    "publishedAt": "2020-10-21T22:07:08Z"
+  },
+  {
+    "version": "2.0.0-rc.2",
+    "internal_version": 2005,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.0-rc.2",
+    "supported_platforms": [
+      12,
+      26,
+      6,
+      10,
+      8,
+      23,
+      25,
+      13
+    ],
+    "publishedAt": "2020-09-22T21:24:10Z"
+  },
+  {
+    "version": "2.0.0-rc.1",
+    "internal_version": 2004,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v2.0.0-rc.1",
+    "supported_platforms": [
+      25,
+      6,
+      10,
+      13,
+      12,
+      8,
+      26,
+      23
+    ],
+    "publishedAt": "2020-07-30T19:51:44Z"
+  },
+  {
+    "version": "1.5.4-rc.2",
+    "internal_version": 1515,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.4-rc.2",
+    "supported_platforms": [
+      13,
+      14,
+      12,
+      8,
+      26,
+      23,
+      25,
+      6,
+      10
+    ],
+    "publishedAt": "2020-10-15T21:09:57Z"
+  },
+  {
+    "version": "1.5.4-rc.1",
+    "internal_version": 1514,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.4-rc.1",
+    "supported_platforms": [
+      26,
+      6,
+      10,
+      12,
+      13,
+      14,
+      23,
+      25,
+      8
+    ],
+    "publishedAt": "2020-06-29T16:41:00Z"
+  },
+  {
+    "version": "1.5.2",
+    "internal_version": 1512,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.2",
+    "supported_platforms": [
+      12,
+      14,
+      13,
+      25,
+      23,
+      8,
+      6,
+      10
+    ],
+    "default_platforms": [
+      14
+    ],
+    "publishedAt": "2020-05-19T23:17:21Z"
+  },
+  {
+    "version": "1.5.1",
+    "internal_version": 1511,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.1",
+    "supported_platforms": [
+      8,
+      23,
+      25,
+      13,
+      14,
+      12,
+      6,
+      10
+    ],
+    "publishedAt": "2020-05-06T19:32:39Z"
+  },
+  {
+    "version": "1.5.1-rc.1",
+    "internal_version": 1510,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.1-rc.1",
+    "supported_platforms": [
+      8,
+      23,
+      25,
+      13,
+      14,
+      12,
+      6,
+      10
+    ],
+    "publishedAt": "2020-04-30T00:29:47Z"
+  },
+  {
+    "version": "1.5.0",
+    "internal_version": 1502,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.0",
+    "supported_platforms": [
+      14,
+      6,
+      10,
+      23,
+      8,
+      25,
+      12,
+      13
+    ],
+    "publishedAt": "2020-03-31T02:07:17Z"
+  },
+  {
+    "version": "1.5.0-rc.2",
+    "internal_version": 1501,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.0-rc.2",
+    "supported_platforms": [
+      14,
+      6,
+      10,
+      23,
+      8,
+      25,
+      12,
+      13
+    ],
+    "publishedAt": "2020-03-06T23:18:52Z"
+  },
+  {
+    "version": "1.5.0-rc.1",
+    "internal_version": 1500,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.5.0-rc.1",
+    "supported_platforms": [
+      6,
+      10,
+      12,
+      13,
+      14,
+      23,
+      25,
+      8
+    ],
+    "publishedAt": "2020-02-06T22:11:31Z"
+  },
+  {
+    "version": "1.4.5-b5som.2",
+    "internal_version": 1408,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.5-b5som.2",
+    "supported_platforms": [
+      25
+    ]
+  },
+  {
+    "version": "1.4.4",
+    "internal_version": 1406,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.4",
+    "supported_platforms": [
+      8,
+      23,
+      13,
+      14,
+      12,
+      22,
+      0,
+      24,
+      6,
+      10
+    ],
+    "default_platforms": [
+      0
+    ],
+    "publishedAt": "2019-12-04T22:51:15Z"
+  },
+  {
+    "version": "1.4.3",
+    "internal_version": 1405,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.3",
+    "supported_platforms": [
+      6,
+      10,
+      23,
+      24,
+      0,
+      22,
+      14,
+      13,
+      12,
+      8
+    ],
+    "publishedAt": "2019-11-25T21:33:50Z"
+  },
+  {
+    "version": "1.4.2",
+    "internal_version": 1404,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.2",
+    "supported_platforms": [
+      8,
+      23,
+      14,
+      13,
+      12,
+      0,
+      22,
+      6,
+      10,
+      24
+    ],
+    "publishedAt": "2019-10-18T16:30:03Z"
+  },
+  {
+    "version": "1.4.1",
+    "internal_version": 1403,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.1",
+    "supported_platforms": [
+      8,
+      23,
+      14,
+      13,
+      12,
+      0,
+      22,
+      6,
+      10,
+      24
+    ],
+    "publishedAt": "2019-10-17T00:49:59Z"
+  },
+  {
+    "version": "1.4.1-rc.1",
+    "internal_version": 1402,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.1-rc.1",
+    "supported_platforms": [
+      8,
+      23,
+      14,
+      13,
+      12,
+      0,
+      22,
+      6,
+      10,
+      24
+    ],
+    "publishedAt": "2019-10-01T16:49:44Z"
+  },
+  {
+    "version": "1.4.0",
+    "internal_version": 1401,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.0",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      23,
+      12,
+      13,
+      14,
+      22,
+      0,
+      24
+    ],
+    "publishedAt": "2019-09-11T02:03:28Z"
+  },
+  {
+    "version": "1.4.0-rc.1",
+    "internal_version": 1400,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.4.0-rc.1",
+    "supported_platforms": [
+      13,
+      14,
+      12,
+      8,
+      23,
+      24,
+      6,
+      10,
+      22,
+      0
+    ],
+    "publishedAt": "2019-08-30T20:21:51Z"
+  },
+  {
+    "version": "1.3.1",
+    "internal_version": 1321,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.3.1",
+    "supported_platforms": [
+      13,
+      0,
+      22,
+      6,
+      10,
+      24,
+      23,
+      8,
+      12,
+      14
+    ],
+    "publishedAt": "2019-09-06T02:07:40Z"
+  },
+  {
+    "version": "1.3.1-rc.1",
+    "internal_version": 1320,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.3.1-rc.1",
+    "supported_platforms": [
+      24,
+      6,
+      10,
+      22,
+      0,
+      13,
+      14,
+      12,
+      8,
+      23
+    ],
+    "publishedAt": "2019-08-21T23:27:49Z"
+  },
+  {
+    "version": "1.3.0-rc.1",
+    "internal_version": 1301,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.3.0-rc.1",
+    "supported_platforms": [
+      13,
+      14,
+      12,
+      8,
+      23,
+      24,
+      6,
+      10,
+      22,
+      0
+    ],
+    "publishedAt": "2019-06-14T18:38:53Z"
+  },
+  {
+    "version": "1.2.1",
+    "internal_version": 1213,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.2.1",
+    "supported_platforms": [
+      13,
+      14,
+      12,
+      8,
+      23,
+      24,
+      6,
+      10,
+      22,
+      0
+    ],
+    "publishedAt": "2019-07-12T02:21:41Z"
+  },
+  {
+    "version": "1.2.1-rc.3",
+    "internal_version": 1212,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.2.1-rc.3",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      24,
+      0,
+      22,
+      12,
+      14,
+      13,
+      23
+    ],
+    "publishedAt": "2019-06-15T00:50:09Z"
+  },
+  {
+    "version": "1.2.1-rc.2",
+    "internal_version": 1211,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.2.1-rc.2",
+    "supported_platforms": [
+      14,
+      13,
+      12,
+      8,
+      23,
+      6,
+      10,
+      24,
+      0,
+      22
+    ],
+    "publishedAt": "2019-05-30T22:24:56Z"
+  },
+  {
+    "version": "1.2.1-rc.1",
+    "internal_version": 1210,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.2.1-rc.1",
+    "supported_platforms": [
+      13,
+      14,
+      12,
+      8,
+      23,
+      24,
+      6,
+      10,
+      22,
+      0
+    ],
+    "publishedAt": "2019-05-22T22:34:47Z"
+  },
+  {
+    "version": "1.2.0-rc.1",
+    "internal_version": 1202,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.2.0-rc.1",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      23,
+      12,
+      13,
+      14,
+      22,
+      0,
+      24
+    ],
+    "publishedAt": "2019-05-21T04:27:33Z"
+  },
+  {
+    "version": "1.2.0-beta.1",
+    "internal_version": 1201,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.2.0-beta.1",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0,
+      12,
+      14,
+      13
+    ],
+    "publishedAt": "2019-04-18T22:09:37Z"
+  },
+  {
+    "version": "1.1.1",
+    "internal_version": 1104,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.1.1",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      24,
+      0,
+      22,
+      12,
+      14,
+      13,
+      23
+    ],
+    "publishedAt": "2019-06-28T17:54:54Z"
+  },
+  {
+    "version": "1.1.1-rc.1",
+    "internal_version": 1103,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.1.1-rc.1",
+    "supported_platforms": [
+      10,
+      23,
+      24,
+      8,
+      12,
+      14,
+      13,
+      0,
+      22,
+      6
+    ],
+    "publishedAt": "2019-06-15T04:22:01Z"
+  },
+  {
+    "version": "1.1.0",
+    "internal_version": 1102,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.1.0",
+    "supported_platforms": [
+      14,
+      13,
+      12,
+      8,
+      23,
+      6,
+      10,
+      24,
+      0,
+      22
+    ],
+    "publishedAt": "2019-05-14T21:38:13Z"
+  },
+  {
+    "version": "1.1.0-rc.2",
+    "internal_version": 1101,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.1.0-rc.2",
+    "supported_platforms": [
+      0,
+      22,
+      6,
+      10,
+      24,
+      8,
+      23,
+      14,
+      13,
+      12
+    ],
+    "publishedAt": "2019-04-30T21:55:32Z"
+  },
+  {
+    "version": "1.1.0-rc.1",
+    "internal_version": 1100,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.1.0-rc.1",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      23,
+      12,
+      13,
+      14,
+      22,
+      0,
+      24
+    ],
+    "publishedAt": "2019-04-12T03:43:46Z"
+  },
+  {
+    "version": "1.0.1",
+    "internal_version": 1002,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.0.1",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2019-02-19T23:00:36Z"
+  },
+  {
+    "version": "1.0.1-rc.1",
+    "internal_version": 1001,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.0.1-rc.1",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2019-02-05T02:32:48Z"
+  },
+  {
+    "version": "1.0.0",
+    "internal_version": 1000,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v1.0.0",
+    "supported_platforms": [
+      6,
+      10,
+      0,
+      8
+    ],
+    "publishedAt": "2019-01-10T20:35:19Z"
+  },
+  {
+    "version": "0.9.0",
+    "internal_version": 403,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.9.0",
+    "supported_platforms": [
+      14,
+      13,
+      12
+    ],
+    "publishedAt": "2019-02-19T15:57:05Z"
+  },
+  {
+    "version": "0.8.0-rc.27",
+    "internal_version": 326,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.27",
+    "supported_platforms": [
+      12,
+      22,
+      24,
+      23,
+      13,
+      14
+    ],
+    "publishedAt": "2018-12-20T03:04:17Z"
+  },
+  {
+    "version": "0.8.0-rc.26",
+    "internal_version": 325,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.26",
+    "supported_platforms": [
+      12,
+      14,
+      13
+    ],
+    "publishedAt": "2018-12-13T02:49:11Z"
+  },
+  {
+    "version": "0.8.0-rc.25",
+    "internal_version": 324,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.25",
+    "supported_platforms": [
+      12,
+      14,
+      13
+    ]
+  },
+  {
+    "version": "0.8.0-rc.24",
+    "internal_version": 323,
+    "state": "hidden_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.24",
+    "supported_platforms": [
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "version": "0.8.0-rc.23",
+    "internal_version": 322,
+    "state": "hidden_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.23",
+    "supported_platforms": [
+      12,
+      14,
+      13
+    ]
+  },
+  {
+    "version": "0.8.0-rc.22",
+    "internal_version": 321,
+    "state": "hidden_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.22",
+    "supported_platforms": [
+      14,
+      13,
+      12
+    ]
+  },
+  {
+    "version": "0.8.0-rc.21",
+    "internal_version": 320,
+    "state": "hidden_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.21",
+    "supported_platforms": [
+      12,
+      14,
+      13
+    ]
+  },
+  {
+    "version": "0.8.0-rc.20",
+    "internal_version": 319,
+    "state": "hidden_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.20",
+    "supported_platforms": [
+      14,
+      13,
+      12
+    ]
+  },
+  {
+    "version": "0.8.0-rc.19",
+    "internal_version": 318,
+    "state": "hidden_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.19",
+    "supported_platforms": [
+      13,
+      14,
+      12
+    ]
+  },
+  {
+    "version": "0.8.0-rc.15",
+    "internal_version": 314,
+    "state": "hidden_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.15",
+    "supported_platforms": [
+      14
+    ]
+  },
+  {
+    "version": "0.8.0-rc.14",
+    "internal_version": 312,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.14",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2019-01-05T01:25:05Z"
+  },
+  {
+    "version": "0.8.0-rc.12",
+    "internal_version": 311,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.12",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2018-12-20T22:03:41Z"
+  },
+  {
+    "version": "0.8.0-rc.11",
+    "internal_version": 310,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.11",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2018-09-29T19:13:52Z"
+  },
+  {
+    "version": "0.8.0-rc.10",
+    "internal_version": 309,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.10",
+    "supported_platforms": [
+      6,
+      10,
+      0,
+      8
+    ],
+    "publishedAt": "2018-08-18T02:36:03Z"
+  },
+  {
+    "version": "0.8.0-rc.9",
+    "internal_version": 308,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.9",
+    "supported_platforms": [
+      10,
+      8,
+      0,
+      6
+    ],
+    "publishedAt": "2018-07-30T23:54:39Z"
+  },
+  {
+    "version": "0.8.0-rc.8",
+    "internal_version": 307,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.8",
+    "supported_platforms": [
+      6,
+      10,
+      0,
+      8
+    ],
+    "publishedAt": "2018-06-26T23:21:35Z"
+  },
+  {
+    "version": "0.8.0-rc.7",
+    "internal_version": 306,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.7",
+    "supported_platforms": [
+      8,
+      0,
+      6,
+      10
+    ],
+    "publishedAt": "2018-06-11T04:37:03Z"
+  },
+  {
+    "version": "0.8.0-rc.4",
+    "internal_version": 303,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.4",
+    "supported_platforms": [
+      8,
+      0,
+      6,
+      10
+    ],
+    "publishedAt": "2018-05-04T21:42:37Z"
+  },
+  {
+    "version": "0.8.0-rc.3",
+    "internal_version": 302,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.3",
+    "supported_platforms": [
+      8,
+      0,
+      6,
+      10
+    ],
+    "publishedAt": "2018-04-10T23:13:33Z"
+  },
+  {
+    "version": "0.8.0-rc.2",
+    "internal_version": 301,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.2",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2018-02-13T18:17:16Z"
+  },
+  {
+    "version": "0.8.0-rc.1",
+    "internal_version": 300,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.8.0-rc.1",
+    "supported_platforms": [
+      10,
+      8,
+      0,
+      6
+    ],
+    "publishedAt": "2018-01-08T19:24:26Z"
+  },
+  {
+    "version": "0.7.0",
+    "internal_version": 207,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2018-03-26T18:08:13Z"
+  },
+  {
+    "version": "0.7.0-rc.7",
+    "internal_version": 206,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0-rc.7",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2018-02-07T16:28:34Z"
+  },
+  {
+    "version": "0.7.0-rc.6",
+    "internal_version": 205,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0-rc.6",
+    "supported_platforms": [
+      6,
+      10,
+      0,
+      8
+    ],
+    "publishedAt": "2017-12-12T22:48:53Z"
+  },
+  {
+    "version": "0.7.0-rc.5",
+    "internal_version": 204,
+    "state": "hidden_pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0-rc.5",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ]
+  },
+  {
+    "version": "0.7.0-rc.4",
+    "internal_version": 203,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0-rc.4",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2017-11-23T21:59:40Z"
+  },
+  {
+    "version": "0.7.0-rc.3",
+    "internal_version": 202,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0-rc.3",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2017-08-15T22:21:23Z"
+  },
+  {
+    "version": "0.7.0-rc.2",
+    "internal_version": 201,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0-rc.2",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2017-07-14T19:50:04Z"
+  },
+  {
+    "version": "0.7.0-rc.1",
+    "internal_version": 200,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.7.0-rc.1",
+    "supported_platforms": [
+      10,
+      8,
+      0,
+      6
+    ],
+    "publishedAt": "2017-06-29T15:03:20Z"
+  },
+  {
+    "version": "0.6.4",
+    "internal_version": 110,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.4",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2017-11-30T06:11:29Z"
+  },
+  {
+    "version": "0.6.3",
+    "internal_version": 109,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.3",
+    "supported_platforms": [
+      8,
+      6,
+      10
+    ],
+    "publishedAt": "2017-11-07T22:49:16Z"
+  },
+  {
+    "version": "0.6.2",
+    "internal_version": 108,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.2",
+    "supported_platforms": [
+      6,
+      10,
+      0,
+      8
+    ],
+    "publishedAt": "2017-05-03T17:09:02Z"
+  },
+  {
+    "version": "0.6.2-rc.2",
+    "internal_version": 107,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.2-rc.2",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2017-04-27T18:20:28Z"
+  },
+  {
+    "version": "0.6.2-rc.1",
+    "internal_version": 106,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.2-rc.1",
+    "supported_platforms": [
+      0,
+      8,
+      6,
+      10
+    ],
+    "publishedAt": "2017-04-06T14:19:48Z"
+  },
+  {
+    "version": "0.6.1",
+    "internal_version": 105,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.1",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2017-03-01T22:55:42Z"
+  },
+  {
+    "version": "0.6.1-rc.2",
+    "internal_version": 104,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.1-rc.2",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2017-01-23T18:42:40Z"
+  },
+  {
+    "version": "0.6.1-rc.1",
+    "internal_version": 103,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.1-rc.1",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2016-12-21T00:38:53Z"
+  },
+  {
+    "version": "0.6.0",
+    "internal_version": 102,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.0",
+    "supported_platforms": [
+      10,
+      8,
+      0,
+      6
+    ],
+    "publishedAt": "2016-11-07T12:57:08Z"
+  },
+  {
+    "version": "0.6.0-rc.2",
+    "internal_version": 101,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.0-rc.2",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2016-09-08T19:04:30Z"
+  },
+  {
+    "version": "0.5.3",
+    "internal_version": 39,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.3",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2016-09-30T17:40:26Z"
+  },
+  {
+    "version": "0.5.3-rc.3",
+    "internal_version": 38,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.3-rc.3",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2016-08-30T21:19:53Z"
+  },
+  {
+    "version": "0.5.3-rc.2",
+    "internal_version": 37,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.3-rc.2",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      0
+    ],
+    "publishedAt": "2016-08-05T21:38:03Z"
+  },
+  {
+    "version": "0.5.3-rc.1",
+    "internal_version": 36,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.3-rc.1",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2016-07-18T19:56:04Z"
+  },
+  {
+    "version": "0.5.2",
+    "internal_version": 35,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.2",
+    "supported_platforms": [
+      6,
+      10,
+      0,
+      8
+    ],
+    "publishedAt": "2016-07-07T14:35:21Z"
+  },
+  {
+    "version": "0.5.2-rc.1",
+    "internal_version": 34,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.2-rc.1",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2016-07-01T03:15:06Z"
+  },
+  {
+    "version": "0.5.1",
+    "internal_version": 33,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2016-05-27T08:52:29Z"
+  },
+  {
+    "version": "0.5.1-rc.1",
+    "internal_version": 29,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-rc.1",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      0
+    ],
+    "publishedAt": "2016-05-10T14:39:20Z"
+  },
+  {
+    "version": "0.5.0",
+    "internal_version": 28,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.0",
+    "supported_platforms": [
+      0,
+      6,
+      10,
+      8
+    ],
+    "publishedAt": "2016-04-22T19:27:56Z"
+  },
+  {
+    "version": "0.6.0-rc.1",
+    "internal_version": 28,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.0-rc.1",
+    "supported_platforms": [
+      8,
+      6,
+      10,
+      0
+    ],
+    "publishedAt": "2016-08-08T21:11:53Z"
+  },
+  {
+    "version": "0.4.9",
+    "internal_version": 24,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.9",
+    "supported_platforms": [
+      6,
+      10,
+      0,
+      8
+    ]
+  },
+  {
+    "version": "0.5.5",
+    "internal_version": 23,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.5",
+    "supported_platforms": [
+      8,
+      6,
+      10
+    ],
+    "publishedAt": "2017-11-07T20:11:04Z"
+  },
+  {
+    "version": "0.5.4",
+    "internal_version": 22,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.4",
+    "supported_platforms": [
+      6,
+      10,
+      8,
+      0
+    ],
+    "publishedAt": "2017-09-28T20:48:13Z"
+  },
+  {
+    "version": "0.4.7",
+    "internal_version": 20,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.7",
+    "supported_platforms": [
+      8,
+      0,
+      6
+    ],
+    "publishedAt": "2015-10-20T22:10:52Z"
+  },
+  {
+    "version": "0.4.6",
+    "internal_version": 19,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.6",
+    "supported_platforms": [
+      8,
+      0,
+      6
+    ]
+  },
+  {
+    "version": "0.4.5",
+    "internal_version": 18,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.5",
+    "supported_platforms": [
+      8,
+      0,
+      6
+    ],
+    "publishedAt": "2015-09-12T02:25:54Z"
+  },
+  {
+    "version": "0.4.4",
+    "internal_version": 17,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.4",
+    "supported_platforms": [
+      8,
+      6
+    ],
+    "publishedAt": "2015-08-20T16:56:27Z"
+  },
+  {
+    "version": "0.4.8",
+    "internal_version": 15,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.8",
+    "supported_platforms": [
+      10
+    ]
+  },
+  {
+    "version": "0.4.3",
+    "internal_version": 15,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.3",
+    "supported_platforms": [
+      6,
+      8
+    ]
+  },
+  {
+    "version": "0.5.1-pi.14",
+    "internal_version": 14,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-pi.14",
+    "supported_platforms": [
+      31
+    ]
+  },
+  {
+    "version": "0.5.1-pi.13",
+    "internal_version": 13,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-pi.13",
+    "supported_platforms": [
+      31
+    ]
+  },
+  {
+    "version": "0.4.1",
+    "internal_version": 12,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.4.1",
+    "supported_platforms": [
+      6,
+      8
+    ],
+    "publishedAt": "2015-05-26T07:11:39Z"
+  },
+  {
+    "version": "0.5.1-pi.12",
+    "internal_version": 12,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-pi.12",
+    "supported_platforms": [
+      31
+    ]
+  },
+  {
+    "version": "0.5.1-pi.11",
+    "internal_version": 11,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-pi.11",
+    "supported_platforms": [
+      31
+    ]
+  },
+  {
+    "version": "0.3.4",
+    "internal_version": 11,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.3.4",
+    "supported_platforms": [
+      0
+    ]
+  },
+  {
+    "version": "0.5.1-pi.8",
+    "internal_version": 8,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-pi.8",
+    "supported_platforms": [
+      31
+    ]
+  },
+  {
+    "version": "0.5.1-pi.7",
+    "internal_version": 7,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-pi.7",
+    "supported_platforms": [
+      31
+    ]
+  },
+  {
+    "version": "0.6.0-libraries.1",
+    "internal_version": 2,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.0-libraries.1",
+    "supported_platforms": [
+      8,
+      6,
+      10
+    ]
+  },
+  {
+    "version": "0.6.0-buildpack",
+    "internal_version": 2,
+    "state": "pre_release",
+    "release_state": "archived",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.6.0-buildpack",
+    "supported_platforms": [
+      0
+    ]
+  },
+  {
+    "version": "0.5.1-pi.5",
+    "internal_version": 1,
+    "state": "release",
+    "release_state": "ga",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v0.5.1-pi.5",
+    "supported_platforms": [
+      31
+    ]
+  }
+]

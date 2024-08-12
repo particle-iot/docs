@@ -1,10 +1,11 @@
+let releaseNotes;
 
 $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
 
-    let releaseNotes = {
+    releaseNotes = {
         urlParams: new URLSearchParams(window.location.search),
         defaultSearchAfter: 'v1.4.4',
         gaCategory: 'Release Note Search',
@@ -62,6 +63,7 @@ $(document).ready(function() {
         releaseNotePlatforms: [],
         unknownTags: [],
     };
+
 
     releaseNotes.sanitizePlatform = function(platform) {
         const m = platform.match(/([a-z][0-9]*){1}[- ]*som/);
@@ -335,7 +337,7 @@ $(document).ready(function() {
     }
 
     releaseNotes.renderOneList = function(items, options = {}) {
-        const outputElem = $(releaseNotes.thisPartial).find('.apiHelperOutput');
+        const outputElem = options.outputElem || $(releaseNotes.thisPartial).find('.apiHelperOutput');
 
         const tableElem = document.createElement('table');
         $(tableElem).css('margin', '20px 0px 20px 0px');
@@ -468,7 +470,8 @@ $(document).ready(function() {
 
 
     releaseNotes.renderList = function(sectionData, options = {}) {
-        const outputElem = $(releaseNotes.thisPartial).find('.apiHelperOutput');
+        const outputElem = options.outputElem || $(releaseNotes.thisPartial).find('.apiHelperOutput');
+        const headerTag = options.headerTag || 'h3';
 
         releaseNotes.filterPlatform = null;
         releaseNotes.filterOptions = null;
@@ -508,7 +511,7 @@ $(document).ready(function() {
                 continue;
             }
 
-            const sectionElem = document.createElement('h3');
+            const sectionElem = document.createElement(headerTag);
             $(sectionElem).text(section);
             $(outputElem).append(sectionElem);
 
@@ -528,6 +531,45 @@ $(document).ready(function() {
                 }
             }
         }   
+    }
+
+    releaseNotes.renderSingleVersion = function(options) {
+        // options
+        //   .ver version to render
+        //   .outputElem element to append to
+        //   .linkToGithub include link to Github release
+        const releaseObj = releaseNotes.releaseNotesJson.releases[options.ver];
+
+        console.log('releaseNotes.renderSingleVersion', {releaseObj, options});
+
+        let sectionData = {};
+
+        for(let entry of releaseObj.entries) {
+            entry.version = options.ver;
+
+            if (releaseNotes.mapSections[entry.section]) {
+                entry.section = releaseNotes.mapSections[entry.section];
+            }
+
+            if (!sectionData[entry.section]) {
+                sectionData[entry.section] = [];
+            }
+            
+            sectionData[entry.section].push(entry);
+        }
+
+        releaseNotes.renderList(sectionData, Object.assign({showVersion:false}, options));
+
+
+        if (options.linkToGithub) {
+            const divElem = document.createElement('div');
+            const aElem = document.createElement('a');
+            $(aElem).attr('href', releaseObj.url);
+            $(aElem).text('View full release notes on Github');
+            $(divElem).append(aElem);
+            $(options.outputElem).append(divElem);    
+        }
+
     }
 
     releaseNotes.renderPage = function() {
@@ -550,34 +592,7 @@ $(document).ready(function() {
 
             analytics.track('View Version', {category:releaseNotes.gaCategory, label:ver});
 
-            const releaseObj = releaseNotes.releaseNotesJson.releases[ver];
-
-            let sectionData = {};
-
-            for(let entry of releaseObj.entries) {
-                entry.version = ver;
-
-                if (releaseNotes.mapSections[entry.section]) {
-                    entry.section = releaseNotes.mapSections[entry.section];
-                }
-
-                if (!sectionData[entry.section]) {
-                    sectionData[entry.section] = [];
-                }
-                
-                sectionData[entry.section].push(entry);
-            }
-
-            releaseNotes.renderList(sectionData, {showVersion:false});
-
-            {
-                const divElem = document.createElement('div');
-                const aElem = document.createElement('a');
-                $(aElem).attr('href', releaseObj.url);
-                $(aElem).text('View full release notes on Github');
-                $(divElem).append(aElem);
-                $(outputElem).append(divElem);    
-            }
+            releaseNotes.renderSingleVersion({ver, outputElem, showVersion:false, linkToGithub:true})
         }
         else
         if (mode == 'rel2') {
@@ -694,6 +709,7 @@ $(document).ready(function() {
 
     
     releaseNotes.doSetup = function() {
+
         $('.apiHelperReleaseNotes').each(function() {
             if (releaseNotes.thisPartial) {
                 // Only process first (you can only have one release notes partial per page)
@@ -884,64 +900,82 @@ $(document).ready(function() {
             }
         
         });
-
     };
 
-    apiHelper.getCarriersJson().then(function(carriersJson) {
-        releaseNotes.carriersJson = carriersJson;
+    releaseNotes.run = async function(options = {}) {
 
-        // console.log(carriersJson);
-        // carriersJson.deviceConstants (object)
-        //   baseMcu, features, generation, name, public, productEligible, displayName
-        for(const key in carriersJson.deviceConstants) {
-            if (carriersJson.deviceConstants[key].public && carriersJson.deviceConstants[key].productEligible) {
-                if (!releaseNotes.hidePlatforms.includes(carriersJson.deviceConstants[key].name)) {
-                    releaseNotes.releaseNotePlatforms.push(Object.assign({}, carriersJson.deviceConstants[key]));
-                }
-            }
+        const promises = [];
+
+        if (!options.noPlatforms) {
+            promises.push(new Promise(function(resolve, reject) {
+                apiHelper.getCarriersJson().then(function(carriersJson) {
+                    releaseNotes.carriersJson = carriersJson;
+            
+                    // console.log(carriersJson);
+                    // carriersJson.deviceConstants (object)
+                    //   baseMcu, features, generation, name, public, productEligible, displayName
+                    for(const key in carriersJson.deviceConstants) {
+                        if (carriersJson.deviceConstants[key].public && carriersJson.deviceConstants[key].productEligible) {
+                            if (!releaseNotes.hidePlatforms.includes(carriersJson.deviceConstants[key].name)) {
+                                releaseNotes.releaseNotePlatforms.push(Object.assign({}, carriersJson.deviceConstants[key]));
+                            }
+                        }
+                    }
+            
+                    // Sort by display name, alphabetical
+                    releaseNotes.releaseNotePlatforms.sort(function(a, b) {
+                        return a.displayName.localeCompare(b.displayName);
+                    });
+            
+                    for(const p of releaseNotes.releaseNotePlatforms) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', p.id.toString());
+                        $(optionElem).text(p.displayName);
+                        $('.filterPlatform').append(optionElem);
+                    }
+                    resolve();
+                });
+            }));
         }
 
-        // Sort by display name, alphabetical
-        releaseNotes.releaseNotePlatforms.sort(function(a, b) {
-            return a.displayName.localeCompare(b.displayName);
-        });
-
-        for(const p of releaseNotes.releaseNotePlatforms) {
-            const optionElem = document.createElement('option');
-            $(optionElem).attr('value', p.id.toString());
-            $(optionElem).text(p.displayName);
-            $('.filterPlatform').append(optionElem);
-        }
-
-        fetch('/assets/files/releaseNotes.json')
+        promises.push(new Promise(function(resolve, reject) {
+            fetch('/assets/files/releaseNotes.json')
             .then(response => response.json())
             .then(function(data) {
                 releaseNotes.releaseNotesJson = data;
 
-                // console.log('releaseNotesJson', releaseNotes.releaseNotesJson);
+                if (typeof lunr != 'undefined') {
+                    // console.log('releaseNotesJson', releaseNotes.releaseNotesJson);
 
-                releaseNotes.lunrIndex = lunr(function() {
-                    const lunrThis = this;
-                    lunrThis.ref('key');
-                    lunrThis.field('prs');
-                    lunrThis.field('tags');
-                    lunrThis.field('text');
+                    releaseNotes.lunrIndex = lunr(function() {
+                        const lunrThis = this;
+                        lunrThis.ref('key');
+                        lunrThis.field('prs');
+                        lunrThis.field('tags');
+                        lunrThis.field('text');
 
-                    for(const releaseName in releaseNotes.releaseNotesJson.releases) {
-                        const releaseObj = releaseNotes.releaseNotesJson.releases[releaseName];
-                        for(let ii = 0; ii < releaseObj.entries.length; ii++) {
-                            const entryObj = releaseObj.entries[ii]
-                            let doc = {
-                                key: releaseName + '/' + ii.toString(),
-                                prs: entryObj.prs.join(', '),
-                                tags: entryObj.tags.join(', '),
-                                text: entryObj.text,
-                            };
-                            lunrThis.add(doc);
+                        for(const releaseName in releaseNotes.releaseNotesJson.releases) {
+                            const releaseObj = releaseNotes.releaseNotesJson.releases[releaseName];
+                            for(let ii = 0; ii < releaseObj.entries.length; ii++) {
+                                const entryObj = releaseObj.entries[ii]
+                                let doc = {
+                                    key: releaseName + '/' + ii.toString(),
+                                    prs: entryObj.prs.join(', '),
+                                    tags: entryObj.tags.join(', '),
+                                    text: entryObj.text,
+                                };
+                                lunrThis.add(doc);
+                            }
                         }
-                    }
-                });
+                    });
+                }
 
+                resolve();
+            });
+        }));
+
+        if (!options.noPlatforms) {
+            promises.push(new Promise(function(resolve, reject) {
                 fetch('/assets/files/deviceRestore.json')
                     .then(response => response.json())
                     .then(function(data) {
@@ -967,11 +1001,36 @@ $(document).ready(function() {
                         }
                         // console.log('platformVersionInfo', releaseNotes.platformVersionInfo);
 
-                        releaseNotes.doSetup();
+                        resolve();
                     });
-            });
-    });
-    
+        
+                    
+            }));
+        }
 
+        await Promise.all(promises);
+
+        apiHelper.moduleComplete('releaseNotes');
+
+        releaseNotes.doSetup();
+
+    }
+
+    apiHelper.moduleAdd('releaseNotes').releaseNotes = releaseNotes;
+
+    if ($('.apiHelperReleaseNotes').length > 0) {
+        $('.apiHelperReleaseNotes').each(function() {
+            $(this).data('releaseNotes', releaseNotes);
+        });
+        releaseNotes.run({});
+    }
+
+    if ($('.apiHelperVersionsReleaseNotes').length > 0) {
+        $('.apiHelperVersionsReleaseNotes').each(function() {
+            $(this).data('releaseNotes', releaseNotes);
+        });
+
+        releaseNotes.run({noPlatforms:true});
+    }
 
 });

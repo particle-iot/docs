@@ -3,6 +3,7 @@ title: Versions and upgrades
 layout: commonTwo.hbs
 columns: two
 description: Device OS versions, upgrades, and downgrades
+includeDefinitions: [api-helper, api-helper-versions, release-notes]
 ---
 
 # {{title}}
@@ -20,6 +21,16 @@ Each user firmware binary specifies the minimum version of Device OS that it is 
 If you flash user firmware that requires a newer version of Device OS than is currently installed on the device, the device will automatically upgrade. For example, if the device has 1.5.2 and you target your user firmware for 2.0.0, the user firmware would not initially be able to run because the Device OS version is too old. However, at boot, the device will discover this and go into safe mode (breathing magenta), and the cloud will send down the missing binaries. This normally requires a few reboot cycles that happen automatically.
 
 Unlike computer operating systems like Windows or Mac, Device OS will never be automatically updated under your application. You must manually opt into each update, and updates are generally not required. Because of the more limited function set and smaller attack surface, recommended updates for security reasons are rare.
+
+## Version numbering
+
+Device OS releases follow semantic versioning ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
+
+There are also occasionally beta releases (2.0.0-beta.1) and more commonly release candidate ("rc") releases (2.0.0-rc.1). There may be multiple release candidates (for example, 2.0.0-rc.4) before a final release is made (2.0.0).
+
+## Device OS versions
+
+{{> versions}}
 
 ## Version upgrade flow
 
@@ -58,14 +69,6 @@ For products, you will typically upgrade Device OS using these steps:
 
 By targeting a new version of Device OS in your product firmware it will assure that devices will be upgraded as necessary.
 
-
-## Version numbering
-
-Device OS releases follow semantic versioning ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
-
-There are also occasionally beta releases (2.0.0-beta.1) and more commonly release candidate ("rc") releases (2.0.0-rc.1). There may be multiple release candidates (for example, 2.0.0-rc.4) before a final release is made (2.0.0).
-
-A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
 
 ## LTS Versions
 
