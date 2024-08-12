@@ -473,7 +473,7 @@ $(document).ready(function() {
                         if (show) {                            
                             const releaseNotes = $('.apiHelperVersionsReleaseNotes').data('releaseNotes');
                             if (releaseNotes) {            
-                                versions.releaseNotes.renderSingleVersion({
+                                releaseNotes.renderSingleVersion({
                                     ver: 'v' + verObj.version, 
                                     outputElem: releaseNotesContentDivElem, 
                                     linkToGithub:false,
