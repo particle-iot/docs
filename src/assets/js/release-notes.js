@@ -64,6 +64,12 @@ $(document).ready(function() {
         unknownTags: [],
     };
 
+
+    releaseNotes.setupLoaded = new Promise(function(resolve, reject) {
+        releaseNotes.setupLoadedResolve = resolve;
+        releaseNotes.setupLoadedReject = reject;
+    });
+
     releaseNotes.sanitizePlatform = function(platform) {
         const m = platform.match(/([a-z][0-9]*){1}[- ]*som/);
         if (m) {
@@ -708,9 +714,6 @@ $(document).ready(function() {
 
     
     releaseNotes.doSetup = function() {
-        $('.apiHelperVersionsReleaseNotes').each(function() {
-            $(this).data('releaseNotes', releaseNotes);
-        });
 
         $('.apiHelperReleaseNotes').each(function() {
             if (releaseNotes.thisPartial) {
@@ -719,7 +722,6 @@ $(document).ready(function() {
             }
 
             releaseNotes.thisPartial = $(this);
-            $(this).data('releaseNotes', releaseNotes);
     
             analytics.track('Visit', {category:releaseNotes.gaCategory});
 
@@ -1013,15 +1015,26 @@ $(document).ready(function() {
 
         await Promise.all(promises);
 
+        apiHelper.moduleComplete('releaseNotes');
+
         releaseNotes.doSetup();
 
     }
 
+    apiHelper.moduleAdd('releaseNotes').releaseNotes = releaseNotes;
+
     if ($('.apiHelperReleaseNotes').length > 0) {
+        $('.apiHelperReleaseNotes').each(function() {
+            $(this).data('releaseNotes', releaseNotes);
+        });
         releaseNotes.run({});
     }
 
     if ($('.apiHelperVersionsReleaseNotes').length > 0) {
+        $('.apiHelperVersionsReleaseNotes').each(function() {
+            $(this).data('releaseNotes', releaseNotes);
+        });
+
         releaseNotes.run({noPlatforms:true});
     }
 

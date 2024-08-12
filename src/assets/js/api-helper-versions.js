@@ -470,11 +470,10 @@ $(document).ready(function() {
                         const show = !$(this).prop('open');
 
                         $(releaseNotesContentDivElem).empty();
-                        if (show) {
+                        if (show) {                            
                             const releaseNotes = $('.apiHelperVersionsReleaseNotes').data('releaseNotes');
-
                             if (releaseNotes) {            
-                                releaseNotes.renderSingleVersion({
+                                versions.releaseNotes.renderSingleVersion({
                                     ver: 'v' + verObj.version, 
                                     outputElem: releaseNotesContentDivElem, 
                                     linkToGithub:false,
@@ -627,6 +626,9 @@ $(document).ready(function() {
                 });        
             }));
 
+            // Also make sure the releaseNotes module is loaded. 
+            promises.push(apiHelper.moduleGetPromise('releaseNotes'));
+
             await Promise.all(promises);
 
             // carriersJson.deviceConstants - object key platform name, contains id, name, displayName, etc.
@@ -650,7 +652,6 @@ $(document).ready(function() {
 
             }
             
-            //platformDisplayNames.sort((a, b) => { return a.localeCompare(b); });
             versions.platforms.sort((a, b) => a.displayName.localeCompare(b.displayName));
 
             for(const platformObj of versions.platforms) {
@@ -698,10 +699,15 @@ $(document).ready(function() {
                 versions.updateUI();
             });
 
+            apiHelper.moduleComplete('versions')
+
             versions.loadUrlParams();
 
             versions.updateUI();
         };
+
+        apiHelper.moduleAdd('versions');
+
         versions.run();
     });
 });

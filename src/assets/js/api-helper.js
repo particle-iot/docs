@@ -367,6 +367,48 @@ apiHelper.getReleaseAndLatestRcVersionOnly = function() {
     });
 };
 
+apiHelper.modules = {};
+
+apiHelper.moduleAdd = function(name) {
+    if (apiHelper.modules[name]) {
+        return;
+    }
+    const moduleObj = {
+        name,
+    };
+
+    moduleObj.promiseObj = new Promise(function(resolve, reject) {
+        moduleObj.resolveFn = resolve;
+        moduleObj.rejectFn = reject;
+    });
+
+    apiHelper.modules[name] = moduleObj;
+
+    return moduleObj;
+};
+
+apiHelper.moduleGet = function(name) {
+    return apiHelper.modules[name];
+};
+
+apiHelper.moduleGetPromise = function(name) {
+    let result;
+
+    const moduleObj = apiHelper.modules[name];
+    if (moduleObj) {
+        result = moduleObj.promiseObj;
+    }
+
+    return result;
+};
+
+apiHelper.moduleComplete = function(name, resolveParam) {
+    const moduleObj = apiHelper.modules[name];
+    if (moduleObj && moduleObj.resolveFn) {
+        moduleObj.resolveFn(resolveParam);
+    }
+}
+
 apiHelper.confirmFlash = function() {
     if (!apiHelper.flashConfirmed) {
         const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
