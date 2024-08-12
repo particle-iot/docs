@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MFRC522",
     "version": "0.1.4",
-    "installs": 50813,
+    "installs": 50850,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "MFRC522 RFID library for Particle devices",

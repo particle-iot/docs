@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DHT2",
     "version": "1.3.1",
-    "installs": 5090,
+    "installs": 5128,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for DHT11, DHT22, etc Temp & Humidity Sensors",

@@ -1,0 +1,226 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_WM8960_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_WM8960_Arduino_Library/archive/1.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_WM8960_Arduino_Library",
+    "version": "1.0.4",
+    "installs": 0,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the WM8960 Codec Breakout Board",
+    "paragraph": "An Arduino Library for the <a href=\"https://www.sparkfun.com/products/21250\">SparkFun WM8960 Breakout</a>. Connect to the CODEC via QWIIC, and easily adjust all of its available settings including volume and output audio level compression!",
+    "category": "Other",
+    "url": "https://github.com/sparkfun/SparkFun_WM8960_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_WM8960_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_WM8960_Arduino_Library",
+  "versions": {
+    "1.0.4": {
+      "added": "2024-08-12T19:32:28.066Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "boron": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "bsom": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "b5som": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "tracker": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "p2": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "boron": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "bsom": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "b5som": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "tracker": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "esomx": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "electron": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun WM8960 Arduino Library\n========================================\n\n[![SparkFun Audio Codec Breakout - WM8960](https://cdn.sparkfun.com/assets/parts/2/1/0/1/0/21250-_BOB_SparkFun_Audio_Codec_Breakout-_01.jpg)](https://www.sparkfun.com/products/21250)\n\n[*SparkFun Audio Codec Breakout - WM8960 (BOB-21250)*](https://www.sparkfun.com/products/21250)\n\nI2C control of WM8960 Stereo Codec with 1W Class-D Speaker Drivers and Headphone Drivers by Wolfson Microelectronics\n\n\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/extras** - Additional documentation for the user. These files are ignored by the IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\n\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/SparkFun_Audio_Codec_Breakout_WM8960)** - Main repository (including hardware files) for the Stereo Audio Codec Breakout - WM8960.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/2761)** - Basic hookup guide for the Stereo Audio Codec Breakout - WM8960.\n\n\n\nProducts that use this Library\n--------------\n\n* [BOB-21250](https://www.sparkfun.com/products/21250) - Initial Release\n\n\n\nVersion History\n---------------\n* v1.0 - Initial Release \n\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun forums](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n\n",
+  "allVersions": [
+    "1.0.4"
+  ]
+}

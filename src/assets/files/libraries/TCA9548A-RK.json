@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TCA9548A-RK",
     "version": "0.0.1",
-    "installs": 14540,
+    "installs": 14546,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver TCA9548A I2C bus multiplexer",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "VCNL4010",
     "version": "0.0.1",
-    "installs": 3431,
+    "installs": 3433,
     "license": "BSD",
     "author": "Ladyada <contact@adafruit.com>",
     "sentence": "Particle library for VCNL4010 all-in-one proximity/light sensor",

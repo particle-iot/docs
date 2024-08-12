@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SI1145",
     "version": "0.0.1",
-    "installs": 15135,
+    "installs": 15140,
     "license": "BSD",
     "author": "Garrett Bartley",
     "sentence": "Spark Core library for the SI1145 sensors in the Adafruit shop",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ILI9163",
     "version": "0.0.2",
-    "installs": 585,
+    "installs": 586,
     "license": "MIT",
     "author": "Noah Rosamilia <ivoahivoah@gmail.com>",
     "sentence": "ILI9163 display driver",

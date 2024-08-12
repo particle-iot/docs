@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishQueueSpiFlashRK",
     "version": "0.0.1",
-    "installs": 0,
+    "installs": 2,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library for Allegro ACS37800 power monitor IC",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MH-Z19B-CO2-Sensor-Serial",
     "version": "1.0.2",
-    "installs": 4394,
+    "installs": 4395,
     "license": "MIT",
     "author": "Jidesh Veeramachaneni",
     "sentence": "Read and control the MH-Z19B CO2 Module.",

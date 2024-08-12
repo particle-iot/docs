@@ -7,7 +7,7 @@
   "attributes": {
     "name": "bluz_gateway",
     "version": "1.8.0",
-    "installs": 4322,
+    "installs": 4323,
     "license": "GPL",
     "author": "Eric Ely <ericely@bluz.io>",
     "sentence": "A library to turn a Particle board into a bluz gateway when paired with a Gateway Shield.",

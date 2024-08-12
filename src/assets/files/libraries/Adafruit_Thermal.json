@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Thermal",
     "version": "0.0.1",
-    "installs": 4463,
+    "installs": 4465,
     "license": "MIT License",
     "author": "Przemysław Grzywacz <nexather@gmail.com>",
     "sentence": "Port of Adafruit_Thermal library to Spark Core",

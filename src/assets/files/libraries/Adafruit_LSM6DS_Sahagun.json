@@ -1,0 +1,183 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_LSM6DS_Sahagun",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_LSM6DS_Sahagun/archive/4.7.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_LSM6DS_Sahagun",
+    "version": "4.7.3",
+    "installs": 55,
+    "author": "Adafruit <info@adafruit.com>",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for the LSM6DS sensors in the Adafruit shop",
+    "paragraph": "Arduino library for the LSM6DS sensors in the Adafruit shop",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_LSM6DS",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_LSM6DS_Sahagun",
+  "versions": {
+    "4.7.3": {
+      "added": "2024-08-12T19:20:59.431Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "boron": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "bsom": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "b5som": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "tracker": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "p2": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "boron": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "bsom": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "b5som": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "tracker": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "esomx": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "electron": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit LSM6DS Build Status (image removed)\n\nThis is the Adafruit LSM6DS 6-DoF Accelerometer and Gyroscope Sensor Library for Arduino\n\nTested and works great with the Adafruit LSM6DSOX Breakout Board \n[<img src=\"assets/board.jpg?raw=true\" width=\"500px\">](https://www.adafruit.com/products/4438)\n\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\n# Dependencies\n* [Adafruit_BusIO](https://github.com/adafruit/Adafruit_BusIO)\n* [Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor)\n\n# Contributing\n\nContributions are welcome! Please read our [Code of Conduct](https://github.com/adafruit/Adafruit_LSM6DSOX/blob/master/CODE_OF_CONDUCT.md>)\nbefore contributing to help this project stay welcoming.\n\n## Documentation and doxygen\nDocumentation is produced by doxygen. Contributions should include documentation for any new code added.\n\nSome examples of how to use doxygen can be found in these guide pages:\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen-tips\n\nWritten by Bryan Siepert for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo install, use the Arduino Library Manager and search for \"Adafruit LSM6DS\" and install the library.\n",
+  "allVersions": [
+    "4.7.3"
+  ]
+}

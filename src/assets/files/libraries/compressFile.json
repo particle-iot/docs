@@ -7,7 +7,7 @@
   "attributes": {
     "name": "compressFile",
     "version": "0.0.1",
-    "installs": 864,
+    "installs": 865,
     "author": "wvdv2002",
     "sentence": "Compress files on an sd card.",
     "paragraph": "This library uses the excellent Heatshrink compression to shrink files on the sd card to about half their original size.",

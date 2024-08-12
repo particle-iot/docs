@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Sensor_4_20mA_RK",
     "version": "0.0.2",
-    "installs": 98,
+    "installs": 99,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Implementation of SHA1 hash algorithm for Particle devices",

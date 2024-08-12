@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LMIC-Arduino",
     "version": "1.0.0",
-    "installs": 482,
+    "installs": 484,
     "author": "IBM",
     "sentence": "Arduino port of the LMIC (LoraWAN-in-C, formerly LoraMAC-in-C) framework provided by IBM.",
     "paragraph": "Supports SX1272/SX1276 and HopeRF RFM92/RFM95 tranceivers",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EdgeEventQueue",
     "version": "0.0.1",
-    "installs": 31,
+    "installs": 45,
     "license": "Apache 2",
     "author": "libraries@particle.io",
     "sentence": "Store and forward publishing queue for Tracker Edge and Monitor Edge",

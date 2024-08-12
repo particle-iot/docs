@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_scd30_co2_sensor",
     "version": "1.0.0",
-    "installs": 336,
+    "installs": 338,
     "license": "MIT",
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BeaconScanner",
     "version": "1.3.0",
-    "installs": 10796,
+    "installs": 10797,
     "license": "Apache License, Version 2.0",
     "author": "Mariano Goluboff",
     "sentence": "Scan BLE beacons",

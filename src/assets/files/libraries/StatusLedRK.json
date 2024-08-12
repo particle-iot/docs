@@ -1,0 +1,100 @@
+{
+  "type": "libraries",
+  "id": "StatusLedRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/StatusLedRK/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "StatusLedRK",
+    "version": "0.0.3",
+    "installs": 14,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "External status LED controller library for Particle devices",
+    "url": "https://github.com/rickkas7/StatusLedRK",
+    "repository": "https://github.com/rickkas7/StatusLedRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/StatusLedRK",
+  "versions": {
+    "0.0.3": {
+      "added": "2024-08-12T19:28:12.814Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "esomx": {
+            "1-simple": false,
+            "2-test-suite": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# StatusLedRK\nExternal status LED controller library for Particle devices\n\n\n## Revision history\n\n### 0.0.3 (2024-07-28)\n\n- Add Neopixel support\n\n### 0.0.2 (2024-07-28)\n\n- Initial version\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

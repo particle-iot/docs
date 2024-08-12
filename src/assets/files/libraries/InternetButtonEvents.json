@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InternetButtonEvents",
     "version": "1.0.1",
-    "installs": 1173,
+    "installs": 1174,
     "license": "MIT",
     "author": "dwcares",
     "sentence": "Provides clean, debounced, button and click events for the Particle Internet Button",

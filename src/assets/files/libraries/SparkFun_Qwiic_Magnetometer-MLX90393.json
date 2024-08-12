@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Magnetometer-MLX90393",
     "version": "1.0.0",
-    "installs": 225,
+    "installs": 226,
     "author": "Theodore C. Yapo & SparkFun Electronics",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic Magnetometer",

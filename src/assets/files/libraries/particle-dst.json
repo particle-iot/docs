@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-dst",
     "version": "0.1.0",
-    "installs": 9059,
+    "installs": 9061,
     "license": "MIT",
     "author": "Luca Morandini <luca.morandini98@gmail.com>",
     "sentence": "DST switching made simple!",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS18B20_Pi",
     "version": "1.0.2",
-    "installs": 1327,
+    "installs": 1328,
     "author": "Georgi Todorov",
     "architectures": [],
     "visibility": "public",

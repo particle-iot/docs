@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BNO08x_Sahagun",
     "version": "1.2.6",
-    "installs": 140,
+    "installs": 199,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the BNO08x sensors in the Adafruit shop",

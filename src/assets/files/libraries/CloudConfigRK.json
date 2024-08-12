@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CloudConfigRK",
     "version": "0.0.2",
-    "installs": 5731,
+    "installs": 5762,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Store configuration settings locally with the ability to set from the cloud",

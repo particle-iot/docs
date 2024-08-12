@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Clock_5P49V60_Arduino_Library",
     "version": "1.0.1",
-    "installs": 108,
+    "installs": 109,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library that enables all functionality for the SparkFun Clock Generator 5P49V60.",

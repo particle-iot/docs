@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_INA219_",
     "version": "1.0.1",
-    "installs": 7455,
+    "installs": 7470,
     "license": "MIT License",
     "author": "Nathan Matos<than.matos@gmail.com>",
     "sentence": "This is a library for the Adafruit INA219 breakout board - modified for use with Particle(2021)",

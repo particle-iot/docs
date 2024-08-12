@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PhotonWaveOut",
     "version": "0.0.1",
-    "installs": 1528,
+    "installs": 1529,
     "license": "Apache-2.0",
     "author": "Stefan Sauer <ensonic@google.com>",
     "sentence": "Audio playback library for the particle.io",

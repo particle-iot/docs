@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RFM69",
     "version": "0.0.9",
-    "installs": 761,
+    "installs": 763,
     "license": "GNU GPLv3",
     "author": "Felix Russu, modified by Charles-Henri Hallard",
     "sentence": "An Implementation of HopeRF RFM69 RF module, based on Felix RFM69 for Moteino",

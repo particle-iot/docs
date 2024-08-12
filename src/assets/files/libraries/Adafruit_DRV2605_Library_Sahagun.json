@@ -1,0 +1,130 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_DRV2605_Library_Sahagun",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_DRV2605_Library_Sahagun/archive/1.2.4.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_DRV2605_Library_Sahagun",
+    "version": "1.2.4",
+    "installs": 76,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for Adafruit DRV2605L Haptic Controller Breakout",
+    "paragraph": "Arduino library for Adafruit DRV2605L Haptic Controller Breakout",
+    "category": "Device Control",
+    "url": "https://github.com/adafruit/Adafruit_DRV2605_Library",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "adafruit-bus-io-sahagun": "1.14.5"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_DRV2605_Library_Sahagun",
+  "versions": {
+    "1.2.4": {
+      "added": "2024-08-12T19:06:18.445Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "boron": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "bsom": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "b5som": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "tracker": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "p2": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "boron": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "bsom": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "b5som": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "tracker": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "esomx": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "electron": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit DRV2605 Library [![Build Status](https://github.com/adafruit/Adafruit_DRV2605_Library/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_DRV2605_Library/actions)\n\nThis is a library for the Adafruit DRV2605L Haptic Driver ----> http://www.adafruit.com/products/2305\n\nCheck out the links above for our tutorials and wiring diagrams.\n\nThis motor/haptic driver uses I2C to communicate.\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\n\nMIT license, all text above must be included in any redistribution.\n",
+  "allVersions": [
+    "1.2.4"
+  ]
+}

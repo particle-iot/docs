@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ThingSpeak",
     "version": "1.5.1",
-    "installs": 217648,
+    "installs": 217974,
     "license": "See associated license file",
     "author": "MathWorks, Inc <support@thingspeak.com>",
     "sentence": "ThingSpeak Communication Library for Particle-based devices written by the ThingSpeak development team.",

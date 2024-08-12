@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HT16K33-LED",
     "version": "1.0.2",
-    "installs": 871,
+    "installs": 872,
     "license": "MIT",
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "HT16K33 LED matrix driver",

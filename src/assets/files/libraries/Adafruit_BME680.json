@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME680",
     "version": "0.1.2",
-    "installs": 40251,
+    "installs": 40370,
     "license": "MIT License",
     "author": "Kaga",
     "sentence": "Library for running Adafruit BME680 on Particle Photon via I2C",

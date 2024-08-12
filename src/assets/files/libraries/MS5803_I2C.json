@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MS5803_I2C",
     "version": "1.0.0",
-    "installs": 1160,
+    "installs": 1161,
     "license": "open source",
     "author": "Casey Kuhns @ SparkFun Electronics, ported from Thomas Rockenbauer (https://github.com/hl68fx)",
     "sentence": "Library for MS5803 pressure sensors",

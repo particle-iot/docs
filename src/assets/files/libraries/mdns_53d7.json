@@ -7,7 +7,7 @@
   "attributes": {
     "name": "mdns_53d7",
     "version": "1.0.0",
-    "installs": 395,
+    "installs": 396,
     "license": "MIT license",
     "author": "Krishnaraj Varma",
     "sentence": "Adafruit CC3000_MDNS Library for Spark Core",

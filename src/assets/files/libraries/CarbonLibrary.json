@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CarbonLibrary",
     "version": "0.0.6",
-    "installs": 378,
+    "installs": 379,
     "license": "MIT",
     "author": "Garrett Bartley <wgb@wgb.me>",
     "url": "https://github.com/wgbartley/spark-carbon-library",

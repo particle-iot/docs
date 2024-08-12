@@ -7,7 +7,7 @@
   "attributes": {
     "name": "carloop",
     "version": "2.1.0",
-    "installs": 72028,
+    "installs": 72043,
     "license": "MIT",
     "author": "Julien Vanier <julien@carloop.io>",
     "sentence": "Carloop.io library for the Particle platform",
