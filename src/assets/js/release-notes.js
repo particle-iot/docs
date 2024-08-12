@@ -65,11 +65,6 @@ $(document).ready(function() {
     };
 
 
-    releaseNotes.setupLoaded = new Promise(function(resolve, reject) {
-        releaseNotes.setupLoadedResolve = resolve;
-        releaseNotes.setupLoadedReject = reject;
-    });
-
     releaseNotes.sanitizePlatform = function(platform) {
         const m = platform.match(/([a-z][0-9]*){1}[- ]*som/);
         if (m) {
