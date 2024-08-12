@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Modifying a public library 2024-08-12
+
+Added information on modifying a public library to the [library guide](/getting-started/device-os/firmware-libraries/#modifying-a-public-library).
+
 ### Publish to Google sheets 2024-08-08
 
 Updated [Publish to Google sheets](/integrations/community-integrations/publish-to-google-sheets/) 

@@ -296,7 +296,9 @@ When a version is ready for prime time, simply type `particle library publish <m
 After this, anybody with a Particle account will be able to use your library!
 Thank you!
 
-## Migrating libraries
+### v2 library migration (2017)
+
+{{collapse op="start" label="Information about the v2 library migration (2017)"}}
 
 On January 23, 2017, Particle introduced a new version of our firmware library manager, requiring that libraries be migrated from the old library structure (v1) to our new library structure (v2).
 
@@ -314,7 +316,7 @@ For that reason, it may be necessary to migrate a library to the new library str
 
 Instructions for migrating v1 libraries to the new library format using the Particle CLI are included below.
 
-### Using the CLI
+**Using the CLI**
 
 Follow these steps to migrate a v1 Particle library to the new v2 structure using the Particle CLI:
 
@@ -333,12 +335,13 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
 - Publish the new public version of the library by running `particle library publish MyLibrary` in the CLI
 - Push to GitHub, and go celebrate!
 
+{{collapse op="end"}}
 
 ## Common issues with porting libraries
 
 - If you have a library `MyLibrary` be sure to have the file `src/MyLibrary.h`. This should exist, even if it only includes other header files. The Web IDE will automatically add `#include "MyLibrary.h"` to the project .ino file when adding the library.
 
-- When uploading a new version of a library, *all files in the library directory are uploaded.* Be careful in case you have files in there you don’t want to upload like test binaries and large PDFs.
+- When uploading a new version of a library, *all files in the library directory are uploaded.* Be careful in case you have files in there you don’t want to upload like test binaries and large PDFs. The .gitignore file is not consulted, but you can use the [particle.ignore](#particle-include-and-particle-ignore) file to skip files.
 
 - You can upload a private version multiple times with the same version number, but once you publish a version to the public you won’t be able to upload with the same version number. If you make a small mistake just increase the version number and upload again.
 
@@ -348,9 +351,12 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
 
 - You cannot set `#define` variables outside the project, such as using a `-D` in a Makefile. These external defines will need to be moved into header file instead.
 
-- You also cannot set an alternate search path in a library (equivalent to a `-I` in a Makefile). However, the `src` directory is added recursively, so any files within `src` will be found during compilation.
+- You also cannot set an alternate search path in a library (equivalent to a `-I` in a Makefile). The `src` directory is added recursively in the main application, but not in libraries.
 
 - It is not possible to include a pre-compiled binary library (`.a` or `.so`) within a Particle library.
+
+- The Arduino library.properties file does not include the required dependencies. If you are porting a library that depends on other libraries, you
+will need to add those manually to the Particle library.properties dependencies lines.
 
 - Beware of libraries that contain code for other non-Particle hardware platforms. This code can be picked up in the published library and, if large, can cause a timeout while attempting to compile the library, if not an error.
 
@@ -362,6 +368,37 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
 
 If you're having additional issues with library migration or contribution, please feel free to post a message in the 
 [community forums](https://community.particle.io).
+
+## Modifying a public library
+
+In some cases, you may find that a public library requires a minor modification. For actively maintained libraries, you can just ask
+the library owner, but in some cases the creator has moved on, at which point you have a few options:
+
+### Creating a fork
+
+For many library licenses, you are free to make a derivative version of the library. If the library is stored in Github, you can make 
+a "fork" of the library which maintains a loose connection between the two, making it possible for you to later update your version
+if the original has been updated, or in some cases the original owner may want to incorporate your changes into the original build.
+
+One issue, however, is the namespace of Particle community libraries is flat, and you cannot upload a new version of a library created
+by someone else. In this case, the best option is to rename the library, such as by appending a number at the end, or your initials.
+
+You need to update the library name in library.properties as well as the directory name when you upload and publish the library. Also
+update the README with information about where you obtained the library from (and what version), and what you changed.
+
+### Workbench locally modified version
+
+In some cases, you want to modify a library but not publish the changes. If this is the case, see 
+[Modifying public libraries](#modifying-public-libraries), below. Some library licenses, like GPLv3, may not allow using a modified 
+version of a public library in a closed-source project.
+
+### Web IDE
+
+It is extremely difficult to use a modified version of a public library in the Web IDE. **It's recommended that you use Workbench
+instead.**
+
+If the library is very simple, you can sometimes just directly include the library .cpp and .h files in your Web IDE project, 
+but you may need to also add dependencies, and sometimes paths can be affected, requiring more source changes.
 
 
 ## Workbench pseudo-libraries
@@ -397,7 +434,14 @@ We recommend that you:
 Sometimes you will need to make a small modification to a public library to make it suit your needs, or fix a minor compilation error caused in a new version of the compiler or Device OS. This is easy to do with pseudo-libraries.
 
 - Install the library using **Particle: Install Library**
-- Remove the dependency entry for the library from `project.properties`
+- Remove or rename the dependency entry for the library from `project.properties`
+
+For example, add `disabled_` to the beginning of the dependencies line in project.properties:
+
+```
+name=discombobulator
+disabled_dependencies.CellularHelper=0.2.5
+```
 
 Now you are free to make modifications to the library in the `lib` directory and these changes will used for local, cloud, and CLI cloud compiles.
 
