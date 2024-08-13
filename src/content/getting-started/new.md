@@ -21,6 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B504 certification docs 2024-08-13
+
+FCC Certification documents added for the B504.
+
+### Device OS version page 2024-08-13
+
+The [Device OS version listing](/reference/device-os/versions/?v=6.1.1) page now has a box where you type in a version number to
+filter for that version.
+
 ### Device OS version page 2024-08-12
 
 There is a new [Device OS version listing](/reference/device-os/versions/) page that shows the release state of the releases and has various controls for filtering. You can also view the release notes, and the SKUs are compatible with any version. 

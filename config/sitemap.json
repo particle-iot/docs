@@ -943,8 +943,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-06-28",
-            "hash": "8fbd30d7332b4c64463aa9ff85843a1d8e12a180241ef3edb7aedde7e34ecd18"
+            "date": "2024-08-13",
+            "hash": "a5cd22ef2f9081469b7fe1488fb6226b96dccb29b6991cf4f14c8135484135df"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "0c8373810b0e60b754be32b5246c251ed039be26b1529c6f0e7ec45f84e04c4a",
-            "date": "2024-08-12"
+            "hash": "a4f057f1bbedc1a2ff799deb66a9078d0782c17269c4fcfa1057471f8aa65627",
+            "date": "2024-08-13"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9091,8 +9091,8 @@
             "date": "2024-08-12"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "c9b2c28d7d9a5389de8dcf3c88f496ce3b8e331a9f5bc367b466b4ae9f6541f4",
-            "date": "2024-08-05"
+            "hash": "061a593999cb7743a9b019fda3045d9805f5ace385487ad8402b4df2d62e5973",
+            "date": "2024-08-13"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",

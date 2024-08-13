@@ -1993,6 +1993,20 @@ The OEM integrator has to be aware not to provide information to the end user re
 
 ---
 
+## Certification documents
+
+{{!-- BEGIN shared-blurb bc4dc783-cdaa-4684-b87e-3aa6ff5f404d --}}
+
+### FCC (United States) - B504 B-Series SoM 
+
+- FCC ID: 2AEMI-B504
+- [Grant of equipment authorization (DTS)](/assets/pdfs/b504-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/b504-fcc-pcb.pdf)
+- [Grant of equipment authorization - Part 15B Communication Receiver](/assets/pdfs/b504-fcc-cxx.pdf)
+- [Grant of equipment authorization - Part 15B Computing Device](/assets/pdfs/b504-fcc-jbp.pdf)
+
+{{!-- END shared-blurb --}}
+---
 
 ## Country compatibility
 
@@ -2077,3 +2091,4 @@ The following countries are not officially supported at this time, but may be co
 |          | 2024-05-31 | RK | Update bands |
 |          | 2024-06-06 | RK | Update bands |
 | 001      | 2024-06-26 | RK | Initial version |
+| 002      | 2024-08-13 | RK | Added links to certification documents |

@@ -189,6 +189,21 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 {{!-- END shared-blurb --}}
 
 
+## B504 B-Series SoM
+
+{{!-- BEGIN shared-blurb bc4dc783-cdaa-4684-b87e-3aa6ff5f404d --}}
+
+### FCC (United States) - B504 B-Series SoM 
+
+- FCC ID: 2AEMI-B504
+- [Grant of equipment authorization (DTS)](/assets/pdfs/b504-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/b504-fcc-pcb.pdf)
+- [Grant of equipment authorization - Part 15B Communication Receiver](/assets/pdfs/b504-fcc-cxx.pdf)
+- [Grant of equipment authorization - Part 15B Computing Device](/assets/pdfs/b504-fcc-jbp.pdf)
+
+{{!-- END shared-blurb --}}
+
+
 ## B523 B524 B-Series SoM
 
 {{!-- BEGIN shared-blurb fd865543-47ff-41fb-99d3-ceec6fd99fb8 --}}
