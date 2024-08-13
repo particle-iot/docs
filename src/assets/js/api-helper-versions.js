@@ -50,6 +50,10 @@ $(document).ready(function() {
                     versions.inputValues[key] = $(this).prop('checked');
                     break;
 
+                case 'text':
+                    versions.inputValues[key] = $(this).val().trim();
+                    break;
+
                 case 'select':
                 default:
                     versions.inputValues[key] = $(this).val();
@@ -62,7 +66,23 @@ $(document).ready(function() {
         versions.saveUrlParams = function() {
             versions.readInput();
             
-            const searchStr = $.param(versions.inputValues);
+            let saveValues;
+
+            if (versions.inputValues.def) {
+                saveValues = {def: true};
+            }
+            else
+            if (versions.inputValues.vc && versions.inputValues.v.trim().length) {
+                saveValues = {v: versions.inputValues.v};
+            }
+            else {
+                saveValues = Object.assign({}, versions.inputValues);
+                delete saveValues.def;
+                delete saveValues.vc;
+                delete saveValues.v;
+            }
+
+            const searchStr = $.param(saveValues);
             // console.log('searchStr=' + searchStr);
 
             if (versions.lastSearchParam != searchStr) {
@@ -79,6 +99,10 @@ $(document).ready(function() {
 
         versions.loadUrlParams = function() {
             // versions.urlParams.get('o') 
+            $('.specificVersionCheckbox').prop('checked', false);
+            $('.onlyShowDefaultReleases').prop('checked', false);
+            
+
             $(thisPartial).find('.versionsParam').each(function() {
                 const key = $(this).data('key');
 
@@ -97,11 +121,17 @@ $(document).ready(function() {
                     break;
 
                 case 'select':
+                case 'text':
                 default:
                     $(this).val(value);
                     break;
                 }
             });
+
+            if (versions.urlParams.get('v')) {
+                $('.specificVersionCheckbox').prop('checked', true);
+                $('.specificVersionCheckbox')[0].scrollIntoView();
+            }
         }
 
 
@@ -149,16 +179,32 @@ $(document).ready(function() {
             versions.versionListElem.empty();
 
             if (versions.inputValues.def) {
-                $('.hideForDefaultReleasesOnly').hide();
+                $('.filterControl').prop('disabled', true);
+                $('.specificVersionInput').prop('disabled', true);
+                $('.specificVersionCheckbox').prop('checked', false);
             }
-            else {
-                $('.hideForDefaultReleasesOnly').show();
+            else
+            if (versions.inputValues.vc) {
+                $('.filterControl').prop('disabled', true);
+                $('.specificVersionInput').prop('disabled', false);
+                $('.onlyShowDefaultReleases').prop('checked', false);
+            } 
+            else{
+                $('.filterControl').prop('disabled', false);
+                $('.specificVersionInput').prop('disabled', false);
+                $('.onlyShowDefaultReleases').prop('disabled', false);
             }
     
             const versionsArray = [];
 
             for(const verObj of versions.deviceOsVersions) {
                 if (verObj.release_state != 'internal') {
+                    if (versions.inputValues.vc) {
+                        if (!verObj.version.startsWith(versions.inputValues.v)) {
+                            continue;
+                        }
+                    }
+                    else
                     if (versions.inputValues.def) {
                         if (!verObj.default_platforms || verObj.default_platforms.length == 0) {
                             continue;
@@ -396,7 +442,7 @@ $(document).ready(function() {
                     {
                         const tdElem = document.createElement('td');
                         $(tdElem).css('width', leftColumnWidth);
-                        $(tdElem).text('Published at');
+                        $(tdElem).text('Publish date');
                         $(trElem).append(tdElem);
                     }
                     {
@@ -466,23 +512,32 @@ $(document).ready(function() {
                     const releaseNotesContentDivElem = document.createElement('div');
                     $(detailsElem).append(releaseNotesContentDivElem);
 
+                    const showNotes = function() {                            
+                        const releaseNotes = $('.apiHelperVersionsReleaseNotes').data('releaseNotes');
+                        if (releaseNotes) {            
+                            releaseNotes.renderSingleVersion({
+                                ver: 'v' + verObj.version, 
+                                outputElem: releaseNotesContentDivElem, 
+                                linkToGithub:false,
+                                headerTag: 'h5'
+                            });                            
+                        }        
+                    }
+
                     $(detailsElem).on('click', function() {
                         const show = !$(this).prop('open');
 
                         $(releaseNotesContentDivElem).empty();
                         if (show) {                            
-                            const releaseNotes = $('.apiHelperVersionsReleaseNotes').data('releaseNotes');
-                            if (releaseNotes) {            
-                                releaseNotes.renderSingleVersion({
-                                    ver: 'v' + verObj.version, 
-                                    outputElem: releaseNotesContentDivElem, 
-                                    linkToGithub:false,
-                                    headerTag: 'h5'
-                                });                            
-                            }        
+                            showNotes();
                         }
                     })
 
+                    if (versions.inputValues.vc && versions.inputValues.v == verObj.version) {
+                        // Open release notes if show specific version checkbox is checked and there's an exact match
+                        $(detailsElem).prop('open', true);
+                        showNotes();
+                    }
 
                     $(releaseNotesDivElem).append(detailsElem);
 
@@ -592,7 +647,6 @@ $(document).ready(function() {
                 
                 delete versions.hash;
             }
-
         }
 
         versions.run = async function() {
@@ -696,8 +750,33 @@ $(document).ready(function() {
 
             
             $('.onlyShowDefaultReleases').on('click', function() {
+                if ($(this).prop('checked')) {
+                    $('.specificVersionCheckbox').prop('checked', false);
+                }
                 versions.updateUI();
             });
+
+            $('.specificVersionCheckbox').on('click', function() {
+                if ($(this).prop('checked')) {
+                    $('.onlyShowDefaultReleases').prop('checked', false);
+                }
+                versions.updateUI();
+            });
+            $('.specificVersionInput').on('input', function() {
+                if ($(this).val().trim().length) {
+                    $('.onlyShowDefaultReleases').prop('checked', false);
+                    $('.specificVersionCheckbox').prop('checked', true);    
+                }
+                else {
+                    $('.specificVersionCheckbox').prop('checked', false);    
+                }
+                versions.updateUI();
+            });
+            $('.specificVersionInput').on('blur', function() {
+                versions.updateUI();
+            });
+
+
 
             apiHelper.moduleComplete('versions')
 

@@ -371,7 +371,7 @@ apiHelper.modules = {};
 
 apiHelper.moduleAdd = function(name) {
     if (apiHelper.modules[name]) {
-        return;
+        return apiHelper.modules[name];
     }
     const moduleObj = {
         name,
@@ -397,6 +397,9 @@ apiHelper.moduleGetPromise = function(name) {
     const moduleObj = apiHelper.modules[name];
     if (moduleObj) {
         result = moduleObj.promiseObj;
+    }
+    else {
+        result = apiHelper.moduleAdd(name).promiseObj;
     }
 
     return result;
