@@ -87,12 +87,13 @@ const allowAuthorsArray = [
     'rickkas7',
     'adafruit',
     'sparkfun',
+    'particle'
 ];
 
 async function fetchLibraryList() {
     let libraryListRaw = [];
 
-    for (let page = 1; page <= 30; page++) {
+    for (let page = 1; page <= 35; page++) {
         const data = await particle.listLibraries({
             auth: config.accessToken,
             excludeScopes: 'private',

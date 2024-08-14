@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_DotStarMatrix_RK",
     "version": "1.0.3",
-    "installs": 1462,
+    "installs": 1463,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit_GFX-compatible library for DotStar grids. Ported by rickkas7.",

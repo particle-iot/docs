@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME280_RK",
     "version": "1.0.9",
-    "installs": 11837,
+    "installs": 11839,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for BME280 sensors.",

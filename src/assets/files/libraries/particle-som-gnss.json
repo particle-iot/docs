@@ -1,0 +1,85 @@
+{
+  "type": "libraries",
+  "id": "particle-som-gnss",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/particle-som-gnss/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "particle-som-gnss",
+    "version": "1.0.0",
+    "installs": 3,
+    "license": "Apache License, Version 2.0",
+    "author": "Particle",
+    "sentence": "GNSS library for Particle SOMs",
+    "paragraph": "This standalone GNSS (Global Navigation Satellite System) library is designed specifically for Particle cellular modems with built-in GNSS support, including the M-SOM platform.  It provides a simple and efficient interface to access and utilize GNSS data for location-based applications on Particle devices.",
+    "url": "https://github.com/particle-iot/particle-som-gnss",
+    "repository": "https://github.com/particle-iot/particle-som-gnss.git",
+    "architectures": [
+      "particle-msom"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/reference/device-os/libraries/p/particle-som-gnss",
+  "versions": {
+    "1.0.0": {
+      "added": "2024-08-14T19:02:45.810Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Particle SOM GNSS Library\n\nThis standalone GNSS (Global Navigation Satellite System) library is designed specifically for Particle cellular modems with built-in GNSS support, including the M-SOM platform.  It provides a simple and efficient interface to access and utilize GNSS data for location-based applications on Particle devices.\n\n## Note\nThis library is targeted for the M-SOM platform and can only be built with device OS version 5.8.2 and greater.\n\n## Key Features\n- Easy Integration: Seamlessly integrates with Particle devices equipped with GNSS functionality, allowing developers to quickly add location services to their IoT projects.\n- Comprehensive GNSS Data: Access essential GNSS data, including latitude, longitude, altitude, speed, and heading, directly from your Particle device.\n- Lightweight & Standalone: A lightweight library that doesn't require additional dependencies, making it ideal for resource-constrained environments.\n- User-Friendly API: Provides a straightforward API to configure, control, retrieve GNSS data, and publish to console maps interfaces with location service.\n---\n## Installation\nYou can install the library via Particle's library manager on the command line, VS Code (Workbench), or by directly cloning this repository.\n```bash\nparticle library add particle-som-gnss\n```\n\n## API\n### Configuration\n`int begin(LocationConfiguration& configuration)`\n\nThe begin function initializes and configures the Location class using the provided configuration structure.\n\nParameters\n- configuration: A LocationConfiguration structure that contains the configuration settings for the GNSS.\n\nReturns\n- int: Returns 0 on success. Any other value indicates a failure during the initialization process.\n\nDefaults\n- Passive GNSS antenna - no power applied through GNSS_ANT pin\n- GPS+GLONASS constellations\n- HDOP under 100 qualifies a fix\n- Horizontal accuracy under 50 meters qualifies a fix\n- Maximum time for fix is 90 seconds\n\n### Acquisition\n`LocationResults getLocation(LocationPoint& point, bool publish = false)`\n\nThe getLocation function retrieves the GNSS position synchronously (blocking). It blocks until the location is acquired.\n\nParameters\n- point: A LocationPoint object that will be populated with the GNSS position data.\n- publish: (Optional) If set to true, the location data will be published to the cloud after acquisition. The default value is false.\n\nReturns\n- LocationResults: An object containing the results of the location acquisition process.\n\n\n`LocationResults getLocation(LocationPoint& point, LocationDone callback, bool publish = false)`\n\nThe getLocation function retrieves the GNSS position asynchronously. It returns immediately and executes the specified callback function upon completion of the acquisition.\n\nParameters\n- point: A LocationPoint object that will be populated with the GNSS position data.\n- callback: A LocationDone callback function that is invoked once the location acquisition is complete.\n- publish: (Optional) If set to true, the location data will be published to the cloud after acquisition. The default value is false.\n\nReturns\n- LocationResults: An object containing the initial result of the location acquisition process.\n\n## Example\n\nSee examples for more examples.\n\n```cpp\nvoid setup() {\n    LocationConfiguration config;\n\n    // Identify and enable active GNSS antenna power\n    config.enableAntennaPower(GNSS_ANT_PWR);\n\n    // Assign buffer to encoder.\n    Location.begin(config);\n}\n\nvoid loop() {\n    LocationPoint point = {};\n    // Get the current GNSS location and publish 'loc' event\n    auto results = Location.getLocation(point, true);\n    if (results == LocationResults::Fixed) {\n        Log.info(\"Position fixed\");\n    }\n```\n\n---\n\n### LICENSE\n\nUnless stated elsewhere, file headers or otherwise, all files herein are licensed under The MIT License (MIT). For more information, please read the LICENSE file.\n\nIf you have questions about software licensing, please contact Particle [support](https://support.particle.io/).\n\n---\n### LICENSE\n\nUnless stated elsewhere, file headers or otherwise, all files herein are licensed under an Apache License, Version 2.0. For more information, please read the LICENSE file.\n\nIf you have questions about software licensing, please contact Particle [support](https://support.particle.io/).\n\n### LICENSE FAQ\n\n**This firmware is released under Apache License, Version 2.0, what does that mean for you?**\n\n * You may use this commercially to build applications for your devices!  You **DO NOT** need to distribute your object files or the source code of your application under Apache License.  Your source can be released under a non-Apache license.  Your source code belongs to you when you build an application using this reference firmware.\n\n**When am I required to share my code?**\n\n * You are **NOT required** to share your application firmware binaries, source, or object files when linking against libraries or System Firmware licensed under LGPL.\n\n**Why?**\n\n * This license allows businesses to confidently build firmware and make devices without risk to their intellectual property, while at the same time helping the community benefit from non-proprietary contributions to the shared reference firmware.\n\n**Questions / Concerns?**\n\n * Particle intends for this firmware to be commercially useful and safe for our community of makers and enterprises.  Please [Contact Us](https://support.particle.io/) if you have any questions or concerns, or if you require special licensing.\n\n_(Note!  This FAQ isn't meant to be legal advice, if you're unsure, please consult an attorney)_\n\n---\n\n### CONTRIBUTE\n\nWant to contribute to this library project? Follow this link to find out how.\n\n---\n\n### CONNECT\n\nHaving problems or have awesome suggestions? Connect with us [here.](https://community.particle.io/)\n\n---\n\n### Revision History\n\n#### 1.0.0\n* Initial file commit for M-SOM M404",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

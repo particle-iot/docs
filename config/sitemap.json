@@ -4439,24 +4439,24 @@
             "hash": "0eb1953e18916c82fd9cafb76c634696dc5603a0f93405e78137ca7e4a8eb256"
         },
         "reference/device-os/libraries/a/Accelerometer_MMA7660.md": {
-            "date": "2024-08-12",
-            "hash": "fbc18b602de6ceb307e58d0bd959d2376fd3c623efef65c770697c68b00c0208"
+            "date": "2024-08-14",
+            "hash": "aa3daf24de8e42875f0d99bb5998a5bb1ac36f8ecc37800ae31bd705cc92de88"
         },
         "reference/device-os/libraries/a/AccelerometerADXL335.md": {
             "date": "2024-07-27",
             "hash": "e7384db3678cdd061bf1a056ecff41ab2b5437f8220702c142ea82941610c655"
         },
         "reference/device-os/libraries/a/AccelStepperSpark.md": {
-            "date": "2024-08-12",
-            "hash": "651d3ea98e8c4f39fa04bba9cb76aface5f85b0600d667d8435482addf4a79b1"
+            "date": "2024-08-14",
+            "hash": "4d60b8901c77d41de1721ba00f1f553991d8ac5f75a1718359b37e0e6af49143"
         },
         "reference/device-os/libraries/a/ada-sensors.md": {
             "date": "2023-09-20",
             "hash": "3fe34834f00c7883e69fb9e6700437bf47762e5fa4750e0dc5ac040bf3b39766"
         },
         "reference/device-os/libraries/a/Adafrtui_APDS9960_Particle.md": {
-            "date": "2024-07-27",
-            "hash": "1aee27943bbb94bedda71d070abc003773e82dbfe00bac32604dd79b4254e240"
+            "date": "2024-08-14",
+            "hash": "0e998fc5a1fa9b274554ff2914fa1e7e1b16eb04e7e493356925efe23144e8c9"
         },
         "reference/device-os/libraries/a/Adafruit_10DOF_IMU.md": {
             "date": "2024-08-12",
@@ -4467,8 +4467,8 @@
             "hash": "c4f57ad1107f8925ba5fbe3f3ae92d2256cd4735e285360ece95b735be5ee90c"
         },
         "reference/device-os/libraries/a/Adafruit_ADS1X15.md": {
-            "date": "2024-08-12",
-            "hash": "2b8a25626acb80d8a655dc5f4cfa0c859ca8492223b060c9b67af74361f97a51"
+            "date": "2024-08-14",
+            "hash": "a85a12fb7b61b5c83985498381bc652ac930dab1820ad687f9a4c3526b8d1d6b"
         },
         "reference/device-os/libraries/a/Adafruit_ADT7410.md": {
             "date": "2024-07-27",
@@ -4483,8 +4483,8 @@
             "hash": "48a4779587c9de6795afa4ef5f6df2b909e0f69feae5547e9d67c66294c11b85"
         },
         "reference/device-os/libraries/a/Adafruit_APDS9960_Particle.md": {
-            "date": "2024-07-27",
-            "hash": "940a32732b010325b1a5653260a73135df6f92a8ad61b04c11ca62cc038d3045"
+            "date": "2024-08-14",
+            "hash": "5f1b2284e205ba7f530ab89730f8e9574ac486a492e36a841714eddc794e401a"
         },
         "reference/device-os/libraries/a/Adafruit_AS3741.md": {
             "date": "2024-07-27",
@@ -4499,60 +4499,60 @@
             "hash": "e78e70ce61dd86062e84b75240e501c2152d78e274abe6c0c65356c9a56c899f"
         },
         "reference/device-os/libraries/a/Adafruit_BLE.md": {
-            "date": "2024-08-12",
-            "hash": "414f191a16e56021f6622bb202ba45a5cf771f50fd2520f9ccc466740ad6f8d2"
+            "date": "2024-08-14",
+            "hash": "1e3a78dc19f13cbab92ba72fcd22bf3920f0d44ce3322aabc7db946b896e1118"
         },
         "reference/device-os/libraries/a/Adafruit_BME280.md": {
-            "date": "2024-08-12",
-            "hash": "014848c40f61b2d9172101d556d2acbec33b9a9582f4d3fb5abd9ad1b76a63c2"
+            "date": "2024-08-14",
+            "hash": "d36e4cbecc45bddb34cba5df6ea82dad104100119ed74521a1bea99b70c6e91f"
         },
         "reference/device-os/libraries/a/Adafruit_BME280_RK.md": {
-            "date": "2024-08-12",
-            "hash": "04b1fa8fafdfc07b71e76a5e5ebaaa2f372ad7d7ff82e04906d3852081d80162"
+            "date": "2024-08-14",
+            "hash": "cafc9663c46e4a321100bcfe159ea662fb5eda1b1ee85497d5a8c1c49440a36e"
         },
         "reference/device-os/libraries/a/Adafruit_BME680.md": {
             "date": "2024-08-12",
             "hash": "970ce59df08c1ff51ca9a2e4077a0e95ae7b70926b89d26fcbbe96776cb0f5f6"
         },
         "reference/device-os/libraries/a/Adafruit_BMP085.md": {
-            "date": "2024-08-12",
-            "hash": "b08550b0dcf638c7c65c0efcf4b74e14af6adf7c56da4a9eadb0518ddc62f963"
+            "date": "2024-08-14",
+            "hash": "5942e67d036ac8f028200b39dd828f1d67dddd557b772e3f78660eb52a83b8b8"
         },
         "reference/device-os/libraries/a/Adafruit_BMP183_U.md": {
             "date": "2024-07-27",
             "hash": "2d61057e236946c8203fdb53280e60de637bda39f9aae555c9865dc516cccbd9"
         },
         "reference/device-os/libraries/a/Adafruit_BMP280.md": {
-            "date": "2024-08-12",
-            "hash": "38d1030089f740b5662b904d65953a406fef151f8974495ef9b0649a3eafbea4"
+            "date": "2024-08-14",
+            "hash": "f331ec2a00bf9b2e33fcf83b2e5dac6afcc20642db2b398b6b921bf9a46506da"
         },
         "reference/device-os/libraries/a/Adafruit_BMP3XX.md": {
-            "date": "2024-08-12",
-            "hash": "b39ad21b9c062f944a7cbeb364f00a1dba5c50fe1f6eec762e05ca8728959fec"
+            "date": "2024-08-14",
+            "hash": "1ff159151bba6f4b4c7d85787cb9353827558382f5f27c6716ec4aaabb22c76d"
         },
         "reference/device-os/libraries/a/Adafruit_BNO055_Library_SSSA.md": {
             "date": "2024-07-27",
             "hash": "5f8f1621d52d29604090ac0e6f105f8025ec2fe6c921d7073a18cb92212cbb04"
         },
         "reference/device-os/libraries/a/Adafruit_BNO055_Photon.md": {
-            "date": "2024-07-27",
-            "hash": "1e737f5d2ff74586880a3f4d5fefeebbf0028454ffd49406d6b11041cd749686"
+            "date": "2024-08-14",
+            "hash": "951b5e1efb0f1ed6a79aadcf0e22817e01440a05199d15fefc3f3c9c9a096219"
         },
         "reference/device-os/libraries/a/Adafruit_BNO055_RK.md": {
             "date": "2024-08-12",
             "hash": "c86e2956d5bad2223b73eb2c143b47cb3cc8281ba33ed75970e25f4b2e4cefe0"
         },
         "reference/device-os/libraries/a/Adafruit_Bus_IO.md": {
-            "date": "2024-08-12",
-            "hash": "a36d9e6a3b1194406269e727bd1e30e639aefadff241f6625307ee79bca3fda6"
+            "date": "2024-08-14",
+            "hash": "6979f928283c879f484d980dab5edb4a752c1d33e99a5c130efda54497266787"
         },
         "reference/device-os/libraries/a/Adafruit_BusIO_Register.md": {
-            "date": "2024-08-12",
-            "hash": "b6b2e51f6699823a79a11eb5f043a1551a9ac3136dd2af42e521f5994d5e8824"
+            "date": "2024-08-14",
+            "hash": "110c6fb815d81464896ee67698ebc8c7ac23506d153a201b6761f20506fbeb34"
         },
         "reference/device-os/libraries/a/Adafruit_BusIO_RK.md": {
-            "date": "2024-08-12",
-            "hash": "24fff10db165ce7dbb3b5f4f5e873234ad1d76792ee3dca8c7dd8cea043a2e4a"
+            "date": "2024-08-14",
+            "hash": "bd6093a74b8f4128080b20390c283d8fe6c3861a7473e1c52173ae35dcd45e84"
         },
         "reference/device-os/libraries/a/Adafruit_CAP1188.md": {
             "date": "2024-07-27",
@@ -4567,20 +4567,20 @@
             "hash": "8857a5696ce2483aedae4c56332bd1f981171e07fc14f1704ab33349cc3b763c"
         },
         "reference/device-os/libraries/a/Adafruit_DHT.md": {
-            "date": "2024-08-12",
-            "hash": "2e452b6838e66d1fc13d6b44f2a15ac99a73cd4ab2d7a303b67e7f7fe0e54ee5"
+            "date": "2024-08-14",
+            "hash": "f66353ce30bfb94de98fbf0db08fa3987a10cde5004caa02e3fdc869fc55597d"
         },
         "reference/device-os/libraries/a/Adafruit_DHT_Particle.md": {
-            "date": "2024-08-12",
-            "hash": "afc4a1a01827f39c93b610e6d2d0f03975dad3b5e29490b040a51439b378f96d"
+            "date": "2024-08-14",
+            "hash": "bc6a2c365a232b734450165c5b22896d80b326279c44df0a4ca9d228607b48b8"
         },
         "reference/device-os/libraries/a/Adafruit_DHT90.md": {
             "date": "2024-07-27",
             "hash": "de39d1b2307c835631eac8b330c9728a9a418b089ed5321ca85255ec6296a488"
         },
         "reference/device-os/libraries/a/Adafruit_DotStarMatrix_RK.md": {
-            "date": "2024-06-06",
-            "hash": "8875f959ec2650c3502038b4d1b0e6ba9fde42ace4c43209f0fae34fef4843d6"
+            "date": "2024-08-14",
+            "hash": "8a88d639115a99a1d2cb88d325555b4b00b4fe4d419a99370f2e5335ff58c5cd"
         },
         "reference/device-os/libraries/a/Adafruit_EPD_RK.md": {
             "date": "2024-08-12",
@@ -4599,20 +4599,20 @@
             "hash": "5a88c20e8fcc31b96f7818cbd148cc14107b98de7f7df6192b27ea8ecd8eb1ac"
         },
         "reference/device-os/libraries/a/Adafruit_GFX.md": {
-            "date": "2024-08-12",
-            "hash": "f5ae1472693c853271fa52a13a74a181c68a653b0597162755930fb1c1132286"
+            "date": "2024-08-14",
+            "hash": "e0bd4326f73829940f705042256bdfbb4f8fefdadba100b7a5fd4afb1a78f18e"
         },
         "reference/device-os/libraries/a/Adafruit_GFX_RK.md": {
-            "date": "2024-08-12",
-            "hash": "e20629f7b143c589d9ca018293a1616c9f4a2cc71fdb19f92b7cb8bbcd9555e0"
+            "date": "2024-08-14",
+            "hash": "256571b0965a21b32403a3117f489d47bc5c557ff0cd4a4d915e328e58e7f938"
         },
         "reference/device-os/libraries/a/Adafruit_GFX_RK_Z.md": {
-            "date": "2024-08-12",
-            "hash": "c7c03bee1787e0f61c8d0aedceb21302b4a79e7cbcd766349e82ad9392fdc1ca"
+            "date": "2024-08-14",
+            "hash": "49b0ea5ba92be9bd95e4edd08f25b070295b6ea9fae77b3481d0d2528b441a36"
         },
         "reference/device-os/libraries/a/Adafruit_GPS.md": {
-            "date": "2024-08-12",
-            "hash": "a2ba6e3ad967e729fb14e6146ba26b38b3685840f7910b9b7697429444bdcc85"
+            "date": "2024-08-14",
+            "hash": "76c2f3d67149c6646235e16c56cf92ac0bacd092f8573675b379939ad298234f"
         },
         "reference/device-os/libraries/a/Adafruit_HDC1000.md": {
             "date": "2024-07-27",
@@ -4643,12 +4643,12 @@
             "hash": "a0ee1bd512bd659443399e9c1472f7cd1aa6013e09c7c8c1ab4db48926f75e32"
         },
         "reference/device-os/libraries/a/Adafruit_INA219_.md": {
-            "date": "2024-08-12",
-            "hash": "af01ddc75647dee0d5437e63446a72377fd34db9736749e0f88a2c313c8feb42"
+            "date": "2024-08-14",
+            "hash": "d0f0db1a0c195346d579c58353b03b1bceba6a6504c0f6578b5174cf25e98eff"
         },
         "reference/device-os/libraries/a/Adafruit_IO_Particle.md": {
-            "date": "2024-08-12",
-            "hash": "b7a3de64bc1b643149c8d500c9a879ccd2e441c6904599e03feec089f116ef13"
+            "date": "2024-08-14",
+            "hash": "61a860241a45a2821b6a6b40764a2b2945298b8800030c010a61a92532634b0a"
         },
         "reference/device-os/libraries/a/Adafruit_Jib_BME680.md": {
             "date": "2024-07-27",
@@ -4679,8 +4679,8 @@
             "hash": "176ef8060c743323833b3bf41bd4f0b3a6b20ecb70a5f8a09f174b103d625a07"
         },
         "reference/device-os/libraries/a/Adafruit_LSM303_U.md": {
-            "date": "2024-08-12",
-            "hash": "5a20a02334d0bf910391b20c767093fa0b6e199c6e06830e05f9c2efb81a3dbf"
+            "date": "2024-08-14",
+            "hash": "972f39ed98e9a77eba4fd9ae3efcc1921f985e8dff637c68cf9eb5741da1d2b6"
         },
         "reference/device-os/libraries/a/Adafruit_LSM9DS0.md": {
             "date": "2024-08-12",
@@ -4703,8 +4703,8 @@
             "hash": "e63e211f96eeabcdd2ebda159dcbfc67f7700a2fbd87df102cdae1e34e493e36"
         },
         "reference/device-os/libraries/a/Adafruit_MAX31865_library.md": {
-            "date": "2024-08-12",
-            "hash": "6d4f4c8e13a06ed3184dbeff4e04a229021576f49b8271199d4e45511f842afe"
+            "date": "2024-08-14",
+            "hash": "82a00007a05508980a8ed7f365ef2abc6592685d7268771e6a3227d0d4fc6cc2"
         },
         "reference/device-os/libraries/a/Adafruit_MCP23008.md": {
             "date": "2024-08-12",
@@ -4719,16 +4719,16 @@
             "hash": "35a80dcb6f711faab7d859e935fd4c94eef31f63369762e198e36dfecca038da"
         },
         "reference/device-os/libraries/a/Adafruit_mfGFX.md": {
-            "date": "2024-08-12",
-            "hash": "5a1319d93b358379c4dbf620ceb880c4e12df667d63b64705281126da3eec7f3"
+            "date": "2024-08-14",
+            "hash": "2f5c3bd6d2b6ab4326e78849dd6101291db907e35cfcfe00f4bc9c0e79cae1e1"
         },
         "reference/device-os/libraries/a/Adafruit_MLX90393_SSSA.md": {
             "date": "2024-08-12",
             "hash": "8252a8719b1a8be0eb1054459908eabe4a64abc418286d1d419ae7bc5ee9b23b"
         },
         "reference/device-os/libraries/a/Adafruit_MLX90614.md": {
-            "date": "2024-08-12",
-            "hash": "a050dd9acd606ab5fc9e79ab9498db78c570b6d508762dd012515859631810af"
+            "date": "2024-08-14",
+            "hash": "451885cda3f6b1aadc9983a167104fc51c341685a69060f850c7f8ebeecbebe4"
         },
         "reference/device-os/libraries/a/Adafruit_MMA8451.md": {
             "date": "2024-07-27",
@@ -4747,8 +4747,8 @@
             "hash": "b23c314fda7fa56e644eca1fbc968f3fb272d13ea46c7bb45a378614277059da"
         },
         "reference/device-os/libraries/a/Adafruit_MQTT.md": {
-            "date": "2024-08-12",
-            "hash": "edb07fdd68d99051e84ff3e75235083b061de77cf253537eba279097ee0e1992"
+            "date": "2024-08-14",
+            "hash": "66bbf900b811196295e3095b6cfeb5ad4e1f1207f36edc640db15e022d269e6d"
         },
         "reference/device-os/libraries/a/Adafruit_NFCShield_I2C.md": {
             "date": "2024-08-12",
@@ -4759,8 +4759,8 @@
             "hash": "aac5c79c95a75c73cb7d55a97c0692f79c9c08d6ff3e4628b42fa65948f553d9"
         },
         "reference/device-os/libraries/a/Adafruit_PCD8544.md": {
-            "date": "2024-07-27",
-            "hash": "5f700f095f2ac982383812b2d472455abd93f1c7614e6908d19fdc998d9af21f"
+            "date": "2024-08-14",
+            "hash": "335941a5b4081253f251534f2f8120432fca3e506b33a4ada1b35d86ae514055"
         },
         "reference/device-os/libraries/a/Adafruit_PCD8544_mfGFX.md": {
             "date": "2024-07-27",
@@ -4779,32 +4779,32 @@
             "hash": "997d1d7cc2354a6cb51227965d8ec591b1fdfc3868abfa9ac66054f14a40f309"
         },
         "reference/device-os/libraries/a/Adafruit_PWMServoDriver.md": {
-            "date": "2024-08-12",
-            "hash": "485b0dcdf1e4e5745ec3fa10acc91bbc8b41e03c81716467efa52c37ed9071cf"
+            "date": "2024-08-14",
+            "hash": "f972d23165ff540674a18bc9ef44cef930e02f15303a1ec35733b15d20323990"
         },
         "reference/device-os/libraries/a/Adafruit_RGBLCDShield.md": {
             "date": "2024-08-12",
             "hash": "f872ced74fb5cf0f87db3b07d0204c08123d501c2ed5956b9977b762fabff31e"
         },
         "reference/device-os/libraries/a/Adafruit_RTClib_RK.md": {
-            "date": "2024-08-12",
-            "hash": "3cf17f1826047a2b767059c86c9510da138d21dba30e7286145d002b4cb751b6"
+            "date": "2024-08-14",
+            "hash": "18963b481389ee6cfab701279fd8a29293f8e592a14cfc3f646e5ee7cc714209"
         },
         "reference/device-os/libraries/a/Adafruit_Seesaw.md": {
             "date": "2024-08-12",
             "hash": "cf480abc4f3e62d3ae6327dbb040e567f5fc8d9a5af4542d753ae8ffb0d79d72"
         },
         "reference/device-os/libraries/a/Adafruit_Sensor.md": {
-            "date": "2024-08-12",
-            "hash": "653787e7ef38547df04787dccf5dfcac0a0ec1d7c58a158b6d7d3f7aab87b932"
+            "date": "2024-08-14",
+            "hash": "8d3b8b905bd87b35dc776537553758c34b0b910847b4c972434b2fcf51244f7a"
         },
         "reference/device-os/libraries/a/Adafruit_Sensor_Photon.md": {
             "date": "2024-07-27",
             "hash": "4051437729f9466eee79625100b30f4f36d850fac272a5b5b464481cb77b52cc"
         },
         "reference/device-os/libraries/a/Adafruit_SensorRK.md": {
-            "date": "2024-08-12",
-            "hash": "83e7e14771a30ddf698af06a3b3487e24a1a236b1662c180c30b1445542b6795"
+            "date": "2024-08-14",
+            "hash": "bad3265cd1d32a653f65f4a4598f3c5d65aeaaffa92bbc2078756605d356b82d"
         },
         "reference/device-os/libraries/a/Adafruit_SGP30.md": {
             "date": "2024-08-12",
@@ -4815,28 +4815,28 @@
             "hash": "0b18b75d39f447c535535e29ee58416e08c8805761961eaff5962dedcb446641"
         },
         "reference/device-os/libraries/a/Adafruit_SH1106_0.md": {
-            "date": "2024-08-12",
-            "hash": "8b10fb893104708a24b62eef45f9ad347e35daa3df08550d368d654f0188945d"
+            "date": "2024-08-14",
+            "hash": "209912b34e155d1d678e4def4f3af978474991681ea20efcc07887b8fbde7952"
         },
         "reference/device-os/libraries/a/Adafruit_SH1106_Particle.md": {
             "date": "2024-07-27",
             "hash": "dab2c1b8379b07f21cc91805adf94a79de3e50d338c6e8cf1965d6421f51a46a"
         },
         "reference/device-os/libraries/a/Adafruit_SH110X_Z.md": {
-            "date": "2024-08-12",
-            "hash": "6ed0b270bd5f0c57c42c810cd566f0d59d532cdf86031ae22ac72e99e05de335"
+            "date": "2024-08-14",
+            "hash": "a963c1904a81bdc20810a9cd38b301773f0393ac94271422fa9fffb2ad451467"
         },
         "reference/device-os/libraries/a/Adafruit_SHT4X_RK.md": {
-            "date": "2024-08-12",
-            "hash": "ba5212bbd24da9d07fd1a5c442adea70067c2dcbbac42e30985d462954f848d3"
+            "date": "2024-08-14",
+            "hash": "20dc4830ef134a0a9eeb4999c893c75784e787452e3dd7fd29c4b7b9b9f2cc65"
         },
         "reference/device-os/libraries/a/Adafruit_SHTC3.md": {
             "date": "2024-08-12",
             "hash": "f99fc4472ed18594759dce562ca6e121aea038b47183e57d1d7a44e4bfab6410"
         },
         "reference/device-os/libraries/a/Adafruit_SI1145.md": {
-            "date": "2024-08-12",
-            "hash": "69eb4cb532212755d395d3c5ebe622f2a0c48a2dda8df95cba986b3d68dad201"
+            "date": "2024-08-14",
+            "hash": "e70ea6694f0d19dd169e7754560a546b226918559c823d62f6879616f20b4e12"
         },
         "reference/device-os/libraries/a/Adafruit_Si7021.md": {
             "date": "2024-08-12",
@@ -4851,24 +4851,24 @@
             "hash": "0a73fbee7e0920ec1abed42d5cb4f8be1c39d71697fc2972bf33f39ba5b3281d"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1306.md": {
-            "date": "2024-08-12",
-            "hash": "905a694b09113742187f038408689017407c5ef00d06763cbc470737c62620ac"
+            "date": "2024-08-14",
+            "hash": "33be30dcc96ec0468987bea888baa96fa6a33966ebc716749b95c2370cc3373a"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1306_RK.md": {
-            "date": "2024-08-12",
-            "hash": "cc01b9c55ef6e73f831ad6d275afd91327dc2a499c289a2b7473ab6db56dc6cb"
+            "date": "2024-08-14",
+            "hash": "e734383aaaf90519a87af68d5de19e17f3c65d190701ca00333b188e58cf2f67"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1325.md": {
             "date": "2024-08-12",
             "hash": "5c8b816e9515b036fd61da2ab6214dc7732844c722855a13f2d1c123b4c101fb"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1331.md": {
-            "date": "2024-08-12",
-            "hash": "4977811bc94305c689c89aa49d64eca68d71b11dfc2c0ff1c357f387e425aa25"
+            "date": "2024-08-14",
+            "hash": "6c5c75ef47877cea83b040c3a51da1a36aded36309bc41068d3c133df3c5bb1c"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1351_Photon.md": {
-            "date": "2024-08-12",
-            "hash": "2e8a92af8f743e0407c9225165016fa40218fa2bbbb83274ffc9460829ae610b"
+            "date": "2024-08-14",
+            "hash": "2fe139214f1074f65ebf94331f0547c99e072f191c5b494e471cdb071cff25fb"
         },
         "reference/device-os/libraries/a/ADAFRUIT_ST7565.md": {
             "date": "2024-08-12",
@@ -4907,8 +4907,8 @@
             "hash": "eaf5f8150ba1d92d9e0d3c38919f070cee6d0a26519711496a62f2a64557d435"
         },
         "reference/device-os/libraries/a/Adafruit_TSL2591_Library.md": {
-            "date": "2024-06-06",
-            "hash": "b53f47e0d18c467ba76da8c39b937034ba852408f766ca8a3e773f2b3dc898c1"
+            "date": "2024-08-14",
+            "hash": "68956b84898f932ae6cfb2e418df9a353f6500bc131078f0ecf3da6a0a2f3689"
         },
         "reference/device-os/libraries/a/Adafruit_Unified_Sensor_Elite.md": {
             "date": "2024-06-06",
@@ -4919,8 +4919,8 @@
             "hash": "0ed78baaee4cc2ad80a843f7944cbaa4c27f162168fd3cb7f142f8b3d12ff758"
         },
         "reference/device-os/libraries/a/Adafruit_VEML7700.md": {
-            "date": "2024-08-12",
-            "hash": "b5094c7169fee5bda87bd908c22f0b3900f3edd987f3f13d8a89028da9472630"
+            "date": "2024-08-14",
+            "hash": "0dfe1198736b6e1be4264f10d4caf9b6a37b7c443b08b6fbf47e5d6c6dc5f9a7"
         },
         "reference/device-os/libraries/a/Adafruit_VL53L0X.md": {
             "date": "2024-08-12",
@@ -4935,8 +4935,8 @@
             "hash": "d1824db678e8f4dec38a0343fe223f85c4ab618141aa047c761161dee4dd8157"
         },
         "reference/device-os/libraries/a/Adafruit_VS1053.md": {
-            "date": "2024-08-12",
-            "hash": "917ea3612a296c31e33f3336187533497c8ad0691fadf2b07842ba35e089c5e8"
+            "date": "2024-08-14",
+            "hash": "3edf1da860c5f0822b96cfbe608c8d913fec7fb5fce59e55c220de17ba303bfb"
         },
         "reference/device-os/libraries/a/Adafruit_VS1053_Photon.md": {
             "date": "2024-07-27",
@@ -4951,12 +4951,12 @@
             "hash": "f0062682015a252400d618b0a2674885c0b88e212f2fa79775bdc8ca30b46426"
         },
         "reference/device-os/libraries/a/adafruit-htu21df.md": {
-            "date": "2024-07-27",
-            "hash": "683ec54b8095d457dfc1a2ed39e08e065c24c92430baa7ff0f9dd73952a0cff0"
+            "date": "2024-08-14",
+            "hash": "7716ad15b29f05c76d0bb7693c0b938631ec8d23548f09ab3d100ca081f7b534"
         },
         "reference/device-os/libraries/a/adafruit-ina219.md": {
-            "date": "2024-08-12",
-            "hash": "4f8ebb60968207d6f3e2ad3cbee0ccab6ac075b0903df414bbefb50e173b82f8"
+            "date": "2024-08-14",
+            "hash": "bf2b92f645101a4ab1fa8d420a741192dc0e644afcc031a9eb1fb2c1dcc062e4"
         },
         "reference/device-os/libraries/a/adafruit-led-backpack.md": {
             "date": "2024-08-12",
@@ -4971,16 +4971,16 @@
             "hash": "bae6624d5d57e7a1674c3608dd80c1059d23846165d8a51c3d4e47c0f0b1de40"
         },
         "reference/device-os/libraries/a/Adafruit-MotorShield-V2.md": {
-            "date": "2024-08-12",
-            "hash": "6908a5e20807a86b24622e2190a2c7579fdc57874267f011166aece316818d5d"
+            "date": "2024-08-14",
+            "hash": "ce417fc096fe3c0d93808f9dd631b7c986918c017711156028f16d62d721fbc8"
         },
         "reference/device-os/libraries/a/adafruit-serial-rgb-lcd.md": {
-            "date": "2024-07-27",
-            "hash": "b20863dcadbf01ea188617e950b53607add6a439e06160d0d8078cd3d3d1dcde"
+            "date": "2024-08-14",
+            "hash": "7f167af79f31fa70ca409c68ddfeeb1b4dc06e65ce0822e820f01daa00fb793f"
         },
         "reference/device-os/libraries/a/adafruit-sht31.md": {
-            "date": "2024-08-12",
-            "hash": "d32a8e323a5fe674a87bf8cf38f36791039a70310b7d82fba45d712a5e6c065e"
+            "date": "2024-08-14",
+            "hash": "5d817686adf381edc3de64a7af35e683c753d80396d1443d8b82f1ebec78b2c2"
         },
         "reference/device-os/libraries/a/AdafruitColorTFTJoystickFeatherWing.md": {
             "date": "2024-08-12",
@@ -4995,32 +4995,32 @@
             "hash": "0e430378cfcfad4230e6e8f69d32e732222f2eec1badd7ff916db934ccfbfd6b"
         },
         "reference/device-os/libraries/a/ADC_a_Serial.md": {
-            "date": "2024-08-12",
-            "hash": "7b9e68d22d42ad7b04d5cc83df42f10becc975f3a3de371c2ad107134140c9da"
+            "date": "2024-08-14",
+            "hash": "433ff57f3a5619cad84c39afe33f393d95858431d9469840f2c0989f4e6f6cfd"
         },
         "reference/device-os/libraries/a/ADCDMAGen3_RK.md": {
-            "date": "2024-08-12",
-            "hash": "3e4d04b0e99f91db15b3f363f3a567ff8b40037864da0e5f3bcc01dcc72b08b0"
+            "date": "2024-08-14",
+            "hash": "8d7c468ec1a61eb821a75eb7c6c572c660102fc25960d865101f4dc40ae81cf0"
         },
         "reference/device-os/libraries/a/ADXL335.md": {
             "date": "2024-08-12",
             "hash": "6bfe2933d300d87ce1a43113e16924152be0d0143ee26f9e8b1d1cf952786b9e"
         },
         "reference/device-os/libraries/a/adxl345.md": {
-            "date": "2024-08-12",
-            "hash": "b766d04427dc0e6c1ed563c428b92e0896f813c8b9d30e78fc9938076f5796a8"
+            "date": "2024-08-14",
+            "hash": "29b090af46699ae1b43cc97a5a1edeeccc65c903d226e7c5abc0bf0d298816d5"
         },
         "reference/device-os/libraries/a/ADXL345_d591.md": {
             "date": "2024-08-12",
             "hash": "0bb0d2f5b275a65d4ea92deb6fb99cd00cf24afe296338b01a2fd9ab335759ab"
         },
         "reference/device-os/libraries/a/ADXL345_Sparkfun_Particle.md": {
-            "date": "2024-08-12",
-            "hash": "5ef1a6ba5f35726da65dcf34eaa2c44d133ff0901ae38724d2e956f623895941"
+            "date": "2024-08-14",
+            "hash": "c498fc84de1c973f224559545cdc6b10207b5cb87fdf7010e4aeda55e9209a73"
         },
         "reference/device-os/libraries/a/adxl362.md": {
-            "date": "2024-08-12",
-            "hash": "2f5b6761f0759ad4bc86143ed9234d24e14ab1c44df412b2b50ce02ebf48a243"
+            "date": "2024-08-14",
+            "hash": "9ea59f4df89729ff39523e7d69b1d019aca9c18100411eeecae03ee38a9f8717"
         },
         "reference/device-os/libraries/a/ADXL362DMA.md": {
             "date": "2024-08-12",
@@ -5051,8 +5051,8 @@
             "hash": "27af246403e1d17c7a119255e8b0390bf68674bca9927782476ff7aed0df3014"
         },
         "reference/device-os/libraries/a/AirQualityWing.md": {
-            "date": "2024-08-12",
-            "hash": "bc4abe29577c6cae1109793644386a7dfb7274879a165d67f045330742505e6e"
+            "date": "2024-08-14",
+            "hash": "75a7a6e335c00795f822fb263df0da122f0c249c724d2ec5483a8f0eb3bf70c1"
         },
         "reference/device-os/libraries/a/AJHO_SSD1306.md": {
             "date": "2024-08-12",
@@ -5079,16 +5079,16 @@
             "hash": "b75987737e5653652ee39e37fda6349b2dfa735050908d037291f6d47ba3d211"
         },
         "reference/device-os/libraries/a/AnalogMeasure.md": {
-            "date": "2024-08-12",
-            "hash": "93e5dd17f67b5f56672d8b4033ec523a2e605aafe12b6ccf6164b1a968320dc2"
+            "date": "2024-08-14",
+            "hash": "9ebca6c410ad8d2aaeabffb2007df17d1c0f0b36e637c188a512bb404a53d12e"
         },
         "reference/device-os/libraries/a/AnalogSmoother.md": {
             "date": "2024-08-12",
             "hash": "aac64f34c992b7dc82336c943e0523089d82cc1600a451d9734dca1a6ef137cb"
         },
         "reference/device-os/libraries/a/APDS_Trigger.md": {
-            "date": "2024-08-12",
-            "hash": "03ff72ed5097ae086a248d1d89001149c5702cc1b5a912d787dbabecc78ee2e4"
+            "date": "2024-08-14",
+            "hash": "88153b5685966cef50909e2fff988c00a643f4c9531c32e45f2642c6f3da2754"
         },
         "reference/device-os/libraries/a/APDS-9301.md": {
             "date": "2024-06-06",
@@ -5107,28 +5107,28 @@
             "hash": "61d93b35aaaf2b509725d37f37c5d54b8aed6063395c0fe493ae5c402246a47b"
         },
         "reference/device-os/libraries/a/APNHelperRK.md": {
-            "date": "2024-08-12",
-            "hash": "6d7adb7d03b5aa71fd38c746c0d05a9bed347164e1a19c8f8fe0f0c328378aef"
+            "date": "2024-08-14",
+            "hash": "a26516f2fa3ed0aeb7915d21f3ab295528f9371deb086efb1415dea098877d0e"
         },
         "reference/device-os/libraries/a/AppleMidi.md": {
             "date": "2024-07-27",
             "hash": "b6a85b882ec65ba9ccb00bc8b353c79071a303817c1717f4aa58fb1a67b0d2c3"
         },
         "reference/device-os/libraries/a/ard-boost.md": {
-            "date": "2024-08-12",
-            "hash": "68d08e189a53bb7633eb073b38edba335c757f91aef6cb1a9a929079bc44bd73"
+            "date": "2024-08-14",
+            "hash": "a287e7f8e57a8f4992f44fa99d1051e4eb1e5000ec2b74c3a98974a23f4f9a5d"
         },
         "reference/device-os/libraries/a/ard-stdlib.md": {
             "date": "2024-08-12",
             "hash": "4c94063665d2f93344d6c54ec17617b6cdd59074c1ba7cabfc8ba3694d0c061d"
         },
         "reference/device-os/libraries/a/ard-streams.md": {
-            "date": "2024-06-06",
-            "hash": "bf32e0a5325ad6da37e8afc33a963fd33308609eb24da87f158c7d6406e883a0"
+            "date": "2024-08-14",
+            "hash": "88c6d131e73677768d51dd54328ef588c70a14d60392a3c06dcba068ce9513b3"
         },
         "reference/device-os/libraries/a/Arduino.md": {
-            "date": "2024-08-12",
-            "hash": "f922ca7041ac4f59f7efe4f861740f52de779823b563d43a6fbe5628e4bcd339"
+            "date": "2024-08-14",
+            "hash": "2bc53888685478fed991c38fe9051f34217168fab83f0ecb61248bf61ab0c40d"
         },
         "reference/device-os/libraries/a/Arduino_AHT10.md": {
             "date": "2024-07-27",
@@ -5143,12 +5143,12 @@
             "hash": "d2b10602ff56361ef70d4cfbe65f9bd7a3dd1d6dcc02afea710058aab301bc31"
         },
         "reference/device-os/libraries/a/arduino-CAN.md": {
-            "date": "2024-08-12",
-            "hash": "937ef6d45cf62f4d9d463d58beb0393ef2d8f779905a8e63e766080bbb195690"
+            "date": "2024-08-14",
+            "hash": "9cc1e6f3cd011ac0d55f3e447f4d64b07f7a15db28f3b57effef446a93fdc003"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2024-08-12",
-            "hash": "618243d68a45f07e42d8735aed3657dcb616f48ff28fd038ce0b04f72082e841"
+            "date": "2024-08-14",
+            "hash": "acc9ef25f94014c501e2e79d31625118d1fef2aec12780e6401958170af45e3a"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-12",
@@ -5191,20 +5191,20 @@
             "hash": "f23343403046ec6afbf80f7ebf9a012b7495b0212435541469954ac4f9640947"
         },
         "reference/device-os/libraries/a/azure_c_shared_utility.md": {
-            "date": "2024-08-12",
-            "hash": "35ca522ae9c7726b170ff93c0292b0c338df9eb0e3518124179f85e8b8bb22b1"
+            "date": "2024-08-14",
+            "hash": "482eceba388a19fa30c448f67fd0463adbb682b7118162f963babb61e8cb0c36"
         },
         "reference/device-os/libraries/a/azure_iothub_client.md": {
-            "date": "2024-08-12",
-            "hash": "3efe0fcebb08939d2ca68df9cf97f5f2a2e8a425c38c6c7dfa800ac2c5cf8327"
+            "date": "2024-08-14",
+            "hash": "29944aeb0c4ec643209419cbe40c99b4722a56482ec713a329c4cc507c6d52c6"
         },
         "reference/device-os/libraries/a/azure_uamqp_c.md": {
-            "date": "2024-08-12",
-            "hash": "1d264f5257ad98a45b07c9f76dbb7474828383e7c33b5f473b875338bcf95a88"
+            "date": "2024-08-14",
+            "hash": "9da44b82746573f51f5b3a1831ce05fea341e183a5730bad1238c13a46276d82"
         },
         "reference/device-os/libraries/a/azure_umqtt_c.md": {
-            "date": "2024-08-12",
-            "hash": "1fd07c1db0057f6cfd4a878f9381d82c352efb7571880a54140f6b6d08b718af"
+            "date": "2024-08-14",
+            "hash": "d3d6f2e2daf31fed7e25a9e67a975b3fb9ff0dec662424b7fea3ab86ec7a907c"
         },
         "reference/device-os/libraries/a/AzureIotHubClient.md": {
             "date": "2024-08-12",
@@ -5223,48 +5223,48 @@
             "hash": "180f269dc7645d16340c9f63d343e4929c9aa381903332d6c7ed95af0764d747"
         },
         "reference/device-os/libraries/b/BackgroundPublishRK.md": {
-            "date": "2024-08-12",
-            "hash": "788b4716b017bd4ed72d421dae87d69c3a3bcd3be4b4d4f78cc8311fc6e29e49"
+            "date": "2024-08-14",
+            "hash": "4a9560160a5f1ee385f2b639d34d0b6e950749ee8db4ab6e0436b9fbf7eb9589"
         },
         "reference/device-os/libraries/b/BackoffHelperRK.md": {
             "date": "2024-08-12",
             "hash": "866637a8df7766d7ec6fa35037654a3e77bac860ba58aab1b948c015ebb4ae6c"
         },
         "reference/device-os/libraries/b/barometer.md": {
-            "date": "2024-08-12",
-            "hash": "a8723464099707284d8d17f3921a35ab0f4e435f37d6c963f34fbfdb4465911d"
+            "date": "2024-08-14",
+            "hash": "bab982476a2bb9f2c2c793f18f5a24e643b81c6ba08a6832fa57060492e7cd4c"
         },
         "reference/device-os/libraries/b/base64.md": {
-            "date": "2024-08-12",
-            "hash": "1034fa3a4f9be1d32f3075d92ad8ad4b6e6c805dde4a64fbc309ec5795b63fc7"
+            "date": "2024-08-14",
+            "hash": "3e26915c42e64687b3f2d9ee14f93fa759bf5fcecaaa7748739301f71e72659d"
         },
         "reference/device-os/libraries/b/Base64RK.md": {
-            "date": "2024-08-12",
-            "hash": "818ed02e08e3d95a83412bdfc0cff3d3996843a16c1375881081c2a3325317cb"
+            "date": "2024-08-14",
+            "hash": "0b6d75d75a153845ad4ee803a67302f99759d8b57a5f463c71baad1f6b9919e1"
         },
         "reference/device-os/libraries/b/BeaconScanner.md": {
             "date": "2024-08-12",
             "hash": "ff4df43612a16d8818df592fa9ff6105ce8c0332387db09965f8613bb956aff1"
         },
         "reference/device-os/libraries/b/beakn.md": {
-            "date": "2024-08-12",
-            "hash": "1195e350b6418d73961b01e8357b53b70fdfb0556bedc27809d3ab55f33f148e"
+            "date": "2024-08-14",
+            "hash": "bf6b5f4a4cd37dc134ce842299e2989e1fb6d47388f9751667f5231c3206bffb"
         },
         "reference/device-os/libraries/b/benchmark.md": {
             "date": "2024-08-12",
             "hash": "2f0b633c2758be5d102cb27637652eb70082b42b939f00ad76cb458d99b74a99"
         },
         "reference/device-os/libraries/b/beta-cube-library.md": {
-            "date": "2024-08-12",
-            "hash": "02ee8da433cc581e95dfe031004cd4bcd16e3228778df288f393f165224552e3"
+            "date": "2024-08-14",
+            "hash": "24e4a4c62b0f190d4888935dc592fce0a9f0a63cbe8a84f024118c623cb9e794"
         },
         "reference/device-os/libraries/b/beta-cube-library-v3.md": {
-            "date": "2024-08-12",
-            "hash": "06ab7c3f3187a00213a1a6ab8e67c1e5b910b59e7dae22a34f89fac30380ff55"
+            "date": "2024-08-14",
+            "hash": "641fa2fa4f77cd9edf57730cfdfd1cd122a42d897ce41a331b60c20d16f86d1e"
         },
         "reference/device-os/libraries/b/beta-cube-library-v31.md": {
-            "date": "2024-07-27",
-            "hash": "f8c7facdbe29d674f64f80038998d3c140032fce560de4a541111cec185dac74"
+            "date": "2024-08-14",
+            "hash": "04cf1c39fb131aa0cce2d6721014e69d4d312bc80da1050c2c792de18fd3d0c6"
         },
         "reference/device-os/libraries/b/BetterPhotonButton.md": {
             "date": "2024-06-06",
@@ -5291,8 +5291,8 @@
             "hash": "a98505353d67fd75b9d3a00ef152ee1b84fae0bc76c871d2063f0e549fdc5cee"
         },
         "reference/device-os/libraries/b/BleSerialPeripheralRK.md": {
-            "date": "2024-08-12",
-            "hash": "42d35bf4c68250a6b590483a04592e6c5aad3fb19503963e061b0a6ac82f2267"
+            "date": "2024-08-14",
+            "hash": "9544a8c0deb13c634a848bc9387ce15cc3a9c39a0db0209708839310cb87f093"
         },
         "reference/device-os/libraries/b/BlingButton.md": {
             "date": "2023-09-20",
@@ -5303,12 +5303,12 @@
             "hash": "ea88eba33568e8c9a01195ece3c846065ba372e3395be12e2f2694900e465bbb"
         },
         "reference/device-os/libraries/b/bluz_gateway.md": {
-            "date": "2024-08-12",
-            "hash": "1daacd6166c1bc02fcf47d5c7bf7954884dd2dd066bdfc252cd6b41e58dd2cb6"
+            "date": "2024-08-14",
+            "hash": "01cdd68ac80e22ca4d66fd00ca3b31f7b80ed52232d9b55cfc449d27eeb23b68"
         },
         "reference/device-os/libraries/b/blynk.md": {
-            "date": "2024-08-12",
-            "hash": "46f3381ae7072e2f59451b28653c1017ffbb03823f330c0b4eeeef0f95534c16"
+            "date": "2024-08-14",
+            "hash": "39b883bf478b0d225f7ac823776db7f2b190b520a1748297e8794982850b794b"
         },
         "reference/device-os/libraries/b/BlynkLog.md": {
             "date": "2024-08-12",
@@ -5327,20 +5327,20 @@
             "hash": "9845302065cf1b2b82d5603cefa4dd1f45f8bfe02bf74a6759e6c8dce919ece5"
         },
         "reference/device-os/libraries/c/Camera_Pixy2.md": {
-            "date": "2024-07-27",
-            "hash": "57a6e48abb645d09f3efdb9478191b68efc655c33adb366d74cfe57196296cbd"
+            "date": "2024-08-14",
+            "hash": "f7f1dfa26d8471cd6a97daa66d253900194b918332953401a628f19c65ce13ff"
         },
         "reference/device-os/libraries/c/camera_VC0706.md": {
-            "date": "2024-07-27",
-            "hash": "c946c69004f9129e19b3c9deae7a17f96a641659684b9b16c8d65f36b89a8f54"
+            "date": "2024-08-14",
+            "hash": "7124e0f4973c0a33414a4f95559ed68261110ee22d8f0c02ed2633fda608c79d"
         },
         "reference/device-os/libraries/c/CameraHelperRK.md": {
             "date": "2024-08-12",
             "hash": "64eea8b3f8110862453e03f39ca299e9c969fcd83c29635ca3fdecc628213832"
         },
         "reference/device-os/libraries/c/can-mcp25x.md": {
-            "date": "2024-08-12",
-            "hash": "2ea1b34288986cd8c1a3a00849c4697ab88000a9e262633cdda24f5d136c8e58"
+            "date": "2024-08-14",
+            "hash": "77a2255cc1a22ed41280c4da68bdd26c2410686259193e572fa07034ee2ae468"
         },
         "reference/device-os/libraries/c/captouch.md": {
             "date": "2024-08-12",
@@ -5371,20 +5371,20 @@
             "hash": "17ceb5ce6e00f3ac4289328461b08069168a54a673b727c5fdb932b927f2cf61"
         },
         "reference/device-os/libraries/c/CE_BME280.md": {
-            "date": "2024-08-12",
-            "hash": "1f91cc730ac74a958f85418098d07486cd5ad20a924aa21334bca2f0d3758c5f"
+            "date": "2024-08-14",
+            "hash": "80398f2177a8e532b73bf1a1fde2cd7adbbc95ba490bca15ec2a4a4f43903bf9"
         },
         "reference/device-os/libraries/c/CellularHelper.md": {
-            "date": "2024-08-12",
-            "hash": "e54a06c28201d3c3d0aa68589ce4f86dbc651102f9c330c0e6e702a328d4a3c0"
+            "date": "2024-08-14",
+            "hash": "d6f4b843a76ff5960362247bf3ae583d652335ada1bc851ff6daa4e91300eee5"
         },
         "reference/device-os/libraries/c/CellularHelper_ls.md": {
             "date": "2024-08-12",
             "hash": "809082b8ffbcf858e04966292ac8ead077f56f57b86cff09f7c0fa47e9929c81"
         },
         "reference/device-os/libraries/c/Checkweigher.md": {
-            "date": "2024-08-12",
-            "hash": "3485a8ce689048fe3ca3a70d7421c4c06ef9a53c47d2cb874c897540e41ef4d9"
+            "date": "2024-08-14",
+            "hash": "7d33b0a300186a58bf32bae039d1045b1d767c8b64294b7db24517c1ece52ce7"
         },
         "reference/device-os/libraries/c/chrismayu_am2320.md": {
             "date": "2024-08-12",
@@ -5395,8 +5395,8 @@
             "hash": "df03d6eb599d130182fbead18ba2a2895ad467cb74477c0ae7a9f39b873662db"
         },
         "reference/device-os/libraries/c/clickButton.md": {
-            "date": "2024-08-12",
-            "hash": "21c96ebc3de3242ea0c5a9bcf7042ead893661b2a2a2df69bfbcd4f8da8b4d98"
+            "date": "2024-08-14",
+            "hash": "507c2b2153d638da549328566a4d67403787144984e0c273383144b4f3986d5d"
         },
         "reference/device-os/libraries/c/ClosedCube_SHT31D.md": {
             "date": "2024-07-27",
@@ -5467,8 +5467,8 @@
             "hash": "0f10b081f5e78146cd2630d30d563e77c9f74ed9b0c11d7c8ccf1a60547fc460"
         },
         "reference/device-os/libraries/c/custom-pwm.md": {
-            "date": "2024-06-06",
-            "hash": "24cfb1d40c70f633e1914fc14c89d80a31afe0096e9a9d6935ff96478e95f316"
+            "date": "2024-08-14",
+            "hash": "516bcfe6edcfe9722d2a32847d607ca3481d2497247cd958c2d9e39d3595b900"
         },
         "reference/device-os/libraries/c/cwop-particle.md": {
             "date": "2024-06-06",
@@ -5479,8 +5479,8 @@
             "hash": "643d68cb269ebcde2d1b0243df5d45def0da64093be679e42fa15f708a239d8a"
         },
         "reference/device-os/libraries/d/DailyTimerSpark.md": {
-            "date": "2024-08-12",
-            "hash": "99450fc2480b1c73d123b1fd8e0c6b483899e9c6495593b1051fc8a28e8ae6b4"
+            "date": "2024-08-14",
+            "hash": "aa0aada8b440d366ea71eae53f397cc2c39318e9db936b08c3d5f2aa03662548"
         },
         "reference/device-os/libraries/d/DAIRremote.md": {
             "date": "2024-07-27",
@@ -5491,12 +5491,12 @@
             "hash": "f2a0f2303714f2903635652c97a824bf3e22fba0a541c70f9e2800d66beb579e"
         },
         "reference/device-os/libraries/d/Debounce.md": {
-            "date": "2024-08-12",
-            "hash": "fec527cf64142ca09061243e1396aa8e06991cc7b5dd6fd22220e4a15346e7f6"
+            "date": "2024-08-14",
+            "hash": "6a0ec091bb96896abdd0ef0e5391ad859c3b8ecfd6032c34b7015770885e2ff3"
         },
         "reference/device-os/libraries/d/DebounceSwitchRK.md": {
-            "date": "2024-08-12",
-            "hash": "9ecd6f73dda23444662bb3a66d1f5635cad0ea331bf41dd3f6ecfcb5beddfc7d"
+            "date": "2024-08-14",
+            "hash": "6449fcbddf6c66958eff4ff813c721429f1beef9bd68fba04fe7df94e24ddbc9"
         },
         "reference/device-os/libraries/d/debugging.md": {
             "date": "2024-08-12",
@@ -5507,32 +5507,32 @@
             "hash": "57e1b1a304c753b3a1c13e73ade89f6cc59e9d426bda73f10f90c5076e9c31e2"
         },
         "reference/device-os/libraries/d/DeviceGroupHelperRK.md": {
-            "date": "2024-08-12",
-            "hash": "a6609ab2b93dadbb98f84ad51448e8495b0222db0e08bf2f56509dd3fb119dc9"
+            "date": "2024-08-14",
+            "hash": "08adcc77839f5c02f8405f24d0ea77e4c8de84a492c9b496b8ce2d9798f8e46a"
         },
         "reference/device-os/libraries/d/DeviceKeyHelperRK.md": {
             "date": "2024-08-12",
             "hash": "a0ed096db8684ff582938387e52dae10a099040d6c80b4330f59db470497c603"
         },
         "reference/device-os/libraries/d/DeviceNameHelperRK.md": {
-            "date": "2024-08-12",
-            "hash": "3580621c187fdff78a1e3e44e96570b6f328d9a7372253592cc7c059ba73aff6"
+            "date": "2024-08-14",
+            "hash": "f9f49467f4f912ee5553cdbc90a8838c1aebd3c8ec5325b82096d96afbee1a5a"
         },
         "reference/device-os/libraries/d/DeviceNotesHelperRK.md": {
-            "date": "2024-08-12",
-            "hash": "4558916066fbb8b677bffb4e1cb7db52c031fb3e1c1b4436f7650b84c7060109"
+            "date": "2024-08-14",
+            "hash": "84e689bef26b82a383efe72ebe3995d4e876ac77cf073e698afec65de51aeff4"
         },
         "reference/device-os/libraries/d/DFPlay.md": {
             "date": "2024-07-27",
             "hash": "f657fb62d5a62dd8988b1a715367ddc1d39135c089e969c42e0905c88a773d30"
         },
         "reference/device-os/libraries/d/DFPlayer.md": {
-            "date": "2024-08-12",
-            "hash": "45d27396165c7c43bfd772d4e8fbefedc198476310c7dcd96f317ac790b49108"
+            "date": "2024-08-14",
+            "hash": "2329e126565437eedb7c50cf4fb4d89bbe2a06324bdd8b08e32be1307e61180c"
         },
         "reference/device-os/libraries/d/DFRobot_OzoneSensor.md": {
-            "date": "2024-06-06",
-            "hash": "e21b8b9387586605b68ef87e21fbd511f9c5be359312665a9c1c9a1b35644ee3"
+            "date": "2024-08-14",
+            "hash": "bba5490ec96a5fa29f36a3562ed47ed4b73a40fbe31dfd04b4da9a2bffdee981"
         },
         "reference/device-os/libraries/d/DFRobot_PH.md": {
             "date": "2024-08-12",
@@ -5547,20 +5547,20 @@
             "hash": "824388a823e91b4124513f1418d7d260445e5e028f0fa9c096b9895927e66539"
         },
         "reference/device-os/libraries/d/DHT.md": {
-            "date": "2024-08-12",
-            "hash": "62c9f19dea12212f1be36aca3f68700d0d4a0011e8d04467f3f37243553ffb83"
+            "date": "2024-08-14",
+            "hash": "71a4ad71710c528004a74faf2db4bb49edbc8f71527184549245165df99319d0"
         },
         "reference/device-os/libraries/d/DHT_I2C_Particle.md": {
-            "date": "2024-08-12",
-            "hash": "942f1671dc7a1a45e4f8330d23398c9b88b7adff90df6f727fb38780963723f7"
+            "date": "2024-08-14",
+            "hash": "744f94de9734e2c6156eafda083d62fb539e216fbe34984c7e85c413219353ed"
         },
         "reference/device-os/libraries/d/DHT2.md": {
             "date": "2024-08-12",
             "hash": "f01de0ea050aa9df137292053d80466c8d74481a7b04a041c48229e81c719232"
         },
         "reference/device-os/libraries/d/DHT20_I2C_Particle.md": {
-            "date": "2024-08-12",
-            "hash": "505fe826861a4f94a5d2838e1d1ab7b0ff81d98425df0b00824c3b77d1dc7f93"
+            "date": "2024-08-14",
+            "hash": "7feb58734de195a4bba863b1edc40473e42358b09e21ed80d85e29d524d4539d"
         },
         "reference/device-os/libraries/d/dht22_from_t.md": {
             "date": "2024-07-27",
@@ -5571,8 +5571,8 @@
             "hash": "5044b67a31f6e6adaf97635507eac029b76af31c50f59d381cac782d21c1be08"
         },
         "reference/device-os/libraries/d/DiagnosticsHelperRK.md": {
-            "date": "2024-08-12",
-            "hash": "4081713533c494b2e6fd2fe31e6ac147ff49ff55cb5dbd24895d0f5c7945a6c7"
+            "date": "2024-08-14",
+            "hash": "9d5eddca5bdc36d2d36eb67d2d156eba7c6c2568ba68464dec8a572de0d95ab9"
         },
         "reference/device-os/libraries/d/Digital_Infrared_Temperature_Sensor_MLX90615.md": {
             "date": "2024-08-12",
@@ -5591,8 +5591,8 @@
             "hash": "5ab36a5256c1d478d711ce3942317d136e1dc5f9d7abd7ce42095c4a27afe8bf"
         },
         "reference/device-os/libraries/d/dotstar.md": {
-            "date": "2024-08-12",
-            "hash": "35507493bc4dd993093a3700e5a93a4bcf154f27b6e33efb08689a373ed37b79"
+            "date": "2024-08-14",
+            "hash": "3f6d05d0484baf27d6c7cffbaee1dcaee7dd8965528eaddbab15944ad883d01c"
         },
         "reference/device-os/libraries/d/drops.md": {
             "date": "2024-08-12",
@@ -5603,20 +5603,20 @@
             "hash": "57db86f61773f5bb83b96a363104df4249b789aec13a8b55a8765160160ba377"
         },
         "reference/device-os/libraries/d/DS18B20.md": {
-            "date": "2024-08-12",
-            "hash": "e9e11d40b696977585b7f85b71c08650233c00ee0638b5c9689717760cd90027"
+            "date": "2024-08-14",
+            "hash": "ddd4cb73d88d34c635c141aca1b86c6045a54040a595bbf44df0cc2e3ea7069e"
         },
         "reference/device-os/libraries/d/DS18B20_Pi.md": {
-            "date": "2024-08-12",
-            "hash": "424dbea6d072ce5447020579f662e4512ffbd7ae7fe3b760428f7d438acac7db"
+            "date": "2024-08-14",
+            "hash": "8107c8fba5d2a029419b4acac3787cf359df7a562a8b1ff10282eca78a077621"
         },
         "reference/device-os/libraries/d/DS18B20Minimal.md": {
-            "date": "2024-08-12",
-            "hash": "0b260549cbf5cac3c932c106e1d772c3c051d31797fee06f73c3d9a0729dd515"
+            "date": "2024-08-14",
+            "hash": "54dc7314d125623f9d964e4c5d9cd49c29d3bdba89c8abe304b47e3f490acb54"
         },
         "reference/device-os/libraries/d/ds18x20.md": {
-            "date": "2024-08-12",
-            "hash": "fd7280a5d1c570b31f61ce64ee29a8203d1d96b31380c1439355e353ca2974bc"
+            "date": "2024-08-14",
+            "hash": "53ba2572e339bf94adc1b553217c9fe23c416b45852626354fdb16c13e99bcef"
         },
         "reference/device-os/libraries/d/DS2482_OneWire.md": {
             "date": "2024-08-12",
@@ -5635,16 +5635,16 @@
             "hash": "e0c1224459658227bec5e6f0bfe09a094a7742c5ff705def550cf0cac9a71a2d"
         },
         "reference/device-os/libraries/d/DustSensor.md": {
-            "date": "2024-08-12",
-            "hash": "26bf388fbb9f061939f113a68b552b3a06889de2cd797895bae368f79d59d95d"
+            "date": "2024-08-14",
+            "hash": "92bc510ff3fef06bea739035f9d1679e9c24855bd0d7bc84e537ecc318c455eb"
         },
         "reference/device-os/libraries/d/DynamicFrequencySampler.md": {
             "date": "2024-08-12",
             "hash": "cd4c1fd67a29785103436fa80ea85975185cdb018c76aa26119475744ca35751"
         },
         "reference/device-os/libraries/e/E131.md": {
-            "date": "2024-08-12",
-            "hash": "973052d281eee97ec24d71ca9ac198be4f410d87d2046bf2649c8620978010d2"
+            "date": "2024-08-14",
+            "hash": "b1c917db6239424c8dd19273fe4afa102f4a805741c9a161b9f4432f310b3715"
         },
         "reference/device-os/libraries/e/easing.md": {
             "date": "2024-08-12",
@@ -5667,12 +5667,12 @@
             "hash": "a339832ead496b3562bc690cd128df0bce5f947d924f52122198587d24a7f698"
         },
         "reference/device-os/libraries/e/EEPROM_Class.md": {
-            "date": "2024-08-12",
-            "hash": "b6b1588459f7361f802a53fd20e6c71be65454f50d5fcaff15fb2366a9bb0cce"
+            "date": "2024-08-14",
+            "hash": "9ad3f6a729b31eb04f6c0603a44bdd93ffaf05dff849b87ad506701b201021c1"
         },
         "reference/device-os/libraries/e/EEPROM-Storage.md": {
-            "date": "2024-08-12",
-            "hash": "1288dc499cea5cde4076667cca07857ba45d97a02ea8158b44030e10b0f57810"
+            "date": "2024-08-14",
+            "hash": "4c5994f140e3b8b73a406d43fdb83fb6f733e6dabad33248c28eb22092c72eb9"
         },
         "reference/device-os/libraries/e/EEPROMStorage.md": {
             "date": "2024-08-12",
@@ -5699,8 +5699,8 @@
             "hash": "3db39acf0e24f594c4eade9d90b5ab1fca5905e2d04cda523cc4eb189f77f61c"
         },
         "reference/device-os/libraries/e/EmonLib.md": {
-            "date": "2024-08-12",
-            "hash": "f9435c5a689174f156f3ab952c3c67af6c0ca7671dde27c6843ee63e3df88ba4"
+            "date": "2024-08-14",
+            "hash": "165dfde4deffc271c13a2b25162ca137151b0b110a71057d8bbf1ba52a79b55f"
         },
         "reference/device-os/libraries/e/Encoder.md": {
             "date": "2024-08-12",
@@ -5719,8 +5719,8 @@
             "hash": "9b53894c6d48f6ff2ab956a6739b6b7aaa2b8de0e4e2441c4f3e1f1480c1548f"
         },
         "reference/device-os/libraries/e/EthernetCellularRK.md": {
-            "date": "2024-08-12",
-            "hash": "c507de60b7cce8fccbdc0e4eb3eb2a1a213253d8d9b8d5947e208c0002e7f2c6"
+            "date": "2024-08-14",
+            "hash": "3bcfda4915ce2d4e441d563aebaba17dfaa1ae85d04da1cca66dde95278f6e45"
         },
         "reference/device-os/libraries/e/EveAssetTracker.md": {
             "date": "2024-07-27",
@@ -5731,12 +5731,12 @@
             "hash": "74ed033afb779d081b6b61f25930a7e2664fc12610318ef0086f05bd97d72d57"
         },
         "reference/device-os/libraries/f/FastLED.md": {
-            "date": "2024-08-12",
-            "hash": "394052514cd7a1d171b42d0ddd3665e997e93b3ef649dddf7396fc7d519ff3d4"
+            "date": "2024-08-14",
+            "hash": "678140d2973ae209dcb3b65ea79edd7413d9ff132b98b247a3a8ee4cf82f1fa9"
         },
         "reference/device-os/libraries/f/FastLED2.md": {
-            "date": "2024-08-12",
-            "hash": "980d79ca585934fe689c09534c74d1320e6fac73e028c9745c31067445e89dca"
+            "date": "2024-08-14",
+            "hash": "d37822fba2c30bc1096e6b632170b0d5553d50c88dd6cbe5cc51e244ed0e7f0a"
         },
         "reference/device-os/libraries/f/FatFs.md": {
             "date": "2024-08-12",
@@ -5755,8 +5755,8 @@
             "hash": "0d260935fbc609d4cee8a048aa1c5ccfaf82cfc45a4621d03ffcda641989cc7c"
         },
         "reference/device-os/libraries/f/FiniteStateMachine.md": {
-            "date": "2024-08-12",
-            "hash": "84e7e4ce0f29ef199e6934f2f7c9cec45d5f4ee7654c8f5959ef61dd32b9ae8f"
+            "date": "2024-08-14",
+            "hash": "462f110eacc5b5701ddd61dd8dbc7937fad85418e987cd55c59500d43984eed0"
         },
         "reference/device-os/libraries/f/firebase-arduino.md": {
             "date": "2024-08-12",
@@ -5791,8 +5791,8 @@
             "hash": "e7720fb8865e9ad422b2f945b597fa97d2f0c2d0bd4f3c5ec0b1b9accd512bd3"
         },
         "reference/device-os/libraries/f/fsm.md": {
-            "date": "2024-07-27",
-            "hash": "98c7e48919940c7d1227f6dcd134d68cd656eaebf15ea54f6b7ca8ac48958772"
+            "date": "2024-08-14",
+            "hash": "de374d4b4211f9d871c1127f7f4ba243ca731d0eaaa3c8cda04e169280588778"
         },
         "reference/device-os/libraries/f/FTPFileSender.md": {
             "date": "2024-08-12",
@@ -5815,8 +5815,8 @@
             "hash": "59c7183a72fcd8a33cb5a65971c6bac64267975c1ec0b953352883bbab8d2f53"
         },
         "reference/device-os/libraries/g/genialmodbus.md": {
-            "date": "2024-08-12",
-            "hash": "f266c7fb40e35c01918dda077f58260b2603174a37391a6921f78519cdcdf393"
+            "date": "2024-08-14",
+            "hash": "a7d6c6b98165d1ac5cebc0af864b377912a6a2b94cac1e41d4368a00eac0a311"
         },
         "reference/device-os/libraries/g/genieParticle.md": {
             "date": "2024-06-06",
@@ -5831,8 +5831,8 @@
             "hash": "0f5a3ee23f28d682d66a4fc144dc61d83a20c51f73465a3fb59ca0cf1117017b"
         },
         "reference/device-os/libraries/g/google-maps-device-locator.md": {
-            "date": "2024-08-12",
-            "hash": "21c70644f9c6fc47ad996b4a299bc4168ea9d42b60f075a5121ff3be757a03f7"
+            "date": "2024-08-14",
+            "hash": "7d68bdd8e09a6b62a150052742fd6c79c439f27dd7c96d49fa895c885c2e5c13"
         },
         "reference/device-os/libraries/g/GoUrbanAssetTracker.md": {
             "date": "2024-08-12",
@@ -5843,20 +5843,20 @@
             "hash": "9e859539eccadbb0e1fd6eff92581fe44e50e17a174ff9cf1db72572d2c705de"
         },
         "reference/device-os/libraries/g/Grove_4Digit_Display.md": {
-            "date": "2024-08-12",
-            "hash": "d8b83bf66e6f2c33eaec8b2a6532d62bec09a588921839e4c58e37007d30be59"
+            "date": "2024-08-14",
+            "hash": "44827f6a580339ba31fb06aae2dd5d667efe07be395dd88e46fdb733fb56453e"
         },
         "reference/device-os/libraries/g/Grove_Air_quality_Sensor.md": {
-            "date": "2024-08-12",
-            "hash": "8c57476cdbf7132a011683aedcedfc14efe46ba09551dd9f9812d8ad6792603b"
+            "date": "2024-08-14",
+            "hash": "c7d3ccdf888972cba6931f389675ce74ae4a519d770ef1c1c824190c9e605f5a"
         },
         "reference/device-os/libraries/g/Grove_Barometer_HP20x.md": {
             "date": "2024-08-12",
             "hash": "9674da76165e88ba6b11254ec4d0b0fd79a137e15ece0a06c5779cd09c9d950e"
         },
         "reference/device-os/libraries/g/Grove_ChainableLED.md": {
-            "date": "2024-08-12",
-            "hash": "66889ff4da55a3dfebf7ed5c41f1156d5830acf2b0283506fde5daee23c9bc9a"
+            "date": "2024-08-14",
+            "hash": "15fc8f9174a01afdddfc8e00a1932db6f709e92f3e41cf1c22d391524f8a3f39"
         },
         "reference/device-os/libraries/g/Grove_I2C_Color_Sensor.md": {
             "date": "2024-07-27",
@@ -5871,32 +5871,32 @@
             "hash": "8694702978102446ed0404799fad9b479d7100ba5e963196aacab827b98a42af"
         },
         "reference/device-os/libraries/g/Grove_OLED_128x64.md": {
-            "date": "2024-08-12",
-            "hash": "3cd60384f5b4f9144f59841f459109b25097723952289f0cb49521ca3688f87d"
+            "date": "2024-08-14",
+            "hash": "e8f8393a61f902af192103b6ff2f74fd833bc3eb31369a8159afd9b8bdbe7f4b"
         },
         "reference/device-os/libraries/g/Grove_OLED_Display_96X96.md": {
             "date": "2024-07-27",
             "hash": "93f98699fac66912846221ac751df5c65848476ee3e48f2414be4cc286b6b4f3"
         },
         "reference/device-os/libraries/g/Grove_Temperature_And_Humidity_Sensor.md": {
-            "date": "2024-08-12",
-            "hash": "98f79db04706a0172392a66a38bc91b7ea1b2e8f3fb1f0ae2890826e54c61610"
+            "date": "2024-08-14",
+            "hash": "bd771bd01e39ddbc0c2f91c9bcfbc023cb329ee41b14023a502713bccab26092"
         },
         "reference/device-os/libraries/g/Grove-I2C-Touch-Sensor.md": {
             "date": "2024-08-12",
             "hash": "c8044765dfb984443521f5bb21738e159084e467982f1b0d7c7c3fbd880c0932"
         },
         "reference/device-os/libraries/g/Grove-Ultrasonic-Ranger.md": {
-            "date": "2024-08-12",
-            "hash": "46f7de9eceb74d1c4207c4ad0699fabc942cb3f244f13c98c53926007926404e"
+            "date": "2024-08-14",
+            "hash": "596c7e04abc26efc159eed6b7f433ce334ad31430d11fbce5241f7dfda002ac7"
         },
         "reference/device-os/libraries/g/GxEPD2.md": {
             "date": "2024-08-12",
             "hash": "463ca80a9d056814e06bca235761edda8062ce09a6a76d54e586e93b3b0289c9"
         },
         "reference/device-os/libraries/g/GxEPD2_PP.md": {
-            "date": "2024-08-12",
-            "hash": "d132c25915373aea10440a50270b8f6a54546d0a8bc3a18f44294cc7dee96820"
+            "date": "2024-08-14",
+            "hash": "78e462b7bf6a1e43ad83c1f7571eff15aa5b07e930c22eca1703b5491bf0f5d0"
         },
         "reference/device-os/libraries/h/hackerpet.md": {
             "date": "2024-08-12",
@@ -5911,12 +5911,12 @@
             "hash": "3aeb4ad6f5c8c8b7ae72d1c21f8e888702cb6c3b03b26910b81838d308b492e2"
         },
         "reference/device-os/libraries/h/HC_SR04.md": {
-            "date": "2024-08-12",
-            "hash": "0e0bf82ae8baac25f1e5fe0d87a3c729679535a044c9c87ef324e69887363051"
+            "date": "2024-08-14",
+            "hash": "317e45e0d5e5f87b1ebc5cdb2163f3cda8b311d9f5227b16369e0c231758fac9"
         },
         "reference/device-os/libraries/h/HC-SR04.md": {
-            "date": "2024-08-12",
-            "hash": "b034b3663007a6d4e2c35e2752a19579e934814d2c543550abd1e1ded3392f14"
+            "date": "2024-08-14",
+            "hash": "1ca3fcb174d2a37c8f06e77c5f397251e2008c55c544d256457d35957fdda298"
         },
         "reference/device-os/libraries/h/HighPowerStepperDriver.md": {
             "date": "2024-08-12",
@@ -5955,8 +5955,8 @@
             "hash": "09405c542f5612e1a1c459174bda1b6950a622d7d62e5351e0a76182fc7b4e67"
         },
         "reference/device-os/libraries/h/HttpClient.md": {
-            "date": "2024-08-12",
-            "hash": "800a0cc65d6a7a21a39d9333c9357b4972525a2f9c2a15ec95487c333e6b3a7a"
+            "date": "2024-08-14",
+            "hash": "36999fd169c900c39f506dec1829ed6ee9d90d12205bf50c22be443128d89b12"
         },
         "reference/device-os/libraries/h/HttpClient2.md": {
             "date": "2024-07-27",
@@ -5971,32 +5971,32 @@
             "hash": "cc04bd075ce550a24fa5c205438fd55dc8bdd46adaa6e385efb79ff7c31966e8"
         },
         "reference/device-os/libraries/h/httpsclient-particle-xguan.md": {
-            "date": "2024-08-12",
-            "hash": "ef0279384831e82ed2bc8d6178b68e868c8b0a904000bd7280614203b7cb1598"
+            "date": "2024-08-14",
+            "hash": "4ceac639124d23c110661195bc67dda231e89b693a307693781963222164174f"
         },
         "reference/device-os/libraries/h/HTTPSRedirect.md": {
-            "date": "2024-07-27",
-            "hash": "312bf0bcd756552dadd3f6ee59d72569cdf3b5033a3ccaee2e82edd515696b9c"
+            "date": "2024-08-14",
+            "hash": "1a686bac8f4ab7d13d875363c54835b26a07ab50cbd7d7c0f1704ece48af45eb"
         },
         "reference/device-os/libraries/h/HTU21D.md": {
             "date": "2024-07-27",
             "hash": "b6fd4c723efc1ead3a0c92d6517e92b0fa0e4b44d0a6179dc76e9730892d1744"
         },
         "reference/device-os/libraries/h/hvsLED.md": {
-            "date": "2024-08-12",
-            "hash": "3a8dc15f639a178dc77adaa16248862c4e144267810e5e4f11ead0fdf0433a7f"
+            "date": "2024-08-14",
+            "hash": "87424af62aea1bafc11dc1b9da03093bb7a6f933bcf3c6d1cf99c72e06cff6df"
         },
         "reference/device-os/libraries/h/hvsMAX14830.md": {
             "date": "2024-08-12",
             "hash": "d605e52495e4d30f213d7c3c0afcb70118587818be49aa98f09491d3e9f50638"
         },
         "reference/device-os/libraries/h/HX711A.md": {
-            "date": "2024-08-12",
-            "hash": "e6c53c5a1007de2046e4e9c94324d44f4320495f831ada9a7343da2d55777d6b"
+            "date": "2024-08-14",
+            "hash": "23dcf7d203c822ef2218a312ed3931666201bc2631b9f1259c8c42c27d84a065"
         },
         "reference/device-os/libraries/h/HX711ADC.md": {
-            "date": "2024-08-12",
-            "hash": "cb01578ba100b5f9b809e44deaa1a9e1dc8cfa29c29d66e25e33a793737c7508"
+            "date": "2024-08-14",
+            "hash": "55f701255f297f13052837598f4d630ee644a892641a1aedfffb9541e11fb878"
         },
         "reference/device-os/libraries/i/i2c_anything.md": {
             "date": "2024-08-12",
@@ -6015,8 +6015,8 @@
             "hash": "6146d930b197b9b1eb2d12ea63db84f07d33d17d9a2dc22928f73d2994e6f297"
         },
         "reference/device-os/libraries/i/I2Cdev.md": {
-            "date": "2024-07-27",
-            "hash": "585c9f6bc85a86dfc4a2cd7ba0228596d7984684137f62aaa7dcdaa3f8fb0d17"
+            "date": "2024-08-14",
+            "hash": "6a647c14973494d256e20166ee3513d6424a20f03e7f474618ded82c37502252"
         },
         "reference/device-os/libraries/i/I2cMaster.md": {
             "date": "2024-08-12",
@@ -6027,8 +6027,8 @@
             "hash": "fe7a55356c41f15ac87ab775b19eec68deff6ebd4352f85d090dbf8289f779be"
         },
         "reference/device-os/libraries/i/I2CSoilMoistureSensor.md": {
-            "date": "2024-08-12",
-            "hash": "daf22aee7a42500721866d93979efb5cfa6a72b2c8a71f642857c5d637534c45"
+            "date": "2024-08-14",
+            "hash": "aab352c0b56380a1ebab45a288802470d0700a785e8f7245334f1b0983627762"
         },
         "reference/device-os/libraries/i/icm-20948.md": {
             "date": "2024-08-12",
@@ -6055,8 +6055,8 @@
             "hash": "5f20a01b8ca1cc6b3093de3b35cf51f4e271b8ef37836a3627c93e306a992534"
         },
         "reference/device-os/libraries/i/InternetButton.md": {
-            "date": "2024-08-12",
-            "hash": "d655d3b8db53d280ffe1dbbfcbbde250295f3ea66e929ae80eb8306cb3cf86e8"
+            "date": "2024-08-14",
+            "hash": "2a24c6726e0db66e866860aef484f43d16b3a3a59c1c8d83209c3d88d6c36931"
         },
         "reference/device-os/libraries/i/InternetButtonADXL362.md": {
             "date": "2024-06-06",
@@ -6079,20 +6079,20 @@
             "hash": "fbfa083205c4aa40c1975f981ffbfba7ce858a8181f20eeb174c945c0997349a"
         },
         "reference/device-os/libraries/i/IoTNodeThingSpeak.md": {
-            "date": "2024-06-06",
-            "hash": "a49273ff41b7e2712cd3a9baf4105fbc48175cf5fbb0c349ab01fdb1d6e1b768"
+            "date": "2024-08-14",
+            "hash": "80f3df3afe59c0312016ad583f0d1ec1230d79f1f1ed653321e46684dc86583f"
         },
         "reference/device-os/libraries/i/IoTNodeWeatherLevelGlobals.md": {
             "date": "2024-08-12",
             "hash": "bef9405676ac80854879677946dd9d0c04ec26dd2fccdbbb8c514bafa6f07d87"
         },
         "reference/device-os/libraries/i/IRremote.md": {
-            "date": "2024-08-12",
-            "hash": "1a8a41e9c87e3dde056b09fda07f4fc85b28547821f2b1ef56d827dd660c3b78"
+            "date": "2024-08-14",
+            "hash": "3dc8e3c4ad1c7bcfea126d833694f105a8febd8f462bd715adaa7f66516f0486"
         },
         "reference/device-os/libraries/i/IRremoteLearn.md": {
-            "date": "2024-08-12",
-            "hash": "96f081168b5abbbea7f6468729854a83f9cf452de89fbc016c93793eb9c95dec"
+            "date": "2024-08-14",
+            "hash": "78fd247c92c033fb9a323e101f1cee7414d04151d6cdb8023ff5205dbe26ec7d"
         },
         "reference/device-os/libraries/i/IRTransmitter.md": {
             "date": "2024-07-27",
@@ -6107,8 +6107,8 @@
             "hash": "6d0484d51f58857444d75618df0ec1a5b498cd2078185abdc39307be9ddcea1f"
         },
         "reference/device-os/libraries/i/ITEADLIB_Nextion.md": {
-            "date": "2024-08-12",
-            "hash": "e054a82e4d54432f363dd612bb95198562dfc3a42224d4f5e3aa0cf2549ea683"
+            "date": "2024-08-14",
+            "hash": "05a6fe00bb58c3d8c421228437b8bccfb0ffd6271e2bce71342631b11342f9bb"
         },
         "reference/device-os/libraries/j/jsmn.md": {
             "date": "2024-08-12",
@@ -6123,8 +6123,8 @@
             "hash": "4dad952eb9c47ea887a4659412c75f40de32a163f2f5cff17f88e5064136b5f6"
         },
         "reference/device-os/libraries/j/JsonParserGeneratorRK.md": {
-            "date": "2024-08-12",
-            "hash": "40a601e339ceef78f81a967296ba805db2f4431188556137d05783f38d48babe"
+            "date": "2024-08-14",
+            "hash": "ea77b81c8fa3c593b265a803e12edaa6390a9b27443f3297f9f2daddf70d6efc"
         },
         "reference/device-os/libraries/j/JsonStreamingParser.md": {
             "date": "2024-07-27",
@@ -6135,8 +6135,8 @@
             "hash": "e73c92150762ac4c570b7bdb10adc4c8f511238e3a1aef454dd1f2f562bd0680"
         },
         "reference/device-os/libraries/k/Keypad.md": {
-            "date": "2024-08-12",
-            "hash": "1d33d9fcedbe21d62873e018a5213d2c3b9156eef805203a15ae394e7480b8c2"
+            "date": "2024-08-14",
+            "hash": "a08f9a13834a443740f00badd727578d64241c7f62ed17b21e5d475aab74904d"
         },
         "reference/device-os/libraries/k/Keypad_I2C.md": {
             "date": "2024-08-12",
@@ -6215,20 +6215,20 @@
             "hash": "0f74d6cf0fa3863b2a08d03817f60f58f8842dd04c4010d9a88170ecf9a047a4"
         },
         "reference/device-os/libraries/l/liquid-crystal-spi.md": {
-            "date": "2024-08-12",
-            "hash": "02f0964e5edd49e2f73a95fb0c27cb2988bd6c0f6e4141007e9bacd9e08d3166"
+            "date": "2024-08-14",
+            "hash": "35330cb5764c1b128006d1f25529e58af176ce6295efa78d996986c4e826e6f4"
         },
         "reference/device-os/libraries/l/LiquidCrystal.md": {
             "date": "2024-07-27",
             "hash": "fbd86281910c0aae6524cf0318156d0c01e6f04a150fb7e00dff7d0c048bac51"
         },
         "reference/device-os/libraries/l/LiquidCrystal_I2C.md": {
-            "date": "2024-07-27",
-            "hash": "52588f907b70127ba35b261f28e48961b5c2288e3a29c82782080be7db0e297d"
+            "date": "2024-08-14",
+            "hash": "e41d668f3119b82949b69a60b4efc4a1bd40db4cc9a3c2ee89abc29b86b40ab5"
         },
         "reference/device-os/libraries/l/LiquidCrystal_I2C_Spark.md": {
-            "date": "2024-08-12",
-            "hash": "0ff9fa3045315a910700603bb99ef9901daf2faef71c200581f87247df0cbf8f"
+            "date": "2024-08-14",
+            "hash": "c57d15175bac68030ecb11e551cda4afe16d26d069e9d4705da7bb271796adbe"
         },
         "reference/device-os/libraries/l/LiquidCrystal_SSD1306.md": {
             "date": "2024-08-12",
@@ -6263,8 +6263,8 @@
             "hash": "38bea3d1410a2e05a1608bbd6fcc40294c3d440606d783a3f659c4abe1f6f2d7"
         },
         "reference/device-os/libraries/l/LocalTimeRK.md": {
-            "date": "2024-08-12",
-            "hash": "580ab4780a83dab75732b0a8f7fa76fd6eb9d411ce9abd8b9a098c6b5c99ef30"
+            "date": "2024-08-14",
+            "hash": "b5eb54fe163a5d21487de21a75e715364be549c66fe6aa3efb0b9b74f6003b5e"
         },
         "reference/device-os/libraries/l/locator.md": {
             "date": "2024-08-12",
@@ -6327,16 +6327,16 @@
             "hash": "8dc44cc1df8288974571f211ff10281d81d3388ba51a0130333ebe3117907352"
         },
         "reference/device-os/libraries/m/MAX30105_Bearcat.md": {
-            "date": "2024-08-12",
-            "hash": "89e609d67c283365b73ce4b39197baf79ba24c3d13a833b45de39dd4e75260e6"
+            "date": "2024-08-14",
+            "hash": "3d5d892a81ec661c26715081445c5988bd747c8a93f177c6152a502e65d30770"
         },
         "reference/device-os/libraries/m/MAX31856TC.md": {
             "date": "2024-08-12",
             "hash": "209b20092650a20de8a0526093336b484e225e12579b266e104390ffd577bdd9"
         },
         "reference/device-os/libraries/m/MB85RC256V-FRAM-RK.md": {
-            "date": "2024-08-12",
-            "hash": "031155d9722cb8ec29bb3821035a385244dd18893ca004fff6608e2436196756"
+            "date": "2024-08-14",
+            "hash": "0447e08a40f1cf7d1f07fdc9ded66b54db6487f885721f7d0b82d459c76e5521"
         },
         "reference/device-os/libraries/m/MCP_CAN_RK.md": {
             "date": "2024-08-12",
@@ -6347,36 +6347,36 @@
             "hash": "389884a72e17a92936220909e4427b0f93b84a919c0bef83f956929c37fc29c3"
         },
         "reference/device-os/libraries/m/MCP23008-RK.md": {
-            "date": "2024-08-12",
-            "hash": "7b8fb7f50a52e8892d7d223da4dc64327092a7d2b9890555a5ac46f7800fa27c"
+            "date": "2024-08-14",
+            "hash": "a169db9c2caecd313bb0dc3dc03d2ed497cd0d62f8ef82b7f150037548a0551d"
         },
         "reference/device-os/libraries/m/MCP23017-RK.md": {
-            "date": "2024-08-12",
-            "hash": "56a8882a1b90516712aa154fac15f0f09179580b44c84e086831aac328e55991"
+            "date": "2024-08-14",
+            "hash": "ea87c74e94a6e0f03ccd5f8b5835c60a31bc6569ede83e642af13dc2b2553f30"
         },
         "reference/device-os/libraries/m/mcp23s17.md": {
             "date": "2024-08-12",
             "hash": "e36a86da05d0285dc7a9a810c4f1962563bb793639db17fb73f72bf111dcb590"
         },
         "reference/device-os/libraries/m/MCP23S17_bd78.md": {
-            "date": "2024-08-12",
-            "hash": "bb4b43b210bcc54b7dc65d3a307c00448dfa147440ed6dc2eaa494a6c1497de0"
+            "date": "2024-08-14",
+            "hash": "3cd2666214e0eb0a3d6fe731fab9cbd51f295bbaf4f8027b9e1e98e7990a364a"
         },
         "reference/device-os/libraries/m/MCP3008.md": {
-            "date": "2024-08-12",
-            "hash": "f5b8af1a37c305e60933b9f976c5b73257897938108a7d8f11b226c9fdd2aceb"
+            "date": "2024-08-14",
+            "hash": "3aed35bc7f6a71dccdda429d132a66df3db5e2dff3a3ad5a63235354d7aea55a"
         },
         "reference/device-os/libraries/m/MCP3021-RK.md": {
-            "date": "2024-08-12",
-            "hash": "0e7b8f459adeef5b27e2391596c8cdb7f4079ffdef4a67044e3d962d8b4c6c7e"
+            "date": "2024-08-14",
+            "hash": "12878962fbf8c28f63c776465ec477d92aa22e25b68db75d03d5dcb3c6798b79"
         },
         "reference/device-os/libraries/m/MCP342X.md": {
-            "date": "2024-08-12",
-            "hash": "bd495e4ca38f8e3de2b3fe81d407420c94771e1b920798f875b9f703f817fce3"
+            "date": "2024-08-14",
+            "hash": "ebe1b20f8afbc68063bc99a67bb074bf02b964af886af2875df41a0cda2eb868"
         },
         "reference/device-os/libraries/m/MCP79410RK.md": {
-            "date": "2024-08-12",
-            "hash": "5e06cb058525676ca91bc8b825b0b9c82c95eb02e5eb11208233186ed3e59c18"
+            "date": "2024-08-14",
+            "hash": "bf16b9bf1ad30c3d2af07e7e328c2b50a36d7fe501fe5995d643a4cfce2d8ba7"
         },
         "reference/device-os/libraries/m/MCP7941x.md": {
             "date": "2024-07-27",
@@ -6391,8 +6391,8 @@
             "hash": "1d0c71414498e8aea884c375ed999f8c4b2a23b44571ee028e2fba674b1c5dec"
         },
         "reference/device-os/libraries/m/md5.md": {
-            "date": "2024-08-12",
-            "hash": "d73582b89c3fc1d6ba17e5b5fea55562b782e24aff8996866fb507382cabf576"
+            "date": "2024-08-14",
+            "hash": "aaa5be84ed51fb9c2a765bf06bf6cbed48a541d9ff920fe949654996321fa301"
         },
         "reference/device-os/libraries/m/MDNS.md": {
             "date": "2024-08-12",
@@ -6443,20 +6443,20 @@
             "hash": "2dcdc862f33398f1fa4833918f78db865e5efcec67e19392c6b0b0c8f70db9f1"
         },
         "reference/device-os/libraries/m/MMA7660-Accelerometer.md": {
-            "date": "2024-08-12",
-            "hash": "8d2d7c44d36f36f509a35cd5d1a6e26e8639bf0f1388666d8c16b1cbb3116254"
+            "date": "2024-08-14",
+            "hash": "f7f868970b0e0e38e6977419fc12f85deefcf014284f581d0cbcf7bfb8ce4333"
         },
         "reference/device-os/libraries/m/MMA8452-Accelerometer-Library-Spark-Core.md": {
             "date": "2024-08-12",
             "hash": "fed17fe6cfd540e19741557f207b971133099b729b797a6b66d1934d000c4f0f"
         },
         "reference/device-os/libraries/m/ModbusMaster.md": {
-            "date": "2024-08-12",
-            "hash": "9989cd6e8b2566a6fe5bd44d5d2581beac1d4ad523d2588885c2618fcb20ba23"
+            "date": "2024-08-14",
+            "hash": "85b49f516a95b0d388c773299ef41654184a7a78e006f699720eba7b35292d9f"
         },
         "reference/device-os/libraries/m/ModbusMaster-Particle.md": {
-            "date": "2024-08-12",
-            "hash": "c4b5d5a60563fc4d1782397eb50d62eafc7343af9b99fd71e53d9864db6434fe"
+            "date": "2024-08-14",
+            "hash": "d1a306cd98730d24080d0f1287317a79ed839366797f08ec743c756a42c2f251"
         },
         "reference/device-os/libraries/m/Modulo.md": {
             "date": "2024-08-12",
@@ -6471,8 +6471,8 @@
             "hash": "f4b26dd3f34fefe06d53c46904d27351805639c5fb99ffd3419ea96354c774e7"
         },
         "reference/device-os/libraries/m/MPU6050.md": {
-            "date": "2024-08-12",
-            "hash": "79e7cb856b1d868f89e00b58b3ab1af906be3c12b5334df35de83e6a16a0e236"
+            "date": "2024-08-14",
+            "hash": "1e638b47aba18b9f4a75a86b4e47787f4bb802ddf2b0bd844330a371cb9d66f8"
         },
         "reference/device-os/libraries/m/MPU9250_I2C.md": {
             "date": "2024-08-12",
@@ -6487,16 +6487,16 @@
             "hash": "d27dcbac8e2961fd4ce96aa99abae1d529075e972c413afbd885bf47bb83e8ae"
         },
         "reference/device-os/libraries/m/MQTT.md": {
-            "date": "2024-08-12",
-            "hash": "bf3c20dab223e8ff1b5d9568e802d7d01db44b4797538226ec51640b7a9507ba"
+            "date": "2024-08-14",
+            "hash": "64d6ffceccad7499feae1c8126d5071fc0ed7b78860e25863443fc39c9ba872b"
         },
         "reference/device-os/libraries/m/MQTT_a0e4.md": {
             "date": "2024-08-12",
             "hash": "6b1aecb893f51d7b292c73e22acde227f51850a2d36d91c429e322a0ea59dabd"
         },
         "reference/device-os/libraries/m/MQTT-TLS.md": {
-            "date": "2024-08-12",
-            "hash": "1df1f980cef99116e7c8943e7f7a0c035a417a70dc36ff620a1ea5eb87b9e1b5"
+            "date": "2024-08-14",
+            "hash": "154d4b3a718910fa6cd7483cb5f16bfed786e83101595106152f55912cf13336"
         },
         "reference/device-os/libraries/m/MQTT5.md": {
             "date": "2024-08-12",
@@ -6507,12 +6507,12 @@
             "hash": "e896c445c5d7cb73cc0f19887c5a161781de4ee2a7ae8acfd1239c8b20ea741f"
         },
         "reference/device-os/libraries/m/Multi-gas-sensor.md": {
-            "date": "2024-08-12",
-            "hash": "a48d0b7d27edbb463cc9b8714b4e6d54bd7341ad86f484370b650a335aee9b58"
+            "date": "2024-08-14",
+            "hash": "b71343e58dc67a2025e000b70e2b08c083423fa951c5f80d7baef939b71639fa"
         },
         "reference/device-os/libraries/n/NCD_Ethernet_Overlay.md": {
-            "date": "2024-08-12",
-            "hash": "700c7c7addb1a850572d0c14c64ee3573fbd46c24332ad2f0a8248bec60831a0"
+            "date": "2024-08-14",
+            "hash": "49f1a4aa52b95f88aa37c50945e9c4c1146a630e713ef3cd6ac8b43c13794736"
         },
         "reference/device-os/libraries/n/NCD_Ethernet_Overlay_SPI1.md": {
             "date": "2024-08-12",
@@ -6523,12 +6523,12 @@
             "hash": "e3aff35574e9709523e7aa075c60c7f8c30941bea93b37a14ace9c0c29524502"
         },
         "reference/device-os/libraries/n/NCD16Relay.md": {
-            "date": "2024-08-12",
-            "hash": "e970458bda0d7a446f8f3e74f9f20f00e53306ce1db62483026bbad834eb182a"
+            "date": "2024-08-14",
+            "hash": "76d8f01aa01372facfcb04e619439173f9489e48e9ed2b48a2acba50fb6a8031"
         },
         "reference/device-os/libraries/n/NCD1Relay.md": {
-            "date": "2024-08-12",
-            "hash": "12a77218220c5389d5bf509d74e385b62bc66febd4c66c54aa01b641d2b90fbd"
+            "date": "2024-08-14",
+            "hash": "c560fe0beaaa7332ca15d22a377a28e4fbe5a9752e46e9d59d6afb9a1b14e579"
         },
         "reference/device-os/libraries/n/NCD24Relay.md": {
             "date": "2024-08-12",
@@ -6563,12 +6563,12 @@
             "hash": "6d0234f576a310b06c7901a88ab2a364447735277fca18feb8e832381413b0cf"
         },
         "reference/device-os/libraries/n/neomatrix.md": {
-            "date": "2024-08-12",
-            "hash": "a0963c5cfc43ef415876af6d6421ad0a381b47c3691b09477852ddac2853c8c9"
+            "date": "2024-08-14",
+            "hash": "494f3c62cbcbb066a70bfd7c4c230e7b9d6ac98faf9b7e4a205abb70c372b002"
         },
         "reference/device-os/libraries/n/neopixel.md": {
-            "date": "2024-08-12",
-            "hash": "6532b0c16220dd06b8df3c66bac93c5dd6b60b9937eba255bf1e0e4801305dcf"
+            "date": "2024-08-14",
+            "hash": "9ae23566b10ddd759ce138a1bcf21014884ee7082a49b3b762dbb1fd49bf288d"
         },
         "reference/device-os/libraries/n/neopixel__spark_internet_button.md": {
             "date": "2024-08-12",
@@ -6599,8 +6599,8 @@
             "hash": "859b5fa384be51cc31a0f0f5c1e8cc026a825147c9de3a8473526fda69a0cb91"
         },
         "reference/device-os/libraries/n/New-Haven-Display.md": {
-            "date": "2024-07-27",
-            "hash": "78266cc5d52e0b9a13d505a0444719c7b671bbcccc1a0f812f332c0b956145a6"
+            "date": "2024-08-14",
+            "hash": "d2a94a71e235859998d6a21eb3cc51f9ce5948a422d3e6a64a0b864c3656a7ad"
         },
         "reference/device-os/libraries/n/NexaCtrl.md": {
             "date": "2024-07-27",
@@ -6615,8 +6615,8 @@
             "hash": "9e24427ef39f5765f0bbd5c71cff23a38bbdb94bd59b17ec6d02b3db233d1915"
         },
         "reference/device-os/libraries/n/NimbleSensor.md": {
-            "date": "2024-08-12",
-            "hash": "b775dc8fa2875dea7d9fc7e1e7da498ae51f693286a684ec2c7e78ea8487f4b2"
+            "date": "2024-08-14",
+            "hash": "bbc8c735c085b46afb1e1ee83002528dc086de8c835505d08b45ab6d86c2753f"
         },
         "reference/device-os/libraries/n/nokia-5110-lcd.md": {
             "date": "2024-08-12",
@@ -6627,12 +6627,12 @@
             "hash": "074ab34d8ced7fd6546b30b04b7ee70df132012d9fefbd3ce358b14a1bde9d3a"
         },
         "reference/device-os/libraries/n/ntp-time.md": {
-            "date": "2024-08-12",
-            "hash": "dcf263719b2b9ad51206552745809e7f94e62badb5a99ffc2d351367bd0637d8"
+            "date": "2024-08-14",
+            "hash": "a1812c453b1d4d94473283e9914b0d587cd45c882868bc621a8b23003b777adb"
         },
         "reference/device-os/libraries/n/NtpTime.md": {
-            "date": "2024-08-12",
-            "hash": "d10c886ca1750c1640e12e9ea1dddf9c26017815cd14679d58ef9af4fd17a83c"
+            "date": "2024-08-14",
+            "hash": "046680cc88520e7da54bf51fcf631ede82fe730d437fa5935c247bfeabde8460"
         },
         "reference/device-os/libraries/n/nunchuk.md": {
             "date": "2024-08-12",
@@ -6643,36 +6643,36 @@
             "hash": "fae302a2cefbc93f8213165db35f0850c36a5850c2153546c30614d960038ef8"
         },
         "reference/device-os/libraries/o/OLED_Display_128X64.md": {
-            "date": "2024-08-12",
-            "hash": "8dd5793de25b2582e92f4b50f01e78ec71538bbf39e171d275ac6721d5eaf67a"
+            "date": "2024-08-14",
+            "hash": "01ff8b1eb1061df03b759d63651864b57d9b04fdcbb2c8c3bd8e06522b4903c7"
         },
         "reference/device-os/libraries/o/oled-wing-adafruit.md": {
-            "date": "2024-08-12",
-            "hash": "6b387f8c624140f839480f6599e2aa77447031a05cba7b069e687c1f8d1462ab"
+            "date": "2024-08-14",
+            "hash": "ad48c8652d3d80bb1f427cab23ba244457775cf1f8b52ee1cf69196397216578"
         },
         "reference/device-os/libraries/o/OneWire.md": {
-            "date": "2024-08-12",
-            "hash": "31f1a3244ae208c4b85d2a5a80b62feb6acc13a0c97fa4fbae628d59cecc5692"
+            "date": "2024-08-14",
+            "hash": "0d338d5837911e568e59f02b3efb9e1dc15557af82a2a79ce5fda18303ccae69"
         },
         "reference/device-os/libraries/o/OneWireUnofficial.md": {
-            "date": "2024-07-27",
-            "hash": "edef019d58eb12846a509086ad35b98bf5e11eba62b0c8f954321649a99539d6"
+            "date": "2024-08-14",
+            "hash": "8a651d76a9fba63630b55331098c11ff93f8ea728cced17407ce9ae4ee1e9494"
         },
         "reference/device-os/libraries/o/opcn2.md": {
             "date": "2024-08-12",
             "hash": "9e2ba8ef7cd05d632b227de46eaff179823bea6ad739a8d60ff1729b210b71f6"
         },
         "reference/device-os/libraries/o/OpenWeatherMap.md": {
-            "date": "2024-08-12",
-            "hash": "194de1bd796d38b5c4f077037364b664782d8d246dd51182caffaa61037a3c26"
+            "date": "2024-08-14",
+            "hash": "276e317883cd6809f5bf504ba727a6ac3a90cc8db7bc8013c4d432107e083608"
         },
         "reference/device-os/libraries/p/P9813.md": {
             "date": "2024-08-12",
             "hash": "1c3d22404842ddfd8c6b421e31356c069b6aa59dee98afeeab43acfc2de04eb3"
         },
         "reference/device-os/libraries/p/papertrail.md": {
-            "date": "2024-08-12",
-            "hash": "dbc8b540a2e5ba93122459978e8d774b2f254e82dd734d5afa0dd73828c60217"
+            "date": "2024-08-14",
+            "hash": "cbfb72ab8039315a9437ce5ae97381fda415a039c89649c57ec439aa0ca4cc67"
         },
         "reference/device-os/libraries/p/Particle_Adafruit_IS31FL3731.md": {
             "date": "2024-07-27",
@@ -6683,8 +6683,8 @@
             "hash": "e82ca6bf07c00e1e1deed8be036aa59b1d9230b1f08f13681e3e9ed57f80fff5"
         },
         "reference/device-os/libraries/p/particle_ADXL362.md": {
-            "date": "2024-08-12",
-            "hash": "2b74ec19af857af316259d58ea9c782022af062d443193e5d4cf01c5c9a642e8"
+            "date": "2024-08-14",
+            "hash": "e9328599f19cff94102efd05c379dcec397225edd424898bd4f23c74fa920ad0"
         },
         "reference/device-os/libraries/p/Particle_BaroSensor.md": {
             "date": "2024-08-12",
@@ -6699,8 +6699,8 @@
             "hash": "95c7d5fceffaa3945dfb1a69bcc841335646f2b7bc07cc2d08a08b6e5060ebd4"
         },
         "reference/device-os/libraries/p/Particle-GPS.md": {
-            "date": "2024-08-12",
-            "hash": "02e00c32ebda6a187a524229fe697a7654658f7067ee9f2cbf1dfcb9fe011247"
+            "date": "2024-08-14",
+            "hash": "73800de8c0edb854db7771a2988dd001a27d0388dbed5415c1e253332292dcac"
         },
         "reference/device-os/libraries/p/particle-hap.md": {
             "date": "2024-08-12",
@@ -6743,12 +6743,12 @@
             "hash": "988c2717d5d1d929032336d2fc7119388e2b81515b11eb43a72727da1495b31f"
         },
         "reference/device-os/libraries/p/particleflux-Si7021.md": {
-            "date": "2024-08-12",
-            "hash": "316398feb3a42953aae1aca8f17c9b09fe6504ddc2ad67285c6ba0c0ce49ee46"
+            "date": "2024-08-14",
+            "hash": "6392f8e87626eede1e2fd14a962554979409d0e8f2cfe1b7285626422e153b50"
         },
         "reference/device-os/libraries/p/ParticleFtpClient.md": {
-            "date": "2024-08-12",
-            "hash": "21d387b8637f45b796684ec48051b3679c555a5a02978dd926b5b509c8ca59e0"
+            "date": "2024-08-14",
+            "hash": "5138b6ee93a23b219c32c051a781b493e275bf99a3e2a0426baad6a37645fb77"
         },
         "reference/device-os/libraries/p/ParticleGarage.md": {
             "date": "2024-08-12",
@@ -6759,8 +6759,8 @@
             "hash": "1fe671efbc4a0a3f89fec24a9a95968f910449958793b904bc5d1aaa94ee4182"
         },
         "reference/device-os/libraries/p/ParticleSoftSerial.md": {
-            "date": "2024-08-12",
-            "hash": "10951570531f8651ce897407972b3d9cb58260e74bc50371126fb856c0f90677"
+            "date": "2024-08-14",
+            "hash": "ad68a70f6527275288d2acbd768bd1ae6937f949c0667125decf149afef76388"
         },
         "reference/device-os/libraries/p/ParticleWebLog.md": {
             "date": "2024-08-12",
@@ -6827,8 +6827,8 @@
             "hash": "c97b5e555f6247135747e611f3496208555325476048aa927c5953c4b956d06a"
         },
         "reference/device-os/libraries/p/photon-thermistor.md": {
-            "date": "2024-08-12",
-            "hash": "2caeba0d5acd00b933839a82f162fd451dc76dd0649ad5cabf2ce3e03cd37a51"
+            "date": "2024-08-14",
+            "hash": "bdb21af52f7df701d62d889ce76dfbabd8f3ddd50b24486ceae48e25b14f41bd"
         },
         "reference/device-os/libraries/p/photon-vbat.md": {
             "date": "2024-08-12",
@@ -6839,20 +6839,20 @@
             "hash": "e2ba35fb5b97aba553bc1b64d44315d7f601613559a9e16566a7cfdfc528b376"
         },
         "reference/device-os/libraries/p/PhotonWaveOut.md": {
-            "date": "2024-08-12",
-            "hash": "88c7b3c59730c7532b4583a292661683dd8a4b3b3a8e7b608391148dd4889e8b"
+            "date": "2024-08-14",
+            "hash": "1988504b758545d85b2913b234fec769361080c2c4b071032bda7943491aeac5"
         },
         "reference/device-os/libraries/p/pid.md": {
-            "date": "2024-08-12",
-            "hash": "82980bc61f62f9ef8692ec09d3586ec2d3bae16f9c6a1357ca1067d0a668d6fe"
+            "date": "2024-08-14",
+            "hash": "3988de05128b1b40fcbf1482bbfd381b35df3e0e415635390e71e8eee8d0171e"
         },
         "reference/device-os/libraries/p/PID-AutoTune.md": {
-            "date": "2024-08-12",
-            "hash": "f46cba17f4faa35ef6b2c166703cc0fc98f73a76c865636824e67f95f43275a8"
+            "date": "2024-08-14",
+            "hash": "652ef924e0ac199b63f1cb2d2302570ebf84436a99b400d37669247cb703f1c4"
         },
         "reference/device-os/libraries/p/PietteTech_DHT.md": {
-            "date": "2024-08-12",
-            "hash": "ffe8a1f0c6a0aab15b3224e66f7993b0dbc3a471ed29b491e29b723f969cd74b"
+            "date": "2024-08-14",
+            "hash": "7217da1adbbfafb9aeea8eb20862bede8ab3c77ec3fd99d4009d57d91de07e70"
         },
         "reference/device-os/libraries/p/PietteTech_Phant.md": {
             "date": "2024-08-12",
@@ -6879,8 +6879,8 @@
             "hash": "894ac3d5d3a9cf577b22aa236d7cffc9d708ec4cecec3b4446cf06354765ac38"
         },
         "reference/device-os/libraries/p/PMS7003-Particle-Sensor-Serial.md": {
-            "date": "2024-08-12",
-            "hash": "39339f4fb9bccdd63a7c4ce95fe035a1482cc4b1178a0388ba8e607b44cb553b"
+            "date": "2024-08-14",
+            "hash": "041104c3d4f3bfeb9f4d2a35e51b9fff207dd39f01063821c15053ce1de321ff"
         },
         "reference/device-os/libraries/p/PollingTimer.md": {
             "date": "2024-08-12",
@@ -6903,8 +6903,8 @@
             "hash": "ea16e4e5b11f1cd8c543db309adaab18c50231e7fa272b5b1ff0372f72c1102d"
         },
         "reference/device-os/libraries/p/PowerShield.md": {
-            "date": "2024-08-12",
-            "hash": "d857609866b01b03b3c92c59e79ac4cab70089eeaba490add0cab21e1784e034"
+            "date": "2024-08-14",
+            "hash": "3c49cae63df690590bd6f7c5a3384a57507bbcaf8a2e9fe2c8487df1050a1e5c"
         },
         "reference/device-os/libraries/p/Preferences.md": {
             "date": "2024-08-12",
@@ -6915,8 +6915,8 @@
             "hash": "c35407bdab44a8f09228f0bdb7e3a9358fc76a802dc28329d63e47f57f16f8ae"
         },
         "reference/device-os/libraries/p/ProbeCube_blynk.md": {
-            "date": "2024-07-27",
-            "hash": "b3d446940301ead9ab4869f7ef27e2e2065678a73e22c4063ab8820cee0c8469"
+            "date": "2024-08-14",
+            "hash": "3b5c8de216e88c3b7c78600d93e96e5034f50d5d6586562e46bb4d3dd2daab4b"
         },
         "reference/device-os/libraries/p/ProbeCube_DHT.md": {
             "date": "2024-08-12",
@@ -6947,16 +6947,16 @@
             "hash": "eb83fd237eedbf4240cdd6f4244819bf671b63b4b2a9d26aa67aa9de56df4a52"
         },
         "reference/device-os/libraries/p/PublishQueueAsyncRK.md": {
-            "date": "2024-08-12",
-            "hash": "2d56398b71e306bc4a6b0091360a20b6dac87999fa06f07064db76a0c4f44e2f"
+            "date": "2024-08-14",
+            "hash": "62229f2ea61097f12f14957dd6eb00b100a4d887dca920f2ae70943140ac227a"
         },
         "reference/device-os/libraries/p/PublishQueuePosixRK.md": {
-            "date": "2024-08-12",
-            "hash": "5aa4f712677fe7095e48441a7c4af3a95081a83f2c36cf1f56b9cb8e79baab82"
+            "date": "2024-08-14",
+            "hash": "63f32d65d88bcae48f693b20cb307cbfbdf60c62e9f959b6d42e88ebbd6cc55e"
         },
         "reference/device-os/libraries/p/PubNub.md": {
-            "date": "2024-07-27",
-            "hash": "aa75ba57d65fdd1427bab85455577b692a668a53f628e0a14d80626132f30aa7"
+            "date": "2024-08-14",
+            "hash": "300bca88a8965ea64e6fd42773c96bf5bb2c32b3aa38a6912eb0a6b65a672f78"
         },
         "reference/device-os/libraries/p/PubSubClient.md": {
             "date": "2024-08-12",
@@ -6975,8 +6975,8 @@
             "hash": "2d360a99cff85264cfbd67b2dfb6d03d9a6ea038885182e0cc2ad5bf198f0faf"
         },
         "reference/device-os/libraries/q/QRCode.md": {
-            "date": "2024-08-12",
-            "hash": "2e95e4362cc2e1a5ed94ad98baf40fd4211df8f8e496d48b3d728f7b10ada84b"
+            "date": "2024-08-14",
+            "hash": "34ce6362a343ce5443aada97c29821df59966b114e3fdaa77dbe96315211188c"
         },
         "reference/device-os/libraries/r/Radar.md": {
             "date": "2024-08-12",
@@ -7015,8 +7015,8 @@
             "hash": "5d0772e848a162ee6ce676896a70afad28e0b29bc3947f7123809e18fdf88b43"
         },
         "reference/device-os/libraries/r/RelayShield.md": {
-            "date": "2024-08-12",
-            "hash": "f4e74fd9f5063bf4b93236e0caf3eeab38af81fe49b0f276c5226c90ea4b196e"
+            "date": "2024-08-14",
+            "hash": "08c6549a6d372b9e7bdde2b7a37cd1db7512658975dd567903ebab4d3dfb938d"
         },
         "reference/device-os/libraries/r/remote_transmitter.md": {
             "date": "2024-07-27",
@@ -7091,20 +7091,20 @@
             "hash": "84827cc04beb1c446d5cf01c5ba8bf21b664e1683bfbb0efeb4f9b24fccbd6f1"
         },
         "reference/device-os/libraries/r/RTClibrary.md": {
-            "date": "2024-08-12",
-            "hash": "4a309fafe8e529ab743f9c8d4d6c71e75ef6099df5aeec104a5a093696f5e6a1"
+            "date": "2024-08-14",
+            "hash": "5daf3952d69937cd6212f95370e84e0048826b2f87ed14d0f5d0490da08b1d67"
         },
         "reference/device-os/libraries/r/RTClibraryDS3231_DL.md": {
-            "date": "2024-08-12",
-            "hash": "fced367c676638174e034be9818c43bf7353c9abda6b096d4681dd226ecf880b"
+            "date": "2024-08-14",
+            "hash": "5aef5674ce7981349eb6f04d1ed852c85a323b17d97348a144bfcc3ffc565777"
         },
         "reference/device-os/libraries/r/RTWparticle.md": {
-            "date": "2024-06-06",
-            "hash": "b51712b866ce107cf3bbf8ba8a57334b33cfbecf9b224718958ed1c368426bab"
+            "date": "2024-08-14",
+            "hash": "8f5168467659951e544a7392366d62f8435014998429f4180f1892cc5c172979"
         },
         "reference/device-os/libraries/r/RunningAverage.md": {
-            "date": "2024-08-12",
-            "hash": "18ceb3cc167514292984334c293e8e842a9f6520f0a1ff7fe7984e3a36f8eeec"
+            "date": "2024-08-14",
+            "hash": "05dfbbbdd7800862cd621eb5a3f5ca81fa760c5fe84765bd9fdfe0ed8a713743"
         },
         "reference/device-os/libraries/r/RunningMedian16Bit.md": {
             "date": "2024-07-27",
@@ -7123,12 +7123,12 @@
             "hash": "485be9453e68f54a4f48d65fabe2e02267b292d7417915c50eab52cf93ded5bb"
         },
         "reference/device-os/libraries/s/SC16IS7xxRK.md": {
-            "date": "2024-08-12",
-            "hash": "ace4fe7ba732db14261bed5f512bdddb1ac1dba4c07023c149c284938000eb95"
+            "date": "2024-08-14",
+            "hash": "d25c267e59638b7ceb0c07b729fecb783347a9f4fbbff3c93e86525728fe2078"
         },
         "reference/device-os/libraries/s/sd-card-library.md": {
-            "date": "2024-07-27",
-            "hash": "1071c8eb720e66c47d686d09965e623c0cbc988f9a00794036f57d7a6bffe81a"
+            "date": "2024-08-14",
+            "hash": "e51dcd78b551e7728a1ff3eddd7fd163863243e70324a42d8be1a014c96bfb4a"
         },
         "reference/device-os/libraries/s/sd-card-library-photon-compat.md": {
             "date": "2024-08-12",
@@ -7139,8 +7139,8 @@
             "hash": "a591dd52357e2bde83266420842a4da10b7c9dd8f0477ddfa026d681dbb30807"
         },
         "reference/device-os/libraries/s/SdFat.md": {
-            "date": "2024-08-12",
-            "hash": "a5b24e72cc3215d9d61dac79df8dfb193b395925336a63654afc7c03b0011f6d"
+            "date": "2024-08-14",
+            "hash": "f88fe540f641c2db09e9817acc4a9ade6f315b928c7ad56627ac910ae6c91688"
         },
         "reference/device-os/libraries/s/SdFatAsync.md": {
             "date": "2024-08-12",
@@ -7167,20 +7167,20 @@
             "hash": "b77266569533730c24062764df22c7cc3a42ffb361e99739e28c17075e5f67d0"
         },
         "reference/device-os/libraries/s/SeeedMotorShield.md": {
-            "date": "2024-06-06",
-            "hash": "a9cc931f3fd9eca0be3bf5c247d3b587cca6ffd0069acd7feb831fd7dc824654"
+            "date": "2024-08-14",
+            "hash": "60b36c724c9607c1635cae6c5a84e516d5394ed1a1e4beaf1c5afe3670da7862"
         },
         "reference/device-os/libraries/s/SeeedRFID.md": {
             "date": "2024-08-12",
             "hash": "1c5a4d695a0821c9306f8dd0a002bddbf1a375dad3959063958fe5c7262b0f9b"
         },
         "reference/device-os/libraries/s/SegmentDriver.md": {
-            "date": "2024-07-27",
-            "hash": "137e248aeb829988c44ec60bd4a4cc17c2d408dc520673e02285c78688b178bb"
+            "date": "2024-08-14",
+            "hash": "2eaa64e35fd8770019dbb01d48c0c5dd5f98a621ce09d69e71cffd637890890e"
         },
         "reference/device-os/libraries/s/semonlib.md": {
-            "date": "2024-07-27",
-            "hash": "3e4c8848bd8ae65f67c7f6bc803f1be25a6dd200b364ce4cf063e4219f6627f4"
+            "date": "2024-08-14",
+            "hash": "32434b4f81d495659a501597abba155c7bae6e507d67871fb216d7d47d975a02"
         },
         "reference/device-os/libraries/s/SensirionSGP30.md": {
             "date": "2024-08-12",
@@ -7191,24 +7191,24 @@
             "hash": "57e33f8e4c40f1b6589d8d177869a1a940d35bf294d179f67d8a1884a49b3513"
         },
         "reference/device-os/libraries/s/SequentialFileRK.md": {
-            "date": "2024-08-12",
-            "hash": "b6760634e4dd30075edfd54748f735800d8505e7b13c9a6eb007dbc68ffe20bc"
+            "date": "2024-08-14",
+            "hash": "94fe4abf26fd00b7a4de33c5f86d16de5ebb603a66bd8bcb024061505e41c59b"
         },
         "reference/device-os/libraries/s/Serial_Controlled_Motor_Driver.md": {
             "date": "2024-08-12",
             "hash": "054637fde25bd73c4e67df5c9b6274bc054f4ac5917557adef24c097fcfce44f"
         },
         "reference/device-os/libraries/s/Serial_LCD_SparkFun.md": {
-            "date": "2024-08-12",
-            "hash": "f2b44c6d96ea4b0fea86bb74b3349547029c569cc8b327c59fafeb479c007435"
+            "date": "2024-08-14",
+            "hash": "da8b92b8b5b9397c269a708790e1a65053ec77282457194c386e29fa1269b8a4"
         },
         "reference/device-os/libraries/s/SerialBufferRK.md": {
-            "date": "2024-08-12",
-            "hash": "e108a9900acc27c727b4e4721c1bee699908249a485c848b01ea1b6db8caf905"
+            "date": "2024-08-14",
+            "hash": "c7f2cb6815bde1003f974f22e9abaaa48b980680371bf37186605a9b750efc9f"
         },
         "reference/device-os/libraries/s/SerialCommand.md": {
-            "date": "2024-08-12",
-            "hash": "3650874f653655bff4e083f8f102decb768a3a54fe0d5de5165a487a75af5f87"
+            "date": "2024-08-14",
+            "hash": "6799107f2d741232cb44b9433630dc9837102dab4ff409f0f6643f62c90dbd47"
         },
         "reference/device-os/libraries/s/SerialCommand1.md": {
             "date": "2024-07-27",
@@ -7219,12 +7219,12 @@
             "hash": "738191c773446341c0648c26bf4a7cdc3b11c7e17a39628bb0d8031d504a066e"
         },
         "reference/device-os/libraries/s/ServoEaser.md": {
-            "date": "2024-08-12",
-            "hash": "077c41895c4c296ca0f012acc0483586fa9f8207083271014b2752babf43b1bc"
+            "date": "2024-08-14",
+            "hash": "795736f1d0501e681ab01b36b6402dc30215f8fbc26d6fc1d3a9bdf4950e70a2"
         },
         "reference/device-os/libraries/s/ServoIn.md": {
-            "date": "2024-08-12",
-            "hash": "548ec958e9011ca08a0be7c1105404e78f75d60076590a5365fd62fb8c29ec17"
+            "date": "2024-08-14",
+            "hash": "bdbd5bb5d12577e10278651fd89a80e8231322815a56da2cb837c6d2f7e90a48"
         },
         "reference/device-os/libraries/s/SevSeg.md": {
             "date": "2024-08-12",
@@ -7255,8 +7255,8 @@
             "hash": "7246b9e0450494ad53805a060fb8b2f1295e27a2861b3d5f3c73c097df86976d"
         },
         "reference/device-os/libraries/s/SHT1x.md": {
-            "date": "2024-08-12",
-            "hash": "5a4cc03f470f687400c83814a913690779786e3abee8aff293f748aba191e4d2"
+            "date": "2024-08-14",
+            "hash": "555e3342fab8e1efa895bfe60e3885d88b453d29bdff09a32288f134ee6c6ec1"
         },
         "reference/device-os/libraries/s/sht20.md": {
             "date": "2024-08-12",
@@ -7327,8 +7327,8 @@
             "hash": "d72ca9d93074304c476dc436f987b99c2fea743d29e3a6ec5605bcc1ff32cdcb"
         },
         "reference/device-os/libraries/s/SoftPWM.md": {
-            "date": "2024-07-27",
-            "hash": "26833285e59ebaacb9e5f5a83abfc3f1b66098145ed3d432202fcb444f023435"
+            "date": "2024-08-14",
+            "hash": "a8eb4efda22ffc34ccb63b9b1e4fcff6c97364f7c3e10e220cdece49ca9f699f"
         },
         "reference/device-os/libraries/s/sol-driver.md": {
             "date": "2023-09-20",
@@ -7339,8 +7339,8 @@
             "hash": "4831d3fa1404b9aa5e44937bcbd77baf4df2efa4b95eb86a0a8008c562fa7032"
         },
         "reference/device-os/libraries/s/spark-dallas-temperature.md": {
-            "date": "2024-08-12",
-            "hash": "11555e2981d80fe1e3be9fb534f5d26d33ab5ac56661fca4860962dd8744c89f"
+            "date": "2024-08-14",
+            "hash": "10dbaa9dfef7652361a9b0593909b0b519d76547afb159992e719755dc9f04a6"
         },
         "reference/device-os/libraries/s/spark-parse.md": {
             "date": "2024-08-12",
@@ -7359,8 +7359,8 @@
             "hash": "e6472d24c422803ceb9d18b4c98e7841be15b98b1718d55466fe5e6adc7eec8b"
         },
         "reference/device-os/libraries/s/spark-usb-host.md": {
-            "date": "2024-08-12",
-            "hash": "6a0c2e783660262270721ca19efcfc0f809f67c51ac70bdd287727a36724305e"
+            "date": "2024-08-14",
+            "hash": "c94456983c4a09e3020361270ae5ce0b1fc00b4c7290992c08170fe146eceba9"
         },
         "reference/device-os/libraries/s/spark-web-embd-rest-json.md": {
             "date": "2024-08-12",
@@ -7407,24 +7407,24 @@
             "hash": "6d7496d916d2dd63e92b51db4e38899ff038a40fae0de773a9e780422009ea3e"
         },
         "reference/device-os/libraries/s/SparkFun_Ambient_Light_Sensor_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "d127d8c10868fc63e35288325e8a8fce1ee888b4c5f416fe17c8de370cae1f5a"
+            "date": "2024-08-14",
+            "hash": "ba24e9b3eaf9d33c4b2f61db80587194d7ac85cfb9ad018e30cb17ca10dfa252"
         },
         "reference/device-os/libraries/s/SparkFun_APDS-9960_Sensor_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "97814e1e4c8f2581c549717cd758db00e1fe9b41ea89efa6dbc6c68c436cfc56"
+            "date": "2024-08-14",
+            "hash": "b40fd4c89c3c67215743a11808ecbc579c8dba4d56224dc941a84cd73324cb53"
         },
         "reference/device-os/libraries/s/SparkFun_APDS9960.md": {
-            "date": "2024-07-27",
-            "hash": "be5ad38357f56e4b0e8918854ac1a86083a85e261a06c9643da7f5448faec08b"
+            "date": "2024-08-14",
+            "hash": "3f28eda3d7f15a593c606404cb94019cff27b7a0fc6636faeb8efa5b73ef7cbc"
         },
         "reference/device-os/libraries/s/SparkFun_AS3935_Lightning_Detector_Arduino_Library.md": {
             "date": "2024-07-27",
             "hash": "7acf7dc17517afa63f87061002d827b69b1b1354c2568f4be689a9598f7e1006"
         },
         "reference/device-os/libraries/s/SparkFun_BNO080_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "be013cf4a46087bc4e66b17c8d01e17af6b9ff517705714f86a81d8892cd1945"
+            "date": "2024-08-14",
+            "hash": "68168a9b2f53abd38fb09d15eef54764f609758f45274e92edefa3ddc40afcbb"
         },
         "reference/device-os/libraries/s/SparkFun_BQ27441.md": {
             "date": "2024-08-12",
@@ -7439,12 +7439,12 @@
             "hash": "942cc8c1074bc9c77116ceed34e041c0ac91f2fe76969d7187bd19760b1e134d"
         },
         "reference/device-os/libraries/s/SparkFun_DS1307_RTC.md": {
-            "date": "2024-08-12",
-            "hash": "72a1cac1ebb4963e8c028462e88fd25a4272731e30d97f9bcaa0eb06c6bae749"
+            "date": "2024-08-14",
+            "hash": "9bd8f173c78dcba4d402750d560fbcb3793919f8f589d7aa2143d2537382b8eb"
         },
         "reference/device-os/libraries/s/SparkFun_GridEYE_Arduino_Library.md": {
-            "date": "2024-07-27",
-            "hash": "295b7035d4b2e6759dba04176d4c51fcf34f56da16de1b91e52003ff55e642df"
+            "date": "2024-08-14",
+            "hash": "1ce3d030b4f6969677e25f5c681bb5ef94c86c596ae6f8960643ff15a5110d4e"
         },
         "reference/device-os/libraries/s/SparkFun_I2C_Mux_Arduino_Library.md": {
             "date": "2024-08-12",
@@ -7471,12 +7471,12 @@
             "hash": "c108340b3ce8d3126a55037946030f827150e6a118cda7443f697d769b945e6d"
         },
         "reference/device-os/libraries/s/SparkFun_MCP9600_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "48654d5adbf8ba097af7bbe17c6cc9186531381745beb68c5e025155eebd68ff"
+            "date": "2024-08-14",
+            "hash": "6af0bf56cf010273934209082bd59e89ffc3d36105711381b8539174326331a4"
         },
         "reference/device-os/libraries/s/SparkFun_Micro_OLED_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "748b7966532cbd7acf019e7f94e8a5a6ca887c3a660588a9bdca9988c8438b9b"
+            "date": "2024-08-14",
+            "hash": "ff17b7163d02d6c0e7871c2898c9189a72c9fc5d8da2e58afc3f06e6722e9030"
         },
         "reference/device-os/libraries/s/Sparkfun_MLX90614.md": {
             "date": "2024-08-12",
@@ -7491,20 +7491,20 @@
             "hash": "de0acaf93a794aa6d09c2de7df9f546471611018e0605f8e66633fd55fa6fcb9"
         },
         "reference/device-os/libraries/s/SparkFun_MPL3115A2.md": {
-            "date": "2024-08-12",
-            "hash": "ccfbd59319d5b78c3f656adc003d4d40c853f2bed8c2a981f509e726e0bd4660"
+            "date": "2024-08-14",
+            "hash": "50e88ada3edf268753eae294d7d99edcb9d2cc8383ccae891d3160852f5e1ddf"
         },
         "reference/device-os/libraries/s/SparkFun_MPU-9250.md": {
-            "date": "2024-08-12",
-            "hash": "20cde5eb0e6ab91e692c36ef18321e083bcc1750174b973354801b083b6765d5"
+            "date": "2024-08-14",
+            "hash": "5a2eb3ab2b2279b8168d8b286b86f1dc45e83d4b8322bd901e0da8c3048157fb"
         },
         "reference/device-os/libraries/s/SparkFun_MS5637Library.md": {
             "date": "2024-08-12",
             "hash": "e7d39944adde2aa11ca1e8e06dacb708aa31bc7f954c77ab8984ceb8f1085394"
         },
         "reference/device-os/libraries/s/SparkFun_Photon_Weather_Shield_Library.md": {
-            "date": "2024-08-12",
-            "hash": "87fbaad127ddbf50599a462aa0c3cbc6e1b68d35c2a95cff0f543abed45295fb"
+            "date": "2024-08-14",
+            "hash": "9e5ac3d72bb0dcf68f94b25a75e36da78f4cda5be932cd231b717ac14d8b9113"
         },
         "reference/device-os/libraries/s/SparkFun_PHT_MS8607_Arduino_Library.md": {
             "date": "2024-08-12",
@@ -7523,8 +7523,8 @@
             "hash": "2a7fd055b8cc93a9a136d5a31648a7bfbf52ed021ac85d6fb4ef00f30a4f4b07"
         },
         "reference/device-os/libraries/s/SparkFun_Qwiic_Joystick_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "1575fea614c5156c2c11849f2447b71f6bd2ee254e0b9339699c4681354c1198"
+            "date": "2024-08-14",
+            "hash": "84d063410d6fcc8f967f90edc1c82672559c196745a2d1551e56603d8037636a"
         },
         "reference/device-os/libraries/s/SparkFun_Qwiic_Keypad.md": {
             "date": "2024-08-12",
@@ -7575,8 +7575,8 @@
             "hash": "6bb6157bce6ff36fc2b53a02d566dfed2fe1c6118ab0342a9c40f0dffc87a6f0"
         },
         "reference/device-os/libraries/s/SparkFun_SCD30_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "4545e0b328a6e96e403284d44750bbe9a0b530805e830fb8a337cea8778d30b4"
+            "date": "2024-08-14",
+            "hash": "395304f20fa93ee99df59649a88edfb80a88ef64b5cf714bc8204f9096c34382"
         },
         "reference/device-os/libraries/s/SparkFun_Serial_Graphic_LCD.md": {
             "date": "2024-08-12",
@@ -7611,8 +7611,8 @@
             "hash": "d18801e5b01861eb7418241888c0a3bc4d0ffe23d6d6084251ce4788283b2d7c"
         },
         "reference/device-os/libraries/s/SparkFun_VL53L1X_Arduino_Library.md": {
-            "date": "2024-08-12",
-            "hash": "5f09ee743284a754482a5637961701dafbdbc709d8f7d0e8f163a5bbc743b1b8"
+            "date": "2024-08-14",
+            "hash": "0c82b5feec4b8ba6b5791928c4f3682776ab0d0d7260681ada6fc3d2cf051fba"
         },
         "reference/device-os/libraries/s/SparkFun_VL53L5CX_Arduino_Library.md": {
             "date": "2024-08-12",
@@ -7623,8 +7623,8 @@
             "hash": "711155f75afbbbe93c4f0f9ba28b32ea454eaf83e2a58b91428dc26f091878f0"
         },
         "reference/device-os/libraries/s/SparkFun-Accelerometer-MMA8452Q.md": {
-            "date": "2024-07-27",
-            "hash": "b8fa6a1b2e24496d69a3201f0a3057cb1e453bb562d90289725a1773e91ef4e7"
+            "date": "2024-08-14",
+            "hash": "fe9d50b36e71a2f714d397ea89cccc5a3ad14f4a79c1c992732fe62d947420e8"
         },
         "reference/device-os/libraries/s/SparkFun-BH1749NUC.md": {
             "date": "2024-08-12",
@@ -7639,8 +7639,8 @@
             "hash": "133dab03b8d1fa6066d8752bd8e49cf616c732ccd1eb522dd999ed2378f70657"
         },
         "reference/device-os/libraries/s/SparkFun-Qwiic_Capacitive_Touch_Slider-CAP1203.md": {
-            "date": "2024-07-27",
-            "hash": "1cc50da5b9dccfa0d08b7a3b0f9887f6d27fa67a2b936179b506dfb0666759a0"
+            "date": "2024-08-14",
+            "hash": "0c67c8eb8ca1233141dbeadcb737e189e86c22c02541ae7cc1d467258c67ed85"
         },
         "reference/device-os/libraries/s/SparkFun-Spark-Phant.md": {
             "date": "2024-08-12",
@@ -7659,8 +7659,8 @@
             "hash": "fbe826ddad046d1140389e2ce1f12af658cb55e0e50693122f71dbfd665b184b"
         },
         "reference/device-os/libraries/s/SparkFunBME280.md": {
-            "date": "2024-08-12",
-            "hash": "774690e373a59f781d841e76090a90c3182414a0147970ccd33aa56346592e72"
+            "date": "2024-08-14",
+            "hash": "9b471d0ade86137942976c05b9e048413dd39e459ad9cec9b12068ab8d204e4b"
         },
         "reference/device-os/libraries/s/SparkFunHTU21D.md": {
             "date": "2024-08-12",
@@ -7671,24 +7671,24 @@
             "hash": "2c5dfa6530c68af8b637f30faf5418a665245afe689eb1b53a7b8785cfb33075"
         },
         "reference/device-os/libraries/s/SparkFunMAX17043.md": {
-            "date": "2024-08-12",
-            "hash": "0b855cfc87c75e33b9a15625df8b95a7464a8164ee828b5487a8cb5a1c209b70"
+            "date": "2024-08-14",
+            "hash": "a1bed5ab112fb9c5588ea958a4cc2abe5ec3c40861a20e7124a736115de45767"
         },
         "reference/device-os/libraries/s/SparkFunMAX31855k.md": {
             "date": "2024-08-12",
             "hash": "a146dc987912793e42a02b97b71642aab17e6f402c838872bc4453fbfd74dd50"
         },
         "reference/device-os/libraries/s/SparkFunMicroOLED.md": {
-            "date": "2024-08-12",
-            "hash": "29fef096fe983a1858e6d3120edf74adcffe4537fc5a8cddfbd143b4ad572814"
+            "date": "2024-08-14",
+            "hash": "f5760c48f57cf8c641a3ecf4d4820fef1bb3d38324c9bc80ce63972b5392e13f"
         },
         "reference/device-os/libraries/s/SparkfunMLX90614.md": {
             "date": "2024-07-27",
             "hash": "61edc4bd9a6ea0074cf20e81b1d8973c521a9d7683d1c08d17ac74d461a45186"
         },
         "reference/device-os/libraries/s/SparkFunMMA8452Q.md": {
-            "date": "2024-07-27",
-            "hash": "dfeee2ef1f4fb7e65e5bcbebfb44c7c4bdc9e40b65b7d69512e73d733fd9e281"
+            "date": "2024-08-14",
+            "hash": "101c7b523c4592a3b04b530165bb8c50fc3a832a7867e2ee22b8329cef59e11d"
         },
         "reference/device-os/libraries/s/SparkFunOpenLog.md": {
             "date": "2024-08-12",
@@ -7707,28 +7707,28 @@
             "hash": "15ed5584111c519668303791bbd404f0cd117bc0b393dd7ddac8482dc49b28e2"
         },
         "reference/device-os/libraries/s/SparkIntervalTimer.md": {
-            "date": "2024-08-12",
-            "hash": "3308601a2e79138d614821216dbcbe09d7e8064ce387f60115951af2da7d5664"
+            "date": "2024-08-14",
+            "hash": "9578d38d620e2ce3633f18ed2ae99933eadc2059b7eaf3e5ee058f70a33d4e04"
         },
         "reference/device-os/libraries/s/SparkJson.md": {
             "date": "2024-08-12",
             "hash": "dc5aea37928434d4ac09b06136cc873ad10c0b10ee777dae10ac0bf471fb8a4a"
         },
         "reference/device-os/libraries/s/SparkTime.md": {
-            "date": "2024-08-12",
-            "hash": "7be4d264d5e8570a0b34989a3fded216bc4e849877b93ab3ac9ba510ca9351f6"
+            "date": "2024-08-14",
+            "hash": "a38e7a624b62cbfa907697a613e5256f3f60b4aca1022a0632a1a1117ae214a3"
         },
         "reference/device-os/libraries/s/speaker.md": {
-            "date": "2024-08-12",
-            "hash": "3143c0dde8bfc199f354e09c510006840bba023f7b53432ae38b639e25d36b2e"
+            "date": "2024-08-14",
+            "hash": "cd9375482f6f4b386ff7c8cd5b3bddc44a6736aa5f14fe4d90d7a755648cd487"
         },
         "reference/device-os/libraries/s/SpiffsParticleRK.md": {
-            "date": "2024-08-12",
-            "hash": "6ceccd2e2063ea72b68d7f9f2ab8c1b6ae288f5361682457bffc09f192c72a41"
+            "date": "2024-08-14",
+            "hash": "202c482aeea9b5ba415868b40a6925ee792370f9ce62ea2bc8ce22c8d740ebbe"
         },
         "reference/device-os/libraries/s/SpiFlashRK.md": {
-            "date": "2024-08-12",
-            "hash": "66027b572be67d456b7b3db6ea600025e6fd18463a0308c05a1dae1ee08666fd"
+            "date": "2024-08-14",
+            "hash": "2424336baa4fc7b1408d3c5d9e7a145bc8a090cfc7efea292c24542aba464280"
         },
         "reference/device-os/libraries/s/SPS30.md": {
             "date": "2024-08-12",
@@ -7743,20 +7743,20 @@
             "hash": "dbe0fe3cf5407415fc4d2d0155f4c04c6ca4cf6b367db8620e3dc198c7db6f5d"
         },
         "reference/device-os/libraries/s/Stepper.md": {
-            "date": "2024-08-12",
-            "hash": "d13987e6f5016ea671ac0c7715966d1cf7d4c7bec2a6a26a127a35873424ae86"
+            "date": "2024-08-14",
+            "hash": "162ab9e4004ddce9b92842b1352d47ee9642557f7f5c0b17c29cef895af5af67"
         },
         "reference/device-os/libraries/s/StorageHelperRK.md": {
-            "date": "2024-08-12",
-            "hash": "d47319d86d0fabf1375ad124e79eaa25444d38130bcafb3b339e01f3660bc5d6"
+            "date": "2024-08-14",
+            "hash": "1cec376bd7241b0c1c03996ff26906250c0a31aeb74fec78f19c3a5b6bc1f1c4"
         },
         "reference/device-os/libraries/s/StreamDebug.md": {
             "date": "2024-08-12",
             "hash": "573f18e1314834e994b692d774def7358bf40e49fea2b4d96a8bffd6d7115150"
         },
         "reference/device-os/libraries/s/String.md": {
-            "date": "2024-08-12",
-            "hash": "f1a76743a8c779f7531fdaccd34f95261329213577dd24963607c86730b551f6"
+            "date": "2024-08-14",
+            "hash": "23970722cf862911cc999719e7b6ed03f943c781eca226a320f4dd56555f8e09"
         },
         "reference/device-os/libraries/s/Structure-MQTT-device.md": {
             "date": "2024-08-12",
@@ -7767,8 +7767,8 @@
             "hash": "45b5364b483d4970b48eda21bddc76d39a206fedf6b0e6f281e271105a9b1f4c"
         },
         "reference/device-os/libraries/s/sunset.md": {
-            "date": "2024-08-12",
-            "hash": "fe6385256404e3e97129d21b6ed7be9bbd5f274a86987a47c210728d014b46e3"
+            "date": "2024-08-14",
+            "hash": "859a6a880ef14ff3e1fe0031c911c42837c93840dbdadeeb36ccfce86e017306"
         },
         "reference/device-os/libraries/s/SunSet_2a01.md": {
             "date": "2024-08-12",
@@ -7791,8 +7791,8 @@
             "hash": "bdca9c2c8cbc24bbde8bcca2a9341ab6ee65b09b27f94743080101e0127db077"
         },
         "reference/device-os/libraries/t/TCA9548A-RK.md": {
-            "date": "2024-08-12",
-            "hash": "9cb3690cf2a62c3e994949f6a805f5322b889973c8b574dcc1e3368e0807b7db"
+            "date": "2024-08-14",
+            "hash": "83cf683b5ef55e6ddb707c1cd8acfacd5c5b4aa254bb72b8f8780a6f23b1d2eb"
         },
         "reference/device-os/libraries/t/TeleInfo.md": {
             "date": "2024-07-27",
@@ -7807,8 +7807,8 @@
             "hash": "dac9c173137636cf35939dc0729d1e4798040ab85482a205a1ab87737ebe7d42"
         },
         "reference/device-os/libraries/t/Temperature_Alarm.md": {
-            "date": "2024-08-12",
-            "hash": "b686c30cffdff7e0c012d5dfc53a88e15e34d32b685e80662e27eb8a851b563c"
+            "date": "2024-08-14",
+            "hash": "80e4d90cf4951a4f6a3609f4e65e1d46601610f3c5b56547fc03af8a3604c610"
         },
         "reference/device-os/libraries/t/TemperatureHumidityValidatorRK.md": {
             "date": "2024-07-27",
@@ -7819,8 +7819,8 @@
             "hash": "96078a8f172f006d416f71a458fa5a2a0b89b4a33f82b7fa00b3a82412b6c6c3"
         },
         "reference/device-os/libraries/t/test.md": {
-            "date": "2024-08-12",
-            "hash": "9e172088a640a06f6abb5757abfffb1c6378a2f8681d52734667f9ce086f5f4f"
+            "date": "2024-08-14",
+            "hash": "4234b20677ca34621d45d39a0bc8e815eb3ed1dff916afe698fbe8cf0723c87b"
         },
         "reference/device-os/libraries/t/test-library-publish.md": {
             "date": "2024-08-12",
@@ -7835,24 +7835,24 @@
             "hash": "76c6ff62cd526100e4d1f485a132f8d84738ba6cf1f8b0c3aaf7ed43f5779f7f"
         },
         "reference/device-os/libraries/t/TFT_eSPI.md": {
-            "date": "2024-08-12",
-            "hash": "d7bc80846bc95709131baa8110afa4a8225715ba127e6b810a299142735b7e08"
+            "date": "2024-08-14",
+            "hash": "5d70b0c02664fbdd8535a30530a3bf9347cef7aa24ae4724b8b451e17c95fcd4"
         },
         "reference/device-os/libraries/t/Thermistor.md": {
             "date": "2024-07-27",
             "hash": "c7ec0e010af69d89fbd4849031bd893ac34855e0b4968a34e480db234b27bfa2"
         },
         "reference/device-os/libraries/t/thermistor-library.md": {
-            "date": "2024-08-12",
-            "hash": "f61e8742027350830a9681b1276d147758900a855b8ee4c72678be7c891025e4"
+            "date": "2024-08-14",
+            "hash": "9715b37afaafe52f924efbd72111f1455ddea1db5f8fefaea9dcb9414917c144"
         },
         "reference/device-os/libraries/t/ThingSpeak.md": {
-            "date": "2024-08-12",
-            "hash": "98e1a4df9fbc08c50fdfde8a2382a405efb47c21a413a80a3a70d26b6351aac5"
+            "date": "2024-08-14",
+            "hash": "cd6879729077b27d3be46f75a460e6f510d486bcceac45e755ba3655ff0309a1"
         },
         "reference/device-os/libraries/t/thingspeak_5f86.md": {
-            "date": "2024-07-27",
-            "hash": "097904c52e4910122adf83a3313b9217bedaec581fc78a8d61eac46491e71fc0"
+            "date": "2024-08-14",
+            "hash": "8a020533d9228880e3a87c4f21565dc4bfa6fb157e952e6e7ad658bdf789c2a7"
         },
         "reference/device-os/libraries/t/thingspeak-webhooks.md": {
             "date": "2024-07-27",
@@ -7867,32 +7867,32 @@
             "hash": "e416cade5802161b7cab942bc4c2d356eaedfcb199ebf2780e4a2c9558545a55"
         },
         "reference/device-os/libraries/t/TimeAlarms.md": {
-            "date": "2024-08-12",
-            "hash": "b5e04fb943311e7a0ea75febc0183b9f5bedd6ae24e110330d33a922c1d87026"
+            "date": "2024-08-14",
+            "hash": "80859cc039c0e3c777623cbdc03c349ca2c41bd62b29662f5788b623309643f4"
         },
         "reference/device-os/libraries/t/TimeLord.md": {
             "date": "2024-08-12",
             "hash": "0f886d248a5fada92c461efd24ccbd94ab0aa4b2f25392f6ecfe5612ed680218"
         },
         "reference/device-os/libraries/t/Tinker.md": {
-            "date": "2024-08-12",
-            "hash": "d2afe44e0004397ecb720d78fb867e09cd4c63cac569f803d34fc1bf5c9a5c58"
+            "date": "2024-08-14",
+            "hash": "a1bb40d52b2890bdff426cf3110294190788f1706d115a797a00eb7a7f5a4dcd"
         },
         "reference/device-os/libraries/t/Tinker-Servo.md": {
-            "date": "2024-08-12",
-            "hash": "3f6f8a7dd58cd8228d6e5323159210cc789e7a4e44215b18113d92956814584e"
+            "date": "2024-08-14",
+            "hash": "c3b23b2ad606b41caae5f9a43d66d74cea358583c9d972e4e46ed55bf2f089ff"
         },
         "reference/device-os/libraries/t/TinyGPS.md": {
-            "date": "2024-08-12",
-            "hash": "220d4d617a86f47e5f83feb6f50f5bc290ae8552134b19c8fa045311079cf4a6"
+            "date": "2024-08-14",
+            "hash": "4c0bf8d25e1c9569b22a0dcbef6037a16fc23af756ae70ec55ffdaad62d0a190"
         },
         "reference/device-os/libraries/t/TinyGPS-gngga.md": {
             "date": "2024-08-12",
             "hash": "696248ad683aa9c0c0f332be62d3041e85620e7729ce5653b54a737bbcf6ac84"
         },
         "reference/device-os/libraries/t/TinyGPS++.md": {
-            "date": "2024-08-12",
-            "hash": "543b8026c43b0ea3c6f20c1dda38255e810e8a3c9a04508fc44045947f6bb048"
+            "date": "2024-08-14",
+            "hash": "7141c0e5272901e5352e267af21503e0db85efe21fe9c93ca90f4aeeb302e88c"
         },
         "reference/device-os/libraries/t/tinyxml2.md": {
             "date": "2024-08-12",
@@ -7911,8 +7911,8 @@
             "hash": "366fce7709dbe9a768d84a29049300ab668a34e097980cc148392693b8432410"
         },
         "reference/device-os/libraries/t/TM1637Display.md": {
-            "date": "2024-08-12",
-            "hash": "8852b21b18f5660384f69d1708320ae942976a48adf1447b8a6890acb851c158"
+            "date": "2024-08-14",
+            "hash": "429aadfe71f18d910b0e70a3801b0cb8db972faca7dd78e9fdbb65079999c002"
         },
         "reference/device-os/libraries/t/TM1638.md": {
             "date": "2024-08-12",
@@ -7947,8 +7947,8 @@
             "hash": "b8ee1d6604adf9c1f358defc74e57801c5f057219c94d4442f94b042f7130a95"
         },
         "reference/device-os/libraries/t/twilio.md": {
-            "date": "2024-08-12",
-            "hash": "09becd353da512034db9580062e7d69790909139358c22c111cdd3ac5bfd4849"
+            "date": "2024-08-14",
+            "hash": "c44c8fd7b61cc8a5133a772dbb84357b27c93c0e1ee0fe1e2f9d6732eddd8ee5"
         },
         "reference/device-os/libraries/t/TzCfg.md": {
             "date": "2024-08-12",
@@ -7959,32 +7959,32 @@
             "hash": "0886b42a8d2e15e35f0d5c99b2675aaccfdab8f580afceb3bcb91b0602389e0b"
         },
         "reference/device-os/libraries/u/U8glib.md": {
-            "date": "2024-08-12",
-            "hash": "8304b058bb89cab223b5376b4d4c49196c59c8af76ca270ac7429be4606cec66"
+            "date": "2024-08-14",
+            "hash": "4eb28a652ae6552889daf9a2b8df5a566650f7784da0f851dfd7b9d7ab385116"
         },
         "reference/device-os/libraries/u/uber-library-example.md": {
             "date": "2024-07-27",
             "hash": "be05e4f1ed47bb9d0b28d6e24c4d8735329040d61dea69e183378541c994c27a"
         },
         "reference/device-os/libraries/u/Ubidots.md": {
-            "date": "2024-08-12",
-            "hash": "0e41b91f12a5d9569df819d8f5277da3fcdc46e83730d98e3864994629e5651d"
+            "date": "2024-08-14",
+            "hash": "e30db8296e040ee985383b7fdbb89f1755dc7387429ea90ccd537ea067f8f11a"
         },
         "reference/device-os/libraries/u/UbidotsMQTT.md": {
             "date": "2024-08-12",
             "hash": "c4e48d3995ab0e9f213a14f206d0d889fbb4bbac99ff06fbe7f059e38c6408b2"
         },
         "reference/device-os/libraries/u/UbloxM8Q_GPS.md": {
-            "date": "2024-08-12",
-            "hash": "613b7b962f92ef91964881d255a0b17e643487a3479dda8d7d257ab86712dd07"
+            "date": "2024-08-14",
+            "hash": "6d4caddea682f2eb18575b9444043d9333316751100a65c2b5825b5baad650ca"
         },
         "reference/device-os/libraries/u/uCamIII.md": {
-            "date": "2024-08-12",
-            "hash": "e661b658f8cd07c02b6e512af4b95645df1cc05c146df093dd7b7be569185f1f"
+            "date": "2024-08-14",
+            "hash": "68a4a178e67bf3ab9db4e0404e516e4c7044a3f381485269211ea4df16fbe42b"
         },
         "reference/device-os/libraries/u/uFire_PAR_Sensor.md": {
-            "date": "2024-08-12",
-            "hash": "17f0c39aa8131033872b53e490faa395cc62cf1ef1f45ee2a37b18e2bc194b50"
+            "date": "2024-08-14",
+            "hash": "41ec06546b9c211540104b8943c07d6b407fbb36384261356e7442afdf03c49e"
         },
         "reference/device-os/libraries/u/uFire_SHT20.md": {
             "date": "2024-08-12",
@@ -8007,8 +8007,8 @@
             "hash": "67b89d93a1fa619c9d66a25b2b7d7b3208482b660780357ca189101739c6e3ad"
         },
         "reference/device-os/libraries/u/uuidV4.md": {
-            "date": "2024-07-27",
-            "hash": "1968fc7bca882c285bc524926a8a981aed6ea5a84c951fbbad9def36db0caa0e"
+            "date": "2024-08-14",
+            "hash": "3b0af8fc2681192eb74feeac1840bae9a17e04848ff4245b43713e84a2b8359d"
         },
         "reference/device-os/libraries/v/vcnl4000.md": {
             "date": "2024-07-27",
@@ -8031,24 +8031,24 @@
             "hash": "cfd54746063db3132e9710a6110145e3f82bec6bc8ef917e5bd59cabaceded19"
         },
         "reference/device-os/libraries/v/VL53L0X.md": {
-            "date": "2024-08-12",
-            "hash": "72d6dd349276c26dfbe7e1788ea25f553c642b97ae3678f54dc3d749c9aaf599"
+            "date": "2024-08-14",
+            "hash": "d5d8f84ce49130e3db9fe9cb2fd4c75d9db9a69fe102b4cdd603f77d5ebd3bde"
         },
         "reference/device-os/libraries/v/vl6180x.md": {
             "date": "2024-08-12",
             "hash": "355ebddf7b5858efac77a0551f71eab87adbc2a505784852ca31fbc0c4ab7e4f"
         },
         "reference/device-os/libraries/w/W5100_Ethernet.md": {
-            "date": "2024-08-12",
-            "hash": "2893af1e9d82ef567b7d2c2d21bca41504c475419c16ee36f767c7d61839f765"
+            "date": "2024-08-14",
+            "hash": "45f222c3e651826eba4e5895400d7845bdf72151521c679fb4a32852c28bbabb"
         },
         "reference/device-os/libraries/w/W5IOKeypad.md": {
             "date": "2024-07-27",
             "hash": "b5d5092b8492f3c8c7001586df5bb9fcadb08b965821e6b512620d43140a0402"
         },
         "reference/device-os/libraries/w/Wasm3.md": {
-            "date": "2024-08-12",
-            "hash": "49950aad034106df2a5034ce3e6cce72fd3df1932551b3e180bf113cbd9e8755"
+            "date": "2024-08-14",
+            "hash": "1eae2fcfec73b915c0d3d8a2819b3592691082d4738533dcec32affe98363f68"
         },
         "reference/device-os/libraries/w/WatchDog_WCL.md": {
             "date": "2024-08-12",
@@ -8075,16 +8075,16 @@
             "hash": "f9bee69509aa80a492d4c25e137c87b7d03ed55bc2be4d308a081d448d058e2b"
         },
         "reference/device-os/libraries/w/WebServer.md": {
-            "date": "2024-08-12",
-            "hash": "e6804d6e33e0868cd8db771553ddd8a1484999c5da3e318e4246a644dafd96bf"
+            "date": "2024-08-14",
+            "hash": "afb78eb494e2185fffc66d292593de63aede54dddde5bdbb4cf3c799f39f6e5a"
         },
         "reference/device-os/libraries/w/WebSockets.md": {
             "date": "2024-07-27",
             "hash": "405ea4d18b8e009cc475fca98fb368739a36f518e03eb951602d313fec081a55"
         },
         "reference/device-os/libraries/w/Wiegand.md": {
-            "date": "2024-08-12",
-            "hash": "f3c9a12a1036205f518516cf87c8cb765b0e4bfcfd438c86441b714513f01aed"
+            "date": "2024-08-14",
+            "hash": "7a990ed7ed396b6cadac12e8296e13deda7d96e1bd2a5dda305a530b5c340bb3"
         },
         "reference/device-os/libraries/w/wolfssl_particle.md": {
             "date": "2024-08-12",
@@ -8271,8 +8271,8 @@
             "date": "2024-08-12"
         },
         "reference/device-os/libraries/i/IoTClassroom_CNM.md": {
-            "hash": "fb07918c26fa5a89ac49422753860664088eafa0eda8e0201804cae19598f9a7",
-            "date": "2024-08-12"
+            "hash": "969e69e1c2b57cb2248640ad0d1a65c206f27809a177a24f91a66d31d68461ee",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/i/IsolatedEthernet.md": {
             "hash": "bfe3ee1dd1503f29e530ed339cd9d9d29302b8d0c4f5da20a13b9b8d9bf0dfb2",
@@ -8439,12 +8439,12 @@
             "date": "2024-04-11"
         },
         "reference/device-os/libraries/a/Adafruit_BNO08x_Sahagun.md": {
-            "hash": "c6fd41cfee008b2c491362d71e37ce7c536969cd69e4dce00fc2844ab2843c66",
-            "date": "2024-08-12"
+            "hash": "f56d29218b0c02bcac3f8150b659d122517fd894291c1c2df2434b0b159cce00",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/a/Adafruit_BusIO_Sahagun.md": {
-            "hash": "0c7779ebabe874f24b576e1815dfcb59fbac72dae2e03d0443770146c79bfcac",
-            "date": "2024-08-12"
+            "hash": "e52c4f5b2283cc4f3afc9c36d40f47d492c685a70f11225ae3cb61cc31726939",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/a/Adafruit_LC709203F.md": {
             "hash": "76033efe91dc68a734409295ff4e4d61d7811c3d30a40b32d06218af4e653a75",
@@ -8455,8 +8455,8 @@
             "date": "2024-08-12"
         },
         "reference/device-os/libraries/a/Adafruit_Unified_Sensor_Sahagun.md": {
-            "hash": "6c85497edeac0341e4f3aac01668628cf19a99cfc0f1829786fb3adcf87c8fb6",
-            "date": "2024-08-12"
+            "hash": "e0842a5f1924f129abbb3746ce3275dcd6b50950bc867ffefa99cc8d87809a5c",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/h/HM330X_CNM.md": {
             "hash": "0a9a8920380184278615732e46b0872dde983d012cba7b1aa8c849bace0b0e99",
@@ -8467,8 +8467,8 @@
             "date": "2024-07-27"
         },
         "reference/device-os/libraries/s/SparkFun_u-blox_GNSS_v3.md": {
-            "hash": "d1403fec27360185e308b857b6778df561a015a47145c9f50c5507bb479fedd7",
-            "date": "2024-08-12"
+            "hash": "d1d45d3f4b423575ad69d9f99d53d5de3e8da4da16c1aa4b34bf08586a1378c6",
+            "date": "2024-08-14"
         },
         "reference/device-os/api/system-events/firmware_update-256-parameter-values.md": {
             "hash": "c1f8906e35ed69718ab8e79b5f55aa1463427891f93db89b162c646ca0cf45ff",
@@ -9151,32 +9151,40 @@
             "date": "2024-07-23"
         },
         "reference/device-os/libraries/a/Adafruit_ADS1X15_multi.md": {
-            "hash": "a9a6c0942a3ce67caeb66d3d6f9b76e4aa11e83b77b761bc2311899f8a981fac",
-            "date": "2024-08-12"
+            "hash": "3b776bbc1e67664350b33a7f030339f5f403e3dc68bff3a83d9edf41877b601e",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/c/CircularBufferSpiFlashRK.md": {
-            "hash": "c48e1849e5d9c3c620830d49fec0a95236cd279fe9515e918b30542eb0403dee",
-            "date": "2024-08-12"
+            "hash": "78e3f916a5f23f8bc61bc4709e1d3abd470a66d1cdc88f4edb0ddf94b9549e4a",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/p/PublishQueueSpiFlashRK.md": {
-            "hash": "23ce647d83833765d93c4ea4e8ac851d9ddc8b752e3b6e643d546cec09ad0e47",
-            "date": "2024-08-12"
+            "hash": "11c6ad01a1ef20080de20f2c8952f6986b3f450494845f72bba5cf9af3e99adb",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/a/Adafruit_DRV2605_Library_Sahagun.md": {
-            "hash": "f0b4af31afb21d3763c2445a860ac728bc587aff04e1246cdec20def0a936951",
-            "date": "2024-08-12"
+            "hash": "04742e196fcf97baa16402a84e22700decc018da404e3e9d555101c81a9bd666",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/a/Adafruit_LSM6DS_Sahagun.md": {
-            "hash": "b369ab221a4013c5c5478528ce4fa4d227d61017c97c8b40015c0e63ea08ef24",
-            "date": "2024-08-12"
+            "hash": "627e96458d1cb24bad577c64029a4a7cd8e29256bd620f243de46834cb732796",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/s/SparkFun_WM8960_Arduino_Library.md": {
-            "hash": "c954cede5d900fff1907120175dc05290460a6eb48ff4ea464a8dc9e6c4931e8",
-            "date": "2024-08-12"
+            "hash": "0af4077e65e109ffe8e6436e8610fc865fec6ac0ca2f6ec07b2774e25d28c710",
+            "date": "2024-08-14"
         },
         "reference/device-os/libraries/s/StatusLedRK.md": {
-            "hash": "93f21cc637e976ba0a9ae3b66acf2cf2bac852c859e5ea4e2c7b9bae58d6b326",
-            "date": "2024-08-12"
+            "hash": "0daa1989a5b3f472dc69f73299d1f9403823edb6d393d3f300e8dcc19ab4ce48",
+            "date": "2024-08-14"
+        },
+        "reference/device-os/libraries/p/particle-som-gnss.md": {
+            "hash": "10cf3c5f8d7a3c4e1d750e612145db93b5620d95f8f529810cc792add7eeccfd",
+            "date": "2024-08-14"
+        },
+        "reference/device-os/libraries/p/Protocentral_ADS1220_AL.md": {
+            "hash": "40a1a609748414cc0a14d4c7f6a4fd50596f7356a7c326beffb234c136c006d5",
+            "date": "2024-08-14"
         }
     }
 }

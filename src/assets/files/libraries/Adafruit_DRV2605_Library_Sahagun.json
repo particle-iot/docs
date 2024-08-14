@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_DRV2605_Library_Sahagun",
     "version": "1.2.4",
-    "installs": 76,
+    "installs": 77,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for Adafruit DRV2605L Haptic Controller Breakout",

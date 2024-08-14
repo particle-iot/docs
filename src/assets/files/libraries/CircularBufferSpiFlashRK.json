@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CircularBufferSpiFlashRK",
     "version": "0.0.1",
-    "installs": 67,
+    "installs": 68,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library for Allegro ACS37800 power monitor IC",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PCD8544",
     "version": "1.1.1",
-    "installs": 2606,
+    "installs": 2608,
     "license": "BSD License",
     "author": "Limor Fried/Ladyada / Paul Kourany",
     "sentence": "Adafruit_PCD8544 Nokia 5110 LCD display library",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Camera_Pixy2",
     "version": "1.0.3",
-    "installs": 565,
+    "installs": 566,
     "license": "GNU",
     "author": "cmucam@cs.cmu.edu",
     "sentence": "Library to use the Pixy2 camera with Particle-Devices",

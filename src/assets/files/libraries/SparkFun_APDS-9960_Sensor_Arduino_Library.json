@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_APDS-9960_Sensor_Arduino_Library",
     "version": "1.4.2",
-    "installs": 118,
+    "installs": 119,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the Avago APDS-9960 sensor",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FiniteStateMachine",
     "version": "1.9.0",
-    "installs": 29137,
+    "installs": 29138,
     "license": "GNU General Public License, version 2",
     "author": "Gustavo Gonnet <gusgonnet@gmail.com>",
     "sentence": "A simple Finite State Machine Library",

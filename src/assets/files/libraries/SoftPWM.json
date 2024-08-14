@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SoftPWM",
     "version": "1.1.1",
-    "installs": 5808,
+    "installs": 5809,
     "license": "GNU General Public License 3+",
     "author": "Brett Hagman / Paul Kourany",
     "sentence": "Software PWM library adapted for Particle Core/Photon",

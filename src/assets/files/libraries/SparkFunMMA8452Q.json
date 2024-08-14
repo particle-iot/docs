@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMMA8452Q",
     "version": "1.0.1",
-    "installs": 52625,
+    "installs": 52626,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A Particle library for the SparkFun MMA8452Q 3-axis I2C accelerometer.",

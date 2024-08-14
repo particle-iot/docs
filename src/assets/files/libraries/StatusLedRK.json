@@ -7,7 +7,7 @@
   "attributes": {
     "name": "StatusLedRK",
     "version": "0.0.3",
-    "installs": 14,
+    "installs": 15,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "External status LED controller library for Particle devices",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_VEML7700",
     "version": "0.0.3",
-    "installs": 9975,
+    "installs": 9985,
     "license": "BSD",
     "author": "Adafruit, nrobinson2000",
     "sentence": "An Implementation of Adafruit's VEML7700 Library for the Particle Core, Photon, Electron, Argon, Boron, Xenon and RedBear Duo",

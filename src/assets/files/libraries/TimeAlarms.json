@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TimeAlarms",
     "version": "0.0.3",
-    "installs": 59504,
+    "installs": 59557,
     "license": "LGPL 3.0",
     "author": "Brian Ogilvie <bko@pobox.com>",
     "sentence": "Port of TimeAlarms",

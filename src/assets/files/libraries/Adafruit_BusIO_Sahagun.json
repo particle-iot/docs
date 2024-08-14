@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BusIO_Sahagun",
     "version": "1.14.5",
-    "installs": 294,
+    "installs": 369,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "This is a library for abstracting away I2C and SPI interfacing",

@@ -1,0 +1,81 @@
+{
+  "type": "libraries",
+  "id": "Protocentral_ADS1220_AL",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Protocentral_ADS1220_AL/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Protocentral_ADS1220_AL",
+    "version": "0.0.3",
+    "installs": 96,
+    "license": "OIZOM",
+    "author": "Sohil Patel for arduino converted to particle A.Lont",
+    "sentence": "ADS1220 library",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/reference/device-os/libraries/p/Protocentral_ADS1220_AL",
+  "versions": {
+    "0.0.3": {
+      "added": "2024-08-14T19:01:21.836Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "Protocentral_ADS1220": false
+          },
+          "boron": {
+            "Protocentral_ADS1220": false
+          },
+          "bsom": {
+            "Protocentral_ADS1220": false
+          },
+          "b5som": {
+            "Protocentral_ADS1220": false
+          },
+          "tracker": {
+            "Protocentral_ADS1220": false
+          },
+          "p2": {
+            "Protocentral_ADS1220": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Protocentral_ADS1220": false
+          },
+          "boron": {
+            "Protocentral_ADS1220": false
+          },
+          "bsom": {
+            "Protocentral_ADS1220": false
+          },
+          "b5som": {
+            "Protocentral_ADS1220": false
+          },
+          "tracker": {
+            "Protocentral_ADS1220": false
+          },
+          "esomx": {
+            "Protocentral_ADS1220": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Protocentral_ADS1220": false
+          },
+          "electron": {
+            "Protocentral_ADS1220": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "ADS1220 Library for Particle.",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2"
+  ]
+}
