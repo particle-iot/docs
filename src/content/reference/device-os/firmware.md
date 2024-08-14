@@ -19680,8 +19680,8 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 | Device      | GPIO      | RTC       | Analog    | Serial    | BLE       | Network   |
 | :---------- | --------: | --------: | --------: | --------: | --------: | --------: |
 | P2          |    579 uA |    572 uA |       n/a |       n/a |       n/a |       n/a |
-| M404        |    547 uA |    515 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
-| M524        |    421 uA |    415 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
+| M404        |    547 uA |    515 uA |       n/a |       n/a |       n/a |       n/a |
+| M524        |    421 uA |    415 uA |       n/a |       n/a |       n/a |       n/a |
 | T523 Eval   |    872 uA |    873 uA |    852 uA |    840 uA |    919 uA |   21.5 mA |
 | T402 Eval   |    807 uA |    835 uA |    831 uA |    798 uA |    858 uA |   17.2 mA |
 | Boron 2G/3G |    631 uA |    607 uA |    585 uA |    606 uA |    907 uA |   15.6 mA |
@@ -19691,8 +19691,6 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 | Argon       |    396 uA |    398 uA |    398 uA |    397 uA |    441 uA |   22.2 mA |
 | Electron    |   2.40 mA |   2.53 mA |   6.03 mA |   13.1 mA |       n/a |   28.1 mA |  
 | Photon      |   2.75 mA |   2.82 mA |   7.56 mA |   18.2 mA |       n/a |       n/a |
-
-<sup>1</sup>On the M-SoM, sleep with network active is only available for cellular, not for Wi-Fi, and only in STOP or ULP mode (not HIBERNATE). Power consumption in this mode to be provided at a later date.
 
 
 - Real-time clock (RTC) is kept running.
@@ -19705,13 +19703,14 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 - At least one wake source must be specified in STOP sleep mode.
 - On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
-
 ---
 
 {{note op="start" type="cellular"}}
 - On cellular devices, wake-on network can be enabled in STOP mode. This is recommended for any sleep duration of less than 10 minutes as it keeps the modem active while in sleep mode.
 
 - You should avoid powering off and on the cellular modem in periods of less than 10 minutes. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
+
+- The M-SoM does not support wake on network for cellular or Wi-Fi networks.
 {{note op="end"}}
 
 ---
@@ -19749,8 +19748,8 @@ Typical power consumption in ultra-low power (ULP) sleep mode, based on the wake
 | Device      | GPIO      | RTC       | Analog    | Serial    | BLE       | Network   |
 | :---------- | --------: | --------: | --------: | --------: | --------: | --------: |
 | P2          |    579 uA |    572 uA |       n/a |       n/a |       n/a |       n/a |
-| M404        |    547 uA |    515 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
-| M524        |    421 uA |    415 uA |       n/a |       n/a |       n/a | <sup>1</sup> |
+| M404        |    547 uA |    515 uA |       n/a |       n/a |       n/a |       n/a |
+| M524        |    421 uA |    415 uA |       n/a |       n/a |       n/a |       n/a  |
 | T523 Eval   |    139 uA |    139 uA |    140 uA |    564 uA |    214 uA |   21.7 mA |
 | T402 Eval   |    114 uA |    114 uA |    117 uA |    530 uA |    186 uA |   16.9 mA |
 | Boron 2G/3G |    171 uA |    174 uA |    178 uA |    610 uA |    494 uA |   16.4 mA |
@@ -19760,8 +19759,6 @@ Typical power consumption in ultra-low power (ULP) sleep mode, based on the wake
 | Argon       |     82 uA |     81 uA |     82 uA |    520 uA |    141 uA |   21.3 mA |
 | Electron    |   2.42 mA |   2.55 mA |       n/a |       n/a |       n/a |       n/a |  
 | Photon      |   2.76 mA |   2.83 mA |       n/a |       n/a |       n/a |       n/a |
-
-<sup>1</sup>On the M-SoM, sleep with network active is only available for cellular, not for Wi-Fi, and only in STOP or ULP mode (not HIBERNATE). Power consumption in this mode to be provided at a later date.
 
 In this mode:
 
@@ -19781,6 +19778,8 @@ In this mode:
 - On Gen 3 cellular devices, wake-on network can be enabled in ultra-low power mode. This is recommended for any sleep duration of less than 10 minutes as it keeps the modem active while in sleep mode.
 
 - You should avoid powering off and on the cellular modem in periods of less than 10 minutes. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
+
+- The M-SoM does not support wake on network for cellular or Wi-Fi networks.
 {{note op="end"}}
 
 ---

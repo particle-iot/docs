@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-07-31",
-            "hash": "ddb315233801ddb169475c303b38b5e5cb03636e5ff28ce68a7ec81fd90a88a6"
+            "date": "2024-08-14",
+            "hash": "4e3a7ae897184c0de9b15f5d637b63b4a5787e13df517a6887556a0c44b6c208"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3611,12 +3611,12 @@
             "hash": "a26a123fd0fd04a15ad5ac32ffc61c8931847c577898717faee8ba068d960caf"
         },
         "reference/device-os/api/sleep-sleep/stop-systemsleepmode.md": {
-            "date": "2024-05-22",
-            "hash": "e136e9a43e3a894fdf48f84604c97dadaae7eada0b0ebf9a547d82ced58819ac"
+            "date": "2024-08-14",
+            "hash": "2600828f088772fa339758adbf04d5faeb22a6eac745117f9eee0baf881ea485"
         },
         "reference/device-os/api/sleep-sleep/ultra_low_power-systemsleepmode.md": {
-            "date": "2024-05-22",
-            "hash": "0387339af191a39f4ff81d6717cf738def2f37d1aa381b3de52dddd2c6727e65"
+            "date": "2024-08-14",
+            "hash": "c175b082e2e5362694fce5873fe7871dd95c92c9414eaa7a0c617047eae20d85"
         },
         "reference/device-os/api/sleep-sleep/hibernate-systemsleepmode.md": {
             "date": "2024-05-22",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a4f057f1bbedc1a2ff799deb66a9078d0782c17269c4fcfa1057471f8aa65627",
-            "date": "2024-08-13"
+            "hash": "c2bd3e85dd388be981d8d0970834ff66bafcba19c0e2cdd210081b6bd06d4604",
+            "date": "2024-08-14"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9091,8 +9091,8 @@
             "date": "2024-08-12"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "061a593999cb7743a9b019fda3045d9805f5ace385487ad8402b4df2d62e5973",
-            "date": "2024-08-13"
+            "hash": "6343760bf27f280a321519c4cefc8424fdee9457bd79449124a680a441423347",
+            "date": "2024-08-14"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",

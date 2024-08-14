@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-SoM sleep network standby clarification 2024-08-14
+
+The M-SoM does not support sleep with network standby for cellular or Wi-Fi networks.
+
 ### B504 certification docs 2024-08-13
 
 FCC Certification documents added for the B504.
