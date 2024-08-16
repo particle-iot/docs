@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-08-14",
-            "hash": "4e3a7ae897184c0de9b15f5d637b63b4a5787e13df517a6887556a0c44b6c208"
+            "date": "2024-08-16",
+            "hash": "d06e87c4c71b8515276159ec35e7e0fc34097582d3e7b89d0e24ae1433465379"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3175,8 +3175,8 @@
             "hash": "512311c4e138604bdd1e04048f30acb0acab84bc01a6ac9193565c098e346964"
         },
         "reference/device-os/api/servo/attach.md": {
-            "date": "2024-02-27",
-            "hash": "051441833c4d27d954e24f57ba8082ecd62f7cd50734508ac4e60c379788521f"
+            "date": "2024-08-16",
+            "hash": "310a8a7a8c6cf73d969597514869cdb06fbf3abffa6bd27eca40d07a9db91a40"
         },
         "reference/device-os/api/servo/write.md": {
             "date": "2023-09-20",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c2bd3e85dd388be981d8d0970834ff66bafcba19c0e2cdd210081b6bd06d4604",
-            "date": "2024-08-14"
+            "hash": "11c689e02a5d9c9bb04f2dce9700d7786f40b1f83da70cb32a65854735efdad7",
+            "date": "2024-08-16"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

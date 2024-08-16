@@ -16421,12 +16421,22 @@ void loop()
 
 Set up a servo on a particular pin. Note that, Servo can only be attached to pins with a timer.
 
-- on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
-- on the P1, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, P1S0, P1S1
-- on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
-- on Gen 3 Argon, Boron, and Xenon devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for Servo.
-- On Gen 3 B-Series SoM devices, pins A0, A1, A6, A7, D4, D5, and D6 can be used for Servo.
-- On Gen 3 Tracker SoM devices, pins D0 - D9 can be used for Servo.
+{{!-- BEGIN do not edit content below, it is automatically generated 46200be3-45e5-4b7a-8106-80c9ee17d4b7 --}}
+
+| Devices | Pins |
+| :--- | :--- |
+| Argon, Boron, Xenon | A0, A1, A2, A3, A4, A5, D2, D3, D4, D5, D6, D7, D8 |
+| Asset Tracker / Monitor One | A0, A1, A2, A3, A4, A5, A6, A7, RX, TX |
+| B-SoM, B5-SoM | A0, A1, A6, A7, D4, D5, D6, D7 |
+| E-SoM-X | A3, A4, A5, A6, B2, B3, C0, C4, C5, D0, D1, D2, RX, TX |
+| M-SoM | A0, A1, A5, A5, A6, D4, D5, D6, D7, MISO, MOSI, RX, TX |
+| Photon 2 / P2 | A2, A5, D1, S0, S1 |
+| Electron, Electron | A4, A5, B0, B1, B2, B3, C4, C5, D0, D1, D2, D3, RX, TX, WKP |
+| P1 | A4, A5, D0, D1, D2, D3, P1S6, P1S0, P1S1, RX, TX, WKP |
+| Photon | A4, A5, D0, D1, D2, D3, RX, TX, WKP |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ```cpp
 // SYNTAX

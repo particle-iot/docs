@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated Servo 2024-08-16
+
+The Device OS API documentation for [Servo](/reference/device-os/api/servo/servo/) now includes information for Gen 4 devices.
+
 ### M-SoM sleep network standby clarification 2024-08-14
 
 The M-SoM does not support sleep with network standby for cellular or Wi-Fi networks.

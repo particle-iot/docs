@@ -2160,11 +2160,14 @@ const generatorConfig = require('./generator-config');
             }   
         }
 
-        let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
-        if (!platformInfoNew) {
-            return '';
+        let platformInfoNew;
+        if (options.platformNew) {
+            platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+            if (!platformInfoNew) {
+                return '';
+            }
+            platformInfoNew = Object.assign({}, platformInfoNew);    
         }
-        platformInfoNew = Object.assign({}, platformInfoNew);
 
         if (options.pinIncludeFn) {
             let tempPins = [];
@@ -2358,7 +2361,7 @@ const generatorConfig = require('./generator-config');
 
             }                        
         }
-        if (!mappedPins) {
+        if (!mappedPins && platformInfoNew) {
             // Map new pin by module pin
             const newPinsExpanded = expandMorePins(platformInfoNew.pins);
             
@@ -2650,6 +2653,107 @@ const generatorConfig = require('./generator-config');
 
                 md += '- ' + tName + ': ' + timers[t].join(', ') + '\n';
             }
+        }
+        if (options.style == 'pwm-listing') {
+            let tableOptions = {
+                columns: [],
+            };
+
+            tableOptions.columns.push({
+                key: 'devices',
+                title: 'Devices',
+                align: 'left',
+            });    
+
+            tableOptions.columns.push({
+                key: 'pins',
+                title: 'Pins',
+            });
+        
+
+            const platformPins = [];
+
+            for(const platformObj of updater.pinInfo.platforms) {
+                if (options.platformFilter && !options.platformFilter(platformObj)) {
+                    continue;
+                }
+
+                const pinList = [];
+
+                for(const pin of platformObj.pins) {
+                    if (pin.analogWritePWM) {
+                        pinList.push(pin.name);
+                    }
+                }
+
+                pinList.sort(pinNameSort);
+                platformPins.push({
+                    id: platformObj.id,
+                    name: platformObj.name,
+                    pinList,
+                });
+
+            }
+
+            // console.log('platformPins', platformPins);
+
+            // Dedupe list
+            let groupedList = [];
+
+            for(const platformPinsObj of platformPins) {
+                const stringList = platformPinsObj.pinList.join(', ');
+                
+                let groupedListObj = groupedList.find(e => e.pins == stringList);
+                if (groupedListObj) {
+                    groupedListObj.platformIds.push(platformPinsObj.id);
+                }
+                else {
+                    groupedList.push({
+                        platformIds: [platformPinsObj.id],
+                        pins: stringList,
+                    });
+                }
+            }
+
+            for(const groupedListObj of groupedList) {
+                groupedListObj.platformNames = [];
+
+                for(const platformId of groupedListObj.platformIds) {
+                    for(const key in updater.datastore.data.deviceConstants) {
+                        if (updater.datastore.data.deviceConstants[key].id == platformId) {
+                            groupedListObj.platformNames.push(updater.datastore.data.deviceConstants[key].displayName);
+                            if (!groupedListObj.generation) {
+                                groupedListObj.generation = updater.datastore.data.deviceConstants[key].generation;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                groupedListObj.platformNames.sort((a, b) => a.localeCompare(b));
+            }
+
+            groupedList.sort(function(a, b) {
+                if (a.generation != b.generation) {
+                    return b.generation - a.generation;
+                }
+                else {
+                    return a.platformNames[0].localeCompare(b.platformNames[0]);
+                }
+            });
+
+            // console.log('groupedList', groupedList);
+
+            let tableData = [];
+            
+            for(const groupedListObj of groupedList) {
+                tableData.push({
+                    devices: groupedListObj.platformNames.join(', '),
+                    pins: groupedListObj.pins,
+                })
+            }
+
+            md += updater.generateTable(tableOptions, tableData);            
         }
 
 

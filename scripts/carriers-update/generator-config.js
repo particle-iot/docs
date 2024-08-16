@@ -234,6 +234,15 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'46200be3-45e5-4b7a-8106-80c9ee17d4b7', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pwm-listing',
+                    platformFilter: (e => e.id > 0 && e.id < 99),
+                }); 
+            } 
+        },                
         // serial-number
         {            
             guid: 'b0fce313-6098-47bc-b2f7-c700210b1cc6', 
