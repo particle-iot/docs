@@ -15,8 +15,8 @@ The mobile operators used by Particle cellular devices in the Australia and New 
 
 In Australia, 2G services have already shut down, and 3G shutdown is approaching. 2G/3G devices will continue to operate until late 2024, however there may be degraded service.
 
-- Optus: Planned 3G shutdown date: September 2024
-- Telstra: Planned 3G shutdown date: August 31, 2024 (was previously June 2024)
+- Optus: Planned 3G shutdown date: October 28 2024 (was previously September 2024)
+- Telstra: Planned 3G shutdown date: October 28, 2024 (was previously June 2024, then August 31, 2024)
 - Vodafone: Planned 3G shutdown date: December 15, 2023. 
   - In April 2019, Vodafone ended 3G service on B1 (2100 MHz), reallocating those frequencies to 4G LTE.
 

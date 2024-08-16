@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-08-16",
-            "hash": "d06e87c4c71b8515276159ec35e7e0fc34097582d3e7b89d0e24ae1433465379"
+            "hash": "3acf0110a20a914d18bdea24e0b67b1eb3e3e15080afd2add92d3ba036c5676e"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8215,8 +8215,8 @@
             "date": "2023-10-19"
         },
         "reference/discontinued/cellular/au-nz-sunset.md": {
-            "hash": "202f9eb0a2602c87de74cb34a946b7a38b04514f9476ea607e5abf58c690304d",
-            "date": "2024-05-24"
+            "hash": "4ac81351f5f152c389835c5e8fa609e4c22eaff02404cdd66837fdd2760ed3b3",
+            "date": "2024-08-16"
         },
         "integrations/community-integrations/ilert.md": {
             "hash": "044fcb9e450d74983e5b4636c6609bb14fe07dc83167242875ce1a06aede7887",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "11c689e02a5d9c9bb04f2dce9700d7786f40b1f83da70cb32a65854735efdad7",
+            "hash": "d3c7e6b90a9173c873b0cdcaf834976a1f51d1a469d8f151797b27f2d6a004ea",
             "date": "2024-08-16"
         },
         "getting-started/cloud/logic.md": {

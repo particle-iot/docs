@@ -4772,7 +4772,7 @@
       "country": "Australia",
       "carrier": "Optus",
       "sunset2G": "2017-01-04",
-      "sunset3G": "2024-09-01",
+      "sunset3G": "2024-10-28",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -4826,7 +4826,7 @@
       "country": "Australia",
       "carrier": "Telstra",
       "sunset2G": "2016-12-31",
-      "sunset3G": "2024-06-30",
+      "sunset3G": "2024-10-28",
       "lteM1": true,
       "supersim": {
         "allow3G": true,

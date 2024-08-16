@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated 3G Sunset for Telstra and Optus (Australia) 2024-08-16
+
+The [3G sunset for Telstra and Optus](/reference/discontinued/cellular/au-nz-sunset/) has been extended to October 28, 2024.
+
 ### Updated Servo 2024-08-16
 
 The Device OS API documentation for [Servo](/reference/device-os/api/servo/servo/) now includes information for Gen 4 devices.
