@@ -763,6 +763,7 @@ You still have granular access control at the product level when using an organi
 
 All Asset Tracker devices are intended to be used in a product, not as developer devices. This makes it easy to manage a fleet of asset trackers, allowing per-fleet and per-device configuration settings, and features like fleet mapping. The Product Features in the previous section also apply to Tracker devices.
 
+{{!-- 
 ### Create product
 
 When you create a product with **Asset Tracker (Cellular** as the type, the Asset Tracker features are enabled for the product. Even if you have an existing product, you'll need to create a new Asset Tracker product as products can only have  a single type of device. For example, a product cannot have both an Asset Tracker and a Boron in it. This is done automatically for you if you use [setup.particle.io](https://setup.particle.io).
@@ -770,10 +771,11 @@ When you create a product with **Asset Tracker (Cellular** as the type, the Asse
 ![Create Product](/assets/images/tracker/create-product.png)
 
 It's OK if you're starting out with a single Tracker; you can create a free prototyping level product that only has one device in it.
+--}}
 
 ### Map
 
-![Map View](/assets/images/tracker/map-view.png)
+{{imageOverlay src="/assets/images/tracker/map-view.png" alt="Map view" }}
 
 The map view shows your fleet of devices or selected devices on a map. The Map view is available for Asset Tracker products in the **Maps** icon.
 
@@ -785,9 +787,15 @@ You can show a subset of your devices on the map by searching:
 - By Device Name
 - By [Device Groups](/getting-started/console/device-groups/)
 
+{{!-- 
 You can also search by the last known location, or within a certain time range.
 
 ![Map Search](/assets/images/tracker/map-search.png)
+--}}
+
+Each device has an overview available.
+
+{{imageOverlay src="/assets/images/tracker/device-overview.png" alt="Device overview" }}
 
 And view details about a specific device:
 
@@ -795,9 +803,21 @@ And view details about a specific device:
 
 On the Tracker One the temperature ("temp") is shown in degrees Celsius. This is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
 
+#### Accuracy circle
+
+While GNSS is generally accurate, there can be uncertainty to the exact location when using cellular
+tower geolocation. There can also be uncertainty with Wi-Fi, and in some cases with GNSS if a 
+a full set of satellites is not visible.
+
+When zooming into the map, a circle indicates the radius of uncertainty; the device could be anywhere 
+within the circle; it's exact location is not known.
+
+![Accuracy circle](/assets/images/tracker/accuracy-circle.png)
+
+
 ### Device fleet settings
 
-Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devices in your fleet. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
+Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devices in your fleet. The fleet-wide settings are in the **Map View**. Click **Configure fleet** button in the upper-left corner of the map to update Tracker Settings.
 
 ![Settings Icon](/assets/images/tracker/map-settings.png)
 
@@ -810,7 +830,7 @@ Finally, when a device is marked as a Development Device, all configuration fiel
 
 #### Location settings
 
-![Location Settings](/assets/images/tracker/settings-1.png)
+{{imageOverlay src="/assets/images/tracker/settings-1.png" alt="Location Settings" }}
 
 The Location settings include:
 
