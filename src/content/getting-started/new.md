@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker fleet updates 2024-08-19
+
+Updates to the Tracker [fleet mapping](/getting-started/console/console/#asset-tracker-features) to show all devices
+on the map, better real-time updates, and a mini-map view in device details.
+
 ### Updated 3G Sunset for Telstra and Optus (Australia) 2024-08-16
 
 The [3G sunset for Telstra and Optus](/reference/discontinued/cellular/au-nz-sunset/) has been extended to October 28, 2024.
