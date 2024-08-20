@@ -33,7 +33,7 @@ If you are currently using `SYSTEM_THREAD(DISABLED)` (or do not specify) and are
 The main difference is that user firmware will continue to run in a variety of cases described below, like when not cloud connected, in listening mode, and while downloading updates OTA.
 
 | SYSTEM_THREAD | SYSTEM_MODE | User firmware always runs |
-| :---: | :---: | |:---: |
+| :---: | :---: | :---: |
 | Enabled | Any | Yes |
 | Disabled | AUTOMATIC | No |
 | Disabled | SEMI_AUTOMATIC | Yes |
@@ -111,11 +111,11 @@ There only a few cases where concurrent access to resources between the system t
 
 The most common problem is when using SPI from your application while simultaneously using Ethernet, which uses SPI, on the same SPI bus. 
 
-If you consistently use SPI.beginTransaction() and SPI.endTransaction() around your SPI operations, you will assure that neither the system nor your code will interrupt the other, and also assure that the correct SPI mode, speed, byte order, etc. are always set.
+If you consistently use [`SPI.beginTransaction()`](/reference/device-os/api/spi/begintransaction/) and `SPI.endTransaction()` around your SPI operations, you will assure that neither the system nor your code will interrupt the other, and also assure that the correct SPI mode, speed, byte order, etc. are always set.
 
 #### I2C
 
-The same problem can occur with I2C, on devices that have the fuel gauge chip on the primary I2C interface, but this is generally only the B-SoM and M-SoM. Using Wire.lock() and Wire.unlock() can prevent this.
+The same problem can occur with I2C, on devices that have the fuel gauge chip on the primary I2C interface, but this is generally only the B-SoM and M-SoM. Using [`Wire.lock()`](/reference/device-os/api/wire-i2c/lock/) and `Wire.unlock()` can prevent this.
 
 #### USB Serial
 
@@ -127,7 +127,7 @@ See [USB serial logging](/firmware/best-practices/usb-serial/#user-firmware) for
 
 ### Function handlers
 
-Function handlers, calculated variable handlers, and serial event handlers do not require modification. They are dispatched from the user thread in between calls to loop() so you do not have to worry about concurrent access.
+Function handlers, calculated variable handlers, and serial event handlers do not require modification. They are dispatched from the user thread in between calls to `loop()` so you do not have to worry about concurrent access.
 
 ### Software timers
 
@@ -135,6 +135,6 @@ Software timers have always been dispatched from their own thread, regardless of
 
 ### Function and subscription handlers
 
-It's still OK to register function, calculated variable, and subscription handlers from setup() even though you are not cloud connected. They registration will occur after setup() exits and you are cloud connected.
+It's still OK to register function, calculated variable, and subscription handlers from `setup()` even though you are not cloud connected. They registration will occur after `setup()` exits and you are cloud connected.
 
 
