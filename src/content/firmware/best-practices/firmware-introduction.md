@@ -96,7 +96,7 @@ This is necessary for all .cpp files, but optional for .ino files. We recommend 
 SYSTEM_THREAD(ENABLED);
 ```
 
-[Threaded mode](/reference/device-os/api/system-thread/system-thread/) should be used for all user applications. It tends to provide the most consistent behavior and all products created by Particle Studios use this mode.
+[Threaded mode](/reference/device-os/api/system-thread/system-thread/) should be used for all user applications. It tends to provide the most consistent behavior and all products created by Particle Studios use this mode. With Device OS {{systemThreadRequired}} and later, system thread is always enabled. For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/).
 
 ```cpp
 SYSTEM_MODE(SEMI_AUTOMATIC);

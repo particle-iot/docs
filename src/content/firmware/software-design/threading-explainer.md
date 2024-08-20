@@ -29,6 +29,7 @@ A bit of background:
 - The default worker thread stack size is 3K. (Main loop is 6K bytes, and software timers are 1K).
 - Threads are not supported on the Spark Core (Gen 1).
 - You can use user threads whether you use `SYSTEM_THREAD(ENABLED)` or not, but you probably want to enable system threading.
+- With Device OS {{systemThreadRequired}} and later, system thread is always enabled. For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/).
 
 ### How fast does loop run?
 

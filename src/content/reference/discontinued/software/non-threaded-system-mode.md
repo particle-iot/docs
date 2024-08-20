@@ -9,11 +9,13 @@ description: Non-threaded system mode
 
 System threading, which allows the system components to run concurrently with your user application, has been available since Device OS 0.4.6 and is recommended for all user firmware.
 
-The ability to disable system threading will only be available in Device OS 5.x and earlier.
+With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
+
+If you are currently using `SYSTEM_THREAD(ENABLED)`, no changes are necessary to your code.
 
 | Device OS | Not specified | `SYSTEM_THREAD(ENABLED)` | `SYSTEM_THREAD(DISABLED)` |
 | :--- | :---: | :---: | :---: |
-| 6.2.0+ | Enabled | Enabled | Compile error |
+| {{systemThreadRequired}}+ | Enabled | Enabled | Compile error |
 | 5.x | Disabled | Enabled | Disabled |
 | 4.x | Disabled | Enabled | Disabled |
 | 3.x | Disabled | Enabled | Disabled |
@@ -22,10 +24,13 @@ The ability to disable system threading will only be available in Device OS 5.x 
 | 0.4.6+ | Disabled | Enabled | Disabled |
 | 0.4.5 | Disabled | Not available | Not available |
 
+If you have an unusual situation where you need to run without the system thread, you should use Device OS 5.x or earlier.
 
 ## Detailed differences
 
-The main difference is that user firmware will continue to run in a variety of cases described below.
+If you are currently using `SYSTEM_THREAD(DISABLED)` (or do not specify) and are using `SYSTEM_MODE(AUTOMATIC)` (or do not specify), then minor modifications may be necessary to your code.
+
+The main difference is that user firmware will continue to run in a variety of cases described below, like when not cloud connected, in listening mode, and while downloading updates OTA.
 
 | SYSTEM_THREAD | SYSTEM_MODE | User firmware always runs |
 | :---: | :---: | |:---: |
@@ -55,7 +60,7 @@ While your code will continue to function if you do not add the check, the publi
 With threading disabled and in AUTOMATIC system mode, setup() does not run until cloud connected. 
 
 With threading always enabled, your code in setup will run before connected to the cloud. If you attempt to 
-publish the call will block until cloud connected. This will work, but may have side effects.
+publish the call will block until cloud connected. This will work, but may be slightly confusing.
 
 It's generally best to wait until loop to publish to avoid blocking setup from completing.
 
@@ -69,7 +74,7 @@ When operating with system thread disabled and using `SYSTEM_MODE(AUTOMATIC)` (w
 
 Since your code will now run while in listening mode, this can affect the use of commands sent to the USB serial port. The impact of this is mitigated for several reasons, however:
 
-- Argon, P2, Photon 2, and M-SoM Wi-Fi are set up using USB control request, not the USB CDC serial port.
+- Argon, P2, Photon 2, and M-SoM Wi-Fi are typically set up using BLE or USB control request, not USB CDC serial port commands.
 - CLI commands like `particle identify` now use USB control requests as well.
 
 If, however, you previously used unthreaded mode and rely on sending USB CDC commands in listening mode, such as `w` to configure Wi-Fi, you must be careful to:
