@@ -101,6 +101,27 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 | 14 | RGB status LED |
 | 15 | MODE button |
 
+#### Preview edition
+
+The Muon preview comes in a plastic case with the following items:
+
+{{imageOverlay src="/assets/images/m-series/muon-preview-labeled.png" alt="Preview labeled" class="full-width"}}
+
+| Label | Feature |
+| :---: | :--- |
+| 16 | GNSS antenna |
+| 17 | Cellular antenna |
+| 18 | Wi-Fi/BLE antenna |
+| 19 | LiPo battery with temperature sensor |
+| 20 | LoRa antenna connector (SMA) |
+
+#### Device setup
+
+To set up your Muon preview device, connect a USB-C cable from connector 3 to your computer, then proceed to [setup.particle.io](https://setup.particle.io/) to complete the setup of your device.
+
+{{imageOverlay src="/assets/images/m-series/muon-usb.png" alt="USB connection" class="full-width"}}
+
+
 ### Dimensions
 
 Overall dimensions are 56mm x 85mm (2.2" x 3.35").
