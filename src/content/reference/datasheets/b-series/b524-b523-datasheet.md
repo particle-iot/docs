@@ -1742,7 +1742,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | eSwatini | B524 | 2G, 3G, Cat1 | MTN |
 | Ethiopia | B524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | B524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| Finland | B524 | 2G, Cat1 | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | B524 | 2G, 3G | Digicel |
 | Gabon | B524 | 2G, 3G, Cat1 | Airtel |

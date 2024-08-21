@@ -1057,7 +1057,7 @@ SE, SI, SK, TR, UA, UK(NI).
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
-| Canada | M404 | 2G, M1 | Bell Mobility, Rogers Wireless, Telus |
+| Canada | M404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Mexico | M404 | 2G, M1 | AT&T, Telcel |
 | United States | M404 | 2G, M1 | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
@@ -1127,7 +1127,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | eSwatini | M524 | 2G, 3G, Cat1 | MTN |
 | Ethiopia | M524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | M524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | M524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| Finland | M524 | 2G, Cat1 | DNA, Elisa, Telia |
 | France | M524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | M524 | 2G, 3G | Digicel |
 | Gabon | M524 | 2G, 3G, Cat1 | Airtel |

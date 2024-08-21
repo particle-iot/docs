@@ -894,7 +894,7 @@ To be provided at a later date.
 | eSwatini | MON524 | 2G, 3G, Cat1 | MTN |
 | Ethiopia | MON524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | MON524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | MON524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| Finland | MON524 | 2G, Cat1 | DNA, Elisa, Telia |
 | France | MON524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | MON524 | 2G, 3G | Digicel |
 | Gabon | MON524 | 2G, 3G, Cat1 | Airtel |

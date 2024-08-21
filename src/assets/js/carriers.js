@@ -137,6 +137,7 @@ carriers2.selectMenu = function() {
 
     let warnRoaming = false;
     let warnVerizon = false;
+    let warnSunset = false;
 
     countryCarrierFiltered.forEach(function(ccObj) {
         let html = '';
@@ -192,6 +193,7 @@ carriers2.selectMenu = function() {
 
             if (sunset2G.year && ccObj[countryCarrierKey]['allow2G']) {
                 html += '<td>' + sunset2G.s + '</td>';
+                warnSunset = true;
             }    
             else {
                 html += '<td>&nbsp;</td>';
@@ -202,6 +204,7 @@ carriers2.selectMenu = function() {
 
             if (sunset3G.year && ccObj[countryCarrierKey]['allow3G']) {
                 html += '<td>' + sunset3G.s + '</td>';
+                warnSunset = true;
             }    
             else {
                 html += '<td>&nbsp;</td>';
@@ -237,6 +240,13 @@ carriers2.selectMenu = function() {
     }
     else {
         $('#byDeviceVerizonWarning').hide();        
+    }
+
+    if (warnSunset) {
+        $('.byDeviceSunsetWarning').show();
+    }
+    else {
+        $('.byDeviceSunsetWarning').hide();
     }
 
 }

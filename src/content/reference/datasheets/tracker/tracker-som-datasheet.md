@@ -1235,7 +1235,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | eSwatini | T524 | 2G, 3G, Cat1 | MTN |
 | Ethiopia | T524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | T524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| Finland | T524 | 2G, Cat1 | DNA, Elisa, Telia |
 | France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | T524 | 2G, 3G | Digicel |
 | Gabon | T524 | 2G, 3G, Cat1 | Airtel |

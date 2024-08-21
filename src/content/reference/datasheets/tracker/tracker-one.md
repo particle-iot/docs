@@ -453,7 +453,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | eSwatini | ONE524 | 2G, 3G, Cat1 | MTN |
 | Ethiopia | ONE524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | ONE524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| Finland | ONE524 | 2G, Cat1 | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | ONE524 | 2G, 3G | Digicel |
 | Gabon | ONE524 | 2G, 3G, Cat1 | Airtel |

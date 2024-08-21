@@ -614,7 +614,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | eSwatini | E314 | 2G, 3G | MTN |
 | Ethiopia | E314 | 2G, 3G | Ethio Telecom |
 | Faroe Islands | E314 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | E314 | 2G, 3G | DNA, Elisa, Telia |
+| Finland | E314 | 2G | DNA, Elisa, Telia |
 | France | E314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | E314 | 2G, 3G | Digicel |
 | Gabon | E314 | 2G, 3G | Airtel |
