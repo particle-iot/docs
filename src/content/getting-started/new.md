@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Github actions 2024-08-21
+
+[Github actions](/firmware/best-practices/github-actions/) is no longer in beta and is now generally available.
+
 ### Supervisory reset 2024-08-21
 
 Added additional information about supervisory reset chips to the M-SoM and P2 datasheets.

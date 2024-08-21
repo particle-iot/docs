@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Github actions (CI/CD)
 ---
 
-# {{title}} (Beta)
+# {{title}}
 
 {{youtube "https://www.youtube.com/embed/Q5hCtQsqkzk"}}
 

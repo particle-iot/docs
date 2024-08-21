@@ -499,8 +499,8 @@
             "hash": "496aa81f4622eff63c5bea1aac556f356cb87ecafe2003671242ee1b66187cd6"
         },
         "firmware/best-practices/github-actions.md": {
-            "date": "2023-09-22",
-            "hash": "f94e3a733de6c5e81e31fff08d9b13f17ccc3f992377e3fc1e3fde9ea683876a"
+            "date": "2024-08-21",
+            "hash": "dd36174e98eb9205b75bc177d521e9e4885288a29fd14ca67330835f2c3c3735"
         },
         "firmware/best-practices/json.md": {
             "date": "2024-01-24",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "af05d2545404847f3d1d7dc22769883ac7f271ab5200225020affec1dbf8fd0e",
+            "hash": "5b7fb4b2f04038e8c63b4c6af99e40393b3a444cb208cb4446e5e70c30679dda",
             "date": "2024-08-21"
         },
         "getting-started/cloud/logic.md": {
