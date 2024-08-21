@@ -1407,8 +1407,8 @@
             "hash": "a25ee15997fd92068f24b92fa506611af0f0bcbae34daaa769917bec984a3de0"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2024-05-15",
-            "hash": "b3171865423c6ee9f389d64ee495a7f31cbdc54914c333888daf0e12cbee8b12"
+            "date": "2024-08-21",
+            "hash": "8f412113be5203512d22ee4f8e704beda0e6d5eab2f4471166d03580825e8c68"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
             "date": "2024-08-05",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5b18c2577ed424f7fdd1c90de3fd8626ff032c4caf7967639f0a631049f56512",
-            "date": "2024-08-19"
+            "hash": "af05d2545404847f3d1d7dc22769883ac7f271ab5200225020affec1dbf8fd0e",
+            "date": "2024-08-21"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8399,8 +8399,8 @@
             "date": "2024-05-21"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "1ad8b76b8db84f14f985da824da30741f41817298c58e825e65300d60659bba8",
-            "date": "2024-08-05"
+            "hash": "71f9684ba88a0296206b0af5ea4c1d323f5df4390e52fa18bdd3a0cc5127ba87",
+            "date": "2024-08-21"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "b34f1e593e180cf0c977724b0861a13b2722f1b6c1a53d84e85bb4fe0a1015d1",

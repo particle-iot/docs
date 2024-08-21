@@ -109,11 +109,14 @@ Power supply requirements:
 - Maintain these values at no-load as well as maximum load
 {{!-- END shared-blurb --}}
 
-In some cases, it may be necessary to add a supervisory/reset IC, such as the [SG Micro SGM809-RXN3L/TR](https://www.sg-micro.com/show-product-617.html). 
+{{!-- BEGIN shared-blurb 356da82a-95ad-401e-a26b-216d120c45d9 --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
 
 - If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
 - If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
 
+See [supervisory reset](#supervisory-reset), below, for additional information.
+{{!-- END shared-blurb --}}
 
 ---
 
@@ -451,6 +454,26 @@ It is highly recommended that you add MODE (SETUP) and RESET buttons to your bas
 The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
 
 The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
+
+### Supervisory reset
+
+{{!-- BEGIN shared-blurb c57e3927-686d-4a58-9a39-cd60a1ebc0bd --}}
+
+In many cases, it may be desirable to include a supervisory reset IC in your design. The design below is from
+the Photon 2 and uses the small and inexpensive Richtec RT9818C. This chip will hold the MCU in reset until there 
+is sufficient voltage to successfully boot. This can be helpful if your power supply cannot guarantee a sufficient slew
+rate.
+
+![](/assets/images/m-series/p2-reset.png)
+
+Of note in this design, the VDD pin of the RT9818C is connected to 3V3. The design is configurable by 
+moving a zero-ohm resistor to disable supervisory reset (by connecting to GND) or to use VIN. Note that the
+RT9818C has a maximum input voltage of 6V which is compatible with the Photon 2. Keep this in mind if using VIN
+on designs that have larger VIN voltages.
+
+Of course you can simply wire VDD to 3V3 instead of including the configurable resistors.
+{{!-- END shared-blurb --}}
+
 
 ### 5V Tolerance
 
@@ -2112,6 +2135,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 017 | 2024-04-23 | RK | Added links to certification documents |
 | 018 | 2024-04-25 | RK | Update retained memory description |
 | 019 | 2024-04-25 | RK | Added I/O characteristics |
+| 020 | 2024-08-21 | RK | Added supervisory reset information |
 
 
 ## Known errata

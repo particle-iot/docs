@@ -82,6 +82,16 @@ Power supply requirements:
 {{!-- END shared-blurb --}}
 
 
+{{!-- BEGIN shared-blurb 356da82a-95ad-401e-a26b-216d120c45d9 --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
+See [supervisory reset](#supervisory-reset), below, for additional information.
+{{!-- END shared-blurb --}}
+
+
 ### RF
 
 - The M-SoM includes three U.FL connectors for external antennas:
@@ -582,24 +592,6 @@ These pins have a special function at boot. Beware when using these pins as inpu
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### SETUP and RESET button
-
-It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
-
-{{!-- BEGIN do not edit content below, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
-
-| Pin | Pin Name | Description | MCU |
-| :---: | :--- | :--- | :--- |
-| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
-| 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! | PA[4] |
-
-
-{{!-- END do not edit content above, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
-
-The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
-
-The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
-
 ### BLE (Bluetooth LE)
 
 If you wish to use Wi-Fi on the M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
@@ -630,6 +622,43 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+
+### SETUP and RESET button
+
+It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
+
+{{!-- BEGIN do not edit content below, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
+| 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! | PA[4] |
+
+
+{{!-- END do not edit content above, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+
+The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
+
+The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
+
+### Supervisory reset
+
+{{!-- BEGIN shared-blurb c57e3927-686d-4a58-9a39-cd60a1ebc0bd --}}
+
+In many cases, it may be desirable to include a supervisory reset IC in your design. The design below is from
+the Photon 2 and uses the small and inexpensive Richtec RT9818C. This chip will hold the MCU in reset until there 
+is sufficient voltage to successfully boot. This can be helpful if your power supply cannot guarantee a sufficient slew
+rate.
+
+![](/assets/images/m-series/p2-reset.png)
+
+Of note in this design, the VDD pin of the RT9818C is connected to 3V3. The design is configurable by 
+moving a zero-ohm resistor to disable supervisory reset (by connecting to GND) or to use VIN. Note that the
+RT9818C has a maximum input voltage of 6V which is compatible with the Photon 2. Keep this in mind if using VIN
+on designs that have larger VIN voltages.
+
+Of course you can simply wire VDD to 3V3 instead of including the configurable resistors.
+{{!-- END shared-blurb --}}
 
 
 ### PMIC Notes
@@ -1389,3 +1418,4 @@ Global, country list to be provided a later date.
 | 005      | 2024-04-25 | RK | Added I/O characteristics |
 | 006      | 2024-04-30 | RK | Corrected SPI interface speeds |
 | 007      | 2024-07-09 | RK | Updated cellular modem on M635 to BG95-S5 |
+| 008      | 2024-08-21 | RK | Added supervisory reset information |
