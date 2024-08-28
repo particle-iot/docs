@@ -668,7 +668,7 @@ $(document).ready(function() {
                     analytics.track('Success', {category:releaseNotes.gaCategory, label:searchText});
                 }
                 else {
-                    analytics.track('No Results', {category:releaseNotes.gaCategory, label:searchFor});                            
+                    analytics.track('No Results', {category:releaseNotes.gaCategory, label:searchText});                            
                 }
 
                 for(const res of searchResults) {

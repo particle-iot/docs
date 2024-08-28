@@ -156,7 +156,7 @@ $(document).ready(function() {
                 }
             }
             else {
-                analytics.track('No Results', {category:gaCategory, label:searchFor});                            
+                analytics.track('No Results', {category:gaCategory, label:searchText});                            
             }
             navMenu.scanHeaders();
 
