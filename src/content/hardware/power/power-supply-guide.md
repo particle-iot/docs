@@ -231,7 +231,7 @@ The Tracker One includes a bq24195 but has a higher voltage limit because it inc
 
 If you are in a situation where:
 
-- Are using sleep modes and sleeping mode of the time
+- Are using sleep modes and sleeping most of the time
 - Not using the LiPo battery
 - Your external supply could be configured to generate 3.7V at 2A
 
