@@ -15,7 +15,7 @@ This guide is a brief guide to power supplies for Particle devices.
 
 - LTE Cat M1 cellular devices (Boron LTE BRN404X/BRN404/BRN402, B404X/B404/B402, Tracker SoM T404/T402, E-Series LTE E404/E402, Electron LTE ELC402) also only require 500 mA at 5 VDC.
 
-- 2G/3G cellular devices may require up to 2 A at 5 VDC, which can lead to some complexities, as described below.
+- The M-SoM and 2G/3G cellular devices may require up to 2 A at 5 VDC, which can lead to some complexities, as described below.
 
 ## Typical device power inputs
 
@@ -23,7 +23,7 @@ This guide is a brief guide to power supplies for Particle devices.
 
 - Most devices have a Micro USB B connector for supplying USB power to the device.
 
-- The Tracker One and Tracker SoM eval board have a USB C connector instead.
+- The Tracker One, Tracker SoM eval board, Muon, and M.2 breakout board have a USB C connector instead.
 
 - By default, most USB 2 and USB 3 ports can supply up to 500 mA at 5 VDC. 
 
@@ -64,6 +64,100 @@ This guide is a brief guide to power supplies for Particle devices.
 - They may also have a separate Li+ pin that is connected to the same place and can be used as a power input, power output, or as an alterative way to connect an external battery without using the JST-PH.
 
 - For cellular devices with a PMIC (Boron, Tracker, E-Series, Electron), this can be used to power the device with an external supply in some specific conditions, see the PMIC section below.
+
+Some devices including the M.2 breakout board and Muon include a 3-pin JST-PH connector. The battery pack includes an integrated 10K NTC thermistor which prevents charging when the battery temperature is too low or too high.
+
+Some devices include the Tracker One and Monitor One also control charging, but do so in software using a temperature sensor in the enclosure
+instead of using a battery pack temperature sensor.
+
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+
+<p class="attribution">Facing the plug on the battery side</p>
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 993e47b6-c085-45bf-908b-238bb6c323b8 --}}
+
+| SKU | Description | USB connector | Battery Connector | Lifecycle |
+| :--- | :--- | :---: | :---: | :--- |
+| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | micro-b | 2-pin | NRND |
+| ARG-LDKT | Argon Leak Detection Kit [x1] | micro-b | 2-pin | Deprecated |
+| ARG-STRTKT | Argon Starter Kit [x1] | micro-b | 2-pin | NRND |
+| ARGN-H | Argon [x1] | micro-b | 2-pin | Deprecated |
+| ARGNKIT | Argon, Starter Kit  [x1] | micro-b | 2-pin | NRND |
+| ARGNTRAY50 | Argon, Tray [x50] | micro-b | 2-pin | Deprecated |
+| ASSET2GV2 | Asset Tracker 2G | micro-b | 2-pin | Deprecated |
+| ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | micro-b | 2-pin | Deprecated |
+| ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | micro-b | 2-pin | Deprecated |
+| B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
+| B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | Deprecated |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | NRND |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | In development |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | &nbsp; | 2-pin | In development |
+| B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &nbsp; | 2-pin | Deprecated |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | &nbsp; | 2-pin | NRND |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &nbsp; | 2-pin | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | micro-b | 2-pin | Deprecated |
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | NRND |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | GA |
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | micro-b | 2-pin | Deprecated |
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | micro-b | 2-pin | NRND |
+| E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | &nbsp; | 2-pin | Deprecated |
+| E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| E313EA | E-Series 2G/3G (Global - E313), [x1] | &nbsp; | 2-pin | Deprecated |
+| E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | &nbsp; | 2-pin | End of life |
+| E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | &nbsp; | 2-pin | Deprecated |
+| E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | &nbsp; | 2-pin | NRND |
+| E350KIT | Electron 2G Kit (Global) | micro-b | 2-pin | Deprecated |
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
+| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
+| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | NRND |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | NRND |
+| E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | micro-b | 2-pin | NRND |
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | NRND |
+| ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
+| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | c | 3-pin | In development |
+| M2EVAL | Particle M.2 SoM Evaluation Board [x1] | micro-b | 2-pin | GA |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUONCB | Muon Carrier Board | c | 3-pin | In development |
+| MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | In development |
+| MUONCBKIT | Muon Carrier Board | c | 3-pin | In development |
+| SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
+| XENNTRAY50 | Xenon [x50] | micro-b | 2-pin | End of life |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 
 ### VBAT
 
@@ -180,6 +274,10 @@ All bq24195 devices can detect whether they have external power or not. This can
 - If you are using a 2G/3G device with a bq24195 and not using a battery, you will need to change the input current limit to the maximum.
 
 
+## PM-BAT power module
+
+In order to simplify a design using the bq24195 PMIC, MAX 17043 fuel gauge, and appropriate voltage regulators, the [PM-BAT](/hardware/power/pm-bat-datasheet/) module can be used to greatly simplify your design. It can be inserted into 0.1" female headers on your board, or directly soldered using the castellated pads on the bottom of the module.
+
 ## By device
 
 ### Boron
@@ -196,6 +294,45 @@ The Boron (Adafruit Feather form-factor) includes the following power inputs:
   - However on the Boron (not Argon), you can supply a up to 17V this pin if you do not have other Featherwing devices that require 5V on VUSB.
   - If you need compatibility with the Argon and Photon 2, limit VUSB to 3.6V to 5.5V as a power input.
 
+
+### M-SoM
+
+- The M-SoM does not include a built-in voltage regulator or PMIC.
+- If you wish to support using battery power, the [PM-BAT](/hardware/power/pm-bat-datasheet/) power module is recommended.
+
+#### VCC - M-SoM
+
+VCC is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
+
+If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
+
+#### 3V3 - M-SoM
+
+3V3 is used to supply power to RTL8722 MCU, logic ICs, memory, etc.. Make sure that the supply can handle a minimum of 500 mA.
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
+
+
+{{!-- BEGIN shared-blurb 356da82a-95ad-401e-a26b-216d120c45d9 --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
+See [supervisory reset](#supervisory-reset), below, for additional information.
+{{!-- END shared-blurb --}}
+
+
+
 ### B-Series SoM
 
 - The B-Series SoM does not have a built-in voltage regulator or PMIC. 
@@ -208,6 +345,27 @@ The Boron (Adafruit Feather form-factor) includes the following power inputs:
 
 - The P2 does not have a built-in voltage regulator or PMIC. 
 - It requires 3.3V at 500 mA.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
+
+
+{{!-- BEGIN shared-blurb 356da82a-95ad-401e-a26b-216d120c45d9 --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
+See [supervisory reset](#supervisory-reset), below, for additional information.
+{{!-- END shared-blurb --}}
+
+
 
 ### Argon and Photon 2
 
@@ -371,4 +529,3 @@ While there isn't a standard maximum discharge rate for 9V batteries, the datash
 LiSOCl2 (Lithium Thionyl Chloride) primary cell batteries are not generally recommended for cellular devices because the nominal voltage of 3.5V is below the minimum recommended voltage for the cellular modem of 3.6V. 
 
 These batteries are typically 3.5V 19000 mAh in a D-size battery package. It is possible to use two in series connected to VIN on most cellular devices, though this is less efficient if the device is asleep most of the time. The batteries are also quite expensive, and cannot be picked up in most stores.
-

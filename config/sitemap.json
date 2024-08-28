@@ -700,7 +700,7 @@
         },
         "getting-started/setup/manual-setup.md": {
             "date": "2024-08-28",
-            "hash": "0925a2617db8ae5867f210b7ba9cd25ceb769f64697cb130745ea372b596b6db"
+            "hash": "bb9cd8155ba1ebfe906151707240f1e14030b53d1f1ae7427d376cd42b5bbbc8"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -936,7 +936,7 @@
         },
         "hardware/certification/antenna.md": {
             "date": "2024-08-28",
-            "hash": "bcbd7576cbfbcc083bf13ab7f4dd373e84bbc9e094963c6b488389abb7c34fb7"
+            "hash": "8c178fa61093c5844a090306bd0e990e1573421ea886cda7325a226aa175c9e6"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -1039,12 +1039,12 @@
             "hash": "49738456e66a02cd233164a2eb69ddba54c3409822b828aefa6edd75944b6302"
         },
         "hardware/power/batteries.md": {
-            "date": "2024-07-31",
-            "hash": "fbb5a44c98715f779eab4b64a3d87999882d95277b47edb674f712916f3e2d71"
+            "date": "2024-08-28",
+            "hash": "c9c6b019549c8e139c6a5829e32e02e102f49495685d58ec17824686877bee69"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2024-02-27",
-            "hash": "7141a21ae2eb300204dc25835275d3c87bc0aa1d73cc4fec89e0366613e76df5"
+            "date": "2024-08-28",
+            "hash": "07c053aecf4366d608349d26130454f6877fd6aac2a23e9f964349e941297aa1"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1580,7 +1580,7 @@
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
             "date": "2024-08-28",
-            "hash": "bd5295eef8ae55d7c5fc728d8ad57a1ddcd2f0271fa84a986f9542b4d0a2d85f"
+            "hash": "54bb0fe8af02e085688e4086804f4d4a7390eb4bdc4fd8cd256183c403da7ea0"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "fa025f51b667cc2fd62b37cdca9f70f8d9da3181d3c41ccf507cace11b54a0be",
+            "hash": "2019e06182cb11baf54b2ca1de4f33b09f3dba383e118d6ec60b52c7dc9c70f5",
             "date": "2024-08-28"
         },
         "getting-started/cloud/logic.md": {

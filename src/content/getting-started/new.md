@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Power guide updates for M-SoM 2024-08-28
+
+The [power supply guide](/hardware/power/power-supply-guide/) has been updated for the M-SoM.
+
 ### Logic FunctionInfo 2024-08-28
 
 The prototype for FunctionInfo showed FunctionContext instead, though the description of the fields was correct.

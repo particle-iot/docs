@@ -63,13 +63,104 @@ Particle devices must use batteries wired like this: With the key facing down an
 
 We do not recommend wiring multiple batteries in parallel. The Fuel Gauge (battery monitor) is only designed for a single cell, and in the case of failure of one battery, excess current can flow into the defective battery, causing damage or even fire. 
 
-### 3100 mAh cylindrical
+### 2-pin vs. 3-pin
 
-The M.2 breakout board includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack. The TS jumper (26) must be installed for normal operation with a temperature sensor.
+Some devices including the M.2 breakout board and Muon include a 3-pin JST-PH connector. The battery pack includes an integrated 10K NTC thermistor which prevents charging when the battery temperature is too low or too high.
+
+Some devices include the Tracker One and Monitor One also control charging, but do so in software using a temperature sensor in the enclosure
+instead of using a battery pack temperature sensor.
 
 <div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
 
 <p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 993e47b6-c085-45bf-908b-238bb6c323b8 --}}
+
+| SKU | Description | USB connector | Battery Connector | Lifecycle |
+| :--- | :--- | :---: | :---: | :--- |
+| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | micro-b | 2-pin | NRND |
+| ARG-LDKT | Argon Leak Detection Kit [x1] | micro-b | 2-pin | Deprecated |
+| ARG-STRTKT | Argon Starter Kit [x1] | micro-b | 2-pin | NRND |
+| ARGN-H | Argon [x1] | micro-b | 2-pin | Deprecated |
+| ARGNKIT | Argon, Starter Kit  [x1] | micro-b | 2-pin | NRND |
+| ARGNTRAY50 | Argon, Tray [x50] | micro-b | 2-pin | Deprecated |
+| ASSET2GV2 | Asset Tracker 2G | micro-b | 2-pin | Deprecated |
+| ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | micro-b | 2-pin | Deprecated |
+| ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | micro-b | 2-pin | Deprecated |
+| B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
+| B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | Deprecated |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | NRND |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | In development |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | &nbsp; | 2-pin | In development |
+| B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &nbsp; | 2-pin | Deprecated |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | &nbsp; | 2-pin | NRND |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &nbsp; | 2-pin | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | micro-b | 2-pin | Deprecated |
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | NRND |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | GA |
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | micro-b | 2-pin | Deprecated |
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | micro-b | 2-pin | NRND |
+| E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | &nbsp; | 2-pin | Deprecated |
+| E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| E313EA | E-Series 2G/3G (Global - E313), [x1] | &nbsp; | 2-pin | Deprecated |
+| E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | &nbsp; | 2-pin | End of life |
+| E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | &nbsp; | 2-pin | Deprecated |
+| E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | &nbsp; | 2-pin | NRND |
+| E350KIT | Electron 2G Kit (Global) | micro-b | 2-pin | Deprecated |
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
+| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
+| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | NRND |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | NRND |
+| E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | micro-b | 2-pin | NRND |
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | NRND |
+| ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
+| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | c | 3-pin | In development |
+| M2EVAL | Particle M.2 SoM Evaluation Board [x1] | micro-b | 2-pin | GA |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUONCB | Muon Carrier Board | c | 3-pin | In development |
+| MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | In development |
+| MUONCBKIT | Muon Carrier Board | c | 3-pin | In development |
+| SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
+| XENNTRAY50 | Xenon [x50] | micro-b | 2-pin | End of life |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+### 3100 mAh cylindrical
+
+The M.2 breakout board and Muon include a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack. The TS jumper (26) must be installed for normal operation with a temperature sensor.
 
 The included battery is a 3100 mAh 3.7V LiPo battery with temperature sensor. [Battery datasheet](/assets/pdfs/ZN18650-3100mAh-V04.pdf).
 
@@ -128,4 +219,3 @@ Likewise, both of these are 5000 mAh batteries, but one is thin and larger, and 
 All of the non-Particle batteries were purchased from Amazon, and I had to reverse the polarity on the JST-PH connector.
 
 Note that many drone and RC car and aircraft batteries have a different connector and some have wires that are too large to fit into a JST-PH pin, so check carefully before trying to use one of those.
-

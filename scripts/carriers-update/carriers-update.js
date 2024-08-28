@@ -642,19 +642,32 @@ const generatorConfig = require('./generator-config');
         let tableOptions = {
             columns: [
                 {
-                    key: 'sku',
+                    key: 'name',
                     title: 'SKU',
                 },
                 {
                     key: 'desc',
                     title: 'Description',
                 },
-                {
-                    key: 'lifecycle',
-                    title: 'Lifecycle',
-                },
             ],
         };
+        if (options.addMiddle) {
+            for(const obj of options.addMiddle) {
+                tableOptions.columns.push(obj);        
+            }
+        }
+
+        tableOptions.columns.push({
+            key: 'lifecycle',
+            title: 'Lifecycle',
+        });
+
+        if (options.addRight) {
+            for(const obj of options.addRight) {
+                tableOptions.columns.push(obj);        
+            }
+        }
+    
 
         let tableData = [];
 
@@ -666,15 +679,23 @@ const generatorConfig = require('./generator-config');
                 continue;
             }
 
-            tableData.push({
-                sku: skuObj.name,
-                desc: skuObj.desc,
-                lifecycle: skuObj.lifecycle,
-            });
+            let obj = Object.assign({}, skuObj);
+            if (obj.batteryConn) {
+                switch(obj.batteryConn) {
+                    case 'jst-ph-2':
+                        obj.batteryConn = '2-pin';
+                        break;
+                    case 'jst-ph-3':
+                        obj.batteryConn = '3-pin';
+                        break;
+                }
+            }
+
+            tableData.push(obj);
         }
 
         tableData.sort(function(a, b) {
-            return a.sku.localeCompare(b.sku);
+            return a.name.localeCompare(b.name);
         });
 
         // Render

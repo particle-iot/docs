@@ -59,7 +59,7 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Micro B |
 | M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | USB-C |
-| M2EVAL | Particle M.2 SoM Evaluation Board [x1] | USB-C |
+| M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Micro B |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
@@ -70,8 +70,8 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUONCB | Muon Carrier Board | USB-C |
-| MUONCB-BETA | Muon Carrier Board - Beta Sample | &nbsp; |
-| MUONCBKIT | Muon Carrier Board | &nbsp; |
+| MUONCB-BETA | Muon Carrier Board - Beta Sample | USB-C |
+| MUONCBKIT | Muon Carrier Board | USB-C |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |

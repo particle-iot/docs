@@ -662,6 +662,30 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },      
+        // battery guide
+        {
+            
+            guid:'993e47b6-c085-45bf-908b-238bb6c323b8', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'usb',
+                            title: 'USB connector',
+                            align: 'center',
+                        },
+                        {
+                            key: 'batteryConn',
+                            title: 'Battery Connector',        
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return !skuObj.batteryConn;
+                    }        
+                }); 
+            }             
+        }, 
         // power modules
         {
             
