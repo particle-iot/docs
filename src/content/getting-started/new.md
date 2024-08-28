@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### SKU availability 2024-08-28
+
+The EDGEAISNSRKIT and PHN2EDGEKIT are no longer available. 
+
 ### 2G/3G sunset date updates 2024-08-21
 
 Several 2G and 3G sunset dates, mainly in Europe, were updated.

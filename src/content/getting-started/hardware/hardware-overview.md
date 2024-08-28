@@ -246,10 +246,10 @@ Since it contains a P2 module, you can also use it as a development kit for crea
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | GA | |
 | PHN2KIT | Photon 2, Kit [x1] | Global | GA | |
 | PHN2MEA | Photon 2 [x1] | Global | GA | |
 | PHN2MTY | Photon 2, Tray [x50] | Global | GA | |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

@@ -163,7 +163,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Deprecated | P1MD |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | GA | P046 |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | GA | P046 |
-| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | GA | P051 |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Deprecated | P051 |
 | PHN2KIT | Photon 2, Kit [x1] | GA | P051 |
 | PHN2MEA | Photon 2 [x1] | GA | P051 |
 | PHN2MTY | Photon 2, Tray [x50] | GA | P051 |
@@ -280,7 +280,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P044 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
 | P046 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | GA |
 | P046 | P2REEL | P2 Wi-Fi Module, Reel [x600] | GA |
-| P051 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | GA |
+| P051 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Deprecated |
 | P051 | PHN2KIT | Photon 2, Kit [x1] | GA |
 | P051 | PHN2MEA | Photon 2 [x1] | GA |
 | P051 | PHN2MTY | Photon 2, Tray [x50] | GA |

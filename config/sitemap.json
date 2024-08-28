@@ -655,8 +655,8 @@
             "hash": "d29a2c853c388564fc66693c93b146475c68e67fb49c1c7ac60cc722b1d2dae5"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-07-09",
-            "hash": "8d345ec4914ae033dcb8c21b57c867279c7bd0f4bef47d333c97d9323701c95e"
+            "date": "2024-08-28",
+            "hash": "a8be6aa76fcf9110c2ee15b4cf7975480b67fed34a4cde1924cf75b63e5dbf8d"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -699,8 +699,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-06-25",
-            "hash": "6bb6fae0b33a1437343837f7873873ce780cc07028df7f983a03ac60a662997d"
+            "date": "2024-08-28",
+            "hash": "0925a2617db8ae5867f210b7ba9cd25ceb769f64697cb130745ea372b596b6db"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,16 +935,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-06-25",
-            "hash": "aa077eaba4586ff5b40b95a12fd2a9b320001218bce4b25dca9224cde2400886"
+            "date": "2024-08-28",
+            "hash": "bcbd7576cbfbcc083bf13ab7f4dd373e84bbc9e094963c6b488389abb7c34fb7"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-08-13",
-            "hash": "a5cd22ef2f9081469b7fe1488fb6226b96dccb29b6991cf4f14c8135484135df"
+            "date": "2024-08-28",
+            "hash": "9688b8aae1367de71a087e40d8342bb2614a2bea9f0de69b3eaa0b80adce79a3"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1411,8 +1411,8 @@
             "hash": "8f412113be5203512d22ee4f8e704beda0e6d5eab2f4471166d03580825e8c68"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2024-08-05",
-            "hash": "e89124315882751c9731ddceb8bbe33c38736df044cb2b074a94dec53d104d99"
+            "date": "2024-08-28",
+            "hash": "a9d7fd05316785bdc914bd234e1576311d282bc3ec16e20e3aac9bbcc7ca6098"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2024-05-15",
@@ -1579,8 +1579,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2024-06-25",
-            "hash": "785a4458035dcab3cc2c0a378fceb04d4d9beead7556c809edfa92046f1fbed9"
+            "date": "2024-08-28",
+            "hash": "bd5295eef8ae55d7c5fc728d8ad57a1ddcd2f0271fa84a986f9542b4d0a2d85f"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
@@ -8171,8 +8171,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "c832dcea69937edb7df74c6a79ac34363b9c9785ef6024625db0442742689a38",
-            "date": "2024-06-26"
+            "hash": "d96a8aa172b2e417b7a3e41e35181457787f4243fdd50c5ba7f31eeaa354a305",
+            "date": "2024-08-28"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2cce6e72492b76be7e80100526c6724f9730cbc16b8bc9143722bf44695a555b",
-            "date": "2024-08-21"
+            "hash": "f946087990bb538c4e369592ed0eec835cffedda41411d4b89abea6da93c5f6a",
+            "date": "2024-08-28"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9071,12 +9071,12 @@
             "date": "2024-05-28"
         },
         "hardware/power/pm-bat-datasheet.md": {
-            "hash": "632c89b6244b3eceb322452eb16161e3279b7aa105fc039308e156e74954032a",
-            "date": "2024-06-26"
+            "hash": "cbe1c2e3d6911cfaf7489504eca5632a59bf7f7e70a9d82c89651f12f3ba88fc",
+            "date": "2024-08-28"
         },
         "hardware/power/pm-dc-datasheet.md": {
-            "hash": "c49e1d4f6a8eb29c9c275163855ae098bb25215bccc569640c4c519119f50ae8",
-            "date": "2024-08-08"
+            "hash": "2f012dad096881875256ec00d4ecdb7deba909288ea8852be3c1159975d6df1b",
+            "date": "2024-08-28"
         },
         "hardware/community/monitor-one-modbus.md": {
             "hash": "98bb3deab9db5bb30e57d050d6c579617f67266879b7dfa4f88ead34521e06c6",
