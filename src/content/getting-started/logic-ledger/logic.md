@@ -680,17 +680,14 @@ export default function process({ functionInfo, trigger, scheduled })
 
 This object specifies the function that was called:
 
-- `ownerId``: The user that owns this function. In the future, this could be an organization. It contains the user GUID, not the email address.
-- `logicFunctionId``: The unique identifier for the function.
+- `ownerId``: The user that owns this function. It contains the user or organization GUID, not the email address.
+- `logicFunctionId``: The unique identifier for the function (not the name).
 
 ```js
 // PROTOTYPE
-export interface FunctionContext {
-    functionInfo: FunctionInfo;
-    trigger: TriggerInfo;
-    event?: EventInfo;
-    scheduled?: ScheduledInfo;
-    ledgerChange?: LedgerChangeInfo;
+export interface FunctionInfo {
+    ownerId: string;
+    logicFunctionId: string;
 }
 ```
 

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Logic FunctionInfo 2024-08-28
+
+The prototype for FunctionInfo showed FunctionContext instead, though the description of the fields was correct.
+
 ### SKU availability 2024-08-28
 
 The EDGEAISNSRKIT and PHN2EDGEKIT are no longer available. 
