@@ -7,7 +7,6 @@
   "attributes": {
     "name": "DandelionHWInterface",
     "version": "0.9.9",
-    "installs": 465,
     "author": "Dexter Richard",
     "architectures": [],
     "visibility": "public",

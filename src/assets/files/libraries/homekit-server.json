@@ -7,7 +7,6 @@
   "attributes": {
     "name": "homekit-server",
     "version": "0.0.1",
-    "installs": 448,
     "architectures": [],
     "visibility": "public",
     "mine": false

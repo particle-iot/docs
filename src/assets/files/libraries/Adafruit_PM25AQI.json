@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Adafruit_PM25AQI",
     "version": "1.0.4",
-    "installs": 2707,
     "license": "BSD License",
     "author": "Adafruit",
     "sentence": "This is an Arduino library for the Adafruit PM2.5 Air Quality Sensor",

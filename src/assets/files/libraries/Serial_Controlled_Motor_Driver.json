@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Serial_Controlled_Motor_Driver",
     "version": "1.0.3",
-    "installs": 1486,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Use this to command the SCMD and connected chain.",

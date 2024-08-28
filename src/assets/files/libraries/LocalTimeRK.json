@@ -7,7 +7,6 @@
   "attributes": {
     "name": "LocalTimeRK",
     "version": "0.1.2",
-    "installs": 9959,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Timezone and DST handling for Particle devices",

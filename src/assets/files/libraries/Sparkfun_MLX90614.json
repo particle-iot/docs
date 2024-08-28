@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Sparkfun_MLX90614",
     "version": "1.0.0",
-    "installs": 556,
     "author": "DraNard",
     "architectures": [],
     "visibility": "public",

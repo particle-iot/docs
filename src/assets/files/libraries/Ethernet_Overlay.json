@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Ethernet_Overlay",
     "version": "1.0.0",
-    "installs": 451,
     "author": "Mike",
     "architectures": [],
     "visibility": "public",

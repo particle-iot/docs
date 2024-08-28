@@ -7,7 +7,6 @@
   "attributes": {
     "name": "RHMesh",
     "version": "1.0.0",
-    "installs": 554,
     "author": "William Espinoza",
     "architectures": [],
     "visibility": "public",

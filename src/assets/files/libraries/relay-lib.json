@@ -7,7 +7,6 @@
   "attributes": {
     "name": "relay-lib",
     "version": "3.0.0",
-    "installs": 2389,
     "license": "MIT",
     "author": "Daniel Sullivan <mumblepins@gmail.com>",
     "sentence": "A simple relay control library",

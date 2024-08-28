@@ -7,7 +7,6 @@
   "attributes": {
     "name": "ParticleAppleMIDI",
     "version": "1.0.0",
-    "installs": 590,
     "author": "Joel Quatrocchi",
     "maintainer": "Joel Quatrocchi <joel.quatro@gmail.com>",
     "sentence": "Library code for AppleMIDI protocol",

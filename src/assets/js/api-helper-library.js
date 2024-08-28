@@ -3,11 +3,30 @@ $(document).ready(function() {
         return;
     }
 
+    const libraryUsageUrl = '/assets/files/libraryUsage.json';
+
+    $('.libraryInstallCounter').each(function() {
+        const thisPartial = $(this);
+
+        const libraryId = $(thisPartial).data('library-id');
+
+        fetch(libraryUsageUrl)
+            .then(response => response.json())
+            .then(function(usageJson) {
+                if (usageJson[libraryId]) {
+                    $(thisPartial).text(usageJson[libraryId]);
+                }
+            });
+        
+    });
+
+
     $('.apiHelperLibrarySearch').each(function() {
         let lunrIndex;
         let searchOpts = {};
         let searchResults;
         let fetchQueue = [];
+        let usageJson;
 
         const thisPartial = $(this);
 
@@ -21,6 +40,14 @@ $(document).ready(function() {
         const librarySearchStorageKey = 'librarySearch';
 
         $(searchShowTipsElem).prop('checked', false);
+
+        fetch(libraryUsageUrl)
+            .then(response => response.json())
+            .then(function(usageJsonIn) {
+                usageJson = usageJsonIn;
+            });
+
+
 
         const fetchRange = function(start, end) {            
             for(let ii = start; ii < end && ii < searchResults.length; ii++) {
@@ -66,9 +93,11 @@ $(document).ready(function() {
                     $(searchOutputElem).append('<ul>');
 
                     $(searchOutputElem).append($(document.createElement('li')).text('Version: ' + libInfo.attributes.version));
-
-                    $(searchOutputElem).append($(document.createElement('li')).text('Installs: ' + libInfo.attributes.installs));
-
+                    
+                    if (usageJson && usageJson[libInfo.id]) {
+                        $(searchOutputElem).append($(document.createElement('li')).text('Installs: ' + usageJson[libInfo.id]));
+                    }
+                    
                     if (libInfo.verification) {
                         $(searchOutputElem).append($(document.createElement('li')).text('Verification: ' + libInfo.verification));
                     }

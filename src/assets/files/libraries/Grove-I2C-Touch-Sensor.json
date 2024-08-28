@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Grove-I2C-Touch-Sensor",
     "version": "1.0.0",
-    "installs": 573,
     "license": "The LGPL License V2.1.",
     "author": "SeeeedStudio--lg",
     "architectures": [],

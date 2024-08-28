@@ -392,6 +392,14 @@ async function generate() {
         fs.mkdirSync(librariesDir);
     }
 
+    // Library usage file
+    const libraryUsagePath = path.join(__dirname, '../../src/assets/files/libraryUsage.json'); 
+    let usageJson = {};
+    for (const lib of libraryList) {
+        usageJson[lib.id] = lib.attributes.installs;
+    }
+    fs.writeFileSync(libraryUsagePath, JSON.stringify(usageJson, null, 2));
+
     for (const lib of libraryList) {
         const libSourceDir = path.join(dataLibrariesDir, lib.id);
 
@@ -400,6 +408,9 @@ async function generate() {
         // Stuff from the library information API
         let libInfo = {};
         libInfo = Object.assign(libInfo, lib);
+
+        // This is now stored in the usage file so every JSON file doesn't update 
+        delete libInfo.attributes.installs;
 
         if (lib.attributes.official) {
             libInfo.verification = 'official';

@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Protocentral_ADS1220_AL",
     "version": "0.0.3",
-    "installs": 96,
     "license": "OIZOM",
     "author": "Sohil Patel for arduino converted to particle A.Lont",
     "sentence": "ADS1220 library",

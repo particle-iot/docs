@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Adafruit_SGP30",
     "version": "1.0.0",
-    "installs": 8469,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, SJB (dyadica.co.uk, github.com/dyadica)",
     "sentence": "Adafruit SGP30 Library",

@@ -7,7 +7,6 @@
   "attributes": {
     "name": "BackgroundPublishRK",
     "version": "0.0.2",
-    "installs": 10118,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for publishing from a background thread on Particle devices",

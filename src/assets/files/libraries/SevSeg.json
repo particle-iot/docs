@@ -7,7 +7,6 @@
   "attributes": {
     "name": "SevSeg",
     "version": "3.3.0",
-    "installs": 3585,
     "author": "DeanIsMe (ported by Jp78)",
     "sentence": "A library originally created by DeanIsMe for Arduinos, ported to particle (copy paste)",
     "paragraph": "An abstraction for easily controlling seven segments 4 digit displays",

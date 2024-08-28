@@ -7,7 +7,6 @@
   "attributes": {
     "name": "LedDisplay",
     "version": "0.4.11",
-    "installs": 359,
     "author": "Tom Igoe",
     "architectures": [],
     "visibility": "public",

@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Wiegand",
     "version": "1.0.2",
-    "installs": 3375,
     "author": "MonkeyBoard",
     "architectures": [],
     "visibility": "public",

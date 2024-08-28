@@ -7,7 +7,6 @@
   "attributes": {
     "name": "adafruit-led-backpack",
     "version": "1.0.0",
-    "installs": 25008,
     "license": "MIT",
     "author": "Tim Caswell <tim@creationix.com>",
     "sentence": "Forked from Adafruit's LED Backpack library, for SparkCore",

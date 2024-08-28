@@ -7,7 +7,6 @@
   "attributes": {
     "name": "ComparatorGen3_RK",
     "version": "0.0.1",
-    "installs": 71,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Support for the nRF52 hardware comparator for Particle user firmware",

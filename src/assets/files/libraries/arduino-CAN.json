@@ -7,7 +7,6 @@
   "attributes": {
     "name": "arduino-CAN",
     "version": "0.0.1",
-    "installs": 3069,
     "license": "MIT",
     "author": "Sandeep Mistry <sandeep.mistry@gmail.com>, Nils Zottmann",
     "sentence": "CAN bus for Particle using the MCP2515",

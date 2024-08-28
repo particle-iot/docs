@@ -7,7 +7,6 @@
   "attributes": {
     "name": "DGS",
     "version": "2.0.1",
-    "installs": 686,
     "author": "DPeaslee",
     "maintainer": "DPeaslee <davidpeaslee23@gmail.com>",
     "sentence": "Enables DGS set up and control. DGS is digital sensor SDK platform. For Firmware 25SEP17.",

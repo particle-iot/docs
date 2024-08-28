@@ -7,7 +7,6 @@
   "attributes": {
     "name": "sht20",
     "version": "1.0.0",
-    "installs": 12344,
     "architectures": [],
     "visibility": "public",
     "mine": false

@@ -7,7 +7,6 @@
   "attributes": {
     "name": "QRCode",
     "version": "1.0.0",
-    "installs": 665,
     "author": "Tim Siggins <ttsigg@gmail.com>",
     "maintainer": "Tim Siggins <ttsigg@gmail.com>",
     "sentence": "A simple QR code generation library.",

@@ -7,7 +7,6 @@
   "attributes": {
     "name": "LPS331",
     "version": "0.0.1",
-    "installs": 368,
     "author": "pololu",
     "architectures": [],
     "visibility": "public",

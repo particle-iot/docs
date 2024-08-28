@@ -7,7 +7,6 @@
   "attributes": {
     "name": "EEPROM_Class",
     "version": "1.1.0",
-    "installs": 506,
     "license": "MIT",
     "author": "Randy E. Rainwater",
     "paragraph": "Class for managing configuration data stored in EEPROM for non-volatility.",

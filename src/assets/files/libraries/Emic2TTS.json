@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Emic2TTS",
     "version": "1.0.0",
-    "installs": 3165,
     "license": "MIT license",
     "author": "Krishnaraj Varma",
     "sentence": "Emic2 Text-to-Speech module library",

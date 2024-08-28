@@ -7,7 +7,6 @@
   "attributes": {
     "name": "RGBMoodLifx",
     "version": "0.0.5",
-    "installs": 431,
     "license": "GPLv3",
     "author": "Paul Kourany, Kenneth Lim, Matthew McGowan, @Hootie81, @lightx",
     "sentence": "LIFX bulb emulator",

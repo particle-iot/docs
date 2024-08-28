@@ -7,7 +7,6 @@
   "attributes": {
     "name": "MQTT_a0e4",
     "version": "0.3.9",
-    "installs": 1295,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/truly-moody/mqtt",

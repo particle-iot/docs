@@ -7,7 +7,6 @@
   "attributes": {
     "name": "HTU21D",
     "version": "0.1.0",
-    "installs": 43294,
     "license": "GPL v3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "Library to support HTU21D Humidity & Temperature sensor",

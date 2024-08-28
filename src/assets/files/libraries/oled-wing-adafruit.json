@@ -7,7 +7,6 @@
   "attributes": {
     "name": "oled-wing-adafruit",
     "version": "0.0.8",
-    "installs": 56646,
     "author": "rickkas7",
     "maintainer": "rickkas7@rickkas7.com",
     "sentence": "Driver for Adafruit feather wing with SSD1306 oled and buttons",

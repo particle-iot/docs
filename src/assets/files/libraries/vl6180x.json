@@ -7,7 +7,6 @@
   "attributes": {
     "name": "vl6180x",
     "version": "1.1.2",
-    "installs": 182,
     "author": "Casey Kuhns@SparkFun <techsupport@sparkfun.com>",
     "maintainer": "Peter Buelow <goballstate@gmail.com>",
     "sentence": "The VL6180 combines an IR emitter, a range sensor, and an ambient light sensor together for you to easily use and communicate with via an I2C interface.",

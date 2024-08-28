@@ -7,7 +7,6 @@
   "attributes": {
     "name": "BMP180",
     "version": "1.1.0",
-    "installs": 6911,
     "author": "Andrew Fu",
     "architectures": [],
     "visibility": "public",

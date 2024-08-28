@@ -7,7 +7,6 @@
   "attributes": {
     "name": "SparkFun_TMP117_Arduino_Library",
     "version": "1.2.3",
-    "installs": 3156,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive the Texas Instruments TMP117 by I2C.",

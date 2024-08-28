@@ -7,7 +7,6 @@
   "attributes": {
     "name": "LedSwitchRK",
     "version": "0.0.2",
-    "installs": 362,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Handy library for the SparkFun tactile switch with LED with debouncing",

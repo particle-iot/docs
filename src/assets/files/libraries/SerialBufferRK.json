@@ -7,7 +7,6 @@
   "attributes": {
     "name": "SerialBufferRK",
     "version": "0.0.3",
-    "installs": 49051,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "SerialBuffer for Particle platform",

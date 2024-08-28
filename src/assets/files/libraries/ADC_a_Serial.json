@@ -7,7 +7,6 @@
   "attributes": {
     "name": "ADC_a_Serial",
     "version": "1.0.2",
-    "installs": 580,
     "author": "Leonardo Morales",
     "architectures": [],
     "visibility": "public",

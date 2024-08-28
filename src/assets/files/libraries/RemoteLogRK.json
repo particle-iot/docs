@@ -7,7 +7,6 @@
   "attributes": {
     "name": "RemoteLogRK",
     "version": "0.0.4",
-    "installs": 5716,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Remote logging for Particle devices",

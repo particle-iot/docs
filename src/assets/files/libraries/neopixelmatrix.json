@@ -7,7 +7,6 @@
   "attributes": {
     "name": "neopixelmatrix",
     "version": "0.0.1",
-    "installs": 924,
     "author": "Adam Puleo",
     "architectures": [],
     "visibility": "public",

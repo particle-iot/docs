@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Monitor",
     "version": "0.0.2",
-    "installs": 336,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "All the bits you need for the Spark Monitor",

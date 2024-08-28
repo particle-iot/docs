@@ -7,7 +7,6 @@
   "attributes": {
     "name": "speaker",
     "version": "1.2.0",
-    "installs": 4187,
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "Generate audio output for a speaker",
     "url": "https://github.com/monkbroc/particle-speaker",

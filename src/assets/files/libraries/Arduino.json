@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Arduino",
     "version": "0.0.10",
-    "installs": 84384,
     "license": "MIT",
     "author": "John Plocher <John.Plocher+git@gmail.com>",
     "sentence": "A simple shim header that makes it easier to use Arduino sketches/libs with Particle",

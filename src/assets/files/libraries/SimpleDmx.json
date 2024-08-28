@@ -7,7 +7,6 @@
   "attributes": {
     "name": "SimpleDmx",
     "version": "0.1.0",
-    "installs": 945,
     "license": "MIT",
     "author": "André Hanak <impressum@a-hanak.de>",
     "sentence": "The library allows to transmit a DMX signal using the on board serial.",

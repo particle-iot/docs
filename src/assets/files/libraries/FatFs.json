@@ -7,7 +7,6 @@
   "attributes": {
     "name": "FatFs",
     "version": "0.2.13",
-    "installs": 418,
     "license": "MIT",
     "author": "Aaron Heise <aaron@hizlabs.com>",
     "sentence": "FatFs library by ChaN plus C++ driver loader, for Particle firmware. Includes an SD card (SPI mode) driver.",

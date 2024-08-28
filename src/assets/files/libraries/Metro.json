@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Metro",
     "version": "1.0.1",
-    "installs": 1422,
     "license": "MIT",
     "author": "Thomas Ouellet Fredericks",
     "sentence": "Metro library for Arduino or Wiring that facilitates the implementation of recurring timed events.",

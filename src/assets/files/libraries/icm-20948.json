@@ -7,7 +7,6 @@
   "attributes": {
     "name": "icm-20948",
     "version": "1.0.3",
-    "installs": 191,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Use the low-power high-resolution ICM 20948 9 DoF IMU from Invensense with I2C or SPI. Includes a portable C skeleton",

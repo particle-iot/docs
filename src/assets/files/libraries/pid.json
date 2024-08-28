@@ -7,7 +7,6 @@
   "attributes": {
     "name": "pid",
     "version": "2.0.1",
-    "installs": 66094,
     "license": "GPLv3",
     "author": "Dan Rice <dan@zoombody.com>",
     "maintainer": "Particle <hello@particle.io>",

@@ -7,7 +7,6 @@
   "attributes": {
     "name": "SparkFunMAX31855k",
     "version": "0.0.1",
-    "installs": 1017,
     "license": "Creative Commons license, Written by SparkFun Electronics",
     "author": "Brandon Satrom <bsatrom@gmail.com>",
     "sentence": "Library for SparkFun K-type thermocouples",

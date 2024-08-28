@@ -7,7 +7,6 @@
   "attributes": {
     "name": "papertrail",
     "version": "0.0.5",
-    "installs": 40697,
     "license": "MIT",
     "author": "Barak Weiss <barakwei@gmail.com>",
     "sentence": "Sends logs to Papertrail",

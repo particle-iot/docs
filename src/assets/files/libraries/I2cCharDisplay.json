@@ -7,7 +7,6 @@
   "attributes": {
     "name": "I2cCharDisplay",
     "version": "1.0.3",
-    "installs": 3584,
     "license": "MIT",
     "author": "Gary Muhonen <gary@dcity.org>",
     "sentence": "I2C LCD and OLED Character Display Library.",

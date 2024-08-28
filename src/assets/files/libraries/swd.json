@@ -7,7 +7,6 @@
   "attributes": {
     "name": "swd",
     "version": "0.1.4",
-    "installs": 1547,
     "license": "LGPLv3",
     "author": "mdma <mat dot mcgowan+particle at gmail dot com>",
     "sentence": "Implements the SWD protocol and STM32F2xx flash operations. This allows one device to program another by connecting 2 data lines.",

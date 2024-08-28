@@ -7,7 +7,6 @@
   "attributes": {
     "name": "DS75-RK",
     "version": "0.0.1",
-    "installs": 478,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for DS75 temperature sensor",

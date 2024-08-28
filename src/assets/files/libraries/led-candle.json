@@ -7,7 +7,6 @@
   "attributes": {
     "name": "led-candle",
     "version": "1.0.1",
-    "installs": 376,
     "license": "MIT",
     "author": "Darryl Hodgins <darrylh@darrylh.ca>",
     "sentence": "Simulate a flickering candle with an LED.",

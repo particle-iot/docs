@@ -7,7 +7,6 @@
   "attributes": {
     "name": "FRAM",
     "version": "1.0.1",
-    "installs": 745,
     "license": "GPLv3",
     "author": "Paul Kourany, Kenneth Lim",
     "sentence": "FRAM library for Particle.",

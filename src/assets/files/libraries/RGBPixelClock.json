@@ -7,7 +7,6 @@
   "attributes": {
     "name": "RGBPixelClock",
     "version": "1.1.3",
-    "installs": 1613,
     "license": "MIT license",
     "author": "Paul Kourany @peekay123",
     "sentence": "RGBPongClock for RGB Pixel Clock Kit",

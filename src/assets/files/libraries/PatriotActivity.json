@@ -7,7 +7,6 @@
   "attributes": {
     "name": "PatriotActivity",
     "version": "5.0.0",
-    "installs": 783,
     "license": "MIT",
     "author": "Ron Lisle",
     "sentence": "Allow Alexa to set a state not associated with an actual hardware device.",

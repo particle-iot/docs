@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Fob_Alarm",
     "version": "1.0.0",
-    "installs": 748,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for ControlEverything KeyFob interface module for Photon and I2CBZ buzzer mini module.",

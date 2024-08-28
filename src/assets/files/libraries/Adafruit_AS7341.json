@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Adafruit_AS7341",
     "version": "1.0.2",
-    "installs": 195,
     "author": "Adafruit_Bryan Siepert",
     "architectures": [],
     "visibility": "public",

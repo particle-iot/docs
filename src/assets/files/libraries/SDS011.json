@@ -7,7 +7,6 @@
   "attributes": {
     "name": "SDS011",
     "version": "0.0.2",
-    "installs": 932,
     "license": "GPL",
     "author": "toon nelissen",
     "sentence": "Library to read data from the SDS011 dustsensor",

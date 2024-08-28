@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Temperature_Alarm",
     "version": "1.0.0",
-    "installs": 825,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for article SI7020_I2CBZ_Temp_Alarm on controleverything.com",

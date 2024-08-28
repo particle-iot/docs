@@ -7,7 +7,6 @@
   "attributes": {
     "name": "particle-som-gnss",
     "version": "1.0.0",
-    "installs": 3,
     "license": "Apache License, Version 2.0",
     "author": "Particle",
     "sentence": "GNSS library for Particle SOMs",

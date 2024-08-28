@@ -7,7 +7,6 @@
   "attributes": {
     "name": "PCA9534",
     "version": "0.1.4",
-    "installs": 2785,
     "license": "MIT",
     "author": "Abdulrahman Saleh Khamis",
     "sentence": "PCA9534 I/O expander library with Particle like API calls",

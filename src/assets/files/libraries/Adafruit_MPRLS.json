@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Adafruit_MPRLS",
     "version": "1.0.0",
-    "installs": 15457,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",

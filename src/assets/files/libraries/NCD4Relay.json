@@ -7,7 +7,6 @@
   "attributes": {
     "name": "NCD4Relay",
     "version": "0.0.2",
-    "installs": 26187,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 4 channel Spark compatible Relay Controller",

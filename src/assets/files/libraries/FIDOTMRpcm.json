@@ -7,7 +7,6 @@
   "attributes": {
     "name": "FIDOTMRpcm",
     "version": "1.0.0",
-    "installs": 338,
     "author": "C Guy",
     "architectures": [],
     "visibility": "public",

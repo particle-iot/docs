@@ -7,7 +7,6 @@
   "attributes": {
     "name": "ArduinoJson6113",
     "version": "6.11.3",
-    "installs": 1591,
     "license": "MIT",
     "author": "Benoit Blanchon <blog.benoitblanchon.fr>",
     "maintainer": "Benoit Blanchon <blog.benoitblanchon.fr>",

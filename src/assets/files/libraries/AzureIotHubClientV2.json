@@ -7,7 +7,6 @@
   "attributes": {
     "name": "AzureIotHubClientV2",
     "version": "1.0.2",
-    "installs": 11451,
     "license": "MIT",
     "author": "Steve Webster",
     "sentence": "Azure IoT Hub Client library for XENON, ARGON and BORON.",

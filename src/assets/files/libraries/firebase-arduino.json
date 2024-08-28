@@ -7,7 +7,6 @@
   "attributes": {
     "name": "firebase-arduino",
     "version": "1.0.0",
-    "installs": 381,
     "author": "firebase",
     "architectures": [],
     "visibility": "public",

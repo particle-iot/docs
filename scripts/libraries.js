@@ -116,6 +116,14 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
     // Build the content
     for (const name of libraryNames) {
         const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, name + '.json')));
+        if (!lib) {
+            console.log('missing library JSON ' + name);
+            continue;
+        }
+        if (!lib.id) {
+            console.log('missing library JSON id ' + name, lib);
+            continue;
+        }
 
         let letter = lib.id.substr(0, 1).toLowerCase();
         if (letter < 'a' || letter > 'z') {
@@ -138,7 +146,9 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         md += '| :--- | :--- |\n';
         md += '| Name | ' + lib.attributes.name + ' |\n';
         md += '| Version | ' + lib.attributes.version + ' |\n';
-        md += '| Installs | ' + lib.attributes.installs + ' |\n';
+
+        // Formerly loaded from lib.attributes.installs, but that's been moved to a new file
+        md += '| Installs | <span class="libraryInstallCounter" data-library-id="' + lib.id + '"> |\n';
         if (lib.verification) {
             md += '| Verification | ' + lib.verification + ' |\n';
             searchDoc.verification = lib.verification;

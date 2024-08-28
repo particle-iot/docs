@@ -7,7 +7,6 @@
   "attributes": {
     "name": "SparkFun_GridEYE_Arduino_Library",
     "version": "1.0.1",
-    "installs": 1155,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the Panasonic GridEYE Thermopile Array - AMG88",

@@ -7,7 +7,6 @@
   "attributes": {
     "name": "httpsclient-particle",
     "version": "0.0.7",
-    "installs": 22964,
     "license": "GPL",
     "author": "Vamsi Vytla",
     "sentence": "A library that helps photon boards talk https to web servers",

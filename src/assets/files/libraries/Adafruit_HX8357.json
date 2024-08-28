@@ -7,7 +7,6 @@
   "attributes": {
     "name": "Adafruit_HX8357",
     "version": "0.9.8",
-    "installs": 5736,
     "license": "Adafruit",
     "author": "ScruffR / Adafruit",
     "sentence": "Adafruit HX8357 TFT display library for Particle (Compatible with Core 0.3.4ff and Photon/P1 0.4.3ff)",

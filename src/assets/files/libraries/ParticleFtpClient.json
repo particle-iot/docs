@@ -7,7 +7,6 @@
   "attributes": {
     "name": "ParticleFtpClient",
     "version": "0.0.4",
-    "installs": 16949,
     "license": "MIT",
     "author": "Joon-Yee Chuah",
     "sentence": "A library that implements PASV FTP",
