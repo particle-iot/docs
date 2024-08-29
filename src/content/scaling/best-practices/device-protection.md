@@ -67,8 +67,6 @@ Device Protection is enabled for your organization as part of your enterprise pl
 
 You can see the Device Protection status in the [Particle console](https://console.particle.io/) in the device vitals for individual product devices, and in the fleet health reports.
 
-Once Device Protection is enabled, there is no way to turn it back off! We recommend using a separate product for software development so you can still access local flashing and the SWD/JTAG debugger for devices in that product during development.
-
 ## Testing with Device OS 6.x
 
 Device Protection can only be tested with enterprise accounts that have one or more products with it enabled at this time. Once Particle has enabled a product with Device Protection:
