@@ -559,18 +559,18 @@ Example usage:
 
 ## particle device-protection
 
-[Device protection](/scaling/best-practices/device-protection/) is an enterprise feature of Device OS 6.x to provide additional 
+[Device Protection](/scaling/best-practices/device-protection/) is an enterprise feature of Device OS 6.x to provide additional 
 security for devices to prevent local flashing by USB or SWD/JTAG, USB serial access, and other features. 
 
-Devices cannot be removed from device protection using the Particle CLI, but certain features such as USB
+Devices cannot be removed from Device Protection using the Particle CLI, but certain features such as USB
 serial access can be temporarily disabled.
 
-You must be logged into a your Particle account in the CLI and have appropriate access to the product the protected device
+You must be logged into a your Particle account in the CLI and have appropriate access to the product the Protected Device
 is in in order to use these commands.
 
 ### device-protection status
 
-Print the status of device protection for a device connected by USB:
+Print the status of Device Protection for a device connected by USB:
 
 ```sh
 $ particle device-protection status
@@ -584,13 +584,13 @@ $ particle device-protection status --device 0123456789abcdef78901234
 
 ### device-protection disable
 
-Temporarily disable device protection for a device to allow access to USB serial and other features.
+Temporarily disable Device Protection for a device to allow access to USB serial and other features.
 
 ```sh
 $ particle device-protection disable
 ```
 
-You can also disable device protection on a specific device if multiple devices are connected and you do not want to be prompted.
+You can also disable Device Protection on a specific device if multiple devices are connected and you do not want to be prompted.
 
 ```sh
 $ particle device-protection disable --device 0123456789abcdef78901234
@@ -604,13 +604,13 @@ Most commands such as flashing a device will revert back to protected mode autom
 - `particle usb reset`
 - `particle serial monitor`
 
-When using these commands, you can reenable device protection using:
+When using these commands, you can reenable Device Protection using:
 
 ```sh
 $ particle device-protection enable
 ```
 
-You can also enable device protection on a specific device if multiple devices are connected and you do not want to be prompted.
+You can also enable Device Protection on a specific device if multiple devices are connected and you do not want to be prompted.
 
 ```sh
 $ particle device-protection enable --device 0123456789abcdef78901234
