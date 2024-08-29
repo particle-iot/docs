@@ -17,7 +17,7 @@ Device protection:
 - Prevents local flashing of user firmware or Device OS by USB or BLE
 - Disables control of the device locally by USB or BLE
 
-Additionally, the Particle Cloud will prevent flashing unauthorized firmware on protected devices, including flashing ad-hoc applications, downgrading Device OS to versions prior to 6.0, and flashing product firmware versions that are not protected, even with valid access tokens.
+Additionally, the Particle Cloud will prevent flashing unauthorized firmware on protected devices, including flashing ad-hoc applications, downgrading Device OS to versions prior to 6.x, and flashing product firmware versions that are not protected, even with valid access tokens.
 
 
 ## Upgrade process
@@ -55,7 +55,7 @@ Device protection is enabled for your organization as part of your enterprise pl
 ```
 {{step-diagram op="end"}}
 
-- Build a version of your product firmware that targets Device OS 6.0.0 or later. This is required to enable device protection.
+- Build a version of your product firmware that targets Device OS {{minimumDeviceProtectionVersion}} or later. This is required to enable device protection.
 
 - Release this version to a subset of your fleet using [device groups](/getting-started/console/device-groups/), or to your entire fleet.
 
@@ -69,7 +69,7 @@ You can see the device protection status in the [Particle console](https://conso
 
 Once device protection is enabled, there is no way to turn it back off! We recommend using a separate product for software development so you can still access local flashing and the SWD/JTAG debugger for devices in that product during development.
 
-## Testing with Device OS 6.0
+## Testing with Device OS 6.x
 
 Device Protection can only be tested with enterprise accounts that have one or more products with it enabled at this time. Once Particle has enabled a product with device protection:
 
@@ -85,7 +85,7 @@ Device Protection can only be tested with enterprise accounts that have one or m
 
 - Connect the device by USB to your computer. This is only necessary for initial testing; later on you can do the whole process OTA.
 
-- Use **Particle: Configure project for device** and select the device you have added and Device OS 6.0.0.
+- Use **Particle: Configure project for device** and select the device you have added and Device OS {{minimumDeviceProtectionVersion}} or later.
 
 - Open the source for your product firmware. 
 
@@ -102,4 +102,6 @@ Device Protection can only be tested with enterprise accounts that have one or m
 ![](/assets/images/device-protection/console-active.png)
 
 - If you want to test with additional devices, you can now simply add them to your product and they will be upgraded OTA.
+
+- You can temporarily disable device protection using the Particle CLI [`particle device-protection disable`](/reference/developer-tools/cli/#particle-device-protection) command. This enables service mode so the device can temporarily access the USB serial port, for example.
 

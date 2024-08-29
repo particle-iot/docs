@@ -10,6 +10,7 @@
     "basicTierDataOperationsComma": "720,000",
     "basicTierDataOperationsCellularData": "540 MB",
     "basicBlockPrice": "US$ 299.00",
+    "minimumDeviceProtectionVersion": "6.1.1",
     "maximumCompileTime": "120 seconds",
     "maximumCompilePayload": "50 MB"
 }

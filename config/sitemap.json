@@ -1171,8 +1171,8 @@
             "hash": "1b0d8258dbea7c81ec53fe033d7986750b266a71baf61f2878ebc25635b77424"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-06-06",
-            "hash": "0c8254d98cd40c0a66df55f939b2787e358789b4170827cc6d8d37ff5405df98"
+            "date": "2024-08-29",
+            "hash": "33be0f8a4b4765a56e2438babbf172b76b213240b196256f04018345023f8347"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
@@ -8379,8 +8379,8 @@
             "date": "2024-01-30"
         },
         "scaling/best-practices/device-protection.md": {
-            "hash": "a4f01a355d69c1232c35a53fe26909039fbb4e7d247859c344571a2482669266",
-            "date": "2024-04-29"
+            "hash": "6d4b161011b63981b358fa178e36d4ffa61fff9984b716407eac6588ef313531",
+            "date": "2024-08-29"
         },
         "hardware/migration-guides/msom-b-series-migration-guide.md": {
             "hash": "557541fd56f5b24e4682836e175ebad697cfe8a09fd3596eff2be1ee113e9655",
