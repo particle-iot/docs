@@ -6,6 +6,10 @@
             "description": "You must log into your Particle account to use the Support & Troubleshooting tool.",
             "buttons": [
                 {
+                    "title": "I need help with my Kickstarter pledge",
+                    "page": 28756428183451
+                },
+                {
                     "title": "I need help with my order, and I haven't created an account yet",
                     "page": 360001073373
                 },
