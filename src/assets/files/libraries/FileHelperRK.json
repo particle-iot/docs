@@ -1,0 +1,97 @@
+{
+  "type": "libraries",
+  "id": "FileHelperRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/FileHelperRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "FileHelperRK",
+    "version": "0.0.1",
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "Useful functions for working with the Particle flash file system",
+    "url": "https://github.com/rickkas7/FileHelperRK",
+    "repository": "https://github.com/rickkas7/FileHelperRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "f",
+  "cardUrl": "/reference/device-os/libraries/f/FileHelperRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2024-08-30T13:45:24.577Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "boron": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "bsom": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "b5som": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "tracker": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "p2": {
+            "1-print": true,
+            "2-automated-test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "boron": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "bsom": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "b5som": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "tracker": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "esomx": {
+            "1-print": true,
+            "2-automated-test": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-print": false,
+            "2-automated-test": false
+          },
+          "electron": {
+            "1-print": false,
+            "2-automated-test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# FileHelperRK\n\n*Useful functions for working with the Particle flash file system*\n\nThis library contains a number of utility functions for working with the Particle flash file system on Gen 3 and Gen 4 devices, such as:\n\n- Store or read a string in a file\n- Store or read an array of bytes in a file\n- Store or read a Variant in a file. This can be used for structured data, including JSON (Device OS 5.6.0 and later).\n- Create a directory and parent directories (mkdirs)\n- Delete a directory recursively (deleteRecursive)\n- Measure disk usage of a directory\n- Walk the directory tree and call a callback or labmda for each file or directory\n- Parse a pathname\n- Join pathname components\n\nThere is full [browseable API documentation](https://rickkas7.github.io/FileHelperRK/class_file_helper_r_k.html) available\nonline and in the docs directory of this repository.\n\n\nLicense: MIT (can use in free or commercial open or closed source products)\nGithub Repository: https://github.com/rickkas7/FileHelperRK\n \n## Version history\n\n### 0.0.1 (2024-08-30)\n\n- Initial version\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}
