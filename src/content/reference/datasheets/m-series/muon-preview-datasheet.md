@@ -114,6 +114,10 @@ The Muon preview comes in a plastic case with the following items:
 | 18 | Wi-Fi/BLE antenna |
 | 19 | LiPo battery with temperature sensor |
 | 20 | LoRa antenna connector (SMA) |
+| 21 | Muon Wi-Fi/BLE connector (preview only, do not use!) |
+
+Be sure to connect the Wi-Fi/BLE antenna to the M-SoM itself, not the U.FL connector on the Muon (21). Future versions
+of the Muon will not have this connector on the base board.
 
 #### Device setup
 
