@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Modem USB clarification 2024-09-03
+
+Added a clarification that the cellular modem USB pins on SoMs are not required on custom base boards.
+
 ### Power guide updates for M-SoM 2024-08-28
 
 The [power supply guide](/hardware/power/power-supply-guide/) has been updated for the M-SoM.

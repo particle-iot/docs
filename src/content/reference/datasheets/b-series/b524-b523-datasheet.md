@@ -339,6 +339,30 @@ If you are using Ethernet with the B-Series SoM, the following pins are used by 
 | D22           | 62      | nINTERRUPT                |
 | D8            | 48      | nCHIP SELECT              |
 
+
+### Cellular modem USB pins
+
+{{!-- BEGIN shared-blurb df57b908-c626-4879-82d4-d082c0fc542b --}}
+The cellular modem USB pins are optional on custom base boards. These pins are used for low-level diagnostics 
+and reprogramming the cellular modem firmware.
+
+Note, however, the Particle has never done a cellular modem firmware upgrade in the field because doing so 
+generally requires recertification, and is there is a high likelihood that the upgrade will fail, rendering
+the modem unusable.
+
+Cellular modem could be reprogrammed by removing the SoM from your board and putting it in the M.2 SoM
+breakout board, which has the cellular modem USB connector.
+
+| # |	Pin	 | Common | Function | nRF52 |	Description |
+| :---: | :---: | :---: | :---: | :---: | --- |
+| 44 | Quectel USB D+ | SOM0 | IO | | Data+ pin of the cellular modem USB port.|
+| 46 | Quectel USB D- | SOM1 | IO ||  Data- pin of the cellular modem USB port.|
+| 74 | Quectel VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for cellular modem. 5V on this pin enables the Quectel USB interface.|
+| 75 | Quectel RI | SOM9<sup>4</sup> | IO ||  Ring indicator |
+
+{{!-- END shared-blurb --}}
+
+
 ### Complete module pin details
 
 {{!-- BEGIN do not edit content below, it is automatically generated 88cf3396-ffa7-4f4c-b2ef-deead0b0315d --}}
@@ -1866,3 +1890,4 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | 022      | 20-Dec-2023 | RK | Clarified band power information table |
 | 023      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |
 | 024      | 23-Apr-2024 | RK | Added links to certification documents |
+| 025      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |

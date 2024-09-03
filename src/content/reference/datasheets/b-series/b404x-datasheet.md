@@ -710,6 +710,26 @@ If you are using Ethernet with the B-Series SoM, the following pins are used by 
 | D22           | 62      | nINTERRUPT                |
 | D8            | 48      | nCHIP SELECT              |
 
+### Cellular modem USB pins
+
+{{!-- BEGIN shared-blurb bbb5f4de-8293-4927-88b9-7d8b722999b0 --}}
+The cellular modem USB pins are optional on custom base boards. These pins are used for low-level diagnostics 
+and reprogramming the cellular modem firmware.
+
+Note, however, the Particle has never done a cellular modem firmware upgrade in the field because doing so 
+generally requires recertification, and is there is a high likelihood that the upgrade will fail, rendering
+the modem unusable.
+
+Cellular modem could be reprogrammed by removing the SoM from your board and putting it in the M.2 SoM
+breakout board, which has the cellular modem USB connector.
+
+| # |	Pin	 | Common | Function | nRF52 |	Description |
+| :---: | :---: | :---: | :---: | :---: | --- |
+| 44 | u-blox USB D+ | SOM0 | IO | | Data+ pin of the cellular modem USB port.|
+| 46 | u-blox USB D- | SOM1 | IO ||  Data- pin of the cellular modem USB port.|
+| 74 | u-blox VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for cellular modem. 5V on this pin enables the u-blox USB interface.|
+
+{{!-- END shared-blurb --}}
 
 ### Complete module pin details
 
@@ -2175,3 +2195,4 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 | 035      | 2023-11-13 | RK | Add full pin details |
 | 036      | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
 | 037      | 2024-04-23 | RK | Added links to certification documents |
+| 038      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |

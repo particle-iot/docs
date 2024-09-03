@@ -1347,12 +1347,12 @@
             "hash": "b64e693b485265b9c52b32c3a55c6f19aa66aad85c35c6e3ee42d327f0a50552"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2024-08-05",
-            "hash": "7ad2f4eb325b0cefc42a09cd393f69fdc704bc94e8073c955b5dbe34cee50bd9"
+            "date": "2024-09-03",
+            "hash": "574b884d6e24e84d94c9a094ef303c21795b90eeae2dd39218f4aca3ed2654a0"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2024-08-21",
-            "hash": "2aa6cf2360b6b5f39bb87b7f0686703a5e56c5c5e12e5f7ee0a1dd7b4d1b2f9b"
+            "date": "2024-09-03",
+            "hash": "d0aa7db48ca5e010193bb96db38218b171a6341faa120b636b76a2adef2c39b7"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-08-21",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2019e06182cb11baf54b2ca1de4f33b09f3dba383e118d6ec60b52c7dc9c70f5",
-            "date": "2024-08-28"
+            "hash": "e8e5d844de3732cb46a2ba585be4108bec4b0fe073e08f349dde10795a9eed1b",
+            "date": "2024-09-03"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8399,8 +8399,8 @@
             "date": "2024-05-21"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "692ef35995d1ebdefc1e19b71aa180d789304b8e05cff6de38b28120b975e024",
-            "date": "2024-08-21"
+            "hash": "90a4086043fcfb74723699b58989d29e2e8401f16fe74bae9201580ddffb479f",
+            "date": "2024-09-03"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "b34f1e593e180cf0c977724b0861a13b2722f1b6c1a53d84e85bb4fe0a1015d1",
@@ -9091,8 +9091,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "6343760bf27f280a321519c4cefc8424fdee9457bd79449124a680a441423347",
-            "date": "2024-08-14"
+            "hash": "f2d9c046f2a2aba62ec7c7f124060b53c5ef812da801733ceae82a37103b20ee",
+            "date": "2024-09-03"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",

@@ -689,6 +689,28 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 
 {{!-- END shared-blurb --}}
 
+### Cellular modem USB pins
+
+{{!-- BEGIN shared-blurb df57b908-c626-4879-82d4-d082c0fc542b --}}
+The cellular modem USB pins are optional on custom base boards. These pins are used for low-level diagnostics 
+and reprogramming the cellular modem firmware.
+
+Note, however, the Particle has never done a cellular modem firmware upgrade in the field because doing so 
+generally requires recertification, and is there is a high likelihood that the upgrade will fail, rendering
+the modem unusable.
+
+Cellular modem could be reprogrammed by removing the SoM from your board and putting it in the M.2 SoM
+breakout board, which has the cellular modem USB connector.
+
+| # |	Pin	 | Common | Function | nRF52 |	Description |
+| :---: | :---: | :---: | :---: | :---: | --- |
+| 44 | Quectel USB D+ | SOM0 | IO | | Data+ pin of the cellular modem USB port.|
+| 46 | Quectel USB D- | SOM1 | IO ||  Data- pin of the cellular modem USB port.|
+| 74 | Quectel VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for cellular modem. 5V on this pin enables the Quectel USB interface.|
+| 75 | Quectel RI | SOM9<sup>4</sup> | IO ||  Ring indicator |
+
+{{!-- END shared-blurb --}}
+
 ### SIM Pins
 
 - The SIM pins should be left unconnected
@@ -1419,3 +1441,4 @@ Global, country list to be provided a later date.
 | 006      | 2024-04-30 | RK | Corrected SPI interface speeds |
 | 007      | 2024-07-09 | RK | Updated cellular modem on M635 to BG95-S5 |
 | 008      | 2024-08-21 | RK | Added supervisory reset information |
+| 009      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
