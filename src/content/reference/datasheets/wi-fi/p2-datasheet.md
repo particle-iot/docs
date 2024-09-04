@@ -251,7 +251,23 @@ The P2 supports six ADC inputs.
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
 
+{{!-- BEGIN shared-blurb c8a0145b-5be2-47b8-a42b-4eb0b7ef847a --}}
+The ADCs on the P2 and Photon 2 (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
+drive and this may cause issues when used with a voltage divider.
+
+For signals that change slowly, such as NTC thermocouple resistance, you can add a 2.2 uF capacitor to the signal. 
+For rapidly changing signals, a voltage follower IC can be used.
+{{!-- END shared-blurb --}}
+
+
+#### VBAT_MEAS (A6)
+
 The `VBAT_MEAS` pin is connected to Li+ on the Photon 2 and is used to measure the battery voltage by using `analogRead(A6)`. The value returned is 0 - 4095 (inclusive, 12-bit) but represents voltage from 0 - 5 VDC, not 3.3V as is the case with the other ADC inputs.
+
+This pin can be used as an ADC on the P2 with a range of 0 - 5 VDC, however because of the built-in voltage divider combined with the
+high impedance of the RTL872x ADCs, there may be issues if your circuit does not have sufficient drive, or also includes a
+voltage divider.
+
 
 ### UART serial
 
@@ -2136,7 +2152,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 018 | 2024-04-25 | RK | Update retained memory description |
 | 019 | 2024-04-25 | RK | Added I/O characteristics |
 | 020 | 2024-08-21 | RK | Added supervisory reset information |
-
+| 021 | 2024-09-04 | RK | Added note about VBAT_MEAS |
 
 ## Known errata
 
