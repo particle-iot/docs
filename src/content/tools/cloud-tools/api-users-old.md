@@ -1,5 +1,5 @@
 ---
-title: API Users
+title: API Users (old)
 columns: two
 layout: commonTwo.hbs
 description: API Users
@@ -7,6 +7,10 @@ includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, api-helpe
 ---
 
 # {{title}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+API user creation and editing is now available in the [Particle console](/getting-started/console/console#api-users).
+{{box op="end"}}
 
 An [API User Account](/reference/cloud-apis/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. The controls in this section will allow you to add API users without having to use the `curl` command.
 

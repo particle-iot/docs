@@ -114,11 +114,6 @@
         "href": "/tools/cloud-tools/list-devices/"
       },
       {
-        "dir": "api-users",
-        "title": "API Users",
-        "href": "/tools/cloud-tools/api-users/"
-      },
-      {
         "dir": "events",
         "title": "Event viewer",
         "href": "/tools/cloud-tools/events/"
@@ -150,6 +145,12 @@
         "dir": "tinker",
         "title": "Tinker",
         "href": "/tools/cloud-tools/tinker/"
+      },
+      {
+        "dir": "api-users-old",
+        "title": "API Users (old)",
+        "href": "/tools/cloud-tools/api-users-old/",
+        "internal": true
       }
     ],
     {

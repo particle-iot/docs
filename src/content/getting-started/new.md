@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### API users 2024-09-04
+
+From the Particle console you can now created and edit [API users](/getting-started/console/console#api-users).
+
 ### Logic and Ledger 2024-09-04
 
 The Logic and Ledger features are now generally available (no longer in beta).

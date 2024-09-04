@@ -307,6 +307,22 @@ Once your team member is successfully invited, they will receive an email notify
 
 Nice! Now you have a Product with a team.
 
+### API users
+
+An [API user account](/reference/cloud-apis/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. It is highly recommended that you use this feature if you are connecting to the Particle cloud
+from an external web service.
+
+In the **Team** tab for a product or organization, click the **Add API user** button.
+
+![Add API user](/assets/images/console/add-api-user.png)
+
+From this window you can select common scopes, or use the **Advanced customization** slider to access all of the available scopes.
+
+Once you've created API users, they are listed below team members and can be edited or removed there.
+
+Unlike most user tokens, API users tokens do not expire, since they are intended to be embedded in external services. For security reasons, you should still prevent accidentally exposing them, and also use the minimum set of scopes that are necessary.
+
+
 ### Your product ID
 
 When you created your product, a unique numeric ID was assigned to it. This small piece of information is *very, very important* to you as a product creator, and it will be used countless times during the development and manufacturing process for your product. You will be able to find your product's ID at any time in the navigation bar when viewing information about your product:
