@@ -5,28 +5,21 @@ layout: commonTwo.hbs
 description: Ledger
 ---
 
-# {{title}} (Beta)
-
-{{box op="start" cssClass="boxed warningBox"}}
-Ledger is in beta and is not recommended for production applications. There may be breaking changes to the behavior 
-and APIs in future versions based on user feedback. 
-
-Pricing and availability may change in the future.
-{{box op="end"}}
+# {{title}}
 
 Ledger allows data to be stored in the cloud, per-device, per-product, or per owner account. 
 
 The three types of Ledgers are:
 
-| Scope | Description | Availability |
-| :--- | :--- | :--- |
-| Cloud Ledger | Stores information in the cloud without syncing to the edge. | In Beta Now |
-| Device to Cloud Ledger | Device storage that syncs automatically to the cloud | In Beta Now |
-| Cloud to Device Ledger | Set data in the cloud that will sync to devices | In Beta Now |
+| Scope | Description |
+| :--- | :--- |
+| Cloud Ledger | Stores information in the cloud without syncing to the edge. |
+| Device to Cloud Ledger | Device storage that syncs automatically to the cloud |
+| Cloud to Device Ledger | Set data in the cloud that will sync to devices |
 
 Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
 
-Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. They can be up to 16 KBytes in size. This feature is currently in beta and will not be available in a Device OS 4.x LTS release. Device ledger support will not be available on Gen 2 devices (E Series other than the E404X, Electron, P1, and Photon 1). 
+Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. They can be up to 16 KBytes in size. 
 
 Cloud only ledgers (not synchronized to a device) can be up to 1 Mbyte (1024 Kbyte).
 
@@ -38,7 +31,7 @@ Cloud only ledgers (not synchronized to a device) can be up to 1 Mbyte (1024 Kby
 
 You can view and edit ledgers in the [Particle console](https://console.particle.io). 
 
-Ledger is only available to products, not individual developer devices. During beta, it's only available to free sandbox products, not to organization products.
+Ledger is only available to products, not individual developer devices.
 
 To access Ledger, open the console and select the **Ledger** icon in the left-hand navigation icons.
 
@@ -151,10 +144,6 @@ after it has been synchronized once. Of course if the ledger has been updated in
 available until cloud connected and the ledger synchronized, so in some cases you may want to wait for that to occur.
 
 If the local copy of the ledger is the same as the cloud version, it will not be downloaded again, saving data. 
-
-During Ledger beta, data operations are not charged for ledger synchronization. In the future, ledger downloads 
-may incur data operations at a rate of 1 data operations per 1 Kbyte download. Ledgers can be up to 16 Kbyte, so a 
-maximum ledger could incur 16 data operations.
 
 The maximum ledger size is dependent on a number of factors including RAM and flash size limitations, so on some
 platforms, particularly Gen 3 devices like the B Series SoM, Tracker SoM, Boron, and Argon, the limit could be lower.

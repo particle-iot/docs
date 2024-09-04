@@ -8,19 +8,12 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 
 # {{title}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-Ledger is in beta and is not recommended for production applications. There may be breaking changes to the behavior 
-and APIs in future versions based on user feedback. 
-
-Pricing and availability may change in the future.
-
-Ledger requires Device OS 6.1.0 or later.
-{{box op="end"}}
-
 One use case of a Cloud to Device ledger is storing configuration parameters. You can store data per organization, owner, product, or device. You can implement your own hierarchy (product with device overrides, for example). If ledger values are changed while the device is online, it will generally receive the update quickly, within 30 seconds. If the device is offline, it will receive the updates when the device connects to the cloud again.
 
 {{!-- BEGIN shared-blurb f77c1afd-51d7-488a-a090-9786b7133e73 --}}
 {{!-- END shared-blurb --}}
+
+Ledger requires Device OS 6.1.0 or later.
 
 ## Sandbox product
 

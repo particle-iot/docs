@@ -5,11 +5,7 @@ layout: commonTwo.hbs
 description: Logic cloud functions
 ---
 
-# {{title}} (Beta)
-
-{{box op="start" cssClass="boxed warningBox"}}
-Logic is in open beta. Pricing and availability may change in the future.
-{{box op="end"}}
+# {{title}}
 
 Logic Functions are bits of Javascript code that get called in response to a Logic Trigger, which can be:
 
@@ -25,15 +21,13 @@ In particular, Logic Functions consist only of calculations, conditional logic, 
 
 Logic Functions can, however, trigger an integration (webhook), and also respond to the results from a webhook.
 
-For this beta version:
-
 - Logic Functions are available in the both developer sandbox and the organization level
 - Maximum number of Logic Functions per sandbox or organization: 20
 - Maximum number of triggers per Logic Function: 5
 - Run logs per function retained: 100
 - Maximum logic run execution time: 30 seconds
 
-A companion feature, [Ledger](/getting-started/logic-ledger/ledger/), allows data to be stored in the cloud and synchronized with devices. Only the cloud side of ledger is available in beta now, and the device side will be added in a future version of Device OS.
+A companion feature, [Ledger](/getting-started/logic-ledger/ledger/), allows data to be stored in the cloud and synchronized with devices.
 
 ## Common use cases
 

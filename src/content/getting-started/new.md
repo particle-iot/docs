@@ -21,6 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Logic and Ledger 2024-09-04
+
+The Logic and Ledger features are now generally available (no longer in beta).
+
+### P2 VBAT_MEAS 2024-09-04
+
+Added a new section to the [P2 datasheet](/reference/datasheets/wi-fi/p2-datasheet/#vbat_meas-a6-) to 
+explain the VBAT_MEAS pin.
+
 ### Modem USB clarification 2024-09-03
 
 Added a clarification that the cellular modem USB pins on SoMs are not required on custom base boards.

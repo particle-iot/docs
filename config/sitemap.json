@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e8e5d844de3732cb46a2ba585be4108bec4b0fe073e08f349dde10795a9eed1b",
-            "date": "2024-09-03"
+            "hash": "7d3319078356be36f2d1f71ac8127f627df2bbbd30ed8e371f8d8a45b99e0a0f",
+            "date": "2024-09-04"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8283,16 +8283,16 @@
             "date": "2024-08-28"
         },
         "getting-started/logic-ledger/ledger.md": {
-            "hash": "f27bd728b5e85b1d1c57bd17e35a6b88ea3274e003ea6cd861e23d7a974e7f6d",
-            "date": "2024-08-07"
+            "hash": "2afc9261d2d4aa4c0929b2729f7079b6b1e1b0b5f2e0d8926b1ba64c89523f1a",
+            "date": "2024-09-04"
         },
         "getting-started/logic-ledger/logic.md": {
-            "hash": "e6f3b43c16e2e60a9a41d8328615622b0ec642024c40316748d5a604a325cce1",
-            "date": "2024-08-28"
+            "hash": "15f9078d22c1cc8555b75e0bb7e402c04f5cd432569c535f8c335c0eb3f641a7",
+            "date": "2024-09-04"
         },
         "getting-started/logic-ledger/data-transformation.md": {
-            "hash": "de2f1f362d1bc66acb9b1a7fb19f16b1bada78a5f7de74f9d9e9c11c38b66072",
-            "date": "2024-03-11"
+            "hash": "0bc67a8e4453518988e6f6053e9d514903acc8373c752ea052b50f1bd6da180a",
+            "date": "2024-09-04"
         },
         "reference/device-os/api/wifi/getantenna.md": {
             "hash": "6ba7be41647b11824b2b0afc0df7633157d0213f67785a96de7ab5ab0816a74c",
@@ -8567,8 +8567,8 @@
             "date": "2024-05-01"
         },
         "getting-started/logic-ledger/ledger-configuration.md": {
-            "hash": "4b184afec2407d23b38532379c15c06583de396786ea8c3d01d69db82c71a72a",
-            "date": "2024-05-01"
+            "hash": "7913915f37e8f8134daa56ff30354a3aebda212a86e2d57b20b26fe97f155f0c",
+            "date": "2024-09-04"
         },
         "getting-started/logic-ledger/logic-cloud-alerts.md": {
             "hash": "bb18d4fffa1b9131899314c78660ec58bb7c4788f2ba95e3fed23d5dbf563bde",

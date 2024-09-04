@@ -8,10 +8,6 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 
 # {{title}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-Logic is in open beta. Pricing and availability may change in the future.
-{{box op="end"}}
-
 One of the feature of [Logic](/getting-started/logic-ledger/logic/) is the ability to take events published from a device and transform them before passing them to an external service using a webhook. You might want to do this to expand data to minimize cellular data usage and fit within publish size limits, as demonstrated in this page.
 
 When using this model:
@@ -27,14 +23,12 @@ The second part of this example shows how to store the last known geolocation co
 
 ## Sandbox product
 
-In order to use Logic beta, you will need to:
+In order to use Logic, you will need to:
 
 - Create a product for testing in your developer sandbox. There is no additional charge for this.
 - Add one or more devices to the product.
 
 Logic can only be used with devices in products; it cannot be used with individual developer devices.
-
-Logic beta cannot be used with organization products at this time. 
 
 ## Device firmware
 
@@ -78,7 +72,7 @@ The logic block will expand these key names into the format required by the Goog
 
 ## Logic block
 
-Follow the instructions in [Logic](/getting-started/logic-ledger/logic/) for creating an **Event triggered function**. Logic beta can only be used with your developer sandbox (not organizations) and with product devices.
+Follow the instructions in [Logic](/getting-started/logic-ledger/logic/) for creating an **Event triggered function**. Logic can only be used with your developer sandbox (not organizations) and with product devices.
 
 
 The following table shows how the data published from the device is converted into the Geolocation API format. Note how much longer then API key names are, especially since the array elements keys are repeated for each access point found.
