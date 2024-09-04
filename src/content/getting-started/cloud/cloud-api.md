@@ -498,19 +498,7 @@ The API just returns a big block of JSON which can easily be parsed to find the 
 
 ## API Users
 
-An [API User Account](/reference/cloud-apis/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. The controls in this section will allow you to add API users without having to use the `curl` command.
-
-{{> sso}}
-
-### Create API user
-
-{{> cloud-api-user-create}}
-
-### List or delete API users
-
-{{> cloud-api-user-list}}
-
-To delete an API user, list the users in the product or organization. If there are API users defined, a user selector and a **Delete User** button will appear.
+An [API User Account](/reference/cloud-apis/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. You can configure them in [the console](/getting-started/console/console#api-users).
 
 ## Customer claiming
 

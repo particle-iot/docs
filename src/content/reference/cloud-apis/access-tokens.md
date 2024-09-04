@@ -82,20 +82,7 @@ Both of the techniques above create a user-based access token, which is appropri
 
 The [API user](/reference/cloud-apis/api/#api-users) feature makes it possible to create a non-expiring access token that only allows access to certain Particle cloud APIs. If you have a back-end that only uses a small number of APIs, using an API user can be more secure than using a user token.
 
-It's only available for products (not developer devices). 
-
-### Create API user
-
-{{> cloud-api-user-create}}
-
-You can also create, list, update, and delete [API user tokens using the Particle Cloud API](/reference/cloud-apis/api/#creating-an-api-user).
-
-### List or delete API users
-
-{{> cloud-api-user-list}}
-
-To delete an API user, list the users in the product or organization. If there are API users defined, a user selector and a **Delete User** button will appear.
-
+You can configure them in [the console](/getting-started/console/console#api-users).
 
 ## Creating a customer token (oAuth)
 
