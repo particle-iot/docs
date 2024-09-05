@@ -10,6 +10,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     
     const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
 
+    const apiReferenceJsonPath = path.join(contentDir, '../assets/files/apiReference.json');
+
     const destDir = options.outputDir;
 
     const mdFile = files[fileName].contents.toString();
@@ -28,7 +30,10 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         sections: [],
         folderTitles: {},
     };
-
+    let apiReferenceJson = {
+        l2: {},
+        l3: {},
+    };
 
     for(const line of mdFile.split('\n')) {
         if (line.startsWith('##')) {
@@ -92,6 +97,14 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             if (line.startsWith('####')) {
                 // L4 and higher can have direct links
                 anchors[uniqueAnchor].url += '#' + origAnchor;
+
+                const spaceIndex = line.indexOf(' ');
+                
+                sections[sections.length - 1].subsections.push({
+                    level: spaceIndex,
+                    anchor: origAnchor,
+                    title: line.substring(spaceIndex + 1).trim(),
+                });
             }
 
             if (line.startsWith('## ') || line.startsWith('### ')) {
@@ -102,7 +115,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                     content: '',
                     origTitle: origTitle,
                     title: origTitle,
-                    url: '/' + options.outputDir + '/' + curFolder + '/' + curFile + '/'
+                    url: '/' + options.outputDir + '/' + curFolder + '/' + curFile + '/',
+                    subsections: [],
                 };
 
 
@@ -189,7 +203,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             ii--;
         }
     }
-    
+
     // Generate redirects for all directories to the first page in that group
     const origFile = fs.readFileSync(redirectsPath, 'utf8');
 
@@ -203,6 +217,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         redirects['/' + destDir + '/' + curL2.folder] = curL2.url;
 
         apiIndexJson.folderTitles[curL2.folder] = curL2.origTitle;
+
+        apiReferenceJson.l2[curL2.folder] = curL2.origTitle;
     }
 
     // Generate data now
@@ -221,6 +237,48 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                 return '](' + url + ')';
             }
         });
+
+        let l3obj = {
+            title: section.title,
+            subsections: [],
+        }
+
+        // section.subsections is flat array of objects:
+        //    level: 4 or higher (corresponds to the number of # in the section header)
+        //    anchor: sanitized html anchor in the file 
+        //    title: title from the section header
+
+        // This gets converted into nested objects to make it easier to render as a hierarchical list
+        // l3obj.subsections: Array of objects
+        //   anchor: h4 anchor
+        //   title: h4 title
+        //   subsections: Array of objects if there are h5 headers
+        {
+            let curL4;
+
+            for(const obj of section.subsections) {
+                if (obj.level == 4) {
+                    l3obj.subsections.push(obj);
+                    curL4 = obj;
+                }
+                else if (obj.level == 5) {
+                    if (!curL4.subsections) {
+                        curL4.subsections = [];
+                    }
+                    curL4.subsections.push(obj);
+                }
+            }
+        }
+
+        if (l3obj.subsections.length == 0) {
+            delete l3obj.subsections;
+        }
+
+
+        apiReferenceJson.l3[section.folder + '/' + section.file] = l3obj;
+        
+        delete section.subsections;
+
 
         // Clone the original .md source file
         let newFile = cloneDeep(files[fileName]);
@@ -306,6 +364,54 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         contents: Buffer.from(JSON.stringify(apiIndexJson), 'utf8')
     };
     files['assets/files/apiIndex.json'] = apiIndexJsonInfo;
+    
+    {
+        // Output apiReference.json
+
+        // Sort l2
+        let l2array = [];
+        for(const key in apiReferenceJson.l2) {
+            l2array.push(key);
+        }
+        l2array.sort((a,b) => apiReferenceJson.l2[a].localeCompare(apiReferenceJson.l2[b]));
+        let l2new = {};
+        for(const key of l2array) {
+            l2new[key] = apiReferenceJson.l2[key];
+        }
+        // l2 is an object with:
+        //   key = sanitized l2 name/directory name
+        //   value = title
+        // keys are sorted by title, (localeCompare)
+        apiReferenceJson.l2 = l2new;
+        
+        // l3 is an object with:
+        //   key = section.folder + '/' + section.file
+        //   value = object
+        // The inner object is:
+        //   title: l3 section title
+        //   subsections: array of objects
+        
+        let apiReferenceJsonChanged = false;
+        const newApiReferenceJsonStr = JSON.stringify(apiReferenceJson, null, 2);
+        if (fs.existsSync(apiReferenceJsonPath)) {
+            const oldApiReferenceJsonStr = fs.readFileSync(apiReferenceJsonPath, 'utf8');
+    
+            apiReferenceJsonChanged = (newApiReferenceJsonStr != oldApiReferenceJsonStr);
+        }
+        else {
+            apiReferenceJsonChanged = true;
+        }
+        if (apiReferenceJsonChanged) {
+            fs.writeFileSync(apiReferenceJsonPath, newApiReferenceJsonStr);
+    
+            const apiReferenceJsonInfo = {
+                contents: Buffer.from(newApiReferenceJsonStr, 'utf8')
+            };
+            files['assets/files/apiReference.json'] = apiReferenceJsonInfo;
+        
+        }    
+    }
+    
 
     // One time - fix old cards links
     /*
