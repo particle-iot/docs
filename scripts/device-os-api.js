@@ -31,8 +31,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         folderTitles: {},
     };
     let apiReferenceJson = {
-        l2: {},
-        l3: {},
+        items: [],
     };
 
     for(const line of mdFile.split('\n')) {
@@ -221,7 +220,27 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
         apiIndexJson.folderTitles[curL2.folder] = curL2.origTitle;
 
-        apiReferenceJson.l2[curL2.folder] = curL2.origTitle;
+        apiReferenceJson.items.push({
+            title: curL2.origTitle,
+            folder: curL2.folder,
+            subsections: [],
+        });
+    }
+
+    {
+        // Sort L2 headers alphabetically
+        let introductionItem;
+        for(let ii = 0; ii < apiReferenceJson.items.length; ii++) {
+            if (apiReferenceJson.items[ii].folder == 'introduction') {
+                introductionItem = apiReferenceJson.items[ii];
+                apiReferenceJson.items.splice(ii, 1);
+                break;
+            }
+        }
+
+        apiReferenceJson.items.sort((a,b) => a.title.localeCompare(b.title));
+
+        apiReferenceJson.items.splice(0, 0, introductionItem);
     }
 
     // Generate data now
@@ -282,8 +301,13 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             delete l3obj.subsections;
         }
 
-
-        apiReferenceJson.l3[section.folder + '/' + section.file] = l3obj;
+        const folderItem = apiReferenceJson.items.find(e => e.folder == section.folder);
+        if (folderItem) {
+            folderItem.subsections.push(l3obj);
+        }
+        else {
+            console.log('missing folder in apiReferenceJson.items ' + section.folder);
+        }
         
         delete section.subsections;
 
