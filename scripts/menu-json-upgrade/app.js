@@ -39,12 +39,51 @@ function processDir(dir) {
     }
 }
 
+function processItemArray(itemArray, newItemsArray) {
+    let sectionStack = [];
+
+    for(const item of itemArray) {
+        newItemsArray.push(item);
+
+        if (!Array.isArray(item)) {
+            if (item.isSection) {
+                item.subsections = [];
+                sectionStack.push(item);
+            }
+            else {
+            }
+        }
+        else {
+            processItemArray(item, sectionStack[sectionStack.length - 1].subsections);
+            sectionStack.pop();
+        }
+    }
+}
+
+function processMenuJson(fileObj) {
+
+    let newFileJson = {
+        items: [],
+    }
+
+    processItemArray(fileObj.contents.items, newFileJson.items);
+
+    // console.log('newFileJson', newFileJson);
+
+    fs.writeFileSync(path.join(contentDir, fileObj.dir, 'newMenu.json'), JSON.stringify(newFileJson, null, 4));
+    
+}
+
 async function run() {
     try {
         // Find menu.json files
         processDir('');
 
-        console.log('menuJsonFiles', menuJsonFiles);
+        // console.log('menuJsonFiles', menuJsonFiles);
+
+        for(const fileObj of menuJsonFiles) {
+            processMenuJson(fileObj);
+        }
     }
     catch(e) {
         console.log('exception', e);
