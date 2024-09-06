@@ -17,6 +17,8 @@ const redirectsFile = path.join(topDir, 'config', 'redirects.json');
 const menuJsonFiles = [
 ];
 
+let rootTitles = {};
+
 function processDir(dir) {
 
     for(const dirEntry of fs.readdirSync(path.join(contentDir, dir), {withFileTypes:true})) {
@@ -39,14 +41,24 @@ function processDir(dir) {
     }
 }
 
-function processItemArray(itemArray, newItemsArray) {
+function processItemArray(options) {
     let sectionStack = [];
 
-    for(const item of itemArray) {
-        newItemsArray.push(item);
+    for(const item of options.itemArray) {
+        if (item.dir) {
+            item.path = options.path + item.dir + '/';
+        }
+        if ((item.path == item.href) || (item.path == (item.href + '/'))) {
+            delete item.href;
+        }
+        if (item.href) {
+            delete item.path;
+        }
+        options.newItemsArray.push(item);
 
         if (!Array.isArray(item)) {
             if (item.isSection) {
+                delete item.isSection;
                 item.subsections = [];
                 sectionStack.push(item);
             }
@@ -54,7 +66,11 @@ function processItemArray(itemArray, newItemsArray) {
             }
         }
         else {
-            processItemArray(item, sectionStack[sectionStack.length - 1].subsections);
+            processItemArray({
+                path: sectionStack[sectionStack.length - 1].path,
+                itemArray: item, 
+                newItemsArray: sectionStack[sectionStack.length - 1].subsections
+            });
             sectionStack.pop();
         }
     }
@@ -63,10 +79,22 @@ function processItemArray(itemArray, newItemsArray) {
 function processMenuJson(fileObj) {
 
     let newFileJson = {
+        // title
+        // dir: fileObj.dir,
         items: [],
     }
 
-    processItemArray(fileObj.contents.items, newFileJson.items);
+    processItemArray({
+        path: '/' + fileObj.dir + '/',
+        itemArray: fileObj.contents.items, 
+        newItemsArray: newFileJson.items,
+    });
+
+    // TODO: Delete the path out of the file because it can be generated when the file is read
+    // but it's necessary during conversion to determine if the href can be deleted
+    const removePath = function(obj) {
+        
+    }
 
     // console.log('newFileJson', newFileJson);
 
@@ -79,8 +107,17 @@ async function run() {
         // Find menu.json files
         processDir('');
 
-        // console.log('menuJsonFiles', menuJsonFiles);
+        let rootItems = menuJsonFiles.find(e => e.dir == '');
+        if (rootItems) {
+            for(const item of rootItems.contents.items) {
+                const parts = item.href.split('/');
+                //console.log('parts', parts);
+                rootTitles[parts[1]] = item.title;
+            }
+        }
+        // console.log('rootTitles', rootTitles);
 
+        // console.log('menuJsonFiles', menuJsonFiles);
         for(const fileObj of menuJsonFiles) {
             processMenuJson(fileObj);
         }

@@ -262,7 +262,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
         let l3obj = {
             title: section.title,
-            folder: section.folder,
+            dir: section.folder,
             file: section.file,
             subsections: [],
         }
@@ -273,7 +273,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         //    title: title from the section header
 
         // This gets converted into nested objects to make it easier to render as a hierarchical list
-        // l3obj.subsections: Array of objects
+        // item.subsections: Array of objects
         //   anchor: h4 anchor
         //   title: h4 title
         //   subsections: Array of objects if there are h5 headers
@@ -399,29 +399,6 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     
     {
         // Output apiReference.json
-
-        // Sort l2
-        let l2array = [];
-        for(const key in apiReferenceJson.l2) {
-            l2array.push(key);
-        }
-        l2array.sort((a,b) => apiReferenceJson.l2[a].localeCompare(apiReferenceJson.l2[b]));
-        let l2new = {};
-        for(const key of l2array) {
-            l2new[key] = apiReferenceJson.l2[key];
-        }
-        // l2 is an object with:
-        //   key = sanitized l2 name/directory name
-        //   value = title
-        // keys are sorted by title, (localeCompare)
-        apiReferenceJson.l2 = l2new;
-        
-        // l3 is an object with:
-        //   key = section.folder + '/' + section.file
-        //   value = object
-        // The inner object is:
-        //   title: l3 section title
-        //   subsections: array of objects
         
         let apiReferenceJsonChanged = false;
         const newApiReferenceJsonStr = JSON.stringify(apiReferenceJson, null, 2);
