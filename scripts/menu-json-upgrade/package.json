@@ -1,0 +1,15 @@
+{
+    "name": "menu-json-upgrade",
+    "version": "0.0.1",
+    "description": "",
+    "private": true,
+    "scripts": {},
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+        "yargs": "^16.2.0"
+    },
+    "engines": {
+        "node": ">=12.14.0"
+    }
+}
