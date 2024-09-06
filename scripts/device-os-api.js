@@ -152,8 +152,11 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                     curL3.l4.push(obj);
                 }
             }
-
-
+            if (line.startsWith('## Device OS versions')) {
+                // This is no longer included in the index as it's huge and doesn't render properly either
+                // It must be the last thing in the file, as everything after it is ignored!
+                break;
+            }
         }
 
         if (sections.length) {
@@ -240,6 +243,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
         let l3obj = {
             title: section.title,
+            folder: section.folder,
+            file: section.file,
             subsections: [],
         }
 
@@ -258,13 +263,16 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
             for(const obj of section.subsections) {
                 if (obj.level == 4) {
+                    delete obj.level;
                     l3obj.subsections.push(obj);
                     curL4 = obj;
                 }
                 else if (obj.level == 5) {
+                    // Deepest header is h5, and there are not many of them (except in the old firmware version list)
                     if (!curL4.subsections) {
                         curL4.subsections = [];
                     }
+                    delete obj.level;
                     curL4.subsections.push(obj);
                 }
             }
