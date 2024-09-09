@@ -13,7 +13,19 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
     const destDir = 'reference/device-os/libraries';
     const searchPage = destDir + '/search.md';
 
-    const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
+    const libraryMenusRelativePath = 'assets/files/libraryMenus.json';
+    const libraryMenusJsonPath = path.join(contentDir, '../' + libraryMenusRelativePath);
+    let libraryMenusJson = {
+        items: [
+            {
+                "title": "Search",
+                "href": "/reference/device-os/libraries/search/",
+                "isLibrarySearch": true
+            },
+        ],
+    }
+
+    // const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
     
     let searchDocuments = [];
 
@@ -105,6 +117,21 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
                 libraries: letterLibraries[curLetter],
             };
             libraryInfo.letterNavigation.push(obj);
+
+            // New menu format
+            obj = {
+                title: letterUC,
+                dir: curLetter,
+                c: true,
+                subsections: [],
+            }
+            for(const lib of letterLibraries[curLetter]) {
+                obj.subsections.push({
+                    title: lib,
+                    dir: lib,
+                });
+            }
+            libraryMenusJson.items.push(obj);
         }
 
         let newFile = {};
@@ -322,6 +349,32 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
     
     const newSearchIndex = JSON.stringify(lunrIndex, null, 2);
     fs.writeFileSync(searchIndexPath, newSearchIndex);
+
+    {
+        // Output libraryMenus.json
+        
+        let libraryMenusJsonChanged = false;
+        const newLibraryMenusJsonStr = JSON.stringify(libraryMenusJson, null, 2);
+        if (fs.existsSync(libraryMenusJsonPath)) {
+            const oldLibraryMenusJsonStr = fs.readFileSync(libraryMenusJsonPath, 'utf8');
+    
+            libraryMenusJsonChanged = (newLibraryMenusJsonStr != oldLibraryMenusJsonStr);
+        }
+        else {
+            libraryMenusJsonChanged = true;
+        }
+
+        if (libraryMenusJsonChanged) {
+            fs.writeFileSync(libraryMenusJsonPath, newLibraryMenusJsonStr);
+    
+            const libraryMenusJsonInfo = {
+                contents: Buffer.from(newLibraryMenusJsonStr, 'utf8')
+            };
+            files[libraryMenusRelativePath] = libraryMenusJsonInfo;
+        
+        }    
+    }
+    
 }
 
 
