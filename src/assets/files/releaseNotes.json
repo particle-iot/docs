@@ -28271,6 +28271,265 @@
             "prs": [
                 2734
             ]
+        },
+        "v5.9.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.9.0",
+            "tag_name": "v5.9.0",
+            "name": "v5.9.0 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2024-09-06T20:02:19Z",
+            "published_at": "2024-09-09T17:35:55Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2809
+                    ],
+                    "section": "FEATURES",
+                    "text": "Supports M.2 breakout board and Muon"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2805
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Wi-Fi logging"
+                },
+                {
+                    "tags": [
+                        "ACM"
+                    ],
+                    "prs": [
+                        2811
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Perform cloud ping or reachability test on network events; non-blocking background reachability test"
+                },
+                {
+                    "tags": [
+                        "cellular",
+                        "r510"
+                    ],
+                    "prs": [
+                        2803
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "unmask bands for global use"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2801
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "hal: improves BLE connect and discovery procedure"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2822
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "i2c: use transactions for fuelgauge and pmic on platforms with single i2c bus"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2797
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Reduce latency of the system loop"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2798
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Work around a bug in lfs_remove()"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2710
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "set sleep timer upper bounds"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2805
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Wi-Fi fix"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2800
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes DMA enabled USART flush"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2796
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix/ble stop scanning"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2813
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE fixes"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2819
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "clear I2C tx buffer per transmission"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2816
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes USART::available() after waking from sleep"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2818
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes BLE race condition while scanning"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2801
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: improves BLE connect and discovery procedure"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2824,
+                        2823
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usb: fix an issue with USB re-attach after sleep"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2825
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "prebootloader: fix STOP/ULP sleep with disabled rtos, get correct wake-up reason"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2826
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes I2C hal issues"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2816
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add serial loopback to test runner"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2814
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Support integration tests on gen4 after device-constants update"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2823
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Adds fixture tests"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2795
+                    ],
+                    "section": "INTERNAL",
+                    "text": "ACM prefer feature, adjust logging"
+                }
+            ],
+            "prs": [
+                2710,
+                2795,
+                2796,
+                2797,
+                2798,
+                2800,
+                2801,
+                2803,
+                2805,
+                2809,
+                2811,
+                2813,
+                2814,
+                2816,
+                2818,
+                2819,
+                2822,
+                2823,
+                2824,
+                2825,
+                2826
+            ]
         }
     },
     "pulls": {
@@ -41907,6 +42166,142 @@
             "state": "closed",
             "created_at": "2024-07-31T15:21:31Z",
             "detail": "The timer for waking up device on Gen4 has restricted counter value up to `0x3FFFFFFF`, which is `32768000` in miliseconds. However, DVOS doesn't check the upper bounds and may result in unexpected sleep duration."
+        },
+        "2811": {
+            "url": "https://github.com/particle-iot/device-os/pull/2811",
+            "number": 2811,
+            "title": "[ACM] Perform cloud ping or reachability test on network events; non-blocking background reachability test",
+            "state": "closed",
+            "created_at": "2024-08-14T17:44:24Z",
+            "detail": "1. On network state changes re-evaluation is performed once the cloud connection is fully established (i.e. postponed during handshake). Also postponed during OTA and pending reset post-OTA. Happens now outside of network manager and solely in connection manager\n2. Re-evalution happens in the background now without blocking the system (normal internet test is performed in a blocking fashion)\n3. I've refactored/fixed rtt and (added) score calculations taking into account packet losses/reordering/duplicates\n4. Final score is penalized on losses and exponentially on sequential losses (this is not ideal yet, but should be good enough for now; a better approach would be to do something similar to TCP with congestion window, bursting, miss indication blah blah, but again this is a dumber variant of that to some extent)\n5. Changed some timings/constants (5s total test, fixed 250ms gap between tx packets, 10 tx packets)\n6. DNS resolutions are not performed during background check if possible, instead using previously resolved cloud IP (again, if available) -> DNS resolutions are blocking and take a while sometimes (TODO to fix DNS stuff later)\n7. ACM calls into system_cloud layer to get cloud address for the most part (just removed a bunch of similar code for flash space savings purposes)\n8. Outgoing DNS packets go through the network interface DNS servers have been provisioned for (e.g. ones from DHCP on WiFi will use WiFi as outgoing interface, cellular ones provisioned through PPP will use cellular etc)\n9. Periodic preferred network check is scheduled every 5 minutes if last ACM evaluation did not choose it for some reason (e.g. cloud is not reachable due to no internet connectivity)\n10. Fixed a bug with session resumption not triggering reachability (internet) test\n11. Preferred network is not chosen if it fails reachability test\n12. `X.prefer()` API will not trigger immediate cloud connection migration, instead a check will be performed and if cloud is reachable through X - migration will happen"
+        },
+        "2812": {
+            "url": "https://github.com/particle-iot/device-os/pull/2812",
+            "number": 2812,
+            "title": "Fix delay() introducing an unwanted delay when processing app events",
+            "state": "closed",
+            "created_at": "2024-08-15T14:23:06Z"
+        },
+        "2813": {
+            "url": "https://github.com/particle-iot/device-os/pull/2813",
+            "number": 2813,
+            "title": "Gen4 BLE fixes",
+            "state": "closed",
+            "created_at": "2024-08-20T17:11:36Z",
+            "detail": "1. `connectionsMutex_ ` may block the application thread for prolonged amount of time. For example:\n      - onBLEPairingEvent()hold the `connectionsMutex_`\n      - waiting for some cloud data in the BLE pairing event handler\n      - received data from cloud and the subscription handler is scheduled from application thread\n      - application thread calls `waitFor(][(return BLE.isPaired))`, which is blocked by `connectionsMutex_`\n      - cloud data cannot be handled\n2. `assertTrue(results[i].scanResponse().length() > 0);` may fail in `ble_central_peripheral/ble_central `test"
+        },
+        "2814": {
+            "url": "https://github.com/particle-iot/device-os/pull/2814",
+            "number": 2814,
+            "title": "[tests] Support integration tests on gen4 after device-constants update",
+            "state": "closed",
+            "created_at": "2024-08-23T23:29:24Z"
+        },
+        "2815": {
+            "url": "https://github.com/particle-iot/device-os/pull/2815",
+            "number": 2815,
+            "title": "Encode/decode event data as a Variant",
+            "state": "open",
+            "created_at": "2024-08-26T12:32:28Z",
+            "detail": "This PR introduces the following changes:\n\n- Promote the internal `Buffer` class to a public API.\n- Extend `Variant` to support `Buffer` as one of its alternative types.\n- Extend `Particle.publish()` to support publishing event data as a variant.\n- Extend `Particle.subscribe()` to support a new callback type that takes event data as a variant.\n\n`Buffer` is a general purpose class for storing arbitrary data in a dynamically allocated buffer. Note that one implication of supporting it as one of the `Variant`'s alternative types is that it makes it possible to store binary data in a ledger so this PR enables that as well.\n\nWhen an event is published as a variant, it's serialized as CBOR and the content type of the event message is set accordingly. In the opposite direction, from the server to device, a conversion to CBOR is performed if necessary (see the examples below)."
+        },
+        "2816": {
+            "url": "https://github.com/particle-iot/device-os/pull/2816",
+            "number": 2816,
+            "title": "Add serial loopback to test runner",
+            "state": "closed",
+            "created_at": "2024-08-26T16:34:10Z"
+        },
+        "2817": {
+            "url": "https://github.com/particle-iot/device-os/pull/2817",
+            "number": 2817,
+            "title": "[Gen4] fixes deadlock in USB hal",
+            "state": "closed",
+            "created_at": "2024-08-27T07:57:09Z",
+            "detail": "Device may reside in blocked state after reset or waking up from hibernate mode.\n1. `HAL_USB_Init()` in main.cpp sets `initialized_` to `true` and usb thread starts to run with `OS_THREAD_PRIORITY_NETWORK - 1` priority\n2. `USB_USART_LineCoding_BitRate_Handler()` in main.cpp or `Serial.begin()` in app thread with lower priority -> `HAL_USB_USART_Begin()` -> `HAL_USB_Detach()` set `initialized_` to `false`\n3. usb thread continues to run and keeps waiting for `initialized_` to be `true` in a busy loop\n4. app thread is blocked and `HAL_USB_Attach()` won’t be executed and `initialized_` won’t be set `true`\ngoto #3"
+        },
+        "2818": {
+            "url": "https://github.com/particle-iot/device-os/pull/2818",
+            "number": 2818,
+            "title": "[Gen4] fixes BLE race condition while scanning",
+            "state": "closed",
+            "created_at": "2024-08-27T08:37:00Z",
+            "detail": "Imagine the following scenario:\n1. threadX: User app starts BLE scanning\n2. BLE event thread: User app calls `BLE.stopScanning()` to stop scanning in scan result callback\n3. [ threadX: BLE HAL acquires `s_bleMutex` ] in `stopScanning()` to try calling `le_scan_stop()` to stop scanning\n4. [ BLE event thread: acquires `sBleEventMutex` ] since a new scan result is notified and `BLE.stopScanning()` is called again, which will try acquiring `s_bleMutex`, suspending...\n5. threadX: continues to run and try acquiring `sBleEventMutex` before calling `le_scan_stop()`, suspending...\n6. deadlock happens"
+        },
+        "2819": {
+            "url": "https://github.com/particle-iot/device-os/pull/2819",
+            "number": 2819,
+            "title": "[Gen4] clear I2C tx buffer per transmission",
+            "state": "closed",
+            "created_at": "2024-08-29T05:43:15Z",
+            "detail": "I2C TX buffer may contain staled data that will be sent to other slave devices, causing unexpected behavior."
+        },
+        "2820": {
+            "url": "https://github.com/particle-iot/device-os/pull/2820",
+            "number": 2820,
+            "title": "[tests] fixes for device-os-test-runner 0.11.0 changes",
+            "state": "closed",
+            "created_at": "2024-08-29T13:59:09Z"
+        },
+        "2821": {
+            "url": "https://github.com/particle-iot/device-os/pull/2821",
+            "number": 2821,
+            "title": "Bump micromatch from 4.0.5 to 4.0.8 in /user/tests/integration",
+            "state": "closed",
+            "created_at": "2024-08-29T16:10:18Z"
+        },
+        "2822": {
+            "url": "https://github.com/particle-iot/device-os/pull/2822",
+            "number": 2822,
+            "title": "[gen4] i2c: use transactions for fuelgauge and pmic on platforms with single i2c bus",
+            "state": "closed",
+            "created_at": "2024-08-29T23:11:33Z",
+            "detail": "On platforms with no dedicated i2c bus for fuelgauge and pmic, we should be making sure not to cut into application i2c transmissions. In order to do that we now use a transaction API which does not use I2C HAL rx/tx buffers and keeps things intact."
+        },
+        "2823": {
+            "url": "https://github.com/particle-iot/device-os/pull/2823",
+            "number": 2823,
+            "title": "Adds fixture tests",
+            "state": "closed",
+            "created_at": "2024-09-01T21:56:29Z"
+        },
+        "2824": {
+            "url": "https://github.com/particle-iot/device-os/pull/2824",
+            "number": 2824,
+            "title": "[gen4] usb: fix an issue with USB re-attach after sleep",
+            "state": "closed",
+            "created_at": "2024-09-03T08:26:27Z",
+            "detail": "Supersedes #2817"
+        },
+        "2825": {
+            "url": "https://github.com/particle-iot/device-os/pull/2825",
+            "number": 2825,
+            "title": "[gen4] prebootloader: fix STOP/ULP sleep with disabled rtos, get correct wake-up reason",
+            "state": "closed",
+            "created_at": "2024-09-03T21:06:54Z",
+            "detail": "IPC communications are currently broken with KM0 after 1 STOP/ULP sleep cycle when WiFi interface is not initialized and thus KM0 RTOS and WiFi firmware are not initialized."
+        },
+        "2826": {
+            "url": "https://github.com/particle-iot/device-os/pull/2826",
+            "number": 2826,
+            "title": "Fixes I2C hal issues",
+            "state": "closed",
+            "created_at": "2024-09-04T16:51:32Z",
+            "detail": "1. Gen3: I2C slave RX buffer may have stale data if the last rx operation failed.\n2. Gen4: I2C master may fail to re-enable due to I2C FSM(Realtek's concept: Finite State Machine) state never changes to idle"
+        },
+        "2827": {
+            "url": "https://github.com/particle-iot/device-os/pull/2827",
+            "number": 2827,
+            "title": "5.9.0 fixes",
+            "state": "closed",
+            "created_at": "2024-09-06T14:40:00Z"
+        },
+        "2828": {
+            "url": "https://github.com/particle-iot/device-os/pull/2828",
+            "number": 2828,
+            "title": "Improve delay() behavior",
+            "state": "open",
+            "created_at": "2024-09-06T16:53:25Z"
         }
     }
 }

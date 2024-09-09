@@ -56,6 +56,25 @@
     "publishedAt": "2024-03-28T13:13:42Z"
   },
   {
+    "version": "5.9.0",
+    "internal_version": 5901,
+    "state": "pre_release",
+    "release_state": "preview",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v5.9.0",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2024-09-09T17:35:55Z"
+  },
+  {
     "version": "5.8.2",
     "internal_version": 5802,
     "state": "pre_release",
