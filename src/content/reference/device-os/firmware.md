@@ -28642,7 +28642,8 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v5.8.x releases|[v5.8.0](https://github.com/particle-iot/device-os/releases/tag/v5.8.0)|-|-|-|-|-|-|
+|v5.9.x releases|[v5.9.0](https://github.com/particle-iot/device-os/releases/tag/v5.9.0)|-|-|-|-|-|-|
+|v5.8.x releases|[v5.8.0](https://github.com/particle-iot/device-os/releases/tag/v5.8.0)|[v5.8.2](https://github.com/particle-iot/device-os/releases/tag/v5.8.2)|-|-|-|-|-|
 |v5.7.x releases|[v5.7.0](https://github.com/particle-iot/device-os/releases/tag/v5.7.0)|-|-|-|-|-|-|
 |v5.6.x releases|[v5.6.0](https://github.com/particle-iot/device-os/releases/tag/v5.6.0)|-|-|-|-|-|-|
 |v5.5.x prereleases|[v5.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v5.5.0-rc.1)|[v5.5.0](https://github.com/particle-iot/device-os/releases/tag/v5.5.0)|-|-|-|-|-|
@@ -28700,7 +28701,8 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v5.8.x releases|[v5.8.0](/reference/device-os/firmware/?fw_ver=5.8.0&cli_ver=3.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v5.9.x releases|[v5.9.0](/reference/device-os/firmware/?fw_ver=5.9.0&cli_ver=3.26.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v5.8.x releases|[v5.8.0](/reference/device-os/firmware/?fw_ver=5.8.0&cli_ver=3.21.0&electron_parts=3#programming-and-debugging-notes)|[v5.8.2](/reference/device-os/firmware/?fw_ver=5.8.2&cli_ver=3.24.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v5.7.x releases|[v5.7.0](/reference/device-os/firmware/?fw_ver=5.7.0&cli_ver=3.19.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v5.6.x releases|[v5.6.0](/reference/device-os/firmware/?fw_ver=5.6.0-rc.1&cli_ver=3.11.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v5.5.x prereleases|[v5.5.0-rc.1](/reference/device-os/firmware/?fw_ver=5.5.0-rc.1&cli_ver=3.11.3&electron_parts=3#programming-and-debugging-notes)|[v5.5.0](/reference/device-os/firmware/?fw_ver=5.5.0&cli_ver=3.13.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
@@ -28756,6 +28758,8 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v3.26.0 = 5.9.0
+v3.24.0 = 5.8.2
 v3.21.0 = 5.8.0
 v3.19.0 = 5.7.0
 v3.14.0 = 5.6.0
@@ -28924,6 +28928,10 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@5.7.0endif
 ##### @FW_VER@5.8.0if
 ##### @FW_VER@5.8.0endif
+##### @FW_VER@5.8.2if
+##### @FW_VER@5.8.2endif
+##### @FW_VER@5.9.0if
+##### @FW_VER@5.9.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -29036,6 +29044,10 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@3.19.0endif
 ##### @CLI_VER@3.21.0if
 ##### @CLI_VER@3.21.0endif
+##### @CLI_VER@3.24.0if
+##### @CLI_VER@3.24.0endif
+##### @CLI_VER@3.26.0if
+##### @CLI_VER@3.26.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
