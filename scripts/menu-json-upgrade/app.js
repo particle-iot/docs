@@ -90,11 +90,17 @@ function processMenuJson(fileObj) {
         newItemsArray: newFileJson.items,
     });
 
-    // TODO: Delete the path out of the file because it can be generated when the file is read
+    // Delete the path out of the file because it can be generated when the file is read
     // but it's necessary during conversion to determine if the href can be deleted
-    const removePath = function(obj) {
-        
-    }
+    const removePath = function(array) {
+        for(const item of array) {
+            delete item.path;
+            if (item.subsections) {
+                removePath(item.subsections);
+            }
+        }
+    };
+    removePath(newFileJson.items);
 
     // console.log('newFileJson', newFileJson);
 

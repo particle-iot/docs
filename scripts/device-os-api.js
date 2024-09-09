@@ -10,7 +10,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     
     const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
 
-    const apiReferenceJsonPath = path.join(contentDir, '../assets/files/apiReference.json');
+    const apiMenusRelativePath = 'assets/files/apiMenus.json';
+    const apiMenusJsonPath = path.join(contentDir, '../' + apiMenusRelativePath);
 
     const destDir = options.outputDir;
 
@@ -30,7 +31,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         sections: [],
         folderTitles: {},
     };
-    let apiReferenceJson = {
+    let apiMenusJson = {
         items: [],
     };
 
@@ -220,7 +221,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
         apiIndexJson.folderTitles[curL2.folder] = curL2.origTitle;
 
-        apiReferenceJson.items.push({
+        apiMenusJson.items.push({
             title: curL2.origTitle,
             folder: curL2.folder,
             subsections: [],
@@ -230,17 +231,17 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     {
         // Sort L2 headers alphabetically
         let introductionItem;
-        for(let ii = 0; ii < apiReferenceJson.items.length; ii++) {
-            if (apiReferenceJson.items[ii].folder == 'introduction') {
-                introductionItem = apiReferenceJson.items[ii];
-                apiReferenceJson.items.splice(ii, 1);
+        for(let ii = 0; ii < apiMenusJson.items.length; ii++) {
+            if (apiMenusJson.items[ii].folder == 'introduction') {
+                introductionItem = apiMenusJson.items[ii];
+                apiMenusJson.items.splice(ii, 1);
                 break;
             }
         }
 
-        apiReferenceJson.items.sort((a,b) => a.title.localeCompare(b.title));
+        apiMenusJson.items.sort((a,b) => a.title.localeCompare(b.title));
 
-        apiReferenceJson.items.splice(0, 0, introductionItem);
+        apiMenusJson.items.splice(0, 0, introductionItem);
     }
 
     // Generate data now
@@ -283,6 +284,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             for(const obj of section.subsections) {
                 if (obj.level == 4) {
                     delete obj.level;
+                    obj.c = true;
                     l3obj.subsections.push(obj);
                     curL4 = obj;
                 }
@@ -292,6 +294,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                         curL4.subsections = [];
                     }
                     delete obj.level;
+                    obj.c = true;
                     curL4.subsections.push(obj);
                 }
             }
@@ -301,12 +304,12 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             delete l3obj.subsections;
         }
 
-        const folderItem = apiReferenceJson.items.find(e => e.folder == section.folder);
+        const folderItem = apiMenusJson.items.find(e => e.folder == section.folder);
         if (folderItem) {
             folderItem.subsections.push(l3obj);
         }
         else {
-            console.log('missing folder in apiReferenceJson.items ' + section.folder);
+            console.log('missing folder in apiMenusJson.items ' + section.folder);
         }
         
         delete section.subsections;
@@ -398,25 +401,25 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     files['assets/files/apiIndex.json'] = apiIndexJsonInfo;
     
     {
-        // Output apiReference.json
+        // Output apiMenus.json
         
-        let apiReferenceJsonChanged = false;
-        const newApiReferenceJsonStr = JSON.stringify(apiReferenceJson, null, 2);
-        if (fs.existsSync(apiReferenceJsonPath)) {
-            const oldApiReferenceJsonStr = fs.readFileSync(apiReferenceJsonPath, 'utf8');
+        let apiMenusJsonChanged = false;
+        const newApiMenusJsonStr = JSON.stringify(apiMenusJson, null, 2);
+        if (fs.existsSync(apiMenusJsonPath)) {
+            const oldApiMenusJsonStr = fs.readFileSync(apiMenusJsonPath, 'utf8');
     
-            apiReferenceJsonChanged = (newApiReferenceJsonStr != oldApiReferenceJsonStr);
+            apiMenusJsonChanged = (newApiMenusJsonStr != oldApiMenusJsonStr);
         }
         else {
-            apiReferenceJsonChanged = true;
+            apiMenusJsonChanged = true;
         }
-        if (apiReferenceJsonChanged) {
-            fs.writeFileSync(apiReferenceJsonPath, newApiReferenceJsonStr);
+        if (apiMenusJsonChanged) {
+            fs.writeFileSync(apiMenusJsonPath, newApiMenusJsonStr);
     
-            const apiReferenceJsonInfo = {
-                contents: Buffer.from(newApiReferenceJsonStr, 'utf8')
+            const apiMenusJsonInfo = {
+                contents: Buffer.from(newApiMenusJsonStr, 'utf8')
             };
-            files['assets/files/apiReference.json'] = apiReferenceJsonInfo;
+            files[apiMenusRelativePath] = apiMenusJsonInfo;
         
         }    
     }
