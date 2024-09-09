@@ -557,6 +557,65 @@ Example usage:
 | `particle bundle myApp.bin --assets /path/ --saveTo myApp.zip` | Creates a bundle of application binary and assets, and saves it to the myApp.zip file |
 | `particle bundle myApp.bin --saveTo myApp.zip` | Creates a bundle of application binary and assets as specified in the assetOtaDir if available, and saves the bundle to the myApp.zip file |
 
+## particle device-protection
+
+[Device Protection](/scaling/best-practices/device-protection/) is an enterprise feature of Device OS 6.x to provide additional 
+security for devices to prevent local flashing by USB or SWD/JTAG, USB serial access, and other features. 
+
+Devices cannot be removed from Device Protection using the Particle CLI, but certain features such as USB
+serial access can be temporarily disabled.
+
+You must be logged into a your Particle account in the CLI and have appropriate access to the product the Protected Device
+is in in order to use these commands.
+
+### device-protection status
+
+Print the status of Device Protection for a device connected by USB:
+
+```sh
+$ particle device-protection status
+```
+
+You can also print the status of a specific device if multiple devices are connected and you do not want to be prompted.
+
+```sh
+$ particle device-protection status --device 0123456789abcdef78901234
+```
+
+### device-protection disable
+
+Temporarily disable Device Protection for a device to allow access to USB serial and other features.
+
+```sh
+$ particle device-protection disable
+```
+
+You can also disable Device Protection on a specific device if multiple devices are connected and you do not want to be prompted.
+
+```sh
+$ particle device-protection disable --device 0123456789abcdef78901234
+```
+
+
+### device-protection enable
+
+Most commands such as flashing a device will revert back to protected mode automatically. The exceptions are:
+
+- `particle usb reset`
+- `particle serial monitor`
+
+When using these commands, you can reenable Device Protection using:
+
+```sh
+$ particle device-protection enable
+```
+
+You can also enable Device Protection on a specific device if multiple devices are connected and you do not want to be prompted.
+
+```sh
+$ particle device-protection enable --device 0123456789abcdef78901234
+```
+
 
 ## particle project
 

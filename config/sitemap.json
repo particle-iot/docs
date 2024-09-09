@@ -1171,8 +1171,8 @@
             "hash": "1b0d8258dbea7c81ec53fe033d7986750b266a71baf61f2878ebc25635b77424"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-06-06",
-            "hash": "0c8254d98cd40c0a66df55f939b2787e358789b4170827cc6d8d37ff5405df98"
+            "date": "2024-08-29",
+            "hash": "1edb9a8defc92258479b1e556ef0589ac4d98d875e0fca09ef15e2efcae5b95f"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "1d3cf2b8c2322206b9f98a8f42f0aa9898138682f469b66a63bed685d8f35d7b",
-            "date": "2024-09-04"
+            "hash": "88d3186f349f353405f7f99638d673186266c752f123991cdb77ac46d451121b",
+            "date": "2024-09-09"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8379,8 +8379,8 @@
             "date": "2024-01-30"
         },
         "scaling/best-practices/device-protection.md": {
-            "hash": "a4f01a355d69c1232c35a53fe26909039fbb4e7d247859c344571a2482669266",
-            "date": "2024-04-29"
+            "hash": "e9dbed543d2ac50c086729a1fc5df6a8629fae1097cb67aaa58482b2cc64d524",
+            "date": "2024-08-29"
         },
         "hardware/migration-guides/msom-b-series-migration-guide.md": {
             "hash": "557541fd56f5b24e4682836e175ebad697cfe8a09fd3596eff2be1ee113e9655",
