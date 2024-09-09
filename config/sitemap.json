@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-08-16",
-            "hash": "3acf0110a20a914d18bdea24e0b67b1eb3e3e15080afd2add92d3ba036c5676e"
+            "date": "2024-09-09",
+            "hash": "0b7d9d1f1f02477ac508a376db7494ea5d99a891743591617070fdafdb2883a8"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4407,8 +4407,8 @@
             "hash": "3595473a42ae46ef8b93664168ffd86ca47aef3c74126f45f7afea21cf9f054d"
         },
         "reference/device-os/api/memory/stack.md": {
-            "date": "2024-03-15",
-            "hash": "eab7fba193bc5460b4921fa9607c9c6d2c1e2fcd40d05f36b5abead151bd73e6"
+            "date": "2024-09-09",
+            "hash": "567813a6af6cbdca83c3be2a57c5ce644dec4e832638820bba6a274ec49320cd"
         },
         "reference/device-os/api/device-os-versions/device-os-versions.md": {
             "date": "2023-09-20",
