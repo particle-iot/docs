@@ -9,7 +9,7 @@ To view this documentation, visit [our website](https://docs.particle.io), where
 Local Hosting
 -------------
 
-This documentation uses a fabulous tool from the folks at Segment called [Metalsmith](http://www.metalsmith.io). Metalsmith is a static site generator that builds static HTML sites from source material in other formats; in this case, Markdown and Handlebars.
+This documentation uses a fabulous tool from the folks at Segment called [Metalsmith](http://www.metalsmith.io). Metalsmith is a static site generator that builds static HTML sites from source material in other formats; in this case, [Markdown](https://guides.hexlet.io/ru/markdown/) and [Handlebars](https://handlebarsjs.com/).
 
 To set up a server running at `http://localhost:8080`, follow the installation instructions below...
 
