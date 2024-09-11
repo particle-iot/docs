@@ -242,6 +242,37 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         $(indentElem).addClass('navIndent' + itemObj.level);
         $(itemObj.elem).append(indentElem);
 
+        if (itemObj.collapse) {
+            const triangleElem = document.createElement('div');
+            $(triangleElem).addClass('navDisclosure');
+
+            const iconElem = document.createElement('i');
+            $(iconElem).addClass('ion-arrow-right-b');
+            $(triangleElem).append(iconElem);
+
+            $(itemObj.elem).append(triangleElem);
+
+            /*
+            const clickHdr = hdr;
+
+            $(triangleElem).on('click', function () {
+                if ($(iconElem).hasClass('ion-arrow-right-b')) {
+                    // Was right, make down
+                    $(iconElem).removeClass('ion-arrow-right-b');
+                    $(iconElem).addClass('ion-arrow-down-b');                        
+                    $(clickHdr.tocChildren).show();
+                }
+                else {
+                    // Has down, make right
+                    $(iconElem).removeClass('ion-arrow-down-b');
+                    $(iconElem).addClass('ion-arrow-right-b');
+                    $(clickHdr.tocChildren).hide();
+                }
+            });
+            */
+
+        }
+
         itemObj.linkElem = document.createElement('div');
         if (itemObj.isActivePage && itemObj.level <= 2) {
             $(itemObj.linkElem).addClass("navActive" + itemObj.level);
@@ -250,8 +281,19 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             $(itemObj.linkElem).addClass("navMenu" + itemObj.level);
         }
 
-        $(itemObj.linkElem).text(itemObj.title);
-        $(itemObj.elem).append(itemObj.linkElem);
+        if (!itemObj.isActivePage && typeof itemObj.subsections == 'undefined') {
+            // This is not the active page and does not have subsections, so it's a clickable link
+            const aElem = document.createElement('a');
+            $(aElem).addClass('navLink');
+            $(aElem).attr('href', itemObj.href);
+            $(aElem).text(itemObj.title);
+
+            $(itemObj.linkElem).append(aElem);
+        }
+        else {
+            $(itemObj.linkElem).text(itemObj.title);
+        }
+        $(itemObj.elem).append(itemObj.linkElem);    
 
 
         console.log('itemObj', itemObj);

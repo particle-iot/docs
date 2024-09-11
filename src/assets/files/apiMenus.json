@@ -3,6 +3,7 @@
     {
       "title": "Introduction",
       "dir": "introduction",
+      "collapse": true,
       "subsections": [
         {
           "title": "Getting started - Introduction",
@@ -19,6 +20,7 @@
     {
       "title": "Asset OTA",
       "dir": "asset-ota",
+      "collapse": true,
       "subsections": [
         {
           "title": "Asset OTA",
@@ -32,58 +34,47 @@
           "subsections": [
             {
               "anchor": "name-applicationasset",
-              "title": "name() - ApplicationAsset",
-              "c": true
+              "title": "name() - ApplicationAsset"
             },
             {
               "anchor": "hash-applicationasset",
-              "title": "hash() - ApplicationAsset",
-              "c": true
+              "title": "hash() - ApplicationAsset"
             },
             {
               "anchor": "size-applicationasset",
-              "title": "size() - ApplicationAsset",
-              "c": true
+              "title": "size() - ApplicationAsset"
             },
             {
               "anchor": "storagesize-applicationasset",
-              "title": "storageSize() - ApplicationAsset",
-              "c": true
+              "title": "storageSize() - ApplicationAsset"
             },
             {
               "anchor": "isvalid-applicationasset",
-              "title": "isValid() - ApplicationAsset",
-              "c": true
+              "title": "isValid() - ApplicationAsset"
             },
             {
               "anchor": "isreadable-applicationasset",
-              "title": "isReadable() - ApplicationAsset",
-              "c": true
+              "title": "isReadable() - ApplicationAsset"
             },
             {
               "anchor": "available-applicationasset",
-              "title": "available() - ApplicationAsset",
-              "c": true
+              "title": "available() - ApplicationAsset"
             },
             {
               "anchor": "read-applicationasset",
-              "title": "read() - ApplicationAsset",
-              "c": true
+              "title": "read() - ApplicationAsset"
             },
             {
               "anchor": "peek-applicationasset",
-              "title": "peek() - ApplicationAsset",
-              "c": true
+              "title": "peek() - ApplicationAsset"
             },
             {
               "anchor": "skip-applicationasset",
-              "title": "skip() - ApplicationAsset",
-              "c": true
+              "title": "skip() - ApplicationAsset"
             },
             {
               "anchor": "reset-applicationasset",
-              "title": "reset() - ApplicationAsset",
-              "c": true
+              "title": "reset() - ApplicationAsset"
             }
           ]
         },
@@ -94,38 +85,31 @@
           "subsections": [
             {
               "anchor": "constructor-assethash",
-              "title": "Constructor - AssetHash",
-              "c": true
+              "title": "Constructor - AssetHash"
             },
             {
               "anchor": "type-assethash",
-              "title": "type() - AssetHash",
-              "c": true
+              "title": "type() - AssetHash"
             },
             {
               "anchor": "hash-assethash",
-              "title": "hash() - AssetHash",
-              "c": true
+              "title": "hash() - AssetHash"
             },
             {
               "anchor": "isvalid-assethash",
-              "title": "isValid() - AssetHash",
-              "c": true
+              "title": "isValid() - AssetHash"
             },
             {
               "anchor": "tostring-assethash",
-              "title": "toString() - AssetHash",
-              "c": true
+              "title": "toString() - AssetHash"
             },
             {
               "anchor": "operator-assethash",
-              "title": "operator==() - AssetHash",
-              "c": true
+              "title": "operator==() - AssetHash"
             },
             {
               "anchor": "operator-assethash",
-              "title": "operator!=() - AssetHash",
-              "c": true
+              "title": "operator!=() - AssetHash"
             }
           ]
         }
@@ -134,6 +118,7 @@
     {
       "title": "Battery voltage",
       "dir": "battery-voltage",
+      "collapse": true,
       "subsections": [
         {
           "title": "Battery Voltage - Photon 2 - Battery voltage",
@@ -150,6 +135,7 @@
     {
       "title": "Bluetooth LE (BLE)",
       "dir": "bluetooth-le-ble",
+      "collapse": true,
       "subsections": [
         {
           "title": "Bluetooth LE (BLE)",
@@ -163,325 +149,261 @@
           "subsections": [
             {
               "anchor": "ble-advertise-",
-              "title": "BLE.advertise()",
-              "c": true
+              "title": "BLE.advertise()"
             },
             {
               "anchor": "ble-advertise-ibeacon-",
-              "title": "BLE.advertise(iBeacon)",
-              "c": true
+              "title": "BLE.advertise(iBeacon)"
             },
             {
               "anchor": "ble-advertise-",
-              "title": "BLE.advertise()",
-              "c": true
+              "title": "BLE.advertise()"
             },
             {
               "anchor": "ble-stopadvertising-",
-              "title": "BLE.stopAdvertising()",
-              "c": true
+              "title": "BLE.stopAdvertising()"
             },
             {
               "anchor": "ble-advertising-",
-              "title": "BLE.advertising()",
-              "c": true
+              "title": "BLE.advertising()"
             },
             {
               "anchor": "ble-getadvertisingdata-",
-              "title": "BLE.getAdvertisingData()",
-              "c": true
+              "title": "BLE.getAdvertisingData()"
             },
             {
               "anchor": "ble-setadvertisingdata-",
-              "title": "BLE.setAdvertisingData()",
-              "c": true
+              "title": "BLE.setAdvertisingData()"
             },
             {
               "anchor": "ble-setadvertisinginterval-",
-              "title": "BLE.setAdvertisingInterval()",
-              "c": true
+              "title": "BLE.setAdvertisingInterval()"
             },
             {
               "anchor": "ble-setadvertisingtimeout-",
-              "title": "BLE.setAdvertisingTimeout()",
-              "c": true
+              "title": "BLE.setAdvertisingTimeout()"
             },
             {
               "anchor": "ble-setadvertisingtype-",
-              "title": "BLE.setAdvertisingType()",
-              "c": true
+              "title": "BLE.setAdvertisingType()"
             },
             {
               "anchor": "ble-getadvertisingparameters-",
-              "title": "BLE.getAdvertisingParameters()",
-              "c": true
+              "title": "BLE.getAdvertisingParameters()"
             },
             {
               "anchor": "ble-setadvertisingparameters-",
-              "title": "BLE.setAdvertisingParameters()",
-              "c": true
+              "title": "BLE.setAdvertisingParameters()"
             },
             {
               "anchor": "ble-setadvertisingparameters-bleadvertisingparams-",
-              "title": "BLE.setAdvertisingParameters(BleAdvertisingParams)",
-              "c": true
+              "title": "BLE.setAdvertisingParameters(BleAdvertisingParams)"
             },
             {
               "anchor": "ble-setadvertisingphy-",
-              "title": "BLE.setAdvertisingPhy()",
-              "c": true
+              "title": "BLE.setAdvertisingPhy()"
             },
             {
               "anchor": "ble-getscanresponsedata-",
-              "title": "BLE.getScanResponseData()",
-              "c": true
+              "title": "BLE.getScanResponseData()"
             },
             {
               "anchor": "ble-setscanresponsedata-",
-              "title": "BLE.setScanResponseData()",
-              "c": true
+              "title": "BLE.setScanResponseData()"
             },
             {
               "anchor": "ble-addcharacteristic-characteristic-",
-              "title": "BLE.addCharacteristic(characteristic)",
-              "c": true
+              "title": "BLE.addCharacteristic(characteristic)"
             },
             {
               "anchor": "ble-addcharacteristic-parameters-",
-              "title": "BLE.addCharacteristic(parameters)",
-              "c": true
+              "title": "BLE.addCharacteristic(parameters)"
             },
             {
               "anchor": "ble-scan-array-",
-              "title": "BLE.scan(array)",
-              "c": true
+              "title": "BLE.scan(array)"
             },
             {
               "anchor": "ble-scan-vector-",
-              "title": "BLE.scan(Vector)",
-              "c": true
+              "title": "BLE.scan(Vector)"
             },
             {
               "anchor": "ble-scan-callback-",
-              "title": "BLE.scan(callback)",
-              "c": true
+              "title": "BLE.scan(callback)"
             },
             {
               "anchor": "ble-scanwithfilter-",
-              "title": "BLE.scanWithFilter()",
-              "c": true
+              "title": "BLE.scanWithFilter()"
             },
             {
               "anchor": "ble-stopscanning-",
-              "title": "BLE.stopScanning()",
-              "c": true
+              "title": "BLE.stopScanning()"
             },
             {
               "anchor": "ble-setscantimeout-",
-              "title": "BLE.setScanTimeout()",
-              "c": true
+              "title": "BLE.setScanTimeout()"
             },
             {
               "anchor": "ble-getscanparameters-",
-              "title": "BLE.getScanParameters()",
-              "c": true
+              "title": "BLE.getScanParameters()"
             },
             {
               "anchor": "ble-setscanparameters-",
-              "title": "BLE.setScanParameters()",
-              "c": true
+              "title": "BLE.setScanParameters()"
             },
             {
               "anchor": "ble-setscanphy-",
-              "title": "BLE.setScanPhy()",
-              "c": true
+              "title": "BLE.setScanPhy()"
             },
             {
               "anchor": "ble-connect-",
-              "title": "BLE.connect()",
-              "c": true
+              "title": "BLE.connect()"
             },
             {
               "anchor": "ble-connect-options-",
-              "title": "BLE.connect(options)",
-              "c": true
+              "title": "BLE.connect(options)"
             },
             {
               "anchor": "ble-setppcp-",
-              "title": "BLE.setPPCP()",
-              "c": true
+              "title": "BLE.setPPCP()"
             },
             {
               "anchor": "ble-connected-",
-              "title": "BLE.connected()",
-              "c": true
+              "title": "BLE.connected()"
             },
             {
               "anchor": "ble-disconnect-",
-              "title": "BLE.disconnect()",
-              "c": true
+              "title": "BLE.disconnect()"
             },
             {
               "anchor": "ble-disconnect-peripheral-",
-              "title": "BLE.disconnect(peripheral)",
-              "c": true
+              "title": "BLE.disconnect(peripheral)"
             },
             {
               "anchor": "ble-on-",
-              "title": "BLE.on()",
-              "c": true
+              "title": "BLE.on()"
             },
             {
               "anchor": "ble-off-",
-              "title": "BLE.off()",
-              "c": true
+              "title": "BLE.off()"
             },
             {
               "anchor": "ble-begin-",
-              "title": "BLE.begin()",
-              "c": true
+              "title": "BLE.begin()"
             },
             {
               "anchor": "ble-end-",
-              "title": "BLE.end()",
-              "c": true
+              "title": "BLE.end()"
             },
             {
               "anchor": "ble-onconnected-",
-              "title": "BLE.onConnected()",
-              "c": true
+              "title": "BLE.onConnected()"
             },
             {
               "anchor": "ble-ondisconnected-",
-              "title": "BLE.onDisconnected()",
-              "c": true
+              "title": "BLE.onDisconnected()"
             },
             {
               "anchor": "ble-settxpower-",
-              "title": "BLE.setTxPower()",
-              "c": true
+              "title": "BLE.setTxPower()"
             },
             {
               "anchor": "ble-txpower-",
-              "title": "BLE.txPower()",
-              "c": true
+              "title": "BLE.txPower()"
             },
             {
               "anchor": "ble-address-",
-              "title": "BLE.address()",
-              "c": true
+              "title": "BLE.address()"
             },
             {
               "anchor": "ble-selectantenna-",
-              "title": "BLE.selectAntenna()",
-              "c": true
+              "title": "BLE.selectAntenna()"
             },
             {
               "anchor": "ble-setpairingiocaps-",
-              "title": "BLE.setPairingIoCaps()",
-              "c": true
+              "title": "BLE.setPairingIoCaps()"
             },
             {
               "anchor": "ble-setpairingalgorithm-",
-              "title": "BLE.setPairingAlgorithm()",
-              "c": true
+              "title": "BLE.setPairingAlgorithm()"
             },
             {
               "anchor": "ble-startpairing-",
-              "title": "BLE.startPairing()",
-              "c": true
+              "title": "BLE.startPairing()"
             },
             {
               "anchor": "ble-rejectpairing-",
-              "title": "BLE.rejectPairing()",
-              "c": true
+              "title": "BLE.rejectPairing()"
             },
             {
               "anchor": "ble-setpairingnumericcomparison-",
-              "title": "BLE.setPairingNumericComparison()",
-              "c": true
+              "title": "BLE.setPairingNumericComparison()"
             },
             {
               "anchor": "ble-setpairingpasskey-",
-              "title": "BLE.setPairingPasskey()",
-              "c": true
+              "title": "BLE.setPairingPasskey()"
             },
             {
               "anchor": "ble-ispairing-",
-              "title": "BLE.isPairing()",
-              "c": true
+              "title": "BLE.isPairing()"
             },
             {
               "anchor": "ble-ispaired-",
-              "title": "BLE.isPaired()",
-              "c": true
+              "title": "BLE.isPaired()"
             },
             {
               "anchor": "ble-onpairingevent-",
               "title": "BLE.onPairingEvent()",
-              "c": true,
               "subsections": [
                 {
                   "anchor": "blepairingevent",
-                  "title": "BLEPairingEvent",
-                  "c": true
+                  "title": "BLEPairingEvent"
                 },
                 {
                   "anchor": "blepairingeventpayload",
-                  "title": "BlePairingEventPayload",
-                  "c": true
+                  "title": "BlePairingEventPayload"
                 },
                 {
                   "anchor": "blepairingstatus",
-                  "title": "BlePairingStatus",
-                  "c": true
+                  "title": "BlePairingStatus"
                 }
               ]
             },
             {
               "anchor": "ble-setprovisioningsvcuuid",
-              "title": "BLE.setProvisioningSvcUuid",
-              "c": true
+              "title": "BLE.setProvisioningSvcUuid"
             },
             {
               "anchor": "ble-setprovisioningtxuuid",
-              "title": "BLE.setProvisioningTxUuid",
-              "c": true
+              "title": "BLE.setProvisioningTxUuid"
             },
             {
               "anchor": "ble-setprovisioningrxuuid",
-              "title": "BLE.setProvisioningRxUuid",
-              "c": true
+              "title": "BLE.setProvisioningRxUuid"
             },
             {
               "anchor": "ble-setprovisioningveruuid",
-              "title": "BLE.setProvisioningVerUuid",
-              "c": true
+              "title": "BLE.setProvisioningVerUuid"
             },
             {
               "anchor": "ble-setdevicename",
-              "title": "BLE.setDeviceName",
-              "c": true
+              "title": "BLE.setDeviceName"
             },
             {
               "anchor": "ble-getdevicename",
-              "title": "BLE.getDeviceName",
-              "c": true
+              "title": "BLE.getDeviceName"
             },
             {
               "anchor": "ble-setprovisioningcompanyid",
-              "title": "BLE.setProvisioningCompanyId",
-              "c": true
+              "title": "BLE.setProvisioningCompanyId"
             },
             {
               "anchor": "ble-provisioningmode",
-              "title": "BLE.provisioningMode",
-              "c": true
+              "title": "BLE.provisioningMode"
             },
             {
               "anchor": "ble-getprovisioningstatus",
-              "title": "BLE.getProvisioningStatus",
-              "c": true
+              "title": "BLE.getProvisioningStatus"
             }
           ]
         },
@@ -492,33 +414,27 @@
           "subsections": [
             {
               "anchor": "devicename-blescanfilter-",
-              "title": "deviceName (BLEScanFilter)",
-              "c": true
+              "title": "deviceName (BLEScanFilter)"
             },
             {
               "anchor": "serviceuuid-blescanfilter-",
-              "title": "serviceUUID (BLEScanFilter)",
-              "c": true
+              "title": "serviceUUID (BLEScanFilter)"
             },
             {
               "anchor": "address-blescanfilter-",
-              "title": "address (BleScanFilter)",
-              "c": true
+              "title": "address (BleScanFilter)"
             },
             {
               "anchor": "appearance-blescanfilter-",
-              "title": "appearance (BleScanFilter)",
-              "c": true
+              "title": "appearance (BleScanFilter)"
             },
             {
               "anchor": "rssi-blescanfilter-",
-              "title": "rssi (BleScanFilter)",
-              "c": true
+              "title": "rssi (BleScanFilter)"
             },
             {
               "anchor": "customdata-blescanfilter-",
-              "title": "customData (BleScanFilter)",
-              "c": true
+              "title": "customData (BleScanFilter)"
             }
           ]
         },
@@ -534,63 +450,51 @@
           "subsections": [
             {
               "anchor": "blecharacteristic-",
-              "title": "BleCharacteristic()",
-              "c": true
+              "title": "BleCharacteristic()"
             },
             {
               "anchor": "blecharacteristic-peripheral-",
-              "title": "BleCharacteristic (peripheral)",
-              "c": true
+              "title": "BleCharacteristic (peripheral)"
             },
             {
               "anchor": "blecharacteristic-peripheral-with-data-received-",
-              "title": "BleCharacteristic (peripheral with data received)",
-              "c": true
+              "title": "BleCharacteristic (peripheral with data received)"
             },
             {
               "anchor": "uuid-",
-              "title": "UUID()",
-              "c": true
+              "title": "UUID()"
             },
             {
               "anchor": "properties-",
-              "title": "properties()",
-              "c": true
+              "title": "properties()"
             },
             {
               "anchor": "getvalue-buf-len-",
-              "title": "getValue(buf, len)",
-              "c": true
+              "title": "getValue(buf, len)"
             },
             {
               "anchor": "getvalue-string-",
-              "title": "getValue(String)",
-              "c": true
+              "title": "getValue(String)"
             },
             {
               "anchor": "getvalue-pointer-",
-              "title": "getValue(pointer)",
-              "c": true
+              "title": "getValue(pointer)"
             },
             {
               "anchor": "setvalue-buf-len-",
-              "title": "setValue(buf, len)",
-              "c": true
+              "title": "setValue(buf, len)"
             },
             {
               "anchor": "setvalue-string-",
-              "title": "setValue(string)",
-              "c": true
+              "title": "setValue(string)"
             },
             {
               "anchor": "setvalue-pointer-",
-              "title": "setValue(pointer)",
-              "c": true
+              "title": "setValue(pointer)"
             },
             {
               "anchor": "ondatareceived-",
-              "title": "onDataReceived()",
-              "c": true
+              "title": "onDataReceived()"
             }
           ]
         },
@@ -606,38 +510,31 @@
           "subsections": [
             {
               "anchor": "type-",
-              "title": "type()",
-              "c": true
+              "title": "type()"
             },
             {
               "anchor": "isvalid-",
-              "title": "isValid()",
-              "c": true
+              "title": "isValid()"
             },
             {
               "anchor": "equality",
-              "title": "equality",
-              "c": true
+              "title": "equality"
             },
             {
               "anchor": "rawbytes",
-              "title": "rawBytes",
-              "c": true
+              "title": "rawBytes"
             },
             {
               "anchor": "operator-",
-              "title": "operator[]",
-              "c": true
+              "title": "operator[]"
             },
             {
               "anchor": "constructors",
-              "title": "Constructors",
-              "c": true
+              "title": "Constructors"
             },
             {
               "anchor": "setters",
-              "title": "Setters",
-              "c": true
+              "title": "Setters"
             }
           ]
         },
@@ -648,88 +545,71 @@
           "subsections": [
             {
               "anchor": "bleadvertisingdata-",
-              "title": "BleAdvertisingData()",
-              "c": true
+              "title": "BleAdvertisingData()"
             },
             {
               "anchor": "append-",
-              "title": "append()",
-              "c": true
+              "title": "append()"
             },
             {
               "anchor": "appendcustomdata",
-              "title": "appendCustomData",
-              "c": true
+              "title": "appendCustomData"
             },
             {
               "anchor": "appendlocalname-",
-              "title": "appendLocalName()",
-              "c": true
+              "title": "appendLocalName()"
             },
             {
               "anchor": "appendserviceuuid-",
-              "title": "appendServiceUUID()",
-              "c": true
+              "title": "appendServiceUUID()"
             },
             {
               "anchor": "clear-",
-              "title": "clear()",
-              "c": true
+              "title": "clear()"
             },
             {
               "anchor": "remove-",
-              "title": "remove()",
-              "c": true
+              "title": "remove()"
             },
             {
               "anchor": "set-",
-              "title": "set()",
-              "c": true
+              "title": "set()"
             },
             {
               "anchor": "get-type-buffer-",
-              "title": "get(type, buffer)",
-              "c": true
+              "title": "get(type, buffer)"
             },
             {
               "anchor": "get-buffer-",
-              "title": "get(buffer)",
-              "c": true
+              "title": "get(buffer)"
             },
             {
               "anchor": "length-",
-              "title": "length()",
-              "c": true
+              "title": "length()"
             },
             {
               "anchor": "operator-",
-              "title": "operator[]",
-              "c": true
+              "title": "operator[]"
             },
             {
               "anchor": "devicename-",
-              "title": "deviceName()",
-              "c": true
+              "title": "deviceName()"
             },
             {
               "anchor": "devicename-buf-",
-              "title": "deviceName(buf)",
-              "c": true
+              "title": "deviceName(buf)"
             },
             {
               "anchor": "serviceuuid-",
-              "title": "serviceUUID()",
-              "c": true
+              "title": "serviceUUID()"
             },
             {
               "anchor": "customdata-",
-              "title": "customData()",
-              "c": true
+              "title": "customData()"
             },
             {
               "anchor": "contains-",
-              "title": "contains()",
-              "c": true
+              "title": "contains()"
             }
           ]
         },
@@ -750,33 +630,27 @@
           "subsections": [
             {
               "anchor": "connected-",
-              "title": "connected()",
-              "c": true
+              "title": "connected()"
             },
             {
               "anchor": "address-",
-              "title": "address()",
-              "c": true
+              "title": "address()"
             },
             {
               "anchor": "getcharacteristicbyuuid-",
-              "title": "getCharacteristicByUUID()",
-              "c": true
+              "title": "getCharacteristicByUUID()"
             },
             {
               "anchor": "getcharacteristicbydescription-",
-              "title": "getCharacteristicByDescription()",
-              "c": true
+              "title": "getCharacteristicByDescription()"
             },
             {
               "anchor": "blescanresult",
-              "title": "BleScanResult",
-              "c": true
+              "title": "BleScanResult"
             },
             {
               "anchor": "discoverallcharacteristics",
-              "title": "discoverAllCharacteristics",
-              "c": true
+              "title": "discoverAllCharacteristics"
             }
           ]
         },
@@ -787,43 +661,35 @@
           "subsections": [
             {
               "anchor": "copy-bleaddress-",
-              "title": "copy (BleAddress)",
-              "c": true
+              "title": "copy (BleAddress)"
             },
             {
               "anchor": "address-byte-bleaddress-",
-              "title": "address byte (BleAddress)",
-              "c": true
+              "title": "address byte (BleAddress)"
             },
             {
               "anchor": "tostring-bleaddress-",
-              "title": "toString (BleAddress)",
-              "c": true
+              "title": "toString (BleAddress)"
             },
             {
               "anchor": "equality-bleaddress-",
-              "title": "equality (BleAddress)",
-              "c": true
+              "title": "equality (BleAddress)"
             },
             {
               "anchor": "valid-bleaddress-",
-              "title": "valid (BleAddress)",
-              "c": true
+              "title": "valid (BleAddress)"
             },
             {
               "anchor": "getters",
-              "title": "Getters",
-              "c": true
+              "title": "Getters"
             },
             {
               "anchor": "constructor-",
-              "title": "Constructor",
-              "c": true
+              "title": "Constructor"
             },
             {
               "anchor": "setters",
-              "title": "Setters",
-              "c": true
+              "title": "Setters"
             }
           ]
         },
@@ -857,6 +723,7 @@
     {
       "title": "CAN (canbus)",
       "dir": "can-canbus",
+      "collapse": true,
       "subsections": [
         {
           "title": "CAN (canbus)",
@@ -923,6 +790,7 @@
     {
       "title": "Cellular",
       "dir": "cellular",
+      "collapse": true,
       "subsections": [
         {
           "title": "Cellular",
@@ -1056,28 +924,23 @@
           "subsections": [
             {
               "anchor": "getaccesstechnology-",
-              "title": "getAccessTechnology()",
-              "c": true
+              "title": "getAccessTechnology()"
             },
             {
               "anchor": "getstrength-",
-              "title": "getStrength()",
-              "c": true
+              "title": "getStrength()"
             },
             {
               "anchor": "getquality-",
-              "title": "getQuality()",
-              "c": true
+              "title": "getQuality()"
             },
             {
               "anchor": "getstrengthvalue-",
-              "title": "getStrengthValue()",
-              "c": true
+              "title": "getStrengthValue()"
             },
             {
               "anchor": "getqualityvalue-",
-              "title": "getQualityValue()",
-              "c": true
+              "title": "getQualityValue()"
             }
           ]
         },
@@ -1116,6 +979,7 @@
     {
       "title": "Checking for features",
       "dir": "checking-for-features",
+      "collapse": true,
       "subsections": [
         {
           "title": "Checking for features",
@@ -1137,6 +1001,7 @@
     {
       "title": "Chrono Literals",
       "dir": "chrono-literals",
+      "collapse": true,
       "subsections": [
         {
           "title": "Chrono Literals",
@@ -1148,6 +1013,7 @@
     {
       "title": "Cloud functions",
       "dir": "cloud-functions",
+      "collapse": true,
       "subsections": [
         {
           "title": "Overview of API field limits - Cloud functions",
@@ -1294,6 +1160,7 @@
     {
       "title": "Debugging",
       "dir": "debugging",
+      "collapse": true,
       "subsections": [
         {
           "title": "Debugging",
@@ -1330,6 +1197,7 @@
     {
       "title": "Device identifiers",
       "dir": "device-identifiers",
+      "collapse": true,
       "subsections": [
         {
           "title": "Device identifiers",
@@ -1386,6 +1254,7 @@
     {
       "title": "EEPROM",
       "dir": "eeprom",
+      "collapse": true,
       "subsections": [
         {
           "title": "EEPROM",
@@ -1437,6 +1306,7 @@
     {
       "title": "Ethernet",
       "dir": "ethernet",
+      "collapse": true,
       "subsections": [
         {
           "title": "Ethernet",
@@ -1553,6 +1423,7 @@
     {
       "title": "File system",
       "dir": "file-system",
+      "collapse": true,
       "subsections": [
         {
           "title": "File system",
@@ -1669,6 +1540,7 @@
     {
       "title": "FuelGauge",
       "dir": "fuelgauge",
+      "collapse": true,
       "subsections": [
         {
           "title": "FuelGauge",
@@ -1745,6 +1617,7 @@
     {
       "title": "Global object constructors",
       "dir": "global-object-constructors",
+      "collapse": true,
       "subsections": [
         {
           "title": "Global object constructors",
@@ -1756,6 +1629,7 @@
     {
       "title": "Input/Output",
       "dir": "input-output",
+      "collapse": true,
       "subsections": [
         {
           "title": "Input/Output",
@@ -1832,6 +1706,7 @@
     {
       "title": "Input/Output - Advanced",
       "dir": "input-output-advanced",
+      "collapse": true,
       "subsections": [
         {
           "title": "tone() - Input/Output - Advanced",
@@ -1863,6 +1738,7 @@
     {
       "title": "Interrupts",
       "dir": "interrupts",
+      "collapse": true,
       "subsections": [
         {
           "title": "Interrupts",
@@ -1894,6 +1770,7 @@
     {
       "title": "IPAddress",
       "dir": "ipaddress",
+      "collapse": true,
       "subsections": [
         {
           "title": "IPAddress",
@@ -1905,6 +1782,7 @@
     {
       "title": "JSON",
       "dir": "json",
+      "collapse": true,
       "subsections": [
         {
           "title": "JSON",
@@ -1918,83 +1796,67 @@
           "subsections": [
             {
               "anchor": "jsonwriter-beginarray-",
-              "title": "JSONWriter::beginArray()",
-              "c": true
+              "title": "JSONWriter::beginArray()"
             },
             {
               "anchor": "jsonwriter-endarray-",
-              "title": "JSONWriter::endArray()",
-              "c": true
+              "title": "JSONWriter::endArray()"
             },
             {
               "anchor": "jsonwriter-beginobject-",
-              "title": "JSONWriter::beginObject()",
-              "c": true
+              "title": "JSONWriter::beginObject()"
             },
             {
               "anchor": "jsonwriter-endobject-",
-              "title": "JSONWriter::endObject()",
-              "c": true
+              "title": "JSONWriter::endObject()"
             },
             {
               "anchor": "jsonwriter-name-const-char-name-",
-              "title": "JSONWriter::name(const char *name)",
-              "c": true
+              "title": "JSONWriter::name(const char *name)"
             },
             {
               "anchor": "jsonwriter-name-const-char-name-size_t-size-",
-              "title": "JSONWriter::name(const char *name, size_t size)",
-              "c": true
+              "title": "JSONWriter::name(const char *name, size_t size)"
             },
             {
               "anchor": "jsonwriter-name-const-string-amp-name-",
-              "title": "JSONWriter::name(const String &name)",
-              "c": true
+              "title": "JSONWriter::name(const String &name)"
             },
             {
               "anchor": "jsonwriter-value-bool-val-",
-              "title": "JsonWriter::value(bool val)",
-              "c": true
+              "title": "JsonWriter::value(bool val)"
             },
             {
               "anchor": "jsonwriter-value-int-val-",
-              "title": "JsonWriter::value(int val)",
-              "c": true
+              "title": "JsonWriter::value(int val)"
             },
             {
               "anchor": "jsonwriter-value-unsigned-val-",
-              "title": "JsonWriter::value(unsigned val)",
-              "c": true
+              "title": "JsonWriter::value(unsigned val)"
             },
             {
               "anchor": "jsonwriter-value-double-val-int-precision-",
-              "title": "JsonWriter::value(double val, int precision)",
-              "c": true
+              "title": "JsonWriter::value(double val, int precision)"
             },
             {
               "anchor": "jsonwriter-value-double-val-",
-              "title": "JsonWriter::value(double val)",
-              "c": true
+              "title": "JsonWriter::value(double val)"
             },
             {
               "anchor": "jsonwriter-value-const-char-val-",
-              "title": "JsonWriter::value(const char *val)",
-              "c": true
+              "title": "JsonWriter::value(const char *val)"
             },
             {
               "anchor": "jsonwriter-value-const-char-val-size_t-size-",
-              "title": "JsonWriter::value(const char *val, size_t size)",
-              "c": true
+              "title": "JsonWriter::value(const char *val, size_t size)"
             },
             {
               "anchor": "jsonwriter-value-const-string-amp-val-",
-              "title": "JsonWriter::value(const String &val)",
-              "c": true
+              "title": "JsonWriter::value(const String &val)"
             },
             {
               "anchor": "jsonwriter-nullvalue-",
-              "title": "JsonWriter::nullValue()",
-              "c": true
+              "title": "JsonWriter::nullValue()"
             }
           ]
         },
@@ -2005,23 +1867,19 @@
           "subsections": [
             {
               "anchor": "jsonbufferwriter-jsonbufferwriter-char-buf-size_t-size-",
-              "title": "JSONBufferWriter::JSONBufferWriter(char *buf, size_t size)",
-              "c": true
+              "title": "JSONBufferWriter::JSONBufferWriter(char *buf, size_t size)"
             },
             {
               "anchor": "jsonbufferwriter-buffer-",
-              "title": "JSONBufferWriter::buffer()",
-              "c": true
+              "title": "JSONBufferWriter::buffer()"
             },
             {
               "anchor": "jsonbufferwriter-buffersize-",
-              "title": "JSONBufferWriter::bufferSize()",
-              "c": true
+              "title": "JSONBufferWriter::bufferSize()"
             },
             {
               "anchor": "jsonbufferwriter-datasize-",
-              "title": "JSONBufferWriter::dataSize()",
-              "c": true
+              "title": "JSONBufferWriter::dataSize()"
             }
           ]
         },
@@ -2032,13 +1890,11 @@
           "subsections": [
             {
               "anchor": "jsonstreamwriter-jsonstreamwriter-print-amp-stream-",
-              "title": "JSONStreamWriter::JSONStreamWriter(Print &stream)",
-              "c": true
+              "title": "JSONStreamWriter::JSONStreamWriter(Print &stream)"
             },
             {
               "anchor": "jsonstreamwriter-stream-",
-              "title": "JSONStreamWriter::stream()",
-              "c": true
+              "title": "JSONStreamWriter::stream()"
             }
           ]
         },
@@ -2054,63 +1910,51 @@
           "subsections": [
             {
               "anchor": "jsonvalue-isnull-",
-              "title": "JSONValue::isNull()",
-              "c": true
+              "title": "JSONValue::isNull()"
             },
             {
               "anchor": "jsonvalue-isbool-",
-              "title": "JSONValue::isBool()",
-              "c": true
+              "title": "JSONValue::isBool()"
             },
             {
               "anchor": "jsonvalue-isnumber-",
-              "title": "JSONValue::isNumber()",
-              "c": true
+              "title": "JSONValue::isNumber()"
             },
             {
               "anchor": "jsonvalue-isstring-",
-              "title": "JSONValue::isString()",
-              "c": true
+              "title": "JSONValue::isString()"
             },
             {
               "anchor": "jsonvalue-isarray-",
-              "title": "JSONValue::isArray()",
-              "c": true
+              "title": "JSONValue::isArray()"
             },
             {
               "anchor": "jsonvalue-isobject-",
-              "title": "JSONValue::isObject()",
-              "c": true
+              "title": "JSONValue::isObject()"
             },
             {
               "anchor": "jsonvalue-type-",
-              "title": "JSONValue::type()",
-              "c": true
+              "title": "JSONValue::type()"
             },
             {
               "anchor": "jsonvalue-tobool-",
-              "title": "JSONValue::toBool()",
-              "c": true
+              "title": "JSONValue::toBool()"
             },
             {
               "anchor": "jsonvalue-toint-",
-              "title": "JSONValue::toInt()",
-              "c": true
+              "title": "JSONValue::toInt()"
             },
             {
               "anchor": "jsonvalue-todouble-",
-              "title": "JSONValue::toDouble()",
-              "c": true
+              "title": "JSONValue::toDouble()"
             },
             {
               "anchor": "jsonvalue-tostring-",
-              "title": "JSONValue::toString()",
-              "c": true
+              "title": "JSONValue::toString()"
             },
             {
               "anchor": "jsonvalue-isvalid-",
-              "title": "JSONValue::isValid()",
-              "c": true
+              "title": "JSONValue::isValid()"
             }
           ]
         },
@@ -2121,43 +1965,35 @@
           "subsections": [
             {
               "anchor": "jsonstring-jsonstring-const-jsonvalue-amp-value-",
-              "title": "JSONString::JSONString(const JSONValue &value);",
-              "c": true
+              "title": "JSONString::JSONString(const JSONValue &value);"
             },
             {
               "anchor": "jsonstring-data-",
-              "title": "JSONString::data()",
-              "c": true
+              "title": "JSONString::data()"
             },
             {
               "anchor": "jsonstring-operator-const-char-",
-              "title": "JSONString::operator const char *()",
-              "c": true
+              "title": "JSONString::operator const char *()"
             },
             {
               "anchor": "jsonstring-operator-string-",
-              "title": "JSONString::operator String()",
-              "c": true
+              "title": "JSONString::operator String()"
             },
             {
               "anchor": "jsonstring-size-",
-              "title": "JSONString::size()",
-              "c": true
+              "title": "JSONString::size()"
             },
             {
               "anchor": "jsonstring-isempty-",
-              "title": "JSONString::isEmpty()",
-              "c": true
+              "title": "JSONString::isEmpty()"
             },
             {
               "anchor": "jsonstring-operator-",
-              "title": "JSONString::operator==()",
-              "c": true
+              "title": "JSONString::operator==()"
             },
             {
               "anchor": "jsonstring-operator-",
-              "title": "JSONString::operator!=()",
-              "c": true
+              "title": "JSONString::operator!=()"
             }
           ]
         },
@@ -2168,28 +2004,23 @@
           "subsections": [
             {
               "anchor": "jsonobjectiterator-jsonobjectiterator-const-jsonvalue-amp-value-",
-              "title": "JSONObjectIterator::JSONObjectIterator(const JSONValue &value)",
-              "c": true
+              "title": "JSONObjectIterator::JSONObjectIterator(const JSONValue &value)"
             },
             {
               "anchor": "jsonobjectiterator-next-",
-              "title": "JSONObjectIterator::next()",
-              "c": true
+              "title": "JSONObjectIterator::next()"
             },
             {
               "anchor": "jsonobjectiterator-name-",
-              "title": "JSONObjectIterator::name()",
-              "c": true
+              "title": "JSONObjectIterator::name()"
             },
             {
               "anchor": "jsonobjectiterator-value-",
-              "title": "JSONObjectIterator::value()",
-              "c": true
+              "title": "JSONObjectIterator::value()"
             },
             {
               "anchor": "jsonobjectiterator-count-",
-              "title": "JSONObjectIterator::count()",
-              "c": true
+              "title": "JSONObjectIterator::count()"
             }
           ]
         },
@@ -2200,23 +2031,19 @@
           "subsections": [
             {
               "anchor": "jsonarrayiterator-jsonarrayiterator-const-jsonvalue-amp-value-",
-              "title": "JSONArrayIterator::JSONArrayIterator(const JSONValue &value)",
-              "c": true
+              "title": "JSONArrayIterator::JSONArrayIterator(const JSONValue &value)"
             },
             {
               "anchor": "jsonarrayiterator-next-",
-              "title": "JSONArrayIterator::next()",
-              "c": true
+              "title": "JSONArrayIterator::next()"
             },
             {
               "anchor": "jsonarrayiterator-value-",
-              "title": "JSONArrayIterator::value()",
-              "c": true
+              "title": "JSONArrayIterator::value()"
             },
             {
               "anchor": "jsonarrayiterator-count-",
-              "title": "JSONArrayIterator::count()",
-              "c": true
+              "title": "JSONArrayIterator::count()"
             }
           ]
         }
@@ -2225,6 +2052,7 @@
     {
       "title": "Keyboard",
       "dir": "keyboard",
+      "collapse": true,
       "subsections": [
         {
           "title": "Keyboard",
@@ -2291,6 +2119,7 @@
     {
       "title": "Language - Arduino Compatibility",
       "dir": "language-arduino-compatibility",
+      "collapse": true,
       "subsections": [
         {
           "title": "Language - Arduino Compatibility",
@@ -2317,6 +2146,7 @@
     {
       "title": "Language syntax",
       "dir": "language-syntax",
+      "collapse": true,
       "subsections": [
         {
           "title": "Language syntax",
@@ -2330,13 +2160,11 @@
           "subsections": [
             {
               "anchor": "setup-",
-              "title": "setup()",
-              "c": true
+              "title": "setup()"
             },
             {
               "anchor": "loop-",
-              "title": "loop()",
-              "c": true
+              "title": "loop()"
             }
           ]
         },
@@ -2347,58 +2175,47 @@
           "subsections": [
             {
               "anchor": "if",
-              "title": "if",
-              "c": true
+              "title": "if"
             },
             {
               "anchor": "comparison-operators",
-              "title": "Comparison operators",
-              "c": true
+              "title": "Comparison operators"
             },
             {
               "anchor": "if-else",
-              "title": "if...else",
-              "c": true
+              "title": "if...else"
             },
             {
               "anchor": "for",
-              "title": "for",
-              "c": true
+              "title": "for"
             },
             {
               "anchor": "switch-case",
-              "title": "switch case",
-              "c": true
+              "title": "switch case"
             },
             {
               "anchor": "while",
-              "title": "while",
-              "c": true
+              "title": "while"
             },
             {
               "anchor": "do-while",
-              "title": "do... while",
-              "c": true
+              "title": "do... while"
             },
             {
               "anchor": "break",
-              "title": "break",
-              "c": true
+              "title": "break"
             },
             {
               "anchor": "continue",
-              "title": "continue",
-              "c": true
+              "title": "continue"
             },
             {
               "anchor": "return",
-              "title": "return",
-              "c": true
+              "title": "return"
             },
             {
               "anchor": "goto",
-              "title": "goto",
-              "c": true
+              "title": "goto"
             }
           ]
         },
@@ -2409,33 +2226,27 @@
           "subsections": [
             {
               "anchor": "-semicolon-",
-              "title": "; (semicolon)",
-              "c": true
+              "title": "; (semicolon)"
             },
             {
               "anchor": "-curly-braces-",
-              "title": "{} (curly braces)",
-              "c": true
+              "title": "{} (curly braces)"
             },
             {
               "anchor": "-single-line-comment-",
-              "title": "// (single line comment)",
-              "c": true
+              "title": "// (single line comment)"
             },
             {
               "anchor": "-multi-line-comment-",
-              "title": "/\\* \\*/ (multi-line comment)",
-              "c": true
+              "title": "/\\* \\*/ (multi-line comment)"
             },
             {
               "anchor": "-define",
-              "title": "#define",
-              "c": true
+              "title": "#define"
             },
             {
               "anchor": "-include",
-              "title": "#include",
-              "c": true
+              "title": "#include"
             }
           ]
         },
@@ -2446,18 +2257,15 @@
           "subsections": [
             {
               "anchor": "-assignment-operator-",
-              "title": "= (assignment operator)",
-              "c": true
+              "title": "= (assignment operator)"
             },
             {
               "anchor": "-addition-subtraction-multiplication-division-",
-              "title": "+ - * / (addition subtraction multiplication division)",
-              "c": true
+              "title": "+ - * / (addition subtraction multiplication division)"
             },
             {
               "anchor": "-modulo-",
-              "title": "% (modulo)",
-              "c": true
+              "title": "% (modulo)"
             }
           ]
         },
@@ -2468,18 +2276,15 @@
           "subsections": [
             {
               "anchor": "-amp-amp-and-",
-              "title": "&& (and)",
-              "c": true
+              "title": "&& (and)"
             },
             {
               "anchor": "-or-",
-              "title": "|| (or)",
-              "c": true
+              "title": "|| (or)"
             },
             {
               "anchor": "-not-",
-              "title": "! (not)",
-              "c": true
+              "title": "! (not)"
             }
           ]
         },
@@ -2490,28 +2295,23 @@
           "subsections": [
             {
               "anchor": "-amp-bitwise-and-",
-              "title": "& (bitwise and)",
-              "c": true
+              "title": "& (bitwise and)"
             },
             {
               "anchor": "-bitwise-or-",
-              "title": "| (bitwise or)",
-              "c": true
+              "title": "| (bitwise or)"
             },
             {
               "anchor": "-bitwise-xor-",
-              "title": "^ (bitwise xor)",
-              "c": true
+              "title": "^ (bitwise xor)"
             },
             {
               "anchor": "-bitwise-not-",
-              "title": "~ (bitwise not)",
-              "c": true
+              "title": "~ (bitwise not)"
             },
             {
               "anchor": "bitwise-shift",
-              "title": "bitwise shift",
-              "c": true
+              "title": "bitwise shift"
             }
           ]
         },
@@ -2522,23 +2322,19 @@
           "subsections": [
             {
               "anchor": "-increment-decrement-",
-              "title": "++ (increment), -- (decrement)",
-              "c": true
+              "title": "++ (increment), -- (decrement)"
             },
             {
               "anchor": "compound-arithmetic",
-              "title": "compound arithmetic",
-              "c": true
+              "title": "compound arithmetic"
             },
             {
               "anchor": "-amp-compound-bitwise-and-",
-              "title": "&= (compound bitwise and)",
-              "c": true
+              "title": "&= (compound bitwise and)"
             },
             {
               "anchor": "-compound-bitwise-or-",
-              "title": "|= (compound bitwise or)",
-              "c": true
+              "title": "|= (compound bitwise or)"
             }
           ]
         },
@@ -2549,18 +2345,15 @@
           "subsections": [
             {
               "anchor": "high-low",
-              "title": "HIGH | LOW",
-              "c": true
+              "title": "HIGH | LOW"
             },
             {
               "anchor": "input-output-input_pullup-input_pulldown",
-              "title": "INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN",
-              "c": true
+              "title": "INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN"
             },
             {
               "anchor": "true-false",
-              "title": "true | false",
-              "c": true
+              "title": "true | false"
             }
           ]
         },
@@ -2571,83 +2364,67 @@
           "subsections": [
             {
               "anchor": "void",
-              "title": "void",
-              "c": true
+              "title": "void"
             },
             {
               "anchor": "boolean",
-              "title": "boolean",
-              "c": true
+              "title": "boolean"
             },
             {
               "anchor": "char",
-              "title": "char",
-              "c": true
+              "title": "char"
             },
             {
               "anchor": "unsigned-char",
-              "title": "unsigned char",
-              "c": true
+              "title": "unsigned char"
             },
             {
               "anchor": "byte",
-              "title": "byte",
-              "c": true
+              "title": "byte"
             },
             {
               "anchor": "int",
-              "title": "int",
-              "c": true
+              "title": "int"
             },
             {
               "anchor": "unsigned-int",
-              "title": "unsigned int",
-              "c": true
+              "title": "unsigned int"
             },
             {
               "anchor": "word",
-              "title": "word",
-              "c": true
+              "title": "word"
             },
             {
               "anchor": "long",
-              "title": "long",
-              "c": true
+              "title": "long"
             },
             {
               "anchor": "unsigned-long",
-              "title": "unsigned long",
-              "c": true
+              "title": "unsigned long"
             },
             {
               "anchor": "short",
-              "title": "short",
-              "c": true
+              "title": "short"
             },
             {
               "anchor": "float",
-              "title": "float",
-              "c": true
+              "title": "float"
             },
             {
               "anchor": "double",
-              "title": "double",
-              "c": true
+              "title": "double"
             },
             {
               "anchor": "string-char-array",
-              "title": "string - char array",
-              "c": true
+              "title": "string - char array"
             },
             {
               "anchor": "string-object",
-              "title": "String - object",
-              "c": true
+              "title": "String - object"
             },
             {
               "anchor": "array",
-              "title": "array",
-              "c": true
+              "title": "array"
             }
           ]
         },
@@ -2661,6 +2438,7 @@
     {
       "title": "LED Signaling",
       "dir": "led-signaling",
+      "collapse": true,
       "subsections": [
         {
           "title": "LED Signaling",
@@ -2674,93 +2452,75 @@
           "subsections": [
             {
               "anchor": "ledstatus-",
-              "title": "LEDStatus()",
-              "c": true
+              "title": "LEDStatus()"
             },
             {
               "anchor": "setcolor-",
-              "title": "setColor()",
-              "c": true
+              "title": "setColor()"
             },
             {
               "anchor": "color-",
-              "title": "color()",
-              "c": true
+              "title": "color()"
             },
             {
               "anchor": "setpattern-",
-              "title": "setPattern()",
-              "c": true
+              "title": "setPattern()"
             },
             {
               "anchor": "pattern-",
-              "title": "pattern()",
-              "c": true
+              "title": "pattern()"
             },
             {
               "anchor": "setspeed-",
-              "title": "setSpeed()",
-              "c": true
+              "title": "setSpeed()"
             },
             {
               "anchor": "setperiod-",
-              "title": "setPeriod()",
-              "c": true
+              "title": "setPeriod()"
             },
             {
               "anchor": "period-",
-              "title": "period()",
-              "c": true
+              "title": "period()"
             },
             {
               "anchor": "setpriority-",
-              "title": "setPriority()",
-              "c": true
+              "title": "setPriority()"
             },
             {
               "anchor": "priority-",
-              "title": "priority()",
-              "c": true
+              "title": "priority()"
             },
             {
               "anchor": "on-",
-              "title": "on()",
-              "c": true
+              "title": "on()"
             },
             {
               "anchor": "off-",
-              "title": "off()",
-              "c": true
+              "title": "off()"
             },
             {
               "anchor": "toggle-",
-              "title": "toggle()",
-              "c": true
+              "title": "toggle()"
             },
             {
               "anchor": "ison-",
-              "title": "isOn()",
-              "c": true
+              "title": "isOn()"
             },
             {
               "anchor": "isoff-",
-              "title": "isOff()",
-              "c": true
+              "title": "isOff()"
             },
             {
               "anchor": "setactive-",
-              "title": "setActive()",
-              "c": true
+              "title": "setActive()"
             },
             {
               "anchor": "isactive-",
-              "title": "isActive()",
-              "c": true
+              "title": "isActive()"
             },
             {
               "anchor": "custom-patterns",
-              "title": "Custom patterns",
-              "c": true
+              "title": "Custom patterns"
             }
           ]
         },
@@ -2771,58 +2531,47 @@
           "subsections": [
             {
               "anchor": "ledsystemtheme-",
-              "title": "LEDSystemTheme()",
-              "c": true
+              "title": "LEDSystemTheme()"
             },
             {
               "anchor": "setcolor-",
-              "title": "setColor()",
-              "c": true
+              "title": "setColor()"
             },
             {
               "anchor": "color-",
-              "title": "color()",
-              "c": true
+              "title": "color()"
             },
             {
               "anchor": "setpattern-",
-              "title": "setPattern()",
-              "c": true
+              "title": "setPattern()"
             },
             {
               "anchor": "pattern-",
-              "title": "pattern()",
-              "c": true
+              "title": "pattern()"
             },
             {
               "anchor": "setspeed-",
-              "title": "setSpeed()",
-              "c": true
+              "title": "setSpeed()"
             },
             {
               "anchor": "setperiod-",
-              "title": "setPeriod()",
-              "c": true
+              "title": "setPeriod()"
             },
             {
               "anchor": "period-",
-              "title": "period()",
-              "c": true
+              "title": "period()"
             },
             {
               "anchor": "setsignal-",
-              "title": "setSignal()",
-              "c": true
+              "title": "setSignal()"
             },
             {
               "anchor": "apply-",
-              "title": "apply()",
-              "c": true
+              "title": "apply()"
             },
             {
               "anchor": "restoredefault-",
-              "title": "restoreDefault()",
-              "c": true
+              "title": "restoreDefault()"
             }
           ]
         },
@@ -2856,6 +2605,7 @@
     {
       "title": "Ledger",
       "dir": "ledger",
+      "collapse": true,
       "subsections": [
         {
           "title": "Ledger",
@@ -2942,6 +2692,7 @@
     {
       "title": "LedgerData",
       "dir": "ledgerdata",
+      "collapse": true,
       "subsections": [
         {
           "title": "LedgerData",
@@ -2993,6 +2744,7 @@
     {
       "title": "Logging",
       "dir": "logging",
+      "collapse": true,
       "subsections": [
         {
           "title": "Logging",
@@ -3021,8 +2773,7 @@
           "subsections": [
             {
               "anchor": "community-log-handlers",
-              "title": "Community log handlers",
-              "c": true
+              "title": "Community log handlers"
             }
           ]
         },
@@ -3036,6 +2787,7 @@
     {
       "title": "Low level input/output",
       "dir": "low-level-input-output",
+      "collapse": true,
       "subsections": [
         {
           "title": "Low level input/output",
@@ -3067,6 +2819,7 @@
     {
       "title": "Macros",
       "dir": "macros",
+      "collapse": true,
       "subsections": [
         {
           "title": "STARTUP() - Macros",
@@ -3085,18 +2838,15 @@
           "subsections": [
             {
               "anchor": "device-os-4-0-and-later",
-              "title": "Device OS 4.0 and later",
-              "c": true
+              "title": "Device OS 4.0 and later"
             },
             {
               "anchor": "device-os-before-3-x-and-earlier",
-              "title": "Device OS before 3.x and earlier",
-              "c": true
+              "title": "Device OS before 3.x and earlier"
             },
             {
               "anchor": "device-os-1-5-3-to-3-x-wildcard",
-              "title": "Device OS 1.5.3 to 3.x Wildcard",
-              "c": true
+              "title": "Device OS 1.5.3 to 3.x Wildcard"
             }
           ]
         }
@@ -3105,6 +2855,7 @@
     {
       "title": "Map",
       "dir": "map",
+      "collapse": true,
       "subsections": [
         {
           "title": "Map",
@@ -3196,6 +2947,7 @@
     {
       "title": "Math",
       "dir": "math",
+      "collapse": true,
       "subsections": [
         {
           "title": "Math",
@@ -3242,6 +2994,7 @@
     {
       "title": "Memory",
       "dir": "memory",
+      "collapse": true,
       "subsections": [
         {
           "title": "Memory",
@@ -3251,1417 +3004,14 @@
         {
           "title": "Stack - Memory",
           "dir": "memory",
-          "file": "stack",
-          "subsections": [
-            {
-              "anchor": "release-notes-wrapper",
-              "title": "release-notes-wrapper",
-              "c": true,
-              "subsections": [
-                {
-                  "anchor": "-fw_ver-0-5-0if",
-                  "title": "@FW_VER@0.5.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-0endif",
-                  "title": "@FW_VER@0.5.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-1if",
-                  "title": "@FW_VER@0.5.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-1endif",
-                  "title": "@FW_VER@0.5.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-2if",
-                  "title": "@FW_VER@0.5.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-2endif",
-                  "title": "@FW_VER@0.5.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-3if",
-                  "title": "@FW_VER@0.5.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-3endif",
-                  "title": "@FW_VER@0.5.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-4if",
-                  "title": "@FW_VER@0.5.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-4endif",
-                  "title": "@FW_VER@0.5.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-5if",
-                  "title": "@FW_VER@0.5.5if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-5endif",
-                  "title": "@FW_VER@0.5.5endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-0if",
-                  "title": "@FW_VER@0.6.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-0endif",
-                  "title": "@FW_VER@0.6.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-1if",
-                  "title": "@FW_VER@0.6.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-1endif",
-                  "title": "@FW_VER@0.6.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-2if",
-                  "title": "@FW_VER@0.6.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-2endif",
-                  "title": "@FW_VER@0.6.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-3if",
-                  "title": "@FW_VER@0.6.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-3endif",
-                  "title": "@FW_VER@0.6.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-4if",
-                  "title": "@FW_VER@0.6.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-4endif",
-                  "title": "@FW_VER@0.6.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0if",
-                  "title": "@FW_VER@0.7.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0endif",
-                  "title": "@FW_VER@0.7.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-1-1if",
-                  "title": "@FW_VER@1.1.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-1-1endif",
-                  "title": "@FW_VER@1.1.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-2-1if",
-                  "title": "@FW_VER@1.2.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-2-1endif",
-                  "title": "@FW_VER@1.2.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-3-1if",
-                  "title": "@FW_VER@1.3.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-3-1endif",
-                  "title": "@FW_VER@1.3.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-0if",
-                  "title": "@FW_VER@1.4.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-0endif",
-                  "title": "@FW_VER@1.4.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-1if",
-                  "title": "@FW_VER@1.4.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-1endif",
-                  "title": "@FW_VER@1.4.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-2if",
-                  "title": "@FW_VER@1.4.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-2endif",
-                  "title": "@FW_VER@1.4.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-3if",
-                  "title": "@FW_VER@1.4.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-3endif",
-                  "title": "@FW_VER@1.4.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-4if",
-                  "title": "@FW_VER@1.4.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-4endif",
-                  "title": "@FW_VER@1.4.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-0if",
-                  "title": "@FW_VER@1.5.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-0endif",
-                  "title": "@FW_VER@1.5.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-1if",
-                  "title": "@FW_VER@1.5.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-1endif",
-                  "title": "@FW_VER@1.5.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-2if",
-                  "title": "@FW_VER@1.5.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-2endif",
-                  "title": "@FW_VER@1.5.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-4if",
-                  "title": "@FW_VER@1.5.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-4endif",
-                  "title": "@FW_VER@1.5.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-0-0if",
-                  "title": "@FW_VER@2.0.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-0-0endif",
-                  "title": "@FW_VER@2.0.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-1-0if",
-                  "title": "@FW_VER@2.1.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-1-0endif",
-                  "title": "@FW_VER@2.1.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-2-0if",
-                  "title": "@FW_VER@2.2.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-2-0endif",
-                  "title": "@FW_VER@2.2.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-3-0if",
-                  "title": "@FW_VER@2.3.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-2-3-0endif",
-                  "title": "@FW_VER@2.3.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-0-0if",
-                  "title": "@FW_VER@3.0.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-0-0endif",
-                  "title": "@FW_VER@3.0.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-1-0if",
-                  "title": "@FW_VER@3.1.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-1-0endif",
-                  "title": "@FW_VER@3.1.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-2-0if",
-                  "title": "@FW_VER@3.2.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-2-0endif",
-                  "title": "@FW_VER@3.2.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-3-0if",
-                  "title": "@FW_VER@3.3.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-3-3-0endif",
-                  "title": "@FW_VER@3.3.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-0-0if",
-                  "title": "@FW_VER@4.0.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-0-0endif",
-                  "title": "@FW_VER@4.0.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-0-1if",
-                  "title": "@FW_VER@4.0.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-0-1endif",
-                  "title": "@FW_VER@4.0.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-0-2if",
-                  "title": "@FW_VER@4.0.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-0-2endif",
-                  "title": "@FW_VER@4.0.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-1-0if",
-                  "title": "@FW_VER@4.1.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-1-0endif",
-                  "title": "@FW_VER@4.1.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-2-0if",
-                  "title": "@FW_VER@4.2.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-4-2-0endif",
-                  "title": "@FW_VER@4.2.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-0-0if",
-                  "title": "@FW_VER@5.0.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-0-0endif",
-                  "title": "@FW_VER@5.0.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-0-1if",
-                  "title": "@FW_VER@5.0.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-0-1endif",
-                  "title": "@FW_VER@5.0.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-1-0if",
-                  "title": "@FW_VER@5.1.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-1-0endif",
-                  "title": "@FW_VER@5.1.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-2-0if",
-                  "title": "@FW_VER@5.2.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-2-0endif",
-                  "title": "@FW_VER@5.2.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-3-0if",
-                  "title": "@FW_VER@5.3.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-3-0endif",
-                  "title": "@FW_VER@5.3.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-3-1if",
-                  "title": "@FW_VER@5.3.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-3-1endif",
-                  "title": "@FW_VER@5.3.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-3-2if",
-                  "title": "@FW_VER@5.3.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-3-2endif",
-                  "title": "@FW_VER@5.3.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-4-0if",
-                  "title": "@FW_VER@5.4.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-4-0endif",
-                  "title": "@FW_VER@5.4.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-4-1if",
-                  "title": "@FW_VER@5.4.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-4-1endif",
-                  "title": "@FW_VER@5.4.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-5-0if",
-                  "title": "@FW_VER@5.5.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-5-0endif",
-                  "title": "@FW_VER@5.5.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-6-0if",
-                  "title": "@FW_VER@5.6.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-6-0endif",
-                  "title": "@FW_VER@5.6.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-7-0if",
-                  "title": "@FW_VER@5.7.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-7-0endif",
-                  "title": "@FW_VER@5.7.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-8-0if",
-                  "title": "@FW_VER@5.8.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-8-0endif",
-                  "title": "@FW_VER@5.8.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-8-2if",
-                  "title": "@FW_VER@5.8.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-8-2endif",
-                  "title": "@FW_VER@5.8.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-9-0if",
-                  "title": "@FW_VER@5.9.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-5-9-0endif",
-                  "title": "@FW_VER@5.9.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-15-0if",
-                  "title": "@CLI_VER@1.15.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-15-0endif",
-                  "title": "@CLI_VER@1.15.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-17-0if",
-                  "title": "@CLI_VER@1.17.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-17-0endif",
-                  "title": "@CLI_VER@1.17.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-18-0if",
-                  "title": "@CLI_VER@1.18.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-18-0endif",
-                  "title": "@CLI_VER@1.18.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-20-1if",
-                  "title": "@CLI_VER@1.20.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-20-1endif",
-                  "title": "@CLI_VER@1.20.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-21-0if",
-                  "title": "@CLI_VER@1.21.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-21-0endif",
-                  "title": "@CLI_VER@1.21.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-22-0if",
-                  "title": "@CLI_VER@1.22.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-22-0endif",
-                  "title": "@CLI_VER@1.22.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-23-1if",
-                  "title": "@CLI_VER@1.23.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-23-1endif",
-                  "title": "@CLI_VER@1.23.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-24-1if",
-                  "title": "@CLI_VER@1.24.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-24-1endif",
-                  "title": "@CLI_VER@1.24.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-25-0if",
-                  "title": "@CLI_VER@1.25.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-25-0endif",
-                  "title": "@CLI_VER@1.25.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-26-2if",
-                  "title": "@CLI_VER@1.26.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-26-2endif",
-                  "title": "@CLI_VER@1.26.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-29-0if",
-                  "title": "@CLI_VER@1.29.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-29-0endif",
-                  "title": "@CLI_VER@1.29.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-32-1if",
-                  "title": "@CLI_VER@1.32.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-32-1endif",
-                  "title": "@CLI_VER@1.32.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-32-4if",
-                  "title": "@CLI_VER@1.32.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-32-4endif",
-                  "title": "@CLI_VER@1.32.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-33-0if",
-                  "title": "@CLI_VER@1.33.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-33-0endif",
-                  "title": "@CLI_VER@1.33.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-35-0if",
-                  "title": "@CLI_VER@1.35.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-35-0endif",
-                  "title": "@CLI_VER@1.35.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-36-3if",
-                  "title": "@CLI_VER@1.36.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-36-3endif",
-                  "title": "@CLI_VER@1.36.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-37-0if",
-                  "title": "@CLI_VER@1.37.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-37-0endif",
-                  "title": "@CLI_VER@1.37.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-38-0if",
-                  "title": "@CLI_VER@1.38.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-38-0endif",
-                  "title": "@CLI_VER@1.38.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-39-0if",
-                  "title": "@CLI_VER@1.39.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-39-0endif",
-                  "title": "@CLI_VER@1.39.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-40-0if",
-                  "title": "@CLI_VER@1.40.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-40-0endif",
-                  "title": "@CLI_VER@1.40.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-41-0if",
-                  "title": "@CLI_VER@1.41.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-41-0endif",
-                  "title": "@CLI_VER@1.41.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-41-1if",
-                  "title": "@CLI_VER@1.41.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-41-1endif",
-                  "title": "@CLI_VER@1.41.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-41-2if",
-                  "title": "@CLI_VER@1.41.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-41-2endif",
-                  "title": "@CLI_VER@1.41.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-42-0if",
-                  "title": "@CLI_VER@1.42.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-42-0endif",
-                  "title": "@CLI_VER@1.42.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-43-0if",
-                  "title": "@CLI_VER@1.43.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-43-0endif",
-                  "title": "@CLI_VER@1.43.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-43-1if",
-                  "title": "@CLI_VER@1.43.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-43-1endif",
-                  "title": "@CLI_VER@1.43.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-43-3if",
-                  "title": "@CLI_VER@1.43.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-43-3endif",
-                  "title": "@CLI_VER@1.43.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-46-1if",
-                  "title": "@CLI_VER@1.46.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-46-1endif",
-                  "title": "@CLI_VER@1.46.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-47-0if",
-                  "title": "@CLI_VER@1.47.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-47-0endif",
-                  "title": "@CLI_VER@1.47.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-48-0if",
-                  "title": "@CLI_VER@1.48.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-48-0endif",
-                  "title": "@CLI_VER@1.48.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-49-0if",
-                  "title": "@CLI_VER@1.49.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-49-0endif",
-                  "title": "@CLI_VER@1.49.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-52-0if",
-                  "title": "@CLI_VER@1.52.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-52-0endif",
-                  "title": "@CLI_VER@1.52.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-53-0if",
-                  "title": "@CLI_VER@1.53.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-1-53-0endif",
-                  "title": "@CLI_VER@1.53.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-1-0if",
-                  "title": "@CLI_VER@2.1.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-1-0endif",
-                  "title": "@CLI_VER@2.1.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-3-0if",
-                  "title": "@CLI_VER@2.3.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-3-0endif",
-                  "title": "@CLI_VER@2.3.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-5-0if",
-                  "title": "@CLI_VER@2.5.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-5-0endif",
-                  "title": "@CLI_VER@2.5.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-6-0if",
-                  "title": "@CLI_VER@2.6.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-6-0endif",
-                  "title": "@CLI_VER@2.6.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-7-2if",
-                  "title": "@CLI_VER@2.7.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-7-2endif",
-                  "title": "@CLI_VER@2.7.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-8-1if",
-                  "title": "@CLI_VER@2.8.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-8-1endif",
-                  "title": "@CLI_VER@2.8.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-9-0if",
-                  "title": "@CLI_VER@2.9.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-9-0endif",
-                  "title": "@CLI_VER@2.9.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-10-0if",
-                  "title": "@CLI_VER@2.10.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-10-0endif",
-                  "title": "@CLI_VER@2.10.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-10-1if",
-                  "title": "@CLI_VER@2.10.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-10-1endif",
-                  "title": "@CLI_VER@2.10.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-11-0if",
-                  "title": "@CLI_VER@2.11.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-11-0endif",
-                  "title": "@CLI_VER@2.11.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-12-0if",
-                  "title": "@CLI_VER@2.12.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-12-0endif",
-                  "title": "@CLI_VER@2.12.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-16-0if",
-                  "title": "@CLI_VER@2.16.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-2-16-0endif",
-                  "title": "@CLI_VER@2.16.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-1-0if",
-                  "title": "@CLI_VER@3.1.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-1-0endif",
-                  "title": "@CLI_VER@3.1.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-4-0if",
-                  "title": "@CLI_VER@3.4.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-4-0endif",
-                  "title": "@CLI_VER@3.4.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-5-0if",
-                  "title": "@CLI_VER@3.5.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-5-0endif",
-                  "title": "@CLI_VER@3.5.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-7-0if",
-                  "title": "@CLI_VER@3.7.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-7-0endif",
-                  "title": "@CLI_VER@3.7.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-10-1if",
-                  "title": "@CLI_VER@3.10.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-10-1endif",
-                  "title": "@CLI_VER@3.10.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-11-0if",
-                  "title": "@CLI_VER@3.11.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-11-0endif",
-                  "title": "@CLI_VER@3.11.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-11-3if",
-                  "title": "@CLI_VER@3.11.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-11-3endif",
-                  "title": "@CLI_VER@3.11.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-13-0if",
-                  "title": "@CLI_VER@3.13.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-13-0endif",
-                  "title": "@CLI_VER@3.13.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-14-0if",
-                  "title": "@CLI_VER@3.14.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-14-0endif",
-                  "title": "@CLI_VER@3.14.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-19-0if",
-                  "title": "@CLI_VER@3.19.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-19-0endif",
-                  "title": "@CLI_VER@3.19.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-21-0if",
-                  "title": "@CLI_VER@3.21.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-21-0endif",
-                  "title": "@CLI_VER@3.21.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-24-0if",
-                  "title": "@CLI_VER@3.24.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-24-0endif",
-                  "title": "@CLI_VER@3.24.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-26-0if",
-                  "title": "@CLI_VER@3.26.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-cli_ver-3-26-0endif",
-                  "title": "@CLI_VER@3.26.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2if",
-                  "title": "@ELECTRON_PARTS@2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2endif",
-                  "title": "@ELECTRON_PARTS@2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3if",
-                  "title": "@ELECTRON_PARTS@3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3endif",
-                  "title": "@ELECTRON_PARTS@3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-3if",
-                  "title": "@FW_VER@0.5.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-3endif",
-                  "title": "@FW_VER@0.5.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-4if",
-                  "title": "@FW_VER@0.5.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-4endif",
-                  "title": "@FW_VER@0.5.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-3if",
-                  "title": "@FW_VER@0.5.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-3endif",
-                  "title": "@FW_VER@0.5.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3if",
-                  "title": "@ELECTRON_PARTS@3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3endif",
-                  "title": "@ELECTRON_PARTS@3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-4if",
-                  "title": "@FW_VER@0.5.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-4endif",
-                  "title": "@FW_VER@0.5.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-5if",
-                  "title": "@FW_VER@0.5.5if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-5endif",
-                  "title": "@FW_VER@0.5.5endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-0if",
-                  "title": "@FW_VER@0.6.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-6-0endif",
-                  "title": "@FW_VER@0.6.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0if",
-                  "title": "@FW_VER@0.7.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0endif",
-                  "title": "@FW_VER@0.7.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-1-1if",
-                  "title": "@FW_VER@1.1.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-1-1endif",
-                  "title": "@FW_VER@1.1.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-2-1if",
-                  "title": "@FW_VER@1.2.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-2-1endif",
-                  "title": "@FW_VER@1.2.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-3-1if",
-                  "title": "@FW_VER@1.3.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-3-1endif",
-                  "title": "@FW_VER@1.3.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-0if",
-                  "title": "@FW_VER@1.4.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-0endif",
-                  "title": "@FW_VER@1.4.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-1if",
-                  "title": "@FW_VER@1.4.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-1endif",
-                  "title": "@FW_VER@1.4.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-2if",
-                  "title": "@FW_VER@1.4.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-2endif",
-                  "title": "@FW_VER@1.4.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-3if",
-                  "title": "@FW_VER@1.4.3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-3endif",
-                  "title": "@FW_VER@1.4.3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-4if",
-                  "title": "@FW_VER@1.4.4if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-4-4endif",
-                  "title": "@FW_VER@1.4.4endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-0if",
-                  "title": "@FW_VER@1.5.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-1-5-0endif",
-                  "title": "@FW_VER@1.5.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2if",
-                  "title": "@ELECTRON_PARTS@2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2endif",
-                  "title": "@ELECTRON_PARTS@2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3if",
-                  "title": "@ELECTRON_PARTS@3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3endif",
-                  "title": "@ELECTRON_PARTS@3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2if",
-                  "title": "@ELECTRON_PARTS@2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2endif",
-                  "title": "@ELECTRON_PARTS@2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3if",
-                  "title": "@ELECTRON_PARTS@3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3endif",
-                  "title": "@ELECTRON_PARTS@3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2if",
-                  "title": "@ELECTRON_PARTS@2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-2endif",
-                  "title": "@ELECTRON_PARTS@2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3if",
-                  "title": "@ELECTRON_PARTS@3if",
-                  "c": true
-                },
-                {
-                  "anchor": "-electron_parts-3endif",
-                  "title": "@ELECTRON_PARTS@3endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-1if",
-                  "title": "@FW_VER@0.5.1if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-1endif",
-                  "title": "@FW_VER@0.5.1endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-2if",
-                  "title": "@FW_VER@0.5.2if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-5-2endif",
-                  "title": "@FW_VER@0.5.2endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0if",
-                  "title": "@FW_VER@0.7.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0endif",
-                  "title": "@FW_VER@0.7.0endif",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0if",
-                  "title": "@FW_VER@0.7.0if",
-                  "c": true
-                },
-                {
-                  "anchor": "-fw_ver-0-7-0endif",
-                  "title": "@FW_VER@0.7.0endif",
-                  "c": true
-                }
-              ]
-            },
-            {
-              "anchor": "release-notes-wrapper",
-              "title": "release-notes-wrapper",
-              "c": true
-            }
-          ]
+          "file": "stack"
         }
       ]
     },
     {
       "title": "Mouse",
       "dir": "mouse",
+      "collapse": true,
       "subsections": [
         {
           "title": "Mouse",
@@ -4728,6 +3078,7 @@
     {
       "title": "Network",
       "dir": "network",
+      "collapse": true,
       "subsections": [
         {
           "title": "Network",
@@ -4811,23 +3162,19 @@
           "subsections": [
             {
               "anchor": "networkinterfaceconfig-source",
-              "title": "NetworkInterfaceConfig::source",
-              "c": true
+              "title": "NetworkInterfaceConfig::source"
             },
             {
               "anchor": "networkinterfaceconfig-address",
-              "title": "NetworkInterfaceConfig::address",
-              "c": true
+              "title": "NetworkInterfaceConfig::address"
             },
             {
               "anchor": "networkinterfaceconfig-gateway",
-              "title": "NetworkInterfaceConfig::gateway",
-              "c": true
+              "title": "NetworkInterfaceConfig::gateway"
             },
             {
               "anchor": "networkinterfaceconfig-dns",
-              "title": "NetworkInterfaceConfig::dns",
-              "c": true
+              "title": "NetworkInterfaceConfig::dns"
             }
           ]
         }
@@ -4836,6 +3183,7 @@
     {
       "title": "NFC",
       "dir": "nfc",
+      "collapse": true,
       "subsections": [
         {
           "title": "NFC",
@@ -4889,23 +3237,19 @@
           "subsections": [
             {
               "anchor": "settnf-",
-              "title": "setTnf();",
-              "c": true
+              "title": "setTnf();"
             },
             {
               "anchor": "settype-",
-              "title": "setType()",
-              "c": true
+              "title": "setType()"
             },
             {
               "anchor": "setid-",
-              "title": "setId()",
-              "c": true
+              "title": "setId()"
             },
             {
               "anchor": "setpayload-",
-              "title": "setPayload()",
-              "c": true
+              "title": "setPayload()"
             }
           ]
         }
@@ -4914,6 +3258,7 @@
     {
       "title": "OTA Updates",
       "dir": "ota-updates",
+      "collapse": true,
       "subsections": [
         {
           "title": "OTA Updates",
@@ -4955,6 +3300,7 @@
     {
       "title": "Other functions",
       "dir": "other-functions",
+      "collapse": true,
       "subsections": [
         {
           "title": "Other functions",
@@ -4976,6 +3322,7 @@
     {
       "title": "Persistent settings",
       "dir": "persistent-settings",
+      "collapse": true,
       "subsections": [
         {
           "title": "Persistent settings",
@@ -4987,6 +3334,7 @@
     {
       "title": "PMIC (Power Management IC)",
       "dir": "pmic-power-management-ic",
+      "collapse": true,
       "subsections": [
         {
           "title": "PMIC (Power Management IC)",
@@ -5035,38 +3383,31 @@
           "subsections": [
             {
               "anchor": "readinputsourceregister-",
-              "title": "readInputSourceRegister()",
-              "c": true
+              "title": "readInputSourceRegister()"
             },
             {
               "anchor": "enablebuck-",
-              "title": "enableBuck()",
-              "c": true
+              "title": "enableBuck()"
             },
             {
               "anchor": "disablebuck-",
-              "title": "disableBuck()",
-              "c": true
+              "title": "disableBuck()"
             },
             {
               "anchor": "setinputcurrentlimit-",
-              "title": "setInputCurrentLimit()",
-              "c": true
+              "title": "setInputCurrentLimit()"
             },
             {
               "anchor": "getinputcurrentlimit-",
-              "title": "getInputCurrentLimit()",
-              "c": true
+              "title": "getInputCurrentLimit()"
             },
             {
               "anchor": "setinputvoltagelimit-",
-              "title": "setInputVoltageLimit()",
-              "c": true
+              "title": "setInputVoltageLimit()"
             },
             {
               "anchor": "getinputvoltagelimit-",
-              "title": "getInputVoltageLimit()",
-              "c": true
+              "title": "getInputVoltageLimit()"
             }
           ]
         },
@@ -5077,43 +3418,35 @@
           "subsections": [
             {
               "anchor": "enablecharging-",
-              "title": "enableCharging()",
-              "c": true
+              "title": "enableCharging()"
             },
             {
               "anchor": "disablecharging-",
-              "title": "disableCharging()",
-              "c": true
+              "title": "disableCharging()"
             },
             {
               "anchor": "enableotg-",
-              "title": "enableOTG()",
-              "c": true
+              "title": "enableOTG()"
             },
             {
               "anchor": "disableotg-",
-              "title": "disableOTG()",
-              "c": true
+              "title": "disableOTG()"
             },
             {
               "anchor": "resetwatchdog-",
-              "title": "resetWatchdog()",
-              "c": true
+              "title": "resetWatchdog()"
             },
             {
               "anchor": "setminimumsystemvoltage-",
-              "title": "setMinimumSystemVoltage()",
-              "c": true
+              "title": "setMinimumSystemVoltage()"
             },
             {
               "anchor": "getminimumsystemvoltage-",
-              "title": "getMinimumSystemVoltage()",
-              "c": true
+              "title": "getMinimumSystemVoltage()"
             },
             {
               "anchor": "readpoweronregister-",
-              "title": "readPowerONRegister()",
-              "c": true
+              "title": "readPowerONRegister()"
             }
           ]
         },
@@ -5124,13 +3457,11 @@
           "subsections": [
             {
               "anchor": "setchargecurrent-",
-              "title": "setChargeCurrent()",
-              "c": true
+              "title": "setChargeCurrent()"
             },
             {
               "anchor": "getchargecurrent-",
-              "title": "getChargeCurrent()",
-              "c": true
+              "title": "getChargeCurrent()"
             }
           ]
         },
@@ -5141,23 +3472,19 @@
           "subsections": [
             {
               "anchor": "setprechargecurrent-",
-              "title": "setPreChargeCurrent()",
-              "c": true
+              "title": "setPreChargeCurrent()"
             },
             {
               "anchor": "getprechargecurrent-",
-              "title": "getPreChargeCurrent()",
-              "c": true
+              "title": "getPreChargeCurrent()"
             },
             {
               "anchor": "settermchargecurrent-",
-              "title": "setTermChargeCurrent()",
-              "c": true
+              "title": "setTermChargeCurrent()"
             },
             {
               "anchor": "gettermchargecurrent-",
-              "title": "getTermChargeCurrent()",
-              "c": true
+              "title": "getTermChargeCurrent()"
             }
           ]
         },
@@ -5168,18 +3495,15 @@
           "subsections": [
             {
               "anchor": "setchargevoltage-",
-              "title": "setChargeVoltage()",
-              "c": true
+              "title": "setChargeVoltage()"
             },
             {
               "anchor": "getchargevoltagevalue-",
-              "title": "getChargeVoltageValue()",
-              "c": true
+              "title": "getChargeVoltageValue()"
             },
             {
               "anchor": "getchargevoltage-",
-              "title": "getChargeVoltage()",
-              "c": true
+              "title": "getChargeVoltage()"
             }
           ]
         },
@@ -5190,18 +3514,15 @@
           "subsections": [
             {
               "anchor": "readchargetermregister-",
-              "title": "readChargeTermRegister()",
-              "c": true
+              "title": "readChargeTermRegister()"
             },
             {
               "anchor": "disablewatchdog-",
-              "title": "disableWatchdog()",
-              "c": true
+              "title": "disableWatchdog()"
             },
             {
               "anchor": "setwatchdog-",
-              "title": "setWatchdog()",
-              "c": true
+              "title": "setWatchdog()"
             }
           ]
         },
@@ -5212,13 +3533,11 @@
           "subsections": [
             {
               "anchor": "setthermalregulation-",
-              "title": "setThermalRegulation()",
-              "c": true
+              "title": "setThermalRegulation()"
             },
             {
               "anchor": "getthermalregulation-",
-              "title": "getThermalRegulation()",
-              "c": true
+              "title": "getThermalRegulation()"
             }
           ]
         },
@@ -5229,53 +3548,43 @@
           "subsections": [
             {
               "anchor": "readopcontrolregister-",
-              "title": "readOpControlRegister()",
-              "c": true
+              "title": "readOpControlRegister()"
             },
             {
               "anchor": "enabledpdm-",
-              "title": "enableDPDM()",
-              "c": true
+              "title": "enableDPDM()"
             },
             {
               "anchor": "disabledpdm-",
-              "title": "disableDPDM()",
-              "c": true
+              "title": "disableDPDM()"
             },
             {
               "anchor": "enablebatfet-",
-              "title": "enableBATFET()",
-              "c": true
+              "title": "enableBATFET()"
             },
             {
               "anchor": "disablebatfet-",
-              "title": "disableBATFET()",
-              "c": true
+              "title": "disableBATFET()"
             },
             {
               "anchor": "safetytimer-",
-              "title": "safetyTimer()",
-              "c": true
+              "title": "safetyTimer()"
             },
             {
               "anchor": "enablechargefaultint-",
-              "title": "enableChargeFaultINT()",
-              "c": true
+              "title": "enableChargeFaultINT()"
             },
             {
               "anchor": "disablechargefaultint-",
-              "title": "disableChargeFaultINT()",
-              "c": true
+              "title": "disableChargeFaultINT()"
             },
             {
               "anchor": "enablebatfaultint-",
-              "title": "enableBatFaultINT()",
-              "c": true
+              "title": "enableBatFaultINT()"
             },
             {
               "anchor": "disablebatfaultint-",
-              "title": "disableBatFaultINT()",
-              "c": true
+              "title": "disableBatFaultINT()"
             }
           ]
         },
@@ -5286,33 +3595,27 @@
           "subsections": [
             {
               "anchor": "getvbusstat-",
-              "title": "getVbusStat()",
-              "c": true
+              "title": "getVbusStat()"
             },
             {
               "anchor": "getchargingstat-",
-              "title": "getChargingStat()",
-              "c": true
+              "title": "getChargingStat()"
             },
             {
               "anchor": "getdpmstat-",
-              "title": "getDPMStat()",
-              "c": true
+              "title": "getDPMStat()"
             },
             {
               "anchor": "ispowergood-",
-              "title": "isPowerGood()",
-              "c": true
+              "title": "isPowerGood()"
             },
             {
               "anchor": "ishot-",
-              "title": "isHot()",
-              "c": true
+              "title": "isHot()"
             },
             {
               "anchor": "getvsysstat-",
-              "title": "getVsysStat()",
-              "c": true
+              "title": "getVsysStat()"
             }
           ]
         }
@@ -5321,6 +3624,7 @@
     {
       "title": "Power manager",
       "dir": "power-manager",
+      "collapse": true,
       "subsections": [
         {
           "title": "Power manager",
@@ -5354,23 +3658,19 @@
           "subsections": [
             {
               "anchor": "systempowerfeature-pmic_detection",
-              "title": "SystemPowerFeature::PMIC_DETECTION",
-              "c": true
+              "title": "SystemPowerFeature::PMIC_DETECTION"
             },
             {
               "anchor": "systempowerfeature-use_vin_settings_with_usb_host",
-              "title": "SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST",
-              "c": true
+              "title": "SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST"
             },
             {
               "anchor": "systempowerfeature-disable_charging",
-              "title": "SystemPowerFeature::DISABLE_CHARGING",
-              "c": true
+              "title": "SystemPowerFeature::DISABLE_CHARGING"
             },
             {
               "anchor": "systempowerfeature-disable",
-              "title": "SystemPowerFeature::DISABLE",
-              "c": true
+              "title": "SystemPowerFeature::DISABLE"
             }
           ]
         },
@@ -5384,6 +3684,7 @@
     {
       "title": "Preprocessor",
       "dir": "preprocessor",
+      "collapse": true,
       "subsections": [
         {
           "title": "Preprocessor",
@@ -5395,6 +3696,7 @@
     {
       "title": "Random numbers",
       "dir": "random-numbers",
+      "collapse": true,
       "subsections": [
         {
           "title": "Random numbers",
@@ -5421,6 +3723,7 @@
     {
       "title": "Retained memory",
       "dir": "retained-memory",
+      "collapse": true,
       "subsections": [
         {
           "title": "Retained memory",
@@ -5452,6 +3755,7 @@
     {
       "title": "RGB",
       "dir": "rgb",
+      "collapse": true,
       "subsections": [
         {
           "title": "RGB",
@@ -5503,6 +3807,7 @@
     {
       "title": "Serial",
       "dir": "serial",
+      "collapse": true,
       "subsections": [
         {
           "title": "Serial",
@@ -5614,6 +3919,7 @@
     {
       "title": "Servo",
       "dir": "servo",
+      "collapse": true,
       "subsections": [
         {
           "title": "Servo",
@@ -5660,6 +3966,7 @@
     {
       "title": "sleep() [ Classic API ]",
       "dir": "sleep-classic-api",
+      "collapse": true,
       "subsections": [
         {
           "title": "sleep() [ Classic API ]",
@@ -5678,33 +3985,27 @@
           "subsections": [
             {
               "anchor": "reason-",
-              "title": "reason()",
-              "c": true
+              "title": "reason()"
             },
             {
               "anchor": "wokenupbypin-",
-              "title": "wokenUpByPin()",
-              "c": true
+              "title": "wokenUpByPin()"
             },
             {
               "anchor": "wokenupbyrtc-",
-              "title": "wokenUpByRtc()",
-              "c": true
+              "title": "wokenUpByRtc()"
             },
             {
               "anchor": "rtc-",
-              "title": "rtc()",
-              "c": true
+              "title": "rtc()"
             },
             {
               "anchor": "pin-",
-              "title": "pin()",
-              "c": true
+              "title": "pin()"
             },
             {
               "anchor": "error-",
-              "title": "error()",
-              "c": true
+              "title": "error()"
             }
           ]
         },
@@ -5743,6 +4044,7 @@
     {
       "title": "sleep() [ Sleep ]",
       "dir": "sleep-sleep",
+      "collapse": true,
       "subsections": [
         {
           "title": "sleep() [ Sleep ]",
@@ -5811,23 +4113,19 @@
           "subsections": [
             {
               "anchor": "wakeupreason-systemsleepresult-",
-              "title": "wakeupReason() (SystemSleepResult)",
-              "c": true
+              "title": "wakeupReason() (SystemSleepResult)"
             },
             {
               "anchor": "wakeuppin-systemsleepresult-",
-              "title": "wakeupPin() (SystemSleepResult)",
-              "c": true
+              "title": "wakeupPin() (SystemSleepResult)"
             },
             {
               "anchor": "error-systemsleepresult-",
-              "title": "error() (SystemSleepResult)",
-              "c": true
+              "title": "error() (SystemSleepResult)"
             },
             {
               "anchor": "tosleepresult-systemsleepresult-",
-              "title": "toSleepResult() (SystemSleepResult)",
-              "c": true
+              "title": "toSleepResult() (SystemSleepResult)"
             }
           ]
         },
@@ -5841,6 +4139,7 @@
     {
       "title": "SoftAP HTTP pages",
       "dir": "softap-http-pages",
+      "collapse": true,
       "subsections": [
         {
           "title": "SoftAP HTTP pages",
@@ -5882,6 +4181,7 @@
     {
       "title": "Software timers",
       "dir": "software-timers",
+      "collapse": true,
       "subsections": [
         {
           "title": "Software timers",
@@ -5948,6 +4248,7 @@
     {
       "title": "SPI",
       "dir": "spi",
+      "collapse": true,
       "subsections": [
         {
           "title": "SPI",
@@ -6039,6 +4340,7 @@
     {
       "title": "Stream class",
       "dir": "stream-class",
+      "collapse": true,
       "subsections": [
         {
           "title": "Stream class",
@@ -6095,6 +4397,7 @@
     {
       "title": "String class",
       "dir": "string-class",
+      "collapse": true,
       "subsections": [
         {
           "title": "String class",
@@ -6246,6 +4549,7 @@
     {
       "title": "System calls",
       "dir": "system-calls",
+      "collapse": true,
       "subsections": [
         {
           "title": "version() - System calls",
@@ -6269,18 +4573,15 @@
           "subsections": [
             {
               "anchor": "ticks-",
-              "title": "ticks()",
-              "c": true
+              "title": "ticks()"
             },
             {
               "anchor": "tickspermicrosecond-",
-              "title": "ticksPerMicrosecond();",
-              "c": true
+              "title": "ticksPerMicrosecond();"
             },
             {
               "anchor": "ticksdelay-",
-              "title": "ticksDelay()",
-              "c": true
+              "title": "ticksDelay()"
             }
           ]
         },
@@ -6401,8 +4702,7 @@
           "subsections": [
             {
               "anchor": "feature_disable_listening_mode",
-              "title": "FEATURE_DISABLE_LISTENING_MODE",
-              "c": true
+              "title": "FEATURE_DISABLE_LISTENING_MODE"
             }
           ]
         },
@@ -6413,18 +4713,15 @@
           "subsections": [
             {
               "anchor": "systemcontrolrequestaclaction",
-              "title": "SystemControlRequestAclAction",
-              "c": true
+              "title": "SystemControlRequestAclAction"
             },
             {
               "anchor": "systemcontrolrequestacl",
-              "title": "SystemControlRequestAcl",
-              "c": true
+              "title": "SystemControlRequestAcl"
             },
             {
               "anchor": "ctrl_request_type",
-              "title": "ctrl_request_type",
-              "c": true
+              "title": "ctrl_request_type"
             }
           ]
         }
@@ -6433,6 +4730,7 @@
     {
       "title": "System events",
       "dir": "system-events",
+      "collapse": true,
       "subsections": [
         {
           "title": "System events",
@@ -6446,8 +4744,7 @@
           "subsections": [
             {
               "anchor": "registering-multiple-events-with-the-same-handler",
-              "title": "Registering multiple events with the same handler",
-              "c": true
+              "title": "Registering multiple events with the same handler"
             }
           ]
         },
@@ -6458,18 +4755,15 @@
           "subsections": [
             {
               "anchor": "network_credentials-16-param-values",
-              "title": "network_credentials (16) param values",
-              "c": true
+              "title": "network_credentials (16) param values"
             },
             {
               "anchor": "network_status-32-param-values",
-              "title": "network_status (32) param values",
-              "c": true
+              "title": "network_status (32) param values"
             },
             {
               "anchor": "cloud_status-64-parameter-values",
-              "title": "cloud_status (64) parameter values",
-              "c": true
+              "title": "cloud_status (64) parameter values"
             }
           ]
         },
@@ -6480,13 +4774,11 @@
           "subsections": [
             {
               "anchor": "time_changed-16384-param-values-param-values",
-              "title": "time_changed (16384) param values param values",
-              "c": true
+              "title": "time_changed (16384) param values param values"
             },
             {
               "anchor": "ble_prov_mode-param-values",
-              "title": "ble_prov_mode param values",
-              "c": true
+              "title": "ble_prov_mode param values"
             }
           ]
         }
@@ -6495,6 +4787,7 @@
     {
       "title": "System interrupts",
       "dir": "system-interrupts",
+      "collapse": true,
       "subsections": [
         {
           "title": "System interrupts",
@@ -6538,13 +4831,11 @@
           "subsections": [
             {
               "anchor": "feature_retained_memory",
-              "title": "FEATURE_RETAINED_MEMORY",
-              "c": true
+              "title": "FEATURE_RETAINED_MEMORY"
             },
             {
               "anchor": "feature_wifi_powersave_clock",
-              "title": "FEATURE_WIFI_POWERSAVE_CLOCK",
-              "c": true
+              "title": "FEATURE_WIFI_POWERSAVE_CLOCK"
             }
           ]
         }
@@ -6553,6 +4844,7 @@
     {
       "title": "System modes",
       "dir": "system-modes",
+      "collapse": true,
       "subsections": [
         {
           "title": "System modes",
@@ -6584,6 +4876,7 @@
     {
       "title": "System thread",
       "dir": "system-thread",
+      "collapse": true,
       "subsections": [
         {
           "title": "System thread",
@@ -6627,23 +4920,19 @@
           "subsections": [
             {
               "anchor": "waituntil-",
-              "title": "waitUntil()",
-              "c": true
+              "title": "waitUntil()"
             },
             {
               "anchor": "waituntilnot-",
-              "title": "waitUntilNot()",
-              "c": true
+              "title": "waitUntilNot()"
             },
             {
               "anchor": "waitfor-",
-              "title": "waitFor()",
-              "c": true
+              "title": "waitFor()"
             },
             {
               "anchor": "waitfornot-",
-              "title": "waitForNot()",
-              "c": true
+              "title": "waitForNot()"
             }
           ]
         }
@@ -6652,6 +4941,7 @@
     {
       "title": "TCPClient",
       "dir": "tcpclient",
+      "collapse": true,
       "subsections": [
         {
           "title": "TCPClient",
@@ -6728,6 +5018,7 @@
     {
       "title": "TCPServer",
       "dir": "tcpserver",
+      "collapse": true,
       "subsections": [
         {
           "title": "TCPServer",
@@ -6774,6 +5065,7 @@
     {
       "title": "Threading",
       "dir": "threading",
+      "collapse": true,
       "subsections": [
         {
           "title": "Threading",
@@ -6807,13 +5099,11 @@
           "subsections": [
             {
               "anchor": "thread-constructor-os_thread_fn_t-threading",
-              "title": "Thread constructor os_thread_fn_t - Threading",
-              "c": true
+              "title": "Thread constructor os_thread_fn_t - Threading"
             },
             {
               "anchor": "thread-constructor-wiring_thread_fn_t-threading",
-              "title": "Thread constructor wiring_thread_fn_t - Threading",
-              "c": true
+              "title": "Thread constructor wiring_thread_fn_t - Threading"
             }
           ]
         },
@@ -6844,23 +5134,19 @@
           "subsections": [
             {
               "anchor": "mutex-constructor-threading",
-              "title": "Mutex constructor - Threading",
-              "c": true
+              "title": "Mutex constructor - Threading"
             },
             {
               "anchor": "mutex-lock-threading",
-              "title": "Mutex::lock - Threading",
-              "c": true
+              "title": "Mutex::lock - Threading"
             },
             {
               "anchor": "mutex-trylock-threading",
-              "title": "Mutex::trylock - Threading",
-              "c": true
+              "title": "Mutex::trylock - Threading"
             },
             {
               "anchor": "mutex-unlock-threading",
-              "title": "Mutex::unlock - Threading",
-              "c": true
+              "title": "Mutex::unlock - Threading"
             }
           ]
         },
@@ -6871,23 +5157,19 @@
           "subsections": [
             {
               "anchor": "recursivemutex-constructor-threading",
-              "title": "RecursiveMutex constructor - Threading",
-              "c": true
+              "title": "RecursiveMutex constructor - Threading"
             },
             {
               "anchor": "recursivemutex-lock-threading",
-              "title": "RecursiveMutex::lock - Threading",
-              "c": true
+              "title": "RecursiveMutex::lock - Threading"
             },
             {
               "anchor": "recursivemutex-trylock-threading",
-              "title": "RecursiveMutex::trylock - Threading",
-              "c": true
+              "title": "RecursiveMutex::trylock - Threading"
             },
             {
               "anchor": "recursivemutexmutex-unlock-threading",
-              "title": "RecursiveMutexMutex::unlock - Threading",
-              "c": true
+              "title": "RecursiveMutexMutex::unlock - Threading"
             }
           ]
         },
@@ -6906,6 +5188,7 @@
     {
       "title": "Time",
       "dir": "time",
+      "collapse": true,
       "subsections": [
         {
           "title": "Time",
@@ -7062,6 +5345,7 @@
     {
       "title": "UDP",
       "dir": "udp",
+      "collapse": true,
       "subsections": [
         {
           "title": "UDP",
@@ -7158,6 +5442,7 @@
     {
       "title": "Variant",
       "dir": "variant",
+      "collapse": true,
       "subsections": [
         {
           "title": "Variant",
@@ -7304,6 +5589,7 @@
     {
       "title": "VariantArray",
       "dir": "variantarray",
+      "collapse": true,
       "subsections": [
         {
           "title": "VariantArray",
@@ -7340,6 +5626,7 @@
     {
       "title": "VariantMap",
       "dir": "variantmap",
+      "collapse": true,
       "subsections": [
         {
           "title": "VariantMap",
@@ -7371,6 +5658,7 @@
     {
       "title": "Vector",
       "dir": "vector",
+      "collapse": true,
       "subsections": [
         {
           "title": "Vector",
@@ -7572,6 +5860,7 @@
     {
       "title": "Watchdog - Application",
       "dir": "watchdog-application",
+      "collapse": true,
       "subsections": [
         {
           "title": "Watchdog - Application",
@@ -7583,6 +5872,7 @@
     {
       "title": "Watchdog - Hardware",
       "dir": "watchdog-hardware",
+      "collapse": true,
       "subsections": [
         {
           "title": "Watchdog - Hardware",
@@ -7596,8 +5886,7 @@
           "subsections": [
             {
               "anchor": "watchdog-capabilities",
-              "title": "Watchdog capabilities",
-              "c": true
+              "title": "Watchdog capabilities"
             }
           ]
         },
@@ -7623,8 +5912,7 @@
           "subsections": [
             {
               "anchor": "watchdog-sleep_running",
-              "title": "Watchdog SLEEP_RUNNING",
-              "c": true
+              "title": "Watchdog SLEEP_RUNNING"
             }
           ]
         },
@@ -7638,6 +5926,7 @@
     {
       "title": "WiFi",
       "dir": "wifi",
+      "collapse": true,
       "subsections": [
         {
           "title": "WiFi",
@@ -7771,23 +6060,19 @@
           "subsections": [
             {
               "anchor": "getstrength-",
-              "title": "getStrength()",
-              "c": true
+              "title": "getStrength()"
             },
             {
               "anchor": "getquality-",
-              "title": "getQuality()",
-              "c": true
+              "title": "getQuality()"
             },
             {
               "anchor": "getstrengthvalue-",
-              "title": "getStrengthValue()",
-              "c": true
+              "title": "getStrengthValue()"
             },
             {
               "anchor": "getqualityvalue-",
-              "title": "getQualityValue()",
-              "c": true
+              "title": "getQualityValue()"
             }
           ]
         },
@@ -7873,73 +6158,59 @@
           "subsections": [
             {
               "anchor": "wificredentials-",
-              "title": "WiFiCredentials()",
-              "c": true
+              "title": "WiFiCredentials()"
             },
             {
               "anchor": "setssid-",
-              "title": "setSsid()",
-              "c": true
+              "title": "setSsid()"
             },
             {
               "anchor": "setsecurity-",
-              "title": "setSecurity()",
-              "c": true
+              "title": "setSecurity()"
             },
             {
               "anchor": "setcipher-",
-              "title": "setCipher()",
-              "c": true
+              "title": "setCipher()"
             },
             {
               "anchor": "setpassword-",
-              "title": "setPassword()",
-              "c": true
+              "title": "setPassword()"
             },
             {
               "anchor": "sethidden-",
-              "title": "setHidden()",
-              "c": true
+              "title": "setHidden()"
             },
             {
               "anchor": "setvalidate-",
-              "title": "setValidate()",
-              "c": true
+              "title": "setValidate()"
             },
             {
               "anchor": "setchannel-",
-              "title": "setChannel()",
-              "c": true
+              "title": "setChannel()"
             },
             {
               "anchor": "seteaptype-",
-              "title": "setEapType()",
-              "c": true
+              "title": "setEapType()"
             },
             {
               "anchor": "setidentity-",
-              "title": "setIdentity()",
-              "c": true
+              "title": "setIdentity()"
             },
             {
               "anchor": "setouteridentity-",
-              "title": "setOuterIdentity()",
-              "c": true
+              "title": "setOuterIdentity()"
             },
             {
               "anchor": "setclientcertificate-",
-              "title": "setClientCertificate()",
-              "c": true
+              "title": "setClientCertificate()"
             },
             {
               "anchor": "setprivatekey-",
-              "title": "setPrivateKey()",
-              "c": true
+              "title": "setPrivateKey()"
             },
             {
               "anchor": "setrootcertificate-",
-              "title": "setRootCertificate()",
-              "c": true
+              "title": "setRootCertificate()"
             }
           ]
         },
@@ -7963,6 +6234,7 @@
     {
       "title": "Wire (I2C)",
       "dir": "wire-i2c",
+      "collapse": true,
       "subsections": [
         {
           "title": "Wire (I2C)",

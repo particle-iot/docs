@@ -36,6 +36,12 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     };
 
     for(const line of mdFile.split('\n')) {
+        if (line.startsWith('## Device OS versions')) {
+            // This is no longer included in the index as it's huge and doesn't render properly either
+            // It must be the last thing in the file, as everything after it is ignored!
+            break;
+        }
+
         if (line.startsWith('##')) {
             // Any L2 or higher is an an anchor
             const spaceIndex = line.indexOf(' ');
@@ -152,11 +158,6 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                     curL3.l4.push(obj);
                 }
             }
-            if (line.startsWith('## Device OS versions')) {
-                // This is no longer included in the index as it's huge and doesn't render properly either
-                // It must be the last thing in the file, as everything after it is ignored!
-                break;
-            }
         }
 
         if (sections.length) {
@@ -224,6 +225,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         apiMenusJson.items.push({
             title: curL2.origTitle,
             dir: curL2.folder,
+            collapse: true,
             subsections: [],
         });
     }
@@ -284,7 +286,6 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             for(const obj of section.subsections) {
                 if (obj.level == 4) {
                     delete obj.level;
-                    obj.c = true;
                     l3obj.subsections.push(obj);
                     curL4 = obj;
                 }
@@ -294,7 +295,6 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                         curL4.subsections = [];
                     }
                     delete obj.level;
-                    obj.c = true;
                     curL4.subsections.push(obj);
                 }
             }
