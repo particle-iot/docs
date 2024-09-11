@@ -267,8 +267,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
         let l3obj = {
             title: section.title,
-            dir: section.folder,
-            file: section.file,
+            dir: section.file,
             subsections: [],
         }
 

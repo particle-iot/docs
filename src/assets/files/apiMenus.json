@@ -7,13 +7,11 @@
       "subsections": [
         {
           "title": "Getting started - Introduction",
-          "dir": "introduction",
-          "file": "getting-started"
+          "dir": "getting-started"
         },
         {
           "title": "Navigation - Introduction",
-          "dir": "introduction",
-          "file": "navigation"
+          "dir": "navigation"
         }
       ]
     },
@@ -24,13 +22,11 @@
       "subsections": [
         {
           "title": "Asset OTA",
-          "dir": "asset-ota",
-          "file": "asset-ota"
+          "dir": "asset-ota"
         },
         {
           "title": "ApplicationAsset - Asset OTA",
-          "dir": "asset-ota",
-          "file": "applicationasset",
+          "dir": "applicationasset",
           "subsections": [
             {
               "anchor": "name-applicationasset",
@@ -80,8 +76,7 @@
         },
         {
           "title": "AssetHash - Asset OTA",
-          "dir": "asset-ota",
-          "file": "assethash",
+          "dir": "assethash",
           "subsections": [
             {
               "anchor": "constructor-assethash",
@@ -122,13 +117,11 @@
       "subsections": [
         {
           "title": "Battery Voltage - Photon 2 - Battery voltage",
-          "dir": "battery-voltage",
-          "file": "battery-voltage-photon-2"
+          "dir": "battery-voltage-photon-2"
         },
         {
           "title": "Battery Voltage - Argon - Battery voltage",
-          "dir": "battery-voltage",
-          "file": "battery-voltage-argon"
+          "dir": "battery-voltage-argon"
         }
       ]
     },
@@ -139,13 +132,11 @@
       "subsections": [
         {
           "title": "Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bluetooth-le-ble"
+          "dir": "bluetooth-le-ble"
         },
         {
           "title": "BLE Class - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "ble-class",
+          "dir": "ble-class",
           "subsections": [
             {
               "anchor": "ble-advertise-",
@@ -409,8 +400,7 @@
         },
         {
           "title": "BLEScanFilter - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "blescanfilter",
+          "dir": "blescanfilter",
           "subsections": [
             {
               "anchor": "devicename-blescanfilter-",
@@ -440,13 +430,11 @@
         },
         {
           "title": "BLE Services - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "ble-services"
+          "dir": "ble-services"
         },
         {
           "title": "BleCharacteristic - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "blecharacteristic",
+          "dir": "blecharacteristic",
           "subsections": [
             {
               "anchor": "blecharacteristic-",
@@ -500,13 +488,11 @@
         },
         {
           "title": "BleCharacteristicProperty - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "blecharacteristicproperty"
+          "dir": "blecharacteristicproperty"
         },
         {
           "title": "BleUuid - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleuuid",
+          "dir": "bleuuid",
           "subsections": [
             {
               "anchor": "type-",
@@ -540,8 +526,7 @@
         },
         {
           "title": "BleAdvertisingData - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleadvertisingdata",
+          "dir": "bleadvertisingdata",
           "subsections": [
             {
               "anchor": "bleadvertisingdata-",
@@ -615,18 +600,15 @@
         },
         {
           "title": "BleAdvertisingDataType - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleadvertisingdatatype"
+          "dir": "bleadvertisingdatatype"
         },
         {
           "title": "BleAdvertisingDataType::FLAGS - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleadvertisingdatatype-flags"
+          "dir": "bleadvertisingdatatype-flags"
         },
         {
           "title": "BlePeerDevice - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "blepeerdevice",
+          "dir": "blepeerdevice",
           "subsections": [
             {
               "anchor": "connected-",
@@ -656,8 +638,7 @@
         },
         {
           "title": "BleAddress - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleaddress",
+          "dir": "bleaddress",
           "subsections": [
             {
               "anchor": "copy-bleaddress-",
@@ -695,28 +676,23 @@
         },
         {
           "title": "BleAddressType - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleaddresstype"
+          "dir": "bleaddresstype"
         },
         {
           "title": "BleAdvertisingEventType - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleadvertisingeventtype"
+          "dir": "bleadvertisingeventtype"
         },
         {
           "title": "BleAdvertisingParams - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "bleadvertisingparams"
+          "dir": "bleadvertisingparams"
         },
         {
           "title": "BleScanParams - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "blescanparams"
+          "dir": "blescanparams"
         },
         {
           "title": "iBeacon - Bluetooth LE (BLE)",
-          "dir": "bluetooth-le-ble",
-          "file": "ibeacon"
+          "dir": "ibeacon"
         }
       ]
     },
@@ -727,63 +703,51 @@
       "subsections": [
         {
           "title": "CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "can-canbus"
+          "dir": "can-canbus"
         },
         {
           "title": "CANMessage - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "canmessage"
+          "dir": "canmessage"
         },
         {
           "title": "CANChannel - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "canchannel"
+          "dir": "canchannel"
         },
         {
           "title": "begin() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "end() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "end"
+          "dir": "end"
         },
         {
           "title": "available() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "available"
+          "dir": "available"
         },
         {
           "title": "receive() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "receive"
+          "dir": "receive"
         },
         {
           "title": "transmit() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "transmit"
+          "dir": "transmit"
         },
         {
           "title": "addFilter() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "addfilter"
+          "dir": "addfilter"
         },
         {
           "title": "clearFilters() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "clearfilters"
+          "dir": "clearfilters"
         },
         {
           "title": "isEnabled() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "isenabled"
+          "dir": "isenabled"
         },
         {
           "title": "errorStatus() - CAN (canbus)",
-          "dir": "can-canbus",
-          "file": "errorstatus"
+          "dir": "errorstatus"
         }
       ]
     },
@@ -794,133 +758,107 @@
       "subsections": [
         {
           "title": "Cellular",
-          "dir": "cellular",
-          "file": "cellular"
+          "dir": "cellular"
         },
         {
           "title": "on() - Cellular",
-          "dir": "cellular",
-          "file": "on"
+          "dir": "on"
         },
         {
           "title": "off() - Cellular",
-          "dir": "cellular",
-          "file": "off"
+          "dir": "off"
         },
         {
           "title": "isOn() - Cellular",
-          "dir": "cellular",
-          "file": "ison"
+          "dir": "ison"
         },
         {
           "title": "isOff() - Cellular",
-          "dir": "cellular",
-          "file": "isoff"
+          "dir": "isoff"
         },
         {
           "title": "connect() - Cellular",
-          "dir": "cellular",
-          "file": "connect"
+          "dir": "connect"
         },
         {
           "title": "disconnect() - Cellular",
-          "dir": "cellular",
-          "file": "disconnect"
+          "dir": "disconnect"
         },
         {
           "title": "connecting() - Cellular",
-          "dir": "cellular",
-          "file": "connecting"
+          "dir": "connecting"
         },
         {
           "title": "ready() - Cellular",
-          "dir": "cellular",
-          "file": "ready"
+          "dir": "ready"
         },
         {
           "title": "prefer() [Cellular] - Cellular",
-          "dir": "cellular",
-          "file": "prefer-cellular"
+          "dir": "prefer-cellular"
         },
         {
           "title": "isPreferred() [Cellular] - Cellular",
-          "dir": "cellular",
-          "file": "ispreferred-cellular"
+          "dir": "ispreferred-cellular"
         },
         {
           "title": "listen() - Cellular",
-          "dir": "cellular",
-          "file": "listen"
+          "dir": "listen"
         },
         {
           "title": "listening() - Cellular",
-          "dir": "cellular",
-          "file": "listening"
+          "dir": "listening"
         },
         {
           "title": "setListenTimeout() - Cellular",
-          "dir": "cellular",
-          "file": "setlistentimeout"
+          "dir": "setlistentimeout"
         },
         {
           "title": "getListenTimeout() - Cellular",
-          "dir": "cellular",
-          "file": "getlistentimeout"
+          "dir": "getlistentimeout"
         },
         {
           "title": "lock() - Cellular",
-          "dir": "cellular",
-          "file": "lock"
+          "dir": "lock"
         },
         {
           "title": "unlock() - Cellular",
-          "dir": "cellular",
-          "file": "unlock"
+          "dir": "unlock"
         },
         {
           "title": "setCredentials() - Cellular",
-          "dir": "cellular",
-          "file": "setcredentials"
+          "dir": "setcredentials"
         },
         {
           "title": "clearCredentials() - Cellular",
-          "dir": "cellular",
-          "file": "clearcredentials"
+          "dir": "clearcredentials"
         },
         {
           "title": "setActiveSim() - Cellular",
-          "dir": "cellular",
-          "file": "setactivesim"
+          "dir": "setactivesim"
         },
         {
           "title": "getActiveSim() - Cellular",
-          "dir": "cellular",
-          "file": "getactivesim"
+          "dir": "getactivesim"
         },
         {
           "title": "getDataUsage() - Cellular",
-          "dir": "cellular",
-          "file": "getdatausage"
+          "dir": "getdatausage"
         },
         {
           "title": "setDataUsage() - Cellular",
-          "dir": "cellular",
-          "file": "setdatausage"
+          "dir": "setdatausage"
         },
         {
           "title": "resetDataUsage() - Cellular",
-          "dir": "cellular",
-          "file": "resetdatausage"
+          "dir": "resetdatausage"
         },
         {
           "title": "RSSI() - Cellular",
-          "dir": "cellular",
-          "file": "rssi"
+          "dir": "rssi"
         },
         {
           "title": "CellularSignal Class - Cellular",
-          "dir": "cellular",
-          "file": "cellularsignal-class",
+          "dir": "cellularsignal-class",
           "subsections": [
             {
               "anchor": "getaccesstechnology-",
@@ -946,33 +884,27 @@
         },
         {
           "title": "getBandAvailable() - Cellular",
-          "dir": "cellular",
-          "file": "getbandavailable"
+          "dir": "getbandavailable"
         },
         {
           "title": "getBandSelect() - Cellular",
-          "dir": "cellular",
-          "file": "getbandselect"
+          "dir": "getbandselect"
         },
         {
           "title": "setBandSelect() - Cellular",
-          "dir": "cellular",
-          "file": "setbandselect"
+          "dir": "setbandselect"
         },
         {
           "title": "resolve() - Cellular",
-          "dir": "cellular",
-          "file": "resolve"
+          "dir": "resolve"
         },
         {
           "title": "localIP() - Cellular",
-          "dir": "cellular",
-          "file": "localip"
+          "dir": "localip"
         },
         {
           "title": "command() - Cellular",
-          "dir": "cellular",
-          "file": "command"
+          "dir": "command"
         }
       ]
     },
@@ -983,18 +915,15 @@
       "subsections": [
         {
           "title": "Checking for features",
-          "dir": "checking-for-features",
-          "file": "checking-for-features"
+          "dir": "checking-for-features"
         },
         {
           "title": "Checking Device OS Version - Checking for features",
-          "dir": "checking-for-features",
-          "file": "checking-device-os-version"
+          "dir": "checking-device-os-version"
         },
         {
           "title": "Checking Platform ID - Checking for features",
-          "dir": "checking-for-features",
-          "file": "checking-platform-id"
+          "dir": "checking-platform-id"
         }
       ]
     },
@@ -1005,8 +934,7 @@
       "subsections": [
         {
           "title": "Chrono Literals",
-          "dir": "chrono-literals",
-          "file": "chrono-literals"
+          "dir": "chrono-literals"
         }
       ]
     },
@@ -1017,143 +945,115 @@
       "subsections": [
         {
           "title": "Overview of API field limits - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "overview-of-api-field-limits"
+          "dir": "overview-of-api-field-limits"
         },
         {
           "title": "Particle.variable() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-variable"
+          "dir": "particle-variable"
         },
         {
           "title": "Particle.variable() - calculated - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-variable-calculated"
+          "dir": "particle-variable-calculated"
         },
         {
           "title": "Particle.function() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-function"
+          "dir": "particle-function"
         },
         {
           "title": "Particle.publish() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-publish"
+          "dir": "particle-publish"
         },
         {
           "title": "Particle.subscribe() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-subscribe"
+          "dir": "particle-subscribe"
         },
         {
           "title": "Particle.unsubscribe() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-unsubscribe"
+          "dir": "particle-unsubscribe"
         },
         {
           "title": "Particle.ledger - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-ledger"
+          "dir": "particle-ledger"
         },
         {
           "title": "Particle.maxEventDataSize() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-maxeventdatasize"
+          "dir": "particle-maxeventdatasize"
         },
         {
           "title": "Particle.maxVariableValueSize() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-maxvariablevaluesize"
+          "dir": "particle-maxvariablevaluesize"
         },
         {
           "title": "Particle.maxFunctionArgumentSize() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-maxfunctionargumentsize"
+          "dir": "particle-maxfunctionargumentsize"
         },
         {
           "title": "Particle.publishVitals() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-publishvitals"
+          "dir": "particle-publishvitals"
         },
         {
           "title": "Particle.connect() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-connect"
+          "dir": "particle-connect"
         },
         {
           "title": "Particle.connectionInterface() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-connectioninterface"
+          "dir": "particle-connectioninterface"
         },
         {
           "title": "Particle.disconnect() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-disconnect"
+          "dir": "particle-disconnect"
         },
         {
           "title": "Clear session - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "clear-session"
+          "dir": "clear-session"
         },
         {
           "title": "Particle.connected() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-connected"
+          "dir": "particle-connected"
         },
         {
           "title": "Particle.disconnected() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-disconnected"
+          "dir": "particle-disconnected"
         },
         {
           "title": "Particle.setDisconnectOptions() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-setdisconnectoptions"
+          "dir": "particle-setdisconnectoptions"
         },
         {
           "title": "Particle.keepAlive() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-keepalive"
+          "dir": "particle-keepalive"
         },
         {
           "title": "Particle.process() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-process"
+          "dir": "particle-process"
         },
         {
           "title": "Particle.syncTime() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-synctime"
+          "dir": "particle-synctime"
         },
         {
           "title": "Particle.syncTimeDone() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-synctimedone"
+          "dir": "particle-synctimedone"
         },
         {
           "title": "Particle.syncTimePending() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-synctimepending"
+          "dir": "particle-synctimepending"
         },
         {
           "title": "Particle.timeSyncedLast() - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "particle-timesyncedlast"
+          "dir": "particle-timesyncedlast"
         },
         {
           "title": "Get public IP - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "get-public-ip"
+          "dir": "get-public-ip"
         },
         {
           "title": "Get device name - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "get-device-name"
+          "dir": "get-device-name"
         },
         {
           "title": "Get random seed - Cloud functions",
-          "dir": "cloud-functions",
-          "file": "get-random-seed"
+          "dir": "get-random-seed"
         }
       ]
     },
@@ -1164,33 +1064,27 @@
       "subsections": [
         {
           "title": "Debugging",
-          "dir": "debugging",
-          "file": "debugging"
+          "dir": "debugging"
         },
         {
           "title": "Using a serial terminal - Debugging",
-          "dir": "debugging",
-          "file": "using-a-serial-terminal"
+          "dir": "using-a-serial-terminal"
         },
         {
           "title": "Serial.print vs. Log.info - Debugging",
-          "dir": "debugging",
-          "file": "serial-print-vs-log-info"
+          "dir": "serial-print-vs-log-info"
         },
         {
           "title": "Waiting for serial - Debugging",
-          "dir": "debugging",
-          "file": "waiting-for-serial"
+          "dir": "waiting-for-serial"
         },
         {
           "title": "comm.protocol errors - Debugging",
-          "dir": "debugging",
-          "file": "comm-protocol-errors"
+          "dir": "comm-protocol-errors"
         },
         {
           "title": "System errors - Debugging",
-          "dir": "debugging",
-          "file": "system-errors"
+          "dir": "system-errors"
         }
       ]
     },
@@ -1201,53 +1095,43 @@
       "subsections": [
         {
           "title": "Device identifiers",
-          "dir": "device-identifiers",
-          "file": "device-identifiers"
+          "dir": "device-identifiers"
         },
         {
           "title": "Device ID - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "device-id"
+          "dir": "device-id"
         },
         {
           "title": "Serial number - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "serial-number"
+          "dir": "serial-number"
         },
         {
           "title": "Data matrix sticker - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "data-matrix-sticker"
+          "dir": "data-matrix-sticker"
         },
         {
           "title": "ICCID - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "iccid"
+          "dir": "iccid"
         },
         {
           "title": "IMEI - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "imei"
+          "dir": "imei"
         },
         {
           "title": "IMSI - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "imsi"
+          "dir": "imsi"
         },
         {
           "title": "Mobile secret - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "mobile-secret"
+          "dir": "mobile-secret"
         },
         {
           "title": "Device name - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "device-name"
+          "dir": "device-name"
         },
         {
           "title": "MAC address - Device identifiers",
-          "dir": "device-identifiers",
-          "file": "mac-address"
+          "dir": "mac-address"
         }
       ]
     },
@@ -1258,48 +1142,39 @@
       "subsections": [
         {
           "title": "EEPROM",
-          "dir": "eeprom",
-          "file": "eeprom"
+          "dir": "eeprom"
         },
         {
           "title": "length() - EEPROM",
-          "dir": "eeprom",
-          "file": "length"
+          "dir": "length"
         },
         {
           "title": "put() - EEPROM",
-          "dir": "eeprom",
-          "file": "put"
+          "dir": "put"
         },
         {
           "title": "get() - EEPROM",
-          "dir": "eeprom",
-          "file": "get"
+          "dir": "get"
         },
         {
           "title": "read() - EEPROM",
-          "dir": "eeprom",
-          "file": "read"
+          "dir": "read"
         },
         {
           "title": "write() - EEPROM",
-          "dir": "eeprom",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "clear() - EEPROM",
-          "dir": "eeprom",
-          "file": "clear"
+          "dir": "clear"
         },
         {
           "title": "hasPendingErase() - EEPROM",
-          "dir": "eeprom",
-          "file": "haspendingerase"
+          "dir": "haspendingerase"
         },
         {
           "title": "performPendingErase() - EEPROM",
-          "dir": "eeprom",
-          "file": "performpendingerase"
+          "dir": "performpendingerase"
         }
       ]
     },
@@ -1310,113 +1185,91 @@
       "subsections": [
         {
           "title": "Ethernet",
-          "dir": "ethernet",
-          "file": "ethernet"
+          "dir": "ethernet"
         },
         {
           "title": "Pin configuration - Ethernet - Ethernet",
-          "dir": "ethernet",
-          "file": "pin-configuration-ethernet"
+          "dir": "pin-configuration-ethernet"
         },
         {
           "title": "on() - Ethernet",
-          "dir": "ethernet",
-          "file": "on"
+          "dir": "on"
         },
         {
           "title": "off() - Ethernet",
-          "dir": "ethernet",
-          "file": "off"
+          "dir": "off"
         },
         {
           "title": "connect() - Ethernet",
-          "dir": "ethernet",
-          "file": "connect"
+          "dir": "connect"
         },
         {
           "title": "disconnect() - Ethernet",
-          "dir": "ethernet",
-          "file": "disconnect"
+          "dir": "disconnect"
         },
         {
           "title": "connecting() - Ethernet",
-          "dir": "ethernet",
-          "file": "connecting"
+          "dir": "connecting"
         },
         {
           "title": "ready() - Ethernet",
-          "dir": "ethernet",
-          "file": "ready"
+          "dir": "ready"
         },
         {
           "title": "setConfig() [Ethernet] - Ethernet",
-          "dir": "ethernet",
-          "file": "setconfig-ethernet"
+          "dir": "setconfig-ethernet"
         },
         {
           "title": "getConfig() [Ethernet] - Ethernet",
-          "dir": "ethernet",
-          "file": "getconfig-ethernet"
+          "dir": "getconfig-ethernet"
         },
         {
           "title": "prefer() [Ethernet] - Ethernet",
-          "dir": "ethernet",
-          "file": "prefer-ethernet"
+          "dir": "prefer-ethernet"
         },
         {
           "title": "isPreferred() [Ethernet] - Ethernet",
-          "dir": "ethernet",
-          "file": "ispreferred-ethernet"
+          "dir": "ispreferred-ethernet"
         },
         {
           "title": "listen() - Ethernet",
-          "dir": "ethernet",
-          "file": "listen"
+          "dir": "listen"
         },
         {
           "title": "listening() - Ethernet",
-          "dir": "ethernet",
-          "file": "listening"
+          "dir": "listening"
         },
         {
           "title": "setListenTimeout() - Ethernet",
-          "dir": "ethernet",
-          "file": "setlistentimeout"
+          "dir": "setlistentimeout"
         },
         {
           "title": "getListenTimeout() - Ethernet",
-          "dir": "ethernet",
-          "file": "getlistentimeout"
+          "dir": "getlistentimeout"
         },
         {
           "title": "macAddress() - Ethernet",
-          "dir": "ethernet",
-          "file": "macaddress"
+          "dir": "macaddress"
         },
         {
           "title": "localIP() - Ethernet",
-          "dir": "ethernet",
-          "file": "localip"
+          "dir": "localip"
         },
         {
           "title": "subnetMask() - Ethernet",
-          "dir": "ethernet",
-          "file": "subnetmask"
+          "dir": "subnetmask"
         },
         {
           "title": "gatewayIP() - Ethernet",
-          "dir": "ethernet",
-          "file": "gatewayip"
+          "dir": "gatewayip"
         },
         {
           "title": "dnsServerIP() - Ethernet",
-          "dir": "ethernet",
-          "file": "dnsserverip"
+          "dir": "dnsserverip"
         },
         {
           "title": "dhcpServerIP() - Ethernet",
-          "dir": "ethernet",
-          "file": "dhcpserverip"
+          "dir": "dhcpserverip"
         }
       ]
     },
@@ -1427,113 +1280,91 @@
       "subsections": [
         {
           "title": "File system",
-          "dir": "file-system",
-          "file": "file-system"
+          "dir": "file-system"
         },
         {
           "title": "File system open - File system",
-          "dir": "file-system",
-          "file": "file-system-open"
+          "dir": "file-system-open"
         },
         {
           "title": "File system write - File system",
-          "dir": "file-system",
-          "file": "file-system-write"
+          "dir": "file-system-write"
         },
         {
           "title": "File system read - File system",
-          "dir": "file-system",
-          "file": "file-system-read"
+          "dir": "file-system-read"
         },
         {
           "title": "File system lseek - File system",
-          "dir": "file-system",
-          "file": "file-system-lseek"
+          "dir": "file-system-lseek"
         },
         {
           "title": "File system close - File system",
-          "dir": "file-system",
-          "file": "file-system-close"
+          "dir": "file-system-close"
         },
         {
           "title": "File system fsync - File system",
-          "dir": "file-system",
-          "file": "file-system-fsync"
+          "dir": "file-system-fsync"
         },
         {
           "title": "File system truncate - File system",
-          "dir": "file-system",
-          "file": "file-system-truncate"
+          "dir": "file-system-truncate"
         },
         {
           "title": "File system ftruncate - File system",
-          "dir": "file-system",
-          "file": "file-system-ftruncate"
+          "dir": "file-system-ftruncate"
         },
         {
           "title": "File system fstat - File system",
-          "dir": "file-system",
-          "file": "file-system-fstat"
+          "dir": "file-system-fstat"
         },
         {
           "title": "File system stat - File system",
-          "dir": "file-system",
-          "file": "file-system-stat"
+          "dir": "file-system-stat"
         },
         {
           "title": "File system mkdir - File system",
-          "dir": "file-system",
-          "file": "file-system-mkdir"
+          "dir": "file-system-mkdir"
         },
         {
           "title": "File system rmdir - File system",
-          "dir": "file-system",
-          "file": "file-system-rmdir"
+          "dir": "file-system-rmdir"
         },
         {
           "title": "File system unlink - File system",
-          "dir": "file-system",
-          "file": "file-system-unlink"
+          "dir": "file-system-unlink"
         },
         {
           "title": "File system rename - File system",
-          "dir": "file-system",
-          "file": "file-system-rename"
+          "dir": "file-system-rename"
         },
         {
           "title": "File system opendir - File system",
-          "dir": "file-system",
-          "file": "file-system-opendir"
+          "dir": "file-system-opendir"
         },
         {
           "title": "File system readdir - File system",
-          "dir": "file-system",
-          "file": "file-system-readdir"
+          "dir": "file-system-readdir"
         },
         {
           "title": "File system telldir - File system",
-          "dir": "file-system",
-          "file": "file-system-telldir"
+          "dir": "file-system-telldir"
         },
         {
           "title": "File system seekdir - File system",
-          "dir": "file-system",
-          "file": "file-system-seekdir"
+          "dir": "file-system-seekdir"
         },
         {
           "title": "File system rewinddir - File system",
-          "dir": "file-system",
-          "file": "file-system-rewinddir"
+          "dir": "file-system-rewinddir"
         },
         {
           "title": "File system readdir_r - File system",
-          "dir": "file-system",
-          "file": "file-system-readdir_r"
+          "dir": "file-system-readdir_r"
         },
         {
           "title": "File system closedir - File system",
-          "dir": "file-system",
-          "file": "file-system-closedir"
+          "dir": "file-system-closedir"
         }
       ]
     },
@@ -1544,73 +1375,59 @@
       "subsections": [
         {
           "title": "FuelGauge",
-          "dir": "fuelgauge",
-          "file": "fuelgauge"
+          "dir": "fuelgauge"
         },
         {
           "title": "getVCell() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "getvcell"
+          "dir": "getvcell"
         },
         {
           "title": "getSoC() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "getsoc"
+          "dir": "getsoc"
         },
         {
           "title": "getNormalizedSoC() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "getnormalizedsoc"
+          "dir": "getnormalizedsoc"
         },
         {
           "title": "getVersion() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "getversion"
+          "dir": "getversion"
         },
         {
           "title": "getCompensateValue() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "getcompensatevalue"
+          "dir": "getcompensatevalue"
         },
         {
           "title": "getAlertThreshold() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "getalertthreshold"
+          "dir": "getalertthreshold"
         },
         {
           "title": "setAlertThreshold() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "setalertthreshold"
+          "dir": "setalertthreshold"
         },
         {
           "title": "getAlert() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "getalert"
+          "dir": "getalert"
         },
         {
           "title": "clearAlert() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "clearalert"
+          "dir": "clearalert"
         },
         {
           "title": "reset() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "reset"
+          "dir": "reset"
         },
         {
           "title": "quickStart() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "quickstart"
+          "dir": "quickstart"
         },
         {
           "title": "sleep() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "sleep"
+          "dir": "sleep"
         },
         {
           "title": "wakeup() - FuelGauge",
-          "dir": "fuelgauge",
-          "file": "wakeup"
+          "dir": "wakeup"
         }
       ]
     },
@@ -1621,8 +1438,7 @@
       "subsections": [
         {
           "title": "Global object constructors",
-          "dir": "global-object-constructors",
-          "file": "global-object-constructors"
+          "dir": "global-object-constructors"
         }
       ]
     },
@@ -1633,73 +1449,59 @@
       "subsections": [
         {
           "title": "Input/Output",
-          "dir": "input-output",
-          "file": "input-output"
+          "dir": "input-output"
         },
         {
           "title": "pinMode() - Input/Output",
-          "dir": "input-output",
-          "file": "pinmode"
+          "dir": "pinmode"
         },
         {
           "title": "getPinMode(pin) - Input/Output",
-          "dir": "input-output",
-          "file": "getpinmode-pin"
+          "dir": "getpinmode-pin"
         },
         {
           "title": "digitalWrite() - Input/Output",
-          "dir": "input-output",
-          "file": "digitalwrite"
+          "dir": "digitalwrite"
         },
         {
           "title": "digitalRead() - Input/Output",
-          "dir": "input-output",
-          "file": "digitalread"
+          "dir": "digitalread"
         },
         {
           "title": "pinSetDriveStrength() - Input/Output",
-          "dir": "input-output",
-          "file": "pinsetdrivestrength"
+          "dir": "pinsetdrivestrength"
         },
         {
           "title": "analogWrite() (PWM) - Input/Output",
-          "dir": "input-output",
-          "file": "analogwrite-pwm"
+          "dir": "analogwrite-pwm"
         },
         {
           "title": "analogWriteResolution() (PWM) - Input/Output",
-          "dir": "input-output",
-          "file": "analogwriteresolution-pwm"
+          "dir": "analogwriteresolution-pwm"
         },
         {
           "title": "analogWriteMaxFrequency() (PWM) - Input/Output",
-          "dir": "input-output",
-          "file": "analogwritemaxfrequency-pwm"
+          "dir": "analogwritemaxfrequency-pwm"
         },
         {
           "title": "Analog Output (DAC) - Input/Output",
-          "dir": "input-output",
-          "file": "analog-output-dac"
+          "dir": "analog-output-dac"
         },
         {
           "title": "analogRead() (ADC) - Input/Output",
-          "dir": "input-output",
-          "file": "analogread-adc"
+          "dir": "analogread-adc"
         },
         {
           "title": "setADCSampleTime() - Input/Output",
-          "dir": "input-output",
-          "file": "setadcsampletime"
+          "dir": "setadcsampletime"
         },
         {
           "title": "analogSetReference - Input/Output",
-          "dir": "input-output",
-          "file": "analogsetreference"
+          "dir": "analogsetreference"
         },
         {
           "title": "analogGetReference - Input/Output",
-          "dir": "input-output",
-          "file": "analoggetreference"
+          "dir": "analoggetreference"
         }
       ]
     },
@@ -1710,28 +1512,23 @@
       "subsections": [
         {
           "title": "tone() - Input/Output - Advanced",
-          "dir": "input-output-advanced",
-          "file": "tone"
+          "dir": "tone"
         },
         {
           "title": "noTone() - Input/Output - Advanced",
-          "dir": "input-output-advanced",
-          "file": "notone"
+          "dir": "notone"
         },
         {
           "title": "shiftOut() - Input/Output - Advanced",
-          "dir": "input-output-advanced",
-          "file": "shiftout"
+          "dir": "shiftout"
         },
         {
           "title": "shiftIn() - Input/Output - Advanced",
-          "dir": "input-output-advanced",
-          "file": "shiftin"
+          "dir": "shiftin"
         },
         {
           "title": "pulseIn() - Input/Output - Advanced",
-          "dir": "input-output-advanced",
-          "file": "pulsein"
+          "dir": "pulsein"
         }
       ]
     },
@@ -1742,28 +1539,23 @@
       "subsections": [
         {
           "title": "Interrupts",
-          "dir": "interrupts",
-          "file": "interrupts"
+          "dir": "interrupts"
         },
         {
           "title": "attachInterrupt() - Interrupts",
-          "dir": "interrupts",
-          "file": "attachinterrupt"
+          "dir": "attachinterrupt"
         },
         {
           "title": "detachInterrupt() - Interrupts",
-          "dir": "interrupts",
-          "file": "detachinterrupt"
+          "dir": "detachinterrupt"
         },
         {
           "title": "interrupts() - Interrupts",
-          "dir": "interrupts",
-          "file": "interrupts"
+          "dir": "interrupts"
         },
         {
           "title": "noInterrupts() - Interrupts",
-          "dir": "interrupts",
-          "file": "nointerrupts"
+          "dir": "nointerrupts"
         }
       ]
     },
@@ -1774,8 +1566,7 @@
       "subsections": [
         {
           "title": "IPAddress",
-          "dir": "ipaddress",
-          "file": "ipaddress"
+          "dir": "ipaddress"
         }
       ]
     },
@@ -1786,13 +1577,11 @@
       "subsections": [
         {
           "title": "JSON",
-          "dir": "json",
-          "file": "json"
+          "dir": "json"
         },
         {
           "title": "JSONWriter - JSON",
-          "dir": "json",
-          "file": "jsonwriter",
+          "dir": "jsonwriter",
           "subsections": [
             {
               "anchor": "jsonwriter-beginarray-",
@@ -1862,8 +1651,7 @@
         },
         {
           "title": "JSONBufferWriter - JSON",
-          "dir": "json",
-          "file": "jsonbufferwriter",
+          "dir": "jsonbufferwriter",
           "subsections": [
             {
               "anchor": "jsonbufferwriter-jsonbufferwriter-char-buf-size_t-size-",
@@ -1885,8 +1673,7 @@
         },
         {
           "title": "JSONStreamWriter - JSON",
-          "dir": "json",
-          "file": "jsonstreamwriter",
+          "dir": "jsonstreamwriter",
           "subsections": [
             {
               "anchor": "jsonstreamwriter-jsonstreamwriter-print-amp-stream-",
@@ -1900,13 +1687,11 @@
         },
         {
           "title": "Parsing - JSON",
-          "dir": "json",
-          "file": "parsing"
+          "dir": "parsing"
         },
         {
           "title": "JSONValue - JSON",
-          "dir": "json",
-          "file": "jsonvalue",
+          "dir": "jsonvalue",
           "subsections": [
             {
               "anchor": "jsonvalue-isnull-",
@@ -1960,8 +1745,7 @@
         },
         {
           "title": "JSONString - JSON",
-          "dir": "json",
-          "file": "jsonstring",
+          "dir": "jsonstring",
           "subsections": [
             {
               "anchor": "jsonstring-jsonstring-const-jsonvalue-amp-value-",
@@ -1999,8 +1783,7 @@
         },
         {
           "title": "JSONObjectIterator - JSON",
-          "dir": "json",
-          "file": "jsonobjectiterator",
+          "dir": "jsonobjectiterator",
           "subsections": [
             {
               "anchor": "jsonobjectiterator-jsonobjectiterator-const-jsonvalue-amp-value-",
@@ -2026,8 +1809,7 @@
         },
         {
           "title": "JSONArrayIterator - JSON",
-          "dir": "json",
-          "file": "jsonarrayiterator",
+          "dir": "jsonarrayiterator",
           "subsections": [
             {
               "anchor": "jsonarrayiterator-jsonarrayiterator-const-jsonvalue-amp-value-",
@@ -2056,63 +1838,51 @@
       "subsections": [
         {
           "title": "Keyboard",
-          "dir": "keyboard",
-          "file": "keyboard"
+          "dir": "keyboard"
         },
         {
           "title": "begin() - Keyboard",
-          "dir": "keyboard",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "end() - Keyboard",
-          "dir": "keyboard",
-          "file": "end"
+          "dir": "end"
         },
         {
           "title": "write() - Keyboard",
-          "dir": "keyboard",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "click() - Keyboard",
-          "dir": "keyboard",
-          "file": "click"
+          "dir": "click"
         },
         {
           "title": "press() - Keyboard",
-          "dir": "keyboard",
-          "file": "press"
+          "dir": "press"
         },
         {
           "title": "release() - Keyboard",
-          "dir": "keyboard",
-          "file": "release"
+          "dir": "release"
         },
         {
           "title": "releaseAll() - Keyboard",
-          "dir": "keyboard",
-          "file": "releaseall"
+          "dir": "releaseall"
         },
         {
           "title": "print() - Keyboard",
-          "dir": "keyboard",
-          "file": "print"
+          "dir": "print"
         },
         {
           "title": "println() - Keyboard",
-          "dir": "keyboard",
-          "file": "println"
+          "dir": "println"
         },
         {
           "title": "printf() - Keyboard",
-          "dir": "keyboard",
-          "file": "printf"
+          "dir": "printf"
         },
         {
           "title": "printlnf() - Keyboard",
-          "dir": "keyboard",
-          "file": "printlnf"
+          "dir": "printlnf"
         }
       ]
     },
@@ -2123,23 +1893,19 @@
       "subsections": [
         {
           "title": "Language - Arduino Compatibility",
-          "dir": "language-arduino-compatibility",
-          "file": "language-arduino-compatibility"
+          "dir": "language-arduino-compatibility"
         },
         {
           "title": "Enabling extended Arduino SDK compatibility - Language - Arduino Compatibility",
-          "dir": "language-arduino-compatibility",
-          "file": "enabling-extended-arduino-sdk-compatibility"
+          "dir": "enabling-extended-arduino-sdk-compatibility"
         },
         {
           "title": "Arduino APIs added by firmware version - Language - Arduino Compatibility",
-          "dir": "language-arduino-compatibility",
-          "file": "arduino-apis-added-by-firmware-version"
+          "dir": "arduino-apis-added-by-firmware-version"
         },
         {
           "title": "Adding Arduino symbols to applications and libraries - Language - Arduino Compatibility",
-          "dir": "language-arduino-compatibility",
-          "file": "adding-arduino-symbols-to-applications-and-libraries"
+          "dir": "adding-arduino-symbols-to-applications-and-libraries"
         }
       ]
     },
@@ -2150,13 +1916,11 @@
       "subsections": [
         {
           "title": "Language syntax",
-          "dir": "language-syntax",
-          "file": "language-syntax"
+          "dir": "language-syntax"
         },
         {
           "title": "Structure - Language syntax",
-          "dir": "language-syntax",
-          "file": "structure",
+          "dir": "structure",
           "subsections": [
             {
               "anchor": "setup-",
@@ -2170,8 +1934,7 @@
         },
         {
           "title": "Control structures - Language syntax",
-          "dir": "language-syntax",
-          "file": "control-structures",
+          "dir": "control-structures",
           "subsections": [
             {
               "anchor": "if",
@@ -2221,8 +1984,7 @@
         },
         {
           "title": "Further syntax - Language syntax",
-          "dir": "language-syntax",
-          "file": "further-syntax",
+          "dir": "further-syntax",
           "subsections": [
             {
               "anchor": "-semicolon-",
@@ -2252,8 +2014,7 @@
         },
         {
           "title": "Arithmetic operators - Language syntax",
-          "dir": "language-syntax",
-          "file": "arithmetic-operators",
+          "dir": "arithmetic-operators",
           "subsections": [
             {
               "anchor": "-assignment-operator-",
@@ -2271,8 +2032,7 @@
         },
         {
           "title": "Boolean operators - Language syntax",
-          "dir": "language-syntax",
-          "file": "boolean-operators",
+          "dir": "boolean-operators",
           "subsections": [
             {
               "anchor": "-amp-amp-and-",
@@ -2290,8 +2050,7 @@
         },
         {
           "title": "Bitwise operators - Language syntax",
-          "dir": "language-syntax",
-          "file": "bitwise-operators",
+          "dir": "bitwise-operators",
           "subsections": [
             {
               "anchor": "-amp-bitwise-and-",
@@ -2317,8 +2076,7 @@
         },
         {
           "title": "Compound operators - Language syntax",
-          "dir": "language-syntax",
-          "file": "compound-operators",
+          "dir": "compound-operators",
           "subsections": [
             {
               "anchor": "-increment-decrement-",
@@ -2340,8 +2098,7 @@
         },
         {
           "title": "Variables - Language syntax",
-          "dir": "language-syntax",
-          "file": "variables",
+          "dir": "variables",
           "subsections": [
             {
               "anchor": "high-low",
@@ -2359,8 +2116,7 @@
         },
         {
           "title": "Data types - Language syntax",
-          "dir": "language-syntax",
-          "file": "data-types",
+          "dir": "data-types",
           "subsections": [
             {
               "anchor": "void",
@@ -2430,8 +2186,7 @@
         },
         {
           "title": "Exceptions - Language syntax",
-          "dir": "language-syntax",
-          "file": "exceptions"
+          "dir": "exceptions"
         }
       ]
     },
@@ -2442,13 +2197,11 @@
       "subsections": [
         {
           "title": "LED Signaling",
-          "dir": "led-signaling",
-          "file": "led-signaling"
+          "dir": "led-signaling"
         },
         {
           "title": "LEDStatus Class - LED Signaling",
-          "dir": "led-signaling",
-          "file": "ledstatus-class",
+          "dir": "ledstatus-class",
           "subsections": [
             {
               "anchor": "ledstatus-",
@@ -2526,8 +2279,7 @@
         },
         {
           "title": "LEDSystemTheme Class - LED Signaling",
-          "dir": "led-signaling",
-          "file": "ledsystemtheme-class",
+          "dir": "ledsystemtheme-class",
           "subsections": [
             {
               "anchor": "ledsystemtheme-",
@@ -2577,28 +2329,23 @@
         },
         {
           "title": "LEDSignal Enum - LED Signaling",
-          "dir": "led-signaling",
-          "file": "ledsignal-enum"
+          "dir": "ledsignal-enum"
         },
         {
           "title": "LEDPriority enum - LED Signaling",
-          "dir": "led-signaling",
-          "file": "ledpriority-enum"
+          "dir": "ledpriority-enum"
         },
         {
           "title": "LEDPattern enum - LED Signaling",
-          "dir": "led-signaling",
-          "file": "ledpattern-enum"
+          "dir": "ledpattern-enum"
         },
         {
           "title": "LEDSpeed enum - LED Signaling",
-          "dir": "led-signaling",
-          "file": "ledspeed-enum"
+          "dir": "ledspeed-enum"
         },
         {
           "title": "RGB Colors - LED Signaling",
-          "dir": "led-signaling",
-          "file": "rgb-colors"
+          "dir": "rgb-colors"
         }
       ]
     },
@@ -2609,83 +2356,67 @@
       "subsections": [
         {
           "title": "Ledger",
-          "dir": "ledger",
-          "file": "ledger"
+          "dir": "ledger"
         },
         {
           "title": "set() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "set-ledger-class"
+          "dir": "set-ledger-class"
         },
         {
           "title": "SetMode [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "setmode-ledger-class"
+          "dir": "setmode-ledger-class"
         },
         {
           "title": "Ledger synchronization - Ledger",
-          "dir": "ledger",
-          "file": "ledger-synchronization"
+          "dir": "ledger-synchronization"
         },
         {
           "title": "get() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "get-ledger-class"
+          "dir": "get-ledger-class"
         },
         {
           "title": "lastUpdated() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "lastupdated-ledger-class"
+          "dir": "lastupdated-ledger-class"
         },
         {
           "title": "lastSynced() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "lastsynced-ledger-class"
+          "dir": "lastsynced-ledger-class"
         },
         {
           "title": "dataSize [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "datasize-ledger-class"
+          "dir": "datasize-ledger-class"
         },
         {
           "title": "name() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "name-ledger-class"
+          "dir": "name-ledger-class"
         },
         {
           "title": "scope() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "scope-ledger-class"
+          "dir": "scope-ledger-class"
         },
         {
           "title": "LedgerScope [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "ledgerscope-ledger-class"
+          "dir": "ledgerscope-ledger-class"
         },
         {
           "title": "isWritable() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "iswritable-ledger-class"
+          "dir": "iswritable-ledger-class"
         },
         {
           "title": "onSync(OnSyncCallback) [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "onsync-onsynccallback-ledger-class"
+          "dir": "onsync-onsynccallback-ledger-class"
         },
         {
           "title": "onSync(OnSyncFunction) [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "onsync-onsyncfunction-ledger-class"
+          "dir": "onsync-onsyncfunction-ledger-class"
         },
         {
           "title": "remove() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "remove-ledger-class"
+          "dir": "remove-ledger-class"
         },
         {
           "title": "removeAll() [Ledger class] - Ledger",
-          "dir": "ledger",
-          "file": "removeall-ledger-class"
+          "dir": "removeall-ledger-class"
         }
       ]
     },
@@ -2696,48 +2427,39 @@
       "subsections": [
         {
           "title": "LedgerData",
-          "dir": "ledgerdata",
-          "file": "ledgerdata"
+          "dir": "ledgerdata"
         },
         {
           "title": "constructor (Variant) [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "constructor-variant-ledgerdata-class"
+          "dir": "constructor-variant-ledgerdata-class"
         },
         {
           "title": "constructor (std::initializer_list<Entry>) [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "constructor-std-initializer_list-ledgerdata-class"
+          "dir": "constructor-std-initializer_list-ledgerdata-class"
         },
         {
           "title": "set() [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "set-ledgerdata-class"
+          "dir": "set-ledgerdata-class"
         },
         {
           "title": "remove() [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "remove-ledgerdata-class"
+          "dir": "remove-ledgerdata-class"
         },
         {
           "title": "get() [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "get-ledgerdata-class"
+          "dir": "get-ledgerdata-class"
         },
         {
           "title": "operator[name] [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "operator-name-ledgerdata-class"
+          "dir": "operator-name-ledgerdata-class"
         },
         {
           "title": "has() [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "has-ledgerdata-class"
+          "dir": "has-ledgerdata-class"
         },
         {
           "title": "isEmpty() [LedgerData class] - LedgerData",
-          "dir": "ledgerdata",
-          "file": "isempty-ledgerdata-class"
+          "dir": "isempty-ledgerdata-class"
         }
       ]
     },
@@ -2748,28 +2470,23 @@
       "subsections": [
         {
           "title": "Logging",
-          "dir": "logging",
-          "file": "logging"
+          "dir": "logging"
         },
         {
           "title": "Logging levels - Logging",
-          "dir": "logging",
-          "file": "logging-levels"
+          "dir": "logging-levels"
         },
         {
           "title": "Logging categories - Logging",
-          "dir": "logging",
-          "file": "logging-categories"
+          "dir": "logging-categories"
         },
         {
           "title": "Additional attributes - Logging",
-          "dir": "logging",
-          "file": "additional-attributes"
+          "dir": "additional-attributes"
         },
         {
           "title": "Log handlers - Logging",
-          "dir": "logging",
-          "file": "log-handlers",
+          "dir": "log-handlers",
           "subsections": [
             {
               "anchor": "community-log-handlers",
@@ -2779,8 +2496,7 @@
         },
         {
           "title": "Logger class - Logging",
-          "dir": "logging",
-          "file": "logger-class"
+          "dir": "logger-class"
         }
       ]
     },
@@ -2791,28 +2507,23 @@
       "subsections": [
         {
           "title": "Low level input/output",
-          "dir": "low-level-input-output",
-          "file": "low-level-input-output"
+          "dir": "low-level-input-output"
         },
         {
           "title": "pinSetFast() - Low level input/output",
-          "dir": "low-level-input-output",
-          "file": "pinsetfast"
+          "dir": "pinsetfast"
         },
         {
           "title": "pinResetFast() - Low level input/output",
-          "dir": "low-level-input-output",
-          "file": "pinresetfast"
+          "dir": "pinresetfast"
         },
         {
           "title": "digitalWriteFast() - Low level input/output",
-          "dir": "low-level-input-output",
-          "file": "digitalwritefast"
+          "dir": "digitalwritefast"
         },
         {
           "title": "pinReadFast() - Low level input/output",
-          "dir": "low-level-input-output",
-          "file": "pinreadfast"
+          "dir": "pinreadfast"
         }
       ]
     },
@@ -2823,18 +2534,15 @@
       "subsections": [
         {
           "title": "STARTUP() - Macros",
-          "dir": "macros",
-          "file": "startup"
+          "dir": "startup"
         },
         {
           "title": "PRODUCT_VERSION() - Macros",
-          "dir": "macros",
-          "file": "product_version"
+          "dir": "product_version"
         },
         {
           "title": "PRODUCT_ID() - Macros",
-          "dir": "macros",
-          "file": "product_id",
+          "dir": "product_id",
           "subsections": [
             {
               "anchor": "device-os-4-0-and-later",
@@ -2859,88 +2567,71 @@
       "subsections": [
         {
           "title": "Map",
-          "dir": "map",
-          "file": "map"
+          "dir": "map"
         },
         {
           "title": "Map() [Map template] - Map",
-          "dir": "map",
-          "file": "map-map-template"
+          "dir": "map-map-template"
         },
         {
           "title": "Map(std::initializer_list<Entry> entries) [Map template] - Map",
-          "dir": "map",
-          "file": "map-std-initializer_list-entries-map-template"
+          "dir": "map-std-initializer_list-entries-map-template"
         },
         {
           "title": "Map(const Map&amp; map) [Map template] - Map",
-          "dir": "map",
-          "file": "map-const-map-amp-map-map-template"
+          "dir": "map-const-map-amp-map-map-template"
         },
         {
           "title": "set(const T&amp; key, ValueT val) [Map template] - Map",
-          "dir": "map",
-          "file": "set-const-t-amp-key-valuet-val-map-template"
+          "dir": "set-const-t-amp-key-valuet-val-map-template"
         },
         {
           "title": "get(const T&amp; key) [Map template] - Map",
-          "dir": "map",
-          "file": "get-const-t-amp-key-map-template"
+          "dir": "get-const-t-amp-key-map-template"
         },
         {
           "title": "get(const T&amp; key, const ValueT&amp; defaultVal) [Map template] - Map",
-          "dir": "map",
-          "file": "get-const-t-amp-key-const-valuet-amp-defaultval-map-template"
+          "dir": "get-const-t-amp-key-const-valuet-amp-defaultval-map-template"
         },
         {
           "title": "has(const T&amp; key) [Map template] - Map",
-          "dir": "map",
-          "file": "has-const-t-amp-key-map-template"
+          "dir": "has-const-t-amp-key-map-template"
         },
         {
           "title": "find(const T&amp; key) [Map template] - Map",
-          "dir": "map",
-          "file": "find-const-t-amp-key-map-template"
+          "dir": "find-const-t-amp-key-map-template"
         },
         {
           "title": "begin() [Map template] - Map",
-          "dir": "map",
-          "file": "begin-map-template"
+          "dir": "begin-map-template"
         },
         {
           "title": "end() [Map template] - Map",
-          "dir": "map",
-          "file": "end-map-template"
+          "dir": "end-map-template"
         },
         {
           "title": "erase(ConstIterator pos) [Map template] - Map",
-          "dir": "map",
-          "file": "erase-constiterator-pos-map-template"
+          "dir": "erase-constiterator-pos-map-template"
         },
         {
           "title": "remove(const T&amp; key) [Map template] - Map",
-          "dir": "map",
-          "file": "remove-const-t-amp-key-map-template"
+          "dir": "remove-const-t-amp-key-map-template"
         },
         {
           "title": "clear() [Map template] - Map",
-          "dir": "map",
-          "file": "clear-map-template"
+          "dir": "clear-map-template"
         },
         {
           "title": "size() [Map template] - Map",
-          "dir": "map",
-          "file": "size-map-template"
+          "dir": "size-map-template"
         },
         {
           "title": "isEmpty() [Map template] - Map",
-          "dir": "map",
-          "file": "isempty-map-template"
+          "dir": "isempty-map-template"
         },
         {
           "title": "operator[] (key) [Map template] - Map",
-          "dir": "map",
-          "file": "operator-key-map-template"
+          "dir": "operator-key-map-template"
         }
       ]
     },
@@ -2951,43 +2642,35 @@
       "subsections": [
         {
           "title": "Math",
-          "dir": "math",
-          "file": "math"
+          "dir": "math"
         },
         {
           "title": "min() - Math",
-          "dir": "math",
-          "file": "min"
+          "dir": "min"
         },
         {
           "title": "max() - Math",
-          "dir": "math",
-          "file": "max"
+          "dir": "max"
         },
         {
           "title": "abs() - Math",
-          "dir": "math",
-          "file": "abs"
+          "dir": "abs"
         },
         {
           "title": "constrain() - Math",
-          "dir": "math",
-          "file": "constrain"
+          "dir": "constrain"
         },
         {
           "title": "map() [value tranformation] - Math",
-          "dir": "math",
-          "file": "map-value-tranformation"
+          "dir": "map-value-tranformation"
         },
         {
           "title": "pow() - Math",
-          "dir": "math",
-          "file": "pow"
+          "dir": "pow"
         },
         {
           "title": "sqrt() - Math",
-          "dir": "math",
-          "file": "sqrt"
+          "dir": "sqrt"
         }
       ]
     },
@@ -2998,13 +2681,11 @@
       "subsections": [
         {
           "title": "Memory",
-          "dir": "memory",
-          "file": "memory"
+          "dir": "memory"
         },
         {
           "title": "Stack - Memory",
-          "dir": "memory",
-          "file": "stack"
+          "dir": "stack"
         }
       ]
     },
@@ -3015,63 +2696,51 @@
       "subsections": [
         {
           "title": "Mouse",
-          "dir": "mouse",
-          "file": "mouse"
+          "dir": "mouse"
         },
         {
           "title": "begin() - Mouse",
-          "dir": "mouse",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "end() - Mouse",
-          "dir": "mouse",
-          "file": "end"
+          "dir": "end"
         },
         {
           "title": "move() - Mouse",
-          "dir": "mouse",
-          "file": "move"
+          "dir": "move"
         },
         {
           "title": "moveTo() - Mouse",
-          "dir": "mouse",
-          "file": "moveto"
+          "dir": "moveto"
         },
         {
           "title": "scroll() - Mouse",
-          "dir": "mouse",
-          "file": "scroll"
+          "dir": "scroll"
         },
         {
           "title": "click() - Mouse",
-          "dir": "mouse",
-          "file": "click"
+          "dir": "click"
         },
         {
           "title": "press() - Mouse",
-          "dir": "mouse",
-          "file": "press"
+          "dir": "press"
         },
         {
           "title": "release() - Mouse",
-          "dir": "mouse",
-          "file": "release"
+          "dir": "release"
         },
         {
           "title": "isPressed() - Mouse",
-          "dir": "mouse",
-          "file": "ispressed"
+          "dir": "ispressed"
         },
         {
           "title": "screenSize() - Mouse",
-          "dir": "mouse",
-          "file": "screensize"
+          "dir": "screensize"
         },
         {
           "title": "enableMoveTo() - Mouse",
-          "dir": "mouse",
-          "file": "enablemoveto"
+          "dir": "enablemoveto"
         }
       ]
     },
@@ -3082,83 +2751,67 @@
       "subsections": [
         {
           "title": "Network",
-          "dir": "network",
-          "file": "network"
+          "dir": "network"
         },
         {
           "title": "on() [Network] - Network",
-          "dir": "network",
-          "file": "on-network"
+          "dir": "on-network"
         },
         {
           "title": "off() [Network] - Network",
-          "dir": "network",
-          "file": "off-network"
+          "dir": "off-network"
         },
         {
           "title": "connect() [Network] - Network",
-          "dir": "network",
-          "file": "connect-network"
+          "dir": "connect-network"
         },
         {
           "title": "disconnect() [Network] - Network",
-          "dir": "network",
-          "file": "disconnect-network"
+          "dir": "disconnect-network"
         },
         {
           "title": "connecting() [Network] - Network",
-          "dir": "network",
-          "file": "connecting-network"
+          "dir": "connecting-network"
         },
         {
           "title": "ready() [Network] - Network",
-          "dir": "network",
-          "file": "ready-network"
+          "dir": "ready-network"
         },
         {
           "title": "setConfig() [Network] - Network",
-          "dir": "network",
-          "file": "setconfig-network"
+          "dir": "setconfig-network"
         },
         {
           "title": "getConfig() [Network] - Network",
-          "dir": "network",
-          "file": "getconfig-network"
+          "dir": "getconfig-network"
         },
         {
           "title": "prefer() [Network] - Network",
-          "dir": "network",
-          "file": "prefer-network"
+          "dir": "prefer-network"
         },
         {
           "title": "isPreferred() [Network] - Network",
-          "dir": "network",
-          "file": "ispreferred-network"
+          "dir": "ispreferred-network"
         },
         {
           "title": "listen() [Network] - Network",
-          "dir": "network",
-          "file": "listen-network"
+          "dir": "listen-network"
         },
         {
           "title": "listening() [Network] - Network",
-          "dir": "network",
-          "file": "listening-network"
+          "dir": "listening-network"
         },
         {
           "title": "setListenTimeout() [Network] - Network",
-          "dir": "network",
-          "file": "setlistentimeout-network"
+          "dir": "setlistentimeout-network"
         },
         {
           "title": "getListenTimeout() [Network] - Network",
-          "dir": "network",
-          "file": "getlistentimeout-network"
+          "dir": "getlistentimeout-network"
         },
         {
           "title": "NetworkInterfaceConfig - Network",
-          "dir": "network",
-          "file": "networkinterfaceconfig",
+          "dir": "networkinterfaceconfig",
           "subsections": [
             {
               "anchor": "networkinterfaceconfig-source",
@@ -3187,53 +2840,43 @@
       "subsections": [
         {
           "title": "NFC",
-          "dir": "nfc",
-          "file": "nfc"
+          "dir": "nfc"
         },
         {
           "title": "Example app - NFC",
-          "dir": "nfc",
-          "file": "example-app"
+          "dir": "example-app"
         },
         {
           "title": "NFC.on() - NFC",
-          "dir": "nfc",
-          "file": "nfc-on"
+          "dir": "nfc-on"
         },
         {
           "title": "NFC.off() - NFC",
-          "dir": "nfc",
-          "file": "nfc-off"
+          "dir": "nfc-off"
         },
         {
           "title": "NFC.update() - NFC",
-          "dir": "nfc",
-          "file": "nfc-update"
+          "dir": "nfc-update"
         },
         {
           "title": "NFC.setText() - NFC",
-          "dir": "nfc",
-          "file": "nfc-settext"
+          "dir": "nfc-settext"
         },
         {
           "title": "NFC.setUri() - NFC",
-          "dir": "nfc",
-          "file": "nfc-seturi"
+          "dir": "nfc-seturi"
         },
         {
           "title": "NFC.setLaunchApp() - NFC",
-          "dir": "nfc",
-          "file": "nfc-setlaunchapp"
+          "dir": "nfc-setlaunchapp"
         },
         {
           "title": "NFC.setCustomData() - NFC",
-          "dir": "nfc",
-          "file": "nfc-setcustomdata"
+          "dir": "nfc-setcustomdata"
         },
         {
           "title": "Record (NFC) - NFC",
-          "dir": "nfc",
-          "file": "record-nfc",
+          "dir": "record-nfc",
           "subsections": [
             {
               "anchor": "settnf-",
@@ -3262,38 +2905,31 @@
       "subsections": [
         {
           "title": "OTA Updates",
-          "dir": "ota-updates",
-          "file": "ota-updates"
+          "dir": "ota-updates"
         },
         {
           "title": "Controlling OTA availability - OTA Updates",
-          "dir": "ota-updates",
-          "file": "controlling-ota-availability"
+          "dir": "controlling-ota-availability"
         },
         {
           "title": "System.disableUpdates() - OTA Updates",
-          "dir": "ota-updates",
-          "file": "system-disableupdates"
+          "dir": "system-disableupdates"
         },
         {
           "title": "System.enableUpdates() - OTA Updates",
-          "dir": "ota-updates",
-          "file": "system-enableupdates"
+          "dir": "system-enableupdates"
         },
         {
           "title": "System.updatesEnabled() - OTA Updates",
-          "dir": "ota-updates",
-          "file": "system-updatesenabled"
+          "dir": "system-updatesenabled"
         },
         {
           "title": "System.updatesPending() - OTA Updates",
-          "dir": "ota-updates",
-          "file": "system-updatespending"
+          "dir": "system-updatespending"
         },
         {
           "title": "System.updatesForced() - OTA Updates",
-          "dir": "ota-updates",
-          "file": "system-updatesforced"
+          "dir": "system-updatesforced"
         }
       ]
     },
@@ -3304,18 +2940,15 @@
       "subsections": [
         {
           "title": "Other functions",
-          "dir": "other-functions",
-          "file": "other-functions"
+          "dir": "other-functions"
         },
         {
           "title": "sprintf - Other functions",
-          "dir": "other-functions",
-          "file": "sprintf"
+          "dir": "sprintf"
         },
         {
           "title": "sscanf - Other functions",
-          "dir": "other-functions",
-          "file": "sscanf"
+          "dir": "sscanf"
         }
       ]
     },
@@ -3326,8 +2959,7 @@
       "subsections": [
         {
           "title": "Persistent settings",
-          "dir": "persistent-settings",
-          "file": "persistent-settings"
+          "dir": "persistent-settings"
         }
       ]
     },
@@ -3338,48 +2970,39 @@
       "subsections": [
         {
           "title": "PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "pmic-power-management-ic"
+          "dir": "pmic-power-management-ic"
         },
         {
           "title": "PMIC() constructor - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "pmic-constructor"
+          "dir": "pmic-constructor"
         },
         {
           "title": "begin() - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "getVersion() - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "getversion"
+          "dir": "getversion"
         },
         {
           "title": "getSystemStatus() - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "getsystemstatus"
+          "dir": "getsystemstatus"
         },
         {
           "title": "getFault() - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "getfault"
+          "dir": "getfault"
         },
         {
           "title": "lock() - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "lock"
+          "dir": "lock"
         },
         {
           "title": "unlock() - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "unlock"
+          "dir": "unlock"
         },
         {
           "title": "Input source control register - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "input-source-control-register",
+          "dir": "input-source-control-register",
           "subsections": [
             {
               "anchor": "readinputsourceregister-",
@@ -3413,8 +3036,7 @@
         },
         {
           "title": "Power on configuration reg - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "power-on-configuration-reg",
+          "dir": "power-on-configuration-reg",
           "subsections": [
             {
               "anchor": "enablecharging-",
@@ -3452,8 +3074,7 @@
         },
         {
           "title": "Charge current control reg - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "charge-current-control-reg",
+          "dir": "charge-current-control-reg",
           "subsections": [
             {
               "anchor": "setchargecurrent-",
@@ -3467,8 +3088,7 @@
         },
         {
           "title": "Precharge/termination current control reg - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "precharge-termination-current-control-reg",
+          "dir": "precharge-termination-current-control-reg",
           "subsections": [
             {
               "anchor": "setprechargecurrent-",
@@ -3490,8 +3110,7 @@
         },
         {
           "title": "Charge voltage control reg - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "charge-voltage-control-reg",
+          "dir": "charge-voltage-control-reg",
           "subsections": [
             {
               "anchor": "setchargevoltage-",
@@ -3509,8 +3128,7 @@
         },
         {
           "title": "Charge timer control reg - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "charge-timer-control-reg",
+          "dir": "charge-timer-control-reg",
           "subsections": [
             {
               "anchor": "readchargetermregister-",
@@ -3528,8 +3146,7 @@
         },
         {
           "title": "Thermal regulation control reg - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "thermal-regulation-control-reg",
+          "dir": "thermal-regulation-control-reg",
           "subsections": [
             {
               "anchor": "setthermalregulation-",
@@ -3543,8 +3160,7 @@
         },
         {
           "title": "Misc operation control reg - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "misc-operation-control-reg",
+          "dir": "misc-operation-control-reg",
           "subsections": [
             {
               "anchor": "readopcontrolregister-",
@@ -3590,8 +3206,7 @@
         },
         {
           "title": "System status register - PMIC (Power Management IC)",
-          "dir": "pmic-power-management-ic",
-          "file": "system-status-register",
+          "dir": "system-status-register",
           "subsections": [
             {
               "anchor": "getvbusstat-",
@@ -3628,33 +3243,27 @@
       "subsections": [
         {
           "title": "Power manager",
-          "dir": "power-manager",
-          "file": "power-manager"
+          "dir": "power-manager"
         },
         {
           "title": "powerSourceMaxCurrent - Power manager",
-          "dir": "power-manager",
-          "file": "powersourcemaxcurrent"
+          "dir": "powersourcemaxcurrent"
         },
         {
           "title": "powerSourceMinVoltage - Power manager",
-          "dir": "power-manager",
-          "file": "powersourceminvoltage"
+          "dir": "powersourceminvoltage"
         },
         {
           "title": "batteryChargeCurrent - Power manager",
-          "dir": "power-manager",
-          "file": "batterychargecurrent"
+          "dir": "batterychargecurrent"
         },
         {
           "title": "batteryChargeVoltage - Power manager",
-          "dir": "power-manager",
-          "file": "batterychargevoltage"
+          "dir": "batterychargevoltage"
         },
         {
           "title": "SystemPowerFeature - Power manager",
-          "dir": "power-manager",
-          "file": "systempowerfeature",
+          "dir": "systempowerfeature",
           "subsections": [
             {
               "anchor": "systempowerfeature-pmic_detection",
@@ -3676,8 +3285,7 @@
         },
         {
           "title": "B-Series SoM - Power manager",
-          "dir": "power-manager",
-          "file": "b-series-som"
+          "dir": "b-series-som"
         }
       ]
     },
@@ -3688,8 +3296,7 @@
       "subsections": [
         {
           "title": "Preprocessor",
-          "dir": "preprocessor",
-          "file": "preprocessor"
+          "dir": "preprocessor"
         }
       ]
     },
@@ -3700,23 +3307,19 @@
       "subsections": [
         {
           "title": "Random numbers",
-          "dir": "random-numbers",
-          "file": "random-numbers"
+          "dir": "random-numbers"
         },
         {
           "title": "random() - Random numbers",
-          "dir": "random-numbers",
-          "file": "random"
+          "dir": "random"
         },
         {
           "title": "randomSeed() - Random numbers",
-          "dir": "random-numbers",
-          "file": "randomseed"
+          "dir": "randomseed"
         },
         {
           "title": "HAL_RNG_GetRandomNumber() - Random numbers",
-          "dir": "random-numbers",
-          "file": "hal_rng_getrandomnumber"
+          "dir": "hal_rng_getrandomnumber"
         }
       ]
     },
@@ -3727,28 +3330,23 @@
       "subsections": [
         {
           "title": "Retained memory",
-          "dir": "retained-memory",
-          "file": "retained-memory"
+          "dir": "retained-memory"
         },
         {
           "title": "Storing data in Backup RAM (SRAM) - Retained memory",
-          "dir": "retained-memory",
-          "file": "storing-data-in-backup-ram-sram"
+          "dir": "storing-data-in-backup-ram-sram"
         },
         {
           "title": "Dynamically allocated objects - Retained memory",
-          "dir": "retained-memory",
-          "file": "dynamically-allocated-objects"
+          "dir": "dynamically-allocated-objects"
         },
         {
           "title": "Retained data validation - Retained memory",
-          "dir": "retained-memory",
-          "file": "retained-data-validation"
+          "dir": "retained-data-validation"
         },
         {
           "title": "Enabling backup RAM (SRAM) - Retained memory",
-          "dir": "retained-memory",
-          "file": "enabling-backup-ram-sram"
+          "dir": "enabling-backup-ram-sram"
         }
       ]
     },
@@ -3759,48 +3357,39 @@
       "subsections": [
         {
           "title": "RGB",
-          "dir": "rgb",
-          "file": "rgb"
+          "dir": "rgb"
         },
         {
           "title": "control(user_control) - RGB",
-          "dir": "rgb",
-          "file": "control-user_control"
+          "dir": "control-user_control"
         },
         {
           "title": "controlled() - RGB",
-          "dir": "rgb",
-          "file": "controlled"
+          "dir": "controlled"
         },
         {
           "title": "color(red, green, blue) - RGB",
-          "dir": "rgb",
-          "file": "color-red-green-blue"
+          "dir": "color-red-green-blue"
         },
         {
           "title": "brightness(val) - RGB",
-          "dir": "rgb",
-          "file": "brightness-val"
+          "dir": "brightness-val"
         },
         {
           "title": "brightness() - RGB",
-          "dir": "rgb",
-          "file": "brightness"
+          "dir": "brightness"
         },
         {
           "title": "onChange(handler) - RGB",
-          "dir": "rgb",
-          "file": "onchange-handler"
+          "dir": "onchange-handler"
         },
         {
           "title": "mirrorTo() - RGB",
-          "dir": "rgb",
-          "file": "mirrorto"
+          "dir": "mirrorto"
         },
         {
           "title": "mirrorDisable() - RGB",
-          "dir": "rgb",
-          "file": "mirrordisable"
+          "dir": "mirrordisable"
         }
       ]
     },
@@ -3811,108 +3400,87 @@
       "subsections": [
         {
           "title": "Serial",
-          "dir": "serial",
-          "file": "serial"
+          "dir": "serial"
         },
         {
           "title": "begin() - Serial",
-          "dir": "serial",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "end() - Serial",
-          "dir": "serial",
-          "file": "end"
+          "dir": "end"
         },
         {
           "title": "available() - Serial",
-          "dir": "serial",
-          "file": "available"
+          "dir": "available"
         },
         {
           "title": "availableForWrite() - Serial",
-          "dir": "serial",
-          "file": "availableforwrite"
+          "dir": "availableforwrite"
         },
         {
           "title": "acquireSerialBuffer() - Serial",
-          "dir": "serial",
-          "file": "acquireserialbuffer"
+          "dir": "acquireserialbuffer"
         },
         {
           "title": "acquireSerial1Buffer() - Serial",
-          "dir": "serial",
-          "file": "acquireserial1buffer"
+          "dir": "acquireserial1buffer"
         },
         {
           "title": "blockOnOverrun() - Serial",
-          "dir": "serial",
-          "file": "blockonoverrun"
+          "dir": "blockonoverrun"
         },
         {
           "title": "serialEvent() - Serial",
-          "dir": "serial",
-          "file": "serialevent"
+          "dir": "serialevent"
         },
         {
           "title": "peek() - Serial",
-          "dir": "serial",
-          "file": "peek"
+          "dir": "peek"
         },
         {
           "title": "write() - Serial",
-          "dir": "serial",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "read() - Serial",
-          "dir": "serial",
-          "file": "read"
+          "dir": "read"
         },
         {
           "title": "print() - Serial",
-          "dir": "serial",
-          "file": "print"
+          "dir": "print"
         },
         {
           "title": "println() - Serial",
-          "dir": "serial",
-          "file": "println"
+          "dir": "println"
         },
         {
           "title": "printf() - Serial",
-          "dir": "serial",
-          "file": "printf"
+          "dir": "printf"
         },
         {
           "title": "printlnf() - Serial",
-          "dir": "serial",
-          "file": "printlnf"
+          "dir": "printlnf"
         },
         {
           "title": "flush() - Serial",
-          "dir": "serial",
-          "file": "flush"
+          "dir": "flush"
         },
         {
           "title": "halfduplex() - Serial",
-          "dir": "serial",
-          "file": "halfduplex"
+          "dir": "halfduplex"
         },
         {
           "title": "isConnected() - Serial",
-          "dir": "serial",
-          "file": "isconnected"
+          "dir": "isconnected"
         },
         {
           "title": "lock() - Serial",
-          "dir": "serial",
-          "file": "lock"
+          "dir": "lock"
         },
         {
           "title": "unlock() - Serial",
-          "dir": "serial",
-          "file": "unlock"
+          "dir": "unlock"
         }
       ]
     },
@@ -3923,43 +3491,35 @@
       "subsections": [
         {
           "title": "Servo",
-          "dir": "servo",
-          "file": "servo"
+          "dir": "servo"
         },
         {
           "title": "attach() - Servo",
-          "dir": "servo",
-          "file": "attach"
+          "dir": "attach"
         },
         {
           "title": "write() - Servo",
-          "dir": "servo",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "writeMicroseconds() - Servo",
-          "dir": "servo",
-          "file": "writemicroseconds"
+          "dir": "writemicroseconds"
         },
         {
           "title": "read() - Servo",
-          "dir": "servo",
-          "file": "read"
+          "dir": "read"
         },
         {
           "title": "attached() - Servo",
-          "dir": "servo",
-          "file": "attached"
+          "dir": "attached"
         },
         {
           "title": "detach() - Servo",
-          "dir": "servo",
-          "file": "detach"
+          "dir": "detach"
         },
         {
           "title": "setTrim() - Servo",
-          "dir": "servo",
-          "file": "settrim"
+          "dir": "settrim"
         }
       ]
     },
@@ -3970,18 +3530,15 @@
       "subsections": [
         {
           "title": "sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "sleep-classic-api"
+          "dir": "sleep-classic-api"
         },
         {
           "title": "Sleep [transitioning from classic API] - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "sleep-transitioning-from-classic-api"
+          "dir": "sleep-transitioning-from-classic-api"
         },
         {
           "title": "SleepResult class - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "sleepresult-class",
+          "dir": "sleepresult-class",
           "subsections": [
             {
               "anchor": "reason-",
@@ -4011,33 +3568,27 @@
         },
         {
           "title": "sleepResult() - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "sleepresult"
+          "dir": "sleepresult"
         },
         {
           "title": "wakeUpReason() - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "wakeupreason"
+          "dir": "wakeupreason"
         },
         {
           "title": "wokenUpByPin() - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "wokenupbypin"
+          "dir": "wokenupbypin"
         },
         {
           "title": "wokenUpByRtc() - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "wokenupbyrtc"
+          "dir": "wokenupbyrtc"
         },
         {
           "title": "wakeUpPin() - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "wakeuppin"
+          "dir": "wakeuppin"
         },
         {
           "title": "sleepError() - sleep() [ Classic API ]",
-          "dir": "sleep-classic-api",
-          "file": "sleeperror"
+          "dir": "sleeperror"
         }
       ]
     },
@@ -4048,68 +3599,55 @@
       "subsections": [
         {
           "title": "sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "sleep-sleep"
+          "dir": "sleep-sleep"
         },
         {
           "title": "mode() (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "mode-systemsleepconfiguration"
+          "dir": "mode-systemsleepconfiguration"
         },
         {
           "title": "STOP (SystemSleepMode) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "stop-systemsleepmode"
+          "dir": "stop-systemsleepmode"
         },
         {
           "title": "ULTRA_LOW_POWER (SystemSleepMode) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "ultra_low_power-systemsleepmode"
+          "dir": "ultra_low_power-systemsleepmode"
         },
         {
           "title": "HIBERNATE (SystemSleepMode) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "hibernate-systemsleepmode"
+          "dir": "hibernate-systemsleepmode"
         },
         {
           "title": "duration() (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "duration-systemsleepconfiguration"
+          "dir": "duration-systemsleepconfiguration"
         },
         {
           "title": "gpio() (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "gpio-systemsleepconfiguration"
+          "dir": "gpio-systemsleepconfiguration"
         },
         {
           "title": "flag() (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "flag-systemsleepconfiguration"
+          "dir": "flag-systemsleepconfiguration"
         },
         {
           "title": "network() (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "network-systemsleepconfiguration"
+          "dir": "network-systemsleepconfiguration"
         },
         {
           "title": "analog() (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "analog-systemsleepconfiguration"
+          "dir": "analog-systemsleepconfiguration"
         },
         {
           "title": "usart (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "usart-systemsleepconfiguration"
+          "dir": "usart-systemsleepconfiguration"
         },
         {
           "title": "ble() (SystemSleepConfiguration) - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "ble-systemsleepconfiguration"
+          "dir": "ble-systemsleepconfiguration"
         },
         {
           "title": "SystemSleepResult class - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "systemsleepresult-class",
+          "dir": "systemsleepresult-class",
           "subsections": [
             {
               "anchor": "wakeupreason-systemsleepresult-",
@@ -4131,8 +3669,7 @@
         },
         {
           "title": "Sleep and GPIO outputs - sleep() [ Sleep ]",
-          "dir": "sleep-sleep",
-          "file": "sleep-and-gpio-outputs"
+          "dir": "sleep-and-gpio-outputs"
         }
       ]
     },
@@ -4143,38 +3680,31 @@
       "subsections": [
         {
           "title": "SoftAP HTTP pages",
-          "dir": "softap-http-pages",
-          "file": "softap-http-pages"
+          "dir": "softap-http-pages"
         },
         {
           "title": "The page callback function - SoftAP HTTP pages",
-          "dir": "softap-http-pages",
-          "file": "the-page-callback-function"
+          "dir": "the-page-callback-function"
         },
         {
           "title": "Retrieving the request data - SoftAP HTTP pages",
-          "dir": "softap-http-pages",
-          "file": "retrieving-the-request-data"
+          "dir": "retrieving-the-request-data"
         },
         {
           "title": "Sending a response - SoftAP HTTP pages",
-          "dir": "softap-http-pages",
-          "file": "sending-a-response"
+          "dir": "sending-a-response"
         },
         {
           "title": "The default page - SoftAP HTTP pages",
-          "dir": "softap-http-pages",
-          "file": "the-default-page"
+          "dir": "the-default-page"
         },
         {
           "title": "Sending a redirect - SoftAP HTTP pages",
-          "dir": "softap-http-pages",
-          "file": "sending-a-redirect"
+          "dir": "sending-a-redirect"
         },
         {
           "title": "Complete example - SoftAP HTTP pages",
-          "dir": "softap-http-pages",
-          "file": "complete-example"
+          "dir": "complete-example"
         }
       ]
     },
@@ -4185,63 +3715,51 @@
       "subsections": [
         {
           "title": "Software timers",
-          "dir": "software-timers",
-          "file": "software-timers"
+          "dir": "software-timers"
         },
         {
           "title": "Class member callbacks - Software timers",
-          "dir": "software-timers",
-          "file": "class-member-callbacks"
+          "dir": "class-member-callbacks"
         },
         {
           "title": "start() - Software timers",
-          "dir": "software-timers",
-          "file": "start"
+          "dir": "start"
         },
         {
           "title": "stop() - Software timers",
-          "dir": "software-timers",
-          "file": "stop"
+          "dir": "stop"
         },
         {
           "title": "changePeriod() - Software timers",
-          "dir": "software-timers",
-          "file": "changeperiod"
+          "dir": "changeperiod"
         },
         {
           "title": "reset() - Software timers",
-          "dir": "software-timers",
-          "file": "reset"
+          "dir": "reset"
         },
         {
           "title": "startFromISR() - Software timers",
-          "dir": "software-timers",
-          "file": "startfromisr"
+          "dir": "startfromisr"
         },
         {
           "title": "stopFromISR() - Software timers",
-          "dir": "software-timers",
-          "file": "stopfromisr"
+          "dir": "stopfromisr"
         },
         {
           "title": "resetFromISR() - Software timers",
-          "dir": "software-timers",
-          "file": "resetfromisr"
+          "dir": "resetfromisr"
         },
         {
           "title": "changePeriodFromISR() - Software timers",
-          "dir": "software-timers",
-          "file": "changeperiodfromisr"
+          "dir": "changeperiodfromisr"
         },
         {
           "title": "dispose() - Software timers",
-          "dir": "software-timers",
-          "file": "dispose"
+          "dir": "dispose"
         },
         {
           "title": "isActive() - Software timers",
-          "dir": "software-timers",
-          "file": "isactive"
+          "dir": "isactive"
         }
       ]
     },
@@ -4252,88 +3770,71 @@
       "subsections": [
         {
           "title": "SPI",
-          "dir": "spi",
-          "file": "spi"
+          "dir": "spi"
         },
         {
           "title": "begin() - SPI",
-          "dir": "spi",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "begin(SPI_Mode, uint16_t) - SPI",
-          "dir": "spi",
-          "file": "begin-spi_mode-uint16_t"
+          "dir": "begin-spi_mode-uint16_t"
         },
         {
           "title": "end() - SPI",
-          "dir": "spi",
-          "file": "end"
+          "dir": "end"
         },
         {
           "title": "setBitOrder() - SPI",
-          "dir": "spi",
-          "file": "setbitorder"
+          "dir": "setbitorder"
         },
         {
           "title": "setClockSpeed - SPI",
-          "dir": "spi",
-          "file": "setclockspeed"
+          "dir": "setclockspeed"
         },
         {
           "title": "setClockDividerReference - SPI",
-          "dir": "spi",
-          "file": "setclockdividerreference"
+          "dir": "setclockdividerreference"
         },
         {
           "title": "setClockDivider() - SPI",
-          "dir": "spi",
-          "file": "setclockdivider"
+          "dir": "setclockdivider"
         },
         {
           "title": "setDataMode() - SPI",
-          "dir": "spi",
-          "file": "setdatamode"
+          "dir": "setdatamode"
         },
         {
           "title": "transfer() - SPI",
-          "dir": "spi",
-          "file": "transfer"
+          "dir": "transfer"
         },
         {
           "title": "transfer(void\\*, void\\*, size_t, std::function) - SPI",
-          "dir": "spi",
-          "file": "transfer-void-void-size_t-std-function"
+          "dir": "transfer-void-void-size_t-std-function"
         },
         {
           "title": "transferCancel() - SPI",
-          "dir": "spi",
-          "file": "transfercancel"
+          "dir": "transfercancel"
         },
         {
           "title": "onSelect() - SPI",
-          "dir": "spi",
-          "file": "onselect"
+          "dir": "onselect"
         },
         {
           "title": "available() - SPI",
-          "dir": "spi",
-          "file": "available"
+          "dir": "available"
         },
         {
           "title": "SPISettings - SPI",
-          "dir": "spi",
-          "file": "spisettings"
+          "dir": "spisettings"
         },
         {
           "title": "beginTransaction() - SPI",
-          "dir": "spi",
-          "file": "begintransaction"
+          "dir": "begintransaction"
         },
         {
           "title": "endTransaction() - SPI",
-          "dir": "spi",
-          "file": "endtransaction"
+          "dir": "endtransaction"
         }
       ]
     },
@@ -4344,53 +3845,43 @@
       "subsections": [
         {
           "title": "Stream class",
-          "dir": "stream-class",
-          "file": "stream-class"
+          "dir": "stream-class"
         },
         {
           "title": "setTimeout() - Stream class",
-          "dir": "stream-class",
-          "file": "settimeout"
+          "dir": "settimeout"
         },
         {
           "title": "find() - Stream class",
-          "dir": "stream-class",
-          "file": "find"
+          "dir": "find"
         },
         {
           "title": "findUntil() - Stream class",
-          "dir": "stream-class",
-          "file": "finduntil"
+          "dir": "finduntil"
         },
         {
           "title": "readBytes() - Stream class",
-          "dir": "stream-class",
-          "file": "readbytes"
+          "dir": "readbytes"
         },
         {
           "title": "readBytesUntil() - Stream class",
-          "dir": "stream-class",
-          "file": "readbytesuntil"
+          "dir": "readbytesuntil"
         },
         {
           "title": "readString() - Stream class",
-          "dir": "stream-class",
-          "file": "readstring"
+          "dir": "readstring"
         },
         {
           "title": "readStringUntil() - Stream class",
-          "dir": "stream-class",
-          "file": "readstringuntil"
+          "dir": "readstringuntil"
         },
         {
           "title": "parseInt() - Stream class",
-          "dir": "stream-class",
-          "file": "parseint"
+          "dir": "parseint"
         },
         {
           "title": "parseFloat() - Stream class",
-          "dir": "stream-class",
-          "file": "parsefloat"
+          "dir": "parsefloat"
         }
       ]
     },
@@ -4401,148 +3892,119 @@
       "subsections": [
         {
           "title": "String class",
-          "dir": "string-class",
-          "file": "string-class"
+          "dir": "string-class"
         },
         {
           "title": "String() - String class",
-          "dir": "string-class",
-          "file": "string"
+          "dir": "string"
         },
         {
           "title": "charAt() - String class",
-          "dir": "string-class",
-          "file": "charat"
+          "dir": "charat"
         },
         {
           "title": "compareTo() - String class",
-          "dir": "string-class",
-          "file": "compareto"
+          "dir": "compareto"
         },
         {
           "title": "comparison operators (String) - String class",
-          "dir": "string-class",
-          "file": "comparison-operators-string"
+          "dir": "comparison-operators-string"
         },
         {
           "title": "concat() - String class",
-          "dir": "string-class",
-          "file": "concat"
+          "dir": "concat"
         },
         {
           "title": "Concatenation operators (String) - String class",
-          "dir": "string-class",
-          "file": "concatenation-operators-string"
+          "dir": "concatenation-operators-string"
         },
         {
           "title": "endsWith() - String class",
-          "dir": "string-class",
-          "file": "endswith"
+          "dir": "endswith"
         },
         {
           "title": "equals() - String class",
-          "dir": "string-class",
-          "file": "equals"
+          "dir": "equals"
         },
         {
           "title": "Equality operators (String) - String class",
-          "dir": "string-class",
-          "file": "equality-operators-string"
+          "dir": "equality-operators-string"
         },
         {
           "title": "equalsIgnoreCase() - String class",
-          "dir": "string-class",
-          "file": "equalsignorecase"
+          "dir": "equalsignorecase"
         },
         {
           "title": "format() - String class",
-          "dir": "string-class",
-          "file": "format"
+          "dir": "format"
         },
         {
           "title": "getBytes() - String class",
-          "dir": "string-class",
-          "file": "getbytes"
+          "dir": "getbytes"
         },
         {
           "title": "c_str() - String class",
-          "dir": "string-class",
-          "file": "c_str"
+          "dir": "c_str"
         },
         {
           "title": "indexOf() - String class",
-          "dir": "string-class",
-          "file": "indexof"
+          "dir": "indexof"
         },
         {
           "title": "lastIndexOf() - String class",
-          "dir": "string-class",
-          "file": "lastindexof"
+          "dir": "lastindexof"
         },
         {
           "title": "length() - String class",
-          "dir": "string-class",
-          "file": "length"
+          "dir": "length"
         },
         {
           "title": "remove() - String class",
-          "dir": "string-class",
-          "file": "remove"
+          "dir": "remove"
         },
         {
           "title": "replace() - String class",
-          "dir": "string-class",
-          "file": "replace"
+          "dir": "replace"
         },
         {
           "title": "reserve() - String class",
-          "dir": "string-class",
-          "file": "reserve"
+          "dir": "reserve"
         },
         {
           "title": "setCharAt() - String class",
-          "dir": "string-class",
-          "file": "setcharat"
+          "dir": "setcharat"
         },
         {
           "title": "startsWith() - String class",
-          "dir": "string-class",
-          "file": "startswith"
+          "dir": "startswith"
         },
         {
           "title": "substring() - String class",
-          "dir": "string-class",
-          "file": "substring"
+          "dir": "substring"
         },
         {
           "title": "toCharArray() - String class",
-          "dir": "string-class",
-          "file": "tochararray"
+          "dir": "tochararray"
         },
         {
           "title": "toFloat() - String class",
-          "dir": "string-class",
-          "file": "tofloat"
+          "dir": "tofloat"
         },
         {
           "title": "toInt() - String class",
-          "dir": "string-class",
-          "file": "toint"
+          "dir": "toint"
         },
         {
           "title": "toLowerCase() - String class",
-          "dir": "string-class",
-          "file": "tolowercase"
+          "dir": "tolowercase"
         },
         {
           "title": "toUpperCase() - String class",
-          "dir": "string-class",
-          "file": "touppercase"
+          "dir": "touppercase"
         },
         {
           "title": "trim() - String class",
-          "dir": "string-class",
-          "file": "trim"
+          "dir": "trim"
         }
       ]
     },
@@ -4553,23 +4015,19 @@
       "subsections": [
         {
           "title": "version() - System calls",
-          "dir": "system-calls",
-          "file": "version"
+          "dir": "version"
         },
         {
           "title": "versionNumber() - System calls",
-          "dir": "system-calls",
-          "file": "versionnumber"
+          "dir": "versionnumber"
         },
         {
           "title": "buttonPushed() - System calls",
-          "dir": "system-calls",
-          "file": "buttonpushed"
+          "dir": "buttonpushed"
         },
         {
           "title": "System cycle counter - System calls",
-          "dir": "system-calls",
-          "file": "system-cycle-counter",
+          "dir": "system-cycle-counter",
           "subsections": [
             {
               "anchor": "ticks-",
@@ -4587,118 +4045,95 @@
         },
         {
           "title": "freeMemory() - System calls",
-          "dir": "system-calls",
-          "file": "freememory"
+          "dir": "freememory"
         },
         {
           "title": "reset() - System calls",
-          "dir": "system-calls",
-          "file": "reset"
+          "dir": "reset"
         },
         {
           "title": "dfu() - System calls",
-          "dir": "system-calls",
-          "file": "dfu"
+          "dir": "dfu"
         },
         {
           "title": "enterSafeMode() - System calls",
-          "dir": "system-calls",
-          "file": "entersafemode"
+          "dir": "entersafemode"
         },
         {
           "title": "deviceID() - System calls",
-          "dir": "system-calls",
-          "file": "deviceid"
+          "dir": "deviceid"
         },
         {
           "title": "System.millis() - System calls",
-          "dir": "system-calls",
-          "file": "system-millis"
+          "dir": "system-millis"
         },
         {
           "title": "System.uptime() - System calls",
-          "dir": "system-calls",
-          "file": "system-uptime"
+          "dir": "system-uptime"
         },
         {
           "title": "powerSource() - System calls",
-          "dir": "system-calls",
-          "file": "powersource"
+          "dir": "powersource"
         },
         {
           "title": "batteryState() - System calls",
-          "dir": "system-calls",
-          "file": "batterystate"
+          "dir": "batterystate"
         },
         {
           "title": "batteryCharge() - System calls",
-          "dir": "system-calls",
-          "file": "batterycharge"
+          "dir": "batterycharge"
         },
         {
           "title": "onAssetOta - System - System calls",
-          "dir": "system-calls",
-          "file": "onassetota-system"
+          "dir": "onassetota-system"
         },
         {
           "title": "assetsHandled - System - System calls",
-          "dir": "system-calls",
-          "file": "assetshandled-system"
+          "dir": "assetshandled-system"
         },
         {
           "title": "assetsAvailable - System - System calls",
-          "dir": "system-calls",
-          "file": "assetsavailable-system"
+          "dir": "assetsavailable-system"
         },
         {
           "title": "disableReset() - System calls",
-          "dir": "system-calls",
-          "file": "disablereset"
+          "dir": "disablereset"
         },
         {
           "title": "enableReset() - System calls",
-          "dir": "system-calls",
-          "file": "enablereset"
+          "dir": "enablereset"
         },
         {
           "title": "resetPending() - System calls",
-          "dir": "system-calls",
-          "file": "resetpending"
+          "dir": "resetpending"
         },
         {
           "title": "Reset reason - System calls",
-          "dir": "system-calls",
-          "file": "reset-reason"
+          "dir": "reset-reason"
         },
         {
           "title": "backupRamSync - System calls",
-          "dir": "system-calls",
-          "file": "backupramsync"
+          "dir": "backupramsync"
         },
         {
           "title": "System config [ set ] - System calls",
-          "dir": "system-calls",
-          "file": "system-config-set"
+          "dir": "system-config-set"
         },
         {
           "title": "System flags [ disable ] - System calls",
-          "dir": "system-calls",
-          "file": "system-flags-disable"
+          "dir": "system-flags-disable"
         },
         {
           "title": "System.enableFeature - System calls",
-          "dir": "system-calls",
-          "file": "system-enablefeature"
+          "dir": "system-enablefeature"
         },
         {
           "title": "System.disableFeature - System calls",
-          "dir": "system-calls",
-          "file": "system-disablefeature"
+          "dir": "system-disablefeature"
         },
         {
           "title": "System.featureEnabled - System calls",
-          "dir": "system-calls",
-          "file": "system-featureenabled",
+          "dir": "system-featureenabled",
           "subsections": [
             {
               "anchor": "feature_disable_listening_mode",
@@ -4708,8 +4143,7 @@
         },
         {
           "title": "System.setControlRequestFilter - System calls",
-          "dir": "system-calls",
-          "file": "system-setcontrolrequestfilter",
+          "dir": "system-setcontrolrequestfilter",
           "subsections": [
             {
               "anchor": "systemcontrolrequestaclaction",
@@ -4734,13 +4168,11 @@
       "subsections": [
         {
           "title": "System events",
-          "dir": "system-events",
-          "file": "system-events"
+          "dir": "system-events"
         },
         {
           "title": "System events overview - System events",
-          "dir": "system-events",
-          "file": "system-events-overview",
+          "dir": "system-events-overview",
           "subsections": [
             {
               "anchor": "registering-multiple-events-with-the-same-handler",
@@ -4750,8 +4182,7 @@
         },
         {
           "title": "System events reference - System events",
-          "dir": "system-events",
-          "file": "system-events-reference",
+          "dir": "system-events-reference",
           "subsections": [
             {
               "anchor": "network_credentials-16-param-values",
@@ -4769,8 +4200,7 @@
         },
         {
           "title": "firmware_update (256) parameter values - System events",
-          "dir": "system-events",
-          "file": "firmware_update-256-parameter-values",
+          "dir": "firmware_update-256-parameter-values",
           "subsections": [
             {
               "anchor": "time_changed-16384-param-values-param-values",
@@ -4791,43 +4221,35 @@
       "subsections": [
         {
           "title": "System interrupts",
-          "dir": "system-interrupts",
-          "file": "system-interrupts"
+          "dir": "system-interrupts"
         },
         {
           "title": "attachSystemInterrupt() - System interrupts",
-          "dir": "system-interrupts",
-          "file": "attachsysteminterrupt"
+          "dir": "attachsysteminterrupt"
         },
         {
           "title": "detachSystemInterrupt() - System interrupts",
-          "dir": "system-interrupts",
-          "file": "detachsysteminterrupt"
+          "dir": "detachsysteminterrupt"
         },
         {
           "title": "attachInteruptDirect() - System interrupts",
-          "dir": "system-interrupts",
-          "file": "attachinteruptdirect"
+          "dir": "attachinteruptdirect"
         },
         {
           "title": "detachInterruptDirect() - System interrupts",
-          "dir": "system-interrupts",
-          "file": "detachinterruptdirect"
+          "dir": "detachinterruptdirect"
         },
         {
           "title": "buttonMirror() - System interrupts",
-          "dir": "system-interrupts",
-          "file": "buttonmirror"
+          "dir": "buttonmirror"
         },
         {
           "title": "disableButtonMirror() - System interrupts",
-          "dir": "system-interrupts",
-          "file": "disablebuttonmirror"
+          "dir": "disablebuttonmirror"
         },
         {
           "title": "System features - System interrupts",
-          "dir": "system-interrupts",
-          "file": "system-features",
+          "dir": "system-features",
           "subsections": [
             {
               "anchor": "feature_retained_memory",
@@ -4848,28 +4270,23 @@
       "subsections": [
         {
           "title": "System modes",
-          "dir": "system-modes",
-          "file": "system-modes"
+          "dir": "system-modes"
         },
         {
           "title": "Automatic mode - System modes",
-          "dir": "system-modes",
-          "file": "automatic-mode"
+          "dir": "automatic-mode"
         },
         {
           "title": "Automatic mode (threading enabled) - System modes",
-          "dir": "system-modes",
-          "file": "automatic-mode-threading-enabled"
+          "dir": "automatic-mode-threading-enabled"
         },
         {
           "title": "Semi-automatic mode - System modes",
-          "dir": "system-modes",
-          "file": "semi-automatic-mode"
+          "dir": "semi-automatic-mode"
         },
         {
           "title": "Manual mode - System modes",
-          "dir": "system-modes",
-          "file": "manual-mode"
+          "dir": "manual-mode"
         }
       ]
     },
@@ -4880,43 +4297,35 @@
       "subsections": [
         {
           "title": "System thread",
-          "dir": "system-thread",
-          "file": "system-thread"
+          "dir": "system-thread"
         },
         {
           "title": "System threading behavior - System thread",
-          "dir": "system-thread",
-          "file": "system-threading-behavior"
+          "dir": "system-threading-behavior"
         },
         {
           "title": "System functions - System thread",
-          "dir": "system-thread",
-          "file": "system-functions"
+          "dir": "system-functions"
         },
         {
           "title": "Task switching - System thread",
-          "dir": "system-thread",
-          "file": "task-switching"
+          "dir": "task-switching"
         },
         {
           "title": "SINGLE_THREADED_BLOCK() - System thread",
-          "dir": "system-thread",
-          "file": "single_threaded_block"
+          "dir": "single_threaded_block"
         },
         {
           "title": "ATOMIC_BLOCK() - System thread",
-          "dir": "system-thread",
-          "file": "atomic_block"
+          "dir": "atomic_block"
         },
         {
           "title": "Synchronizing access to shared system resources - System thread",
-          "dir": "system-thread",
-          "file": "synchronizing-access-to-shared-system-resources"
+          "dir": "synchronizing-access-to-shared-system-resources"
         },
         {
           "title": "Waiting for the system - System thread",
-          "dir": "system-thread",
-          "file": "waiting-for-the-system",
+          "dir": "waiting-for-the-system",
           "subsections": [
             {
               "anchor": "waituntil-",
@@ -4945,73 +4354,59 @@
       "subsections": [
         {
           "title": "TCPClient",
-          "dir": "tcpclient",
-          "file": "tcpclient"
+          "dir": "tcpclient"
         },
         {
           "title": "connected() - TCPClient",
-          "dir": "tcpclient",
-          "file": "connected"
+          "dir": "connected"
         },
         {
           "title": "status() - TCPClient",
-          "dir": "tcpclient",
-          "file": "status"
+          "dir": "status"
         },
         {
           "title": "connect() - TCPClient",
-          "dir": "tcpclient",
-          "file": "connect"
+          "dir": "connect"
         },
         {
           "title": "write() - TCPClient",
-          "dir": "tcpclient",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "print() - TCPClient",
-          "dir": "tcpclient",
-          "file": "print"
+          "dir": "print"
         },
         {
           "title": "println() - TCPClient",
-          "dir": "tcpclient",
-          "file": "println"
+          "dir": "println"
         },
         {
           "title": "available() - TCPClient",
-          "dir": "tcpclient",
-          "file": "available"
+          "dir": "available"
         },
         {
           "title": "read() - TCPClient",
-          "dir": "tcpclient",
-          "file": "read"
+          "dir": "read"
         },
         {
           "title": "flush() - TCPClient",
-          "dir": "tcpclient",
-          "file": "flush"
+          "dir": "flush"
         },
         {
           "title": "remoteIP() - TCPClient",
-          "dir": "tcpclient",
-          "file": "remoteip"
+          "dir": "remoteip"
         },
         {
           "title": "stop() - TCPClient",
-          "dir": "tcpclient",
-          "file": "stop"
+          "dir": "stop"
         },
         {
           "title": "getWriteError() - TCPClient",
-          "dir": "tcpclient",
-          "file": "getwriteerror"
+          "dir": "getwriteerror"
         },
         {
           "title": "clearWriteError() - TCPClient",
-          "dir": "tcpclient",
-          "file": "clearwriteerror"
+          "dir": "clearwriteerror"
         }
       ]
     },
@@ -5022,43 +4417,35 @@
       "subsections": [
         {
           "title": "TCPServer",
-          "dir": "tcpserver",
-          "file": "tcpserver"
+          "dir": "tcpserver"
         },
         {
           "title": "begin() - TCPServer",
-          "dir": "tcpserver",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "available() - TCPServer",
-          "dir": "tcpserver",
-          "file": "available"
+          "dir": "available"
         },
         {
           "title": "write() - TCPServer",
-          "dir": "tcpserver",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "print() - TCPServer",
-          "dir": "tcpserver",
-          "file": "print"
+          "dir": "print"
         },
         {
           "title": "println() - TCPServer",
-          "dir": "tcpserver",
-          "file": "println"
+          "dir": "println"
         },
         {
           "title": "getWriteError() - TCPServer",
-          "dir": "tcpserver",
-          "file": "getwriteerror"
+          "dir": "getwriteerror"
         },
         {
           "title": "clearWriteError() - TCPServer",
-          "dir": "tcpserver",
-          "file": "clearwriteerror"
+          "dir": "clearwriteerror"
         }
       ]
     },
@@ -5069,33 +4456,27 @@
       "subsections": [
         {
           "title": "Threading",
-          "dir": "threading",
-          "file": "threading"
+          "dir": "threading"
         },
         {
           "title": "os_thread_prio_t - Threading - Threading",
-          "dir": "threading",
-          "file": "os_thread_prio_t-threading"
+          "dir": "os_thread_prio_t-threading"
         },
         {
           "title": "Thread stack size - Threading - Threading",
-          "dir": "threading",
-          "file": "thread-stack-size-threading"
+          "dir": "thread-stack-size-threading"
         },
         {
           "title": "Thread functions - Threading - Threading",
-          "dir": "threading",
-          "file": "thread-functions-threading"
+          "dir": "thread-functions-threading"
         },
         {
           "title": "Yielding to other threds - Threading - Threading",
-          "dir": "threading",
-          "file": "yielding-to-other-threds-threading"
+          "dir": "yielding-to-other-threds-threading"
         },
         {
           "title": "Thread class - Threading - Threading",
-          "dir": "threading",
-          "file": "thread-class-threading",
+          "dir": "thread-class-threading",
           "subsections": [
             {
               "anchor": "thread-constructor-os_thread_fn_t-threading",
@@ -5109,28 +4490,23 @@
         },
         {
           "title": "Thread::dispose - Threading - Threading",
-          "dir": "threading",
-          "file": "thread-dispose-threading"
+          "dir": "thread-dispose-threading"
         },
         {
           "title": "Thread::isValid - Threading - Threading",
-          "dir": "threading",
-          "file": "thread-isvalid-threading"
+          "dir": "thread-isvalid-threading"
         },
         {
           "title": "Thread::isCurrent - Threading - Threading",
-          "dir": "threading",
-          "file": "thread-iscurrent-threading"
+          "dir": "thread-iscurrent-threading"
         },
         {
           "title": "Thread::isRunning - Threading - Threading",
-          "dir": "threading",
-          "file": "thread-isrunning-threading"
+          "dir": "thread-isrunning-threading"
         },
         {
           "title": "Mutex class - Threading - Threading",
-          "dir": "threading",
-          "file": "mutex-class-threading",
+          "dir": "mutex-class-threading",
           "subsections": [
             {
               "anchor": "mutex-constructor-threading",
@@ -5152,8 +4528,7 @@
         },
         {
           "title": "RecursiveMutex class - Threading - Threading",
-          "dir": "threading",
-          "file": "recursivemutex-class-threading",
+          "dir": "recursivemutex-class-threading",
           "subsections": [
             {
               "anchor": "recursivemutex-constructor-threading",
@@ -5175,13 +4550,11 @@
         },
         {
           "title": "Locking - Threading - Threading",
-          "dir": "threading",
-          "file": "locking-threading"
+          "dir": "locking-threading"
         },
         {
           "title": "Serial debugging - Threading - Threading",
-          "dir": "threading",
-          "file": "serial-debugging-threading"
+          "dir": "serial-debugging-threading"
         }
       ]
     },
@@ -5192,153 +4565,123 @@
       "subsections": [
         {
           "title": "Time",
-          "dir": "time",
-          "file": "time"
+          "dir": "time"
         },
         {
           "title": "millis() - Time",
-          "dir": "time",
-          "file": "millis"
+          "dir": "millis"
         },
         {
           "title": "micros() - Time",
-          "dir": "time",
-          "file": "micros"
+          "dir": "micros"
         },
         {
           "title": "delay() - Time",
-          "dir": "time",
-          "file": "delay"
+          "dir": "delay"
         },
         {
           "title": "delayMicroseconds() - Time",
-          "dir": "time",
-          "file": "delaymicroseconds"
+          "dir": "delaymicroseconds"
         },
         {
           "title": "hour() - Time",
-          "dir": "time",
-          "file": "hour"
+          "dir": "hour"
         },
         {
           "title": "hourFormat12() - Time",
-          "dir": "time",
-          "file": "hourformat12"
+          "dir": "hourformat12"
         },
         {
           "title": "isAM() - Time",
-          "dir": "time",
-          "file": "isam"
+          "dir": "isam"
         },
         {
           "title": "isPM() - Time",
-          "dir": "time",
-          "file": "ispm"
+          "dir": "ispm"
         },
         {
           "title": "minute() - Time",
-          "dir": "time",
-          "file": "minute"
+          "dir": "minute"
         },
         {
           "title": "second() - Time",
-          "dir": "time",
-          "file": "second"
+          "dir": "second"
         },
         {
           "title": "day() - Time",
-          "dir": "time",
-          "file": "day"
+          "dir": "day"
         },
         {
           "title": "weekday() - Time",
-          "dir": "time",
-          "file": "weekday"
+          "dir": "weekday"
         },
         {
           "title": "month() - Time",
-          "dir": "time",
-          "file": "month"
+          "dir": "month"
         },
         {
           "title": "year() - Time",
-          "dir": "time",
-          "file": "year"
+          "dir": "year"
         },
         {
           "title": "now() - Time",
-          "dir": "time",
-          "file": "now"
+          "dir": "now"
         },
         {
           "title": "local() - Time",
-          "dir": "time",
-          "file": "local"
+          "dir": "local"
         },
         {
           "title": "zone() - Time",
-          "dir": "time",
-          "file": "zone"
+          "dir": "zone"
         },
         {
           "title": "isDST() - Time",
-          "dir": "time",
-          "file": "isdst"
+          "dir": "isdst"
         },
         {
           "title": "getDSTOffset() - Time",
-          "dir": "time",
-          "file": "getdstoffset"
+          "dir": "getdstoffset"
         },
         {
           "title": "setDSTOffset() - Time",
-          "dir": "time",
-          "file": "setdstoffset"
+          "dir": "setdstoffset"
         },
         {
           "title": "beginDST() - Time",
-          "dir": "time",
-          "file": "begindst"
+          "dir": "begindst"
         },
         {
           "title": "endDST() - Time",
-          "dir": "time",
-          "file": "enddst"
+          "dir": "enddst"
         },
         {
           "title": "setTime() - Time",
-          "dir": "time",
-          "file": "settime"
+          "dir": "settime"
         },
         {
           "title": "timeStr() - Time",
-          "dir": "time",
-          "file": "timestr"
+          "dir": "timestr"
         },
         {
           "title": "format() - Time",
-          "dir": "time",
-          "file": "format"
+          "dir": "format"
         },
         {
           "title": "setFormat() - Time",
-          "dir": "time",
-          "file": "setformat"
+          "dir": "setformat"
         },
         {
           "title": "getFormat() - Time",
-          "dir": "time",
-          "file": "getformat"
+          "dir": "getformat"
         },
         {
           "title": "isValid() - Time",
-          "dir": "time",
-          "file": "isvalid"
+          "dir": "isvalid"
         },
         {
           "title": "Advanced - Time",
-          "dir": "time",
-          "file": "advanced"
+          "dir": "advanced"
         }
       ]
     },
@@ -5349,93 +4692,75 @@
       "subsections": [
         {
           "title": "UDP",
-          "dir": "udp",
-          "file": "udp"
+          "dir": "udp"
         },
         {
           "title": "begin() - UDP",
-          "dir": "udp",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "available() - UDP",
-          "dir": "udp",
-          "file": "available"
+          "dir": "available"
         },
         {
           "title": "beginPacket() - UDP",
-          "dir": "udp",
-          "file": "beginpacket"
+          "dir": "beginpacket"
         },
         {
           "title": "endPacket() - UDP",
-          "dir": "udp",
-          "file": "endpacket"
+          "dir": "endpacket"
         },
         {
           "title": "write() - UDP",
-          "dir": "udp",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "receivePacket() - UDP",
-          "dir": "udp",
-          "file": "receivepacket"
+          "dir": "receivepacket"
         },
         {
           "title": "parsePacket() - UDP",
-          "dir": "udp",
-          "file": "parsepacket"
+          "dir": "parsepacket"
         },
         {
           "title": "read() - UDP",
-          "dir": "udp",
-          "file": "read"
+          "dir": "read"
         },
         {
           "title": "flush() - UDP",
-          "dir": "udp",
-          "file": "flush"
+          "dir": "flush"
         },
         {
           "title": "stop() - UDP",
-          "dir": "udp",
-          "file": "stop"
+          "dir": "stop"
         },
         {
           "title": "remoteIP() - UDP",
-          "dir": "udp",
-          "file": "remoteip"
+          "dir": "remoteip"
         },
         {
           "title": "remotePort() - UDP",
-          "dir": "udp",
-          "file": "remoteport"
+          "dir": "remoteport"
         },
         {
           "title": "setBuffer() - UDP",
-          "dir": "udp",
-          "file": "setbuffer"
+          "dir": "setbuffer"
         },
         {
           "title": "releaseBuffer() - UDP",
-          "dir": "udp",
-          "file": "releasebuffer"
+          "dir": "releasebuffer"
         },
         {
           "title": "sendPacket() - UDP",
-          "dir": "udp",
-          "file": "sendpacket"
+          "dir": "sendpacket"
         },
         {
           "title": "joinMulticast() - UDP",
-          "dir": "udp",
-          "file": "joinmulticast"
+          "dir": "joinmulticast"
         },
         {
           "title": "leaveMulticast() - UDP",
-          "dir": "udp",
-          "file": "leavemulticast"
+          "dir": "leavemulticast"
         }
       ]
     },
@@ -5446,143 +4771,115 @@
       "subsections": [
         {
           "title": "Variant",
-          "dir": "variant",
-          "file": "variant"
+          "dir": "variant"
         },
         {
           "title": "set() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "set-variant-class"
+          "dir": "set-variant-class"
         },
         {
           "title": "Variant::Type - Variant",
-          "dir": "variant",
-          "file": "variant-type"
+          "dir": "variant-type"
         },
         {
           "title": "constructor [Variant class] - Variant",
-          "dir": "variant",
-          "file": "constructor-variant-class"
+          "dir": "constructor-variant-class"
         },
         {
           "title": "value() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "value-variant-class"
+          "dir": "value-variant-class"
         },
         {
           "title": "value, as, and to [Variant class] - Variant",
-          "dir": "variant",
-          "file": "value-as-and-to-variant-class"
+          "dir": "value-as-and-to-variant-class"
         },
         {
           "title": "type() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "type-variant-class"
+          "dir": "type-variant-class"
         },
         {
           "title": "isXXX() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "isxxx-variant-class"
+          "dir": "isxxx-variant-class"
         },
         {
           "title": "toBool() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "tobool-variant-class"
+          "dir": "tobool-variant-class"
         },
         {
           "title": "asBool() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asbool-variant-class"
+          "dir": "asbool-variant-class"
         },
         {
           "title": "toInt() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "toint-variant-class"
+          "dir": "toint-variant-class"
         },
         {
           "title": "asInt() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asint-variant-class"
+          "dir": "asint-variant-class"
         },
         {
           "title": "toUInt() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "touint-variant-class"
+          "dir": "touint-variant-class"
         },
         {
           "title": "asUInt() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asuint-variant-class"
+          "dir": "asuint-variant-class"
         },
         {
           "title": "toInt64() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "toint64-variant-class"
+          "dir": "toint64-variant-class"
         },
         {
           "title": "asInt64() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asint64-variant-class"
+          "dir": "asint64-variant-class"
         },
         {
           "title": "toUInt64() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "touint64-variant-class"
+          "dir": "touint64-variant-class"
         },
         {
           "title": "asUInt64() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asuint64-variant-class"
+          "dir": "asuint64-variant-class"
         },
         {
           "title": "toDouble() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "todouble-variant-class"
+          "dir": "todouble-variant-class"
         },
         {
           "title": "asDouble() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asdouble-variant-class"
+          "dir": "asdouble-variant-class"
         },
         {
           "title": "toString() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "tostring-variant-class"
+          "dir": "tostring-variant-class"
         },
         {
           "title": "asString() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asstring-variant-class"
+          "dir": "asstring-variant-class"
         },
         {
           "title": "toArray() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "toarray-variant-class"
+          "dir": "toarray-variant-class"
         },
         {
           "title": "asArray() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asarray-variant-class"
+          "dir": "asarray-variant-class"
         },
         {
           "title": "toMap() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "tomap-variant-class"
+          "dir": "tomap-variant-class"
         },
         {
           "title": "asMap() [Variant class] - Variant",
-          "dir": "variant",
-          "file": "asmap-variant-class"
+          "dir": "asmap-variant-class"
         },
         {
           "title": "toJSON [Variant class] - Variant",
-          "dir": "variant",
-          "file": "tojson-variant-class"
+          "dir": "tojson-variant-class"
         },
         {
           "title": "fromJSON [Variant class] - Variant",
-          "dir": "variant",
-          "file": "fromjson-variant-class"
+          "dir": "fromjson-variant-class"
         }
       ]
     },
@@ -5593,33 +4890,27 @@
       "subsections": [
         {
           "title": "VariantArray",
-          "dir": "variantarray",
-          "file": "variantarray"
+          "dir": "variantarray"
         },
         {
           "title": "append() [VariantArray] - VariantArray",
-          "dir": "variantarray",
-          "file": "append-variantarray"
+          "dir": "append-variantarray"
         },
         {
           "title": "prepend() [VariantArray] - VariantArray",
-          "dir": "variantarray",
-          "file": "prepend-variantarray"
+          "dir": "prepend-variantarray"
         },
         {
           "title": "insertAt() [VariantArray] - VariantArray",
-          "dir": "variantarray",
-          "file": "insertat-variantarray"
+          "dir": "insertat-variantarray"
         },
         {
           "title": "removeAt() [VariantArray] - VariantArray",
-          "dir": "variantarray",
-          "file": "removeat-variantarray"
+          "dir": "removeat-variantarray"
         },
         {
           "title": "at() [VariantArray] - VariantArray",
-          "dir": "variantarray",
-          "file": "at-variantarray"
+          "dir": "at-variantarray"
         }
       ]
     },
@@ -5630,28 +4921,23 @@
       "subsections": [
         {
           "title": "VariantMap",
-          "dir": "variantmap",
-          "file": "variantmap"
+          "dir": "variantmap"
         },
         {
           "title": "set() [VariantMap] - VariantMap",
-          "dir": "variantmap",
-          "file": "set-variantmap"
+          "dir": "set-variantmap"
         },
         {
           "title": "remove() [VariantMap] - VariantMap",
-          "dir": "variantmap",
-          "file": "remove-variantmap"
+          "dir": "remove-variantmap"
         },
         {
           "title": "get() [VariantMap] - VariantMap",
-          "dir": "variantmap",
-          "file": "get-variantmap"
+          "dir": "get-variantmap"
         },
         {
           "title": "has() [VariantMap] - VariantMap",
-          "dir": "variantmap",
-          "file": "has-variantmap"
+          "dir": "has-variantmap"
         }
       ]
     },
@@ -5662,198 +4948,159 @@
       "subsections": [
         {
           "title": "Vector",
-          "dir": "vector",
-          "file": "vector"
+          "dir": "vector"
         },
         {
           "title": "Vector() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "vector-vector-template"
+          "dir": "vector-vector-template"
         },
         {
           "title": "Vector(int n) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "vector-int-n-vector-template"
+          "dir": "vector-int-n-vector-template"
         },
         {
           "title": "Vector(int n, const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "vector-int-n-const-t-amp-value-vector-template"
+          "dir": "vector-int-n-const-t-amp-value-vector-template"
         },
         {
           "title": "Vector(std::initializer_list<T> values) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "vector-std-initializer_list-values-vector-template"
+          "dir": "vector-std-initializer_list-values-vector-template"
         },
         {
           "title": "Vector(const Vector<T, AllocatorT>&amp; vector) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "vector-const-vector-amp-vector-vector-template"
+          "dir": "vector-const-vector-amp-vector-vector-template"
         },
         {
           "title": "append(T value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "append-t-value-vector-template"
+          "dir": "append-t-value-vector-template"
         },
         {
           "title": "append(int n, const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "append-int-n-const-t-amp-value-vector-template"
+          "dir": "append-int-n-const-t-amp-value-vector-template"
         },
         {
           "title": "append(const T* values, int n) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "append-const-t-values-int-n-vector-template"
+          "dir": "append-const-t-values-int-n-vector-template"
         },
         {
           "title": "append(const Vector<T, AllocatorT>&amp; vecto) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "append-const-vector-amp-vecto-vector-template"
+          "dir": "append-const-vector-amp-vecto-vector-template"
         },
         {
           "title": "prepend(T value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "prepend-t-value-vector-template"
+          "dir": "prepend-t-value-vector-template"
         },
         {
           "title": "prepend(int n, const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "prepend-int-n-const-t-amp-value-vector-template"
+          "dir": "prepend-int-n-const-t-amp-value-vector-template"
         },
         {
           "title": "prepend(const T* values, int n) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "prepend-const-t-values-int-n-vector-template"
+          "dir": "prepend-const-t-values-int-n-vector-template"
         },
         {
           "title": "prepend(const Vector<T, AllocatorT>&amp; vector) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "prepend-const-vector-amp-vector-vector-template"
+          "dir": "prepend-const-vector-amp-vector-vector-template"
         },
         {
           "title": "insert(int i, T value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "insert-int-i-t-value-vector-template"
+          "dir": "insert-int-i-t-value-vector-template"
         },
         {
           "title": "insert(int i, int n, const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "insert-int-i-int-n-const-t-amp-value-vector-template"
+          "dir": "insert-int-i-int-n-const-t-amp-value-vector-template"
         },
         {
           "title": "insert(int i, const T* values, int n) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "insert-int-i-const-t-values-int-n-vector-template"
+          "dir": "insert-int-i-const-t-values-int-n-vector-template"
         },
         {
           "title": "insert(const Vector<T, AllocatorT>&amp; vector) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "insert-const-vector-amp-vector-vector-template"
+          "dir": "insert-const-vector-amp-vector-vector-template"
         },
         {
           "title": "removeAt(removeAt(int i, int n = 1) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "removeat-removeat-int-i-int-n-1-vector-template"
+          "dir": "removeat-removeat-int-i-int-n-1-vector-template"
         },
         {
           "title": "bool removeOne(const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "bool-removeone-const-t-amp-value-vector-template"
+          "dir": "bool-removeone-const-t-amp-value-vector-template"
         },
         {
           "title": "bool removeAll(const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "bool-removeall-const-t-amp-value-vector-template"
+          "dir": "bool-removeall-const-t-amp-value-vector-template"
         },
         {
           "title": "T takeFirst() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "t-takefirst-vector-template"
+          "dir": "t-takefirst-vector-template"
         },
         {
           "title": "T takeLast() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "t-takelast-vector-template"
+          "dir": "t-takelast-vector-template"
         },
         {
           "title": "T takeAt(int i) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "t-takeat-int-i-vector-template"
+          "dir": "t-takeat-int-i-vector-template"
         },
         {
           "title": "T first() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "t-first-vector-template"
+          "dir": "t-first-vector-template"
         },
         {
           "title": "T last() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "t-last-vector-template"
+          "dir": "t-last-vector-template"
         },
         {
           "title": "T at(int i) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "t-at-int-i-vector-template"
+          "dir": "t-at-int-i-vector-template"
         },
         {
           "title": "operator[] (int i) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "operator-int-i-vector-template"
+          "dir": "operator-int-i-vector-template"
         },
         {
           "title": "indexOf(const T&amp; value, int i = 0) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "indexof-const-t-amp-value-int-i-0-vector-template"
+          "dir": "indexof-const-t-amp-value-int-i-0-vector-template"
         },
         {
           "title": "lastIndexOf(const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "lastindexof-const-t-amp-value-vector-template"
+          "dir": "lastindexof-const-t-amp-value-vector-template"
         },
         {
           "title": "lastIndexOf(const T&amp; value, int i) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "lastindexof-const-t-amp-value-int-i-vector-template"
+          "dir": "lastindexof-const-t-amp-value-int-i-vector-template"
         },
         {
           "title": "contains(const T&amp; value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "contains-const-t-amp-value-vector-template"
+          "dir": "contains-const-t-amp-value-vector-template"
         },
         {
           "title": "size() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "size-vector-template"
+          "dir": "size-vector-template"
         },
         {
           "title": "isEmpty() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "isempty-vector-template"
+          "dir": "isempty-vector-template"
         },
         {
           "title": "isEmpty() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "isempty-vector-template"
+          "dir": "isempty-vector-template"
         },
         {
           "title": "begin() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "begin-vector-template"
+          "dir": "begin-vector-template"
         },
         {
           "title": "end() [Vector template] - Vector",
-          "dir": "vector",
-          "file": "end-vector-template"
+          "dir": "end-vector-template"
         },
         {
           "title": "insert(ConstIterator pos, T value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "insert-constiterator-pos-t-value-vector-template"
+          "dir": "insert-constiterator-pos-t-value-vector-template"
         },
         {
           "title": "insert(ConstIterator pos, T value) [Vector template] - Vector",
-          "dir": "vector",
-          "file": "insert-constiterator-pos-t-value-vector-template"
+          "dir": "insert-constiterator-pos-t-value-vector-template"
         }
       ]
     },
@@ -5864,8 +5111,7 @@
       "subsections": [
         {
           "title": "Watchdog - Application",
-          "dir": "watchdog-application",
-          "file": "watchdog-application"
+          "dir": "watchdog-application"
         }
       ]
     },
@@ -5876,13 +5122,11 @@
       "subsections": [
         {
           "title": "Watchdog - Hardware",
-          "dir": "watchdog-hardware",
-          "file": "watchdog-hardware"
+          "dir": "watchdog-hardware"
         },
         {
           "title": "Sleep considerations - Watchdog - Hardware",
-          "dir": "watchdog-hardware",
-          "file": "sleep-considerations",
+          "dir": "sleep-considerations",
           "subsections": [
             {
               "anchor": "watchdog-capabilities",
@@ -5892,23 +5136,19 @@
         },
         {
           "title": "Watchdog.init - Watchdog - Hardware",
-          "dir": "watchdog-hardware",
-          "file": "watchdog-init"
+          "dir": "watchdog-init"
         },
         {
           "title": "Watchdog.start - Watchdog - Hardware",
-          "dir": "watchdog-hardware",
-          "file": "watchdog-start"
+          "dir": "watchdog-start"
         },
         {
           "title": "Watchdog.stop - Watchdog - Hardware",
-          "dir": "watchdog-hardware",
-          "file": "watchdog-stop"
+          "dir": "watchdog-stop"
         },
         {
           "title": "Watchdog.refresh - Watchdog - Hardware",
-          "dir": "watchdog-hardware",
-          "file": "watchdog-refresh",
+          "dir": "watchdog-refresh",
           "subsections": [
             {
               "anchor": "watchdog-sleep_running",
@@ -5918,8 +5158,7 @@
         },
         {
           "title": "Watchdog.onExpired - Watchdog - Hardware",
-          "dir": "watchdog-hardware",
-          "file": "watchdog-onexpired"
+          "dir": "watchdog-onexpired"
         }
       ]
     },
@@ -5930,133 +5169,107 @@
       "subsections": [
         {
           "title": "WiFi",
-          "dir": "wifi",
-          "file": "wifi"
+          "dir": "wifi"
         },
         {
           "title": "on() - WiFi",
-          "dir": "wifi",
-          "file": "on"
+          "dir": "on"
         },
         {
           "title": "off() - WiFi",
-          "dir": "wifi",
-          "file": "off"
+          "dir": "off"
         },
         {
           "title": "connect() - WiFi",
-          "dir": "wifi",
-          "file": "connect"
+          "dir": "connect"
         },
         {
           "title": "disconnect() - WiFi",
-          "dir": "wifi",
-          "file": "disconnect"
+          "dir": "disconnect"
         },
         {
           "title": "connecting() - WiFi",
-          "dir": "wifi",
-          "file": "connecting"
+          "dir": "connecting"
         },
         {
           "title": "ready() - WiFi",
-          "dir": "wifi",
-          "file": "ready"
+          "dir": "ready"
         },
         {
           "title": "setConfig() [WiFi] - WiFi",
-          "dir": "wifi",
-          "file": "setconfig-wifi"
+          "dir": "setconfig-wifi"
         },
         {
           "title": "getConfig() [WiFi] - WiFi",
-          "dir": "wifi",
-          "file": "getconfig-wifi"
+          "dir": "getconfig-wifi"
         },
         {
           "title": "selectAntenna() [antenna] - WiFi",
-          "dir": "wifi",
-          "file": "selectantenna-antenna"
+          "dir": "selectantenna-antenna"
         },
         {
           "title": "getAntenna() - WiFi",
-          "dir": "wifi",
-          "file": "getantenna"
+          "dir": "getantenna"
         },
         {
           "title": "prefer() [WiFi] - WiFi",
-          "dir": "wifi",
-          "file": "prefer-wifi"
+          "dir": "prefer-wifi"
         },
         {
           "title": "isPreferred() [WiFi] - WiFi",
-          "dir": "wifi",
-          "file": "ispreferred-wifi"
+          "dir": "ispreferred-wifi"
         },
         {
           "title": "listen() - WiFi",
-          "dir": "wifi",
-          "file": "listen"
+          "dir": "listen"
         },
         {
           "title": "listening() - WiFi",
-          "dir": "wifi",
-          "file": "listening"
+          "dir": "listening"
         },
         {
           "title": "setListenTimeout() - WiFi",
-          "dir": "wifi",
-          "file": "setlistentimeout"
+          "dir": "setlistentimeout"
         },
         {
           "title": "getListenTimeout() - WiFi",
-          "dir": "wifi",
-          "file": "getlistentimeout"
+          "dir": "getlistentimeout"
         },
         {
           "title": "setCredentials() - WiFi",
-          "dir": "wifi",
-          "file": "setcredentials"
+          "dir": "setcredentials"
         },
         {
           "title": "getCredentials() - WiFi",
-          "dir": "wifi",
-          "file": "getcredentials"
+          "dir": "getcredentials"
         },
         {
           "title": "clearCredentials() - WiFi",
-          "dir": "wifi",
-          "file": "clearcredentials"
+          "dir": "clearcredentials"
         },
         {
           "title": "hasCredentials() - WiFi",
-          "dir": "wifi",
-          "file": "hascredentials"
+          "dir": "hascredentials"
         },
         {
           "title": "macAddress() - WiFi",
-          "dir": "wifi",
-          "file": "macaddress"
+          "dir": "macaddress"
         },
         {
           "title": "SSID() - WiFi",
-          "dir": "wifi",
-          "file": "ssid"
+          "dir": "ssid"
         },
         {
           "title": "BSSID() - WiFi",
-          "dir": "wifi",
-          "file": "bssid"
+          "dir": "bssid"
         },
         {
           "title": "RSSI() - WiFi",
-          "dir": "wifi",
-          "file": "rssi"
+          "dir": "rssi"
         },
         {
           "title": "WiFiSignal Class - WiFi",
-          "dir": "wifi",
-          "file": "wifisignal-class",
+          "dir": "wifisignal-class",
           "subsections": [
             {
               "anchor": "getstrength-",
@@ -6078,83 +5291,67 @@
         },
         {
           "title": "ping() - WiFi",
-          "dir": "wifi",
-          "file": "ping"
+          "dir": "ping"
         },
         {
           "title": "scan() - WiFi",
-          "dir": "wifi",
-          "file": "scan"
+          "dir": "scan"
         },
         {
           "title": "resolve() - WiFi",
-          "dir": "wifi",
-          "file": "resolve"
+          "dir": "resolve"
         },
         {
           "title": "localIP() - WiFi",
-          "dir": "wifi",
-          "file": "localip"
+          "dir": "localip"
         },
         {
           "title": "subnetMask() - WiFi",
-          "dir": "wifi",
-          "file": "subnetmask"
+          "dir": "subnetmask"
         },
         {
           "title": "gatewayIP() - WiFi",
-          "dir": "wifi",
-          "file": "gatewayip"
+          "dir": "gatewayip"
         },
         {
           "title": "dnsServerIP() - WiFi",
-          "dir": "wifi",
-          "file": "dnsserverip"
+          "dir": "dnsserverip"
         },
         {
           "title": "dhcpServerIP() - WiFi",
-          "dir": "wifi",
-          "file": "dhcpserverip"
+          "dir": "dhcpserverip"
         },
         {
           "title": "setStaticIP() - WiFi",
-          "dir": "wifi",
-          "file": "setstaticip"
+          "dir": "setstaticip"
         },
         {
           "title": "useStaticIP() - WiFi",
-          "dir": "wifi",
-          "file": "usestaticip"
+          "dir": "usestaticip"
         },
         {
           "title": "useDynamicIP() - WiFi",
-          "dir": "wifi",
-          "file": "usedynamicip"
+          "dir": "usedynamicip"
         },
         {
           "title": "setHostname() - WiFi",
-          "dir": "wifi",
-          "file": "sethostname"
+          "dir": "sethostname"
         },
         {
           "title": "hostname() - WiFi",
-          "dir": "wifi",
-          "file": "hostname"
+          "dir": "hostname"
         },
         {
           "title": "wlan_get_country_code - WiFi",
-          "dir": "wifi",
-          "file": "wlan_get_country_code"
+          "dir": "wlan_get_country_code"
         },
         {
           "title": "wlan_set_country_code - WiFi",
-          "dir": "wifi",
-          "file": "wlan_set_country_code"
+          "dir": "wlan_set_country_code"
         },
         {
           "title": "WiFiCredentials class - WiFi",
-          "dir": "wifi",
-          "file": "wificredentials-class",
+          "dir": "wificredentials-class",
           "subsections": [
             {
               "anchor": "wificredentials-",
@@ -6216,18 +5413,15 @@
         },
         {
           "title": "WLanEapType Enum - WiFi",
-          "dir": "wifi",
-          "file": "wlaneaptype-enum"
+          "dir": "wlaneaptype-enum"
         },
         {
           "title": "SecurityType Enum - WiFi",
-          "dir": "wifi",
-          "file": "securitytype-enum"
+          "dir": "securitytype-enum"
         },
         {
           "title": "WLanSecurityCipher Enum - WiFi",
-          "dir": "wifi",
-          "file": "wlansecuritycipher-enum"
+          "dir": "wlansecuritycipher-enum"
         }
       ]
     },
@@ -6238,113 +5432,91 @@
       "subsections": [
         {
           "title": "Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "wire-i2c"
+          "dir": "wire-i2c"
         },
         {
           "title": "Pull-up resistors (I2C) - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "pull-up-resistors-i2c"
+          "dir": "pull-up-resistors-i2c"
         },
         {
           "title": "Pins (I2C) - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "pins-i2c"
+          "dir": "pins-i2c"
         },
         {
           "title": "setSpeed() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "setspeed"
+          "dir": "setspeed"
         },
         {
           "title": "stretchClock() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "stretchclock"
+          "dir": "stretchclock"
         },
         {
           "title": "begin() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "begin"
+          "dir": "begin"
         },
         {
           "title": "Slave mode (I2C) - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "slave-mode-i2c"
+          "dir": "slave-mode-i2c"
         },
         {
           "title": "end() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "end"
+          "dir": "end"
         },
         {
           "title": "isEnabled() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "isenabled"
+          "dir": "isenabled"
         },
         {
           "title": "requestFrom() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "requestfrom"
+          "dir": "requestfrom"
         },
         {
           "title": "reset() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "reset"
+          "dir": "reset"
         },
         {
           "title": "beginTransmission() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "begintransmission"
+          "dir": "begintransmission"
         },
         {
           "title": "endTransmission() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "endtransmission"
+          "dir": "endtransmission"
         },
         {
           "title": "write() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "write"
+          "dir": "write"
         },
         {
           "title": "available() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "available"
+          "dir": "available"
         },
         {
           "title": "read() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "read"
+          "dir": "read"
         },
         {
           "title": "peek() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "peek"
+          "dir": "peek"
         },
         {
           "title": "lock() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "lock"
+          "dir": "lock"
         },
         {
           "title": "unlock() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "unlock"
+          "dir": "unlock"
         },
         {
           "title": "onReceive() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "onreceive"
+          "dir": "onreceive"
         },
         {
           "title": "onRequest() - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "onrequest"
+          "dir": "onrequest"
         },
         {
           "title": "acquireWireBuffer - Wire (I2C)",
-          "dir": "wire-i2c",
-          "file": "acquirewirebuffer"
+          "dir": "acquirewirebuffer"
         }
       ]
     }
