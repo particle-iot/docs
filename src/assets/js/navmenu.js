@@ -96,6 +96,11 @@ navMenu.load = async function() {
             navMenu.hrefParent = '';
         }
     }
+
+    if (window.location.hash && window.location.hash.startsWith('#')) {
+        navMenu.hash = window.location.hash.substring(1);
+    }
+
     console.log('navMenu', navMenu);
 
     navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'newMenu.json';
@@ -196,22 +201,38 @@ navMenu.collapseExpand = function(itemObj, showSubsections) {
 }
 
 navMenu.scanHeadersInternal = function(parentElem, level, destItemObj) {
-    $(parentElem).find('h' + level).each(function (index, elem) {
+    console.log('scanHeadersInternal', {parentElem, level, destItemObj});
+    $(parentElem).find('h' + level).each(function () {
         let innerItemObj = {
-            title: $(elem).text(),
-            anchor: $(elem).attr('id'),
+            title: $(this).text(),
+            anchor: $(this).attr('id'),
+            isContent: true,
         };
+        console.log('innerItemObj', innerItemObj);
 
         if (typeof destItemObj.subsections == 'undefined') {
             destItemObj.subsections = [];
         }
         destItemObj.subsections.push(innerItemObj);
         if (level <= 4) {
-            navMenu.scanHeadersInternal(elem, level + 1, innerItemObj);
+            navMenu.scanHeadersInternal(this, level + 1, innerItemObj);
         }
     });
 
 };
+
+navMenu.forEachItemInternal = function(array, options) {
+    for(const itemObj of array) {
+        options.callback(itemObj);
+        if (typeof itemObj.subsections != 'undefined') {
+            navMenu.forEachItemInternal(itemObj.subsections, options);
+        }
+    }
+}
+
+navMenu.forEachItem = function(callback) {    
+    navMenu.forEachItemInternal(navMenu.menuJson.items, {callback});
+}
 
 navMenu.generateNavHtmlInternal = function(submenuObj, options) {
     // options
@@ -242,11 +263,8 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
 
         if (itemObj.isActivePage && !itemObj.anchor && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
-            // This is a normal page
-            
+            // This is a normal page, add the internal headers to the navigation            
             navMenu.scanHeadersInternal($('div.content-inner'), 2, itemObj);
-            
-            console.log('isActivePage, scan headers', itemObj);
         }
 
         if (itemObj.anchor) {
@@ -296,7 +314,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         }
 
         itemObj.linkElem = document.createElement('div');
-        if (itemObj.isActivePage && !itemObj.anchor) {
+        if (itemObj.isActivePage && (!itemObj.anchor || itemObj.anchor == navMenu.hash)) {
             $(itemObj.linkElem).addClass("navActive" + itemObj.level);
         }
         else {
@@ -850,6 +868,60 @@ navMenu.scrollToActive = function () {
     }
 };
 
+
+
+navMenu.syncNavigation = function() {
+    
+    
+    let pageOffsets = [];
+    $('div.content-inner').find('h2,h3,h4,h5').each(function (index, elem) {
+        const offset = $(this).offset();
+        pageOffsets.push({
+            top: offset.top,
+            id: $(this).attr('id')
+        })
+    });
+
+    let id;
+
+    // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
+    // one to display.
+    // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
+    // because it's been scrolled up.
+    for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+        if (pageOffsets[ii].top < 10) {
+            id = pageOffsets[ii].id;
+            break;
+        }
+    }
+
+    if (!id) {
+        return;
+    }
+
+    if (navMenu.lastAnchor == id) {
+        return;
+    }
+    navMenu.lastAnchor = id;
+
+    console.log('id=' + id);
+
+    navMenu.forEachItem(function(itemObj) {
+        if (itemObj.isContent) {
+            if (itemObj.anchor == id) {
+                console.log('found id=' + id);
+            }
+            else {
+
+            }
+        }
+    });
+}
+
+$('div.content-inner').on('scroll', function(e) {
+    // TODO: Probably include code from firmware-reference to restrict syncNavigation
+    navMenu.syncNavigation();
+});
 
 navMenu.ready = async function () {
     await navMenu.load();
