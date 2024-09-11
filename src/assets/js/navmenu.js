@@ -98,51 +98,6 @@ navMenu.load = async function() {
     }
     console.log('navMenu', navMenu);
 
-/*    
-    navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'menu.json';
-
-    const fetchRes = await fetch(navMenu.menuPath);
-    if (fetchRes.status != 200) {
-        // No menus
-        return;
-    }
-
-    const menuText = await fetchRes.text();
-    navMenu.menuJson = JSON.parse(menuText);
-    // console.log('navMenu.menuJson', navMenu.menuJson);
-
-    navMenu.hrefPage = navMenu.pathParts.join('/');
-    // console.log('hrefPage=' + navMenu.hrefPage);
-
-    if (navMenu.hrefPage.startsWith('/reference/device-os/libraries')) {
-        const fetchRes = await fetch('/assets/files/libraryInfo.json');
-        const libraryInfoText = await fetchRes.text();
-        navMenu.libraryInfo = JSON.parse(libraryInfoText);
-
-        // navMenu.libraryInfo
-        // .letterNavigation - array
-        //      .title (generally uppercase)
-        //      .href
-        //      .letter (may be 'other' or a lowercase letter)
-        //      .letterLibraries - array of libraries for this letter
-
-        // console.log('navMenu.libraryInfo', navMenu.libraryInfo);
-    }
-
-    const processArray = function(array) {
-        for(const item of array) {
-            if (Array.isArray(item)) {
-                processArray(item);
-            }
-            else {
-                if (item.href == navMenu.hrefPage) {
-                    item.activeItem = true;
-                }        
-            }
-        }
-    }
-    processArray(navMenu.menuJson.items)
-*/
     navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'newMenu.json';
 
     const fetchRes = await fetch(navMenu.menuPath);
@@ -240,6 +195,23 @@ navMenu.collapseExpand = function(itemObj, showSubsections) {
     }
 }
 
+navMenu.scanHeadersInternal = function(parentElem, level, destItemObj) {
+    $(parentElem).find('h' + level).each(function (index, elem) {
+        let innerItemObj = {
+            title: $(elem).text(),
+            anchor: $(elem).attr('id'),
+        };
+
+        if (typeof destItemObj.subsections == 'undefined') {
+            destItemObj.subsections = [];
+        }
+        destItemObj.subsections.push(innerItemObj);
+        if (level <= 4) {
+            navMenu.scanHeadersInternal(elem, level + 1, innerItemObj);
+        }
+    });
+
+};
 
 navMenu.generateNavHtmlInternal = function(submenuObj, options) {
     // options
@@ -269,8 +241,12 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         itemObj.isActiveParent = (itemObj.href == navMenu.hrefParent) ;
         itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
 
-        if (itemObj.isActivePage) {
-            console.log('isActivePage', itemObj);
+        if (itemObj.isActivePage && !itemObj.anchor && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
+            // This is a normal page
+            
+            navMenu.scanHeadersInternal($('div.content-inner'), 2, itemObj);
+            
+            console.log('isActivePage, scan headers', itemObj);
         }
 
         if (itemObj.anchor) {
@@ -389,292 +365,6 @@ navMenu.generateNavHtml = function(menuJson) {
     };
 
     navMenu.generateNavHtmlInternal(menuJson.items, options);
-
-    return navElem;
-}
-
-// Delete this after new is working
-navMenu.generateNavHtmlOld = function(menuJson) {
-    // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);
-
-    const makeTitle = function (item) {
-        let title = item.title || navMenu.titleize(item.dir);
-
-        // title = title.replace('&', '&amp;');
-
-        return title;
-    };
-
-    const makeNavMenu2 = function (item, indent) {
-        // console.log('makeNavMenu2 indent=' + indent, item);
-
-        let navActiveClass;
-        let navClass;
-        let useNavLink;
-        if (indent == 0) {
-            navActiveClass = 'navActive1';
-            navClass = 'navMenu1';    
-            useNavLink = false;
-        }
-        else {
-            navActiveClass = 'navActive2';
-            navClass = 'navMenu2';    
-            useNavLink = true;
-        }
-
-        const divElem = document.createElement('div');
-        $(divElem).addClass('navContainer');
-        if (item.addClass) {
-            $(divElem).addClass(item.addClass);
-        }
-        if (!item.activeItem && item.internal) {
-            $(divElem).addClass('internalMenuItem');
-            if (typeof internalMenuItem == 'undefined') {
-                $(divElem).css('display', 'none');            
-            }
-        }
-
-        if (indent) {
-            const innerDivElem = document.createElement('div');
-            $(innerDivElem).css('width', (indent * 15) + 'px');            
-            $(innerDivElem).html('&nbsp;');
-            $(divElem).append(innerDivElem);
-        }
-
-        if (item.activeItem) {
-            let innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass(navActiveClass);
-            $(innerDivElem).text(makeTitle(item));
-            $(divElem).append(innerDivElem);
-            
-            innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass('navPlusMinus');
-            const iElem = document.createElement('i');
-            $(iElem).addClass('minus');
-            $(innerDivElem).append(iElem);
-            $(divElem).append(innerDivElem);
-        }
-        else {
-            let innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass(navClass);
-            const aElem = document.createElement('a');
-            $(aElem).on('click', function(ev) {
-                ev.preventDefault();
-                navMenu.openAnchor(item.href);
-            });
-            $(aElem).attr('href', item.href);
-            if (useNavLink) {
-                $(aElem).addClass('navLink');
-            }
-            $(aElem).text(makeTitle(item));
-            $(innerDivElem).append(aElem);
-            $(divElem).append(innerDivElem);
-        }
-        if (item.internal) {
-            let imgElem = document.createElement('img');
-            $(imgElem).attr('src', '/assets/images/logo.png');
-            $(imgElem).attr('width', '16');
-            $(imgElem).attr('height', '16');
-            $(imgElem).attr('title', 'Only visible to internal users');
-            $(divElem).append(imgElem);
-        }
-
-        return divElem;
-    };
-
-    const navElem = document.createElement('div');
-    $(navElem).addClass('navMenuOuter');
-
-    let itemsFlat = [];
-    let cardSections = [];
-    let noSeparator = false;
-
-    const processArray = function(array, indent) {
-        let hasActiveItem = false;
-        // console.log('processArray indent=' + indent, array);
-
-        for (const item of array) {
-            if (item.isSection) {
-                // Multi-level section title
-                const navContainerElem = document.createElement('div');
-                $(navContainerElem).addClass('navContainer');
-                if (item.addClass) {
-                    $(navContainerElem).addClass(item.addClass);
-                }
-
-                if (indent) {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).css('width', (indent * 15) + 'px');            
-                    $(innerDivElem).html('&nbsp;');
-                    $(navContainerElem).append(innerDivElem);
-                }
-
-                if (item.href) {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navMenu1');
-
-                    const aElem = document.createElement('a');
-                    $(aElem).on('click', function(ev) {
-                        ev.preventDefault();
-                        navMenu.openAnchor(item.href);
-                    });
-                    $(aElem).attr('href', item.href);
-                    $(aElem).addClass('navLink');
-                    $(aElem).text(makeTitle(item));
-                    $(innerDivElem).append(aElem);
-                    
-                    $(navContainerElem).append(innerDivElem);
-                }
-                else {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navMenu1');
-                    $(innerDivElem).text(makeTitle(item));
-                    $(navContainerElem).append(innerDivElem);
-                }
-                $(navElem).append(navContainerElem);
-
-                if (item.noSeparator) {
-                    noSeparator = true;
-                }
-            }
-            else if (Array.isArray(item)) {
-                // Multi-level (like tutorials, reference, datasheets)
-                processArray(item, indent + 1);
-
-                if (noSeparator) {
-                    noSeparator = false;
-                }
-                else {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navSectionSpacer');
-                    $(navElem).append(innerDivElem);
-                }
-                
-            }
-            else         
-            if (item.activeItem || !item.hidden) {
-                $(navElem).append(makeNavMenu2(item, indent));
-                itemsFlat.push(item);
-            }
-            else {
-            }
-
-            if (item.activeItem) {
-                hasActiveItem = true;
-
-                let innerDivElem = document.createElement('div');
-                $(innerDivElem).attr('id', 'navActiveContent');
-                $(navElem).append(innerDivElem);        
-            }
-
-            if (item.isLibrarySearch && navMenu.libraryInfo) {
-                // Insert letter navigation here
-                for(const obj of navMenu.libraryInfo.letterNavigation) {
-                    const navContainerElem = document.createElement('div');
-                    $(navContainerElem).addClass('navContainer');
-                    if (item.addClass) {
-                        $(navContainerElem).addClass(item.addClass);
-                    }
-    
-                    if (indent) {
-                        const innerDivElem = document.createElement('div');
-                        $(innerDivElem).css('width', (indent * 15) + 'px');            
-                        $(innerDivElem).html('&nbsp;');
-                        $(navContainerElem).append(innerDivElem);
-                    }
-    
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navMenu1');
-
-                    // -1 is empty, -2 = library name, -3 = letter
-                    const isThisLetter = navMenu.pathParts[navMenu.pathParts.length - 3] == obj.letter;
-                    
-                    if (!isThisLetter) {
-                        const aElem = document.createElement('a');
-                        $(aElem).on('click', function(ev) {
-                            ev.preventDefault();
-                            navMenu.openAnchor(obj.href);
-                        });
-                        $(aElem).attr('href', obj.href);
-                        $(aElem).addClass('navLink');
-                        $(aElem).text(obj.title);
-                        $(innerDivElem).append(aElem);    
-                    }
-                    else {
-                        $(innerDivElem).text(obj.title);
-                    }
-                    
-                    $(navContainerElem).append(innerDivElem);
-                    $(navElem).append(navContainerElem);
-
-
-                    if (isThisLetter) {
-                        for(const libName of obj.libraries) {
-                            let isActiveItem = false;
-                                
-                            const libUrlArray = navMenu.pathParts.slice(0, navMenu.pathParts.length - 2);
-                            libUrlArray.push(libName);
-                            libUrlArray.push('');
-                            
-                            
-                            const navContainerElem = document.createElement('div');
-                            $(navContainerElem).addClass('navContainer');
-                            if (item.addClass) {
-                                $(navContainerElem).addClass(item.addClass);
-                            }
-            
-                            {
-                                const innerDivElem = document.createElement('div');
-                                $(innerDivElem).css('width', ((indent + 1) * 15) + 'px');            
-                                $(innerDivElem).html('&nbsp;');
-                                $(navContainerElem).append(innerDivElem);    
-                            }
-                            {
-                                const innerDivElem = document.createElement('div');
-                                $(innerDivElem).addClass('navMenu1');    
-
-
-                                if (navMenu.pathParts[navMenu.pathParts.length - 2] == libName) {
-                                    const currentTitleElem = document.createElement('div');
-                                    $(currentTitleElem).addClass('navMenu1');
-                                    $(currentTitleElem).text(libName);
-                                    $(innerDivElem).append(currentTitleElem);                    
-                                    isActiveItem = true;
-                                }
-                                else {
-                                    const aElem = document.createElement('a');
-                                    $(aElem).attr('href', libUrlArray.join('/'));
-                                    $(aElem).addClass('navLink');
-                                    $(aElem).text(libName);
-                                    $(innerDivElem).append(aElem);        
-                                }
-                                $(navContainerElem).append(innerDivElem);            
-                            }
-        
-                            $(navElem).append(navContainerElem);
-
-                            if (isActiveItem) {
-                                const innerDivElem = document.createElement('div');
-                                $(innerDivElem).attr('id', 'navActiveContent');
-                                $(innerDivElem).data('level', '4');                                
-                                $(navElem).append(innerDivElem);                        
-                            }
-
-                            
-                        
-                        }
-                    }
-                }
-            }
-
-        }
-        if (hasActiveItem && cardSections.length > 0) {
-            cardSections[cardSections.length - 1].activeSection = true;
-        }
-
-    };
-    processArray(menuJson.items, 0);
-
 
     return navElem;
 }
