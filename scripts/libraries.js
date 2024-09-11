@@ -122,7 +122,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             obj = {
                 title: letterUC,
                 dir: curLetter,
-                c: true,
+                collapse: true,
                 subsections: [],
             }
             for(const lib of letterLibraries[curLetter]) {

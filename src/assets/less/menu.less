@@ -132,8 +132,24 @@ div.navMenu3 {
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
   }
+};
+
+div.navActive3 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 245px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--theme-menubar-selected-color);
+  text-decoration: none;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
 
 };
+
 
 div.navMenu4 {
   .STYLE_left_nav_page();
@@ -142,6 +158,23 @@ div.navMenu4 {
   overflow: hidden;
   white-space: nowrap;
   color: var(--theme-menubar-minor-color);
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
+
+div.navActive4 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 245px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--theme-menubar-selected-color);
+  text-decoration: none;
 
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
@@ -163,6 +196,23 @@ div.navMenu5 {
 
 };
 
+
+div.navActive5 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 245px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--theme-menubar-selected-color);
+  text-decoration: none;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
 div.navMenu6 {
   .STYLE_left_nav_page();
   padding-bottom: 2px;
@@ -170,6 +220,22 @@ div.navMenu6 {
   overflow: hidden;
   white-space: nowrap;
   color: var(--theme-menubar-minor-color);
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
+div.navActive6 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--theme-menubar-selected-color);
+  text-decoration: none;
 
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
@@ -283,7 +349,7 @@ div.navMenu1 > a {
   &:link {
     text-decoration: none;
   }
-  &:visited {
+  &:visted {
     text-decoration: none;
   }
   &:hover {

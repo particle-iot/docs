@@ -207,6 +207,40 @@ navMenu.openAnchor = function(href) {
     }
 }
 
+navMenu.collapseExpandInternal = function(itemObj, showSubsections) {
+
+    for(const innerItemObj of itemObj.subsections) {
+        if (showSubsections) {
+            $(innerItemObj.elem).show();
+        }
+        else {
+            $(innerItemObj.elem).hide();
+        }
+        if (typeof innerItemObj.subsections != 'undefined') {
+            navMenu.collapseExpandInternal(innerItemObj, showSubsections);
+        }
+    }
+} 
+
+navMenu.collapseExpand = function(itemObj, showSubsections) {
+    
+    if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
+        // Was right, make down
+        $(itemObj.collapseIconElem).removeClass('ion-arrow-right-b');
+        $(itemObj.collapseIconElem).addClass('ion-arrow-down-b');
+
+        navMenu.collapseExpandInternal(itemObj, true);
+    }
+    else {
+        // Has down, make right
+        $(itemObj.collapseIconElem).removeClass('ion-arrow-down-b');
+        $(itemObj.collapseIconElem).addClass('ion-arrow-right-b');
+
+        navMenu.collapseExpandInternal(itemObj, false);
+    }
+}
+
+
 navMenu.generateNavHtmlInternal = function(submenuObj, options) {
     // options
     //   .level
@@ -233,8 +267,12 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
 
         itemObj.isActivePage = (itemObj.href == navMenu.hrefPage) ;
         itemObj.isActiveParent = (itemObj.href == navMenu.hrefParent) ;
+        itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
 
         itemObj.elem = document.createElement('div');
+        if (options.hideSubsections) {
+            $(itemObj.elem).hide();   
+        }
         $(itemObj.elem).addClass('navContainer');
         $(options.elem).append(itemObj.elem);
 
@@ -242,16 +280,34 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         $(indentElem).addClass('navIndent' + itemObj.level);
         $(itemObj.elem).append(indentElem);
 
+        let hideSubsections = false;
+        
         if (itemObj.collapse) {
             const triangleElem = document.createElement('div');
             $(triangleElem).addClass('navDisclosure');
 
-            const iconElem = document.createElement('i');
-            $(iconElem).addClass('ion-arrow-right-b');
-            $(triangleElem).append(iconElem);
+            itemObj.collapseIconElem = document.createElement('i');      
+            if (itemObj.isActivePath) {
+                $(itemObj.collapseIconElem).addClass('ion-arrow-down-b');
+            }   
+            else {
+                $(itemObj.collapseIconElem).addClass('ion-arrow-right-b');
+                hideSubsections = true;
+            }   
+            $(triangleElem).append(itemObj.collapseIconElem);
 
             $(itemObj.elem).append(triangleElem);
 
+            $(itemObj.elem).on('click', function() {
+                if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
+                    // Was right, make down (open)
+                    navMenu.collapseExpand(itemObj, true);
+                }
+                else {
+                    // Has down, make right (close)
+                    navMenu.collapseExpand(itemObj, false);
+                }
+            });
             /*
             const clickHdr = hdr;
 
@@ -270,19 +326,19 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                 }
             });
             */
-
         }
 
         itemObj.linkElem = document.createElement('div');
-        if (itemObj.isActivePage && itemObj.level <= 2) {
+        if (itemObj.isActivePage) {
             $(itemObj.linkElem).addClass("navActive" + itemObj.level);
         }
         else {
             $(itemObj.linkElem).addClass("navMenu" + itemObj.level);
         }
 
-        if (!itemObj.isActivePage && typeof itemObj.subsections == 'undefined') {
+        if (!itemObj.isActivePage && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
             // This is not the active page and does not have subsections, so it's a clickable link
+            // Also do this if it's a special page (Device OS API or Libraries)
             const aElem = document.createElement('a');
             $(aElem).addClass('navLink');
             $(aElem).attr('href', itemObj.href);
@@ -296,7 +352,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         $(itemObj.elem).append(itemObj.linkElem);    
 
 
-        console.log('itemObj', itemObj);
+        // console.log('itemObj', itemObj);
 
         if (typeof itemObj.subsections != 'undefined') {
             // Item with subsection
@@ -304,6 +360,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             const subOptions = Object.assign({}, options);
             subOptions.level = options.level + 1;
             subOptions.path = itemObj.itemPath + '/';
+            subOptions.hideSubsections = options.hideSubsections || hideSubsections;
             
             navMenu.generateNavHtmlInternal(itemObj.subsections, subOptions);
         }

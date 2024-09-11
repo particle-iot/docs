@@ -8,7 +8,7 @@
     {
       "title": "A",
       "dir": "a",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "AB1805_RK",
@@ -835,7 +835,7 @@
     {
       "title": "B",
       "dir": "b",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "BackgroundPublishRK",
@@ -942,7 +942,7 @@
     {
       "title": "C",
       "dir": "c",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "cactus_io_DHT22",
@@ -1105,7 +1105,7 @@
     {
       "title": "D",
       "dir": "d",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "DAC121C08X",
@@ -1284,7 +1284,7 @@
     {
       "title": "E",
       "dir": "e",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "E131",
@@ -1379,7 +1379,7 @@
     {
       "title": "F",
       "dir": "f",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "FastLED",
@@ -1458,7 +1458,7 @@
     {
       "title": "G",
       "dir": "g",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "G35",
@@ -1569,7 +1569,7 @@
     {
       "title": "H",
       "dir": "h",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "hackerpet",
@@ -1696,7 +1696,7 @@
     {
       "title": "I",
       "dir": "i",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "i2c_anything",
@@ -1823,7 +1823,7 @@
     {
       "title": "J",
       "dir": "j",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "jsmn",
@@ -1850,7 +1850,7 @@
     {
       "title": "K",
       "dir": "k",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "Kalman",
@@ -1877,7 +1877,7 @@
     {
       "title": "L",
       "dir": "l",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "L3D",
@@ -2040,7 +2040,7 @@
     {
       "title": "M",
       "dir": "m",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "M8RelayRK",
@@ -2251,7 +2251,7 @@
     {
       "title": "N",
       "dir": "n",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "NCD_Ethernet_Overlay",
@@ -2386,7 +2386,7 @@
     {
       "title": "O",
       "dir": "o",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "OB_LED_Flasher_IV",
@@ -2421,7 +2421,7 @@
     {
       "title": "P",
       "dir": "p",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "P9813",
@@ -2744,7 +2744,7 @@
     {
       "title": "Q",
       "dir": "q",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "qMenuSystem",
@@ -2759,7 +2759,7 @@
     {
       "title": "R",
       "dir": "r",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "Radar",
@@ -2906,7 +2906,7 @@
     {
       "title": "S",
       "dir": "s",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "SC16IS740RK",
@@ -3593,7 +3593,7 @@
     {
       "title": "T",
       "dir": "t",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "tank_level_lib",
@@ -3772,7 +3772,7 @@
     {
       "title": "U",
       "dir": "u",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "U8g2",
@@ -3835,7 +3835,7 @@
     {
       "title": "V",
       "dir": "v",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "vcnl4000",
@@ -3870,7 +3870,7 @@
     {
       "title": "W",
       "dir": "w",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "W5100_Ethernet",
@@ -3937,7 +3937,7 @@
     {
       "title": "X",
       "dir": "x",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "XBee",
@@ -3960,7 +3960,7 @@
     {
       "title": "Other",
       "dir": "other",
-      "c": true,
+      "collapse": true,
       "subsections": [
         {
           "title": "24LC01-RK",
