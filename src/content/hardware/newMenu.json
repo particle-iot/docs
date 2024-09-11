@@ -1,0 +1,358 @@
+{
+    "dir": "hardware",
+    "items": [
+        {
+            "dir": "hardware",
+            "title": "Hardware",
+            "tiles": [
+                {
+                    "title": "First board examples",
+                    "detail": "Creating a simple production module design",
+                    "href": "/hardware/b-series-som/som-first-board/"
+                },
+                {
+                    "title": "Migration guides",
+                    "detail": "Moving a design to new Particle devices",
+                    "href": "/hardware/migration-guides/b-series-boron-migration-guide/"
+                },
+                {
+                    "title": "Expansion",
+                    "detail": "Adding features to your Particle device",
+                    "href": "/hardware/expansion/feather/"
+                },
+                {
+                    "title": "Tracker One Expansion",
+                    "detail": "Adding features to your Tracker One",
+                    "href": "/hardware/tracker/tracker-one-expansion/"
+                },
+                {
+                    "title": "Certification",
+                    "detail": "FCC, IC, CE, and other certifications",
+                    "href": "/hardware/certification/certification/"
+                },
+                {
+                    "title": "Antennas",
+                    "detail": "Information about cellular, Wi-Fi, BLE, NFC, and GNSS antennas",
+                    "href": "/hardware/certification/antenna/"
+                }
+            ]
+        },
+        {
+            "dir": "tracker",
+            "subsections": [
+                {
+                    "dir": "tracker-one-expansion",
+                    "title": "Tracker One Expansion"
+                },
+                {
+                    "dir": "m8-temperature-humidity",
+                    "title": "M8 Temperature/Humidity"
+                },
+                {
+                    "dir": "projects",
+                    "title": "Tracker One Projects",
+                    "subsections": [
+                        {
+                            "dir": "tracker-1wire",
+                            "title": "Tracker 1-Wire"
+                        },
+                        {
+                            "dir": "tracker-gpio",
+                            "title": "Tracker GPIO"
+                        },
+                        {
+                            "dir": "tracker-i2c-scanner",
+                            "title": "Tracker I2C Scanner"
+                        },
+                        {
+                            "dir": "tracker-breakout",
+                            "title": "Tracker Breakout"
+                        },
+                        {
+                            "dir": "tracker-keypad-lcd",
+                            "title": "Tracker Keypad LCD"
+                        },
+                        {
+                            "dir": "tracker-can",
+                            "title": "Tracker CAN"
+                        },
+                        {
+                            "dir": "tracker-level",
+                            "title": "Tracker Tank Level Sensor"
+                        },
+                        {
+                            "dir": "tracker-prototype",
+                            "title": "Tracker Prototype to Board"
+                        },
+                        {
+                            "dir": "tracker-4-20ma",
+                            "title": "Tracker 4-20mA Sensor"
+                        },
+                        {
+                            "dir": "tracker-4-20ma-quad",
+                            "title": "Tracker 4-20mA Sensor Quad"
+                        },
+                        {
+                            "dir": "tracker-sht3x-temperature-humidity",
+                            "title": "Tracker SHT3x temperature/humidity"
+                        },
+                        {
+                            "dir": "tracker-relay",
+                            "title": "Tracker relay"
+                        },
+                        {
+                            "dir": "tracker-current-solutions-accelerator",
+                            "title": "Tracker current solutions accelerator"
+                        },
+                        {
+                            "dir": "tracker-buttons-leds",
+                            "title": "Tracker button and LEDs"
+                        }
+                    ]
+                },
+                {
+                    "dir": "tracker-som",
+                    "subsections": [
+                        {
+                            "dir": "tracker-som-first-board",
+                            "title": "Tracker SoM first board"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dir": "som",
+            "title": "M.2 SoM",
+            "subsections": [
+                {
+                    "dir": "som-guide",
+                    "title": "M.2 SoM guide"
+                },
+                {
+                    "dir": "b-series-som-flexibility",
+                    "title": "Designing for B-Series SoM flexibility"
+                },
+                {
+                    "dir": "som-first-board",
+                    "title": "B-Series SoM First Board"
+                },
+                {
+                    "dir": "basic-som-design",
+                    "title": "Basic SoM design"
+                }
+            ]
+        },
+        {
+            "dir": "Wi-Fi",
+            "subsections": [
+                {
+                    "dir": "p2-first-board",
+                    "title": "P2 First Board",
+                    "href": "/hardware/wi-fi/p2-first-board/"
+                }
+            ]
+        },
+        {
+            "dir": "migration-guides",
+            "subsections": [
+                {
+                    "dir": "msom-b-series-migration-guide",
+                    "title": "M-SoM from B-Series migration guide"
+                },
+                {
+                    "dir": "msom-p2-migration-guide",
+                    "title": "M-SoM from P2 migration guide"
+                },
+                {
+                    "dir": "msom-boron-migration-guide",
+                    "title": "M-SoM from Boron or Argon migration guide"
+                },
+                {
+                    "dir": "msom-e-series-migration-guide",
+                    "title": "M-SoM from E-Series migration guide"
+                },
+                {
+                    "dir": "muon-boron-migration-guide",
+                    "title": "Muon from Boron or Argon migration guide",
+                    "hidden": true
+                },
+                {
+                    "dir": "b-series-boron-migration-guide",
+                    "title": "B-Series from Boron Migration Guide"
+                },
+                {
+                    "dir": "b-series-e-series-migration-guide",
+                    "title": "B-Series from E-Series Migration Guide"
+                },
+                {
+                    "dir": "b-series-electron-migration-guide",
+                    "title": "B-Series from Electron Migration Guide"
+                },
+                {
+                    "dir": "e404x-migration-guide",
+                    "title": "E404X migration guide"
+                },
+                {
+                    "dir": "p2-argon-migration-guide",
+                    "title": "P2 from Argon migration guide"
+                },
+                {
+                    "dir": "p2-p1-migration-guide",
+                    "title": "P2 from P1 migration guide"
+                },
+                {
+                    "dir": "p2-photon-migration-guide",
+                    "title": "P2 from Photon migration guide"
+                },
+                {
+                    "dir": "photon-2-argon-migration-guide",
+                    "title": "Photon 2 from Argon migration guide"
+                },
+                {
+                    "dir": "photon-2-photon-migration-guide",
+                    "title": "Photon 2 from Photon migration guide"
+                },
+                {
+                    "dir": "gen2-cellular-migration",
+                    "title": "Gen 2 cellular migration"
+                }
+            ]
+        },
+        {
+            "dir": "expansion",
+            "subsections": [
+                {
+                    "dir": "feather",
+                    "title": "Feather"
+                },
+                {
+                    "dir": "qwiic",
+                    "title": "Qwiic (I2C)"
+                },
+                {
+                    "dir": "mikroe",
+                    "title": "Mikroe"
+                },
+                {
+                    "dir": "about-i2c",
+                    "title": "About I2C"
+                },
+                {
+                    "dir": "about-serial",
+                    "title": "About Serial"
+                },
+                {
+                    "dir": "about-modbus",
+                    "title": "About Modbus"
+                },
+                {
+                    "dir": "prototyping",
+                    "title": "Prototyping"
+                },
+                {
+                    "dir": "beyond-prototyping",
+                    "title": "Beyond Prototyping"
+                },
+                {
+                    "dir": "create-a-custom-cold-chain-solution-using-gen3-devices-and-ble",
+                    "title": "Custom cold chain solution"
+                },
+                {
+                    "dir": "monitor-one-muon-cards",
+                    "title": "Monitor One and Muon flexible expansion cards",
+                    "internal": true
+                }
+            ]
+        },
+        {
+            "dir": "power",
+            "subsections": [
+                {
+                    "dir": "power-supply-guide",
+                    "title": "Power supply guide"
+                },
+                {
+                    "dir": "pm-bat-datasheet",
+                    "title": "PM-BAT power module datasheet"
+                },
+                {
+                    "dir": "pm-dc-datasheet",
+                    "title": "PM-DC power module datasheet"
+                },
+                {
+                    "dir": "batteries",
+                    "title": "Batteries"
+                },
+                {
+                    "dir": "vehicle-power",
+                    "title": "Vehicle power"
+                }
+            ]
+        },
+        {
+            "dir": "ethernet",
+            "subsections": [
+                {
+                    "dir": "ethernet",
+                    "title": "Ethernet"
+                },
+                {
+                    "dir": "ethernet-featherwing",
+                    "title": "Ethernet FeatherWing"
+                }
+            ]
+        },
+        {
+            "dir": "certification",
+            "subsections": [
+                {
+                    "dir": "certification",
+                    "title": "Certification"
+                },
+                {
+                    "dir": "certification-documents",
+                    "title": "Certification documents"
+                },
+                {
+                    "dir": "antenna",
+                    "title": "Antennas"
+                },
+                {
+                    "dir": "battery-certification",
+                    "title": "Battery certification"
+                },
+                {
+                    "dir": "enabling-wifi-rf-test-for-esp32",
+                    "title": "Enabling Wi-Fi RF Test for ESP32"
+                }
+            ]
+        },
+        {
+            "dir": "best-practices",
+            "subsections": [
+                {
+                    "dir": "watchdog-timers",
+                    "title": "Watchdog timers"
+                },
+                {
+                    "dir": "serial-number",
+                    "title": "Serial number management"
+                }
+            ]
+        },
+        {
+            "dir": "community",
+            "subsections": [
+                {
+                    "dir": "hardware-community",
+                    "title": "Community projects"
+                },
+                {
+                    "dir": "monitor-one-modbus",
+                    "title": "Monitor One getting started with Modbus"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,650 @@
+{
+    "dir": "reference",
+    "items": [
+        {
+            "dir": "reference",
+            "title": "Reference",
+            "tiles": [
+                {
+                    "title": "Device OS API",
+                    "detail": "How you program your Particle device firmware",
+                    "href": "/reference/device-os/api/"
+                },
+                {
+                    "title": "Cloud API",
+                    "detail": "Interact with your device from the Internet",
+                    "href": "/reference/cloud-apis/api/"
+                },
+                {
+                    "title": "Cellular carriers",
+                    "detail": "Carriers and country coverage for different Particle devices",
+                    "href": "/reference/cellular/cellular-carriers/"
+                },
+                {
+                    "title": "Programming devices",
+                    "detail": "Programming your Particle device",
+                    "href": "/reference/developer-tools/programming-devices/"
+                },
+                {
+                    "title": "Datasheets",
+                    "detail": "Technical documentation for Particle hardware",
+                    "href": "/reference/datasheets/tracker/tracker-som-datasheet/"
+                },
+                {
+                    "title": "Tracker configuration",
+                    "detail": "Extensive web-based configuration for Tracker devices",
+                    "href": "/reference/tracker/tracker-configuration/"
+                }
+            ]
+        },
+        {
+            "dir": "device-os",
+            "subsections": [
+                {
+                    "dir": "api",
+                    "title": "Device OS API",
+                    "insertLoc": "device-os-api",
+                    "href": "/reference/device-os/api/introduction/getting-started/",
+                    "noSeparator": true,
+                    "addClass": "deviceOsApiNavMenu",
+                    "subsections": []
+                },
+                {
+                    "dir": "firmware",
+                    "title": "Device OS API (Single Page)"
+                },
+                {
+                    "dir": "bluetooth-le",
+                    "title": "Bluetooth LE"
+                },
+                {
+                    "dir": "sleep",
+                    "title": "Sleep"
+                },
+                {
+                    "dir": "versions",
+                    "title": "Versions and upgrades"
+                },
+                {
+                    "dir": "release-notes",
+                    "title": "Release notes"
+                },
+                {
+                    "dir": "libraries",
+                    "insertLoc": "libraries",
+                    "href": "/reference/device-os/libraries/search/",
+                    "noSeparator": true,
+                    "subsections": [
+                        {
+                            "title": "Search",
+                            "href": "/reference/device-os/libraries/search/",
+                            "isLibrarySearch": true
+                        }
+                    ]
+                },
+                {
+                    "dir": "pin-info",
+                    "title": "Pin Info"
+                },
+                {
+                    "dir": "256K-user-binaries",
+                    "title": "256K user binaries"
+                },
+                {
+                    "dir": "file-system",
+                    "title": "File System"
+                },
+                {
+                    "dir": "eeprom",
+                    "title": "EEPROM"
+                },
+                {
+                    "dir": "real-time-clocks",
+                    "title": "Real-time clocks"
+                },
+                {
+                    "dir": "power-management-faq",
+                    "title": "Power Management FAQ"
+                },
+                {
+                    "dir": "wifi-setup-options",
+                    "title": "Wi-Fi setup options"
+                },
+                {
+                    "dir": "connection-management",
+                    "title": "Connection management"
+                }
+            ]
+        },
+        {
+            "dir": "asset-ota",
+            "title": "Asset OTA",
+            "subsections": [
+                {
+                    "dir": "asset-ota",
+                    "title": "Asset OTA"
+                },
+                {
+                    "dir": "asset-ota-community",
+                    "title": "Asset OTA community projects",
+                    "subsections": [
+                        {
+                            "dir": "asset-ota-community",
+                            "title": "About Asset OTA community projects"
+                        },
+                        {
+                            "dir": "arduino-uno-asset-ota",
+                            "title": "Arduino Uno Asset OTA"
+                        },
+                        {
+                            "dir": "lcd-image-asset-ota",
+                            "title": "LCD image Asset OTA"
+                        },
+                        {
+                            "dir": "rp2040-raspberry-pi-asset-ota",
+                            "title": "RP2040 Raspberry Pi Asset OTA",
+                            "hidden": true
+                        },
+                        {
+                            "dir": "sound-asset-ota",
+                            "title": "Sound Asset OTA"
+                        },
+                        {
+                            "dir": "stm32-asset-ota",
+                            "title": "STM32 Asset OTA"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dir": "cloud-apis",
+            "subsections": [
+                {
+                    "dir": "api",
+                    "title": "Cloud API reference"
+                },
+                {
+                    "dir": "javascript",
+                    "title": "Particle API JS (Javascript SDK)"
+                },
+                {
+                    "dir": "access-tokens",
+                    "title": "Access tokens"
+                },
+                {
+                    "dir": "authentication",
+                    "title": "Authentication"
+                },
+                {
+                    "dir": "webhooks",
+                    "title": "Webhook reference"
+                },
+                {
+                    "dir": "calling-api-from-web-page",
+                    "title": "Calling API from Web Page"
+                },
+                {
+                    "dir": "node-js",
+                    "title": "node.js getting started"
+                },
+                {
+                    "dir": "node-red",
+                    "title": "Node-RED"
+                },
+                {
+                    "dir": "data-report-tutorial"
+                },
+                {
+                    "dir": "firmware-update-events",
+                    "title": "Firmware update events"
+                }
+            ]
+        },
+        {
+            "dir": "cellular",
+            "subsections": [
+                {
+                    "dir": "cellular-carriers",
+                    "title": "Cellular carriers"
+                },
+                {
+                    "dir": "verizon-faq2",
+                    "title": "Verizon FAQ",
+                    "href": "/reference/cellular/verizon-faq/"
+                },
+                {
+                    "dir": "lte-cat-1-expansion",
+                    "title": "LTE Cat 1 Expansion"
+                },
+                {
+                    "dir": "sim-cards",
+                    "title": "Particle SIM cards"
+                }
+            ]
+        },
+        {
+            "dir": "tracker",
+            "subsections": [
+                {
+                    "dir": "tracker-configuration",
+                    "title": "Tracker configuration"
+                },
+                {
+                    "dir": "location-fusion",
+                    "title": "Location fusion"
+                },
+                {
+                    "dir": "tracker-sleep",
+                    "title": "Tracker sleep"
+                },
+                {
+                    "dir": "geofencing",
+                    "title": "Geofencing"
+                },
+                {
+                    "dir": "can-bus",
+                    "title": "CAN bus"
+                }
+            ]
+        },
+        {
+            "dir": "developer-tools",
+            "subsections": [
+                {
+                    "dir": "cli",
+                    "title": "Command Line Interface (CLI)"
+                },
+                {
+                    "dir": "programming-devices",
+                    "title": "Programming devices"
+                },
+                {
+                    "dir": "jtag",
+                    "title": "Using SWD/JTAG"
+                }
+            ]
+        },
+        {
+            "dir": "datasheets",
+            "subsections": [
+                {
+                    "dir": "tracker",
+                    "subsections": [
+                        {
+                            "dir": "tracker-som-datasheet",
+                            "title": "Tracker SoM datasheet"
+                        },
+                        {
+                            "dir": "tracker-som-eval-board",
+                            "title": "Tracker SoM Evaluation Board"
+                        },
+                        {
+                            "dir": "tracker-one",
+                            "title": "Tracker One"
+                        },
+                        {
+                            "dir": "monitor-one-datasheet",
+                            "title": "Monitor One Datasheet"
+                        },
+                        {
+                            "title": "Monitor One Developer Edition Quickstart",
+                            "href": "/quickstart/monitor-one/"
+                        },
+                        {
+                            "dir": "monitor-one-developer-edition-manual",
+                            "title": "Monitor One Developer Edition Manual",
+                            "internal": true
+                        },
+                        {
+                            "dir": "tracker-m-datasheet",
+                            "title": "Tracker M Datasheet",
+                            "internal": true
+                        },
+                        {
+                            "dir": "tracker-m8-accessories",
+                            "title": "M8 Accessories"
+                        },
+                        {
+                            "dir": "m8-temperature-humidity",
+                            "title": "M8 Temperature/Humidity"
+                        }
+                    ]
+                },
+                {
+                    "dir": "b-series",
+                    "title": "B-Series/Boron",
+                    "subsections": [
+                        {
+                            "dir": "b404x-datasheet",
+                            "title": "B-Series B404X datasheet"
+                        },
+                        {
+                            "dir": "b404-b402-datasheet",
+                            "title": "B-Series B404/B402 datasheet"
+                        },
+                        {
+                            "dir": "b524-b523-datasheet",
+                            "title": "B-Series B524/B523 datasheet"
+                        },
+                        {
+                            "dir": "b524-japan-datasheet",
+                            "title": "B-Series B524 (Japan) datasheet",
+                            "internal": true
+                        },
+                        {
+                            "dir": "b504-datasheet",
+                            "title": "B-Series B504 datasheet"
+                        },
+                        {
+                            "dir": "b-series-eval-board",
+                            "title": "B-Series Evaluation Board"
+                        },
+                        {
+                            "dir": "brn404x-datasheet",
+                            "title": "Boron BRN404X datasheet"
+                        },
+                        {
+                            "dir": "boron-datasheet",
+                            "title": "Boron datasheet"
+                        }
+                    ]
+                },
+                {
+                    "dir": "m-series",
+                    "title": "M-Series",
+                    "subsections": [
+                        {
+                            "dir": "msom-datasheet",
+                            "title": "M-SoM datasheet"
+                        },
+                        {
+                            "dir": "muon-preview-datasheet",
+                            "title": "Muon datasheet (preview)",
+                            "internal": true
+                        },
+                        {
+                            "dir": "muon-datasheet",
+                            "title": "Muon datasheet"
+                        },
+                        {
+                            "dir": "m2-breakout-datasheet",
+                            "title": "M.2 breakout board"
+                        }
+                    ]
+                },
+                {
+                    "dir": "e-series",
+                    "title": "E-Series/Electron",
+                    "subsections": [
+                        {
+                            "dir": "e404x-datasheet",
+                            "title": "E404X datasheet"
+                        },
+                        {
+                            "dir": "e-series-datasheet",
+                            "title": "E-Series datasheet"
+                        },
+                        {
+                            "dir": "e-series-eval-board",
+                            "title": "E-Series Evaluation Board"
+                        },
+                        {
+                            "dir": "e-series-system-integration-manual",
+                            "title": "E-Series System Integration Manual"
+                        },
+                        {
+                            "dir": "electron-datasheet",
+                            "title": "Electron datasheet"
+                        }
+                    ]
+                },
+                {
+                    "dir": "wi-fi",
+                    "subsections": [
+                        {
+                            "dir": "p2-datasheet",
+                            "title": "P2 datasheet"
+                        },
+                        {
+                            "dir": "photon-2-datasheet",
+                            "title": "Photon 2 datasheet"
+                        },
+                        {
+                            "dir": "argon-datasheet",
+                            "title": "Argon datasheet"
+                        },
+                        {
+                            "dir": "photon-datasheet",
+                            "title": "Photon datasheet"
+                        },
+                        {
+                            "dir": "p1-datasheet",
+                            "title": "P1 datasheet"
+                        }
+                    ]
+                },
+                {
+                    "dir": "accessories",
+                    "subsections": [
+                        {
+                            "dir": "gen3-accessories",
+                            "title": "Gen 3 Accessories"
+                        },
+                        {
+                            "dir": "edge-ml-kit",
+                            "title": "Edge ML kit"
+                        },
+                        {
+                            "dir": "legacy-accessories",
+                            "title": "Legacy Accessories"
+                        },
+                        {
+                            "dir": "debugger",
+                            "title": "Debugger"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dir": "product-lifecycle",
+            "subsections": [
+                {
+                    "dir": "product-lifecycle-stages",
+                    "title": "Product Lifecycle Stages"
+                },
+                {
+                    "dir": "product-lifecycle-policy-status",
+                    "title": "Product Lifecycle Policy Status"
+                },
+                {
+                    "dir": "supply-secure-faq",
+                    "title": "Supply Secure FAQ"
+                },
+                {
+                    "dir": "long-term-support-lts-releases",
+                    "title": "Long Term Support (LTS) Releases"
+                },
+                {
+                    "dir": "notices",
+                    "subsections": [
+                        {
+                            "dir": "product-deprecation-notice-march-16-2022",
+                            "title": "Product deprecation notice - March 16, 2022"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dir": "technical-advisory-notices",
+            "subsections": [
+                {
+                    "dir": "technical-advisory-notices",
+                    "title": "Technical advisory notices"
+                },
+                {
+                    "dir": "tan001-sara-r410m-124-day",
+                    "title": "TAN001 - SARA-R410M \"124-day\""
+                },
+                {
+                    "dir": "tan002-tracker-one-v10-shipping-mode",
+                    "title": "TAN002 - Tracker One v1.0 Shipping Mode"
+                },
+                {
+                    "dir": "tan003-b402-rf-circuit-component",
+                    "title": "TAN003 - B402 RF Circuit Component"
+                },
+                {
+                    "dir": "tan004-power-off-recommendations-for-sara-r410m-equipped-devices",
+                    "title": "TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices"
+                },
+                {
+                    "dir": "tan005-sara-r410-02b-03",
+                    "title": "TAN005 - SARA-R410-02B-03"
+                },
+                {
+                    "dir": "tan006-tracker-som-gnss-interface",
+                    "title": "TAN006 - Tracker SoM GNSS Interface"
+                },
+                {
+                    "dir": "tan007",
+                    "title": "TAN007 - SARA-R410M-02B-03 OTA Upgrade Issue",
+                    "internal": true
+                },
+                {
+                    "dir": "tan008",
+                    "title": "TAN008 - B404 Manufacturing Firmware 2.3.0"
+                },
+                {
+                    "dir": "tan009",
+                    "title": "TAN009 - SARA-R410 Intermittent Increased Connection Time"
+                },
+                {
+                    "dir": "tan010",
+                    "title": "TAN010 - SARA-R410 SIM Initialization"
+                },
+                {
+                    "dir": "tan011",
+                    "title": "TAN011 - Tracker SoM default application firmware issue"
+                },
+                {
+                    "dir": "tan012",
+                    "title": "TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X"
+                },
+                {
+                    "dir": "tan013",
+                    "title": "TAN013 - Tracker Manufacturing Firmware 3.3.0"
+                }
+            ]
+        },
+        {
+            "dir": "errata",
+            "subsections": [
+                {
+                    "dir": "tracker",
+                    "title": "Tracker system errata"
+                }
+            ]
+        },
+        {
+            "dir": "mobile-sdks",
+            "subsections": [
+                {
+                    "dir": "ios",
+                    "title": "iOS SDK"
+                },
+                {
+                    "dir": "android",
+                    "title": "Android SDK"
+                }
+            ]
+        },
+        {
+            "dir": "discontinued",
+            "subsections": [
+                {
+                    "dir": "cellular",
+                    "subsections": [
+                        {
+                            "dir": "us-2g-3g-sunset",
+                            "title": "US 2G/3G Sunset"
+                        },
+                        {
+                            "dir": "au-nz-sunset",
+                            "title": "Australia and New Zealand 2G/3G Sunset"
+                        },
+                        {
+                            "dir": "gen2-cellular-deprecation",
+                            "title": "Gen 2 cellular deprecation"
+                        },
+                        {
+                            "dir": "r410-modem-deprecation",
+                            "title": "R410 modem deprecation"
+                        }
+                    ]
+                },
+                {
+                    "dir": "hardware",
+                    "subsections": [
+                        {
+                            "dir": "mesh",
+                            "title": "Mesh Deprecation"
+                        },
+                        {
+                            "dir": "xenon-datasheet",
+                            "title": "Xenon datasheet"
+                        },
+                        {
+                            "dir": "xenon-nordic-sdk",
+                            "title": "Xenon with the Nordic SDK"
+                        },
+                        {
+                            "dir": "core-datasheet",
+                            "title": "Core datasheet"
+                        },
+                        {
+                            "dir": "core-shields",
+                            "title": "Core shields and kits"
+                        },
+                        {
+                            "dir": "ldk-project",
+                            "title": "Leak Detection Kit"
+                        },
+                        {
+                            "dir": "button",
+                            "title": "Internet Button"
+                        }
+                    ]
+                },
+                {
+                    "dir": "software",
+                    "subsections": [
+                        {
+                            "dir": "dev",
+                            "title": "Desktop IDE (Dev)",
+                            "href": "/getting-started/developer-tools/workbench/"
+                        },
+                        {
+                            "dir": "windows",
+                            "title": "Windows SDK"
+                        },
+                        {
+                            "dir": "firmware-mesh",
+                            "title": "Device OS API - Mesh"
+                        },
+                        {
+                            "dir": "firmware-xenon",
+                            "title": "Device OS API - Xenon"
+                        },
+                        {
+                            "dir": "firmware-core",
+                            "title": "Device OS API - Core"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

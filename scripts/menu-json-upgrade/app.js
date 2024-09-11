@@ -54,9 +54,9 @@ function processItemArray(options) {
         if (item.href) {
             delete item.path;
         }
-        options.newItemsArray.push(item);
 
         if (!Array.isArray(item)) {
+            options.newItemsArray.push(item);
             if (item.isSection) {
                 delete item.isSection;
                 item.subsections = [];
@@ -79,8 +79,8 @@ function processItemArray(options) {
 function processMenuJson(fileObj) {
 
     let newFileJson = {
-        // title
-        // dir: fileObj.dir,
+        // title: rootTities[]
+        dir: fileObj.dir,
         items: [],
     }
 

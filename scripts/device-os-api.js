@@ -223,7 +223,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
         apiMenusJson.items.push({
             title: curL2.origTitle,
-            folder: curL2.folder,
+            dir: curL2.folder,
             subsections: [],
         });
     }
@@ -232,7 +232,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         // Sort L2 headers alphabetically
         let introductionItem;
         for(let ii = 0; ii < apiMenusJson.items.length; ii++) {
-            if (apiMenusJson.items[ii].folder == 'introduction') {
+            if (apiMenusJson.items[ii].dir == 'introduction') {
                 introductionItem = apiMenusJson.items[ii];
                 apiMenusJson.items.splice(ii, 1);
                 break;
@@ -304,7 +304,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             delete l3obj.subsections;
         }
 
-        const folderItem = apiMenusJson.items.find(e => e.folder == section.folder);
+        const folderItem = apiMenusJson.items.find(e => e.dir == section.folder);
         if (folderItem) {
             folderItem.subsections.push(l3obj);
         }

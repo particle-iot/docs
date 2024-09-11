@@ -78,6 +78,27 @@ navMenu.load = async function() {
 
     navMenu.isHomePage = (navMenu.pathParts[1].length == 0); 
 
+    {
+        const parts = [];
+        parts.push('/')
+        for(let ii = 1; ii < navMenu.pathParts.length && navMenu.pathParts[ii].length; ii++) {
+            parts.push(navMenu.pathParts[ii]);
+            parts.push('/')
+        }
+
+        navMenu.hrefPage = parts.join('');
+
+        if (parts.length > 2) {
+            parts.splice(parts.length - 3, 2);
+            navMenu.hrefParent = parts.join('');
+        }
+        else {
+            navMenu.hrefParent = '';
+        }
+    }
+    console.log('navMenu', navMenu);
+
+/*    
     navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'menu.json';
 
     const fetchRes = await fetch(navMenu.menuPath);
@@ -121,8 +142,51 @@ navMenu.load = async function() {
         }
     }
     processArray(navMenu.menuJson.items)
-    const nav = navMenu.generateNavHtml(navMenu.menuJson);
+*/
+    navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'newMenu.json';
+
+    const fetchRes = await fetch(navMenu.menuPath);
+    if (fetchRes.status != 200) {
+        // No menus
+        return;
+    }
+    navMenu.menuJson = await fetchRes.json();
+    // End new code    
+
+    let loadMore;
     
+    if (navMenu.hrefPage.startsWith('/reference/device-os/api')) {
+        loadMore = {
+            'url': '/assets/files/apiMenus.json',
+            'insertLoc': 'device-os-api',
+        };
+    }
+    if (navMenu.hrefPage.startsWith('/reference/device-os/libraries')) {
+        loadMore = {
+            'url': '/assets/files/libraryMenus.json',
+            'insertLoc': 'libraries',
+        };
+
+    }
+
+    if (loadMore) {
+        const fetchMoreRes = await fetch(loadMore.url);
+        const moreMenuJson = await fetchMoreRes.json();
+
+        const updateInsertLoc = function(array) {
+            for(const itemObj of array) {
+                if (itemObj.insertLoc == loadMore.insertLoc) {
+                    itemObj.subsections = moreMenuJson.items;
+                }
+                if (typeof itemObj.subsections != 'undefined') {
+                    updateInsertLoc(itemObj.subsections);
+                }
+            }
+        }   
+        updateInsertLoc(navMenu.menuJson.items);
+    }
+    
+    const nav = navMenu.generateNavHtml(navMenu.menuJson);
     $('.navMenuOuter').replaceWith(nav);
 }
 
@@ -143,7 +207,93 @@ navMenu.openAnchor = function(href) {
     }
 }
 
+navMenu.generateNavHtmlInternal = function(submenuObj, options) {
+    // options
+    //   .level
+    //   .path
+
+    // CSS styles for menu items:
+    // navMenu1, navActive1, navMenu2, navActive2, navMenu3, navMenu4, navMenu5
+    // navSectionSpacer, navPlusMinus, navDisclosure
+    // navIndent2, navIndent3, navIndent4, navIndent5
+    // navContent3, navContent4, navContent5
+
+
+    for(const itemObj of submenuObj) {
+        // title, dir
+        itemObj.level = options.level;
+        itemObj.itemPath = (typeof itemObj.dir != 'undefined') ? (options.path + itemObj.dir) : options.path;
+        itemObj.href = itemObj.href ? itemObj.href : itemObj.itemPath;
+        if (!itemObj.href.endsWith('/')) {
+            itemObj.href += '/';
+        }
+        if (!itemObj.title) {
+            itemObj.title = navMenu.titleize(itemObj.dir);
+        }
+
+        itemObj.isActivePage = (itemObj.href == navMenu.hrefPage) ;
+        itemObj.isActiveParent = (itemObj.href == navMenu.hrefParent) ;
+
+        itemObj.elem = document.createElement('div');
+        $(itemObj.elem).addClass('navContainer');
+        $(options.elem).append(itemObj.elem);
+
+        const indentElem = document.createElement('div');
+        $(indentElem).addClass('navIndent' + itemObj.level);
+        $(itemObj.elem).append(indentElem);
+
+        itemObj.linkElem = document.createElement('div');
+        if (itemObj.isActivePage && itemObj.level <= 2) {
+            $(itemObj.linkElem).addClass("navActive" + itemObj.level);
+        }
+        else {
+            $(itemObj.linkElem).addClass("navMenu" + itemObj.level);
+        }
+
+        $(itemObj.linkElem).text(itemObj.title);
+        $(itemObj.elem).append(itemObj.linkElem);
+
+
+        console.log('itemObj', itemObj);
+
+        if (typeof itemObj.subsections != 'undefined') {
+            // Item with subsection
+
+            const subOptions = Object.assign({}, options);
+            subOptions.level = options.level + 1;
+            subOptions.path = itemObj.itemPath + '/';
+            
+            navMenu.generateNavHtmlInternal(itemObj.subsections, subOptions);
+        }
+        else {
+            // Regular item
+
+        }
+    }
+}
+
 navMenu.generateNavHtml = function(menuJson) {
+    const path = (menuJson.dir == '') ? '/' : '/' + menuJson.dir + '/';
+
+    console.log('menuJson', menuJson);
+
+    const navElem = document.createElement('div');
+    $(navElem).addClass('navMenuOuter');
+    $(navElem).data('menuJson', menuJson);
+
+    const options = {
+        level:1, 
+        path,
+        elem: navElem,
+    };
+
+    navMenu.generateNavHtmlInternal(menuJson.items, options);
+
+    return navElem;
+}
+
+// Delete this after new is working
+navMenu.generateNavHtmlOld = function(menuJson) {
     // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);
 
     const makeTitle = function (item) {

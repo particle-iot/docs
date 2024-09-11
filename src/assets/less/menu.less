@@ -163,6 +163,20 @@ div.navMenu5 {
 
 };
 
+div.navMenu6 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
 div.navSectionSpacer {
   height: 10px;
 };
@@ -173,6 +187,10 @@ div.navPlusMinus {
 
 div.navDisclosure {
   width: 15px;
+};
+
+div.navIndent1 {
+  width: 0px;
 };
 
 div.navIndent2 {
@@ -223,6 +241,21 @@ div.navContent5 {
   }
 
 };
+
+div.navIndent6 {
+  width: 85px;
+};
+div.navContent6 {
+  width: 165px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 185px + @menubarWideExtra;
+  }
+
+};
+
 
 div.navContent {
   overflow: hidden;

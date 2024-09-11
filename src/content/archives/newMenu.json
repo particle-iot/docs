@@ -1,0 +1,65 @@
+{
+    "dir": "archives",
+    "items": [
+        {
+            "dir": "tinker",
+            "title": "Tinker & Mobile App"
+        },
+        {
+            "dir": "ifttt",
+            "title": "IFTTT"
+        },
+        {
+            "dir": "an007-tower-info",
+            "title": "AN007 Tower Info"
+        },
+        {
+            "dir": "an009-firmware-examples",
+            "title": "AN009 Firmware Examples"
+        },
+        {
+            "dir": "application-notes",
+            "title": "Application Notes"
+        },
+        {
+            "dir": "xenon-options",
+            "title": "Using a Xenon without Mesh"
+        },
+        {
+            "dir": "xenon-circuit-python",
+            "title": "CircuitPython on Xenon"
+        },
+        {
+            "dir": "xenon-standalone",
+            "title": "Xenon Standalone"
+        },
+        {
+            "dir": "mesh-setup-over-usb",
+            "title": "Mesh Setup over USB"
+        },
+        {
+            "dir": "serial2-on-the-photon",
+            "title": "Serial2 on the Photon"
+        },
+        {
+            "dir": "create-a-local-publishsubscribe-group-using-ble-on-gen3-devices",
+            "title": "Create a local publish/subscribe group using BLE on Gen3 devices"
+        },
+        {
+            "dir": "debugging-with-eclipse",
+            "title": "Debugging with Eclipse"
+        },
+        {
+            "dir": "installing-dfu-util",
+            "title": "Installing DFU-util"
+        },
+        {
+            "dir": "local-build-using-gcc-arm",
+            "title": "Local build using gcc-arm"
+        },
+        {
+            "dir": "maker-kit",
+            "title": "Maker kit tutorials"
+        }
+    ]
+}

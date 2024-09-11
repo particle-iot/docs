@@ -1,0 +1,150 @@
+{
+    "dir": "firmware",
+    "items": [
+        {
+            "dir": "firmware",
+            "title": "Firmware",
+            "tiles": [
+                {
+                    "title": "Best practices",
+                    "detail": "Writing good device firmware",
+                    "href": "/firmware/best-practices/firmware-introduction/"
+                },
+                {
+                    "title": "USB serial debugging",
+                    "detail": "Using logging and serial debugging to debug code",
+                    "href": "/firmware/best-practices/usb-serial/"
+                },
+                {
+                    "title": "Libraries",
+                    "detail": "Using libraries to add new software features",
+                    "href": "/firmware/best-practices/libraries/"
+                },
+                {
+                    "title": "Tracker Edge",
+                    "detail": "Writing code for the Tracker One and Tracker SoM",
+                    "href": "/firmware/tracker-edge/tracker-edge-firmware/"
+                },
+                {
+                    "title": "Low power",
+                    "detail": "Designing for battery-powered applications",
+                    "href": "/firmware/low-power/wake-publish-sleep-cellular/"
+                },
+                {
+                    "title": "Finite state machines",
+                    "detail": "Software design concepts for easier to maintain firmware",
+                    "href": "/firmware/software-design/finite-state-machines/"
+                }
+            ]
+        },
+        {
+            "dir": "best-practices",
+            "subsections": [
+                {
+                    "dir": "firmware-introduction",
+                    "title": "Firmware introduction"
+                },
+                {
+                    "dir": "about-apps",
+                    "title": "About apps"
+                },
+                {
+                    "dir": "github-actions",
+                    "title": "Github Actions (CI/CD)"
+                },
+                {
+                    "dir": "json",
+                    "title": "JSON"
+                },
+                {
+                    "dir": "usb-serial",
+                    "title": "USB serial debugging"
+                },
+                {
+                    "dir": "libraries",
+                    "title": "Libraries"
+                },
+                {
+                    "dir": "code-size-tips",
+                    "title": "Code size tips"
+                },
+                {
+                    "dir": "scheduling",
+                    "title": "Scheduling"
+                },
+                {
+                    "dir": "firmware-build-options",
+                    "title": "Firmware build options"
+                },
+                {
+                    "dir": "firmware-template",
+                    "title": "Firmware template"
+                }
+            ]
+        },
+        {
+            "dir": "tracker-edge",
+            "title": "Gateway firmware",
+            "subsections": [
+                {
+                    "dir": "tracker-edge-firmware",
+                    "title": "Tracker Edge Firmware"
+                },
+                {
+                    "dir": "tracker-edge-api-reference",
+                    "title": "Tracker Edge API reference"
+                },
+                {
+                    "dir": "monitor-edge-firmware",
+                    "title": "Monitor Edge firmware"
+                },
+                {
+                    "dir": "monitor-edge-api-reference",
+                    "title": "Monitor Edge API reference"
+                },
+                {
+                    "dir": "store-and-forward",
+                    "title": "Store and forward"
+                }
+            ]
+        },
+        {
+            "dir": "low-power",
+            "subsections": [
+                {
+                    "dir": "wake-publish-sleep-cellular",
+                    "title": "Wake publish sleep example"
+                },
+                {
+                    "dir": "stop-sleep-cellular",
+                    "title": "Stop sleep cellular example"
+                },
+                {
+                    "dir": "device-powerdown",
+                    "title": "Device Powerdown"
+                }
+            ]
+        },
+        {
+            "dir": "software-design",
+            "subsections": [
+                {
+                    "dir": "callback-functions",
+                    "title": "Callback functions"
+                },
+                {
+                    "dir": "finite-state-machines",
+                    "title": "Finite State Machines"
+                },
+                {
+                    "dir": "threading-explainer",
+                    "title": "Threading explainer"
+                },
+                {
+                    "dir": "singleton",
+                    "title": "Singleton"
+                }
+            ]
+        }
+    ]
+}

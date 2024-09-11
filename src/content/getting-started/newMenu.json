@@ -1,0 +1,359 @@
+{
+    "dir": "getting-started",
+    "items": [
+        {
+            "dir": "getting-started",
+            "title": "Getting Started",
+            "tiles": [
+                {
+                    "title": "Hardware overview",
+                    "detail": "Learn about Particle hardware",
+                    "href": "/getting-started/hardware/hardware-overview/"
+                },
+                {
+                    "title": "Device OS",
+                    "detail": "Learn about the operating system on Particle devices",
+                    "href": "/getting-started/device-os/introduction-to-device-os/"
+                },
+                {
+                    "title": "Workbench",
+                    "detail": "Development environment for Particle devices",
+                    "href": "/getting-started/developer-tools/workbench/"
+                },
+                {
+                    "title": "Cloud",
+                    "detail": "Learn how to use the Particle cloud to communicate with devices",
+                    "href": "/getting-started/cloud/introduction/"
+                },
+                {
+                    "title": "Console",
+                    "detail": "Manage devices from the Particle console",
+                    "href": "/getting-started/console/console/"
+                },
+                {
+                    "title": "Products",
+                    "detail": "Learn about products and device fleets",
+                    "href": "/getting-started/products/introduction-to-products/"
+                }
+            ]
+        },
+        {
+            "dir": "new",
+            "title": "What's new"
+        },
+        {
+            "dir": "hardware",
+            "subsections": [
+                {
+                    "dir": "hardware-overview",
+                    "title": "Hardware overview"
+                },
+                {
+                    "dir": "tracking-system",
+                    "title": "Tracking system"
+                },
+                {
+                    "dir": "cellular-overview",
+                    "title": "Cellular overview"
+                }
+            ]
+        },
+        {
+            "dir": "setup",
+            "subsections": [
+                {
+                    "dir": "setup-options",
+                    "title": "Setup options",
+                    "tiles": [
+                        {
+                            "title": "setup.particle.io",
+                            "detail": "Set up your Particle device from a web browser",
+                            "href": "https://setup.particle.io/"
+                        },
+                        {
+                            "title": "Command Line",
+                            "detail": "Command line interface setup",
+                            "href": "/getting-started/developer-tools/cli/"
+                        },
+                        {
+                            "title": "Tracker",
+                            "detail": "Set up a Tracker One of Tracker SoM eval board",
+                            "href": "/getting-started/tracker/tracker-setup/"
+                        }
+                    ]
+                },
+                {
+                    "dir": "manual-setup",
+                    "title": "Manual setup"
+                },
+                {
+                    "dir": "accounts",
+                    "title": "Accounts and access controls"
+                },
+                {
+                    "dir": "wpa2-enterprise",
+                    "title": "WPA2 Enterprise Wi-Fi Setup"
+                },
+                {
+                    "dir": "wifi-setup-options",
+                    "title": "Wi-Fi setup for products",
+                    "href": "/reference/device-os/wifi-setup-options/"
+                },
+                {
+                    "dir": "classroom",
+                    "title": "Classroom setup"
+                }
+            ]
+        },
+        {
+            "dir": "device-os",
+            "subsections": [
+                {
+                    "dir": "introduction-to-device-os",
+                    "title": "Introduction to Device OS"
+                },
+                {
+                    "dir": "firmware-libraries",
+                    "title": "Firmware libraries"
+                },
+                {
+                    "title": "Library search",
+                    "href": "/reference/device-os/libraries/search/"
+                }
+            ]
+        },
+        {
+            "dir": "developer-tools",
+            "subsections": [
+                {
+                    "dir": "developer-tools",
+                    "title": "Developer tools",
+                    "tiles": [
+                        {
+                            "title": "Workbench",
+                            "detail": "Development environment for Particle devices",
+                            "href": "/getting-started/developer-tools/workbench/"
+                        },
+                        {
+                            "title": "Particle CLI",
+                            "detail": "Command line interfface",
+                            "href": "/reference/developer-tools/cli/"
+                        }
+                    ]
+                },
+                {
+                    "dir": "workbench",
+                    "title": "Workbench"
+                },
+                {
+                    "dir": "workbench FAQ",
+                    "title": "Workbench FAQ",
+                    "href": "/getting-started/developer-tools/workbench-faq/"
+                },
+                {
+                    "dir": "cli",
+                    "title": "Command line"
+                },
+                {
+                    "dir": "build",
+                    "title": "Web IDE"
+                }
+            ]
+        },
+        {
+            "dir": "cloud",
+            "subsections": [
+                {
+                    "dir": "introduction",
+                    "title": "Introduction"
+                },
+                {
+                    "dir": "cloud-communication",
+                    "title": "Cloud communication"
+                },
+                {
+                    "dir": "ota-updates",
+                    "title": "OTA firmware updates"
+                },
+                {
+                    "dir": "cloud-api",
+                    "title": "Cloud API"
+                },
+                {
+                    "dir": "device-claiming",
+                    "title": "Device claiming"
+                },
+                {
+                    "dir": "function-publish-demo",
+                    "title": "Function and publish demo"
+                }
+            ]
+        },
+        {
+            "dir": "tracker",
+            "subsections": [
+                {
+                    "dir": "tracker-setup",
+                    "title": "Tracker setup"
+                },
+                {
+                    "dir": "tracker-eval-tutorials",
+                    "title": "Tracker eval board tutorials"
+                }
+            ]
+        },
+        {
+            "dir": "console",
+            "subsections": [
+                {
+                    "dir": "console",
+                    "title": "Console"
+                },
+                {
+                    "dir": "fleet-health",
+                    "title": "Fleet health"
+                },
+                {
+                    "dir": "device-vitals",
+                    "title": "Device vitals"
+                },
+                {
+                    "dir": "device-groups",
+                    "title": "Device groups"
+                },
+                {
+                    "dir": "development-devices",
+                    "title": "Development devices"
+                },
+                {
+                    "dir": "team-access-controls",
+                    "title": "Team access controls"
+                },
+                {
+                    "dir": "sim-management",
+                    "title": "SIM management"
+                },
+                {
+                    "dir": "two-step-authentication",
+                    "title": "Two-step authentication"
+                }
+            ]
+        },
+        {
+            "dir": "logic-ledger",
+            "title": "Logic & Ledger",
+            "subsections": [
+                {
+                    "dir": "logic",
+                    "title": "Logic"
+                },
+                {
+                    "dir": "ledger",
+                    "title": "Ledger"
+                },
+                {
+                    "dir": "data-transformation",
+                    "title": "Data transformation with Logic"
+                },
+                {
+                    "dir": "ledger-sensor",
+                    "title": "Ledger sensor"
+                },
+                {
+                    "dir": "ledger-configuration",
+                    "title": "Ledger configuration"
+                },
+                {
+                    "dir": "logic-cloud-alerts",
+                    "title": "Cloud alerts with Logic"
+                },
+                {
+                    "dir": "device-info-ledger",
+                    "title": "Device information in Ledger"
+                },
+                {
+                    "dir": "logic-ledger-community",
+                    "title": "Logic & Ledger community projects",
+                    "subsections": [
+                        {
+                            "dir": "logic-ledger-community",
+                            "title": "Logic and ledger community projects"
+                        },
+                        {
+                            "dir": "cloud-to-device-ledger-getting-started",
+                            "title": "Cloud to device ledger getting started"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dir": "products",
+            "subsections": [
+                {
+                    "dir": "introduction-to-products",
+                    "title": "Introduction to products"
+                },
+                {
+                    "dir": "creating-a-product",
+                    "title": "Creating a product"
+                },
+                {
+                    "dir": "security",
+                    "title": "Security"
+                },
+                {
+                    "dir": "organizations",
+                    "title": "Organizations"
+                }
+            ]
+        },
+        {
+            "dir": "billing",
+            "subsections": [
+                {
+                    "dir": "data-operations",
+                    "title": "Data operations"
+                },
+                {
+                    "dir": "cellular-data",
+                    "title": "Cellular data guide"
+                },
+                {
+                    "dir": "migrating-to-basic",
+                    "title": "Migrating to basic plan"
+                }
+            ]
+        },
+        {
+            "dir": "machine-learning",
+            "subsections": [
+                {
+                    "dir": "machine-learning",
+                    "title": "Machine Learning"
+                },
+                {
+                    "dir": "doorbell",
+                    "title": "Doorbell SMS"
+                },
+                {
+                    "dir": "youre-muted",
+                    "title": "You're muted"
+                }
+            ]
+        },
+        {
+            "dir": "hardware-tutorials",
+            "subsections": [
+                {
+                    "dir": "hardware-examples",
+                    "title": "Blink an LED hardware examples"
+                },
+                {
+                    "dir": "e-series-eval-kit",
+                    "title": "E-Series eval kit tutorials"
+                }
+            ]
+        }
+    ]
+}
