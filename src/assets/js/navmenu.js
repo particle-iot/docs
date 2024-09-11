@@ -269,6 +269,14 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         itemObj.isActiveParent = (itemObj.href == navMenu.hrefParent) ;
         itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
 
+        if (itemObj.isActivePage) {
+            console.log('isActivePage', itemObj);
+        }
+
+        if (itemObj.anchor) {
+            itemObj.href += '#' + itemObj.anchor;
+        }
+
         itemObj.elem = document.createElement('div');
         if (options.hideSubsections) {
             $(itemObj.elem).hide();   
@@ -308,35 +316,29 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                     navMenu.collapseExpand(itemObj, false);
                 }
             });
-            /*
-            const clickHdr = hdr;
 
-            $(triangleElem).on('click', function () {
-                if ($(iconElem).hasClass('ion-arrow-right-b')) {
-                    // Was right, make down
-                    $(iconElem).removeClass('ion-arrow-right-b');
-                    $(iconElem).addClass('ion-arrow-down-b');                        
-                    $(clickHdr.tocChildren).show();
-                }
-                else {
-                    // Has down, make right
-                    $(iconElem).removeClass('ion-arrow-down-b');
-                    $(iconElem).addClass('ion-arrow-right-b');
-                    $(clickHdr.tocChildren).hide();
-                }
-            });
-            */
         }
 
         itemObj.linkElem = document.createElement('div');
-        if (itemObj.isActivePage) {
+        if (itemObj.isActivePage && !itemObj.anchor) {
             $(itemObj.linkElem).addClass("navActive" + itemObj.level);
         }
         else {
             $(itemObj.linkElem).addClass("navMenu" + itemObj.level);
         }
 
+        let canLink = false;
         if (!itemObj.isActivePage && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
+            // Non-active page always links if there are no subsections or this is a special page (Device OS API or Libraries)
+            canLink = true;
+        }
+        else 
+        if (itemObj.anchor) {
+            // Allow any page with an anchor to be linked to (this happens for deep inside the Device OS API reference)
+            canLink = true;
+        }
+
+        if (canLink) {
             // This is not the active page and does not have subsections, so it's a clickable link
             // Also do this if it's a special page (Device OS API or Libraries)
             const aElem = document.createElement('a');

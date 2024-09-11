@@ -106,11 +106,13 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
                 const spaceIndex = line.indexOf(' ');
                 
-                sections[sections.length - 1].subsections.push({
+                let obj = {
                     level: spaceIndex,
                     anchor: origAnchor,
                     title: line.substring(spaceIndex + 1).trim(),
-                });
+                };
+
+                sections[sections.length - 1].subsections.push(obj);
             }
 
             if (line.startsWith('## ') || line.startsWith('### ')) {
