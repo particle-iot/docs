@@ -200,26 +200,6 @@ navMenu.collapseExpand = function(itemObj, showSubsections) {
     }
 }
 
-navMenu.scanHeadersInternal = function(parentElem, level, destItemObj) {
-    console.log('scanHeadersInternal', {parentElem, level, destItemObj});
-    $(parentElem).find('h' + level).each(function () {
-        let innerItemObj = {
-            title: $(this).text(),
-            anchor: $(this).attr('id'),
-            isContent: true,
-        };
-        console.log('innerItemObj', innerItemObj);
-
-        if (typeof destItemObj.subsections == 'undefined') {
-            destItemObj.subsections = [];
-        }
-        destItemObj.subsections.push(innerItemObj);
-        if (level <= 4) {
-            navMenu.scanHeadersInternal(this, level + 1, innerItemObj);
-        }
-    });
-
-};
 
 navMenu.forEachItemInternal = function(array, options) {
     for(const itemObj of array) {
@@ -262,9 +242,37 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         itemObj.isActiveParent = (itemObj.href == navMenu.hrefParent) ;
         itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
 
-        if (itemObj.isActivePage && !itemObj.anchor && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
-            // This is a normal page, add the internal headers to the navigation            
-            navMenu.scanHeadersInternal($('div.content-inner'), 2, itemObj);
+        if (itemObj.isActivePage && !itemObj.anchor && !itemObj.isContent && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
+            // This is a normal page, add the internal headers to the navigation   
+            let lastItemAtLevel = [];
+            let lastLevel;
+
+            lastItemAtLevel[1] = itemObj;
+
+            $('div.content-inner').find('h2,h3,h4').each(function() {
+                const level = parseInt($(this).prop('tagName').substring(1));
+                
+                let innerItemObj = {
+                    title: $(this).text(),
+                    anchor: $(this).attr('id'),
+                    isContent: true,
+                };
+
+                if (lastItemAtLevel[level - 1]) {
+                    if (typeof lastItemAtLevel[level - 1].subsections == 'undefined') {
+                        lastItemAtLevel[level - 1].subsections = [];
+                    }
+                    lastItemAtLevel[level - 1].subsections.push(innerItemObj);
+                }
+                lastItemAtLevel[level] = innerItemObj;
+
+                if (level < lastLevel) {
+                    lastItemAtLevel[level] = null;
+                }
+                lastLevel = level;
+            });     
+            
+            console.log('content navigation done', itemObj);
         }
 
         if (itemObj.anchor) {
@@ -871,7 +879,9 @@ navMenu.scrollToActive = function () {
 
 
 navMenu.syncNavigation = function() {
-    
+    if (!navMenu.menuJson) {
+        return;
+    }
     
     let pageOffsets = [];
     $('div.content-inner').find('h2,h3,h4,h5').each(function (index, elem) {
