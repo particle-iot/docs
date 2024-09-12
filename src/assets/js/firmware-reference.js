@@ -1,8 +1,253 @@
+let firmwareReference = {
+    pageQueue: [],
+    pageLoading: false,
+};
+
 $(document).ready(function() {
-    let navigationInfo;
+
+    const scrollableContent = $('div.content-inner');
+
+    firmwareReference.thisUrl = new URL(location.href);
+    $('.originalContent').addClass('referencePage');
+    $('.originalContent').attr('data-href', firmwareReference.thisUrl.pathname);
+
+    firmwareReference.loadPage = function() {
+        if (firmwareReference.pageQueue.length == 0 || firmwareReference.pageLoading) {
+            return;
+        }
+        let options = firmwareReference.pageQueue.splice(0, 1)[0];
+        firmwareReference.pageLoading = true;
+
+        if (typeof options.index != 'undefined' && typeof options.link == 'undefined') {
+            options.link = navMenu.moreItems[options.index].hrefNoAnchor;
+        }
+
+        console.log('loadPage', options);
+
+        fetch(options.link)
+            .then(response => response.text())
+            .then(function(res) {
+                firmwareReference.pageLoading = false;
+
+                // <!-- start 841427f3-9f46-4361-ab97-7afda1e082f9 -->
+                // <!-- end 841427f3-9f46-4361-ab97-7afda1e082f9 -->
+                let newContent = '';
+                let inNewContent = false;
+
+                for(const line of res.split('\n')) {
+                    if (inNewContent) {
+                        if (line.includes('end 841427f3-9f46-4361-ab97-7afda1e082f9')) {
+                            inNewContent = false;
+                        }
+                        else {
+                            newContent += line + '\n';
+                        }
+                    }
+                    else {
+                        if (line.includes('start 841427f3-9f46-4361-ab97-7afda1e082f9')) {
+                            inNewContent = true;
+                        }
+                    }
+
+                }
+
+                let itemIndex;
+                for(itemIndex = 0; itemIndex < navMenu.moreItems.length; itemIndex++) {
+                    if (navMenu.moreItems[itemIndex].hrefNoAnchor == options.link) {
+                        break;
+                    }
+                }
+                if (itemIndex >= navMenu.moreItems.length) {
+                    console.log('not found ' + options.link);
+                    return;
+                }
+                const itemObj = navMenu.moreItems[itemIndex];
+                console.log('loadPage', itemObj);
+                
+                let divElem = document.createElement('div');
+                $(divElem).addClass('referencePage');
+                $(divElem).attr('data-href', options.link);
+                $(divElem).append(newContent);
+
+                // Remove the h2 when not at the start of a section
+                // TODO: Only do this when not at the start of a section
+                $(divElem).find('h2').remove();
+
+                let params = {};
+                params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
+                params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
+
+                if (options.replacePage) {
+                    $('.referencePage').remove();
+                    firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = itemIndex;
+
+                    $(divElem).addClass('originalContent');
+                    $('div.content').append(divElem);
+                }
+                else
+                if (options.toEnd) {
+                    // $(scrollableContent).data('nextLink', nav.next);
+                    firmwareReference.bottomIndex = itemIndex;
+
+                    $('div.content').not('.note-common').last().append(divElem);
+                }
+                else {
+                    // Insert before
+                    console.log('has insertBefore');
+                    // $(scrollableContent).data('prevLink', nav.prev);
+                    firmwareReference.topIndex = itemIndex;
+
+                    $('div.content').not('.note-common').first().prepend(divElem);
+
+                    params.divHeight = Math.floor($(divElem).height());
+                    params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
+
+                    $(scrollableContent).scrollTop(params.scrollTopAfter);
+                }
+
+                // apiIndex.sections[nav.index].contentElem = divElem;
+
+                firmwareReference.ignoreScroll = Date.now() + 1000;
+
+                if (options.scrollIntoView) {
+                    $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
+                }
+
+                if (options.syncNavigation) {
+                    navMenu.syncNavigation(options.link);
+                }
+
+                if (firmwareReference.pageQueue.length) {
+                    firmwareReference.loadPage();
+                }           
+            })
+            .catch(function(err) {
+                console.log('err', err);
+            });
+
+    }
+
+    firmwareReference.queuePage = function(options) {
+        if (typeof options.index != 'undefined') {
+            const count = (typeof options.count != 'undefined') ? options.count : 1;
+
+            if (options.toEnd) {
+                for(let ii = 1; (ii <= count) && ((ii + options.index) < navMenu.moreItems.length); ii++) {
+                    firmwareReference.pageQueue.push({index: ii + options.index, toEnd:true});                            
+                }
+            }
+            else {
+                for(let ii = 1; (ii <= count) && ((options.index - ii) >= 0); ii++) {
+                    firmwareReference.pageQueue.push({index: options.index - ii, toEnd:false});                            
+                }                
+            }            
+        }
+        else {
+            if (options.link) {
+                firmwareReference.pageQueue.push(options);            
+            }    
+        }
+        firmwareReference.loadPage();
+    }
+
+    firmwareReference.replacePage = function(options) {
+        firmwareReference.pageQueue = [];
+        
+        if (typeof options.index != 'undefined') {
+            firmwareReference.pageQueue.push({index: options.index, replacePage: true, });
+
+            firmwareReference.queuePage({index: options.index, count: 3, toEnd: true});
+        }
+    }
+
+    firmwareReference.navMenuLoaded = function() {
+        console.log('firmwareReference.navMenuLoaded', firmwareReference);
+
+        firmwareReference.loadedMoreItemsIndex = null;
+
+        for(let ii = 0; ii < navMenu.moreItems.length; ii++) {
+            const index = ii;
+            const itemObj = navMenu.moreItems[ii];
+            if (firmwareReference.thisUrl.pathname == itemObj.hrefNoAnchor) {
+                if (!firmwareReference.loadedMoreItemsIndex) {
+                    firmwareReference.loadedMoreItemsIndex = ii;
+                }
+            }
+
+            if (itemObj.navLinkElem) {
+                $(itemObj.navLinkElem).off('click');
+
+                $(itemObj.navLinkElem).on('click', function(ev) {
+                    ev.preventDefault();
+
+                    console.log('click nav', {itemObj, index});
+                    firmwareReference.replacePage({index});
+                });
+            }
+        }
+
+
+        if (firmwareReference.loadedMoreItemsIndex) {
+            firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = firmwareReference.loadedMoreItemsIndex;
+
+            // Preload pages
+            firmwareReference.queuePage({index:firmwareReference.initialIndex, count:4, toEnd:true});  
+        }    
+    }
+
+    $(scrollableContent).on('scroll', function(e) {
+        // console.log('scrolled ', e);
+        // e.originalEvent
+        let params = {};
+
+        params.scrollTop = Math.round($(scrollableContent).scrollTop());
+        params.scrollHeight = $(scrollableContent).prop('scrollHeight');
+        params.height = $(scrollableContent).height();
+        
+        params.atTop = (params.scrollTop == 0);
+        params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
+
+        // $(scrollableContent).height() is the height of the view
+
+        // console.log('params', params);
+        if (!firmwareReference.ignoreScroll || Date.now() > firmwareReference.ignoreScroll) {
+            firmwareReference.ignoreScroll = null;
+            navMenu.syncNavigation();
+        }
+        else {
+        }
+
+        if (params.atTop && firmwareReference.topIndex >= 0) {
+            console.log('atTop');
+            firmwareReference.queuePage({index:firmwareReference.topIndex, count:4, toEnd:false});  
+        }
+        if (params.atBottom && firmwareReference.bottomIndex < navMenu.moreItems.length) {
+            console.log('atBottom');
+            firmwareReference.queuePage({index:firmwareReference.bottomIndex, count:4, toEnd:true});  
+        }
+    });
+
+
+    /*
+    const preloadPages = function(pathname) {
+        const pathParts = parsePath(pathname);
+        
+        for(let index = 0; index < apiIndex.sections.length; index++) {
+            const section = apiIndex.sections[index];
+            if (section.folder == pathParts.folder && section.file == pathParts.file) {
+                for(let ii = 1; ii <= 3 && (index + ii) < apiIndex.sections.length; ii++) {
+                    queuePage({link: apiIndex.sections[index + ii].href, toEnd:true});
+                }                
+                break;
+            }
+        }
+    }
+    */
+
 
     return; // TEMPORARY
 
+    /*
     const scrollableContent = $('div.content-inner');
 
     let apiIndex;
@@ -138,14 +383,6 @@ $(document).ready(function() {
             return;
         }
 
-        /*
-        if (linkOptional) {
-            console.log('syncNavigation to link ' + href);
-        }
-        else {
-            console.log('syncNavigation from position ' + href);
-        }
-        */
 
         const pathParts = parsePath(href);
         const folder = pathParts.folder;
@@ -275,8 +512,6 @@ $(document).ready(function() {
         }
         
 
-        /*
-*/
         // a for current page gets .navLinkActive
         // Also the containing folder
         // Opened folders get i ion-arrow-down-b
@@ -666,5 +901,7 @@ $(document).ready(function() {
 
         }
     });
+
+    */
 });
 

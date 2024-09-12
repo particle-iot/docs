@@ -1,5 +1,7 @@
 // Navigation Menu
-let navMenu = {};
+let navMenu = {
+
+};
 
 // This is copied from templates/helpers/titleize.js - try to keep in sync
 navMenu.titleize = function(string) {
@@ -144,10 +146,23 @@ navMenu.load = async function() {
             }
         }   
         updateInsertLoc(navMenu.menuJson.items);
+
+        // For the Device OS API and Libraries, this is a sequential list of every page (not anchor)
+        // which is useful for automatically scrolling
+        navMenu.moreItems = [];
+        navMenu.forEachItemInternal(moreMenuJson.items, {callback:function(itemObj) {
+            if (!itemObj.anchor) {
+                navMenu.moreItems.push(itemObj);
+            }
+        }});
     }
     
     const nav = navMenu.generateNavHtml(navMenu.menuJson);
     $('.navMenuOuter').replaceWith(nav);
+
+    if (firmwareReference) {
+        firmwareReference.navMenuLoaded();
+    }
 }
 
 navMenu.openAnchor = function(href) {
@@ -185,12 +200,12 @@ navMenu.collapseExpandInternal = function(itemObj, showSubsections) {
 navMenu.collapseExpand = function(itemObj, showSubsections) {
     
     if (typeof showSubsections == 'undefined') {
-        showSubsection = $(itemObj.collapseIconElem).hasClass('ion-arrow-right-b');
+        showSubsections = $(itemObj.collapseIconElem).hasClass('ion-arrow-right-b');
     }
     const isShown = $(itemObj.collapseIconElem).hasClass('ion-arrow-down-b');
 
     if (isShown != showSubsections) {
-        if (showSubsection) {
+        if (showSubsections) {
             // Was right, make down
             $(itemObj.collapseIconElem).removeClass('ion-arrow-right-b');
             $(itemObj.collapseIconElem).addClass('ion-arrow-down-b');
@@ -380,6 +395,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             $(aElem).text(itemObj.title);
 
             $(itemObj.linkElem).append(aElem);
+            itemObj.navLinkElem = aElem;
         }
         else {
             $(itemObj.linkElem).text(itemObj.title);
@@ -917,7 +933,11 @@ navMenu.scrollToActive = function () {
     if (activeElem.length) {
         const boundingRect = $(activeElem)[0].getBoundingClientRect();
 
-        if ((boundingRect.top >= 0) && (boundingRect.bottom <= window.innerHeight)) {
+        const menubarRect = $('.menubar')[0].getBoundingClientRect();
+
+        //console.log('scrollToActive', {boundingRect, menubarRect});
+
+        if ((boundingRect.top >= menubarRect.top) && (boundingRect.bottom <= menubarRect.bottom)) {
             // Is already visible, don't scroll
         }
         else {
