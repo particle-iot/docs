@@ -70,8 +70,9 @@ $(document).ready(function() {
                 $(divElem).append(newContent);
 
                 // Remove the h2 when not at the start of a section
-                // TODO: Only do this when not at the start of a section
-                $(divElem).find('h2').remove();
+                if (!itemObj.sectionStart) {
+                    $(divElem).find('h2').remove();
+                }
 
                 let params = {};
                 params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());

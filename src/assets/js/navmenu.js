@@ -150,9 +150,18 @@ navMenu.load = async function() {
         // For the Device OS API and Libraries, this is a sequential list of every page (not anchor)
         // which is useful for automatically scrolling
         navMenu.moreItems = [];
+        let nextIsSectionStart = false;
+
         navMenu.forEachItemInternal(moreMenuJson.items, {callback:function(itemObj) {
             if (!itemObj.anchor) {
+                if (nextIsSectionStart) {
+                    itemObj.sectionStart = true;
+                    nextIsSectionStart = false;
+                }
                 navMenu.moreItems.push(itemObj);
+                if (itemObj.collapse) {
+                    nextIsSectionStart = true;
+                }
             }
         }});
     }
