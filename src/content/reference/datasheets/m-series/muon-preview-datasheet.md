@@ -8,9 +8,10 @@ description: Muon datasheet
 # Muon datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and changes are likely before release.
+This is a preliminary datasheet and there will be changes before release.
 {{box op="end"}}
 
+For information about the engineering sample preview devices, including setup and errata, see [Muon samples](/reference/datasheets/m-series/muon-samples/).
 
 ## Overview
 
@@ -100,31 +101,6 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 | 13 | RESET button | 
 | 14 | RGB status LED |
 | 15 | MODE button |
-
-#### Preview edition
-
-The Muon preview comes in a plastic case with the following items:
-
-{{imageOverlay src="/assets/images/m-series/muon-preview-labeled.png" alt="Preview labeled" class="full-width"}}
-
-| Label | Feature |
-| :---: | :--- |
-| 16 | GNSS antenna |
-| 17 | Cellular antenna |
-| 18 | Wi-Fi/BLE antenna |
-| 19 | LiPo battery with temperature sensor |
-| 20 | LoRa antenna connector (SMA) |
-| 21 | Muon Wi-Fi/BLE connector (preview only, do not use!) |
-
-Be sure to connect the Wi-Fi/BLE antenna to the M-SoM itself, not the U.FL connector on the Muon (21). Future versions
-of the Muon will not have this connector on the base board.
-
-#### Device setup
-
-To set up your Muon preview device, connect a USB-C cable from connector 3 to your computer, then proceed to [setup.particle.io](https://setup.particle.io/) to complete the setup of your device.
-
-{{imageOverlay src="/assets/images/m-series/muon-usb.png" alt="USB connection" class="full-width"}}
-
 
 ### Dimensions
 
@@ -298,6 +274,11 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 
 
 ## Pin information
+
+{{box op="start" cssClass="boxed warningBox"}}
+This pinout information is for v0.5 of the Muon. There will be changes in future versions!
+{{box op="end"}}
+
 
 ### Pinout diagram
 

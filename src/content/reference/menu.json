@@ -438,6 +438,12 @@
           "internal": true
         },
         {
+          "dir": "muon-samples",
+          "title": "Muon engineering samples",
+          "href": "/reference/datasheets/m-series/muon-samples/",
+          "internal": true
+        },
+        {
           "dir": "muon-datasheet",
           "title": "Muon datasheet",
           "href": "/reference/datasheets/m-series/muon-datasheet/"
