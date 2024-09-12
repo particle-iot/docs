@@ -908,12 +908,21 @@ navMenu.updateTOC = function () {
 };
 
 navMenu.scrollToActive = function () {
+
     let activeElem = $('.navLinkActive');
     if (activeElem.length == 0) {
         activeElem = $('.navActive2');
     }
+
     if (activeElem.length) {
-        activeElem[0].scrollIntoView();  
+        const boundingRect = $(activeElem)[0].getBoundingClientRect();
+
+        if ((boundingRect.top >= 0) && (boundingRect.bottom <= window.innerHeight)) {
+            // Is already visible, don't scroll
+        }
+        else {
+            activeElem[0].scrollIntoView();  
+        }
     }
 };
 
