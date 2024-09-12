@@ -81,9 +81,7 @@ If you already have an existing Particle project (with a `project.properties` fi
 
 You can also have `particle.include` and `particle.ignore` files for controlling which files are uploaded when cloud compiling. See [particle.include and particle.ignore](/getting-started/device-os/firmware-libraries/#particle-include-and-particle-ignore).
 
-### Cloud build and flash
-
-Before you can build in the cloud (the way Particle Web IDE and Particle CLI normally build), you need to select the device you wish to build for.
+### Configure project 
 
 From the Command Palette select **Particle: Configure Workspace for Device**.
 
@@ -101,6 +99,20 @@ And finally the name or device ID of the device you want to flash to. You can le
 
 ![Configure Device](/assets/images/workbench/config-device-4.png)
 
+### Enabling pre-release versions
+
+Certain Device OS releases are preview releases, intended for early testing of an upcoming release, to add new features, or fix specific issues. 
+
+Click the settings (gear) icon in the lower left, Settings, Extensions, Particle, then enable pre-release Device OS builds.
+
+![Enable preview releases](/assets/images/workbench/enable-prerelease.png)
+
+Once you complete this step, **Particle: Configure Workspace for Device** will include additional versions.
+
+### Cloud build and flash
+
+Before you can build in the cloud (the way Particle Web IDE and Particle CLI normally build), you need to select the device you wish to build for. See [configure project](#configure-project), above.
+
 To compile your program and download the binary, open the Command Palette and select **Particle: Cloud Compile**. To compile your program in the cloud and flash it to the selected device over-the-air, select **Particle: Cloud Flash**. 
 
 ![Compile or Flash](/assets/images/workbench/compile-flash.png)
@@ -111,6 +123,8 @@ It's also possible to compile in the cloud and flash over USB, as described in t
 ### Local build and flash
 
 Local build does all of the compiling locally on your computer, and, once installed, can be used even without an Internet connection.
+
+Before you can build locally, you need to select the device and Device OS version you wish to build for. See [configure project](#configure-project), above.
 
 {{!-- 
 In order to target a specific version of Device OS you must install the appropriate toolchain first. From the Command Palette select **Particle: Install Local Compiler**.

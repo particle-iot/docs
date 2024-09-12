@@ -93,3 +93,13 @@ sudo apt-get install gcc-multilib libarchive-zip-perl libncurses-dev
    * If you have the [Particle Workbench](/workbench/), run the `Particle: Launch CLI` command and then run `particle usb configure` in the terminal that launches  
    * if you just have the [Particle CLI](/getting-started/developer-tools/cli/), open a terminal and run `particle usb configure`  
    * Otherwise, you can download [50-particle.rules](https://github.com/particle-iot/particle-cli/blob/master/assets/50-particle.rules) and copy it to `/etc/udev/rules.d/`
+
+### Enabling pre-release versions
+
+Certain Device OS releases are preview releases, intended for early testing of an upcoming release, to add new features, or fix specific issues. 
+
+Click the settings (gear) icon in the lower left, Settings, Extensions, Particle, then enable pre-release Device OS builds.
+
+![Enable preview releases](/assets/images/workbench/enable-prerelease.png)
+
+Once you complete this step, **Particle: Configure Workspace for Device** will include additional versions.

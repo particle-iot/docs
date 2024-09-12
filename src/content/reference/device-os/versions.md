@@ -129,16 +129,25 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 
 ## Using pre-release versions
 
-Particle recommends using the latest LTS versions compatible with your device, except in the following cases:
+In some cases, you may want to use a pre-release version:
 
-- New hardware may require using the developer preview (3.x, 5.x, ...) release line until the next LTS release.
-- Testing
+- Early testing of new releases with your hardware and software
+- New Particle features or hardware support
+- Specific bugs fixed in Device OS 
 
 We recommend testing your firmware on new releases to assure compatibility, even if you decide not to release that version to your entire fleet.
 
-Not every release will have a release candidate (rc), but if it does, this is a good opportunity to test your code for compatibility. 
+Not every release will have a pre-release or release candidate (rc), but if it does, this is a good opportunity to test your code for compatibility. 
 
-Because it is very difficult to downgrade Device OS, we recommend testing candidates on devices that you have easy physical access to so you can downgrade by USB if necessary. Deploying on non-critical test devices where it is OK if the device is not fully functional until appropriate fixes are made is also a good alternative. Once the final release version of a rc version is released we recommend moving all devices off the rc version.
+Because it is very difficult to downgrade Device OS OTA, we recommend testing candidates on devices that you have easy physical access to so you can downgrade by USB if necessary. Deploying on non-critical test devices where it is OK if the device is not fully functional until appropriate fixes are made is also a good alternative. Once the final release version of a rc version is released we recommend moving all devices off the rc version.
+
+### Enabling pre-release versions
+
+In Particle Workbench, click the settings (gear) icon in the lower left, Settings, Extensions, Particle, then enable pre-release Device OS builds.
+
+![Enable preview releases](/assets/images/workbench/enable-prerelease.png)
+
+Once you complete this step, **Particle: Configure Workspace for Device** will include additional versions.
 
 ## Upgrading Device OS
 
