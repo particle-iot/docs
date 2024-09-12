@@ -11,6 +11,7 @@
         },
         {
             "dir": "connectivity",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "cloud-debug"
@@ -30,6 +31,7 @@
         },
         {
             "dir": "device-restore",
+            "isSection": true,
             "subsections": [
                 {
                     "title": "Device Restore USB",
@@ -43,6 +45,7 @@
         },
         {
             "dir": "firmware",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "remote-logging",
@@ -56,6 +59,7 @@
         },
         {
             "dir": "debuggers",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "debugger-adapter",
@@ -65,9 +69,11 @@
         },
         {
             "dir": "guides",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "connectivity-troubleshooting",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "troubleshooting-poor-connectivity-issues-ota",
@@ -101,6 +107,7 @@
                 },
                 {
                     "dir": "build-tools-troubleshooting",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "troubleshooting-flashing-code",
@@ -150,6 +157,7 @@
                 },
                 {
                     "dir": "device-troubleshooting",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "troubleshooting-asset-tracker-issues",
@@ -191,6 +199,7 @@
                 },
                 {
                     "dir": "device-management",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "how-can-i-set-up-my-argon-or-boron-via-usb",
@@ -222,9 +231,11 @@
         },
         {
             "dir": "FAQs",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "orders",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "what-is-particles-return-refund-policy",
@@ -245,6 +256,7 @@
                 },
                 {
                     "dir": "shipping",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "what-shipping-options-does-particle-offer",
@@ -265,6 +277,7 @@
                 },
                 {
                     "dir": "general-knowledge",
+                    "isSection": true,
                     "subsections": [
                         {
                             "title": "Terms of service",

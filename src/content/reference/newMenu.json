@@ -39,10 +39,12 @@
         },
         {
             "dir": "device-os",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "api",
                     "title": "Device OS API",
+                    "isSection": true,
                     "insertLoc": "device-os-api",
                     "href": "/reference/device-os/api/introduction/getting-started/",
                     "noSeparator": true,
@@ -71,6 +73,7 @@
                 },
                 {
                     "dir": "libraries",
+                    "isSection": true,
                     "insertLoc": "libraries",
                     "href": "/reference/device-os/libraries/search/",
                     "noSeparator": true,
@@ -118,6 +121,7 @@
         },
         {
             "dir": "asset-ota",
+            "isSection": true,
             "title": "Asset OTA",
             "subsections": [
                 {
@@ -126,6 +130,7 @@
                 },
                 {
                     "dir": "asset-ota-community",
+                    "isSection": true,
                     "title": "Asset OTA community projects",
                     "subsections": [
                         {
@@ -159,6 +164,7 @@
         },
         {
             "dir": "cloud-apis",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "api",
@@ -203,6 +209,7 @@
         },
         {
             "dir": "cellular",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "cellular-carriers",
@@ -225,6 +232,7 @@
         },
         {
             "dir": "tracker",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "tracker-configuration",
@@ -250,6 +258,7 @@
         },
         {
             "dir": "developer-tools",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "cli",
@@ -267,9 +276,11 @@
         },
         {
             "dir": "datasheets",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "tracker",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "tracker-som-datasheet",
@@ -314,6 +325,7 @@
                 {
                     "dir": "b-series",
                     "title": "B-Series/Boron",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "b404x-datasheet",
@@ -353,6 +365,7 @@
                 {
                     "dir": "m-series",
                     "title": "M-Series",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "msom-datasheet",
@@ -361,6 +374,11 @@
                         {
                             "dir": "muon-preview-datasheet",
                             "title": "Muon datasheet (preview)",
+                            "internal": true
+                        },
+                        {
+                            "dir": "muon-samples",
+                            "title": "Muon engineering samples",
                             "internal": true
                         },
                         {
@@ -376,6 +394,7 @@
                 {
                     "dir": "e-series",
                     "title": "E-Series/Electron",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "e404x-datasheet",
@@ -401,6 +420,7 @@
                 },
                 {
                     "dir": "wi-fi",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "p2-datasheet",
@@ -426,6 +446,7 @@
                 },
                 {
                     "dir": "accessories",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "gen3-accessories",
@@ -449,6 +470,7 @@
         },
         {
             "dir": "product-lifecycle",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "product-lifecycle-stages",
@@ -468,6 +490,7 @@
                 },
                 {
                     "dir": "notices",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "product-deprecation-notice-march-16-2022",
@@ -479,6 +502,7 @@
         },
         {
             "dir": "technical-advisory-notices",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "technical-advisory-notices",
@@ -541,6 +565,7 @@
         },
         {
             "dir": "errata",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "tracker",
@@ -550,6 +575,7 @@
         },
         {
             "dir": "mobile-sdks",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "ios",
@@ -563,9 +589,11 @@
         },
         {
             "dir": "discontinued",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "cellular",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "us-2g-3g-sunset",
@@ -587,6 +615,7 @@
                 },
                 {
                     "dir": "hardware",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "mesh",
@@ -620,6 +649,7 @@
                 },
                 {
                     "dir": "software",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "dev",

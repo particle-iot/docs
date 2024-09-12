@@ -39,6 +39,7 @@
         },
         {
             "dir": "best-practices",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "firmware-introduction",
@@ -84,6 +85,7 @@
         },
         {
             "dir": "tracker-edge",
+            "isSection": true,
             "title": "Gateway firmware",
             "subsections": [
                 {
@@ -110,6 +112,7 @@
         },
         {
             "dir": "low-power",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "wake-publish-sleep-cellular",
@@ -127,6 +130,7 @@
         },
         {
             "dir": "software-design",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "callback-functions",

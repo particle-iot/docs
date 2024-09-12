@@ -19,6 +19,7 @@
         },
         {
             "dir": "integrations",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "aws",
@@ -36,6 +37,7 @@
         },
         {
             "dir": "community-integrations",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "about-community-integrations",

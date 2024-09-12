@@ -39,6 +39,7 @@
         },
         {
             "dir": "tracker",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "tracker-one-expansion",
@@ -51,6 +52,7 @@
                 {
                     "dir": "projects",
                     "title": "Tracker One Projects",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "tracker-1wire",
@@ -112,6 +114,7 @@
                 },
                 {
                     "dir": "tracker-som",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "tracker-som-first-board",
@@ -123,6 +126,7 @@
         },
         {
             "dir": "som",
+            "isSection": true,
             "title": "M.2 SoM",
             "subsections": [
                 {
@@ -145,6 +149,7 @@
         },
         {
             "dir": "Wi-Fi",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "p2-first-board",
@@ -155,6 +160,7 @@
         },
         {
             "dir": "migration-guides",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "msom-b-series-migration-guide",
@@ -221,6 +227,7 @@
         },
         {
             "dir": "expansion",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "feather",
@@ -267,6 +274,7 @@
         },
         {
             "dir": "power",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "power-supply-guide",
@@ -292,6 +300,7 @@
         },
         {
             "dir": "ethernet",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "ethernet",
@@ -305,6 +314,7 @@
         },
         {
             "dir": "certification",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "certification",
@@ -330,6 +340,7 @@
         },
         {
             "dir": "best-practices",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "watchdog-timers",
@@ -343,6 +354,7 @@
         },
         {
             "dir": "community",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "hardware-community",

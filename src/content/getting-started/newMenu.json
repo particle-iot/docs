@@ -43,6 +43,7 @@
         },
         {
             "dir": "hardware",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "hardware-overview",
@@ -60,6 +61,7 @@
         },
         {
             "dir": "setup",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "setup-options",
@@ -107,6 +109,7 @@
         },
         {
             "dir": "device-os",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "introduction-to-device-os",
@@ -124,6 +127,7 @@
         },
         {
             "dir": "developer-tools",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "developer-tools",
@@ -162,6 +166,7 @@
         },
         {
             "dir": "cloud",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "introduction",
@@ -191,6 +196,7 @@
         },
         {
             "dir": "tracker",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "tracker-setup",
@@ -204,6 +210,7 @@
         },
         {
             "dir": "console",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "console",
@@ -242,6 +249,7 @@
         {
             "dir": "logic-ledger",
             "title": "Logic & Ledger",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "logic",
@@ -274,6 +282,7 @@
                 {
                     "dir": "logic-ledger-community",
                     "title": "Logic & Ledger community projects",
+                    "isSection": true,
                     "subsections": [
                         {
                             "dir": "logic-ledger-community",
@@ -289,6 +298,7 @@
         },
         {
             "dir": "products",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "introduction-to-products",
@@ -310,6 +320,7 @@
         },
         {
             "dir": "billing",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "data-operations",
@@ -327,6 +338,7 @@
         },
         {
             "dir": "machine-learning",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "machine-learning",
@@ -344,6 +356,7 @@
         },
         {
             "dir": "hardware-tutorials",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "hardware-examples",

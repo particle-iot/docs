@@ -48,6 +48,7 @@
         },
         {
             "dir": "developer-tools",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "lookup"
@@ -92,6 +93,7 @@
         },
         {
             "dir": "cloud-tools",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "list-devices"
@@ -133,6 +135,7 @@
         },
         {
             "dir": "device-restore",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "device-restore-usb"

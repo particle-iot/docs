@@ -23,6 +23,7 @@
         },
         {
             "dir": "particle-101-workshop",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "introduction",
@@ -72,6 +73,7 @@
         },
         {
             "dir": "photon-maker-kit-workshop",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "introduction",

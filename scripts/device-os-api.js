@@ -110,6 +110,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                     level: spaceIndex,
                     anchor: origAnchor,
                     title: line.substring(spaceIndex + 1).trim(),
+                    isContent: true,
                 };
 
                 sections[sections.length - 1].subsections.push(obj);

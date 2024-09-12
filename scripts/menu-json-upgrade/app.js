@@ -58,7 +58,6 @@ function processItemArray(options) {
         if (!Array.isArray(item)) {
             options.newItemsArray.push(item);
             if (item.isSection) {
-                delete item.isSection;
                 item.subsections = [];
                 sectionStack.push(item);
             }

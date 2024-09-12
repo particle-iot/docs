@@ -24,6 +24,7 @@
         },
         {
             "dir": "quick-start-guide",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "tools-overview",
@@ -65,6 +66,7 @@
         },
         {
             "dir": "manufacturing",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "manufacturing-cellular",
@@ -82,6 +84,7 @@
         },
         {
             "dir": "scripting",
+            "isSection": true,
             "subsections": [
                 {
                     "title": "Device flashing tool over USB",
@@ -95,6 +98,7 @@
         },
         {
             "dir": "best-practices",
+            "isSection": true,
             "subsections": [
                 {
                     "dir": "messaging-architecture-for-scale",

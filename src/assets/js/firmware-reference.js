@@ -1,6 +1,8 @@
 $(document).ready(function() {
     let navigationInfo;
 
+    return; // TEMPORARY
+
     const scrollableContent = $('div.content-inner');
 
     let apiIndex;

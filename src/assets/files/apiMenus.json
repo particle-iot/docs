@@ -30,47 +30,58 @@
           "subsections": [
             {
               "anchor": "name-applicationasset",
-              "title": "name() - ApplicationAsset"
+              "title": "name() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "hash-applicationasset",
-              "title": "hash() - ApplicationAsset"
+              "title": "hash() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "size-applicationasset",
-              "title": "size() - ApplicationAsset"
+              "title": "size() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "storagesize-applicationasset",
-              "title": "storageSize() - ApplicationAsset"
+              "title": "storageSize() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "isvalid-applicationasset",
-              "title": "isValid() - ApplicationAsset"
+              "title": "isValid() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "isreadable-applicationasset",
-              "title": "isReadable() - ApplicationAsset"
+              "title": "isReadable() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "available-applicationasset",
-              "title": "available() - ApplicationAsset"
+              "title": "available() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "read-applicationasset",
-              "title": "read() - ApplicationAsset"
+              "title": "read() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "peek-applicationasset",
-              "title": "peek() - ApplicationAsset"
+              "title": "peek() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "skip-applicationasset",
-              "title": "skip() - ApplicationAsset"
+              "title": "skip() - ApplicationAsset",
+              "isContent": true
             },
             {
               "anchor": "reset-applicationasset",
-              "title": "reset() - ApplicationAsset"
+              "title": "reset() - ApplicationAsset",
+              "isContent": true
             }
           ]
         },
@@ -80,31 +91,38 @@
           "subsections": [
             {
               "anchor": "constructor-assethash",
-              "title": "Constructor - AssetHash"
+              "title": "Constructor - AssetHash",
+              "isContent": true
             },
             {
               "anchor": "type-assethash",
-              "title": "type() - AssetHash"
+              "title": "type() - AssetHash",
+              "isContent": true
             },
             {
               "anchor": "hash-assethash",
-              "title": "hash() - AssetHash"
+              "title": "hash() - AssetHash",
+              "isContent": true
             },
             {
               "anchor": "isvalid-assethash",
-              "title": "isValid() - AssetHash"
+              "title": "isValid() - AssetHash",
+              "isContent": true
             },
             {
               "anchor": "tostring-assethash",
-              "title": "toString() - AssetHash"
+              "title": "toString() - AssetHash",
+              "isContent": true
             },
             {
               "anchor": "operator-assethash",
-              "title": "operator==() - AssetHash"
+              "title": "operator==() - AssetHash",
+              "isContent": true
             },
             {
               "anchor": "operator-assethash",
-              "title": "operator!=() - AssetHash"
+              "title": "operator!=() - AssetHash",
+              "isContent": true
             }
           ]
         }
@@ -140,261 +158,325 @@
           "subsections": [
             {
               "anchor": "ble-advertise-",
-              "title": "BLE.advertise()"
+              "title": "BLE.advertise()",
+              "isContent": true
             },
             {
               "anchor": "ble-advertise-ibeacon-",
-              "title": "BLE.advertise(iBeacon)"
+              "title": "BLE.advertise(iBeacon)",
+              "isContent": true
             },
             {
               "anchor": "ble-advertise-",
-              "title": "BLE.advertise()"
+              "title": "BLE.advertise()",
+              "isContent": true
             },
             {
               "anchor": "ble-stopadvertising-",
-              "title": "BLE.stopAdvertising()"
+              "title": "BLE.stopAdvertising()",
+              "isContent": true
             },
             {
               "anchor": "ble-advertising-",
-              "title": "BLE.advertising()"
+              "title": "BLE.advertising()",
+              "isContent": true
             },
             {
               "anchor": "ble-getadvertisingdata-",
-              "title": "BLE.getAdvertisingData()"
+              "title": "BLE.getAdvertisingData()",
+              "isContent": true
             },
             {
               "anchor": "ble-setadvertisingdata-",
-              "title": "BLE.setAdvertisingData()"
+              "title": "BLE.setAdvertisingData()",
+              "isContent": true
             },
             {
               "anchor": "ble-setadvertisinginterval-",
-              "title": "BLE.setAdvertisingInterval()"
+              "title": "BLE.setAdvertisingInterval()",
+              "isContent": true
             },
             {
               "anchor": "ble-setadvertisingtimeout-",
-              "title": "BLE.setAdvertisingTimeout()"
+              "title": "BLE.setAdvertisingTimeout()",
+              "isContent": true
             },
             {
               "anchor": "ble-setadvertisingtype-",
-              "title": "BLE.setAdvertisingType()"
+              "title": "BLE.setAdvertisingType()",
+              "isContent": true
             },
             {
               "anchor": "ble-getadvertisingparameters-",
-              "title": "BLE.getAdvertisingParameters()"
+              "title": "BLE.getAdvertisingParameters()",
+              "isContent": true
             },
             {
               "anchor": "ble-setadvertisingparameters-",
-              "title": "BLE.setAdvertisingParameters()"
+              "title": "BLE.setAdvertisingParameters()",
+              "isContent": true
             },
             {
               "anchor": "ble-setadvertisingparameters-bleadvertisingparams-",
-              "title": "BLE.setAdvertisingParameters(BleAdvertisingParams)"
+              "title": "BLE.setAdvertisingParameters(BleAdvertisingParams)",
+              "isContent": true
             },
             {
               "anchor": "ble-setadvertisingphy-",
-              "title": "BLE.setAdvertisingPhy()"
+              "title": "BLE.setAdvertisingPhy()",
+              "isContent": true
             },
             {
               "anchor": "ble-getscanresponsedata-",
-              "title": "BLE.getScanResponseData()"
+              "title": "BLE.getScanResponseData()",
+              "isContent": true
             },
             {
               "anchor": "ble-setscanresponsedata-",
-              "title": "BLE.setScanResponseData()"
+              "title": "BLE.setScanResponseData()",
+              "isContent": true
             },
             {
               "anchor": "ble-addcharacteristic-characteristic-",
-              "title": "BLE.addCharacteristic(characteristic)"
+              "title": "BLE.addCharacteristic(characteristic)",
+              "isContent": true
             },
             {
               "anchor": "ble-addcharacteristic-parameters-",
-              "title": "BLE.addCharacteristic(parameters)"
+              "title": "BLE.addCharacteristic(parameters)",
+              "isContent": true
             },
             {
               "anchor": "ble-scan-array-",
-              "title": "BLE.scan(array)"
+              "title": "BLE.scan(array)",
+              "isContent": true
             },
             {
               "anchor": "ble-scan-vector-",
-              "title": "BLE.scan(Vector)"
+              "title": "BLE.scan(Vector)",
+              "isContent": true
             },
             {
               "anchor": "ble-scan-callback-",
-              "title": "BLE.scan(callback)"
+              "title": "BLE.scan(callback)",
+              "isContent": true
             },
             {
               "anchor": "ble-scanwithfilter-",
-              "title": "BLE.scanWithFilter()"
+              "title": "BLE.scanWithFilter()",
+              "isContent": true
             },
             {
               "anchor": "ble-stopscanning-",
-              "title": "BLE.stopScanning()"
+              "title": "BLE.stopScanning()",
+              "isContent": true
             },
             {
               "anchor": "ble-setscantimeout-",
-              "title": "BLE.setScanTimeout()"
+              "title": "BLE.setScanTimeout()",
+              "isContent": true
             },
             {
               "anchor": "ble-getscanparameters-",
-              "title": "BLE.getScanParameters()"
+              "title": "BLE.getScanParameters()",
+              "isContent": true
             },
             {
               "anchor": "ble-setscanparameters-",
-              "title": "BLE.setScanParameters()"
+              "title": "BLE.setScanParameters()",
+              "isContent": true
             },
             {
               "anchor": "ble-setscanphy-",
-              "title": "BLE.setScanPhy()"
+              "title": "BLE.setScanPhy()",
+              "isContent": true
             },
             {
               "anchor": "ble-connect-",
-              "title": "BLE.connect()"
+              "title": "BLE.connect()",
+              "isContent": true
             },
             {
               "anchor": "ble-connect-options-",
-              "title": "BLE.connect(options)"
+              "title": "BLE.connect(options)",
+              "isContent": true
             },
             {
               "anchor": "ble-setppcp-",
-              "title": "BLE.setPPCP()"
+              "title": "BLE.setPPCP()",
+              "isContent": true
             },
             {
               "anchor": "ble-connected-",
-              "title": "BLE.connected()"
+              "title": "BLE.connected()",
+              "isContent": true
             },
             {
               "anchor": "ble-disconnect-",
-              "title": "BLE.disconnect()"
+              "title": "BLE.disconnect()",
+              "isContent": true
             },
             {
               "anchor": "ble-disconnect-peripheral-",
-              "title": "BLE.disconnect(peripheral)"
+              "title": "BLE.disconnect(peripheral)",
+              "isContent": true
             },
             {
               "anchor": "ble-on-",
-              "title": "BLE.on()"
+              "title": "BLE.on()",
+              "isContent": true
             },
             {
               "anchor": "ble-off-",
-              "title": "BLE.off()"
+              "title": "BLE.off()",
+              "isContent": true
             },
             {
               "anchor": "ble-begin-",
-              "title": "BLE.begin()"
+              "title": "BLE.begin()",
+              "isContent": true
             },
             {
               "anchor": "ble-end-",
-              "title": "BLE.end()"
+              "title": "BLE.end()",
+              "isContent": true
             },
             {
               "anchor": "ble-onconnected-",
-              "title": "BLE.onConnected()"
+              "title": "BLE.onConnected()",
+              "isContent": true
             },
             {
               "anchor": "ble-ondisconnected-",
-              "title": "BLE.onDisconnected()"
+              "title": "BLE.onDisconnected()",
+              "isContent": true
             },
             {
               "anchor": "ble-settxpower-",
-              "title": "BLE.setTxPower()"
+              "title": "BLE.setTxPower()",
+              "isContent": true
             },
             {
               "anchor": "ble-txpower-",
-              "title": "BLE.txPower()"
+              "title": "BLE.txPower()",
+              "isContent": true
             },
             {
               "anchor": "ble-address-",
-              "title": "BLE.address()"
+              "title": "BLE.address()",
+              "isContent": true
             },
             {
               "anchor": "ble-selectantenna-",
-              "title": "BLE.selectAntenna()"
+              "title": "BLE.selectAntenna()",
+              "isContent": true
             },
             {
               "anchor": "ble-setpairingiocaps-",
-              "title": "BLE.setPairingIoCaps()"
+              "title": "BLE.setPairingIoCaps()",
+              "isContent": true
             },
             {
               "anchor": "ble-setpairingalgorithm-",
-              "title": "BLE.setPairingAlgorithm()"
+              "title": "BLE.setPairingAlgorithm()",
+              "isContent": true
             },
             {
               "anchor": "ble-startpairing-",
-              "title": "BLE.startPairing()"
+              "title": "BLE.startPairing()",
+              "isContent": true
             },
             {
               "anchor": "ble-rejectpairing-",
-              "title": "BLE.rejectPairing()"
+              "title": "BLE.rejectPairing()",
+              "isContent": true
             },
             {
               "anchor": "ble-setpairingnumericcomparison-",
-              "title": "BLE.setPairingNumericComparison()"
+              "title": "BLE.setPairingNumericComparison()",
+              "isContent": true
             },
             {
               "anchor": "ble-setpairingpasskey-",
-              "title": "BLE.setPairingPasskey()"
+              "title": "BLE.setPairingPasskey()",
+              "isContent": true
             },
             {
               "anchor": "ble-ispairing-",
-              "title": "BLE.isPairing()"
+              "title": "BLE.isPairing()",
+              "isContent": true
             },
             {
               "anchor": "ble-ispaired-",
-              "title": "BLE.isPaired()"
+              "title": "BLE.isPaired()",
+              "isContent": true
             },
             {
               "anchor": "ble-onpairingevent-",
               "title": "BLE.onPairingEvent()",
+              "isContent": true,
               "subsections": [
                 {
                   "anchor": "blepairingevent",
-                  "title": "BLEPairingEvent"
+                  "title": "BLEPairingEvent",
+                  "isContent": true
                 },
                 {
                   "anchor": "blepairingeventpayload",
-                  "title": "BlePairingEventPayload"
+                  "title": "BlePairingEventPayload",
+                  "isContent": true
                 },
                 {
                   "anchor": "blepairingstatus",
-                  "title": "BlePairingStatus"
+                  "title": "BlePairingStatus",
+                  "isContent": true
                 }
               ]
             },
             {
               "anchor": "ble-setprovisioningsvcuuid",
-              "title": "BLE.setProvisioningSvcUuid"
+              "title": "BLE.setProvisioningSvcUuid",
+              "isContent": true
             },
             {
               "anchor": "ble-setprovisioningtxuuid",
-              "title": "BLE.setProvisioningTxUuid"
+              "title": "BLE.setProvisioningTxUuid",
+              "isContent": true
             },
             {
               "anchor": "ble-setprovisioningrxuuid",
-              "title": "BLE.setProvisioningRxUuid"
+              "title": "BLE.setProvisioningRxUuid",
+              "isContent": true
             },
             {
               "anchor": "ble-setprovisioningveruuid",
-              "title": "BLE.setProvisioningVerUuid"
+              "title": "BLE.setProvisioningVerUuid",
+              "isContent": true
             },
             {
               "anchor": "ble-setdevicename",
-              "title": "BLE.setDeviceName"
+              "title": "BLE.setDeviceName",
+              "isContent": true
             },
             {
               "anchor": "ble-getdevicename",
-              "title": "BLE.getDeviceName"
+              "title": "BLE.getDeviceName",
+              "isContent": true
             },
             {
               "anchor": "ble-setprovisioningcompanyid",
-              "title": "BLE.setProvisioningCompanyId"
+              "title": "BLE.setProvisioningCompanyId",
+              "isContent": true
             },
             {
               "anchor": "ble-provisioningmode",
-              "title": "BLE.provisioningMode"
+              "title": "BLE.provisioningMode",
+              "isContent": true
             },
             {
               "anchor": "ble-getprovisioningstatus",
-              "title": "BLE.getProvisioningStatus"
+              "title": "BLE.getProvisioningStatus",
+              "isContent": true
             }
           ]
         },
@@ -404,27 +486,33 @@
           "subsections": [
             {
               "anchor": "devicename-blescanfilter-",
-              "title": "deviceName (BLEScanFilter)"
+              "title": "deviceName (BLEScanFilter)",
+              "isContent": true
             },
             {
               "anchor": "serviceuuid-blescanfilter-",
-              "title": "serviceUUID (BLEScanFilter)"
+              "title": "serviceUUID (BLEScanFilter)",
+              "isContent": true
             },
             {
               "anchor": "address-blescanfilter-",
-              "title": "address (BleScanFilter)"
+              "title": "address (BleScanFilter)",
+              "isContent": true
             },
             {
               "anchor": "appearance-blescanfilter-",
-              "title": "appearance (BleScanFilter)"
+              "title": "appearance (BleScanFilter)",
+              "isContent": true
             },
             {
               "anchor": "rssi-blescanfilter-",
-              "title": "rssi (BleScanFilter)"
+              "title": "rssi (BleScanFilter)",
+              "isContent": true
             },
             {
               "anchor": "customdata-blescanfilter-",
-              "title": "customData (BleScanFilter)"
+              "title": "customData (BleScanFilter)",
+              "isContent": true
             }
           ]
         },
@@ -438,51 +526,63 @@
           "subsections": [
             {
               "anchor": "blecharacteristic-",
-              "title": "BleCharacteristic()"
+              "title": "BleCharacteristic()",
+              "isContent": true
             },
             {
               "anchor": "blecharacteristic-peripheral-",
-              "title": "BleCharacteristic (peripheral)"
+              "title": "BleCharacteristic (peripheral)",
+              "isContent": true
             },
             {
               "anchor": "blecharacteristic-peripheral-with-data-received-",
-              "title": "BleCharacteristic (peripheral with data received)"
+              "title": "BleCharacteristic (peripheral with data received)",
+              "isContent": true
             },
             {
               "anchor": "uuid-",
-              "title": "UUID()"
+              "title": "UUID()",
+              "isContent": true
             },
             {
               "anchor": "properties-",
-              "title": "properties()"
+              "title": "properties()",
+              "isContent": true
             },
             {
               "anchor": "getvalue-buf-len-",
-              "title": "getValue(buf, len)"
+              "title": "getValue(buf, len)",
+              "isContent": true
             },
             {
               "anchor": "getvalue-string-",
-              "title": "getValue(String)"
+              "title": "getValue(String)",
+              "isContent": true
             },
             {
               "anchor": "getvalue-pointer-",
-              "title": "getValue(pointer)"
+              "title": "getValue(pointer)",
+              "isContent": true
             },
             {
               "anchor": "setvalue-buf-len-",
-              "title": "setValue(buf, len)"
+              "title": "setValue(buf, len)",
+              "isContent": true
             },
             {
               "anchor": "setvalue-string-",
-              "title": "setValue(string)"
+              "title": "setValue(string)",
+              "isContent": true
             },
             {
               "anchor": "setvalue-pointer-",
-              "title": "setValue(pointer)"
+              "title": "setValue(pointer)",
+              "isContent": true
             },
             {
               "anchor": "ondatareceived-",
-              "title": "onDataReceived()"
+              "title": "onDataReceived()",
+              "isContent": true
             }
           ]
         },
@@ -496,31 +596,38 @@
           "subsections": [
             {
               "anchor": "type-",
-              "title": "type()"
+              "title": "type()",
+              "isContent": true
             },
             {
               "anchor": "isvalid-",
-              "title": "isValid()"
+              "title": "isValid()",
+              "isContent": true
             },
             {
               "anchor": "equality",
-              "title": "equality"
+              "title": "equality",
+              "isContent": true
             },
             {
               "anchor": "rawbytes",
-              "title": "rawBytes"
+              "title": "rawBytes",
+              "isContent": true
             },
             {
               "anchor": "operator-",
-              "title": "operator[]"
+              "title": "operator[]",
+              "isContent": true
             },
             {
               "anchor": "constructors",
-              "title": "Constructors"
+              "title": "Constructors",
+              "isContent": true
             },
             {
               "anchor": "setters",
-              "title": "Setters"
+              "title": "Setters",
+              "isContent": true
             }
           ]
         },
@@ -530,71 +637,88 @@
           "subsections": [
             {
               "anchor": "bleadvertisingdata-",
-              "title": "BleAdvertisingData()"
+              "title": "BleAdvertisingData()",
+              "isContent": true
             },
             {
               "anchor": "append-",
-              "title": "append()"
+              "title": "append()",
+              "isContent": true
             },
             {
               "anchor": "appendcustomdata",
-              "title": "appendCustomData"
+              "title": "appendCustomData",
+              "isContent": true
             },
             {
               "anchor": "appendlocalname-",
-              "title": "appendLocalName()"
+              "title": "appendLocalName()",
+              "isContent": true
             },
             {
               "anchor": "appendserviceuuid-",
-              "title": "appendServiceUUID()"
+              "title": "appendServiceUUID()",
+              "isContent": true
             },
             {
               "anchor": "clear-",
-              "title": "clear()"
+              "title": "clear()",
+              "isContent": true
             },
             {
               "anchor": "remove-",
-              "title": "remove()"
+              "title": "remove()",
+              "isContent": true
             },
             {
               "anchor": "set-",
-              "title": "set()"
+              "title": "set()",
+              "isContent": true
             },
             {
               "anchor": "get-type-buffer-",
-              "title": "get(type, buffer)"
+              "title": "get(type, buffer)",
+              "isContent": true
             },
             {
               "anchor": "get-buffer-",
-              "title": "get(buffer)"
+              "title": "get(buffer)",
+              "isContent": true
             },
             {
               "anchor": "length-",
-              "title": "length()"
+              "title": "length()",
+              "isContent": true
             },
             {
               "anchor": "operator-",
-              "title": "operator[]"
+              "title": "operator[]",
+              "isContent": true
             },
             {
               "anchor": "devicename-",
-              "title": "deviceName()"
+              "title": "deviceName()",
+              "isContent": true
             },
             {
               "anchor": "devicename-buf-",
-              "title": "deviceName(buf)"
+              "title": "deviceName(buf)",
+              "isContent": true
             },
             {
               "anchor": "serviceuuid-",
-              "title": "serviceUUID()"
+              "title": "serviceUUID()",
+              "isContent": true
             },
             {
               "anchor": "customdata-",
-              "title": "customData()"
+              "title": "customData()",
+              "isContent": true
             },
             {
               "anchor": "contains-",
-              "title": "contains()"
+              "title": "contains()",
+              "isContent": true
             }
           ]
         },
@@ -612,27 +736,33 @@
           "subsections": [
             {
               "anchor": "connected-",
-              "title": "connected()"
+              "title": "connected()",
+              "isContent": true
             },
             {
               "anchor": "address-",
-              "title": "address()"
+              "title": "address()",
+              "isContent": true
             },
             {
               "anchor": "getcharacteristicbyuuid-",
-              "title": "getCharacteristicByUUID()"
+              "title": "getCharacteristicByUUID()",
+              "isContent": true
             },
             {
               "anchor": "getcharacteristicbydescription-",
-              "title": "getCharacteristicByDescription()"
+              "title": "getCharacteristicByDescription()",
+              "isContent": true
             },
             {
               "anchor": "blescanresult",
-              "title": "BleScanResult"
+              "title": "BleScanResult",
+              "isContent": true
             },
             {
               "anchor": "discoverallcharacteristics",
-              "title": "discoverAllCharacteristics"
+              "title": "discoverAllCharacteristics",
+              "isContent": true
             }
           ]
         },
@@ -642,35 +772,43 @@
           "subsections": [
             {
               "anchor": "copy-bleaddress-",
-              "title": "copy (BleAddress)"
+              "title": "copy (BleAddress)",
+              "isContent": true
             },
             {
               "anchor": "address-byte-bleaddress-",
-              "title": "address byte (BleAddress)"
+              "title": "address byte (BleAddress)",
+              "isContent": true
             },
             {
               "anchor": "tostring-bleaddress-",
-              "title": "toString (BleAddress)"
+              "title": "toString (BleAddress)",
+              "isContent": true
             },
             {
               "anchor": "equality-bleaddress-",
-              "title": "equality (BleAddress)"
+              "title": "equality (BleAddress)",
+              "isContent": true
             },
             {
               "anchor": "valid-bleaddress-",
-              "title": "valid (BleAddress)"
+              "title": "valid (BleAddress)",
+              "isContent": true
             },
             {
               "anchor": "getters",
-              "title": "Getters"
+              "title": "Getters",
+              "isContent": true
             },
             {
               "anchor": "constructor-",
-              "title": "Constructor"
+              "title": "Constructor",
+              "isContent": true
             },
             {
               "anchor": "setters",
-              "title": "Setters"
+              "title": "Setters",
+              "isContent": true
             }
           ]
         },
@@ -862,23 +1000,28 @@
           "subsections": [
             {
               "anchor": "getaccesstechnology-",
-              "title": "getAccessTechnology()"
+              "title": "getAccessTechnology()",
+              "isContent": true
             },
             {
               "anchor": "getstrength-",
-              "title": "getStrength()"
+              "title": "getStrength()",
+              "isContent": true
             },
             {
               "anchor": "getquality-",
-              "title": "getQuality()"
+              "title": "getQuality()",
+              "isContent": true
             },
             {
               "anchor": "getstrengthvalue-",
-              "title": "getStrengthValue()"
+              "title": "getStrengthValue()",
+              "isContent": true
             },
             {
               "anchor": "getqualityvalue-",
-              "title": "getQualityValue()"
+              "title": "getQualityValue()",
+              "isContent": true
             }
           ]
         },
@@ -1585,67 +1728,83 @@
           "subsections": [
             {
               "anchor": "jsonwriter-beginarray-",
-              "title": "JSONWriter::beginArray()"
+              "title": "JSONWriter::beginArray()",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-endarray-",
-              "title": "JSONWriter::endArray()"
+              "title": "JSONWriter::endArray()",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-beginobject-",
-              "title": "JSONWriter::beginObject()"
+              "title": "JSONWriter::beginObject()",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-endobject-",
-              "title": "JSONWriter::endObject()"
+              "title": "JSONWriter::endObject()",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-name-const-char-name-",
-              "title": "JSONWriter::name(const char *name)"
+              "title": "JSONWriter::name(const char *name)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-name-const-char-name-size_t-size-",
-              "title": "JSONWriter::name(const char *name, size_t size)"
+              "title": "JSONWriter::name(const char *name, size_t size)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-name-const-string-amp-name-",
-              "title": "JSONWriter::name(const String &name)"
+              "title": "JSONWriter::name(const String &name)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-bool-val-",
-              "title": "JsonWriter::value(bool val)"
+              "title": "JsonWriter::value(bool val)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-int-val-",
-              "title": "JsonWriter::value(int val)"
+              "title": "JsonWriter::value(int val)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-unsigned-val-",
-              "title": "JsonWriter::value(unsigned val)"
+              "title": "JsonWriter::value(unsigned val)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-double-val-int-precision-",
-              "title": "JsonWriter::value(double val, int precision)"
+              "title": "JsonWriter::value(double val, int precision)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-double-val-",
-              "title": "JsonWriter::value(double val)"
+              "title": "JsonWriter::value(double val)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-const-char-val-",
-              "title": "JsonWriter::value(const char *val)"
+              "title": "JsonWriter::value(const char *val)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-const-char-val-size_t-size-",
-              "title": "JsonWriter::value(const char *val, size_t size)"
+              "title": "JsonWriter::value(const char *val, size_t size)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-value-const-string-amp-val-",
-              "title": "JsonWriter::value(const String &val)"
+              "title": "JsonWriter::value(const String &val)",
+              "isContent": true
             },
             {
               "anchor": "jsonwriter-nullvalue-",
-              "title": "JsonWriter::nullValue()"
+              "title": "JsonWriter::nullValue()",
+              "isContent": true
             }
           ]
         },
@@ -1655,19 +1814,23 @@
           "subsections": [
             {
               "anchor": "jsonbufferwriter-jsonbufferwriter-char-buf-size_t-size-",
-              "title": "JSONBufferWriter::JSONBufferWriter(char *buf, size_t size)"
+              "title": "JSONBufferWriter::JSONBufferWriter(char *buf, size_t size)",
+              "isContent": true
             },
             {
               "anchor": "jsonbufferwriter-buffer-",
-              "title": "JSONBufferWriter::buffer()"
+              "title": "JSONBufferWriter::buffer()",
+              "isContent": true
             },
             {
               "anchor": "jsonbufferwriter-buffersize-",
-              "title": "JSONBufferWriter::bufferSize()"
+              "title": "JSONBufferWriter::bufferSize()",
+              "isContent": true
             },
             {
               "anchor": "jsonbufferwriter-datasize-",
-              "title": "JSONBufferWriter::dataSize()"
+              "title": "JSONBufferWriter::dataSize()",
+              "isContent": true
             }
           ]
         },
@@ -1677,11 +1840,13 @@
           "subsections": [
             {
               "anchor": "jsonstreamwriter-jsonstreamwriter-print-amp-stream-",
-              "title": "JSONStreamWriter::JSONStreamWriter(Print &stream)"
+              "title": "JSONStreamWriter::JSONStreamWriter(Print &stream)",
+              "isContent": true
             },
             {
               "anchor": "jsonstreamwriter-stream-",
-              "title": "JSONStreamWriter::stream()"
+              "title": "JSONStreamWriter::stream()",
+              "isContent": true
             }
           ]
         },
@@ -1695,51 +1860,63 @@
           "subsections": [
             {
               "anchor": "jsonvalue-isnull-",
-              "title": "JSONValue::isNull()"
+              "title": "JSONValue::isNull()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-isbool-",
-              "title": "JSONValue::isBool()"
+              "title": "JSONValue::isBool()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-isnumber-",
-              "title": "JSONValue::isNumber()"
+              "title": "JSONValue::isNumber()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-isstring-",
-              "title": "JSONValue::isString()"
+              "title": "JSONValue::isString()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-isarray-",
-              "title": "JSONValue::isArray()"
+              "title": "JSONValue::isArray()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-isobject-",
-              "title": "JSONValue::isObject()"
+              "title": "JSONValue::isObject()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-type-",
-              "title": "JSONValue::type()"
+              "title": "JSONValue::type()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-tobool-",
-              "title": "JSONValue::toBool()"
+              "title": "JSONValue::toBool()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-toint-",
-              "title": "JSONValue::toInt()"
+              "title": "JSONValue::toInt()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-todouble-",
-              "title": "JSONValue::toDouble()"
+              "title": "JSONValue::toDouble()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-tostring-",
-              "title": "JSONValue::toString()"
+              "title": "JSONValue::toString()",
+              "isContent": true
             },
             {
               "anchor": "jsonvalue-isvalid-",
-              "title": "JSONValue::isValid()"
+              "title": "JSONValue::isValid()",
+              "isContent": true
             }
           ]
         },
@@ -1749,35 +1926,43 @@
           "subsections": [
             {
               "anchor": "jsonstring-jsonstring-const-jsonvalue-amp-value-",
-              "title": "JSONString::JSONString(const JSONValue &value);"
+              "title": "JSONString::JSONString(const JSONValue &value);",
+              "isContent": true
             },
             {
               "anchor": "jsonstring-data-",
-              "title": "JSONString::data()"
+              "title": "JSONString::data()",
+              "isContent": true
             },
             {
               "anchor": "jsonstring-operator-const-char-",
-              "title": "JSONString::operator const char *()"
+              "title": "JSONString::operator const char *()",
+              "isContent": true
             },
             {
               "anchor": "jsonstring-operator-string-",
-              "title": "JSONString::operator String()"
+              "title": "JSONString::operator String()",
+              "isContent": true
             },
             {
               "anchor": "jsonstring-size-",
-              "title": "JSONString::size()"
+              "title": "JSONString::size()",
+              "isContent": true
             },
             {
               "anchor": "jsonstring-isempty-",
-              "title": "JSONString::isEmpty()"
+              "title": "JSONString::isEmpty()",
+              "isContent": true
             },
             {
               "anchor": "jsonstring-operator-",
-              "title": "JSONString::operator==()"
+              "title": "JSONString::operator==()",
+              "isContent": true
             },
             {
               "anchor": "jsonstring-operator-",
-              "title": "JSONString::operator!=()"
+              "title": "JSONString::operator!=()",
+              "isContent": true
             }
           ]
         },
@@ -1787,23 +1972,28 @@
           "subsections": [
             {
               "anchor": "jsonobjectiterator-jsonobjectiterator-const-jsonvalue-amp-value-",
-              "title": "JSONObjectIterator::JSONObjectIterator(const JSONValue &value)"
+              "title": "JSONObjectIterator::JSONObjectIterator(const JSONValue &value)",
+              "isContent": true
             },
             {
               "anchor": "jsonobjectiterator-next-",
-              "title": "JSONObjectIterator::next()"
+              "title": "JSONObjectIterator::next()",
+              "isContent": true
             },
             {
               "anchor": "jsonobjectiterator-name-",
-              "title": "JSONObjectIterator::name()"
+              "title": "JSONObjectIterator::name()",
+              "isContent": true
             },
             {
               "anchor": "jsonobjectiterator-value-",
-              "title": "JSONObjectIterator::value()"
+              "title": "JSONObjectIterator::value()",
+              "isContent": true
             },
             {
               "anchor": "jsonobjectiterator-count-",
-              "title": "JSONObjectIterator::count()"
+              "title": "JSONObjectIterator::count()",
+              "isContent": true
             }
           ]
         },
@@ -1813,19 +2003,23 @@
           "subsections": [
             {
               "anchor": "jsonarrayiterator-jsonarrayiterator-const-jsonvalue-amp-value-",
-              "title": "JSONArrayIterator::JSONArrayIterator(const JSONValue &value)"
+              "title": "JSONArrayIterator::JSONArrayIterator(const JSONValue &value)",
+              "isContent": true
             },
             {
               "anchor": "jsonarrayiterator-next-",
-              "title": "JSONArrayIterator::next()"
+              "title": "JSONArrayIterator::next()",
+              "isContent": true
             },
             {
               "anchor": "jsonarrayiterator-value-",
-              "title": "JSONArrayIterator::value()"
+              "title": "JSONArrayIterator::value()",
+              "isContent": true
             },
             {
               "anchor": "jsonarrayiterator-count-",
-              "title": "JSONArrayIterator::count()"
+              "title": "JSONArrayIterator::count()",
+              "isContent": true
             }
           ]
         }
@@ -1924,11 +2118,13 @@
           "subsections": [
             {
               "anchor": "setup-",
-              "title": "setup()"
+              "title": "setup()",
+              "isContent": true
             },
             {
               "anchor": "loop-",
-              "title": "loop()"
+              "title": "loop()",
+              "isContent": true
             }
           ]
         },
@@ -1938,47 +2134,58 @@
           "subsections": [
             {
               "anchor": "if",
-              "title": "if"
+              "title": "if",
+              "isContent": true
             },
             {
               "anchor": "comparison-operators",
-              "title": "Comparison operators"
+              "title": "Comparison operators",
+              "isContent": true
             },
             {
               "anchor": "if-else",
-              "title": "if...else"
+              "title": "if...else",
+              "isContent": true
             },
             {
               "anchor": "for",
-              "title": "for"
+              "title": "for",
+              "isContent": true
             },
             {
               "anchor": "switch-case",
-              "title": "switch case"
+              "title": "switch case",
+              "isContent": true
             },
             {
               "anchor": "while",
-              "title": "while"
+              "title": "while",
+              "isContent": true
             },
             {
               "anchor": "do-while",
-              "title": "do... while"
+              "title": "do... while",
+              "isContent": true
             },
             {
               "anchor": "break",
-              "title": "break"
+              "title": "break",
+              "isContent": true
             },
             {
               "anchor": "continue",
-              "title": "continue"
+              "title": "continue",
+              "isContent": true
             },
             {
               "anchor": "return",
-              "title": "return"
+              "title": "return",
+              "isContent": true
             },
             {
               "anchor": "goto",
-              "title": "goto"
+              "title": "goto",
+              "isContent": true
             }
           ]
         },
@@ -1988,27 +2195,33 @@
           "subsections": [
             {
               "anchor": "-semicolon-",
-              "title": "; (semicolon)"
+              "title": "; (semicolon)",
+              "isContent": true
             },
             {
               "anchor": "-curly-braces-",
-              "title": "{} (curly braces)"
+              "title": "{} (curly braces)",
+              "isContent": true
             },
             {
               "anchor": "-single-line-comment-",
-              "title": "// (single line comment)"
+              "title": "// (single line comment)",
+              "isContent": true
             },
             {
               "anchor": "-multi-line-comment-",
-              "title": "/\\* \\*/ (multi-line comment)"
+              "title": "/\\* \\*/ (multi-line comment)",
+              "isContent": true
             },
             {
               "anchor": "-define",
-              "title": "#define"
+              "title": "#define",
+              "isContent": true
             },
             {
               "anchor": "-include",
-              "title": "#include"
+              "title": "#include",
+              "isContent": true
             }
           ]
         },
@@ -2018,15 +2231,18 @@
           "subsections": [
             {
               "anchor": "-assignment-operator-",
-              "title": "= (assignment operator)"
+              "title": "= (assignment operator)",
+              "isContent": true
             },
             {
               "anchor": "-addition-subtraction-multiplication-division-",
-              "title": "+ - * / (addition subtraction multiplication division)"
+              "title": "+ - * / (addition subtraction multiplication division)",
+              "isContent": true
             },
             {
               "anchor": "-modulo-",
-              "title": "% (modulo)"
+              "title": "% (modulo)",
+              "isContent": true
             }
           ]
         },
@@ -2036,15 +2252,18 @@
           "subsections": [
             {
               "anchor": "-amp-amp-and-",
-              "title": "&& (and)"
+              "title": "&& (and)",
+              "isContent": true
             },
             {
               "anchor": "-or-",
-              "title": "|| (or)"
+              "title": "|| (or)",
+              "isContent": true
             },
             {
               "anchor": "-not-",
-              "title": "! (not)"
+              "title": "! (not)",
+              "isContent": true
             }
           ]
         },
@@ -2054,23 +2273,28 @@
           "subsections": [
             {
               "anchor": "-amp-bitwise-and-",
-              "title": "& (bitwise and)"
+              "title": "& (bitwise and)",
+              "isContent": true
             },
             {
               "anchor": "-bitwise-or-",
-              "title": "| (bitwise or)"
+              "title": "| (bitwise or)",
+              "isContent": true
             },
             {
               "anchor": "-bitwise-xor-",
-              "title": "^ (bitwise xor)"
+              "title": "^ (bitwise xor)",
+              "isContent": true
             },
             {
               "anchor": "-bitwise-not-",
-              "title": "~ (bitwise not)"
+              "title": "~ (bitwise not)",
+              "isContent": true
             },
             {
               "anchor": "bitwise-shift",
-              "title": "bitwise shift"
+              "title": "bitwise shift",
+              "isContent": true
             }
           ]
         },
@@ -2080,19 +2304,23 @@
           "subsections": [
             {
               "anchor": "-increment-decrement-",
-              "title": "++ (increment), -- (decrement)"
+              "title": "++ (increment), -- (decrement)",
+              "isContent": true
             },
             {
               "anchor": "compound-arithmetic",
-              "title": "compound arithmetic"
+              "title": "compound arithmetic",
+              "isContent": true
             },
             {
               "anchor": "-amp-compound-bitwise-and-",
-              "title": "&= (compound bitwise and)"
+              "title": "&= (compound bitwise and)",
+              "isContent": true
             },
             {
               "anchor": "-compound-bitwise-or-",
-              "title": "|= (compound bitwise or)"
+              "title": "|= (compound bitwise or)",
+              "isContent": true
             }
           ]
         },
@@ -2102,15 +2330,18 @@
           "subsections": [
             {
               "anchor": "high-low",
-              "title": "HIGH | LOW"
+              "title": "HIGH | LOW",
+              "isContent": true
             },
             {
               "anchor": "input-output-input_pullup-input_pulldown",
-              "title": "INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN"
+              "title": "INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN",
+              "isContent": true
             },
             {
               "anchor": "true-false",
-              "title": "true | false"
+              "title": "true | false",
+              "isContent": true
             }
           ]
         },
@@ -2120,67 +2351,83 @@
           "subsections": [
             {
               "anchor": "void",
-              "title": "void"
+              "title": "void",
+              "isContent": true
             },
             {
               "anchor": "boolean",
-              "title": "boolean"
+              "title": "boolean",
+              "isContent": true
             },
             {
               "anchor": "char",
-              "title": "char"
+              "title": "char",
+              "isContent": true
             },
             {
               "anchor": "unsigned-char",
-              "title": "unsigned char"
+              "title": "unsigned char",
+              "isContent": true
             },
             {
               "anchor": "byte",
-              "title": "byte"
+              "title": "byte",
+              "isContent": true
             },
             {
               "anchor": "int",
-              "title": "int"
+              "title": "int",
+              "isContent": true
             },
             {
               "anchor": "unsigned-int",
-              "title": "unsigned int"
+              "title": "unsigned int",
+              "isContent": true
             },
             {
               "anchor": "word",
-              "title": "word"
+              "title": "word",
+              "isContent": true
             },
             {
               "anchor": "long",
-              "title": "long"
+              "title": "long",
+              "isContent": true
             },
             {
               "anchor": "unsigned-long",
-              "title": "unsigned long"
+              "title": "unsigned long",
+              "isContent": true
             },
             {
               "anchor": "short",
-              "title": "short"
+              "title": "short",
+              "isContent": true
             },
             {
               "anchor": "float",
-              "title": "float"
+              "title": "float",
+              "isContent": true
             },
             {
               "anchor": "double",
-              "title": "double"
+              "title": "double",
+              "isContent": true
             },
             {
               "anchor": "string-char-array",
-              "title": "string - char array"
+              "title": "string - char array",
+              "isContent": true
             },
             {
               "anchor": "string-object",
-              "title": "String - object"
+              "title": "String - object",
+              "isContent": true
             },
             {
               "anchor": "array",
-              "title": "array"
+              "title": "array",
+              "isContent": true
             }
           ]
         },
@@ -2205,75 +2452,93 @@
           "subsections": [
             {
               "anchor": "ledstatus-",
-              "title": "LEDStatus()"
+              "title": "LEDStatus()",
+              "isContent": true
             },
             {
               "anchor": "setcolor-",
-              "title": "setColor()"
+              "title": "setColor()",
+              "isContent": true
             },
             {
               "anchor": "color-",
-              "title": "color()"
+              "title": "color()",
+              "isContent": true
             },
             {
               "anchor": "setpattern-",
-              "title": "setPattern()"
+              "title": "setPattern()",
+              "isContent": true
             },
             {
               "anchor": "pattern-",
-              "title": "pattern()"
+              "title": "pattern()",
+              "isContent": true
             },
             {
               "anchor": "setspeed-",
-              "title": "setSpeed()"
+              "title": "setSpeed()",
+              "isContent": true
             },
             {
               "anchor": "setperiod-",
-              "title": "setPeriod()"
+              "title": "setPeriod()",
+              "isContent": true
             },
             {
               "anchor": "period-",
-              "title": "period()"
+              "title": "period()",
+              "isContent": true
             },
             {
               "anchor": "setpriority-",
-              "title": "setPriority()"
+              "title": "setPriority()",
+              "isContent": true
             },
             {
               "anchor": "priority-",
-              "title": "priority()"
+              "title": "priority()",
+              "isContent": true
             },
             {
               "anchor": "on-",
-              "title": "on()"
+              "title": "on()",
+              "isContent": true
             },
             {
               "anchor": "off-",
-              "title": "off()"
+              "title": "off()",
+              "isContent": true
             },
             {
               "anchor": "toggle-",
-              "title": "toggle()"
+              "title": "toggle()",
+              "isContent": true
             },
             {
               "anchor": "ison-",
-              "title": "isOn()"
+              "title": "isOn()",
+              "isContent": true
             },
             {
               "anchor": "isoff-",
-              "title": "isOff()"
+              "title": "isOff()",
+              "isContent": true
             },
             {
               "anchor": "setactive-",
-              "title": "setActive()"
+              "title": "setActive()",
+              "isContent": true
             },
             {
               "anchor": "isactive-",
-              "title": "isActive()"
+              "title": "isActive()",
+              "isContent": true
             },
             {
               "anchor": "custom-patterns",
-              "title": "Custom patterns"
+              "title": "Custom patterns",
+              "isContent": true
             }
           ]
         },
@@ -2283,47 +2548,58 @@
           "subsections": [
             {
               "anchor": "ledsystemtheme-",
-              "title": "LEDSystemTheme()"
+              "title": "LEDSystemTheme()",
+              "isContent": true
             },
             {
               "anchor": "setcolor-",
-              "title": "setColor()"
+              "title": "setColor()",
+              "isContent": true
             },
             {
               "anchor": "color-",
-              "title": "color()"
+              "title": "color()",
+              "isContent": true
             },
             {
               "anchor": "setpattern-",
-              "title": "setPattern()"
+              "title": "setPattern()",
+              "isContent": true
             },
             {
               "anchor": "pattern-",
-              "title": "pattern()"
+              "title": "pattern()",
+              "isContent": true
             },
             {
               "anchor": "setspeed-",
-              "title": "setSpeed()"
+              "title": "setSpeed()",
+              "isContent": true
             },
             {
               "anchor": "setperiod-",
-              "title": "setPeriod()"
+              "title": "setPeriod()",
+              "isContent": true
             },
             {
               "anchor": "period-",
-              "title": "period()"
+              "title": "period()",
+              "isContent": true
             },
             {
               "anchor": "setsignal-",
-              "title": "setSignal()"
+              "title": "setSignal()",
+              "isContent": true
             },
             {
               "anchor": "apply-",
-              "title": "apply()"
+              "title": "apply()",
+              "isContent": true
             },
             {
               "anchor": "restoredefault-",
-              "title": "restoreDefault()"
+              "title": "restoreDefault()",
+              "isContent": true
             }
           ]
         },
@@ -2490,7 +2766,8 @@
           "subsections": [
             {
               "anchor": "community-log-handlers",
-              "title": "Community log handlers"
+              "title": "Community log handlers",
+              "isContent": true
             }
           ]
         },
@@ -2546,15 +2823,18 @@
           "subsections": [
             {
               "anchor": "device-os-4-0-and-later",
-              "title": "Device OS 4.0 and later"
+              "title": "Device OS 4.0 and later",
+              "isContent": true
             },
             {
               "anchor": "device-os-before-3-x-and-earlier",
-              "title": "Device OS before 3.x and earlier"
+              "title": "Device OS before 3.x and earlier",
+              "isContent": true
             },
             {
               "anchor": "device-os-1-5-3-to-3-x-wildcard",
-              "title": "Device OS 1.5.3 to 3.x Wildcard"
+              "title": "Device OS 1.5.3 to 3.x Wildcard",
+              "isContent": true
             }
           ]
         }
@@ -2815,19 +3095,23 @@
           "subsections": [
             {
               "anchor": "networkinterfaceconfig-source",
-              "title": "NetworkInterfaceConfig::source"
+              "title": "NetworkInterfaceConfig::source",
+              "isContent": true
             },
             {
               "anchor": "networkinterfaceconfig-address",
-              "title": "NetworkInterfaceConfig::address"
+              "title": "NetworkInterfaceConfig::address",
+              "isContent": true
             },
             {
               "anchor": "networkinterfaceconfig-gateway",
-              "title": "NetworkInterfaceConfig::gateway"
+              "title": "NetworkInterfaceConfig::gateway",
+              "isContent": true
             },
             {
               "anchor": "networkinterfaceconfig-dns",
-              "title": "NetworkInterfaceConfig::dns"
+              "title": "NetworkInterfaceConfig::dns",
+              "isContent": true
             }
           ]
         }
@@ -2880,19 +3164,23 @@
           "subsections": [
             {
               "anchor": "settnf-",
-              "title": "setTnf();"
+              "title": "setTnf();",
+              "isContent": true
             },
             {
               "anchor": "settype-",
-              "title": "setType()"
+              "title": "setType()",
+              "isContent": true
             },
             {
               "anchor": "setid-",
-              "title": "setId()"
+              "title": "setId()",
+              "isContent": true
             },
             {
               "anchor": "setpayload-",
-              "title": "setPayload()"
+              "title": "setPayload()",
+              "isContent": true
             }
           ]
         }
@@ -3006,31 +3294,38 @@
           "subsections": [
             {
               "anchor": "readinputsourceregister-",
-              "title": "readInputSourceRegister()"
+              "title": "readInputSourceRegister()",
+              "isContent": true
             },
             {
               "anchor": "enablebuck-",
-              "title": "enableBuck()"
+              "title": "enableBuck()",
+              "isContent": true
             },
             {
               "anchor": "disablebuck-",
-              "title": "disableBuck()"
+              "title": "disableBuck()",
+              "isContent": true
             },
             {
               "anchor": "setinputcurrentlimit-",
-              "title": "setInputCurrentLimit()"
+              "title": "setInputCurrentLimit()",
+              "isContent": true
             },
             {
               "anchor": "getinputcurrentlimit-",
-              "title": "getInputCurrentLimit()"
+              "title": "getInputCurrentLimit()",
+              "isContent": true
             },
             {
               "anchor": "setinputvoltagelimit-",
-              "title": "setInputVoltageLimit()"
+              "title": "setInputVoltageLimit()",
+              "isContent": true
             },
             {
               "anchor": "getinputvoltagelimit-",
-              "title": "getInputVoltageLimit()"
+              "title": "getInputVoltageLimit()",
+              "isContent": true
             }
           ]
         },
@@ -3040,35 +3335,43 @@
           "subsections": [
             {
               "anchor": "enablecharging-",
-              "title": "enableCharging()"
+              "title": "enableCharging()",
+              "isContent": true
             },
             {
               "anchor": "disablecharging-",
-              "title": "disableCharging()"
+              "title": "disableCharging()",
+              "isContent": true
             },
             {
               "anchor": "enableotg-",
-              "title": "enableOTG()"
+              "title": "enableOTG()",
+              "isContent": true
             },
             {
               "anchor": "disableotg-",
-              "title": "disableOTG()"
+              "title": "disableOTG()",
+              "isContent": true
             },
             {
               "anchor": "resetwatchdog-",
-              "title": "resetWatchdog()"
+              "title": "resetWatchdog()",
+              "isContent": true
             },
             {
               "anchor": "setminimumsystemvoltage-",
-              "title": "setMinimumSystemVoltage()"
+              "title": "setMinimumSystemVoltage()",
+              "isContent": true
             },
             {
               "anchor": "getminimumsystemvoltage-",
-              "title": "getMinimumSystemVoltage()"
+              "title": "getMinimumSystemVoltage()",
+              "isContent": true
             },
             {
               "anchor": "readpoweronregister-",
-              "title": "readPowerONRegister()"
+              "title": "readPowerONRegister()",
+              "isContent": true
             }
           ]
         },
@@ -3078,11 +3381,13 @@
           "subsections": [
             {
               "anchor": "setchargecurrent-",
-              "title": "setChargeCurrent()"
+              "title": "setChargeCurrent()",
+              "isContent": true
             },
             {
               "anchor": "getchargecurrent-",
-              "title": "getChargeCurrent()"
+              "title": "getChargeCurrent()",
+              "isContent": true
             }
           ]
         },
@@ -3092,19 +3397,23 @@
           "subsections": [
             {
               "anchor": "setprechargecurrent-",
-              "title": "setPreChargeCurrent()"
+              "title": "setPreChargeCurrent()",
+              "isContent": true
             },
             {
               "anchor": "getprechargecurrent-",
-              "title": "getPreChargeCurrent()"
+              "title": "getPreChargeCurrent()",
+              "isContent": true
             },
             {
               "anchor": "settermchargecurrent-",
-              "title": "setTermChargeCurrent()"
+              "title": "setTermChargeCurrent()",
+              "isContent": true
             },
             {
               "anchor": "gettermchargecurrent-",
-              "title": "getTermChargeCurrent()"
+              "title": "getTermChargeCurrent()",
+              "isContent": true
             }
           ]
         },
@@ -3114,15 +3423,18 @@
           "subsections": [
             {
               "anchor": "setchargevoltage-",
-              "title": "setChargeVoltage()"
+              "title": "setChargeVoltage()",
+              "isContent": true
             },
             {
               "anchor": "getchargevoltagevalue-",
-              "title": "getChargeVoltageValue()"
+              "title": "getChargeVoltageValue()",
+              "isContent": true
             },
             {
               "anchor": "getchargevoltage-",
-              "title": "getChargeVoltage()"
+              "title": "getChargeVoltage()",
+              "isContent": true
             }
           ]
         },
@@ -3132,15 +3444,18 @@
           "subsections": [
             {
               "anchor": "readchargetermregister-",
-              "title": "readChargeTermRegister()"
+              "title": "readChargeTermRegister()",
+              "isContent": true
             },
             {
               "anchor": "disablewatchdog-",
-              "title": "disableWatchdog()"
+              "title": "disableWatchdog()",
+              "isContent": true
             },
             {
               "anchor": "setwatchdog-",
-              "title": "setWatchdog()"
+              "title": "setWatchdog()",
+              "isContent": true
             }
           ]
         },
@@ -3150,11 +3465,13 @@
           "subsections": [
             {
               "anchor": "setthermalregulation-",
-              "title": "setThermalRegulation()"
+              "title": "setThermalRegulation()",
+              "isContent": true
             },
             {
               "anchor": "getthermalregulation-",
-              "title": "getThermalRegulation()"
+              "title": "getThermalRegulation()",
+              "isContent": true
             }
           ]
         },
@@ -3164,43 +3481,53 @@
           "subsections": [
             {
               "anchor": "readopcontrolregister-",
-              "title": "readOpControlRegister()"
+              "title": "readOpControlRegister()",
+              "isContent": true
             },
             {
               "anchor": "enabledpdm-",
-              "title": "enableDPDM()"
+              "title": "enableDPDM()",
+              "isContent": true
             },
             {
               "anchor": "disabledpdm-",
-              "title": "disableDPDM()"
+              "title": "disableDPDM()",
+              "isContent": true
             },
             {
               "anchor": "enablebatfet-",
-              "title": "enableBATFET()"
+              "title": "enableBATFET()",
+              "isContent": true
             },
             {
               "anchor": "disablebatfet-",
-              "title": "disableBATFET()"
+              "title": "disableBATFET()",
+              "isContent": true
             },
             {
               "anchor": "safetytimer-",
-              "title": "safetyTimer()"
+              "title": "safetyTimer()",
+              "isContent": true
             },
             {
               "anchor": "enablechargefaultint-",
-              "title": "enableChargeFaultINT()"
+              "title": "enableChargeFaultINT()",
+              "isContent": true
             },
             {
               "anchor": "disablechargefaultint-",
-              "title": "disableChargeFaultINT()"
+              "title": "disableChargeFaultINT()",
+              "isContent": true
             },
             {
               "anchor": "enablebatfaultint-",
-              "title": "enableBatFaultINT()"
+              "title": "enableBatFaultINT()",
+              "isContent": true
             },
             {
               "anchor": "disablebatfaultint-",
-              "title": "disableBatFaultINT()"
+              "title": "disableBatFaultINT()",
+              "isContent": true
             }
           ]
         },
@@ -3210,27 +3537,33 @@
           "subsections": [
             {
               "anchor": "getvbusstat-",
-              "title": "getVbusStat()"
+              "title": "getVbusStat()",
+              "isContent": true
             },
             {
               "anchor": "getchargingstat-",
-              "title": "getChargingStat()"
+              "title": "getChargingStat()",
+              "isContent": true
             },
             {
               "anchor": "getdpmstat-",
-              "title": "getDPMStat()"
+              "title": "getDPMStat()",
+              "isContent": true
             },
             {
               "anchor": "ispowergood-",
-              "title": "isPowerGood()"
+              "title": "isPowerGood()",
+              "isContent": true
             },
             {
               "anchor": "ishot-",
-              "title": "isHot()"
+              "title": "isHot()",
+              "isContent": true
             },
             {
               "anchor": "getvsysstat-",
-              "title": "getVsysStat()"
+              "title": "getVsysStat()",
+              "isContent": true
             }
           ]
         }
@@ -3267,19 +3600,23 @@
           "subsections": [
             {
               "anchor": "systempowerfeature-pmic_detection",
-              "title": "SystemPowerFeature::PMIC_DETECTION"
+              "title": "SystemPowerFeature::PMIC_DETECTION",
+              "isContent": true
             },
             {
               "anchor": "systempowerfeature-use_vin_settings_with_usb_host",
-              "title": "SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST"
+              "title": "SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST",
+              "isContent": true
             },
             {
               "anchor": "systempowerfeature-disable_charging",
-              "title": "SystemPowerFeature::DISABLE_CHARGING"
+              "title": "SystemPowerFeature::DISABLE_CHARGING",
+              "isContent": true
             },
             {
               "anchor": "systempowerfeature-disable",
-              "title": "SystemPowerFeature::DISABLE"
+              "title": "SystemPowerFeature::DISABLE",
+              "isContent": true
             }
           ]
         },
@@ -3542,27 +3879,33 @@
           "subsections": [
             {
               "anchor": "reason-",
-              "title": "reason()"
+              "title": "reason()",
+              "isContent": true
             },
             {
               "anchor": "wokenupbypin-",
-              "title": "wokenUpByPin()"
+              "title": "wokenUpByPin()",
+              "isContent": true
             },
             {
               "anchor": "wokenupbyrtc-",
-              "title": "wokenUpByRtc()"
+              "title": "wokenUpByRtc()",
+              "isContent": true
             },
             {
               "anchor": "rtc-",
-              "title": "rtc()"
+              "title": "rtc()",
+              "isContent": true
             },
             {
               "anchor": "pin-",
-              "title": "pin()"
+              "title": "pin()",
+              "isContent": true
             },
             {
               "anchor": "error-",
-              "title": "error()"
+              "title": "error()",
+              "isContent": true
             }
           ]
         },
@@ -3651,19 +3994,23 @@
           "subsections": [
             {
               "anchor": "wakeupreason-systemsleepresult-",
-              "title": "wakeupReason() (SystemSleepResult)"
+              "title": "wakeupReason() (SystemSleepResult)",
+              "isContent": true
             },
             {
               "anchor": "wakeuppin-systemsleepresult-",
-              "title": "wakeupPin() (SystemSleepResult)"
+              "title": "wakeupPin() (SystemSleepResult)",
+              "isContent": true
             },
             {
               "anchor": "error-systemsleepresult-",
-              "title": "error() (SystemSleepResult)"
+              "title": "error() (SystemSleepResult)",
+              "isContent": true
             },
             {
               "anchor": "tosleepresult-systemsleepresult-",
-              "title": "toSleepResult() (SystemSleepResult)"
+              "title": "toSleepResult() (SystemSleepResult)",
+              "isContent": true
             }
           ]
         },
@@ -4031,15 +4378,18 @@
           "subsections": [
             {
               "anchor": "ticks-",
-              "title": "ticks()"
+              "title": "ticks()",
+              "isContent": true
             },
             {
               "anchor": "tickspermicrosecond-",
-              "title": "ticksPerMicrosecond();"
+              "title": "ticksPerMicrosecond();",
+              "isContent": true
             },
             {
               "anchor": "ticksdelay-",
-              "title": "ticksDelay()"
+              "title": "ticksDelay()",
+              "isContent": true
             }
           ]
         },
@@ -4137,7 +4487,8 @@
           "subsections": [
             {
               "anchor": "feature_disable_listening_mode",
-              "title": "FEATURE_DISABLE_LISTENING_MODE"
+              "title": "FEATURE_DISABLE_LISTENING_MODE",
+              "isContent": true
             }
           ]
         },
@@ -4147,15 +4498,18 @@
           "subsections": [
             {
               "anchor": "systemcontrolrequestaclaction",
-              "title": "SystemControlRequestAclAction"
+              "title": "SystemControlRequestAclAction",
+              "isContent": true
             },
             {
               "anchor": "systemcontrolrequestacl",
-              "title": "SystemControlRequestAcl"
+              "title": "SystemControlRequestAcl",
+              "isContent": true
             },
             {
               "anchor": "ctrl_request_type",
-              "title": "ctrl_request_type"
+              "title": "ctrl_request_type",
+              "isContent": true
             }
           ]
         }
@@ -4176,7 +4530,8 @@
           "subsections": [
             {
               "anchor": "registering-multiple-events-with-the-same-handler",
-              "title": "Registering multiple events with the same handler"
+              "title": "Registering multiple events with the same handler",
+              "isContent": true
             }
           ]
         },
@@ -4186,15 +4541,18 @@
           "subsections": [
             {
               "anchor": "network_credentials-16-param-values",
-              "title": "network_credentials (16) param values"
+              "title": "network_credentials (16) param values",
+              "isContent": true
             },
             {
               "anchor": "network_status-32-param-values",
-              "title": "network_status (32) param values"
+              "title": "network_status (32) param values",
+              "isContent": true
             },
             {
               "anchor": "cloud_status-64-parameter-values",
-              "title": "cloud_status (64) parameter values"
+              "title": "cloud_status (64) parameter values",
+              "isContent": true
             }
           ]
         },
@@ -4204,11 +4562,13 @@
           "subsections": [
             {
               "anchor": "time_changed-16384-param-values-param-values",
-              "title": "time_changed (16384) param values param values"
+              "title": "time_changed (16384) param values param values",
+              "isContent": true
             },
             {
               "anchor": "ble_prov_mode-param-values",
-              "title": "ble_prov_mode param values"
+              "title": "ble_prov_mode param values",
+              "isContent": true
             }
           ]
         }
@@ -4253,11 +4613,13 @@
           "subsections": [
             {
               "anchor": "feature_retained_memory",
-              "title": "FEATURE_RETAINED_MEMORY"
+              "title": "FEATURE_RETAINED_MEMORY",
+              "isContent": true
             },
             {
               "anchor": "feature_wifi_powersave_clock",
-              "title": "FEATURE_WIFI_POWERSAVE_CLOCK"
+              "title": "FEATURE_WIFI_POWERSAVE_CLOCK",
+              "isContent": true
             }
           ]
         }
@@ -4329,19 +4691,23 @@
           "subsections": [
             {
               "anchor": "waituntil-",
-              "title": "waitUntil()"
+              "title": "waitUntil()",
+              "isContent": true
             },
             {
               "anchor": "waituntilnot-",
-              "title": "waitUntilNot()"
+              "title": "waitUntilNot()",
+              "isContent": true
             },
             {
               "anchor": "waitfor-",
-              "title": "waitFor()"
+              "title": "waitFor()",
+              "isContent": true
             },
             {
               "anchor": "waitfornot-",
-              "title": "waitForNot()"
+              "title": "waitForNot()",
+              "isContent": true
             }
           ]
         }
@@ -4480,11 +4846,13 @@
           "subsections": [
             {
               "anchor": "thread-constructor-os_thread_fn_t-threading",
-              "title": "Thread constructor os_thread_fn_t - Threading"
+              "title": "Thread constructor os_thread_fn_t - Threading",
+              "isContent": true
             },
             {
               "anchor": "thread-constructor-wiring_thread_fn_t-threading",
-              "title": "Thread constructor wiring_thread_fn_t - Threading"
+              "title": "Thread constructor wiring_thread_fn_t - Threading",
+              "isContent": true
             }
           ]
         },
@@ -4510,19 +4878,23 @@
           "subsections": [
             {
               "anchor": "mutex-constructor-threading",
-              "title": "Mutex constructor - Threading"
+              "title": "Mutex constructor - Threading",
+              "isContent": true
             },
             {
               "anchor": "mutex-lock-threading",
-              "title": "Mutex::lock - Threading"
+              "title": "Mutex::lock - Threading",
+              "isContent": true
             },
             {
               "anchor": "mutex-trylock-threading",
-              "title": "Mutex::trylock - Threading"
+              "title": "Mutex::trylock - Threading",
+              "isContent": true
             },
             {
               "anchor": "mutex-unlock-threading",
-              "title": "Mutex::unlock - Threading"
+              "title": "Mutex::unlock - Threading",
+              "isContent": true
             }
           ]
         },
@@ -4532,19 +4904,23 @@
           "subsections": [
             {
               "anchor": "recursivemutex-constructor-threading",
-              "title": "RecursiveMutex constructor - Threading"
+              "title": "RecursiveMutex constructor - Threading",
+              "isContent": true
             },
             {
               "anchor": "recursivemutex-lock-threading",
-              "title": "RecursiveMutex::lock - Threading"
+              "title": "RecursiveMutex::lock - Threading",
+              "isContent": true
             },
             {
               "anchor": "recursivemutex-trylock-threading",
-              "title": "RecursiveMutex::trylock - Threading"
+              "title": "RecursiveMutex::trylock - Threading",
+              "isContent": true
             },
             {
               "anchor": "recursivemutexmutex-unlock-threading",
-              "title": "RecursiveMutexMutex::unlock - Threading"
+              "title": "RecursiveMutexMutex::unlock - Threading",
+              "isContent": true
             }
           ]
         },
@@ -5130,7 +5506,8 @@
           "subsections": [
             {
               "anchor": "watchdog-capabilities",
-              "title": "Watchdog capabilities"
+              "title": "Watchdog capabilities",
+              "isContent": true
             }
           ]
         },
@@ -5152,7 +5529,8 @@
           "subsections": [
             {
               "anchor": "watchdog-sleep_running",
-              "title": "Watchdog SLEEP_RUNNING"
+              "title": "Watchdog SLEEP_RUNNING",
+              "isContent": true
             }
           ]
         },
@@ -5273,19 +5651,23 @@
           "subsections": [
             {
               "anchor": "getstrength-",
-              "title": "getStrength()"
+              "title": "getStrength()",
+              "isContent": true
             },
             {
               "anchor": "getquality-",
-              "title": "getQuality()"
+              "title": "getQuality()",
+              "isContent": true
             },
             {
               "anchor": "getstrengthvalue-",
-              "title": "getStrengthValue()"
+              "title": "getStrengthValue()",
+              "isContent": true
             },
             {
               "anchor": "getqualityvalue-",
-              "title": "getQualityValue()"
+              "title": "getQualityValue()",
+              "isContent": true
             }
           ]
         },
@@ -5355,59 +5737,73 @@
           "subsections": [
             {
               "anchor": "wificredentials-",
-              "title": "WiFiCredentials()"
+              "title": "WiFiCredentials()",
+              "isContent": true
             },
             {
               "anchor": "setssid-",
-              "title": "setSsid()"
+              "title": "setSsid()",
+              "isContent": true
             },
             {
               "anchor": "setsecurity-",
-              "title": "setSecurity()"
+              "title": "setSecurity()",
+              "isContent": true
             },
             {
               "anchor": "setcipher-",
-              "title": "setCipher()"
+              "title": "setCipher()",
+              "isContent": true
             },
             {
               "anchor": "setpassword-",
-              "title": "setPassword()"
+              "title": "setPassword()",
+              "isContent": true
             },
             {
               "anchor": "sethidden-",
-              "title": "setHidden()"
+              "title": "setHidden()",
+              "isContent": true
             },
             {
               "anchor": "setvalidate-",
-              "title": "setValidate()"
+              "title": "setValidate()",
+              "isContent": true
             },
             {
               "anchor": "setchannel-",
-              "title": "setChannel()"
+              "title": "setChannel()",
+              "isContent": true
             },
             {
               "anchor": "seteaptype-",
-              "title": "setEapType()"
+              "title": "setEapType()",
+              "isContent": true
             },
             {
               "anchor": "setidentity-",
-              "title": "setIdentity()"
+              "title": "setIdentity()",
+              "isContent": true
             },
             {
               "anchor": "setouteridentity-",
-              "title": "setOuterIdentity()"
+              "title": "setOuterIdentity()",
+              "isContent": true
             },
             {
               "anchor": "setclientcertificate-",
-              "title": "setClientCertificate()"
+              "title": "setClientCertificate()",
+              "isContent": true
             },
             {
               "anchor": "setprivatekey-",
-              "title": "setPrivateKey()"
+              "title": "setPrivateKey()",
+              "isContent": true
             },
             {
               "anchor": "setrootcertificate-",
-              "title": "setRootCertificate()"
+              "title": "setRootCertificate()",
+              "isContent": true
             }
           ]
         },

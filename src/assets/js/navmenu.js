@@ -184,19 +184,26 @@ navMenu.collapseExpandInternal = function(itemObj, showSubsections) {
 
 navMenu.collapseExpand = function(itemObj, showSubsections) {
     
-    if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
-        // Was right, make down
-        $(itemObj.collapseIconElem).removeClass('ion-arrow-right-b');
-        $(itemObj.collapseIconElem).addClass('ion-arrow-down-b');
-
-        navMenu.collapseExpandInternal(itemObj, true);
+    if (typeof showSubsections == 'undefined') {
+        showSubsection = $(itemObj.collapseIconElem).hasClass('ion-arrow-right-b');
     }
-    else {
-        // Has down, make right
-        $(itemObj.collapseIconElem).removeClass('ion-arrow-down-b');
-        $(itemObj.collapseIconElem).addClass('ion-arrow-right-b');
+    const isShown = $(itemObj.collapseIconElem).hasClass('ion-arrow-down-b');
 
-        navMenu.collapseExpandInternal(itemObj, false);
+    if (isShown != showSubsections) {
+        if (showSubsection) {
+            // Was right, make down
+            $(itemObj.collapseIconElem).removeClass('ion-arrow-right-b');
+            $(itemObj.collapseIconElem).addClass('ion-arrow-down-b');
+    
+            navMenu.collapseExpandInternal(itemObj, true);
+        }
+        else {
+            // Has down, make right
+            $(itemObj.collapseIconElem).removeClass('ion-arrow-down-b');
+            $(itemObj.collapseIconElem).addClass('ion-arrow-right-b');
+    
+            navMenu.collapseExpandInternal(itemObj, false);
+        }    
     }
 }
 
@@ -249,6 +256,9 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         itemObj.isActivePage = (itemObj.hrefNoAnchor == navMenu.hrefPage) ;
         itemObj.isActiveParent = (itemObj.hrefNoAnchor == navMenu.hrefParent) ;
         itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
+        if (!itemObj.collapseItemObj && options.collapseItemObj) {
+            itemObj.collapseItemObj = options.collapseItemObj;
+        }
 
         if (itemObj.isActivePage && !itemObj.anchor && !itemObj.isContent && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
             // This is a normal page, add the internal headers to the navigation   
@@ -346,13 +356,18 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         }
 
         let canLink = false;
-        if (!itemObj.isActivePage && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
-            // Non-active page always links if there are no subsections or this is a special page (Device OS API or Libraries)
+        if (!itemObj.isActivePage && !itemObj.isSection) {
+            // Non-active pages can be linked to, unless they are section headers
             canLink = true;
         }
         else 
         if (itemObj.anchor) {
             // Allow any page with an anchor to be linked to (this happens for deep inside the Device OS API reference)
+            canLink = true;
+        }
+        else
+        if (itemObj.insertLoc) {
+            // Special page (Device OS API or Libraries) can be linked to always
             canLink = true;
         }
 
@@ -381,7 +396,14 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             subOptions.level = options.level + 1;
             subOptions.path = itemObj.itemPath + '/';
             subOptions.hideSubsections = options.hideSubsections || hideSubsections;
-            
+            if (itemObj.collapse) {
+                subOptions.collapseItemObj = itemObj;
+            }
+            else
+            if (options.collapseItemObj) {
+                subOptions.collapseItemObj = options.collapseItemObj;
+            }
+
             navMenu.generateNavHtmlInternal(itemObj.subsections, subOptions);
         }
         else {
@@ -623,6 +645,7 @@ navMenu.searchContent = function() {
 }
 
 // TO BE REMOVED
+/*
 navMenu.scanHeaders = function () {
     if (navMenu.thisUrl.pathname.startsWith('/reference/device-os/api')) {
         return;
@@ -849,6 +872,7 @@ navMenu.scanHeaders = function () {
         $('.navActive2').siblings('.navPlusMinus').hide();
     }
 };
+*/
 
 navMenu.updateTOC = function () {
 
@@ -931,7 +955,7 @@ navMenu.syncNavigation = function() {
     }
     navMenu.lastAnchor = id;
 
-    console.log('id=' + id);
+    console.log('syncNavigation', {id});
 
     navMenu.forEachItem(function(itemObj) {
         if (itemObj.isContent) {
@@ -939,6 +963,10 @@ navMenu.syncNavigation = function() {
                 console.log('found id=' + id);
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
                 $(itemObj.elem).find('.navLink').removeClass('navLink');
+                if (itemObj.collapseItemObj) {
+                    navMenu.collapseExpand(itemObj.collapseItemObj, true);
+                }
+                navMenu.scrollToActive();
             }
             else {
                 $(itemObj.elem).find('.navLinkActive').addClass('navLink');
