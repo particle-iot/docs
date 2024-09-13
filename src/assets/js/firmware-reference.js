@@ -320,13 +320,13 @@ $(document).ready(function() {
             firmwareReference.lastPage = pageOffsets[index].href;
 
             console.log('page changed ' + pageOffsets[index].href)
-            return;
         }
-    
-        if (firmwareReference.lastAnchor == pageOffsets[index].id) {
-            return;
+        else {
+            if (firmwareReference.lastAnchor == pageOffsets[index].id) {
+                return;
+            }
+            firmwareReference.lastAnchor = pageOffsets[index].id;    
         }
-        firmwareReference.lastAnchor = pageOffsets[index].id;
     
         // console.log('firmwareReference.syncNavigation', pageOffsets[index]);
     
@@ -353,7 +353,7 @@ $(document).ready(function() {
             case 'up':
             case 'down':
                 break;
-                
+
             case 'left':
             case 'right':
                 break;
