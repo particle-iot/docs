@@ -130,6 +130,7 @@ navMenu.load = async function() {
         };
 
     }
+    navMenu.navigationItems = [];
 
     if (loadMore) {
         const fetchMoreRes = await fetch(loadMore.url);
@@ -149,7 +150,6 @@ navMenu.load = async function() {
 
         // For the Device OS API and Libraries, this is a sequential list of every page (not anchor)
         // which is useful for automatically scrolling
-        navMenu.moreItems = [];
         let nextIsSectionStart = false;
 
         navMenu.forEachItemInternal(moreMenuJson.items, {callback:function(itemObj) {
@@ -158,18 +158,25 @@ navMenu.load = async function() {
                     itemObj.sectionStart = true;
                     nextIsSectionStart = false;
                 }
-                navMenu.moreItems.push(itemObj);
+                navMenu.navigationItems.push(itemObj);
                 if (itemObj.collapse) {
                     nextIsSectionStart = true;
                 }
             }
         }});
     }
+    else {
+        navMenu.forEachItem(function(itemObj) {
+            if (!itemObj.anchor) {
+                navMenu.navigationItems.push(itemObj);
+            }
+        });
+    }
     
     const nav = navMenu.generateNavHtml(navMenu.menuJson);
     $('.navMenuOuter').replaceWith(nav);
 
-    if (firmwareReference) {
+    if (typeof firmwareReference != 'undefined') {
         firmwareReference.navMenuLoaded();
     }
 }
@@ -675,269 +682,6 @@ navMenu.searchContent = function() {
     });
 }
 
-// TO BE REMOVED
-/*
-navMenu.scanHeaders = function () {
-    if (navMenu.thisUrl.pathname.startsWith('/reference/device-os/api')) {
-        return;
-    }
-
-    let navLevel = $('#navActiveContent').data('level') || 3;
-
-    navMenu.headers = [];
-
-    const contentInner = $('div.content-inner');
-
-    navMenu.useDisclosureTriangle = false;
-
-    let headerLevels = 'h2,h3,h4';
-    let levelAdjust = 0;
-
-    let lastL2;
-    let hasL2 = false;
-
-    $(contentInner).find(headerLevels).each(function (index, elem) {
-        // console.log('elem', elem);
-        const id = $(elem).prop('id');
-        if (id) {
-            const level = parseInt($(elem).prop('tagName').substr(1)) + levelAdjust;
-            let obj = { 
-                elem, 
-                id, 
-                level,
-                text: $(elem).text(),
-            };
-            navMenu.headers.push(obj);
-
-            if (level == 2) {
-                lastL2 = obj;
-                hasL2 = true;
-            }
-
-            if (level > 2) {
-                if (lastL2) {
-                    navMenu.useDisclosureTriangle = true;
-                    lastL2.hasDisclosureTriangle = true;
-                }
-            }
-        }
-    });
-
-    if (!hasL2) {
-        // Document has no L2 headers, promote all headers by one level
-        for(let hdr of navMenu.headers) {
-            hdr.level--;
-        }
-    }
-
-    // console.log('scanHeaders headers', navMenu.headers);
-    navMenu.searchContent();
-
-    navMenu.currentHeader = 0;
-
-    $(contentInner).on('scroll', function () {
-        // Copied from docs.js.hbs
-        var scrollPosition = contentInner.scrollTop();
-        var done = false;
-
-        var oldHeader = navMenu.currentHeader;
-        while (!done) {
-            if (navMenu.currentHeader < navMenu.headers.length - 2 &&
-                scrollPosition >= Math.floor($(navMenu.headers[navMenu.currentHeader + 1].elem).position().top)) {
-                navMenu.currentHeader += 1;
-            } else if (navMenu.currentHeader > 0 &&
-                scrollPosition < Math.floor($(navMenu.headers[navMenu.currentHeader].elem).position().top)) {
-                navMenu.currentHeader -= 1;
-            } else {
-                done = true;
-            }
-        }
-
-        if (oldHeader !== navMenu.currentHeader) {
-            navMenu.updateTOC();
-        }
-    });
-
-    $('.navActive2').siblings('.navPlusMinus').on('click', function() {
-        const iconElem = $(this).find('i');
-
-        if ($(iconElem).hasClass('ion-minus')) {
-            // Is minus (content displayed), change to plus (content hidden)
-            $(iconElem).removeClass('ion-minus').addClass('ion-plus');
-            $('#navActiveContent').hide();
-        }
-        else {
-            // Is plus (content hidden, change to minus (content displayed)
-            $(iconElem).removeClass('ion-plus').addClass('ion-minus');
-            $('#navActiveContent').show();
-        }
-
-    });  
-
-    // Build TOC HTML
-    lastL2 = null;
-    let lastL3;
-
-    let hasActiveContent = false;
-
-    const createSimpleTocElem = function(hdr, level) {
-        let e1, e2, e3;
-
-        e1 = document.createElement('div');
-        $(e1).addClass('navMenu' + level  + ' navContainer');
-
-        e2 = document.createElement('div');
-        $(e2).addClass('navIndent' + level)
-        $(e1).append(e2);
-
-        e2 = document.createElement('div');
-        $(e2).addClass('navContent' + level);
-
-        e3 = document.createElement('a');
-        $(e3).addClass('navLink')
-        $(e3).attr('href', '#' + hdr.id);
-        $(e3).on('click', function() {
-            navMenu.openAnchor(hdr.id);
-        });
-        $(e3).text($(hdr.elem).text());
-        $(e2).append(e3);
-        $(e1).append(e2);
-
-        $('#navActiveContent').append(e1);
-        hasActiveContent = true;
-
-        $(e1).hide();
-        hdr.tocElem = e1;
-
-        return e1;
-    }
-
-    $('#navActiveContent').empty();
-    for (let hdr of navMenu.headers) {
-        if (hdr.level == 2) {
-            let e1, e2, e3, e4;
-
-            e1 = document.createElement('div');
-            $(e1).addClass('navMenu' + navLevel + ' navContainer');
-
-            e2 = document.createElement('div');
-            $(e2).addClass('navIndent' + navLevel);
-            $(e1).append(e2);
-
-            if (hdr.hasDisclosureTriangle) {
-                e2 = document.createElement('div');
-                $(e2).addClass('navDisclosure');
-
-                const iconElem = document.createElement('i');
-                $(iconElem).addClass('ion-arrow-right-b');
-                $(e2).append(iconElem);
-
-                const clickHdr = hdr;
-
-                $(e2).on('click', function () {
-                    if ($(iconElem).hasClass('ion-arrow-right-b')) {
-                        // Was right, make down
-                        $(iconElem).removeClass('ion-arrow-right-b');
-                        $(iconElem).addClass('ion-arrow-down-b');                        
-                        $(clickHdr.tocChildren).show();
-                    }
-                    else {
-                        // Has down, make right
-                        $(iconElem).removeClass('ion-arrow-down-b');
-                        $(iconElem).addClass('ion-arrow-right-b');
-                        $(clickHdr.tocChildren).hide();
-                    }
-                });
-
-                $(e1).append(e2);
-            }
-            else if (navMenu.useDisclosureTriangle) {
-                // This is a change in behavior from before. Now, if there are
-                // any disclosure triangles, entries without one are indented
-                // to the same level so the text is aligned.
-                e2 = document.createElement('div');
-                $(e2).addClass('navDisclosure');
-                $(e1).append(e2);
-            }
-
-            e2 = document.createElement('div');
-            $(e2).addClass('navContent3');
-
-            e3 = document.createElement('a');
-            $(e3).addClass('navLink')
-            $(e3).attr('href', '#' + hdr.id);
-            $(e3).on('click', function() {
-                navMenu.openAnchor(hdr.id);
-            });
-            $(e3).text($(hdr.elem).text());
-            $(e2).append(e3);
-            $(e1).append(e2);
-
-            $('#navActiveContent').append(e1);
-            hasActiveContent = true;
-            hdr.tocElem = e1;
-
-            lastL2 = hdr;
-        }
-        else if (hdr.level == 3 && lastL2) {
-            let elem = createSimpleTocElem(hdr, 4);
-
-            if (!lastL2.tocChildren) {
-                lastL2.tocChildren = [];
-            }
-            lastL2.tocChildren.push(elem);
-
-            lastL3 = hdr;
-        }
-        else if (hdr.level == 4 && lastL3) {
-            let elem = createSimpleTocElem(hdr, 5);
-
-            if (!lastL3.tocChildren) {
-                lastL3.tocChildren = [];
-            }
-            lastL3.tocChildren.push(elem);
-        }
-    }
-
-    if (!hasActiveContent) {
-        $('.navActive2').siblings('.navPlusMinus').hide();
-    }
-};
-*/
-
-navMenu.updateTOC = function () {
-
-    let hierarchy = [];
-    hierarchy.push(navMenu.headers[navMenu.currentHeader]);
-    for (let ii = navMenu.currentHeader - 1; ii >= 0; ii--) {
-        if (navMenu.headers[ii].level < hierarchy[0].level) {
-            hierarchy.splice(0, 0, navMenu.headers[ii]);
-        }
-        if (hierarchy[0].level == 2) {
-            break;
-        }
-    }
-    
-    // Change active links back to plain
-    $('.navLinkActive').removeClass('navLinkActive').addClass('navLink');
-
-    // Collapse all sections
-    $('#navActiveContent i').removeClass('navActive').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-    $('.navMenu4').hide();
-    $('.navMenu5').hide();
-
-    // Expand the current section
-    $(hierarchy[0].tocElem).find('i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
-
-    for (let ii = 0; ii < hierarchy.length; ii++) {
-        if (hierarchy[ii].tocElem) {
-            $(hierarchy[ii].tocElem).find('a').removeClass('navLink').addClass('navLinkActive');
-        }
-        $(hierarchy[ii].tocChildren).show();
-    }
-    navMenu.scrollToActive();
-};
-
 navMenu.scrollToActive = function () {
 
     let activeElem = $('.navLinkActive');
@@ -1015,21 +759,138 @@ navMenu.syncNavigation = function() {
                 $(itemObj.elem).find('.navLink').removeClass('navLink');
                 navMenu.scrollToActive();
             }
-        }
-        else {
-            $(itemObj.elem).find('.navLinkActive').addClass('navLink');
-            $(itemObj.elem).find('.navLinkActive').removeClass('navLinkActive');
+            else {
+                $(itemObj.elem).find('.navLinkActive').addClass('navLink');
+                $(itemObj.elem).find('.navLinkActive').removeClass('navLinkActive');
+            }
         }
     });
 }
 
-$('div.content-inner').on('scroll', function(e) {
-    // TODO: Probably include code from firmware-reference to restrict syncNavigation
-    navMenu.syncNavigation();
-});
+navMenu.navigate = function(dir) {
+    if (typeof firmwareReference != 'undefined') {
+        firmwareReference.navigate(dir);
+        return;
+    }
+
+    console.log('navMenu.navigate', dir);
+
+    switch(dir) {
+        case 'up':
+        case 'down':
+        case 'left':
+        case 'right':
+            break;
+
+        case 'Home':
+        case 'End':
+        case 'PageUp':
+        case 'PageDown':
+            $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
+            break;
+    }
+}
 
 navMenu.ready = async function () {
     await navMenu.load();
+
+    const scrollableContent = $('div.content-inner');
+
+
+    let startX, startY, startTime;
+
+    $('div.page-body').on('touchstart', function(e) {
+        startX = e.changedTouches[0].pageX;
+        startY = e.changedTouches[0].pageY;
+        startTime = Date.now();
+    });
+
+    $('div.page-body').on('touchend', function(e) {
+        const deltaX = e.changedTouches[0].pageX - startX;
+        const deltaY = e.changedTouches[0].pageY - startY;
+        const deltaTime = Date.now() - startTime;
+
+        if (Math.abs(deltaX) < 30 && Math.abs(deltaY) < 30 && deltaTime < 200) {
+            // Tap
+            if (startX < 150) {
+                // Tap left
+                navMenu.navigate('left');
+                // navigate(false, false);
+            }
+            else
+            if (startX > (screen.width - 150)) {
+                // Tap right
+                navMenu.navigate('right');
+                // navigate(true, false);
+            }
+        }
+
+        if (Math.abs(deltaX) > 150 && Math.abs(deltaY) < 150 && deltaTime < 400) {
+            // Swipe
+            if (deltaX < 0) {
+                // Right (next)
+                navMenu.navigate('right');
+            }  
+            else {
+                // Left (previous)
+                navMenu.navigate('left');
+            }
+        }    
+    });    
+
+    
+
+    $('body').on('keydown', function(ev) {
+        if (typeof firmwareReference != 'undefined') {
+            // Firmware reference implements its own scrolling
+            return;
+        }
+
+        if (ev.shiftKey) {
+            switch(ev.key) {
+                case 'ArrowLeft':
+                    // Prev topic
+                    ev.preventDefault();
+                    navMenu.navigate('left');
+                    break;
+
+                case 'ArrowRight':
+                    // Next topic
+                    ev.preventDefault();
+                    navMenu.navigate('right');
+                    break;
+
+                case 'ArrowUp':
+                    // Previous section
+                    ev.preventDefault();
+                    navMenu.navigate('up');
+                    break;
+
+                case 'ArrowDown':
+                    // Next section
+                    ev.preventDefault();
+                    navMenu.navigate('down');
+                    break;
+            }
+        }
+        else {
+            switch(ev.key) {
+                case 'Home':
+                case 'End':
+                case 'PageUp':
+                case 'PageDown':
+                    ev.preventDefault();
+                    navMenu.navigate(ev.key);
+                    break;
+            }
+        }
+    });
+
+
+    $('div.content-inner').on('scroll', function(e) {
+        // TODO: Probably include code from firmware-reference to restrict syncNavigation
+        navMenu.syncNavigation();
+    });
 
     // navMenu.scanHeaders();
     navMenu.scrollToActive();

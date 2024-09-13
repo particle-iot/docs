@@ -19,7 +19,7 @@ $(document).ready(function() {
         firmwareReference.pageLoading = true;
 
         if (typeof options.index != 'undefined' && typeof options.link == 'undefined') {
-            options.link = navMenu.moreItems[options.index].hrefNoAnchor;
+            options.link = navMenu.navigationItems[options.index].hrefNoAnchor;
         }
 
         console.log('loadPage', options);
@@ -52,16 +52,16 @@ $(document).ready(function() {
                 }
 
                 let itemIndex;
-                for(itemIndex = 0; itemIndex < navMenu.moreItems.length; itemIndex++) {
-                    if (navMenu.moreItems[itemIndex].hrefNoAnchor == options.link) {
+                for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                    if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
                         break;
                     }
                 }
-                if (itemIndex >= navMenu.moreItems.length) {
+                if (itemIndex >= navMenu.navigationItems.length) {
                     console.log('not found ' + options.link);
                     return;
                 }
-                const itemObj = navMenu.moreItems[itemIndex];
+                const itemObj = navMenu.navigationItems[itemIndex];
                 console.log('loadPage', itemObj);
                 
                 let divElem = document.createElement('div');
@@ -133,7 +133,7 @@ $(document).ready(function() {
             const count = (typeof options.count != 'undefined') ? options.count : 1;
 
             if (options.toEnd) {
-                for(let ii = 1; (ii <= count) && ((ii + options.index) < navMenu.moreItems.length); ii++) {
+                for(let ii = 1; (ii <= count) && ((ii + options.index) < navMenu.navigationItems.length); ii++) {
                     firmwareReference.pageQueue.push({index: ii + options.index, toEnd:true});                            
                 }
             }
@@ -166,9 +166,9 @@ $(document).ready(function() {
 
         firmwareReference.loadedMoreItemsIndex = null;
 
-        for(let ii = 0; ii < navMenu.moreItems.length; ii++) {
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
             const index = ii;
-            const itemObj = navMenu.moreItems[ii];
+            const itemObj = navMenu.navigationItems[ii];
             if (firmwareReference.thisUrl.pathname == itemObj.hrefNoAnchor) {
                 if (!firmwareReference.loadedMoreItemsIndex) {
                     firmwareReference.loadedMoreItemsIndex = ii;
@@ -243,7 +243,7 @@ $(document).ready(function() {
             firmwareReference.lastScrollDir = 'up';
             firmwareReference.queuePage({index:firmwareReference.topIndex, count:4, toEnd:false});  
         }
-        if (params.atBottom && firmwareReference.bottomIndex < navMenu.moreItems.length) {
+        if (params.atBottom && firmwareReference.bottomIndex < navMenu.navigationItems.length) {
             console.log('atBottom');
             firmwareReference.lastScrollDir = 'down';
             firmwareReference.queuePage({index:firmwareReference.bottomIndex, count:4, toEnd:true});  
@@ -299,14 +299,6 @@ $(document).ready(function() {
                     break;
                 }
             }    
-            /*
-            for(let ii = 0; ii < pageOffsets.length; ii++) {
-                if (pageOffsets[ii].top < ((menubarRect.top + menubarRect.height) - 20)) {
-                    index = ii;
-                    break;
-                }
-            }
-            */
         }
         else {
             // "up" or not defined
@@ -336,12 +328,11 @@ $(document).ready(function() {
         }
         firmwareReference.lastAnchor = pageOffsets[index].id;
     
-        console.log('firmwareReference.syncNavigation', pageOffsets[index]);
+        // console.log('firmwareReference.syncNavigation', pageOffsets[index]);
     
 
         navMenu.forEachItem(function(itemObj) {
             if (itemObj.anchor == pageOffsets[index].id) {
-                console.log('found id=' + pageOffsets[index].id);
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
                 $(itemObj.elem).find('.navLink').removeClass('navLink');
                 if (itemObj.collapseItemObj) {
@@ -356,25 +347,33 @@ $(document).ready(function() {
         });
     }
 
-    // TODO: Update firmwareReference.lastScrollDir on page up, page down, 
-
-
-    /*
-    const preloadPages = function(pathname) {
-        const pathParts = parsePath(pathname);
-        
-        for(let index = 0; index < apiIndex.sections.length; index++) {
-            const section = apiIndex.sections[index];
-            if (section.folder == pathParts.folder && section.file == pathParts.file) {
-                for(let ii = 1; ii <= 3 && (index + ii) < apiIndex.sections.length; ii++) {
-                    queuePage({link: apiIndex.sections[index + ii].href, toEnd:true});
-                }                
+    navMenu.navigate = function(dir) {
+    
+        switch(dir) {
+            case 'up':
+            case 'down':
                 break;
-            }
+                
+            case 'left':
+            case 'right':
+                break;
+    
+            case 'Home':
+            case 'End':
+                break;
+
+            case 'PageUp':
+                firmwareReference.lastScrollDir = 'up';
+                $(scrollableContent)[0].scrollBy(0, -($(scrollableContent).height() - 20));
+                break;
+
+            case 'PageDown':
+                firmwareReference.lastScrollDir = 'down';
+                $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
+                break;
         }
     }
-    */
-
+    
 
     return; // TEMPORARY
 
