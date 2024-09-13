@@ -132,13 +132,15 @@ $(document).ready(function() {
         if (typeof options.index != 'undefined') {
             const count = (typeof options.count != 'undefined') ? options.count : 1;
 
+            const start = options.skipIndex ? 1 : 0;
+
             if (options.toEnd) {
-                for(let ii = 1; (ii <= count) && ((ii + options.index) < navMenu.navigationItems.length); ii++) {
+                for(let ii = start; (ii <= count) && ((ii + options.index) < navMenu.navigationItems.length); ii++) {
                     firmwareReference.pageQueue.push({index: ii + options.index, toEnd:true});                            
                 }
             }
             else {
-                for(let ii = 1; (ii <= count) && ((options.index - ii) >= 0); ii++) {
+                for(let ii = start; (ii <= count) && ((options.index - ii) >= 0); ii++) {
                     firmwareReference.pageQueue.push({index: options.index - ii, toEnd:false});                            
                 }                
             }            
@@ -153,7 +155,8 @@ $(document).ready(function() {
 
     firmwareReference.replacePage = function(options) {
         firmwareReference.pageQueue = [];
-        
+        firmwareReference.lastScrollDir = null;
+
         if (typeof options.index != 'undefined') {
             firmwareReference.pageQueue.push({index: options.index, replacePage: true, });
 
@@ -241,12 +244,12 @@ $(document).ready(function() {
         if (params.atTop && firmwareReference.topIndex >= 0) {
             console.log('atTop');
             firmwareReference.lastScrollDir = 'up';
-            firmwareReference.queuePage({index:firmwareReference.topIndex, count:4, toEnd:false});  
+            firmwareReference.queuePage({index:firmwareReference.topIndex, skipIndex: true, count:3, toEnd:false});  
         }
         if (params.atBottom && firmwareReference.bottomIndex < navMenu.navigationItems.length) {
             console.log('atBottom');
             firmwareReference.lastScrollDir = 'down';
-            firmwareReference.queuePage({index:firmwareReference.bottomIndex, count:4, toEnd:true});  
+            firmwareReference.queuePage({index:firmwareReference.bottomIndex, skipIndex: true, count:3, toEnd:true});  
         }
     }
 
@@ -292,6 +295,20 @@ $(document).ready(function() {
 
         const menubarRect = $('.menubar')[0].getBoundingClientRect();
 
+        for(let ii = 0; ii < pageOffsets.length; ii++) {
+            if (!pageOffsets[ii].href) {
+                continue;
+            }
+            if (pageOffsets[ii].top >= (menubarRect.top && pageOffsets[ii].top < (menubarRect.bottom - 40))) {
+                if (firmwareReference.lastPage != pageOffsets[ii].href) {
+                    firmwareReference.lastPage = pageOffsets[ii].href;
+                    console.log('new page scrolled ', pageOffsets[ii]);
+                }
+                break;
+            }
+        }
+
+
         if (firmwareReference.lastScrollDir == 'down') {
             for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
                 if (pageOffsets[ii].top < (menubarRect.bottom - 20)) {
@@ -313,20 +330,10 @@ $(document).ready(function() {
             return;
         }
     
-        if (pageOffsets[index].href) {
-            if (firmwareReference.lastPage == pageOffsets[index].href) {
-                return;
-            }
-            firmwareReference.lastPage = pageOffsets[index].href;
-
-            console.log('page changed ' + pageOffsets[index].href)
+        if (firmwareReference.lastAnchor == pageOffsets[index].id) {
+            return;
         }
-        else {
-            if (firmwareReference.lastAnchor == pageOffsets[index].id) {
-                return;
-            }
-            firmwareReference.lastAnchor = pageOffsets[index].id;    
-        }
+        firmwareReference.lastAnchor = pageOffsets[index].id;    
     
         // console.log('firmwareReference.syncNavigation', pageOffsets[index]);
     

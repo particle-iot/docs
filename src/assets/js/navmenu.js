@@ -385,7 +385,8 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         }
 
         itemObj.linkElem = document.createElement('div');
-        if (itemObj.isActivePage && (!itemObj.anchor || itemObj.anchor == navMenu.hash)) {
+        if (itemObj.isActivePage && (!itemObj.anchor || itemObj.anchor == navMenu.hash) && (typeof firmwareReference == 'undefined')) {
+            // Don't highlight the active page for firmware reference here, it's done in syncNavigation
             $(itemObj.linkElem).addClass("navActive" + itemObj.level);
         }
         else {
