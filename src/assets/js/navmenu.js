@@ -179,6 +179,9 @@ navMenu.load = async function() {
     if (typeof firmwareReference != 'undefined') {
         firmwareReference.navMenuLoaded();
     }
+    else {
+        navMenu.searchContent();
+    }
 }
 
 navMenu.openAnchor = function(href) {
@@ -671,14 +674,14 @@ navMenu.searchContent = function() {
 
 
                     $(trElem).on('click', function() {
-                        Docs.scrollToElement($('#' + res.ref));
+                        navMenu.scrollDocsToElement ($('#' + res.ref));
                     });
 
                     $(tbodyElem).append(trElem);
                 }
             }
 
-            Docs.scrollToElement($('#' + searchResults[0].ref));
+            navMenu.scrollDocsToElement ($('#' + searchResults[0].ref));
         }
     });
 }
@@ -704,6 +707,42 @@ navMenu.scrollToActive = function () {
             activeElem[0].scrollIntoView();  
         }
     }
+};
+
+navMenu.scrollDocsToElement = function (element) {
+    let topOffset = 10;
+
+    // Make selection visible
+    let tempElem = $(element);
+    for (let tries = 0; tries < 20; tries++) {
+        if ($(tempElem).hasClass('content')) {
+            break;
+        }
+
+        if ($(tempElem).hasClass('collapseIndent')) {
+            if (!$(tempElem).is(':visible')) {
+                $(tempElem).show();
+                break;
+            }
+            else {
+            }
+        }
+        tempElem = $(tempElem).parent();
+    }
+
+    const containerElem = $('.document-search-container');
+    if (containerElem.length) {
+        if ($(containerElem).is(':visible')) {
+            topOffset -= $(containerElem).height();
+        }
+    }
+
+    var $element = $(element);
+    if ($element.length === 1) {
+        var position = $element.position().top + topOffset;
+        $('.content-inner').scrollTop(position);
+    }
+    navMenu.syncNavigation();
 };
 
 navMenu.syncNavigation = function() {
