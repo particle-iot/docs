@@ -213,6 +213,12 @@ navMenu.collapseExpand = function(itemObj, showSubsections) {
     }
     const isShown = $(itemObj.collapseIconElem).hasClass('ion-arrow-down-b');
 
+    console.log('navMenu.collapseExpand', {
+        itemObj,
+        showSubsections,
+        isShown,
+    })
+
     if (isShown != showSubsections) {
         if (showSubsections) {
             // Was right, make down
@@ -955,45 +961,51 @@ navMenu.scrollToActive = function () {
     }
 };
 
-
-
 navMenu.syncNavigation = function() {
     if (!navMenu.menuJson) {
+        return;
+    }
+    if (typeof firmwareReference != 'undefined') {
+        firmwareReference.syncNavigation();
         return;
     }
     
     let pageOffsets = [];
     $('div.content-inner').find('h2,h3,h4,h5').each(function (index, elem) {
         const offset = $(this).offset();
-        pageOffsets.push({
-            top: offset.top,
-            id: $(this).attr('id')
-        })
-    });
 
-    let id;
+        let obj = {
+            top: offset.top,
+            id: $(this).attr('id'),
+        };
+        pageOffsets.push(obj);    
+    });
 
     // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
     // one to display.
     // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
     // because it's been scrolled up.
+    const menubarRect = $('.menubar')[0].getBoundingClientRect();
+    
+    let topIndex;
     for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-        if (pageOffsets[ii].top < 10) {
-            id = pageOffsets[ii].id;
+        if (pageOffsets[ii].top < (menubarRect.top + 10)) {
+            topIndex = ii;
             break;
         }
     }
-
-    if (!id) {
+    if (typeof topIndex == 'undefined') {
         return;
     }
+
+    const id = pageOffsets[topIndex].id;
 
     if (navMenu.lastAnchor == id) {
         return;
     }
     navMenu.lastAnchor = id;
 
-    console.log('syncNavigation', {id});
+    console.log('navMenu.syncNavigation', pageOffsets[topIndex]);
 
     navMenu.forEachItem(function(itemObj) {
         if (itemObj.isContent) {
@@ -1001,15 +1013,12 @@ navMenu.syncNavigation = function() {
                 console.log('found id=' + id);
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
                 $(itemObj.elem).find('.navLink').removeClass('navLink');
-                if (itemObj.collapseItemObj) {
-                    navMenu.collapseExpand(itemObj.collapseItemObj, true);
-                }
                 navMenu.scrollToActive();
             }
-            else {
-                $(itemObj.elem).find('.navLinkActive').addClass('navLink');
-                $(itemObj.elem).find('.navLinkActive').removeClass('navLinkActive');
-            }
+        }
+        else {
+            $(itemObj.elem).find('.navLinkActive').addClass('navLink');
+            $(itemObj.elem).find('.navLinkActive').removeClass('navLinkActive');
         }
     });
 }

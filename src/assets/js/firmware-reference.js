@@ -196,9 +196,8 @@ $(document).ready(function() {
         }    
     }
 
-    $(scrollableContent).on('scroll', function(e) {
-        // console.log('scrolled ', e);
-        // e.originalEvent
+    firmwareReference.updateScroll = function() {
+
         let params = {};
 
         params.scrollTop = Math.round($(scrollableContent).scrollTop());
@@ -209,6 +208,27 @@ $(document).ready(function() {
         params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
 
         // $(scrollableContent).height() is the height of the view
+        if (typeof firmwareReference.lastScrollTop != 'undefined') {
+            if (params.scrollTop > (firmwareReference.lastScrollTop + 5)) {
+                if (firmwareReference.lastScrollDir != 'down') {
+                    console.log('firmwareReference.lastScrollDir = down');
+                }
+                firmwareReference.lastScrollDir = 'down';
+                firmwareReference.lastScrollTop = params.scrollTop;
+            }
+            else 
+            if (params.scrollTop < (firmwareReference.lastScrollTop - 5)) {
+                if (firmwareReference.lastScrollDir != 'up') {
+                    console.log('firmwareReference.lastScrollDir = up');
+                }
+                firmwareReference.lastScrollDir = 'up';
+                firmwareReference.lastScrollTop = params.scrollTop;
+            }
+        }
+        else {
+            firmwareReference.lastScrollTop = params.scrollTop;
+        }
+
 
         // console.log('params', params);
         if (!firmwareReference.ignoreScroll || Date.now() > firmwareReference.ignoreScroll) {
@@ -220,13 +240,123 @@ $(document).ready(function() {
 
         if (params.atTop && firmwareReference.topIndex >= 0) {
             console.log('atTop');
+            firmwareReference.lastScrollDir = 'up';
             firmwareReference.queuePage({index:firmwareReference.topIndex, count:4, toEnd:false});  
         }
         if (params.atBottom && firmwareReference.bottomIndex < navMenu.moreItems.length) {
             console.log('atBottom');
+            firmwareReference.lastScrollDir = 'down';
             firmwareReference.queuePage({index:firmwareReference.bottomIndex, count:4, toEnd:true});  
         }
+    }
+
+    $(scrollableContent).on('scroll', function(e) {
+        // console.log('scrolled ', e);
+        // e.originalEvent
+        firmwareReference.updateScroll();
     });
+
+
+    firmwareReference.syncNavigation = function() {
+        if (!navMenu || !navMenu.menuJson) {
+            return;
+        }
+        
+        let pageHref;
+        let pageOffsets = [];
+        $('div.content-inner').find('div,h2,h3,h4,h5').each(function (index, elem) {
+            const offset = $(this).offset();
+    
+            let obj = {
+                top: offset.top,
+                id: $(this).attr('id'),
+                elem: $(this),
+            };
+    
+            const tag = $(this).prop('tagName').toLowerCase();
+            if (tag == 'div') {
+                if (!$(this).hasClass('referencePage')) {
+                    return;
+                }
+                obj.href = $(this).data('href');
+            }
+    
+            pageOffsets.push(obj);    
+        });
+    
+        // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
+        // one to display.
+        // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
+        // because it's been scrolled up.
+        let index;
+
+        const menubarRect = $('.menubar')[0].getBoundingClientRect();
+
+        if (firmwareReference.lastScrollDir == 'down') {
+            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+                if (pageOffsets[ii].top < (menubarRect.bottom - 20)) {
+                    index = ii;
+                    break;
+                }
+            }    
+            /*
+            for(let ii = 0; ii < pageOffsets.length; ii++) {
+                if (pageOffsets[ii].top < ((menubarRect.top + menubarRect.height) - 20)) {
+                    index = ii;
+                    break;
+                }
+            }
+            */
+        }
+        else {
+            // "up" or not defined
+            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+                if (pageOffsets[ii].top < (menubarRect.top + 10)) {
+                    index = ii;
+                    break;
+                }
+            }    
+        }
+        if (typeof index == 'undefined') {
+            return;
+        }
+    
+        if (pageOffsets[index].href) {
+            if (firmwareReference.lastPage == pageOffsets[index].href) {
+                return;
+            }
+            firmwareReference.lastPage = pageOffsets[index].href;
+
+            console.log('page changed ' + pageOffsets[index].href)
+            return;
+        }
+    
+        if (firmwareReference.lastAnchor == pageOffsets[index].id) {
+            return;
+        }
+        firmwareReference.lastAnchor = pageOffsets[index].id;
+    
+        console.log('firmwareReference.syncNavigation', pageOffsets[index]);
+    
+
+        navMenu.forEachItem(function(itemObj) {
+            if (itemObj.anchor == pageOffsets[index].id) {
+                console.log('found id=' + pageOffsets[index].id);
+                $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+                $(itemObj.elem).find('.navLink').removeClass('navLink');
+                if (itemObj.collapseItemObj) {
+                    navMenu.collapseExpand(itemObj.collapseItemObj, true);
+                }
+                navMenu.scrollToActive();
+            }
+            else {
+                $(itemObj.elem).find('.navLinkActive').addClass('navLink');
+                $(itemObj.elem).find('.navLinkActive').removeClass('navLinkActive');
+            }
+        });
+    }
+
+    // TODO: Update firmwareReference.lastScrollDir on page up, page down, 
 
 
     /*
