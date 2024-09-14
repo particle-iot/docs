@@ -18,8 +18,14 @@ $(document).ready(function() {
         let options = firmwareReference.pageQueue.splice(0, 1)[0];
         firmwareReference.pageLoading = true;
 
-        if (typeof options.index != 'undefined' && typeof options.link == 'undefined') {
-            options.link = navMenu.navigationItems[options.index].hrefNoAnchor;
+        if (typeof options.index != 'undefined') {
+            if (typeof firmwareReference.lastItemIndex == 'undefined') {
+                firmwareReference.lastItemIndex = options.index;
+            }
+
+            if (typeof options.link == 'undefined') {
+                options.link = navMenu.navigationItems[options.index].hrefNoAnchor;
+            }
         }
 
         console.log('loadPage', options);
@@ -81,6 +87,7 @@ $(document).ready(function() {
                 if (options.replacePage) {
                     $('.referencePage').remove();
                     firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = itemIndex;
+                    history.pushState(null, '', itemObj.hrefNoAnchor);
 
                     $(divElem).addClass('originalContent');
                     $('div.content').append(divElem);
@@ -145,12 +152,19 @@ $(document).ready(function() {
 
             if (options.toEnd) {
                 for(let ii = start; (ii <= count) && ((ii + options.index) < navMenu.navigationItems.length); ii++) {
-                    firmwareReference.pageQueue.push({index: ii + options.index, toEnd:true});                            
+                    let obj = Object.assign({}, options);
+                    obj.index = ii + options.index;
+                    if (options.replacePage && ii > 0) {
+                        options.replacePage = false;
+                    }
+                    firmwareReference.pageQueue.push(obj);                            
                 }
             }
             else {
                 for(let ii = start; (ii <= count) && ((options.index - ii) >= 0); ii++) {
-                    firmwareReference.pageQueue.push({index: options.index - ii, toEnd:false});                            
+                    let obj = Object.assign({}, options);
+                    obj.index = ii + options.index;
+                    firmwareReference.pageQueue.push(obj);                            
                 }                
             }            
         }
@@ -167,9 +181,12 @@ $(document).ready(function() {
         firmwareReference.lastScrollDir = null;
 
         if (typeof options.index != 'undefined') {
-            firmwareReference.pageQueue.push({index: options.index, replacePage: true, });
 
-            firmwareReference.queuePage({index: options.index, count: 3, toEnd: true});
+            firmwareReference.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true});
+
+            firmwareReference.lastItemIndex = options.index;
+
+            firmwareReference.syncNavigation();
         }
     }
 
@@ -304,35 +321,6 @@ $(document).ready(function() {
 
         const menubarRect = $('.menubar')[0].getBoundingClientRect();
 
-
-        /*
-        for(let ii = 0; ii < pageOffsets.length; ii++) {
-            if (!pageOffsets[ii].href) {
-                continue;
-            }
-            if (pageOffsets[ii].top >= (menubarRect.top && pageOffsets[ii].top < (menubarRect.bottom - 40))) {
-                if (pageOffsets[ii].href && !pageOffsets[ii].anchor) {
-                    if (firmwareReference.lastPage != pageOffsets[ii].href) {
-                        firmwareReference.lastPage = pageOffsets[ii].href;
-                        console.log('new page scrolled ', pageOffsets[ii]);
-                        index = ii;
-    
-                        navMenu.forEachItem(function(itemObj) {
-                            let selectItem = false;
-                            if (pageOffsets[index].href && pageOffsets[index].href == itemObj.hrefNoAnchor) {
-                                selectItem = true;
-                                console.log('select by href', itemObj);
-                                $(itemObj.elem).find('.navLink').addClass('navLinkActive');
-                            }
-                        });
-                        return;            
-                    }
-    
-                } 
-            }
-        }
-        */
-
         
         if (firmwareReference.lastScrollDir == 'down') {
             for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
@@ -364,23 +352,102 @@ $(document).ready(function() {
         // console.log('firmwareReference.syncNavigation', pageOffsets[index]);
         $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
 
+        let itemFound;
+
         navMenu.forEachItem(function(itemObj) {
-            if (itemObj.anchor == pageOffsets[index].id) {
+            if (itemObj.anchor == pageOffsets[index].id && typeof itemFound == 'undefined') {
+                itemFound = itemObj;
+                console.log('syncNavigation to anchor', itemObj);
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
                 navMenu.scrollToActive();
             }
         });
+
+        if (typeof itemFound != 'undefined') {
+            return;
+        }
+
+        for(let ii = 0; ii < pageOffsets.length; ii++) {
+            if (!pageOffsets[ii].href) {
+                continue;
+            }
+            if (pageOffsets[ii].top >= (menubarRect.top && pageOffsets[ii].top < (menubarRect.bottom - 40))) {
+                if (firmwareReference.lastPage != pageOffsets[ii].href) {
+                    firmwareReference.lastPage = pageOffsets[ii].href;
+                    console.log('new page scrolled ', pageOffsets[ii]);
+                    index = ii;
+
+                    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+                        const itemObj = navMenu.navigationItems[ii];
+                        if (pageOffsets[index].href == itemObj.hrefNoAnchor && !itemFound) {
+                            console.log('select by href', itemObj);
+                            $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+                            navMenu.scrollToActive();
+                            history.pushState(null, '', itemObj.hrefNoAnchor);
+                            firmwareReference.lastItemIndex = ii;
+                        }
+                    }
+                    break;            
+                }
+            }
+        }
+    
+    
     }
 
-    navMenu.navigate = function(dir) {
+
+    firmwareReference.navigatePage = function(options) {
+            
+        if (typeof firmwareReference.lastItemIndex == 'undefined') {
+            firmwareReference.lastItemIndex = 0;
+        }
+        if (!options.dir) {
+            options.dir = 1;
+        }
+
+
+        if (options.level) {
+            for(let ii = firmwareReference.lastItemIndex + options.dir; ii >= 0 && ii < navMenu.navigationItems.length; ii += options.dir) {
+                const itemObj = navMenu.navigationItems[ii];
+                if (itemObj.level == options.level) {
+                    firmwareReference.replacePage({index: ii});
+                    break;
+                }                
+            }
+        }   
+        else
+        if (options.section) {
+            const hrefCurrent = navMenu.navigationItems[firmwareReference.lastItemIndex].hrefNoAnchor;
+
+            for(let ii = firmwareReference.lastItemIndex + options.dir; ii >= 0 && ii < navMenu.navigationItems.length; ii += options.dir) {
+                const itemObj = navMenu.navigationItems[ii];
+                if (itemObj.hrefNoAnchor != hrefCurrent) {
+                    firmwareReference.replacePage({index: ii});
+                    break;    
+                }
+            }
+        }
+        
+    }
+
+
+    firmwareReference.navigate = function(dir) {
     
         switch(dir) {
             case 'up':
+                firmwareReference.navigatePage({level: 3, dir: -1});
+                break;
+
             case 'down':
+                firmwareReference.navigatePage({level: 3, dir: +1});
                 break;
 
             case 'left':
+                firmwareReference.navigatePage({section: true, dir: -1});
+                break;
+
             case 'right':
+                firmwareReference.navigatePage({section: true, dir: +1});
                 break;
     
             case 'Home':

@@ -792,6 +792,36 @@ navMenu.syncNavigation = function() {
     });
 }
 
+navMenu.navigatePage = function(options) {
+    if (!options.dir) {
+        options.dir = 1;
+    }
+
+    let index;
+
+    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+        const itemObj = navMenu.navigationItems[ii];
+        if (navMenu.thisUrl.pathname == itemObj.hrefNoAnchor) {
+            // Found page
+            if (options.dir) {
+                if ((ii + 1) < navMenu.navigationItems.length) {
+                    index = ii + 1;
+                }
+            }
+            else {
+                if (ii > 0) {
+                    index = ii - 1;
+                }
+            }
+            break;
+        }
+    }
+    if (typeof index != 'undefined') {
+        location.href = navMenu.navigationItems[index].hrefNoAnchor;
+    }
+}
+
+
 navMenu.navigate = function(dir) {
     if (typeof firmwareReference != 'undefined') {
         firmwareReference.navigate(dir);
@@ -803,9 +833,16 @@ navMenu.navigate = function(dir) {
     switch(dir) {
         case 'up':
         case 'down':
-        case 'left':
-        case 'right':
             break;
+
+        case 'left':
+            navMenu.navigatePage({section: true, dir: -1});
+            break;
+
+        case 'right':
+            navMenu.navigatePage({section: true, dir: +1});
+            break;
+
 
         case 'Home':
         case 'End':
@@ -866,11 +903,6 @@ navMenu.ready = async function () {
     
 
     $('body').on('keydown', function(ev) {
-        if (typeof firmwareReference != 'undefined') {
-            // Firmware reference implements its own scrolling
-            return;
-        }
-
         if (ev.shiftKey) {
             switch(ev.key) {
                 case 'ArrowLeft':
