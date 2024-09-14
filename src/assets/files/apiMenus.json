@@ -120,7 +120,7 @@
               "isContent": true
             },
             {
-              "anchor": "operator-assethash",
+              "anchor": "operator-assethash-1",
               "title": "operator!=() - AssetHash",
               "isContent": true
             }
@@ -167,7 +167,7 @@
               "isContent": true
             },
             {
-              "anchor": "ble-advertise-",
+              "anchor": "ble-advertise--1",
               "title": "BLE.advertise()",
               "isContent": true
             },
@@ -691,7 +691,7 @@
               "isContent": true
             },
             {
-              "anchor": "operator-",
+              "anchor": "operator--1",
               "title": "operator[]",
               "isContent": true
             },
@@ -806,7 +806,7 @@
               "isContent": true
             },
             {
-              "anchor": "setters",
+              "anchor": "setters-1",
               "title": "Setters",
               "isContent": true
             }
@@ -1004,22 +1004,22 @@
               "isContent": true
             },
             {
-              "anchor": "getstrength-",
+              "anchor": "getstrength--1",
               "title": "getStrength()",
               "isContent": true
             },
             {
-              "anchor": "getquality-",
+              "anchor": "getquality--1",
               "title": "getQuality()",
               "isContent": true
             },
             {
-              "anchor": "getstrengthvalue-",
+              "anchor": "getstrengthvalue--1",
               "title": "getStrengthValue()",
               "isContent": true
             },
             {
-              "anchor": "getqualityvalue-",
+              "anchor": "getqualityvalue--1",
               "title": "getQualityValue()",
               "isContent": true
             }
@@ -1960,7 +1960,7 @@
               "isContent": true
             },
             {
-              "anchor": "jsonstring-operator-",
+              "anchor": "jsonstring-operator--1",
               "title": "JSONString::operator!=()",
               "isContent": true
             }
@@ -2476,7 +2476,7 @@
               "isContent": true
             },
             {
-              "anchor": "setspeed-",
+              "anchor": "setspeed--1",
               "title": "setSpeed()",
               "isContent": true
             },
@@ -2501,12 +2501,12 @@
               "isContent": true
             },
             {
-              "anchor": "on-",
+              "anchor": "on--3",
               "title": "on()",
               "isContent": true
             },
             {
-              "anchor": "off-",
+              "anchor": "off--3",
               "title": "off()",
               "isContent": true
             },
@@ -2516,12 +2516,12 @@
               "isContent": true
             },
             {
-              "anchor": "ison-",
+              "anchor": "ison--1",
               "title": "isOn()",
               "isContent": true
             },
             {
-              "anchor": "isoff-",
+              "anchor": "isoff--1",
               "title": "isOff()",
               "isContent": true
             },
@@ -2552,37 +2552,37 @@
               "isContent": true
             },
             {
-              "anchor": "setcolor-",
+              "anchor": "setcolor--1",
               "title": "setColor()",
               "isContent": true
             },
             {
-              "anchor": "color-",
+              "anchor": "color--1",
               "title": "color()",
               "isContent": true
             },
             {
-              "anchor": "setpattern-",
+              "anchor": "setpattern--1",
               "title": "setPattern()",
               "isContent": true
             },
             {
-              "anchor": "pattern-",
+              "anchor": "pattern--1",
               "title": "pattern()",
               "isContent": true
             },
             {
-              "anchor": "setspeed-",
+              "anchor": "setspeed--2",
               "title": "setSpeed()",
               "isContent": true
             },
             {
-              "anchor": "setperiod-",
+              "anchor": "setperiod--1",
               "title": "setPeriod()",
               "isContent": true
             },
             {
-              "anchor": "period-",
+              "anchor": "period--1",
               "title": "period()",
               "isContent": true
             },

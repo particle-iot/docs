@@ -108,7 +108,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                 
                 let obj = {
                     level: spaceIndex,
-                    anchor: origAnchor,
+                    anchor: uniqueAnchor,
                     title: line.substring(spaceIndex + 1).trim(),
                     isContent: true,
                 };
@@ -156,7 +156,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                         curL3: curL3,
                         level: 4,
                         origTitle: origTitle,
-                        origAnchor: origAnchor
+                        origAnchor: uniqueAnchor
                     };
                     curL3.l4.push(obj);
                 }
