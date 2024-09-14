@@ -296,9 +296,6 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         itemObj.isActivePage = (itemObj.hrefNoAnchor == navMenu.hrefPage) ;
         itemObj.isActiveParent = (itemObj.hrefNoAnchor == navMenu.hrefParent) ;
         itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
-        if (!itemObj.collapseItemObj && options.collapseItemObj) {
-            itemObj.collapseItemObj = options.collapseItemObj;
-        }
 
         if (itemObj.isActivePage && !itemObj.anchor && !itemObj.isContent && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
             // This is a normal page, add the internal headers to the navigation   
@@ -438,13 +435,6 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             subOptions.level = options.level + 1;
             subOptions.path = itemObj.itemPath + '/';
             subOptions.hideSubsections = options.hideSubsections || hideSubsections;
-            if (itemObj.collapse) {
-                subOptions.collapseItemObj = itemObj;
-            }
-            else
-            if (options.collapseItemObj) {
-                subOptions.collapseItemObj = options.collapseItemObj;
-            }
 
             navMenu.generateNavHtmlInternal(itemObj.subsections, subOptions);
         }

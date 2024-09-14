@@ -114,8 +114,17 @@ $(document).ready(function() {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
                 }
 
+                for(const itemObj of navMenu.navigationItems) {
+                    if (itemObj.hrefNoAnchor == options.link) {
+                        if (itemObj.collapse) {
+                            navMenu.collapseExpand(itemObj, true);
+                        }
+                    }
+                }
+                 
+
                 if (options.syncNavigation) {
-                    navMenu.syncNavigation(options.link);
+                    navMenu.syncNavigation();
                 }
 
                 if (firmwareReference.pageQueue.length) {
@@ -328,7 +337,7 @@ $(document).ready(function() {
                 }    
             }
         }
-        
+
         if (typeof index == 'undefined') {
             return;
         }
