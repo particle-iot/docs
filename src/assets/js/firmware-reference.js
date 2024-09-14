@@ -303,29 +303,32 @@ $(document).ready(function() {
                 if (firmwareReference.lastPage != pageOffsets[ii].href) {
                     firmwareReference.lastPage = pageOffsets[ii].href;
                     console.log('new page scrolled ', pageOffsets[ii]);
+                    index = ii;
                 }
                 break;
             }
         }
-
-
-        if (firmwareReference.lastScrollDir == 'down') {
-            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-                if (pageOffsets[ii].top < (menubarRect.bottom - 20)) {
-                    index = ii;
-                    break;
-                }
-            }    
+        
+        if (typeof index == 'undefined') {
+            if (firmwareReference.lastScrollDir == 'down') {
+                for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+                    if (pageOffsets[ii].top < (menubarRect.bottom - 20)) {
+                        index = ii;
+                        break;
+                    }
+                }    
+            }
+            else {
+                // "up" or not defined
+                for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+                    if (pageOffsets[ii].top < (menubarRect.top + 10)) {
+                        index = ii;
+                        break;
+                    }
+                }    
+            }
         }
-        else {
-            // "up" or not defined
-            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-                if (pageOffsets[ii].top < (menubarRect.top + 10)) {
-                    index = ii;
-                    break;
-                }
-            }    
-        }
+        
         if (typeof index == 'undefined') {
             return;
         }
@@ -339,7 +342,16 @@ $(document).ready(function() {
     
 
         navMenu.forEachItem(function(itemObj) {
+            let selectItem = false;
+            if (pageOffsets[index].href && pageOffsets[index].href == itemObj.hrefNoAnchor) {
+                selectItem = true;
+            }
+            else
             if (itemObj.anchor == pageOffsets[index].id) {
+                selectItem = true;
+            }
+
+            if (selectItem) {
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
                 $(itemObj.elem).find('.navLink').removeClass('navLink');
                 if (itemObj.collapseItemObj) {
