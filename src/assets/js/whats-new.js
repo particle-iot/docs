@@ -85,7 +85,7 @@ $(document).ready(function() {
                     $(content).remove();
                 }
             }
-            navMenu.scanHeaders();
+            // navMenu.scanHeaders();
         }
 
         whatsNew.showAll = function() {
@@ -99,7 +99,7 @@ $(document).ready(function() {
                     insertElem = content;
                 }
             }            
-            navMenu.scanHeaders();
+            // navMenu.scanHeaders();
         }
 
         whatsNew.searchButtonClear = function() {
@@ -158,7 +158,7 @@ $(document).ready(function() {
             else {
                 analytics.track('No Results', {category:gaCategory, label:searchText});                            
             }
-            navMenu.scanHeaders();
+            // navMenu.scanHeaders();
 
             $(whatsNew.searchButtonElem).prop('disabled', false);
         }

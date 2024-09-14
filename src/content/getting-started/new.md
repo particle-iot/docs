@@ -21,7 +21,7 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Device OS 5.9.0
+### Device OS 5.9.0 2024-09-09
 
 Device OS 5.9.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.
 
