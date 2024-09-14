@@ -267,7 +267,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
     //   .path
 
     // CSS styles for menu items:
-    // navMenu1, navActive1, navMenu2, navActive2, navMenu3, navMenu4, navMenu5
+    // navMenu1, navMenu2, navMenu3, navMenu4, navMenu5
     // navSectionSpacer, navPlusMinus, navDisclosure
     // navIndent2, navIndent3, navIndent4, navIndent5
     // navContent3, navContent4, navContent5
@@ -387,11 +387,12 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         itemObj.linkElem = document.createElement('div');
         if (itemObj.isActivePage && (!itemObj.anchor || itemObj.anchor == navMenu.hash) && (typeof firmwareReference == 'undefined')) {
             // Don't highlight the active page for firmware reference here, it's done in syncNavigation
-            $(itemObj.linkElem).addClass("navActive" + itemObj.level);
+            $(itemObj.linkElem).addClass("navActive");
         }
         else {
-            $(itemObj.linkElem).addClass("navMenu" + itemObj.level);
+            $(itemObj.linkElem).removeClass("navActive");
         }
+        $(itemObj.linkElem).addClass("navMenu" + itemObj.level);
 
         let canLink = false;
         if (!itemObj.isActivePage && !itemObj.isSection) {
@@ -679,10 +680,7 @@ navMenu.searchContent = function() {
 navMenu.scrollToActive = function () {
 
     let activeElem = $('.navLinkActive');
-    if (activeElem.length == 0) {
-        activeElem = $('.navActive2');
-    }
-
+    
     if (activeElem.length) {
         const boundingRect = $(activeElem)[0].getBoundingClientRect();
 
@@ -781,17 +779,14 @@ navMenu.syncNavigation = function() {
 
     console.log('navMenu.syncNavigation', pageOffsets[topIndex]);
 
+    $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+
     navMenu.forEachItem(function(itemObj) {
         if (itemObj.isContent) {
             if (itemObj.anchor == id) {
                 console.log('found id=' + id);
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
-                $(itemObj.elem).find('.navLink').removeClass('navLink');
                 navMenu.scrollToActive();
-            }
-            else {
-                $(itemObj.elem).find('.navLinkActive').addClass('navLink');
-                $(itemObj.elem).find('.navLinkActive').removeClass('navLinkActive');
             }
         }
     });

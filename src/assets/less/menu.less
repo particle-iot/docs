@@ -85,11 +85,8 @@ div.navMenu1 {
   color: var(--theme-menubar-color);
 }
 
-div.navActive1 {
-  .STYLE_left_nav_heading();
-  margin-top: 4px;
-  margin-bottom: 5px;
-  color: var(--theme-menubar-selected-color);
+div.navActive {
+  color: var(--theme-menubar-selected-color) !important;
 }
 
 
@@ -106,20 +103,6 @@ div.navMenu2 {
   }
 }
 
-div.navActive2 {
-  .STYLE_left_nav_page();
-  font-weight: 500;
-  color: var(--theme-menubar-selected-color);
-  text-decoration: none;
-  padding-bottom: 3px;
-  width: 230px;
-  overflow: hidden;
-  white-space: nowrap;
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 230px + @menubarWideExtra;
-  }
-};
 
 div.navMenu3 {
   .STYLE_left_nav_page();
@@ -133,23 +116,6 @@ div.navMenu3 {
     width: 245px + @menubarWideExtra;
   }
 };
-
-div.navActive3 {
-  .STYLE_left_nav_page();
-  padding-bottom: 2px;
-  width: 245px;
-  overflow: hidden;
-  white-space: nowrap;
-  font-weight: 500;
-  color: var(--theme-menubar-selected-color);
-  text-decoration: none;
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 245px + @menubarWideExtra;
-  }
-
-};
-
 
 div.navMenu4 {
   .STYLE_left_nav_page();
@@ -166,21 +132,6 @@ div.navMenu4 {
 };
 
 
-div.navActive4 {
-  .STYLE_left_nav_page();
-  padding-bottom: 2px;
-  width: 245px;
-  overflow: hidden;
-  white-space: nowrap;
-  font-weight: 500;
-  color: var(--theme-menubar-selected-color);
-  text-decoration: none;
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 245px + @menubarWideExtra;
-  }
-
-};
 
 div.navMenu5 {
   .STYLE_left_nav_page();
@@ -197,22 +148,6 @@ div.navMenu5 {
 };
 
 
-div.navActive5 {
-  .STYLE_left_nav_page();
-  padding-bottom: 2px;
-  width: 245px;
-  overflow: hidden;
-  white-space: nowrap;
-  font-weight: 500;
-  color: var(--theme-menubar-selected-color);
-  text-decoration: none;
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 245px + @menubarWideExtra;
-  }
-
-};
-
 div.navMenu6 {
   .STYLE_left_nav_page();
   padding-bottom: 2px;
@@ -227,21 +162,6 @@ div.navMenu6 {
 
 };
 
-div.navActive6 {
-  .STYLE_left_nav_page();
-  padding-bottom: 2px;
-  width: 230px;
-  overflow: hidden;
-  white-space: nowrap;
-  font-weight: 500;
-  color: var(--theme-menubar-selected-color);
-  text-decoration: none;
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 245px + @menubarWideExtra;
-  }
-
-};
 
 div.navSectionSpacer {
   height: 10px;
@@ -348,19 +268,7 @@ div.navMenu7 {
   }
 
 };
-div.navMenuActive7 {
-  .STYLE_left_nav_page();
-  padding-bottom: 2px;
-  width: 155px;
-  overflow: hidden;
-  white-space: nowrap;
-  color: var(--theme-menubar-minor-color);
 
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 245px + @menubarWideExtra;
-  }
-
-};
 
 div.navIndent8 {
   width: 105px;
@@ -376,19 +284,6 @@ div.navContent8 {
 
 };
 div.navMenu8 {
-  .STYLE_left_nav_page();
-  padding-bottom: 2px;
-  width: 145px;
-  overflow: hidden;
-  white-space: nowrap;
-  color: var(--theme-menubar-minor-color);
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 245px + @menubarWideExtra;
-  }
-
-};
-div.navMenuActive8 {
   .STYLE_left_nav_page();
   padding-bottom: 2px;
   width: 145px;
@@ -417,19 +312,6 @@ div.navContent9 {
 
 };
 div.navMenu9 {
-  .STYLE_left_nav_page();
-  padding-bottom: 2px;
-  width: 115px;
-  overflow: hidden;
-  white-space: nowrap;
-  color: var(--theme-menubar-minor-color);
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 245px + @menubarWideExtra;
-  }
-
-};
-div.navMenuActive9 {
   .STYLE_left_nav_page();
   padding-bottom: 2px;
   width: 115px;
@@ -481,7 +363,7 @@ div.navMenu1 > a {
 
 a.navLinkActive {
   font-weight: 500;
-  color: var(--theme-menubar-selected-color);
+  color: var(--theme-menubar-selected-color) !important;
 };
 
 a.navLinkActive {
