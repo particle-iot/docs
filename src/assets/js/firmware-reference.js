@@ -68,7 +68,6 @@ $(document).ready(function() {
         fetch(options.link)
             .then(response => response.text())
             .then(function(res) {
-                firmwareReference.pageLoading = false;
 
                 // <!-- start 841427f3-9f46-4361-ab97-7afda1e082f9 -->
                 // <!-- end 841427f3-9f46-4361-ab97-7afda1e082f9 -->
@@ -104,6 +103,7 @@ $(document).ready(function() {
                     }
                     if (itemIndex >= navMenu.navigationItems.length) {
                         console.log('not found ' + options.link);
+                        firmwareReference.pageLoading = false;
                         return;
                     }    
                 }
@@ -120,7 +120,7 @@ $(document).ready(function() {
                 if (!itemObj.sectionStart) {
                     $(divElem).find('h2').remove();
                 }
-
+        
                 let params = {};
                 params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
                 params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
@@ -131,6 +131,8 @@ $(document).ready(function() {
 
                     $(divElem).addClass('originalContent');
                     $('div.content').append(divElem);
+
+                    firmwareReference.syncNavigationToPage(options.link);
                 }
                 else {
                     if (itemIndex < firmwareReference.topIndex) {
@@ -154,22 +156,21 @@ $(document).ready(function() {
                 // apiIndex.sections[nav.index].contentElem = divElem;
                 itemObj.contentElem = divElem;
 
-
-                firmwareReference.ignoreScroll = Date.now() + 1000;
-
                 if (options.scrollIntoView) {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
                 }
 
                 navMenu.collapseExpand(itemObj, true);
-                 
-                if (options.syncNavigation) {
-                    navMenu.syncNavigation();
-                }
+                
+                navMenu.syncNavigation();
+
+                firmwareReference.pageLoading = false;
 
                 if (firmwareReference.pageQueue.length) {
                     firmwareReference.loadPage();
                 }           
+
+
             })
             .catch(function(err) {
                 console.log('err', err);
@@ -231,13 +232,17 @@ $(document).ready(function() {
         firmwareReference.pageQueue = [];
         firmwareReference.lastScrollDir = null;
 
+        for(const itemObj of navMenu.navigationItems) {
+            if (itemObj.collapseIconElem) {
+                navMenu.collapseExpand(itemObj, false);
+            }               
+        }
+
         if (typeof options.index != 'undefined') {
 
             firmwareReference.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true});
 
             firmwareReference.lastItemIndex = options.index;
-
-            firmwareReference.syncNavigation();
         }
     }
 
@@ -246,28 +251,33 @@ $(document).ready(function() {
 
 
         for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
-            const index = ii;
             const itemObj = navMenu.navigationItems[ii];
             if (firmwareReference.thisUrl.pathname == itemObj.hrefNoAnchor) {
                 firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = ii;
                 $('.originalContent').data('index', ii);
                 break;                
             }
+        }
+
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
 
             if (itemObj.navLinkElem) {
-                // $(itemObj.navLinkElem).off('click');
+                $(itemObj.navLinkElem).off('click');
 
                 $(itemObj.navLinkElem).on('click', function(ev) {
                     ev.preventDefault();
 
-                    console.log('click nav', {itemObj, index});
-                    firmwareReference.replacePage({index});
+                    console.log('click nav', {itemObj, index:ii});
+                    firmwareReference.replacePage({index:ii});
                 });
             }
         }
 
         // Preload pages
         firmwareReference.queuePage({index:firmwareReference.initialIndex, skipIndex:true, count:4, toEnd:true}); 
+
+        firmwareReference.syncNavigationToPage(firmwareReference.thisUrl.pathname);
     }
 
     firmwareReference.updateScroll = function() {
@@ -278,7 +288,7 @@ $(document).ready(function() {
         params.scrollHeight = $(scrollableContent).prop('scrollHeight');
         params.height = $(scrollableContent).height();
         
-        params.atTop = (params.scrollTop < 20);
+        params.atTop = (params.scrollTop == 0);
         params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
 
         // $(scrollableContent).height() is the height of the view
@@ -303,33 +313,43 @@ $(document).ready(function() {
             firmwareReference.lastScrollTop = params.scrollTop;
         }
 
-
-        // console.log('params', params);
-        if (!firmwareReference.ignoreScroll || Date.now() > firmwareReference.ignoreScroll) {
-            firmwareReference.ignoreScroll = null;
-            navMenu.syncNavigation();
-        }
-        else {
-        }
-
-        if (params.atTop && firmwareReference.topIndex >= 0) {
-            console.log('atTop');
-            firmwareReference.lastScrollDir = 'up';
-            firmwareReference.queuePage({index:firmwareReference.topIndex, skipIndex: true, count:3, toEnd:false});  
-        }
-        if (params.atBottom && firmwareReference.bottomIndex < navMenu.navigationItems.length) {
+        if (params.atBottom && firmwareReference.lastScrollDir == 'down' && firmwareReference.bottomIndex < navMenu.navigationItems.length) {
             console.log('atBottom');
-            firmwareReference.lastScrollDir = 'down';
             firmwareReference.queuePage({index:firmwareReference.bottomIndex, skipIndex: true, count:3, toEnd:true});  
         }
+
+        if (params.atTop && firmwareReference.lastScrollDir == 'up' && firmwareReference.topIndex >= 0) {
+            console.log('atTop');
+            firmwareReference.queuePage({index:firmwareReference.topIndex, skipIndex: true, count:3, toEnd:false});  
+        }
+        
     }
 
     $(scrollableContent).on('scroll', function(e) {
         // console.log('scrolled ', e);
         // e.originalEvent
-        firmwareReference.updateScroll();
+        if (!firmwareReference.pageLoading) {
+            firmwareReference.updateScroll();
+        }
+
     });
 
+
+    firmwareReference.syncNavigationToPage = function(link) {
+        $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+        $('.menubar').find('.navActive').removeClass('navActive');
+
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (itemObj.hrefNoAnchor == link) {
+                console.log('firmwareReference.syncNavigationToPage', {link, ii, itemObj});
+                $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+                $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
+                firmwareReference.lastItemIndex = ii;
+                return;
+            }
+        }
+    }
 
     firmwareReference.syncNavigation = function() {
         if (!navMenu || !navMenu.menuJson) {
@@ -395,7 +415,9 @@ $(document).ready(function() {
         firmwareReference.lastAnchor = pageOffsets[index].id;    
     
         // console.log('firmwareReference.syncNavigation', pageOffsets[index]);
+        console.log('firmwareReference.syncNavigation clearing active links');
         $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+        $('.menubar').find('.navActive').removeClass('navActive');
 
         let itemFound;
 
@@ -511,7 +533,7 @@ $(document).ready(function() {
                 break;
         }
     }
-    
-    firmwareReference.syncNavigation();
+
+
 });
 
