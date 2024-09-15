@@ -11,6 +11,7 @@ $(document).ready(function() {
     $('.originalContent').addClass('referencePage');
     $('.originalContent').attr('data-href', firmwareReference.thisUrl.pathname);
 
+
     firmwareReference.loadPage = function() {
         if (firmwareReference.pageQueue.length == 0 || firmwareReference.pageLoading) {
             return;
@@ -42,8 +43,20 @@ $(document).ready(function() {
 
         const itemObj = navMenu.navigationItems[itemIndex];
 
+        if (options.replacePage) {
+            $('.referencePage').remove();
+            for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                navMenu.navigationItems.contentElem = null;
+            }
+        }
+
         if (itemObj.contentElem) {
             console.log('loadPage already loaded', {options, itemIndex, itemObj});
+            firmwareReference.loadPage();
+            return;
+        }
+        if (itemObj.anchor) {
+            console.log('loadPage ignore anchor page', {options, itemIndex, itemObj});
             firmwareReference.loadPage();
             return;
         }
@@ -113,11 +126,6 @@ $(document).ready(function() {
                 params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
 
                 if (options.replacePage) {
-                    $('.referencePage').remove();
-                    for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
-                        navMenu.navigationItems.contentElem = null;
-                    }
-
                     firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = itemIndex;
                     history.pushState(null, '', itemObj.hrefNoAnchor);
 
@@ -129,73 +137,19 @@ $(document).ready(function() {
                         console.log('prepend', divElem)
                         firmwareReference.topIndex = itemIndex;
 
-                        $('div.content').prepend(divElem);
+                        $('div.content').not('.note-common').first().prepend(divElem);
                     }
                     else
                     if (itemIndex > firmwareReference.bottomIndex) {
                         console.log('append', divElem)
                         firmwareReference.bottomIndex = itemIndex;
 
-                        $('div.content').append(divElem);
+                        $('div.content').not('.note-common').last().append(divElem);
                     }
                     else {
                         console.log('insertion error', {itemIndex, topIndex: firmwareReference.topIndex, bottomIndex: firmwareReference.bottomIndex})
                     }
-
-                    /*
-                    let inserted = false;
-
-                    $('div.content').find('.referencePage').each(function() {
-                        if (!inserted) {
-                            const thisIndex = parseInt($(this).data('index'));
-                            console.log('testing', {itemIndex, thisIndex })
-                            if (itemIndex < thisIndex) {
-                                console.log('insert before', {itemIndex, divElem});
-                                inserted = true;
-                                firmwareReference.topIndex = itemIndex;
-                                $(this).before(divElem);
-
-                                params.divHeight = Math.floor($(divElem).height());
-                                params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
-            
-                                $(scrollableContent).scrollTop(params.scrollTopAfter);
-            
-                            }
-                        }
-                    });
-
-                    if (!inserted) {
-                        console.log('append', divElem)
-                        firmwareReference.bottomIndex = itemIndex;
-
-                        $('div.content').append(divElem);
-                    }
-                    */
                 }
-
-
-                /*
-                else
-                if (options.toEnd) {
-                    // $(scrollableContent).data('nextLink', nav.next);
-                    firmwareReference.bottomIndex = itemIndex;
-
-                    $('div.content').not('.note-common').last().append(divElem);
-                }
-                else {
-                    // Insert before
-                    console.log('has insertBefore');
-                    // $(scrollableContent).data('prevLink', nav.prev);
-                    firmwareReference.topIndex = itemIndex;
-
-                    $('div.content').not('.note-common').first().prepend(divElem);
-
-                    params.divHeight = Math.floor($(divElem).height());
-                    params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
-
-                    $(scrollableContent).scrollTop(params.scrollTopAfter);
-                }
-                */
 
                 // apiIndex.sections[nav.index].contentElem = divElem;
                 itemObj.contentElem = divElem;
@@ -207,9 +161,7 @@ $(document).ready(function() {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
                 }
 
-                if (itemObj.collapse) {
-                    navMenu.collapseExpand(itemObj, true);
-                }
+                navMenu.collapseExpand(itemObj, true);
                  
                 if (options.syncNavigation) {
                     navMenu.syncNavigation();
@@ -230,25 +182,41 @@ $(document).ready(function() {
             const count = (typeof options.count != 'undefined') ? options.count : 1;
 
             const start = options.skipIndex ? 1 : 0;
-
+            let numAdded = 0;
+            
             if (options.toEnd) {
-                for(let ii = start; (ii <= count) && ((ii + options.index) < navMenu.navigationItems.length); ii++) {
+                for(let ii = options.index + start; ii < navMenu.navigationItems.length; ii++) {
+                    if (navMenu.navigationItems[ii].anchor) {
+                        continue;
+                    }
+
                     // Add to end
                     let obj = Object.assign({}, options);
-                    obj.index = options.index + ii;
-                    if (options.replacePage && ii > 0) {
+                    obj.index = ii;
+                    if (options.replacePage && numAdded > 0) {
                         options.replacePage = false;
+                        options.syncNavigation = false;
                     }
-                    firmwareReference.pageQueue.push(obj);                            
+                    firmwareReference.pageQueue.push(obj);        
+                    
+                    if (++numAdded >= count) {
+                        break;
+                    }
                 }
             }
             else {
-                for(let ii = start; (ii <= count) && ((options.index - ii) >= 0); ii++) {
-                    // Add to top
+                for(let ii = options.index - start; ii >= 0; ii--) {
+                    if (navMenu.navigationItems[ii].anchor) {
+                        continue;
+                    }
                     let obj = Object.assign({}, options);
-                    obj.index = options.index - ii;
+                    obj.index = ii;
                     firmwareReference.pageQueue.push(obj);                            
-                }                
+
+                    if (++numAdded >= count) {
+                        break;
+                    }
+                }       
             }            
         }
         else {
@@ -310,7 +278,7 @@ $(document).ready(function() {
         params.scrollHeight = $(scrollableContent).prop('scrollHeight');
         params.height = $(scrollableContent).height();
         
-        params.atTop = (params.scrollTop == 0);
+        params.atTop = (params.scrollTop < 20);
         params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
 
         // $(scrollableContent).height() is the height of the view
@@ -544,5 +512,6 @@ $(document).ready(function() {
         }
     }
     
+    firmwareReference.syncNavigation();
 });
 

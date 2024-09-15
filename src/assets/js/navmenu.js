@@ -218,28 +218,28 @@ navMenu.collapseExpandInternal = function(itemObj, showSubsections) {
 
 navMenu.collapseExpand = function(itemObj, showSubsections) {
     
-    if (!itemObj.collapse) {
+    if (!itemObj.collapseIconElem) {
         // This item does not have a collapse icon, but maybe a parent does
         for(const tempItemObj of navMenu.navigationItems) {
-            if (tempItemObj.collapse && itemObj.hrefNoAnchor.startsWith(tempItemObj.hrefNoAnchor)) {
-                console.log('navMenu.collapseExpand found parent collapse', {itemObj, tempItemObj});
+            if (tempItemObj.collapseIconElem && itemObj.hrefNoAnchor.startsWith(tempItemObj.hrefNoAnchor)) {
+                // console.log('navMenu.collapseExpand found parent collapse', {itemObj, tempItemObj});
                 itemObj = tempItemObj;
                 break;
             }
         }            
     }
 
+    if (!itemObj.collapseIconElem) {
+        // console.log('navMenu.collapseExpand did not find parent collapse icon', itemObj)
+        return;
+    }
 
     if (typeof showSubsections == 'undefined') {
         showSubsections = $(itemObj.collapseIconElem).hasClass('ion-arrow-right-b');
     }
     const isShown = $(itemObj.collapseIconElem).hasClass('ion-arrow-down-b');
 
-    console.log('navMenu.collapseExpand', {
-        itemObj,
-        showSubsections,
-        isShown,
-    })
+    // console.log('navMenu.collapseExpand', { itemObj, showSubsections, isShown, });
 
     if (isShown != showSubsections) {
         if (showSubsections) {
@@ -264,7 +264,7 @@ navMenu.forEachItemInternal = function(array, options) {
     if (typeof options.path == 'undefined') {
         options.path = [];
     }
-    
+
     for(const itemObj of array) {
         options.path.push(itemObj);
 
