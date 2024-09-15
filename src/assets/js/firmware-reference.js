@@ -44,9 +44,10 @@ $(document).ready(function() {
         const itemObj = navMenu.navigationItems[itemIndex];
 
         if (options.replacePage) {
+            console.log('loadPage options.replacePage set, clear contents');
             $('.referencePage').remove();
-            for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
-                navMenu.navigationItems.contentElem = null;
+            for(ii = 0; ii < navMenu.navigationItems.length; ii++) {
+                navMenu.navigationItems[ii].contentElem = null;
             }
         }
 
@@ -156,13 +157,27 @@ $(document).ready(function() {
                 // apiIndex.sections[nav.index].contentElem = divElem;
                 itemObj.contentElem = divElem;
 
+                // TODO: Add contentElem for the inner anchors
+                $(divElem).find('h2,h3,h4').each(function() {
+                    // const level = parseInt($(this).prop('tagName').substring(1));
+                    const id = $(this).prop('id');
+
+                    for(const tempItemObj of navMenu.navigationItems) {
+                        if (tempItemObj.anchor == id) {
+                            tempItemObj.contentElem = this;
+                        }
+                    }
+                });
+
                 if (options.scrollIntoView) {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
                 }
 
                 navMenu.collapseExpand(itemObj, true);
                 
-                navMenu.syncNavigation();
+                if (!options.noScroll) {
+                    navMenu.syncNavigation();
+                }
 
                 firmwareReference.pageLoading = false;
 
@@ -195,8 +210,8 @@ $(document).ready(function() {
                     let obj = Object.assign({}, options);
                     obj.index = ii;
                     if (options.replacePage && numAdded > 0) {
-                        options.replacePage = false;
-                        options.syncNavigation = false;
+                        obj.replacePage = false;
+                        obj.syncNavigation = false;
                     }
                     firmwareReference.pageQueue.push(obj);        
                     
@@ -342,7 +357,7 @@ $(document).ready(function() {
         for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
             const itemObj = navMenu.navigationItems[ii];
             if (itemObj.hrefNoAnchor == link) {
-                console.log('firmwareReference.syncNavigationToPage', {link, ii, itemObj});
+                // console.log('firmwareReference.syncNavigationToPage', {link, ii, itemObj});
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
                 $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
                 firmwareReference.lastItemIndex = ii;
@@ -354,111 +369,78 @@ $(document).ready(function() {
     firmwareReference.syncNavigation = function() {
         if (!navMenu || !navMenu.menuJson) {
             return;
-        }
-        
-        let pageHref;
-        let pageOffsets = [];
-        $('div.content-inner').find('div,h2,h3,h4,h5').each(function (index, elem) {
-            const offset = $(this).offset();
-    
-            let obj = {
-                top: offset.top,
-                id: $(this).attr('id'),
-                elem: $(this),
-            };
-    
-            const tag = $(this).prop('tagName').toLowerCase();
-            if (tag == 'div') {
-                if (!$(this).hasClass('referencePage')) {
-                    return;
+        }        
+
+        const contentRect = $('.content-inner')[0].getBoundingClientRect();
+        const contentHeight = contentRect.height;
+
+        const itemsNearby = {
+            visible: [],
+        };
+
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (itemObj.contentElem) {
+                const offset = $(itemObj.contentElem).offset();
+                if (offset.top < 0) {
+                    itemsNearby.aboveIndex = ii;
                 }
-                obj.href = $(this).data('href');
-            }
-    
-            pageOffsets.push(obj);    
-        });
-    
-        // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
-        // one to display.
-        // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
-        // because it's been scrolled up.
-        let index;
-
-        const menubarRect = $('.menubar')[0].getBoundingClientRect();
-
-        
-        if (firmwareReference.lastScrollDir == 'down') {
-            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-                if (pageOffsets[ii].top < (menubarRect.bottom - 20)) {
-                    index = ii;
-                    break;
-                }
-            }    
-        }
-        else {
-            // "up" or not defined
-            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-                if (pageOffsets[ii].top < (menubarRect.top + 10)) {
-                    index = ii;
-                    break;
-                }
-            }    
-        }
-
-        if (typeof index == 'undefined') {
-            return;
-        }
-    
-        if (firmwareReference.lastAnchor == pageOffsets[index].id) {
-            return;
-        }
-        firmwareReference.lastAnchor = pageOffsets[index].id;    
-    
-        // console.log('firmwareReference.syncNavigation', pageOffsets[index]);
-        console.log('firmwareReference.syncNavigation clearing active links');
-        $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
-        $('.menubar').find('.navActive').removeClass('navActive');
-
-        let itemFound;
-
-        navMenu.forEachItem(function(itemObj) {
-            if (itemObj.anchor == pageOffsets[index].id && typeof itemFound == 'undefined') {
-                itemFound = itemObj;
-                console.log('syncNavigation to anchor', itemObj);
-                $(itemObj.elem).find('.navLink').addClass('navLinkActive');
-                navMenu.scrollToActive();
-            }
-        });
-
-        if (typeof itemFound != 'undefined') {
-            return;
-        }
-
-        for(let ii = 0; ii < pageOffsets.length; ii++) {
-            if (!pageOffsets[ii].href) {
-                continue;
-            }
-            if (pageOffsets[ii].top >= (menubarRect.top && pageOffsets[ii].top < (menubarRect.bottom - 40))) {
-                if (firmwareReference.lastPage != pageOffsets[ii].href) {
-                    firmwareReference.lastPage = pageOffsets[ii].href;
-                    console.log('new page scrolled ', pageOffsets[ii]);
-                    index = ii;
-
-                    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
-                        const itemObj = navMenu.navigationItems[ii];
-                        if (pageOffsets[index].href == itemObj.hrefNoAnchor && !itemFound) {
-                            console.log('select by href', itemObj);
-                            $(itemObj.elem).find('.navLink').addClass('navLinkActive');
-                            navMenu.scrollToActive();
-                            history.pushState(null, '', itemObj.hrefNoAnchor);
-                            firmwareReference.lastItemIndex = ii;
-                            break;
-                        }
+                else
+                if (offset.top > contentHeight) {
+                    if (typeof itemsNearby.belowIndex == 'undefined') {
+                        itemsNearby.belowIndex = ii;
                     }
-                    break;            
+                }
+                else {
+                    itemsNearby.visible.push(ii);
                 }
             }
         }
+        if (typeof itemsNearby.aboveIndex == 'undefined' && itemsNearby.visible.length) {
+            const index = itemsNearby.visible[0];
+            if (index > 0) {
+                itemsNearby.loadAboveIndex = index - 1;
+            }
+        }
+
+        if (typeof itemsNearby.belowIndex == 'undefined' && itemsNearby.visible.length) {
+            const index = itemsNearby.visible[itemsNearby.visible.length - 1];
+            if ((index + 1) < navMenu.navigationItems.length) {
+                itemsNearby.loadBelowIndex = index + 1;
+            }
+        }
+
+        // console.log('itemsNearby', itemsNearby);
+
+        let selectIndex;
+
+        if (firmwareReference.lastScrollDir == 'up') {
+            // Use item above if not visible or scrolling up
+            selectIndex = itemsNearby.aboveIndex;
+        }
+        
+        if (typeof selectIndex == 'undefined' && itemsNearby.visible.length > 0) {
+            selectIndex = itemsNearby.visible[0];
+        }
+
+        if (typeof selectIndex != 'undefined') {
+            $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+            $('.menubar').find('.navActive').removeClass('navActive');
+            
+            const itemObj = navMenu.navigationItems[selectIndex];
+            // console.log('syncNavigation to item', itemObj);
+            $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+            $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
+            navMenu.scrollToActive();
+        }
+        
+        if (firmwareReference.lastScrollDir == 'up' && typeof itemsNearby.loadAboveIndex != 'undefined') {
+            firmwareReference.queuePage({index:itemsNearby.loadAboveIndex, skipIndex: false, count:3, toEnd:false, noScroll:true});  
+        }
+        if (firmwareReference.lastScrollDir == 'down' && typeof itemsNearby.loadBelowIndex != 'undefined') {
+            firmwareReference.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:3, toEnd:true, noScroll:true});  
+        }
+          
     
     
     }
