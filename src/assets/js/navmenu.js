@@ -153,7 +153,7 @@ navMenu.load = async function() {
         let nextIsSectionStart = false;
 
         navMenu.forEachItemInternal(moreMenuJson.items, {callback:function(itemObj) {
-            if (!itemObj.anchor) {
+            // if (!itemObj.anchor) {
                 if (nextIsSectionStart) {
                     itemObj.sectionStart = true;
                     nextIsSectionStart = false;
@@ -162,7 +162,7 @@ navMenu.load = async function() {
                 if (itemObj.collapse) {
                     nextIsSectionStart = true;
                 }
-            }
+            // }
         }});
     }
     else {
@@ -218,6 +218,18 @@ navMenu.collapseExpandInternal = function(itemObj, showSubsections) {
 
 navMenu.collapseExpand = function(itemObj, showSubsections) {
     
+    if (!itemObj.collapse) {
+        // This item does not have a collapse icon, but maybe a parent does
+        for(const tempItemObj of navMenu.navigationItems) {
+            if (tempItemObj.collapse && itemObj.hrefNoAnchor.startsWith(tempItemObj.hrefNoAnchor)) {
+                console.log('navMenu.collapseExpand found parent collapse', {itemObj, tempItemObj});
+                itemObj = tempItemObj;
+                break;
+            }
+        }            
+    }
+
+
     if (typeof showSubsections == 'undefined') {
         showSubsections = $(itemObj.collapseIconElem).hasClass('ion-arrow-right-b');
     }
@@ -249,16 +261,27 @@ navMenu.collapseExpand = function(itemObj, showSubsections) {
 
 
 navMenu.forEachItemInternal = function(array, options) {
+    if (typeof options.path == 'undefined') {
+        options.path = [];
+    }
+    
     for(const itemObj of array) {
-        options.callback(itemObj);
+        options.path.push(itemObj);
+
+        options.callback(itemObj, options);
         if (typeof itemObj.subsections != 'undefined') {
             navMenu.forEachItemInternal(itemObj.subsections, options);
         }
+        options.path.splice(options.path.length - 1, 1);
     }
 }
 
 navMenu.forEachItem = function(callback) {    
-    navMenu.forEachItemInternal(navMenu.menuJson.items, {callback});
+    let options = {
+        callback,
+        path: [],
+    }
+    navMenu.forEachItemInternal(navMenu.menuJson.items, options);
 }
 
 navMenu.generateNavHtmlInternal = function(submenuObj, options) {

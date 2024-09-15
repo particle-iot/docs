@@ -16,19 +16,41 @@ $(document).ready(function() {
             return;
         }
         let options = firmwareReference.pageQueue.splice(0, 1)[0];
-        firmwareReference.pageLoading = true;
+
+        let itemIndex;
 
         if (typeof options.index != 'undefined') {
+            itemIndex = options.index;
+
             if (typeof firmwareReference.lastItemIndex == 'undefined') {
                 firmwareReference.lastItemIndex = options.index;
             }
 
-            if (typeof options.link == 'undefined') {
-                options.link = navMenu.navigationItems[options.index].hrefNoAnchor;
+            options.link = navMenu.navigationItems[options.index].hrefNoAnchor;
+        }
+        else {
+            for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
+                    break;
+                }
             }
+            if (itemIndex >= navMenu.navigationItems.length) {
+                console.log('not found ' + options.link);
+                return;
+            }    
         }
 
-        console.log('loadPage', options);
+        const itemObj = navMenu.navigationItems[itemIndex];
+
+        if (itemObj.contentElem) {
+            console.log('loadPage already loaded', {options, itemIndex, itemObj});
+            firmwareReference.loadPage();
+            return;
+        }
+
+        firmwareReference.pageLoading = true;
+
+        console.log('loadPage', {options, itemIndex, itemObj});
 
         fetch(options.link)
             .then(response => response.text())
@@ -58,14 +80,19 @@ $(document).ready(function() {
                 }
 
                 let itemIndex;
-                for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
-                    if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
-                        break;
-                    }
+                if (typeof options.index != 'undefined') {
+                    itemIndex = options.index;
                 }
-                if (itemIndex >= navMenu.navigationItems.length) {
-                    console.log('not found ' + options.link);
-                    return;
+                else {
+                    for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                        if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
+                            break;
+                        }
+                    }
+                    if (itemIndex >= navMenu.navigationItems.length) {
+                        console.log('not found ' + options.link);
+                        return;
+                    }    
                 }
                 const itemObj = navMenu.navigationItems[itemIndex];
                 console.log('loadPage', itemObj);
@@ -73,6 +100,7 @@ $(document).ready(function() {
                 let divElem = document.createElement('div');
                 $(divElem).addClass('referencePage');
                 $(divElem).attr('data-href', options.link);
+                $(divElem).attr('data-index', itemIndex);
                 $(divElem).append(newContent);
 
                 // Remove the h2 when not at the start of a section
@@ -86,12 +114,67 @@ $(document).ready(function() {
 
                 if (options.replacePage) {
                     $('.referencePage').remove();
+                    for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                        navMenu.navigationItems.contentElem = null;
+                    }
+
                     firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = itemIndex;
                     history.pushState(null, '', itemObj.hrefNoAnchor);
 
                     $(divElem).addClass('originalContent');
                     $('div.content').append(divElem);
                 }
+                else {
+                    if (itemIndex < firmwareReference.topIndex) {
+                        console.log('prepend', divElem)
+                        firmwareReference.topIndex = itemIndex;
+
+                        $('div.content').prepend(divElem);
+                    }
+                    else
+                    if (itemIndex > firmwareReference.bottomIndex) {
+                        console.log('append', divElem)
+                        firmwareReference.bottomIndex = itemIndex;
+
+                        $('div.content').append(divElem);
+                    }
+                    else {
+                        console.log('insertion error', {itemIndex, topIndex: firmwareReference.topIndex, bottomIndex: firmwareReference.bottomIndex})
+                    }
+
+                    /*
+                    let inserted = false;
+
+                    $('div.content').find('.referencePage').each(function() {
+                        if (!inserted) {
+                            const thisIndex = parseInt($(this).data('index'));
+                            console.log('testing', {itemIndex, thisIndex })
+                            if (itemIndex < thisIndex) {
+                                console.log('insert before', {itemIndex, divElem});
+                                inserted = true;
+                                firmwareReference.topIndex = itemIndex;
+                                $(this).before(divElem);
+
+                                params.divHeight = Math.floor($(divElem).height());
+                                params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
+            
+                                $(scrollableContent).scrollTop(params.scrollTopAfter);
+            
+                            }
+                        }
+                    });
+
+                    if (!inserted) {
+                        console.log('append', divElem)
+                        firmwareReference.bottomIndex = itemIndex;
+
+                        $('div.content').append(divElem);
+                    }
+                    */
+                }
+
+
+                /*
                 else
                 if (options.toEnd) {
                     // $(scrollableContent).data('nextLink', nav.next);
@@ -112,8 +195,11 @@ $(document).ready(function() {
 
                     $(scrollableContent).scrollTop(params.scrollTopAfter);
                 }
+                */
 
                 // apiIndex.sections[nav.index].contentElem = divElem;
+                itemObj.contentElem = divElem;
+
 
                 firmwareReference.ignoreScroll = Date.now() + 1000;
 
@@ -121,15 +207,10 @@ $(document).ready(function() {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
                 }
 
-                for(const itemObj of navMenu.navigationItems) {
-                    if (itemObj.hrefNoAnchor == options.link) {
-                        if (itemObj.collapse) {
-                            navMenu.collapseExpand(itemObj, true);
-                        }
-                    }
+                if (itemObj.collapse) {
+                    navMenu.collapseExpand(itemObj, true);
                 }
                  
-
                 if (options.syncNavigation) {
                     navMenu.syncNavigation();
                 }
@@ -152,8 +233,9 @@ $(document).ready(function() {
 
             if (options.toEnd) {
                 for(let ii = start; (ii <= count) && ((ii + options.index) < navMenu.navigationItems.length); ii++) {
+                    // Add to end
                     let obj = Object.assign({}, options);
-                    obj.index = ii + options.index;
+                    obj.index = options.index + ii;
                     if (options.replacePage && ii > 0) {
                         options.replacePage = false;
                     }
@@ -162,8 +244,9 @@ $(document).ready(function() {
             }
             else {
                 for(let ii = start; (ii <= count) && ((options.index - ii) >= 0); ii++) {
+                    // Add to top
                     let obj = Object.assign({}, options);
-                    obj.index = ii + options.index;
+                    obj.index = options.index - ii;
                     firmwareReference.pageQueue.push(obj);                            
                 }                
             }            
@@ -193,19 +276,18 @@ $(document).ready(function() {
     firmwareReference.navMenuLoaded = function() {
         console.log('firmwareReference.navMenuLoaded', firmwareReference);
 
-        firmwareReference.loadedMoreItemsIndex = null;
 
         for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
             const index = ii;
             const itemObj = navMenu.navigationItems[ii];
             if (firmwareReference.thisUrl.pathname == itemObj.hrefNoAnchor) {
-                if (!firmwareReference.loadedMoreItemsIndex) {
-                    firmwareReference.loadedMoreItemsIndex = ii;
-                }
+                firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = ii;
+                $('.originalContent').data('index', ii);
+                break;                
             }
 
             if (itemObj.navLinkElem) {
-                $(itemObj.navLinkElem).off('click');
+                // $(itemObj.navLinkElem).off('click');
 
                 $(itemObj.navLinkElem).on('click', function(ev) {
                     ev.preventDefault();
@@ -216,13 +298,8 @@ $(document).ready(function() {
             }
         }
 
-
-        if (firmwareReference.loadedMoreItemsIndex) {
-            firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = firmwareReference.loadedMoreItemsIndex;
-
-            // Preload pages
-            firmwareReference.queuePage({index:firmwareReference.initialIndex, count:4, toEnd:true});  
-        }    
+        // Preload pages
+        firmwareReference.queuePage({index:firmwareReference.initialIndex, skipIndex:true, count:4, toEnd:true}); 
     }
 
     firmwareReference.updateScroll = function() {
@@ -385,6 +462,7 @@ $(document).ready(function() {
                             navMenu.scrollToActive();
                             history.pushState(null, '', itemObj.hrefNoAnchor);
                             firmwareReference.lastItemIndex = ii;
+                            break;
                         }
                     }
                     break;            
