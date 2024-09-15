@@ -44,7 +44,6 @@ $(document).ready(function() {
         const itemObj = navMenu.navigationItems[itemIndex];
 
         if (options.replacePage) {
-            console.log('loadPage options.replacePage set, clear contents');
             $('.referencePage').remove();
             for(ii = 0; ii < navMenu.navigationItems.length; ii++) {
                 navMenu.navigationItems[ii].contentElem = null;
@@ -64,7 +63,7 @@ $(document).ready(function() {
 
         firmwareReference.pageLoading = true;
 
-        console.log('loadPage', {options, itemIndex, itemObj});
+        // console.log('loadPage', {options, itemIndex, itemObj});
 
         fetch(options.link)
             .then(response => response.text())
@@ -109,7 +108,7 @@ $(document).ready(function() {
                     }    
                 }
                 const itemObj = navMenu.navigationItems[itemIndex];
-                console.log('loadPage', itemObj);
+                // console.log('loadPage', itemObj);
                 
                 let divElem = document.createElement('div');
                 $(divElem).addClass('referencePage');
@@ -137,14 +136,12 @@ $(document).ready(function() {
                 }
                 else {
                     if (itemIndex < firmwareReference.topIndex) {
-                        console.log('prepend', divElem)
                         firmwareReference.topIndex = itemIndex;
 
                         $('div.content').not('.note-common').first().prepend(divElem);
                     }
                     else
                     if (itemIndex > firmwareReference.bottomIndex) {
-                        console.log('append', divElem)
                         firmwareReference.bottomIndex = itemIndex;
 
                         $('div.content').not('.note-common').last().append(divElem);
@@ -262,9 +259,7 @@ $(document).ready(function() {
     }
 
     firmwareReference.navMenuLoaded = function() {
-        console.log('firmwareReference.navMenuLoaded', firmwareReference);
-
-
+        
         for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
             const itemObj = navMenu.navigationItems[ii];
             if (firmwareReference.thisUrl.pathname == itemObj.hrefNoAnchor) {
