@@ -201,6 +201,14 @@ navMenu.openAnchor = function(href) {
     }
 }
 
+navMenu.collapseExpandAll = function(showSubsections) {
+    for(const itemObj of navMenu.navigationItems) {
+        if (itemObj.collapseIconElem) {
+            navMenu.collapseExpand(itemObj, showSubsections);
+        }
+    }
+}
+
 navMenu.collapseExpandInternal = function(itemObj, showSubsections) {
 
     for(const innerItemObj of itemObj.subsections) {
@@ -395,16 +403,27 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
 
             $(itemObj.elem).append(triangleElem);
 
-            $(itemObj.elem).on('click', function() {
+            $(itemObj.elem).on('click', function(ev) {
                 if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
                     // Was right, make down (open)
-                    navMenu.collapseExpand(itemObj, true);
+                    if (!ev.altKey) {
+                        navMenu.collapseExpand(itemObj, true);
+                    }
+                    else {
+                        navMenu.collapseExpandAll(true);
+                    }
                 }
                 else {
                     // Has down, make right (close)
-                    navMenu.collapseExpand(itemObj, false);
+                    if (!ev.altKey) {
+                        navMenu.collapseExpand(itemObj, false);
+                    }
+                    else {
+                        navMenu.collapseExpandAll(false);
+                    }
                 }
             });
+
 
         }
 
