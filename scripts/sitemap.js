@@ -33,42 +33,34 @@ module.exports = function plugin(options) {
         for(const dirEnt of fs.readdirSync(contentDir, {withFileTypes:true})) {
             if (dirEnt.isDirectory()) {
                 const subdirPath = path.join(contentDir, dirEnt.name);
-                const menuJsonPath = path.join(subdirPath, 'menu.json');
+                const menuJsonPath = path.join(subdirPath, 'newMenu.json');
                 if (fs.existsSync(menuJsonPath)) {
                     // console.log('menu.json', menuJsonPath);
                     const menuJson = JSON.parse(fs.readFileSync(menuJsonPath, 'utf8'));
                     
-                    const processMenuArray = function(a) {
+                    const processMenuArray = function(dir, a) {
                         for(const e of a) {
-                            if (Array.isArray(e)) {
-                                processMenuArray(e);
+                            if (e.hidden || e.internal) {
+                                if (!e.searchable) {
+                                    let page = dir + '/' + e.dir;
+
+                                    page += '.md';
+
+                                    hiddenPages[page] = e;
+                                }
                             }
                             else {
-                                if (e.hidden || e.internal) {
-                                    if (!e.searchable) {
-                                        // Example e.href: /reference/technical-advisory-notices/tan007/
-
-                                        // Remove the leading slash
-                                        let page = e.href.substring(1);
-
-                                        // Remove the trailing slash
-                                        page = page.substring(0, page.length - 1);
-
-                                        page += '.md';
-
-                                        hiddenPages[page] = e;
-                                    }
+                                if (e.href) {
+                                    const mdPath = e.href.substring(1, e.href.length - 1) + '.md';
+                                    visiblePages[mdPath] = true;    
                                 }
-                                else {
-                                    if (e.href) {
-                                        const mdPath = e.href.substring(1, e.href.length - 1) + '.md';
-                                        visiblePages[mdPath] = true;    
-                                    }
-                                }
+                            }
+                            if (typeof e.subsections != 'undefined') {
+                                processMenuArray(dir + '/' + e.dir, e.subsections);
                             }
                         }
                     }
-                    processMenuArray(menuJson.items);
+                    processMenuArray(menuJson.dir, menuJson.items);
                 }
             }
         }

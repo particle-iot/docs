@@ -9189,6 +9189,10 @@
         "reference/device-os/libraries/f/FileHelperRK.md": {
             "hash": "22e6f47b639b8022f80175c679f05a4c16d225d77f6a92006fe2e73f12c46d5c",
             "date": "2024-08-30"
+        },
+        "quickstart/monitor-one.md": {
+            "hash": "c16737091356a8b71635aef02b1dfb20deb06afb44be86c3f03c69348309dab5",
+            "date": "2024-09-16"
         }
     }
 }

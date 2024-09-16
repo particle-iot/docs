@@ -39,7 +39,7 @@ function generateNavMenu(files, fileName, contentDir) {
         sectionName = pathParts[pathParts.length - 1];
     }
 
-    const menuPath = path.join(contentDir, topLevelName, 'menu.json');
+    const menuPath = path.join(contentDir, topLevelName, 'newMenu.json');
     if (!fs.existsSync(menuPath)) {
         // This is a directory like assets, that isn't in the navigation
         return;
@@ -51,31 +51,31 @@ function generateNavMenu(files, fileName, contentDir) {
 
     let tileItem;
 
-    const processArray = function(array) {
+    const processArray = function(dir, array) {
         for (let item of array) {
-            if (Array.isArray(item)) {
-                // Multi-level (like tutorials, reference, datasheets)    
-                processArray(item);        
-            }
-            else {
-                // Item in this level
-                if (item.href == (fileObj.path.href + fileObj.path.base.replace('.md', '/'))) {
-                    item.activeItem = true;
-                    if (item.tiles) {
-                        tileItem = item;
-                    }
-                    if (item.hidden || item.internal) {
-                        fileObj.noIndex = true;
-                    }
-                }
+            // Item in this level
+            const href = '/' + dir + '/' + item.dir + '/';
 
-                if (item.isSection) {
-                    curSection = item.dir;
+            if (href == (fileObj.path.href + fileObj.path.base.replace('.md', '/'))) {
+                item.activeItem = true;
+                if (item.tiles) {
+                    tileItem = item;
                 }
+                if (item.hidden || item.internal) {
+                    fileObj.noIndex = true;
+                }
+            }
+
+            if (item.isSection) {
+                curSection = item.dir;
+            }
+            
+            if (typeof item.subsections != 'undefined') {
+                processArray(dir + '/' + item.dir, item.subsections);
             }
         }
     };
-    processArray(menuJson.items);
+    processArray(menuJson.dir, menuJson.items);
 
     if (menuJson.items.length > 0 && menuJson.items[0].href == fileObj.path.href && menuJson.items[0].tiles) {
         // Handle top level items (Getting Started, Reference, Hardware, etc.) with tiles
@@ -168,7 +168,7 @@ function metalsmith(options) {
     return function (files, metalsmith, done) {
         const contentDir = metalsmith.path(options.contentDir);
 
-        const menuPath = path.join(contentDir, 'menu.json');
+        const menuPath = path.join(contentDir, 'newMenu.json');
         if (fs.existsSync(menuPath)) {
             topMenuJson = JSON.parse(fs.readFileSync(menuPath), 'utf8');
         }    

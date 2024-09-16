@@ -8,8 +8,6 @@ var cloneDeep = require('lodash').cloneDeep;
 function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath, redirectsPath, contentDir) {
     // console.log('processing refCards for ' + fileName);
     
-    const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
-
     const apiMenusRelativePath = 'assets/files/apiMenus.json';
     const apiMenusJsonPath = path.join(contentDir, '../' + apiMenusRelativePath);
 

@@ -181,6 +181,7 @@ navMenu.load = async function() {
         firmwareReference.navMenuLoaded();
     }
     else {
+        navMenu.syncNavigation();
         navMenu.searchContent();
     }
 }
@@ -744,6 +745,9 @@ navMenu.searchContent = function() {
 navMenu.scrollToActive = function () {
 
     let activeElem = $('.navLinkActive');
+    if (activeElem.length == 0) {
+        activeElem = $('.navActive');
+    }
     
     if (activeElem.length) {
         const boundingRect = $(activeElem)[0].getBoundingClientRect();

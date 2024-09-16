@@ -71,7 +71,7 @@ function processDir(dir) {
             if (dirent.name.match(/md$/i)) {
                 mdFiles.push(path.join(dir, dirent.name));
             }
-            if (dirent.name == 'menu.json') {
+            if (dirent.name == 'newMenu.json') {
                 menuJsonFiles.push(path.join(dir, dirent.name));
             }
         }
@@ -183,8 +183,8 @@ function processMenuJsonFiles() {
         let json = JSON.parse(orig);
 
         for(const key in json) {
-            if (Array.isArray(json[key])) {
-                processMenuJsonArray(json[key]);
+            if (typeof json[key].subsections != 'undefined') {
+                processMenuJsonArray(json[key].subsections);
             }
         }
 

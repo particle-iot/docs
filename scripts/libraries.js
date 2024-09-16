@@ -24,8 +24,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             },
         ],
     }
-
-    // const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
     
     let searchDocuments = [];
 

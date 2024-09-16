@@ -80,7 +80,7 @@ async function getFile(parent) {
 // This should be the partial path, relative to the contentDir, not containing contentDir
 // Returns a relative path name (join to contentDir to find the menu.json file on the file system)
 function findMenu(dir) {
-    const menuPath = path.join(dir, 'menu.json');
+    const menuPath = path.join(dir, 'newMenu.json');
 
     if (fs.existsSync(path.join(contentDir, menuPath))) {
         return menuPath;
@@ -134,15 +134,13 @@ async function removeFromMenu(options) {
         for(let ii = 0; ii < array.length; ii++) {
             const item = array[ii];
 
-            if (!Array.isArray(item)) {
-                if (item.href == href) {
-                    options.title = item.title;
-                    removeArray = array;
-                    removeIndex = ii;
-                }
+            if (item.href == href) {
+                options.title = item.title;
+                removeArray = array;
+                removeIndex = ii;
             }
-            else {
-                processArray(item);
+            if (typeof item.subsections != 'undefined') {
+                processArray(item.subsections);
             }
         }    
     }
@@ -177,22 +175,20 @@ async function insertIntoMenu(options) {
         for(let ii = 0; ii < array.length; ii++) {
             const item = array[ii];
 
-            if (!Array.isArray(item)) {
-                if (item.dir) {
-                    lastDir = item.dir;
-                }
-                if (item.href && item.href.startsWith(href)) {
-                    if (item.title) {
-                        items.push({
-                            title: 'Before ' + item.title + ' (' + item.dir + ')',
-                            index: ii,
-                            array,
-                        })
-                    }    
-                }
+            if (item.dir) {
+                lastDir = item.dir;
             }
-            else {
-                processArray(item);
+            if (item.href && item.href.startsWith(href)) {
+                if (item.title) {
+                    items.push({
+                        title: 'Before ' + item.title + ' (' + item.dir + ')',
+                        index: ii,
+                        array,
+                    })
+                }    
+            }
+            if (typeof item.subsections != 'undefined') {
+                processArray(item.subsections);
                 items.push({
                     title: 'Bottom of ' + lastDir,
                     index: item.length,
