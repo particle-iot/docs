@@ -1,0 +1,46 @@
+{
+    "dir": "quickstart",
+    "items": [
+        {
+            "dir": "setup-next-steps",
+            "title": "Setup next steps"
+        },
+        {
+            "dir": "monitor-one",
+            "title": "Monitor One",
+            "internal": true
+        },
+        {
+            "dir": "argon",
+            "title": "Argon"
+        },
+        {
+            "dir": "boron",
+            "title": "Boron"
+        },
+        {
+            "dir": "b-som",
+            "title": "B-Series SoM"
+        },
+        {
+            "dir": "photon",
+            "title": "Photon"
+        },
+        {
+            "dir": "electron",
+            "title": "Electron"
+        },
+        {
+            "dir": "workbench",
+            "title": "Workbench"
+        },
+        {
+            "dir": "isk-project",
+            "title": "IoT Starter Kit"
+        },
+        {
+            "dir": "aqmk-project",
+            "title": "Air Quality Monitoring Kit"
+        }
+    ]
+}

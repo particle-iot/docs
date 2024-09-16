@@ -1,312 +1,72 @@
+let firmwareReference = {
+    pageQueue: [],
+    pageLoading: false,
+    gaCategory: 'firmware-reference',
+};
+
 $(document).ready(function() {
-    let navigationInfo;
 
     const scrollableContent = $('div.content-inner');
 
-    let apiIndex;
-    let deferPopulateFolder = false;
+    firmwareReference.thisUrl = new URL(location.href);
+    $('.originalContent').addClass('referencePage');
+    $('.originalContent').attr('data-href', firmwareReference.thisUrl.pathname);
 
 
-    const parsePath = function(pathname) {
-        let result = {};
-
-        const pathParts = pathname.split('/');
-        // console.log('pathParts', pathParts);
-
-        result.href = pathname;
-        result.folder = pathParts[4];
-        result.file = pathParts[5];
-
-        return result;
-    };
-
-    const apiIndexFind = function(pathname) {
-        const pathParts = parsePath(pathname);
-        
-        for(let index = 0; index < apiIndex.sections.length; index++) {
-            const section = apiIndex.sections[index];
-            if (section.folder == pathParts.folder && section.file == pathParts.file) {
-                let obj = Object.assign({}, section);
-
-                obj.index = index;
-                if (index > 0) {
-                    obj.prev = apiIndex.sections[index - 1].href;
-                }
-                if ((index + 1) < apiIndex.sections.length) {
-                    obj.next = apiIndex.sections[index + 1].href;
-                }
-
-                return obj;
-            }
-        }
-        return null;
-    }
-
-    const populateFolder = function(folder) {
-        if (!apiIndex) {
-            deferPopulateFolder = folder;
+    firmwareReference.loadPage = function() {
+        if (firmwareReference.pageQueue.length == 0 || firmwareReference.pageLoading) {
             return;
         }
+        let options = firmwareReference.pageQueue.splice(0, 1)[0];
 
-        if (apiIndex.folders[folder].folderItems) {
-            return;
-        }
+        let itemIndex;
 
-        let folderItems = [];
-        let afterItem = apiIndex.folders[folder].elem;
+        if (typeof options.index != 'undefined') {
+            itemIndex = options.index;
 
-        $(afterItem).find('i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
-
-        for(const section of apiIndex.sections) {
-            if (section.folder == folder) {
-                let divNavContainer = document.createElement('div');
-                $(divNavContainer).addClass('navContainer');
-
-                $(divNavContainer).addClass('navMenu4');
-    
-                let d = document.createElement('div');
-                $(d).addClass('navIndent4');
-                $(divNavContainer).append(d);
-    
-                d = document.createElement('div');
-                $(d).addClass('navContent4');
-                {
-                    const aElem = document.createElement('a');
-                    $(aElem).attr('href', section.href);
-                    $(aElem).addClass('navLink');
-                    $(aElem).text(section.title);
-                    $(d).append(aElem);
-                }
-                $(divNavContainer).append(d);
-                section.elem = divNavContainer;
-    
-                $(afterItem).after(divNavContainer);                
-                folderItems.push(divNavContainer);
-                afterItem = divNavContainer;
+            if (typeof firmwareReference.lastItemIndex == 'undefined') {
+                firmwareReference.lastItemIndex = options.index;
             }
-        }
-        apiIndex.folders[folder].folderItems = folderItems;
-    }
 
-    const closeFolder = function(folder) {
-        for(const section of apiIndex.sections) {
-            if (section.folder == folder && apiIndex.folders[section.folder].folderItems) {
-                $(apiIndex.folders[section.folder].elem).find('i').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-
-                for(const elem of apiIndex.folders[section.folder].folderItems) {
-                    $(elem).remove();
-                }
-
-                apiIndex.folders[section.folder].folderItems = null;
-            }
-        }
-    }
-
-    const syncNavigation = function(linkOptional) {
-        // Synchronize the left navigation to the currently 
-
-        let href;
-
-        let pageOffsets = [];
-        $('.referencePage').each(function() {
-            const offset = $(this).offset();
-            pageOffsets.push({
-                top: offset.top,
-                href: $(this).attr('data-href')
-            })
-        });
-
-        if (linkOptional) {
-            href = linkOptional;
+            options.link = navMenu.navigationItems[options.index].hrefNoAnchor;
         }
         else {
-            // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
-            // one to display.
-            // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
-            // because it's been scrolled up.
-            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-                if (pageOffsets[ii].top < 10) {
-                    href = pageOffsets[ii].href;
+            for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
                     break;
                 }
             }
+            if (itemIndex >= navMenu.navigationItems.length) {
+                console.log('not found ' + options.link);
+                return;
+            }    
         }
 
-        if (!href) {            
-            return;
-        }
+        const itemObj = navMenu.navigationItems[itemIndex];
 
-        /*
-        if (linkOptional) {
-            console.log('syncNavigation to link ' + href);
-        }
-        else {
-            console.log('syncNavigation from position ' + href);
-        }
-        */
-
-        const pathParts = parsePath(href);
-        const folder = pathParts.folder;
-        if (!apiIndex) {
-            deferPopulateFolder = folder;
-            return;
-        }
-        populateFolder(folder);
-
-        // Mark current page as active
-        $('.navContainer').find('.navLinkActive').removeClass('navLinkActive');
-        for(let ii = 0; ii < apiIndex.sections.length; ii++) {
-            let section = apiIndex.sections[ii];
-            if (section.href == href) {
-                $(section.elem).find('a').addClass('navLinkActive');
-
-
-                // Add items for this page
-                if (!section.fileItems) {
-                    let fileItems = [];
-
-                    let afterItem = section.elem;
-
-                    $(section.contentElem).find('h4').each(function() {
-                        const h4Elem = this;
-                        let aElem;
-
-                        let divNavContainer = document.createElement('div');
-                        $(divNavContainer).addClass('navContainer');
-                        $(divNavContainer).addClass('navMenu5');
-        
-                        let d = document.createElement('div');
-                        $(d).addClass('navIndent5');
-                        $(divNavContainer).append(d);
-                
-                        d = document.createElement('div');
-                        $(d).addClass('navContent5');
-                        {
-                            aElem = document.createElement('a');
-                            $(aElem).text($(h4Elem).text());
-                            $(aElem).attr('href', '#' + $(h4Elem).attr('id'));
-                            $(aElem).addClass('navLink');
-                            $(d).append(aElem);
-                        }
-                        $(divNavContainer).append(d);              
-                        $(afterItem).after(divNavContainer);
-                        afterItem = divNavContainer;
-                        
-                        fileItems.push({
-                            elem: divNavContainer,
-                            aElem,
-                            h4Elem
-                        });
-                    });
-                    window.history.replaceState(null, null, section.href);
-    
-                    // Update page/group navigation
-                    navigationInfo = {};
-                    if (ii > 0) {
-                        navigationInfo.prevLink = apiIndex.sections[ii - 1].href;
-                    }
-                    if ((ii + 1) < apiIndex.sections.length) {
-                        navigationInfo.nextLink = apiIndex.sections[ii + 1].href;
-                    }
-                    for(let jj = ii - 1; jj >= 0; jj--) {
-                        if (apiIndex.sections[jj].folder != section.folder) {
-                            navigationInfo.prevGroup = apiIndex.sections[jj].href;
-                            break;
-                        }
-                    }
-                    for(let jj = ii + 1; jj < apiIndex.sections.length; jj++) {
-                        if (apiIndex.sections[jj].folder != section.folder) {
-                            navigationInfo.nextGroup = apiIndex.sections[jj].href;
-                            break;
-                        }
-                    }
-
-                    section.fileItems = fileItems;    
-                }
-
-                // Add a navLinkActive to the current fileItem
-                let sectionOffsets = [];
-                for(const item of section.fileItems) {
-                    const offset = $(item.h4Elem).offset();
-                    sectionOffsets.push({
-                        top: offset.top,
-                        aElem: item.aElem,
-                        id: $(item.h4Elem).prop('id')
-                    });                    
-                }
-                // console.log('sectionOffsets', sectionOffsets);
-
-                for(let ii = 0; ii < sectionOffsets.length; ii++) {
-                    if (sectionOffsets[ii].top > 0) {
-                        $(sectionOffsets[ii].aElem).addClass('navLinkActive');
-                        const url = section.href + '#' + sectionOffsets[ii].id;
-                        window.history.replaceState(null, null, url);
-                        break;
-                    }
-                }
-    
-            }
-            else
-            if (section.fileItems) {
-                // Remove the items for this page
-                for(const item of section.fileItems) {
-                    $(item.elem).remove();
-                }
-
-                section.fileItems = null;
+        if (options.replacePage) {
+            $('.referencePage').remove();
+            for(ii = 0; ii < navMenu.navigationItems.length; ii++) {
+                navMenu.navigationItems[ii].contentElem = null;
             }
         }
 
-        // Close other folders        
-        for(const section of apiIndex.sections) {
-            if (section.folder != folder) {
-                closeFolder(section.folder);
-            }
-        }
-
-        let activeElem = $('.navLinkActive');
-        if (activeElem.length == 0) {
-            activeElem = $('.navActive2');
-        }
-        if (activeElem.length) {
-            activeElem[0].scrollIntoView();  
-        }
-        
-
-        /*
-*/
-        // a for current page gets .navLinkActive
-        // Also the containing folder
-        // Opened folders get i ion-arrow-down-b
-        // Closed folders get i ion-arrow-right-b
-
-
-    };
-
-
-
-
-    // Save URL
-    const thisUrl = new URL(location.href);
-    $('.originalContent').addClass('referencePage');
-    $('.originalContent').attr('data-href', thisUrl.pathname);
-
-    let pageQueue = [];
-    let pageLoading = false;
-    let ignoreScroll;
-
-
-    const loadPage = function() {
-        if (pageQueue.length == 0 || pageLoading) {
+        if (itemObj.contentElem) {
+            firmwareReference.checkLoadPage(options);
             return;
         }
-        let options = pageQueue.splice(0, 1)[0];
-        pageLoading = true;
+        if (itemObj.anchor) {
+            firmwareReference.checkLoadPage(options);
+            return;
+        }
+
+        firmwareReference.pageLoading = true;
+
+        // console.log('loadPage', {options, itemIndex, itemObj});
 
         fetch(options.link)
             .then(response => response.text())
             .then(function(res) {
-                pageLoading = false;
 
                 // <!-- start 841427f3-9f46-4361-ab97-7afda1e082f9 -->
                 // <!-- end 841427f3-9f46-4361-ab97-7afda1e082f9 -->
@@ -330,212 +90,227 @@ $(document).ready(function() {
 
                 }
 
-                const nav = apiIndexFind(options.link);
-
+                let itemIndex;
+                if (typeof options.index != 'undefined') {
+                    itemIndex = options.index;
+                }
+                else {
+                    for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                        if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
+                            break;
+                        }
+                    }
+                    if (itemIndex >= navMenu.navigationItems.length) {
+                        console.log('not found ' + options.link);
+                        firmwareReference.pageLoading = false;
+                        return;
+                    }    
+                }
+                const itemObj = navMenu.navigationItems[itemIndex];
+                // console.log('loadPage loaded', itemObj);
+                
                 let divElem = document.createElement('div');
                 $(divElem).addClass('referencePage');
                 $(divElem).attr('data-href', options.link);
+                $(divElem).attr('data-index', itemIndex);
                 $(divElem).append(newContent);
 
-                if (!nav.startSection) {
-                    // Remove the h2 when not at the start of a section
+                // Remove the h2 when not at the start of a section
+                if (!itemObj.sectionStart) {
                     $(divElem).find('h2').remove();
                 }
-
-
+        
                 let params = {};
                 params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
                 params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
 
+                if (options.replacePage) {
+                    analytics.track('replacePage', {label:options.link, category:firmwareReference.gaCategory});
 
-                if (options.toEnd) {
-                    $(scrollableContent).data('nextLink', nav.next);
+                    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+                        if (ii != itemIndex) {
+                            const tempItemObj = navMenu.navigationItems[ii];
+                            if (tempItemObj.collapseIconElem) {
+                                navMenu.collapseExpand(tempItemObj, false);
+                            }                   
+                        }
+                    }
 
-                    $('div.content').not('.note-common').last().append(divElem);
+                    firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = itemIndex;
+                    history.pushState(null, '', itemObj.hrefNoAnchor);
 
-                    if (pageQueue.length) {
-                        loadPage();
-                    }           
+                    $(divElem).addClass('originalContent');
+                    $('div.content').append(divElem);
+
+                    firmwareReference.syncNavigationToPage(options.link);
                 }
                 else {
-                    // Insert before
-                    console.log('has has insertBefore');
-                    $(scrollableContent).data('prevLink', nav.prev);
+                    if (itemIndex < firmwareReference.topIndex) {
+                        firmwareReference.topIndex = itemIndex;
+                        analytics.track('addPageTop', {label:options.link, category:firmwareReference.gaCategory});
 
-                    $('div.content').not('.note-common').first().prepend(divElem);
+                        $('div.content').not('.note-common').first().prepend(divElem);
+                    }
+                    else
+                    if (itemIndex > firmwareReference.bottomIndex) {
+                        firmwareReference.bottomIndex = itemIndex;
+                        analytics.track('addPageBottom', {label:options.link, category:firmwareReference.gaCategory});
 
-                    params.divHeight = Math.floor($(divElem).height());
-                    params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
-
-                    $(scrollableContent).scrollTop(params.scrollTopAfter);
+                        $('div.content').not('.note-common').last().append(divElem);
+                    }
+                    else {
+                        console.log('insertion error', {itemIndex, topIndex: firmwareReference.topIndex, bottomIndex: firmwareReference.bottomIndex})
+                    }
                 }
 
-                apiIndex.sections[nav.index].contentElem = divElem;
+                // apiIndex.sections[nav.index].contentElem = divElem;
+                itemObj.contentElem = divElem;
 
-                ignoreScroll = Date.now() + 1000;
+                // TODO: Add contentElem for the inner anchors
+                $(divElem).find('h2,h3,h4').each(function() {
+                    // const level = parseInt($(this).prop('tagName').substring(1));
+                    const id = $(this).prop('id');
+
+                    for(const tempItemObj of navMenu.navigationItems) {
+                        if (typeof tempItemObj.anchor != 'undefined' && tempItemObj.anchor == id) {
+                            tempItemObj.contentElem = this;
+                        }
+                    }
+                });
 
                 if (options.scrollIntoView) {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
                 }
 
-                if (options.syncNavigation) {
-                    syncNavigation(options.link);
+                navMenu.collapseExpand(itemObj, true);
+                
+                if (!options.noScroll) {
+                    navMenu.syncNavigation();
                 }
+                firmwareReference.pageLoading = false;
 
+
+                firmwareReference.checkLoadPage(options);
             })
             .catch(function(err) {
                 console.log('err', err);
             });
 
     }
-    const queuePage = function(options) {
-        pageQueue.push(options);
-        loadPage();
-    }
 
-    const preloadPages = function(pathname) {
-        const pathParts = parsePath(pathname);
-        
-        for(let index = 0; index < apiIndex.sections.length; index++) {
-            const section = apiIndex.sections[index];
-            if (section.folder == pathParts.folder && section.file == pathParts.file) {
-                for(let ii = 1; ii <= 3 && (index + ii) < apiIndex.sections.length; ii++) {
-                    queuePage({link: apiIndex.sections[index + ii].href, toEnd:true});
-                }                
-                break;
-            }
-        }
-    }
+    firmwareReference.checkLoadPage = function(options) {
+        if (options.fillScreen) {
+            if (firmwareReference.pageQueue.length == 0) {
+                const itemsNearby = firmwareReference.getItemsNearby();
 
-    // Load the page index
-    fetch('/assets/files/apiIndex.json')
-    .then(response => response.json())
-    .then(function(res) {
-        apiIndex = res;
-
-        // Build out the rest of the navigation menu. Insert all content after this:
-        // div.navContainer .deviceOsApiNavMenu        
-        // Insert div #navActiveContent containing the generated menus
-        // Insert navContainers, one per item in the section
-        // Most will contain a spacer div, and a navMenu2 
-
-        const divActiveContent = document.createElement('div');
-        $(divActiveContent).attr('id', 'activeContent');
-
-        let lastFolder;
-
-        apiIndex.folders = {};
-
-        // Populate only the top level sections here because there are so many subsections
-        let topLevelSections = [];
-        for(let section of apiIndex.sections) {
-            if (section.folder != lastFolder) {
-                // New section
-                topLevelSections.push({
-                    folder: section.folder,
-                    sections: [section],
-                });
-                lastFolder = section.folder;
+                if (typeof itemsNearby.bottomIndex == 'undefined' && typeof itemsNearby.loadBelowIndex != 'undefined') {
+                    firmwareReference.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:1, toEnd:true, fillScreen:true});  
+                }    
             }
             else {
-                topLevelSections[topLevelSections.length - 1].sections.push(section);
             }
         }
 
-        topLevelSections.sort(function(a, b) {
-            if (a.folder == 'introduction') {
-                return -1;
-            }
-            else
-            if (b.folder == 'introduction') {
-                return +1;
-            }
-            else {
-                return a.folder.localeCompare(b.folder);
-            }
-        });
-
-        // Re-sort apiIndex.sections so scrolling, forward, backward, next group, etc. work right
-        apiIndex.sections = [];
-        for(let obj of topLevelSections) {
-            for(let section of obj.sections) {
-                apiIndex.sections.push(section);
-            }
+        if (firmwareReference.pageQueue.length > 0) {
+            firmwareReference.loadPage();
         }
-        const nav = apiIndexFind(thisUrl.pathname);
+    }
 
+    firmwareReference.queuePage = function(options) {
+        if (typeof options.index != 'undefined') {
+            const count = (typeof options.count != 'undefined') ? options.count : 1;
 
-        for(const obj of topLevelSections) {
-            let section = obj.sections[0];
-            // New section
-            let divNavContainer = document.createElement('div');
-            $(divNavContainer).addClass('navContainer');
-            $(divNavContainer).addClass('navMenu3');
+            const start = options.skipIndex ? 1 : 0;
+            let numAdded = 0;
+            
+            if (options.toEnd) {
+                for(let ii = options.index + start; ii < navMenu.navigationItems.length; ii++) {
+                    if (navMenu.navigationItems[ii].anchor) {
+                        continue;
+                    }
 
-            let d = document.createElement('div');
-            $(d).addClass('navIndent3');
-            $(divNavContainer).append(d);
-
-            // TODO: Skip disclosure if only a single item
-            d = document.createElement('div');
-            $(d).attr('data-folder', section.folder);
-            $(d).addClass('navDisclosure');
-            {
-                const iElem = document.createElement('i');
-                $(iElem).addClass('ion-arrow-right-b');
-                $(d).append(iElem);
-            }
-            $(d).on('click', function() {
-                const folder = $(this).attr('data-folder');
-                if ($(this).find('i').hasClass('ion-arrow-right-b')) {
-                    populateFolder(folder);
+                    // Add to end
+                    let obj = Object.assign({}, options);
+                    obj.index = ii;
+                    if (options.replacePage && numAdded > 0) {
+                        obj.replacePage = false;
+                        obj.syncNavigation = false;
+                    }
+                    firmwareReference.pageQueue.push(obj);        
+                    
+                    if (++numAdded >= count) {
+                        break;
+                    }
                 }
-                else {
-                    console.log('close folder from click');
-                    closeFolder(folder);
-                    $('.navMenu4').hide();
-                    $('.navMenu5').hide();
-                }  
-            });
-            $(divNavContainer).append(d);
-
-            d = document.createElement('div');
-            $(d).addClass('navContent3');
-            {
-                const aElem = document.createElement('a');
-                $(aElem).text(apiIndex.folderTitles[section.folder]);
-                $(aElem).attr('href', section.href);
-                $(aElem).addClass('navLink');
-                $(d).append(aElem);
             }
-            $(divNavContainer).append(d);
+            else {
+                for(let ii = options.index - start; ii >= 0; ii--) {
+                    if (navMenu.navigationItems[ii].anchor) {
+                        continue;
+                    }
+                    let obj = Object.assign({}, options);
+                    obj.index = ii;
+                    firmwareReference.pageQueue.push(obj);                            
 
-            apiIndex.folders[section.folder] = {
-                elem: divNavContainer
-            };
-            $(divActiveContent).append(divNavContainer);
+                    if (++numAdded >= count) {
+                        break;
+                    }
+                }       
+            }            
+        }
+        else {
+            if (options.link) {
+                firmwareReference.pageQueue.push(options);            
+            }    
+        }
+        firmwareReference.loadPage();
+    }
 
+    firmwareReference.replacePage = function(options) {
+        firmwareReference.pageQueue = [];
+        firmwareReference.lastScrollDir = null;
 
+        if (typeof options.index != 'undefined') {
+
+            firmwareReference.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true, fillScreen: true, });
+
+            firmwareReference.lastItemIndex = options.index;
+        }
+    }
+
+    firmwareReference.navMenuLoaded = function() {
+        
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (firmwareReference.thisUrl.pathname == itemObj.hrefNoAnchor) {
+                firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = ii;
+                $('.originalContent').data('index', ii);
+                break;                
+            }
         }
 
-        $('.deviceOsApiNavMenu').after(divActiveContent);
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
 
-        apiIndex.sections[nav.index].contentElem = $('.originalContent');
+            if (itemObj.navLinkElem) {
+                $(itemObj.navLinkElem).off('click');
 
-        navMenu.searchContent();
+                $(itemObj.navLinkElem).on('click', function(ev) {
+                    ev.preventDefault();
 
-        populateFolder(deferPopulateFolder ? deferPopulateFolder : parsePath(thisUrl.pathname).folder);
-        deferPopulateFolder = null;
+                    firmwareReference.replacePage({index:ii});
+                });
+            }
+        }
 
-        syncNavigation(thisUrl.pathname);
+        // Preload pages
+        firmwareReference.queuePage({index:firmwareReference.initialIndex, skipIndex:true, count:1, toEnd:true, fillScreen:true}); 
 
-        preloadPages(thisUrl.pathname);
-    });
-    
+        firmwareReference.syncNavigationToPage(firmwareReference.thisUrl.pathname);
+    }
 
-    $(scrollableContent).on('scroll', function(e) {
-        // console.log('scrolled ', e);
-        // e.originalEvent
+    firmwareReference.updateScroll = function() {
+
         let params = {};
 
         params.scrollTop = Math.round($(scrollableContent).scrollTop());
@@ -546,123 +321,226 @@ $(document).ready(function() {
         params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
 
         // $(scrollableContent).height() is the height of the view
-
-        // console.log('params', params);
-        if (!ignoreScroll || Date.now() > ignoreScroll) {
-            ignoreScroll = null;
-            syncNavigation();
+        if (typeof firmwareReference.lastScrollTop != 'undefined') {
+            if (params.scrollTop > (firmwareReference.lastScrollTop + 5)) {
+                firmwareReference.lastScrollDir = 'down';
+                firmwareReference.lastScrollTop = params.scrollTop;
+            }
+            else 
+            if (params.scrollTop < (firmwareReference.lastScrollTop - 5)) {
+                firmwareReference.lastScrollDir = 'up';
+                firmwareReference.lastScrollTop = params.scrollTop;
+            }
         }
         else {
+            firmwareReference.lastScrollTop = params.scrollTop;
         }
 
-        if (params.atTop) {
-            const prevLink = $(scrollableContent).data('prevLink');
-            if (prevLink) {
-                queuePage({link: prevLink, toEnd:false});
-            }
+        if (params.atBottom && firmwareReference.lastScrollDir == 'down' && firmwareReference.bottomIndex < navMenu.navigationItems.length) {
+            firmwareReference.queuePage({index:firmwareReference.bottomIndex, skipIndex: true, count:3, toEnd:true});  
         }
-        if (params.atBottom) {
-            const nextLink = $(scrollableContent).data('nextLink');
-            if (nextLink) {
-                queuePage({link: nextLink, toEnd:true});
-            }
+
+        if (params.atTop && firmwareReference.lastScrollDir == 'up' && firmwareReference.topIndex >= 0) {
+            firmwareReference.queuePage({index:firmwareReference.topIndex, skipIndex: true, count:3, toEnd:false});  
         }
+        
+        return params;
+    }
+
+    $(scrollableContent).on('scroll', function(e) {
+        // console.log('scrolled ', e);
+        // e.originalEvent
+        if (!firmwareReference.pageLoading) {
+            firmwareReference.updateScroll();
+        }
+
     });
 
 
+    firmwareReference.syncNavigationToPage = function(link) {
+        $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+        $('.menubar').find('.navActive').removeClass('navActive');
 
-    const navigate = function(next, group) {
-        if (!navigationInfo) {
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (itemObj.hrefNoAnchor == link) {
+                // console.log('firmwareReference.syncNavigationToPage', {link, ii, itemObj});
+                $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+                $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
+                firmwareReference.lastItemIndex = ii;
+                return;
+            }
+        }
+    }
+
+    firmwareReference.getItemsNearby = function() {
+        const contentRect = $('.content-inner')[0].getBoundingClientRect();
+        const contentHeight = contentRect.height;
+
+        const itemsNearby = {
+            visible: [],
+        };
+
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (itemObj.contentElem) {
+                const offset = $(itemObj.contentElem).offset();
+                if (offset.top < 0) {
+                    itemsNearby.aboveIndex = ii;
+                }
+                else
+                if (offset.top > contentHeight) {
+                    if (typeof itemsNearby.belowIndex == 'undefined') {
+                        itemsNearby.belowIndex = ii;
+                    }
+                }
+                else {
+                    itemsNearby.visible.push(ii);
+                }
+            }
+        }
+        if (typeof itemsNearby.aboveIndex == 'undefined' && itemsNearby.visible.length) {
+            let index = itemsNearby.visible[0] - 1;
+            for(; index >= 0; index--) {
+                if (typeof navMenu.navigationItems[index].anchor == 'undefined') {
+                    break;
+                }
+            }
+            if (index >= 0) {
+                itemsNearby.loadAboveIndex = index;
+            }
+        }
+
+        if (typeof itemsNearby.belowIndex == 'undefined' && itemsNearby.visible.length) {
+            const index = itemsNearby.visible[itemsNearby.visible.length - 1] + 1;
+            for(; index < navMenu.navigationItems.length; index++) {
+                if (typeof navMenu.navigationItems[index].anchor == 'undefined') {
+                    break;
+                }
+            }
+            if (index < navMenu.navigationItems.length) {
+                itemsNearby.loadBelowIndex = index;
+            }
+        }
+
+        if (firmwareReference.lastScrollDir == 'up') {
+            // Use item above if not visible or scrolling up
+            itemsNearby.selectIndex = itemsNearby.aboveIndex;
+        }
+        
+        if (typeof itemsNearby.selectIndex == 'undefined' && itemsNearby.visible.length > 0) {
+            itemsNearby.selectIndex = itemsNearby.visible[0];
+        }
+
+        return itemsNearby;
+    }
+
+    firmwareReference.syncNavigation = function() {
+        if (!navMenu || !navMenu.menuJson) {
             return;
-        }
+        }        
 
-        if (!group) {
-            if (next) {
-                if (navigationInfo.nextLink) {
-                    queuePage({link: navigationInfo.nextLink, toEnd:true, scrollIntoView:true, syncNavigation:true});
-                }
-            }
-            else {
-                if (navigationInfo.prevLink) {
-                    queuePage({link: navigationInfo.prevLink, toEnd:false, scrollIntoView:true, syncNavigation:true});
-                }
-            }
-        }
+        const itemsNearby = firmwareReference.getItemsNearby();
 
-        if (group) {
-            if (next) {
-                if (navigationInfo.nextGroup) {
-                    location.href = navigationInfo.nextGroup;
-                }
-            }
-            else {
-                if (navigationInfo.prevGroup) {
-                    location.href = navigationInfo.prevGroup;
-                }
+
+        if (typeof itemsNearby.selectIndex != 'undefined') {
+            $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+            $('.menubar').find('.navActive').removeClass('navActive');
+            
+            const itemObj = navMenu.navigationItems[itemsNearby.selectIndex];
+            // console.log('syncNavigation to item', itemObj);
+            $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+            $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
+            navMenu.scrollToActive();
+
+            if (window.location.pathname != itemObj.hrefNoAnchor) {
+                history.pushState(null, '', itemObj.hrefNoAnchor);
             }
         }
-    };
+        
+        if (firmwareReference.lastScrollDir == 'up' && typeof itemsNearby.loadAboveIndex != 'undefined') {
+            firmwareReference.queuePage({index:itemsNearby.loadAboveIndex, skipIndex: false, count:3, toEnd:false, noScroll:true});  
+        }
+        if (firmwareReference.lastScrollDir == 'down' && typeof itemsNearby.loadBelowIndex != 'undefined') {
+            firmwareReference.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:3, toEnd:true, noScroll:true});  
+        }
+          
+
+    }
 
 
-    let startX, startY, startTime;
-
-    $('div.page-body').on('touchstart', function(e) {
-        startX = e.changedTouches[0].pageX;
-        startY = e.changedTouches[0].pageY;
-        startTime = Date.now();
-    });
-
-    $('div.page-body').on('touchend', function(e) {
-        const deltaX = e.changedTouches[0].pageX - startX;
-        const deltaY = e.changedTouches[0].pageY - startY;
-        const deltaTime = Date.now() - startTime;
-
-        if (Math.abs(deltaX) < 30 && Math.abs(deltaY) < 30 && deltaTime < 200) {
-            // Tap
-            if (startX < 150) {
-                navigate(false, false);
-            }
-            else
-            if (startX > (screen.width - 150)) {
-                navigate(true, false);
-            }
+    firmwareReference.navigatePage = function(options) {
+            
+        if (typeof firmwareReference.lastItemIndex == 'undefined') {
+            firmwareReference.lastItemIndex = 0;
+        }
+        if (!options.dir) {
+            options.dir = 1;
         }
 
-        if (Math.abs(deltaX) > 150 && Math.abs(deltaY) < 150 && deltaTime < 400) {
-            // Swipe
-            if (deltaX < 0) {
-                // Right (next)
-                navigate(true, false);
-            }  
-            else {
-                // Left (previous)
-                navigate(false, false);
-            }
-        }    
-    });    
 
+        if (options.level) {
+            for(let ii = firmwareReference.lastItemIndex + options.dir; ii >= 0 && ii < navMenu.navigationItems.length; ii += options.dir) {
+                const itemObj = navMenu.navigationItems[ii];
+                if (itemObj.level == options.level) {
+                    firmwareReference.replacePage({index: ii});
+                    break;
+                }                
+            }
+        }   
+        else
+        if (options.section) {
+            const hrefCurrent = navMenu.navigationItems[firmwareReference.lastItemIndex].hrefNoAnchor;
+
+            for(let ii = firmwareReference.lastItemIndex + options.dir; ii >= 0 && ii < navMenu.navigationItems.length; ii += options.dir) {
+                const itemObj = navMenu.navigationItems[ii];
+                if (itemObj.hrefNoAnchor != hrefCurrent) {
+                    firmwareReference.replacePage({index: ii});
+                    break;    
+                }
+            }
+        }
+        
+    }
+
+
+    firmwareReference.navigate = function(dir) {
     
-    $('body').on('keydown', function(ev) {
-        if (ev.shiftKey) {
-            switch(ev.key) {
-                case 'ArrowLeft':
-                    navigate(false, false);
-                    break;
+        switch(dir) {
+            case 'up':
+                firmwareReference.navigatePage({level: 3, dir: -1});
+                break;
 
-                case 'ArrowRight':
-                    navigate(true, false);
-                    break;
+            case 'down':
+                firmwareReference.navigatePage({level: 3, dir: +1});
+                break;
 
-                case 'ArrowUp':
-                    navigate(false, true);
-                    break;
+            case 'left':
+                firmwareReference.navigatePage({section: true, dir: -1});
+                break;
 
-                case 'ArrowDown':
-                    navigate(true, true);
-                    break;
-            }
+            case 'right':
+                firmwareReference.navigatePage({section: true, dir: +1});
+                break;
+    
+            case 'Home':
+            case 'End':
+                break;
 
+            case 'PageUp':
+                firmwareReference.lastScrollDir = 'up';
+                $(scrollableContent)[0].scrollBy(0, -($(scrollableContent).height() - 20));
+                firmwareReference.syncNavigation();
+                break;
+
+            case 'PageDown':
+                firmwareReference.lastScrollDir = 'down';
+                $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
+                firmwareReference.syncNavigation();
+                break;
         }
-    });
+    }
+
+
 });
 

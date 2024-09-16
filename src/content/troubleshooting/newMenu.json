@@ -1,0 +1,320 @@
+{
+    "dir": "troubleshooting",
+    "items": [
+        {
+            "dir": "troubleshooting",
+            "title": "Support & Troubleshooting"
+        },
+        {
+            "dir": "led",
+            "title": "Status LED and Device Modes"
+        },
+        {
+            "dir": "connectivity",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "cloud-debug"
+                },
+                {
+                    "dir": "interpreting-cloud-debug",
+                    "title": "Interpreting Cloud Debug Logs"
+                },
+                {
+                    "dir": "interpreting-cloud-debug-2",
+                    "title": "Interpreting Cloud Debug Logs 2"
+                },
+                {
+                    "dir": "cellular-usage"
+                }
+            ]
+        },
+        {
+            "dir": "device-restore",
+            "isSection": true,
+            "subsections": [
+                {
+                    "title": "Device Restore USB",
+                    "href": "/tools/device-restore/device-restore-usb/"
+                },
+                {
+                    "title": "Device Restore JTAG",
+                    "href": "/tools/device-restore/device-restore-jtag/"
+                }
+            ]
+        },
+        {
+            "dir": "firmware",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "remote-logging",
+                    "title": "Remote logging"
+                },
+                {
+                    "title": "USB serial debugging",
+                    "href": "/firmware/best-practices/usb-serial"
+                }
+            ]
+        },
+        {
+            "dir": "debuggers",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "debugger-adapter",
+                    "title": "Debugger Adapter"
+                }
+            ]
+        },
+        {
+            "dir": "guides",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "connectivity-troubleshooting",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "troubleshooting-poor-connectivity-issues-ota",
+                            "title": "Poor connectivity issue troubleshooting"
+                        },
+                        {
+                            "dir": "data-usage",
+                            "title": "Data usage troubleshooting"
+                        },
+                        {
+                            "dir": "troubleshooting-wifi-on-the-particle-argon",
+                            "title": "Wi-Fi on argon troubleshooting"
+                        },
+                        {
+                            "dir": "troubleshooting-wifi-on-the-particle-photonp1",
+                            "title": "Wi-Fi on Photon/P1 troubleshooting"
+                        },
+                        {
+                            "dir": "wifi-connectivity-troubleshooting-guide",
+                            "title": "Wi-Fi connectivity troubleshooting"
+                        },
+                        {
+                            "dir": "cellular-connectivity-troubleshooting-guide",
+                            "title": "Cellular connectivity troubleshooting"
+                        },
+                        {
+                            "dir": "using-3rd-party-sim-cards",
+                            "title": "Using 3rd-party SIM cards"
+                        }
+                    ]
+                },
+                {
+                    "dir": "build-tools-troubleshooting",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "troubleshooting-flashing-code",
+                            "title": "Flashing code troubleshooting"
+                        },
+                        {
+                            "dir": "troubleshooting-the-particle-workbench",
+                            "title": "Particle Workbench troubleshooting"
+                        },
+                        {
+                            "dir": "troubleshooting-the-particle-cli",
+                            "title": "Particle CLI troubleshooting"
+                        },
+                        {
+                            "dir": "troubleshooting-webhookintegration-issues",
+                            "title": "Webhook/Integration troubleshooting"
+                        },
+                        {
+                            "dir": "installing-curl-for-windows",
+                            "title": "Installing curl (for Windows)"
+                        },
+                        {
+                            "dir": "specific-cli-version",
+                            "title": "Using a specific Particle CLI version"
+                        },
+                        {
+                            "dir": "webusb-errors",
+                            "title": "WebUSB errors"
+                        },
+                        {
+                            "dir": "device-flashing-errors",
+                            "title": "Device flashing errors"
+                        },
+                        {
+                            "dir": "debugging-firmware-builds",
+                            "title": "Debugging firmware builds"
+                        },
+                        {
+                            "dir": "win10-device-drivers",
+                            "title": "Windows 10 device drivers"
+                        },
+                        {
+                            "dir": "cli-mac-apple-silicon",
+                            "title": "Particle CLI and Mac with Apple silicon"
+                        }
+                    ]
+                },
+                {
+                    "dir": "device-troubleshooting",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "troubleshooting-asset-tracker-issues",
+                            "title": "Tracker issue troubleshooting"
+                        },
+                        {
+                            "dir": "troubleshooting-the-setup-process",
+                            "title": "Setup process troubleshooting"
+                        },
+                        {
+                            "dir": "identifying-damaged-hardware",
+                            "title": "Identifying damaged hardware"
+                        },
+                        {
+                            "dir": "device-breathing-cyan-but-cannot-connect",
+                            "title": "Device breathing cyan but non-responsive"
+                        },
+                        {
+                            "dir": "how-do-i-collect-trace-logs-from-my-device",
+                            "title": "Collecting trace logs"
+                        },
+                        {
+                            "dir": "device-blinking-dark-blue",
+                            "title": "Device blinking dark blue"
+                        },
+                        {
+                            "dir": "device-blinking-red-yellow-or-frozenno-led",
+                            "title": "Device blinking red or yellow"
+                        },
+                        {
+                            "dir": "device-blinking-cyan",
+                            "title": "Device blinking cyan"
+                        },
+                        {
+                            "dir": "using-particle-serial-inspect",
+                            "title": "Using particle serial inspect"
+                        }
+                    ]
+                },
+                {
+                    "dir": "device-management",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "how-can-i-set-up-my-argon-or-boron-via-usb",
+                            "title": "Setting an argon or boron via USB"
+                        },
+                        {
+                            "dir": "how-can-i-transfer-my-device-to-another-user",
+                            "title": "Transferring my device to another user"
+                        },
+                        {
+                            "dir": "sim-activation-troubleshooting",
+                            "title": "SIM activation troubleshooting"
+                        },
+                        {
+                            "dir": "repairing-product-device-keys",
+                            "title": "Repairing product device keys"
+                        },
+                        {
+                            "dir": "how-do-i-manage-my-user-access-token",
+                            "title": "Managing user access tokens"
+                        },
+                        {
+                            "dir": "finding-your-device-id",
+                            "title": "Finding your device ID"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dir": "FAQs",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "orders",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "what-is-particles-return-refund-policy",
+                            "title": "Return & refund policy",
+                            "href": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
+                        },
+                        {
+                            "dir": "can-i-update-my-order-once-it-has-been-placed",
+                            "title": "Updating an order after placement",
+                            "href": "/troubleshooting/faqs/orders/can-i-update-my-order-once-it-has-been-placed/"
+                        },
+                        {
+                            "dir": "how-do-i-make-a-tax-exempt-purchase",
+                            "title": "Making a tax-exempt purchase",
+                            "href": "/troubleshooting/faqs/orders/how-do-i-make-a-tax-exempt-purchase/"
+                        }
+                    ]
+                },
+                {
+                    "dir": "shipping",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "what-shipping-options-does-particle-offer",
+                            "title": "Shipping options",
+                            "href": "/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/"
+                        },
+                        {
+                            "dir": "if-my-order-is-shipping-to-a-country-outside-of-the-united-states-what-do-i-need-to-know",
+                            "title": "Shipping outside the United States",
+                            "href": "/troubleshooting/faqs/shipping/if-my-order-is-shipping-to-a-country-outside-of-the-united-states-what-do-i-need-to-know/"
+                        },
+                        {
+                            "dir": "route-package-protection",
+                            "title": "Route package protection",
+                            "href": "/troubleshooting/faqs/shipping/route-package-protection/"
+                        }
+                    ]
+                },
+                {
+                    "dir": "general-knowledge",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "title": "Terms of service",
+                            "href": "https://www.particle.io/legal/terms-of-service/"
+                        },
+                        {
+                            "dir": "particle-mvp-program",
+                            "title": "Particle MVP program",
+                            "href": "/troubleshooting/faqs/general-knowledge/particle-mvp-program/"
+                        },
+                        {
+                            "dir": "what-should-i-do-if-im-locked-out-via-2fa",
+                            "title": "Locked out Via 2FA/MFA",
+                            "href": "/troubleshooting/faqs/general-knowledge/what-should-i-do-if-im-locked-out-via-2fa/"
+                        },
+                        {
+                            "dir": "how-should-i-set-up-2fa-for-my-particle-account",
+                            "title": "Setting 2FA/MFA",
+                            "href": "/troubleshooting/faqs/general-knowledge/how-should-i-set-up-2fa-for-my-particle-account/"
+                        },
+                        {
+                            "dir": "account-management-faq-2fa-account-deletion-changing-your-particle-id",
+                            "title": "Account management FAQ",
+                            "href": "/troubleshooting/faqs/general-knowledge/account-management-faq-2fa-account-deletion-changing-your-particle-id/"
+                        },
+                        {
+                            "dir": "how-can-i-cancel-billing",
+                            "title": "Canceling billing",
+                            "href": "/troubleshooting/faqs/general-knowledge/how-can-i-cancel-billing/"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Support",
+            "href": "https://support.particle.io/hc/"
+        }
+    ]
+}

@@ -1,0 +1,5920 @@
+{
+  "items": [
+    {
+      "title": "Introduction",
+      "dir": "introduction",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Getting started - Introduction",
+          "dir": "getting-started"
+        },
+        {
+          "title": "Navigation - Introduction",
+          "dir": "navigation"
+        }
+      ]
+    },
+    {
+      "title": "Asset OTA",
+      "dir": "asset-ota",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Asset OTA",
+          "dir": "asset-ota"
+        },
+        {
+          "title": "ApplicationAsset - Asset OTA",
+          "dir": "applicationasset",
+          "subsections": [
+            {
+              "anchor": "name-applicationasset",
+              "title": "name() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "hash-applicationasset",
+              "title": "hash() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "size-applicationasset",
+              "title": "size() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "storagesize-applicationasset",
+              "title": "storageSize() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "isvalid-applicationasset",
+              "title": "isValid() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "isreadable-applicationasset",
+              "title": "isReadable() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "available-applicationasset",
+              "title": "available() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "read-applicationasset",
+              "title": "read() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "peek-applicationasset",
+              "title": "peek() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "skip-applicationasset",
+              "title": "skip() - ApplicationAsset",
+              "isContent": true
+            },
+            {
+              "anchor": "reset-applicationasset",
+              "title": "reset() - ApplicationAsset",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "AssetHash - Asset OTA",
+          "dir": "assethash",
+          "subsections": [
+            {
+              "anchor": "constructor-assethash",
+              "title": "Constructor - AssetHash",
+              "isContent": true
+            },
+            {
+              "anchor": "type-assethash",
+              "title": "type() - AssetHash",
+              "isContent": true
+            },
+            {
+              "anchor": "hash-assethash",
+              "title": "hash() - AssetHash",
+              "isContent": true
+            },
+            {
+              "anchor": "isvalid-assethash",
+              "title": "isValid() - AssetHash",
+              "isContent": true
+            },
+            {
+              "anchor": "tostring-assethash",
+              "title": "toString() - AssetHash",
+              "isContent": true
+            },
+            {
+              "anchor": "operator-assethash",
+              "title": "operator==() - AssetHash",
+              "isContent": true
+            },
+            {
+              "anchor": "operator-assethash-1",
+              "title": "operator!=() - AssetHash",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Battery voltage",
+      "dir": "battery-voltage",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Battery Voltage - Photon 2 - Battery voltage",
+          "dir": "battery-voltage-photon-2"
+        },
+        {
+          "title": "Battery Voltage - Argon - Battery voltage",
+          "dir": "battery-voltage-argon"
+        }
+      ]
+    },
+    {
+      "title": "Bluetooth LE (BLE)",
+      "dir": "bluetooth-le-ble",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Bluetooth LE (BLE)",
+          "dir": "bluetooth-le-ble"
+        },
+        {
+          "title": "BLE Class - Bluetooth LE (BLE)",
+          "dir": "ble-class",
+          "subsections": [
+            {
+              "anchor": "ble-advertise-",
+              "title": "BLE.advertise()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-advertise-ibeacon-",
+              "title": "BLE.advertise(iBeacon)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-advertise--1",
+              "title": "BLE.advertise()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-stopadvertising-",
+              "title": "BLE.stopAdvertising()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-advertising-",
+              "title": "BLE.advertising()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-getadvertisingdata-",
+              "title": "BLE.getAdvertisingData()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setadvertisingdata-",
+              "title": "BLE.setAdvertisingData()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setadvertisinginterval-",
+              "title": "BLE.setAdvertisingInterval()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setadvertisingtimeout-",
+              "title": "BLE.setAdvertisingTimeout()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setadvertisingtype-",
+              "title": "BLE.setAdvertisingType()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-getadvertisingparameters-",
+              "title": "BLE.getAdvertisingParameters()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setadvertisingparameters-",
+              "title": "BLE.setAdvertisingParameters()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setadvertisingparameters-bleadvertisingparams-",
+              "title": "BLE.setAdvertisingParameters(BleAdvertisingParams)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setadvertisingphy-",
+              "title": "BLE.setAdvertisingPhy()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-getscanresponsedata-",
+              "title": "BLE.getScanResponseData()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setscanresponsedata-",
+              "title": "BLE.setScanResponseData()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-addcharacteristic-characteristic-",
+              "title": "BLE.addCharacteristic(characteristic)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-addcharacteristic-parameters-",
+              "title": "BLE.addCharacteristic(parameters)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-scan-array-",
+              "title": "BLE.scan(array)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-scan-vector-",
+              "title": "BLE.scan(Vector)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-scan-callback-",
+              "title": "BLE.scan(callback)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-scanwithfilter-",
+              "title": "BLE.scanWithFilter()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-stopscanning-",
+              "title": "BLE.stopScanning()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setscantimeout-",
+              "title": "BLE.setScanTimeout()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-getscanparameters-",
+              "title": "BLE.getScanParameters()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setscanparameters-",
+              "title": "BLE.setScanParameters()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setscanphy-",
+              "title": "BLE.setScanPhy()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-connect-",
+              "title": "BLE.connect()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-connect-options-",
+              "title": "BLE.connect(options)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setppcp-",
+              "title": "BLE.setPPCP()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-connected-",
+              "title": "BLE.connected()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-disconnect-",
+              "title": "BLE.disconnect()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-disconnect-peripheral-",
+              "title": "BLE.disconnect(peripheral)",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-on-",
+              "title": "BLE.on()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-off-",
+              "title": "BLE.off()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-begin-",
+              "title": "BLE.begin()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-end-",
+              "title": "BLE.end()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-onconnected-",
+              "title": "BLE.onConnected()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-ondisconnected-",
+              "title": "BLE.onDisconnected()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-settxpower-",
+              "title": "BLE.setTxPower()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-txpower-",
+              "title": "BLE.txPower()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-address-",
+              "title": "BLE.address()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-selectantenna-",
+              "title": "BLE.selectAntenna()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setpairingiocaps-",
+              "title": "BLE.setPairingIoCaps()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setpairingalgorithm-",
+              "title": "BLE.setPairingAlgorithm()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-startpairing-",
+              "title": "BLE.startPairing()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-rejectpairing-",
+              "title": "BLE.rejectPairing()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setpairingnumericcomparison-",
+              "title": "BLE.setPairingNumericComparison()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setpairingpasskey-",
+              "title": "BLE.setPairingPasskey()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-ispairing-",
+              "title": "BLE.isPairing()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-ispaired-",
+              "title": "BLE.isPaired()",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-onpairingevent-",
+              "title": "BLE.onPairingEvent()",
+              "isContent": true,
+              "subsections": [
+                {
+                  "anchor": "blepairingevent",
+                  "title": "BLEPairingEvent",
+                  "isContent": true
+                },
+                {
+                  "anchor": "blepairingeventpayload",
+                  "title": "BlePairingEventPayload",
+                  "isContent": true
+                },
+                {
+                  "anchor": "blepairingstatus",
+                  "title": "BlePairingStatus",
+                  "isContent": true
+                }
+              ]
+            },
+            {
+              "anchor": "ble-setprovisioningsvcuuid",
+              "title": "BLE.setProvisioningSvcUuid",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setprovisioningtxuuid",
+              "title": "BLE.setProvisioningTxUuid",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setprovisioningrxuuid",
+              "title": "BLE.setProvisioningRxUuid",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setprovisioningveruuid",
+              "title": "BLE.setProvisioningVerUuid",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setdevicename",
+              "title": "BLE.setDeviceName",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-getdevicename",
+              "title": "BLE.getDeviceName",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-setprovisioningcompanyid",
+              "title": "BLE.setProvisioningCompanyId",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-provisioningmode",
+              "title": "BLE.provisioningMode",
+              "isContent": true
+            },
+            {
+              "anchor": "ble-getprovisioningstatus",
+              "title": "BLE.getProvisioningStatus",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "BLEScanFilter - Bluetooth LE (BLE)",
+          "dir": "blescanfilter",
+          "subsections": [
+            {
+              "anchor": "devicename-blescanfilter-",
+              "title": "deviceName (BLEScanFilter)",
+              "isContent": true
+            },
+            {
+              "anchor": "serviceuuid-blescanfilter-",
+              "title": "serviceUUID (BLEScanFilter)",
+              "isContent": true
+            },
+            {
+              "anchor": "address-blescanfilter-",
+              "title": "address (BleScanFilter)",
+              "isContent": true
+            },
+            {
+              "anchor": "appearance-blescanfilter-",
+              "title": "appearance (BleScanFilter)",
+              "isContent": true
+            },
+            {
+              "anchor": "rssi-blescanfilter-",
+              "title": "rssi (BleScanFilter)",
+              "isContent": true
+            },
+            {
+              "anchor": "customdata-blescanfilter-",
+              "title": "customData (BleScanFilter)",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "BLE Services - Bluetooth LE (BLE)",
+          "dir": "ble-services"
+        },
+        {
+          "title": "BleCharacteristic - Bluetooth LE (BLE)",
+          "dir": "blecharacteristic",
+          "subsections": [
+            {
+              "anchor": "blecharacteristic-",
+              "title": "BleCharacteristic()",
+              "isContent": true
+            },
+            {
+              "anchor": "blecharacteristic-peripheral-",
+              "title": "BleCharacteristic (peripheral)",
+              "isContent": true
+            },
+            {
+              "anchor": "blecharacteristic-peripheral-with-data-received-",
+              "title": "BleCharacteristic (peripheral with data received)",
+              "isContent": true
+            },
+            {
+              "anchor": "uuid-",
+              "title": "UUID()",
+              "isContent": true
+            },
+            {
+              "anchor": "properties-",
+              "title": "properties()",
+              "isContent": true
+            },
+            {
+              "anchor": "getvalue-buf-len-",
+              "title": "getValue(buf, len)",
+              "isContent": true
+            },
+            {
+              "anchor": "getvalue-string-",
+              "title": "getValue(String)",
+              "isContent": true
+            },
+            {
+              "anchor": "getvalue-pointer-",
+              "title": "getValue(pointer)",
+              "isContent": true
+            },
+            {
+              "anchor": "setvalue-buf-len-",
+              "title": "setValue(buf, len)",
+              "isContent": true
+            },
+            {
+              "anchor": "setvalue-string-",
+              "title": "setValue(string)",
+              "isContent": true
+            },
+            {
+              "anchor": "setvalue-pointer-",
+              "title": "setValue(pointer)",
+              "isContent": true
+            },
+            {
+              "anchor": "ondatareceived-",
+              "title": "onDataReceived()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "BleCharacteristicProperty - Bluetooth LE (BLE)",
+          "dir": "blecharacteristicproperty"
+        },
+        {
+          "title": "BleUuid - Bluetooth LE (BLE)",
+          "dir": "bleuuid",
+          "subsections": [
+            {
+              "anchor": "type-",
+              "title": "type()",
+              "isContent": true
+            },
+            {
+              "anchor": "isvalid-",
+              "title": "isValid()",
+              "isContent": true
+            },
+            {
+              "anchor": "equality",
+              "title": "equality",
+              "isContent": true
+            },
+            {
+              "anchor": "rawbytes",
+              "title": "rawBytes",
+              "isContent": true
+            },
+            {
+              "anchor": "operator-",
+              "title": "operator[]",
+              "isContent": true
+            },
+            {
+              "anchor": "constructors",
+              "title": "Constructors",
+              "isContent": true
+            },
+            {
+              "anchor": "setters",
+              "title": "Setters",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "BleAdvertisingData - Bluetooth LE (BLE)",
+          "dir": "bleadvertisingdata",
+          "subsections": [
+            {
+              "anchor": "bleadvertisingdata-",
+              "title": "BleAdvertisingData()",
+              "isContent": true
+            },
+            {
+              "anchor": "append-",
+              "title": "append()",
+              "isContent": true
+            },
+            {
+              "anchor": "appendcustomdata",
+              "title": "appendCustomData",
+              "isContent": true
+            },
+            {
+              "anchor": "appendlocalname-",
+              "title": "appendLocalName()",
+              "isContent": true
+            },
+            {
+              "anchor": "appendserviceuuid-",
+              "title": "appendServiceUUID()",
+              "isContent": true
+            },
+            {
+              "anchor": "clear-",
+              "title": "clear()",
+              "isContent": true
+            },
+            {
+              "anchor": "remove-",
+              "title": "remove()",
+              "isContent": true
+            },
+            {
+              "anchor": "set-",
+              "title": "set()",
+              "isContent": true
+            },
+            {
+              "anchor": "get-type-buffer-",
+              "title": "get(type, buffer)",
+              "isContent": true
+            },
+            {
+              "anchor": "get-buffer-",
+              "title": "get(buffer)",
+              "isContent": true
+            },
+            {
+              "anchor": "length-",
+              "title": "length()",
+              "isContent": true
+            },
+            {
+              "anchor": "operator--1",
+              "title": "operator[]",
+              "isContent": true
+            },
+            {
+              "anchor": "devicename-",
+              "title": "deviceName()",
+              "isContent": true
+            },
+            {
+              "anchor": "devicename-buf-",
+              "title": "deviceName(buf)",
+              "isContent": true
+            },
+            {
+              "anchor": "serviceuuid-",
+              "title": "serviceUUID()",
+              "isContent": true
+            },
+            {
+              "anchor": "customdata-",
+              "title": "customData()",
+              "isContent": true
+            },
+            {
+              "anchor": "contains-",
+              "title": "contains()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "BleAdvertisingDataType - Bluetooth LE (BLE)",
+          "dir": "bleadvertisingdatatype"
+        },
+        {
+          "title": "BleAdvertisingDataType::FLAGS - Bluetooth LE (BLE)",
+          "dir": "bleadvertisingdatatype-flags"
+        },
+        {
+          "title": "BlePeerDevice - Bluetooth LE (BLE)",
+          "dir": "blepeerdevice",
+          "subsections": [
+            {
+              "anchor": "connected-",
+              "title": "connected()",
+              "isContent": true
+            },
+            {
+              "anchor": "address-",
+              "title": "address()",
+              "isContent": true
+            },
+            {
+              "anchor": "getcharacteristicbyuuid-",
+              "title": "getCharacteristicByUUID()",
+              "isContent": true
+            },
+            {
+              "anchor": "getcharacteristicbydescription-",
+              "title": "getCharacteristicByDescription()",
+              "isContent": true
+            },
+            {
+              "anchor": "blescanresult",
+              "title": "BleScanResult",
+              "isContent": true
+            },
+            {
+              "anchor": "discoverallcharacteristics",
+              "title": "discoverAllCharacteristics",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "BleAddress - Bluetooth LE (BLE)",
+          "dir": "bleaddress",
+          "subsections": [
+            {
+              "anchor": "copy-bleaddress-",
+              "title": "copy (BleAddress)",
+              "isContent": true
+            },
+            {
+              "anchor": "address-byte-bleaddress-",
+              "title": "address byte (BleAddress)",
+              "isContent": true
+            },
+            {
+              "anchor": "tostring-bleaddress-",
+              "title": "toString (BleAddress)",
+              "isContent": true
+            },
+            {
+              "anchor": "equality-bleaddress-",
+              "title": "equality (BleAddress)",
+              "isContent": true
+            },
+            {
+              "anchor": "valid-bleaddress-",
+              "title": "valid (BleAddress)",
+              "isContent": true
+            },
+            {
+              "anchor": "getters",
+              "title": "Getters",
+              "isContent": true
+            },
+            {
+              "anchor": "constructor-",
+              "title": "Constructor",
+              "isContent": true
+            },
+            {
+              "anchor": "setters-1",
+              "title": "Setters",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "BleAddressType - Bluetooth LE (BLE)",
+          "dir": "bleaddresstype"
+        },
+        {
+          "title": "BleAdvertisingEventType - Bluetooth LE (BLE)",
+          "dir": "bleadvertisingeventtype"
+        },
+        {
+          "title": "BleAdvertisingParams - Bluetooth LE (BLE)",
+          "dir": "bleadvertisingparams"
+        },
+        {
+          "title": "BleScanParams - Bluetooth LE (BLE)",
+          "dir": "blescanparams"
+        },
+        {
+          "title": "iBeacon - Bluetooth LE (BLE)",
+          "dir": "ibeacon"
+        }
+      ]
+    },
+    {
+      "title": "CAN (canbus)",
+      "dir": "can-canbus",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "CAN (canbus)",
+          "dir": "can-canbus"
+        },
+        {
+          "title": "CANMessage - CAN (canbus)",
+          "dir": "canmessage"
+        },
+        {
+          "title": "CANChannel - CAN (canbus)",
+          "dir": "canchannel"
+        },
+        {
+          "title": "begin() - CAN (canbus)",
+          "dir": "begin"
+        },
+        {
+          "title": "end() - CAN (canbus)",
+          "dir": "end"
+        },
+        {
+          "title": "available() - CAN (canbus)",
+          "dir": "available"
+        },
+        {
+          "title": "receive() - CAN (canbus)",
+          "dir": "receive"
+        },
+        {
+          "title": "transmit() - CAN (canbus)",
+          "dir": "transmit"
+        },
+        {
+          "title": "addFilter() - CAN (canbus)",
+          "dir": "addfilter"
+        },
+        {
+          "title": "clearFilters() - CAN (canbus)",
+          "dir": "clearfilters"
+        },
+        {
+          "title": "isEnabled() - CAN (canbus)",
+          "dir": "isenabled"
+        },
+        {
+          "title": "errorStatus() - CAN (canbus)",
+          "dir": "errorstatus"
+        }
+      ]
+    },
+    {
+      "title": "Cellular",
+      "dir": "cellular",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Cellular",
+          "dir": "cellular"
+        },
+        {
+          "title": "on() - Cellular",
+          "dir": "on"
+        },
+        {
+          "title": "off() - Cellular",
+          "dir": "off"
+        },
+        {
+          "title": "isOn() - Cellular",
+          "dir": "ison"
+        },
+        {
+          "title": "isOff() - Cellular",
+          "dir": "isoff"
+        },
+        {
+          "title": "connect() - Cellular",
+          "dir": "connect"
+        },
+        {
+          "title": "disconnect() - Cellular",
+          "dir": "disconnect"
+        },
+        {
+          "title": "connecting() - Cellular",
+          "dir": "connecting"
+        },
+        {
+          "title": "ready() - Cellular",
+          "dir": "ready"
+        },
+        {
+          "title": "prefer() [Cellular] - Cellular",
+          "dir": "prefer-cellular"
+        },
+        {
+          "title": "isPreferred() [Cellular] - Cellular",
+          "dir": "ispreferred-cellular"
+        },
+        {
+          "title": "listen() - Cellular",
+          "dir": "listen"
+        },
+        {
+          "title": "listening() - Cellular",
+          "dir": "listening"
+        },
+        {
+          "title": "setListenTimeout() - Cellular",
+          "dir": "setlistentimeout"
+        },
+        {
+          "title": "getListenTimeout() - Cellular",
+          "dir": "getlistentimeout"
+        },
+        {
+          "title": "lock() - Cellular",
+          "dir": "lock"
+        },
+        {
+          "title": "unlock() - Cellular",
+          "dir": "unlock"
+        },
+        {
+          "title": "setCredentials() - Cellular",
+          "dir": "setcredentials"
+        },
+        {
+          "title": "clearCredentials() - Cellular",
+          "dir": "clearcredentials"
+        },
+        {
+          "title": "setActiveSim() - Cellular",
+          "dir": "setactivesim"
+        },
+        {
+          "title": "getActiveSim() - Cellular",
+          "dir": "getactivesim"
+        },
+        {
+          "title": "getDataUsage() - Cellular",
+          "dir": "getdatausage"
+        },
+        {
+          "title": "setDataUsage() - Cellular",
+          "dir": "setdatausage"
+        },
+        {
+          "title": "resetDataUsage() - Cellular",
+          "dir": "resetdatausage"
+        },
+        {
+          "title": "RSSI() - Cellular",
+          "dir": "rssi"
+        },
+        {
+          "title": "CellularSignal Class - Cellular",
+          "dir": "cellularsignal-class",
+          "subsections": [
+            {
+              "anchor": "getaccesstechnology-",
+              "title": "getAccessTechnology()",
+              "isContent": true
+            },
+            {
+              "anchor": "getstrength--1",
+              "title": "getStrength()",
+              "isContent": true
+            },
+            {
+              "anchor": "getquality--1",
+              "title": "getQuality()",
+              "isContent": true
+            },
+            {
+              "anchor": "getstrengthvalue--1",
+              "title": "getStrengthValue()",
+              "isContent": true
+            },
+            {
+              "anchor": "getqualityvalue--1",
+              "title": "getQualityValue()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "getBandAvailable() - Cellular",
+          "dir": "getbandavailable"
+        },
+        {
+          "title": "getBandSelect() - Cellular",
+          "dir": "getbandselect"
+        },
+        {
+          "title": "setBandSelect() - Cellular",
+          "dir": "setbandselect"
+        },
+        {
+          "title": "resolve() - Cellular",
+          "dir": "resolve"
+        },
+        {
+          "title": "localIP() - Cellular",
+          "dir": "localip"
+        },
+        {
+          "title": "command() - Cellular",
+          "dir": "command"
+        }
+      ]
+    },
+    {
+      "title": "Checking for features",
+      "dir": "checking-for-features",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Checking for features",
+          "dir": "checking-for-features"
+        },
+        {
+          "title": "Checking Device OS Version - Checking for features",
+          "dir": "checking-device-os-version"
+        },
+        {
+          "title": "Checking Platform ID - Checking for features",
+          "dir": "checking-platform-id"
+        }
+      ]
+    },
+    {
+      "title": "Chrono Literals",
+      "dir": "chrono-literals",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Chrono Literals",
+          "dir": "chrono-literals"
+        }
+      ]
+    },
+    {
+      "title": "Cloud functions",
+      "dir": "cloud-functions",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Overview of API field limits - Cloud functions",
+          "dir": "overview-of-api-field-limits"
+        },
+        {
+          "title": "Particle.variable() - Cloud functions",
+          "dir": "particle-variable"
+        },
+        {
+          "title": "Particle.variable() - calculated - Cloud functions",
+          "dir": "particle-variable-calculated"
+        },
+        {
+          "title": "Particle.function() - Cloud functions",
+          "dir": "particle-function"
+        },
+        {
+          "title": "Particle.publish() - Cloud functions",
+          "dir": "particle-publish"
+        },
+        {
+          "title": "Particle.subscribe() - Cloud functions",
+          "dir": "particle-subscribe"
+        },
+        {
+          "title": "Particle.unsubscribe() - Cloud functions",
+          "dir": "particle-unsubscribe"
+        },
+        {
+          "title": "Particle.ledger - Cloud functions",
+          "dir": "particle-ledger"
+        },
+        {
+          "title": "Particle.maxEventDataSize() - Cloud functions",
+          "dir": "particle-maxeventdatasize"
+        },
+        {
+          "title": "Particle.maxVariableValueSize() - Cloud functions",
+          "dir": "particle-maxvariablevaluesize"
+        },
+        {
+          "title": "Particle.maxFunctionArgumentSize() - Cloud functions",
+          "dir": "particle-maxfunctionargumentsize"
+        },
+        {
+          "title": "Particle.publishVitals() - Cloud functions",
+          "dir": "particle-publishvitals"
+        },
+        {
+          "title": "Particle.connect() - Cloud functions",
+          "dir": "particle-connect"
+        },
+        {
+          "title": "Particle.connectionInterface() - Cloud functions",
+          "dir": "particle-connectioninterface"
+        },
+        {
+          "title": "Particle.disconnect() - Cloud functions",
+          "dir": "particle-disconnect"
+        },
+        {
+          "title": "Clear session - Cloud functions",
+          "dir": "clear-session"
+        },
+        {
+          "title": "Particle.connected() - Cloud functions",
+          "dir": "particle-connected"
+        },
+        {
+          "title": "Particle.disconnected() - Cloud functions",
+          "dir": "particle-disconnected"
+        },
+        {
+          "title": "Particle.setDisconnectOptions() - Cloud functions",
+          "dir": "particle-setdisconnectoptions"
+        },
+        {
+          "title": "Particle.keepAlive() - Cloud functions",
+          "dir": "particle-keepalive"
+        },
+        {
+          "title": "Particle.process() - Cloud functions",
+          "dir": "particle-process"
+        },
+        {
+          "title": "Particle.syncTime() - Cloud functions",
+          "dir": "particle-synctime"
+        },
+        {
+          "title": "Particle.syncTimeDone() - Cloud functions",
+          "dir": "particle-synctimedone"
+        },
+        {
+          "title": "Particle.syncTimePending() - Cloud functions",
+          "dir": "particle-synctimepending"
+        },
+        {
+          "title": "Particle.timeSyncedLast() - Cloud functions",
+          "dir": "particle-timesyncedlast"
+        },
+        {
+          "title": "Get public IP - Cloud functions",
+          "dir": "get-public-ip"
+        },
+        {
+          "title": "Get device name - Cloud functions",
+          "dir": "get-device-name"
+        },
+        {
+          "title": "Get random seed - Cloud functions",
+          "dir": "get-random-seed"
+        }
+      ]
+    },
+    {
+      "title": "Debugging",
+      "dir": "debugging",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Debugging",
+          "dir": "debugging"
+        },
+        {
+          "title": "Using a serial terminal - Debugging",
+          "dir": "using-a-serial-terminal"
+        },
+        {
+          "title": "Serial.print vs. Log.info - Debugging",
+          "dir": "serial-print-vs-log-info"
+        },
+        {
+          "title": "Waiting for serial - Debugging",
+          "dir": "waiting-for-serial"
+        },
+        {
+          "title": "comm.protocol errors - Debugging",
+          "dir": "comm-protocol-errors"
+        },
+        {
+          "title": "System errors - Debugging",
+          "dir": "system-errors"
+        }
+      ]
+    },
+    {
+      "title": "Device identifiers",
+      "dir": "device-identifiers",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Device identifiers",
+          "dir": "device-identifiers"
+        },
+        {
+          "title": "Device ID - Device identifiers",
+          "dir": "device-id"
+        },
+        {
+          "title": "Serial number - Device identifiers",
+          "dir": "serial-number"
+        },
+        {
+          "title": "Data matrix sticker - Device identifiers",
+          "dir": "data-matrix-sticker"
+        },
+        {
+          "title": "ICCID - Device identifiers",
+          "dir": "iccid"
+        },
+        {
+          "title": "IMEI - Device identifiers",
+          "dir": "imei"
+        },
+        {
+          "title": "IMSI - Device identifiers",
+          "dir": "imsi"
+        },
+        {
+          "title": "Mobile secret - Device identifiers",
+          "dir": "mobile-secret"
+        },
+        {
+          "title": "Device name - Device identifiers",
+          "dir": "device-name"
+        },
+        {
+          "title": "MAC address - Device identifiers",
+          "dir": "mac-address"
+        }
+      ]
+    },
+    {
+      "title": "EEPROM",
+      "dir": "eeprom",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "EEPROM",
+          "dir": "eeprom"
+        },
+        {
+          "title": "length() - EEPROM",
+          "dir": "length"
+        },
+        {
+          "title": "put() - EEPROM",
+          "dir": "put"
+        },
+        {
+          "title": "get() - EEPROM",
+          "dir": "get"
+        },
+        {
+          "title": "read() - EEPROM",
+          "dir": "read"
+        },
+        {
+          "title": "write() - EEPROM",
+          "dir": "write"
+        },
+        {
+          "title": "clear() - EEPROM",
+          "dir": "clear"
+        },
+        {
+          "title": "hasPendingErase() - EEPROM",
+          "dir": "haspendingerase"
+        },
+        {
+          "title": "performPendingErase() - EEPROM",
+          "dir": "performpendingerase"
+        }
+      ]
+    },
+    {
+      "title": "Ethernet",
+      "dir": "ethernet",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Ethernet",
+          "dir": "ethernet"
+        },
+        {
+          "title": "Pin configuration - Ethernet - Ethernet",
+          "dir": "pin-configuration-ethernet"
+        },
+        {
+          "title": "on() - Ethernet",
+          "dir": "on"
+        },
+        {
+          "title": "off() - Ethernet",
+          "dir": "off"
+        },
+        {
+          "title": "connect() - Ethernet",
+          "dir": "connect"
+        },
+        {
+          "title": "disconnect() - Ethernet",
+          "dir": "disconnect"
+        },
+        {
+          "title": "connecting() - Ethernet",
+          "dir": "connecting"
+        },
+        {
+          "title": "ready() - Ethernet",
+          "dir": "ready"
+        },
+        {
+          "title": "setConfig() [Ethernet] - Ethernet",
+          "dir": "setconfig-ethernet"
+        },
+        {
+          "title": "getConfig() [Ethernet] - Ethernet",
+          "dir": "getconfig-ethernet"
+        },
+        {
+          "title": "prefer() [Ethernet] - Ethernet",
+          "dir": "prefer-ethernet"
+        },
+        {
+          "title": "isPreferred() [Ethernet] - Ethernet",
+          "dir": "ispreferred-ethernet"
+        },
+        {
+          "title": "listen() - Ethernet",
+          "dir": "listen"
+        },
+        {
+          "title": "listening() - Ethernet",
+          "dir": "listening"
+        },
+        {
+          "title": "setListenTimeout() - Ethernet",
+          "dir": "setlistentimeout"
+        },
+        {
+          "title": "getListenTimeout() - Ethernet",
+          "dir": "getlistentimeout"
+        },
+        {
+          "title": "macAddress() - Ethernet",
+          "dir": "macaddress"
+        },
+        {
+          "title": "localIP() - Ethernet",
+          "dir": "localip"
+        },
+        {
+          "title": "subnetMask() - Ethernet",
+          "dir": "subnetmask"
+        },
+        {
+          "title": "gatewayIP() - Ethernet",
+          "dir": "gatewayip"
+        },
+        {
+          "title": "dnsServerIP() - Ethernet",
+          "dir": "dnsserverip"
+        },
+        {
+          "title": "dhcpServerIP() - Ethernet",
+          "dir": "dhcpserverip"
+        }
+      ]
+    },
+    {
+      "title": "File system",
+      "dir": "file-system",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "File system",
+          "dir": "file-system"
+        },
+        {
+          "title": "File system open - File system",
+          "dir": "file-system-open"
+        },
+        {
+          "title": "File system write - File system",
+          "dir": "file-system-write"
+        },
+        {
+          "title": "File system read - File system",
+          "dir": "file-system-read"
+        },
+        {
+          "title": "File system lseek - File system",
+          "dir": "file-system-lseek"
+        },
+        {
+          "title": "File system close - File system",
+          "dir": "file-system-close"
+        },
+        {
+          "title": "File system fsync - File system",
+          "dir": "file-system-fsync"
+        },
+        {
+          "title": "File system truncate - File system",
+          "dir": "file-system-truncate"
+        },
+        {
+          "title": "File system ftruncate - File system",
+          "dir": "file-system-ftruncate"
+        },
+        {
+          "title": "File system fstat - File system",
+          "dir": "file-system-fstat"
+        },
+        {
+          "title": "File system stat - File system",
+          "dir": "file-system-stat"
+        },
+        {
+          "title": "File system mkdir - File system",
+          "dir": "file-system-mkdir"
+        },
+        {
+          "title": "File system rmdir - File system",
+          "dir": "file-system-rmdir"
+        },
+        {
+          "title": "File system unlink - File system",
+          "dir": "file-system-unlink"
+        },
+        {
+          "title": "File system rename - File system",
+          "dir": "file-system-rename"
+        },
+        {
+          "title": "File system opendir - File system",
+          "dir": "file-system-opendir"
+        },
+        {
+          "title": "File system readdir - File system",
+          "dir": "file-system-readdir"
+        },
+        {
+          "title": "File system telldir - File system",
+          "dir": "file-system-telldir"
+        },
+        {
+          "title": "File system seekdir - File system",
+          "dir": "file-system-seekdir"
+        },
+        {
+          "title": "File system rewinddir - File system",
+          "dir": "file-system-rewinddir"
+        },
+        {
+          "title": "File system readdir_r - File system",
+          "dir": "file-system-readdir_r"
+        },
+        {
+          "title": "File system closedir - File system",
+          "dir": "file-system-closedir"
+        }
+      ]
+    },
+    {
+      "title": "FuelGauge",
+      "dir": "fuelgauge",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "FuelGauge",
+          "dir": "fuelgauge"
+        },
+        {
+          "title": "getVCell() - FuelGauge",
+          "dir": "getvcell"
+        },
+        {
+          "title": "getSoC() - FuelGauge",
+          "dir": "getsoc"
+        },
+        {
+          "title": "getNormalizedSoC() - FuelGauge",
+          "dir": "getnormalizedsoc"
+        },
+        {
+          "title": "getVersion() - FuelGauge",
+          "dir": "getversion"
+        },
+        {
+          "title": "getCompensateValue() - FuelGauge",
+          "dir": "getcompensatevalue"
+        },
+        {
+          "title": "getAlertThreshold() - FuelGauge",
+          "dir": "getalertthreshold"
+        },
+        {
+          "title": "setAlertThreshold() - FuelGauge",
+          "dir": "setalertthreshold"
+        },
+        {
+          "title": "getAlert() - FuelGauge",
+          "dir": "getalert"
+        },
+        {
+          "title": "clearAlert() - FuelGauge",
+          "dir": "clearalert"
+        },
+        {
+          "title": "reset() - FuelGauge",
+          "dir": "reset"
+        },
+        {
+          "title": "quickStart() - FuelGauge",
+          "dir": "quickstart"
+        },
+        {
+          "title": "sleep() - FuelGauge",
+          "dir": "sleep"
+        },
+        {
+          "title": "wakeup() - FuelGauge",
+          "dir": "wakeup"
+        }
+      ]
+    },
+    {
+      "title": "Global object constructors",
+      "dir": "global-object-constructors",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Global object constructors",
+          "dir": "global-object-constructors"
+        }
+      ]
+    },
+    {
+      "title": "Input/Output",
+      "dir": "input-output",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Input/Output",
+          "dir": "input-output"
+        },
+        {
+          "title": "pinMode() - Input/Output",
+          "dir": "pinmode"
+        },
+        {
+          "title": "getPinMode(pin) - Input/Output",
+          "dir": "getpinmode-pin"
+        },
+        {
+          "title": "digitalWrite() - Input/Output",
+          "dir": "digitalwrite"
+        },
+        {
+          "title": "digitalRead() - Input/Output",
+          "dir": "digitalread"
+        },
+        {
+          "title": "pinSetDriveStrength() - Input/Output",
+          "dir": "pinsetdrivestrength"
+        },
+        {
+          "title": "analogWrite() (PWM) - Input/Output",
+          "dir": "analogwrite-pwm"
+        },
+        {
+          "title": "analogWriteResolution() (PWM) - Input/Output",
+          "dir": "analogwriteresolution-pwm"
+        },
+        {
+          "title": "analogWriteMaxFrequency() (PWM) - Input/Output",
+          "dir": "analogwritemaxfrequency-pwm"
+        },
+        {
+          "title": "Analog Output (DAC) - Input/Output",
+          "dir": "analog-output-dac"
+        },
+        {
+          "title": "analogRead() (ADC) - Input/Output",
+          "dir": "analogread-adc"
+        },
+        {
+          "title": "setADCSampleTime() - Input/Output",
+          "dir": "setadcsampletime"
+        },
+        {
+          "title": "analogSetReference - Input/Output",
+          "dir": "analogsetreference"
+        },
+        {
+          "title": "analogGetReference - Input/Output",
+          "dir": "analoggetreference"
+        }
+      ]
+    },
+    {
+      "title": "Input/Output - Advanced",
+      "dir": "input-output-advanced",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "tone() - Input/Output - Advanced",
+          "dir": "tone"
+        },
+        {
+          "title": "noTone() - Input/Output - Advanced",
+          "dir": "notone"
+        },
+        {
+          "title": "shiftOut() - Input/Output - Advanced",
+          "dir": "shiftout"
+        },
+        {
+          "title": "shiftIn() - Input/Output - Advanced",
+          "dir": "shiftin"
+        },
+        {
+          "title": "pulseIn() - Input/Output - Advanced",
+          "dir": "pulsein"
+        }
+      ]
+    },
+    {
+      "title": "Interrupts",
+      "dir": "interrupts",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Interrupts",
+          "dir": "interrupts"
+        },
+        {
+          "title": "attachInterrupt() - Interrupts",
+          "dir": "attachinterrupt"
+        },
+        {
+          "title": "detachInterrupt() - Interrupts",
+          "dir": "detachinterrupt"
+        },
+        {
+          "title": "interrupts() - Interrupts",
+          "dir": "interrupts"
+        },
+        {
+          "title": "noInterrupts() - Interrupts",
+          "dir": "nointerrupts"
+        }
+      ]
+    },
+    {
+      "title": "IPAddress",
+      "dir": "ipaddress",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "IPAddress",
+          "dir": "ipaddress"
+        }
+      ]
+    },
+    {
+      "title": "JSON",
+      "dir": "json",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "JSON",
+          "dir": "json"
+        },
+        {
+          "title": "JSONWriter - JSON",
+          "dir": "jsonwriter",
+          "subsections": [
+            {
+              "anchor": "jsonwriter-beginarray-",
+              "title": "JSONWriter::beginArray()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-endarray-",
+              "title": "JSONWriter::endArray()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-beginobject-",
+              "title": "JSONWriter::beginObject()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-endobject-",
+              "title": "JSONWriter::endObject()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-name-const-char-name-",
+              "title": "JSONWriter::name(const char *name)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-name-const-char-name-size_t-size-",
+              "title": "JSONWriter::name(const char *name, size_t size)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-name-const-string-amp-name-",
+              "title": "JSONWriter::name(const String &name)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-bool-val-",
+              "title": "JsonWriter::value(bool val)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-int-val-",
+              "title": "JsonWriter::value(int val)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-unsigned-val-",
+              "title": "JsonWriter::value(unsigned val)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-double-val-int-precision-",
+              "title": "JsonWriter::value(double val, int precision)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-double-val-",
+              "title": "JsonWriter::value(double val)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-const-char-val-",
+              "title": "JsonWriter::value(const char *val)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-const-char-val-size_t-size-",
+              "title": "JsonWriter::value(const char *val, size_t size)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-value-const-string-amp-val-",
+              "title": "JsonWriter::value(const String &val)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonwriter-nullvalue-",
+              "title": "JsonWriter::nullValue()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "JSONBufferWriter - JSON",
+          "dir": "jsonbufferwriter",
+          "subsections": [
+            {
+              "anchor": "jsonbufferwriter-jsonbufferwriter-char-buf-size_t-size-",
+              "title": "JSONBufferWriter::JSONBufferWriter(char *buf, size_t size)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonbufferwriter-buffer-",
+              "title": "JSONBufferWriter::buffer()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonbufferwriter-buffersize-",
+              "title": "JSONBufferWriter::bufferSize()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonbufferwriter-datasize-",
+              "title": "JSONBufferWriter::dataSize()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "JSONStreamWriter - JSON",
+          "dir": "jsonstreamwriter",
+          "subsections": [
+            {
+              "anchor": "jsonstreamwriter-jsonstreamwriter-print-amp-stream-",
+              "title": "JSONStreamWriter::JSONStreamWriter(Print &stream)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstreamwriter-stream-",
+              "title": "JSONStreamWriter::stream()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Parsing - JSON",
+          "dir": "parsing"
+        },
+        {
+          "title": "JSONValue - JSON",
+          "dir": "jsonvalue",
+          "subsections": [
+            {
+              "anchor": "jsonvalue-isnull-",
+              "title": "JSONValue::isNull()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-isbool-",
+              "title": "JSONValue::isBool()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-isnumber-",
+              "title": "JSONValue::isNumber()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-isstring-",
+              "title": "JSONValue::isString()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-isarray-",
+              "title": "JSONValue::isArray()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-isobject-",
+              "title": "JSONValue::isObject()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-type-",
+              "title": "JSONValue::type()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-tobool-",
+              "title": "JSONValue::toBool()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-toint-",
+              "title": "JSONValue::toInt()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-todouble-",
+              "title": "JSONValue::toDouble()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-tostring-",
+              "title": "JSONValue::toString()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonvalue-isvalid-",
+              "title": "JSONValue::isValid()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "JSONString - JSON",
+          "dir": "jsonstring",
+          "subsections": [
+            {
+              "anchor": "jsonstring-jsonstring-const-jsonvalue-amp-value-",
+              "title": "JSONString::JSONString(const JSONValue &value);",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstring-data-",
+              "title": "JSONString::data()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstring-operator-const-char-",
+              "title": "JSONString::operator const char *()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstring-operator-string-",
+              "title": "JSONString::operator String()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstring-size-",
+              "title": "JSONString::size()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstring-isempty-",
+              "title": "JSONString::isEmpty()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstring-operator-",
+              "title": "JSONString::operator==()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonstring-operator--1",
+              "title": "JSONString::operator!=()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "JSONObjectIterator - JSON",
+          "dir": "jsonobjectiterator",
+          "subsections": [
+            {
+              "anchor": "jsonobjectiterator-jsonobjectiterator-const-jsonvalue-amp-value-",
+              "title": "JSONObjectIterator::JSONObjectIterator(const JSONValue &value)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonobjectiterator-next-",
+              "title": "JSONObjectIterator::next()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonobjectiterator-name-",
+              "title": "JSONObjectIterator::name()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonobjectiterator-value-",
+              "title": "JSONObjectIterator::value()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonobjectiterator-count-",
+              "title": "JSONObjectIterator::count()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "JSONArrayIterator - JSON",
+          "dir": "jsonarrayiterator",
+          "subsections": [
+            {
+              "anchor": "jsonarrayiterator-jsonarrayiterator-const-jsonvalue-amp-value-",
+              "title": "JSONArrayIterator::JSONArrayIterator(const JSONValue &value)",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonarrayiterator-next-",
+              "title": "JSONArrayIterator::next()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonarrayiterator-value-",
+              "title": "JSONArrayIterator::value()",
+              "isContent": true
+            },
+            {
+              "anchor": "jsonarrayiterator-count-",
+              "title": "JSONArrayIterator::count()",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Keyboard",
+      "dir": "keyboard",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Keyboard",
+          "dir": "keyboard"
+        },
+        {
+          "title": "begin() - Keyboard",
+          "dir": "begin"
+        },
+        {
+          "title": "end() - Keyboard",
+          "dir": "end"
+        },
+        {
+          "title": "write() - Keyboard",
+          "dir": "write"
+        },
+        {
+          "title": "click() - Keyboard",
+          "dir": "click"
+        },
+        {
+          "title": "press() - Keyboard",
+          "dir": "press"
+        },
+        {
+          "title": "release() - Keyboard",
+          "dir": "release"
+        },
+        {
+          "title": "releaseAll() - Keyboard",
+          "dir": "releaseall"
+        },
+        {
+          "title": "print() - Keyboard",
+          "dir": "print"
+        },
+        {
+          "title": "println() - Keyboard",
+          "dir": "println"
+        },
+        {
+          "title": "printf() - Keyboard",
+          "dir": "printf"
+        },
+        {
+          "title": "printlnf() - Keyboard",
+          "dir": "printlnf"
+        }
+      ]
+    },
+    {
+      "title": "Language - Arduino Compatibility",
+      "dir": "language-arduino-compatibility",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Language - Arduino Compatibility",
+          "dir": "language-arduino-compatibility"
+        },
+        {
+          "title": "Enabling extended Arduino SDK compatibility - Language - Arduino Compatibility",
+          "dir": "enabling-extended-arduino-sdk-compatibility"
+        },
+        {
+          "title": "Arduino APIs added by firmware version - Language - Arduino Compatibility",
+          "dir": "arduino-apis-added-by-firmware-version"
+        },
+        {
+          "title": "Adding Arduino symbols to applications and libraries - Language - Arduino Compatibility",
+          "dir": "adding-arduino-symbols-to-applications-and-libraries"
+        }
+      ]
+    },
+    {
+      "title": "Language syntax",
+      "dir": "language-syntax",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Language syntax",
+          "dir": "language-syntax"
+        },
+        {
+          "title": "Structure - Language syntax",
+          "dir": "structure",
+          "subsections": [
+            {
+              "anchor": "setup-",
+              "title": "setup()",
+              "isContent": true
+            },
+            {
+              "anchor": "loop-",
+              "title": "loop()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Control structures - Language syntax",
+          "dir": "control-structures",
+          "subsections": [
+            {
+              "anchor": "if",
+              "title": "if",
+              "isContent": true
+            },
+            {
+              "anchor": "comparison-operators",
+              "title": "Comparison operators",
+              "isContent": true
+            },
+            {
+              "anchor": "if-else",
+              "title": "if...else",
+              "isContent": true
+            },
+            {
+              "anchor": "for",
+              "title": "for",
+              "isContent": true
+            },
+            {
+              "anchor": "switch-case",
+              "title": "switch case",
+              "isContent": true
+            },
+            {
+              "anchor": "while",
+              "title": "while",
+              "isContent": true
+            },
+            {
+              "anchor": "do-while",
+              "title": "do... while",
+              "isContent": true
+            },
+            {
+              "anchor": "break",
+              "title": "break",
+              "isContent": true
+            },
+            {
+              "anchor": "continue",
+              "title": "continue",
+              "isContent": true
+            },
+            {
+              "anchor": "return",
+              "title": "return",
+              "isContent": true
+            },
+            {
+              "anchor": "goto",
+              "title": "goto",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Further syntax - Language syntax",
+          "dir": "further-syntax",
+          "subsections": [
+            {
+              "anchor": "-semicolon-",
+              "title": "; (semicolon)",
+              "isContent": true
+            },
+            {
+              "anchor": "-curly-braces-",
+              "title": "{} (curly braces)",
+              "isContent": true
+            },
+            {
+              "anchor": "-single-line-comment-",
+              "title": "// (single line comment)",
+              "isContent": true
+            },
+            {
+              "anchor": "-multi-line-comment-",
+              "title": "/\\* \\*/ (multi-line comment)",
+              "isContent": true
+            },
+            {
+              "anchor": "-define",
+              "title": "#define",
+              "isContent": true
+            },
+            {
+              "anchor": "-include",
+              "title": "#include",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Arithmetic operators - Language syntax",
+          "dir": "arithmetic-operators",
+          "subsections": [
+            {
+              "anchor": "-assignment-operator-",
+              "title": "= (assignment operator)",
+              "isContent": true
+            },
+            {
+              "anchor": "-addition-subtraction-multiplication-division-",
+              "title": "+ - * / (addition subtraction multiplication division)",
+              "isContent": true
+            },
+            {
+              "anchor": "-modulo-",
+              "title": "% (modulo)",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Boolean operators - Language syntax",
+          "dir": "boolean-operators",
+          "subsections": [
+            {
+              "anchor": "-amp-amp-and-",
+              "title": "&& (and)",
+              "isContent": true
+            },
+            {
+              "anchor": "-or-",
+              "title": "|| (or)",
+              "isContent": true
+            },
+            {
+              "anchor": "-not-",
+              "title": "! (not)",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Bitwise operators - Language syntax",
+          "dir": "bitwise-operators",
+          "subsections": [
+            {
+              "anchor": "-amp-bitwise-and-",
+              "title": "& (bitwise and)",
+              "isContent": true
+            },
+            {
+              "anchor": "-bitwise-or-",
+              "title": "| (bitwise or)",
+              "isContent": true
+            },
+            {
+              "anchor": "-bitwise-xor-",
+              "title": "^ (bitwise xor)",
+              "isContent": true
+            },
+            {
+              "anchor": "-bitwise-not-",
+              "title": "~ (bitwise not)",
+              "isContent": true
+            },
+            {
+              "anchor": "bitwise-shift",
+              "title": "bitwise shift",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Compound operators - Language syntax",
+          "dir": "compound-operators",
+          "subsections": [
+            {
+              "anchor": "-increment-decrement-",
+              "title": "++ (increment), -- (decrement)",
+              "isContent": true
+            },
+            {
+              "anchor": "compound-arithmetic",
+              "title": "compound arithmetic",
+              "isContent": true
+            },
+            {
+              "anchor": "-amp-compound-bitwise-and-",
+              "title": "&= (compound bitwise and)",
+              "isContent": true
+            },
+            {
+              "anchor": "-compound-bitwise-or-",
+              "title": "|= (compound bitwise or)",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Variables - Language syntax",
+          "dir": "variables",
+          "subsections": [
+            {
+              "anchor": "high-low",
+              "title": "HIGH | LOW",
+              "isContent": true
+            },
+            {
+              "anchor": "input-output-input_pullup-input_pulldown",
+              "title": "INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN",
+              "isContent": true
+            },
+            {
+              "anchor": "true-false",
+              "title": "true | false",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Data types - Language syntax",
+          "dir": "data-types",
+          "subsections": [
+            {
+              "anchor": "void",
+              "title": "void",
+              "isContent": true
+            },
+            {
+              "anchor": "boolean",
+              "title": "boolean",
+              "isContent": true
+            },
+            {
+              "anchor": "char",
+              "title": "char",
+              "isContent": true
+            },
+            {
+              "anchor": "unsigned-char",
+              "title": "unsigned char",
+              "isContent": true
+            },
+            {
+              "anchor": "byte",
+              "title": "byte",
+              "isContent": true
+            },
+            {
+              "anchor": "int",
+              "title": "int",
+              "isContent": true
+            },
+            {
+              "anchor": "unsigned-int",
+              "title": "unsigned int",
+              "isContent": true
+            },
+            {
+              "anchor": "word",
+              "title": "word",
+              "isContent": true
+            },
+            {
+              "anchor": "long",
+              "title": "long",
+              "isContent": true
+            },
+            {
+              "anchor": "unsigned-long",
+              "title": "unsigned long",
+              "isContent": true
+            },
+            {
+              "anchor": "short",
+              "title": "short",
+              "isContent": true
+            },
+            {
+              "anchor": "float",
+              "title": "float",
+              "isContent": true
+            },
+            {
+              "anchor": "double",
+              "title": "double",
+              "isContent": true
+            },
+            {
+              "anchor": "string-char-array",
+              "title": "string - char array",
+              "isContent": true
+            },
+            {
+              "anchor": "string-object",
+              "title": "String - object",
+              "isContent": true
+            },
+            {
+              "anchor": "array",
+              "title": "array",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Exceptions - Language syntax",
+          "dir": "exceptions"
+        }
+      ]
+    },
+    {
+      "title": "LED Signaling",
+      "dir": "led-signaling",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "LED Signaling",
+          "dir": "led-signaling"
+        },
+        {
+          "title": "LEDStatus Class - LED Signaling",
+          "dir": "ledstatus-class",
+          "subsections": [
+            {
+              "anchor": "ledstatus-",
+              "title": "LEDStatus()",
+              "isContent": true
+            },
+            {
+              "anchor": "setcolor-",
+              "title": "setColor()",
+              "isContent": true
+            },
+            {
+              "anchor": "color-",
+              "title": "color()",
+              "isContent": true
+            },
+            {
+              "anchor": "setpattern-",
+              "title": "setPattern()",
+              "isContent": true
+            },
+            {
+              "anchor": "pattern-",
+              "title": "pattern()",
+              "isContent": true
+            },
+            {
+              "anchor": "setspeed--1",
+              "title": "setSpeed()",
+              "isContent": true
+            },
+            {
+              "anchor": "setperiod-",
+              "title": "setPeriod()",
+              "isContent": true
+            },
+            {
+              "anchor": "period-",
+              "title": "period()",
+              "isContent": true
+            },
+            {
+              "anchor": "setpriority-",
+              "title": "setPriority()",
+              "isContent": true
+            },
+            {
+              "anchor": "priority-",
+              "title": "priority()",
+              "isContent": true
+            },
+            {
+              "anchor": "on--3",
+              "title": "on()",
+              "isContent": true
+            },
+            {
+              "anchor": "off--3",
+              "title": "off()",
+              "isContent": true
+            },
+            {
+              "anchor": "toggle-",
+              "title": "toggle()",
+              "isContent": true
+            },
+            {
+              "anchor": "ison--1",
+              "title": "isOn()",
+              "isContent": true
+            },
+            {
+              "anchor": "isoff--1",
+              "title": "isOff()",
+              "isContent": true
+            },
+            {
+              "anchor": "setactive-",
+              "title": "setActive()",
+              "isContent": true
+            },
+            {
+              "anchor": "isactive-",
+              "title": "isActive()",
+              "isContent": true
+            },
+            {
+              "anchor": "custom-patterns",
+              "title": "Custom patterns",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "LEDSystemTheme Class - LED Signaling",
+          "dir": "ledsystemtheme-class",
+          "subsections": [
+            {
+              "anchor": "ledsystemtheme-",
+              "title": "LEDSystemTheme()",
+              "isContent": true
+            },
+            {
+              "anchor": "setcolor--1",
+              "title": "setColor()",
+              "isContent": true
+            },
+            {
+              "anchor": "color--1",
+              "title": "color()",
+              "isContent": true
+            },
+            {
+              "anchor": "setpattern--1",
+              "title": "setPattern()",
+              "isContent": true
+            },
+            {
+              "anchor": "pattern--1",
+              "title": "pattern()",
+              "isContent": true
+            },
+            {
+              "anchor": "setspeed--2",
+              "title": "setSpeed()",
+              "isContent": true
+            },
+            {
+              "anchor": "setperiod--1",
+              "title": "setPeriod()",
+              "isContent": true
+            },
+            {
+              "anchor": "period--1",
+              "title": "period()",
+              "isContent": true
+            },
+            {
+              "anchor": "setsignal-",
+              "title": "setSignal()",
+              "isContent": true
+            },
+            {
+              "anchor": "apply-",
+              "title": "apply()",
+              "isContent": true
+            },
+            {
+              "anchor": "restoredefault-",
+              "title": "restoreDefault()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "LEDSignal Enum - LED Signaling",
+          "dir": "ledsignal-enum"
+        },
+        {
+          "title": "LEDPriority enum - LED Signaling",
+          "dir": "ledpriority-enum"
+        },
+        {
+          "title": "LEDPattern enum - LED Signaling",
+          "dir": "ledpattern-enum"
+        },
+        {
+          "title": "LEDSpeed enum - LED Signaling",
+          "dir": "ledspeed-enum"
+        },
+        {
+          "title": "RGB Colors - LED Signaling",
+          "dir": "rgb-colors"
+        }
+      ]
+    },
+    {
+      "title": "Ledger",
+      "dir": "ledger",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Ledger",
+          "dir": "ledger"
+        },
+        {
+          "title": "set() [Ledger class] - Ledger",
+          "dir": "set-ledger-class"
+        },
+        {
+          "title": "SetMode [Ledger class] - Ledger",
+          "dir": "setmode-ledger-class"
+        },
+        {
+          "title": "Ledger synchronization - Ledger",
+          "dir": "ledger-synchronization"
+        },
+        {
+          "title": "get() [Ledger class] - Ledger",
+          "dir": "get-ledger-class"
+        },
+        {
+          "title": "lastUpdated() [Ledger class] - Ledger",
+          "dir": "lastupdated-ledger-class"
+        },
+        {
+          "title": "lastSynced() [Ledger class] - Ledger",
+          "dir": "lastsynced-ledger-class"
+        },
+        {
+          "title": "dataSize [Ledger class] - Ledger",
+          "dir": "datasize-ledger-class"
+        },
+        {
+          "title": "name() [Ledger class] - Ledger",
+          "dir": "name-ledger-class"
+        },
+        {
+          "title": "scope() [Ledger class] - Ledger",
+          "dir": "scope-ledger-class"
+        },
+        {
+          "title": "LedgerScope [Ledger class] - Ledger",
+          "dir": "ledgerscope-ledger-class"
+        },
+        {
+          "title": "isWritable() [Ledger class] - Ledger",
+          "dir": "iswritable-ledger-class"
+        },
+        {
+          "title": "onSync(OnSyncCallback) [Ledger class] - Ledger",
+          "dir": "onsync-onsynccallback-ledger-class"
+        },
+        {
+          "title": "onSync(OnSyncFunction) [Ledger class] - Ledger",
+          "dir": "onsync-onsyncfunction-ledger-class"
+        },
+        {
+          "title": "remove() [Ledger class] - Ledger",
+          "dir": "remove-ledger-class"
+        },
+        {
+          "title": "removeAll() [Ledger class] - Ledger",
+          "dir": "removeall-ledger-class"
+        }
+      ]
+    },
+    {
+      "title": "LedgerData",
+      "dir": "ledgerdata",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "LedgerData",
+          "dir": "ledgerdata"
+        },
+        {
+          "title": "constructor (Variant) [LedgerData class] - LedgerData",
+          "dir": "constructor-variant-ledgerdata-class"
+        },
+        {
+          "title": "constructor (std::initializer_list<Entry>) [LedgerData class] - LedgerData",
+          "dir": "constructor-std-initializer_list-ledgerdata-class"
+        },
+        {
+          "title": "set() [LedgerData class] - LedgerData",
+          "dir": "set-ledgerdata-class"
+        },
+        {
+          "title": "remove() [LedgerData class] - LedgerData",
+          "dir": "remove-ledgerdata-class"
+        },
+        {
+          "title": "get() [LedgerData class] - LedgerData",
+          "dir": "get-ledgerdata-class"
+        },
+        {
+          "title": "operator[name] [LedgerData class] - LedgerData",
+          "dir": "operator-name-ledgerdata-class"
+        },
+        {
+          "title": "has() [LedgerData class] - LedgerData",
+          "dir": "has-ledgerdata-class"
+        },
+        {
+          "title": "isEmpty() [LedgerData class] - LedgerData",
+          "dir": "isempty-ledgerdata-class"
+        }
+      ]
+    },
+    {
+      "title": "Logging",
+      "dir": "logging",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Logging",
+          "dir": "logging"
+        },
+        {
+          "title": "Logging levels - Logging",
+          "dir": "logging-levels"
+        },
+        {
+          "title": "Logging categories - Logging",
+          "dir": "logging-categories"
+        },
+        {
+          "title": "Additional attributes - Logging",
+          "dir": "additional-attributes"
+        },
+        {
+          "title": "Log handlers - Logging",
+          "dir": "log-handlers",
+          "subsections": [
+            {
+              "anchor": "community-log-handlers",
+              "title": "Community log handlers",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Logger class - Logging",
+          "dir": "logger-class"
+        }
+      ]
+    },
+    {
+      "title": "Low level input/output",
+      "dir": "low-level-input-output",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Low level input/output",
+          "dir": "low-level-input-output"
+        },
+        {
+          "title": "pinSetFast() - Low level input/output",
+          "dir": "pinsetfast"
+        },
+        {
+          "title": "pinResetFast() - Low level input/output",
+          "dir": "pinresetfast"
+        },
+        {
+          "title": "digitalWriteFast() - Low level input/output",
+          "dir": "digitalwritefast"
+        },
+        {
+          "title": "pinReadFast() - Low level input/output",
+          "dir": "pinreadfast"
+        }
+      ]
+    },
+    {
+      "title": "Macros",
+      "dir": "macros",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "STARTUP() - Macros",
+          "dir": "startup"
+        },
+        {
+          "title": "PRODUCT_VERSION() - Macros",
+          "dir": "product_version"
+        },
+        {
+          "title": "PRODUCT_ID() - Macros",
+          "dir": "product_id",
+          "subsections": [
+            {
+              "anchor": "device-os-4-0-and-later",
+              "title": "Device OS 4.0 and later",
+              "isContent": true
+            },
+            {
+              "anchor": "device-os-before-3-x-and-earlier",
+              "title": "Device OS before 3.x and earlier",
+              "isContent": true
+            },
+            {
+              "anchor": "device-os-1-5-3-to-3-x-wildcard",
+              "title": "Device OS 1.5.3 to 3.x Wildcard",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Map",
+      "dir": "map",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Map",
+          "dir": "map"
+        },
+        {
+          "title": "Map() [Map template] - Map",
+          "dir": "map-map-template"
+        },
+        {
+          "title": "Map(std::initializer_list<Entry> entries) [Map template] - Map",
+          "dir": "map-std-initializer_list-entries-map-template"
+        },
+        {
+          "title": "Map(const Map&amp; map) [Map template] - Map",
+          "dir": "map-const-map-amp-map-map-template"
+        },
+        {
+          "title": "set(const T&amp; key, ValueT val) [Map template] - Map",
+          "dir": "set-const-t-amp-key-valuet-val-map-template"
+        },
+        {
+          "title": "get(const T&amp; key) [Map template] - Map",
+          "dir": "get-const-t-amp-key-map-template"
+        },
+        {
+          "title": "get(const T&amp; key, const ValueT&amp; defaultVal) [Map template] - Map",
+          "dir": "get-const-t-amp-key-const-valuet-amp-defaultval-map-template"
+        },
+        {
+          "title": "has(const T&amp; key) [Map template] - Map",
+          "dir": "has-const-t-amp-key-map-template"
+        },
+        {
+          "title": "find(const T&amp; key) [Map template] - Map",
+          "dir": "find-const-t-amp-key-map-template"
+        },
+        {
+          "title": "begin() [Map template] - Map",
+          "dir": "begin-map-template"
+        },
+        {
+          "title": "end() [Map template] - Map",
+          "dir": "end-map-template"
+        },
+        {
+          "title": "erase(ConstIterator pos) [Map template] - Map",
+          "dir": "erase-constiterator-pos-map-template"
+        },
+        {
+          "title": "remove(const T&amp; key) [Map template] - Map",
+          "dir": "remove-const-t-amp-key-map-template"
+        },
+        {
+          "title": "clear() [Map template] - Map",
+          "dir": "clear-map-template"
+        },
+        {
+          "title": "size() [Map template] - Map",
+          "dir": "size-map-template"
+        },
+        {
+          "title": "isEmpty() [Map template] - Map",
+          "dir": "isempty-map-template"
+        },
+        {
+          "title": "operator[] (key) [Map template] - Map",
+          "dir": "operator-key-map-template"
+        }
+      ]
+    },
+    {
+      "title": "Math",
+      "dir": "math",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Math",
+          "dir": "math"
+        },
+        {
+          "title": "min() - Math",
+          "dir": "min"
+        },
+        {
+          "title": "max() - Math",
+          "dir": "max"
+        },
+        {
+          "title": "abs() - Math",
+          "dir": "abs"
+        },
+        {
+          "title": "constrain() - Math",
+          "dir": "constrain"
+        },
+        {
+          "title": "map() [value tranformation] - Math",
+          "dir": "map-value-tranformation"
+        },
+        {
+          "title": "pow() - Math",
+          "dir": "pow"
+        },
+        {
+          "title": "sqrt() - Math",
+          "dir": "sqrt"
+        }
+      ]
+    },
+    {
+      "title": "Memory",
+      "dir": "memory",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Memory",
+          "dir": "memory"
+        },
+        {
+          "title": "Stack - Memory",
+          "dir": "stack"
+        }
+      ]
+    },
+    {
+      "title": "Mouse",
+      "dir": "mouse",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Mouse",
+          "dir": "mouse"
+        },
+        {
+          "title": "begin() - Mouse",
+          "dir": "begin"
+        },
+        {
+          "title": "end() - Mouse",
+          "dir": "end"
+        },
+        {
+          "title": "move() - Mouse",
+          "dir": "move"
+        },
+        {
+          "title": "moveTo() - Mouse",
+          "dir": "moveto"
+        },
+        {
+          "title": "scroll() - Mouse",
+          "dir": "scroll"
+        },
+        {
+          "title": "click() - Mouse",
+          "dir": "click"
+        },
+        {
+          "title": "press() - Mouse",
+          "dir": "press"
+        },
+        {
+          "title": "release() - Mouse",
+          "dir": "release"
+        },
+        {
+          "title": "isPressed() - Mouse",
+          "dir": "ispressed"
+        },
+        {
+          "title": "screenSize() - Mouse",
+          "dir": "screensize"
+        },
+        {
+          "title": "enableMoveTo() - Mouse",
+          "dir": "enablemoveto"
+        }
+      ]
+    },
+    {
+      "title": "Network",
+      "dir": "network",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Network",
+          "dir": "network"
+        },
+        {
+          "title": "on() [Network] - Network",
+          "dir": "on-network"
+        },
+        {
+          "title": "off() [Network] - Network",
+          "dir": "off-network"
+        },
+        {
+          "title": "connect() [Network] - Network",
+          "dir": "connect-network"
+        },
+        {
+          "title": "disconnect() [Network] - Network",
+          "dir": "disconnect-network"
+        },
+        {
+          "title": "connecting() [Network] - Network",
+          "dir": "connecting-network"
+        },
+        {
+          "title": "ready() [Network] - Network",
+          "dir": "ready-network"
+        },
+        {
+          "title": "setConfig() [Network] - Network",
+          "dir": "setconfig-network"
+        },
+        {
+          "title": "getConfig() [Network] - Network",
+          "dir": "getconfig-network"
+        },
+        {
+          "title": "prefer() [Network] - Network",
+          "dir": "prefer-network"
+        },
+        {
+          "title": "isPreferred() [Network] - Network",
+          "dir": "ispreferred-network"
+        },
+        {
+          "title": "listen() [Network] - Network",
+          "dir": "listen-network"
+        },
+        {
+          "title": "listening() [Network] - Network",
+          "dir": "listening-network"
+        },
+        {
+          "title": "setListenTimeout() [Network] - Network",
+          "dir": "setlistentimeout-network"
+        },
+        {
+          "title": "getListenTimeout() [Network] - Network",
+          "dir": "getlistentimeout-network"
+        },
+        {
+          "title": "NetworkInterfaceConfig - Network",
+          "dir": "networkinterfaceconfig",
+          "subsections": [
+            {
+              "anchor": "networkinterfaceconfig-source",
+              "title": "NetworkInterfaceConfig::source",
+              "isContent": true
+            },
+            {
+              "anchor": "networkinterfaceconfig-address",
+              "title": "NetworkInterfaceConfig::address",
+              "isContent": true
+            },
+            {
+              "anchor": "networkinterfaceconfig-gateway",
+              "title": "NetworkInterfaceConfig::gateway",
+              "isContent": true
+            },
+            {
+              "anchor": "networkinterfaceconfig-dns",
+              "title": "NetworkInterfaceConfig::dns",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "NFC",
+      "dir": "nfc",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "NFC",
+          "dir": "nfc"
+        },
+        {
+          "title": "Example app - NFC",
+          "dir": "example-app"
+        },
+        {
+          "title": "NFC.on() - NFC",
+          "dir": "nfc-on"
+        },
+        {
+          "title": "NFC.off() - NFC",
+          "dir": "nfc-off"
+        },
+        {
+          "title": "NFC.update() - NFC",
+          "dir": "nfc-update"
+        },
+        {
+          "title": "NFC.setText() - NFC",
+          "dir": "nfc-settext"
+        },
+        {
+          "title": "NFC.setUri() - NFC",
+          "dir": "nfc-seturi"
+        },
+        {
+          "title": "NFC.setLaunchApp() - NFC",
+          "dir": "nfc-setlaunchapp"
+        },
+        {
+          "title": "NFC.setCustomData() - NFC",
+          "dir": "nfc-setcustomdata"
+        },
+        {
+          "title": "Record (NFC) - NFC",
+          "dir": "record-nfc",
+          "subsections": [
+            {
+              "anchor": "settnf-",
+              "title": "setTnf();",
+              "isContent": true
+            },
+            {
+              "anchor": "settype-",
+              "title": "setType()",
+              "isContent": true
+            },
+            {
+              "anchor": "setid-",
+              "title": "setId()",
+              "isContent": true
+            },
+            {
+              "anchor": "setpayload-",
+              "title": "setPayload()",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "OTA Updates",
+      "dir": "ota-updates",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "OTA Updates",
+          "dir": "ota-updates"
+        },
+        {
+          "title": "Controlling OTA availability - OTA Updates",
+          "dir": "controlling-ota-availability"
+        },
+        {
+          "title": "System.disableUpdates() - OTA Updates",
+          "dir": "system-disableupdates"
+        },
+        {
+          "title": "System.enableUpdates() - OTA Updates",
+          "dir": "system-enableupdates"
+        },
+        {
+          "title": "System.updatesEnabled() - OTA Updates",
+          "dir": "system-updatesenabled"
+        },
+        {
+          "title": "System.updatesPending() - OTA Updates",
+          "dir": "system-updatespending"
+        },
+        {
+          "title": "System.updatesForced() - OTA Updates",
+          "dir": "system-updatesforced"
+        }
+      ]
+    },
+    {
+      "title": "Other functions",
+      "dir": "other-functions",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Other functions",
+          "dir": "other-functions"
+        },
+        {
+          "title": "sprintf - Other functions",
+          "dir": "sprintf"
+        },
+        {
+          "title": "sscanf - Other functions",
+          "dir": "sscanf"
+        }
+      ]
+    },
+    {
+      "title": "Persistent settings",
+      "dir": "persistent-settings",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Persistent settings",
+          "dir": "persistent-settings"
+        }
+      ]
+    },
+    {
+      "title": "PMIC (Power Management IC)",
+      "dir": "pmic-power-management-ic",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "PMIC (Power Management IC)",
+          "dir": "pmic-power-management-ic"
+        },
+        {
+          "title": "PMIC() constructor - PMIC (Power Management IC)",
+          "dir": "pmic-constructor"
+        },
+        {
+          "title": "begin() - PMIC (Power Management IC)",
+          "dir": "begin"
+        },
+        {
+          "title": "getVersion() - PMIC (Power Management IC)",
+          "dir": "getversion"
+        },
+        {
+          "title": "getSystemStatus() - PMIC (Power Management IC)",
+          "dir": "getsystemstatus"
+        },
+        {
+          "title": "getFault() - PMIC (Power Management IC)",
+          "dir": "getfault"
+        },
+        {
+          "title": "lock() - PMIC (Power Management IC)",
+          "dir": "lock"
+        },
+        {
+          "title": "unlock() - PMIC (Power Management IC)",
+          "dir": "unlock"
+        },
+        {
+          "title": "Input source control register - PMIC (Power Management IC)",
+          "dir": "input-source-control-register",
+          "subsections": [
+            {
+              "anchor": "readinputsourceregister-",
+              "title": "readInputSourceRegister()",
+              "isContent": true
+            },
+            {
+              "anchor": "enablebuck-",
+              "title": "enableBuck()",
+              "isContent": true
+            },
+            {
+              "anchor": "disablebuck-",
+              "title": "disableBuck()",
+              "isContent": true
+            },
+            {
+              "anchor": "setinputcurrentlimit-",
+              "title": "setInputCurrentLimit()",
+              "isContent": true
+            },
+            {
+              "anchor": "getinputcurrentlimit-",
+              "title": "getInputCurrentLimit()",
+              "isContent": true
+            },
+            {
+              "anchor": "setinputvoltagelimit-",
+              "title": "setInputVoltageLimit()",
+              "isContent": true
+            },
+            {
+              "anchor": "getinputvoltagelimit-",
+              "title": "getInputVoltageLimit()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Power on configuration reg - PMIC (Power Management IC)",
+          "dir": "power-on-configuration-reg",
+          "subsections": [
+            {
+              "anchor": "enablecharging-",
+              "title": "enableCharging()",
+              "isContent": true
+            },
+            {
+              "anchor": "disablecharging-",
+              "title": "disableCharging()",
+              "isContent": true
+            },
+            {
+              "anchor": "enableotg-",
+              "title": "enableOTG()",
+              "isContent": true
+            },
+            {
+              "anchor": "disableotg-",
+              "title": "disableOTG()",
+              "isContent": true
+            },
+            {
+              "anchor": "resetwatchdog-",
+              "title": "resetWatchdog()",
+              "isContent": true
+            },
+            {
+              "anchor": "setminimumsystemvoltage-",
+              "title": "setMinimumSystemVoltage()",
+              "isContent": true
+            },
+            {
+              "anchor": "getminimumsystemvoltage-",
+              "title": "getMinimumSystemVoltage()",
+              "isContent": true
+            },
+            {
+              "anchor": "readpoweronregister-",
+              "title": "readPowerONRegister()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Charge current control reg - PMIC (Power Management IC)",
+          "dir": "charge-current-control-reg",
+          "subsections": [
+            {
+              "anchor": "setchargecurrent-",
+              "title": "setChargeCurrent()",
+              "isContent": true
+            },
+            {
+              "anchor": "getchargecurrent-",
+              "title": "getChargeCurrent()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Precharge/termination current control reg - PMIC (Power Management IC)",
+          "dir": "precharge-termination-current-control-reg",
+          "subsections": [
+            {
+              "anchor": "setprechargecurrent-",
+              "title": "setPreChargeCurrent()",
+              "isContent": true
+            },
+            {
+              "anchor": "getprechargecurrent-",
+              "title": "getPreChargeCurrent()",
+              "isContent": true
+            },
+            {
+              "anchor": "settermchargecurrent-",
+              "title": "setTermChargeCurrent()",
+              "isContent": true
+            },
+            {
+              "anchor": "gettermchargecurrent-",
+              "title": "getTermChargeCurrent()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Charge voltage control reg - PMIC (Power Management IC)",
+          "dir": "charge-voltage-control-reg",
+          "subsections": [
+            {
+              "anchor": "setchargevoltage-",
+              "title": "setChargeVoltage()",
+              "isContent": true
+            },
+            {
+              "anchor": "getchargevoltagevalue-",
+              "title": "getChargeVoltageValue()",
+              "isContent": true
+            },
+            {
+              "anchor": "getchargevoltage-",
+              "title": "getChargeVoltage()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Charge timer control reg - PMIC (Power Management IC)",
+          "dir": "charge-timer-control-reg",
+          "subsections": [
+            {
+              "anchor": "readchargetermregister-",
+              "title": "readChargeTermRegister()",
+              "isContent": true
+            },
+            {
+              "anchor": "disablewatchdog-",
+              "title": "disableWatchdog()",
+              "isContent": true
+            },
+            {
+              "anchor": "setwatchdog-",
+              "title": "setWatchdog()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Thermal regulation control reg - PMIC (Power Management IC)",
+          "dir": "thermal-regulation-control-reg",
+          "subsections": [
+            {
+              "anchor": "setthermalregulation-",
+              "title": "setThermalRegulation()",
+              "isContent": true
+            },
+            {
+              "anchor": "getthermalregulation-",
+              "title": "getThermalRegulation()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Misc operation control reg - PMIC (Power Management IC)",
+          "dir": "misc-operation-control-reg",
+          "subsections": [
+            {
+              "anchor": "readopcontrolregister-",
+              "title": "readOpControlRegister()",
+              "isContent": true
+            },
+            {
+              "anchor": "enabledpdm-",
+              "title": "enableDPDM()",
+              "isContent": true
+            },
+            {
+              "anchor": "disabledpdm-",
+              "title": "disableDPDM()",
+              "isContent": true
+            },
+            {
+              "anchor": "enablebatfet-",
+              "title": "enableBATFET()",
+              "isContent": true
+            },
+            {
+              "anchor": "disablebatfet-",
+              "title": "disableBATFET()",
+              "isContent": true
+            },
+            {
+              "anchor": "safetytimer-",
+              "title": "safetyTimer()",
+              "isContent": true
+            },
+            {
+              "anchor": "enablechargefaultint-",
+              "title": "enableChargeFaultINT()",
+              "isContent": true
+            },
+            {
+              "anchor": "disablechargefaultint-",
+              "title": "disableChargeFaultINT()",
+              "isContent": true
+            },
+            {
+              "anchor": "enablebatfaultint-",
+              "title": "enableBatFaultINT()",
+              "isContent": true
+            },
+            {
+              "anchor": "disablebatfaultint-",
+              "title": "disableBatFaultINT()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "System status register - PMIC (Power Management IC)",
+          "dir": "system-status-register",
+          "subsections": [
+            {
+              "anchor": "getvbusstat-",
+              "title": "getVbusStat()",
+              "isContent": true
+            },
+            {
+              "anchor": "getchargingstat-",
+              "title": "getChargingStat()",
+              "isContent": true
+            },
+            {
+              "anchor": "getdpmstat-",
+              "title": "getDPMStat()",
+              "isContent": true
+            },
+            {
+              "anchor": "ispowergood-",
+              "title": "isPowerGood()",
+              "isContent": true
+            },
+            {
+              "anchor": "ishot-",
+              "title": "isHot()",
+              "isContent": true
+            },
+            {
+              "anchor": "getvsysstat-",
+              "title": "getVsysStat()",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Power manager",
+      "dir": "power-manager",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Power manager",
+          "dir": "power-manager"
+        },
+        {
+          "title": "powerSourceMaxCurrent - Power manager",
+          "dir": "powersourcemaxcurrent"
+        },
+        {
+          "title": "powerSourceMinVoltage - Power manager",
+          "dir": "powersourceminvoltage"
+        },
+        {
+          "title": "batteryChargeCurrent - Power manager",
+          "dir": "batterychargecurrent"
+        },
+        {
+          "title": "batteryChargeVoltage - Power manager",
+          "dir": "batterychargevoltage"
+        },
+        {
+          "title": "SystemPowerFeature - Power manager",
+          "dir": "systempowerfeature",
+          "subsections": [
+            {
+              "anchor": "systempowerfeature-pmic_detection",
+              "title": "SystemPowerFeature::PMIC_DETECTION",
+              "isContent": true
+            },
+            {
+              "anchor": "systempowerfeature-use_vin_settings_with_usb_host",
+              "title": "SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST",
+              "isContent": true
+            },
+            {
+              "anchor": "systempowerfeature-disable_charging",
+              "title": "SystemPowerFeature::DISABLE_CHARGING",
+              "isContent": true
+            },
+            {
+              "anchor": "systempowerfeature-disable",
+              "title": "SystemPowerFeature::DISABLE",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "B-Series SoM - Power manager",
+          "dir": "b-series-som"
+        }
+      ]
+    },
+    {
+      "title": "Preprocessor",
+      "dir": "preprocessor",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Preprocessor",
+          "dir": "preprocessor"
+        }
+      ]
+    },
+    {
+      "title": "Random numbers",
+      "dir": "random-numbers",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Random numbers",
+          "dir": "random-numbers"
+        },
+        {
+          "title": "random() - Random numbers",
+          "dir": "random"
+        },
+        {
+          "title": "randomSeed() - Random numbers",
+          "dir": "randomseed"
+        },
+        {
+          "title": "HAL_RNG_GetRandomNumber() - Random numbers",
+          "dir": "hal_rng_getrandomnumber"
+        }
+      ]
+    },
+    {
+      "title": "Retained memory",
+      "dir": "retained-memory",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Retained memory",
+          "dir": "retained-memory"
+        },
+        {
+          "title": "Storing data in Backup RAM (SRAM) - Retained memory",
+          "dir": "storing-data-in-backup-ram-sram"
+        },
+        {
+          "title": "Dynamically allocated objects - Retained memory",
+          "dir": "dynamically-allocated-objects"
+        },
+        {
+          "title": "Retained data validation - Retained memory",
+          "dir": "retained-data-validation"
+        },
+        {
+          "title": "Enabling backup RAM (SRAM) - Retained memory",
+          "dir": "enabling-backup-ram-sram"
+        }
+      ]
+    },
+    {
+      "title": "RGB",
+      "dir": "rgb",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "RGB",
+          "dir": "rgb"
+        },
+        {
+          "title": "control(user_control) - RGB",
+          "dir": "control-user_control"
+        },
+        {
+          "title": "controlled() - RGB",
+          "dir": "controlled"
+        },
+        {
+          "title": "color(red, green, blue) - RGB",
+          "dir": "color-red-green-blue"
+        },
+        {
+          "title": "brightness(val) - RGB",
+          "dir": "brightness-val"
+        },
+        {
+          "title": "brightness() - RGB",
+          "dir": "brightness"
+        },
+        {
+          "title": "onChange(handler) - RGB",
+          "dir": "onchange-handler"
+        },
+        {
+          "title": "mirrorTo() - RGB",
+          "dir": "mirrorto"
+        },
+        {
+          "title": "mirrorDisable() - RGB",
+          "dir": "mirrordisable"
+        }
+      ]
+    },
+    {
+      "title": "Serial",
+      "dir": "serial",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Serial",
+          "dir": "serial"
+        },
+        {
+          "title": "begin() - Serial",
+          "dir": "begin"
+        },
+        {
+          "title": "end() - Serial",
+          "dir": "end"
+        },
+        {
+          "title": "available() - Serial",
+          "dir": "available"
+        },
+        {
+          "title": "availableForWrite() - Serial",
+          "dir": "availableforwrite"
+        },
+        {
+          "title": "acquireSerialBuffer() - Serial",
+          "dir": "acquireserialbuffer"
+        },
+        {
+          "title": "acquireSerial1Buffer() - Serial",
+          "dir": "acquireserial1buffer"
+        },
+        {
+          "title": "blockOnOverrun() - Serial",
+          "dir": "blockonoverrun"
+        },
+        {
+          "title": "serialEvent() - Serial",
+          "dir": "serialevent"
+        },
+        {
+          "title": "peek() - Serial",
+          "dir": "peek"
+        },
+        {
+          "title": "write() - Serial",
+          "dir": "write"
+        },
+        {
+          "title": "read() - Serial",
+          "dir": "read"
+        },
+        {
+          "title": "print() - Serial",
+          "dir": "print"
+        },
+        {
+          "title": "println() - Serial",
+          "dir": "println"
+        },
+        {
+          "title": "printf() - Serial",
+          "dir": "printf"
+        },
+        {
+          "title": "printlnf() - Serial",
+          "dir": "printlnf"
+        },
+        {
+          "title": "flush() - Serial",
+          "dir": "flush"
+        },
+        {
+          "title": "halfduplex() - Serial",
+          "dir": "halfduplex"
+        },
+        {
+          "title": "isConnected() - Serial",
+          "dir": "isconnected"
+        },
+        {
+          "title": "lock() - Serial",
+          "dir": "lock"
+        },
+        {
+          "title": "unlock() - Serial",
+          "dir": "unlock"
+        }
+      ]
+    },
+    {
+      "title": "Servo",
+      "dir": "servo",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Servo",
+          "dir": "servo"
+        },
+        {
+          "title": "attach() - Servo",
+          "dir": "attach"
+        },
+        {
+          "title": "write() - Servo",
+          "dir": "write"
+        },
+        {
+          "title": "writeMicroseconds() - Servo",
+          "dir": "writemicroseconds"
+        },
+        {
+          "title": "read() - Servo",
+          "dir": "read"
+        },
+        {
+          "title": "attached() - Servo",
+          "dir": "attached"
+        },
+        {
+          "title": "detach() - Servo",
+          "dir": "detach"
+        },
+        {
+          "title": "setTrim() - Servo",
+          "dir": "settrim"
+        }
+      ]
+    },
+    {
+      "title": "sleep() [ Classic API ]",
+      "dir": "sleep-classic-api",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "sleep() [ Classic API ]",
+          "dir": "sleep-classic-api"
+        },
+        {
+          "title": "Sleep [transitioning from classic API] - sleep() [ Classic API ]",
+          "dir": "sleep-transitioning-from-classic-api"
+        },
+        {
+          "title": "SleepResult class - sleep() [ Classic API ]",
+          "dir": "sleepresult-class",
+          "subsections": [
+            {
+              "anchor": "reason-",
+              "title": "reason()",
+              "isContent": true
+            },
+            {
+              "anchor": "wokenupbypin-",
+              "title": "wokenUpByPin()",
+              "isContent": true
+            },
+            {
+              "anchor": "wokenupbyrtc-",
+              "title": "wokenUpByRtc()",
+              "isContent": true
+            },
+            {
+              "anchor": "rtc-",
+              "title": "rtc()",
+              "isContent": true
+            },
+            {
+              "anchor": "pin-",
+              "title": "pin()",
+              "isContent": true
+            },
+            {
+              "anchor": "error-",
+              "title": "error()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "sleepResult() - sleep() [ Classic API ]",
+          "dir": "sleepresult"
+        },
+        {
+          "title": "wakeUpReason() - sleep() [ Classic API ]",
+          "dir": "wakeupreason"
+        },
+        {
+          "title": "wokenUpByPin() - sleep() [ Classic API ]",
+          "dir": "wokenupbypin"
+        },
+        {
+          "title": "wokenUpByRtc() - sleep() [ Classic API ]",
+          "dir": "wokenupbyrtc"
+        },
+        {
+          "title": "wakeUpPin() - sleep() [ Classic API ]",
+          "dir": "wakeuppin"
+        },
+        {
+          "title": "sleepError() - sleep() [ Classic API ]",
+          "dir": "sleeperror"
+        }
+      ]
+    },
+    {
+      "title": "sleep() [ Sleep ]",
+      "dir": "sleep-sleep",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "sleep() [ Sleep ]",
+          "dir": "sleep-sleep"
+        },
+        {
+          "title": "mode() (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "mode-systemsleepconfiguration"
+        },
+        {
+          "title": "STOP (SystemSleepMode) - sleep() [ Sleep ]",
+          "dir": "stop-systemsleepmode"
+        },
+        {
+          "title": "ULTRA_LOW_POWER (SystemSleepMode) - sleep() [ Sleep ]",
+          "dir": "ultra_low_power-systemsleepmode"
+        },
+        {
+          "title": "HIBERNATE (SystemSleepMode) - sleep() [ Sleep ]",
+          "dir": "hibernate-systemsleepmode"
+        },
+        {
+          "title": "duration() (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "duration-systemsleepconfiguration"
+        },
+        {
+          "title": "gpio() (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "gpio-systemsleepconfiguration"
+        },
+        {
+          "title": "flag() (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "flag-systemsleepconfiguration"
+        },
+        {
+          "title": "network() (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "network-systemsleepconfiguration"
+        },
+        {
+          "title": "analog() (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "analog-systemsleepconfiguration"
+        },
+        {
+          "title": "usart (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "usart-systemsleepconfiguration"
+        },
+        {
+          "title": "ble() (SystemSleepConfiguration) - sleep() [ Sleep ]",
+          "dir": "ble-systemsleepconfiguration"
+        },
+        {
+          "title": "SystemSleepResult class - sleep() [ Sleep ]",
+          "dir": "systemsleepresult-class",
+          "subsections": [
+            {
+              "anchor": "wakeupreason-systemsleepresult-",
+              "title": "wakeupReason() (SystemSleepResult)",
+              "isContent": true
+            },
+            {
+              "anchor": "wakeuppin-systemsleepresult-",
+              "title": "wakeupPin() (SystemSleepResult)",
+              "isContent": true
+            },
+            {
+              "anchor": "error-systemsleepresult-",
+              "title": "error() (SystemSleepResult)",
+              "isContent": true
+            },
+            {
+              "anchor": "tosleepresult-systemsleepresult-",
+              "title": "toSleepResult() (SystemSleepResult)",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Sleep and GPIO outputs - sleep() [ Sleep ]",
+          "dir": "sleep-and-gpio-outputs"
+        }
+      ]
+    },
+    {
+      "title": "SoftAP HTTP pages",
+      "dir": "softap-http-pages",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "SoftAP HTTP pages",
+          "dir": "softap-http-pages"
+        },
+        {
+          "title": "The page callback function - SoftAP HTTP pages",
+          "dir": "the-page-callback-function"
+        },
+        {
+          "title": "Retrieving the request data - SoftAP HTTP pages",
+          "dir": "retrieving-the-request-data"
+        },
+        {
+          "title": "Sending a response - SoftAP HTTP pages",
+          "dir": "sending-a-response"
+        },
+        {
+          "title": "The default page - SoftAP HTTP pages",
+          "dir": "the-default-page"
+        },
+        {
+          "title": "Sending a redirect - SoftAP HTTP pages",
+          "dir": "sending-a-redirect"
+        },
+        {
+          "title": "Complete example - SoftAP HTTP pages",
+          "dir": "complete-example"
+        }
+      ]
+    },
+    {
+      "title": "Software timers",
+      "dir": "software-timers",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Software timers",
+          "dir": "software-timers"
+        },
+        {
+          "title": "Class member callbacks - Software timers",
+          "dir": "class-member-callbacks"
+        },
+        {
+          "title": "start() - Software timers",
+          "dir": "start"
+        },
+        {
+          "title": "stop() - Software timers",
+          "dir": "stop"
+        },
+        {
+          "title": "changePeriod() - Software timers",
+          "dir": "changeperiod"
+        },
+        {
+          "title": "reset() - Software timers",
+          "dir": "reset"
+        },
+        {
+          "title": "startFromISR() - Software timers",
+          "dir": "startfromisr"
+        },
+        {
+          "title": "stopFromISR() - Software timers",
+          "dir": "stopfromisr"
+        },
+        {
+          "title": "resetFromISR() - Software timers",
+          "dir": "resetfromisr"
+        },
+        {
+          "title": "changePeriodFromISR() - Software timers",
+          "dir": "changeperiodfromisr"
+        },
+        {
+          "title": "dispose() - Software timers",
+          "dir": "dispose"
+        },
+        {
+          "title": "isActive() - Software timers",
+          "dir": "isactive"
+        }
+      ]
+    },
+    {
+      "title": "SPI",
+      "dir": "spi",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "SPI",
+          "dir": "spi"
+        },
+        {
+          "title": "begin() - SPI",
+          "dir": "begin"
+        },
+        {
+          "title": "begin(SPI_Mode, uint16_t) - SPI",
+          "dir": "begin-spi_mode-uint16_t"
+        },
+        {
+          "title": "end() - SPI",
+          "dir": "end"
+        },
+        {
+          "title": "setBitOrder() - SPI",
+          "dir": "setbitorder"
+        },
+        {
+          "title": "setClockSpeed - SPI",
+          "dir": "setclockspeed"
+        },
+        {
+          "title": "setClockDividerReference - SPI",
+          "dir": "setclockdividerreference"
+        },
+        {
+          "title": "setClockDivider() - SPI",
+          "dir": "setclockdivider"
+        },
+        {
+          "title": "setDataMode() - SPI",
+          "dir": "setdatamode"
+        },
+        {
+          "title": "transfer() - SPI",
+          "dir": "transfer"
+        },
+        {
+          "title": "transfer(void\\*, void\\*, size_t, std::function) - SPI",
+          "dir": "transfer-void-void-size_t-std-function"
+        },
+        {
+          "title": "transferCancel() - SPI",
+          "dir": "transfercancel"
+        },
+        {
+          "title": "onSelect() - SPI",
+          "dir": "onselect"
+        },
+        {
+          "title": "available() - SPI",
+          "dir": "available"
+        },
+        {
+          "title": "SPISettings - SPI",
+          "dir": "spisettings"
+        },
+        {
+          "title": "beginTransaction() - SPI",
+          "dir": "begintransaction"
+        },
+        {
+          "title": "endTransaction() - SPI",
+          "dir": "endtransaction"
+        }
+      ]
+    },
+    {
+      "title": "Stream class",
+      "dir": "stream-class",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Stream class",
+          "dir": "stream-class"
+        },
+        {
+          "title": "setTimeout() - Stream class",
+          "dir": "settimeout"
+        },
+        {
+          "title": "find() - Stream class",
+          "dir": "find"
+        },
+        {
+          "title": "findUntil() - Stream class",
+          "dir": "finduntil"
+        },
+        {
+          "title": "readBytes() - Stream class",
+          "dir": "readbytes"
+        },
+        {
+          "title": "readBytesUntil() - Stream class",
+          "dir": "readbytesuntil"
+        },
+        {
+          "title": "readString() - Stream class",
+          "dir": "readstring"
+        },
+        {
+          "title": "readStringUntil() - Stream class",
+          "dir": "readstringuntil"
+        },
+        {
+          "title": "parseInt() - Stream class",
+          "dir": "parseint"
+        },
+        {
+          "title": "parseFloat() - Stream class",
+          "dir": "parsefloat"
+        }
+      ]
+    },
+    {
+      "title": "String class",
+      "dir": "string-class",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "String class",
+          "dir": "string-class"
+        },
+        {
+          "title": "String() - String class",
+          "dir": "string"
+        },
+        {
+          "title": "charAt() - String class",
+          "dir": "charat"
+        },
+        {
+          "title": "compareTo() - String class",
+          "dir": "compareto"
+        },
+        {
+          "title": "comparison operators (String) - String class",
+          "dir": "comparison-operators-string"
+        },
+        {
+          "title": "concat() - String class",
+          "dir": "concat"
+        },
+        {
+          "title": "Concatenation operators (String) - String class",
+          "dir": "concatenation-operators-string"
+        },
+        {
+          "title": "endsWith() - String class",
+          "dir": "endswith"
+        },
+        {
+          "title": "equals() - String class",
+          "dir": "equals"
+        },
+        {
+          "title": "Equality operators (String) - String class",
+          "dir": "equality-operators-string"
+        },
+        {
+          "title": "equalsIgnoreCase() - String class",
+          "dir": "equalsignorecase"
+        },
+        {
+          "title": "format() - String class",
+          "dir": "format"
+        },
+        {
+          "title": "getBytes() - String class",
+          "dir": "getbytes"
+        },
+        {
+          "title": "c_str() - String class",
+          "dir": "c_str"
+        },
+        {
+          "title": "indexOf() - String class",
+          "dir": "indexof"
+        },
+        {
+          "title": "lastIndexOf() - String class",
+          "dir": "lastindexof"
+        },
+        {
+          "title": "length() - String class",
+          "dir": "length"
+        },
+        {
+          "title": "remove() - String class",
+          "dir": "remove"
+        },
+        {
+          "title": "replace() - String class",
+          "dir": "replace"
+        },
+        {
+          "title": "reserve() - String class",
+          "dir": "reserve"
+        },
+        {
+          "title": "setCharAt() - String class",
+          "dir": "setcharat"
+        },
+        {
+          "title": "startsWith() - String class",
+          "dir": "startswith"
+        },
+        {
+          "title": "substring() - String class",
+          "dir": "substring"
+        },
+        {
+          "title": "toCharArray() - String class",
+          "dir": "tochararray"
+        },
+        {
+          "title": "toFloat() - String class",
+          "dir": "tofloat"
+        },
+        {
+          "title": "toInt() - String class",
+          "dir": "toint"
+        },
+        {
+          "title": "toLowerCase() - String class",
+          "dir": "tolowercase"
+        },
+        {
+          "title": "toUpperCase() - String class",
+          "dir": "touppercase"
+        },
+        {
+          "title": "trim() - String class",
+          "dir": "trim"
+        }
+      ]
+    },
+    {
+      "title": "System calls",
+      "dir": "system-calls",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "version() - System calls",
+          "dir": "version"
+        },
+        {
+          "title": "versionNumber() - System calls",
+          "dir": "versionnumber"
+        },
+        {
+          "title": "buttonPushed() - System calls",
+          "dir": "buttonpushed"
+        },
+        {
+          "title": "System cycle counter - System calls",
+          "dir": "system-cycle-counter",
+          "subsections": [
+            {
+              "anchor": "ticks-",
+              "title": "ticks()",
+              "isContent": true
+            },
+            {
+              "anchor": "tickspermicrosecond-",
+              "title": "ticksPerMicrosecond();",
+              "isContent": true
+            },
+            {
+              "anchor": "ticksdelay-",
+              "title": "ticksDelay()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "freeMemory() - System calls",
+          "dir": "freememory"
+        },
+        {
+          "title": "reset() - System calls",
+          "dir": "reset"
+        },
+        {
+          "title": "dfu() - System calls",
+          "dir": "dfu"
+        },
+        {
+          "title": "enterSafeMode() - System calls",
+          "dir": "entersafemode"
+        },
+        {
+          "title": "deviceID() - System calls",
+          "dir": "deviceid"
+        },
+        {
+          "title": "System.millis() - System calls",
+          "dir": "system-millis"
+        },
+        {
+          "title": "System.uptime() - System calls",
+          "dir": "system-uptime"
+        },
+        {
+          "title": "powerSource() - System calls",
+          "dir": "powersource"
+        },
+        {
+          "title": "batteryState() - System calls",
+          "dir": "batterystate"
+        },
+        {
+          "title": "batteryCharge() - System calls",
+          "dir": "batterycharge"
+        },
+        {
+          "title": "onAssetOta - System - System calls",
+          "dir": "onassetota-system"
+        },
+        {
+          "title": "assetsHandled - System - System calls",
+          "dir": "assetshandled-system"
+        },
+        {
+          "title": "assetsAvailable - System - System calls",
+          "dir": "assetsavailable-system"
+        },
+        {
+          "title": "disableReset() - System calls",
+          "dir": "disablereset"
+        },
+        {
+          "title": "enableReset() - System calls",
+          "dir": "enablereset"
+        },
+        {
+          "title": "resetPending() - System calls",
+          "dir": "resetpending"
+        },
+        {
+          "title": "Reset reason - System calls",
+          "dir": "reset-reason"
+        },
+        {
+          "title": "backupRamSync - System calls",
+          "dir": "backupramsync"
+        },
+        {
+          "title": "System config [ set ] - System calls",
+          "dir": "system-config-set"
+        },
+        {
+          "title": "System flags [ disable ] - System calls",
+          "dir": "system-flags-disable"
+        },
+        {
+          "title": "System.enableFeature - System calls",
+          "dir": "system-enablefeature"
+        },
+        {
+          "title": "System.disableFeature - System calls",
+          "dir": "system-disablefeature"
+        },
+        {
+          "title": "System.featureEnabled - System calls",
+          "dir": "system-featureenabled",
+          "subsections": [
+            {
+              "anchor": "feature_disable_listening_mode",
+              "title": "FEATURE_DISABLE_LISTENING_MODE",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "System.setControlRequestFilter - System calls",
+          "dir": "system-setcontrolrequestfilter",
+          "subsections": [
+            {
+              "anchor": "systemcontrolrequestaclaction",
+              "title": "SystemControlRequestAclAction",
+              "isContent": true
+            },
+            {
+              "anchor": "systemcontrolrequestacl",
+              "title": "SystemControlRequestAcl",
+              "isContent": true
+            },
+            {
+              "anchor": "ctrl_request_type",
+              "title": "ctrl_request_type",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "System events",
+      "dir": "system-events",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "System events",
+          "dir": "system-events"
+        },
+        {
+          "title": "System events overview - System events",
+          "dir": "system-events-overview",
+          "subsections": [
+            {
+              "anchor": "registering-multiple-events-with-the-same-handler",
+              "title": "Registering multiple events with the same handler",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "System events reference - System events",
+          "dir": "system-events-reference",
+          "subsections": [
+            {
+              "anchor": "network_credentials-16-param-values",
+              "title": "network_credentials (16) param values",
+              "isContent": true
+            },
+            {
+              "anchor": "network_status-32-param-values",
+              "title": "network_status (32) param values",
+              "isContent": true
+            },
+            {
+              "anchor": "cloud_status-64-parameter-values",
+              "title": "cloud_status (64) parameter values",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "firmware_update (256) parameter values - System events",
+          "dir": "firmware_update-256-parameter-values",
+          "subsections": [
+            {
+              "anchor": "time_changed-16384-param-values-param-values",
+              "title": "time_changed (16384) param values param values",
+              "isContent": true
+            },
+            {
+              "anchor": "ble_prov_mode-param-values",
+              "title": "ble_prov_mode param values",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "System interrupts",
+      "dir": "system-interrupts",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "System interrupts",
+          "dir": "system-interrupts"
+        },
+        {
+          "title": "attachSystemInterrupt() - System interrupts",
+          "dir": "attachsysteminterrupt"
+        },
+        {
+          "title": "detachSystemInterrupt() - System interrupts",
+          "dir": "detachsysteminterrupt"
+        },
+        {
+          "title": "attachInteruptDirect() - System interrupts",
+          "dir": "attachinteruptdirect"
+        },
+        {
+          "title": "detachInterruptDirect() - System interrupts",
+          "dir": "detachinterruptdirect"
+        },
+        {
+          "title": "buttonMirror() - System interrupts",
+          "dir": "buttonmirror"
+        },
+        {
+          "title": "disableButtonMirror() - System interrupts",
+          "dir": "disablebuttonmirror"
+        },
+        {
+          "title": "System features - System interrupts",
+          "dir": "system-features",
+          "subsections": [
+            {
+              "anchor": "feature_retained_memory",
+              "title": "FEATURE_RETAINED_MEMORY",
+              "isContent": true
+            },
+            {
+              "anchor": "feature_wifi_powersave_clock",
+              "title": "FEATURE_WIFI_POWERSAVE_CLOCK",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "System modes",
+      "dir": "system-modes",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "System modes",
+          "dir": "system-modes"
+        },
+        {
+          "title": "Automatic mode - System modes",
+          "dir": "automatic-mode"
+        },
+        {
+          "title": "Automatic mode (threading enabled) - System modes",
+          "dir": "automatic-mode-threading-enabled"
+        },
+        {
+          "title": "Semi-automatic mode - System modes",
+          "dir": "semi-automatic-mode"
+        },
+        {
+          "title": "Manual mode - System modes",
+          "dir": "manual-mode"
+        }
+      ]
+    },
+    {
+      "title": "System thread",
+      "dir": "system-thread",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "System thread",
+          "dir": "system-thread"
+        },
+        {
+          "title": "System threading behavior - System thread",
+          "dir": "system-threading-behavior"
+        },
+        {
+          "title": "System functions - System thread",
+          "dir": "system-functions"
+        },
+        {
+          "title": "Task switching - System thread",
+          "dir": "task-switching"
+        },
+        {
+          "title": "SINGLE_THREADED_BLOCK() - System thread",
+          "dir": "single_threaded_block"
+        },
+        {
+          "title": "ATOMIC_BLOCK() - System thread",
+          "dir": "atomic_block"
+        },
+        {
+          "title": "Synchronizing access to shared system resources - System thread",
+          "dir": "synchronizing-access-to-shared-system-resources"
+        },
+        {
+          "title": "Waiting for the system - System thread",
+          "dir": "waiting-for-the-system",
+          "subsections": [
+            {
+              "anchor": "waituntil-",
+              "title": "waitUntil()",
+              "isContent": true
+            },
+            {
+              "anchor": "waituntilnot-",
+              "title": "waitUntilNot()",
+              "isContent": true
+            },
+            {
+              "anchor": "waitfor-",
+              "title": "waitFor()",
+              "isContent": true
+            },
+            {
+              "anchor": "waitfornot-",
+              "title": "waitForNot()",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "TCPClient",
+      "dir": "tcpclient",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "TCPClient",
+          "dir": "tcpclient"
+        },
+        {
+          "title": "connected() - TCPClient",
+          "dir": "connected"
+        },
+        {
+          "title": "status() - TCPClient",
+          "dir": "status"
+        },
+        {
+          "title": "connect() - TCPClient",
+          "dir": "connect"
+        },
+        {
+          "title": "write() - TCPClient",
+          "dir": "write"
+        },
+        {
+          "title": "print() - TCPClient",
+          "dir": "print"
+        },
+        {
+          "title": "println() - TCPClient",
+          "dir": "println"
+        },
+        {
+          "title": "available() - TCPClient",
+          "dir": "available"
+        },
+        {
+          "title": "read() - TCPClient",
+          "dir": "read"
+        },
+        {
+          "title": "flush() - TCPClient",
+          "dir": "flush"
+        },
+        {
+          "title": "remoteIP() - TCPClient",
+          "dir": "remoteip"
+        },
+        {
+          "title": "stop() - TCPClient",
+          "dir": "stop"
+        },
+        {
+          "title": "getWriteError() - TCPClient",
+          "dir": "getwriteerror"
+        },
+        {
+          "title": "clearWriteError() - TCPClient",
+          "dir": "clearwriteerror"
+        }
+      ]
+    },
+    {
+      "title": "TCPServer",
+      "dir": "tcpserver",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "TCPServer",
+          "dir": "tcpserver"
+        },
+        {
+          "title": "begin() - TCPServer",
+          "dir": "begin"
+        },
+        {
+          "title": "available() - TCPServer",
+          "dir": "available"
+        },
+        {
+          "title": "write() - TCPServer",
+          "dir": "write"
+        },
+        {
+          "title": "print() - TCPServer",
+          "dir": "print"
+        },
+        {
+          "title": "println() - TCPServer",
+          "dir": "println"
+        },
+        {
+          "title": "getWriteError() - TCPServer",
+          "dir": "getwriteerror"
+        },
+        {
+          "title": "clearWriteError() - TCPServer",
+          "dir": "clearwriteerror"
+        }
+      ]
+    },
+    {
+      "title": "Threading",
+      "dir": "threading",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Threading",
+          "dir": "threading"
+        },
+        {
+          "title": "os_thread_prio_t - Threading - Threading",
+          "dir": "os_thread_prio_t-threading"
+        },
+        {
+          "title": "Thread stack size - Threading - Threading",
+          "dir": "thread-stack-size-threading"
+        },
+        {
+          "title": "Thread functions - Threading - Threading",
+          "dir": "thread-functions-threading"
+        },
+        {
+          "title": "Yielding to other threds - Threading - Threading",
+          "dir": "yielding-to-other-threds-threading"
+        },
+        {
+          "title": "Thread class - Threading - Threading",
+          "dir": "thread-class-threading",
+          "subsections": [
+            {
+              "anchor": "thread-constructor-os_thread_fn_t-threading",
+              "title": "Thread constructor os_thread_fn_t - Threading",
+              "isContent": true
+            },
+            {
+              "anchor": "thread-constructor-wiring_thread_fn_t-threading",
+              "title": "Thread constructor wiring_thread_fn_t - Threading",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Thread::dispose - Threading - Threading",
+          "dir": "thread-dispose-threading"
+        },
+        {
+          "title": "Thread::isValid - Threading - Threading",
+          "dir": "thread-isvalid-threading"
+        },
+        {
+          "title": "Thread::isCurrent - Threading - Threading",
+          "dir": "thread-iscurrent-threading"
+        },
+        {
+          "title": "Thread::isRunning - Threading - Threading",
+          "dir": "thread-isrunning-threading"
+        },
+        {
+          "title": "Mutex class - Threading - Threading",
+          "dir": "mutex-class-threading",
+          "subsections": [
+            {
+              "anchor": "mutex-constructor-threading",
+              "title": "Mutex constructor - Threading",
+              "isContent": true
+            },
+            {
+              "anchor": "mutex-lock-threading",
+              "title": "Mutex::lock - Threading",
+              "isContent": true
+            },
+            {
+              "anchor": "mutex-trylock-threading",
+              "title": "Mutex::trylock - Threading",
+              "isContent": true
+            },
+            {
+              "anchor": "mutex-unlock-threading",
+              "title": "Mutex::unlock - Threading",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "RecursiveMutex class - Threading - Threading",
+          "dir": "recursivemutex-class-threading",
+          "subsections": [
+            {
+              "anchor": "recursivemutex-constructor-threading",
+              "title": "RecursiveMutex constructor - Threading",
+              "isContent": true
+            },
+            {
+              "anchor": "recursivemutex-lock-threading",
+              "title": "RecursiveMutex::lock - Threading",
+              "isContent": true
+            },
+            {
+              "anchor": "recursivemutex-trylock-threading",
+              "title": "RecursiveMutex::trylock - Threading",
+              "isContent": true
+            },
+            {
+              "anchor": "recursivemutexmutex-unlock-threading",
+              "title": "RecursiveMutexMutex::unlock - Threading",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Locking - Threading - Threading",
+          "dir": "locking-threading"
+        },
+        {
+          "title": "Serial debugging - Threading - Threading",
+          "dir": "serial-debugging-threading"
+        }
+      ]
+    },
+    {
+      "title": "Time",
+      "dir": "time",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Time",
+          "dir": "time"
+        },
+        {
+          "title": "millis() - Time",
+          "dir": "millis"
+        },
+        {
+          "title": "micros() - Time",
+          "dir": "micros"
+        },
+        {
+          "title": "delay() - Time",
+          "dir": "delay"
+        },
+        {
+          "title": "delayMicroseconds() - Time",
+          "dir": "delaymicroseconds"
+        },
+        {
+          "title": "hour() - Time",
+          "dir": "hour"
+        },
+        {
+          "title": "hourFormat12() - Time",
+          "dir": "hourformat12"
+        },
+        {
+          "title": "isAM() - Time",
+          "dir": "isam"
+        },
+        {
+          "title": "isPM() - Time",
+          "dir": "ispm"
+        },
+        {
+          "title": "minute() - Time",
+          "dir": "minute"
+        },
+        {
+          "title": "second() - Time",
+          "dir": "second"
+        },
+        {
+          "title": "day() - Time",
+          "dir": "day"
+        },
+        {
+          "title": "weekday() - Time",
+          "dir": "weekday"
+        },
+        {
+          "title": "month() - Time",
+          "dir": "month"
+        },
+        {
+          "title": "year() - Time",
+          "dir": "year"
+        },
+        {
+          "title": "now() - Time",
+          "dir": "now"
+        },
+        {
+          "title": "local() - Time",
+          "dir": "local"
+        },
+        {
+          "title": "zone() - Time",
+          "dir": "zone"
+        },
+        {
+          "title": "isDST() - Time",
+          "dir": "isdst"
+        },
+        {
+          "title": "getDSTOffset() - Time",
+          "dir": "getdstoffset"
+        },
+        {
+          "title": "setDSTOffset() - Time",
+          "dir": "setdstoffset"
+        },
+        {
+          "title": "beginDST() - Time",
+          "dir": "begindst"
+        },
+        {
+          "title": "endDST() - Time",
+          "dir": "enddst"
+        },
+        {
+          "title": "setTime() - Time",
+          "dir": "settime"
+        },
+        {
+          "title": "timeStr() - Time",
+          "dir": "timestr"
+        },
+        {
+          "title": "format() - Time",
+          "dir": "format"
+        },
+        {
+          "title": "setFormat() - Time",
+          "dir": "setformat"
+        },
+        {
+          "title": "getFormat() - Time",
+          "dir": "getformat"
+        },
+        {
+          "title": "isValid() - Time",
+          "dir": "isvalid"
+        },
+        {
+          "title": "Advanced - Time",
+          "dir": "advanced"
+        }
+      ]
+    },
+    {
+      "title": "UDP",
+      "dir": "udp",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "UDP",
+          "dir": "udp"
+        },
+        {
+          "title": "begin() - UDP",
+          "dir": "begin"
+        },
+        {
+          "title": "available() - UDP",
+          "dir": "available"
+        },
+        {
+          "title": "beginPacket() - UDP",
+          "dir": "beginpacket"
+        },
+        {
+          "title": "endPacket() - UDP",
+          "dir": "endpacket"
+        },
+        {
+          "title": "write() - UDP",
+          "dir": "write"
+        },
+        {
+          "title": "receivePacket() - UDP",
+          "dir": "receivepacket"
+        },
+        {
+          "title": "parsePacket() - UDP",
+          "dir": "parsepacket"
+        },
+        {
+          "title": "read() - UDP",
+          "dir": "read"
+        },
+        {
+          "title": "flush() - UDP",
+          "dir": "flush"
+        },
+        {
+          "title": "stop() - UDP",
+          "dir": "stop"
+        },
+        {
+          "title": "remoteIP() - UDP",
+          "dir": "remoteip"
+        },
+        {
+          "title": "remotePort() - UDP",
+          "dir": "remoteport"
+        },
+        {
+          "title": "setBuffer() - UDP",
+          "dir": "setbuffer"
+        },
+        {
+          "title": "releaseBuffer() - UDP",
+          "dir": "releasebuffer"
+        },
+        {
+          "title": "sendPacket() - UDP",
+          "dir": "sendpacket"
+        },
+        {
+          "title": "joinMulticast() - UDP",
+          "dir": "joinmulticast"
+        },
+        {
+          "title": "leaveMulticast() - UDP",
+          "dir": "leavemulticast"
+        }
+      ]
+    },
+    {
+      "title": "Variant",
+      "dir": "variant",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Variant",
+          "dir": "variant"
+        },
+        {
+          "title": "set() [Variant class] - Variant",
+          "dir": "set-variant-class"
+        },
+        {
+          "title": "Variant::Type - Variant",
+          "dir": "variant-type"
+        },
+        {
+          "title": "constructor [Variant class] - Variant",
+          "dir": "constructor-variant-class"
+        },
+        {
+          "title": "value() [Variant class] - Variant",
+          "dir": "value-variant-class"
+        },
+        {
+          "title": "value, as, and to [Variant class] - Variant",
+          "dir": "value-as-and-to-variant-class"
+        },
+        {
+          "title": "type() [Variant class] - Variant",
+          "dir": "type-variant-class"
+        },
+        {
+          "title": "isXXX() [Variant class] - Variant",
+          "dir": "isxxx-variant-class"
+        },
+        {
+          "title": "toBool() [Variant class] - Variant",
+          "dir": "tobool-variant-class"
+        },
+        {
+          "title": "asBool() [Variant class] - Variant",
+          "dir": "asbool-variant-class"
+        },
+        {
+          "title": "toInt() [Variant class] - Variant",
+          "dir": "toint-variant-class"
+        },
+        {
+          "title": "asInt() [Variant class] - Variant",
+          "dir": "asint-variant-class"
+        },
+        {
+          "title": "toUInt() [Variant class] - Variant",
+          "dir": "touint-variant-class"
+        },
+        {
+          "title": "asUInt() [Variant class] - Variant",
+          "dir": "asuint-variant-class"
+        },
+        {
+          "title": "toInt64() [Variant class] - Variant",
+          "dir": "toint64-variant-class"
+        },
+        {
+          "title": "asInt64() [Variant class] - Variant",
+          "dir": "asint64-variant-class"
+        },
+        {
+          "title": "toUInt64() [Variant class] - Variant",
+          "dir": "touint64-variant-class"
+        },
+        {
+          "title": "asUInt64() [Variant class] - Variant",
+          "dir": "asuint64-variant-class"
+        },
+        {
+          "title": "toDouble() [Variant class] - Variant",
+          "dir": "todouble-variant-class"
+        },
+        {
+          "title": "asDouble() [Variant class] - Variant",
+          "dir": "asdouble-variant-class"
+        },
+        {
+          "title": "toString() [Variant class] - Variant",
+          "dir": "tostring-variant-class"
+        },
+        {
+          "title": "asString() [Variant class] - Variant",
+          "dir": "asstring-variant-class"
+        },
+        {
+          "title": "toArray() [Variant class] - Variant",
+          "dir": "toarray-variant-class"
+        },
+        {
+          "title": "asArray() [Variant class] - Variant",
+          "dir": "asarray-variant-class"
+        },
+        {
+          "title": "toMap() [Variant class] - Variant",
+          "dir": "tomap-variant-class"
+        },
+        {
+          "title": "asMap() [Variant class] - Variant",
+          "dir": "asmap-variant-class"
+        },
+        {
+          "title": "toJSON [Variant class] - Variant",
+          "dir": "tojson-variant-class"
+        },
+        {
+          "title": "fromJSON [Variant class] - Variant",
+          "dir": "fromjson-variant-class"
+        }
+      ]
+    },
+    {
+      "title": "VariantArray",
+      "dir": "variantarray",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "VariantArray",
+          "dir": "variantarray"
+        },
+        {
+          "title": "append() [VariantArray] - VariantArray",
+          "dir": "append-variantarray"
+        },
+        {
+          "title": "prepend() [VariantArray] - VariantArray",
+          "dir": "prepend-variantarray"
+        },
+        {
+          "title": "insertAt() [VariantArray] - VariantArray",
+          "dir": "insertat-variantarray"
+        },
+        {
+          "title": "removeAt() [VariantArray] - VariantArray",
+          "dir": "removeat-variantarray"
+        },
+        {
+          "title": "at() [VariantArray] - VariantArray",
+          "dir": "at-variantarray"
+        }
+      ]
+    },
+    {
+      "title": "VariantMap",
+      "dir": "variantmap",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "VariantMap",
+          "dir": "variantmap"
+        },
+        {
+          "title": "set() [VariantMap] - VariantMap",
+          "dir": "set-variantmap"
+        },
+        {
+          "title": "remove() [VariantMap] - VariantMap",
+          "dir": "remove-variantmap"
+        },
+        {
+          "title": "get() [VariantMap] - VariantMap",
+          "dir": "get-variantmap"
+        },
+        {
+          "title": "has() [VariantMap] - VariantMap",
+          "dir": "has-variantmap"
+        }
+      ]
+    },
+    {
+      "title": "Vector",
+      "dir": "vector",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Vector",
+          "dir": "vector"
+        },
+        {
+          "title": "Vector() [Vector template] - Vector",
+          "dir": "vector-vector-template"
+        },
+        {
+          "title": "Vector(int n) [Vector template] - Vector",
+          "dir": "vector-int-n-vector-template"
+        },
+        {
+          "title": "Vector(int n, const T&amp; value) [Vector template] - Vector",
+          "dir": "vector-int-n-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "Vector(std::initializer_list<T> values) [Vector template] - Vector",
+          "dir": "vector-std-initializer_list-values-vector-template"
+        },
+        {
+          "title": "Vector(const Vector<T, AllocatorT>&amp; vector) [Vector template] - Vector",
+          "dir": "vector-const-vector-amp-vector-vector-template"
+        },
+        {
+          "title": "append(T value) [Vector template] - Vector",
+          "dir": "append-t-value-vector-template"
+        },
+        {
+          "title": "append(int n, const T&amp; value) [Vector template] - Vector",
+          "dir": "append-int-n-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "append(const T* values, int n) [Vector template] - Vector",
+          "dir": "append-const-t-values-int-n-vector-template"
+        },
+        {
+          "title": "append(const Vector<T, AllocatorT>&amp; vecto) [Vector template] - Vector",
+          "dir": "append-const-vector-amp-vecto-vector-template"
+        },
+        {
+          "title": "prepend(T value) [Vector template] - Vector",
+          "dir": "prepend-t-value-vector-template"
+        },
+        {
+          "title": "prepend(int n, const T&amp; value) [Vector template] - Vector",
+          "dir": "prepend-int-n-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "prepend(const T* values, int n) [Vector template] - Vector",
+          "dir": "prepend-const-t-values-int-n-vector-template"
+        },
+        {
+          "title": "prepend(const Vector<T, AllocatorT>&amp; vector) [Vector template] - Vector",
+          "dir": "prepend-const-vector-amp-vector-vector-template"
+        },
+        {
+          "title": "insert(int i, T value) [Vector template] - Vector",
+          "dir": "insert-int-i-t-value-vector-template"
+        },
+        {
+          "title": "insert(int i, int n, const T&amp; value) [Vector template] - Vector",
+          "dir": "insert-int-i-int-n-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "insert(int i, const T* values, int n) [Vector template] - Vector",
+          "dir": "insert-int-i-const-t-values-int-n-vector-template"
+        },
+        {
+          "title": "insert(const Vector<T, AllocatorT>&amp; vector) [Vector template] - Vector",
+          "dir": "insert-const-vector-amp-vector-vector-template"
+        },
+        {
+          "title": "removeAt(removeAt(int i, int n = 1) [Vector template] - Vector",
+          "dir": "removeat-removeat-int-i-int-n-1-vector-template"
+        },
+        {
+          "title": "bool removeOne(const T&amp; value) [Vector template] - Vector",
+          "dir": "bool-removeone-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "bool removeAll(const T&amp; value) [Vector template] - Vector",
+          "dir": "bool-removeall-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "T takeFirst() [Vector template] - Vector",
+          "dir": "t-takefirst-vector-template"
+        },
+        {
+          "title": "T takeLast() [Vector template] - Vector",
+          "dir": "t-takelast-vector-template"
+        },
+        {
+          "title": "T takeAt(int i) [Vector template] - Vector",
+          "dir": "t-takeat-int-i-vector-template"
+        },
+        {
+          "title": "T first() [Vector template] - Vector",
+          "dir": "t-first-vector-template"
+        },
+        {
+          "title": "T last() [Vector template] - Vector",
+          "dir": "t-last-vector-template"
+        },
+        {
+          "title": "T at(int i) [Vector template] - Vector",
+          "dir": "t-at-int-i-vector-template"
+        },
+        {
+          "title": "operator[] (int i) [Vector template] - Vector",
+          "dir": "operator-int-i-vector-template"
+        },
+        {
+          "title": "indexOf(const T&amp; value, int i = 0) [Vector template] - Vector",
+          "dir": "indexof-const-t-amp-value-int-i-0-vector-template"
+        },
+        {
+          "title": "lastIndexOf(const T&amp; value) [Vector template] - Vector",
+          "dir": "lastindexof-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "lastIndexOf(const T&amp; value, int i) [Vector template] - Vector",
+          "dir": "lastindexof-const-t-amp-value-int-i-vector-template"
+        },
+        {
+          "title": "contains(const T&amp; value) [Vector template] - Vector",
+          "dir": "contains-const-t-amp-value-vector-template"
+        },
+        {
+          "title": "size() [Vector template] - Vector",
+          "dir": "size-vector-template"
+        },
+        {
+          "title": "isEmpty() [Vector template] - Vector",
+          "dir": "isempty-vector-template"
+        },
+        {
+          "title": "isEmpty() [Vector template] - Vector",
+          "dir": "isempty-vector-template"
+        },
+        {
+          "title": "begin() [Vector template] - Vector",
+          "dir": "begin-vector-template"
+        },
+        {
+          "title": "end() [Vector template] - Vector",
+          "dir": "end-vector-template"
+        },
+        {
+          "title": "insert(ConstIterator pos, T value) [Vector template] - Vector",
+          "dir": "insert-constiterator-pos-t-value-vector-template"
+        },
+        {
+          "title": "insert(ConstIterator pos, T value) [Vector template] - Vector",
+          "dir": "insert-constiterator-pos-t-value-vector-template"
+        }
+      ]
+    },
+    {
+      "title": "Watchdog - Application",
+      "dir": "watchdog-application",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Watchdog - Application",
+          "dir": "watchdog-application"
+        }
+      ]
+    },
+    {
+      "title": "Watchdog - Hardware",
+      "dir": "watchdog-hardware",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Watchdog - Hardware",
+          "dir": "watchdog-hardware"
+        },
+        {
+          "title": "Sleep considerations - Watchdog - Hardware",
+          "dir": "sleep-considerations",
+          "subsections": [
+            {
+              "anchor": "watchdog-capabilities",
+              "title": "Watchdog capabilities",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Watchdog.init - Watchdog - Hardware",
+          "dir": "watchdog-init"
+        },
+        {
+          "title": "Watchdog.start - Watchdog - Hardware",
+          "dir": "watchdog-start"
+        },
+        {
+          "title": "Watchdog.stop - Watchdog - Hardware",
+          "dir": "watchdog-stop"
+        },
+        {
+          "title": "Watchdog.refresh - Watchdog - Hardware",
+          "dir": "watchdog-refresh",
+          "subsections": [
+            {
+              "anchor": "watchdog-sleep_running",
+              "title": "Watchdog SLEEP_RUNNING",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Watchdog.onExpired - Watchdog - Hardware",
+          "dir": "watchdog-onexpired"
+        }
+      ]
+    },
+    {
+      "title": "WiFi",
+      "dir": "wifi",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "WiFi",
+          "dir": "wifi"
+        },
+        {
+          "title": "on() - WiFi",
+          "dir": "on"
+        },
+        {
+          "title": "off() - WiFi",
+          "dir": "off"
+        },
+        {
+          "title": "connect() - WiFi",
+          "dir": "connect"
+        },
+        {
+          "title": "disconnect() - WiFi",
+          "dir": "disconnect"
+        },
+        {
+          "title": "connecting() - WiFi",
+          "dir": "connecting"
+        },
+        {
+          "title": "ready() - WiFi",
+          "dir": "ready"
+        },
+        {
+          "title": "setConfig() [WiFi] - WiFi",
+          "dir": "setconfig-wifi"
+        },
+        {
+          "title": "getConfig() [WiFi] - WiFi",
+          "dir": "getconfig-wifi"
+        },
+        {
+          "title": "selectAntenna() [antenna] - WiFi",
+          "dir": "selectantenna-antenna"
+        },
+        {
+          "title": "getAntenna() - WiFi",
+          "dir": "getantenna"
+        },
+        {
+          "title": "prefer() [WiFi] - WiFi",
+          "dir": "prefer-wifi"
+        },
+        {
+          "title": "isPreferred() [WiFi] - WiFi",
+          "dir": "ispreferred-wifi"
+        },
+        {
+          "title": "listen() - WiFi",
+          "dir": "listen"
+        },
+        {
+          "title": "listening() - WiFi",
+          "dir": "listening"
+        },
+        {
+          "title": "setListenTimeout() - WiFi",
+          "dir": "setlistentimeout"
+        },
+        {
+          "title": "getListenTimeout() - WiFi",
+          "dir": "getlistentimeout"
+        },
+        {
+          "title": "setCredentials() - WiFi",
+          "dir": "setcredentials"
+        },
+        {
+          "title": "getCredentials() - WiFi",
+          "dir": "getcredentials"
+        },
+        {
+          "title": "clearCredentials() - WiFi",
+          "dir": "clearcredentials"
+        },
+        {
+          "title": "hasCredentials() - WiFi",
+          "dir": "hascredentials"
+        },
+        {
+          "title": "macAddress() - WiFi",
+          "dir": "macaddress"
+        },
+        {
+          "title": "SSID() - WiFi",
+          "dir": "ssid"
+        },
+        {
+          "title": "BSSID() - WiFi",
+          "dir": "bssid"
+        },
+        {
+          "title": "RSSI() - WiFi",
+          "dir": "rssi"
+        },
+        {
+          "title": "WiFiSignal Class - WiFi",
+          "dir": "wifisignal-class",
+          "subsections": [
+            {
+              "anchor": "getstrength-",
+              "title": "getStrength()",
+              "isContent": true
+            },
+            {
+              "anchor": "getquality-",
+              "title": "getQuality()",
+              "isContent": true
+            },
+            {
+              "anchor": "getstrengthvalue-",
+              "title": "getStrengthValue()",
+              "isContent": true
+            },
+            {
+              "anchor": "getqualityvalue-",
+              "title": "getQualityValue()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "ping() - WiFi",
+          "dir": "ping"
+        },
+        {
+          "title": "scan() - WiFi",
+          "dir": "scan"
+        },
+        {
+          "title": "resolve() - WiFi",
+          "dir": "resolve"
+        },
+        {
+          "title": "localIP() - WiFi",
+          "dir": "localip"
+        },
+        {
+          "title": "subnetMask() - WiFi",
+          "dir": "subnetmask"
+        },
+        {
+          "title": "gatewayIP() - WiFi",
+          "dir": "gatewayip"
+        },
+        {
+          "title": "dnsServerIP() - WiFi",
+          "dir": "dnsserverip"
+        },
+        {
+          "title": "dhcpServerIP() - WiFi",
+          "dir": "dhcpserverip"
+        },
+        {
+          "title": "setStaticIP() - WiFi",
+          "dir": "setstaticip"
+        },
+        {
+          "title": "useStaticIP() - WiFi",
+          "dir": "usestaticip"
+        },
+        {
+          "title": "useDynamicIP() - WiFi",
+          "dir": "usedynamicip"
+        },
+        {
+          "title": "setHostname() - WiFi",
+          "dir": "sethostname"
+        },
+        {
+          "title": "hostname() - WiFi",
+          "dir": "hostname"
+        },
+        {
+          "title": "wlan_get_country_code - WiFi",
+          "dir": "wlan_get_country_code"
+        },
+        {
+          "title": "wlan_set_country_code - WiFi",
+          "dir": "wlan_set_country_code"
+        },
+        {
+          "title": "WiFiCredentials class - WiFi",
+          "dir": "wificredentials-class",
+          "subsections": [
+            {
+              "anchor": "wificredentials-",
+              "title": "WiFiCredentials()",
+              "isContent": true
+            },
+            {
+              "anchor": "setssid-",
+              "title": "setSsid()",
+              "isContent": true
+            },
+            {
+              "anchor": "setsecurity-",
+              "title": "setSecurity()",
+              "isContent": true
+            },
+            {
+              "anchor": "setcipher-",
+              "title": "setCipher()",
+              "isContent": true
+            },
+            {
+              "anchor": "setpassword-",
+              "title": "setPassword()",
+              "isContent": true
+            },
+            {
+              "anchor": "sethidden-",
+              "title": "setHidden()",
+              "isContent": true
+            },
+            {
+              "anchor": "setvalidate-",
+              "title": "setValidate()",
+              "isContent": true
+            },
+            {
+              "anchor": "setchannel-",
+              "title": "setChannel()",
+              "isContent": true
+            },
+            {
+              "anchor": "seteaptype-",
+              "title": "setEapType()",
+              "isContent": true
+            },
+            {
+              "anchor": "setidentity-",
+              "title": "setIdentity()",
+              "isContent": true
+            },
+            {
+              "anchor": "setouteridentity-",
+              "title": "setOuterIdentity()",
+              "isContent": true
+            },
+            {
+              "anchor": "setclientcertificate-",
+              "title": "setClientCertificate()",
+              "isContent": true
+            },
+            {
+              "anchor": "setprivatekey-",
+              "title": "setPrivateKey()",
+              "isContent": true
+            },
+            {
+              "anchor": "setrootcertificate-",
+              "title": "setRootCertificate()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "WLanEapType Enum - WiFi",
+          "dir": "wlaneaptype-enum"
+        },
+        {
+          "title": "SecurityType Enum - WiFi",
+          "dir": "securitytype-enum"
+        },
+        {
+          "title": "WLanSecurityCipher Enum - WiFi",
+          "dir": "wlansecuritycipher-enum"
+        }
+      ]
+    },
+    {
+      "title": "Wire (I2C)",
+      "dir": "wire-i2c",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Wire (I2C)",
+          "dir": "wire-i2c"
+        },
+        {
+          "title": "Pull-up resistors (I2C) - Wire (I2C)",
+          "dir": "pull-up-resistors-i2c"
+        },
+        {
+          "title": "Pins (I2C) - Wire (I2C)",
+          "dir": "pins-i2c"
+        },
+        {
+          "title": "setSpeed() - Wire (I2C)",
+          "dir": "setspeed"
+        },
+        {
+          "title": "stretchClock() - Wire (I2C)",
+          "dir": "stretchclock"
+        },
+        {
+          "title": "begin() - Wire (I2C)",
+          "dir": "begin"
+        },
+        {
+          "title": "Slave mode (I2C) - Wire (I2C)",
+          "dir": "slave-mode-i2c"
+        },
+        {
+          "title": "end() - Wire (I2C)",
+          "dir": "end"
+        },
+        {
+          "title": "isEnabled() - Wire (I2C)",
+          "dir": "isenabled"
+        },
+        {
+          "title": "requestFrom() - Wire (I2C)",
+          "dir": "requestfrom"
+        },
+        {
+          "title": "reset() - Wire (I2C)",
+          "dir": "reset"
+        },
+        {
+          "title": "beginTransmission() - Wire (I2C)",
+          "dir": "begintransmission"
+        },
+        {
+          "title": "endTransmission() - Wire (I2C)",
+          "dir": "endtransmission"
+        },
+        {
+          "title": "write() - Wire (I2C)",
+          "dir": "write"
+        },
+        {
+          "title": "available() - Wire (I2C)",
+          "dir": "available"
+        },
+        {
+          "title": "read() - Wire (I2C)",
+          "dir": "read"
+        },
+        {
+          "title": "peek() - Wire (I2C)",
+          "dir": "peek"
+        },
+        {
+          "title": "lock() - Wire (I2C)",
+          "dir": "lock"
+        },
+        {
+          "title": "unlock() - Wire (I2C)",
+          "dir": "unlock"
+        },
+        {
+          "title": "onReceive() - Wire (I2C)",
+          "dir": "onreceive"
+        },
+        {
+          "title": "onRequest() - Wire (I2C)",
+          "dir": "onrequest"
+        },
+        {
+          "title": "acquireWireBuffer - Wire (I2C)",
+          "dir": "acquirewirebuffer"
+        }
+      ]
+    }
+  ]
+}

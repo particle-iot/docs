@@ -1,0 +1,118 @@
+{
+    "dir": "scaling",
+    "items": [
+        {
+            "dir": "scaling",
+            "title": "Scaling",
+            "tiles": [
+                {
+                    "title": "Manufacturing",
+                    "detail": "Process for manufacturing cellular products at scale",
+                    "href": "/scaling/manufacturing/manufacturing-cellular/"
+                },
+                {
+                    "title": "USB Flashing",
+                    "detail": "Automating device flashing over USB using node.js",
+                    "href": "https://github.com/particle-iot/node-example-device-flash-setup/"
+                },
+                {
+                    "title": "Device onboarding",
+                    "detail": "Bulk configuration of devices using node.js",
+                    "href": "https://github.com/particle-iot/node-example-device-cloud-setup/"
+                }
+            ]
+        },
+        {
+            "dir": "quick-start-guide",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "tools-overview",
+                    "title": "Tools Overview"
+                },
+                {
+                    "dir": "device-communication",
+                    "title": "Device Communication"
+                },
+                {
+                    "dir": "organizations",
+                    "title": "Introduction to Organizations"
+                },
+                {
+                    "dir": "introduction-to-products",
+                    "title": "Introduction to Products"
+                },
+                {
+                    "dir": "bulk-device-operations",
+                    "title": "Bulk device operations"
+                },
+                {
+                    "dir": "billing",
+                    "title": "Billing"
+                },
+                {
+                    "dir": "enterprise-sso",
+                    "title": "Enterprise Single Sign On (SSO)"
+                },
+                {
+                    "dir": "enterprise-order-placement",
+                    "title": "Enterprise Order Placement"
+                },
+                {
+                    "dir": "returns",
+                    "title": "Returns and replacements"
+                }
+            ]
+        },
+        {
+            "dir": "manufacturing",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "manufacturing-cellular",
+                    "title": "Manufacturing - Cellular"
+                },
+                {
+                    "dir": "lcc-module-smt",
+                    "title": "LCC Module SMT"
+                },
+                {
+                    "dir": "manufacturing-firmware-versions",
+                    "title": "Manufacturing Firmware Versions"
+                }
+            ]
+        },
+        {
+            "dir": "scripting",
+            "isSection": true,
+            "subsections": [
+                {
+                    "title": "Device flashing tool over USB",
+                    "href": "https://github.com/particle-iot/node-example-device-flash-setup"
+                },
+                {
+                    "title": "Automating device onboarding",
+                    "href": "https://github.com/particle-iot/node-example-device-cloud-setup"
+                }
+            ]
+        },
+        {
+            "dir": "best-practices",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "messaging-architecture-for-scale",
+                    "title": "Messaging Architecture for Scale"
+                },
+                {
+                    "dir": "what-are-particles-best-practices-with-respect-to-device-os-version-management",
+                    "title": "What are Particle's Best Practices with respect to Device OS Version Management?"
+                },
+                {
+                    "dir": "device-protection",
+                    "title": "Device Protection"
+                }
+            ]
+        }
+    ]
+}

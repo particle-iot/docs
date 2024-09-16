@@ -8,7 +8,8 @@ var cloneDeep = require('lodash').cloneDeep;
 function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath, redirectsPath, contentDir) {
     // console.log('processing refCards for ' + fileName);
     
-    const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
+    const apiMenusRelativePath = 'assets/files/apiMenus.json';
+    const apiMenusJsonPath = path.join(contentDir, '../' + apiMenusRelativePath);
 
     const destDir = options.outputDir;
 
@@ -28,9 +29,17 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         sections: [],
         folderTitles: {},
     };
-
+    let apiMenusJson = {
+        items: [],
+    };
 
     for(const line of mdFile.split('\n')) {
+        if (line.startsWith('## Device OS versions')) {
+            // This is no longer included in the index as it's huge and doesn't render properly either
+            // It must be the last thing in the file, as everything after it is ignored!
+            break;
+        }
+
         if (line.startsWith('##')) {
             // Any L2 or higher is an an anchor
             const spaceIndex = line.indexOf(' ');
@@ -92,6 +101,17 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             if (line.startsWith('####')) {
                 // L4 and higher can have direct links
                 anchors[uniqueAnchor].url += '#' + origAnchor;
+
+                const spaceIndex = line.indexOf(' ');
+                
+                let obj = {
+                    level: spaceIndex,
+                    anchor: uniqueAnchor,
+                    title: line.substring(spaceIndex + 1).trim(),
+                    isContent: true,
+                };
+
+                sections[sections.length - 1].subsections.push(obj);
             }
 
             if (line.startsWith('## ') || line.startsWith('### ')) {
@@ -102,7 +122,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                     content: '',
                     origTitle: origTitle,
                     title: origTitle,
-                    url: '/' + options.outputDir + '/' + curFolder + '/' + curFile + '/'
+                    url: '/' + options.outputDir + '/' + curFolder + '/' + curFile + '/',
+                    subsections: [],
                 };
 
 
@@ -133,13 +154,11 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                         curL3: curL3,
                         level: 4,
                         origTitle: origTitle,
-                        origAnchor: origAnchor
+                        origAnchor: uniqueAnchor
                     };
                     curL3.l4.push(obj);
                 }
             }
-
-
         }
 
         if (sections.length) {
@@ -189,7 +208,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             ii--;
         }
     }
-    
+
     // Generate redirects for all directories to the first page in that group
     const origFile = fs.readFileSync(redirectsPath, 'utf8');
 
@@ -203,6 +222,29 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         redirects['/' + destDir + '/' + curL2.folder] = curL2.url;
 
         apiIndexJson.folderTitles[curL2.folder] = curL2.origTitle;
+
+        apiMenusJson.items.push({
+            title: curL2.origTitle,
+            dir: curL2.folder,
+            collapse: true,
+            subsections: [],
+        });
+    }
+
+    {
+        // Sort L2 headers alphabetically
+        let introductionItem;
+        for(let ii = 0; ii < apiMenusJson.items.length; ii++) {
+            if (apiMenusJson.items[ii].dir == 'introduction') {
+                introductionItem = apiMenusJson.items[ii];
+                apiMenusJson.items.splice(ii, 1);
+                break;
+            }
+        }
+
+        apiMenusJson.items.sort((a,b) => a.title.localeCompare(b.title));
+
+        apiMenusJson.items.splice(0, 0, introductionItem);
     }
 
     // Generate data now
@@ -221,6 +263,57 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                 return '](' + url + ')';
             }
         });
+
+        let l3obj = {
+            title: section.title,
+            dir: section.file,
+            subsections: [],
+        }
+
+        // section.subsections is flat array of objects:
+        //    level: 4 or higher (corresponds to the number of # in the section header)
+        //    anchor: sanitized html anchor in the file 
+        //    title: title from the section header
+
+        // This gets converted into nested objects to make it easier to render as a hierarchical list
+        // item.subsections: Array of objects
+        //   anchor: h4 anchor
+        //   title: h4 title
+        //   subsections: Array of objects if there are h5 headers
+        {
+            let curL4;
+
+            for(const obj of section.subsections) {
+                if (obj.level == 4) {
+                    delete obj.level;
+                    l3obj.subsections.push(obj);
+                    curL4 = obj;
+                }
+                else if (obj.level == 5) {
+                    // Deepest header is h5, and there are not many of them (except in the old firmware version list)
+                    if (!curL4.subsections) {
+                        curL4.subsections = [];
+                    }
+                    delete obj.level;
+                    curL4.subsections.push(obj);
+                }
+            }
+        }
+
+        if (l3obj.subsections.length == 0) {
+            delete l3obj.subsections;
+        }
+
+        const folderItem = apiMenusJson.items.find(e => e.dir == section.folder);
+        if (folderItem) {
+            folderItem.subsections.push(l3obj);
+        }
+        else {
+            console.log('missing folder in apiMenusJson.items ' + section.folder);
+        }
+        
+        delete section.subsections;
+
 
         // Clone the original .md source file
         let newFile = cloneDeep(files[fileName]);
@@ -306,6 +399,31 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         contents: Buffer.from(JSON.stringify(apiIndexJson), 'utf8')
     };
     files['assets/files/apiIndex.json'] = apiIndexJsonInfo;
+    
+    {
+        // Output apiMenus.json
+        
+        let apiMenusJsonChanged = false;
+        const newApiMenusJsonStr = JSON.stringify(apiMenusJson, null, 2);
+        if (fs.existsSync(apiMenusJsonPath)) {
+            const oldApiMenusJsonStr = fs.readFileSync(apiMenusJsonPath, 'utf8');
+    
+            apiMenusJsonChanged = (newApiMenusJsonStr != oldApiMenusJsonStr);
+        }
+        else {
+            apiMenusJsonChanged = true;
+        }
+        if (apiMenusJsonChanged) {
+            fs.writeFileSync(apiMenusJsonPath, newApiMenusJsonStr);
+    
+            const apiMenusJsonInfo = {
+                contents: Buffer.from(newApiMenusJsonStr, 'utf8')
+            };
+            files[apiMenusRelativePath] = apiMenusJsonInfo;
+        
+        }    
+    }
+    
 
     // One time - fix old cards links
     /*

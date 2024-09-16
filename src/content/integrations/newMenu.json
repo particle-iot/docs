@@ -1,0 +1,109 @@
+{
+    "dir": "integrations",
+    "items": [
+        {
+            "dir": "introduction",
+            "title": "Introduction to integrations"
+        },
+        {
+            "dir": "organization-integrations",
+            "title": "Organization integrations"
+        },
+        {
+            "dir": "webhooks",
+            "title": "Webhooks"
+        },
+        {
+            "dir": "webhook-demo",
+            "title": "Webhook demo"
+        },
+        {
+            "dir": "integrations",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "aws",
+                    "title": "Amazon Web Services"
+                },
+                {
+                    "dir": "google-maps",
+                    "title": "Google maps"
+                },
+                {
+                    "dir": "google-cloud-platform",
+                    "title": "Google cloud platform"
+                }
+            ]
+        },
+        {
+            "dir": "community-integrations",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "about-community-integrations",
+                    "title": "About community integrations"
+                },
+                {
+                    "dir": "azure-iot-hub",
+                    "title": "Azure IoT Hub"
+                },
+                {
+                    "dir": "influxdata",
+                    "title": "InfluxData"
+                },
+                {
+                    "dir": "blynk",
+                    "title": "Blynk"
+                },
+                {
+                    "dir": "pushover",
+                    "title": "Pushover (push notifications)"
+                },
+                {
+                    "dir": "qubitro",
+                    "title": "Qubitro"
+                },
+                {
+                    "dir": "questdb",
+                    "title": "QuestDB"
+                },
+                {
+                    "dir": "tulip",
+                    "title": "Tulip"
+                },
+                {
+                    "dir": "ilert",
+                    "title": "ilert"
+                },
+                {
+                    "dir": "ifttt",
+                    "title": "IFTTT"
+                },
+                {
+                    "dir": "zapier",
+                    "title": "Zapier"
+                },
+                {
+                    "dir": "publish-to-google-sheets",
+                    "title": "Publish to Google sheets"
+                },
+                {
+                    "dir": "weather",
+                    "title": "Weather API"
+                },
+                {
+                    "dir": "memfault",
+                    "title": "Memfault"
+                }
+            ]
+        },
+        {
+            "dir": "webhooks-vs-sse",
+            "title": "Webhooks vs. server-sent-events"
+        },
+        {
+            "title": "Machine Learning",
+            "href": "/getting-started/machine-learning/machine-learning/"
+        }
+    ]
+}

@@ -21,7 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Device OS 5.9.0
+### Left navigation fixes 2024-09-16
+
+Fixes to the left navigation menu, particularly in the Device OS API reference, improve performance
+and should eliminate issues with the navigation disappearing and not being able to scroll down
+in the content.
+
+### Device OS 5.9.0 2024-09-09
 
 Device OS 5.9.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.
 

@@ -1,0 +1,105 @@
+{
+    "dir": "community",
+    "items": [
+        {
+            "dir": "forum",
+            "title": "Resources"
+        },
+        {
+            "dir": "community",
+            "title": "Community Supported Clients"
+        },
+        {
+            "dir": "community-tools",
+            "title": "Community Supported Tools"
+        },
+        {
+            "dir": "contributing",
+            "title": "Open Source"
+        },
+        {
+            "dir": "particle-workshops",
+            "title": "About Particle Workshops"
+        },
+        {
+            "dir": "particle-101-workshop",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "introduction",
+                    "title": "Introduction"
+                },
+                {
+                    "dir": "prerequisites",
+                    "title": "Prerequisites"
+                },
+                {
+                    "dir": "a-lap-around-particle",
+                    "title": "Introducing Particle"
+                },
+                {
+                    "dir": "claim-device",
+                    "title": "Claim Device Lab"
+                },
+                {
+                    "dir": "particle-primitives",
+                    "title": "Particle Primitives"
+                },
+                {
+                    "dir": "primitives",
+                    "title": "Primitives Lab"
+                },
+                {
+                    "dir": "device-cloud",
+                    "title": "CLI & Device Cloud Lab"
+                },
+                {
+                    "dir": "ble",
+                    "title": "BLE Lab"
+                },
+                {
+                    "dir": "integrations",
+                    "title": "Webhooks and Integrations"
+                },
+                {
+                    "dir": "webhooks",
+                    "title": "Webhooks Lab"
+                },
+                {
+                    "dir": "debugging",
+                    "title": "Device Debugging Lab"
+                }
+            ]
+        },
+        {
+            "dir": "photon-maker-kit-workshop",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "introduction",
+                    "title": "Introduction"
+                },
+                {
+                    "dir": "ch1",
+                    "title": "Claiming a device"
+                },
+                {
+                    "dir": "ch2",
+                    "title": "Publishing sensor data"
+                },
+                {
+                    "dir": "ch3",
+                    "title": "Particle & Azure"
+                },
+                {
+                    "dir": "ch4",
+                    "title": "Data visualization"
+                },
+                {
+                    "dir": "ch5",
+                    "title": "From Cloud to Device"
+                }
+            ]
+        }
+    ]
+}

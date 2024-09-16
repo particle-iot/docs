@@ -1,0 +1,158 @@
+{
+    "dir": "tools",
+    "items": [
+        {
+            "dir": "tools",
+            "title": "Tools",
+            "tiles": [
+                {
+                    "title": "Device doctor",
+                    "detail": "Troubleshoot connectivity issues",
+                    "href": "/tools/doctor/"
+                },
+                {
+                    "title": "Look up",
+                    "detail": "Find devices and SIMs",
+                    "href": "/tools/developer-tools/lookup/"
+                },
+                {
+                    "title": "Device restore",
+                    "detail": "Restore your device firmware to a known good state",
+                    "href": "/tools/device-restore/device-restore-usb/"
+                },
+                {
+                    "title": "Workbench",
+                    "detail": "Development environment for Particle devices",
+                    "href": "/getting-started/developer-tools/workbench/"
+                },
+                {
+                    "title": "Particle CLI",
+                    "detail": "Command line interfface",
+                    "href": "/reference/developer-tools/cli/"
+                },
+                {
+                    "title": "Console",
+                    "detail": "Manage devices from the Particle console",
+                    "href": "/getting-started/console/console/"
+                }
+            ]
+        },
+        {
+            "title": "Device Doctor",
+            "dir": "doctor"
+        },
+        {
+            "title": "Device Setup",
+            "dir": "setup",
+            "internal": true
+        },
+        {
+            "dir": "developer-tools",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "lookup"
+                },
+                {
+                    "dir": "device-inspect"
+                },
+                {
+                    "dir": "usb-serial"
+                },
+                {
+                    "dir": "ble-serial"
+                },
+                {
+                    "dir": "web-ide-exporter"
+                },
+                {
+                    "dir": "hex-generator"
+                },
+                {
+                    "dir": "battery-calculator",
+                    "title": "Battery calculator"
+                },
+                {
+                    "dir": "configure-wi-fi",
+                    "title": "Configure Wi-Fi"
+                },
+                {
+                    "dir": "class-generator",
+                    "title": "Singleton class generator"
+                },
+                {
+                    "dir": "json",
+                    "title": "JSON tools"
+                },
+                {
+                    "dir": "ble-tdm",
+                    "title": "BLE TDM calculator",
+                    "internal": true
+                }
+            ]
+        },
+        {
+            "dir": "cloud-tools",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "list-devices"
+                },
+                {
+                    "dir": "events",
+                    "title": "Event viewer"
+                },
+                {
+                    "dir": "import-devices",
+                    "title": "Import devices"
+                },
+                {
+                    "dir": "device-remove"
+                },
+                {
+                    "dir": "integration-copy",
+                    "href": "/tools/cloud-tools/integration-copy-old/",
+                    "internal": true
+                },
+                {
+                    "title": "Cellular usage",
+                    "href": "/troubleshooting/connectivity/cellular-usage/"
+                },
+                {
+                    "dir": "configuration-schema",
+                    "title": "Configuration schema"
+                },
+                {
+                    "dir": "tinker",
+                    "title": "Tinker"
+                },
+                {
+                    "dir": "api-users-old",
+                    "title": "API Users (old)",
+                    "internal": true
+                }
+            ]
+        },
+        {
+            "dir": "device-restore",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "device-restore-usb"
+                },
+                {
+                    "dir": "device-restore-jtag"
+                },
+                {
+                    "title": "Device Restore USB (Old Version)",
+                    "href": "/tools/device-restore/device-restore-usb-old/",
+                    "internal": true
+                },
+                {
+                    "dir": "product-device-flash-usb",
+                    "title": "Product Device Flash USB"
+                }
+            ]
+        }
+    ]
+}

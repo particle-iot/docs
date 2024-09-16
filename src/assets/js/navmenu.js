@@ -1,5 +1,8 @@
 // Navigation Menu
-let navMenu = {};
+let navMenu = {
+    gaCategory: 'navMenu',
+
+};
 
 // This is copied from templates/helpers/titleize.js - try to keep in sync
 navMenu.titleize = function(string) {
@@ -78,52 +81,109 @@ navMenu.load = async function() {
 
     navMenu.isHomePage = (navMenu.pathParts[1].length == 0); 
 
-    navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'menu.json';
+    {
+        const parts = [];
+        parts.push('/')
+        for(let ii = 1; ii < navMenu.pathParts.length && navMenu.pathParts[ii].length; ii++) {
+            parts.push(navMenu.pathParts[ii]);
+            parts.push('/')
+        }
+
+        navMenu.hrefPage = parts.join('');
+
+        if (parts.length > 2) {
+            parts.splice(parts.length - 3, 2);
+            navMenu.hrefParent = parts.join('');
+        }
+        else {
+            navMenu.hrefParent = '';
+        }
+    }
+
+    if (window.location.hash && window.location.hash.startsWith('#')) {
+        navMenu.hash = window.location.hash.substring(1);
+    }
+
+    // console.log('navMenu', navMenu);
+
+    navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'newMenu.json';
 
     const fetchRes = await fetch(navMenu.menuPath);
     if (fetchRes.status != 200) {
         // No menus
         return;
     }
+    navMenu.menuJson = await fetchRes.json();
+    // End new code    
 
-    const menuText = await fetchRes.text();
-    navMenu.menuJson = JSON.parse(menuText);
-    // console.log('navMenu.menuJson', navMenu.menuJson);
-
-    navMenu.hrefPage = navMenu.pathParts.join('/');
-    // console.log('hrefPage=' + navMenu.hrefPage);
-
-    if (navMenu.hrefPage.startsWith('/reference/device-os/libraries')) {
-        const fetchRes = await fetch('/assets/files/libraryInfo.json');
-        const libraryInfoText = await fetchRes.text();
-        navMenu.libraryInfo = JSON.parse(libraryInfoText);
-
-        // navMenu.libraryInfo
-        // .letterNavigation - array
-        //      .title (generally uppercase)
-        //      .href
-        //      .letter (may be 'other' or a lowercase letter)
-        //      .letterLibraries - array of libraries for this letter
-
-        // console.log('navMenu.libraryInfo', navMenu.libraryInfo);
-    }
-
-    const processArray = function(array) {
-        for(const item of array) {
-            if (Array.isArray(item)) {
-                processArray(item);
-            }
-            else {
-                if (item.href == navMenu.hrefPage) {
-                    item.activeItem = true;
-                }        
-            }
-        }
-    }
-    processArray(navMenu.menuJson.items)
-    const nav = navMenu.generateNavHtml(navMenu.menuJson);
+    let loadMore;
     
+    if (navMenu.hrefPage.startsWith('/reference/device-os/api')) {
+        loadMore = {
+            'url': '/assets/files/apiMenus.json',
+            'insertLoc': 'device-os-api',
+        };
+    }
+    if (navMenu.hrefPage.startsWith('/reference/device-os/libraries')) {
+        loadMore = {
+            'url': '/assets/files/libraryMenus.json',
+            'insertLoc': 'libraries',
+        };
+
+    }
+    navMenu.navigationItems = [];
+
+    if (loadMore) {
+        const fetchMoreRes = await fetch(loadMore.url);
+        const moreMenuJson = await fetchMoreRes.json();
+
+        const updateInsertLoc = function(array) {
+            for(const itemObj of array) {
+                if (itemObj.insertLoc == loadMore.insertLoc) {
+                    itemObj.subsections = moreMenuJson.items;
+                }
+                if (typeof itemObj.subsections != 'undefined') {
+                    updateInsertLoc(itemObj.subsections);
+                }
+            }
+        }   
+        updateInsertLoc(navMenu.menuJson.items);
+
+        // For the Device OS API and Libraries, this is a sequential list of every page (not anchor)
+        // which is useful for automatically scrolling
+        let nextIsSectionStart = false;
+
+        navMenu.forEachItemInternal(moreMenuJson.items, {callback:function(itemObj) {
+            // if (!itemObj.anchor) {
+                if (nextIsSectionStart) {
+                    itemObj.sectionStart = true;
+                    nextIsSectionStart = false;
+                }
+                navMenu.navigationItems.push(itemObj);
+                if (itemObj.collapse) {
+                    nextIsSectionStart = true;
+                }
+            // }
+        }});
+    }
+    else {
+        navMenu.forEachItem(function(itemObj) {
+            if (!itemObj.anchor) {
+                navMenu.navigationItems.push(itemObj);
+            }
+        });
+    }
+    
+    const nav = navMenu.generateNavHtml(navMenu.menuJson);
     $('.navMenuOuter').replaceWith(nav);
+
+    if (typeof firmwareReference != 'undefined') {
+        firmwareReference.navMenuLoaded();
+    }
+    else {
+        navMenu.syncNavigation();
+        navMenu.searchContent();
+    }
 }
 
 navMenu.openAnchor = function(href) {
@@ -143,287 +203,330 @@ navMenu.openAnchor = function(href) {
     }
 }
 
-navMenu.generateNavHtml = function(menuJson) {
-    // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);
+navMenu.collapseExpandAll = function(showSubsections) {
+    for(const itemObj of navMenu.navigationItems) {
+        if (itemObj.collapseIconElem) {
+            navMenu.collapseExpand(itemObj, showSubsections);
+        }
+    }
+}
 
-    const makeTitle = function (item) {
-        let title = item.title || navMenu.titleize(item.dir);
+navMenu.collapseExpandInternal = function(itemObj, showSubsections) {
 
-        // title = title.replace('&', '&amp;');
-
-        return title;
-    };
-
-    const makeNavMenu2 = function (item, indent) {
-        // console.log('makeNavMenu2 indent=' + indent, item);
-
-        let navActiveClass;
-        let navClass;
-        let useNavLink;
-        if (indent == 0) {
-            navActiveClass = 'navActive1';
-            navClass = 'navMenu1';    
-            useNavLink = false;
+    for(const innerItemObj of itemObj.subsections) {
+        if (showSubsections) {
+            $(innerItemObj.elem).show();
         }
         else {
-            navActiveClass = 'navActive2';
-            navClass = 'navMenu2';    
-            useNavLink = true;
+            $(innerItemObj.elem).hide();
         }
+        if (typeof innerItemObj.subsections != 'undefined') {
+            navMenu.collapseExpandInternal(innerItemObj, showSubsections);
+        }
+    }
+} 
 
-        const divElem = document.createElement('div');
-        $(divElem).addClass('navContainer');
-        if (item.addClass) {
-            $(divElem).addClass(item.addClass);
+navMenu.collapseExpand = function(itemObj, showSubsections) {
+    
+    if (!itemObj.collapseIconElem) {
+        // This item does not have a collapse icon, but maybe a parent does
+        for(const tempItemObj of navMenu.navigationItems) {
+            if (tempItemObj.collapseIconElem && itemObj.hrefNoAnchor.startsWith(tempItemObj.hrefNoAnchor)) {
+                // console.log('navMenu.collapseExpand found parent collapse', {itemObj, tempItemObj});
+                itemObj = tempItemObj;
+                break;
+            }
+        }            
+    }
+
+    if (!itemObj.collapseIconElem) {
+        // console.log('navMenu.collapseExpand did not find parent collapse icon', itemObj)
+        return;
+    }
+
+    if (typeof showSubsections == 'undefined') {
+        showSubsections = $(itemObj.collapseIconElem).hasClass('ion-arrow-right-b');
+    }
+    const isShown = $(itemObj.collapseIconElem).hasClass('ion-arrow-down-b');
+
+    // console.log('navMenu.collapseExpand', { itemObj, showSubsections, isShown, });
+
+    if (isShown != showSubsections) {
+        if (showSubsections) {
+            // Was right, make down
+            $(itemObj.collapseIconElem).removeClass('ion-arrow-right-b');
+            $(itemObj.collapseIconElem).addClass('ion-arrow-down-b');
+    
+            navMenu.collapseExpandInternal(itemObj, true);
         }
-        if (!item.activeItem && item.internal) {
-            $(divElem).addClass('internalMenuItem');
-            if (typeof internalMenuItem == 'undefined') {
-                $(divElem).css('display', 'none');            
+        else {
+            // Has down, make right
+            $(itemObj.collapseIconElem).removeClass('ion-arrow-down-b');
+            $(itemObj.collapseIconElem).addClass('ion-arrow-right-b');
+    
+            navMenu.collapseExpandInternal(itemObj, false);
+        }    
+    }
+}
+
+
+navMenu.forEachItemInternal = function(array, options) {
+    if (typeof options.path == 'undefined') {
+        options.path = [];
+    }
+
+    for(const itemObj of array) {
+        options.path.push(itemObj);
+
+        options.callback(itemObj, options);
+        if (typeof itemObj.subsections != 'undefined') {
+            navMenu.forEachItemInternal(itemObj.subsections, options);
+        }
+        options.path.splice(options.path.length - 1, 1);
+    }
+}
+
+navMenu.forEachItem = function(callback) {    
+    let options = {
+        callback,
+        path: [],
+    }
+    navMenu.forEachItemInternal(navMenu.menuJson.items, options);
+}
+
+navMenu.generateNavHtmlInternal = function(submenuObj, options) {
+    // options
+    //   .level
+    //   .path
+
+    // CSS styles for menu items:
+    // navMenu1, navMenu2, navMenu3, navMenu4, navMenu5
+    // navSectionSpacer, navPlusMinus, navDisclosure
+    // navIndent2, navIndent3, navIndent4, navIndent5
+    // navContent3, navContent4, navContent5
+
+
+    for(const itemObj of submenuObj) {
+        // title, dir
+        itemObj.level = options.level;
+        itemObj.itemPath = (typeof itemObj.dir != 'undefined') ? (options.path + itemObj.dir) : options.path;
+        itemObj.href = itemObj.href ? itemObj.href : itemObj.itemPath;
+        if (!itemObj.title) {
+            itemObj.title = navMenu.titleize(itemObj.dir);
+        }
+        {
+            itemObj.hrefNoAnchor = itemObj.href;
+            const ii = itemObj.hrefNoAnchor.indexOf('#')
+            if (ii > 0) {
+                itemObj.hrefNoAnchor = itemObj.hrefNoAnchor.substring(0, ii);
+            }
+            if (!itemObj.hrefNoAnchor.endsWith('/')) {
+                itemObj.hrefNoAnchor += '/';
             }
         }
+        
 
-        if (indent) {
-            const innerDivElem = document.createElement('div');
-            $(innerDivElem).css('width', (indent * 15) + 'px');            
-            $(innerDivElem).html('&nbsp;');
-            $(divElem).append(innerDivElem);
-        }
+        itemObj.isActivePage = (itemObj.hrefNoAnchor == navMenu.hrefPage) ;
+        itemObj.isActiveParent = (itemObj.hrefNoAnchor == navMenu.hrefParent) ;
+        itemObj.isActivePath = (navMenu.pathParts[itemObj.level + 1] == itemObj.dir);
 
-        if (item.activeItem) {
-            let innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass(navActiveClass);
-            $(innerDivElem).text(makeTitle(item));
-            $(divElem).append(innerDivElem);
+        if (itemObj.isActivePage && !itemObj.anchor && !itemObj.isContent && (typeof itemObj.subsections == 'undefined' || itemObj.insertLoc)) {
+            // This is a normal page, add the internal headers to the navigation   
+            let lastItemAtLevel = [];
+            let lastLevel;
+
+            lastItemAtLevel[1] = itemObj;
+
+            $('div.content-inner').find('h2,h3,h4').each(function() {
+                const level = parseInt($(this).prop('tagName').substring(1));
+                
+                let innerItemObj = {
+                    title: $(this).text(),
+                    anchor: $(this).attr('id'),
+                    isContent: true,
+                    href: itemObj.href,
+                    level,
+                    contentElem: this,
+                };
+
+                let addToLevel;
+                for(addToLevel = level - 1; addToLevel >= 2; addToLevel--) {
+                    if (lastItemAtLevel[addToLevel]) {
+                        break;
+                    }
+                }
+
+                if (lastItemAtLevel[addToLevel]) {
+                    if (typeof lastItemAtLevel[addToLevel].subsections == 'undefined') {
+                        lastItemAtLevel[addToLevel].subsections = [];
+                    }
+                    lastItemAtLevel[addToLevel].subsections.push(innerItemObj);
+                }
+                lastItemAtLevel[level] = innerItemObj;
+
+                if (level < lastLevel) {
+                    lastItemAtLevel = lastItemAtLevel.slice(0, level);
+                }
+                lastLevel = level;
+            });     
             
-            innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass('navPlusMinus');
-            const iElem = document.createElement('i');
-            $(iElem).addClass('minus');
-            $(innerDivElem).append(iElem);
-            $(divElem).append(innerDivElem);
-        }
-        else {
-            let innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass(navClass);
-            const aElem = document.createElement('a');
-            $(aElem).on('click', function(ev) {
-                ev.preventDefault();
-                navMenu.openAnchor(item.href);
-            });
-            $(aElem).attr('href', item.href);
-            if (useNavLink) {
-                $(aElem).addClass('navLink');
-            }
-            $(aElem).text(makeTitle(item));
-            $(innerDivElem).append(aElem);
-            $(divElem).append(innerDivElem);
-        }
-        if (item.internal) {
-            let imgElem = document.createElement('img');
-            $(imgElem).attr('src', '/assets/images/logo.png');
-            $(imgElem).attr('width', '16');
-            $(imgElem).attr('height', '16');
-            $(imgElem).attr('title', 'Only visible to internal users');
-            $(divElem).append(imgElem);
         }
 
-        return divElem;
-    };
+        if (itemObj.anchor) {
+            itemObj.href += '#' + itemObj.anchor;
+        }
+
+        itemObj.elem = document.createElement('div');
+        if (options.hideSubsections) {
+            $(itemObj.elem).hide();   
+        }
+        $(itemObj.elem).addClass('navContainer');
+        $(options.elem).append(itemObj.elem);
+
+        const indentElem = document.createElement('div');
+        $(indentElem).addClass('navIndent' + itemObj.level);
+        $(itemObj.elem).append(indentElem);
+
+        let hideSubsections = false;
+        
+        if (itemObj.collapse) {
+            const triangleElem = document.createElement('div');
+            $(triangleElem).addClass('navDisclosure');
+
+            itemObj.collapseIconElem = document.createElement('i');      
+            if (itemObj.isActivePath) {
+                $(itemObj.collapseIconElem).addClass('ion-arrow-down-b');
+            }   
+            else {
+                $(itemObj.collapseIconElem).addClass('ion-arrow-right-b');
+                hideSubsections = true;
+            }   
+            $(triangleElem).append(itemObj.collapseIconElem);
+
+            $(itemObj.elem).append(triangleElem);
+
+            $(itemObj.elem).on('click', function(ev) {
+                if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
+                    // Was right, make down (open)
+                    analytics.track('collapseExpand', {label:itemObj.hrefNoAnchor, category:navMenu.gaCategory});
+                    if (!ev.altKey) {
+                        navMenu.collapseExpand(itemObj, true);
+                    }
+                    else {
+                        navMenu.collapseExpandAll(true);
+                    }
+                }
+                else {
+                    // Has down, make right (close)
+                    analytics.track('collapseCollapse', {label:itemObj.hrefNoAnchor, category:navMenu.gaCategory});
+                    if (!ev.altKey) {
+                        navMenu.collapseExpand(itemObj, false);
+                    }
+                    else {
+                        navMenu.collapseExpandAll(false);
+                    }
+                }
+            });
+
+
+        }
+
+        itemObj.linkElem = document.createElement('div');
+        if (itemObj.isActivePage && (!itemObj.anchor || itemObj.anchor == navMenu.hash) && (typeof firmwareReference == 'undefined')) {
+            // Don't highlight the active page for firmware reference here, it's done in syncNavigation
+            $(itemObj.linkElem).addClass("navActive");
+        }
+        else {
+            $(itemObj.linkElem).removeClass("navActive");
+        }
+        $(itemObj.linkElem).addClass("navMenu" + itemObj.level);
+
+        let canLink = false;
+        if (!itemObj.isActivePage && !itemObj.isSection) {
+            // Non-active pages can be linked to, unless they are section headers
+            canLink = true;
+        }
+        else 
+        if (itemObj.anchor) {
+            // Allow any page with an anchor to be linked to (this happens for deep inside the Device OS API reference)
+            canLink = true;
+        }
+        else
+        if (itemObj.insertLoc) {
+            // Special page (Device OS API or Libraries) can be linked to always
+            canLink = true;
+        }
+
+        if (canLink) {
+            // This is not the active page and does not have subsections, so it's a clickable link
+            // Also do this if it's a special page (Device OS API or Libraries)
+            const aElem = document.createElement('a');
+            $(aElem).addClass('navLink');
+            if (typeof itemObj.anchor == 'undefined') {
+                $(aElem).attr('href', itemObj.href);
+            }
+            else {
+                $(aElem).attr('href', '#' + itemObj.anchor);
+                $(aElem).on('click', function(ev) {
+                    ev.preventDefault();
+
+                    analytics.track('navClickInPage', {label:itemObj.anchor, category:navMenu.gaCategory});
+
+                    $('.menubar').find('.navLinkActive').removeClass('navLinkActive');        
+                    $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+                    navMenu.scrollToActive();        
+
+                    if (itemObj.contentElem) {
+                        navMenu.scrollDocsToElement(itemObj.contentElem);
+                    }
+                });            
+            }
+            $(aElem).text(itemObj.title);
+
+            $(itemObj.linkElem).append(aElem);
+            itemObj.navLinkElem = aElem;
+        }
+        else {
+            $(itemObj.linkElem).text(itemObj.title);
+        }
+        $(itemObj.elem).append(itemObj.linkElem);    
+
+
+        // console.log('itemObj', itemObj);
+
+        if (typeof itemObj.subsections != 'undefined') {
+            // Item with subsection
+
+            const subOptions = Object.assign({}, options);
+            subOptions.level = options.level + 1;
+            subOptions.path = itemObj.itemPath + '/';
+            subOptions.hideSubsections = options.hideSubsections || hideSubsections;
+
+            navMenu.generateNavHtmlInternal(itemObj.subsections, subOptions);
+        }
+        else {
+            // Regular item
+
+        }
+    }
+}
+
+navMenu.generateNavHtml = function(menuJson) {
+    const path = (menuJson.dir == '') ? '/' : '/' + menuJson.dir + '/';
+
+    // console.log('menuJson', menuJson);
 
     const navElem = document.createElement('div');
     $(navElem).addClass('navMenuOuter');
+    $(navElem).data('menuJson', menuJson);
 
-    let itemsFlat = [];
-    let cardSections = [];
-    let noSeparator = false;
-
-    const processArray = function(array, indent) {
-        let hasActiveItem = false;
-        // console.log('processArray indent=' + indent, array);
-
-        for (const item of array) {
-            if (item.isSection) {
-                // Multi-level section title
-                const navContainerElem = document.createElement('div');
-                $(navContainerElem).addClass('navContainer');
-                if (item.addClass) {
-                    $(navContainerElem).addClass(item.addClass);
-                }
-
-                if (indent) {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).css('width', (indent * 15) + 'px');            
-                    $(innerDivElem).html('&nbsp;');
-                    $(navContainerElem).append(innerDivElem);
-                }
-
-                if (item.href) {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navMenu1');
-
-                    const aElem = document.createElement('a');
-                    $(aElem).on('click', function(ev) {
-                        ev.preventDefault();
-                        navMenu.openAnchor(item.href);
-                    });
-                    $(aElem).attr('href', item.href);
-                    $(aElem).addClass('navLink');
-                    $(aElem).text(makeTitle(item));
-                    $(innerDivElem).append(aElem);
-                    
-                    $(navContainerElem).append(innerDivElem);
-                }
-                else {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navMenu1');
-                    $(innerDivElem).text(makeTitle(item));
-                    $(navContainerElem).append(innerDivElem);
-                }
-                $(navElem).append(navContainerElem);
-
-                if (item.noSeparator) {
-                    noSeparator = true;
-                }
-            }
-            else if (Array.isArray(item)) {
-                // Multi-level (like tutorials, reference, datasheets)
-                processArray(item, indent + 1);
-
-                if (noSeparator) {
-                    noSeparator = false;
-                }
-                else {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navSectionSpacer');
-                    $(navElem).append(innerDivElem);
-                }
-                
-            }
-            else         
-            if (item.activeItem || !item.hidden) {
-                $(navElem).append(makeNavMenu2(item, indent));
-                itemsFlat.push(item);
-            }
-            else {
-            }
-
-            if (item.activeItem) {
-                hasActiveItem = true;
-
-                let innerDivElem = document.createElement('div');
-                $(innerDivElem).attr('id', 'navActiveContent');
-                $(navElem).append(innerDivElem);        
-            }
-
-            if (item.isLibrarySearch && navMenu.libraryInfo) {
-                // Insert letter navigation here
-                for(const obj of navMenu.libraryInfo.letterNavigation) {
-                    const navContainerElem = document.createElement('div');
-                    $(navContainerElem).addClass('navContainer');
-                    if (item.addClass) {
-                        $(navContainerElem).addClass(item.addClass);
-                    }
-    
-                    if (indent) {
-                        const innerDivElem = document.createElement('div');
-                        $(innerDivElem).css('width', (indent * 15) + 'px');            
-                        $(innerDivElem).html('&nbsp;');
-                        $(navContainerElem).append(innerDivElem);
-                    }
-    
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navMenu1');
-
-                    // -1 is empty, -2 = library name, -3 = letter
-                    const isThisLetter = navMenu.pathParts[navMenu.pathParts.length - 3] == obj.letter;
-                    
-                    if (!isThisLetter) {
-                        const aElem = document.createElement('a');
-                        $(aElem).on('click', function(ev) {
-                            ev.preventDefault();
-                            navMenu.openAnchor(obj.href);
-                        });
-                        $(aElem).attr('href', obj.href);
-                        $(aElem).addClass('navLink');
-                        $(aElem).text(obj.title);
-                        $(innerDivElem).append(aElem);    
-                    }
-                    else {
-                        $(innerDivElem).text(obj.title);
-                    }
-                    
-                    $(navContainerElem).append(innerDivElem);
-                    $(navElem).append(navContainerElem);
-
-
-                    if (isThisLetter) {
-                        for(const libName of obj.libraries) {
-                            let isActiveItem = false;
-                                
-                            const libUrlArray = navMenu.pathParts.slice(0, navMenu.pathParts.length - 2);
-                            libUrlArray.push(libName);
-                            libUrlArray.push('');
-                            
-                            
-                            const navContainerElem = document.createElement('div');
-                            $(navContainerElem).addClass('navContainer');
-                            if (item.addClass) {
-                                $(navContainerElem).addClass(item.addClass);
-                            }
-            
-                            {
-                                const innerDivElem = document.createElement('div');
-                                $(innerDivElem).css('width', ((indent + 1) * 15) + 'px');            
-                                $(innerDivElem).html('&nbsp;');
-                                $(navContainerElem).append(innerDivElem);    
-                            }
-                            {
-                                const innerDivElem = document.createElement('div');
-                                $(innerDivElem).addClass('navMenu1');    
-
-
-                                if (navMenu.pathParts[navMenu.pathParts.length - 2] == libName) {
-                                    const currentTitleElem = document.createElement('div');
-                                    $(currentTitleElem).addClass('navMenu1');
-                                    $(currentTitleElem).text(libName);
-                                    $(innerDivElem).append(currentTitleElem);                    
-                                    isActiveItem = true;
-                                }
-                                else {
-                                    const aElem = document.createElement('a');
-                                    $(aElem).attr('href', libUrlArray.join('/'));
-                                    $(aElem).addClass('navLink');
-                                    $(aElem).text(libName);
-                                    $(innerDivElem).append(aElem);        
-                                }
-                                $(navContainerElem).append(innerDivElem);            
-                            }
-        
-                            $(navElem).append(navContainerElem);
-
-                            if (isActiveItem) {
-                                const innerDivElem = document.createElement('div');
-                                $(innerDivElem).attr('id', 'navActiveContent');
-                                $(innerDivElem).data('level', '4');                                
-                                $(navElem).append(innerDivElem);                        
-                            }
-
-                            
-                        
-                        }
-                    }
-                }
-            }
-
-        }
-        if (hasActiveItem && cardSections.length > 0) {
-            cardSections[cardSections.length - 1].activeSection = true;
-        }
-
+    const options = {
+        level:1, 
+        path,
+        elem: navElem,
     };
-    processArray(menuJson.items, 0);
 
+    navMenu.generateNavHtmlInternal(menuJson.items, options);
 
     return navElem;
 }
@@ -627,293 +730,287 @@ navMenu.searchContent = function() {
 
 
                     $(trElem).on('click', function() {
-                        Docs.scrollToElement($('#' + res.ref));
+                        navMenu.scrollDocsToElement ($('#' + res.ref));
                     });
 
                     $(tbodyElem).append(trElem);
                 }
             }
 
-            Docs.scrollToElement($('#' + searchResults[0].ref));
+            navMenu.scrollDocsToElement ($('#' + searchResults[0].ref));
         }
     });
 }
 
-navMenu.scanHeaders = function () {
-    if (navMenu.thisUrl.pathname.startsWith('/reference/device-os/api')) {
-        return;
+navMenu.scrollToActive = function () {
+
+    let activeElem = $('.navLinkActive');
+    if (activeElem.length == 0) {
+        activeElem = $('.navActive');
     }
+    
+    if (activeElem.length) {
+        const boundingRect = $(activeElem)[0].getBoundingClientRect();
 
-    let navLevel = $('#navActiveContent').data('level') || 3;
+        const menubarRect = $('.menubar')[0].getBoundingClientRect();
 
-    navMenu.headers = [];
+        //console.log('scrollToActive', {boundingRect, menubarRect});
 
-    const contentInner = $('div.content-inner');
-
-    navMenu.useDisclosureTriangle = false;
-
-    let headerLevels = 'h2,h3,h4';
-    let levelAdjust = 0;
-
-    let lastL2;
-    let hasL2 = false;
-
-    $(contentInner).find(headerLevels).each(function (index, elem) {
-        // console.log('elem', elem);
-        const id = $(elem).prop('id');
-        if (id) {
-            const level = parseInt($(elem).prop('tagName').substr(1)) + levelAdjust;
-            let obj = { 
-                elem, 
-                id, 
-                level,
-                text: $(elem).text(),
-            };
-            navMenu.headers.push(obj);
-
-            if (level == 2) {
-                lastL2 = obj;
-                hasL2 = true;
-            }
-
-            if (level > 2) {
-                if (lastL2) {
-                    navMenu.useDisclosureTriangle = true;
-                    lastL2.hasDisclosureTriangle = true;
-                }
-            }
-        }
-    });
-
-    if (!hasL2) {
-        // Document has no L2 headers, promote all headers by one level
-        for(let hdr of navMenu.headers) {
-            hdr.level--;
-        }
-    }
-
-    // console.log('scanHeaders headers', navMenu.headers);
-    navMenu.searchContent();
-
-    navMenu.currentHeader = 0;
-
-    $(contentInner).on('scroll', function () {
-        // Copied from docs.js.hbs
-        var scrollPosition = contentInner.scrollTop();
-        var done = false;
-
-        var oldHeader = navMenu.currentHeader;
-        while (!done) {
-            if (navMenu.currentHeader < navMenu.headers.length - 2 &&
-                scrollPosition >= Math.floor($(navMenu.headers[navMenu.currentHeader + 1].elem).position().top)) {
-                navMenu.currentHeader += 1;
-            } else if (navMenu.currentHeader > 0 &&
-                scrollPosition < Math.floor($(navMenu.headers[navMenu.currentHeader].elem).position().top)) {
-                navMenu.currentHeader -= 1;
-            } else {
-                done = true;
-            }
-        }
-
-        if (oldHeader !== navMenu.currentHeader) {
-            navMenu.updateTOC();
-        }
-    });
-
-    $('.navActive2').siblings('.navPlusMinus').on('click', function() {
-        const iconElem = $(this).find('i');
-
-        if ($(iconElem).hasClass('ion-minus')) {
-            // Is minus (content displayed), change to plus (content hidden)
-            $(iconElem).removeClass('ion-minus').addClass('ion-plus');
-            $('#navActiveContent').hide();
+        if ((boundingRect.top >= menubarRect.top) && (boundingRect.bottom <= menubarRect.bottom)) {
+            // Is already visible, don't scroll
         }
         else {
-            // Is plus (content hidden, change to minus (content displayed)
-            $(iconElem).removeClass('ion-plus').addClass('ion-minus');
-            $('#navActiveContent').show();
+            activeElem[0].scrollIntoView();  
         }
-
-    });  
-
-    // Build TOC HTML
-    lastL2 = null;
-    let lastL3;
-
-    let hasActiveContent = false;
-
-    const createSimpleTocElem = function(hdr, level) {
-        let e1, e2, e3;
-
-        e1 = document.createElement('div');
-        $(e1).addClass('navMenu' + level  + ' navContainer');
-
-        e2 = document.createElement('div');
-        $(e2).addClass('navIndent' + level)
-        $(e1).append(e2);
-
-        e2 = document.createElement('div');
-        $(e2).addClass('navContent' + level);
-
-        e3 = document.createElement('a');
-        $(e3).addClass('navLink')
-        $(e3).attr('href', '#' + hdr.id);
-        $(e3).on('click', function() {
-            navMenu.openAnchor(hdr.id);
-        });
-        $(e3).text($(hdr.elem).text());
-        $(e2).append(e3);
-        $(e1).append(e2);
-
-        $('#navActiveContent').append(e1);
-        hasActiveContent = true;
-
-        $(e1).hide();
-        hdr.tocElem = e1;
-
-        return e1;
-    }
-
-    $('#navActiveContent').empty();
-    for (let hdr of navMenu.headers) {
-        if (hdr.level == 2) {
-            let e1, e2, e3, e4;
-
-            e1 = document.createElement('div');
-            $(e1).addClass('navMenu' + navLevel + ' navContainer');
-
-            e2 = document.createElement('div');
-            $(e2).addClass('navIndent' + navLevel);
-            $(e1).append(e2);
-
-            if (hdr.hasDisclosureTriangle) {
-                e2 = document.createElement('div');
-                $(e2).addClass('navDisclosure');
-
-                const iconElem = document.createElement('i');
-                $(iconElem).addClass('ion-arrow-right-b');
-                $(e2).append(iconElem);
-
-                const clickHdr = hdr;
-
-                $(e2).on('click', function () {
-                    if ($(iconElem).hasClass('ion-arrow-right-b')) {
-                        // Was right, make down
-                        $(iconElem).removeClass('ion-arrow-right-b');
-                        $(iconElem).addClass('ion-arrow-down-b');                        
-                        $(clickHdr.tocChildren).show();
-                    }
-                    else {
-                        // Has down, make right
-                        $(iconElem).removeClass('ion-arrow-down-b');
-                        $(iconElem).addClass('ion-arrow-right-b');
-                        $(clickHdr.tocChildren).hide();
-                    }
-                });
-
-                $(e1).append(e2);
-            }
-            else if (navMenu.useDisclosureTriangle) {
-                // This is a change in behavior from before. Now, if there are
-                // any disclosure triangles, entries without one are indented
-                // to the same level so the text is aligned.
-                e2 = document.createElement('div');
-                $(e2).addClass('navDisclosure');
-                $(e1).append(e2);
-            }
-
-            e2 = document.createElement('div');
-            $(e2).addClass('navContent3');
-
-            e3 = document.createElement('a');
-            $(e3).addClass('navLink')
-            $(e3).attr('href', '#' + hdr.id);
-            $(e3).on('click', function() {
-                navMenu.openAnchor(hdr.id);
-            });
-            $(e3).text($(hdr.elem).text());
-            $(e2).append(e3);
-            $(e1).append(e2);
-
-            $('#navActiveContent').append(e1);
-            hasActiveContent = true;
-            hdr.tocElem = e1;
-
-            lastL2 = hdr;
-        }
-        else if (hdr.level == 3 && lastL2) {
-            let elem = createSimpleTocElem(hdr, 4);
-
-            if (!lastL2.tocChildren) {
-                lastL2.tocChildren = [];
-            }
-            lastL2.tocChildren.push(elem);
-
-            lastL3 = hdr;
-        }
-        else if (hdr.level == 4 && lastL3) {
-            let elem = createSimpleTocElem(hdr, 5);
-
-            if (!lastL3.tocChildren) {
-                lastL3.tocChildren = [];
-            }
-            lastL3.tocChildren.push(elem);
-        }
-    }
-
-    if (!hasActiveContent) {
-        $('.navActive2').siblings('.navPlusMinus').hide();
     }
 };
 
-navMenu.updateTOC = function () {
+navMenu.scrollDocsToElement = function (element) {
+    let topOffset = 10;
 
-    let hierarchy = [];
-    hierarchy.push(navMenu.headers[navMenu.currentHeader]);
-    for (let ii = navMenu.currentHeader - 1; ii >= 0; ii--) {
-        if (navMenu.headers[ii].level < hierarchy[0].level) {
-            hierarchy.splice(0, 0, navMenu.headers[ii]);
+    // Make selection visible
+    let tempElem = $(element);
+    for (let tries = 0; tries < 20; tries++) {
+        if ($(tempElem).hasClass('content')) {
+            break;
         }
-        if (hierarchy[0].level == 2) {
+
+        if ($(tempElem).hasClass('collapseIndent')) {
+            if (!$(tempElem).is(':visible')) {
+                $(tempElem).show();
+                break;
+            }
+            else {
+            }
+        }
+        tempElem = $(tempElem).parent();
+    }
+
+    const containerElem = $('.document-search-container');
+    if (containerElem.length) {
+        if ($(containerElem).is(':visible')) {
+            topOffset -= $(containerElem).height();
+        }
+    }
+
+    var $element = $(element);
+    if ($element.length === 1) {
+        var position = $element.position().top + topOffset;
+        $('.content-inner').scrollTop(position);
+    }
+    navMenu.syncNavigation();
+};
+
+navMenu.syncNavigation = function() {
+    if (!navMenu.menuJson) {
+        return;
+    }
+    if (typeof firmwareReference != 'undefined') {
+        firmwareReference.syncNavigation();
+        return;
+    }
+    
+    let pageOffsets = [];
+    $('div.content-inner').find('h2,h3,h4,h5').each(function (index, elem) {
+        const offset = $(this).offset();
+
+        let obj = {
+            top: offset.top,
+            id: $(this).attr('id'),
+        };
+        pageOffsets.push(obj);    
+    });
+
+    // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
+    // one to display.
+    // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
+    // because it's been scrolled up.
+    const menubarRect = $('.menubar')[0].getBoundingClientRect();
+    
+    let topIndex;
+    for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+        if (pageOffsets[ii].top < (menubarRect.top + 10)) {
+            topIndex = ii;
             break;
         }
     }
-    
-    // Change active links back to plain
-    $('.navLinkActive').removeClass('navLinkActive').addClass('navLink');
+    if (typeof topIndex == 'undefined') {
+        return;
+    }
 
-    // Collapse all sections
-    $('#navActiveContent i').removeClass('navActive').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-    $('.navMenu4').hide();
-    $('.navMenu5').hide();
+    const id = pageOffsets[topIndex].id;
 
-    // Expand the current section
-    $(hierarchy[0].tocElem).find('i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
+    if (navMenu.lastAnchor == id) {
+        return;
+    }
+    navMenu.lastAnchor = id;
 
-    for (let ii = 0; ii < hierarchy.length; ii++) {
-        if (hierarchy[ii].tocElem) {
-            $(hierarchy[ii].tocElem).find('a').removeClass('navLink').addClass('navLinkActive');
+    $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+
+    navMenu.forEachItem(function(itemObj) {
+        if (itemObj.isContent) {
+            if (itemObj.anchor == id) {
+                $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+                navMenu.scrollToActive();
+            }
         }
-        $(hierarchy[ii].tocChildren).show();
-    }
-    navMenu.scrollToActive();
-};
+    });
+}
 
-navMenu.scrollToActive = function () {
-    let activeElem = $('.navLinkActive');
-    if (activeElem.length == 0) {
-        activeElem = $('.navActive2');
+navMenu.navigatePage = function(options) {
+    if (!options.dir) {
+        options.dir = 1;
     }
-    if (activeElem.length) {
-        activeElem[0].scrollIntoView();  
-    }
-};
 
+    let index;
+
+    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+        const itemObj = navMenu.navigationItems[ii];
+        if (navMenu.thisUrl.pathname == itemObj.hrefNoAnchor) {
+            // Found page
+            if (options.dir > 0) {
+                if ((ii + 1) < navMenu.navigationItems.length) {
+                    index = ii + 1;
+                }
+            }
+            else {
+                if (ii > 0) {
+                    index = ii - 1;
+                }
+            }
+            break;
+        }
+    }
+    if (typeof index != 'undefined') {
+        location.href = navMenu.navigationItems[index].hrefNoAnchor;
+    }
+}
+
+
+navMenu.navigate = function(dir) {
+    if (typeof firmwareReference != 'undefined') {
+        firmwareReference.navigate(dir);
+        return;
+    }
+
+    const scrollableContent = $('div.content-inner');
+
+    switch(dir) {
+        case 'up':
+        case 'down':
+            break;
+
+        case 'left':
+            navMenu.navigatePage({section: true, dir: -1});
+            break;
+
+        case 'right':
+            navMenu.navigatePage({section: true, dir: +1});
+            break;
+
+
+        case 'Home':
+        case 'End':
+        case 'PageUp':
+        case 'PageDown':
+            $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
+            break;
+    }
+}
 
 navMenu.ready = async function () {
     await navMenu.load();
 
-    navMenu.scanHeaders();
+
+    let startX, startY, startTime;
+
+    $('div.page-body').on('touchstart', function(e) {
+        startX = e.changedTouches[0].pageX;
+        startY = e.changedTouches[0].pageY;
+        startTime = Date.now();
+    });
+
+    $('div.page-body').on('touchend', function(e) {
+        const deltaX = e.changedTouches[0].pageX - startX;
+        const deltaY = e.changedTouches[0].pageY - startY;
+        const deltaTime = Date.now() - startTime;
+
+        if (Math.abs(deltaX) < 30 && Math.abs(deltaY) < 30 && deltaTime < 200) {
+            // Tap
+            if (startX < 150) {
+                // Tap left
+                navMenu.navigate('left');
+            }
+            else
+            if (startX > (screen.width - 150)) {
+                // Tap right
+                navMenu.navigate('right');
+            }
+        }
+
+        if (Math.abs(deltaX) > 150 && Math.abs(deltaY) < 150 && deltaTime < 400) {
+            // Swipe
+            if (deltaX < 0) {
+                // Right (next)
+                navMenu.navigate('right');
+            }  
+            else {
+                // Left (previous)
+                navMenu.navigate('left');
+            }
+        }    
+    });    
+
+    
+
+    $('body').on('keydown', function(ev) {
+        if (ev.shiftKey) {
+            switch(ev.key) {
+                case 'ArrowLeft':
+                    // Prev topic
+                    ev.preventDefault();
+                    navMenu.navigate('left');
+                    break;
+
+                case 'ArrowRight':
+                    // Next topic
+                    ev.preventDefault();
+                    navMenu.navigate('right');
+                    break;
+
+                case 'ArrowUp':
+                    // Previous section
+                    ev.preventDefault();
+                    navMenu.navigate('up');
+                    break;
+
+                case 'ArrowDown':
+                    // Next section
+                    ev.preventDefault();
+                    navMenu.navigate('down');
+                    break;
+            }
+        }
+        else {
+            switch(ev.key) {
+                case 'Home':
+                case 'End':
+                case 'PageUp':
+                case 'PageDown':
+                    ev.preventDefault();
+                    navMenu.navigate(ev.key);
+                    break;
+            }
+        }
+    });
+
+
+    $('div.content-inner').on('scroll', function(e) {
+        // TODO: Probably include code from firmware-reference to restrict syncNavigation
+        navMenu.syncNavigation();
+    });
+
+    // navMenu.scanHeaders();
     navMenu.scrollToActive();
 
 

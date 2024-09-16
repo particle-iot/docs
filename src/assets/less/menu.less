@@ -85,11 +85,8 @@ div.navMenu1 {
   color: var(--theme-menubar-color);
 }
 
-div.navActive1 {
-  .STYLE_left_nav_heading();
-  margin-top: 4px;
-  margin-bottom: 5px;
-  color: var(--theme-menubar-selected-color);
+div.navActive {
+  color: var(--theme-menubar-selected-color) !important;
 }
 
 
@@ -106,20 +103,6 @@ div.navMenu2 {
   }
 }
 
-div.navActive2 {
-  .STYLE_left_nav_page();
-  font-weight: 500;
-  color: var(--theme-menubar-selected-color);
-  text-decoration: none;
-  padding-bottom: 3px;
-  width: 230px;
-  overflow: hidden;
-  white-space: nowrap;
-
-  @media (min-width: @screenWidthForMenubarWide) {
-    width: 230px + @menubarWideExtra;
-  }
-};
 
 div.navMenu3 {
   .STYLE_left_nav_page();
@@ -132,7 +115,6 @@ div.navMenu3 {
   @media (min-width: @screenWidthForMenubarWide) {
     width: 245px + @menubarWideExtra;
   }
-
 };
 
 div.navMenu4 {
@@ -149,6 +131,8 @@ div.navMenu4 {
 
 };
 
+
+
 div.navMenu5 {
   .STYLE_left_nav_page();
   padding-bottom: 2px;
@@ -163,6 +147,22 @@ div.navMenu5 {
 
 };
 
+
+div.navMenu6 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
+
 div.navSectionSpacer {
   height: 10px;
 };
@@ -173,6 +173,10 @@ div.navPlusMinus {
 
 div.navDisclosure {
   width: 15px;
+};
+
+div.navIndent1 {
+  width: 0px;
 };
 
 div.navIndent2 {
@@ -224,6 +228,105 @@ div.navContent5 {
 
 };
 
+div.navIndent6 {
+  width: 85px;
+};
+div.navContent6 {
+  width: 165px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 185px + @menubarWideExtra;
+  }
+
+};
+
+div.navIndent7 {
+  width: 95px;
+};
+div.navContent7 {
+  width: 155px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 185px + @menubarWideExtra;
+  }
+
+};
+div.navMenu7 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 155px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
+
+div.navIndent8 {
+  width: 105px;
+};
+div.navContent8 {
+  width: 145px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 185px + @menubarWideExtra;
+  }
+
+};
+div.navMenu8 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 145px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
+
+div.navIndent9 {
+  width: 115px;
+};
+div.navContent9 {
+  width: 135px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 185px + @menubarWideExtra;
+  }
+
+};
+div.navMenu9 {
+  .STYLE_left_nav_page();
+  padding-bottom: 2px;
+  width: 115px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--theme-menubar-minor-color);
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
+};
+
+
+
 div.navContent {
   overflow: hidden;
 };
@@ -250,7 +353,7 @@ div.navMenu1 > a {
   &:link {
     text-decoration: none;
   }
-  &:visited {
+  &:visted {
     text-decoration: none;
   }
   &:hover {
@@ -260,7 +363,7 @@ div.navMenu1 > a {
 
 a.navLinkActive {
   font-weight: 500;
-  color: var(--theme-menubar-selected-color);
+  color: var(--theme-menubar-selected-color) !important;
 };
 
 a.navLinkActive {

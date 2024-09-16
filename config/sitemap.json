@@ -4407,8 +4407,8 @@
             "hash": "3595473a42ae46ef8b93664168ffd86ca47aef3c74126f45f7afea21cf9f054d"
         },
         "reference/device-os/api/memory/stack.md": {
-            "date": "2024-09-09",
-            "hash": "567813a6af6cbdca83c3be2a57c5ce644dec4e832638820bba6a274ec49320cd"
+            "date": "2024-09-11",
+            "hash": "87147360a4891c118c5fe9bdd807d2a658c86198ab6540cd3b5eeea22ebe05f9"
         },
         "reference/device-os/api/device-os-versions/device-os-versions.md": {
             "date": "2023-09-20",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "01d9d9cc92f5a662d24801d98309ce1286ede041b7e52dbcde1daa2fee0a317e",
-            "date": "2024-09-09"
+            "hash": "ccb442c392451d6ab1fdae214c853b53ac3bf93f98de506dec5ab47fb7037285",
+            "date": "2024-09-16"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9189,6 +9189,10 @@
         "reference/device-os/libraries/f/FileHelperRK.md": {
             "hash": "22e6f47b639b8022f80175c679f05a4c16d225d77f6a92006fe2e73f12c46d5c",
             "date": "2024-08-30"
+        },
+        "quickstart/monitor-one.md": {
+            "hash": "c16737091356a8b71635aef02b1dfb20deb06afb44be86c3f03c69348309dab5",
+            "date": "2024-09-16"
         }
     }
 }
