@@ -397,16 +397,26 @@ $(document).ready(function() {
             }
         }
         if (typeof itemsNearby.aboveIndex == 'undefined' && itemsNearby.visible.length) {
-            const index = itemsNearby.visible[0];
-            if (index > 0) {
-                itemsNearby.loadAboveIndex = index - 1;
+            let index = itemsNearby.visible[0] - 1;
+            for(; index >= 0; index--) {
+                if (typeof navMenu.navigationItems[index].anchor == 'undefined') {
+                    break;
+                }
+            }
+            if (index >= 0) {
+                itemsNearby.loadAboveIndex = index;
             }
         }
 
         if (typeof itemsNearby.belowIndex == 'undefined' && itemsNearby.visible.length) {
-            const index = itemsNearby.visible[itemsNearby.visible.length - 1];
-            if ((index + 1) < navMenu.navigationItems.length) {
-                itemsNearby.loadBelowIndex = index + 1;
+            const index = itemsNearby.visible[itemsNearby.visible.length - 1] + 1;
+            for(; index < navMenu.navigationItems.length; index++) {
+                if (typeof navMenu.navigationItems[index].anchor == 'undefined') {
+                    break;
+                }
+            }
+            if (index < navMenu.navigationItems.length) {
+                itemsNearby.loadBelowIndex = index;
             }
         }
 
