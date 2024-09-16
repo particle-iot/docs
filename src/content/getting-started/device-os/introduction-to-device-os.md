@@ -115,7 +115,7 @@ New features, security patches, and bug fixes are introduced to new versions of 
 
 Device OS versions that are suffixed with `-rc.x` are called _prereleases_ ("rc" stands for release candidate). These prereleases contain the changes that will eventually become a default release, but still need more thorough usage and testing. We recommend that you **do not** flash prereleased firmware to your production units deployed in the field.
 
-Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of Device OS releases and their descriptions, please check out [the release page on GitHub](https://github.com/particle-iot/device-os/releases) for the firmware repository.
+Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of Device OS releases and their descriptions, see the [Device OS version guide](/reference/device-os/versions).
 
 ## Firmware modules
 
