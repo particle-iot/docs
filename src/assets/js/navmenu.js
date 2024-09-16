@@ -1,5 +1,6 @@
 // Navigation Menu
 let navMenu = {
+    gaCategory: 'navMenu',
 
 };
 
@@ -406,6 +407,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             $(itemObj.elem).on('click', function(ev) {
                 if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
                     // Was right, make down (open)
+                    analytics.track('collapseExpand', {label:itemObj.hrefNoAnchor, category:navMenu.gaCategory});
                     if (!ev.altKey) {
                         navMenu.collapseExpand(itemObj, true);
                     }
@@ -415,6 +417,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                 }
                 else {
                     // Has down, make right (close)
+                    analytics.track('collapseCollapse', {label:itemObj.hrefNoAnchor, category:navMenu.gaCategory});
                     if (!ev.altKey) {
                         navMenu.collapseExpand(itemObj, false);
                     }
@@ -465,6 +468,8 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                 $(aElem).attr('href', '#' + itemObj.anchor);
                 $(aElem).on('click', function(ev) {
                     ev.preventDefault();
+
+                    analytics.track('navClickInPage', {label:itemObj.anchor, category:navMenu.gaCategory});
 
                     $('.menubar').find('.navLinkActive').removeClass('navLinkActive');        
                     $(itemObj.elem).find('.navLink').addClass('navLinkActive');

@@ -1,6 +1,7 @@
 let firmwareReference = {
     pageQueue: [],
     pageLoading: false,
+    gaCategory: 'firmware-reference',
 };
 
 $(document).ready(function() {
@@ -124,6 +125,8 @@ $(document).ready(function() {
                 params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
 
                 if (options.replacePage) {
+                    analytics.track('replacePage', {label:options.link, category:firmwareReference.gaCategory});
+
                     for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
                         if (ii != itemIndex) {
                             const tempItemObj = navMenu.navigationItems[ii];
@@ -144,12 +147,14 @@ $(document).ready(function() {
                 else {
                     if (itemIndex < firmwareReference.topIndex) {
                         firmwareReference.topIndex = itemIndex;
+                        analytics.track('addPageTop', {label:options.link, category:firmwareReference.gaCategory});
 
                         $('div.content').not('.note-common').first().prepend(divElem);
                     }
                     else
                     if (itemIndex > firmwareReference.bottomIndex) {
                         firmwareReference.bottomIndex = itemIndex;
+                        analytics.track('addPageBottom', {label:options.link, category:firmwareReference.gaCategory});
 
                         $('div.content').not('.note-common').last().append(divElem);
                     }
@@ -332,12 +337,10 @@ $(document).ready(function() {
         }
 
         if (params.atBottom && firmwareReference.lastScrollDir == 'down' && firmwareReference.bottomIndex < navMenu.navigationItems.length) {
-            console.log('atBottom');
             firmwareReference.queuePage({index:firmwareReference.bottomIndex, skipIndex: true, count:3, toEnd:true});  
         }
 
         if (params.atTop && firmwareReference.lastScrollDir == 'up' && firmwareReference.topIndex >= 0) {
-            console.log('atTop');
             firmwareReference.queuePage({index:firmwareReference.topIndex, skipIndex: true, count:3, toEnd:false});  
         }
         
