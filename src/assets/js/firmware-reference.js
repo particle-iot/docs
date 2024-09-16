@@ -108,7 +108,7 @@ $(document).ready(function() {
                     }    
                 }
                 const itemObj = navMenu.navigationItems[itemIndex];
-                // console.log('loadPage', itemObj);
+                // console.log('loadPage loaded', itemObj);
                 
                 let divElem = document.createElement('div');
                 $(divElem).addClass('referencePage');
@@ -160,7 +160,7 @@ $(document).ready(function() {
                     const id = $(this).prop('id');
 
                     for(const tempItemObj of navMenu.navigationItems) {
-                        if (tempItemObj.anchor == id) {
+                        if (typeof tempItemObj.anchor != 'undefined' && tempItemObj.anchor == id) {
                             tempItemObj.contentElem = this;
                         }
                     }
@@ -175,13 +175,21 @@ $(document).ready(function() {
                 if (!options.noScroll) {
                     navMenu.syncNavigation();
                 }
-
                 firmwareReference.pageLoading = false;
 
-                if (firmwareReference.pageQueue.length) {
-                    firmwareReference.loadPage();
-                }           
+                if (options.fillScreen) {
+                    if (firmwareReference.pageQueue.length == 0) {
+                        const itemsNearby = firmwareReference.getItemsNearby();
+    
+                        if (typeof itemsNearby.bottomIndex == 'undefined' && typeof itemsNearby.loadBelowIndex != 'undefined') {
+                            firmwareReference.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:1, toEnd:true, fillScreen:true});  
+                        }    
+                    }
+                    else {
+                    }
+                }
 
+                firmwareReference.loadPage();
 
             })
             .catch(function(err) {
@@ -252,7 +260,7 @@ $(document).ready(function() {
 
         if (typeof options.index != 'undefined') {
 
-            firmwareReference.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true});
+            firmwareReference.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true, fillScreen: true, });
 
             firmwareReference.lastItemIndex = options.index;
         }
@@ -278,14 +286,13 @@ $(document).ready(function() {
                 $(itemObj.navLinkElem).on('click', function(ev) {
                     ev.preventDefault();
 
-                    console.log('click nav', {itemObj, index:ii});
                     firmwareReference.replacePage({index:ii});
                 });
             }
         }
 
         // Preload pages
-        firmwareReference.queuePage({index:firmwareReference.initialIndex, skipIndex:true, count:4, toEnd:true}); 
+        firmwareReference.queuePage({index:firmwareReference.initialIndex, skipIndex:true, count:1, toEnd:true, fillScreen:true}); 
 
         firmwareReference.syncNavigationToPage(firmwareReference.thisUrl.pathname);
     }
@@ -304,17 +311,11 @@ $(document).ready(function() {
         // $(scrollableContent).height() is the height of the view
         if (typeof firmwareReference.lastScrollTop != 'undefined') {
             if (params.scrollTop > (firmwareReference.lastScrollTop + 5)) {
-                if (firmwareReference.lastScrollDir != 'down') {
-                    console.log('firmwareReference.lastScrollDir = down');
-                }
                 firmwareReference.lastScrollDir = 'down';
                 firmwareReference.lastScrollTop = params.scrollTop;
             }
             else 
             if (params.scrollTop < (firmwareReference.lastScrollTop - 5)) {
-                if (firmwareReference.lastScrollDir != 'up') {
-                    console.log('firmwareReference.lastScrollDir = up');
-                }
                 firmwareReference.lastScrollDir = 'up';
                 firmwareReference.lastScrollTop = params.scrollTop;
             }
@@ -333,6 +334,7 @@ $(document).ready(function() {
             firmwareReference.queuePage({index:firmwareReference.topIndex, skipIndex: true, count:3, toEnd:false});  
         }
         
+        return params;
     }
 
     $(scrollableContent).on('scroll', function(e) {
@@ -361,11 +363,7 @@ $(document).ready(function() {
         }
     }
 
-    firmwareReference.syncNavigation = function() {
-        if (!navMenu || !navMenu.menuJson) {
-            return;
-        }        
-
+    firmwareReference.getItemsNearby = function() {
         const contentRect = $('.content-inner')[0].getBoundingClientRect();
         const contentHeight = contentRect.height;
 
@@ -405,24 +403,31 @@ $(document).ready(function() {
             }
         }
 
-        // console.log('itemsNearby', itemsNearby);
-
-        let selectIndex;
-
         if (firmwareReference.lastScrollDir == 'up') {
             // Use item above if not visible or scrolling up
-            selectIndex = itemsNearby.aboveIndex;
+            itemsNearby.selectIndex = itemsNearby.aboveIndex;
         }
         
-        if (typeof selectIndex == 'undefined' && itemsNearby.visible.length > 0) {
-            selectIndex = itemsNearby.visible[0];
+        if (typeof itemsNearby.selectIndex == 'undefined' && itemsNearby.visible.length > 0) {
+            itemsNearby.selectIndex = itemsNearby.visible[0];
         }
 
-        if (typeof selectIndex != 'undefined') {
+        return itemsNearby;
+    }
+
+    firmwareReference.syncNavigation = function() {
+        if (!navMenu || !navMenu.menuJson) {
+            return;
+        }        
+
+        const itemsNearby = firmwareReference.getItemsNearby();
+
+
+        if (typeof itemsNearby.selectIndex != 'undefined') {
             $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
             $('.menubar').find('.navActive').removeClass('navActive');
             
-            const itemObj = navMenu.navigationItems[selectIndex];
+            const itemObj = navMenu.navigationItems[itemsNearby.selectIndex];
             // console.log('syncNavigation to item', itemObj);
             $(itemObj.elem).find('.navLink').addClass('navLinkActive');
             $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
@@ -436,8 +441,7 @@ $(document).ready(function() {
             firmwareReference.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:3, toEnd:true, noScroll:true});  
         }
           
-    
-    
+
     }
 
 

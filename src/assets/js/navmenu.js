@@ -103,7 +103,7 @@ navMenu.load = async function() {
         navMenu.hash = window.location.hash.substring(1);
     }
 
-    console.log('navMenu', navMenu);
+    // console.log('navMenu', navMenu);
 
     navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'newMenu.json';
 
@@ -472,7 +472,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
 navMenu.generateNavHtml = function(menuJson) {
     const path = (menuJson.dir == '') ? '/' : '/' + menuJson.dir + '/';
 
-    console.log('menuJson', menuJson);
+    // console.log('menuJson', menuJson);
 
     const navElem = document.createElement('div');
     $(navElem).addClass('navMenuOuter');
@@ -826,7 +826,7 @@ navMenu.navigatePage = function(options) {
         const itemObj = navMenu.navigationItems[ii];
         if (navMenu.thisUrl.pathname == itemObj.hrefNoAnchor) {
             // Found page
-            if (options.dir) {
+            if (options.dir > 0) {
                 if ((ii + 1) < navMenu.navigationItems.length) {
                     index = ii + 1;
                 }
