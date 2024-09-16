@@ -51,13 +51,11 @@ $(document).ready(function() {
         }
 
         if (itemObj.contentElem) {
-            console.log('loadPage already loaded', {options, itemIndex, itemObj});
-            firmwareReference.loadPage();
+            firmwareReference.checkLoadPage(options);
             return;
         }
         if (itemObj.anchor) {
-            console.log('loadPage ignore anchor page', {options, itemIndex, itemObj});
-            firmwareReference.loadPage();
+            firmwareReference.checkLoadPage(options);
             return;
         }
 
@@ -177,25 +175,31 @@ $(document).ready(function() {
                 }
                 firmwareReference.pageLoading = false;
 
-                if (options.fillScreen) {
-                    if (firmwareReference.pageQueue.length == 0) {
-                        const itemsNearby = firmwareReference.getItemsNearby();
-    
-                        if (typeof itemsNearby.bottomIndex == 'undefined' && typeof itemsNearby.loadBelowIndex != 'undefined') {
-                            firmwareReference.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:1, toEnd:true, fillScreen:true});  
-                        }    
-                    }
-                    else {
-                    }
-                }
 
-                firmwareReference.loadPage();
-
+                firmwareReference.checkLoadPage(options);
             })
             .catch(function(err) {
                 console.log('err', err);
             });
 
+    }
+
+    firmwareReference.checkLoadPage = function(options) {
+        if (options.fillScreen) {
+            if (firmwareReference.pageQueue.length == 0) {
+                const itemsNearby = firmwareReference.getItemsNearby();
+
+                if (typeof itemsNearby.bottomIndex == 'undefined' && typeof itemsNearby.loadBelowIndex != 'undefined') {
+                    firmwareReference.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:1, toEnd:true, fillScreen:true});  
+                }    
+            }
+            else {
+            }
+        }
+
+        if (firmwareReference.pageQueue.length > 0) {
+            firmwareReference.loadPage();
+        }
     }
 
     firmwareReference.queuePage = function(options) {
@@ -432,6 +436,10 @@ $(document).ready(function() {
             $(itemObj.elem).find('.navLink').addClass('navLinkActive');
             $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
             navMenu.scrollToActive();
+
+            if (window.location.pathname != itemObj.hrefNoAnchor) {
+                history.pushState(null, '', itemObj.hrefNoAnchor);
+            }
         }
         
         if (firmwareReference.lastScrollDir == 'up' && typeof itemsNearby.loadAboveIndex != 'undefined') {
@@ -506,11 +514,13 @@ $(document).ready(function() {
             case 'PageUp':
                 firmwareReference.lastScrollDir = 'up';
                 $(scrollableContent)[0].scrollBy(0, -($(scrollableContent).height() - 20));
+                firmwareReference.syncNavigation();
                 break;
 
             case 'PageDown':
                 firmwareReference.lastScrollDir = 'down';
                 $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
+                firmwareReference.syncNavigation();
                 break;
         }
     }
