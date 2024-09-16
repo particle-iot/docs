@@ -124,6 +124,15 @@ $(document).ready(function() {
                 params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
 
                 if (options.replacePage) {
+                    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+                        if (ii != itemIndex) {
+                            const tempItemObj = navMenu.navigationItems[ii];
+                            if (tempItemObj.collapseIconElem) {
+                                navMenu.collapseExpand(tempItemObj, false);
+                            }                   
+                        }
+                    }
+
                     firmwareReference.initialIndex = firmwareReference.topIndex = firmwareReference.bottomIndex = itemIndex;
                     history.pushState(null, '', itemObj.hrefNoAnchor);
 
@@ -255,12 +264,6 @@ $(document).ready(function() {
     firmwareReference.replacePage = function(options) {
         firmwareReference.pageQueue = [];
         firmwareReference.lastScrollDir = null;
-
-        for(const itemObj of navMenu.navigationItems) {
-            if (itemObj.collapseIconElem) {
-                navMenu.collapseExpand(itemObj, false);
-            }               
-        }
 
         if (typeof options.index != 'undefined') {
 
