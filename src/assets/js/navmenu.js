@@ -336,6 +336,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                     isContent: true,
                     href: itemObj.href,
                     level,
+                    contentElem: this,
                 };
 
                 let addToLevel;
@@ -438,7 +439,23 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             // Also do this if it's a special page (Device OS API or Libraries)
             const aElem = document.createElement('a');
             $(aElem).addClass('navLink');
-            $(aElem).attr('href', itemObj.href);
+            if (typeof itemObj.anchor == 'undefined') {
+                $(aElem).attr('href', itemObj.href);
+            }
+            else {
+                $(aElem).attr('href', '#' + itemObj.anchor);
+                $(aElem).on('click', function(ev) {
+                    ev.preventDefault();
+
+                    $('.menubar').find('.navLinkActive').removeClass('navLinkActive');        
+                    $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+                    navMenu.scrollToActive();        
+
+                    if (itemObj.contentElem) {
+                        navMenu.scrollDocsToElement(itemObj.contentElem);
+                    }
+                });            
+            }
             $(aElem).text(itemObj.title);
 
             $(itemObj.linkElem).append(aElem);
@@ -800,14 +817,11 @@ navMenu.syncNavigation = function() {
     }
     navMenu.lastAnchor = id;
 
-    console.log('navMenu.syncNavigation', pageOffsets[topIndex]);
-
     $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
 
     navMenu.forEachItem(function(itemObj) {
         if (itemObj.isContent) {
             if (itemObj.anchor == id) {
-                console.log('found id=' + id);
                 $(itemObj.elem).find('.navLink').addClass('navLinkActive');
                 navMenu.scrollToActive();
             }
@@ -851,7 +865,7 @@ navMenu.navigate = function(dir) {
         return;
     }
 
-    console.log('navMenu.navigate', dir);
+    const scrollableContent = $('div.content-inner');
 
     switch(dir) {
         case 'up':
@@ -879,8 +893,6 @@ navMenu.navigate = function(dir) {
 navMenu.ready = async function () {
     await navMenu.load();
 
-    const scrollableContent = $('div.content-inner');
-
 
     let startX, startY, startTime;
 
@@ -900,13 +912,11 @@ navMenu.ready = async function () {
             if (startX < 150) {
                 // Tap left
                 navMenu.navigate('left');
-                // navigate(false, false);
             }
             else
             if (startX > (screen.width - 150)) {
                 // Tap right
                 navMenu.navigate('right');
-                // navigate(true, false);
             }
         }
 
