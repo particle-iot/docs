@@ -259,8 +259,8 @@
             "hash": "b34c1f12e2ac665a9cd7cbfb169e2583dddff379b8ef045edf1a39b9a18713a5"
         },
         "notes/status-led-blinking-cyan.md": {
-            "date": "2023-09-29",
-            "hash": "3fc4f7a3f41aad810fce023014b6f39da0b0a7b590498ca05e113caef1de22f3"
+            "date": "2024-09-17",
+            "hash": "dcbc4e670736695957e43c1bed8171a20ffaa51a0a4453828babf57669d5c309"
         },
         "notes/status-led-blinking-dark-blue.md": {
             "date": "2024-02-27",
@@ -271,16 +271,16 @@
             "hash": "afda8f2548b8b7cd7c2cae6b9ee36800a86b3ab09424a000654c275cc26f753a"
         },
         "notes/status-led-blinking-green-gen2.md": {
-            "date": "2022-07-22",
-            "hash": "d4ad4f19ef50fac2b1d4627bd8756030ce1edee4cd649cab2edf85f17780f267"
+            "date": "2024-09-17",
+            "hash": "58dadcfe068f96b5410b0e0aa63a7b46c7c7eee5a772551471d8e02eeb30601f"
         },
         "notes/status-led-blinking-green-gen3.md": {
-            "date": "2024-01-31",
-            "hash": "6fa1d1391fc0fba085b6f33ab83262c484fe5e9ae15ff9e9be70e5cb26409825"
+            "date": "2024-09-17",
+            "hash": "8cee34eb5d02fc7d7744abb8aa283243968a28c68b21d8bc3eac2216b39dc1c1"
         },
         "notes/status-led-blinking-green-p2.md": {
-            "date": "2022-07-22",
-            "hash": "ef63e161d986de3129daa50ce774cf7b079f5efe992686d1ac6adbcf7e83753e"
+            "date": "2024-09-17",
+            "hash": "f74c3f03be301dbf0eb208d171ce8ae92f1786cf21e114dd6559b413a1be7ce8"
         },
         "notes/status-led-blinking-magenta.md": {
             "date": "2022-07-22",

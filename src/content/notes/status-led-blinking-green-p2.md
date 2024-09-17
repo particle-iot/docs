@@ -12,4 +12,4 @@ And the less common situations:
 
 - If your Wi-Fi network does not support DHCP, and only uses static IP addresses, it is not possible to use the P2 or Photon 2.
 
-- If the Wi-Fi network restricts access to known device Ethernet MAC addresses, you'll need to determine the MAC address and give it to the network administrator. Put the device in listening mode (blinking dark blue) by holding down the {{system-button}} button, then use the Particle CLI command `particle serial mac`.
+- If the Wi-Fi network restricts access to known device Ethernet MAC addresses, you'll need to determine the MAC address and give it to the network administrator. Put the device in listening mode (blinking dark blue) by holding down the MODE button, then use the Particle CLI command `particle serial mac`.

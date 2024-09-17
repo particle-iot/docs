@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Status LED page update 2024-09-17
+
+The [Status LED and device modes page](/troubleshooting/led/) has been updated.
+
 ### Left navigation fixes 2024-09-16
 
 Fixes to the left navigation menu, particularly in the Device OS API reference, improve performance

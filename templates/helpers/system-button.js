@@ -2,6 +2,7 @@
 // Usage in a page that has the "devices" front-matter key:
 // {{system-button}}
 module.exports = function(context) {
-  var metadata = context.data.root;
-  return metadata.device == 'Photon' ?  'SETUP' : 'MODE';
+  // var metadata = context.data.root;
+  //return metadata.device == 'Photon' ?  'SETUP' : 'MODE';
+  return 'MODE';
 };
