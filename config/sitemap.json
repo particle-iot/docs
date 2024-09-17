@@ -2423,16 +2423,16 @@
             "hash": "9be6beacdf6f5b535a36001e96d451c5c17cf55fa979e411ef7ae790a6310d16"
         },
         "reference/device-os/api/power-manager/power-manager.md": {
-            "date": "2024-02-27",
-            "hash": "41a79e39d83bb30874f7818ed932b1802593f30bef298fe602be295a4b048f0a"
+            "date": "2024-09-17",
+            "hash": "a8eb69755e1ca892d8c96217b5144b7c2da435d6918608c4e3edb98bf5328a89"
         },
         "reference/device-os/api/power-manager/powersourcemaxcurrent.md": {
             "date": "2023-09-20",
             "hash": "e68e6118abc0cfb03042e31ae886faca06e594c27eaf39591586a8680fe5d7df"
         },
         "reference/device-os/api/power-manager/powersourceminvoltage.md": {
-            "date": "2023-09-20",
-            "hash": "d51b85de494f432d943c237f3d5d9551d8a656db3329f72f292dbc3d925df529"
+            "date": "2024-09-17",
+            "hash": "f1204596309dd9ace4b4f7cb79b4626447e072093a056a0cf611cfaa06810c0c"
         },
         "reference/device-os/api/power-manager/batterychargecurrent.md": {
             "date": "2023-09-20",
@@ -3043,8 +3043,8 @@
             "hash": "ac1a9fd3c747d30d725a74dda0462a39cf68c00267d65fed30e06e2463ee153b"
         },
         "reference/device-os/api/tcpclient/tcpclient.md": {
-            "date": "2023-09-20",
-            "hash": "9ccdb62fd6f5fd7437ddc7fea11c4ac20c4c8d2598f734dd4284ae197494b329"
+            "date": "2024-09-17",
+            "hash": "07a115bb0e24ba5f4c658dc4b8aa6daf6e778bce3623d31069bd35aebd6938fd"
         },
         "reference/device-os/api/tcpclient/connected.md": {
             "date": "2023-09-20",
@@ -9196,6 +9196,22 @@
         },
         "reference/device-os/api/debugging/posix-errors.md": {
             "hash": "fb21ea50b30ccbd702d163fb880c833fdda0e453e8ebfd1097fddbb657920548",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration.md": {
+            "hash": "e052709fefbef711d723ddaa941403e718388ef3645943372a3e3583587c3b27",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/batterychargecurrent-systempowerconfiguration.md": {
+            "hash": "04e6c533480654a38ac37df34250cb9540e0c48743ba8e8c95cd2a1bf0040215",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/batterychargevoltage-systempowerconfiguration.md": {
+            "hash": "113238e33feb9d8018798d2d9ef4bab8e95d54b1f3ae4e10e472b068daaa9865",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/socbitprecision-systempowerconfiguration.md": {
+            "hash": "92e96cc3b60860a185dc46526807ed9bcda9a350ead1f8a1bbb67040c0fe49b7",
             "date": "2024-09-17"
         }
     }

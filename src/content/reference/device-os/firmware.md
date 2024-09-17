@@ -6573,12 +6573,12 @@ To set the Power Manager configuration, create a `SystemPowerConfiguration` obje
 ---
 
 {{note op="start" type="note"}}
-Power Management is available on the Boron, B-Series SoM, Tracker SoM (Gen 3), Electron, and E-Series (Gen 2).
+Power Management is available on the M-SoM, Muon, Boron, B-Series SoM, Tracker SoM (Gen 3), Electron, and E-Series (Gen 2).
 
 It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
 
-### powerSourceMaxCurrent
+### powerSourceMaxCurrent - SystemPowerConfiguration
 
 {{api name1="SystemPowerConfiguration::powerSourceMaxCurrent"}}
 
@@ -6590,6 +6590,13 @@ When powering by a USB power adapter that implements DPDM (USB current limit dis
 
 The default is 900 mA.
 
+```cpp
+// PROTOTYPES
+SystemPowerConfiguration& powerSourceMinVoltage(uint16_t voltage)
+uint16_t powerSourceMinVoltage() 
+```
+
+
 ### powerSourceMinVoltage
 
 {{api name1="SystemPowerConfiguration::powerSourceMinVoltage"}}
@@ -6598,7 +6605,14 @@ Set minimum voltage required for VIN to be used. This applies only when powered 
 
 The default is 3880 (3.88 volts).
 
-### batteryChargeCurrent
+```cpp
+// PROTOTYPES
+SystemPowerConfiguration& powerSourceMinVoltage(uint16_t voltage)
+uint16_t powerSourceMinVoltage() 
+```
+
+
+### batteryChargeCurrent - SystemPowerConfiguration
 
 {{api name1="SystemPowerConfiguration::batteryChargeCurrent"}}
 
@@ -6606,13 +6620,90 @@ Sets the battery charge current. The actual charge current is the lesser of powe
 
 The default is 896 mA.
 
-### batteryChargeVoltage
+```cpp
+// PROTOTYPES
+SystemPowerConfiguration& batteryChargeCurrent(uint16_t current)
+uint16_t batteryChargeCurrent() const 
+```
+
+### batteryChargeVoltage - SystemPowerConfiguration
 
 {{api name1="SystemPowerConfiguration::batteryChargeVoltage"}}
 
 Sets the battery charge termination voltage. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts. When the battery reaches this voltage, charging is stopped.
 
 The default is 4112 (4.112V).
+
+```cpp
+// PROTOTYPES
+SystemPowerConfiguration& batteryChargeVoltage(uint16_t voltage)
+uint16_t batteryChargeVoltage() const
+
+```
+
+### socBitPrecision() - SystemPowerConfiguration
+
+{{api name1="SystemPowerConfiguration::socBitPrecision"}}
+
+{{since when="5.9.0"}}
+
+The value returned by the fuel gauge chip may have a different number of bits of precision depending 
+on whether it's a MAX17043 (18, the default) or MAX17048 (19), but the chips are otherwise very similar. If you are building
+your own SoM base board, this allows you to use a MAX17048 fuel gauge chip and still get correct
+values.
+
+```cpp
+// PROTOTYPES
+SystemPowerConfiguration& socBitPrecision(uint8_t bits) 
+uint8_t socBitPrecision()
+```
+
+
+
+### auxiliaryPowerControlPin() - SystemPowerConfiguration
+
+{{api name1="SystemPowerConfiguration::auxiliaryPowerControlPin"}}
+
+{{since when="5.9.0"}}
+
+Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
+that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
+it powers the Ethernet port and LoRaWAN module.
+
+The main reason for this is that until the PMIC is configured, the input current with no battery
+connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
+using a peripheral that requires a lot of current, like the WizNET W5500 Ethernet module. The 
+auxiliary power control feature prevents turning on `3V3_AUX` until after the PMIC is configured
+and the PMIC has negotiated a higher current from the USB host (if powered by USB).
+
+This setting is persistent and only needs to be set once. In fact, the PMIC initialization
+normally occurs before user firmware is run. This is also necessary because if you are using Ethernet
+and enter safe mode (breathing magenta), it's necessary to enable `3V3_AUX` so if you are using
+Ethernet, you can still get OTA updates while in safe mode.
+
+After changing the auxiliary power configuration you must reset the device.
+
+```cpp
+// PROTOTYPES
+SystemPowerConfiguration& auxiliaryPowerControlPin(uint8_t pin, bool activeLevel = 1) 
+uint8_t auxiliaryPowerControlPin() const
+uint8_t auxiliaryPowerControlActiveLevel()
+```
+
+### interruptPin() - SystemPowerConfiguration
+
+{{api name1="SystemPowerConfiguration::auxiliaryPowerControlPin"}}
+
+{{since when="5.9.0"}}
+
+This call allows the use of an alternate GPIO pin for the PMIC and fuel gauge interrupt input.
+
+```cpp
+// PROTOTYPES
+SystemPowerConfiguration& interruptPin(uint8_t pin)
+uint8_t interruptPin() const
+```
+
 
 ### SystemPowerFeature
 
@@ -15615,6 +15706,14 @@ void loop()
   }
 }
 ```
+
+When using TCP with debugging logs enabled, you might see something like this:
+
+```
+0000182000 [wiring] ERROR: recv error = 113
+```
+
+These errors are documented in the [POSIX error codes](#posix-errors) list. From code, you can find this underlying error code value in the global variable `errno`.
 
 ---
 {{note op="start" type="cellular"}}

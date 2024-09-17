@@ -3583,20 +3583,24 @@
           "dir": "power-manager"
         },
         {
-          "title": "powerSourceMaxCurrent - Power manager",
-          "dir": "powersourcemaxcurrent"
+          "title": "powerSourceMaxCurrent - SystemPowerConfiguration - Power manager",
+          "dir": "powersourcemaxcurrent-systempowerconfiguration"
         },
         {
           "title": "powerSourceMinVoltage - Power manager",
           "dir": "powersourceminvoltage"
         },
         {
-          "title": "batteryChargeCurrent - Power manager",
-          "dir": "batterychargecurrent"
+          "title": "batteryChargeCurrent - SystemPowerConfiguration - Power manager",
+          "dir": "batterychargecurrent-systempowerconfiguration"
         },
         {
-          "title": "batteryChargeVoltage - Power manager",
-          "dir": "batterychargevoltage"
+          "title": "batteryChargeVoltage - SystemPowerConfiguration - Power manager",
+          "dir": "batterychargevoltage-systempowerconfiguration"
+        },
+        {
+          "title": "socBitPrecision() - SystemPowerConfiguration - Power manager",
+          "dir": "socbitprecision-systempowerconfiguration"
         },
         {
           "title": "SystemPowerFeature - Power manager",
