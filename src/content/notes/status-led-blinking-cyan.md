@@ -11,7 +11,7 @@ While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
 
 Most keys related issues can be resolved using the [Particle CLI](/getting-started/developer-tools/cli/).
 
-Put the device into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
+Put the device into Listening mode (blinking blue) by holding down the MODE button until it blinks blue. Then issue the CLI command:
 
 ```
 particle identify
@@ -19,7 +19,7 @@ particle identify
 
 Save the Device ID; you’ll need it later.
 
-Then put the device in DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow and issue the commands below, in order.
+Then put the device in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue the commands below, in order.
 
 ```
 particle keys server

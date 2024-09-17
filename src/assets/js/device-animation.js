@@ -1,99 +1,22 @@
 var DeviceAnimation = function(element, deviceType) {
-  var deviceSpecs = {
-    "Photon": {
-      image: "/assets/images/photon-horizontal.svg",
-      zoom: 2,
-      width: 144,
-      height: 77,
-      led: {
-        x: 93.5,
-        y: 38.5,
-        radius: 30
-      }
-    },
-    "Core": {
-      image: "/assets/images/core-horizontal.svg",
-      zoom: 2,
-      width: 143,
-      height: 77,
-      led: {
-        x: 104,
-        y: 38.5,
-        radius: 30
-      }
-    },
-    "Electron": {
-      image: "/assets/images/electron-horizontal.svg",
-      zoom: 2,
-      width: 197,
-      height: 77,
-      led: {
-        x: 127,
-        y: 38.5,
-        radius: 30
-      }
-    },
-    "Argon": {
-        image: "/assets/images/argon.svg",
-        zoom: 4,
-        width: 197,
-        height: 77,
-        rotate: -90,
-        led: {
-          x: 87.5,
-          y: 38.5,
-          radius: 10
-        }
-    },
-    "Boron": {
-        image: "/assets/images/boron-generic.svg",
-        zoom: 4,
-        width: 197,
-        height: 77,
-        rotate: -90,
-        led: {
-          x: 87.5,
-          y: 38.5,
-          radius: 10
-        }
-    },
-    "Xenon": {
-        image: "/assets/images/xenon.svg",
-        zoom: 4,
-        width: 197,
-        height: 77,
-        rotate: -90,
-        led: {
-          x: 87.5,
-          y: 38.5,
-          radius: 10
-        }
-     },
-     "Tracker SoM": {
-         image: "/assets/images/tracker-small-horiz.jpg",
-         zoom: 1,
-         width: 300,
-         height: 180,
-         rotate: 0,
-         led: {
-           x: 218,
-           y: 38,
-           radius: 14
-         }
-      }
-  };
-
-  var device = deviceSpecs[deviceType];
+  
+  var device = {
+    zoom: 1,
+    width: 50,
+    height: 50,
+    rotate: 0,
+    led: {
+      x: 25,
+      y: 25,
+      radius: 20
+    }
+ }
   
   // Create SVG canvas
-  var showLight = false;
   var draw = SVG(element).size(device.zoom * device.width, device.zoom * device.height);
   var group = draw.group().scale(device.zoom).translate(0.5, 0.5);
 
   // Add the device image
-  var img = group.image(device.image).size(device.width, device.height).rotate(device.rotate || 0).loaded(function() {
-    showLight = true;
-  });
 
   // Add the LED with color gradient
   var led = group.circle(device.led.radius).center(device.led.x, device.led.y);
@@ -109,9 +32,6 @@ var DeviceAnimation = function(element, deviceType) {
 
   // Change the color of the LED gradient
   function colorLed(color, opacity) {
-    if(!showLight) {
-      return;
-    }
     light_s1.update(0, color, opacity);
     light_s2.update(0.3, color, opacity);
   }
