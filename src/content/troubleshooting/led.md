@@ -2,17 +2,13 @@
 title: Status LED and Device Modes
 layout: commonTwo.hbs
 columns: two
-devices: [ boron,photon,electron,argon,xenon,tracker-som ]
 description: Explanation of status LED codes and device modes for Particle IoT devices
 includeDefinitions: [device-animation]
 ---
 
-# Status LED - {{device}}
+# Status LED 
 
-You are viewing the Status LED and Device Modes for the **{{device}}**. To view the documentation for other 
-devices, use the blue device selector below the Particle logo on the left side of the page.
 
-{{#if tracker-som}}
 ## Tracker SoM Mode
 
 The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the **Tracker** LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized in the [Device Fleet Settings](/getting-started/console/console/#rgb-led-settings). The Tracker SoM Evaluation Board defaults to the Particle color scheme. 
@@ -71,14 +67,13 @@ Solid yellow or solid green indicates normal operation on the Tracker.
 
 **The remainder of this page describes the status LED when using standard Particle LED scheme.**
 
-{{/if}} {{!-- tracker-som --}}
 
 ## Standard modes
+
 These modes are the typical behaviors you will see from your device on a regular basis. They are the light patterns of a healthy device.
 
 Here's the typical pattern of after power up.
 
-{{#if has-cellular}}
 {{device-animation device "pattern"
   "off 1000ms"
   "on white 1000ms"
@@ -87,20 +82,6 @@ Here's the typical pattern of after power up.
   "breathe cyan 3 times"
   "off 1000ms"
 }}
-{{/if}}
-
-{{#unless has-cellular}}
-{{device-animation device "pattern"
-  "off 1000ms"
-  "on white 1000ms"
-  "blink lime 8 times"
-  "blink cyan 8 times"
-  "breathe cyan 3 times"
-  "off 1000ms"
-}}
-{{/unless}}
-
-
 
 
 ### Connected
