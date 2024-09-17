@@ -1336,7 +1336,19 @@
         },
         {
           "title": "Pin configuration - Ethernet - Ethernet",
-          "dir": "pin-configuration-ethernet"
+          "dir": "pin-configuration-ethernet",
+          "subsections": [
+            {
+              "anchor": "muon-ethernet-configuration",
+              "title": "Muon Ethernet configuration",
+              "isContent": true
+            },
+            {
+              "anchor": "m-2-som-breakout-board-ethernet-configuration",
+              "title": "M.2 SoM Breakout board Ethernet configuration",
+              "isContent": true
+            }
+          ]
         },
         {
           "title": "on() - Ethernet",
@@ -3601,6 +3613,14 @@
         {
           "title": "socBitPrecision() - SystemPowerConfiguration - Power manager",
           "dir": "socbitprecision-systempowerconfiguration"
+        },
+        {
+          "title": "auxiliaryPowerControlPin() - SystemPowerConfiguration - Power manager",
+          "dir": "auxiliarypowercontrolpin-systempowerconfiguration"
+        },
+        {
+          "title": "interruptPin() - SystemPowerConfiguration - Power manager",
+          "dir": "interruptpin-systempowerconfiguration"
         },
         {
           "title": "SystemPowerFeature - Power manager",

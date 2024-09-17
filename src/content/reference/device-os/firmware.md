@@ -1469,7 +1469,7 @@ void setup() {
 
 Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B-Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
 
-On the P2, Photon 2, and M-SoM it is highly recommended that you use Device OS 5.7.0 or later when using Ethernet due to important
+On the P2, Photon 2, and M-SoM it is highly recommended that you use Device OS 5.9.0 or later when using Ethernet due to important
 bugs that were fixed in 5.6.0 and 5.7.0 that can affect Ethernet usability on RTL872x devices.
 
 It is not available on Gen 2 devices (Photon, P1, Electron, and E-Series except the E404X).
@@ -1480,7 +1480,7 @@ For more information about Ethernet, see the application note [AN037 Ethernet](/
 
 ---
 
-By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
+By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during device setup, it is enabled and the setting stored in configuration flash.
 
 It's also possible to enable Ethernet detection from code. This is saved in configuration flash so you don't need to call it every time. 
 
@@ -1495,20 +1495,20 @@ void setup()
 }
 ```
 
-If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
+Prior to Device OS 5.9.0, interrupt (nINTERRUPT) and reset (nRESET) pins were required to use Ethernet. With Device OS 5.9.0 you can operate without these connected.
 
-| Argon, Boron| B-Series SoM | Ethernet FeatherWing Pin  |
-|:------:|:------------:|:--------------------------|
-|MISO    | MISO         | SPI MISO                  |
-|MOSI    | MOSI         | SPI MOSI                  |
-|SCK     | SCK          | SPI SCK                   |
-|D3      | A7           | nRESET                    |
-|D4      | D22          | nINTERRUPT                |
-|D5      | D8           | nCHIP SELECT              |
+If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), by default nRESET and nINTERRUPT pins are not connected. You will either need to connect them (on the small header on the short side) to pins D3 and D4 with jumper wires, or use Device OS 5.9.0 and operate without these two hardware control pins.
 
-When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+| Device | SPI MISO | SPI MOSI | SPI SCK | Chip Select | Reset | Interrupt |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Particle Ethernet | MISO | MOSI | SCK | D5 | D3 | D4 |
+| Adafruit Ethernet | MISO | MOSI | SCK | D5 | <sup>1</sup> | <sup>1</sup> |
+| B-SoM eval board | MISO | MOSI | SCK | D8 | A7 | D22 |
+| M.2 SoM breakout board | MISO | MOSI | SCK | D8 | A7 | D22 |
+| Muon | MISO | MOSI | SCK | A3 | NC | A4 |
+| Tracker SoM | MISO | MOSI | SCK | D2 | D6 | D7 |
 
-When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
+<sup>1</sup>On the Adafruit Ethernet FeatherWing this pin is not connected by default.
 
 ### Pin configuration - Ethernet
 
@@ -1516,7 +1516,7 @@ When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for th
 
 In Device OS 5.3.x, it is possible to reconfigure the pins that are used for Ethernet control signals CS, RESET, and INT. This may be desirable if you need to use pins D3-D5 for other purposes, such as `SPI1`.
 
-**Warning**: This API is temporary and will change in a future version of Device OS. 
+In Device OS 5.9.9 and later, it's possible to configure RESET and INT as PIN_INVALID, meaning you are not using hardware reset and interrupt.
 
 The correct order of operations is:
 
@@ -1646,6 +1646,50 @@ void loop() {
 }
 ```
 
+#### Muon Ethernet configuration
+
+The following code can be used to enable Ethernet on the Muon. This only needs to be done
+once and the device must be reset after configuration for the changes to take effect.
+
+```cpp
+// Enable 3V3_AUX
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A7);
+System.setPowerConfiguration(powerConfig);
+
+// Enable Ethernet
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+remap.cs_pin = A3;
+remap.reset_pin = PIN_INVALID;
+remap.int_pin = A4;
+auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+```
+
+
+#### M.2 SoM Breakout board Ethernet configuration
+
+The following code can be used to enable Ethernet on the M.2 SoM breakout board. This only needs to be done
+once and the device must be reset after configuration for the changes to take effect.
+
+```cpp
+// Enable 3V3_AUX
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D23).interruptPin(A6);
+System.setPowerConfiguration(powerConfig);
+
+// Enable Ethernet
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+remap.cs_pin = D5;
+remap.reset_pin = PIN_INVALID;
+remap.int_pin = PIN_INVALID;
+auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+```
 
 
 ### on()
@@ -6666,14 +6710,15 @@ uint8_t socBitPrecision()
 
 {{since when="5.9.0"}}
 
+{{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
 Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
 that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
 it powers the Ethernet port and LoRaWAN module.
 
 The main reason for this is that until the PMIC is configured, the input current with no battery
 connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
-using a peripheral that requires a lot of current, like the WizNET W5500 Ethernet module. The 
-auxiliary power control feature prevents turning on `3V3_AUX` until after the PMIC is configured
+using a peripheral that requires a lot of current, like the WIZnet W5500 Ethernet module. The 
+system power manager prevents turning on `3V3_AUX` until after the PMIC is configured
 and the PMIC has negotiated a higher current from the USB host (if powered by USB).
 
 This setting is persistent and only needs to be set once. In fact, the PMIC initialization
@@ -6682,12 +6727,24 @@ and enter safe mode (breathing magenta), it's necessary to enable `3V3_AUX` so i
 Ethernet, you can still get OTA updates while in safe mode.
 
 After changing the auxiliary power configuration you must reset the device.
+{{!-- END shared-blurb --}}
 
 ```cpp
 // PROTOTYPES
 SystemPowerConfiguration& auxiliaryPowerControlPin(uint8_t pin, bool activeLevel = 1) 
 uint8_t auxiliaryPowerControlPin() const
 uint8_t auxiliaryPowerControlActiveLevel()
+
+// EXAMPLE - Muon
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A7);
+System.setPowerConfiguration(powerConfig);
+
+// EXAMPLE - M.2 SoM Breakout board
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D23).interruptPin(A6);
+System.setPowerConfiguration(powerConfig);
+
 ```
 
 ### interruptPin() - SystemPowerConfiguration

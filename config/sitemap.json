@@ -1823,12 +1823,12 @@
             "hash": "92aa2922ce92a8e2d80d84d8d309cc1d47247f1149bd6d0606885f873b34da44"
         },
         "reference/device-os/api/ethernet/ethernet.md": {
-            "date": "2024-04-30",
-            "hash": "7d3ed9cb3ac5666a5ff88e19b4da672750a2c267ac3a7fc6e28ea730ebee9ce8"
+            "date": "2024-09-17",
+            "hash": "dd5ad7914917577f67a467fbdd155859c4932d74b1156d303d9fce17187be561"
         },
         "reference/device-os/api/ethernet/pin-configuration-ethernet.md": {
-            "date": "2024-07-02",
-            "hash": "aeca558495ed27ec15ddfe1964ef220f40680e64bc59d7690d983099757655ca"
+            "date": "2024-09-17",
+            "hash": "804816020d2bb402343796f7c0415ae6358699be59fc44434946e23f87c94f70"
         },
         "reference/device-os/api/ethernet/on.md": {
             "date": "2023-09-20",
@@ -9211,7 +9211,15 @@
             "date": "2024-09-17"
         },
         "reference/device-os/api/power-manager/socbitprecision-systempowerconfiguration.md": {
-            "hash": "92e96cc3b60860a185dc46526807ed9bcda9a350ead1f8a1bbb67040c0fe49b7",
+            "hash": "92f274a51c9852fd0c31f59e356b09b47bcd7c2bd0753bcc5f362c594c7c3ce8",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/auxiliarypowercontrolpin-systempowerconfiguration.md": {
+            "hash": "aa823fdf34b0c61b2faba71a2d3ff9bc3e68253ddb7421dddf2499593ad020b4",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/interruptpin-systempowerconfiguration.md": {
+            "hash": "58212f6a22cd17fdbce33c271e0aed73fba4642b4e3a535eec3ff9e193c8e681",
             "date": "2024-09-17"
         }
     }
