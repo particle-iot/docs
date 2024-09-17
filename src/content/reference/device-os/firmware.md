@@ -18279,7 +18279,7 @@ Software Timers provide a way to have timed actions in your program.  FreeRTOS p
 // EXAMPLE
 SerialLogHandler logHandler;
 
-Timer timer(1000, print_every_second);
+Timer timerName(1000, print_every_second);
 
 void print_every_second()
 {
@@ -18289,7 +18289,7 @@ void print_every_second()
 
 void setup()
 {
-    timer.start();
+    timerName.start();
 }
 ```
 
@@ -18306,7 +18306,7 @@ Software timers run with a smaller stack (1024 bytes vs. 6144 bytes). This can l
 
 // SYNTAX
 
-`Timer timer(period, callback, one_shot)`
+`Timer timerName(period, callback, one_shot)`
 
 - `period` is the period of the timer in milliseconds  (unsigned int)
 - `callback` is the callback function which gets called when the timer expires.
@@ -18320,7 +18320,7 @@ Software timers are currently implemented as a thin layer over FreeRTOS timers. 
 
 A class member function can be used as a callback using this syntax to create the timer:
 
-`Timer timer(period, callback, instance, one_shot)`
+`Timer timerName(period, callback, instance, one_shot)`
 
 - `period` is the period of the timer in milliseconds  (unsigned int)
 - `callback` is the class member function which gets called when the timer expires.
@@ -18353,7 +18353,7 @@ Starts a stopped timer (a newly created timer is stopped). If `start()` is calle
 
 ```cpp
 // EXAMPLE USAGE
-timer.start(); // starts timer if stopped or resets it if started.
+timerName.start(); // starts timer if stopped or resets it if started.
 
 ```
 
@@ -18367,7 +18367,7 @@ Stops a running timer.
 
 ```cpp
 // EXAMPLE USAGE
-timer.stop(); // stops a running timer.
+timerName.stop(); // stops a running timer.
 
 ```
 
@@ -18383,13 +18383,13 @@ Changes the period of a previously created timer. It can be called to change the
 
 ```cpp
 // EXAMPLE USAGE
-timer.changePeriod(1000); // Reset period of timer to 1000ms.
+timerName.changePeriod(1000); // Reset period of timer to 1000ms.
 
 ```
 
 {{since when="1.5.0"}}
 
-You can also specify a value using [chrono literals](#chrono-literals), for example: `timer.changePeriod(2min)` for 2 minutes. 
+You can also specify a value using [chrono literals](#chrono-literals), for example: `timerName.changePeriod(2min)` for 2 minutes. 
 
 ### reset()
 
@@ -18401,7 +18401,7 @@ Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is 
 
 ```cpp
 // EXAMPLE USAGE
-timer.reset(); // reset timer if running, or start timer if stopped.
+timerName.reset(); // reset timer if running, or start timer if stopped.
 
 ```
 
@@ -18426,13 +18426,13 @@ Start, stop and reset a timer or change a timer's period (as above) BUT from wit
 
 ```cpp
 // EXAMPLE USAGE
-timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if started.
+timerName.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if started.
 
-timer.stopFromISR(); // WITHIN an ISR,stops a running timer.
+timerName.stopFromISR(); // WITHIN an ISR,stops a running timer.
 
-timer.resetFromISR(); // WITHIN an ISR, reset timer if running, or start timer if stopped.
+timerName.resetFromISR(); // WITHIN an ISR, reset timer if running, or start timer if stopped.
 
-timer.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period.
+timerName.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period.
 ```
 
 ### dispose()
@@ -18445,7 +18445,7 @@ Stop and remove a timer from the (max. 10) timer list, freeing a timer "slot" in
 
 ```cpp
 // EXAMPLE USAGE
-timer.dispose(); // stop and delete timer from timer list.
+timerName.dispose(); // stop and delete timer from timer list.
 
 ```
 
@@ -18461,7 +18461,7 @@ Returns `true` if the timer is in active state (pending), or `false` otherwise.
 
 ```cpp
 // EXAMPLE USAGE
-if (timer.isActive()) {
+if (timerName.isActive()) {
     // ...
 }
 ```
