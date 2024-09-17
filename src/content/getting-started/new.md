@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### POSIX error codes 2024-09-17
+
+Documented [POSIX error codes](/reference/device-os/api/debugging/posix-errors/) that can occur when
+using certain features like TCPClient.
+
 ### Status LED page update 2024-09-17
 
 The [Status LED and device modes page](/troubleshooting/led/) has been updated.

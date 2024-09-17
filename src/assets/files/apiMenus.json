@@ -1228,6 +1228,10 @@
         {
           "title": "System errors - Debugging",
           "dir": "system-errors"
+        },
+        {
+          "title": "POSIX errors - Debugging",
+          "dir": "posix-errors"
         }
       ]
     },

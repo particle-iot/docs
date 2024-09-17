@@ -9193,6 +9193,10 @@
         "quickstart/monitor-one.md": {
             "hash": "c16737091356a8b71635aef02b1dfb20deb06afb44be86c3f03c69348309dab5",
             "date": "2024-09-16"
+        },
+        "reference/device-os/api/debugging/posix-errors.md": {
+            "hash": "fb21ea50b30ccbd702d163fb880c833fdda0e453e8ebfd1097fddbb657920548",
+            "date": "2024-09-17"
         }
     }
 }
