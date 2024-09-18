@@ -55,8 +55,8 @@
             "hash": "153a1b080696e4dab395bb90820c3c96585376f848e3bc99dbe8aaf5fe0738dc"
         },
         "archives/maker-kit.md": {
-            "date": "2023-08-03",
-            "hash": "32251a60f6f33bab5e8a74ae8355bd0d164f8ae4e7bba2cd6ec315f681c0a92a"
+            "date": "2024-09-18",
+            "hash": "412649245751777afbd61dc3c177abee20533f0ae76af05ac4596d821d58deb0"
         },
         "archives/mesh-setup-over-usb.md": {
             "date": "2023-03-22",
@@ -423,8 +423,8 @@
             "hash": "207bd6278da94795c32e8067016c93086759d149f6d8c2bb41eb6f17e0d59632"
         },
         "community/particle-101-workshop/claim-device.md": {
-            "date": "2023-03-22",
-            "hash": "e544ec524f3719199c60cf1a07eff3d02f5e259327a4113546c610463e898539"
+            "date": "2024-09-18",
+            "hash": "23609d777c290555776db1a25880da39ba6676c5dfa73f0112fda62c60d53495"
         },
         "community/particle-101-workshop/debugging.md": {
             "date": "2023-08-24",
@@ -2215,12 +2215,12 @@
             "hash": "324348b186672a39244aeb717dbcc972d113797eb6fe1d0ac6be1a7fc6fb105a"
         },
         "reference/device-os/api/cellular/setcredentials.md": {
-            "date": "2023-09-20",
-            "hash": "5d86abb001f675a8f313b072adacab676ae613a67917c5cfb9866a3f363ca3d5"
+            "date": "2024-09-18",
+            "hash": "3f227cd87ad4fb12bb2c7f02201e71fc8fc867e0587ca7a1b58c099c93f9a2a8"
         },
         "reference/device-os/api/cellular/clearcredentials.md": {
-            "date": "2024-02-27",
-            "hash": "533a2e7d7f9411140f5f9feaee426dd8abb4a647f00f874ac28566466266117d"
+            "date": "2024-09-18",
+            "hash": "1af827ef4d2aa74bdb8a1586833aeea41db715e01421deac2f70e73d4c231d9f"
         },
         "reference/device-os/api/cellular/setactivesim.md": {
             "date": "2023-09-20",

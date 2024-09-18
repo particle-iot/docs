@@ -306,7 +306,7 @@ _Since 0.6.0 firmware_
 
 #### System RGB LED
 
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/electron/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/troubleshooting/led/)
 
 ### Pinout diagram
 

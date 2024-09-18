@@ -6,7 +6,7 @@ columns: two
 
 # {{{title}}}
 
-**Caveat:** the following applies to the third generation of the Particle Platform (Argons, Borons, BSoM/B5SoM) only. If you have an Electron with this issue, please see our resource here: ([link](/tutorials/device-os/led/electron/#listening-mode)). If you have an E-Series that is Blinking Dark Blue, please open a support ticket.
+**Caveat:** the following applies to the third generation of the Particle Platform (Argons, Borons, BSoM/B5SoM) only. If you have an Electron with this issue, please see our resource here: ([link](/troubleshooting/led/#listening-mode)). If you have an E-Series that is Blinking Dark Blue, please open a support ticket.
 
 
 ## The setup flag

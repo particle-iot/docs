@@ -462,7 +462,7 @@ By keeping these functions separate from the main *loop()* function, code can be
 
 **My OLED screen doesn't turn on.**
 * Re-check your wiring. "DC" and "D0" look pretty similar, so make sure you haven't swapped any pins.
-* If your Photon is not breathing cyan, check the [device modes guide](/tutorials/device-os/led/photon/).
+* If your Photon is not breathing cyan, check the [device modes guide](/troubleshooting/led/).
 
 **My OLED screen works, but it shows 0 for both prediction times.**
 * First enter your prediction URL into your web browser to make sure it's working properly.

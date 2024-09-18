@@ -82,7 +82,7 @@ The **3V3** LED (11) indicates that the 3.3V MCU power supply is enabled. Jumper
 
 The **RGB LED** (6) can be configured for the standard Particle color scheme (blinking green, blinking cyan, breathing cyan) or the color scheme used by the Tracker One.
 
-The standard LED pattern for Tracker SoM Evaluation Boards devices is the standard Particle LED scheme (blinking green, breathing cyan). You can find more information [here](/tutorials/device-os/led/tracker-som/#standard-modes).
+The standard LED pattern for Tracker SoM Evaluation Boards devices is the standard Particle LED scheme (blinking green, breathing cyan). You can find more information [here](/troubleshooting/led/#standard-modes).
 
 
 ### Tracker One
@@ -102,7 +102,7 @@ The standard LED pattern for Tracker One devices is:
 - Breathing signal strength color indicator while connecting to the cloud (yellow or green)
 - Solid signal strength indicator (yellow/green) once connected.
 
-You can find more information [here](/tutorials/device-os/led/tracker-som/).
+You can find more information [here](/troubleshooting/led/).
 
 #### Powering off
 

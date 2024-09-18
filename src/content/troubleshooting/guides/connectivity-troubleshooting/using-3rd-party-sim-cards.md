@@ -489,7 +489,7 @@ else return -2;
 
 Be sure to edit the `cellular_credentials_set`line with the APN for your SIM card. Comment out this line if using a Particle-branded 4FF plastic SIM card in the 3rd-party SIM card slot.
 
-Put the Electron in DFU mode ([blinking yellow](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
+Put the Electron in DFU mode ([blinking yellow](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
 
 ```
 particle update
@@ -541,7 +541,7 @@ The 2G Electron (G350) supports 850, 900, 1800 and 1900 MHz (GPRS/EDGE).
 
 Once your device is breathing cyan after successfully setting the APN, you can claim it.
 
-You'll need the device ID of your device. You can get it by putting the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode), blinking dark blue, by holding down the MODE button until the main status LED blinks blue, then issuing the CLI command:
+You'll need the device ID of your device. You can get it by putting the device in [listening mode](/troubleshooting/led/#listening-mode), blinking dark blue, by holding down the MODE button until the main status LED blinks blue, then issuing the CLI command:
 
 ```
 particle identify
@@ -617,13 +617,13 @@ For the Electron, also note that the keep-alive settings is only in device OS 0.
 
 #### Blinking blue
 
-If, when you power on the Electron, it's blinking dark blue ([listening mode blue](/tutorials/device-os/led/electron/#listening-mode)), the most common cause is that the SIM is loose. Try removing it and putting it back in again.
+If, when you power on the Electron, it's blinking dark blue ([listening mode blue](/troubleshooting/led/#listening-mode)), the most common cause is that the SIM is loose. Try removing it and putting it back in again.
 
 Or you can try to either gently lift the little metal prongs that contact the SIM with a pin (with power off and SIM card removed) or push down on the little metal holder to get a better contact.
 
 #### Stuck on blinking green
 
-If the Electron or Boron never progresses past [blinking green](/tutorials/device-os/led/electron/#looking-for-internet), it probably can't contact a cellular tower. There are several possible reasons for this:
+If the Electron or Boron never progresses past [blinking green](/troubleshooting/led/#looking-for-internet), it probably can't contact a cellular tower. There are several possible reasons for this:
 
 * No coverage on the required band. For example, you have a 2G Electron but no 2G coverage. 2G coverage may be different than 3G, 4G or LTE coverage.
 * No coverage from the selected carrier/SIM.
@@ -635,4 +635,4 @@ Also note that the 2G Electron is not supported in Japan, Australia, Korea, and 
 
 #### Blinking magenta
 
-[Blinking magenta](/tutorials/device-os/led/electron/#safe-mode) is safe mode, and is an entirely different problem than connectivity. You can find more about safe mode in [this post](https://community.particle.io/t/safe-mode-explained/26259).
+[Blinking magenta](/troubleshooting/led/#safe-mode) is safe mode, and is an entirely different problem than connectivity. You can find more about safe mode in [this post](https://community.particle.io/t/safe-mode-explained/26259).

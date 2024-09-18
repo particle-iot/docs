@@ -4253,7 +4253,7 @@ You may set credentials in 3 different ways:
 - USERNAME & PASSWORD only
 - APN, USERNAME & PASSWORD
 
-The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/troubleshooting/led#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --local firmware.bin`
 
@@ -4318,7 +4318,7 @@ On Gen 2 devices, cellular credentials are not added to the device's non-volatil
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/troubleshooting/led#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --local firmware.bin`
 

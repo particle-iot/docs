@@ -454,7 +454,7 @@ It cannot be programmed by the ST-LINK/V2.
 
 Unlike the Electron, the E series module does not have an on-board RGB status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
 
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/electron/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/troubleshooting/led/)
 
 ### LED status
 

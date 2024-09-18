@@ -14,12 +14,7 @@ Your device is Blinking Red or Yellow, or Frozen Cyan, or has no Status LED at a
 
 **Do not**: unclaim your device. This is a totally natural instinct to have, but it does more harm than good. Unclaiming your device does not do anything to the device itself, it just trips a flag in the Cloud that allows this device to be claimed by another person. Worse, it removes this device from your Console, making it hard for yourself and our Support Team to identify the device that's struggling!
 
-**Do**: explore our LED Status pages! These pages provide helpful insights into the various ways your Particle device is signaling for your attention. It breaks out by device Type, LED Status Code, and - most importantly - by Red SOS code:
-
-* [Boron](/tutorials/device-os/led/boron/)
-* [Argon](/tutorials/device-os/led/argon/)
-* [Electron](/tutorials/device-os/led/electron/)
-* [Photon](/tutorials/device-os/led/photon/)
+**Do**: explore our [LED Status page](/troubleshooting/led/)! This page provides helpful insights into the various ways your Particle device is signaling for your attention. It breaks out by device Type, LED Status Code, and - most importantly - by Red SOS code:
 
 ## Interacting with the device
 

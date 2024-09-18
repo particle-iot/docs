@@ -102,7 +102,7 @@ Assuming you've compiled and downloaded the firmware binary from the [Web IDE](h
 be able to use the Particle CLI, mentioned above, to flash your application firmware to your Electron *without using data.*
 
 Steps:
-- **1:** Put the Electron in to [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-) (blinking yellow).
+- **1:** Put the Electron in to [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (blinking yellow).
 - **2:** Open a command prompt or terminal window.
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
 - **4:** From the CLI issue `particle flash --local firmware.bin`
@@ -113,7 +113,7 @@ $ particle flash --local firmware.bin
 ```
 
 *Note*: If your Electron goes into [safe
-mode](/tutorials/device-os/led/electron/#safe-mode) blinking magenta you should put the Electron back into DFU mode (blinking yellow) and do:
+mode](/troubleshooting/led/#safe-mode) blinking magenta you should put the Electron back into DFU mode (blinking yellow) and do:
 
 ```
 $ particle update
