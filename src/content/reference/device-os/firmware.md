@@ -15770,7 +15770,7 @@ When using TCP with debugging logs enabled, you might see something like this:
 0000182000 [wiring] ERROR: recv error = 113
 ```
 
-These errors are documented in the [POSIX error codes](#posix-errors) list. From code, you can find this underlying error code value in the global variable `errno`.
+These errors are documented in the [POSIX error codes](#posix-errors) list. From code, you can find this underlying error code value in the global variable `errno` or using `getWriteError()`.
 
 ---
 {{note op="start" type="cellular"}}

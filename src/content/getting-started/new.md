@@ -21,6 +21,18 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Power manager updates 2024-09-18
+
+Documented new [system power manager](/reference/device-os/api/power-manager/) calls available in
+Device OS 5.9.0 for `3V3_AUX` power control on the Muon, M.2 SoM breakout board, and custom
+boards that use the [PM-BAT power module](/hardware/power/pm-bat-datasheet/).
+
+### Ethernet update 2024-09-18
+
+Updated [Ethernet documentation](/reference/device-os/api/ethernet/) for Device OS 5.9.0 and
+the ability to use the [Adafruit Ethernet FeatherWing](/hardware/ethernet/ethernet/#adafruit-featherwing) without having to solder jumpers.
+
+
 ### POSIX error codes 2024-09-17
 
 Documented [POSIX error codes](/reference/device-os/api/debugging/posix-errors/) that can occur when
