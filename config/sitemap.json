@@ -1823,12 +1823,12 @@
             "hash": "92aa2922ce92a8e2d80d84d8d309cc1d47247f1149bd6d0606885f873b34da44"
         },
         "reference/device-os/api/ethernet/ethernet.md": {
-            "date": "2024-04-30",
-            "hash": "7d3ed9cb3ac5666a5ff88e19b4da672750a2c267ac3a7fc6e28ea730ebee9ce8"
+            "date": "2024-09-17",
+            "hash": "dd5ad7914917577f67a467fbdd155859c4932d74b1156d303d9fce17187be561"
         },
         "reference/device-os/api/ethernet/pin-configuration-ethernet.md": {
-            "date": "2024-07-02",
-            "hash": "aeca558495ed27ec15ddfe1964ef220f40680e64bc59d7690d983099757655ca"
+            "date": "2024-09-17",
+            "hash": "804816020d2bb402343796f7c0415ae6358699be59fc44434946e23f87c94f70"
         },
         "reference/device-os/api/ethernet/on.md": {
             "date": "2023-09-20",
@@ -2423,16 +2423,16 @@
             "hash": "9be6beacdf6f5b535a36001e96d451c5c17cf55fa979e411ef7ae790a6310d16"
         },
         "reference/device-os/api/power-manager/power-manager.md": {
-            "date": "2024-02-27",
-            "hash": "41a79e39d83bb30874f7818ed932b1802593f30bef298fe602be295a4b048f0a"
+            "date": "2024-09-17",
+            "hash": "a8eb69755e1ca892d8c96217b5144b7c2da435d6918608c4e3edb98bf5328a89"
         },
         "reference/device-os/api/power-manager/powersourcemaxcurrent.md": {
             "date": "2023-09-20",
             "hash": "e68e6118abc0cfb03042e31ae886faca06e594c27eaf39591586a8680fe5d7df"
         },
         "reference/device-os/api/power-manager/powersourceminvoltage.md": {
-            "date": "2023-09-20",
-            "hash": "d51b85de494f432d943c237f3d5d9551d8a656db3329f72f292dbc3d925df529"
+            "date": "2024-09-17",
+            "hash": "f1204596309dd9ace4b4f7cb79b4626447e072093a056a0cf611cfaa06810c0c"
         },
         "reference/device-os/api/power-manager/batterychargecurrent.md": {
             "date": "2023-09-20",
@@ -3043,8 +3043,8 @@
             "hash": "ac1a9fd3c747d30d725a74dda0462a39cf68c00267d65fed30e06e2463ee153b"
         },
         "reference/device-os/api/tcpclient/tcpclient.md": {
-            "date": "2023-09-20",
-            "hash": "9ccdb62fd6f5fd7437ddc7fea11c4ac20c4c8d2598f734dd4284ae197494b329"
+            "date": "2024-09-17",
+            "hash": "07a115bb0e24ba5f4c658dc4b8aa6daf6e778bce3623d31069bd35aebd6938fd"
         },
         "reference/device-os/api/tcpclient/connected.md": {
             "date": "2023-09-20",
@@ -9196,6 +9196,30 @@
         },
         "reference/device-os/api/debugging/posix-errors.md": {
             "hash": "fb21ea50b30ccbd702d163fb880c833fdda0e453e8ebfd1097fddbb657920548",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration.md": {
+            "hash": "e052709fefbef711d723ddaa941403e718388ef3645943372a3e3583587c3b27",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/batterychargecurrent-systempowerconfiguration.md": {
+            "hash": "04e6c533480654a38ac37df34250cb9540e0c48743ba8e8c95cd2a1bf0040215",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/batterychargevoltage-systempowerconfiguration.md": {
+            "hash": "113238e33feb9d8018798d2d9ef4bab8e95d54b1f3ae4e10e472b068daaa9865",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/socbitprecision-systempowerconfiguration.md": {
+            "hash": "92f274a51c9852fd0c31f59e356b09b47bcd7c2bd0753bcc5f362c594c7c3ce8",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/auxiliarypowercontrolpin-systempowerconfiguration.md": {
+            "hash": "aa823fdf34b0c61b2faba71a2d3ff9bc3e68253ddb7421dddf2499593ad020b4",
+            "date": "2024-09-17"
+        },
+        "reference/device-os/api/power-manager/interruptpin-systempowerconfiguration.md": {
+            "hash": "58212f6a22cd17fdbce33c271e0aed73fba4642b4e3a535eec3ff9e193c8e681",
             "date": "2024-09-17"
         }
     }

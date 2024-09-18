@@ -37,7 +37,21 @@ Pins D3 and D4 are the same as `SPI1` on the Argon and Boron. You can use [pin r
 
 ### Adafruit FeatherWing
 
-If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
+If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), by default nRESET and nINTERRUPT pins are not connected. You will either need to connect them (on the small header on the short side) to pins D3 and D4 with jumper wires, or use Device OS 5.9.0 and operate without these two hardware control pins.
+
+The following code enables the use of the Adafruit Ethernet FeatherWing without having to solder jumper wires:
+
+```cpp
+// Enable Ethernet (requires Device OS 5.9.0 or later)
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+remap.cs_pin = D5;
+remap.reset_pin = PIN_INVALID;
+remap.int_pin = PIN_INVALID;
+auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+```
 
 ### B-SoM and M-SoM default pins
 
@@ -50,6 +64,16 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 | MOSI | MOSI | ETH\_MOSI |
 | D22 | GPIO0 | ETH\_INT |
 
+### Muon default pins
+
+|Particle Pin|Ethernet Pin   |
+|:-------|:--------------------------|
+|MISO    | SPI MISO                  |
+|MOSI    | SPI MOSI                  |
+|SCK     | SPI SCK                   |
+|A4      | Interrupt  |
+|A3      | Chip Select (CS) |
+
 
 ### Tracker default pins
 
@@ -58,9 +82,9 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 |MISO    | SPI MISO                  |
 |MOSI    | SPI MOSI                  |
 |SCK     | SPI SCK                   |
-|D6      | nRESET     |
-|D7      | nINTERRUPT  |
-|D2      | nCHIP SELECT|
+|D6      | Reset     |
+|D7      | Interrupt  |
+|D2      | Chip Select (CS) |
 
 
 ## Device OS support

@@ -81,6 +81,43 @@ support for a LiPo battery as well as DC input.
 If your base board is designed for the PM-BAT power module, you can substitute the PM-DC and the PM-DC power module will function properly, but
 features such as power management, battery input, charge LED, etc. will not be available, of course.
 
+## Firmware settings
+
+Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
+that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
+it powers the Ethernet port and LoRaWAN module.
+
+The main reason for this is that is with PM-BAT, until the PMIC is configured, the input current with no battery
+connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
+using a peripheral that requires a lot of current, like the WIZnet W5500 Ethernet module. The 
+system power manager prevents turning on `3V3_AUX` until after the PMIC is configured
+and the PMIC has negotiated a higher current from the USB host (if powered by USB).
+
+This is typically less of an issue with PM-DC, however, it will reduce the inrush current at boot and is provided
+for compatibility with PM-BAT.
+
+After changing the auxiliary power configuration you must reset the device.
+
+The following code can be used to enable Ethernet on the M.2 SoM breakout board. This only needs to be done
+once and the device must be reset after configuration for the changes to take effect.  It requires Device OS 5.9.0 or later.
+
+```cpp
+// Enable 3V3_AUX
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D23).interruptPin(A6);
+System.setPowerConfiguration(powerConfig);
+
+// Enable Ethernet
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+remap.cs_pin = D5;
+remap.reset_pin = PIN_INVALID;
+remap.int_pin = PIN_INVALID;
+auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+```
+
 {{!-- 
 Typical application
 imageOverlay src="/assets/images/power-module/power-module-example.svg" alt="Typical usage" class="full-width"
@@ -140,3 +177,4 @@ The mating header is available from a large number of suppliers in both PTH and 
 | pre      | 2024-04-15 | RK | Pre-release |
 | 001      | 2024-06-27 | RK | Initial version |
 | 002      | 2024-08-08 | RK | Input voltage range is 5-12 VDC |
+| 003      | 2024-09-18 | RK | Add firmware settings |

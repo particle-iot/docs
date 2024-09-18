@@ -87,6 +87,46 @@ The `/FUEL_INT` is an open-drain output that goes low if the PMIC or fuel gauge 
 condition. This should be connected to M.2 SoM pin 45 (A6) for both B-SoM and M-SoM. On the M-SoM, pin A6 
 pin cannot wake the M-SoM from hibernate sleep mode, but can wake from stop or ULP sleep modes.
 
+## Firmware settings
+
+{{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
+Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
+that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
+it powers the Ethernet port and LoRaWAN module.
+
+The main reason for this is that until the PMIC is configured, the input current with no battery
+connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
+using a peripheral that requires a lot of current, like the WIZnet W5500 Ethernet module. The 
+system power manager prevents turning on `3V3_AUX` until after the PMIC is configured
+and the PMIC has negotiated a higher current from the USB host (if powered by USB).
+
+This setting is persistent and only needs to be set once. In fact, the PMIC initialization
+normally occurs before user firmware is run. This is also necessary because if you are using Ethernet
+and enter safe mode (breathing magenta), it's necessary to enable `3V3_AUX` so if you are using
+Ethernet, you can still get OTA updates while in safe mode.
+
+After changing the auxiliary power configuration you must reset the device.
+{{!-- END shared-blurb --}}
+
+The following code can be used to enable Ethernet on the M.2 SoM breakout board. This only needs to be done
+once and the device must be reset after configuration for the changes to take effect.  It requires Device OS 5.9.0 or later.
+
+```cpp
+// Enable 3V3_AUX
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D23).interruptPin(A6);
+System.setPowerConfiguration(powerConfig);
+
+// Enable Ethernet
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+remap.cs_pin = D5;
+remap.reset_pin = PIN_INVALID;
+remap.int_pin = PIN_INVALID;
+auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+```
 
 {{!-- 
 Typical application
@@ -181,3 +221,4 @@ NTC (negative temperature coefficient), higher voltages indicate lower temperatu
 |          | 2024-04-08 | RK | Updated to v4, pin changes |
 |          | 2024-04-15 | RK | Corrected the /FUEL_INT pin description |
 | 001      | 2024-06-27 | RK | Initial version |
+| 002      | 2024-09-18 | RK | Add firmware settings |
