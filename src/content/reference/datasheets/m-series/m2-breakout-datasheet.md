@@ -1030,3 +1030,4 @@ To be provided at a later date.
 |        1 | 2024-05-22 | RK     | Public release |
 |        2 | 2024-05-29 | RK     | Descriptions for labels 1 and 3 were reversed |
 |        3 | 2024-08-08 | RK     | Input voltage is 5 - 12 VDC, not 24 |
+|        4 | 2024-09-18 | RK     | Add firmware settings |

@@ -221,3 +221,4 @@ NTC (negative temperature coefficient), higher voltages indicate lower temperatu
 |          | 2024-04-08 | RK | Updated to v4, pin changes |
 |          | 2024-04-15 | RK | Corrected the /FUEL_INT pin description |
 | 001      | 2024-06-27 | RK | Initial version |
+| 002      | 2024-09-18 | RK | Add firmware settings |
