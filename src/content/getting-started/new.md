@@ -21,7 +21,7 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Updated libaries 2024-09-18
+### Updated library reference 2024-09-18
 
 Updated [library reference](/reference/device-os/libraries/search/) with latest libraries and versions.
 
