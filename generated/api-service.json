@@ -2261,7 +2261,7 @@
         "optional": true,
         "field": "sortAttr",
         "isArray": false,
-        "description": "<p>The attribute by which to sort results. Options for sorting are <code>deviceId</code>, <code>firmwareVersion</code>, or <code>lastConnection</code>. By default, if no <code>sortAttr</code> parameter is set, devices will be sorted by last connection, in descending order</p>"
+        "description": "<p>The attribute by which to sort results. Options for sorting are <code>deviceName</code>, <code>deviceId</code>, <code>firmwareVersion</code>, or <code>lastConnection</code>. By default, if no <code>sortAttr</code> parameter is set, devices will be sorted by last connection, in descending order</p>"
       },
       {
         "group": "Query",
@@ -2524,13 +2524,21 @@
             "field": "invalidDeviceIds",
             "isArray": false,
             "description": "<p>Device identifiers that were invalid and could not be imported</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "protectedDeviceIds",
+            "isArray": false,
+            "description": "<p>Device identifiers that are protected and could not be imported into a non-protected product</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "POST /v1/products/:productIdOrSlug/devices",
-          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[]\n}",
+          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[],\n \"protectedDeviceIds\": []\n}",
           "type": "json"
         }
       ]
@@ -10767,10 +10775,82 @@
   },
   {
     "type": "get",
+    "url": "/v1/products/:productIdOrSlug/fleet_locations",
+    "title": "Query fleet-wide locations for devices within a product",
+    "name": "GetFleetLocations",
+    "group": "Location.1",
+    "description": "<p>Get the latest location data for all the devices in a product to get a fleet-wide summary of device location.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or slug.</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_id",
+        "isArray": false,
+        "description": "<p>Device ID prefix to include in the query</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "device_name",
+        "isArray": false,
+        "description": "<p>Device name prefix to include in the query</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String[]",
+        "optional": true,
+        "field": "groups",
+        "isArray": true,
+        "description": "<p>Array of group names to include in the query</p>"
+      }
+    ],
+    "permission": [
+      {
+        "name": "locations:get"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Last known fleet locations query",
+        "content": "$ curl \"https://api.particle.io/v1/products/1234/fleet_locations\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Last known fleet locations response",
+          "content": "GET https://api.particle.io/v1/products/1234/fleet_locations\nHTTP/1.1 200 OK\n{\n  \"locations\": [{\n    \"device_id\": \"1234567890abcdef\",\n    \"product_id\": 343,\n    \"device_name\" : \"deploy-truck32\",\n    \"gps_lock\": true,\n    \"last_heard\": \"2020-12-07T21:07:12Z\",\n    \"groups\": [\"us-east\", \"trucks\"],\n    \"timestamps\": [\n      \"2020-12-07T21:07:12Z\",\n    ],\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        34.518699645996094,\n        31.504855323809403\n      ]\n    }\n  }, {\n    \"device_id\": \"deadbeef123456\",\n    \"product_id\": 343,\n    \"groups\": [\"us-east\"],\n    \"device_name\": \"service-truck11\",\n    \"timestamp\": \"2020-12-07T21:07:12Z\",\n    \"gps_lock\": true,\n    \"last_heard\": \"2020-12-07T21:07:12Z\",\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        33.548699645996094,\n        30.804855323809403\n      ]\n    },\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/location.js",
+    "groupTitle": "Location.1"
+  },
+  {
+    "type": "get",
     "url": "/v1/products/:productIdOrSlug/locations",
     "title": "Query location for devices within a product",
     "name": "GetLocations",
-    "group": "Location.1",
+    "group": "Location.2",
     "description": "<p>Get latest or historical location data for devices. Date range and bounding box can be specified to narrow the query.</p>",
     "parameter": {
       "fields": {
@@ -10885,14 +10965,14 @@
     },
     "version": "0.0.0",
     "filename": "src/views/location.js",
-    "groupTitle": "Location.1"
+    "groupTitle": "Location.2"
   },
   {
     "type": "get",
     "url": "/v1/products/:productIdOrSlug/locations/:deviceId",
     "title": "Query location for one device within a product",
     "name": "getLocation",
-    "group": "Location.2",
+    "group": "Location.3",
     "description": "<p>Get last known or historical location data for one device. Date range and bounding box can be specified to narrow down the query. Properties and custom data will be returned by default.</p>",
     "parameter": {
       "fields": {
@@ -10975,7 +11055,7 @@
     },
     "version": "0.0.0",
     "filename": "src/views/location.js",
-    "groupTitle": "Location.2"
+    "groupTitle": "Location.3"
   },
   {
     "type": "get",
@@ -11082,8 +11162,8 @@
         },
         "field": "source.type",
         "isArray": false,
-        "defaultValue": "Javascript",
-        "description": "<p>Type of code (always Javascript)</p>"
+        "defaultValue": "JavaScript",
+        "description": "<p>Type of code (always JavaScript)</p>"
       },
       {
         "group": "Body",
@@ -11162,6 +11242,14 @@
         "field": "event.product_id",
         "isArray": false,
         "description": "<p>Product ID that triggered the event</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "api_username",
+        "isArray": false,
+        "description": "<p>Optional API user to access Particle API</p>"
       }
     ],
     "examples": [
@@ -13094,7 +13182,7 @@
     "title": "List team members",
     "name": "listUsersForProductOrOrg",
     "group": "Products.3",
-    "description": "<p>List all team members that are part of a given product</p>",
+    "description": "<p>List all team members that are part of a given product. Also, will retrieve all API users for all the products inside the org</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -13170,7 +13258,7 @@
       "examples": [
         {
           "title": "GET /v1/products/:productIdOrSlug/team",
-          "content": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true,\n\t\t\t\"scim_provisioned\": true,\n\t\t\t\"no_password\": true\n\t\t},\n       ...\n  ]\n}",
+          "content": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true,\n\t\t\t\"scim_provisioned\": true,\n\t\t\t\"no_password\": true\n\t\t},\n\t\t{\n         \"username\": \"test-product-api-user+abc1234@api.particle.io\",\n         \"friendly_name\": \"test-product-api-user\",\n         \"scopes\": [ \"products:list\" ],\n         \"is_programmatic\": true,\n         \"product_id\": 123456\n    },\n     ...\n  ]\n}",
           "type": "json"
         }
       ]
@@ -13435,6 +13523,65 @@
     "version": "0.0.0",
     "filename": "src/views/product.js",
     "groupTitle": "Products.7"
+  },
+  {
+    "type": "put",
+    "url": "/v1/products/:productIdOrSlug/team/:username/token",
+    "title": "Regenerate programmatic user's token",
+    "name": "regenerateProductOrOrgProgrammaticUserToken",
+    "group": "Products.8",
+    "description": "<p>Regenerate programmatic users token</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or Slug</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "isArray": false,
+            "description": "<p>Username of the team member to be updated</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "teams.users:update"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Regenerate programmatic product user token",
+        "content": "$ curl -X POST https://api.particle.io/products/:productIdOrSlug/team/test+prg123@example.com/token \\\n                 -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Regenerate programmatic org user token",
+        "content": "$ curl -X POST https://api.particle.io/orgs/:orgIdOrSlug/team/test+prg123@example.com/token \\\n                 -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/products/photon/team/test+prg123@example.com/team",
+          "content": " POST /v1/products/photon/team/test+prg123@example.com/team\n HTTP/1.1 200 OK\n {\n\t  \"ok\": true,\n\t  \"updated\":{\n\t\t\"username\": \"test+prg123@example.com\",\n\t\t\"tokens\": [\n\t\t\t{\n\t\t      \"token\": \"abc.123\"\n\t\t  }\n    ]\n\t}\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "Products.8"
   },
   {
     "type": "post",

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated API documentation 2024-09-18
+
+Updated the cloud API, particle-api-js, and Postman definition files with the latest updates.
+
 ### Power manager updates 2024-09-18
 
 Documented new [system power manager](/reference/device-os/api/power-manager/) calls available in

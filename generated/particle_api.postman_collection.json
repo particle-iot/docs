@@ -218,7 +218,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-05-31T16:48:25.431Z",
+                  "value": "2024-09-18T15:14:43.685Z",
                   "disabled": true
                 }
               ]
@@ -283,7 +283,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-05-31T16:48:25.437Z",
+                      "value": "2024-09-18T15:14:43.687Z",
                       "disabled": true
                     }
                   ]
@@ -1700,7 +1700,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-05-31T16:48:25.476Z",
+                  "value": "2024-09-18T15:14:43.702Z",
                   "disabled": true
                 },
                 {
@@ -1760,7 +1760,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-05-31T16:48:25.477Z",
+                      "value": "2024-09-18T15:14:43.702Z",
                       "disabled": true
                     },
                     {
@@ -2127,7 +2127,7 @@
                 {
                   "key": "sortAttr",
                   "value": "string",
-                  "description": "The attribute by which to sort results. Options for sorting are deviceId, firmwareVersion, or lastConnection. By default, if no sortAttr parameter is set, devices will be sorted by last connection, in descending order",
+                  "description": "The attribute by which to sort results. Options for sorting are deviceName, deviceId, firmwareVersion, or lastConnection. By default, if no sortAttr parameter is set, devices will be sorted by last connection, in descending order",
                   "disabled": true
                 },
                 {
@@ -2537,7 +2537,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[]\n}"
+              "body": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[],\n \"protectedDeviceIds\": []\n}"
             }
           ]
         },
@@ -3314,13 +3314,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-31T16:48:25.507Z",
+                  "value": "2024-09-18T15:14:43.710Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-31T16:48:25.507Z",
+                  "value": "2024-09-18T15:14:43.710Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4737,13 +4737,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-31T16:48:25.531Z",
+                  "value": "2024-09-18T15:14:43.716Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-31T16:48:25.531Z",
+                  "value": "2024-09-18T15:14:43.717Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4844,13 +4844,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-31T16:48:25.534Z",
+                  "value": "2024-09-18T15:14:43.718Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-31T16:48:25.534Z",
+                  "value": "2024-09-18T15:14:43.718Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4951,13 +4951,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-31T16:48:25.537Z",
+                  "value": "2024-09-18T15:14:43.719Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-31T16:48:25.538Z",
+                  "value": "2024-09-18T15:14:43.719Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5058,13 +5058,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-31T16:48:25.541Z",
+                  "value": "2024-09-18T15:14:43.720Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-31T16:48:25.541Z",
+                  "value": "2024-09-18T15:14:43.720Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5165,13 +5165,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-05-31T16:48:25.545Z",
+                  "value": "2024-09-18T15:14:43.721Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-05-31T16:48:25.545Z",
+                  "value": "2024-09-18T15:14:43.722Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -7735,6 +7735,94 @@
       "name": "Location",
       "item": [
         {
+          "name": "Query fleet-wide locations for devices within a product",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/fleet_locations",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "fleet_locations"
+              ],
+              "query": [
+                {
+                  "key": "device_id",
+                  "value": "string",
+                  "description": "Device ID prefix to include in the query",
+                  "disabled": true
+                },
+                {
+                  "key": "device_name",
+                  "value": "string",
+                  "description": "Device name prefix to include in the query",
+                  "disabled": true
+                },
+                {
+                  "key": "groups",
+                  "value": [
+                    "string",
+                    "string"
+                  ],
+                  "description": "Array of group names to include in the query",
+                  "disabled": true
+                }
+              ],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or slug.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get the latest location data for all the devices in a product to get a fleet-wide summary of device location."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/fleet_locations",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "fleet_locations"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET https://api.particle.io/v1/products/1234/fleet_locations\nHTTP/1.1 200 OK\n{\n  \"locations\": [{\n    \"device_id\": \"1234567890abcdef\",\n    \"product_id\": 343,\n    \"device_name\" : \"deploy-truck32\",\n    \"gps_lock\": true,\n    \"last_heard\": \"2020-12-07T21:07:12Z\",\n    \"groups\": [\"us-east\", \"trucks\"],\n    \"timestamps\": [\n      \"2020-12-07T21:07:12Z\",\n    ],\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        34.518699645996094,\n        31.504855323809403\n      ]\n    }\n  }, {\n    \"device_id\": \"deadbeef123456\",\n    \"product_id\": 343,\n    \"groups\": [\"us-east\"],\n    \"device_name\": \"service-truck11\",\n    \"timestamp\": \"2020-12-07T21:07:12Z\",\n    \"gps_lock\": true,\n    \"last_heard\": \"2020-12-07T21:07:12Z\",\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        33.548699645996094,\n        30.804855323809403\n      ]\n    },\n  }]\n}"
+            }
+          ]
+        },
+        {
           "name": "Query location for devices within a product",
           "request": {
             "auth": null,
@@ -8499,7 +8587,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"source\": {\n    \"key\": \"value\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  },\n  \"event\": {\n    \"key\": \"value\",\n    \"event_data\": \"string\",\n    \"device_id\": \"string\",\n    \"product_id\": \"string\"\n  }\n}"
+              "raw": "{\n  \"source\": {\n    \"key\": \"value\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  },\n  \"event\": {\n    \"key\": \"value\",\n    \"event_data\": \"string\",\n    \"device_id\": \"string\",\n    \"product_id\": \"string\"\n  },\n  \"api_username\": \"string\"\n}"
             },
             "url": {
               "raw": "{{url}}/v1/users/logic/execute",
@@ -8537,7 +8625,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"source\": {\n    \"key\": \"value\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  },\n  \"event\": {\n    \"key\": \"value\",\n    \"event_data\": \"string\",\n    \"device_id\": \"string\",\n    \"product_id\": \"string\"\n  }\n}"
+                  "raw": "{\n  \"source\": {\n    \"key\": \"value\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  },\n  \"event\": {\n    \"key\": \"value\",\n    \"event_data\": \"string\",\n    \"device_id\": \"string\",\n    \"product_id\": \"string\"\n  },\n  \"api_username\": \"string\"\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/users/logic/execute",
@@ -9960,7 +10048,7 @@
                 }
               ]
             },
-            "description": "List all team members that are part of a given product"
+            "description": "List all team members that are part of a given product. Also, will retrieve all API users for all the products inside the org"
           },
           "response": [
             {
@@ -9996,7 +10084,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true,\n\t\t\t\"scim_provisioned\": true,\n\t\t\t\"no_password\": true\n\t\t},\n       ...\n  ]\n}"
+              "body": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true,\n\t\t\t\"scim_provisioned\": true,\n\t\t\t\"no_password\": true\n\t\t},\n\t\t{\n         \"username\": \"test-product-api-user+abc1234@api.particle.io\",\n         \"friendly_name\": \"test-product-api-user\",\n         \"scopes\": [ \"products:list\" ],\n         \"is_programmatic\": true,\n         \"product_id\": 123456\n    },\n     ...\n  ]\n}"
             }
           ]
         },
@@ -10201,6 +10289,87 @@
             "description": "Update a current team member."
           },
           "response": []
+        },
+        {
+          "name": "Regenerate programmatic user's token",
+          "request": {
+            "auth": null,
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/team/:username/token",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "team",
+                ":username",
+                "token"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or Slug",
+                  "disabled": false
+                },
+                {
+                  "key": "username",
+                  "value": "string",
+                  "description": "Username of the team member to be updated",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Regenerate programmatic users token"
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/team/:username/token",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "team",
+                    ":username",
+                    "token"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": " POST /v1/products/photon/team/test+prg123@example.com/team\n HTTP/1.1 200 OK\n {\n\t  \"ok\": true,\n\t  \"updated\":{\n\t\t\"username\": \"test+prg123@example.com\",\n\t\t\"tokens\": [\n\t\t\t{\n\t\t      \"token\": \"abc.123\"\n\t\t  }\n    ]\n\t}\n }"
+            }
+          ]
         },
         {
           "name": "Remove team member",
