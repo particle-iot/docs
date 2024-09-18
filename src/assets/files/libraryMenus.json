@@ -1525,6 +1525,10 @@
           "dir": "Grove_I2C_Color_Sensor"
         },
         {
+          "title": "Grove_IMU_9DOF_ICM20600_AK09918_y",
+          "dir": "Grove_IMU_9DOF_ICM20600_AK09918_y"
+        },
+        {
           "title": "Grove_LCD_RGB_Backlight",
           "dir": "Grove_LCD_RGB_Backlight"
         },

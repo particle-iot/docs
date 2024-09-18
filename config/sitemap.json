@@ -5147,8 +5147,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2024-08-28",
-            "hash": "9022f6f80dde444993b96424e78dcc1e4d2645f9b20acbe1864cde09612d724f"
+            "date": "2024-09-18",
+            "hash": "d4f649971ce59f5bd375a5cbe6c5f602f1bb6e83800858e074afc972d81d83d6"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -6195,8 +6195,8 @@
             "hash": "a010834270397ac4d7de18bc2ba7154ab0803f57d6f328145ee1a095809c47e6"
         },
         "reference/device-os/libraries/l/LIDAR.md": {
-            "date": "2024-08-28",
-            "hash": "85d483b43600de86ebf70eeae0c2f1655bc051f13f10a9f8918136a99473c7d8"
+            "date": "2024-09-18",
+            "hash": "37b48a83d56e9fea4aa720fb8d3d703b3b819e0390fa4be2275f182ed5411ad5"
         },
         "reference/device-os/libraries/l/LIDAR-Lite.md": {
             "date": "2024-08-28",
@@ -9187,8 +9187,8 @@
             "date": "2024-08-28"
         },
         "reference/device-os/libraries/f/FileHelperRK.md": {
-            "hash": "22e6f47b639b8022f80175c679f05a4c16d225d77f6a92006fe2e73f12c46d5c",
-            "date": "2024-08-30"
+            "hash": "29ba84bc1bedc45b519d81c5beaf073dd0459005e47c214d484816743ab2e8a9",
+            "date": "2024-09-18"
         },
         "quickstart/monitor-one.md": {
             "hash": "c16737091356a8b71635aef02b1dfb20deb06afb44be86c3f03c69348309dab5",
@@ -9221,6 +9221,10 @@
         "reference/device-os/api/power-manager/interruptpin-systempowerconfiguration.md": {
             "hash": "58212f6a22cd17fdbce33c271e0aed73fba4642b4e3a535eec3ff9e193c8e681",
             "date": "2024-09-17"
+        },
+        "reference/device-os/libraries/g/Grove_IMU_9DOF_ICM20600_AK09918_y.md": {
+            "hash": "056a473292f6e52c27a8ba953a45e44c169d6a6f46296a36e3d5992537b1610d",
+            "date": "2024-09-18"
         }
     }
 }
