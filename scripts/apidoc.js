@@ -17,8 +17,10 @@ function assignOrder(data) {
 
 module.exports = function(options) {
   return function(files, metalsmith, done) {
+    const generatedDir = metalsmith.path(options.generatedDir);
+    
     var apiData = options.apis.map(function processApi(apiOptions) {
-      const savePath = path.join(__dirname, '..', 'generated', path.basename(apiOptions.src) + '.json');
+      const savePath = path.join(generatedDir, path.basename(apiOptions.src) + '.json');
       apiOptions.parse = true;
       apiOptions.src = metalsmith.path(apiOptions.src);
       apiOptions.config = metalsmith.path(apiOptions.config);
@@ -118,6 +120,18 @@ module.exports = function(options) {
       }
       destFile.scopeList += '</ul>';
     }
+
+    {
+      // Copy api-service.json 
+      const apiServiceJsonBuffer = fs.readFileSync(path.join(generatedDir, 'api-service.json'));
+
+      const filesObj = {
+        contents: apiServiceJsonBuffer,
+      };
+
+      files['assets/files/api-service.json'] = filesObj;
+    }
+  
     return done();
   };
 };

@@ -43,6 +43,7 @@ var msIf = require('metalsmith-if');
 var canonical = require('metalsmith-canonical');
 var precompile = require('./precompile');
 var apidoc = require('./apidoc');
+var jsapidoc = require('./jsapidoc');
 var insertFragment = require('./insert_fragment');
 var javascriptDocsPreprocess = require('./javascript_docs_preprocess');
 var git = require('git-rev');
@@ -171,7 +172,8 @@ exports.metalsmith = function () {
             config: '../../api-service/apidoc.json',
             includeFilters: ['.*Controller\\.js$']
           },
-        ]
+        ],
+        generatedDir: '../generated',
       })
     )
     .use(postman({
@@ -179,15 +181,21 @@ exports.metalsmith = function () {
       postmanBuiltFile: '../../api-service/apidoc/particle_api.postman_collection.json',
       postmanGeneratedFile: '../generated/particle_api.postman_collection.json',
       assetPath: 'assets/files/particle_api.postman_collection.json',
-    }))
+    }))    
     .use(deviceRestoreInfo({
       sourceDir: '../src',
       inputFile: 'assets/files/deviceRestore.json'
     }))
     // Auto-generate documentation for the Javascript client library
+    .use(
+      jsapidoc({
+        generatedDir: '../generated',        
+        javascriptSourceFile: '../../particle-api-js/docs/api.md',
+      })
+    )
     .use(insertFragment({
       destFile: 'content/reference/cloud-apis/javascript.md',
-      srcFile: '../../particle-api-js/docs/api.md',
+      srcFile: '../generated/javascript.md',
       fragment: 'GENERATED_JAVASCRIPT_DOCS',
       preprocess: javascriptDocsPreprocess,
     }))
