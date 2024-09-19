@@ -5,7 +5,7 @@ var path = require('path');
 
 // Set this to true to save additional unprocessed data to jsDocs.json for debugging parsing errors.
 // Turn it back off before committing! 
-const saveRaw = true;
+const saveRaw = false;
 
 function stripMdLinks(s) {
     return s.replaceAll(/\[([^\]]+)\]\([^\)]*\)/g, '$1');
@@ -74,23 +74,6 @@ module.exports = function (options) {
                     }
                 }
 
-                if (state == 'heading') {
-                    if (line.startsWith('[src/Particle.js')) {
-                        // Source code link
-                        api.sourceLink = line;
-                    }
-                    if (!line.startsWith('#')) {
-                        if (typeof api.text == 'undefined') {
-                            api.text = line;
-                        }
-                        else {
-                            api.text += '\n' + line;
-                        }
-                    }
-                    
-                }
-
-
                 if (line.startsWith('**Properties**')) {
                     saveParam();
     
@@ -118,19 +101,19 @@ module.exports = function (options) {
                         param.lineNum = lineNum;
                         
                         if (param.descText.length == 0) {
-                            param.paramName = '';
+                            param.paramType = '';
                             param.isOptional = false;
                         }
                         else {
                             const m3 = param.descText.match(boldPairRE); // /\*\*([^\*]+)\*\*[ \t]*/
                             if (m3) {
-                                param.paramNameRaw = m3[1];
-                                if (param.paramNameRaw.endsWith('?')) {
-                                    param.paramName = param.paramNameRaw.substring(0, param.paramNameRaw.length - 1);
+                                param.paramTypeRaw = m3[1];
+                                if (param.paramTypeRaw.endsWith('?')) {
+                                    param.paramType = param.paramTypeRaw.substring(0, param.paramTypeRaw.length - 1);
                                     param.isOptional = true;
                                 }
                                 else {
-                                    param.paramName = param.paramNameRaw;
+                                    param.paramType = param.paramTypeRaw;
                                     param.isOptional = false;
                                 }
     
@@ -148,6 +131,7 @@ module.exports = function (options) {
                         if (!saveRaw) {
                             delete param.descRaw;
                             delete param.descText;                                
+                            delete param.paramTypeRaw;
                             delete param.lineNum;
                         }
                     }
@@ -195,6 +179,7 @@ module.exports = function (options) {
 
                         if (!saveRaw) {
                             delete api.returns.textRaw;
+                            delete api.returns.text;
                             delete api.returns.lineNum;
                         }      
                     }
@@ -206,6 +191,31 @@ module.exports = function (options) {
                         api.returns.desc += '\n' + line.trim();
                     }
                 }
+
+                if (state == 'heading') {
+                    if (line.startsWith('[src/Particle.js')) {
+                        // Source code link
+                        api.sourceLink = line;
+                    }
+                    else
+                    if (!line.startsWith('#') && line.trim().length > 0) {
+                        if (typeof api.text != 'undefined') {
+                            if (api.text.length) {
+                                api.text += '\n';
+                                api.textRaw += '\n';
+                            }
+                        }
+                        else {
+                            api.text = '';          
+                            api.textRaw = '';                  
+                        }
+
+                        api.text += stripMdLinks(line.trim());
+                        api.textRaw += line.trim();
+                    }
+                    
+                }
+
             }
             saveApi();
             // console.log('apis', apis);
@@ -232,8 +242,12 @@ module.exports = function (options) {
                             console.log('missing indent', param);
                             continue;
                         }
+                        const indent = param.indent;
+                        if (!saveRaw) {
+                            delete param.indent;
+                        }
                         
-                        if (param.indent == 0) {
+                        if (indent == 0) {
                             if (curObj) {
                                 topObj.fields.push(curObj);
                             }
@@ -264,6 +278,7 @@ module.exports = function (options) {
                 }    
                 if (!saveRaw) {
                     delete api.lineNum;
+                    delete api.textRaw;
                 }
             }
 
