@@ -32,6 +32,7 @@ module.exports = function (options) {
             let state = '';
             let apis = [];
             let api = {};
+            let param = {};
 
             const boldPairRE = /\*\*([^\*]+)\*\*[ \t]*/;
 
@@ -58,6 +59,7 @@ module.exports = function (options) {
 
                 if (line.startsWith('[src/Particle.js')) {
                     // Source code link
+                    api.sourceLink = line;
                 }
 
                 if (line.startsWith('**Parameters**')) {
@@ -66,10 +68,13 @@ module.exports = function (options) {
                 }
                 else
                 if (state == 'parameters') {
-                    let param = {};
-
                     const m2 = line.match(/^([ \t]*)-[ \t]+`([_$A-Za-z0-9\.]+)`[ \t]*/);
                     if (m2) {
+                        if (Object.keys(param).length) {
+                            api.parameters.push(param);
+                        }
+                        param = {};
+        
                         param.indent = m2[1].length;    
                         param.name = m2[2];
                         param.descRaw = line.substring(m2[0].length);
@@ -78,7 +83,6 @@ module.exports = function (options) {
                         if (param.descText.length == 0) {
                             param.paramName = '';
                             param.isOptional = false;
-                            api.params.push(param);
                         }
                         else {
                             const m3 = param.descText.match(boldPairRE); // /\*\*([^\*]+)\*\*[ \t]*/
@@ -96,10 +100,10 @@ module.exports = function (options) {
                                 param.paramDesc = param.descText.substring(m3[0].length);
                                 // console.log('param', {param, api});
                                 
-                                api.params.push(param);
                             }
                             else {
-                                console.log('unknown param format', {param, m2, api})                    
+                                // console.log('unknown param format', {param, m2, api})                    
+                                param.paramDesc = param.descText;
                             }
     
                         }
@@ -120,11 +124,25 @@ module.exports = function (options) {
                             console.log('unknown return format', {line, param, api})                    
                         }
                     }
-                    else 
-                    if (line.trim().length) {
-                        console.log('unknown line', line);
+                    else {
+                        const m3 = line.match(/[ \t]+/)
+                        if (m3) {
+                            if (typeof param.descText != 'undefined') {
+                                param.descText += '\n' + line.trim();
+                            }
+                            else {
+                                console.log('continuation line no descText', {param, line});
+                            }
+                        }
+                        else 
+                        if (line.trim().length) {
+                            console.log('unknown line', line);
+                        }
                     }
                 }
+            }
+            if (Object.keys(param).length) {
+                api.parameters.push(param);
             }
             if (Object.keys(api).length) {
                 apis.push(api);
