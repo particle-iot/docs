@@ -3,6 +3,10 @@
 var fs = require('fs');
 var path = require('path');
 
+// Set this to true to save additional unprocessed data to jsDocs.json for debugging parsing errors.
+// Turn it back off before committing! 
+const saveRaw = true;
+
 function stripMdLinks(s) {
     return s.replaceAll(/\[([^\]]+)\]\([^\)]*\)/g, '$1');
 }
@@ -18,7 +22,7 @@ module.exports = function (options) {
         const jsMdDestPath = path.join(generatedDir, 'javascript.md');
         const jsJsonDestPath = path.join(generatedDir, 'jsDocs.json');
 
-        console.log('jsapidoc', { generatedDir, jsMdSourcePath, jsMdDestPath, jsJsonDestPath, options });
+        // console.log('jsapidoc', { generatedDir, jsMdSourcePath, jsMdDestPath, jsJsonDestPath, options });
 
 
         const jsMdSourceOld = fs.readFileSync(jsMdSourcePath, 'utf8');
@@ -34,9 +38,24 @@ module.exports = function (options) {
             let api = {};
             let param = {};
 
+            const saveParam = function() {
+                if (typeof api[state] != 'undefined' && typeof param.name != 'undefined' && param.name != '') {
+                    api[state].push(param);
+                }
+                param = {};
+            }
+            const saveApi = function() {
+                saveParam();
+                if (Object.keys(api).length) {
+                    apis.push(api);
+                }
+            }
+
             const boldPairRE = /\*\*([^\*]+)\*\*[ \t]*/;
 
-            for(const line of jsMdSourceOld.split('\n')) {
+            const lineArray = jsMdSourceOld.split('\n');
+            for(let lineNum = 1; lineNum <= lineArray.length; lineNum++) {
+                const line  = lineArray[lineNum - 1];
                 const m = line.match(/^(#+) (.*)/);
                 if (m) {
                     const level = m[1].length;
@@ -46,39 +65,57 @@ module.exports = function (options) {
                     state = 'heading'; 
 
                     if (headings[2] == 'Particle') {
-                        if (Object.keys(api).length) {
-                            apis.push(api);
-                        }
+                        saveApi();
             
                         api = {
                             name: headings[3],
-                            params: [],
+                            lineNum,
                         };
                     }
                 }
 
-                if (line.startsWith('[src/Particle.js')) {
-                    // Source code link
-                    api.sourceLink = line;
+                if (state == 'heading') {
+                    if (line.startsWith('[src/Particle.js')) {
+                        // Source code link
+                        api.sourceLink = line;
+                    }
+                    if (!line.startsWith('#')) {
+                        if (typeof api.text == 'undefined') {
+                            api.text = line;
+                        }
+                        else {
+                            api.text += '\n' + line;
+                        }
+                    }
+                    
                 }
 
+
+                if (line.startsWith('**Properties**')) {
+                    saveParam();
+    
+                    state = 'properties';
+                    api.properties = [];
+                }
+                else
                 if (line.startsWith('**Parameters**')) {
+                    saveParam();
+
                     state = 'parameters';
                     api.parameters = [];
                 }
                 else
-                if (state == 'parameters') {
+                if (state == 'parameters' || state == 'properties') {
                     const m2 = line.match(/^([ \t]*)-[ \t]+`([_$A-Za-z0-9\.]+)`[ \t]*/);
                     if (m2) {
-                        if (Object.keys(param).length) {
-                            api.parameters.push(param);
-                        }
+                        saveParam();
                         param = {};
         
                         param.indent = m2[1].length;    
                         param.name = m2[2];
                         param.descRaw = line.substring(m2[0].length);
                         param.descText = stripMdLinks(param.descRaw).trim();
+                        param.lineNum = lineNum;
                         
                         if (param.descText.length == 0) {
                             param.paramName = '';
@@ -107,10 +144,42 @@ module.exports = function (options) {
                             }
     
                         }
+
+                        if (!saveRaw) {
+                            delete param.descRaw;
+                            delete param.descText;                                
+                            delete param.lineNum;
+                        }
                     }
                     else
                     if (line.startsWith('Returns ')) {
-                        api.returns = {};
+                        state = 'returns';
+                    }
+                    else {
+                        const m3 = line.match(/[ \t]+/)
+                        if (m3) {
+                            if (typeof param.paramDesc != 'undefined') {
+                                param.paramDesc += '\n' + line.trim();
+                            }
+                            else {
+                                console.log('continuation line no paramDesc', {param, line});
+                            }
+                        }
+                        else 
+                        if (line.trim().length) {
+                            console.log('unknown line', line);
+                        }
+                    }
+                }
+
+                if (state == 'returns') {
+                    // This can't be an else because we enter this state from parameters                    
+                    if (line.startsWith('Returns ')) {
+                        saveParam();
+
+                        api.returns = {
+                            lineNum,
+                        };
 
                         api.returns.textRaw = line.substring(8).trim();
                         api.returns.text = stripMdLinks(api.returns.textRaw);
@@ -123,32 +192,83 @@ module.exports = function (options) {
                         else {
                             console.log('unknown return format', {line, param, api})                    
                         }
+
+                        if (!saveRaw) {
+                            delete api.returns.textRaw;
+                            delete api.returns.lineNum;
+                        }      
+                    }
+                    else
+                    if (line.trim().length == 0 || line.startsWith('##')) {
+                        state = 'unknown';
                     }
                     else {
-                        const m3 = line.match(/[ \t]+/)
-                        if (m3) {
-                            if (typeof param.descText != 'undefined') {
-                                param.descText += '\n' + line.trim();
-                            }
-                            else {
-                                console.log('continuation line no descText', {param, line});
-                            }
-                        }
-                        else 
-                        if (line.trim().length) {
-                            console.log('unknown line', line);
-                        }
+                        api.returns.desc += '\n' + line.trim();
                     }
                 }
             }
-            if (Object.keys(param).length) {
-                api.parameters.push(param);
-            }
-            if (Object.keys(api).length) {
-                apis.push(api);
+            saveApi();
+            // console.log('apis', apis);
+
+            // Remove the outer wrapper (first element of apis)
+            apis.splice(0, 1);
+
+            // Nest the parameter objects
+            for(const api of apis) {
+                for(const key of ['parameters', 'properties']) {
+                    if (typeof api[key] == 'undefined') {
+                        continue;
+                    }
+
+                    let topObj = {
+                        fields: [],
+                    };
+                    let curObj = null;
+
+                    for(let ii = 0; ii < api[key].length; ii++) {
+                        const param = api[key][ii];
+
+                        if (typeof param.indent == 'undefined') {
+                            console.log('missing indent', param);
+                            continue;
+                        }
+                        
+                        if (param.indent == 0) {
+                            if (curObj) {
+                                topObj.fields.push(curObj);
+                            }
+                            curObj = param;
+                        }
+                        else
+                        if (!curObj) {
+                            console.log('indent != 0 but curObj is not set', param);
+                        }
+                        else {
+                            if (typeof curObj.fields == 'undefined') {
+                                curObj.fields = [];
+                            }
+                            curObj.fields.push(param);
+                        }
+                    }
+
+                    if (curObj && typeof curObj.fields != 'undefined' && curObj.fields.length > 0) {
+                        topObj.fields.push(curObj);
+                    }
+
+                    if (saveRaw) {
+                        topObj.rawArray = api[key];
+                    }
+                    api[key] = topObj;
+
+                    
+                }    
+                if (!saveRaw) {
+                    delete api.lineNum;
+                }
             }
 
-            // console.log('apis', apis);
+            jsJsonDocs.apis = apis;
+
         }
 
 
