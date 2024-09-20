@@ -1720,7 +1720,7 @@ The input current limit can result in a situation where you can't bring up a B-S
 
 The input current limit is actually controlled by three factors:
 
-- The [power source max current setting](/reference/device-os/api/power-manager/powersourcemaxcurrent/) in the PMIC. The default is 900 mA. It can be set to 100, 150, 500, 900, 1200, 1500, 2000, or 3000 mA.
+- The [power source max current setting](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/) in the PMIC. The default is 900 mA. It can be set to 100, 150, 500, 900, 1200, 1500, 2000, or 3000 mA.
 - It is also limited by the hardware ILIM resistor. On Particle devices with a built-in PMIC, this is set to 1590 mA, but if you are implementing your own PMIC hardware, you can adjust this higher.
 - When connected by USB, it will use DPDM, current negotiation via the USB DP (D+) and DM (D-) lines. 
 

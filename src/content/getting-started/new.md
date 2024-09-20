@@ -21,6 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Logging warnings 2024-09-20
+
+Added warning about places where you should not use logging calls like Log.info like
+[BLE data handlers](/reference/device-os/api/bluetooth-le-ble/blecharacteristicproperty/) and
+[system button handlers](/reference/device-os/api/system-events/).
+
 ### Updated library reference 2024-09-18
 
 Updated [library reference](/reference/device-os/libraries/search/) with latest libraries and versions.

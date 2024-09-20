@@ -10785,6 +10785,10 @@ There is a limit of 20 user characteristics, with a maximum description of 20 ch
 
 You can have up to 20 user services, however you typically cannot advertise that many services as the advertising payload is too small. You normally only advertise your primary service that you device will searched by. Other, less commonly used services can be found after connecting to the device.
 
+Avoid using logging calls like Log.info from the BLE callbacks. While it normally works, as BLE handlers run from a worker thread,
+if the thread is swapped in during an existing log from the system, user, or timer threads, the resulting lock can 
+delay BLE operations long enough for operations to fail.
+
 See also [`BleCharacteristicProperty`](#blecharacteristicproperty).
 
 #### BLE.scan(array)
@@ -10956,6 +10960,7 @@ The default is 5 seconds, however you can change it using `setScanTimeout()`.
 
 Note: You cannot call `BLE.connect()` from a `BLE.scan()` callback! If you want to scan then connect, you must save the `BleAddress` and then do the connect after `BLE.scan()` returns.
 
+
 ```cpp
 // PROTOTYPE
 int scan(BleOnScanResultCallback callback, void* context) const;
@@ -11026,7 +11031,11 @@ len = scanResult->advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPE
 
 The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues.
+
+Avoid using logging calls like Log.info from the BLE callbacks. While it normally works, as BLE handlers run from a worker thread,
+if the thread is swapped in during an existing log from the system, user, or timer threads, the resulting lock can 
+delay BLE operations long enough for operations to fail.
 
 {{since when="3.0.0"}}
 
@@ -11416,7 +11425,11 @@ The callback parameters are:
 - `peer` The [`BlePeerDevice`](#blepeerdevice) object that has connected.
 - `context` The value you passed to `onConnected` when you registered the connected callback.
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. 
+
+Avoid using logging calls like Log.info from the BLE callbacks. While it normally works, as BLE handlers run from a worker thread,
+if the thread is swapped in during an existing log from the system, user, or timer threads, the resulting lock can 
+delay BLE operations long enough for operations to fail.
 
 {{since when="3.0.0"}}
 
@@ -12302,7 +12315,11 @@ You typically register your characteristic in `setup()` in peripheral devices:
 BLE.addCharacteristic(rxCharacteristic);
 ```
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues.
+
+Avoid using logging calls like Log.info from the BLE callbacks. While it normally works, as BLE handlers run from a worker thread,
+if the thread is swapped in during an existing log from the system, user, or timer threads, the resulting lock can 
+delay BLE operations long enough for operations to fail.
 
 #### UUID()
 
@@ -12429,7 +12446,11 @@ void onDataReceived(BleOnDataReceivedCallback callback, void* context);
 void myCallback(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
 ```
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues.
+
+Avoid using logging calls like Log.info from the BLE callbacks. While it normally works, as BLE handlers run from a worker thread,
+if the thread is swapped in during an existing log from the system, user, or timer threads, the resulting lock can 
+delay BLE operations long enough for operations to fail.
 
 ### BleCharacteristicProperty
 
@@ -21164,6 +21185,9 @@ void setup()
 }
 ```
 
+The button handlers may run as an interrupt service routine (ISR). There are limitations on what calls you can make from
+an ISR, see [attachInterrupt](/reference/device-os/api/interrupts/attachinterrupt/) for more information. Logging calls such as `Log.info()` do not work from the button handler as it's called from an interrupt service routine (ISR) and logging cannot be done from an interrupt context.
+
 Some event types provide additional information. For example the `button_click` event provides a parameter with the number of button clicks:
 
 ```
@@ -21173,6 +21197,7 @@ void button_clicked(system_event_t event, int param)
 	Log.info("button was clicked %d times", times);
 }
 ```
+
 
 #### Registering multiple events with the same handler
 
@@ -26750,6 +26775,12 @@ Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu
 // Using the Print64 firmware library to format a 64-bit integer (uint64_t)
 Log.info("millis=%s", toString(System.millis()).c_str());
 ```
+
+You cannot use logging calls from interrupt service routines (ISR), such attachInterrupt handlers. System button handlers may also run as an ISR.
+
+Avoid using logging calls from the BLE handlers. While it normally works, as BLE handlers run from a worker thread,
+if the thread is swapped in during an existing log from the system, user, or timer threads, the resulting lock can 
+delay BLE operations long enough for operations to fail.
 
 ### Logging levels
 

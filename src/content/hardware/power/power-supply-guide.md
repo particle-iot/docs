@@ -190,7 +190,7 @@ The charge current can be specified using the Power Manager [`batteryChargeCurre
 
 The input current is limited by:
 
-- The software setting, [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent/).
+- The software setting, [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/).
 
 - DPDM, if connected to a hub or power adapter that supports DPDM.
 
@@ -198,7 +198,7 @@ The input current is limited by:
 
 #### powerSourceMaxCurrent
 
-The [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent/) method sets the maximum current the power source can provide. 
+The [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/) method sets the maximum current the power source can provide. 
 
 The valid values are: 100, 150, 500, 900, 1200 or 1500 (mA). While the bq24195 PMIC has settings for 2000 and 3000, these will still be limited to around 1590 mA because the input current is limited to the lower of the powerSourceMaxCurrent and the hardware ILIM resistors, which are set to 1590 mA on most devices.
 

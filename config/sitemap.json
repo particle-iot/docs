@@ -2907,8 +2907,8 @@
             "hash": "1d233659dd97a62ba8f18e80cca831e2c13ba79d7d31dcf9461739f695a6c1cc"
         },
         "reference/device-os/api/bluetooth-le-ble/ble-class.md": {
-            "date": "2024-07-23",
-            "hash": "3839bf7bc743de3002de78c2c8e88ef8925f4585b7ed5fb3b8ce0ac7dbdd840c"
+            "date": "2024-09-20",
+            "hash": "21b5d15d34575145d1184479d2b2b61d497fd4fdbb7e6cfbc61395a8d47b9a09"
         },
         "reference/device-os/api/bluetooth-le-ble/blescanfilter.md": {
             "date": "2023-09-20",
@@ -2919,8 +2919,8 @@
             "hash": "fe8f68c19ced82035b746e3f3387be0ec395152487fce9163a421cb6a1c9f7f7"
         },
         "reference/device-os/api/bluetooth-le-ble/blecharacteristic.md": {
-            "date": "2023-09-20",
-            "hash": "5cc4763ce38b3fe62dbea9637c6d591f231f27c22a36b5ee1e792179913edb43"
+            "date": "2024-09-20",
+            "hash": "2c6f4e5339a96d3a6aa68b6e510c4d6f2102ef394dec793fa3525a6e0172435d"
         },
         "reference/device-os/api/bluetooth-le-ble/blecharacteristicproperty.md": {
             "date": "2023-09-20",
@@ -3699,8 +3699,8 @@
             "hash": "81ef9003e1f36030ebd256525033f52a64a8c162e306c5c084b48320155d04c9"
         },
         "reference/device-os/api/system-events/system-events-overview.md": {
-            "date": "2024-06-25",
-            "hash": "16fd9a59d9caac1dd9b799c6bb1185fb8f76934b0cb013276669f1167da7e326"
+            "date": "2024-09-20",
+            "hash": "49d4352a24abbcd8d7eab281ff59e6873ab0ac4c3fd59cfafb5744c9e115ce84"
         },
         "reference/device-os/api/system-events/system-events-reference.md": {
             "date": "2024-04-20",
@@ -4279,8 +4279,8 @@
             "hash": "b2694903a266a7e5d583819a2c4a70b06cd24c32965e070389f0c4b16673c81d"
         },
         "reference/device-os/api/logging/logging.md": {
-            "date": "2023-09-20",
-            "hash": "e301ce5f4b2891432e19a71e163c291cf3aa134216bb251a3996936fd83d8076"
+            "date": "2024-09-20",
+            "hash": "1db64543740e87a8c3c46b99cb71b7f68623100d8cf5acc8e63eee10a2a96ce1"
         },
         "reference/device-os/api/logging/logging-levels.md": {
             "date": "2023-09-20",
