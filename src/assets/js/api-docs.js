@@ -1,43 +1,102 @@
 $(document).ready(function () {
-    if ($('.apiHelper').length == 0) {
-        return;
-    }
-
     let apiGlobal = {
         kinds: [],
-        partials: [],
+        apiPartials: [],
+        loaders: {
+        },
     };
 
-    $('.apiHelperDocs').each(function() {
+    $('.apiDocs').each(function() {
         const thisPartial = $(this);
 
+        const templateParams = [
+            {
+                name: 'kind',
+                type: 'string',
+            },
+            {
+                name: 'name',
+                type: 'string',
+            },
+            {
+                name: 'level',
+                type: 'int',
+                emptyValue: 4,
+            },
+        ];
+
         let apiPartial = {
-            kind: $(thisPartial).data('kind'),
-            name: $(thisPartial).data('name'),
             elem: thisPartial,
         };
         $(thisPartial).data('obj', apiPartial);
-        apiGlobal.partials.push(apiPartial);
+        apiGlobal.apiPartials.push(apiPartial);
         
+        for(const templateParam of templateParams) {
+            let data;
+
+            data = $(thisPartial).data(templateParam.name);
+            if (data == '') {
+                data = templateParam.emptyValue;
+            }
+
+            switch(templateParam.type) {
+                case 'int':
+                    apiPartial[templateParam.name] = (typeof data =='string') ? parseInt(data) : data;
+                    break;
+
+                default:
+                    apiPartial[templateParam.name] = data;
+                    break;
+            }
+        }
+
+
         if (!apiGlobal.kinds.includes(apiPartial.kind)) {
             apiGlobal.kinds.push(apiPartial.kind);
         }
 
-        console.log('apiHelperDocs ', apiPartial);
+        console.log('apiDocs ', apiPartial);
     });
 
-    const loadPartial = function(thisPartial) {
-        const apiJson = apiGlobal[thisPartial.kind];
+    const appendHeader = function(apiPartial, s) {
+        const headerElem = document.createElement('h' + apiPartial.level);
+        $(headerElem).text(s);
+        $(apiPartial.elem).append(headerElem);
+    }
 
-        console.log('loadPartial', {thisPartial, apiJson});
+
+    apiGlobal.loaders['jsDocs'] = function(apiPartial, apiJson) {
+        console.log('apiDocs loadPartial jsDocs', {apiPartial, apiJson});
+
+        const thisApiJson = apiJson.apis.find(e => e.name == apiPartial.name);
+        if (!thisApiJson) {
+            console.log('apiDocs ' + apiPartial.name + ' not found in apiJson ', apiJson)
+        }
+
+        appendHeader(apiPartial, apiPartial.name);
+    }
+
+    apiGlobal.loaders['api-service'] = function(apiPartial, apiJson) {
+        console.log('apiDocs loadPartial api-service', {apiPartial, apiJson});
+    }
+
+
+    const loadPartial = function(apiPartial) {
+        const apiJson = apiGlobal[apiPartial.kind];
+
+        if (apiJson && apiGlobal.loaders[apiPartial.kind]) {
+            apiGlobal.loaders[apiPartial.kind](apiPartial, apiJson);
+        }
+        else {
+            console.log('missing loader for ' + kind);
+        }
+
     }
 
     const load = async function() {
         if (apiGlobal.kinds.length == 0) {
             return;
         }    
-
-        console.log('kinds', apiGlobal.kinds);
 
         let promises = [];
 
@@ -62,10 +121,10 @@ $(document).ready(function () {
 
         await Promise.all(promises);
 
-        console.log('loaded', apiGlobal);
+        console.log('apiDocs loaded', apiGlobal);
 
-        for(const thisPartial of apiGlobal.partials) {
-            loadPartial(thisPartial);
+        for(const apiPartial of apiGlobal.apiPartials) {
+            loadPartial(apiPartial);
         }
     };
 
