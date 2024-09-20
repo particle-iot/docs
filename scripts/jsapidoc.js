@@ -317,7 +317,15 @@ module.exports = function (options) {
                         if (saveRaw) {
                             topObj.rawArray = api[key];
                         }
-                        api[key] = topObj;
+                        if (topObj.fields.length == 0) {
+                            delete topObj.fields;
+                        }
+                        if (Object.keys(topObj).length > 0) {
+                            api[key] = topObj;
+                        }                     
+                        else {
+                            delete api[key];
+                        }   
     
                         
                     }    

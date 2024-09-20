@@ -10,10 +10,7 @@
                     2853
                 ]
             },
-            "text": "Particle Cloud API wrapper.\nSee <https://docs.particle.io/reference/javascript/> for examples\nof using the `Particle` class.\nMost Particle methods take a single unnamed argument object documented as\n`options` with key/value pairs for each option.",
-            "parameters": {
-                "fields": []
-            }
+            "text": "Particle Cloud API wrapper.\nSee <https://docs.particle.io/reference/javascript/> for examples\nof using the `Particle` class.\nMost Particle methods take a single unnamed argument object documented as\n`options` with key/value pairs for each option."
         },
         {
             "name": "constructor",
@@ -7837,10 +7834,7 @@
                     2701
                 ]
             },
-            "text": "Set default auth token that will be used in each method if `auth` is not provided",
-            "parameters": {
-                "fields": []
-            }
+            "text": "Set default auth token that will be used in each method if `auth` is not provided"
         },
         {
             "name": "get",
