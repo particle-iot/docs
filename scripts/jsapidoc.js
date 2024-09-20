@@ -11,6 +11,38 @@ function stripMdLinks(s) {
     return s.replaceAll(/\[([^\]]+)\]\([^\)]*\)/g, '$1');
 }
 
+function parseMdLinks(s) {
+    let result = {};
+
+    const m1 = s.match(/\[([^\]]+)\]\(([^\)]*)\)/);
+    if (m1) {
+        result.text = m1[1];
+
+        const m2 = m1[2].match(/([^ ]+) "([^"]*)"/)
+        if (m2) {
+            result.link = m2[1];
+            result.alt = m2[2];
+        }
+        else {
+            result.link = m1[2];
+        }
+
+        const m3 = m1[1].match(/:([0-9]+)-([0-9]+)/);
+        if (m3) {
+            result.lines = [parseInt(m3[1]), parseInt(m3[2])];
+        }
+
+        if (saveRaw) {
+            result.rawLink = s;
+            // result.rawMatch1 = m1;
+            // result.rawMatch2 = m2;
+        }
+    }
+
+    return result;
+}
+
+
 function convertEntities(s) {
     return s.replaceAll('&lt;', '<');
 }
@@ -101,29 +133,29 @@ module.exports = function (options) {
                         param.lineNum = lineNum;
                         
                         if (param.descText.length == 0) {
-                            param.paramType = '';
-                            param.isOptional = false;
+                            param.type = '';
+                            param.optional = false;
                         }
                         else {
                             const m3 = param.descText.match(boldPairRE); // /\*\*([^\*]+)\*\*[ \t]*/
                             if (m3) {
-                                param.paramTypeRaw = m3[1];
-                                if (param.paramTypeRaw.endsWith('?')) {
-                                    param.paramType = param.paramTypeRaw.substring(0, param.paramTypeRaw.length - 1);
-                                    param.isOptional = true;
+                                param.typeRaw = m3[1];
+                                if (param.typeRaw.endsWith('?')) {
+                                    param.type = param.typeRaw.substring(0, param.typeRaw.length - 1);
+                                    param.optional = true;
                                 }
                                 else {
-                                    param.paramType = param.paramTypeRaw;
-                                    param.isOptional = false;
+                                    param.type = param.typeRaw;
+                                    param.optional = false;
                                 }
     
-                                param.paramDesc = param.descText.substring(m3[0].length);
+                                param.desc = param.descText.substring(m3[0].length);
                                 // console.log('param', {param, api});
                                 
                             }
                             else {
                                 // console.log('unknown param format', {param, m2, api})                    
-                                param.paramDesc = param.descText;
+                                param.desc = param.descText;
                             }
     
                         }
@@ -131,7 +163,7 @@ module.exports = function (options) {
                         if (!saveRaw) {
                             delete param.descRaw;
                             delete param.descText;                                
-                            delete param.paramTypeRaw;
+                            delete param.typeRaw;
                             delete param.lineNum;
                         }
                     }
@@ -142,11 +174,11 @@ module.exports = function (options) {
                     else {
                         const m3 = line.match(/[ \t]+/)
                         if (m3) {
-                            if (typeof param.paramDesc != 'undefined') {
-                                param.paramDesc += '\n' + line.trim();
+                            if (typeof param.desc != 'undefined') {
+                                param.desc += '\n' + line.trim();
                             }
                             else {
-                                console.log('continuation line no paramDesc', {param, line});
+                                console.log('continuation line no desc', {param, line});
                             }
                         }
                         else 
@@ -195,7 +227,7 @@ module.exports = function (options) {
                 if (state == 'heading') {
                     if (line.startsWith('[src/Particle.js')) {
                         // Source code link
-                        api.sourceLink = line;
+                        api.sourceLink = parseMdLinks(line);
                     }
                     else
                     if (!line.startsWith('#') && line.trim().length > 0) {
@@ -260,6 +292,16 @@ module.exports = function (options) {
                         else {
                             if (typeof curObj.fields == 'undefined') {
                                 curObj.fields = [];
+                            }
+                            const nameParts = param.name.split('.');
+                            if (nameParts.length == 2) {
+                                if (nameParts[0] == curObj.name) {
+                                    param.nameFull = param.name;
+                                    param.name = nameParts[1];
+                                }
+                                else {
+                                    console.log('nested name mismatch', {curObj, param});
+                                }
                             }
                             curObj.fields.push(param);
                         }
