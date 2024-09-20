@@ -366,7 +366,6 @@ See [supervisory reset](#supervisory-reset), below, for additional information.
 {{!-- END shared-blurb --}}
 
 
-
 ### Argon and Photon 2
 
 The Argon (Adafruit Feather form-factor) includes the following power inputs:
@@ -529,3 +528,22 @@ While there isn't a standard maximum discharge rate for 9V batteries, the datash
 LiSOCl2 (Lithium Thionyl Chloride) primary cell batteries are not generally recommended for cellular devices because the nominal voltage of 3.5V is below the minimum recommended voltage for the cellular modem of 3.6V. 
 
 These batteries are typically 3.5V 19000 mAh in a D-size battery package. It is possible to use two in series connected to VIN on most cellular devices, though this is less efficient if the device is asleep most of the time. The batteries are also quite expensive, and cannot be picked up in most stores.
+
+### Supervisory reset
+
+{{!-- BEGIN shared-blurb c57e3927-686d-4a58-9a39-cd60a1ebc0bd --}}
+
+In many cases, it may be desirable to include a supervisory reset IC in your design. The design below is from
+the Photon 2 and uses the small and inexpensive Richtec RT9818C. This chip will hold the MCU in reset until there 
+is sufficient voltage to successfully boot. This can be helpful if your power supply cannot guarantee a sufficient slew
+rate.
+
+![](/assets/images/m-series/p2-reset.png)
+
+Of note in this design, the VDD pin of the RT9818C is connected to 3V3. The design is configurable by 
+moving a zero-ohm resistor to disable supervisory reset (by connecting to GND) or to use VIN. Note that the
+RT9818C has a maximum input voltage of 6V which is compatible with the Photon 2. Keep this in mind if using VIN
+on designs that have larger VIN voltages.
+
+Of course you can simply wire VDD to 3V3 instead of including the configurable resistors.
+{{!-- END shared-blurb --}}
