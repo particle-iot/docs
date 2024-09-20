@@ -65,60 +65,57 @@ module.exports = function(options) {
       return thisData ? data.concat(thisData) : data;
     }, []);
 
-    // Don't continue if directory is missing
-    if (apiData.length === 0) {
-      return done();
-    }
+    if (apiData.length) {
+      // Don't continue if error
+      var err;
+      if (err = _.find(apiData, _.isError)) {
+        return done(err);
+      }
 
-    // Don't continue if error
-    var err;
-    if (err = _.find(apiData, _.isError)) {
-      return done(err);
-    }
+      assignOrder(apiData);
 
-    assignOrder(apiData);
-
-    apiData.forEach(function (route) {
-      if (route.permission) {
-        // permission: [ { name: 'devices.diagnostics.summary:get' } ],
-        for(const obj of route.permission) {
-          if (obj.name && !apiScopes.includes(obj.name)) {
-            apiScopes.push(obj.name);
+      apiData.forEach(function (route) {
+        if (route.permission) {
+          // permission: [ { name: 'devices.diagnostics.summary:get' } ],
+          for(const obj of route.permission) {
+            if (obj.name && !apiScopes.includes(obj.name)) {
+              apiScopes.push(obj.name);
+            }
           }
         }
-      }
-    });
+      });
 
-    var apiGroups = _.groupBy(_.sortBy(apiData, 'group'), 'group');
-    _.each(apiGroups, function (routes, name) {
-      apiGroups[name] = _.sortBy(routes, 'order');
-    });
+      var apiGroups = _.groupBy(_.sortBy(apiData, 'group'), 'group');
+      _.each(apiGroups, function (routes, name) {
+        apiGroups[name] = _.sortBy(routes, 'order');
+      });
 
-    var destFile = files[options.destFile];
-    if (destFile) {
-      destFile.apiGroups = apiGroups;
+      var destFile = files[options.destFile];
+      if (destFile) {
+        destFile.apiGroups = apiGroups;
 
-      destFile.scopeList = '<ul>';
-      apiScopes.sort();
+        destFile.scopeList = '<ul>';
+        apiScopes.sort();
 
-      const scopesFile = path.join(__dirname, '..', 'src', 'assets', 'files', 'userScopes.json');
-      let updateFile;
-      const newContents = JSON.stringify(apiScopes, null, 2);
-      if (fs.existsSync(scopesFile)) {
-        const oldContents = fs.readFileSync(scopesFile, 'utf8');
-        updateFile = (newContents != oldContents);
-      }
-      else {
-        updateFile = true;
-      }
-      if (updateFile) {
-        fs.writeFileSync(scopesFile, newContents);
-      }
+        const scopesFile = path.join(__dirname, '..', 'src', 'assets', 'files', 'userScopes.json');
+        let updateFile;
+        const newContents = JSON.stringify(apiScopes, null, 2);
+        if (fs.existsSync(scopesFile)) {
+          const oldContents = fs.readFileSync(scopesFile, 'utf8');
+          updateFile = (newContents != oldContents);
+        }
+        else {
+          updateFile = true;
+        }
+        if (updateFile) {
+          fs.writeFileSync(scopesFile, newContents);
+        }
 
-      for(const name of apiScopes) {
-        destFile.scopeList += '<li>' + name;
+        for(const name of apiScopes) {
+          destFile.scopeList += '<li>' + name;
+        }
+        destFile.scopeList += '</ul>';
       }
-      destFile.scopeList += '</ul>';
     }
 
     {
