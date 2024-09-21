@@ -908,7 +908,7 @@
                             },
                             {
                                 "name": "groups",
-                                "type": "Array&lt;string>",
+                                "type": "Array<string>",
                                 "optional": true,
                                 "desc": "(Product only) A list of full group names to filter results to devices belonging to these groups only.",
                                 "nameFull": "options.groups"
@@ -3605,7 +3605,7 @@
                             },
                             {
                                 "name": "iccids",
-                                "type": "Array&lt;String>",
+                                "type": "Array<String>",
                                 "optional": false,
                                 "desc": "(Product only) ICCID of multiple SIM cards to import",
                                 "nameFull": "options.iccids"
@@ -3996,7 +3996,7 @@
                             },
                             {
                                 "name": "architectures",
-                                "type": "Array&lt;String>",
+                                "type": "Array<String>",
                                 "optional": false,
                                 "desc": "List of architectures to filter",
                                 "nameFull": "options.architectures"

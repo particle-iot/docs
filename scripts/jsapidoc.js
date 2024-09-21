@@ -151,6 +151,7 @@ module.exports = function (options) {
                                         param.type = param.typeRaw;
                                         param.optional = false;
                                     }
+                                    param.type = convertEntities(param.type);
         
                                     param.desc = param.descText.substring(m3[0].length);
                                     // console.log('param', {param, api});

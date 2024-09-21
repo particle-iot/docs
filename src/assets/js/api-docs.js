@@ -76,6 +76,7 @@ $(document).ready(function () {
         const divElem = document.createElement('div');
 
         const tableElem = document.createElement('table');
+        $(tableElem).addClass('apiHelperTableNoMargin');
 
         const theadElem = document.createElement('thead'); 
 
@@ -99,43 +100,80 @@ $(document).ready(function () {
         $(tableElem).append(tbodyElem);
 
         const appendRow = function(obj, isInner) {
+
+            console.log('appendRow', {obj, isInner});
+
             const trElem = document.createElement('tr'); 
 
             for(const colObj of tableOptions.columns) {
                 const tdElem = document.createElement('td');
-                if (typeof obj[colObj.key] != 'undefined') {
+
+                if (colObj.width) {
+                    $(tdElem).css('width', colObj.width);
+                }
+
+                let valueText = obj[colObj.key];
+                let valueHtml;
+
+                if (typeof valueText != 'undefined') {
                     if (!isInner) {
                         if (!colObj.innerField || colObj.eitherField) {
-                            $(tdElem).text(obj[colObj.key]);
+                        }
+                        else {
+                            valueText = null;
                         }
                     }
                     else {
                         if (colObj.innerField || colObj.eitherField) {
-                            $(tdElem).text(obj[colObj.key]);    
+                        }
+                        else {
+                            valueText = null;
                         }
                     }    
+
+                    if (colObj.check) {
+                        $(tdElem).css('align', 'center');
+                        if (valueText) {
+                            valueHtml = '&check;';
+                        }
+                    }
                 }
                 else {
-                    $(tdElem).html('&nbsp;');
+                    valueHtml = '&nbsp;';
                 }
+
+                if (valueHtml) {
+                    $(tdElem).html(valueHtml);    
+                }
+                else
+                if (valueText) {
+                    $(tdElem).text(valueText);    
+                }
+
                 $(trElem).append(tdElem);
             }
 
-            $(theadElem).append(trElem);
+            $(tbodyElem).append(trElem);
 
         }
 
-        console.log('data', tableOptions.data);
+        console.log('dataArray', tableOptions.dataArray);
 
-        for(const outerObj of tableOptions.data.fields) {
-            appendRow(outerObj, false);
-
-            if (typeof outerObj.fields != 'undefined') {
-                // Inner fields
-                for(const innerObj of outerObj.fields) {
-                    appendRow(innerObj, true);
+        if (typeof tableOptions.dataArray != 'undefined') {
+            for(const outerObj of tableOptions.dataArray.fields) {
+                appendRow(outerObj, false);
+    
+                if (typeof outerObj.fields != 'undefined') {
+                    // Inner fields
+                    for(const innerObj of outerObj.fields) {
+                        appendRow(innerObj, true);
+                    }
                 }
-            }
+            }    
+        }
+        else
+        if (typeof tableOptions.dataObj != 'undefined') {
+            appendRow(tableOptions.dataObj, false);
         }
 
 
@@ -164,29 +202,32 @@ $(document).ready(function () {
             returns: 'Returns',
         };
 
-        for(const key of ['parameters', 'properties', 'returns']) {
+        for(const key of ['parameters', 'properties']) {
             if (typeof thisApiJson[key] == 'undefined') {
                 continue;
             }
             appendHeader(apiPartial, 1, keyTitles[key]);
 
             const tableOptions = {
-                data: thisApiJson[key],
+                dataArray: thisApiJson[key],
                 hasInnerObject: true,
                 columns: [
                     {
                         title: 'Name',
                         key: 'name',
+                        width: '80px',
                         innerField: false, 
                     },
                     {
                         title: 'Name',
                         key: 'name',
+                        width: '80px',
                         innerField: true, 
                     },
                     {
                         title: 'Type',
                         key: 'type',
+                        width: '90px',
                         eitherField: true, 
                     },
                     {
@@ -199,6 +240,32 @@ $(document).ready(function () {
                         title: 'Description',
                         key: 'desc',
                         eitherField: true, 
+                    },
+                ],
+            };
+            appendParameterTable(apiPartial, tableOptions);
+        }
+        
+        for(const key of ['returns']) {
+            if (typeof thisApiJson[key] == 'undefined') {
+                continue;
+            }
+            appendHeader(apiPartial, 1, keyTitles[key]);
+
+            const tableOptions = {
+                dataObj: thisApiJson[key],
+                hasInnerObject: false,
+                columns: [
+                    {
+                        title: 'Type',
+                        key: 'type',
+                        width: '90px',
+                        innerField: false, 
+                    },
+                    {
+                        title: 'Description',
+                        key: 'desc',
+                        innerField: false, 
                     },
                 ],
             };
