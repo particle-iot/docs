@@ -58,10 +58,91 @@ $(document).ready(function () {
         console.log('apiDocs ', apiPartial);
     });
 
-    const appendHeader = function(apiPartial, s) {
-        const headerElem = document.createElement('h' + apiPartial.level);
+    const appendHeader = function(apiPartial, addLevel, s) {
+        const headerElem = document.createElement('h' + (apiPartial.level + addLevel));
         $(headerElem).text(s);
         $(apiPartial.elem).append(headerElem);
+    }   
+    
+    const appendDivText = function(apiPartial, s) {
+        const divElem = document.createElement('div');
+        $(divElem).text(s);
+        $(apiPartial.elem).append(divElem);
+    }
+
+
+    const appendParameterTable = function(apiPartial, tableOptions) {
+
+        const divElem = document.createElement('div');
+
+        const tableElem = document.createElement('table');
+
+        const theadElem = document.createElement('thead'); 
+
+        {
+            const trElem = document.createElement('tr'); 
+
+            for(const colObj of tableOptions.columns) {
+                const thElem = document.createElement('th');
+                if (colObj.title) {
+                    $(thElem).text(colObj.title);
+                }
+                $(trElem).append(thElem);
+            }
+
+            $(theadElem).append(trElem);
+        }
+
+        $(tableElem).append(theadElem);
+
+        const tbodyElem = document.createElement('tbody');
+        $(tableElem).append(tbodyElem);
+
+        const appendRow = function(obj, isInner) {
+            const trElem = document.createElement('tr'); 
+
+            for(const colObj of tableOptions.columns) {
+                const tdElem = document.createElement('td');
+                if (typeof obj[colObj.key] != 'undefined') {
+                    if (!isInner) {
+                        if (!colObj.innerField || colObj.eitherField) {
+                            $(tdElem).text(obj[colObj.key]);
+                        }
+                    }
+                    else {
+                        if (colObj.innerField || colObj.eitherField) {
+                            $(tdElem).text(obj[colObj.key]);    
+                        }
+                    }    
+                }
+                else {
+                    $(tdElem).html('&nbsp;');
+                }
+                $(trElem).append(tdElem);
+            }
+
+            $(theadElem).append(trElem);
+
+        }
+
+        console.log('data', tableOptions.data);
+
+        for(const outerObj of tableOptions.data.fields) {
+            appendRow(outerObj, false);
+
+            if (typeof outerObj.fields != 'undefined') {
+                // Inner fields
+                for(const innerObj of outerObj.fields) {
+                    appendRow(innerObj, true);
+                }
+            }
+        }
+
+
+        $(divElem).append(tableElem);
+
+        $(apiPartial.elem).append(divElem);
+
     }
 
 
@@ -73,7 +154,56 @@ $(document).ready(function () {
             console.log('apiDocs ' + apiPartial.name + ' not found in apiJson ', apiJson)
         }
 
-        appendHeader(apiPartial, apiPartial.name);
+        appendHeader(apiPartial, 0, thisApiJson.name);
+
+        appendDivText(apiPartial, thisApiJson.text)
+
+        const keyTitles = {
+            parameters: 'Parameters',
+            properties: 'Properties',
+            returns: 'Returns',
+        };
+
+        for(const key of ['parameters', 'properties', 'returns']) {
+            if (typeof thisApiJson[key] == 'undefined') {
+                continue;
+            }
+            appendHeader(apiPartial, 1, keyTitles[key]);
+
+            const tableOptions = {
+                data: thisApiJson[key],
+                hasInnerObject: true,
+                columns: [
+                    {
+                        title: 'Name',
+                        key: 'name',
+                        innerField: false, 
+                    },
+                    {
+                        title: 'Name',
+                        key: 'name',
+                        innerField: true, 
+                    },
+                    {
+                        title: 'Type',
+                        key: 'type',
+                        eitherField: true, 
+                    },
+                    {
+                        title: 'Optional',
+                        key: 'optional',
+                        check: true,
+                        eitherField: true, 
+                    },
+                    {
+                        title: 'Description',
+                        key: 'desc',
+                        eitherField: true, 
+                    },
+                ],
+            };
+            appendParameterTable(apiPartial, tableOptions);
+        }
     }
 
     apiGlobal.loaders['api-service'] = function(apiPartial, apiJson) {
