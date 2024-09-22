@@ -80,158 +80,172 @@ $(document).ready(function () {
         $(apiPartial.elem).append(divElem);
     }
 
+    const appendHandlers = {
+        appendParameterTable: function(apiPartial, tableOptions) {
 
-    const appendParameterTable = function(apiPartial, tableOptions) {
+            const divElem = document.createElement('div');
 
-        const divElem = document.createElement('div');
+            const tableElem = document.createElement('table');
+            $(tableElem).addClass('apiHelperTableNoMargin');
 
-        const tableElem = document.createElement('table');
-        $(tableElem).addClass('apiHelperTableNoMargin');
+            const theadElem = document.createElement('thead'); 
 
-        const theadElem = document.createElement('thead'); 
+            let numColumns = 0;
+            {
+                const trElem = document.createElement('tr'); 
 
-        let numColumns = 0;
-        {
-            const trElem = document.createElement('tr'); 
-
-            for(const colObj of tableOptions.columns) {
-                const thElem = document.createElement('th');
-                if (colObj.title) {
-                    $(thElem).text(colObj.title);
+                for(const colObj of tableOptions.columns) {
+                    const thElem = document.createElement('th');
+                    if (colObj.title) {
+                        $(thElem).text(colObj.title);
+                    }
+                    if (colObj.optional || colObj.check) {
+                        $(thElem).css('text-align', 'center');
+                    }
+                    $(trElem).append(thElem);
+                    numColumns++;
                 }
-                if (colObj.optional || colObj.check) {
-                    $(thElem).css('text-align', 'center');
-                }
-                $(trElem).append(thElem);
-                numColumns++;
+
+                $(theadElem).append(trElem);
             }
 
-            $(theadElem).append(trElem);
-        }
+            $(tableElem).append(theadElem);
 
-        $(tableElem).append(theadElem);
+            const tbodyElem = document.createElement('tbody');
+            $(tableElem).append(tbodyElem);
 
-        const tbodyElem = document.createElement('tbody');
-        $(tableElem).append(tbodyElem);
+            const appendRow = function(obj, isInner) {
 
-        const appendRow = function(obj, isInner) {
+                const trElem = document.createElement('tr'); 
 
-            const trElem = document.createElement('tr'); 
+                for(const colObj of tableOptions.columns) {
+                    const tdElem = document.createElement('td');
 
-            for(const colObj of tableOptions.columns) {
-                const tdElem = document.createElement('td');
+                    if (colObj.width) {
+                        $(tdElem).css('width', colObj.width);
+                    }
 
-                if (colObj.width) {
-                    $(tdElem).css('width', colObj.width);
-                }
+                    let valueText = obj[colObj.key];
+                    let valueHtml;
 
-                let valueText = obj[colObj.key];
-                let valueHtml;
-
-                if (typeof valueText != 'undefined') {
-                    if (!isInner) {
-                        if (!colObj.innerField || colObj.eitherField) {
+                    if (typeof valueText != 'undefined') {
+                        if (!isInner) {
+                            if (!colObj.innerField || colObj.eitherField) {
+                            }
+                            else {
+                                valueText = null;
+                            }
                         }
                         else {
-                            valueText = null;
+                            if (colObj.innerField || colObj.eitherField) {
+                            }
+                            else {
+                                valueText = null;
+                            }
+                        }    
+
+                        if (colObj.optional) {
+                            $(tdElem).css('text-align', 'center');
+                            if (valueText) {
+                                valueText = 'optional';
+                            }
+                        }
+                        else
+                        if (colObj.check) {
+                            $(tdElem).css('text-align', 'center');
+                            if (valueText) {
+                                valueHtml = '&check;';
+                            }
                         }
                     }
                     else {
-                        if (colObj.innerField || colObj.eitherField) {
-                        }
-                        else {
-                            valueText = null;
-                        }
-                    }    
+                        valueHtml = '&nbsp;';
+                    }
 
-                    if (colObj.optional) {
-                        $(tdElem).css('text-align', 'center');
-                        if (valueText) {
-                            valueText = 'optional';
+                    if (colObj.html) {
+                        valueHtml = valueText;
+                        valueText = null;
+
+                        if (colObj.removeParagraphTags) {
+                            valueHtml = removeParagraphTags(valueHtml);
                         }
+                    }
+
+                    if (valueHtml) {
+                        $(tdElem).html(valueHtml);    
                     }
                     else
-                    if (colObj.check) {
-                        $(tdElem).css('text-align', 'center');
-                        if (valueText) {
-                            valueHtml = '&check;';
+                    if (valueText) {
+                        $(tdElem).text(valueText);    
+                    }
+
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+
+            }
+
+            if (typeof tableOptions.dataArray != 'undefined') {
+                for(const outerObj of tableOptions.dataArray) {
+                    appendRow(outerObj, false);
+        
+                    if (typeof outerObj.fields != 'undefined') {
+                        // Inner fields
+                        for(const innerObj of outerObj.fields) {
+                            appendRow(innerObj, true);
                         }
                     }
-                }
-                else {
-                    valueHtml = '&nbsp;';
-                }
+                }    
+            }
+            else
+            if (typeof tableOptions.dataObj != 'undefined') {
+                appendRow(tableOptions.dataObj, false);
+            }
+            
 
-                if (colObj.html) {
-                    valueHtml = valueText;
-                    valueText = null;
+            $(divElem).append(tableElem);
 
-                    if (colObj.removeParagraphTags) {
-                        valueHtml = removeParagraphTags(valueHtml);
-                    }
-                }
+            $(apiPartial.elem).append(divElem);
 
-                if (valueHtml) {
-                    $(tdElem).html(valueHtml);    
-                }
-                else
-                if (valueText) {
-                    $(tdElem).text(valueText);    
-                }
-
-                $(trElem).append(tdElem);
+        },
+        appendExamples: function(apiPartial, tableOptions) {
+            if (!tableOptions.dataArray) {
+                return;
             }
 
-            $(tbodyElem).append(trElem);
+            for(const exampleObj of tableOptions.dataArray) {
+                const divElem = document.createElement('div');
+                $(divElem).css('margin-top', '10px');
+                $(divElem).text('Example: ' + exampleObj.title);
+                $(apiPartial.elem).append(divElem);
 
-        }
-
-        if (typeof tableOptions.dataArray != 'undefined') {
-            for(const outerObj of tableOptions.dataArray) {
-                appendRow(outerObj, false);
-    
-                if (typeof outerObj.fields != 'undefined') {
-                    // Inner fields
-                    for(const innerObj of outerObj.fields) {
-                        appendRow(innerObj, true);
-                    }
+                const preElem = document.createElement('pre');
+                const codeElem = document.createElement('code');
+                $(codeElem).addClass('prettyprint');
+                if (exampleObj.lang) {
+                    $(codeElem).addClass('lang-' + exampleObj.lang);
                 }
-            }    
-        }
-        else
-        if (typeof tableOptions.dataObj != 'undefined') {
-            appendRow(tableOptions.dataObj, false);
-        }
-        
+                $(codeElem).text(exampleObj.content);
+                $(preElem).append(codeElem);
 
-        $(divElem).append(tableElem);
+                $(apiPartial.elem).append(preElem);
+            }
+        },
+        appendRequestDefinition: function(apiPartial, tableOptions) {
+            const divElem = document.createElement('div');
+            $(divElem).css('margin-top', '10px');
+            $(apiPartial.elem).append(divElem);
 
-        $(apiPartial.elem).append(divElem);
-
-    }
-
-    const appendExamples = function(apiPartial, tableOptions) {
-        if (!tableOptions.dataArray) {
-            return;
-        }
-
-        for(const exampleObj of tableOptions.dataArray) {
             const preElem = document.createElement('pre');
-            $(preElem).addClass('api-code api-request-example');
-            $(preElem).attr('data-title', exampleObj.title);
-
             const codeElem = document.createElement('code');
             $(codeElem).addClass('prettyprint');
-            if (exampleObj.lang) {
-                $(codeElem).addClass('lang-' + exampleObj.lang);
-            }
-            $(codeElem).text(exampleObj.content);
-
+            $(codeElem).text(tableOptions.thisApiJson.type.toUpperCase() + ' ' + tableOptions.thisApiJson.url);
             $(preElem).append(codeElem);
+
             $(apiPartial.elem).append(preElem);
         }
-    }
-
+    };
 
     apiGlobal.loaders['jsDocs'] = function(apiPartial, apiJson) {
         console.log('apiDocs loadPartial jsDocs', {apiPartial, apiJson});
@@ -250,16 +264,19 @@ $(document).ready(function () {
                 title: 'Parameters',
                 hasInnerObject: true,
                 dataArray: typeof thisApiJson['parameters'] != 'undefined' ? thisApiJson['parameters'].fields : undefined,
+                dataType: 'appendParameterTable',
             },
             {
                 title: 'Properties',
                 hasInnerObject: true,
                 dataArray: typeof thisApiJson['properties'] != 'undefined' ? thisApiJson['properties'].fields : undefined,
+                dataType: 'appendParameterTable',
             },
             {
                 title: 'Returns',
                 dataObj: thisApiJson['returns'],
                 isReturns: true,
+                dataType: 'appendParameterTable',
             },
         ];
 
@@ -313,8 +330,7 @@ $(document).ready(function () {
                     },
                 ],
             };
-            
-            appendParameterTable(apiPartial, tableOptions);
+            appendHandlers[sectionObj.dataType](apiPartial, tableOptions); 
         }
     }
 
@@ -328,16 +344,33 @@ $(document).ready(function () {
 
         const sections = [
             {
+                title: 'Request Definition',
+                dataType: 'appendRequestDefinition',
+            },
+            {
                 title: 'Request URL parameters',
                 dataArray: thisApiJson.parameter.fields.Parameter,
+                dataType: 'appendParameterTable',
             },
             {
                 title: 'Query parameters',
                 dataArray: thisApiJson.query,
+                dataType: 'appendParameterTable',
             },
             {
-                isExample: true,
+                title: 'Examples',
                 dataArray: thisApiJson.examples,
+                dataType: 'appendExamples',
+            },
+            {
+                title: 'Response',
+                dataArray: thisApiJson.success.fields['Success 200'],
+                dataType: 'appendParameterTable',
+            },
+            {
+                title: 'Example Response',
+                dataArray: thisApiJson.success.examples,
+                dataType: 'appendExamples',
             },
             
         ];
@@ -349,6 +382,8 @@ $(document).ready(function () {
         
 
         for(const sectionObj of sections) {
+            appendHeader(apiPartial, 1, sectionObj.title + ' - ' + thisApiJson.name);
+
             const tableOptions = {
                 dataArray: sectionObj.dataArray,
                 dataObj: sectionObj.dataObj,
@@ -382,13 +417,10 @@ $(document).ready(function () {
                         removeParagraphTags: true,
                     },
                 ],
+                thisApiJson,
+                sectionObj,                
             };
-            if (sectionObj.isExample) {
-                appendExamples(apiPartial, tableOptions);
-            }
-            else {
-                appendParameterTable(apiPartial, tableOptions);
-            }
+            appendHandlers[sectionObj.dataType](apiPartial, tableOptions); 
         }
         
 
