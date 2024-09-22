@@ -232,7 +232,7 @@ $(document).ready(function () {
                 $(apiPartial.elem).append(preElem);
             }
         },
-        appendRequestDefinition: function(apiPartial, tableOptions) {
+        appendCodeString: function(apiPartial, tableOptions) {
             const divElem = document.createElement('div');
             $(divElem).css('margin-top', '10px');
             $(apiPartial.elem).append(divElem);
@@ -240,7 +240,7 @@ $(document).ready(function () {
             const preElem = document.createElement('pre');
             const codeElem = document.createElement('code');
             $(codeElem).addClass('prettyprint');
-            $(codeElem).text(tableOptions.thisApiJson.type.toUpperCase() + ' ' + tableOptions.thisApiJson.url);
+            $(codeElem).text(tableOptions.dataObj);
             $(preElem).append(codeElem);
 
             $(apiPartial.elem).append(preElem);
@@ -344,8 +344,14 @@ $(document).ready(function () {
 
         const sections = [
             {
-                title: 'Request Definition',
-                dataType: 'appendRequestDefinition',
+                title: 'Request definition',
+                dataObj: thisApiJson.type.toUpperCase() + ' ' + thisApiJson.url,
+                dataType: 'appendCodeString',
+            },
+            {
+                title: 'Required scope',
+                dataObj: thisApiJson.permission[0].name,
+                dataType: 'appendCodeString',
             },
             {
                 title: 'Request URL parameters',
