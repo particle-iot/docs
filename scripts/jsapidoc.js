@@ -152,6 +152,12 @@ module.exports = function (options) {
                                         param.optional = false;
                                     }
                                     param.type = convertEntities(param.type);
+
+                                    const m4 = param.type.match(/Array<([^>]*)>/);
+                                    if (m4) {
+                                        param.type = m4[1];
+                                        param.isArray = true;
+                                    }
         
                                     param.desc = param.descText.substring(m3[0].length);
                                     // console.log('param', {param, api});

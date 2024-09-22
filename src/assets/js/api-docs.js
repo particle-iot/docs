@@ -58,6 +58,10 @@ $(document).ready(function () {
         console.log('apiDocs ', apiPartial);
     });
 
+    const removeParagraphTags = function(s) {
+        return s.replaceAll(/<[\/]*p>/gi, '');
+    }
+
     const appendHeader = function(apiPartial, addLevel, s) {
         const headerElem = document.createElement('h' + (apiPartial.level + addLevel));
         $(headerElem).text(s);
@@ -67,6 +71,12 @@ $(document).ready(function () {
     const appendDivText = function(apiPartial, s) {
         const divElem = document.createElement('div');
         $(divElem).text(s);
+        $(apiPartial.elem).append(divElem);
+    }
+
+    const appendDivHtml = function(apiPartial, s) {
+        const divElem = document.createElement('div');
+        $(divElem).html(s);
         $(apiPartial.elem).append(divElem);
     }
 
@@ -88,6 +98,9 @@ $(document).ready(function () {
                 const thElem = document.createElement('th');
                 if (colObj.title) {
                     $(thElem).text(colObj.title);
+                }
+                if (colObj.optional || colObj.check) {
+                    $(thElem).css('text-align', 'center');
                 }
                 $(trElem).append(thElem);
                 numColumns++;
@@ -131,6 +144,13 @@ $(document).ready(function () {
                         }
                     }    
 
+                    if (colObj.optional) {
+                        $(tdElem).css('text-align', 'center');
+                        if (valueText) {
+                            valueText = 'optional';
+                        }
+                    }
+                    else
                     if (colObj.check) {
                         $(tdElem).css('text-align', 'center');
                         if (valueText) {
@@ -140,6 +160,15 @@ $(document).ready(function () {
                 }
                 else {
                     valueHtml = '&nbsp;';
+                }
+
+                if (colObj.html) {
+                    valueHtml = valueText;
+                    valueText = null;
+
+                    if (colObj.removeParagraphTags) {
+                        valueHtml = removeParagraphTags(valueHtml);
+                    }
                 }
 
                 if (valueHtml) {
@@ -157,60 +186,50 @@ $(document).ready(function () {
 
         }
 
-
-        for(const sectionObj of tableOptions.sections) {
-
-            if (typeof sectionObj.dataArray == 'undefined' && typeof sectionObj.dataObj == 'undefined') {
-                continue;
-            }
-            {
-                // Spacer row
-                const trElem = document.createElement('tr'); 
-                const tdElem = document.createElement('td');
-                $(tdElem).attr('colspan', numColumns);
-                $(tdElem).css('height', '10px;');
-                $(trElem).append(tdElem);
-                $(tbodyElem).append(trElem);
-            }
-
-            if (sectionObj.title) {
-                const trElem = document.createElement('tr'); 
-
-                const tdElem = document.createElement('td');
-                $(tdElem).attr('colspan', numColumns);
-                if (tableOptions.sectionHeaderCellClass) {
-                    $(tdElem).addClass(tableOptions.sectionHeaderCellClass);
-                }
-                $(tdElem).text(sectionObj.title);
-
-                $(trElem).append(tdElem);
-                $(tbodyElem).append(trElem);
-            }
-
-            if (typeof sectionObj.dataArray != 'undefined') {
-                for(const outerObj of sectionObj.dataArray.fields) {
-                    appendRow(outerObj, false);
-        
-                    if (typeof outerObj.fields != 'undefined') {
-                        // Inner fields
-                        for(const innerObj of outerObj.fields) {
-                            appendRow(innerObj, true);
-                        }
-                    }
-                }    
-            }
-            else
-            if (typeof sectionObj.dataObj != 'undefined') {
-                appendRow(sectionObj.dataObj, false);
-            }
+        if (typeof tableOptions.dataArray != 'undefined') {
+            for(const outerObj of tableOptions.dataArray) {
+                appendRow(outerObj, false);
     
+                if (typeof outerObj.fields != 'undefined') {
+                    // Inner fields
+                    for(const innerObj of outerObj.fields) {
+                        appendRow(innerObj, true);
+                    }
+                }
+            }    
         }
-
+        else
+        if (typeof tableOptions.dataObj != 'undefined') {
+            appendRow(tableOptions.dataObj, false);
+        }
+        
 
         $(divElem).append(tableElem);
 
         $(apiPartial.elem).append(divElem);
 
+    }
+
+    const appendExamples = function(apiPartial, tableOptions) {
+        if (!tableOptions.dataArray) {
+            return;
+        }
+
+        for(const exampleObj of tableOptions.dataArray) {
+            const preElem = document.createElement('pre');
+            $(preElem).addClass('api-code api-request-example');
+            $(preElem).attr('data-title', exampleObj.title);
+
+            const codeElem = document.createElement('code');
+            $(codeElem).addClass('prettyprint');
+            if (exampleObj.lang) {
+                $(codeElem).addClass('lang-' + exampleObj.lang);
+            }
+            $(codeElem).text(exampleObj.content);
+
+            $(preElem).append(codeElem);
+            $(apiPartial.elem).append(preElem);
+        }
     }
 
 
@@ -226,62 +245,153 @@ $(document).ready(function () {
 
         appendDivText(apiPartial, thisApiJson.text)
 
-        const tableOptions = {
-            columns: [
-                {
-                    title: 'Name',
-                    key: 'name',
-                    width: '80px',
-                    innerField: false, 
-                },
-                {
-                    title: 'Name',
-                    key: 'name',
-                    width: '80px',
-                    innerField: true, 
-                },
-                {
-                    title: 'Type',
-                    key: 'type',
-                    width: '90px',
-                    eitherField: true, 
-                },
-                {
-                    title: 'Optional',
-                    key: 'optional',
-                    check: true,
-                    eitherField: true, 
-                },
-                {
-                    title: 'Description',
-                    key: 'desc',
-                    eitherField: true, 
-                },
-            ],
-            sections: [
-                {
-                    title: 'Parameters',
-                    hasInnerObject: true,
-                    dataArray: thisApiJson['parameters'],
-                },
-                {
-                    title: 'Properties',
-                    hasInnerObject: true,
-                    dataArray: thisApiJson['properties'],
-                },
-                {
-                    title: 'Returns',
-                    dataObj: thisApiJson['returns'],
-                },
-            ],
-            sectionHeaderCellClass: 'apiDocsTableSectionCell',
-        };
-        appendParameterTable(apiPartial, tableOptions);
+        const sections = [
+            {
+                title: 'Parameters',
+                hasInnerObject: true,
+                dataArray: typeof thisApiJson['parameters'] != 'undefined' ? thisApiJson['parameters'].fields : undefined,
+            },
+            {
+                title: 'Properties',
+                hasInnerObject: true,
+                dataArray: typeof thisApiJson['properties'] != 'undefined' ? thisApiJson['properties'].fields : undefined,
+            },
+            {
+                title: 'Returns',
+                dataObj: thisApiJson['returns'],
+                isReturns: true,
+            },
+        ];
+
+        for(const sectionObj of sections) {
+            if (typeof sectionObj.dataArray == 'undefined' && typeof sectionObj.dataObj == 'undefined') {
+                continue;
+            }
+
+            appendHeader(apiPartial, 1, sectionObj.title + ' - ' + thisApiJson.name);
+
+            const tableOptions = {
+                dataArray: sectionObj.dataArray,
+                dataObj: sectionObj.dataObj,
+                columns: [
+                    {
+                        title: sectionObj.isReturns ? '' : 'Name',
+                        key: 'name',
+                        width: '80px',
+                        innerField: false, 
+                    },
+                    {
+                        title: sectionObj.isReturns ? '' : 'Field',
+                        key: 'name',
+                        width: '80px',
+                        innerField: true, 
+                    },
+                    {
+                        title: 'Type',
+                        key: 'type',
+                        width: '60px',
+                        eitherField: true, 
+                    },
+                    {
+                        title: sectionObj.isReturns ? '' : 'Array',
+                        key: 'isArray',
+                        check: true,
+                        width: '50px',
+                        eitherField: true, 
+                    },
+                    {
+                        title: sectionObj.isReturns ? '' : 'Optional',
+                        key: 'optional',
+                        optional: true,
+                        width: '60px',
+                        eitherField: true, 
+                    },
+                    {
+                        title: 'Description',
+                        key: 'desc',
+                        eitherField: true, 
+                    },
+                ],
+            };
+            
+            appendParameterTable(apiPartial, tableOptions);
+        }
     }
 
 
     apiGlobal.loaders['api-service'] = function(apiPartial, apiJson) {
         console.log('apiDocs loadPartial api-service', {apiPartial, apiJson});
+        const thisApiJson = apiJson.find(e => e.name == apiPartial.name);
+        if (!thisApiJson) {
+            console.log('apiDocs ' + apiPartial.name + ' not found in apiJson ', apiJson)
+        }
+
+        const sections = [
+            {
+                title: 'Request URL parameters',
+                dataArray: thisApiJson.parameter.fields.Parameter,
+            },
+            {
+                title: 'Query parameters',
+                dataArray: thisApiJson.query,
+            },
+            {
+                isExample: true,
+                dataArray: thisApiJson.examples,
+            },
+            
+        ];
+
+        appendHeader(apiPartial, 0, thisApiJson.title);
+
+        appendDivHtml(apiPartial, thisApiJson.description)
+
+        
+
+        for(const sectionObj of sections) {
+            const tableOptions = {
+                dataArray: sectionObj.dataArray,
+                dataObj: sectionObj.dataObj,
+                columns: [
+                    {
+                        title: 'Field',
+                        key: 'field',
+                        width: '80px',
+                    },
+                    {
+                        title: 'Type',
+                        key: 'type',
+                        width: '60px',
+                    },
+                    {
+                        title: 'Array',
+                        key: 'isArray',
+                        check: true,
+                        width: '50px',
+                    },
+                    {
+                        title: 'Optional',
+                        key: 'optional',
+                        optional: true,
+                        width: '60px',
+                    },
+                    {
+                        title: 'Description',
+                        key: 'description',
+                        html: true,
+                        removeParagraphTags: true,
+                    },
+                ],
+            };
+            if (sectionObj.isExample) {
+                appendExamples(apiPartial, tableOptions);
+            }
+            else {
+                appendParameterTable(apiPartial, tableOptions);
+            }
+        }
+        
+
     }
 
 
