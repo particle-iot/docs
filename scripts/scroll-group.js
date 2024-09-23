@@ -67,10 +67,11 @@ module.exports = function(options) {
                 if (fileName.startsWith(groupObj.sourceDir) && fileName.endsWith('.md')) {
                     const fileObj = {
                         fileName,
+                        fileNameNoMd: fileName.replace(/\.md$/, ''),
                         mdFile: files[fileName].contents.toString(),
                         outputObj: {},
                     }
-                    scrollGroup.outputObj[fileName] = fileObj.outputObj;
+                    scrollGroup.outputObj[fileObj.fileNameNoMd] = fileObj.outputObj;
 
                     scrollGroup.files.push(fileObj);
 
