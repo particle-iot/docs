@@ -2,14 +2,15 @@
 
 const fs = require('fs');
 const path = require('path');
-var cloneDeep = require('lodash').cloneDeep;
+const Handlebars = require("handlebars");
 
 function parseScrollGroupMd(scrollGroup, fileObj) {
 
     fileObj.outputObj.items = [];
+    fileObj.frontMatter = {};
+
 
     for(const line of fileObj.mdFile.split('\n')) {
-        
         
         const m1 = line.match(/^([#]+) /);
         if (m1) {
@@ -20,6 +21,11 @@ function parseScrollGroupMd(scrollGroup, fileObj) {
             }
             obj.anchor = obj.title.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^\w]+/g, '-');
 
+            if (level == 1) {
+                const template = Handlebars.compile(obj.title);
+                fileObj.outputObj.h1 = template(fileObj.metalsmithFile);
+            }
+            else
             if (level == 3) {
                 if (fileObj.outputObj.items.length) {
                     // Normal level 3, add to level 2
@@ -60,7 +66,8 @@ module.exports = function(options) {
             let scrollGroup = {
                 groupObj,
                 files: [],
-                outputObj: {},
+                outputObj: {
+                },
             };
 
             Object.keys(files).forEach(function(fileName) {
@@ -68,6 +75,7 @@ module.exports = function(options) {
                     const fileObj = {
                         fileName,
                         fileNameNoMd: fileName.replace(/\.md$/, ''),
+                        metalsmithFile: files[fileName],
                         mdFile: files[fileName].contents.toString(),
                         outputObj: {},
                     }
