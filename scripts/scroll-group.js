@@ -7,8 +7,6 @@ const Handlebars = require("handlebars");
 function parseScrollGroupMd(scrollGroup, fileObj) {
 
     fileObj.outputObj.items = [];
-    fileObj.frontMatter = {};
-
 
     for(const line of fileObj.mdFile.split('\n')) {
         
@@ -49,8 +47,6 @@ function parseScrollGroupMd(scrollGroup, fileObj) {
             
         }
     }
-
-    console.log('file ' + fileObj.fileName, fileObj.items)
 
 }
 
