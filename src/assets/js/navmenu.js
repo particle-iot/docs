@@ -197,13 +197,6 @@ navMenu.load = async function() {
                     insertAt.collapse = true;
                 }    
             }
-
-            // TEMPORARY: Need to fix this to navigate into items L2 and L3 after fixing insertion
-            navMenu.forEachItem(function(itemObj) {
-                if (!itemObj.anchor) {
-                    navMenu.navigationItems.push(itemObj);
-                }
-            });    
         }
     }
     else {
