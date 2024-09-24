@@ -1,0 +1,455 @@
+{
+    "pages": [
+        {
+            "url": "/getting-started/logic-ledger/data-transformation/",
+            "items": [
+                {
+                    "title": "Sandbox product",
+                    "isContent": true,
+                    "anchor": "sandbox-product"
+                },
+                {
+                    "title": "Device firmware",
+                    "isContent": true,
+                    "anchor": "device-firmware"
+                },
+                {
+                    "title": "Logic block",
+                    "isContent": true,
+                    "anchor": "logic-block"
+                },
+                {
+                    "title": "Webhook",
+                    "isContent": true,
+                    "anchor": "webhook"
+                },
+                {
+                    "title": "Create ledger",
+                    "isContent": true,
+                    "anchor": "create-ledger"
+                },
+                {
+                    "title": "Save data to ledger",
+                    "isContent": true,
+                    "anchor": "save-data-to-ledger"
+                }
+            ],
+            "h1": "Data transformation with Logic"
+        },
+        {
+            "url": "/getting-started/logic-ledger/device-info-ledger/",
+            "items": [
+                {
+                    "title": "Overview",
+                    "isContent": true,
+                    "anchor": "overview"
+                },
+                {
+                    "title": "Creating a product",
+                    "isContent": true,
+                    "anchor": "creating-a-product"
+                },
+                {
+                    "title": "Create Ledgers",
+                    "isContent": true,
+                    "anchor": "create-ledgers",
+                    "subsections": [
+                        {
+                            "title": "Device information Ledger",
+                            "isContent": true,
+                            "anchor": "device-information-ledger"
+                        },
+                        {
+                            "title": "Default configuration Ledger",
+                            "isContent": true,
+                            "anchor": "default-configuration-ledger"
+                        },
+                        {
+                            "title": "Device configuration Ledger",
+                            "isContent": true,
+                            "anchor": "device-configuration-ledger"
+                        }
+                    ]
+                },
+                {
+                    "title": "Project source",
+                    "isContent": true,
+                    "anchor": "project-source"
+                },
+                {
+                    "title": "Viewing data",
+                    "isContent": true,
+                    "anchor": "viewing-data"
+                },
+                {
+                    "title": "Configuration",
+                    "isContent": true,
+                    "anchor": "configuration",
+                    "subsections": [
+                        {
+                            "title": "Local configuration",
+                            "isContent": true,
+                            "anchor": "local-configuration"
+                        },
+                        {
+                            "title": "Default configuration in Ledger",
+                            "isContent": true,
+                            "anchor": "default-configuration-in-ledger"
+                        },
+                        {
+                            "title": "Device overrides in Ledger",
+                            "isContent": true,
+                            "anchor": "device-overrides-in-ledger"
+                        }
+                    ]
+                }
+            ],
+            "h1": "Device info Ledger"
+        },
+        {
+            "url": "/getting-started/logic-ledger/ledger-configuration/",
+            "items": [
+                {
+                    "title": "Sandbox product",
+                    "isContent": true,
+                    "anchor": "sandbox-product"
+                },
+                {
+                    "title": "Create a ledger",
+                    "isContent": true,
+                    "anchor": "create-a-ledger",
+                    "subsections": [
+                        {
+                            "title": "Create product ledger instance",
+                            "isContent": true,
+                            "anchor": "create-product-ledger-instance"
+                        }
+                    ]
+                },
+                {
+                    "title": "Device firmware",
+                    "isContent": true,
+                    "anchor": "device-firmware"
+                },
+                {
+                    "title": "Configuration",
+                    "isContent": true,
+                    "anchor": "configuration",
+                    "subsections": [
+                        {
+                            "title": "Device-specific overrides",
+                            "isContent": true,
+                            "anchor": "device-specific-overrides"
+                        }
+                    ]
+                },
+                {
+                    "title": "Push notification",
+                    "isContent": true,
+                    "anchor": "push-notification"
+                },
+                {
+                    "title": "Cleanup",
+                    "isContent": true,
+                    "anchor": "cleanup"
+                },
+                {
+                    "title": "Next steps",
+                    "isContent": true,
+                    "anchor": "next-steps"
+                }
+            ],
+            "h1": "Ledger configuration"
+        },
+        {
+            "url": "/getting-started/logic-ledger/ledger-sensor/",
+            "items": [
+                {
+                    "title": "Sandbox product",
+                    "isContent": true,
+                    "anchor": "sandbox-product"
+                },
+                {
+                    "title": "Create a ledger",
+                    "isContent": true,
+                    "anchor": "create-a-ledger"
+                },
+                {
+                    "title": "Device firmware",
+                    "isContent": true,
+                    "anchor": "device-firmware",
+                    "subsections": [
+                        {
+                            "title": "Logs",
+                            "isContent": true,
+                            "anchor": "logs"
+                        }
+                    ]
+                },
+                {
+                    "title": "Viewing the ledger",
+                    "isContent": true,
+                    "anchor": "viewing-the-ledger"
+                },
+                {
+                    "title": "Cleanup",
+                    "isContent": true,
+                    "anchor": "cleanup"
+                },
+                {
+                    "title": "Next steps",
+                    "isContent": true,
+                    "anchor": "next-steps"
+                }
+            ],
+            "h1": "Ledger sensor"
+        },
+        {
+            "url": "/getting-started/logic-ledger/ledger/",
+            "items": [
+                {
+                    "title": "Console",
+                    "isContent": true,
+                    "anchor": "console",
+                    "subsections": [
+                        {
+                            "title": "Select ledger type - console",
+                            "isContent": true,
+                            "anchor": "select-ledger-type-console"
+                        },
+                        {
+                            "title": "Ledger options - console",
+                            "isContent": true,
+                            "anchor": "ledger-options-console"
+                        },
+                        {
+                            "title": "Ledger instances - console",
+                            "isContent": true,
+                            "anchor": "ledger-instances-console"
+                        },
+                        {
+                            "title": "View ledger - console",
+                            "isContent": true,
+                            "anchor": "view-ledger-console"
+                        },
+                        {
+                            "title": "View ledger advanced - console",
+                            "isContent": true,
+                            "anchor": "view-ledger-advanced-console"
+                        }
+                    ]
+                },
+                {
+                    "title": "Cloud ledger - console",
+                    "isContent": true,
+                    "anchor": "cloud-ledger-console"
+                },
+                {
+                    "title": "Device to Cloud ledger - console",
+                    "isContent": true,
+                    "anchor": "device-to-cloud-ledger-console"
+                },
+                {
+                    "title": "Cloud to Device ledger - console",
+                    "isContent": true,
+                    "anchor": "cloud-to-device-ledger-console",
+                    "subsections": [
+                        {
+                            "title": "Using Ledger for configuration",
+                            "isContent": true,
+                            "anchor": "using-ledger-for-configuration"
+                        }
+                    ]
+                },
+                {
+                    "title": "Using Ledger from Logic",
+                    "isContent": true,
+                    "anchor": "using-ledger-from-logic"
+                },
+                {
+                    "title": "Using Ledger from the Cloud API",
+                    "isContent": true,
+                    "anchor": "using-ledger-from-the-cloud-api"
+                }
+            ],
+            "h1": "Ledger"
+        },
+        {
+            "url": "/getting-started/logic-ledger/logic-cloud-alerts/",
+            "items": [
+                {
+                    "title": "Device firmware",
+                    "isContent": true,
+                    "anchor": "device-firmware"
+                },
+                {
+                    "title": "Create logic block",
+                    "isContent": true,
+                    "anchor": "create-logic-block"
+                },
+                {
+                    "title": "Using Ledger from Logic",
+                    "isContent": true,
+                    "anchor": "using-ledger-from-logic"
+                }
+            ],
+            "h1": "Cloud alerts with Logic"
+        },
+        {
+            "url": "/getting-started/logic-ledger/logic/",
+            "items": [
+                {
+                    "title": "Common use cases",
+                    "isContent": true,
+                    "anchor": "common-use-cases",
+                    "subsections": [
+                        {
+                            "title": "Data transformation",
+                            "isContent": true,
+                            "anchor": "data-transformation"
+                        }
+                    ]
+                },
+                {
+                    "title": "Console interface",
+                    "isContent": true,
+                    "anchor": "console-interface",
+                    "subsections": [
+                        {
+                            "title": "Logic templates",
+                            "isContent": true,
+                            "anchor": "logic-templates"
+                        },
+                        {
+                            "title": "Creating a Logic Function from a template",
+                            "isContent": true,
+                            "anchor": "creating-a-logic-function-from-a-template"
+                        },
+                        {
+                            "title": "Deploy Logic Function",
+                            "isContent": true,
+                            "anchor": "deploy-logic-function"
+                        },
+                        {
+                            "title": "Testing from console",
+                            "isContent": true,
+                            "anchor": "testing-from-console"
+                        },
+                        {
+                            "title": "Testing from the Particle CLI",
+                            "isContent": true,
+                            "anchor": "testing-from-the-particle-cli"
+                        },
+                        {
+                            "title": "Testing from a device",
+                            "isContent": true,
+                            "anchor": "testing-from-a-device"
+                        },
+                        {
+                            "title": "Scheduled events",
+                            "isContent": true,
+                            "anchor": "scheduled-events"
+                        }
+                    ]
+                },
+                {
+                    "title": "Logic Function coding",
+                    "isContent": true,
+                    "anchor": "logic-function-coding",
+                    "subsections": [
+                        {
+                            "title": "Deep dive into the reformat JSON template",
+                            "isContent": true,
+                            "anchor": "deep-dive-into-the-reformat-json-template"
+                        },
+                        {
+                            "title": "Particle Logic Core API",
+                            "isContent": true,
+                            "anchor": "particle-logic-core-api"
+                        },
+                        {
+                            "title": "Using Ledger from Logic",
+                            "isContent": true,
+                            "anchor": "using-ledger-from-logic"
+                        },
+                        {
+                            "title": "Particle encoding API",
+                            "isContent": true,
+                            "anchor": "particle-encoding-api"
+                        },
+                        {
+                            "title": "Vendor packages",
+                            "isContent": true,
+                            "anchor": "vendor-packages"
+                        },
+                        {
+                            "title": "Logic Function context",
+                            "isContent": true,
+                            "anchor": "logic-function-context"
+                        }
+                    ]
+                }
+            ],
+            "h1": "Logic"
+        },
+        {
+            "url": "/getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started/",
+            "items": [
+                {
+                    "title": "Table of contents",
+                    "isContent": true,
+                    "anchor": "table-of-contents"
+                },
+                {
+                    "title": "What is ledger?",
+                    "isContent": true,
+                    "anchor": "what-is-ledger-"
+                },
+                {
+                    "title": "Using cloud to device ledger",
+                    "isContent": true,
+                    "anchor": "using-cloud-to-device-ledger",
+                    "subsections": [
+                        {
+                            "title": "Wiring",
+                            "isContent": true,
+                            "anchor": "wiring"
+                        },
+                        {
+                            "title": "Setting the product",
+                            "isContent": true,
+                            "anchor": "setting-the-product"
+                        },
+                        {
+                            "title": "Setting your ledgers",
+                            "isContent": true,
+                            "anchor": "setting-your-ledgers"
+                        },
+                        {
+                            "title": "Preparing the devices",
+                            "isContent": true,
+                            "anchor": "preparing-the-devices"
+                        },
+                        {
+                            "title": "Testing",
+                            "isContent": true,
+                            "anchor": "testing"
+                        }
+                    ]
+                }
+            ],
+            "h1": "Cloud to device ledger getting started"
+        },
+        {
+            "url": "/getting-started/logic-ledger/logic-ledger-community/logic-ledger-community/",
+            "items": [
+                {
+                    "title": "Contributing",
+                    "isContent": true,
+                    "anchor": "contributing"
+                }
+            ],
+            "h1": "Logic and ledger community"
+        }
+    ]
+}

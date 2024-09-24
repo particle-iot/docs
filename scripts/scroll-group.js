@@ -63,6 +63,7 @@ module.exports = function(options) {
                 groupObj,
                 files: [],
                 outputObj: {
+                    pages: [],
                 },
             };
 
@@ -75,7 +76,10 @@ module.exports = function(options) {
                         mdFile: files[fileName].contents.toString(),
                         outputObj: {},
                     }
-                    scrollGroup.outputObj[fileObj.fileNameNoMd] = fileObj.outputObj;
+                    
+                    fileObj.outputObj.url = '/' + fileObj.fileNameNoMd + '/';
+
+                    scrollGroup.outputObj.pages.push(fileObj.outputObj);
 
                     scrollGroup.files.push(fileObj);
 
@@ -83,21 +87,24 @@ module.exports = function(options) {
                 }
             });
 
-            let outputOld = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : '';
+            if (scrollGroup.files.length > 0) {
+                // On live reload the refresh may not have any files, so avoid writing out an empty file
+                let outputOld = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : '';
             
-            let outputStr = JSON.stringify(scrollGroup.outputObj, null, 4);
-            if (outputOld != outputStr) {
-                fs.writeFileSync(outputPath, outputStr);
-                
-                if (typeof files[groupObj.outputFile] != 'undefined') {
-                    files[groupObj.outputFile].contents = Buffer.from(outputStr);
-                }
-                else {
-                    files[groupObj.outputFile] = {
-                        contents: Buffer.from(outputStr),
+                let outputStr = JSON.stringify(scrollGroup.outputObj, null, 4);
+                if (outputOld != outputStr) {
+                    fs.writeFileSync(outputPath, outputStr);
+                    
+                    if (typeof files[groupObj.outputFile] != 'undefined') {
+                        files[groupObj.outputFile].contents = Buffer.from(outputStr);
                     }
-                }
-            }            
+                    else {
+                        files[groupObj.outputFile] = {
+                            contents: Buffer.from(outputStr),
+                        }
+                    }
+                }                
+            }
         }
 
 		done();

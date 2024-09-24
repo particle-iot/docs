@@ -2,6 +2,22 @@
 let navMenu = {
     gaCategory: 'navMenu',
 
+    loadMore: [
+        {
+            baseUrl: '/reference/device-os/api',
+            menuJsonUrl: '/assets/files/apiMenus.json',
+            insertLoc: 'device-os-api',
+        },
+        {
+            baseUrl: '/reference/device-os/libraries',
+            menuJsonUrl: '/assets/files/libraryMenus.json',
+            insertLoc: 'libraries',
+        },
+        {
+            baseUrl: '/getting-started/logic-ledger/',
+            menuJsonUrl: '/assets/files/logicLedgerMenus.json',
+        }
+    ],
 };
 
 // This is copied from templates/helpers/titleize.js - try to keep in sync
@@ -116,45 +132,39 @@ navMenu.load = async function() {
     navMenu.menuJson = await fetchRes.json();
     // End new code    
 
-    let loadMore;
-    
-    if (navMenu.hrefPage.startsWith('/reference/device-os/api')) {
-        loadMore = {
-            'url': '/assets/files/apiMenus.json',
-            'insertLoc': 'device-os-api',
-        };
-    }
-    if (navMenu.hrefPage.startsWith('/reference/device-os/libraries')) {
-        loadMore = {
-            'url': '/assets/files/libraryMenus.json',
-            'insertLoc': 'libraries',
-        };
-
-    }
     navMenu.navigationItems = [];
 
+    let loadMore;
+    for(const loadMoreTemp of navMenu.loadMore) {
+        if (navMenu.hrefPage.startsWith(loadMoreTemp.baseUrl)) {
+            loadMore = loadMoreTemp;
+            break;
+        }
+    }
+
     if (loadMore) {
-        const fetchMoreRes = await fetch(loadMore.url);
+        const fetchMoreRes = await fetch(loadMore.menuJsonUrl);
         const moreMenuJson = await fetchMoreRes.json();
 
-        const updateInsertLoc = function(array) {
-            for(const itemObj of array) {
-                if (itemObj.insertLoc == loadMore.insertLoc) {
-                    itemObj.subsections = moreMenuJson.items;
+        if (loadMore.insertLoc) {
+            // insertLoc is used for Device OS API reference and libraries
+            const updateInsertLoc = function(array) {
+                for(const itemObj of array) {
+                    if (itemObj.insertLoc == loadMore.insertLoc) {
+                        itemObj.subsections = moreMenuJson.items;
+                    }
+                    if (typeof itemObj.subsections != 'undefined') {
+                        updateInsertLoc(itemObj.subsections);
+                    }
                 }
-                if (typeof itemObj.subsections != 'undefined') {
-                    updateInsertLoc(itemObj.subsections);
-                }
-            }
-        }   
-        updateInsertLoc(navMenu.menuJson.items);
-
-        // For the Device OS API and Libraries, this is a sequential list of every page (not anchor)
-        // which is useful for automatically scrolling
-        let nextIsSectionStart = false;
-
-        navMenu.forEachItemInternal(moreMenuJson.items, {callback:function(itemObj) {
-            // if (!itemObj.anchor) {
+            }   
+            updateInsertLoc(navMenu.menuJson.items);
+    
+            // For the Device OS API and Libraries, this is a sequential list of every page (not anchor)
+            // which is useful for automatically scrolling
+            let nextIsSectionStart = false;
+    
+            navMenu.forEachItemInternal(moreMenuJson.items, {callback:function(itemObj) {
                 if (nextIsSectionStart) {
                     itemObj.sectionStart = true;
                     nextIsSectionStart = false;
@@ -163,8 +173,38 @@ navMenu.load = async function() {
                 if (itemObj.collapse) {
                     nextIsSectionStart = true;
                 }
-            // }
-        }});
+            }});
+        }
+        else {
+            // This is a scroll group
+            // moreMenuJson (object)
+            //   pages (array of objects)
+            //      url (url - begins and ends with a /)
+            //      h1 (h1 of the page)
+            //      items (array of navigation menu items, same format as subsection)
+
+            for(const pageObj of moreMenuJson.pages) {
+                let insertAt;
+
+                navMenu.forEachItem(function(itemObj, forEachOptions) {
+                    if (pageObj.url == forEachOptions.itemUrl && typeof insertAt == 'undefined') {
+                        insertAt = itemObj;
+                    }
+                });
+
+                if (insertAt) {
+                    insertAt.subsections = pageObj.items;
+                    insertAt.collapse = true;
+                }    
+            }
+
+            // TEMPORARY: Need to fix this to navigate into items L2 and L3 after fixing insertion
+            navMenu.forEachItem(function(itemObj) {
+                if (!itemObj.anchor) {
+                    navMenu.navigationItems.push(itemObj);
+                }
+            });    
+        }
     }
     else {
         navMenu.forEachItem(function(itemObj) {
@@ -278,6 +318,18 @@ navMenu.forEachItemInternal = function(array, options) {
     for(const itemObj of array) {
         options.path.push(itemObj);
 
+        if (options.rootDir) {
+            options.itemUrl = options.rootDir;
+        }
+        else {
+            options.itemUrl = '/';
+        }
+        for(const p of options.path) {
+            if (typeof p.dir != 'undefined') {
+                options.itemUrl += p.dir + '/';
+            }
+        }
+
         options.callback(itemObj, options);
         if (typeof itemObj.subsections != 'undefined') {
             navMenu.forEachItemInternal(itemObj.subsections, options);
@@ -290,6 +342,7 @@ navMenu.forEachItem = function(callback) {
     let options = {
         callback,
         path: [],
+        rootDir: '/' + navMenu.menuJson.dir + '/',
     }
     navMenu.forEachItemInternal(navMenu.menuJson.items, options);
 }
