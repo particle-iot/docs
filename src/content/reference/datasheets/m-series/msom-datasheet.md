@@ -149,8 +149,7 @@ Single quantity M-SoM units and developer kits include a PARANTWM1EA antenna. Tr
 
 Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M-SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
-- GNSS features are limited on the M404 and M635 as the cellular modem cannot do cellular communication and GNSS at the same time.
-- GNSS support will be added in a future version of Device OS.
+- GNSS support will be added in a future version of Device OS. A [user firmware library](https://github.com/particle-iot/particle-som-gnss) is available now for the M404.
 - Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
 
 ### General Antenna Guidance
@@ -1442,3 +1441,4 @@ Global, country list to be provided a later date.
 | 007      | 2024-07-09 | RK | Updated cellular modem on M635 to BG95-S5 |
 | 008      | 2024-08-21 | RK | Added supervisory reset information |
 | 009      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
+| 010      | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |

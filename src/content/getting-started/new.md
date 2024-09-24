@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-SoM GNSS 2024-09-24
+
+Removed the warning about using the GNSS concurrently with cellular on the M404. Added link to GNSS library.
+
 ### Logging warnings 2024-09-20
 
 Added warning about places where you should not use logging calls like Log.info like

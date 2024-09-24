@@ -2118,3 +2118,4 @@ The following countries are not officially supported at this time, but may be co
 | 001      | 2024-06-26 | RK | Initial version |
 | 002      | 2024-08-13 | RK | Added links to certification documents |
 | 003      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
+| 004      | 2024-09-24 | RK | Removed concurrent GNSS warning |
