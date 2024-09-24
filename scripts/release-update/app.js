@@ -541,7 +541,7 @@ async function fetchDeviceOsVersions() {
                 resolve(result);
             });
         });
-        // console.log('result', result);
+        console.log('result', result);
         for(const v of result.versions) {
             deviceOsVersions.push(v);
         }
@@ -1346,7 +1346,7 @@ async function runTrackerEdgeSource(version, zipFile) { // Version without the v
         const { stdout, stderr } = await exec(cmd);
     }
     {
-        const cmd = 'cd ' + edgeDir + ' && git checkout release/v' + version;
+        const cmd = 'cd ' + edgeDir + ' && git checkout v' + version; // was: git checkout release/v' + version;
         const { stdout, stderr } = await exec(cmd);
     }
     {
@@ -1499,7 +1499,7 @@ async function runEdgeVersion(options) {
 
             if (options.kind == 'tracker-edge') {
                 // Do this the old way because we need to populate git submodules
-                runTrackerEdgeSource(templateParam.version, zipFile);
+                await runTrackerEdgeSource(templateParam.version, zipFile);
             }
             else {
                 // Just get the source zip, unchanged

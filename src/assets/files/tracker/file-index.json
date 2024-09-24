@@ -12,6 +12,10 @@
     ],
     "tracker": [
       {
+        "ver": 19,
+        "file": "tracker-config-schema-19.json"
+      },
+      {
         "ver": 18,
         "file": "tracker-config-schema-18.json"
       },
@@ -35,6 +39,11 @@
       }
     ],
     "tracker": [
+      {
+        "ver": 19,
+        "file": "tracker-edge-19@3.3.0.bin",
+        "target": "3.3.0"
+      },
       {
         "ver": 18,
         "file": "tracker-edge-18@3.3.0.bin",
@@ -109,6 +118,10 @@
       }
     ],
     "tracker": [
+      {
+        "ver": 19,
+        "file": "v19.zip"
+      },
       {
         "ver": 18,
         "file": "v18.zip"

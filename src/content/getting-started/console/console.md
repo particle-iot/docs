@@ -1053,6 +1053,19 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 </tbody>
 </table>
 
+##### Publish extra information to assist with debugging GNSS configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/diag</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish extra information to assist with debugging GNSS</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish GNSS constellation counts and C/NO characteristics.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
