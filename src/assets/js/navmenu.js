@@ -2,20 +2,27 @@
 let navMenu = {
     gaCategory: 'navMenu',
 
-    loadMore: [
+    // Used for Device OS firmware reference and scroll groups
+    pageQueue: [],
+    pageLoading: false,
+
+    loadMoreConfig: [
         {
             baseUrl: '/reference/device-os/api',
             menuJsonUrl: '/assets/files/apiMenus.json',
             insertLoc: 'device-os-api',
+            hasPageQueue: true,
         },
         {
             baseUrl: '/reference/device-os/libraries',
             menuJsonUrl: '/assets/files/libraryMenus.json',
             insertLoc: 'libraries',
+            hasPageQueue: false,
         },
         {
             baseUrl: '/getting-started/logic-ledger/',
             menuJsonUrl: '/assets/files/logicLedgerMenus.json',
+            hasPageQueue: true,
         }
     ],
 };
@@ -134,23 +141,22 @@ navMenu.load = async function() {
 
     navMenu.navigationItems = [];
 
-    let loadMore;
-    for(const loadMoreTemp of navMenu.loadMore) {
+    for(const loadMoreTemp of navMenu.loadMoreConfig) {
         if (navMenu.hrefPage.startsWith(loadMoreTemp.baseUrl)) {
-            loadMore = loadMoreTemp;
+            navMenu.loadMoreObj = loadMoreTemp;
             break;
         }
     }
 
-    if (loadMore) {
-        const fetchMoreRes = await fetch(loadMore.menuJsonUrl);
+    if (typeof navMenu.loadMoreObj != 'undefined') {
+        const fetchMoreRes = await fetch(navMenu.loadMoreObj.menuJsonUrl);
         const moreMenuJson = await fetchMoreRes.json();
-
-        if (loadMore.insertLoc) {
+        
+        if (navMenu.loadMoreObj.insertLoc) {
             // insertLoc is used for Device OS API reference and libraries
             const updateInsertLoc = function(array) {
                 for(const itemObj of array) {
-                    if (itemObj.insertLoc == loadMore.insertLoc) {
+                    if (itemObj.insertLoc == navMenu.loadMoreObj.insertLoc) {
                         itemObj.subsections = moreMenuJson.items;
                     }
                     if (typeof itemObj.subsections != 'undefined') {
@@ -199,21 +205,51 @@ navMenu.load = async function() {
             }
         }
     }
-    else {
-        navMenu.forEachItem(function(itemObj) {
-            if (!itemObj.anchor) {
-                navMenu.navigationItems.push(itemObj);
-            }
-        });
-    }
     
     const nav = navMenu.generateNavHtml(navMenu.menuJson);
     $('.navMenuOuter').replaceWith(nav);
 
-    if (typeof firmwareReference != 'undefined') {
-        firmwareReference.navMenuLoaded();
+    if (typeof navMenu.loadMoreObj == 'undefined') {
+        navMenu.forEachItem(function(itemObj) {
+            navMenu.navigationItems.push(itemObj);
+        });
+    }
+
+    if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
+        // Has page queue
+        $('.originalContent').addClass('referencePage');
+        $('.originalContent').attr('data-href', navMenu.thisUrl.pathname);
+
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (navMenu.thisUrl.pathname == itemObj.hrefNoAnchor) {
+                navMenu.initialIndex = navMenu.topIndex = navMenu.bottomIndex = ii;
+                $('.originalContent').data('index', ii);
+                break;                
+            }
+        }
+
+        for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            const itemObj = navMenu.navigationItems[ii];
+
+            if (itemObj.navLinkElem) {
+                $(itemObj.navLinkElem).off('click');
+
+                $(itemObj.navLinkElem).on('click', function(ev) {
+                    ev.preventDefault();
+
+                    navMenu.replacePage({index:ii});
+                });
+            }
+        }
+
+        // Preload pages
+        navMenu.queuePage({index:navMenu.initialIndex, skipIndex:true, count:1, toEnd:true, fillScreen:true}); 
+
+        navMenu.syncNavigationToPage(navMenu.thisUrl.pathname);
     }
     else {
+        // No page queue
         navMenu.syncNavigation();
         navMenu.searchContent();
     }
@@ -847,6 +883,8 @@ navMenu.scrollDocsToElement = function (element) {
     navMenu.syncNavigation();
 };
 
+// This is the old way
+/*
 navMenu.syncNavigation = function() {
     if (!navMenu.menuJson) {
         return;
@@ -902,7 +940,80 @@ navMenu.syncNavigation = function() {
         }
     });
 }
+*/
+navMenu.syncNavigation = function() {
+    if (!navMenu || !navMenu.menuJson) {
+        return;
+    }        
 
+    const itemsNearby = navMenu.getItemsNearby();
+    console.log('syncNavigation itemsNearby', {itemsNearby, navigationItems:navMenu.navigationItems, });
+
+    if (typeof itemsNearby.selectIndex != 'undefined') {
+        $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+        $('.menubar').find('.navActive').removeClass('navActive');
+        
+        const itemObj = navMenu.navigationItems[itemsNearby.selectIndex];
+        // console.log('syncNavigation to item', itemObj);
+        $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+        $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
+        navMenu.scrollToActive();
+
+        if (window.location.pathname != itemObj.hrefNoAnchor) {
+            history.pushState(null, '', itemObj.hrefNoAnchor);
+        }
+    }
+    
+    if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
+
+        if (navMenu.lastScrollDir == 'up' && typeof itemsNearby.loadAboveIndex != 'undefined') {
+            navMenu.queuePage({index:itemsNearby.loadAboveIndex, skipIndex: false, count:3, toEnd:false, noScroll:true});  
+        }
+        if (navMenu.lastScrollDir == 'down' && typeof itemsNearby.loadBelowIndex != 'undefined') {
+            navMenu.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:3, toEnd:true, noScroll:true});  
+        }
+    }      
+
+}
+
+
+navMenu.navigatePage = function(options) {
+        
+    if (typeof navMenu.lastItemIndex == 'undefined') {
+        navMenu.lastItemIndex = 0;
+    }
+    if (!options.dir) {
+        options.dir = 1;
+    }
+
+
+    if (options.level) {
+        for(let ii = navMenu.lastItemIndex + options.dir; ii >= 0 && ii < navMenu.navigationItems.length; ii += options.dir) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (itemObj.level == options.level) {
+                navMenu.replacePage({index: ii});
+                break;
+            }                
+        }
+    }   
+    else
+    if (options.section) {
+        const hrefCurrent = navMenu.navigationItems[navMenu.lastItemIndex].hrefNoAnchor;
+
+        for(let ii = navMenu.lastItemIndex + options.dir; ii >= 0 && ii < navMenu.navigationItems.length; ii += options.dir) {
+            const itemObj = navMenu.navigationItems[ii];
+            if (itemObj.hrefNoAnchor != hrefCurrent) {
+                navMenu.replacePage({index: ii});
+                break;    
+            }
+        }
+    }
+    
+}
+
+
+/*
+// Old way
 navMenu.navigatePage = function(options) {
     if (!options.dir) {
         options.dir = 1;
@@ -931,8 +1042,48 @@ navMenu.navigatePage = function(options) {
         location.href = navMenu.navigationItems[index].hrefNoAnchor;
     }
 }
+    */
 
 
+navMenu.navigate = function(dir) {
+    
+    switch(dir) {
+        case 'up':
+            navMenu.navigatePage({level: 3, dir: -1});
+            break;
+
+        case 'down':
+            navMenu.navigatePage({level: 3, dir: +1});
+            break;
+
+        case 'left':
+            navMenu.navigatePage({section: true, dir: -1});
+            break;
+
+        case 'right':
+            navMenu.navigatePage({section: true, dir: +1});
+            break;
+
+        case 'Home':
+        case 'End':
+            break;
+
+        case 'PageUp':
+            navMenu.lastScrollDir = 'up';
+            $(scrollableContent)[0].scrollBy(0, -($(scrollableContent).height() - 20));
+            navMenu.syncNavigation();
+            break;
+
+        case 'PageDown':
+            navMenu.lastScrollDir = 'down';
+            $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
+            navMenu.syncNavigation();
+            break;
+    }
+}
+
+/*
+Old way:
 navMenu.navigate = function(dir) {
     if (typeof firmwareReference != 'undefined') {
         firmwareReference.navigate(dir);
@@ -963,6 +1114,410 @@ navMenu.navigate = function(dir) {
             break;
     }
 }
+    */
+
+// Used for Device OS API and scroll groups (previously part of firmware-reference.js)
+navMenu.loadPage = function() {
+    if (navMenu.pageQueue.length == 0 || navMenu.pageLoading) {
+        return;
+    }
+    const scrollableContent = $('div.content-inner');
+
+    let options = navMenu.pageQueue.splice(0, 1)[0];
+
+    let itemIndex;
+
+    if (typeof options.index != 'undefined') {
+        itemIndex = options.index;
+
+        if (typeof navMenu.lastItemIndex == 'undefined') {
+            navMenu.lastItemIndex = options.index;
+        }
+
+        options.link = navMenu.navigationItems[options.index].hrefNoAnchor;
+    }
+    else {
+        for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+            if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
+                break;
+            }
+        }
+        if (itemIndex >= navMenu.navigationItems.length) {
+            console.log('not found ' + options.link);
+            return;
+        }    
+    }
+
+    const itemObj = navMenu.navigationItems[itemIndex];
+
+    if (options.replacePage) {
+        $('.referencePage').remove();
+        for(ii = 0; ii < navMenu.navigationItems.length; ii++) {
+            navMenu.navigationItems[ii].contentElem = null;
+        }
+    }
+
+    if (itemObj.contentElem) {
+        navMenu.checkLoadPage(options);
+        return;
+    }
+    if (itemObj.anchor) {
+        navMenu.checkLoadPage(options);
+        return;
+    }
+
+    navMenu.pageLoading = true;
+
+    // console.log('loadPage', {options, itemIndex, itemObj});
+
+    fetch(options.link)
+        .then(response => response.text())
+        .then(function(res) {
+
+            // <!-- start 841427f3-9f46-4361-ab97-7afda1e082f9 -->
+            // <!-- end 841427f3-9f46-4361-ab97-7afda1e082f9 -->
+            let newContent = '';
+            let inNewContent = false;
+
+            // Note: these markers are currently in the commonTwo and reference layouts
+            // only, but could easily be added to other layouts if needed. Almost
+            // everything new uses commonTwo.
+            for(const line of res.split('\n')) {
+                if (inNewContent) {
+                    if (line.includes('end 841427f3-9f46-4361-ab97-7afda1e082f9')) {
+                        inNewContent = false;
+                    }
+                    else {
+                        newContent += line + '\n';
+                    }
+                }
+                else {
+                    if (line.includes('start 841427f3-9f46-4361-ab97-7afda1e082f9')) {
+                        inNewContent = true;
+                    }
+                }
+
+            }
+
+            let itemIndex;
+            if (typeof options.index != 'undefined') {
+                itemIndex = options.index;
+            }
+            else {
+                for(itemIndex = 0; itemIndex < navMenu.navigationItems.length; itemIndex++) {
+                    if (navMenu.navigationItems[itemIndex].hrefNoAnchor == options.link) {
+                        break;
+                    }
+                }
+                if (itemIndex >= navMenu.navigationItems.length) {
+                    console.log('not found ' + options.link);
+                    navMenu.pageLoading = false;
+                    return;
+                }    
+            }
+            const itemObj = navMenu.navigationItems[itemIndex];
+            // console.log('loadPage loaded', itemObj);
+            
+            let divElem = document.createElement('div');
+            $(divElem).addClass('referencePage');
+            $(divElem).attr('data-href', options.link);
+            $(divElem).attr('data-index', itemIndex);
+            $(divElem).append(newContent);
+
+            // Remove the h2 when not at the start of a section
+            if (!itemObj.sectionStart) {
+                $(divElem).find('h2').remove();
+            }
+    
+            let params = {};
+            params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
+            params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
+
+            if (options.replacePage) {
+                analytics.track('replacePage', {label:options.link, category:navMenu.gaCategory});
+
+                for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+                    if (ii != itemIndex) {
+                        const tempItemObj = navMenu.navigationItems[ii];
+                        if (tempItemObj.collapseIconElem) {
+                            navMenu.collapseExpand(tempItemObj, false);
+                        }                   
+                    }
+                }
+
+                navMenu.initialIndex = navMenu.topIndex = navMenu.bottomIndex = itemIndex;
+                history.pushState(null, '', itemObj.hrefNoAnchor);
+
+                $(divElem).addClass('originalContent');
+                $('div.content').append(divElem);
+
+                navMenu.syncNavigationToPage(options.link);
+            }
+            else {
+                if (itemIndex < navMenu.topIndex) {
+                    navMenu.topIndex = itemIndex;
+                    analytics.track('addPageTop', {label:options.link, category:navMenu.gaCategory});
+
+                    $('div.content').not('.note-common').first().prepend(divElem);
+                }
+                else
+                if (itemIndex > navMenu.bottomIndex) {
+                    navMenu.bottomIndex = itemIndex;
+                    analytics.track('addPageBottom', {label:options.link, category:navMenu.gaCategory});
+
+                    $('div.content').not('.note-common').last().append(divElem);
+                }
+                else {
+                    console.log('insertion error', {itemIndex, topIndex: navMenu.topIndex, bottomIndex: navMenu.bottomIndex})
+                }
+            }
+
+            // apiIndex.sections[nav.index].contentElem = divElem;
+            itemObj.contentElem = divElem;
+
+            // TODO: Add contentElem for the inner anchors
+            $(divElem).find('h2,h3,h4').each(function() {
+                // const level = parseInt($(this).prop('tagName').substring(1));
+                const id = $(this).prop('id');
+
+                for(const tempItemObj of navMenu.navigationItems) {
+                    if (typeof tempItemObj.anchor != 'undefined' && tempItemObj.anchor == id) {
+                        tempItemObj.contentElem = this;
+                    }
+                }
+            });
+
+            if (options.scrollIntoView) {
+                $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
+            }
+
+            navMenu.collapseExpand(itemObj, true);
+            
+            if (!options.noScroll) {
+                navMenu.syncNavigation();
+            }
+            navMenu.pageLoading = false;
+
+
+            navMenu.checkLoadPage(options);
+        })
+        .catch(function(err) {
+            console.log('err', err);
+        });
+
+}
+
+// Used if hasPageQueue is true in the loadMoreConfig, currently Device OS API and scroll groups
+navMenu.checkLoadPage = function(options) {
+    if (options.fillScreen) {
+        if (navMenu.pageQueue.length == 0) {
+            const itemsNearby = navMenu.getItemsNearby();
+
+            if (typeof itemsNearby.bottomIndex == 'undefined' && typeof itemsNearby.loadBelowIndex != 'undefined') {
+                navMenu.queuePage({index:itemsNearby.loadBelowIndex, skipIndex: false, count:1, toEnd:true, fillScreen:true});  
+            }    
+        }
+        else {
+        }
+    }
+
+    if (navMenu.pageQueue.length > 0) {
+        navMenu.loadPage();
+    }
+}
+
+// Used if hasPageQueue is true in the loadMoreConfig, currently Device OS API and scroll groups
+navMenu.queuePage = function(options) {
+    if (typeof options.index != 'undefined') {
+        const count = (typeof options.count != 'undefined') ? options.count : 1;
+
+        const start = options.skipIndex ? 1 : 0;
+        let numAdded = 0;
+        
+        if (options.toEnd) {
+            for(let ii = options.index + start; ii < navMenu.navigationItems.length; ii++) {
+                if (navMenu.navigationItems[ii].anchor) {
+                    continue;
+                }
+
+                // Add to end
+                let obj = Object.assign({}, options);
+                obj.index = ii;
+                if (options.replacePage && numAdded > 0) {
+                    obj.replacePage = false;
+                    obj.syncNavigation = false;
+                }
+                navMenu.pageQueue.push(obj);        
+                
+                if (++numAdded >= count) {
+                    break;
+                }
+            }
+        }
+        else {
+            for(let ii = options.index - start; ii >= 0; ii--) {
+                if (navMenu.navigationItems[ii].anchor) {
+                    continue;
+                }
+                let obj = Object.assign({}, options);
+                obj.index = ii;
+                navMenu.pageQueue.push(obj);                            
+
+                if (++numAdded >= count) {
+                    break;
+                }
+            }       
+        }            
+    }
+    else {
+        if (options.link) {
+            navMenu.pageQueue.push(options);            
+        }    
+    }
+    navMenu.loadPage();
+}
+
+// Used if hasPageQueue is true in the loadMoreConfig, currently Device OS API and scroll groups
+navMenu.replacePage = function(options) {
+
+    navMenu.pageQueue = [];
+    navMenu.lastScrollDir = null;
+
+    if (typeof options.index != 'undefined') {
+
+        if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
+            navMenu.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true, fillScreen: true, });
+        }
+        else {
+            options.link = navMenu.navigationItems[options.index].hrefNoAnchor;            
+            location.href = options.link;
+        }
+        navMenu.lastItemIndex = options.index;
+    }
+}
+
+
+navMenu.updateScroll = function() {
+
+    const scrollableContent = $('div.content-inner');
+
+    let params = {};
+
+    params.scrollTop = Math.round($(scrollableContent).scrollTop());
+    params.scrollHeight = $(scrollableContent).prop('scrollHeight');
+    params.height = $(scrollableContent).height();
+    
+    params.atTop = (params.scrollTop == 0);
+    params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
+
+    // $(scrollableContent).height() is the height of the view
+    if (typeof navMenu.lastScrollTop != 'undefined') {
+        if (params.scrollTop > (navMenu.lastScrollTop + 5)) {
+            navMenu.lastScrollDir = 'down';
+            navMenu.lastScrollTop = params.scrollTop;
+        }
+        else 
+        if (params.scrollTop < (navMenu.lastScrollTop - 5)) {
+            navMenu.lastScrollDir = 'up';
+            navMenu.lastScrollTop = params.scrollTop;
+        }
+    }
+    else {
+        navMenu.lastScrollTop = params.scrollTop;
+    }
+
+    if (typeof navMenu.loadMoreObj != 'undefined' && !navMenu.loadMoreObj.hasPageQueue) {
+        if (params.atBottom && navMenu.lastScrollDir == 'down' && navMenu.bottomIndex < navMenu.navigationItems.length) {
+            navMenu.queuePage({index:navMenu.bottomIndex, skipIndex: true, count:3, toEnd:true});  
+        }
+
+        if (params.atTop && navMenu.lastScrollDir == 'up' && navMenu.topIndex >= 0) {
+            navMenu.queuePage({index:navMenu.topIndex, skipIndex: true, count:3, toEnd:false});  
+        }
+    }    
+    return params;
+}
+
+// Used if hasPageQueue is true in the loadMoreConfig, currently Device OS API and scroll groups
+navMenu.syncNavigationToPage = function(link) {
+    $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
+    $('.menubar').find('.navActive').removeClass('navActive');
+
+    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+        const itemObj = navMenu.navigationItems[ii];
+        if (itemObj.hrefNoAnchor == link) {
+            // console.log('navMenu.syncNavigationToPage', {link, ii, itemObj});
+            $(itemObj.elem).find('.navLink').addClass('navLinkActive');
+            $(itemObj.elem).find('.navMenu' + itemObj.level).addClass('navActive');
+            navMenu.lastItemIndex = ii;
+            return;
+        }
+    }
+}
+
+// Used if hasPageQueue is true in the loadMoreConfig, currently Device OS API and scroll groups
+navMenu.getItemsNearby = function() {
+    const contentRect = $('.content-inner')[0].getBoundingClientRect();
+    const contentHeight = contentRect.height;
+
+    const itemsNearby = {
+        visible: [],
+    };
+
+    for(let ii = 0; ii < navMenu.navigationItems.length; ii++) {
+        const itemObj = navMenu.navigationItems[ii];
+        if (itemObj.contentElem) {
+            const offset = $(itemObj.contentElem).offset();
+            if (offset.top < 0) {
+                itemsNearby.aboveIndex = ii;
+            }
+            else
+            if (offset.top > contentHeight) {
+                if (typeof itemsNearby.belowIndex == 'undefined') {
+                    itemsNearby.belowIndex = ii;
+                }
+            }
+            else {
+                itemsNearby.visible.push(ii);
+            }
+        }
+    }
+    if (typeof itemsNearby.aboveIndex == 'undefined' && itemsNearby.visible.length) {
+        let index = itemsNearby.visible[0] - 1;
+        for(; index >= 0; index--) {
+            if (typeof navMenu.navigationItems[index].anchor == 'undefined') {
+                break;
+            }
+        }
+        if (index >= 0) {
+            itemsNearby.loadAboveIndex = index;
+        }
+    }
+
+    if (typeof itemsNearby.belowIndex == 'undefined' && itemsNearby.visible.length) {
+        const index = itemsNearby.visible[itemsNearby.visible.length - 1] + 1;
+        for(; index < navMenu.navigationItems.length; index++) {
+            if (typeof navMenu.navigationItems[index].anchor == 'undefined') {
+                break;
+            }
+        }
+        if (index < navMenu.navigationItems.length) {
+            itemsNearby.loadBelowIndex = index;
+        }
+    }
+
+    if (navMenu.lastScrollDir == 'up') {
+        // Use item above if not visible or scrolling up
+        itemsNearby.selectIndex = itemsNearby.aboveIndex;
+    }
+    
+    if (typeof itemsNearby.selectIndex == 'undefined' && itemsNearby.visible.length > 0) {
+        itemsNearby.selectIndex = itemsNearby.visible[0];
+    }
+
+    return itemsNearby;
+}
+
 
 navMenu.ready = async function () {
     await navMenu.load();
@@ -1051,8 +1606,16 @@ navMenu.ready = async function () {
     });
 
 
+
+    // Used if hasPageQueue is true in the loadMoreConfig, currently Device OS API and scroll groups
     $('div.content-inner').on('scroll', function(e) {
-        // TODO: Probably include code from firmware-reference to restrict syncNavigation
+        // console.log('scrolled ', e);
+        // e.originalEvent
+        if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
+            if (!navMenu.pageLoading) {
+                navMenu.updateScroll();
+            }
+        }
         navMenu.syncNavigation();
     });
 
