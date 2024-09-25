@@ -23,6 +23,7 @@ let navMenu = {
             baseUrl: '/getting-started/logic-ledger/',
             menuJsonUrl: '/assets/files/logicLedgerMenus.json',
             hasPageQueue: true,
+            scrollGroup: true,
         }
     ],
 };
@@ -148,6 +149,8 @@ navMenu.load = async function() {
         }
     }
 
+    let useDefaultNavigationItems = true;
+
     if (typeof navMenu.loadMoreObj != 'undefined') {
         const fetchMoreRes = await fetch(navMenu.loadMoreObj.menuJsonUrl);
         const moreMenuJson = await fetchMoreRes.json();
@@ -180,6 +183,7 @@ navMenu.load = async function() {
                     nextIsSectionStart = true;
                 }
             }});
+            useDefaultNavigationItems = false;
         }
         else {
             // This is a scroll group
@@ -209,10 +213,24 @@ navMenu.load = async function() {
     const nav = navMenu.generateNavHtml(navMenu.menuJson);
     $('.navMenuOuter').replaceWith(nav);
 
-    if (typeof navMenu.loadMoreObj == 'undefined') {
+    if (useDefaultNavigationItems) {
+        // Used for everything except firmware API reference 
         navMenu.forEachItem(function(itemObj) {
             navMenu.navigationItems.push(itemObj);
         });
+
+        if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.scrollGroup) {
+            $('h2,h3,h4').each(function() {
+                // const level = parseInt($(this).prop('tagName').substring(1));
+                const id = $(this).prop('id');
+
+                for(const tempItemObj of navMenu.navigationItems) {
+                    if (typeof tempItemObj.anchor != 'undefined' && tempItemObj.anchor == id) {
+                        tempItemObj.contentElem = this;
+                    }
+                }
+            });
+        }
     }
 
     if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
@@ -450,8 +468,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                     lastItemAtLevel = lastItemAtLevel.slice(0, level);
                 }
                 lastLevel = level;
-            });     
-            
+            });        
         }
 
         if (itemObj.anchor) {
@@ -489,7 +506,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
 
             $(itemObj.elem).on('click', function(ev) {
                 if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
-                    // Was right, make down (open)
+                    // Was right, make down (open)∂
                     analytics.track('collapseExpand', {label:itemObj.hrefNoAnchor, category:navMenu.gaCategory});
                     if (!ev.altKey) {
                         navMenu.collapseExpand(itemObj, true);
@@ -509,8 +526,6 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                     }
                 }
             });
-
-
         }
 
         itemObj.linkElem = document.createElement('div');
@@ -889,6 +904,7 @@ navMenu.syncNavigation = function() {
     }        
 
     const itemsNearby = navMenu.getItemsNearby();
+    // console.log('syncNavigation', {itemsNearby, navigationItems: navMenu.navigationItems});
 
     if (typeof itemsNearby.selectIndex != 'undefined') {
         $('.menubar').find('.navLinkActive').removeClass('navLinkActive');
@@ -1150,7 +1166,6 @@ navMenu.loadPage = function() {
             // apiIndex.sections[nav.index].contentElem = divElem;
             itemObj.contentElem = divElem;
 
-            // TODO: Add contentElem for the inner anchors
             $(divElem).find('h2,h3,h4').each(function() {
                 // const level = parseInt($(this).prop('tagName').substring(1));
                 const id = $(this).prop('id');
