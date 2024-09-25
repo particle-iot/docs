@@ -254,6 +254,7 @@ navMenu.load = async function() {
                 $(itemObj.navLinkElem).off('click');
 
                 $(itemObj.navLinkElem).on('click', function(ev) {
+                    console.log('onClick replace page', itemObj);
                     ev.preventDefault();
 
                     navMenu.replacePage({index:ii});
@@ -505,6 +506,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             $(itemObj.elem).append(triangleElem);
 
             $(itemObj.elem).on('click', function(ev) {
+                console.log('click collapse', itemObj);
                 if ($(itemObj.collapseIconElem).hasClass('ion-arrow-right-b')) {
                     // Was right, make down (open)∂
                     analytics.track('collapseExpand', {label:itemObj.hrefNoAnchor, category:navMenu.gaCategory});
@@ -565,6 +567,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             else {
                 $(aElem).attr('href', '#' + itemObj.anchor);
                 $(aElem).on('click', function(ev) {
+                    console.log('onClick link', itemObj);
                     ev.preventDefault();
 
                     analytics.track('navClickInPage', {label:itemObj.anchor, category:navMenu.gaCategory});
@@ -994,13 +997,13 @@ navMenu.navigate = function(dir) {
 
         case 'PageUp':
             navMenu.lastScrollDir = 'up';
-            $(scrollableContent)[0].scrollBy(0, -($(scrollableContent).height() - 20));
+            $('div.content-inner')[0].scrollBy(0, -($(scrollableContent).height() - 20));
             navMenu.syncNavigation();
             break;
 
         case 'PageDown':
             navMenu.lastScrollDir = 'down';
-            $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
+            $('div.content-inner')[0].scrollBy(0, $(scrollableContent).height() - 20);
             navMenu.syncNavigation();
             break;
     }
@@ -1316,7 +1319,7 @@ navMenu.updateScroll = function() {
         navMenu.lastScrollTop = params.scrollTop;
     }
 
-    if (typeof navMenu.loadMoreObj != 'undefined' && !navMenu.loadMoreObj.hasPageQueue) {
+    if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
         if (params.atBottom && navMenu.lastScrollDir == 'down' && navMenu.bottomIndex < navMenu.navigationItems.length) {
             navMenu.queuePage({index:navMenu.bottomIndex, skipIndex: true, count:3, toEnd:true});  
         }
