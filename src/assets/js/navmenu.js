@@ -196,6 +196,10 @@ navMenu.load = async function() {
             for(const pageObj of moreMenuJson.pages) {
                 let insertAt;
 
+                navMenu.forEachItemInternal(pageObj.items, {callback:function(itemObj) {
+                    itemObj.scrollGroup = true;
+                }});
+    
                 navMenu.forEachItem(function(itemObj, forEachOptions) {
                     if (pageObj.url == forEachOptions.itemUrl && typeof insertAt == 'undefined') {
                         insertAt = itemObj;
@@ -256,10 +260,16 @@ navMenu.load = async function() {
                 $(itemObj.navLinkElem).off('click');
 
                 $(itemObj.navLinkElem).on('click', function(ev) {
-                    console.log('onClick replace page', itemObj);
-                    ev.preventDefault();
-
-                    navMenu.replacePage({index:ii});
+                    if (itemObj.scrollGroup) {
+                        console.log('onClick replace page', itemObj);
+                        ev.preventDefault();
+    
+                        navMenu.replacePage({index:ii});    
+                    }
+                    else {
+                        console.log('onClick open href', itemObj);
+                        location.href = itemObj.href;
+                    }
                 });
             }
         }
@@ -1150,7 +1160,8 @@ navMenu.loadPage = function() {
                 $(divElem).addClass('originalContent');
                 $('div.content').append(divElem);
 
-                navMenu.syncNavigationToPage(options.link);
+
+                navMenu.scrollDocsToElement(itemObj.divElem);
             }
             else {
                 if (itemIndex < navMenu.topIndex) {
@@ -1283,6 +1294,15 @@ navMenu.replacePage = function(options) {
 
     if (typeof options.index != 'undefined') {
 
+        if (navMenu.navigationItems[options.index].contentElem) {
+            console.log('replacePage already loaded', {options, itemObj: navMenu.navigationItems[options.index]});
+            navMenu.lastItemIndex = options.index;
+            
+            navMenu.scrollToActive();
+            navMenu.scrollDocsToElement(navMenu.navigationItems[options.index].contentElem);
+            return;
+        }
+
         if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
             navMenu.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true, fillScreen: true, });
         }
@@ -1392,7 +1412,7 @@ navMenu.getItemsNearby = function() {
     }
 
     if (typeof itemsNearby.belowIndex == 'undefined' && itemsNearby.visible.length) {
-        const index = itemsNearby.visible[itemsNearby.visible.length - 1] + 1;
+        let index = itemsNearby.visible[itemsNearby.visible.length - 1] + 1;
         for(; index < navMenu.navigationItems.length; index++) {
             if (typeof navMenu.navigationItems[index].anchor == 'undefined') {
                 break;
