@@ -205,6 +205,8 @@ navMenu.load = async function() {
                 if (insertAt) {
                     insertAt.subsections = pageObj.items;
                     insertAt.collapse = true;
+
+
                 }    
             }
         }
@@ -599,7 +601,10 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
 
             const subOptions = Object.assign({}, options);
             subOptions.level = options.level + 1;
-            subOptions.path = itemObj.itemPath + '/';
+            subOptions.path = itemObj.itemPath
+            if (!subOptions.path.endsWith('/')) {
+                subOptions.path += '/';
+            }
             subOptions.hideSubsections = options.hideSubsections || hideSubsections;
 
             navMenu.generateNavHtmlInternal(itemObj.subsections, subOptions);
