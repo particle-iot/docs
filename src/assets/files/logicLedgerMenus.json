@@ -393,6 +393,17 @@
             "h1": "Logic"
         },
         {
+            "url": "/getting-started/logic-ledger/logic-ledger-community/logic-ledger-community/",
+            "items": [
+                {
+                    "title": "Contributing",
+                    "isContent": true,
+                    "anchor": "contributing"
+                }
+            ],
+            "h1": "Logic and ledger community"
+        },
+        {
             "url": "/getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started/",
             "items": [
                 {
@@ -439,17 +450,6 @@
                 }
             ],
             "h1": "Cloud to device ledger getting started"
-        },
-        {
-            "url": "/getting-started/logic-ledger/logic-ledger-community/logic-ledger-community/",
-            "items": [
-                {
-                    "title": "Contributing",
-                    "isContent": true,
-                    "anchor": "contributing"
-                }
-            ],
-            "h1": "Logic and ledger community"
         }
     ]
 }

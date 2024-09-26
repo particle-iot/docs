@@ -1070,14 +1070,14 @@ navMenu.loadPage = function() {
         navMenu.checkLoadPage(options);
         return;
     }
-    if (itemObj.anchor) {
+    if (itemObj.anchor && !options.replacePage) {
         navMenu.checkLoadPage(options);
         return;
     }
 
     navMenu.pageLoading = true;
 
-    // console.log('loadPage', {options, itemIndex, itemObj});
+    console.log('loadPage', {options, itemIndex, itemObj});
 
     fetch(options.link)
         .then(response => response.text())
@@ -1243,6 +1243,10 @@ navMenu.queuePage = function(options) {
         const start = options.skipIndex ? 1 : 0;
         let numAdded = 0;
         
+        if (options.replacePage) {
+            navMenu.pageQueue.push(options);
+        }
+        else
         if (options.toEnd) {
             for(let ii = options.index + start; ii < navMenu.navigationItems.length; ii++) {
                 if (navMenu.navigationItems[ii].anchor) {
@@ -1304,7 +1308,7 @@ navMenu.replacePage = function(options) {
         }
 
         if (typeof navMenu.loadMoreObj != 'undefined' && navMenu.loadMoreObj.hasPageQueue) {
-            navMenu.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true, fillScreen: true, });
+            navMenu.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 1, toEnd: true, fillScreen: true, });
         }
         else {
             options.link = navMenu.navigationItems[options.index].hrefNoAnchor;            
