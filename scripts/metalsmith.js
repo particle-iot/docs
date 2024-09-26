@@ -64,6 +64,7 @@ const setupFirmware = require('./setup-firmware.js');
 const troubleshooting = require('./troubleshooting.js').metalsmith;
 const autoInclude = require('./auto-include.js').metalsmith;
 const postman = require('./postman.js').metalsmith;
+const cloudAppTemplates = require('./cloud-app-templates.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -174,6 +175,11 @@ exports.metalsmith = function () {
         ]
       })
     )
+    .use(cloudAppTemplates({
+      appsSourceDir: '../../cloud-app-templates/apps/',
+      appDestDir: '../src/assets/files/cloud-app-templates/',
+      removePrefix: '../src/assets/',
+    }))
     .use(postman({
       apiServiceSourceDir: '../../api-service/',
       postmanBuiltFile: '../../api-service/apidoc/particle_api.postman_collection.json',
