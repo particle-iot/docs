@@ -280,6 +280,21 @@
                     "title": "Device information in Ledger"
                 },
                 {
+                    "dir": "application-templates",
+                    "title": "Application templates",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "application-templates",
+                            "title": "Application templates"
+                        },
+                        {
+                            "dir": "integration-monitor",
+                            "title": "Integration monitor"
+                        }
+                    ]
+                },
+                {
                     "dir": "logic-ledger-community",
                     "title": "Logic & Ledger community projects",
                     "isSection": true,

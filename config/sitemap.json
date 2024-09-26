@@ -9225,6 +9225,10 @@
         "reference/device-os/libraries/g/Grove_IMU_9DOF_ICM20600_AK09918_y.md": {
             "hash": "056a473292f6e52c27a8ba953a45e44c169d6a6f46296a36e3d5992537b1610d",
             "date": "2024-09-18"
+        },
+        "getting-started/logic-ledger/application-templates/integration-monitor.md": {
+            "hash": "b11276f1bff1da830052b40f8841939ed5a0ca679136d4bd60b13a3d7dc2d63c",
+            "date": "2024-09-26"
         }
     }
 }

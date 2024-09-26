@@ -1,0 +1,23 @@
+{
+  "alertConfig": {
+    "errorRateThreshold": 1,
+    "alertDelayMinutes": 5
+  },
+  "notificationConfig": {
+    "slack": {
+      "enabled": true,
+      "eventName": "triggerSlack"
+    },
+    "sendgrid": {
+      "enabled": false,
+      "eventName": "triggerSendgrid",
+      "fromEmail": "",
+      "toEmails": [""]
+    },
+    "pagerduty": {
+      "enabled": false,
+      "eventName": "triggerPagerduty"
+    }
+  },
+  "monitoredProductIds": []
+}
