@@ -1,0 +1,14 @@
+{
+    "name": "fix-amchors",
+    "version": "0.0.1",
+    "description": "",
+    "private": true,
+    "scripts": {},
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+    },
+    "engines": {
+        "node": ">=12.14.0"
+    }
+}
