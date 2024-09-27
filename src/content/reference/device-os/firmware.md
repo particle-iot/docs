@@ -19427,9 +19427,7 @@ run without rebooting for a long time.
 // EXAMPLE USAGE
 void setup() {
   // Erase full EEPROM page at boot when necessary
-  if(EEPROM.hasPendingErase()) {
-    EEPROM.performPendingErase();
-  }
+  EEPROM.performPendingErase();
 }
 ```
 
