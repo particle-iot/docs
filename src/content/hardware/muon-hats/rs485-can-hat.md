@@ -19,6 +19,18 @@ The pinout is straightforward and described in more detail below.
 
 ![](/assets/images/muon-hats/rs485-can-hat/pinout.png)
 
+| Hat Pin Name | Pi Pin Name | Pi Pin Number | Muon Pin | Description |
+| :--- | :--- | ---: | :--- | :--- |
+| VCC | 3V3    |  1 | 3V3  | 3.3V power |
+| GND | GND    |  6 | GND  | Ground |
+| MOSI | SPI0 MOSI / GPIO10 | 19 | MOSI | SPI MOSI |
+| MISO | SPI0 MISO / GPIO9 | 21 | MISO | SPI MISO |
+| SCK | SPI0 SCLK / GPIO11 | 23 | SCK  | SPI SCK |
+| CS  | CE0 / GPIO8 | 24  | A6 | SPI CS |
+| INT | GPIO25 | 22 | D22 | CAN Interrupt (output from hat) |
+| RXD | UART RX / GPIO15 | 10 | RX | RS485 RX | 
+| TXD | UART TX / GPIO14 |  8 | TX | RS485 TX |
+| RSE | GPIO4 | 7 | IOEX_PA0 | RS485 direction control (optional) |
 
 
 This page is divided into two parts because you will generally use RS485 or CAN, but not both, but you could use both if desired
@@ -30,7 +42,7 @@ On this board, the RS485 pins are labeled A and B; this is typical for most RS48
 The RX and TX lines are mapped to the expansion connection RX and TX pins, which are `Serial1` on the Muon.
 
 This particular board has auto-direction sensing for the RS485 interface, which is recommended. It is possible to configure this board to
-use manual direction control using Raspberry Pi GPIO, but this requires soldering. It is mapped to expansion pin 7, GPIO4 (GPCKL0).
+use manual direction control using Raspberry Pi GPIO, but this requires soldering. It is mapped to expansion pin 7, GPIO4 (GPCKL0). This is Muon IOEX_PA0, which is not directly accessible to Device OS 5.9.0.
 
 ### Modbus example project
 
@@ -50,6 +62,39 @@ The CAN controller chip connects by SPI (SCK, MOSI, and MISO). It uses expansion
 It can optionally use an interrupt output, connected to expansion connector pin 22 (GPIO25). This maps to Muon pin D22. 
 
 This board comes with a 12 MHz crystal. You will need to note the frequency of the crystal (generally stamped on the metal can) on your board and configure the software appropriately. 8 MHz, 16 MHz, and 20 MHz are also common.
+
+| Crystal | Constant |
+| ---: | :--- |
+| 20 MHz | `MCP_20MHz` |
+| 16 MHz | `MCP_16MHz` |
+| 12 MHz | `MCP_12MHz` |
+| 8 MHz | `MCP_8MHz` |
+
+You will also need to select the speed of your CAN bus. OBD-II on vehicles is generally 500 Kbits/sec,
+
+| Speed | Constant |
+| ---: | :--- |
+| 5 Kbits/sec | `CAN_5KBPS` |
+| 10 Kbits/sec | `CAN_10KBPS` |
+| 20 Kbits/sec | `CAN_20KBPS` |
+| 25 Kbits/sec | `CAN_25KBPS` | 
+| 31.25 Kbits/sec | `CAN_31K25BPS` |
+| 33 Kbits/sec | `CAN_33KBPS` |
+| 40 Kbits/sec | `CAN_40KBPS` |
+| 50 Kbits/sec | `CAN_50KBPS` |
+| 80 Kbits/sec | `CAN_80KBPS` |
+| 83.3 Kbits/sec | `CAN_83K3BPS` |
+| 95 Kbits/sec | `CAN_95KBPS` |
+| 100 Kbits/sec | `CAN_100KBPS` |
+| 125 Kbits/sec | `CAN_125KBPS` |
+| 200 Kbits/sec | `CAN_200KBPS` |
+| 250 Kbits/sec | `CAN_250KBPS` |
+| 500 Kbits/sec | `CAN_500KBPS` |
+| 666 Kbits/sec | `CAN_666KBPS` |
+| 1000 Kbits/sec | `CAN_1000KBPS` |
+
+Some less common speeds like 31.25 Kbits/sec are not possible with some crystal frequencies. Standard speeds like 100, 200, 250, 500, and 1000 Kbits/sec. are widely supported.
+
 
 The [can-mcp25x](https://github.com/particle-iot/can-mcp25x) library used for CAN is also used on the Tracker SoM, Tracker One, and Monitor One.
 

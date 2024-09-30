@@ -26,23 +26,21 @@ The important parameters for this display are:
 ```cpp
 #define OLED_CS A6 
 #define OLED_DC D25
-#define OLED_RESET PIN_INVALID
+#define OLED_RESET D22
 
 Adafruit_SSD1305 display(128, 32, &SPI, OLED_DC, OLED_RESET, OLED_CS, 7000000UL);
 ```
 
-| Display Pin | Pi Name | Pi Pin | Muon Pin | Description |
-| :--- | :--- | :--- | :--- | :--- |
+| Hat Pin Name | Pi Pin Name | Pi Pin Number | Muon Pin | Description |
+| :--- | :--- | ---: | :--- | :--- |
 | VCC | 3V3    |  1 | 3V3  | 3.3V power |
 | GND | GND    |  6 | GND  | Ground |
 | DIN | SPI0 MOSI / GPIO10 | 19 | MOSI | SPI MOSI |
-| CLK | SPI0 SCLK / GPIO11 | 23 | SCK  | SPI CLK |
+| CLK | SPI0 SCLK / GPIO11 | 23 | SCK  | SPI SCK |
 | CS  | CE0 / GPIO8 | 24  | A6 | SPI CS |
 | DC  | GPIO24 | 18 | D25 | Display/control (from MCU) |
-| RST | GPIO25 | 22 | IOEX_PB7 | Display reset |
+| RST | GPIO25 | 22 | D22 | Display reset |
 
-The reset line is set to `PIN_INVALID` as GPIO25 is connected to the I/O expander and there isn't support for
-using that GPIO in Device OS 5.9.0.
 
 ![](/assets/images/muon-hats/display-hats/ssd1305.jpeg)
 
