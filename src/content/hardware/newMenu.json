@@ -273,6 +273,20 @@
             ]
         },
         {
+            "dir": "muon-hats",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "muon-hats",
+                    "title": "Muon hats (community)"
+                },
+                {
+                    "dir": "rs485-can-hat.md",
+                    "title": "RS485 (Modbus) and CAN hat"
+                }
+            ]
+        },
+        {
             "dir": "power",
             "isSection": true,
             "subsections": [
