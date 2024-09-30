@@ -283,6 +283,10 @@
                 {
                     "dir": "rs485-can-hat",
                     "title": "RS485 (Modbus) and CAN hat"
+                },
+                {
+                    "dir": "display-hats",
+                    "title": "Display hats"
                 }
             ]
         },
