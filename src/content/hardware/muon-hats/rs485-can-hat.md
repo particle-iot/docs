@@ -32,7 +32,13 @@ The RX and TX lines are mapped to the expansion connection RX and TX pins, which
 This particular board has auto-direction sensing for the RS485 interface, which is recommended. It is possible to configure this board to
 use manual direction control using Raspberry Pi GPIO, but this requires soldering. It is mapped to expansion pin 7, GPIO4 (GPCKL0).
 
+### Modbus example project
 
+This is a simple example project that reads a Modbus temperature and humidity sensor.
+
+{{> project-browser project="modbus-hat" default-file="src/modbus-hat.cpp" height="500" flash="false"}}
+
+![](/assets/images/muon-hats/rs485-can-hat/modbus-test.jpeg)
 
 
 ## CAN 
@@ -41,12 +47,27 @@ On this board, the CAN pins are labeled H and L; this is typical for most CAN bu
 
 The CAN controller chip connects by SPI (SCK, MOSI, and MISO). It uses expansion connector pin 24, GPIO8 (CE0), which maps to Muon pin A6.
 
-It can optionally use an interrupt output, connected to expansion connector pin 22 (GPIO25). This maps to Muon pin D22. The interrupt must be enabled via the MCP2515 library and is optional.
+It can optionally use an interrupt output, connected to expansion connector pin 22 (GPIO25). This maps to Muon pin D22. 
 
-This board comes with a 12 MHz crystal. You will need to note the frequency of the crystal (generally stamped on the metal can) on your board and configure the software appropriately. 8 MHz is also common.
+This board comes with a 12 MHz crystal. You will need to note the frequency of the crystal (generally stamped on the metal can) on your board and configure the software appropriately. 8 MHz, 16 MHz, and 20 MHz are also common.
 
-The library used for CAN is also used on the Tracker SoM, Tracker One, and Monitor One. 
+The [can-mcp25x](https://github.com/particle-iot/can-mcp25x) library used for CAN is also used on the Tracker SoM, Tracker One, and Monitor One.
 
+### CAN example project
 
+This is a simple example project that reads the engine RPM from OBD-II via CAN. 
 
+{{> project-browser project="can-hat" default-file="src/can-hat.cpp" height="500" flash="false"}}
+
+Viewing the USB serial debug log should yield something like:
+
+```
+0000234192 [app] INFO: engineRPM 0
+0000236192 [app] INFO: engineRPM 1500
+0000238192 [app] INFO: engineRPM 1500
+0000240192 [app] INFO: engineRPM 2508
+0000242192 [app] INFO: engineRPM 2504
+```
+
+![](/assets/images/muon-hats/rs485-can-hat/can-test.jpeg)
 

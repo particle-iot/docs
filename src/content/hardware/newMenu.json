@@ -281,7 +281,7 @@
                     "title": "Muon hats (community)"
                 },
                 {
-                    "dir": "rs485-can-hat.md",
+                    "dir": "rs485-can-hat",
                     "title": "RS485 (Modbus) and CAN hat"
                 }
             ]
