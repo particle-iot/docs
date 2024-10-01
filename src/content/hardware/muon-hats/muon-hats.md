@@ -13,6 +13,12 @@ not all cards are compatible and most require different firmware libraries. Fort
 common chips that already have Particle or Arduino libraries, which generally work with little or no
 modification.
 
+Additional pages include:
+
+- [Automation hats](/hardware/muon-hats/automation-hats/) for home automation, environment monitoring, or robotics.
+- [Display hats](/hardware/muon-hats/automation-hats/) LED and OLED displays.
+- [RS485 and CAN hat](/hardware/muon-hats/automation-hats/) for interfacing with Modbus or CAN bus.
+
 ## Contributing
 
 If you'd like to contribute a project: 

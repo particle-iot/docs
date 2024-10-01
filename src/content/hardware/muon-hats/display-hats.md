@@ -2,7 +2,7 @@
 title: Display hats
 layout: commonTwo.hbs
 columns: two
-includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-projects,zip]
 ---
 
 # {{title}}
@@ -22,22 +22,8 @@ This hat is listed as Waveshare 1.44inch LCD Display HAT for Raspberry Pi 128x12
 - ST7735S ("green tab")
 - [Manual](https://www.waveshare.com/wiki/1.44inch_LCD_HAT)
 
-| Symbol | Raspberry Pi Pin | Muon Pin | Description |
-| :--- | :--- | :--- | :--- |
-| KEY1 | GPIO21	| D20 | Button 1/GPIO |
-| KEY2 | GPIO20	| D21 | Button 2/GPIO |
-| KEY3 | GPIO16	| D3 | Button 3/GPIO |
-| Joystick Up | A1 | GPIO6	Joystick Up |
-| Joystick Down | D26 | GPIO19	Joystick Down |
-| Joystick Left	| A0 | GPIO5	Joystick Left |
-| Joystick Right | IOEX_PB7 | GPIO26	Joystick Right |
-| Joystick Press | D4 | GPIO13	Joystick Press |
-| SCLK | SCLK / GPIO11 | SCK | SPI clock input |
-| MOSI | MOSI / GPIO10 | MOSI | SPI data input |
-| DC | GPIO25 |	D22 | Data/Command selection (high for data, low for command) |
-| CS | CE0 / GPIO8 | A6 | Chip selection, low active |
-| RST | GPIO27 | A5 | Reset, low active |
-| BL | GPIO24 | D25 | Backlight |
+{{> api-helper-pins mappings="1=3V3,6=GND,GPIO21=Key 1,GPIO20=Key 2,GPIO16=Key 3,GPIO6=Joystick Up,GPIO19=Joystick Down,GPIO5=Joystick Left,GPIO26=Joystick Right,GPIO13=Joystick Press,GPIO11=SPI SCLK,GPIO10=SPI MOSI,GPIO25=DC Display/Command,GPIO8=SPI CS,GPIO27=RST Display Reset,GPIO24=BL Display backlight" platform="Muon" style="columns=hat"}}
+
 
 To use this display, use the `Adafruit_ST7735_RK` library. The [Adafruit_ST7735_RK github](https://github.com/rickkas7/Adafruit_ST7735_RK) contains a README and example code. The pi-hat example works with this board.
 
@@ -83,15 +69,7 @@ The important parameters for this display are:
 Adafruit_SSD1305 display(128, 32, &SPI, OLED_DC, OLED_RESET, OLED_CS, 7000000UL);
 ```
 
-| Hat Pin Name | Pi Pin Name | Pi Pin Number | Muon Pin | Description |
-| :--- | :--- | ---: | :--- | :--- |
-| VCC | 3V3    |  1 | 3V3  | 3.3V power |
-| GND | GND    |  6 | GND  | Ground |
-| DIN | SPI0 MOSI / GPIO10 | 19 | MOSI | SPI MOSI |
-| CLK | SPI0 SCLK / GPIO11 | 23 | SCK  | SPI SCK |
-| CS  | CE0 / GPIO8 | 24  | A6 | SPI CS |
-| DC  | GPIO24 | 18 | D25 | Display/control (from MCU) |
-| RST | GPIO25 | 22 | D22 | Display reset |
+{{> api-helper-pins mappings="1=3V3,6=GND,GPIO10=SPI MOSI,GPIO11=SPI SCLK,GPIO8=SPI CS,GPIO24=DC Display/control,GPIO25=RST Display reset" platform="Muon" style="columns=hat"}}
 
 
 ![](/assets/images/muon-hats/display-hats/ssd1305.jpeg)

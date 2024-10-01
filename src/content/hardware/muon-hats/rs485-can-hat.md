@@ -2,7 +2,7 @@
 title: RS485 (Modbus) and CAN hat
 layout: commonTwo.hbs
 columns: two
-includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-projects,zip]
 ---
 
 # {{title}}
@@ -19,18 +19,7 @@ The pinout is straightforward and described in more detail below.
 
 ![](/assets/images/muon-hats/rs485-can-hat/pinout.png)
 
-| Hat Pin Name | Pi Pin Name | Pi Pin Number | Muon Pin | Description |
-| :--- | :--- | ---: | :--- | :--- |
-| VCC | 3V3    |  1 | 3V3  | 3.3V power |
-| GND | GND    |  6 | GND  | Ground |
-| MOSI | SPI0 MOSI / GPIO10 | 19 | MOSI | SPI MOSI |
-| MISO | SPI0 MISO / GPIO9 | 21 | MISO | SPI MISO |
-| SCK | SPI0 SCLK / GPIO11 | 23 | SCK  | SPI SCK |
-| CS  | CE0 / GPIO8 | 24  | A6 | SPI CS |
-| INT | GPIO25 | 22 | D22 | CAN Interrupt (output from hat) |
-| RXD | UART RX / GPIO15 | 10 | RX | RS485 RX | 
-| TXD | UART TX / GPIO14 |  8 | TX | RS485 TX |
-| RSE | GPIO4 | 7 | IOEX_PA0 | RS485 direction control (optional) |
+{{> api-helper-pins mappings="1=3V3,6=GND,7=RSE RS485 Direction Control (optional),8=TXD RS485 TX,10=RXD RS485 RX,19=SPI MOSI,21=SPI MISO,22=CAN interrupt,23=SPI SCK,24=SPI CS" platform="Muon" style="columns=hat"}}
 
 
 This page is divided into two parts because you will generally use RS485 or CAN, but not both, but you could use both if desired
