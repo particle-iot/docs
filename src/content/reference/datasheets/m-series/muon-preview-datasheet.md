@@ -8,7 +8,7 @@ description: Muon datasheet
 # Muon datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
-This datasheet describes the v0.5 preview version and there will be changes before release.
+This is a preliminary datasheet and there will be changes before release.
 {{box op="end"}}
 
 For information about the engineering sample preview devices, including setup and errata, see [Muon samples](/reference/datasheets/m-series/muon-samples/).
@@ -82,7 +82,7 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 
 ### Features
 
-{{imageOverlay src="/assets/images/m-series/muon-labeled_v05.png" alt="Features labeled" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-labeled.png" alt="Features labeled" class="full-width"}}
 
 | Label | Feature |
 | :---: | :--- |
@@ -106,7 +106,7 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 
 Overall dimensions are 56mm x 85mm (2.2" x 3.35").
 
-{{imageOverlay src="/assets/images/m-series/muon-dims_v05.png" alt="Dimensions" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-dims.png" alt="Dimensions" class="full-width"}}
 
 <p class="attribution">Dimensions in millimeters (mm)</p>
 
@@ -245,6 +245,7 @@ Muon has a Particle-standard 10-pin 2x5 SWD debugging connector. This interface 
 
 SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840). Using a Debug build in Particle workbench will allow SWD to continue to run, but you will not be able to use pins A5, A6, or D27 as GPIO or ADC.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 64e4bc46-68b8-4974-a61e-ddeae080fd44 --}}
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
@@ -253,10 +254,12 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - SWO (Serial Wire Output) is not supported on the RTL8722DM.
 - Pins 43 and 53 are shared 
 
+{{!-- BEGIN shared-blurb b22140c5-a3b4-4295-bd72-ae892dc637cf --}}
 | I2C Address | Peripheral |
 | :--- | :--- |
 | 0x08 | STUSB4500 USB-C power controller |
@@ -265,6 +268,7 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 | 0x68 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
 |      | LoRaWAN radio |
+{{!-- END shared-blurb --}}
 
 
 ## Pin information
@@ -273,8 +277,6 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 This pinout information is for v0.5 of the Muon. There will be changes in future versions!
 {{box op="end"}}
 
-While the 40-pin connector will remain, some of the GPIO mappings will be changed in a 
-future version for better compatibility with available Pi hats.
 
 ### Pinout diagram
 
@@ -285,11 +287,12 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 - Male header pins on top of the board
 - Generally compatible with Raspberry Pi expansion connector
 
-{{imageOverlay src="/assets/images/muon-pins_v05.svg" alt="Pinout" class="full-width"}}
+{{imageOverlay src="/assets/images/muon-pins.svg" alt="Pinout" class="full-width"}}
 
 
 ### Pin function by Particle pin name
 
+{{!-- BEGIN do not edit content below, it is automatically generated 4c12540b-20a8-4d2b-a070-0237af5223e3 --}}
 
 | Pin Name | Module Pin |   |   |   |   | PWM | MCU | Raspberry Pi |
 | :--- | :---: | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
@@ -319,9 +322,12 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | TX / D9 | 8 | I2S MCLK | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | &check; | PA[12] | GPIO14 (TXD) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 ### Pin function by pin number
 
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5e824205-fd34-4c55-b256-be28273fdaf2 --}}
 
 | Module Pin | Pin Name |   |   |   |   | PWM | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
@@ -355,9 +361,11 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | 40 | D20 | I2S TX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] | GPIO21 (PCM_DOUT) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 ### Pin function by Raspberry Pi GPIO Number
 
+{{!-- BEGIN do not edit content below, it is automatically generated 07ff48d2-f1ec-418c-be98-5f5e0d808dc0 --}}
 
 | Raspberry Pi | Pin Name | Module Pin |   |   |   |   | PWM | MCU |
 | :--- | :--- | :---: | :--- | :--- | :--- | :--- | :---: | :--- |
@@ -391,14 +399,17 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | GPIO27 | A5 / D14 | 13 | ADC_6 | SWCLK | &nbsp; | &nbsp; | &check; | PB[3] |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 
 
 ### GPIO (Digital I/O)
 
-{{imageOverlay src="/assets/images/m-series/muon-gpio_v05.svg" alt="GPIO pins" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-gpio.svg" alt="GPIO pins" class="full-width"}}
 
 
+{{!-- BEGIN do not edit content below, it is automatically generated 2f265258-147d-4139-8a20-d85d1d137af5 --}}
 
 | Pin | Muon Pin Name | Muon GPIO | MCU | Special boot function | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- |
@@ -422,6 +433,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | 40 | D20 | &check; | PA[1] | &nbsp; | GPIO21 (PCM_DOUT) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - All GPIO are 3.3V only and are not 5V tolerant
 
@@ -442,8 +454,9 @@ The following M.2 SoM pins are used for internal functions on the Muon and are n
 
 ### ADC (Analog to Digital Converter)
 
-{{imageOverlay src="/assets/images/m-series/muon-adc_v05.svg" alt="ADC pins" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-adc.svg" alt="ADC pins" class="full-width"}}
 
+{{!-- BEGIN do not edit content below, it is automatically generated cb3c6480-361d-4437-8cc3-6422e4c04d74 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -454,6 +467,7 @@ The following M.2 SoM pins are used for internal functions on the Muon and are n
 | 31 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | 33 | PB[5] | GPIO6 |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
@@ -470,9 +484,10 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 ### UART serial
 
-{{imageOverlay src="/assets/images/m-series/muon-uart_v05.svg" alt="UART pins" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-uart.svg" alt="UART pins" class="full-width"}}
 
 
+{{!-- BEGIN do not edit content below, it is automatically generated a2d6df45-4f77-45d8-8280-f73c14add2e7 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -484,6 +499,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 | 36 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | 40 | PA[15] | GPIO16 |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
 - Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
@@ -494,6 +510,7 @@ On the Muon, `Serial1` is available on the expansion connector. If Serial1 is no
 
 If using an expansion card that requires UART serial, generally the following pins are used on standard Raspberry Pi expansion cards. These cards generally do not support hardware flow control.
 
+{{!-- BEGIN do not edit content below, it is automatically generated eefd3c21-afb4-4412-b457-accaf0fa2413 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -501,14 +518,16 @@ If using an expansion card that requires UART serial, generally the following pi
 | 10 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | RXD | 38 | PA[13] | GPIO15 (RXD) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 
 
 
 ### SPI
 
-{{imageOverlay src="/assets/images/m-series/muon-spi_v05.svg" alt="SPI pins" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-spi.svg" alt="SPI pins" class="full-width"}}
 
+{{!-- BEGIN do not edit content below, it is automatically generated 3fd13fdc-0a2d-41aa-9a26-3afd196022bd --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -523,6 +542,7 @@ If using an expansion card that requires UART serial, generally the following pi
 | 36 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | 40 | PA[15] | GPIO16 |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
 - Any pins can be used as the SPI chip select, however certain pins are generally used for Raspberry Pi expansion cards.
@@ -531,6 +551,7 @@ If using an expansion card that requires UART serial, generally the following pi
 
 If using an expansion card that requires SPI, generally the following pins are used. The pins `CE0` and `CE1` are generally used for SPI chip select on standard Raspberry Pi expansion cards.
 
+{{!-- BEGIN do not edit content below, it is automatically generated e09ec63f-a037-4dac-b8ca-8038186e5515 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -541,13 +562,15 @@ If using an expansion card that requires SPI, generally the following pins are u
 | 26 | A2 / D17 | A2 Analog in, GPIO | CE1 | 35 | PB[6] | GPIO7 (CE1) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used for SPI. They cannot be used as GPIO because the SPI bus is used for internal peripherals on the Muon. You can, however, use GPIO8 (CE0) and GPIO7 (CE1) as GPIO if not using them for SPI.
 
 ### I2C
 
-{{imageOverlay src="/assets/images/m-series/muon-i2c_v05.svg" alt="GPIO pins" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-i2c.svg" alt="GPIO pins" class="full-width"}}
 
+{{!-- BEGIN do not edit content below, it is automatically generated e9702f86-0377-4b10-a451-c4ebebd36177 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -556,12 +579,14 @@ Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used f
 | 12 | D6 | D6 GPIO, PWM, I2S CLK | Wire1 (SCL) | 70 | PB[20] | &nbsp; |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - The I2C port is 3.3V and must not be connected directly a 5V I2C bus
 - Maximum bus speed is 400 kHz
 
 On the Muon, `Wire` is available on the expansion connector on the following pins:
 
+{{!-- BEGIN do not edit content below, it is automatically generated 8b0e89b2-549c-47a2-bb14-bfb86825687b --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -569,9 +594,11 @@ On the Muon, `Wire` is available on the expansion connector on the following pin
 | 5 | D1 | D1 GPIO, I2C SCL | SCL | 20 | PA[31] | GPIO3 (SCL) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 Raspberry Pi GPIO2 and GPIO3 can only be used as I2C, not as GPIO, This is because the I2C is also used for peripherals on the Muon. You cannot use these I2C addresses on expansion cards as they will conflict with built-in peripherals.
 
+{{!-- BEGIN shared-blurb b22140c5-a3b4-4295-bd72-ae892dc637cf --}}
 | I2C Address | Peripheral |
 | :--- | :--- |
 | 0x08 | STUSB4500 USB-C power controller |
@@ -580,14 +607,16 @@ Raspberry Pi GPIO2 and GPIO3 can only be used as I2C, not as GPIO, This is becau
 | 0x68 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
 |      | LoRaWAN radio |
+{{!-- END shared-blurb --}}
 
 
 
 
 ### PWM
 
-{{imageOverlay src="/assets/images/m-series/muon-pwm_v05.svg" alt="GPIO pins" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-pwm.svg" alt="GPIO pins" class="full-width"}}
 
+{{!-- BEGIN do not edit content below, it is automatically generated 0e2ce92a-0155-43c6-b496-e30bafeb33e4 --}}
 
 | Pin | Pin Name | Description | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- |
@@ -604,12 +633,14 @@ Raspberry Pi GPIO2 and GPIO3 can only be used as I2C, not as GPIO, This is becau
 | 33 | D4 | D4 GPIO, PWM | 66 | PB[18] | GPIO13 (PWM1) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - All available PWM pins on the M-SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
 
 If using an expansion card that requires PWM, generally the following pins are used on standard Raspberry Pi expansion cards.
 
+{{!-- BEGIN do not edit content below, it is automatically generated a5166ee1-a72a-401d-ae99-6e1ebf2a7082 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -619,14 +650,17 @@ If using an expansion card that requires PWM, generally the following pins are u
 | 35 | D26 | D26 GPIO, I2S WS | GPIO19 | 59 | PA[4] | GPIO19 (PCM_FS) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 
 
 
 ### I2S
 
-{{imageOverlay src="/assets/images/m-series/muon-i2s_v05.svg" alt="GPIO pins" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-i2s.svg" alt="GPIO pins" class="full-width"}}
 
+{{!-- BEGIN do not edit content below, it is automatically generated 1fbd4565-425c-4e5f-9136-130f4558d675 --}}
 
 | Pin | Pin Name | Description | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- |
@@ -638,6 +672,7 @@ If using an expansion card that requires PWM, generally the following pins are u
 | 40 | D20 | D20 GPIO, I2S TX | 19 | PA[1] | GPIO21 (PCM_DOUT) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 - Note that this is I2S ("sound") not I2C.
 - Only I2S, not raw PCM frames, are supported. 
@@ -646,6 +681,7 @@ If using an expansion card that requires PWM, generally the following pins are u
 
 The Muon is only compatible with Raspberry Pi expansion cards that support I2S on the PCM pins, not cards that use raw PCM frames. Generally the following pins are used on standard Raspberry Pi expansion cards that use I2S:
 
+{{!-- BEGIN do not edit content below, it is automatically generated 258144bf-ccd6-430f-be0d-9a0867b8b015 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -654,6 +690,7 @@ The Muon is only compatible with Raspberry Pi expansion cards that support I2S o
 | 40 | D20 | D20 GPIO, I2S TX | PCM_DOUT | 19 | PA[1] | GPIO21 (PCM_DOUT) |
 
 
+{{!-- END do not edit content above, it is automatically generated--}}
 
 PDM cannot be used on Muon expansion cards as the M-SoM PDM pins (A2, A3) are used for internal peripherals and are not availble on the expansion connector.
 
@@ -662,6 +699,7 @@ PDM cannot be used on Muon expansion cards as the M-SoM PDM pins (A2, A3) are us
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
 
+{{!-- BEGIN do not edit content below, it is automatically generated c9e7a163-b53c-4c4f-81ff-f84ec7344a0c --}}
 
 | Pin | Pin Name | Description | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- |
@@ -670,6 +708,8 @@ These pins have a special function at boot. Beware when using these pins as inpu
 | 16 | D24 | Low at boot triggers ISP flash download | 58 | PA[7] | GPIO23 |
 | 18 | D25 | Goes high at boot | 60 | PA[8] | GPIO24 |
 
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### BLE (Bluetooth LE)
 
@@ -691,11 +731,14 @@ The Muon/M-SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER`
 
 Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 2629e77b-eb69-4f63-8f0e-011032c72782 --}}
+
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU |
 | :---: | :--- | :--- | :--- | :--- | :--- |
 | 38 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | 17 | PA[0] |
 
 
+{{!-- END do not edit content above, it is automatically generated  --}}
 
 ## Firmware settings
 
@@ -787,6 +830,7 @@ The Muon can be used with some Raspberry Pi expansion cards ("hats") that sit on
 
 
 #### Pi hat connection pins 
+{{!-- BEGIN do not edit content below, it is automatically generated 547410e9-fa4c-4166-9b92-4d365b9a8471 --}}
 
 | Pin | Pi Pin Name | Pin Name | Description | Serial | SPI | I2C | I2S |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -831,6 +875,8 @@ The Muon can be used with some Raspberry Pi expansion cards ("hats") that sit on
 | 40 | GPIO21 (PCM_DOUT) | D20 | D20 GPIO, I2S TX | &nbsp; | &nbsp; | &nbsp; | I2S TX |
 
 
+{{!-- END do not edit content above, it is automatically generated --}}
+
 Of note:
 
 - Pi pin 27 (GPIO0, ID_SD) and pin 28 (GPIO1, ID_SC) are NC and cannot be used. They are normally used for a Pi boot ROM, which isn't applicable to the Muon.
@@ -856,7 +902,7 @@ The sample design uses a PTH (through-hole) female socket for strength and to ma
 
 #### Muon expansion interface 
 
-{{imageOverlay src="/assets/images/muon-pins_v05.svg" alt="Pinout" class="full-width"}}
+{{imageOverlay src="/assets/images/muon-pins.svg" alt="Pinout" class="full-width"}}
 
 
 {{!-- 
@@ -1031,6 +1077,7 @@ SE, SI, SK, TR, UA, UK(NI).
 ### MUON404 - Country compatibility
 
 
+{{!-- BEGIN do not edit content below, it is automatically generated 291c6e45-3647-412b-8e38-47d29d5b4a83 --}}
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
@@ -1039,6 +1086,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | United States | M404 | 2G, M1 | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
+{{!-- END do not edit content above, it is automatically generated  --}}
 
 The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
@@ -1069,6 +1117,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 ### MUON524 - Country compatibility
 
 
+{{!-- BEGIN do not edit content below, it is automatically generated da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
@@ -1175,6 +1224,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Zambia | M524 | 2G, 3G, Cat1 | Airtel |
 
 
+{{!-- END do not edit content above, it is automatically generated  --}}
 
 ### MUON524 - Certified bands
 
@@ -1203,6 +1253,7 @@ Global, country list to be provided a later date.
 ---
 ## Ordering information
 
+{{!-- BEGIN do not edit content below, it is automatically generated f4a91103-4428-4732-a1bc-83784f9bf207 --}}
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
@@ -1214,6 +1265,7 @@ Global, country list to be provided a later date.
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
 
 
+{{!-- END do not edit content above, it is automatically generated  --}}
 
 - EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
@@ -1232,3 +1284,20 @@ Global, country list to be provided a later date.
 |          | 2024-08-04 | RK | Pinmap 0.05 |
 |          | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
 
+## Ordering information
+
+{{!-- BEGIN do not edit content below, it is automatically generated f4a91103-4428-4732-a1bc-83784f9bf207 --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
