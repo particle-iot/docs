@@ -162,7 +162,7 @@ and intended to be used with a small expansion card on top ("hat") not with a bo
 | D3 | &check; | 36 | D3 | &check; | GPIO16 |
 | D4 | &check; | 33 | D4 | &check; | GPIO13 (PWM1) |
 | D5 | &check; | 32 | D5 | &check; | GPIO12 (PWM0) |
-| D6 | &check; | 12 | D6 | &check; | &nbsp; |
+| D6 | &check; | 12 | D6 | &check; | GPIO18 |
 | D7 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | D8 / WKP | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 7 | IOEX_PA0 | &check; | GPIO4 (GPCKL0) |
@@ -282,7 +282,7 @@ Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used f
 | :--- | :--- | :---: | :--- | :--- | :--- |
 | D0 | Wire (SDA) | 3 | D0 | Wire (SDA) | GPIO2 (SDA) |
 | D1 | Wire (SCL) | 5 | D1 | Wire (SCL) | GPIO3 (SCL) |
-| D6 | &nbsp; | 12 | D6 | Wire1 (SCL) | &nbsp; |
+| D6 | &nbsp; | 12 | D6 | Wire1 (SCL) | GPIO18 |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -340,7 +340,7 @@ Raspberry Pi GPIO2 and GPIO3 can only be used as I2C, not as GPIO, This is becau
 | D3 | &check; | 36 | D3 | &nbsp; | GPIO16 |
 | D4 | &check; | 33 | D4 | &check; | GPIO13 (PWM1) |
 | D5 | &check; | 32 | D5 | &check; | GPIO12 (PWM0) |
-| D6 | &check; | 12 | D6 | &check; | &nbsp; |
+| D6 | &check; | 12 | D6 | &check; | GPIO18 |
 | D7 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | D8 / WKP | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | MISO / D11 | &nbsp; | 21 | MISO / D11 | &check; | GPIO9 (MISO) |

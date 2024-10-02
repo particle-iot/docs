@@ -3687,6 +3687,8 @@
           "m2Pin": 70,
           "net": "M2_D6/SCL",
           "pwmChannel": "1.12",
+          "rpi": "GPIO18",
+          "rpiGPIO": 18,
           "somPin": "PWM2",
           "tone": true
         },
