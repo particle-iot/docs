@@ -152,3 +152,8 @@ The LTR559 light sensor can be accessed using the [LTR559_RK](https://github.com
 the read the proximity sensor (PS) and automatic light sensor (ALS) data. Since the interrupt line from the LTR559 is not connected to 
 the hat interface, you can't use hardware interrupts with it.
 
+The PMS5003 particulate matter sensor is not currently working for unknown reasons but should be possible to make work.
+
+### Sample code
+
+{{> project-browser project="enviro-hat" default-file="src/enviro-hat.cpp" height="500" flash="true"}}
