@@ -262,12 +262,12 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 {{!-- BEGIN shared-blurb b22140c5-a3b4-4295-bd72-ae892dc637cf --}}
 | I2C Address | Peripheral |
 | :--- | :--- |
-| 0x08 | STUSB4500 USB-C power controller |
+| 0x28 | STUSB4500 USB-C power controller |
 | 0x36 | MAX17043 Fuel Gauge |
 | 0x48 | TMP112A temperature sensor |
-| 0x68 | AM1805 RTC/Watchdog |
+| 0x61 | KG200Z LoRaWAN radio |
+| 0x69 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
-|      | LoRaWAN radio |
 {{!-- END shared-blurb --}}
 
 
@@ -601,12 +601,12 @@ Raspberry Pi GPIO2 and GPIO3 can only be used as I2C, not as GPIO, This is becau
 {{!-- BEGIN shared-blurb b22140c5-a3b4-4295-bd72-ae892dc637cf --}}
 | I2C Address | Peripheral |
 | :--- | :--- |
-| 0x08 | STUSB4500 USB-C power controller |
+| 0x28 | STUSB4500 USB-C power controller |
 | 0x36 | MAX17043 Fuel Gauge |
 | 0x48 | TMP112A temperature sensor |
-| 0x68 | AM1805 RTC/Watchdog |
+| 0x61 | KG200Z LoRaWAN radio |
+| 0x69 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
-|      | LoRaWAN radio |
 {{!-- END shared-blurb --}}
 
 
