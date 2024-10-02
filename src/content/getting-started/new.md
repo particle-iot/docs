@@ -21,6 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Hex generator fix 2024-10-02
+
+Fixed an issue where the [Hex Generator](/tools/developer-tools/hex-generator/) did not show the list of platforms and
+versions on Safari (and possibly other cases).
+
+### Antenna warning 2024-10-02
+
+Added warning to not use Argon (ANT-FLXV2) antenna on the P2, Photon 2, or M-SoM to the antenna guide, and the three datasheets.
+
 ### Tracker Edge v19 2024-09-24
 
 Tracker Edge v19 is now in the [Tracker Edge docs](/firmware/tracker-edge/tracker-edge-firmware/).

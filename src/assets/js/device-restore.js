@@ -18,6 +18,8 @@ $(document).ready(function() {
     }
 
     if ($('#hexGeneratorForm').length > 0) {
+        $('#deviceRestoreTable').show();
+        
         const buttonEnable = function() {
             const imageFile = $('input[name="imageFile"]:checked').val();
             const userBinFiles = $('#userBinFile').prop('files');

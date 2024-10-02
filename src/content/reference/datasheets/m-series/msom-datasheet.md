@@ -140,6 +140,13 @@ The M-SoM is certified for use with the same antennas as the P2/Photon 2. The sa
 
 Single quantity M-SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M-SoM do not include antennas.
 
+{{!-- BEGIN shared-blurb adf4fb35-acf2-464b-8080-15e05f79006b --}}
+{{box op="start" cssClass="boxed warningBox"}}
+Do not use the Argon Wi-Fi/BLE antenna (ANT-FLXV2) on the P2, Photon 2, or M-SoM. The Argon antenna does not 
+work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon 2, and M-SoM.
+{{box op="end"}}
+{{!-- END shared-blurb --}}
+
 ### Certified GNSS antennas
 
 | SKU | Description | |
@@ -1442,3 +1449,4 @@ Global, country list to be provided a later date.
 | 008      | 2024-08-21 | RK | Added supervisory reset information |
 | 009      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
 | 010      | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
+| 011      | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |

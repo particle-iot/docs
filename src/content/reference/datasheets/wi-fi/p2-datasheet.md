@@ -74,6 +74,13 @@ This antenna is used for both Wi-Fi and BLE. In order to use an external antenna
 
 A different dual-band antenna can be used but this will likely require both intentional and unintentional radiator certification.
 
+{{!-- BEGIN shared-blurb adf4fb35-acf2-464b-8080-15e05f79006b --}}
+{{box op="start" cssClass="boxed warningBox"}}
+Do not use the Argon Wi-Fi/BLE antenna (ANT-FLXV2) on the P2, Photon 2, or M-SoM. The Argon antenna does not 
+work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon 2, and M-SoM.
+{{box op="end"}}
+{{!-- END shared-blurb --}}
+
 ---
 
 ### SWD/JTAG
@@ -2153,6 +2160,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 019 | 2024-04-25 | RK | Added I/O characteristics |
 | 020 | 2024-08-21 | RK | Added supervisory reset information |
 | 021 | 2024-09-04 | RK | Added note about VBAT_MEAS |
+| 022 | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
 
 ## Known errata
 

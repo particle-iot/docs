@@ -272,6 +272,15 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 | Tracker One Wi-Fi Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-wifi.pdf) |
 
+
+{{!-- BEGIN shared-blurb adf4fb35-acf2-464b-8080-15e05f79006b --}}
+{{box op="start" cssClass="boxed warningBox"}}
+Do not use the Argon Wi-Fi/BLE antenna (ANT-FLXV2) on the P2, Photon 2, or M-SoM. The Argon antenna does not 
+work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon 2, and M-SoM.
+{{box op="end"}}
+{{!-- END shared-blurb --}}
+
+
 ### Compatible devices (Wi-Fi)
 
 
