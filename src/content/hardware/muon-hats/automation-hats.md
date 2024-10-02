@@ -40,8 +40,7 @@ There are two chips connected by I2C on the hat:
 The ADS1015 ADC cannot be accessed on the Muon. The problem is that I2C Address 0x48 is used by both the ADS1015 on the automation hat as well as
 the TMP112A temperature sensor on the Muon itself. These will conflict with each other, allowing neither to be used.
 
-The LEDs are controlled by a SN3218 LED driver chip. A Particle library is not currently available for this chip but one will be available at a later date.
-
+The LEDs are controlled by a SN3218 LED driver chip. The [SN3218_RK](https://github.com/rickkas7/SN3218_RK) library can be used to manage the LEDs.
 
 ### Relays - Pimoroni automation hat
 
@@ -99,3 +98,21 @@ When using the sample code above, you can call the function `output` and it will
 ```
 
 Note that the digital outputs (`output1`, `output2`, `output3`) are low-side sink outputs, meaning they provide the connection to GND when turned on. If you are testing the output using a digital multimeter, put it in resistance (ohm) mode, and measure the resistance between the output and GND. If 0 &ohm; then the output is turned on (1).
+
+### LEDs - Pimoroni automation hat
+
+The LEDs are controlled by a SN3218 LED driver chip. The [SN3218_RK](https://github.com/rickkas7/SN3218_RK) library can be used to manage the LEDs.
+
+When using the sample code above, you can call the function `output` and it will allow you to set one or more LEDs on or off:
+
+```sh
+% particle call my-muon output '{"led0":1}'
+% particle call my-muon output '{"led0":0,"led3":1}'
+```
+
+You can also set the PWM (brightness) value from 0 - 255. The sample code sets it to 128 during setup.
+
+```sh
+% particle call my-muon output '{"pwm0":255,"led0":1}'
+```
+

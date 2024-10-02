@@ -1,5 +1,7 @@
 #include "Particle.h"
 
+#include "SN3218_RK.h"
+
 SYSTEM_MODE(AUTOMATIC);
 SYSTEM_THREAD(ENABLED);
 
@@ -28,9 +30,22 @@ const size_t pinDefinitionCount = sizeof(pinDefinitions) / sizeof(pinDefinitions
 int functionHandler(String cmd);
 String variableHandler();
 
+SN3218_RK ledDriver;
+
 void setup() {
     // Uncomment this to see early initialization messages
-    waitFor(Serial.isConnected, 10000); delay(2000);
+    // waitFor(Serial.isConnected, 10000); delay(2000);
+
+    // LED driver setup
+    ledDriver.begin();
+    ledDriver.reset();
+    ledDriver.wake();
+
+    // Set all of the PMWs to 128 because they default to 0 which means the LED stays off
+    // even if you turn it on
+    for(uint8_t channel = 0; channel <= SN3218_RK::CHANNEL_LAST; channel++) {
+        ledDriver.setPWM(channel, 128);
+    }
 
     for(size_t ii = 0; ii < pinDefinitionCount; ii++) {
         const PinDefinition *pd = &pinDefinitions[ii];
@@ -51,6 +66,8 @@ void loop() {
 int functionHandler(String cmd) {
     JSONValue outerObj = JSONValue::parseCopy(cmd);
 
+    bool ledUpdated = false;
+
     JSONObjectIterator iter(outerObj);
     while(iter.next()) {
         const char *key = (const char *) iter.name();
@@ -64,7 +81,46 @@ int functionHandler(String cmd) {
                 Log.info("output %s=%d", pd->name, value);
             }
         }        
+
+
+        int ledNum = 0;
+        if (sscanf(key, "pwm%d", &ledNum) == 1) {
+            if (ledNum < 0 || ledNum >= 18) {
+                ledNum = 0;
+            }
+
+            int valueInt = iter.value().toInt();
+            if (valueInt < 0 || valueInt > 255) {
+                valueInt = 0;
+            }
+
+            ledDriver.setPWM(ledNum, valueInt);
+            Log.info("pwm %d=%d", ledNum, valueInt);
+            ledUpdated = true;
+        }
+
+        if (sscanf(key, "led%d", &ledNum) == 1) {
+            if (ledNum < 0 || ledNum >= 18) {
+                ledNum = 0;
+            }
+
+            int valueInt = iter.value().toInt();
+            if (valueInt) {
+                ledDriver.ledOn(ledNum);
+                Log.info("led %d on", ledNum);
+            }
+            else {
+                ledDriver.ledOff(ledNum);
+                Log.info("led %d off", ledNum);
+            }
+            ledUpdated = true;
+        }
     }
+
+    if (ledUpdated) {
+        ledDriver.update();
+    }
+
     return 0;
 }
 
@@ -82,7 +138,7 @@ String variableHandler() {
             writer.name(pd->name).value(digitalRead(pd->pin));
         }
     }
-    
+
     writer.endObject();
 
     Log.info("input %s", buf);
