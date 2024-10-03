@@ -291,6 +291,10 @@
                 {
                     "dir": "automation-hats",
                     "title": "Automation hats"
+                },
+                {
+                    "dir": "environmental-hats",
+                    "title": "Environmental hats"
                 }
             ]
         },

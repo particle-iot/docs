@@ -7,7 +7,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-proj
 
 # {{title}}
 
-This page covers hats used in home automation, environmental monitoring, or robotics.
+This page covers hats used in home automation
 
 
 ## Pimoroni automation hat
@@ -152,7 +152,8 @@ The LTR559 light sensor can be accessed using the [LTR559_RK](https://github.com
 the read the proximity sensor (PS) and automatic light sensor (ALS) data. Since the interrupt line from the LTR559 is not connected to 
 the hat interface, you can't use hardware interrupts with it.
 
-The PMS5003 particulate matter sensor is not currently working for unknown reasons but should be possible to make work.
+The PMS5003 particulate matter sensor is not currently working for unknown reasons. The data stream is not coming off the
+sensor but the library and setup is in place.
 
 ### Sample code
 

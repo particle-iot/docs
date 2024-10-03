@@ -16,6 +16,7 @@ bool i2cscan(TwoWire &wire);
 
 #include "Sparkfun_ADS1015_Arduino_Library.h"
 
+#include "PMS5003_RK.h"
 
 
 // Display does nit work beacuse TFT_DC is MISO, but MISO cannot be used as a GPIO
@@ -33,9 +34,10 @@ LTR559_RK lightSensor;
 ADS1015 adcSensor;
 const pin_t HEATER_PIN = D25;
 bool hasGasSensors = false;
+
 const pin_t PMS5003_RESET = A5;
 const pin_t PMS5003_ENABLE = D27;
-
+PMS5003_RK pms;
 
 unsigned long lastSensorCheck = 0;
 const std::chrono::milliseconds sensorCheckPeriod = 1s;
@@ -77,6 +79,12 @@ void setup() {
     else {
         Log.error("ADS1015 did not initialize");
     }
+
+    // PMS5003 particulate mater sensor
+    pms
+        .withEnablePin(PMS5003_ENABLE)
+        .withResetPin(PMS5003_RESET)
+        .setup();
 
 }
 
@@ -138,6 +146,20 @@ void sensorCheck() {
         writer.name("nh3").value(getSensorValue(2));
     }
     writer.name("adc").value(adcSensor.getSingleEnded(3));
+
+    {
+        PMS5003_RK::Data lastData;
+        unsigned long lastDataMillis;
+        static unsigned long lastLastDataMillis = 0;
+
+        pms.getLastData(lastData, lastDataMillis);
+        if (lastDataMillis != lastLastDataMillis) {
+            lastLastDataMillis = lastDataMillis;
+        
+            lastData.toJSON(writer);
+        }
+    }
+
 
     writer.endObject();
 
