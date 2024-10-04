@@ -835,6 +835,85 @@
       ]
     },
     {
+      "title": "Buffer",
+      "dir": "buffer",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Buffer",
+          "dir": "buffer"
+        },
+        {
+          "title": "constructor(size) [Buffer class] - Buffer",
+          "dir": "constructor-size-buffer-class"
+        },
+        {
+          "title": "constructor(data, size) [Buffer class] - Buffer",
+          "dir": "constructor-data-size-buffer-class"
+        },
+        {
+          "title": "data() non-const [Buffer class] - Buffer",
+          "dir": "data-non-const-buffer-class"
+        },
+        {
+          "title": "data() const [Buffer class] - Buffer",
+          "dir": "data-const-buffer-class"
+        },
+        {
+          "title": "size() [Buffer class] - Buffer",
+          "dir": "size-buffer-class"
+        },
+        {
+          "title": "isEmpty() [Buffer class] - Buffer",
+          "dir": "isempty-buffer-class"
+        },
+        {
+          "title": "resize() [Buffer class] - Buffer",
+          "dir": "resize-buffer-class"
+        },
+        {
+          "title": "capacity() [Buffer class] - Buffer",
+          "dir": "capacity-buffer-class"
+        },
+        {
+          "title": "reserve() [Buffer class] - Buffer",
+          "dir": "reserve-buffer-class"
+        },
+        {
+          "title": "trimToSize() [Buffer class] - Buffer",
+          "dir": "trimtosize-buffer-class"
+        },
+        {
+          "title": "toHex() (String) [Buffer class] - Buffer",
+          "dir": "tohex-string-buffer-class"
+        },
+        {
+          "title": "toHex() (pointer, size) [Buffer class] - Buffer",
+          "dir": "tohex-pointer-size-buffer-class"
+        },
+        {
+          "title": "operator==() (equality) [Buffer class] - Buffer",
+          "dir": "operator-equality-buffer-class"
+        },
+        {
+          "title": "operator!= (inequality) [Buffer class] - Buffer",
+          "dir": "operator-inequality-buffer-class"
+        },
+        {
+          "title": "fromHex(String) (static) [Buffer class] - Buffer",
+          "dir": "fromhex-string-static-buffer-class"
+        },
+        {
+          "title": "fromHex(c-string) (static) [Buffer class] - Buffer",
+          "dir": "fromhex-c-string-static-buffer-class"
+        },
+        {
+          "title": "fromHex(pointer, size) (static) [Buffer class] - Buffer",
+          "dir": "fromhex-pointer-size-static-buffer-class"
+        }
+      ]
+    },
+    {
       "title": "CAN (canbus)",
       "dir": "can-canbus",
       "collapse": true,
@@ -5260,6 +5339,14 @@
         {
           "title": "asString() [Variant class] - Variant",
           "dir": "asstring-variant-class"
+        },
+        {
+          "title": "toBuffer() [Variant class] - Variant",
+          "dir": "tobuffer-variant-class"
+        },
+        {
+          "title": "asBuffer() [Variant class] - Variant",
+          "dir": "asbuffer-variant-class"
         },
         {
           "title": "toArray() [Variant class] - Variant",
