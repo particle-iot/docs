@@ -388,6 +388,7 @@
   "/reference/device-os/api/backup-ram-sram/storing-data-in-backup-ram-sram/": "/reference/device-os/api/retained-memory/storing-data-in-retained-memory",
   "/reference/device-os/api/battery-voltage": "/reference/device-os/api/battery-voltage/battery-voltage-photon-2",
   "/reference/device-os/api/bluetooth-le-ble": "/reference/device-os/api/bluetooth-le-ble/bluetooth-le-ble",
+  "/reference/device-os/api/buffer": "/reference/device-os/api/buffer/buffer",
   "/reference/device-os/api/can-canbus": "/reference/device-os/api/can-canbus/can-canbus",
   "/reference/device-os/api/cellular": "/reference/device-os/api/cellular/cellular",
   "/reference/device-os/api/checking-for-features": "/reference/device-os/api/checking-for-features/checking-for-features",

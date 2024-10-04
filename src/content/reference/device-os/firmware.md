@@ -13782,6 +13782,205 @@ bool isEmpty() const;
 See [Variant](#variant) and [Map](#map) for additional information.
 
 
+## Buffer
+
+{{api name1="Buffer"}}
+
+{{since when="6.2.0"}}
+
+The `Buffer` class is a container for data in a dynamically allocated buffer. It's essentially a wrapper
+around `std::vector<char>` with additional convenience methods for encoding the data.
+
+The `Variant` class has been extended to store arbitrary binary data in a `Buffer`. A Variant containing a `Buffer` 
+cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+
+
+### constructor(size) [Buffer class]
+
+```cpp
+// PROTOTYPE
+explicit Buffer(size_t size);
+```
+
+### constructor(data, size) [Buffer class]
+
+```cpp
+// PROTOTYPE
+Buffer(const char* data, size_t size)
+```
+
+### data() non-const [Buffer class]
+
+Access the internal data buffer as a `char *`. 
+
+```cpp
+// PROTOTYPE
+char* data()
+```
+
+Even though this type is normally 
+used for c-strings, the buffer is arbitrary binary data and is not encoded with
+a null-terminator.
+
+### data() const [Buffer class]
+
+Access the internal data buffer as a `const char *`. 
+
+```cpp
+// PROTOTYPE
+const char* data() const 
+```
+
+Even though this type is normally 
+used for c-strings, the buffer is arbitrary binary data and is not encoded with
+a null-terminator.
+
+### size() [Buffer class]
+
+Return the size of the buffer (number of bytes). 
+
+```cpp
+// PROTOTYPE
+size_t size() const 
+```
+
+This is the actual size of the data, see also `reserve()` and `capacity()` for more information.
+
+### isEmpty() [Buffer class]
+
+Returns `true` if the size of the buffer is 0.
+
+```cpp
+// PROTOTYPE
+bool isEmpty() const 
+```
+
+### resize() [Buffer class]
+
+Sets the size of the buffer.
+
+```cpp
+// PROTOTYPE
+bool resize(size_t size)
+```
+
+If size is larger than the capacity of the buffer it will be reallocated and copied.
+
+Returns `true` except when increasing the size of the buffer and the memory allocation
+fails. In this case, `false` is return and the size is left unchanged.
+
+### capacity() [Buffer class]
+
+Returns the capacity of the buffer.
+
+```cpp
+// PROTOTYPE
+size_t capacity() const
+```
+
+It is possible to reserve additional bytes at the end of the buffer that are larger than
+the data size. This allows for more efficient appending to the buffer when you know
+the eventual size, and eliminates multiple reallocations.
+
+### reserve() [Buffer class]
+
+Adds reserved bytes to the buffer. The size must be larger than the current capacity.
+
+```cpp
+// PROTOTYPE
+bool reserve(size_t size) 
+```
+
+This can only be used to reserve additional space. To make the buffer smaller, use
+trimToSize().
+
+It is possible to reserve additional bytes at the end of the buffer that are larger than
+the data size. This allows for more efficient appending to the buffer when you know
+the eventual size, and eliminates multiple reallocations.
+
+
+### trimToSize() [Buffer class]
+
+Reduce the memory allocation for the buffer.
+
+```cpp
+// PROTOTYPE
+bool trimToSize()
+```
+
+It is possible to reserve additional bytes at the end of the buffer that are larger than
+the data size. This call removes these bytes. It's normally not necessary to use this,
+as the size is separate from capacity and you will normally use the size.
+
+
+### toHex() (String) [Buffer class]
+
+Convert the buffer to hexaedcimal encoding. Returns a `String` object containing the hex.
+
+```cpp
+// PROTOTYPE
+String toHex()
+```
+
+### toHex() (pointer, size) [Buffer class]
+
+Convert the buffer to hexaedcimal encoding. Writes the hex data into the specified pointer
+and size. The out string is null terminated if the size is large enough to hold it.
+
+```cpp
+// PROTOTYPE
+size_t toHex(char* out, size_t size) const
+```
+
+### operator==() (equality) [Buffer class]
+
+Returns true if the `Buffer` object are the same size and have the same byte values.
+
+```cpp
+// PROTOTYPE
+bool operator==(const Buffer& buf) const
+```
+
+### operator!= (inequality) [Buffer class]
+
+Returns true if the `Buffer` object are not the same size or do not have the same byte values.
+
+```cpp
+// PROTOTYPE
+bool operator!=(const Buffer& buf) const
+```
+
+### fromHex(String) (static) [Buffer class]
+
+Create a `Buffer` object from hexadecimal data in a `String` object.
+
+```cpp
+// PROTOTYPE
+static Buffer fromHex(const String& str)
+```
+
+
+### fromHex(c-string) (static) [Buffer class]
+
+Create a `Buffer` object from hexadecimal data in a c-string (null-terminated).
+
+```cpp
+// PROTOTYPE
+static Buffer fromHex(const char* str)
+```
+
+### fromHex(pointer, size) (static) [Buffer class]
+
+Create a `Buffer` object from hexadecimal data specified by pointer and length.
+
+```cpp
+// PROTOTYPE
+static Buffer fromHex(const char* str, size_t len);
+```
+
+When specifing `str` and `len`, the string and length should specify the data
+only. A null terminator is not required and must not be included in `len`.
+
 ## Variant
 
 {{api name1="Variant"}}
@@ -13790,6 +13989,8 @@ See [Variant](#variant) and [Map](#map) for additional information.
 
 The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON.
 
+A Variant can hold arbitary binary data using the `Buffer` class in Device OS 6.2 and later. A Variant containing a `Buffer`
+cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
 
 ### set() [Variant class]
 
@@ -13824,6 +14025,7 @@ Variants have an explicit type, unlike JSON. The following
 | Variant::Type::UINT64 | `uint64_t` |
 | Variant::Type::DOUBLE | `double` |
 | Variant::Type::STRING | `String` |
+| Variant::Type::BUFFER | `Buffer` |
 | Variant::Type::ARRAY | `VariantArray` |
 | Variant::Type::MAP | `VariantMap` |
 
@@ -13850,6 +14052,7 @@ Variant(unsigned long long val);
 Variant(double val);
 Variant(const char* val);
 Variant(String val);
+Variant(Buffer val) 
 Variant(VariantArray val);
 Variant(VariantMap val);'
 ```
@@ -13919,6 +14122,7 @@ bool isUInt64() const;
 bool isDouble() const;
 bool isNumber() const;
 bool isString() const;
+bool isBuffer() const
 bool isArray() const;
 bool isMap() const;
 ```
@@ -14208,6 +14412,40 @@ This method will convert the type of the variant to `String` if necessary, see [
 See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 
+### toBuffer() [Variant class]
+
+{{api name1="Variant::toBuffer()"}}
+
+{{since when="6.2.0"}}
+
+```cpp
+// PROTOTYPE
+Buffer toBuffer() const;
+Buffer toBuffer(bool& ok) const;
+```
+
+A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+### asBuffer() [Variant class]
+
+{{api name1="Variant::asBuffer()"}}
+
+{{since when="6.2.0"}}
+
+```cpp
+// PROTOTYPE
+Buffer& asBuffer();
+```
+
+A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
+
+
+
 ### toArray() [Variant class]
 
 {{api name1="Variant::toArray()"}}
@@ -14287,6 +14525,8 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 {{api name1="Variant::toJSON()"}}
 
 Serializes a VariantArray or VariantMap as JSON and returns it in a `String` object.
+
+A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
 
 ```cpp
 // PROTOTYPE

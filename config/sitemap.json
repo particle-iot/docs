@@ -8679,20 +8679,20 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/variant.md": {
-            "hash": "2d035219fff6ae6880ed02510532c7c57ccdc6c46ec51a933e5ebc0491e33bec",
-            "date": "2024-05-01"
+            "hash": "0d82951e3ad5fc07646401a06b09b57c36d8fedcb314c8960a9a0e398221b76e",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/set-variant-class.md": {
             "hash": "35a8c861983f6f22dc95bc68acbbd6a8bcb807001f36874a7b49f36133b02bcb",
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/variant-type.md": {
-            "hash": "fa67d6f2af0d696c04ef2e907a8a25493b275ebb23815f508fbb2a9336398128",
-            "date": "2024-05-01"
+            "hash": "1276f29f0193460d96d2ec24bf241409635b645379b9a7c68302a5fb4cf1a9d1",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/constructor-variant-class.md": {
-            "hash": "f6a05e4b069397dd0281b4d14606e0b5b29fe0092f76eaf65cbebd2bf4f7ddac",
-            "date": "2024-05-01"
+            "hash": "7b3475d23057af8a9dc74f8a2d67f458a6b74871b7fb9549d033175d694ec4e6",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/value-variant-class.md": {
             "hash": "ac5d80a0e6c40685abd868aca0bf4c49a7e78c94fe215312bd37a26236fe5879",
@@ -8707,8 +8707,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/isxxx-variant-class.md": {
-            "hash": "15cc609d0f4691d354781c785b5f09aaea94b7783e03763f3e5d06a5b8c77836",
-            "date": "2024-05-01"
+            "hash": "ccd862eb651e60487648d8127d0bd2244bd532419bb22854fd88c0eeb96e0a54",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/tobool-variant-class.md": {
             "hash": "9d15a297a9b4b2e9dd86ac6ec850c4a94041ff5803cfc2233f37c97f3a3997bf",
@@ -8783,8 +8783,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/tojson-variant-class.md": {
-            "hash": "bb90fb10ea76ec5577fbc41d1f54de465f1d416d8ee6bda567519727967e8c47",
-            "date": "2024-05-01"
+            "hash": "85d8641f2ae80da12a828cc469a38a673610e18b7caa62f8d4537c4c978ff947",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/fromjson-variant-class.md": {
             "hash": "189e360ea58343b29d28c3ad32bba7f59aec0a19926e4987eabf389c0cae472f",
@@ -9225,6 +9225,86 @@
         "reference/device-os/libraries/g/Grove_IMU_9DOF_ICM20600_AK09918_y.md": {
             "hash": "056a473292f6e52c27a8ba953a45e44c169d6a6f46296a36e3d5992537b1610d",
             "date": "2024-09-18"
+        },
+        "reference/device-os/api/buffer/buffer.md": {
+            "hash": "0174c3291576fc490a22421e796d44675081f1c7002a1a8e832ac246810636fa",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/constructor-size-buffer-class.md": {
+            "hash": "03c81c72d486bb52480e631cf9a44de041eb357885df3b7eb3a5527b7a864455",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/constructor-data-size-buffer-class.md": {
+            "hash": "c09068b9541da2d5aebedbfdd7d4288b892537478699b859ea8af9c298c041ca",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/data-non-const-buffer-class.md": {
+            "hash": "41b588a54fd1a684cbd9f69426675c675696dd555f35b22c80d60834a2ac90b2",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/data-const-buffer-class.md": {
+            "hash": "b514bbfdb012422266c48dc2798439bdb6202bd98c237918e2a42673bc2b963b",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/size-buffer-class.md": {
+            "hash": "645bc6e29ed945b9eabe9ef8dc4e03f10bab8126336754b6337cb5bd15f7480d",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/isempty-buffer-class.md": {
+            "hash": "9606fe5ae72a9a93f563f1bca57b61deda3ade59d56ea3a083f27640f47b8c6c",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/resize-buffer-class.md": {
+            "hash": "97061d23c46e2bcc1c10fac91b0137c49089c817b6fea7732a3259c376917aa1",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/capacity-buffer-class.md": {
+            "hash": "52d5c1494b1160fc3149b4b36f0c3add9e0668c64fe986dac3853cb32565c5f8",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/reserve-buffer-class.md": {
+            "hash": "686d8f6f44133ad911e43b435d3933a7d9edb9ae4ad24adcffc9f1cd0c9e7652",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/trimtosize-buffer-class.md": {
+            "hash": "7d1b462387eaf0e1186e39751cdbc4792443aeed20b1a0c5d20c2a5673fe8526",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/tohex-string-buffer-class.md": {
+            "hash": "aeb3cdfa04d3d739ab1298a5d52e8b9642ecf44dc7b8f4e3f5ac3ed83b47fdc5",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/tohex-pointer-size-buffer-class.md": {
+            "hash": "455b6b7e680e0fe1038a9289fe36ad6fb9574cbe28ac3dbf4276bb02cdddf056",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/operator-equality-buffer-class.md": {
+            "hash": "428b3393c01686dd092d8af24484fae6c14de08fd042a24123f014a140deaa15",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/operator-inequality-buffer-class.md": {
+            "hash": "de7b659d86e6e2cf9520d1c2ed83aa77cbe97edb0032edd1740556f51fecf3d0",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/fromhex-string-static-buffer-class.md": {
+            "hash": "31a2d7d090fb68a91c3d192cc7856211cfe9b3068b4ef65484d83e87d3601c97",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/fromhex-c-string-static-buffer-class.md": {
+            "hash": "a6c904b21c45b23ad2a30f0d0a400ffcfabe301053ceda7ec39a2958d0c47c1c",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/fromhex-pointer-size-static-buffer-class.md": {
+            "hash": "5ecc1833bd771bf1c83b9db16e58226ff0e2a3f68569873dae4a747bb245e6db",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/variant/tobuffer-variant-class.md": {
+            "hash": "f80ba8d3d155b3ce360c986d4e23d9070cfac231ea1ff2962769fb03099c2db7",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/variant/asbuffer-variant-class.md": {
+            "hash": "769f74189f6f3bb6de189b12c3c42aa015a2468e6377ffcd11f2e97fb81ff0b5",
+            "date": "2024-10-04"
         }
     }
 }
