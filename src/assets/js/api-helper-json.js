@@ -312,5 +312,61 @@ $(document).ready(function() {
         });
 
     });
+
+
+    $('.apiHelperJsonToCbor').each(function() {
+        const thisPartial = $(this);
+        const linterElem = $('.apiHelperJsonLinter');
+        const outputElem = $(thisPartial).find('.apiHelperJsonToCborOutput > textarea');
+        const cborStatsDivElem = $(thisPartial).find('.cborStatsDiv');
+        const cborStatsTableBodyElem = $(thisPartial).find('.cborStatsDiv > table > tbody');
+
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperJsonToCborStatus').text(s);
+        }
+
+        const convert = function(options) {
+            const index = parseInt($(linterElem).attr('data-index'));
+            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+            const jsonStr = codeMirror.getValue();
+    
+            try {
+                setStatus('');
+
+                let output = '';
+
+                const json = JSON.parse(jsonStr);
+                
+                console.log('json', json);
+
+                const cbor = CBOR.encode(json);
+
+                // const uint8cbor = new Uint8Array(cbor);
+
+                // $(cborStatsTableBodyElem).
+                $(cborStatsDivElem).show();
+
+                $(cborStatsTableBodyElem).find('.tableStringIn').text(jsonStr.length);
+                $(cborStatsTableBodyElem).find('.tableStringInCompact').text(JSON.stringify(json).length);        
+                $(cborStatsTableBodyElem).find('.tableCborOut').text(cbor.byteLength);
+
+                if (options.toHex) {
+                    output = Array.prototype.map.call(new Uint8Array(cbor), x => ('00' + x.toString(16)).slice(-2)).join('');
+                }
+
+                $(outputElem).val(output);
+            }
+            catch(e) {
+                setStatus('Could not convert to CBOR');
+                console.log('convert exception', e);
+            }
+        }
+
+        $(thisPartial).find('.apiHelperConvertToCborHexButton').on('click', function() {
+            convert({toHex:true});
+        });
+
+    });
 });
 

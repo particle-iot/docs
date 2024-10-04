@@ -1,0 +1,32 @@
+<div class="apiHelper apiHelperJsonToCbor">
+    <div class="apiHelperBox">
+        <p><button class="apiHelperConvertToCborHexButton apiHelperButton">Convert to CBOR (hex)</button> &nbsp;
+            </p>
+        <div class="apiHelperJsonToCborStatus"></div>
+    </div>
+    <div class="cborStatsDiv" style="display:none;">
+        <table class="apiHelperTableNoMargin">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td>JSON String In (as entered above)</td>
+                    <td class="tableStringIn"></td>
+                    <td>characters</td>
+                </tr>
+                <tr>
+                    <td>JSON String In (compact)</td>
+                    <td class="tableStringInCompact"></td>
+                    <td>characters</td>
+                </tr>
+                <tr>
+                    <td>CBOR out</td>
+                    <td class="tableCborOut"></td>
+                    <td>bytes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="apiHelperJsonToCborOutput">
+        <textarea rows="{{rows}}" cols="{{cols}}" class="apiHelperMono"></textarea>
+    </div>
+</div>
