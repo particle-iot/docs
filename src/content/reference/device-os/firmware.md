@@ -1143,24 +1143,70 @@ The size and contents of the event data vary depending on the version of Device 
 In Device OS 6.2 and later, typed publish is supported. This allows the Content-Type of the publish data
 to be specified, and allows for binary data payloads. The following types are supported:
 
+{{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
 | Content Type Constant | MIME Type |
 | :--- | :--- |
 | `ContentType::TEXT` | `text/plain; charset=utf-8` |
 | `ContentType::JPEG` | `image/jpeg` |
 | `ContentType::PNG` | `image/png` |
 | `ContentType::BINARY` | `application/octet-stream` |
+{{!-- END shared-blurb --}}
+
+{{!-- 
+Additionally, JSON (text/json) structured data is supported. This is encoded using an `EventData` object, 
+which is a `Variant`. The `Variant` can be created from a JSON text string, or built programmatically
+by adding fields.
+
+If you are currently publishing events using a JSON string, it's highly recommended that you switch 
+to using a `Variant` with Device OS 6.2 and later. When you do this, the `Variant` is converted into 
+CBOR (binary) format internally before sending, then converted back to JSON in the cloud. This greatly reduces the size of 
+many JSON payloads, allowing for larger data or lower cellular data usage, while maintaining compatibility with
+JSON in external service via webhooks or Logic.
+--}}
 
 ### Particle.publish - Publish
 
+{{since when="6.2.0"}}
 
+Particle.publish publishes an event from a device. This can be received by zero or more subscribers, including:
+
+- External services using a [webhook](/reference/cloud-apis/webhooks/)
+- A [Logic block](/getting-started/logic-ledger/logic/) to perform operations in the cloud
+- Another device using `Particle.subscribe()`
+- The server-sent events (SSE) data stream
+
+There are a variety of overloads for this function, including:
 
 ```cpp
-// PROTOTYPE
+// PROTOTYPES
 particle::Future<bool> publish(const char* name, const char* data, particle::ContentType type, PublishFlags flags = PublishFlags());
-  
 particle::Future<bool> publish(const char* name, const String& data, particle::ContentType type, PublishFlags flags = PublishFlags());
 particle::Future<bool> publish(const char* name, const char* data, size_t size, particle::ContentType type, PublishFlags flags = PublishFlags());particle::Future<bool> publish(const char* name, const particle::EventData& data, PublishFlags flags = PublishFlags());
 ```
+
+### name - Particle.publish - Publish
+
+### data (string) - Particle.publish - Publish
+
+
+### data (pointer and length) - Particle.publish - Publish
+
+### data (EventData)  - Particle.publish - Publish
+
+The `EventData` overload does not `ContentType` value because 
+
+### contentType
+
+{{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
+| Content Type Constant | MIME Type |
+| :--- | :--- |
+| `ContentType::TEXT` | `text/plain; charset=utf-8` |
+| `ContentType::JPEG` | `image/jpeg` |
+| `ContentType::PNG` | `image/png` |
+| `ContentType::BINARY` | `application/octet-stream` |
+{{!-- END shared-blurb --}}
+
+
 
 ### Particle.publish (classic API) - Publish
 

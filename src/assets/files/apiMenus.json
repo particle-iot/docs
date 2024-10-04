@@ -3745,6 +3745,53 @@
       ]
     },
     {
+      "title": "Publish",
+      "dir": "publish",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Publish",
+          "dir": "publish"
+        },
+        {
+          "title": "Limits - Publish - Publish",
+          "dir": "limits-publish"
+        },
+        {
+          "title": "Typed publish - Publish - Publish",
+          "dir": "typed-publish-publish"
+        },
+        {
+          "title": "Particle.publish - Publish - Publish",
+          "dir": "particle-publish-publish"
+        },
+        {
+          "title": "name - Particle.publish - Publish - Publish",
+          "dir": "name-particle-publish-publish"
+        },
+        {
+          "title": "data (string) - Particle.publish - Publish - Publish",
+          "dir": "data-string-particle-publish-publish"
+        },
+        {
+          "title": "data (pointer and length) - Particle.publish - Publish - Publish",
+          "dir": "data-pointer-and-length-particle-publish-publish"
+        },
+        {
+          "title": "data (EventData)  - Particle.publish - Publish - Publish",
+          "dir": "data-eventdata-particle-publish-publish"
+        },
+        {
+          "title": "contentType - Publish",
+          "dir": "contenttype"
+        },
+        {
+          "title": "Particle.publish (classic API) - Publish - Publish",
+          "dir": "particle-publish-classic-api-publish"
+        }
+      ]
+    },
+    {
       "title": "Random numbers",
       "dir": "random-numbers",
       "collapse": true,
@@ -4459,6 +4506,21 @@
         {
           "title": "trim() - String class",
           "dir": "trim"
+        }
+      ]
+    },
+    {
+      "title": "Subscribe",
+      "dir": "subscribe",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Subscribe",
+          "dir": "subscribe"
+        },
+        {
+          "title": "Subscrible (classic API) - Subscribe - Subscribe",
+          "dir": "subscrible-classic-api-subscribe"
         }
       ]
     },

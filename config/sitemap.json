@@ -1735,12 +1735,12 @@
             "hash": "eb9c3169b9fb1610c078685a27e623d04a1bd554b8fa3779727fca0ebce19db4"
         },
         "reference/device-os/api/cloud-functions/particle-publish.md": {
-            "date": "2024-02-27",
-            "hash": "a71b4bf7d7d1f5488e74649f95f1b2b2b1e55024ef20760e0de3b5ff6fc0e16d"
+            "date": "2024-10-04",
+            "hash": "9200252e98bd5357eb5190053beb3b42ce4a02150716e4ceafe4c9988f6b8d76"
         },
         "reference/device-os/api/cloud-functions/particle-subscribe.md": {
-            "date": "2024-03-19",
-            "hash": "8b8ac77fc2e047a94b8202126f21f0a10b62c196ba925dc8137206c91fb74880"
+            "date": "2024-10-04",
+            "hash": "328ed06bfd6d2d959d3b0818abfc14119fbaa8862fbeffcd95a7b777ddcda56a"
         },
         "reference/device-os/api/cloud-functions/particle-unsubscribe.md": {
             "date": "2023-09-20",
@@ -9227,27 +9227,27 @@
             "date": "2024-09-18"
         },
         "reference/device-os/api/buffer/buffer.md": {
-            "hash": "0174c3291576fc490a22421e796d44675081f1c7002a1a8e832ac246810636fa",
+            "hash": "f3d02442ed5ce9da5e3b94662d3e8ec2dcaf683857cc7d2d36ee226d0570ad83",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/constructor-size-buffer-class.md": {
-            "hash": "03c81c72d486bb52480e631cf9a44de041eb357885df3b7eb3a5527b7a864455",
+            "hash": "61ffe60d6e4cfcd003461841591fe4e017d931d06f077d129fcd662439f1d2cd",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/constructor-data-size-buffer-class.md": {
-            "hash": "c09068b9541da2d5aebedbfdd7d4288b892537478699b859ea8af9c298c041ca",
+            "hash": "d04cc8c7107c45bf57f4a644f9170684dd804858021d9884b5d85c1862c1e592",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/data-non-const-buffer-class.md": {
-            "hash": "41b588a54fd1a684cbd9f69426675c675696dd555f35b22c80d60834a2ac90b2",
+            "hash": "adc0512edac41d6aadcc27935f296310db606d23e9f992da043f55eab307be9b",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/data-const-buffer-class.md": {
-            "hash": "b514bbfdb012422266c48dc2798439bdb6202bd98c237918e2a42673bc2b963b",
+            "hash": "e8f802ea754f33be4ff5abffada89aa680140d5a30350669d5480a1b33b737c3",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/size-buffer-class.md": {
-            "hash": "645bc6e29ed945b9eabe9ef8dc4e03f10bab8126336754b6337cb5bd15f7480d",
+            "hash": "5c8128456f9ca52ed862f936bbb27e98426ee43fc76d5f410105280c4c4b9ee0",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/isempty-buffer-class.md": {
@@ -9255,47 +9255,47 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/resize-buffer-class.md": {
-            "hash": "97061d23c46e2bcc1c10fac91b0137c49089c817b6fea7732a3259c376917aa1",
+            "hash": "46a5fe0c5c016cbc618632777ef121ead81f0ac3d5842bf8c146326339b5c344",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/capacity-buffer-class.md": {
-            "hash": "52d5c1494b1160fc3149b4b36f0c3add9e0668c64fe986dac3853cb32565c5f8",
+            "hash": "2a705c0c4b6ad304a64bd26c353e0188481ac395eacd27f36365f475dfee1497",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/reserve-buffer-class.md": {
-            "hash": "686d8f6f44133ad911e43b435d3933a7d9edb9ae4ad24adcffc9f1cd0c9e7652",
+            "hash": "6883e82dfb569a26bd9ed5188236d411cc66aeb3fb3fc34878983a403073ac88",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/trimtosize-buffer-class.md": {
-            "hash": "7d1b462387eaf0e1186e39751cdbc4792443aeed20b1a0c5d20c2a5673fe8526",
+            "hash": "8786e2400b96b9b4fb08eacb3a62c72bd221d6fe77822acec1aedfcd457b39c7",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/tohex-string-buffer-class.md": {
-            "hash": "aeb3cdfa04d3d739ab1298a5d52e8b9642ecf44dc7b8f4e3f5ac3ed83b47fdc5",
+            "hash": "9b6031884b92d0192b747658507922803c7e8fa5ad759ae2bab2641fc43f3003",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/tohex-pointer-size-buffer-class.md": {
-            "hash": "455b6b7e680e0fe1038a9289fe36ad6fb9574cbe28ac3dbf4276bb02cdddf056",
+            "hash": "7866347439552516b3a35217191c565ee00cff913a8369311f03e382b118ea39",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/operator-equality-buffer-class.md": {
-            "hash": "428b3393c01686dd092d8af24484fae6c14de08fd042a24123f014a140deaa15",
+            "hash": "ed6653f88cd93433cfea23e2f8165a6afa6aad69f9164ddb74d46fed2f58b37e",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/operator-inequality-buffer-class.md": {
-            "hash": "de7b659d86e6e2cf9520d1c2ed83aa77cbe97edb0032edd1740556f51fecf3d0",
+            "hash": "71c4b2cccc054970d999f4a910b0f13c2610c51236a454b965e4c6b8315c7dea",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/fromhex-string-static-buffer-class.md": {
-            "hash": "31a2d7d090fb68a91c3d192cc7856211cfe9b3068b4ef65484d83e87d3601c97",
+            "hash": "8e042d1476cb848c4d7e947db9af6c5173fb19281f8bf2d267a78bacef150431",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/fromhex-c-string-static-buffer-class.md": {
-            "hash": "a6c904b21c45b23ad2a30f0d0a400ffcfabe301053ceda7ec39a2958d0c47c1c",
+            "hash": "4c115538a4e74225b0e57e3349a5fa941572f48e7017c14574ee706fddf4d68f",
             "date": "2024-10-04"
         },
         "reference/device-os/api/buffer/fromhex-pointer-size-static-buffer-class.md": {
-            "hash": "5ecc1833bd771bf1c83b9db16e58226ff0e2a3f68569873dae4a747bb245e6db",
+            "hash": "e5b3aee8325a6bc90deef4228651cb5ec660cdf2ca5b1e31bbe9330f10bd2c13",
             "date": "2024-10-04"
         },
         "reference/device-os/api/variant/tobuffer-variant-class.md": {
@@ -9304,6 +9304,54 @@
         },
         "reference/device-os/api/variant/asbuffer-variant-class.md": {
             "hash": "769f74189f6f3bb6de189b12c3c42aa015a2468e6377ffcd11f2e97fb81ff0b5",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/publish.md": {
+            "hash": "529481021c3eea48a165c92a1b6967dfd14c52dd6eef03e2ad700d9942c62cef",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/limits-publish.md": {
+            "hash": "5178de93c4c0c5605d9d49e106ca42741a5afac365660e7c33bd0259bfd4a66e",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/typed-publish-publish.md": {
+            "hash": "d55e1732529e77a7f347771e772f7520c68c6bb1f279adb168fb0bfdf004e9b5",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/particle-publish-publish.md": {
+            "hash": "a3620c6d252cb424bd6bdb0a2f3db9ccaffa366a9471fff46778a15c89eaa6c0",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/name-particle-publish-publish.md": {
+            "hash": "60ee919159fcc7297aa17e722177bff8f070680ac980604ef088f21bd7b6e39e",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/data-string-particle-publish-publish.md": {
+            "hash": "8734a8c6be591f52fd5a756b76f8aacf8eecff44ae55bf7c10ea5a488a24b95d",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/data-pointer-and-length-particle-publish-publish.md": {
+            "hash": "ee5dd364d5ee25f092f4bcd6b57782baa3065f19270856fec95eb59bc281fc0c",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/data-eventdata-particle-publish-publish.md": {
+            "hash": "00fd2a07ab92a1d4f819a7073eecceb7ce9b26cebfd9c8cf64d9b91676420cab",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/contenttype.md": {
+            "hash": "ef654aa4dc18ae304acdedc5ccabbe7282fa62626d2fb5a1ef6a7c83783ad6ac",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/particle-publish-classic-api-publish.md": {
+            "hash": "ba95dc6306d516249a2bea69cd266acb89688ee0241d0f86e60d805358e25341",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/subscribe/subscribe.md": {
+            "hash": "963e59b2a2c2099caeade8280d920f0fe3e6e49be2e6a4621f9980dab1bf5994",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/subscribe/subscrible-classic-api-subscribe.md": {
+            "hash": "90b2f45ea93bc9b7205f7166ada98c11b20230e2459098b02ac22a346c5e5039",
             "date": "2024-10-04"
         }
     }
