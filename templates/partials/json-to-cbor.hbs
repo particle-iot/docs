@@ -1,27 +1,33 @@
 <div class="apiHelper apiHelperJsonToCbor">
     <div class="apiHelperBox">
-        <p><button class="apiHelperConvertToCborHexButton apiHelperButton">Convert to CBOR (hex)</button> &nbsp;
+        <p><button class="apiHelperConvertToCborHexButton apiHelperButton">Convert to CBOR (Hex)</button> &nbsp;
+            <button class="apiHelperConvertToCborBase64Button apiHelperButton">Convert to CBOR (Base64)</button> &nbsp;
             </p>
         <div class="apiHelperJsonToCborStatus"></div>
     </div>
-    <div class="cborStatsDiv" style="display:none;">
+    <div class="cborStatsDiv" style="display:none; margin-bottom:5px;">
         <table class="apiHelperTableNoMargin">
             <thead></thead>
             <tbody>
                 <tr>
                     <td>JSON String In (as entered above)</td>
-                    <td class="tableStringIn"></td>
+                    <td class="tableStringIn tableValue"></td>
                     <td>characters</td>
                 </tr>
                 <tr>
                     <td>JSON String In (compact)</td>
-                    <td class="tableStringInCompact"></td>
+                    <td class="tableStringInCompact tableValue"></td>
                     <td>characters</td>
                 </tr>
                 <tr>
                     <td>CBOR out</td>
-                    <td class="tableCborOut"></td>
+                    <td class="tableCborOut tableValue"></td>
                     <td>bytes</td>
+                </tr>
+                <tr>
+                    <td>CBOR size saving over compact</td>
+                    <td class="tableCborPct tableValue"></td>
+                    <td>%</td>
                 </tr>
             </tbody>
         </table>

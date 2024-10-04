@@ -333,7 +333,9 @@ $(document).ready(function() {
     
             try {
                 setStatus('');
+                $(cborStatsTableBodyElem).find('.tableValue').text('');
 
+            
                 let output = '';
 
                 const json = JSON.parse(jsonStr);
@@ -342,17 +344,31 @@ $(document).ready(function() {
 
                 const cbor = CBOR.encode(json);
 
-                // const uint8cbor = new Uint8Array(cbor);
 
                 // $(cborStatsTableBodyElem).
                 $(cborStatsDivElem).show();
 
+                compactLength = JSON.stringify(json).length;
+
                 $(cborStatsTableBodyElem).find('.tableStringIn').text(jsonStr.length);
-                $(cborStatsTableBodyElem).find('.tableStringInCompact').text(JSON.stringify(json).length);        
+                $(cborStatsTableBodyElem).find('.tableStringInCompact').text(compactLength);        
                 $(cborStatsTableBodyElem).find('.tableCborOut').text(cbor.byteLength);
+                if (compactLength != 0) {
+                    $(cborStatsTableBodyElem).find('.tableCborPct').text(Math.floor(cbor.byteLength * 100 / compactLength));
+                }
 
                 if (options.toHex) {
                     output = Array.prototype.map.call(new Uint8Array(cbor), x => ('00' + x.toString(16)).slice(-2)).join('');
+                }
+                else
+                if (options.toBase64) {
+                    const uint8cbor = new Uint8Array(cbor);
+                    
+                    let binaryString = '';
+                    for (let ii = 0; ii < uint8cbor.byteLength; ii++) {
+                        binaryString += String.fromCharCode(uint8cbor[ii]);
+                    }
+                    output = window.btoa(binaryString);
                 }
 
                 $(outputElem).val(output);
@@ -366,6 +382,11 @@ $(document).ready(function() {
         $(thisPartial).find('.apiHelperConvertToCborHexButton').on('click', function() {
             convert({toHex:true});
         });
+        $(thisPartial).find('.apiHelperConvertToCborBase64Button').on('click', function() {
+            convert({toBase64:true});
+        });
+
+        
 
     });
 });
