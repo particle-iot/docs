@@ -320,49 +320,129 @@ $(document).ready(function() {
         const outputElem = $(thisPartial).find('.apiHelperJsonToCborOutput > textarea');
         const cborStatsDivElem = $(thisPartial).find('.cborStatsDiv');
         const cborStatsTableBodyElem = $(thisPartial).find('.cborStatsDiv > table > tbody');
-
+        const convertFromCborButtonElem = $(thisPartial).find('.apiHelperConvertFromCborButton');
 
         const setStatus = function(s) {
             $(thisPartial).find('.apiHelperJsonToCborStatus').text(s);
         }
 
-        const convert = function(options) {
-            const index = parseInt($(linterElem).attr('data-index'));
-            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
-            const jsonStr = codeMirror.getValue();
-    
-            try {
-                setStatus('');
-                $(cborStatsTableBodyElem).find('.tableValue').text('');
 
+        const convertFromCborInfo = function() {
+            let info = {
+                text: $(outputElem).val(),
+                isHex: false,
+                isBase64: false,
+            };
+            
+            if (!!info.text.match(/^[a-f0-9]+$/i)) {
+                try {
+                    info.cborArray = new Uint8Array(info.text.match(/[a-f0-9]{2}/gi).map(h => {
+                        return parseInt(h, 16)
+                    }));
+                    info.isHex = true;
+                }
+                catch(e) {                    
+                }
+            }
+            else
+            if (info.text.length > 0) {
+                try {
+                    const binaryString = window.atob(info.text);
+                    info.cborArray = new Uint8Array(binaryString.length);
+                    for (let ii = 0; ii < binaryString.length; ii++) {
+                        info.cborArray[ii] = binaryString.charCodeAt(ii);
+                    }
+                    info.isBase64 = true;
+                }
+                catch(e) {
+                }        
+            }
+
+            if (info.cborArray) {
+                try {
+                    info.json = CBOR.decode(info.cborArray.buffer);
+                }
+                catch(e) {
+                    console.log('exception converting from cbor', e);
+                }
+            }
+            
+            console.log('convertFromCborInfo', info);
+            
+            return info;
+        }
+
+        const convertToCborInfo = function() {
+            let info = {};
+            const index = parseInt($(linterElem).attr('data-index'));
+            
+            info.codeMirror = apiHelper.jsonLinterCodeMirror[index];
+            info.jsonStr = info.codeMirror.getValue();
+
+            try {
+                info.json = JSON.parse(info.jsonStr);
+                    
+                info.cbor = CBOR.encode(info.json);
+
+                info.compactLength = JSON.stringify(info.json).length;
+                if (info.compactLength != 0) {
+                    info.pctSaved = Math.floor(info.cbor.byteLength * 100 / info.compactLength);
+                }
+                else {
+                    info.pctSaved = 0;
+                }
+
+            }
+            catch(e) {
+            }
+
+            console.log('convertToCborInfo', info);
+            
+
+            return info;
+        }
+
+        const convertFromCborInfoEnableButton = function() {
+            const info = convertFromCborInfo();
+            console.log('convertFromCborInfoEnableButton convertFromCborInfo', info);
+
+            if (info.json) {
+                $(convertFromCborButtonElem).prop('disabled', false);
+            }
+            else {
+                $(convertFromCborButtonElem).prop('disabled', true);
+            }
+        }
+        const updateStats = function(info) {
+            $(cborStatsTableBodyElem).find('.tableValue').text('');
+
+            $(cborStatsDivElem).show();
+            $(cborStatsTableBodyElem).find('.tableStringIn').text(info.jsonStr.length);
+            $(cborStatsTableBodyElem).find('.tableStringInCompact').text(info.compactLength);        
+            if (info.cbor) {
+                $(cborStatsTableBodyElem).find('.tableCborOut').text(info.cbor.byteLength);
+                if (info.compactLength != 0) {
+                    $(cborStatsTableBodyElem).find('.tableCborPct').text(info.pctSaved);
+                }
+            }
+        }
+
+        const convertToCbor = function(options) {    
+            try {
+                $(cborStatsDivElem).hide();
+                setStatus('');
             
                 let output = '';
 
-                const json = JSON.parse(jsonStr);
-                
-                console.log('json', json);
-
-                const cbor = CBOR.encode(json);
-
-
-                // $(cborStatsTableBodyElem).
-                $(cborStatsDivElem).show();
-
-                compactLength = JSON.stringify(json).length;
-
-                $(cborStatsTableBodyElem).find('.tableStringIn').text(jsonStr.length);
-                $(cborStatsTableBodyElem).find('.tableStringInCompact').text(compactLength);        
-                $(cborStatsTableBodyElem).find('.tableCborOut').text(cbor.byteLength);
-                if (compactLength != 0) {
-                    $(cborStatsTableBodyElem).find('.tableCborPct').text(Math.floor(cbor.byteLength * 100 / compactLength));
-                }
+                const info = convertToCborInfo();                
+                updateStats(info);
 
                 if (options.toHex) {
-                    output = Array.prototype.map.call(new Uint8Array(cbor), x => ('00' + x.toString(16)).slice(-2)).join('');
+                    output = Array.prototype.map.call(new Uint8Array(info.cbor), x => ('00' + x.toString(16)).slice(-2)).join('');
                 }
                 else
                 if (options.toBase64) {
-                    const uint8cbor = new Uint8Array(cbor);
+                    const uint8cbor = new Uint8Array(info.cbor);
                     
                     let binaryString = '';
                     for (let ii = 0; ii < uint8cbor.byteLength; ii++) {
@@ -372,6 +452,8 @@ $(document).ready(function() {
                 }
 
                 $(outputElem).val(output);
+
+                convertFromCborInfoEnableButton();
             }
             catch(e) {
                 setStatus('Could not convert to CBOR');
@@ -379,14 +461,44 @@ $(document).ready(function() {
             }
         }
 
+
+        $(outputElem).on('input', function() {
+            $(cborStatsDivElem).hide();
+            $(cborStatsTableBodyElem).find('.tableValue').text('');
+            convertFromCborInfoEnableButton();
+        });
+
         $(thisPartial).find('.apiHelperConvertToCborHexButton').on('click', function() {
-            convert({toHex:true});
+            convertToCbor({toHex:true});
         });
         $(thisPartial).find('.apiHelperConvertToCborBase64Button').on('click', function() {
-            convert({toBase64:true});
+            convertToCbor({toBase64:true});
+        });
+        $(convertFromCborButtonElem).on('click', function() {
+            const index = parseInt($(linterElem).attr('data-index'));
+            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+    
+            try {
+                $(cborStatsDivElem).hide();
+                setStatus('');
+
+                const info = convertFromCborInfo();
+                if (info.json) {
+                    codeMirror.setValue(JSON.stringify(info.json, null, 4));
+
+                    const info2 = convertToCborInfo();
+                    updateStats(info2);    
+                }                
+            }
+            catch(e) {
+                setStatus('Could not convert from CBOR');
+                console.log('convert exception', e);
+            }
         });
 
         
+        
+
 
     });
 });
