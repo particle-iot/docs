@@ -405,369 +405,17 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 ### Particle.publish()
 
-{{api name1="Particle.publish"}}
+Publish an event through the Particle Device Cloud. This can trigger a [webhook](/reference/cloud-apis/webhooks/) to an external service, a [Logic block](/getting-started/logic-ledger/logic/) to perform operations in the cloud, or another device using `Particle.subscribe()`.
 
-Publish an *event* through the Particle Device Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
-This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
+See [Publish](#publish), below.
 
-Particle.publish pushes the value out of the device at a time controlled by the device firmware. Particle.variable allows the value to be pulled from the device when requested from the cloud side.
-
-Cloud events have the following properties:
-
-* name (1–64 ASCII characters)
-
-**Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
-
-* optional data. The data has a maximum size of 255 to 1024 bytes of UTF-8 characters; see [API Field Limits](#overview-of-api-field-limits) as the limit varies depending on Device OS version and sometimes the device.
-
-A device may not publish events beginning with a case-insensitive match for "spark".
-Such events are reserved for officially curated data originating from the Cloud.
-
-Calling `Particle.publish()` when the cloud connection has been turned off will not publish an event. This is indicated by the return success code of `false`. 
-
-If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, `Particle.publish()` may block for up to 20 seconds (normal conditions) to 10 minutes (unusual conditions). Checking `Particle.connected()` can before calling `Particle.publish()` can help prevent this.
-
-String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
-
-**NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
-
-**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
-
-**NOTE 3:** Public events are not supported by the cloud as of August 2020. Specifying PUBLIC or leaving out the publish scope essentially results in a private event. 
-
-For non-product devices, events published by a device can be subscribed to:
-
-- By other devices claimed to the same account
-- By webhooks for the user the device is claimed to
-- By the SSE event stream for the user the device is claimed to
-
-For product devices, events published by a device can be subscribed to:
-
-- By other devices claimed to the same account, if the device is claimed
-- By webhooks for the user the device is claimed to, if the device is claimed
-- By the SSE event stream for the user the device is claimed to, if the device is claimed
-- By product webhooks for the product the device is associated with, whether or not the device is claimed
-- By the SSE event stream for the product the device is associated with, whether or not the device is claimed
-
-Public events could previously be received by anyone on the Internet, and anyone could generate events to send to your devices. This did not turn out to a common use-case, and the ease at which you could accidentally use this mode, creating a security hole, caused it to be removed.
-
-Each publish uses one Data Operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
-
-{{!-- BEGIN shared-blurb e18d206a-9ba9-11ec-b909-0242ac120002 --}}
-- Publishes are not end-to-end confirmed. Even if the `Particle.publish` returns true, there is no guarantee that any recipient (another device, webhook, or SSE) will receive it.
-- It is possible to receive an event more than once. The most common reason is a lost ACK, which will cause the device to send the event again. Storing a unique identifier in the event payload may help code defensively for this possibility.
-- It is possible that events will arrive out-of-order. The most common cause is retransmission, but it can also occur because events can flow through different redundant servers, each with slightly difference latency, so it's possible that two event sent rapidly will arrive out-of-order as well. This is common for multi-part webhook responses.
-- It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
-{{!-- END shared-blurb --}}
- 
----
-
-Publish an event with the given name and no data. 
-
-```cpp
-// SYNTAX
-Particle.publish(const char *eventName, PublishFlags flags);
-Particle.publish(String eventName, PublishFlags flags);
-```
-
-**Returns:**
-A `bool` indicating success: (true or false)
-
-```cpp
-// EXAMPLE USAGE
-bool success;
-success = Particle.publish("motion-detected");
-if (!success) {
-  // get here if event publish did not work
-}
-
-// EXAMPLE USAGE - This format is no longer necessary
-// PRIVATE is the default and only option now
-bool success;
-success = Particle.publish("motion-detected", PRIVATE);
-if (!success) {
-  // get here if event publish did not work
-}
-```
-
----
-
-```cpp
-// PROTOTYPES
-particle::Future<bool> publish(const char* name);
-particle::Future<bool> publish(const char* name, const char* data);
-
-// EXAMPLE USAGE 1
-Particle.publish("temperature", "19");
-
-// EXAMPLE USAGE 2
-int temp = 19;
-Particle.publish("temperature", String(temp));
-
-// EXAMPLE USAGE 3
-float temp = 19.5;
-Particle.publish("temperature", String::format("%.1f", temp);
-```
-
-Publish an event with the given name and data. 
-
-The data must be a string in the ASCII or UTF-8 character set. If you have an integer or floating point value, you'll need to convert it to a string first.
-
-You cannot publish binary data with Particle.publish. To send binary data, convert it to a string using hex or Base 64 encoding. 
-
-While Base85 (Ascii85) provides a more dense encoding than Base64, it is not recommended if you are publishing data to be sent to an external server by a webhook. The Base85 alphabet includes the left curly bracket, and the `\{{` sequence is recognized as a mustache template delimiter during webhook processing, causing the data to be corrupted. The backslash can also cause unexpected data transformation.
-
----
-
-```cpp
-// EXAMPLE - Check if event was queued for publishing successfully
-float temp = 19.5;
-bool success = Particle.publish("temperature", String::format("%.1f", temp);
-
-// EXAMPLE - Check if event was queued for publishing successfully
-float temp = 19.5;
-bool success = Particle.publish("temperature", String::format("%.1f", temp);
-
-```
-
-Normally, you store or test the result of Particle.publish in a `bool` variable that indicates that the event was queued for publishing successfully, or reached the cloud, when used with `WITH_ACK`.
-
-But what is the `particle::Future<bool>` in the prototype above? See the application note [AN009 Firmware Examples](/firmware/low-power/stop-sleep-cellular/#the-future) for how to use a Future to make the otherwise synchronous Particle.publish() call asynchronous. 
-
----
-
-```json
-COMPLEMENTARY API CALL
-GET /v1/events/{EVENT_NAME}
-
-# EXAMPLE REQUEST
-curl -H "Authorization: Bearer {ACCESS_TOKEN_GOES_HERE}" \
-    https://api.particle.io/v1/events/motion-detected
-
-# Will return a stream that echoes text when your event is published
-event: motion-detected
-data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
-```
-
-
----
-
-{{note op="start" type="cellular"}}
-
-```cpp
-// PROTOTYPES
-particle::Future<bool> publish(const char* name, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
-particle::Future<bool> publish(const char* name, const char* data, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
-
-// SYNTAX
-
-float temperature = sensor.readTemperature();  // by way of example, not part of the API
-Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
-```
-
-On Gen 2 cellular devices (Electron, E-Series) and all Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, E404X):
-
-*`NO_ACK` flag*
-
-Unless specified otherwise, events sent to the cloud are sent as a reliable message. The device waits for
-acknowledgement from the cloud that the event has been received, resending the event in the background up to 3 times before giving up.
-
-The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
-
-For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
-
-{{note op="end"}}
-
----
-
-
-```cpp
-// SYNTAX
-bool success = Particle.publish("motion-detected", NULL, WITH_ACK);
-
-// No longer necessary, PRIVATE is always used even when not specified
-bool success = Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
-```
-
-*`WITH_ACK` flag*
-
-{{since when="0.6.1"}}
-
-This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud. 
-
-If you do not use `WITH_ACK` then the request is still acknowledged internally, and retransmission attempted up to 3 times, but `Particle.publish()` will return more quickly.
-
----
-
-{{since when="0.7.0"}}
-
-```cpp
-// EXAMPLE - combining Particle.publish() flags
-// No longer necessary, PRIVATE is always used even when not specified
-Particle.publish("motion-detected", PRIVATE | WITH_ACK);
-```
-
-`Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
-
-
----
-
-For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream.
-
----
-
-```cpp
-// SYNTAX - DEPRECATED
-Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
-Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
-```
-
-Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
-
-Even if you use `NO_ACK` mode and do not check the result code from `Particle.publish()` it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if you publish while in the process of attempting to reconnect to the network. At a minimum, you should make sure that `Particle.connected()` returns true before publishing. Doing [publish operations from a separate worker thread](https://github.com/rickkas7/BackgroundPublishRK) is another option. 
 
 ### Particle.subscribe()
 
-{{api name1="Particle.subscribe"}}
-
 Subscribe to events published by devices.
 
-This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
-
-```cpp
-SerialLogHandler logHandler;
-int i = 0;
-
-void myHandler(const char *event, const char *data)
-{
-  i++;
-  Log.info("%d: event=%s data=%s", i, event, (data ? data : "NULL"));
-}
-
-void setup()
-{
-  Particle.subscribe("temperature", myHandler);
-}
-```
-
-To use `Particle.subscribe()`, define a handler function and register it, typically in `setup()`.
-
----
-
-You can register a method in a C++ object as a subscription handler.
-
-```cpp
-#include "Particle.h"
-
-SerialLogHandler logHandler;
-
-class MyClass {
-public:
-	MyClass();
-	virtual ~MyClass();
-
-	void setup();
-
-	void subscriptionHandler(const char *eventName, const char *data);
-};
-
-MyClass::MyClass() {
-}
-
-MyClass::~MyClass() {
-}
-
-void MyClass::setup() {
-	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
-}
-
-void MyClass::subscriptionHandler(const char *eventName, const char *data) {
-	Log.info("eventName=%s data=%s", eventName, data);
-}
-
-// In this example, MyClass is a globally constructed object.
-MyClass myClass;
-
-void setup() {
-	myClass.setup();
-}
-
-void loop() {
-
-}
-```
-
-You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
-
-Each event delivery attempt to a subscription handler uses one Data Operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
-
-If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/cloud-apis/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
-
-```cpp
-Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler, MY_DEVICES);
-```
-
----
-
-A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
-
-Received events will be passed to a handler function similar to `Particle.function()`.
-A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
-
-- The first argument is the full name of the published event.
-- The second argument (which may be NULL) is any data that came along with the event.
-
-`Particle.subscribe()` returns a `bool` indicating success. It is OK to register a subscription when
-the device is not connected to the cloud - the subscription is automatically registered
-with the cloud next time the device connects.
-
-See [special webhook events](/reference/cloud-apis/api/#special-webhook-events) for more details about handling multipart responses from a webhook in your subscription handler.
-
-- A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`. On some versions of Device OS on some devices the limit may be higher.
-
-- `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
-
-- You can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once. The subscriptions are only updated once loop is running, however. During setup() the subscription will not yet be active. Very old versions of Device OS (prior to 1.0.0) may behave differently.
-
-
----
-
-Prior to August 2020, you could subscribe to the public event stream using `ALL_DEVICES`. This is no longer possible as the public event stream no longer exists. Likewise, `MY_DEVICES` is no longer necessary as that is the only option now.
-
-```cpp
-// This syntax is no longer necessary
-Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
-Particle.subscribe("the_event_prefix", theHandler, ALL_DEVICES);
-```
-
----
-
-- Unclaimed devices can only be used in a product.
-- Unclaimed devices can send product events.
-- Unclaimed devices can receive function calls and variable requests from the product.
-- Unclaimed devices can receive events using Particle.subscribe as of March 2023. This was not previously possible.
-
-The behavior of unclaimed product devices with respect to subscribing to events changed in March 2023:
-
-{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
-- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
-- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
-- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
-- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
-- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
-{{!-- END shared-blurb --}}
-
----
-
-Additionally:
-
-{{!-- BEGIN shared-blurb e18d206a-9ba9-11ec-b909-0242ac120002 --}}
-- Publishes are not end-to-end confirmed. Even if the `Particle.publish` returns true, there is no guarantee that any recipient (another device, webhook, or SSE) will receive it.
-- It is possible to receive an event more than once. The most common reason is a lost ACK, which will cause the device to send the event again. Storing a unique identifier in the event payload may help code defensively for this possibility.
-- It is possible that events will arrive out-of-order. The most common cause is retransmission, but it can also occur because events can flow through different redundant servers, each with slightly difference latency, so it's possible that two event sent rapidly will arrive out-of-order as well. This is common for multi-part webhook responses.
-- It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
-{{!-- END shared-blurb --}}
+See [Subscibe](#below), below.
 
 
 ### Particle.unsubscribe()
@@ -1460,6 +1108,424 @@ void setup() {
     Particle.publish("particle/device/random");
 }
 ```
+
+## Publish
+
+{{api name1="Particle.publish"}}
+
+Publish an event through the Particle Device Cloud. This can trigger a [webhook](/reference/cloud-apis/webhooks/) to an external service, a [Logic block](/getting-started/logic-ledger/logic/) to perform operations in the cloud, or another device using `Particle.subscribe()`.
+
+This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
+
+### Limits - Publish
+
+Each event contains:
+
+- An event name (1-64 ASCII characters)
+- Event data (optional)
+- A timestamp (generated in the cloud)
+- Device ID (identifies the publisher of the event)
+
+The size and contents of the event data vary depending on the version of Device OS running on the device.
+
+| Device OS Version | Gen | Size Limit | Binary Data |
+| :--- | :--- | :--- | :---: |
+| > 6.2.0 | Gen 3 & 4 | 1024 bytes | Allowed |
+| 3.x - 6.1.x | Gen 3 & 4 | 1024 UTF-8 characters | |
+| 3.x | Gen 2 | 864 UTF-8 characters | |
+| 0.8.0 - 2.x | Gen 2 & 3 | 622 UTF-8 characters | |
+| < 0.8.0 | All | 255 UTF-8 characters | |
+
+### Typed publish - Publish
+
+{{since when="6.2.0"}}
+
+In Device OS 6.2 and later, typed publish is supported. This allows the Content-Type of the publish data
+to be specified, and allows for binary data payloads. The following types are supported:
+
+| Content Type Constant | MIME Type |
+| :--- | :--- |
+| `ContentType::TEXT` | `text/plain; charset=utf-8` |
+| `ContentType::JPEG` | `image/jpeg` |
+| `ContentType::PNG` | `image/png` |
+| `ContentType::BINARY` | `application/octet-stream` |
+
+### Particle.publish - Publish
+
+
+
+```cpp
+// PROTOTYPE
+particle::Future<bool> publish(const char* name, const char* data, particle::ContentType type, PublishFlags flags = PublishFlags());
+  
+particle::Future<bool> publish(const char* name, const String& data, particle::ContentType type, PublishFlags flags = PublishFlags());
+particle::Future<bool> publish(const char* name, const char* data, size_t size, particle::ContentType type, PublishFlags flags = PublishFlags());particle::Future<bool> publish(const char* name, const particle::EventData& data, PublishFlags flags = PublishFlags());
+```
+
+### Particle.publish (classic API) - Publish
+
+Particle.publish pushes the value out of the device at a time controlled by the device firmware. Particle.variable allows the value to be pulled from the device when requested from the cloud side.
+
+Cloud events have the following properties:
+
+* name (1–64 ASCII characters)
+
+**Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+
+* optional data. The data has a maximum size of 255 to 1024 bytes of UTF-8 characters; see [API Field Limits](#overview-of-api-field-limits) as the limit varies depending on Device OS version and sometimes the device.
+
+A device may not publish events beginning with a case-insensitive match for "spark".
+Such events are reserved for officially curated data originating from the Cloud.
+
+Calling `Particle.publish()` when the cloud connection has been turned off will not publish an event. This is indicated by the return success code of `false`. 
+
+If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, `Particle.publish()` may block for up to 20 seconds (normal conditions) to 10 minutes (unusual conditions). Checking `Particle.connected()` can before calling `Particle.publish()` can help prevent this.
+
+String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
+
+**NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
+
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+
+**NOTE 3:** Public events are not supported by the cloud as of August 2020. Specifying PUBLIC or leaving out the publish scope essentially results in a private event. 
+
+For non-product devices, events published by a device can be subscribed to:
+
+- By other devices claimed to the same account
+- By webhooks for the user the device is claimed to
+- By the SSE event stream for the user the device is claimed to
+
+For product devices, events published by a device can be subscribed to:
+
+- By other devices claimed to the same account, if the device is claimed
+- By webhooks for the user the device is claimed to, if the device is claimed
+- By the SSE event stream for the user the device is claimed to, if the device is claimed
+- By product webhooks for the product the device is associated with, whether or not the device is claimed
+- By the SSE event stream for the product the device is associated with, whether or not the device is claimed
+
+Public events could previously be received by anyone on the Internet, and anyone could generate events to send to your devices. This did not turn out to a common use-case, and the ease at which you could accidentally use this mode, creating a security hole, caused it to be removed.
+
+Each publish uses one Data Operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
+
+{{!-- BEGIN shared-blurb e18d206a-9ba9-11ec-b909-0242ac120002 --}}
+- Publishes are not end-to-end confirmed. Even if the `Particle.publish` returns true, there is no guarantee that any recipient (another device, webhook, or SSE) will receive it.
+- It is possible to receive an event more than once. The most common reason is a lost ACK, which will cause the device to send the event again. Storing a unique identifier in the event payload may help code defensively for this possibility.
+- It is possible that events will arrive out-of-order. The most common cause is retransmission, but it can also occur because events can flow through different redundant servers, each with slightly difference latency, so it's possible that two event sent rapidly will arrive out-of-order as well. This is common for multi-part webhook responses.
+- It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
+{{!-- END shared-blurb --}}
+ 
+---
+
+Publish an event with the given name and no data. 
+
+```cpp
+// SYNTAX
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
+```
+
+**Returns:**
+A `bool` indicating success: (true or false)
+
+```cpp
+// EXAMPLE USAGE
+bool success;
+success = Particle.publish("motion-detected");
+if (!success) {
+  // get here if event publish did not work
+}
+
+// EXAMPLE USAGE - This format is no longer necessary
+// PRIVATE is the default and only option now
+bool success;
+success = Particle.publish("motion-detected", PRIVATE);
+if (!success) {
+  // get here if event publish did not work
+}
+```
+
+---
+
+```cpp
+// PROTOTYPES
+particle::Future<bool> publish(const char* name);
+particle::Future<bool> publish(const char* name, const char* data);
+
+// EXAMPLE USAGE 1
+Particle.publish("temperature", "19");
+
+// EXAMPLE USAGE 2
+int temp = 19;
+Particle.publish("temperature", String(temp));
+
+// EXAMPLE USAGE 3
+float temp = 19.5;
+Particle.publish("temperature", String::format("%.1f", temp);
+```
+
+Publish an event with the given name and data. 
+
+The data must be a string in the ASCII or UTF-8 character set. If you have an integer or floating point value, you'll need to convert it to a string first.
+
+You cannot publish binary data with Particle.publish. To send binary data, convert it to a string using hex or Base 64 encoding. 
+
+While Base85 (Ascii85) provides a more dense encoding than Base64, it is not recommended if you are publishing data to be sent to an external server by a webhook. The Base85 alphabet includes the left curly bracket, and the `\{{` sequence is recognized as a mustache template delimiter during webhook processing, causing the data to be corrupted. The backslash can also cause unexpected data transformation.
+
+---
+
+```cpp
+// EXAMPLE - Check if event was queued for publishing successfully
+float temp = 19.5;
+bool success = Particle.publish("temperature", String::format("%.1f", temp);
+
+// EXAMPLE - Check if event was queued for publishing successfully
+float temp = 19.5;
+bool success = Particle.publish("temperature", String::format("%.1f", temp);
+
+```
+
+Normally, you store or test the result of Particle.publish in a `bool` variable that indicates that the event was queued for publishing successfully, or reached the cloud, when used with `WITH_ACK`.
+
+But what is the `particle::Future<bool>` in the prototype above? See the application note [AN009 Firmware Examples](/firmware/low-power/stop-sleep-cellular/#the-future) for how to use a Future to make the otherwise synchronous Particle.publish() call asynchronous. 
+
+---
+
+```json
+COMPLEMENTARY API CALL
+GET /v1/events/{EVENT_NAME}
+
+# EXAMPLE REQUEST
+curl -H "Authorization: Bearer {ACCESS_TOKEN_GOES_HERE}" \
+    https://api.particle.io/v1/events/motion-detected
+
+# Will return a stream that echoes text when your event is published
+event: motion-detected
+data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
+```
+
+
+---
+
+{{note op="start" type="cellular"}}
+
+```cpp
+// PROTOTYPES
+particle::Future<bool> publish(const char* name, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
+particle::Future<bool> publish(const char* name, const char* data, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
+
+// SYNTAX
+
+float temperature = sensor.readTemperature();  // by way of example, not part of the API
+Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
+```
+
+On Gen 2 cellular devices (Electron, E-Series) and all Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, E404X):
+
+*`NO_ACK` flag*
+
+Unless specified otherwise, events sent to the cloud are sent as a reliable message. The device waits for
+acknowledgement from the cloud that the event has been received, resending the event in the background up to 3 times before giving up.
+
+The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
+
+For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
+
+{{note op="end"}}
+
+---
+
+
+```cpp
+// SYNTAX
+bool success = Particle.publish("motion-detected", NULL, WITH_ACK);
+
+// No longer necessary, PRIVATE is always used even when not specified
+bool success = Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
+```
+
+*`WITH_ACK` flag*
+
+{{since when="0.6.1"}}
+
+This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud. 
+
+If you do not use `WITH_ACK` then the request is still acknowledged internally, and retransmission attempted up to 3 times, but `Particle.publish()` will return more quickly.
+
+---
+
+{{since when="0.7.0"}}
+
+```cpp
+// EXAMPLE - combining Particle.publish() flags
+// No longer necessary, PRIVATE is always used even when not specified
+Particle.publish("motion-detected", PRIVATE | WITH_ACK);
+```
+
+`Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
+
+
+---
+
+For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream.
+
+---
+
+```cpp
+// SYNTAX - DEPRECATED
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
+```
+
+Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
+
+Even if you use `NO_ACK` mode and do not check the result code from `Particle.publish()` it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if you publish while in the process of attempting to reconnect to the network. At a minimum, you should make sure that `Particle.connected()` returns true before publishing. Doing [publish operations from a separate worker thread](https://github.com/rickkas7/BackgroundPublishRK) is another option. 
+
+
+## Subscribe
+
+{{api name1="Particle.subscribe"}}
+
+Subscribe to events published by devices.
+
+This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
+
+### Subscrible (classic API) - Subscribe
+
+```cpp
+SerialLogHandler logHandler;
+int i = 0;
+
+void myHandler(const char *event, const char *data)
+{
+  i++;
+  Log.info("%d: event=%s data=%s", i, event, (data ? data : "NULL"));
+}
+
+void setup()
+{
+  Particle.subscribe("temperature", myHandler);
+}
+```
+
+To use `Particle.subscribe()`, define a handler function and register it, typically in `setup()`.
+
+---
+
+You can register a method in a C++ object as a subscription handler.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void setup();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+}
+
+MyClass::~MyClass() {
+}
+
+void MyClass::setup() {
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+	myClass.setup();
+}
+
+void loop() {
+
+}
+```
+
+You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
+
+Each event delivery attempt to a subscription handler uses one Data Operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
+
+If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/cloud-apis/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
+
+```cpp
+Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler, MY_DEVICES);
+```
+
+---
+
+A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
+
+Received events will be passed to a handler function similar to `Particle.function()`.
+A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
+
+- The first argument is the full name of the published event.
+- The second argument (which may be NULL) is any data that came along with the event.
+
+`Particle.subscribe()` returns a `bool` indicating success. It is OK to register a subscription when
+the device is not connected to the cloud - the subscription is automatically registered
+with the cloud next time the device connects.
+
+See [special webhook events](/reference/cloud-apis/api/#special-webhook-events) for more details about handling multipart responses from a webhook in your subscription handler.
+
+- A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`. On some versions of Device OS on some devices the limit may be higher.
+
+- `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+
+- You can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once. The subscriptions are only updated once loop is running, however. During setup() the subscription will not yet be active. Very old versions of Device OS (prior to 1.0.0) may behave differently.
+
+
+---
+
+Prior to August 2020, you could subscribe to the public event stream using `ALL_DEVICES`. This is no longer possible as the public event stream no longer exists. Likewise, `MY_DEVICES` is no longer necessary as that is the only option now.
+
+```cpp
+// This syntax is no longer necessary
+Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+Particle.subscribe("the_event_prefix", theHandler, ALL_DEVICES);
+```
+
+---
+
+- Unclaimed devices can only be used in a product.
+- Unclaimed devices can send product events.
+- Unclaimed devices can receive function calls and variable requests from the product.
+- Unclaimed devices can receive events using Particle.subscribe as of March 2023. This was not previously possible.
+
+The behavior of unclaimed product devices with respect to subscribing to events changed in March 2023:
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
+{{!-- END shared-blurb --}}
+
+---
+
+Additionally:
+
+{{!-- BEGIN shared-blurb e18d206a-9ba9-11ec-b909-0242ac120002 --}}
+- Publishes are not end-to-end confirmed. Even if the `Particle.publish` returns true, there is no guarantee that any recipient (another device, webhook, or SSE) will receive it.
+- It is possible to receive an event more than once. The most common reason is a lost ACK, which will cause the device to send the event again. Storing a unique identifier in the event payload may help code defensively for this possibility.
+- It is possible that events will arrive out-of-order. The most common cause is retransmission, but it can also occur because events can flow through different redundant servers, each with slightly difference latency, so it's possible that two event sent rapidly will arrive out-of-order as well. This is common for multi-part webhook responses.
+- It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
+{{!-- END shared-blurb --}}
+
+
 
 ## Ethernet
 
@@ -13794,8 +13860,9 @@ around `std::vector<char>` with additional convenience methods for encoding the 
 The `Variant` class has been extended to store arbitrary binary data in a `Buffer`. A Variant containing a `Buffer` 
 cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
 
-
 ### constructor(size) [Buffer class]
+
+Constuct a buffer pre-allocated to `size`.
 
 ```cpp
 // PROTOTYPE
@@ -13804,10 +13871,17 @@ explicit Buffer(size_t size);
 
 ### constructor(data, size) [Buffer class]
 
+Construct a buffer from a pointer (`data`) and `size`.
+
 ```cpp
 // PROTOTYPE
 Buffer(const char* data, size_t size)
 ```
+
+The buffer contains a copy of the data in a newly allocated block of memory.
+The source data does not need to be null-terminated and can contain arbitrary
+binary data.
+
 
 ### data() non-const [Buffer class]
 
@@ -13844,7 +13918,7 @@ Return the size of the buffer (number of bytes).
 size_t size() const 
 ```
 
-This is the actual size of the data, see also `reserve()` and `capacity()` for more information.
+This is the size of the data, see also `reserve()` and `capacity()` for more information.
 
 ### isEmpty() [Buffer class]
 
@@ -13879,7 +13953,7 @@ size_t capacity() const
 ```
 
 It is possible to reserve additional bytes at the end of the buffer that are larger than
-the data size. This allows for more efficient appending to the buffer when you know
+the size. This allows for more efficient appending to the buffer when you know
 the eventual size, and eliminates multiple reallocations.
 
 ### reserve() [Buffer class]
@@ -13891,12 +13965,15 @@ Adds reserved bytes to the buffer. The size must be larger than the current capa
 bool reserve(size_t size) 
 ```
 
-This can only be used to reserve additional space. To make the buffer smaller, use
+This can only be used to reserve additional space. To make the allocated buffer smaller, use
 trimToSize().
 
 It is possible to reserve additional bytes at the end of the buffer that are larger than
 the data size. This allows for more efficient appending to the buffer when you know
 the eventual size, and eliminates multiple reallocations.
+
+Normally you will use `resize()` to change the number of bytes used; this call is only
+for affecting the underlying memory used.
 
 
 ### trimToSize() [Buffer class]
@@ -13908,10 +13985,14 @@ Reduce the memory allocation for the buffer.
 bool trimToSize()
 ```
 
+This cannot be used to make the allocated buffer larger. See `reserve()`. 
+
 It is possible to reserve additional bytes at the end of the buffer that are larger than
 the data size. This call removes these bytes. It's normally not necessary to use this,
 as the size is separate from capacity and you will normally use the size.
 
+Normally you will use `resize()` to change the number of bytes used; this call is only
+for affecting the underlying memory used.
 
 ### toHex() (String) [Buffer class]
 
@@ -13919,7 +14000,7 @@ Convert the buffer to hexaedcimal encoding. Returns a `String` object containing
 
 ```cpp
 // PROTOTYPE
-String toHex()
+String toHex() const
 ```
 
 ### toHex() (pointer, size) [Buffer class]
@@ -13975,7 +14056,7 @@ Create a `Buffer` object from hexadecimal data specified by pointer and length.
 
 ```cpp
 // PROTOTYPE
-static Buffer fromHex(const char* str, size_t len);
+static Buffer fromHex(const char* str, size_t len)
 ```
 
 When specifing `str` and `len`, the string and length should specify the data
