@@ -308,23 +308,9 @@
         ]
       }
     },
-    "description": "<p>Delete your unused or lost tokens. Note: Pass your Particle username and password using HTTP Basic Auth.</p> <p>DEPRECATED. Use the <code>DELETE /v1/access_tokens/current</code> endpoint instead.</p>",
+    "description": "<p>Delete your unused or lost tokens.</p> <p>DEPRECATED. Use the <code>DELETE /v1/access_tokens/current</code> endpoint instead.</p>",
     "name": "DeleteAccessToken",
     "group": "Authentication.5",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "isArray": false,
-            "description": "<p>Your Particle username and password</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
