@@ -38,6 +38,57 @@ Base 64 format for compatibility with the existing infrastructure such as webhoo
 work well with binary data, which cannot be represented directly in JSON. The maximum size of the event is based on the binary
 size, however, and the size after Base 64 encoding can exceed 1024 bytes.
 
+### Binary example
+
+Say you have this binary data that you publish from a device:
+
+```
+0000: a7 22 98 1c 40 1b 9b 80 bb 9d d9 c0 13 bb 4e d0   |  "  @         N 
+0010: a3 c0 ae 81 c5 93 91 2a 83 8e 69 27 b0 c6 17 26   |        *  i'   &
+0020: 85 93 b7 a6 f5 69 c0 4c 9e 3d 53 49 b5 47 f0 44   |      i L =SI G D
+0030: 26 9b 8a 1d e4 bc 73 f9 4d a4 e8 34 c2 56 17 c9   | &     s M  4 V  
+```
+
+A webhook receiving this payload will
 
 
+```
+data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
+```
+
+## Structured data
+
+Particle has long-recommended using JSON format for sending data from your device to the cloud using Particle.publish.
+
+With Device OS 6.2 and later, you can now send structured data more efficiently over-the-air without affecting your
+back-end services and webhooks.
+
+Say, for example, your device publishes this JSON data currently:
+
+```json
+{"a":123,"b":"test","c":true,"d":[1,2,3]}
+```
+
+This is 41 characters of JSON data in the compact form, above.
+
+With Device OS 6.2 structured data, this will be converted into CBOR format instead of JSON over-the-air. CBOR is a compact
+binary format that is generally interchangeable with JSON. The same data ca be represented (losslessly) in 21 bytes of binary CBOR 
+data, a savings of 51%.
+
+Since CBOR and be converted to and from JSON transparently, that is exactly what the cloud does before sending the data to
+webhooks and SSE. Your webhook will continue to see JSON data as before, but it will be transmitted more efficiently over-the-air.
+
+Furthermore, the 1024 byte publish limit in 6.2.x and earlier occurs after the conversion to CBOR, so you can publish significantly
+larger JSON data than before.
+
+### Structured binary data
+
+Additionally, you can include binary data ("buffer") in your structured data. This is kept in binary format in the CBOR data stream so it
+does not use additional data over-the-wire, as was the case when encoding to hex, Base64, or Base85 on-device. When the cloud 
+receives the binary data, it expands it into a JSON object containing meta information and Base64 encoded data. This allows
+for easy processing in Logic, webhooks, or SSE.
+
+```json
+{"a":1234,"b":{"_type":"buffer","_data":"ncrk3+mvVzOLV1XWflF3HA=="}}
+```
 
