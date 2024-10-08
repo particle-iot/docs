@@ -82,7 +82,7 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 
 ### Features
 
-{{imageOverlay src="/assets/images/m-series/muon-labeled.png" alt="Features labeled" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-labeled-v0.4.png" alt="Features labeled" class="full-width"}}
 
 | Label | Feature |
 | :---: | :--- |
