@@ -314,6 +314,14 @@ $(document).ready(function() {
     });
 
 
+    const base64toUint8Array = function(s) {
+        const binaryString = window.atob(s);
+        let a = new Uint8Array(binaryString.length);
+        for (let ii = 0; ii < binaryString.length; ii++) {
+            a[ii] = binaryString.charCodeAt(ii);
+        }    
+        return a;    
+    }
 
 
     $('.apiHelperJsonToCbor').each(function() {
@@ -349,11 +357,7 @@ $(document).ready(function() {
             else
             if (info.text.length > 0) {
                 try {
-                    const binaryString = window.atob(info.text);
-                    info.cborArray = new Uint8Array(binaryString.length);
-                    for (let ii = 0; ii < binaryString.length; ii++) {
-                        info.cborArray[ii] = binaryString.charCodeAt(ii);
-                    }
+                    info.cborArray = base64toUint8Array(info.text);
                     info.isBase64 = true;
                 }
                 catch(e) {
@@ -565,17 +569,158 @@ $(document).ready(function() {
         });
     });
 
-    const binaryToReadable = function(array) {
-        let result = '';
+    const renderBinary = function(array, options) {
+        let output = '';
+        // options:
+        //   indent (string, required)
 
-        const bytesPerLine = 32;
+        const bytesPerLine = 16;
 
         for(let lineStart = 0; lineStart < array.length; lineStart += bytesPerLine) {
 
+            output += options.indent + ('0000' + lineStart.toString(16)).slice(-4) + ': ';
+
+            for(let ii = 0; ii < bytesPerLine; ii++) {
+                if ((lineStart + ii) < array.length) {
+                    output += ('00' + array.at(lineStart + ii).toString(16)).slice(-2) + ' ';
+                }
+                else {
+                    output += '   ';
+                }
+            }
+
+            output += '  | ';
+
+            for(let ii = 0; ii < bytesPerLine; ii++) {
+                if ((lineStart + ii) < array.length) {
+                    const c = array.at(lineStart + ii);
+                    if (c >= 32 && c < 127) {
+                        output += String.fromCharCode(c);
+                    }
+                    else {
+                        output += ' ';
+                    }
+                }
+                else {
+                    output += ' ';
+                }
+            }
+
+            output += '\n';
+        }
+        return output;
+    }
+
+    const jsonEscapedString = function(s) {
+        let result = '"';
+        
+
+        for(const codePoint of s) {
+            const cp = codePoint.codePointAt(0);
+            if (cp == 0x22 || cp == 0x2f || cp == 0x5c) {
+                // Double quote, slash, or backslash
+                result += '\\' + String.fromCodePoint(cp);
+            }
+            else
+            if (cp == 0x08) {
+                result += '\\b'; // backspace
+            }
+            else
+            if (cp == 0x0c) {
+                result += '\\f'; // formfeed
+            }
+            else
+            if (cp == 0x0a) {
+                result += '\\n'; // linefeed
+            }
+            else
+            if (cp == 0x0d) {
+                result += '\\r'; // carriage return
+            }
+            else
+            if (cp == 0x09) {
+                result += '\\t'; // horizontal tab
+            }
+            else 
+            if (cp >= 0x20 && cp < 0x7f) {
+                result += String.fromCodePoint(cp);
+            }
+            else {
+                cp += '\\u' + ('0000' + lineStart.toString(cp)).slice(-4);
+            }
         }
 
+        result += '"';
         return result;
     }
+
+    const renderValue = function(value, options) {
+        let output = '';
+        // options:
+        //   indent (string, required) - only on second and subsequent lines
+        //   commaSeparator (string, required) 
+
+        if (typeof value == 'object') {
+            let options2 = Object.assign({}, options);
+            options2.indent += '  ';
+
+            let isObject = false;
+
+            if (Array.isArray(value)) {
+                output += '[\n';
+
+                for(let ii = 0; ii < value.length; ii++) {
+                    options2.commaSeparator = ((ii + 1) < value.length) ? ',' : '';
+                    output += renderValue(value[ii], options2);
+                }
+
+                output += options2.indent + ']' + options.commaSeparator + '\n';
+            }
+            else
+            if (typeof value['_type'] == 'string' && typeof value['_data'] != 'undefined') {
+                if (value['_type'] == 'buffer') {
+                    output += '\n';
+                    const array = base64toUint8Array(value['_data']);
+                    output += options2.indent + '[binary buffer ' + array.length + ' bytes]\n';
+                    output += renderBinary(array, options2);
+                }
+                else {
+                    isObject = true;
+                }
+            }
+            else {
+                isObject = true;
+            }
+
+
+            if (isObject) {
+                output += '{\n';
+                const keys = Object.keys(value);
+                for(let ii = 0; ii < keys.length; ii++) {
+                    options2.commaSeparator = ((ii + 1) < keys.length) ? ',' : '';
+        
+                    const key = keys[ii];
+                    
+                    output += options2.indent + jsonEscapedString(key) + ': ';
+
+                    output += renderValue(value[key], options2);
+                }        
+
+                output += options.indent + '}' + options.commaSeparator + '\n';
+            }
+        }
+        else
+        if (typeof value == 'string') {
+            output += jsonEscapedString(value) + options.commaSeparator + '\n'
+        }
+        else {
+            // TODO: Handle null, bool, etc here!
+            output += value.toString() + options.commaSeparator + '\n';
+        }
+
+        return output;
+    }
+
 
     $('.apiHelperEventDecoder').each(function() {
         const thisPartial = $(this);
@@ -604,7 +749,25 @@ $(document).ready(function() {
                     for (let ii = 0; ii < binaryString.length; ii++) {
                         binaryArray[ii] = binaryString.charCodeAt(ii);
                     }
+
+                    let output = renderBinary(binaryArray, {indent: '',});
+                    $(decoderOutputElem).val(output);
                 }
+                
+                // See if it's JSON
+                try {
+                    let json = JSON.parse(eventData);
+
+                    let output = renderValue(json, {indent: '', commaSeparator:'', });
+
+                    $(decoderOutputElem).val(output);
+                    
+                }
+                catch(e) {         
+                    // Don't log an error here, as it will happen for any non-JSON data           
+                    console.log('json exception', e);
+                }
+
             }  
             catch(e) {
                 console.log('decode exception', e);
