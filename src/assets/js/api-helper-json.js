@@ -314,6 +314,8 @@ $(document).ready(function() {
     });
 
 
+
+
     $('.apiHelperJsonToCbor').each(function() {
         const thisPartial = $(this);
         const linterElem = $('.apiHelperJsonLinter');
@@ -495,11 +497,120 @@ $(document).ready(function() {
                 console.log('convert exception', e);
             }
         });
-
-        
-        
-
-
     });
+
+    $('.apiHelperJsonToVariant').each(function() {
+        const thisPartial = $(this);
+        const linterElem = $('.apiHelperJsonLinter');
+        const outputElem = $(thisPartial).find('.apiHelperJsonToCodeOutput > textarea');
+        const convertButtonElem = $(thisPartial).find('.apiHelperCodeGeneratorButton');
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperJsonToCodeStatus').text(s);
+        }
+
+        $(convertButtonElem).on('click', function() {
+            const index = parseInt($(linterElem).attr('data-index'));
+            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+
+            try {
+                let info = {
+                    codeMirror,
+                };
+
+                setStatus('');
+
+                info.jsonStr = info.codeMirror.getValue();
+
+                info.json = JSON.parse(info.jsonStr);
+                
+
+                const variantValue = function(value, indent, output) {
+                    // TODO": Add boolean, null
+                    if (typeof value == 'number') {
+                        return 'Variant(' + value + ')';
+                    }
+                    else
+                    if (typeof value == 'string') {
+                        // TODO: escape string
+                        return 'Variant(\"' + value + '\")';
+                    }
+                    else 
+                    if (typeof value == 'object') {
+                        if (Array.isArray(value)) {
+                            // Array
+                        }
+                        else {
+                            // Map
+                        }
+                    }
+
+                }
+
+                const processObject = function(obj, indent, output) {
+                    // output += 
+                    for(const key in obj) {
+                    }
+                }
+                info.output = '';
+                processObject(info.json, 0, info.output);
+
+                console.log('info', info);
+                                
+            }
+            catch(e) {
+                setStatus('Could not generate code');
+                console.log('convert exception', e);
+            }
+        });
+    });
+
+    const binaryToReadable = function(array) {
+        let result = '';
+
+        const bytesPerLine = 32;
+
+        for(let lineStart = 0; lineStart < array.length; lineStart += bytesPerLine) {
+
+        }
+
+        return result;
+    }
+
+    $('.apiHelperEventDecoder').each(function() {
+        const thisPartial = $(this);
+
+        const decoderInputElem = $(thisPartial).find('.decoderInput');
+        const decoderOutputElem = $(thisPartial).find('.decoderOutput');
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperEventDecoderStatus').text(s);
+        }
+
+        $(decoderInputElem).on('input', function() {
+            const eventData = $(decoderInputElem).val();
+            console.log('eventData', eventData);
+
+            $(decoderOutputElem).val('');
+
+            try {
+                // TODO: Make this more tolerant!
+                if (eventData.startsWith('data:application/octet-stream;base64')) {
+                    const commaIndex = eventData.indexOf(',');
+                    const base64 = eventData.substring(commaIndex + 1);
+
+                    const binaryString = window.atob(base64);
+                    binaryArray = new Uint8Array(binaryString.length);
+                    for (let ii = 0; ii < binaryString.length; ii++) {
+                        binaryArray[ii] = binaryString.charCodeAt(ii);
+                    }
+                }
+            }  
+            catch(e) {
+                console.log('decode exception', e);
+            }
+        });
+    });
+
 });
 
