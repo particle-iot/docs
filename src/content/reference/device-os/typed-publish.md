@@ -92,3 +92,19 @@ for easy processing in Logic, webhooks, or SSE.
 {"a":1234,"b":{"_type":"buffer","_data":"ncrk3+mvVzOLV1XWflF3HA=="}}
 ```
 
+### Using Variant
+
+## Publish
+
+### Publish with content type
+
+### Publish with variant
+
+## Subscribe
+
+### Subscribe with content type
+
+### Subscribe with variant
+
+### Webhook response subscriptions
+

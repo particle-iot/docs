@@ -38,7 +38,6 @@ CBOR is a compact binary representation of structured data that can be converted
 {{> json-to-cbor rows="10" cols="90"}}
 
 
-{{!-- 
 ### Variant generator
 
 Using the Variant class to generate JSON data on-device can simplify your code and greatly reduce
@@ -46,5 +45,3 @@ data size, because in Device OS 6.2 and later, your object is transparently conv
 air and converted to JSON in the cloud.
 
 {{> json-to-variant rows="10" cols="90"}}
-
---}}
