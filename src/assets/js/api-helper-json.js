@@ -503,71 +503,6 @@ $(document).ready(function() {
         });
     });
 
-    $('.apiHelperJsonToVariant').each(function() {
-        const thisPartial = $(this);
-        const linterElem = $('.apiHelperJsonLinter');
-        const outputElem = $(thisPartial).find('.apiHelperJsonToCodeOutput > textarea');
-        const convertButtonElem = $(thisPartial).find('.apiHelperCodeGeneratorButton');
-
-        const setStatus = function(s) {
-            $(thisPartial).find('.apiHelperJsonToCodeStatus').text(s);
-        }
-
-        $(convertButtonElem).on('click', function() {
-            const index = parseInt($(linterElem).attr('data-index'));
-            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
-
-            try {
-                let info = {
-                    codeMirror,
-                };
-
-                setStatus('');
-
-                info.jsonStr = info.codeMirror.getValue();
-
-                info.json = JSON.parse(info.jsonStr);
-                
-
-                const variantValue = function(value, indent, output) {
-                    // TODO": Add boolean, null
-                    if (typeof value == 'number') {
-                        return 'Variant(' + value + ')';
-                    }
-                    else
-                    if (typeof value == 'string') {
-                        // TODO: escape string
-                        return 'Variant(\"' + value + '\")';
-                    }
-                    else 
-                    if (typeof value == 'object') {
-                        if (Array.isArray(value)) {
-                            // Array
-                        }
-                        else {
-                            // Map
-                        }
-                    }
-
-                }
-
-                const processObject = function(obj, indent, output) {
-                    // output += 
-                    for(const key in obj) {
-                    }
-                }
-                info.output = '';
-                processObject(info.json, 0, info.output);
-
-                console.log('info', info);
-                                
-            }
-            catch(e) {
-                setStatus('Could not generate code');
-                console.log('convert exception', e);
-            }
-        });
-    });
 
     const renderBinary = function(array, options) {
         let output = '';
@@ -667,14 +602,15 @@ $(document).ready(function() {
             let isObject = false;
 
             if (Array.isArray(value)) {
-                output += '[\n';
+                output += '\n';
+                output += options.indent + '[\n';
 
                 for(let ii = 0; ii < value.length; ii++) {
                     options2.commaSeparator = ((ii + 1) < value.length) ? ',' : '';
-                    output += renderValue(value[ii], options2);
+                    output += options2.indent + renderValue(value[ii], options2);
                 }
 
-                output += options2.indent + ']' + options.commaSeparator + '\n';
+                output += options.indent + ']' + options.commaSeparator + '\n';
             }
             else
             if (typeof value['_type'] == 'string' && typeof value['_data'] != 'undefined') {
@@ -694,7 +630,8 @@ $(document).ready(function() {
 
 
             if (isObject) {
-                output += '{\n';
+                output += '\n';
+                output += options.indent + '{\n';
                 const keys = Object.keys(value);
                 for(let ii = 0; ii < keys.length; ii++) {
                     options2.commaSeparator = ((ii + 1) < keys.length) ? ',' : '';
@@ -721,6 +658,97 @@ $(document).ready(function() {
         return output;
     }
 
+    const renderIndent = function(level, spaces = 4) {
+        return '                                            '.substring(0, level * spaces);
+    }
+
+
+    $('.apiHelperJsonToVariant').each(function() {
+        const thisPartial = $(this);
+        const linterElem = $('.apiHelperJsonLinter');
+        const outputElem = $(thisPartial).find('.apiHelperJsonToCodeOutput > textarea');
+        const convertButtonElem = $(thisPartial).find('.apiHelperCodeGeneratorButton');
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperJsonToCodeStatus').text(s);
+        }
+
+        $(convertButtonElem).on('click', function() {
+            const index = parseInt($(linterElem).attr('data-index'));
+            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+
+            try {
+                let info = {
+                    codeMirror,
+                };
+
+                setStatus('');
+
+                info.jsonStr = info.codeMirror.getValue();
+
+                info.json = JSON.parse(info.jsonStr);
+                
+                /*
+                const renderValue = function(value, options) {
+                    // options:
+                    //   indent (string, required): inserted at the beginning of each line
+                    let output = '';
+
+                    const options2 = Object.assign({}, options);
+                    options2.level++;
+
+                    const name = (options.level == 1) ? options.name : (options.name + options.level);
+
+                    // TODO: Add boolean, null
+                    if (typeof value == 'number') {
+                        output += options.indent + 'Variant '+ options.name + '(' + value.toString() + ')';
+                    }
+                    else
+                    if (typeof value == 'string') {
+                        output +=  'Variant' + options.name + '(' + jsonEscapedString (value) + ')';
+                    }
+                    else 
+                    if (typeof value == 'object') {
+                        output += renderIndent(options.level) + '{\n';
+
+                        if (Array.isArray(value)) {
+                            // Array
+                            output += renderIndent(options2.level) + 'VariantArray ' + name + ';\n';
+                            for(const v of value) {
+                                
+                            }
+
+                        }
+                        else {
+                            // Map
+                            output += renderIndent(options2.level) + 'VariantMap ' + name + ';\n';
+                            for(const key in value) {
+
+                            }        
+                        }
+                        output += renderIndent(options.level) + '}\n';
+                    }
+                    return output;
+                }
+                */
+
+                
+
+                info.output = '';
+
+                // info.output += renderValue(info.json, {level: 1, name: 'map'});
+
+                console.log('info', info);
+
+                $(outputElem).val(info.output);
+                                
+            }
+            catch(e) {
+                setStatus('Could not generate code');
+                console.log('convert exception', e);
+            }
+        });
+    });
 
     $('.apiHelperEventDecoder').each(function() {
         const thisPartial = $(this);
