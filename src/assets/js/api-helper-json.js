@@ -688,8 +688,7 @@ $(document).ready(function() {
 
                 info.json = JSON.parse(info.jsonStr);
                 
-                /*
-                const renderValue = function(value, options) {
+                const renderVariant = function(value, options) {
                     // options:
                     //   indent (string, required): inserted at the beginning of each line
                     let output = '';
@@ -701,11 +700,11 @@ $(document).ready(function() {
 
                     // TODO: Add boolean, null
                     if (typeof value == 'number') {
-                        output += options.indent + 'Variant '+ options.name + '(' + value.toString() + ')';
+                        output += options.indent + 'Variant '+ options.name + '(' + value.toString() + ');\n';
                     }
                     else
                     if (typeof value == 'string') {
-                        output +=  'Variant' + options.name + '(' + jsonEscapedString (value) + ')';
+                        output +=  'Variant ' + options.name + '(' + jsonEscapedString (value) + ');\n';
                     }
                     else 
                     if (typeof value == 'object') {
@@ -722,21 +721,31 @@ $(document).ready(function() {
                         else {
                             // Map
                             output += renderIndent(options2.level) + 'VariantMap ' + name + ';\n';
-                            for(const key in value) {
+                            options2.addToParent = function(childName) {
+                                return renderIndent(options2.level + 1) + name + '.set(key, childName)\n';
+                            };
 
+                            for(const key in value) {
+                                output += renderIndent(options2.level) + '{\n';
+                                
+                                output += renderIndent(options2.level + 1) + renderVariant(value[key], options2) + ';\n';
+
+                                output += renderIndent(options2.level) + '}\n';
                             }        
                         }
                         output += renderIndent(options.level) + '}\n';
                     }
+                    if (options.addToParent) {
+                        output += options.addToParent(name);
+                    }
                     return output;
                 }
-                */
-
                 
 
+            
                 info.output = '';
 
-                // info.output += renderValue(info.json, {level: 1, name: 'map'});
+                info.output += renderVariant(info.json, {level: 0, name: 'obj', addToParent: () => {}, });
 
                 console.log('info', info);
 
