@@ -140,19 +140,64 @@ Power can be supplied to Muon by:
 - Expansion card (hat)
 - PoE (with appropriate adapter)
 
-#### LiPo battery connector
+#### USB-C cable warning
 
-The Muon has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One for connection to a 3.7V LiPo battery pack 
-with an integrated temperature sensor (10K NTC thermistor).
+You must use an actual USB-C port or USB-C power adapter to power the Muon by USB.
 
-Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
+**A USB-A to USB-C cable will not power the Muon or charge the battery**
 
-<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+The reason is that the Muon uses USB-C PD to change the USB port voltage to 9V and request enough
+current to power the Muon. 
 
-<p class="attribution">Facing the plug on the battery side</p>
+When using a USB-2 or USB-3 port with USB-A to USB-C adapter cable, the USB port voltage cannot
+be changed and the port will not be able to power the Muon.
 
+#### Expansion and peripheral power
 
-If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
+The onboard peripherals including Ethernet, the LoRa radio, and the expansion card are powered by the
+3V3_AUX power supply.
+
+If you use [setup.particle.io](https://setup.particle.io/) to set up your Muon, 3V3_AUX will be set up
+automatically. 
+
+If you want to do it manually, the following code can be used to enable power and Ethernet on the Muon. This only needs to be done
+once and the device must be reset after configuration for the changes to take effect.
+
+```cpp
+// Enable 3V3_AUX
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A7);
+System.setPowerConfiguration(powerConfig);
+
+// Enable Ethernet
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+remap.cs_pin = A3;
+remap.reset_pin = PIN_INVALID;
+remap.int_pin = A4;
+auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+```
+
+{{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
+Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
+that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
+it powers the Ethernet port and LoRaWAN module.
+
+The main reason for this is that until the PMIC is configured, the input current with no battery
+connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
+using a peripheral that requires a lot of current, like the WIZnet W5500 Ethernet module. The 
+system power manager prevents turning on `3V3_AUX` until after the PMIC is configured
+and the PMIC has negotiated a higher current from the USB host (if powered by USB).
+
+This setting is persistent and only needs to be set once. In fact, the PMIC initialization
+normally occurs before user firmware is run. This is also necessary because if you are using Ethernet
+and enter safe mode (breathing magenta), it's necessary to enable `3V3_AUX` so if you are using
+Ethernet, you can still get OTA updates while in safe mode.
+
+After changing the auxiliary power configuration you must reset the device.
+{{!-- END shared-blurb --}}
 
 #### Expansion card power
 
@@ -176,6 +221,21 @@ This is one such adapter, made by [Waveshare](https://www.waveshare.com/product/
 ![PoE hat](/assets/images/m-series/waveshare-poe-hat.png)
 
 Be sure the J15 jumper is connecting pins 1 & 2 to allow the expansion connector 5V to power the Muon.
+
+
+#### LiPo battery connector
+
+The Muon has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One for connection to a 3.7V LiPo battery pack 
+with an integrated temperature sensor (10K NTC thermistor).
+
+Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
+
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+
+<p class="attribution">Facing the plug on the battery side</p>
+
+
+If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
 
 
 ### RF
