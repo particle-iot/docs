@@ -696,15 +696,15 @@ $(document).ready(function() {
                     const options2 = Object.assign({}, options);
                     options2.level++;
 
-                    const name = (options.level == 1) ? options.name : (options.name + options.level);
+                    const name = (options.level == 0) ? options.name : (options.name + options.level);
 
                     // TODO: Add boolean, null
                     if (typeof value == 'number') {
-                        output += options.indent + 'Variant '+ options.name + '(' + value.toString() + ');\n';
+                        output += options.addToParent('Variant(' + value.toString() + ')');
                     }
                     else
                     if (typeof value == 'string') {
-                        output +=  'Variant ' + options.name + '(' + jsonEscapedString (value) + ');\n';
+                        output += options.addToParent('Variant(' + jsonEscapedString(value) + ')');
                     }
                     else 
                     if (typeof value == 'object') {
@@ -714,29 +714,34 @@ $(document).ready(function() {
                             // Array
                             output += renderIndent(options2.level) + 'VariantArray ' + name + ';\n';
                             for(const v of value) {
-                                
+                                options2.addToParent = function(childValueOrVariable) {
+                                    return renderIndent(options2.level) + name + '.append(' + childValueOrVariable + ');\n';
+                                };
+                                    
+                                output += renderVariant(v, options2);                                
                             }
 
                         }
                         else {
                             // Map
                             output += renderIndent(options2.level) + 'VariantMap ' + name + ';\n';
-                            options2.addToParent = function(childName) {
-                                return renderIndent(options2.level + 1) + name + '.set(key, childName)\n';
-                            };
 
                             for(const key in value) {
-                                output += renderIndent(options2.level) + '{\n';
-                                
-                                output += renderIndent(options2.level + 1) + renderVariant(value[key], options2) + ';\n';
 
-                                output += renderIndent(options2.level) + '}\n';
+                                options2.addToParent = function(childValueOrVariable) {
+                                    return renderIndent(options2.level) + name + '.set(' + jsonEscapedString(key) + ', ' + childValueOrVariable + ');\n';
+                                };
+                                    
+                                output += renderVariant(value[key], options2);
                             }        
                         }
+                        if (options.addToParent) {
+                            // Add one extra indent because it's inside a {} pair
+                            output += renderIndent(1) + options.addToParent(name);
+                        }    
+
                         output += renderIndent(options.level) + '}\n';
-                    }
-                    if (options.addToParent) {
-                        output += options.addToParent(name);
+
                     }
                     return output;
                 }
@@ -745,7 +750,7 @@ $(document).ready(function() {
             
                 info.output = '';
 
-                info.output += renderVariant(info.json, {level: 0, name: 'obj', addToParent: () => {}, });
+                info.output += renderVariant(info.json, {level: 0, name: 'obj', });
 
                 console.log('info', info);
 
