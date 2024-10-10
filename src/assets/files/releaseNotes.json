@@ -42325,6 +42325,35 @@
             "state": "closed",
             "created_at": "2024-09-16T18:40:15Z",
             "detail": "In order to allow older bootloaders to boot into a larger system-part1 without any modifications we can keep a “fake” module info header in the normal/old location @ 0x30000 + 0x200 (vector table size). All it needs to contain is proper platform id, start and end addresses, so that (end - start) equals sizeof(vector table) + sizeof(module info) + sizeof(dynalib table). This whole section needs to be CRC32-d and CRC32 appended immediately after dynalib. This should allow the checks in https://github.com/particle-iot/device-os/blob/v5.9.0/bootloader/src/nRF52840/dfu_usb.c#L15 to pass and current bootloaders will correctly jump into a larger system-part1. All at the cost of 24 bytes of module info header and a kilo of makefile/linker magic.\n\nPR also enables running 5.8.0 to 6.0.0 applications now that everything has been merged together."
+        },
+        "2832": {
+            "url": "https://github.com/particle-iot/device-os/pull/2832",
+            "number": 2832,
+            "title": "Tether API + mm support",
+            "state": "open",
+            "created_at": "2024-10-04T00:38:14Z"
+        },
+        "2833": {
+            "url": "https://github.com/particle-iot/device-os/pull/2833",
+            "number": 2833,
+            "title": "feat: [sc-131054] Remove access_token query param from Device OS makefile",
+            "state": "closed",
+            "created_at": "2024-10-04T20:12:14Z"
+        },
+        "2834": {
+            "url": "https://github.com/particle-iot/device-os/pull/2834",
+            "number": 2834,
+            "title": "make SYSTEM_THREAD(ENABLED) the default, add deprecation warning on SYSTEM_THREAD() macro use",
+            "state": "open",
+            "created_at": "2024-10-08T18:42:52Z",
+            "detail": "1. Make SYSTEM_THREAD(ENABLED) the default, add deprecation warning on SYSTEM_THREAD() macro use\n2. Remove a bunch of deprecated HAL API wrappers after a set of renamings in Device OS 4.x LTS.\n\nUpgrade `@particle/device-os-test-runner` to 0.11.1 to make sure that default `systemThread()` testing sequence is now `enabled`, `disabled` vs previous `disabled`, `enabled`."
+        },
+        "2835": {
+            "url": "https://github.com/particle-iot/device-os/pull/2835",
+            "number": 2835,
+            "title": "[photon2] ethernet: use 12.5MHz as the default SPI clock rate for W5500",
+            "state": "closed",
+            "created_at": "2024-10-09T20:07:49Z"
         }
     }
 }
