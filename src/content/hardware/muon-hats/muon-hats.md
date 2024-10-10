@@ -17,8 +17,8 @@ Additional pages include:
 
 - [Automation hats](/hardware/muon-hats/automation-hats/) for home automation.
 - [Environmental hats](/hardware/muon-hats/environmental-hats/) for environment monitoring.
-- [Display hats](/hardware/muon-hats/automation-hats/) LED and OLED displays.
-- [RS485 and CAN hat](/hardware/muon-hats/automation-hats/) for interfacing with Modbus or CAN bus.
+- [Display hats](/hardware/muon-hats/display-hats/) LED and OLED displays.
+- [RS485 and CAN hat](/hardware/muon-hats/rs485-can-hat/) for interfacing with Modbus or CAN bus.
 
 ## Contributing
 
