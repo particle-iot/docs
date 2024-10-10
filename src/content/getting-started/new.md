@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 5.9.0 GA 2024-10-10
+
+Device OS 5.9.0 is now generally available (GA) and the default release for P2/Photon 2 and M-SoM.
+
 ### Hex generator fix 2024-10-02
 
 Fixed an issue where the [Hex Generator](/tools/developer-tools/hex-generator/) did not show the list of platforms and
