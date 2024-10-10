@@ -1184,18 +1184,29 @@ particle::Future<bool> publish(const char* name, const String& data, particle::C
 particle::Future<bool> publish(const char* name, const char* data, size_t size, particle::ContentType type, PublishFlags flags = PublishFlags());particle::Future<bool> publish(const char* name, const particle::EventData& data, PublishFlags flags = PublishFlags());
 ```
 
-### name - Particle.publish - Publish
+#### name - Particle.publish - Publish
 
-### data (string) - Particle.publish - Publish
+This is the name of the event, which can be 1 - 64 ASCII characters.
 
+#### data (string) - Particle.publish - Publish
 
-### data (pointer and length) - Particle.publish - Publish
+The event data can consist of UTF-8 characters. The length depends on the device and Device OS version, but is typically
+limited to 1024 bytes.
 
-### data (EventData)  - Particle.publish - Publish
+This can be specified as a `const char *` (pointer to c-string, null-terminated), or a reference to a `String` object.
 
-The `EventData` overload does not `ContentType` value because 
+#### data (pointer and length) - Particle.publish - Publish
 
-### contentType
+In Device OS 6.2 and later, the data can be specified with a pointer and length. This is typically used for binary
+data, and in particular, data that can contain a null byte. It can be used for text if your data source is not
+null-terminated.
+
+#### data (EventData)  - Particle.publish - Publish
+
+The `EventData` overload does not `ContentType` value because it is used for structured data in a `Variant` and is always
+encoded as CBOR over-the-air, and JSON in webhooks and other locations. It can optionally include binary data.
+
+#### contentType
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
 | Content Type Constant | MIME Type |
@@ -1206,7 +1217,8 @@ The `EventData` overload does not `ContentType` value because
 | `ContentType::BINARY` | `application/octet-stream` |
 {{!-- END shared-blurb --}}
 
-
+The content type provides a hint to the receiver for what the data is. This includes the console, which can render 
+some types of data in the event stream.
 
 ### Particle.publish (classic API) - Publish
 
@@ -1434,6 +1446,51 @@ Even if you use `NO_ACK` mode and do not check the result code from `Particle.pu
 Subscribe to events published by devices.
 
 This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
+
+### Subscribe (with content type) - Subscribe
+
+```cpp
+// PROTOTYPES
+bool subscribe(const char* name, particle::EventHandlerWithContentType handler);
+bool subscribe(const char* name, particle::EventHandlerWithContentTypeFn handler);
+
+typedef void (*EventHandlerWithContentType)(const char* name, const char* data, size_t size, ContentType type);
+typedef std::function<void(const char* name, const char* data, size_t size, ContentType type)> EventHandlerWithContentTypeFn;
+
+// EventHandlerWithContentType handler function prototype
+void myHandler(const char* name, const char* data, size_t size, ContentType type)
+
+// EventHandler function prototype (classic API)
+void myHandler(const char *event_name, const char *data)
+```
+
+The new API passes both a `data` and a `size` allowing it to be used with data that contains null bytes,
+including binary data. The `ContentType` is also passed to the handler for the handler to use as desired.
+
+
+### Subscribe (with Variant) - Subscribe
+
+If you are expecting structured data, use the subscribe overloada that takes a handler with a Variant.
+
+```cpp
+// PROTOTYPES
+bool subscribe(const char* name, particle::EventHandlerWithVariant handler);
+bool subscribe(const char* name, particle::EventHandlerWithVariantFn handler);
+ 
+// Handler definitions
+typedef void (*EventHandlerWithVariant)(const char* name, EventData data);
+typedef std::function<void(const char* name, EventData data)> EventHandlerWithVariantFn;
+
+// EventHandlerWithVariant handler function prototype
+void myHandler(const char* name, EventData data);
+void myHandler(const char* name, Variant data);
+
+// EventData definition
+typedef Variant EventData;
+```
+
+The `Variant` overload does not have a `ContentType` because Variant data is always CBOR over-the-air and JSON via webhooks and SSE.
+
 
 ### Subscrible (classic API) - Subscribe
 
