@@ -27,12 +27,12 @@ There are currently five data types, including the following:
 
 The `TEXT` format is what was used prior to Device OS 6.2.
 
-The image data types are not particularly useful in Device OS 6.2, as the publish is limited to 1024 bytes still,
+The image data types are not particularly useful in Device OS 6.2.0, as the publish is limited to 1024 bytes still,
 and those would be very small images. However, they will become more useful with large publish payloads in the 
 future. By specifying the data type, it allows the receiver to better handle the data. It also allows the console
-to render the data within the console!
+to render the data within the console.
 
-For the first time, you can now send binary data! This is sent in binary format over the air (in CoAP packets), so it does not
+For the first time, you can now send binary data! This is sent in binary format over the air (in the CoAP packet), so it does not
 expand the data as encoding with Base64 and Base85 would. Once the data is received by the cloud, it is then encoded in 
 Base 64 format for compatibility with the existing infrastructure such as webhooks, SSE, and the console which would not
 work well with binary data, which cannot be represented directly in JSON. The maximum size of the event is based on the binary
@@ -49,11 +49,24 @@ Say you have this binary data that you publish from a device:
 0030: 26 9b 8a 1d e4 bc 73 f9 4d a4 e8 34 c2 56 17 c9   | &     s M  4 V  
 ```
 
-A webhook receiving this payload will
-
+A webhook using \{{{PARTICLE_EVENT_VALUE}} will receive this payload:
 
 ```
 data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
+```
+
+This is encoded in the [Data URL format](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data). 
+
+Specifically, the cloud encodes binary data in Base 64 in a Data URL. This can easily be parsed by most services. Since the Base 64 data is still
+text and valid JSON, it is compatible with both the default webhook template, as well as custom templates that use Mustache templates.
+
+```json
+{
+  "event": "{{{PARTICLE_EVENT_NAME}}}",
+  "data": "{{{PARTICLE_EVENT_VALUE}}}",
+  "coreid": "{{{PARTICLE_DEVICE_ID}}}",
+  "published_at": "{{{PARTICLE_PUBLISHED_AT}}}"
+}
 ```
 
 ## Structured data
@@ -72,7 +85,7 @@ Say, for example, your device publishes this JSON data currently:
 This is 41 characters of JSON data in the compact form, above.
 
 With Device OS 6.2 structured data, this will be converted into CBOR format instead of JSON over-the-air. CBOR is a compact
-binary format that is generally interchangeable with JSON. The same data ca be represented (losslessly) in 21 bytes of binary CBOR 
+binary format that is generally interchangeable with JSON. The same data can be represented losslessly in 21 bytes of binary CBOR 
 data, a savings of 51%.
 
 Since CBOR and be converted to and from JSON transparently, that is exactly what the cloud does before sending the data to
@@ -88,11 +101,27 @@ does not use additional data over-the-wire, as was the case when encoding to hex
 receives the binary data, it expands it into a JSON object containing meta information and Base64 encoded data. This allows
 for easy processing in Logic, webhooks, or SSE.
 
+For example, you could use this code:
+
+```cpp
+VariantMap map;
+
+map.set("a", Variant(1234));
+map.set("b", Variant(Buffer::fromHex("9dcae4dfe9af57338b5755d67e51771c")));
+
+bool res = Particle.publish("myEvent", map);
+```
+
+When the event is received by a webhook, it would receive this data. The `_data` is Base 64 encoded.
+
 ```json
 {"a":1234,"b":{"_type":"buffer","_data":"ncrk3+mvVzOLV1XWflF3HA=="}}
 ```
 
 ### Using Variant
+
+### Converting from JSONWriter to Variant
+
 
 ## Publish
 

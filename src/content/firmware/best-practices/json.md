@@ -366,7 +366,7 @@ as backslash escaped in the event payload.
 
 This applies when getting the data from most sources:
 
-- `\{{PARTICLE_EVENT_DATA}}` in a webhook
+- `\{{PARTICLE_EVENT_VALUE}}` in a webhook
 - The `.data` field of the event in SSE (Server-Sent-Events)
 - The `.data` from Particle API JS event when using `getEvent()`
 

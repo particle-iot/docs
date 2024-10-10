@@ -190,7 +190,7 @@ Create a product webhook using **Custom JSON**. Replace `YOUR_API_KEY` with your
     "requestType": "POST",
     "noDefaults": true,
     "rejectUnauthorized": true,
-    "body": "\{{{PARTICLE_EVENT_DATA}}}",
+    "body": "\{{{PARTICLE_EVENT_VALUE}}}",
 	"responseTopic": "wifiScanResponse",
     "responseTemplate": "{\"eventName\": \"\{{PARTICLE_EVENT_NAME}}\",\"ts\": \"\{{PARTICLE_PUBLISHED_AT}}\",\"lat\": \{{location.lat}},\"lng\": \{{location.lng}},\"accuracy\": \{{accuracy}}}"
 }
