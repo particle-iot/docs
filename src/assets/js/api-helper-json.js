@@ -699,49 +699,53 @@ $(document).ready(function() {
                     const name = (options.level == 0) ? options.name : (options.name + options.level);
 
                     // TODO: Add boolean, null
-                    if (typeof value == 'number') {
-                        output += options.addToParent('Variant(' + value.toString() + ')');
-                    }
-                    else
                     if (typeof value == 'string') {
                         output += options.addToParent('Variant(' + jsonEscapedString(value) + ')');
                     }
                     else 
                     if (typeof value == 'object') {
-                        output += renderIndent(options.level) + '{\n';
+                        if (value !== null) {
+                            output += renderIndent(options.level) + '{\n';
 
-                        if (Array.isArray(value)) {
-                            // Array
-                            output += renderIndent(options2.level) + 'VariantArray ' + name + ';\n';
-                            for(const v of value) {
-                                options2.addToParent = function(childValueOrVariable) {
-                                    return renderIndent(options2.level) + name + '.append(' + childValueOrVariable + ');\n';
-                                };
-                                    
-                                output += renderVariant(v, options2);                                
+                            if (Array.isArray(value)) {
+                                // Array
+                                output += renderIndent(options2.level) + 'VariantArray ' + name + ';\n';
+                                for(const v of value) {
+                                    options2.addToParent = function(childValueOrVariable) {
+                                        return renderIndent(options2.level) + name + '.append(' + childValueOrVariable + ');\n';
+                                    };
+                                        
+                                    output += renderVariant(v, options2);                                
+                                }
+    
                             }
-
+                            else {
+                                // Map
+                                output += renderIndent(options2.level) + 'VariantMap ' + name + ';\n';
+    
+                                for(const key in value) {
+    
+                                    options2.addToParent = function(childValueOrVariable) {
+                                        return renderIndent(options2.level) + name + '.set(' + jsonEscapedString(key) + ', ' + childValueOrVariable + ');\n';
+                                    };
+                                        
+                                    output += renderVariant(value[key], options2);
+                                }        
+                            }
+                            if (options.addToParent) {
+                                // Add one extra indent because it's inside a {} pair
+                                output += renderIndent(1) + options.addToParent(name);
+                            }    
+    
+                            output += renderIndent(options.level) + '}\n';
                         }
                         else {
-                            // Map
-                            output += renderIndent(options2.level) + 'VariantMap ' + name + ';\n';
-
-                            for(const key in value) {
-
-                                options2.addToParent = function(childValueOrVariable) {
-                                    return renderIndent(options2.level) + name + '.set(' + jsonEscapedString(key) + ', ' + childValueOrVariable + ');\n';
-                                };
-                                    
-                                output += renderVariant(value[key], options2);
-                            }        
+                            output += options.addToParent('Variant(NULL)');
                         }
-                        if (options.addToParent) {
-                            // Add one extra indent because it's inside a {} pair
-                            output += renderIndent(1) + options.addToParent(name);
-                        }    
-
-                        output += renderIndent(options.level) + '}\n';
-
+                    }
+                    else {
+                        // number, boolean, bigint, symbol
+                        output += options.addToParent('Variant(' + value.toString() + ')');
                     }
                     return output;
                 }
