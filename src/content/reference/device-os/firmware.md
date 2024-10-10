@@ -1201,7 +1201,7 @@ In Device OS 6.2 and later, the data can be specified with a pointer and length.
 data, and in particular, data that can contain a null byte. It can be used for text if your data source is not
 null-terminated.
 
-#### data (EventData)  - Particle.publish - Publish
+#### data (EventData) - Particle.publish - Publish
 
 The `EventData` overload does not `ContentType` value because it is used for structured data in a `Variant` and is always
 encoded as CBOR over-the-air, and JSON in webhooks and other locations. It can optionally include binary data.
@@ -1219,6 +1219,10 @@ encoded as CBOR over-the-air, and JSON in webhooks and other locations. It can o
 
 The content type provides a hint to the receiver for what the data is. This includes the console, which can render 
 some types of data in the event stream.
+
+#### Future<bool> - Particle.publish - Publish
+
+The return type of the `Particle.publish` function is `particle::Future<bool>`. 
 
 ### Particle.publish (classic API) - Publish
 
@@ -1447,6 +1451,24 @@ Subscribe to events published by devices.
 
 This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
 
+You typically call `Particle.subscribe()` once for each subscription during `setup()`.
+
+A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
+
+You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
+
+Each event delivery attempt to a subscription handler uses one Data Operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
+
+If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/cloud-apis/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
+
+```cpp
+Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler);
+```
+
+- It is possible to receive an event more than once. The most common reason is a lost ACK, which will cause the device to send the event again. Storing a unique identifier in the event payload may help code defensively for this possibility.
+- It is possible that events will arrive out-of-order. The most common cause is retransmission, but it can also occur because events can flow through different redundant servers, each with slightly difference latency, so it's possible that two event sent rapidly will arrive out-of-order as well. This is common for multi-part webhook responses.
+
+
 ### Subscribe (with content type) - Subscribe
 
 ```cpp
@@ -1628,7 +1650,42 @@ Additionally:
 - It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
 {{!-- END shared-blurb --}}
 
+## Future
 
+The `Future` class is used by `Particle.publish` to optionally block, and to optionally obtain the success or failure result later.
+
+```cpp
+// EXAMPLE PROTOTYPE
+particle::Future<bool> publish(const char* name);
+   
+// EXAMPLE USAGE 1
+Particle.publish("myEvent");
+
+// EXAMPLE USAGE 2
+bool result = Particle.publish("myEvent");
+```
+
+In example usage 1, the value is not checked, and the call will be asynchronous.
+
+In example usage 2, the value is stored in a `bool`, and the call will block until completion or timeout.
+
+```cpp
+// Future methods
+bool isDone() const;
+ResultT result() const;
+operator ResultT() const;
+```
+
+It is possible to store the `Future<bool>` in a variable. This allows the operation to proceed asynchronously, then 
+check later to see if the is operation has completed (`isDone()`) and what the underlying result was (`result()`).
+This is useful if you've implemented your code as finite state machine and you want to not block, transition to
+the next state, and wait in that state until completion. You'd then transition to another state depending
+on whether you succeeded or failed.
+
+Note that you may still want to do publishes from a worker thread instead of the main loop, because
+the Particle.publish function can still block in some cases if there is no network connectivity. For an
+example, see the [background-publish](https://github.com/particle-iot/background-publish) library. This 
+is used by Tracker Edge and Monitor Edge firmware for location publishes.
 
 ## Ethernet
 
