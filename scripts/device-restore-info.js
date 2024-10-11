@@ -8,6 +8,8 @@ const path = require('path');
 function updateDeviceRestoreInfo(sourceDir, outputFile) {
 
     let versions = {};
+    let versionsProtected = {};
+
     let versionNames = [];
 
     let versionsZip = {};
@@ -24,10 +26,19 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
             if (name.length < 4) {
                 return;
             }
-            const platform = name.substr(0, name.length - 4);
+            let platform = name.substr(0, name.length - 4); // remove .hex, .zip, etc.
+            if (name.endsWith('-protected.hex')){
+                platform = platform.replace('-protected', '');                
+                if (typeof versionsProtected[dirent.name] == 'undefined') {
+                    versionsProtected[dirent.name] = [];
+                }
+                versionsProtected[dirent.name].push(platform);
+            }
+            else 
             if (name.endsWith('.hex')) {
                 versions[dirent.name].push(platform);
             }
+            else
             if (name.endsWith('.zip')) {
                 if (!versionsZip[dirent.name]) {
                     versionsZip[dirent.name] = [];
@@ -81,6 +92,7 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
     output.versionNames = versionNames;
 
     output.versions = versions;
+    output.versionsProtected = versionsProtected;
     output.versionsZip = versionsZip;
 
     output.platforms = [

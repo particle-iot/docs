@@ -1183,6 +1183,26 @@ async function runDeviceOs() {
                     });
                 });
 
+                if (module.binaryFileProtected) {
+                    module.hexToolNameProtected = module.hexToolName + '-protected';
+
+                    await new Promise(function(resolve, reject) {
+                        const reader = new HalModuleParser();
+                        reader.parseFile(module.binaryFileProtected, function(fileInfo, err) {
+                            if (err) {
+                                console.log("error processing file " + path.join(inputDir, part.path), err);
+                                reject(err);
+                            }
+                            
+                            moduleInfo[module.hexToolNameProtected] = {
+                                prefixInfo: fileInfo.prefixInfo,
+                                suffixInfo: fileInfo.suffixInfo
+                            };
+                            resolve();
+                        });
+                    });
+                }
+
                 // Generate hex
                 if (module.binaryFileProtected) {
                     hex += await binFilePathToHex(module.binaryFile);
@@ -1199,7 +1219,7 @@ async function runDeviceOs() {
 
                 if (module.binaryFileProtected) {
                     const contentProtected = fs.readFileSync(module.binaryFileProtected);
-                    zip.file(module.hexToolName + '-protected.bin', contentProtected);    
+                    zip.file(module.hexToolNameProtected + '.bin', contentProtected);    
                 }
 
                 if (module.prefixInfo.moduleFunction == 'user_part' && isTrackerOrMonitor) {
