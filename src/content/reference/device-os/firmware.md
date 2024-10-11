@@ -21997,15 +21997,15 @@ is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
 
-While you must opt into using system thread, its use is recommended for all applications.
+Its use is recommended for all applications.
 
 ```
 // EXAMPLE USAGE
 SYSTEM_THREAD(ENABLED);
 ```
 
-With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
-
+With Device OS {{systemThreadRequired}} and later, system thread is enabled by default.
+In a later version of Device OS, non-threaded mode will be removed entirely.
 
 ### System threading behavior
 
