@@ -12,7 +12,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "binary-version-reader": "^2.2.0",
+    "binary-version-reader": "^2.4.0",
     "handlebars": "^4.7.8",
     "jszip": "^3.10.1",
     "node-fetch": "^2.6.13",

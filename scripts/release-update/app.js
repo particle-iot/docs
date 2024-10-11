@@ -12,7 +12,7 @@ const Handlebars = require("handlebars");
 
 var JSZip = require("jszip");
 
-const { HalModuleParser, ModuleInfo } = require('binary-version-reader');
+const { HalModuleParser, ModuleInfo, createProtectedModule } = require('binary-version-reader');
 const { platform } = require('os');
 
 const argv = require('yargs').argv;
@@ -916,6 +916,8 @@ function fileBufferToHex(fileBuffer, loadAddress) {
 
 async function runDeviceOs() {
     const ignoreVersions = ['3.2.1-p2.1', '3.0.1-p2.4', '3.0.1-p2.5'];
+    const rebuildVersions = ['6.1.1'];
+    const PROTECTED_MINIMUM_BOOTLOADER_VERSION = 3000;
 
     const deviceOsVersions = await fetchDeviceOsVersions();
 
@@ -943,7 +945,7 @@ async function runDeviceOs() {
             continue;
         }
 
-        if (deviceRestoreJson.versionNames.includes(ver.version)) { //  && !ver.version.startsWith('5.5.0')
+        if (deviceRestoreJson.versionNames.includes(ver.version) && !rebuildVersions.includes(ver.version)) {
             // Already in deviceRestore.json
             continue;
         }   
@@ -956,7 +958,6 @@ async function runDeviceOs() {
                 platformId,
             });
             // console.log('details', details);
-
 
             let modules = [];
             let userPart;
@@ -972,8 +973,6 @@ async function runDeviceOs() {
             if (!platformInfo) {
                 console.log('no platform info for ' + platformId);
             }
-
-            console.log('processing platform=' + platformInfo.name + ' (' + platformId + ')');
             // console.log('platformInfo', platformInfo);
 
             // This is needed so we can tell whether to insert 128K compatibility in hex file
@@ -987,6 +986,19 @@ async function runDeviceOs() {
 
             // This is used to handle the multiple bootloaders on the RTL872x
             const isRTL827x = platformInfo.baseMcu == 'rtl872x';
+
+            console.log('processing platform=' + platformInfo.name + ' (' + platformId + ')' /*,
+                {
+                    platformInfo,
+                    isNRF52,
+                    add128Kcompatibility,
+                    isTrackerOrMonitor,
+                    isRTL827x,
+                    ver,
+                    details,
+                }*/
+            );
+
 
             // Pass 1: Download binaries
             for(const module of details.modules) {
@@ -1019,6 +1031,21 @@ async function runDeviceOs() {
                     // console.log('binary', binary);
                     fs.writeFileSync(module.binaryFile, binary);    
                 }    
+
+                const canProtect = module.prefixInfo.moduleFunction == 'bootloader' &&
+                    module.prefixInfo.moduleIndex === 0 && 
+                    module.prefixInfo.moduleVersion >= PROTECTED_MINIMUM_BOOTLOADER_VERSION;
+
+                if (canProtect) {
+                    const protectedBinaryFileName = module.filename.replace('.bin', '-protected.bin');
+                    module.binaryFileProtected = path.join(tempDir, protectedBinaryFileName);
+                    // console.log('can protect module', {module, protectedBinaryPath});
+
+                    const binary = fs.readFileSync(module.binaryFile);
+                    const binaryProtected = await createProtectedModule(binary);
+                    fs.writeFileSync(module.binaryFileProtected, binaryProtected);                        
+                    console.log('created protected binary ' + protectedBinaryFileName);
+                }
             }
 
             // The hex generator requires the user part be the last thing in the file so it can be replaced
@@ -1045,6 +1072,8 @@ async function runDeviceOs() {
                     hex += hexFileText(hexFiles[uicrFilename]);
                 }   
             }
+
+            let hexProtected = hex;
 
             // console.log('modules', modules);
 
@@ -1116,12 +1145,14 @@ async function runDeviceOs() {
                     
                     let b = Buffer.alloc(1024, 0xff);
                     // console.log('inserting 1K at 0xd4000');
-                    hex += fileBufferToHex(b, 0xd4000);                    
+                    hex += fileBufferToHex(b, 0xd4000);      
+                    hexProtected += fileBufferToHex(b, 0xd4000);
                 }
 
 
                 if (module.prefixInfo.moduleFunction == 'radio_stack') {
                     hex += hexFileText(hexFiles['radio_stack_prefix.hex']);
+                    hexProtected += hexFileText(hexFiles['radio_stack_prefix.hex']);
                 }
 
                 if (module.prefixInfo.moduleFunction == 'user_part' && isTrackerOrMonitor) {
@@ -1153,11 +1184,23 @@ async function runDeviceOs() {
                 });
 
                 // Generate hex
-                hex += await binFilePathToHex(module.binaryFile);
+                if (module.binaryFileProtected) {
+                    hex += await binFilePathToHex(module.binaryFile);
+                    hexProtected += await binFilePathToHex(module.binaryFileProtected);
+                }
+                else {
+                    hex += await binFilePathToHex(module.binaryFile);
+                    hexProtected += await binFilePathToHex(module.binaryFile);
+                }
 
                 // Add to zip
                 const content = fs.readFileSync(module.binaryFile);
                 zip.file(module.hexToolName + '.bin', content);
+
+                if (module.binaryFileProtected) {
+                    const contentProtected = fs.readFileSync(module.binaryFileProtected);
+                    zip.file(module.hexToolName + '-protected.bin', contentProtected);    
+                }
 
                 if (module.prefixInfo.moduleFunction == 'user_part' && isTrackerOrMonitor) {
                     // Add monitor edge to zip
@@ -1217,10 +1260,18 @@ async function runDeviceOs() {
                 });
             });
 
-            // Generate hex
-            const outputHexFile = path.join(outputDir, platformInfo.name + '.hex');
-            hex += endOfFileHex();
-            fs.writeFileSync(outputHexFile, hex);
+            {
+                // Generate hex
+                const outputHexFile = path.join(outputDir, platformInfo.name + '.hex');
+                hex += endOfFileHex();
+                fs.writeFileSync(outputHexFile, hex);                
+            }
+            {
+                // Generate hex (protected)
+                const outputHexFile = path.join(outputDir, platformInfo.name + '-protected.hex');
+                hexProtected += endOfFileHex();
+                fs.writeFileSync(outputHexFile, hexProtected);                
+            }
 
             // await analyzeHexFile(outputHexFile);
 
