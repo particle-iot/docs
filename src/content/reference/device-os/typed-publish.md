@@ -62,10 +62,10 @@ text and valid JSON, it is compatible with both the default webhook template, as
 
 ```json
 {
-  "event": "{{{PARTICLE_EVENT_NAME}}}",
-  "data": "{{{PARTICLE_EVENT_VALUE}}}",
-  "coreid": "{{{PARTICLE_DEVICE_ID}}}",
-  "published_at": "{{{PARTICLE_PUBLISHED_AT}}}"
+  "event": "\{{{PARTICLE_EVENT_NAME}}}",
+  "data": "\{{{PARTICLE_EVENT_VALUE}}}",
+  "coreid": "\{{{PARTICLE_DEVICE_ID}}}",
+  "published_at": "\{{{PARTICLE_PUBLISHED_AT}}}"
 }
 ```
 
