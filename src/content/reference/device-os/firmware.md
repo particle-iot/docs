@@ -415,7 +415,7 @@ See [Publish](#publish), below.
 
 Subscribe to events published by devices.
 
-See [Subscibe](#below), below.
+See [Subscribe](#subscribe), below.
 
 
 ### Particle.unsubscribe()

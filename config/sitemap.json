@@ -1739,8 +1739,8 @@
             "hash": "9200252e98bd5357eb5190053beb3b42ce4a02150716e4ceafe4c9988f6b8d76"
         },
         "reference/device-os/api/cloud-functions/particle-subscribe.md": {
-            "date": "2024-10-04",
-            "hash": "328ed06bfd6d2d959d3b0818abfc14119fbaa8862fbeffcd95a7b777ddcda56a"
+            "date": "2024-10-11",
+            "hash": "eca110b7752b1de606b6be6b19efa9a8d7586f4887ea2a3b915d01d31b95a0e6"
         },
         "reference/device-os/api/cloud-functions/particle-unsubscribe.md": {
             "date": "2023-09-20",

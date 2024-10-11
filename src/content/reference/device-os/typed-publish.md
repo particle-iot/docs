@@ -114,7 +114,6 @@ For example, you could use this code:
 
 ```cpp
 VariantMap map;
-
 map.set("a", Variant(1234));
 map.set("b", Variant(Buffer::fromHex("9dcae4dfe9af57338b5755d67e51771c")));
 
@@ -127,22 +126,45 @@ When the event is received by a webhook, it would receive this data. The `_data`
 {"a":1234,"b":{"_type":"buffer","_data":"ncrk3+mvVzOLV1XWflF3HA=="}}
 ```
 
+To decode these events for troubleshooting, you can use the [Event decoder](/tools/cloud-tools/event-decoder/) tool.
+
 ### Using Variant
 
-### Converting from JSONWriter to Variant
+See [Variant](/reference/device-os/api/variant/) in the Device OS firmware API.
+
+If you have a JSON object and want to create code stubs for generating a `Variant` with the same
+shape, the [JSON tool](/tools/developer-tools/json/) also has a Variant code generator.
+
+For example, to create this JSON data:
+
+```json
+{"a":123,"b":"test","c":true,"d":[1,2,3]}
+```
+
+You could start with this basic code and modify it for your needs. Instead of hardcoding the values, you'd
+probably calculate them, and instead of using a fixed array of numbers, you'd probably have a loop.
+
+```cpp
+VariantMap obj;
+obj.set("a", Variant(123));
+obj.set("b", Variant("test"));
+obj.set("c", Variant(true));
+{
+    VariantArray obj1;
+    obj1.append(Variant(1));
+    obj1.append(Variant(2));
+    obj1.append(Variant(3));
+    obj.set("d", obj1);
+}
+```
 
 
 ## Publish
 
-### Publish with content type
+See [Publish](/reference/device-os/api/publish/) in the Device OS firmware API.
 
-### Publish with variant
 
 ## Subscribe
 
-### Subscribe with content type
-
-### Subscribe with variant
-
-### Webhook response subscriptions
+See [Subscribe](/reference/device-os/api/subscribe/) in the Device OS firmware API.
 
