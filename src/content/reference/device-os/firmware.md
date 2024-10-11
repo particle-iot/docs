@@ -1146,9 +1146,9 @@ to be specified, and allows for binary data payloads. The following types are su
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
 | Content Type Constant | MIME Type |
 | :--- | :--- |
-| `ContentType::TEXT` | `text/plain; charset=utf-8` |
-| `ContentType::JPEG` | `image/jpeg` |
-| `ContentType::PNG` | `image/png` |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
+| `ContentType::JPEG`   | `image/jpeg` |
+| `ContentType::PNG`    | `image/png` |
 | `ContentType::BINARY` | `application/octet-stream` |
 {{!-- END shared-blurb --}}
 
@@ -1211,9 +1211,9 @@ encoded as CBOR over-the-air, and JSON in webhooks and other locations. It can o
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
 | Content Type Constant | MIME Type |
 | :--- | :--- |
-| `ContentType::TEXT` | `text/plain; charset=utf-8` |
-| `ContentType::JPEG` | `image/jpeg` |
-| `ContentType::PNG` | `image/png` |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
+| `ContentType::JPEG`   | `image/jpeg` |
+| `ContentType::PNG`    | `image/png` |
 | `ContentType::BINARY` | `application/octet-stream` |
 {{!-- END shared-blurb --}}
 
@@ -1222,7 +1222,26 @@ some types of data in the event stream.
 
 #### Future<bool> - Particle.publish - Publish
 
-The return type of the `Particle.publish` function is `particle::Future<bool>`. 
+The return type of the `Particle.publish` function is `particle::Future<bool>`. There are three common ways to use this:
+
+```cpp
+// EXAMPLE 1
+Particle.publish("myEvent");
+
+// EXAMPLE 2
+bool bResult = Particle.publish("myEvent");
+
+// EXAMPLE 3
+Future<bool> futureResult = Particle.publish("myEvent");
+```
+
+In Example 1, you do not care about whether the call succeeds or not, and this will not wait for the data to be acknowledged by the cloud.
+
+In Example 2, you can check bResult. If true, the publish was successfully made to the cloud. This will block until the packet is acknowledged
+by the cloud.
+
+In Example 3, you use the future which decouples the waiting and the getting results. This can be useful if you
+are using a finite state machine. See [Future](#future) for more information.
 
 ### Particle.publish (classic API) - Publish
 
@@ -1511,7 +1530,7 @@ void myHandler(const char* name, Variant data);
 typedef Variant EventData;
 ```
 
-The `Variant` overload does not have a `ContentType` because Variant data is always CBOR over-the-air and JSON via webhooks and SSE.
+The [`Variant`](#variant) overload does not have a `ContentType` because Variant data is always CBOR over-the-air and JSON via webhooks and SSE.
 
 
 ### Subscrible (classic API) - Subscribe
@@ -14230,8 +14249,14 @@ only. A null terminator is not required and must not be included in `len`.
 
 The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON.
 
+In Device OS 6.2 and later, a Variant is the best way to send JSON data as it can encode the data
+more efficiently over the air. See [Typed publish](/reference/device-os/typed-publish/) for more information.
+
 A Variant can hold arbitary binary data using the `Buffer` class in Device OS 6.2 and later. A Variant containing a `Buffer`
 cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+
+If you have a JSON object and want to create code stubs for generating a `Variant` with the same
+shape, see the [JSON tool](/tools/developer-tools/json/) which has a Variant code generator.
 
 ### set() [Variant class]
 

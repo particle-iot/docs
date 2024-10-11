@@ -1670,6 +1670,17 @@
       ]
     },
     {
+      "title": "Future",
+      "dir": "future",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Future",
+          "dir": "future"
+        }
+      ]
+    },
+    {
       "title": "Global object constructors",
       "dir": "global-object-constructors",
       "collapse": true,
@@ -3763,27 +3774,39 @@
         },
         {
           "title": "Particle.publish - Publish - Publish",
-          "dir": "particle-publish-publish"
-        },
-        {
-          "title": "name - Particle.publish - Publish - Publish",
-          "dir": "name-particle-publish-publish"
-        },
-        {
-          "title": "data (string) - Particle.publish - Publish - Publish",
-          "dir": "data-string-particle-publish-publish"
-        },
-        {
-          "title": "data (pointer and length) - Particle.publish - Publish - Publish",
-          "dir": "data-pointer-and-length-particle-publish-publish"
-        },
-        {
-          "title": "data (EventData)  - Particle.publish - Publish - Publish",
-          "dir": "data-eventdata-particle-publish-publish"
-        },
-        {
-          "title": "contentType - Publish",
-          "dir": "contenttype"
+          "dir": "particle-publish-publish",
+          "subsections": [
+            {
+              "anchor": "name-particle-publish-publish",
+              "title": "name - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "data-string-particle-publish-publish",
+              "title": "data (string) - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "data-pointer-and-length-particle-publish-publish",
+              "title": "data (pointer and length) - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "data-eventdata-particle-publish-publish",
+              "title": "data (EventData) - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "contenttype",
+              "title": "contentType",
+              "isContent": true
+            },
+            {
+              "anchor": "future-particle-publish-publish",
+              "title": "Future<bool> - Particle.publish - Publish",
+              "isContent": true
+            }
+          ]
         },
         {
           "title": "Particle.publish (classic API) - Publish - Publish",
@@ -4517,6 +4540,14 @@
         {
           "title": "Subscribe",
           "dir": "subscribe"
+        },
+        {
+          "title": "Subscribe (with content type) - Subscribe - Subscribe",
+          "dir": "subscribe-with-content-type-subscribe"
+        },
+        {
+          "title": "Subscribe (with Variant) - Subscribe - Subscribe",
+          "dir": "subscribe-with-variant-subscribe"
         },
         {
           "title": "Subscrible (classic API) - Subscribe - Subscribe",

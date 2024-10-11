@@ -773,12 +773,13 @@ $(document).ready(function() {
 
         const decoderInputElem = $(thisPartial).find('.decoderInput');
         const decoderOutputElem = $(thisPartial).find('.decoderOutput');
+        const eventExampleElem = $(thisPartial).find('.eventExample');
 
         const setStatus = function(s) {
             $(thisPartial).find('.apiHelperEventDecoderStatus').text(s);
         }
 
-        $(decoderInputElem).on('input', function() {
+        const calculate = function() {
             const eventData = $(decoderInputElem).val();
             console.log('eventData', eventData);
 
@@ -806,7 +807,7 @@ $(document).ready(function() {
 
                     let output = renderValue(json, {indent: '', commaSeparator:'', });
 
-                    $(decoderOutputElem).val(output);
+                    $(decoderOutputElem).val(output.trim());
                     
                 }
                 catch(e) {         
@@ -818,7 +819,30 @@ $(document).ready(function() {
             catch(e) {
                 console.log('decode exception', e);
             }
+        }
+
+        $(decoderInputElem).on('input', calculate);
+
+        const eventExamples = {
+            simple: '{"a":123,"b":"test","c":true,"d":[1,2,3]}',
+            binary: 'data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==',
+            jsonWithBinary: '{"a":1234,"b":{"_type":"buffer","_data":"ncrk3+mvVzOLV1XWflF3HA=="}}',
+        };
+
+        $(eventExampleElem).on('change', function() {
+            const key = $(eventExampleElem).val();
+            if (key == '-') {
+                return;
+            }
+            const example = eventExamples[key];
+            if (typeof example == 'undefined') {
+                return;
+            }
+
+            $(decoderInputElem).val(example);
+            calculate();
         });
+
     });
 
 });

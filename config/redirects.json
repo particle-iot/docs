@@ -404,6 +404,7 @@
   "/reference/device-os/api/featureenabled": "/reference/device-os/api/featureenabled/featureenabled",
   "/reference/device-os/api/file-system": "/reference/device-os/api/file-system/file-system",
   "/reference/device-os/api/fuelgauge": "/reference/device-os/api/fuelgauge/fuelgauge",
+  "/reference/device-os/api/future": "/reference/device-os/api/future/future",
   "/reference/device-os/api/global-object-constructors": "/reference/device-os/api/global-object-constructors/global-object-constructors",
   "/reference/device-os/api/hardware-watchdog": "/reference/device-os/api/watchdog-hardware/watchdog-hardware",
   "/reference/device-os/api/hardware-watchdog/sleep-considerations/": "/reference/device-os/api/watchdog-hardware",

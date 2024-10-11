@@ -2,6 +2,14 @@
     <div class="apiHelperBox">
         <p>Paste event data here:</p>
         <textarea rows="{{rows}}" cols="{{cols}}" class="apiHelperMono decoderInput"></textarea>
+        <p>Or show an example:
+            <select class="eventExample">
+                <option value="-" selected>Select example</option>
+                <option value="simple">Simple JSON</option>
+                <option value="binary">Binary (application/octet-stream)</option>
+                <option value="jsonWithBinary">JSON with binary data</option>
+            </select>
+        </p>
         <p>Decoded event:</p>
         <div>
             <textarea rows="{{rows}}" cols="{{cols}}" class="apiHelperMono decoderOutput"></textarea>

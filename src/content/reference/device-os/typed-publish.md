@@ -7,7 +7,7 @@ description: Typed publish for Particle IoT devices
 
 # {{title}}
 
-Starting with Device OS 6.2.0, a number of enhancements were made to allow data types other than 
+In Device OS 6.2.0, a number of enhancements were made to allow data types other than 
 plain text to be sent and allow for more efficient transmission of structured data.
 
 Enhancement in later versions of Device OS will allow for larger payloads, and limits exceeding 1 publish per second.
@@ -19,9 +19,9 @@ There are currently five data types, including the following:
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
 | Content Type Constant | MIME Type |
 | :--- | :--- |
-| `ContentType::TEXT` | `text/plain; charset=utf-8` |
-| `ContentType::JPEG` | `image/jpeg` |
-| `ContentType::PNG` | `image/png` |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
+| `ContentType::JPEG`   | `image/jpeg` |
+| `ContentType::PNG`    | `image/png` |
 | `ContentType::BINARY` | `application/octet-stream` |
 {{!-- END shared-blurb --}}
 
@@ -34,7 +34,7 @@ to render the data within the console.
 
 For the first time, you can now send binary data! This is sent in binary format over the air (in the CoAP packet), so it does not
 expand the data as encoding with Base64 and Base85 would. Once the data is received by the cloud, it is then encoded in 
-Base 64 format for compatibility with the existing infrastructure such as webhooks, SSE, and the console which would not
+Base 64 format for compatibility with the existing infrastructure such as webhooks, server-sent-events (SSE), and the console which would not
 work well with binary data, which cannot be represented directly in JSON. The maximum size of the event is based on the binary
 size, however, and the size after Base 64 encoding can exceed 1024 bytes.
 
@@ -55,7 +55,7 @@ A webhook using \{{{PARTICLE_EVENT_VALUE}} will receive this payload:
 data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
 ```
 
-This is encoded in the [Data URL format](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data). 
+This is encoded in the [Data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data) format. 
 
 Specifically, the cloud encodes binary data in Base 64 in a Data URL. This can easily be parsed by most services. Since the Base 64 data is still
 text and valid JSON, it is compatible with both the default webhook template, as well as custom templates that use Mustache templates.
@@ -84,9 +84,11 @@ Say, for example, your device publishes this JSON data currently:
 
 This is 41 characters of JSON data in the compact form, above.
 
-With Device OS 6.2 structured data, this will be converted into CBOR format instead of JSON over-the-air. CBOR is a compact
-binary format that is generally interchangeable with JSON. The same data can be represented losslessly in 21 bytes of binary CBOR 
-data, a savings of 51%.
+With Device OS 6.2 structured data, this will be converted into CBOR format instead of JSON over-the-air. 
+[CBOR](https://cbor.io/), the Concise Binary Object Representation (RFC 8949) can be converted to and from
+JSON without loss.
+
+The JSON data above encodes to 21 bytes of binary CBOR data, a savings of 51%!
 
 Since CBOR and be converted to and from JSON transparently, that is exactly what the cloud does before sending the data to
 webhooks and SSE. Your webhook will continue to see JSON data as before, but it will be transmitted more efficiently over-the-air.
@@ -94,10 +96,17 @@ webhooks and SSE. Your webhook will continue to see JSON data as before, but it 
 Furthermore, the 1024 byte publish limit in 6.2.x and earlier occurs after the conversion to CBOR, so you can publish significantly
 larger JSON data than before.
 
+To see how much smaller your JSON data will be in CBOR, you can use the [JSON tool](/tools/developer-tools/json/) which can now convert to CBOR and compare
+the sizes.
+
+If you have a JSON object and want to create code stubs for generating a `Variant` with the same
+shape, the [JSON tool](/tools/developer-tools/json/) also has a Variant code generator.
+
+
 ### Structured binary data
 
 Additionally, you can include binary data ("buffer") in your structured data. This is kept in binary format in the CBOR data stream so it
-does not use additional data over-the-wire, as was the case when encoding to hex, Base64, or Base85 on-device. When the cloud 
+does not use additional data over-the-air, as was the case when encoding to hex, Base64, or Base85 on-device. When the cloud 
 receives the binary data, it expands it into a JSON object containing meta information and Base64 encoded data. This allows
 for easy processing in Logic, webhooks, or SSE.
 

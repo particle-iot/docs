@@ -8679,8 +8679,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/variant.md": {
-            "hash": "0d82951e3ad5fc07646401a06b09b57c36d8fedcb314c8960a9a0e398221b76e",
-            "date": "2024-10-04"
+            "hash": "5f8e93f210a67654a2bf32fd937c1b452f44082dd737105baa5b8810ed1ab440",
+            "date": "2024-10-11"
         },
         "reference/device-os/api/variant/set-variant-class.md": {
             "hash": "35a8c861983f6f22dc95bc68acbbd6a8bcb807001f36874a7b49f36133b02bcb",
@@ -9315,12 +9315,12 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/publish/typed-publish-publish.md": {
-            "hash": "d55e1732529e77a7f347771e772f7520c68c6bb1f279adb168fb0bfdf004e9b5",
-            "date": "2024-10-04"
+            "hash": "cf9cac778c2e89ac1798a2c7fcc59806cf26eb25181ed8cd470c1cb0ef753a5e",
+            "date": "2024-10-11"
         },
         "reference/device-os/api/publish/particle-publish-publish.md": {
-            "hash": "a3620c6d252cb424bd6bdb0a2f3db9ccaffa366a9471fff46778a15c89eaa6c0",
-            "date": "2024-10-04"
+            "hash": "3b6655a23d10c367299775b77908c8be7e658b8f54c7c0e766d01f4b47f1bfe0",
+            "date": "2024-10-11"
         },
         "reference/device-os/api/publish/name-particle-publish-publish.md": {
             "hash": "60ee919159fcc7297aa17e722177bff8f070680ac980604ef088f21bd7b6e39e",
@@ -9347,12 +9347,24 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/subscribe/subscribe.md": {
-            "hash": "963e59b2a2c2099caeade8280d920f0fe3e6e49be2e6a4621f9980dab1bf5994",
-            "date": "2024-10-04"
+            "hash": "64708ab47cc0195a9de85b766735ccd9609dace3165b3289cddc7ef4196786de",
+            "date": "2024-10-11"
         },
         "reference/device-os/api/subscribe/subscrible-classic-api-subscribe.md": {
-            "hash": "90b2f45ea93bc9b7205f7166ada98c11b20230e2459098b02ac22a346c5e5039",
-            "date": "2024-10-04"
+            "hash": "39b38f0219f7cb61645511507c9d1f7dae4e79bde478aec688a3607c846bffb4",
+            "date": "2024-10-11"
+        },
+        "reference/device-os/api/subscribe/subscribe-with-content-type-subscribe.md": {
+            "hash": "a4cd7d517fff6a32a242c3efd1ef4bb7b74b1c207692659fd8506b0139f3683f",
+            "date": "2024-10-11"
+        },
+        "reference/device-os/api/subscribe/subscribe-with-variant-subscribe.md": {
+            "hash": "f966242e26262cd51e024584ca2b0e2a76dd4145245ceae15d0fbdfb73a0b313",
+            "date": "2024-10-11"
+        },
+        "reference/device-os/api/future/future.md": {
+            "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",
+            "date": "2024-10-11"
         }
     }
 }
