@@ -5,6 +5,7 @@ layout: commonTwo.hbs
 columns: two
 redirects: true
 description: Using SWD/JTAG to program Particle Devices
+includeDefinitions: [api-helper,api-helper-extras,device-restore-files]
 ---
 
 # Using SWD/JTAG
@@ -49,7 +50,7 @@ The general procedure is:
 - Use one of the techniques below to flash it to your device.
 - You can both upgrade and downgrade using restore images.
 
-{{device-restore mode="download"}}
+{{> device-restore-files mode="download"}}
 
 
 ## Special notes for downgrading

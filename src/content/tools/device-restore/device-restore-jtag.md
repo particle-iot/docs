@@ -2,6 +2,7 @@
 title: Device Restore JTAG
 layout: device-restore.hbs
 description: Particle Debugger-based device restore over the web
+includeDefinitions: [api-helper,device-restore-files]
 ---
 
 # Device restore JTAG
@@ -36,5 +37,5 @@ Still ready to go?
 
 ## Restore!
 
-{{device-restore mode="flash"}}
+{{> device-restore-files mode="flash"}}
 

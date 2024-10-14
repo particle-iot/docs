@@ -2,7 +2,7 @@
 title: Hex File Generator
 layout: device-restore.hbs
 description: Hex File Generator
-includeDefinitions: [api-helper]
+includeDefinitions: [api-helper,device-restore-files]
 ---
 
 # Hex file generator
@@ -19,7 +19,7 @@ This tool takes the [restore binaries](/reference/developer-tools/jtag/#restore-
 
 - Select the device platform and version to base your image on:
 
-{{device-restore mode="radio"}}
+{{> device-restore-files mode="radio"}}
 
 - Select your user firmware .bin file:
 

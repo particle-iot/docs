@@ -28,6 +28,7 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
             }
             let platform = name.substr(0, name.length - 4); // remove .hex, .zip, etc.
             if (name.endsWith('-protected.hex')){
+                console.log('protected version ' + platform)
                 platform = platform.replace('-protected', '');                
                 if (typeof versionsProtected[dirent.name] == 'undefined') {
                     versionsProtected[dirent.name] = [];

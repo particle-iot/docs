@@ -2,6 +2,7 @@
 title: Programming devices
 layout: commonTwo.hbs
 columns: two
+includeDefinitions: [api-helper,device-restore-files]
 ---
 
 # {{title}}
@@ -81,7 +82,7 @@ Place the binaries you want to flash in a directory, then:
 
 You can download the necessary files for several common Device OS releases as a zip file for several common Device OS releases here:
 
-{{device-restore mode="zip"}}
+{{> device-restore-files mode="zip"}}
 
 It is recommended that you use the latest in release line. For example, if you are using 1.5.x, use 1.5.2 instead of 1.5.0. Ideally, you should be using the latest LTS release (2.1.0, for example), unless you need features in a developer preview release (3.1.0, for example).
 
