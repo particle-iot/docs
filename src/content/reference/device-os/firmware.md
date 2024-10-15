@@ -14076,7 +14076,9 @@ The `Buffer` class is a container for data in a dynamically allocated buffer. It
 around `std::vector<char>` with additional convenience methods for encoding the data.
 
 The `Variant` class has been extended to store arbitrary binary data in a `Buffer`. A Variant containing a `Buffer` 
-cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+cannot be serialized to JSON or deserialized from JSON on-device using the `toJSON()` and `fromJSON()` methods
+but can when publishing an event to the cloud. See [Typed publish](/reference/device-os/typed-publish/) for more information.
+
 
 ### constructor(size) [Buffer class]
 
