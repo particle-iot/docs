@@ -656,6 +656,10 @@
                     "isSection": true,
                     "subsections": [
                         {
+                            "dir": "non-threaded-system-mode",
+                            "title": "Non-threaded system mode"
+                        },
+                        {
                             "dir": "dev",
                             "title": "Desktop IDE (Dev)",
                             "href": "/getting-started/developer-tools/workbench/"

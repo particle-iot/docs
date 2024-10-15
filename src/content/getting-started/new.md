@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### System thread default 2024-10-15
+
+In Device OS 6.2.0 and later, system thread is now enabled by default. See 
+[non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/) for additional information.
+
 ### Typed publish 2024-10-15
 
 [Typed publish](/reference/device-os/typed-publish/), available in Device OS 6.2.0, allows for sending binary data

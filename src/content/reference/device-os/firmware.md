@@ -862,7 +862,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 {{api name1="Particle.process"}}
 
-- [Using `SYSTEM_THREAD(ENABLED)`](#system-thread) is recommended for most applications. When using threading mode you generally do not need to use `Particle.process()`.
+- [Using `SYSTEM_THREAD(ENABLED)`](#system-thread) is recommended for most applications. When using threading mode you generally do not need to use `Particle.process()`. With Device OS {{systemThreadRequired}} and later, system thread is always enabled. For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/).
 
 - If you are using [`SYSTEM_MODE(AUTOMATIC)`](#system-modes) (the default if you do not specify), or `SEMI_AUTOMATIC` you generally do not need to `Particle.process()` unless your code blocks and prevents loop from returning and does not use `delay()` in any inner blocking loop. In other words, if you block `loop()` from returning you must call either `delay()` or `Particle.process()` within your blocking inner loop.
 
@@ -2148,7 +2148,7 @@ Returns true if the device is in listening mode (blinking dark blue).
 
 This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
 user firmware from running, so you would not have an opportunity to test the value and calling this always 
-returns false.
+returns false. With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
 
 ### setListenTimeout()
 
@@ -2560,7 +2560,7 @@ Returns true if the device is in listening mode (blinking dark blue).
 
 This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
 user firmware from running, so you would not have an opportunity to test the value and calling this always 
-returns false.
+returns false. With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
 
 
 ### setListenTimeout()
@@ -3978,7 +3978,7 @@ Returns true if the device is in listening mode (blinking dark blue).
 
 This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
 user firmware from running, so you would not have an opportunity to test the value and calling this always 
-returns false.
+returns false. With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
 
 
 ### setListenTimeout() [Network]
@@ -4480,7 +4480,7 @@ Returns true if the device is in listening mode (blinking dark blue).
 
 This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
 user firmware from running, so you would not have an opportunity to test the value and calling this always 
-returns false.
+returns false. With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
 
 
 ### setListenTimeout()
@@ -16696,7 +16696,7 @@ Udp.begin(port);
 ```
 
 If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
-to wait until the network is connected before calling `Udp.begin()`.
+to wait until the network is connected before calling `Udp.begin()`. With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
 
 If you are listening on a specific port, you need to call begin(port) again every time the network is disconnected and reconnects, as well.
 
@@ -20223,7 +20223,9 @@ void setup_the_fundulating_conbobulator()
 STARTUP( setup_the_fundulating_conbobulator() );
 ```
 
-Typically an application will have its initialization code in the `setup()` function. Using `SYSTEM_THREAD(ENABLED)` reduces the amount of time before setup is called to milliseconds and is the recommended method of calling code early.
+Typically an application will have its initialization code in the `setup()` function. 
+
+Using `SYSTEM_THREAD(ENABLED)` reduces the amount of time before setup is called to milliseconds and is the recommended method of calling code early. With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
 
 The `STARTUP()` function instructs the system to execute the code even earlier, however there are limitations:
 
@@ -21909,7 +21911,7 @@ When also using `SYSTEM_THREAD(ENABLED)`, the following are true even in `AUTOMA
   - Variable retrieval
   - Serial events
 
-Using `SYSTEM_THREAD(ENABLED)` is recommended.
+Using `SYSTEM_THREAD(ENABLED)` is recommended. With Device OS {{systemThreadRequired}} and later, system thread is always enabled. For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/).
 
 ### Semi-automatic mode
 
@@ -21995,14 +21997,15 @@ is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
 
-While you must opt into using system thread, its use is recommended for all applications.
+Its use is recommended for all applications.
 
 ```
 // EXAMPLE USAGE
 SYSTEM_THREAD(ENABLED);
 ```
 
-
+With Device OS {{systemThreadRequired}} and later, system thread is enabled by default.
+In a later version of Device OS, non-threaded mode will be removed entirely.
 
 ### System threading behavior
 
@@ -22045,6 +22048,9 @@ but not the system code, so cloud connectivity is maintained.
 
  - the application continues to execute during listening mode
  - the application continues to execute during OTA updates
+
+For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/).
+
 
 ### System functions
 
@@ -22336,6 +22342,9 @@ As with threaded programs on all platforms, you have to be careful with thread s
 We recommend always enabling the system thread in your application firmware using `SYSTEM_THREAD(ENABLED);`. The threading features below are available whether you enable the system thead or not.
 
 See also the [threading explainer](/firmware/software-design/threading-explainer/) for additional information.
+
+With Device OS {{systemThreadRequired}} and later, system thread is always enabled. For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/).
+
 
 ### os_thread_prio_t - Threading
 
