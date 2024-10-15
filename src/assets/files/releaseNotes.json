@@ -28530,6 +28530,379 @@
                 2825,
                 2826
             ]
+        },
+        "v6.2.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.2.0",
+            "tag_name": "v6.2.0",
+            "name": "v6.2.0 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2024-10-10T22:07:23Z",
+            "published_at": "2024-10-15T17:07:50Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2834
+                    ],
+                    "section": "BREAKING CHANGES",
+                    "text": "make `SYSTEM_THREAD(ENABLED)` the default, add deprecation warning on `SYSTEM_THREAD()` macro use"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2834
+                    ],
+                    "section": "BREAKING CHANGES",
+                    "text": "Removed deprecated HAL API wrappers after a set of renamings in Device OS 4.x LTS"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2804
+                    ],
+                    "section": "FEATURES",
+                    "text": "Extend `Particle.publish()` and `Particle.subscribe()`` APIs to support events content types"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2832
+                    ],
+                    "section": "FEATURES",
+                    "text": "Tether API + ModemManager support"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2809
+                    ],
+                    "section": "FEATURES",
+                    "text": "Supports M.2 breakout board and Muon"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2831
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "make sure that extended system-part1 is compatible with older bootloaders as well as 6.1.2"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2828
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Improves `delay()` behavior"
+                },
+                {
+                    "tags": [
+                        "photon2"
+                    ],
+                    "prs": [
+                        2835
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "ethernet: use 12.5MHz as the default SPI clock rate for W5500"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2805
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Adds detailed WiFi access point disconnect reason logging"
+                },
+                {
+                    "tags": [
+                        "ACM"
+                    ],
+                    "prs": [
+                        2811
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Perform cloud ping or reachability test on network events; non-blocking background reachability test"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2801
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "BLE: increase a number of retries for service discovery in central role"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2801
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "BLE: suspend scanning while in connected state and restore scanning after a disconnect (SoftDevice limitation)"
+                },
+                {
+                    "tags": [
+                        "cellular",
+                        "r510"
+                    ],
+                    "prs": [
+                        2803
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "unmask bands for global use"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2796
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "BLE: streamlines `BLE.scan()` behavior to be blocking irrespective of timeout, but allows other BLE operations to be performed"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2796
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "BLE: streamlines `BLE.stopScanning()` behavior to be blocking when not called from BLE callback and guarantees scanning to be stopped on return"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2813
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "BLE: improves locking in a number of BLE API calls"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2808
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Muon/M.2 breakout support enabled for Gen 3 SoMs"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2801
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE: fixes a race condition in connected state reporting in central and peripheral roles"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2822
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "i2c: use transactions for fuelgauge and pmic on platforms with single i2c bus to avoid cutting into compound application I2C transmissions"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2797
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Reduce latency of the system loop"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2798
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Work around a bug in lfs_remove() while recursive traversing directories"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2810
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "set sleep timer upper bounds"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2805
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes potential deadlock in WiFi and BLE stacks"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2800
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes DMA enabled USART flush"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2796
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes `BLE.stopScanning()` deadlock when called from inside BLE callback"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2819
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "i2c: clear I2C tx buffer before each transmission"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2816
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes `USART::available()` after waking from sleep"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2818
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes BLE race condition while scanning"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2824,
+                        2823
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usb: fix an issue with USB re-attach after sleep"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2825
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "prebootloader: fix STOP/ULP sleep with disabled KM0 RTOS, get correct wake-up reason"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2826
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes I2C hal issues"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2833
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Remove access_token query param from Device OS makefile"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2816
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add serial loopback to test runner"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2814
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Support integration tests on gen4 after device-constants update"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2823
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Adds fixture tests"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2795
+                    ],
+                    "section": "INTERNAL",
+                    "text": "ACM prefer feature, adjust logging"
+                }
+            ],
+            "prs": [
+                2795,
+                2796,
+                2797,
+                2798,
+                2800,
+                2801,
+                2803,
+                2804,
+                2805,
+                2808,
+                2809,
+                2810,
+                2811,
+                2813,
+                2814,
+                2816,
+                2818,
+                2819,
+                2822,
+                2823,
+                2824,
+                2825,
+                2826,
+                2828,
+                2831,
+                2832,
+                2833,
+                2834,
+                2835
+            ]
         }
     },
     "pulls": {
@@ -42354,6 +42727,14 @@
             "title": "[photon2] ethernet: use 12.5MHz as the default SPI clock rate for W5500",
             "state": "closed",
             "created_at": "2024-10-09T20:07:49Z"
+        },
+        "2836": {
+            "url": "https://github.com/particle-iot/device-os/pull/2836",
+            "number": 2836,
+            "title": "[Gen4] fixes a BLE lockup circumstance",
+            "state": "open",
+            "created_at": "2024-10-15T16:46:18Z",
+            "detail": "There is deadlock happening among multi-threads.\n1. Custom thread acuired the `HAL BLE lock` when calling `BLE.connect()`, relying on BLE event thread to release the lock, thus, suspended.\n2. User thread acquired the `wiring BLE lock` when calling `BLE.peerCentral()`, followed by trying acquiring the `HAL BLE lock`, thus, suspended.\n3. BLE event thread tries acquiring the `wiring BLE lock` when invoking callback, thus, suspended."
         }
     }
 }

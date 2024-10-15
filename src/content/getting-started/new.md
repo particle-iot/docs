@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.2.0 2024-10-15
+
+Device OS 6.2.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.
+
 ### System thread default 2024-10-15
 
 In Device OS 6.2.0 and later, system thread is now enabled by default. See 
