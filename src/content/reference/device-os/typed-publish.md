@@ -113,7 +113,7 @@ for easy processing in Logic, webhooks, or SSE.
 For example, you could use this code:
 
 ```cpp
-VariantMap map;
+Variant map;
 map.set("a", Variant(1234));
 map.set("b", Variant(Buffer::fromHex("9dcae4dfe9af57338b5755d67e51771c")));
 
@@ -152,12 +152,12 @@ You could start with this basic code and modify it for your needs. Instead of ha
 probably calculate them, and instead of using a fixed array of numbers, you'd probably have a loop.
 
 ```cpp
-VariantMap obj;
+Variant obj;
 obj.set("a", Variant(123));
 obj.set("b", Variant("test"));
 obj.set("c", Variant(true));
 {
-    VariantArray obj1;
+    Variant obj1;
     obj1.append(Variant(1));
     obj1.append(Variant(2));
     obj1.append(Variant(3));

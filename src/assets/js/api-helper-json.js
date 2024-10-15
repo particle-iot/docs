@@ -709,7 +709,7 @@ $(document).ready(function() {
 
                             if (Array.isArray(value)) {
                                 // Array
-                                output += renderIndent(options2.level) + 'VariantArray ' + name + ';\n';
+                                output += renderIndent(options2.level) + 'Variant ' + name + ';\n';
                                 for(const v of value) {
                                     options2.addToParent = function(childValueOrVariable) {
                                         return renderIndent(options2.level) + name + '.append(' + childValueOrVariable + ');\n';
@@ -721,7 +721,7 @@ $(document).ready(function() {
                             }
                             else {
                                 // Map
-                                output += renderIndent(options2.level) + 'VariantMap ' + name + ';\n';
+                                output += renderIndent(options2.level) + 'Variant ' + name + ';\n';
     
                                 for(const key in value) {
     

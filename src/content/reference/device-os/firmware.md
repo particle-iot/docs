@@ -1509,7 +1509,7 @@ If you are expecting structured data, use the subscribe overload that takes a ha
 ```cpp
 // EXAMPLE
 void myHandler(const char* name, Variant data) {
-    Log.info("a=%d b=%s", data.asMap().get("a").toInt(), data.asMap().get("b").toString().c_str());
+    Log.info("a=%d b=%s", data.get("a").toInt(), data.get("b").toString().c_str());
 }
 
 void setup() {
