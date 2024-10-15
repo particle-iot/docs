@@ -59,8 +59,8 @@
             "hash": "412649245751777afbd61dc3c177abee20533f0ae76af05ac4596d821d58deb0"
         },
         "archives/mesh-setup-over-usb.md": {
-            "date": "2023-03-22",
-            "hash": "b6e4bb284a65cc08dda4c72b7a80bacbec975519e18ff3e8bc6949fef4853bf9"
+            "date": "2024-10-15",
+            "hash": "643e0ecae3612fa1c3b27df7ee9424b2f86632d2e1a3c47ec400d2c9a44f44b0"
         },
         "archives/serial2-on-the-photon.md": {
             "date": "2023-02-23",
@@ -9227,8 +9227,8 @@
             "date": "2024-09-18"
         },
         "reference/device-os/api/buffer/buffer.md": {
-            "hash": "f3d02442ed5ce9da5e3b94662d3e8ec2dcaf683857cc7d2d36ee226d0570ad83",
-            "date": "2024-10-04"
+            "hash": "14762cd4e39a5adfe2dbffc86f694ba1eaa72f026f0324f1bd79e0f492d459d5",
+            "date": "2024-10-15"
         },
         "reference/device-os/api/buffer/constructor-size-buffer-class.md": {
             "hash": "61ffe60d6e4cfcd003461841591fe4e017d931d06f077d129fcd662439f1d2cd",
@@ -9315,12 +9315,12 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/publish/typed-publish-publish.md": {
-            "hash": "cf9cac778c2e89ac1798a2c7fcc59806cf26eb25181ed8cd470c1cb0ef753a5e",
-            "date": "2024-10-11"
+            "hash": "db86f295f1672747edd13abacc56f641ea85b3ed8ae0b38a3eac77803f46670f",
+            "date": "2024-10-15"
         },
         "reference/device-os/api/publish/particle-publish-publish.md": {
-            "hash": "3b6655a23d10c367299775b77908c8be7e658b8f54c7c0e766d01f4b47f1bfe0",
-            "date": "2024-10-11"
+            "hash": "19b522c41125827a6a6ac39fa6f0522cdabac447648b4b5c8d39d589f3c93acc",
+            "date": "2024-10-15"
         },
         "reference/device-os/api/publish/name-particle-publish-publish.md": {
             "hash": "60ee919159fcc7297aa17e722177bff8f070680ac980604ef088f21bd7b6e39e",
@@ -9351,16 +9351,16 @@
             "date": "2024-10-11"
         },
         "reference/device-os/api/subscribe/subscrible-classic-api-subscribe.md": {
-            "hash": "39b38f0219f7cb61645511507c9d1f7dae4e79bde478aec688a3607c846bffb4",
-            "date": "2024-10-11"
+            "hash": "4d29113ab04fa1dc79c5d767f0eff1d20f919596c7d2cb5312d97f4a18eded24",
+            "date": "2024-10-15"
         },
         "reference/device-os/api/subscribe/subscribe-with-content-type-subscribe.md": {
             "hash": "a4cd7d517fff6a32a242c3efd1ef4bb7b74b1c207692659fd8506b0139f3683f",
             "date": "2024-10-11"
         },
         "reference/device-os/api/subscribe/subscribe-with-variant-subscribe.md": {
-            "hash": "f966242e26262cd51e024584ca2b0e2a76dd4145245ceae15d0fbdfb73a0b313",
-            "date": "2024-10-11"
+            "hash": "6656b4c3fa3f27a04650a32f28a25e37d5e464a78f4660d02fff285cfe8a875c",
+            "date": "2024-10-15"
         },
         "reference/device-os/api/future/future.md": {
             "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",

@@ -41,10 +41,14 @@ If the Device is remote, and if there is a tech nearby who can get the Device ba
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 void setup() {
+#ifndef SYSTEM_VERSION_v400ALPHA1
+	// This clears the setup done flag on brand new devices so it won't stay in listening mode
+	// Only do this for 3.x and earlier
 	// 0x01 = setup done
 	// 0xff = setup not done (go into listening mode at boot)
 	const uint8_t val = 0x01;
 	dct_write_app_data(&val, DCT_SETUP_DONE_OFFSET, 1);
+#endif
 
 	// This is just so you know the operation is complete
 	pinMode(D7, OUTPUT);
