@@ -323,6 +323,8 @@ Normally when you complete the mobile phone-based setup, the setup is marked as 
 
 For standalone Xenon device (using BLE, for example), you do not need to mark setup done, but make sure you've update the bootloader and use SYSTEM\_MODE(MANUAL) to prevent connecting to the cloud. Without a cloud connection you won't be able to get software updates OTA, so you must manually upgrade your Device OS and bootloader over USB for standalone Xenon devices.
 
+This is only necessary for Device OS 3.x and earlier. Device OS 4.x and later do not have a setup done flag.
+
 ##### Marking setup done using the Particle CLI 
 
 The Particle CLI can set the setup done flag for an Argon or Boron connected by USB using the command:

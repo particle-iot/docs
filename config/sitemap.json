@@ -59,8 +59,8 @@
             "hash": "412649245751777afbd61dc3c177abee20533f0ae76af05ac4596d821d58deb0"
         },
         "archives/mesh-setup-over-usb.md": {
-            "date": "2023-03-22",
-            "hash": "b6e4bb284a65cc08dda4c72b7a80bacbec975519e18ff3e8bc6949fef4853bf9"
+            "date": "2024-10-15",
+            "hash": "643e0ecae3612fa1c3b27df7ee9424b2f86632d2e1a3c47ec400d2c9a44f44b0"
         },
         "archives/serial2-on-the-photon.md": {
             "date": "2023-02-23",
@@ -1735,12 +1735,12 @@
             "hash": "eb9c3169b9fb1610c078685a27e623d04a1bd554b8fa3779727fca0ebce19db4"
         },
         "reference/device-os/api/cloud-functions/particle-publish.md": {
-            "date": "2024-02-27",
-            "hash": "a71b4bf7d7d1f5488e74649f95f1b2b2b1e55024ef20760e0de3b5ff6fc0e16d"
+            "date": "2024-10-04",
+            "hash": "9200252e98bd5357eb5190053beb3b42ce4a02150716e4ceafe4c9988f6b8d76"
         },
         "reference/device-os/api/cloud-functions/particle-subscribe.md": {
-            "date": "2024-03-19",
-            "hash": "8b8ac77fc2e047a94b8202126f21f0a10b62c196ba925dc8137206c91fb74880"
+            "date": "2024-10-11",
+            "hash": "eca110b7752b1de606b6be6b19efa9a8d7586f4887ea2a3b915d01d31b95a0e6"
         },
         "reference/device-os/api/cloud-functions/particle-unsubscribe.md": {
             "date": "2023-09-20",
@@ -8679,20 +8679,20 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/variant.md": {
-            "hash": "2d035219fff6ae6880ed02510532c7c57ccdc6c46ec51a933e5ebc0491e33bec",
-            "date": "2024-05-01"
+            "hash": "5f8e93f210a67654a2bf32fd937c1b452f44082dd737105baa5b8810ed1ab440",
+            "date": "2024-10-11"
         },
         "reference/device-os/api/variant/set-variant-class.md": {
             "hash": "35a8c861983f6f22dc95bc68acbbd6a8bcb807001f36874a7b49f36133b02bcb",
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/variant-type.md": {
-            "hash": "fa67d6f2af0d696c04ef2e907a8a25493b275ebb23815f508fbb2a9336398128",
-            "date": "2024-05-01"
+            "hash": "1276f29f0193460d96d2ec24bf241409635b645379b9a7c68302a5fb4cf1a9d1",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/constructor-variant-class.md": {
-            "hash": "f6a05e4b069397dd0281b4d14606e0b5b29fe0092f76eaf65cbebd2bf4f7ddac",
-            "date": "2024-05-01"
+            "hash": "7b3475d23057af8a9dc74f8a2d67f458a6b74871b7fb9549d033175d694ec4e6",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/value-variant-class.md": {
             "hash": "ac5d80a0e6c40685abd868aca0bf4c49a7e78c94fe215312bd37a26236fe5879",
@@ -8707,8 +8707,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/isxxx-variant-class.md": {
-            "hash": "15cc609d0f4691d354781c785b5f09aaea94b7783e03763f3e5d06a5b8c77836",
-            "date": "2024-05-01"
+            "hash": "ccd862eb651e60487648d8127d0bd2244bd532419bb22854fd88c0eeb96e0a54",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/tobool-variant-class.md": {
             "hash": "9d15a297a9b4b2e9dd86ac6ec850c4a94041ff5803cfc2233f37c97f3a3997bf",
@@ -8783,8 +8783,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/tojson-variant-class.md": {
-            "hash": "bb90fb10ea76ec5577fbc41d1f54de465f1d416d8ee6bda567519727967e8c47",
-            "date": "2024-05-01"
+            "hash": "85d8641f2ae80da12a828cc469a38a673610e18b7caa62f8d4537c4c978ff947",
+            "date": "2024-10-04"
         },
         "reference/device-os/api/variant/fromjson-variant-class.md": {
             "hash": "189e360ea58343b29d28c3ad32bba7f59aec0a19926e4987eabf389c0cae472f",
@@ -9225,6 +9225,146 @@
         "reference/device-os/libraries/g/Grove_IMU_9DOF_ICM20600_AK09918_y.md": {
             "hash": "056a473292f6e52c27a8ba953a45e44c169d6a6f46296a36e3d5992537b1610d",
             "date": "2024-09-18"
+        },
+        "reference/device-os/api/buffer/buffer.md": {
+            "hash": "14762cd4e39a5adfe2dbffc86f694ba1eaa72f026f0324f1bd79e0f492d459d5",
+            "date": "2024-10-15"
+        },
+        "reference/device-os/api/buffer/constructor-size-buffer-class.md": {
+            "hash": "61ffe60d6e4cfcd003461841591fe4e017d931d06f077d129fcd662439f1d2cd",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/constructor-data-size-buffer-class.md": {
+            "hash": "d04cc8c7107c45bf57f4a644f9170684dd804858021d9884b5d85c1862c1e592",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/data-non-const-buffer-class.md": {
+            "hash": "adc0512edac41d6aadcc27935f296310db606d23e9f992da043f55eab307be9b",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/data-const-buffer-class.md": {
+            "hash": "e8f802ea754f33be4ff5abffada89aa680140d5a30350669d5480a1b33b737c3",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/size-buffer-class.md": {
+            "hash": "5c8128456f9ca52ed862f936bbb27e98426ee43fc76d5f410105280c4c4b9ee0",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/isempty-buffer-class.md": {
+            "hash": "9606fe5ae72a9a93f563f1bca57b61deda3ade59d56ea3a083f27640f47b8c6c",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/resize-buffer-class.md": {
+            "hash": "46a5fe0c5c016cbc618632777ef121ead81f0ac3d5842bf8c146326339b5c344",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/capacity-buffer-class.md": {
+            "hash": "2a705c0c4b6ad304a64bd26c353e0188481ac395eacd27f36365f475dfee1497",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/reserve-buffer-class.md": {
+            "hash": "6883e82dfb569a26bd9ed5188236d411cc66aeb3fb3fc34878983a403073ac88",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/trimtosize-buffer-class.md": {
+            "hash": "8786e2400b96b9b4fb08eacb3a62c72bd221d6fe77822acec1aedfcd457b39c7",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/tohex-string-buffer-class.md": {
+            "hash": "9b6031884b92d0192b747658507922803c7e8fa5ad759ae2bab2641fc43f3003",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/tohex-pointer-size-buffer-class.md": {
+            "hash": "7866347439552516b3a35217191c565ee00cff913a8369311f03e382b118ea39",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/operator-equality-buffer-class.md": {
+            "hash": "ed6653f88cd93433cfea23e2f8165a6afa6aad69f9164ddb74d46fed2f58b37e",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/operator-inequality-buffer-class.md": {
+            "hash": "71c4b2cccc054970d999f4a910b0f13c2610c51236a454b965e4c6b8315c7dea",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/fromhex-string-static-buffer-class.md": {
+            "hash": "8e042d1476cb848c4d7e947db9af6c5173fb19281f8bf2d267a78bacef150431",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/fromhex-c-string-static-buffer-class.md": {
+            "hash": "4c115538a4e74225b0e57e3349a5fa941572f48e7017c14574ee706fddf4d68f",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/buffer/fromhex-pointer-size-static-buffer-class.md": {
+            "hash": "e5b3aee8325a6bc90deef4228651cb5ec660cdf2ca5b1e31bbe9330f10bd2c13",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/variant/tobuffer-variant-class.md": {
+            "hash": "f80ba8d3d155b3ce360c986d4e23d9070cfac231ea1ff2962769fb03099c2db7",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/variant/asbuffer-variant-class.md": {
+            "hash": "769f74189f6f3bb6de189b12c3c42aa015a2468e6377ffcd11f2e97fb81ff0b5",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/publish.md": {
+            "hash": "529481021c3eea48a165c92a1b6967dfd14c52dd6eef03e2ad700d9942c62cef",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/limits-publish.md": {
+            "hash": "5178de93c4c0c5605d9d49e106ca42741a5afac365660e7c33bd0259bfd4a66e",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/typed-publish-publish.md": {
+            "hash": "db86f295f1672747edd13abacc56f641ea85b3ed8ae0b38a3eac77803f46670f",
+            "date": "2024-10-15"
+        },
+        "reference/device-os/api/publish/particle-publish-publish.md": {
+            "hash": "19b522c41125827a6a6ac39fa6f0522cdabac447648b4b5c8d39d589f3c93acc",
+            "date": "2024-10-15"
+        },
+        "reference/device-os/api/publish/name-particle-publish-publish.md": {
+            "hash": "60ee919159fcc7297aa17e722177bff8f070680ac980604ef088f21bd7b6e39e",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/data-string-particle-publish-publish.md": {
+            "hash": "8734a8c6be591f52fd5a756b76f8aacf8eecff44ae55bf7c10ea5a488a24b95d",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/data-pointer-and-length-particle-publish-publish.md": {
+            "hash": "ee5dd364d5ee25f092f4bcd6b57782baa3065f19270856fec95eb59bc281fc0c",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/data-eventdata-particle-publish-publish.md": {
+            "hash": "00fd2a07ab92a1d4f819a7073eecceb7ce9b26cebfd9c8cf64d9b91676420cab",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/contenttype.md": {
+            "hash": "ef654aa4dc18ae304acdedc5ccabbe7282fa62626d2fb5a1ef6a7c83783ad6ac",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/publish/particle-publish-classic-api-publish.md": {
+            "hash": "ba95dc6306d516249a2bea69cd266acb89688ee0241d0f86e60d805358e25341",
+            "date": "2024-10-04"
+        },
+        "reference/device-os/api/subscribe/subscribe.md": {
+            "hash": "64708ab47cc0195a9de85b766735ccd9609dace3165b3289cddc7ef4196786de",
+            "date": "2024-10-11"
+        },
+        "reference/device-os/api/subscribe/subscrible-classic-api-subscribe.md": {
+            "hash": "4d29113ab04fa1dc79c5d767f0eff1d20f919596c7d2cb5312d97f4a18eded24",
+            "date": "2024-10-15"
+        },
+        "reference/device-os/api/subscribe/subscribe-with-content-type-subscribe.md": {
+            "hash": "a4cd7d517fff6a32a242c3efd1ef4bb7b74b1c207692659fd8506b0139f3683f",
+            "date": "2024-10-11"
+        },
+        "reference/device-os/api/subscribe/subscribe-with-variant-subscribe.md": {
+            "hash": "6656b4c3fa3f27a04650a32f28a25e37d5e464a78f4660d02fff285cfe8a875c",
+            "date": "2024-10-15"
+        },
+        "reference/device-os/api/future/future.md": {
+            "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",
+            "date": "2024-10-11"
         }
     }
 }

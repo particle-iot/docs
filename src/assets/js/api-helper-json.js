@@ -312,5 +312,538 @@ $(document).ready(function() {
         });
 
     });
+
+
+    const base64toUint8Array = function(s) {
+        const binaryString = window.atob(s);
+        let a = new Uint8Array(binaryString.length);
+        for (let ii = 0; ii < binaryString.length; ii++) {
+            a[ii] = binaryString.charCodeAt(ii);
+        }    
+        return a;    
+    }
+
+
+    $('.apiHelperJsonToCbor').each(function() {
+        const thisPartial = $(this);
+        const linterElem = $('.apiHelperJsonLinter');
+        const outputElem = $(thisPartial).find('.apiHelperJsonToCborOutput > textarea');
+        const cborStatsDivElem = $(thisPartial).find('.cborStatsDiv');
+        const cborStatsTableBodyElem = $(thisPartial).find('.cborStatsDiv > table > tbody');
+        const convertFromCborButtonElem = $(thisPartial).find('.apiHelperConvertFromCborButton');
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperJsonToCborStatus').text(s);
+        }
+
+
+        const convertFromCborInfo = function() {
+            let info = {
+                text: $(outputElem).val(),
+                isHex: false,
+                isBase64: false,
+            };
+            
+            if (!!info.text.match(/^[a-f0-9]+$/i)) {
+                try {
+                    info.cborArray = new Uint8Array(info.text.match(/[a-f0-9]{2}/gi).map(h => {
+                        return parseInt(h, 16)
+                    }));
+                    info.isHex = true;
+                }
+                catch(e) {                    
+                }
+            }
+            else
+            if (info.text.length > 0) {
+                try {
+                    info.cborArray = base64toUint8Array(info.text);
+                    info.isBase64 = true;
+                }
+                catch(e) {
+                }        
+            }
+
+            if (info.cborArray) {
+                try {
+                    info.json = CBOR.decode(info.cborArray.buffer);
+                }
+                catch(e) {
+                    console.log('exception converting from cbor', e);
+                }
+            }
+            
+            console.log('convertFromCborInfo', info);
+            
+            return info;
+        }
+
+        const convertToCborInfo = function() {
+            let info = {};
+            const index = parseInt($(linterElem).attr('data-index'));
+            
+            info.codeMirror = apiHelper.jsonLinterCodeMirror[index];
+            info.jsonStr = info.codeMirror.getValue();
+
+            try {
+                info.json = JSON.parse(info.jsonStr);
+                    
+                info.cbor = CBOR.encode(info.json);
+
+                info.compactLength = JSON.stringify(info.json).length;
+                if (info.compactLength != 0) {
+                    info.pctSaved = Math.floor(info.cbor.byteLength * 100 / info.compactLength);
+                }
+                else {
+                    info.pctSaved = 0;
+                }
+
+            }
+            catch(e) {
+            }
+
+            console.log('convertToCborInfo', info);
+            
+
+            return info;
+        }
+
+        const convertFromCborInfoEnableButton = function() {
+            const info = convertFromCborInfo();
+            console.log('convertFromCborInfoEnableButton convertFromCborInfo', info);
+
+            if (info.json) {
+                $(convertFromCborButtonElem).prop('disabled', false);
+            }
+            else {
+                $(convertFromCborButtonElem).prop('disabled', true);
+            }
+        }
+        const updateStats = function(info) {
+            $(cborStatsTableBodyElem).find('.tableValue').text('');
+
+            $(cborStatsDivElem).show();
+            $(cborStatsTableBodyElem).find('.tableStringIn').text(info.jsonStr.length);
+            $(cborStatsTableBodyElem).find('.tableStringInCompact').text(info.compactLength);        
+            if (info.cbor) {
+                $(cborStatsTableBodyElem).find('.tableCborOut').text(info.cbor.byteLength);
+                if (info.compactLength != 0) {
+                    $(cborStatsTableBodyElem).find('.tableCborPct').text(info.pctSaved);
+                }
+            }
+        }
+
+        const convertToCbor = function(options) {    
+            try {
+                $(cborStatsDivElem).hide();
+                setStatus('');
+            
+                let output = '';
+
+                const info = convertToCborInfo();                
+                updateStats(info);
+
+                if (options.toHex) {
+                    output = Array.prototype.map.call(new Uint8Array(info.cbor), x => ('00' + x.toString(16)).slice(-2)).join('');
+                }
+                else
+                if (options.toBase64) {
+                    const uint8cbor = new Uint8Array(info.cbor);
+                    
+                    let binaryString = '';
+                    for (let ii = 0; ii < uint8cbor.byteLength; ii++) {
+                        binaryString += String.fromCharCode(uint8cbor[ii]);
+                    }
+                    output = window.btoa(binaryString);
+                }
+
+                $(outputElem).val(output);
+
+                convertFromCborInfoEnableButton();
+            }
+            catch(e) {
+                setStatus('Could not convert to CBOR');
+                console.log('convert exception', e);
+            }
+        }
+
+
+        $(outputElem).on('input', function() {
+            $(cborStatsDivElem).hide();
+            $(cborStatsTableBodyElem).find('.tableValue').text('');
+            convertFromCborInfoEnableButton();
+        });
+
+        $(thisPartial).find('.apiHelperConvertToCborHexButton').on('click', function() {
+            convertToCbor({toHex:true});
+        });
+        $(thisPartial).find('.apiHelperConvertToCborBase64Button').on('click', function() {
+            convertToCbor({toBase64:true});
+        });
+        $(convertFromCborButtonElem).on('click', function() {
+            const index = parseInt($(linterElem).attr('data-index'));
+            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+    
+            try {
+                $(cborStatsDivElem).hide();
+                setStatus('');
+
+                const info = convertFromCborInfo();
+                if (info.json) {
+                    codeMirror.setValue(JSON.stringify(info.json, null, 4));
+
+                    const info2 = convertToCborInfo();
+                    updateStats(info2);    
+                }                
+            }
+            catch(e) {
+                setStatus('Could not convert from CBOR');
+                console.log('convert exception', e);
+            }
+        });
+    });
+
+
+    const renderBinary = function(array, options) {
+        let output = '';
+        // options:
+        //   indent (string, required)
+
+        const bytesPerLine = 16;
+
+        for(let lineStart = 0; lineStart < array.length; lineStart += bytesPerLine) {
+
+            output += options.indent + ('0000' + lineStart.toString(16)).slice(-4) + ': ';
+
+            for(let ii = 0; ii < bytesPerLine; ii++) {
+                if ((lineStart + ii) < array.length) {
+                    output += ('00' + array.at(lineStart + ii).toString(16)).slice(-2) + ' ';
+                }
+                else {
+                    output += '   ';
+                }
+            }
+
+            output += '  | ';
+
+            for(let ii = 0; ii < bytesPerLine; ii++) {
+                if ((lineStart + ii) < array.length) {
+                    const c = array.at(lineStart + ii);
+                    if (c >= 32 && c < 127) {
+                        output += String.fromCharCode(c);
+                    }
+                    else {
+                        output += ' ';
+                    }
+                }
+                else {
+                    output += ' ';
+                }
+            }
+
+            output += '\n';
+        }
+        return output;
+    }
+
+    const jsonEscapedString = function(s) {
+        let result = '"';
+        
+
+        for(const codePoint of s) {
+            const cp = codePoint.codePointAt(0);
+            if (cp == 0x22 || cp == 0x2f || cp == 0x5c) {
+                // Double quote, slash, or backslash
+                result += '\\' + String.fromCodePoint(cp);
+            }
+            else
+            if (cp == 0x08) {
+                result += '\\b'; // backspace
+            }
+            else
+            if (cp == 0x0c) {
+                result += '\\f'; // formfeed
+            }
+            else
+            if (cp == 0x0a) {
+                result += '\\n'; // linefeed
+            }
+            else
+            if (cp == 0x0d) {
+                result += '\\r'; // carriage return
+            }
+            else
+            if (cp == 0x09) {
+                result += '\\t'; // horizontal tab
+            }
+            else 
+            if (cp >= 0x20 && cp < 0x7f) {
+                result += String.fromCodePoint(cp);
+            }
+            else {
+                cp += '\\u' + ('0000' + lineStart.toString(cp)).slice(-4);
+            }
+        }
+
+        result += '"';
+        return result;
+    }
+
+    const renderValue = function(value, options) {
+        let output = '';
+        // options:
+        //   indent (string, required) - only on second and subsequent lines
+        //   commaSeparator (string, required) 
+
+        if (typeof value == 'object') {
+            let options2 = Object.assign({}, options);
+            options2.indent += '  ';
+
+            let isObject = false;
+
+            if (Array.isArray(value)) {
+                output += '\n';
+                output += options.indent + '[\n';
+
+                for(let ii = 0; ii < value.length; ii++) {
+                    options2.commaSeparator = ((ii + 1) < value.length) ? ',' : '';
+                    output += options2.indent + renderValue(value[ii], options2);
+                }
+
+                output += options.indent + ']' + options.commaSeparator + '\n';
+            }
+            else
+            if (typeof value['_type'] == 'string' && typeof value['_data'] != 'undefined') {
+                if (value['_type'] == 'buffer') {
+                    output += '\n';
+                    const array = base64toUint8Array(value['_data']);
+                    output += options2.indent + '[binary buffer ' + array.length + ' bytes]\n';
+                    output += renderBinary(array, options2);
+                }
+                else {
+                    isObject = true;
+                }
+            }
+            else {
+                isObject = true;
+            }
+
+
+            if (isObject) {
+                output += '\n';
+                output += options.indent + '{\n';
+                const keys = Object.keys(value);
+                for(let ii = 0; ii < keys.length; ii++) {
+                    options2.commaSeparator = ((ii + 1) < keys.length) ? ',' : '';
+        
+                    const key = keys[ii];
+                    
+                    output += options2.indent + jsonEscapedString(key) + ': ';
+
+                    output += renderValue(value[key], options2);
+                }        
+
+                output += options.indent + '}' + options.commaSeparator + '\n';
+            }
+        }
+        else
+        if (typeof value == 'string') {
+            output += jsonEscapedString(value) + options.commaSeparator + '\n'
+        }
+        else {
+            // TODO: Handle null, bool, etc here!
+            output += value.toString() + options.commaSeparator + '\n';
+        }
+
+        return output;
+    }
+
+    const renderIndent = function(level, spaces = 4) {
+        return '                                            '.substring(0, level * spaces);
+    }
+
+
+    $('.apiHelperJsonToVariant').each(function() {
+        const thisPartial = $(this);
+        const linterElem = $('.apiHelperJsonLinter');
+        const outputElem = $(thisPartial).find('.apiHelperJsonToCodeOutput > textarea');
+        const convertButtonElem = $(thisPartial).find('.apiHelperCodeGeneratorButton');
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperJsonToCodeStatus').text(s);
+        }
+
+        $(convertButtonElem).on('click', function() {
+            const index = parseInt($(linterElem).attr('data-index'));
+            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+
+            try {
+                let info = {
+                    codeMirror,
+                };
+
+                setStatus('');
+
+                info.jsonStr = info.codeMirror.getValue();
+
+                info.json = JSON.parse(info.jsonStr);
+                
+                const renderVariant = function(value, options) {
+                    // options:
+                    //   indent (string, required): inserted at the beginning of each line
+                    let output = '';
+
+                    const options2 = Object.assign({}, options);
+                    options2.level++;
+
+                    const name = (options.level == 0) ? options.name : (options.name + options.level);
+
+                    // TODO: Add boolean, null
+                    if (typeof value == 'string') {
+                        output += options.addToParent('Variant(' + jsonEscapedString(value) + ')');
+                    }
+                    else 
+                    if (typeof value == 'object') {
+                        if (value !== null) {
+                            output += renderIndent(options.level) + '{\n';
+
+                            if (Array.isArray(value)) {
+                                // Array
+                                output += renderIndent(options2.level) + 'Variant ' + name + ';\n';
+                                for(const v of value) {
+                                    options2.addToParent = function(childValueOrVariable) {
+                                        return renderIndent(options2.level) + name + '.append(' + childValueOrVariable + ');\n';
+                                    };
+                                        
+                                    output += renderVariant(v, options2);                                
+                                }
+    
+                            }
+                            else {
+                                // Map
+                                output += renderIndent(options2.level) + 'Variant ' + name + ';\n';
+    
+                                for(const key in value) {
+    
+                                    options2.addToParent = function(childValueOrVariable) {
+                                        return renderIndent(options2.level) + name + '.set(' + jsonEscapedString(key) + ', ' + childValueOrVariable + ');\n';
+                                    };
+                                        
+                                    output += renderVariant(value[key], options2);
+                                }        
+                            }
+                            if (options.addToParent) {
+                                // Add one extra indent because it's inside a {} pair
+                                output += renderIndent(1) + options.addToParent(name);
+                            }    
+    
+                            output += renderIndent(options.level) + '}\n';
+                        }
+                        else {
+                            output += options.addToParent('Variant(NULL)');
+                        }
+                    }
+                    else {
+                        // number, boolean, bigint, symbol
+                        output += options.addToParent('Variant(' + value.toString() + ')');
+                    }
+                    return output;
+                }
+                
+
+            
+                info.output = '';
+
+                info.output += renderVariant(info.json, {level: 0, name: 'obj', });
+
+                console.log('info', info);
+
+                $(outputElem).val(info.output);
+                                
+            }
+            catch(e) {
+                setStatus('Could not generate code');
+                console.log('convert exception', e);
+            }
+        });
+    });
+
+    $('.apiHelperEventDecoder').each(function() {
+        const thisPartial = $(this);
+
+        const decoderInputElem = $(thisPartial).find('.decoderInput');
+        const decoderOutputElem = $(thisPartial).find('.decoderOutput');
+        const eventExampleElem = $(thisPartial).find('.eventExample');
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperEventDecoderStatus').text(s);
+        }
+
+        const calculate = function() {
+            const eventData = $(decoderInputElem).val();
+            console.log('eventData', eventData);
+
+            $(decoderOutputElem).val('');
+
+            try {
+                // TODO: Make this more tolerant!
+                if (eventData.startsWith('data:application/octet-stream;base64')) {
+                    const commaIndex = eventData.indexOf(',');
+                    const base64 = eventData.substring(commaIndex + 1);
+
+                    const binaryString = window.atob(base64);
+                    binaryArray = new Uint8Array(binaryString.length);
+                    for (let ii = 0; ii < binaryString.length; ii++) {
+                        binaryArray[ii] = binaryString.charCodeAt(ii);
+                    }
+
+                    let output = renderBinary(binaryArray, {indent: '',});
+                    $(decoderOutputElem).val(output);
+                }
+                
+                // See if it's JSON
+                try {
+                    let json = JSON.parse(eventData);
+
+                    let output = renderValue(json, {indent: '', commaSeparator:'', });
+
+                    $(decoderOutputElem).val(output.trim());
+                    
+                }
+                catch(e) {         
+                    // Don't log an error here, as it will happen for any non-JSON data           
+                    console.log('json exception', e);
+                }
+
+            }  
+            catch(e) {
+                console.log('decode exception', e);
+            }
+        }
+
+        $(decoderInputElem).on('input', calculate);
+
+        const eventExamples = {
+            simple: '{"a":123,"b":"test","c":true,"d":[1,2,3]}',
+            binary: 'data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==',
+            jsonWithBinary: '{"a":1234,"b":{"_type":"buffer","_data":"ncrk3+mvVzOLV1XWflF3HA=="}}',
+        };
+
+        $(eventExampleElem).on('change', function() {
+            const key = $(eventExampleElem).val();
+            if (key == '-') {
+                return;
+            }
+            const example = eventExamples[key];
+            if (typeof example == 'undefined') {
+                return;
+            }
+
+            $(decoderInputElem).val(example);
+            calculate();
+        });
+
+    });
+
 });
 

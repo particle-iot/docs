@@ -3,7 +3,7 @@ title: JSON tools
 columns: two
 layout: commonTwo.hbs
 description: JSON tools
-includeDefinitions: [api-helper, api-helper-events, api-helper-json, api-helper-mustache, api-helper-primitives, codemirror]
+includeDefinitions: [api-helper, api-helper-events, api-helper-json, api-helper-mustache, api-helper-primitives, cbor, codemirror]
 ---
 
 # {{title}}
@@ -29,4 +29,19 @@ The five buttons only work when the JSON is valid. If there are syntax errors, t
 Sometimes you will want to convert JSON data into static strings in your C++ application firmware. The
 tool below will convert the JSON above into code.
 
-{{> json-to-code rows="15" cols="90"}}
+{{> json-to-code rows="10" cols="90"}}
+
+### Convert to CBOR
+
+CBOR is a compact binary representation of structured data that can be converted to and from JSON.
+
+{{> json-to-cbor rows="10" cols="90"}}
+
+
+### Variant generator
+
+Using the Variant class to generate JSON data on-device can simplify your code and greatly reduce
+data size, because in Device OS 6.2 and later, your object is transparently converted to CBOR over the
+air and converted to JSON in the cloud.
+
+{{> json-to-variant rows="10" cols="90"}}

@@ -835,6 +835,85 @@
       ]
     },
     {
+      "title": "Buffer",
+      "dir": "buffer",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Buffer",
+          "dir": "buffer"
+        },
+        {
+          "title": "constructor(size) [Buffer class] - Buffer",
+          "dir": "constructor-size-buffer-class"
+        },
+        {
+          "title": "constructor(data, size) [Buffer class] - Buffer",
+          "dir": "constructor-data-size-buffer-class"
+        },
+        {
+          "title": "data() non-const [Buffer class] - Buffer",
+          "dir": "data-non-const-buffer-class"
+        },
+        {
+          "title": "data() const [Buffer class] - Buffer",
+          "dir": "data-const-buffer-class"
+        },
+        {
+          "title": "size() [Buffer class] - Buffer",
+          "dir": "size-buffer-class"
+        },
+        {
+          "title": "isEmpty() [Buffer class] - Buffer",
+          "dir": "isempty-buffer-class"
+        },
+        {
+          "title": "resize() [Buffer class] - Buffer",
+          "dir": "resize-buffer-class"
+        },
+        {
+          "title": "capacity() [Buffer class] - Buffer",
+          "dir": "capacity-buffer-class"
+        },
+        {
+          "title": "reserve() [Buffer class] - Buffer",
+          "dir": "reserve-buffer-class"
+        },
+        {
+          "title": "trimToSize() [Buffer class] - Buffer",
+          "dir": "trimtosize-buffer-class"
+        },
+        {
+          "title": "toHex() (String) [Buffer class] - Buffer",
+          "dir": "tohex-string-buffer-class"
+        },
+        {
+          "title": "toHex() (pointer, size) [Buffer class] - Buffer",
+          "dir": "tohex-pointer-size-buffer-class"
+        },
+        {
+          "title": "operator==() (equality) [Buffer class] - Buffer",
+          "dir": "operator-equality-buffer-class"
+        },
+        {
+          "title": "operator!= (inequality) [Buffer class] - Buffer",
+          "dir": "operator-inequality-buffer-class"
+        },
+        {
+          "title": "fromHex(String) (static) [Buffer class] - Buffer",
+          "dir": "fromhex-string-static-buffer-class"
+        },
+        {
+          "title": "fromHex(c-string) (static) [Buffer class] - Buffer",
+          "dir": "fromhex-c-string-static-buffer-class"
+        },
+        {
+          "title": "fromHex(pointer, size) (static) [Buffer class] - Buffer",
+          "dir": "fromhex-pointer-size-static-buffer-class"
+        }
+      ]
+    },
+    {
       "title": "CAN (canbus)",
       "dir": "can-canbus",
       "collapse": true,
@@ -1587,6 +1666,17 @@
         {
           "title": "wakeup() - FuelGauge",
           "dir": "wakeup"
+        }
+      ]
+    },
+    {
+      "title": "Future",
+      "dir": "future",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Future",
+          "dir": "future"
         }
       ]
     },
@@ -3666,6 +3756,65 @@
       ]
     },
     {
+      "title": "Publish",
+      "dir": "publish",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Publish",
+          "dir": "publish"
+        },
+        {
+          "title": "Limits - Publish - Publish",
+          "dir": "limits-publish"
+        },
+        {
+          "title": "Typed publish - Publish - Publish",
+          "dir": "typed-publish-publish"
+        },
+        {
+          "title": "Particle.publish - Publish - Publish",
+          "dir": "particle-publish-publish",
+          "subsections": [
+            {
+              "anchor": "name-particle-publish-publish",
+              "title": "name - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "data-string-particle-publish-publish",
+              "title": "data (string) - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "data-pointer-and-length-particle-publish-publish",
+              "title": "data (pointer and length) - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "data-eventdata-particle-publish-publish",
+              "title": "data (EventData) - Particle.publish - Publish",
+              "isContent": true
+            },
+            {
+              "anchor": "contenttype",
+              "title": "contentType",
+              "isContent": true
+            },
+            {
+              "anchor": "future-particle-publish-publish",
+              "title": "Future<bool> - Particle.publish - Publish",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Particle.publish (classic API) - Publish - Publish",
+          "dir": "particle-publish-classic-api-publish"
+        }
+      ]
+    },
+    {
       "title": "Random numbers",
       "dir": "random-numbers",
       "collapse": true,
@@ -4380,6 +4529,29 @@
         {
           "title": "trim() - String class",
           "dir": "trim"
+        }
+      ]
+    },
+    {
+      "title": "Subscribe",
+      "dir": "subscribe",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Subscribe",
+          "dir": "subscribe"
+        },
+        {
+          "title": "Subscribe (with content type) - Subscribe - Subscribe",
+          "dir": "subscribe-with-content-type-subscribe"
+        },
+        {
+          "title": "Subscribe (with Variant) - Subscribe - Subscribe",
+          "dir": "subscribe-with-variant-subscribe"
+        },
+        {
+          "title": "Subscrible (classic API) - Subscribe - Subscribe",
+          "dir": "subscrible-classic-api-subscribe"
         }
       ]
     },
@@ -5260,6 +5432,14 @@
         {
           "title": "asString() [Variant class] - Variant",
           "dir": "asstring-variant-class"
+        },
+        {
+          "title": "toBuffer() [Variant class] - Variant",
+          "dir": "tobuffer-variant-class"
+        },
+        {
+          "title": "asBuffer() [Variant class] - Variant",
+          "dir": "asbuffer-variant-class"
         },
         {
           "title": "toArray() [Variant class] - Variant",

@@ -103,6 +103,10 @@
                     "title": "Event viewer"
                 },
                 {
+                    "dir": "event-decoder",
+                    "title": "Event decoder"
+                },
+                {
                     "dir": "import-devices",
                     "title": "Import devices"
                 },
