@@ -49,6 +49,9 @@ The Muon engineering samples comes in a plastic case with the following items:
 Be sure to connect the Wi-Fi/BLE antenna to the M-SoM itself, not the U.FL connector on the Muon (21). Future versions
 of the Muon will not have this connector on the base board.
 
+You may find it easier to attach the antenna connectors before putting the Muon in the case.
+
+
 ## Device setup
 
 To set up your Muon preview device, connect a USB-C cable from connector 3 to your computer, then proceed to [setup.particle.io](https://setup.particle.io/) to complete the setup of your device.
