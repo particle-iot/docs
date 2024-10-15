@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Typed publish 2024-10-15
+
+[Typed publish](/reference/device-os/typed-publish/), available in Device OS 6.2.0, allows for sending binary data
+in publishes and efficiently sending structured data.
+
 ### Device OS 5.9.0 GA 2024-10-10
 
 Device OS 5.9.0 is now generally available (GA) and the default release for P2/Photon 2 and M-SoM.
