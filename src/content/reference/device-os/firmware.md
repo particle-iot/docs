@@ -1152,17 +1152,9 @@ to be specified, and allows for binary data payloads. The following types are su
 | `ContentType::BINARY` | `application/octet-stream` |
 {{!-- END shared-blurb --}}
 
-{{!-- 
 Additionally, JSON (text/json) structured data is supported. This is encoded using an `EventData` object, 
 which is a `Variant`. The `Variant` can be created from a JSON text string, or built programmatically
 by adding fields.
-
-If you are currently publishing events using a JSON string, it's highly recommended that you switch 
-to using a `Variant` with Device OS 6.2 and later. When you do this, the `Variant` is converted into 
-CBOR (binary) format internally before sending, then converted back to JSON in the cloud. This greatly reduces the size of 
-many JSON payloads, allowing for larger data or lower cellular data usage, while maintaining compatibility with
-JSON in external service via webhooks or Logic.
---}}
 
 ### Particle.publish - Publish
 
@@ -1181,7 +1173,8 @@ There are a variety of overloads for this function, including:
 // PROTOTYPES
 particle::Future<bool> publish(const char* name, const char* data, particle::ContentType type, PublishFlags flags = PublishFlags());
 particle::Future<bool> publish(const char* name, const String& data, particle::ContentType type, PublishFlags flags = PublishFlags());
-particle::Future<bool> publish(const char* name, const char* data, size_t size, particle::ContentType type, PublishFlags flags = PublishFlags());particle::Future<bool> publish(const char* name, const particle::EventData& data, PublishFlags flags = PublishFlags());
+particle::Future<bool> publish(const char* name, const char* data, size_t size, particle::ContentType type, PublishFlags flags = PublishFlags());
+particle::Future<bool> publish(const char* name, const particle::EventData& data, PublishFlags flags = PublishFlags());
 ```
 
 #### name - Particle.publish - Publish
@@ -1203,7 +1196,7 @@ null-terminated.
 
 #### data (EventData) - Particle.publish - Publish
 
-The `EventData` overload does not `ContentType` value because it is used for structured data in a `Variant` and is always
+The `EventData` overload does not require a `ContentType` value because it is used for structured data in a `Variant` and is always
 encoded as CBOR over-the-air, and JSON in webhooks and other locations. It can optionally include binary data.
 
 #### contentType
@@ -1229,7 +1222,7 @@ The return type of the `Particle.publish` function is `particle::Future<bool>`. 
 Particle.publish("myEvent");
 
 // EXAMPLE 2
-bool bResult = Particle.publish("myEvent");
+bool bResult = Particle.publish("myEvent", eventData, WITH_ACK);
 
 // EXAMPLE 3
 Future<bool> futureResult = Particle.publish("myEvent");
@@ -1511,7 +1504,38 @@ including binary data. The `ContentType` is also passed to the handler for the h
 
 ### Subscribe (with Variant) - Subscribe
 
-If you are expecting structured data, use the subscribe overloada that takes a handler with a Variant.
+If you are expecting structured data, use the subscribe overload that takes a handler with a Variant.
+
+```cpp
+// EXAMPLE
+void myHandler(const char* name, Variant data) {
+    Log.info("a=%d b=%s", data.asMap().get("a").toInt(), data.asMap().get("b").toString().c_str());
+}
+
+void setup() {
+    Particle.subscribe("myEvent", myHandler);
+}
+```
+
+If you publish this JSON:
+
+```json
+{"a":123,"b":"testing"}
+```
+
+For example, with the Particle CLI:
+
+```
+particle publish myEvent '{"a":123,"b":"testing"}'
+```
+
+The USB serial debug log will show something like:
+
+```
+0000013271 [app] INFO: a=123 b=testing
+```
+
+The prototypes for subscribing to events with a Variant are:
 
 ```cpp
 // PROTOTYPES
@@ -1630,6 +1654,21 @@ See [special webhook events](/reference/cloud-apis/api/#special-webhook-events) 
 
 - You can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once. The subscriptions are only updated once loop is running, however. During setup() the subscription will not yet be active. Very old versions of Device OS (prior to 1.0.0) may behave differently.
 
+```cpp
+// PROTOTYPES
+bool subscribe(const char* name, EventHandler handler);
+bool subscribe(const char* name, wiring_event_handler_t handler);
+
+template<typename T>
+bool subscribe(const char* name, void (T::*handler)(const char*, const char*), T* instance);
+
+// Handler definitions
+typedef void (*EventHandler)(const char *event_name, const char *data);
+typedef std::function<void (const char*, const char*)> wiring_event_handler_t;
+
+// Handler function prototype
+void eventHandler(const char *event_name, const char *data)
+```
 
 ---
 

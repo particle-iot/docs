@@ -128,6 +128,13 @@ When the event is received by a webhook, it would receive this data. The `_data`
 
 To decode these events for troubleshooting, you can use the [Event decoder](/tools/cloud-tools/event-decoder/) tool.
 
+Binary buffer data should be used for individual binary data elements, and arrays of small values. Because each element
+of a Variant is a separate block of memory on the heap, creating a VariantArray of small data elements like byte
+values or integers is memory inefficient.
+
+You generally should not store a C/C++ `struct`, because things like byte order, alignment, and version compatibility
+can make passing a struct between a device an an external service difficult.
+
 ### Using Variant
 
 See [Variant](/reference/device-os/api/variant/) in the Device OS firmware API.
