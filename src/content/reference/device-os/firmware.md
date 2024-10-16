@@ -20826,7 +20826,7 @@ For more information on using network sleep modes, see [Learn more about sleep m
 ---
 
 {{note op="start" type="gen4"}}
-Wake on network is not supported on the P2, Photon 2, M-SoM (for Wi-Fi).
+Wake on network is not supported on the P2, Photon 2, M-SoM.
 {{note op="end"}}
 
 ---

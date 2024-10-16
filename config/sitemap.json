@@ -3635,8 +3635,8 @@
             "hash": "421b98c241efd972d65d4c27cff734c4eda72eb5d3ec5f17e89273c6598f6fd3"
         },
         "reference/device-os/api/sleep-sleep/network-systemsleepconfiguration.md": {
-            "date": "2024-05-22",
-            "hash": "59a46a102cd08b2ccd78f16c5384bd75824e235b886b57d1fa7b425a8219e199"
+            "date": "2024-10-16",
+            "hash": "355a77bb19e02be192e8c46eadde882fc10159bb56e6ebc5ceda4046f3633f0b"
         },
         "reference/device-os/api/sleep-sleep/analog-systemsleepconfiguration.md": {
             "date": "2024-05-22",
@@ -9216,7 +9216,7 @@
         },
         "reference/device-os/api/power-manager/auxiliarypowercontrolpin-systempowerconfiguration.md": {
             "hash": "aa823fdf34b0c61b2faba71a2d3ff9bc3e68253ddb7421dddf2499593ad020b4",
-            "date": "2024-09-17"
+            "date": "2024-10-16"
         },
         "reference/device-os/api/power-manager/interruptpin-systempowerconfiguration.md": {
             "hash": "58212f6a22cd17fdbce33c271e0aed73fba4642b4e3a535eec3ff9e193c8e681",
