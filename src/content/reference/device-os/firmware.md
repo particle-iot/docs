@@ -20803,11 +20803,11 @@ config.mode(SystemSleepMode::ULTRA_LOW_POWER)
 
 This option not only allows wake from network activity, but also keeps the network connected, making resume from sleep significantly faster. This is a superset of the `SLEEP_NETWORK_STANDBY` feature. This should also be used with cellular devices with sleep periods of less than 10 minutes to prevent your SIM from being banned for aggressively reconnecting to the cellular network.
 
-| Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) | Gen 4 Wi-Fi | Gen 4 Cellular |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Wake from STOP sleep | | &check; | &check; | &nbsp; | &check; |
-| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; | &nbsp; | &check; |
-| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) | Gen 4 (any) |
+| :--- | :---: | :---: | :---: | :---: |
+| Wake from STOP sleep | | &check; | &check; | &nbsp; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 The first example configures the cellular modem to both stay awake and for the network to be a wake source. If incoming data, from a function call, variable request, subscribed event, or OTA request arrives, the device will wake from sleep mode.
 
@@ -20815,7 +20815,7 @@ The second example adds the `SystemSleepNetworkFlag::INACTIVE_STANDBY` flag whic
 
 Note: You must not sleep longer than the keep-alive value, which by default is 23 minutes in order to wake on data received by cellular. The reason is that if data is not transmitted by the device before the keep-alive expires, the mobile network will remove the channel back to the device, so it can no longer receive data from the cloud. Fortunately in network sleep mode you can wake, transmit data, and go back to sleep in a very short period of time, under 2 seconds, to keep the connection alive without using significanly more battery power.
 
-If you are waking on network activity, be sure to wait for `Particle.connected()` to be true before entering sleep mode. If you device has not completely connected to the cloud, it will not be possible to wake from sleep by network activity.
+If you are waking on network activity, be sure to wait for `Particle.connected()` to be true before entering sleep mode. If your device has not completely connected to the cloud, it will not be possible to wake from sleep by network activity.
 
 If you use `NETWORK_INTERFACE_CELLULAR` without `INACTIVE_STANDBY`, then data from the cloud to the device (function, variable, subscribe, OTA) will wake the device from sleep. However if you sleep for less than the keep-alive length, you can wake up with zero additional overhead. This is offers the fastest wake time with the least data usage.
 
