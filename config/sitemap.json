@@ -639,8 +639,8 @@
             "hash": "a28d48af8c2cb76339b62d02a9693c18479ec0b54a98f782d7a2b9a31f722d55"
         },
         "getting-started/developer-tools/workbench.md": {
-            "date": "2024-10-18",
-            "hash": "1b308ced916d849f4e4c7c9f5df66c55d40aad20fd903c97c2660578699a0860"
+            "date": "2024-09-12",
+            "hash": "9a9517b82060d782ec1a8d08a3b8d097b3850df09e233c7c22649cdc55ed4bb4"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
             "date": "2024-02-27",
@@ -3635,8 +3635,8 @@
             "hash": "421b98c241efd972d65d4c27cff734c4eda72eb5d3ec5f17e89273c6598f6fd3"
         },
         "reference/device-os/api/sleep-sleep/network-systemsleepconfiguration.md": {
-            "date": "2024-10-17",
-            "hash": "2a795fe376f81e981a37979fd7d31f1765cc8dd63c10bbc67ebad873da578f67"
+            "date": "2024-10-16",
+            "hash": "27147140c6e54d5d2435c13dddbdde7f4eae39f93b59d77eee9912d02c86c824"
         },
         "reference/device-os/api/sleep-sleep/analog-systemsleepconfiguration.md": {
             "date": "2024-05-22",
@@ -9365,10 +9365,6 @@
         "reference/device-os/api/future/future.md": {
             "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",
             "date": "2024-10-11"
-        },
-        "getting-started/logic-ledger/application-templates/integration-monitor.md": {
-            "hash": "3c56b1b6a199126657c3f862cd8bbe29a9a325a9b290cab586296d4fccb40e8d",
-            "date": "2024-10-18"
         }
     }
 }
