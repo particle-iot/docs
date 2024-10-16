@@ -446,11 +446,10 @@ The following M.2 SoM pins are used for internal functions on the Muon and are n
 | A3 | Ethernet CS | 37 | ETH_CS |
 | A4 | Ethernet interrupt | 39 | ETH_INT |
 | A7 | PMIC interrupt | 47 | M2_ADC7/PMIC_INT |
-| D5 | I/O Expander CS | 68 | M2_D5 |
 | D8 | I/O Expander INT | 48 | M2_D8/IOEX_INT |
 | D22 | I/O Expander Reset | 62 | M2_D22 |
-| D23 | 3V3_AUX and 5V power enable | 64 | M2_D23_3V3_AUX_EN |
-
+| D23 | I/O Expander CS | 64 | M2_D23_IOEX_CS |
+| D7 | 3V3_AUX and 5V power enable | 72 | D7_AUX_POWER_EN |
 
 ### ADC (Analog to Digital Converter)
 
@@ -767,7 +766,7 @@ once and the device must be reset after configuration for the changes to take ef
 ```cpp
 // Enable 3V3_AUX
 SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
-powerConfig.auxiliaryPowerControlPin(D23).interruptPin(A6);
+powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A6);
 System.setPowerConfiguration(powerConfig);
 
 // Enable Ethernet
