@@ -20803,11 +20803,11 @@ config.mode(SystemSleepMode::ULTRA_LOW_POWER)
 
 This option not only allows wake from network activity, but also keeps the network connected, making resume from sleep significantly faster. This is a superset of the `SLEEP_NETWORK_STANDBY` feature. This should also be used with cellular devices with sleep periods of less than 10 minutes to prevent your SIM from being banned for aggressively reconnecting to the cellular network.
 
-| Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) | Gen 4 Wi-Fi | Gen 4 Cellular |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Wake from STOP sleep | | &check; | &check; | &nbsp; | &check; |
-| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; | &nbsp; | &check; |
-| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) | Gen 4 (any) |
+| :--- | :---: | :---: | :---: | :---: |
+| Wake from STOP sleep | | &check; | &check; | &nbsp; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 The first example configures the cellular modem to both stay awake and for the network to be a wake source. If incoming data, from a function call, variable request, subscribed event, or OTA request arrives, the device will wake from sleep mode.
 
