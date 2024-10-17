@@ -8,9 +8,13 @@ includeDefinitions: []
 
 # {{title}}
 
-Application templates provide a easier way to start building with 
-[Logic](/getting-started/logic-ledger/logic/), [Ledger](/getting-started/logic-ledger/ledger/), 
-and [integrations](/integrations/introduction/).
+Managing and monitoring device fleets can be complex and time-consuming. Particle’s self-service application templates simplify this process by providing pre-built solutions that you can quickly deploy and customize. By leveraging these templates, you can efficiently implement common functionalities without starting from scratch.
+
+## What Are Application Templates?
+
+Application templates are practical examples of code and configuration that show how you can use Particle's cloud components together to build powerful cloud solutions. These templates combine [Logic](/getting-started/logic-ledger/logic/) functions—serverless functions that execute custom logic in response to events or on a schedule with [Ledger](/getting-started/logic-ledger/ledger/), which are data stores that maintain state and configuration for your applications, and [integrations](/integrations/introduction/) that allow your applications to interact with external services like Slack, email, or custom APIs. Each application template may include multiple Logic functions, Ledgers, and Integrations, depending on the specific use case.
+
+These templates are intended to be customized to fit your unique requirements. You can modify notification destinations by changing where alerts are sent—for example, switching from Slack to email. You can adjust the logic to alter the conditions that trigger alerts or actions, and you can change integrations to connect with different external services as needed.
 
 ## Templates
 

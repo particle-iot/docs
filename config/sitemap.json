@@ -3635,7 +3635,7 @@
             "hash": "421b98c241efd972d65d4c27cff734c4eda72eb5d3ec5f17e89273c6598f6fd3"
         },
         "reference/device-os/api/sleep-sleep/network-systemsleepconfiguration.md": {
-            "date": "2024-10-16",
+            "date": "2024-10-17",
             "hash": "355a77bb19e02be192e8c46eadde882fc10159bb56e6ebc5ceda4046f3633f0b"
         },
         "reference/device-os/api/sleep-sleep/analog-systemsleepconfiguration.md": {
@@ -9365,6 +9365,10 @@
         "reference/device-os/api/future/future.md": {
             "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",
             "date": "2024-10-11"
+        },
+        "getting-started/logic-ledger/application-templates/integration-monitor.md": {
+            "hash": "035f6fc4a0eb8490bef91dc1be689727ac54a1bd6cc1a7a2b6ccb48b4bb66a00",
+            "date": "2024-10-17"
         }
     }
 }
