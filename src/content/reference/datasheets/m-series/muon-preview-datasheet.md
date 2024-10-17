@@ -135,7 +135,37 @@ Power can be supplied to Muon by:
 - VIN (6 - 12 VDC, via screw terminals)
 - LiPo battery (via 3-pin JST battery connector)
 
-The Muon cannot be powered from the expansion connector or internally by PoE.
+The Muon preview (v0.5) cannot be powered from the expansion connector or internally by PoE
+but this feature is available on Muon 1.0 and later.
+
+#### USB-C cable warning
+
+You must use an actual USB-C port or USB-C power adapter to power the Muon by USB.
+
+**A USB-A to USB-C cable will not power the Muon or charge the battery**
+
+The reason is that the Muon uses USB-C PD to change the USB port voltage to 9V and request enough
+current to power the Muon. 
+
+When using a USB-2 or USB-3 port with USB-A to USB-C adapter cable, the USB port voltage cannot
+be changed and the port will not be able to power the Muon.
+
+Also beware of some wall adapters that have a USB-C cable, but do not support USB-C PD. Some
+of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
+to power the Muon.
+
+#### Expansion and peripheral power
+
+The onboard peripherals including Ethernet, the LoRa radio, and the expansion card are powered by the
+3V3_AUX power supply.
+
+If you use [setup.particle.io](https://setup.particle.io/) to set up your Muon, 3V3_AUX will be set up
+automatically. 
+
+If you want to do it manually, the see the section [Firmware settings](#firmware-settings), below
+for the sample code and the technical reasons why it is necessary.
+
+
 
 #### LiPo battery connector
 

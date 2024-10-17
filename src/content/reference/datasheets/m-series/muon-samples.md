@@ -49,11 +49,30 @@ The Muon engineering samples comes in a plastic case with the following items:
 Be sure to connect the Wi-Fi/BLE antenna to the M-SoM itself, not the U.FL connector on the Muon (21). Future versions
 of the Muon will not have this connector on the base board.
 
+You may find it easier to attach the antenna connectors before putting the Muon in the case.
+
 ## Device setup
 
 To set up your Muon preview device, connect a USB-C cable from connector 3 to your computer, then proceed to [setup.particle.io](https://setup.particle.io/) to complete the setup of your device.
 
 {{imageOverlay src="/assets/images/m-series/muon-usb.png" alt="USB connection" class="full-width"}}
+
+## USB-C cable warning
+
+You must use an actual USB-C port or USB-C power adapter to power the Muon by USB.
+
+**A USB-A to USB-C cable will not power the Muon or charge the battery**
+
+The reason is that the Muon uses USB-C PD to change the USB port voltage to 9V and request enough
+current to power the Muon. 
+
+When using a USB-2 or USB-3 port with USB-A to USB-C adapter cable, the USB port voltage cannot
+be changed and the port will not be able to power the Muon.
+
+Also beware of some wall adapters that have a USB-C cable, but do not support USB-C PD. Some
+of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
+to power the Muon.
+
 
 ## Errata (v0.5)
 
