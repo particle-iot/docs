@@ -152,6 +152,10 @@ current to power the Muon.
 When using a USB-2 or USB-3 port with USB-A to USB-C adapter cable, the USB port voltage cannot
 be changed and the port will not be able to power the Muon.
 
+Also beware of some wall adapters that have a USB-C cable, but do not support USB-C PD. Some
+of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
+to power the Muon.
+
 #### Expansion and peripheral power
 
 The onboard peripherals including Ethernet, the LoRa radio, and the expansion card are powered by the
@@ -187,6 +191,14 @@ This is one such adapter, made by [Waveshare](https://www.waveshare.com/product/
 
 Be sure the J15 jumper is connecting pins 1 & 2 to allow the expansion connector 5V to power the Muon.
 
+**Make sure you get a PoE adapter for the Raspberry Pi 5**
+
+On all Raspberry Pi models with PoE support, there is a 4-pin plug next to the RJ45 Ethernet jack. However,
+on the Raspberry Pi 5 the Ethernet jack was moved to the other side of the board. This is the location where
+the Ethernet jack is on the Muon, as well.
+
+If your PoE adapter has the 4-pin power jack is next to the 40-pin expansion header, you have the wrong adapter 
+and it will not fit on the Muon.
 
 #### LiPo battery connector
 
