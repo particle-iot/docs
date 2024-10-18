@@ -9365,6 +9365,10 @@
         "reference/device-os/api/future/future.md": {
             "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",
             "date": "2024-10-11"
+        },
+        "getting-started/logic-ledger/application-templates/integration-monitor.md": {
+            "hash": "3c56b1b6a199126657c3f862cd8bbe29a9a325a9b290cab586296d4fccb40e8d",
+            "date": "2024-10-18"
         }
     }
 }

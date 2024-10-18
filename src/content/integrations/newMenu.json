@@ -94,6 +94,10 @@
                 {
                     "dir": "memfault",
                     "title": "Memfault"
+                },
+                {
+                    "title": "Alerting with integration monitor",
+                    "href": "/getting-started/logic-ledger/application-templates/integration-monitor/"
                 }
             ]
         },
