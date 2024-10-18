@@ -140,7 +140,7 @@ To compile and flash locally, use the Command Palette and select one of the loca
 
 - Particle: Flash application (local)
 - Particle: Flash application & Device OS (local)
-- Particle: Flash application for debug (local)
+- Particle: Flash application & Device OS for debug (local)
 
 As of September 2023, these commands behave slightly differently:
 
@@ -148,7 +148,7 @@ As of September 2023, these commands behave slightly differently:
 
 **Particle: Flash application & Device OS (local)** will always flash the targeted version of Device OS. It will not build Device OS. This is the best option if you don't know what version of Device OS is on the device and you want it in a known state.
 
-**Particle: Flash application for debug (local)** still needs to build Device OS in order to generate debug symbols.
+**Particle: Flash application & Device OS for debug (local)** still needs to build Device OS in order to generate debug symbols.
 
 It is now safe to upgrade or downgrade Device OS using these commands.
 
@@ -176,7 +176,7 @@ In order to use the Flash options, the device must be connected by USB. The devi
 There are also compile options, which compile the code and download a binary:
 
 - Particle: Compile application (local)
-- Particle: Compile application for debug (local)
+- Particle: Compile application & Device OS for debug (local) (local)
 - Particle: Compile application & Device OS (local)
 
 ![Compile Local](/assets/images/workbench/local-4.png)
@@ -193,7 +193,7 @@ If you are getting mysterious errors, sometimes it's helpful to do a clean to re
 
 - Particle: Clean application (local)
 - Particle: Clean application & Device OS (local)
-- Particle: Clean application for debug (local)
+- Particle: Clean application & Device OS for debug (local)
 
 ![Clean Local](/assets/images/workbench/local-5.png)
 
@@ -410,31 +410,26 @@ _Note: There are a handful of limitations around debugging 3rd-generation hardwa
 
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp).
 
-- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/reference/datasheets/accessories/gen3-accessories/#debugger) documentation.
+- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger (or generic CMSIS/DAP debugger), either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/reference/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
 ![Debugger](/assets/images/debugger3.jpg)
 
 - Create a new project using the Command Palette and **Particle: Create New Project**.
-- Rename TinkerBreak.ino to TinkerBreak.cpp. Paste in the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp) into TinkerBreak.cpp.
+- Paste in the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp) into TinkerBreak.cpp.
 
 ![Debug Workspace](/assets/images/workbench/debug-1.png)
 
 - From the Command Palette select **Particle: Configure Workspace for Device** and choose the Device OS and type of device you want to use.
-- Connect the Particle Debugger using the ribbon cable to your Argon, Boron, or Xenon device.
+- Connect the Particle Debugger using the ribbon cable to your device.
 - Connect the device to your computer by USB.
-- Make sure that the version of Device OS that you have targeted in Workbench matches what is on the device. We recommend that you use [Device Restore USB](/tools/device-restore/device-restore-usb/) as flashing Device OS from Workbench does not updated some required components (bootloader, soft device, NCP, etc.).
-- Click the Debug icon (1), then select the correct Debugger (2). In this case, it's **Particle Debugger (argon, boron, xenon)**. Note that you need to select the type of device in both places!
+- Use the **Particle: Flash application & Device OS for debug (local)** command to compile and flash the device over USB.
+- Click the Debug icon (1), then select the correct Debugger (2). In this case, it's **Particle Debugger**. Note that you need to select the type of device in both places!
 
 ![Debug View](/assets/images/workbench/debug-2.png)
 
 - Click the green arrow next to DEBUG in the upper left to build, flash, and begin debugging.
-- In order to debug code in the system parts, you will need .elf files that contain the symbols, addresses, and line information needed by the debugger. You may be prompted: "You haven't built Device OS locally for this platform and version. You must compile Device OS to get debugging symbols (this process will take several minutes). Would you like to do this now?"
- 
-  - Debug Application Only: You will not be able to step into system code or see stack traces for system code.
-  - Cancel: Don't debug.
-  - Compile Now: Build the .elf files. This does not flash system parts to your device!
 
-- After flashing the device will typically halt. You can tell because the device status LED will go off.
+- When the debugger starts, the application will typically halt. You can tell because the device status LED will go off.
 
 ![Debug Console](/assets/images/workbench/debug-3.png)
 

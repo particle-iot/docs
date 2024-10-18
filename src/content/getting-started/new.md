@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Workbench debugging 2024-10-18
+
+Minor updates to Workbench source-level debugging instructions to match the current Workbench and OpenOCD versions.
+
 ### Device OS 6.2.0 2024-10-15
 
 Device OS 6.2.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.
