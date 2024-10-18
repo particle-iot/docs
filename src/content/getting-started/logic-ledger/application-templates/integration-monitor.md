@@ -106,10 +106,10 @@ Configure how and where you want to receive alerts from the Integration Monitor.
 
 This is the easiest and most straightforward way to get notifications. All you need to do is grab a webhook URL from Slack and install it into a new Particle Slack integration.
 
-1. Create a new Particle Integration
+1. Create a new Particle Integration at the organization level
 2. Select Slack
 3. Select the same products you entered into the configuration json
-4. Set event name to match the value in your configuration json
+4. Set event name to `triggerSlack`, or a custom value that matches your configuration json
 5. Enter your webhook url
 6. Set the JSON template to `\{{{PARTICLE_EVENT_VALUE}}}`
 
@@ -119,10 +119,10 @@ Sendgrid has a free plan that you can use to receive email notifications, but th
 
 Additionally, you may need to configure [Domain Authentication](https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication) in Sendgrid before you can send emails. You’ll need to create new DNS records to get SendGrid working. 
 
-1. Create a new Particle Integration
+1. Create a new Particle Integration at the organization level
 2. Select Webhook
 3. Select the same products you entered into the configuration json
-4. Set event name to match the value in your configuration json
+4. Set event name to `triggerSendgrid`, or a custom value that matches your configuration json
 5. Set url to [`https://api.sendgrid.com/v3/mail/send`](https://api.sendgrid.com/v3/mail/send)
 6. Set the `Authorization` header with your API key
 7. Set the JSON template to `\{{{PARTICLE_EVENT_VALUE}}}`
@@ -130,14 +130,14 @@ Additionally, you may need to configure [Domain Authentication](https://www.twil
 
 ### PagerDuty
 
-This is also simple to set up a PagerDuty is free for up to 5 users.
+You can create a free PagerDuty account with up to 5 users.
 
 You’ll need to create a new Service in PagerDuty. Then, ou need to get the Integration Key from your PagerDuty Service, and paste it into the field called Routing Key in a Particle Integration.
 
-1. Create a new Particle Integration
+1. Create a new Particle Integration at the organization level
 2. Select PagerDuty 
 3. Select the same products you entered into the configuration json
-4. Set event name to match the value in your configuration json
+4. Set event name to `triggerPagerduty`, or a custom value that matches your configuration json
 5. Set a Routing Key (also know as an Integration Key)
 6. Use this JSON template
 

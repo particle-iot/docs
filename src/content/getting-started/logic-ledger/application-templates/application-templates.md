@@ -18,7 +18,7 @@ These templates are intended to be customized to fit your unique requirements. Y
 
 ## Templates
 
-- [Integration Monitor](/getting-starts/logic-ledger/application-templates/integration-monitor/): Monitor error rates in Particle Integrations and trigger alerts when thresholds are exceeded.
+- [Integration Monitor](/getting-started/logic-ledger/application-templates/integration-monitor/): Monitor error rates in Particle Integrations and trigger alerts when thresholds are exceeded.
 
 
 ## Getting Help
@@ -34,7 +34,7 @@ These templates are provided under the Apache 2.0 license. See the [LICENSE](htt
 ## Contributing
 
 You are welcome to use, modify, and extend this code, which can be found in the 
-[cloud-app-templates Github repositoru](https://github.com/particle-iot/cloud-app-templates/).
+[cloud-app-templates Github repository](https://github.com/particle-iot/cloud-app-templates/).
 
 If you have an additional template you think would be valuable, please submit a pull request.
 
