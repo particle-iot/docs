@@ -21,12 +21,6 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Application templates 2024-10-18
-
-[Application templates](/getting-started/logic-ledger/application-templates/application-templates/) documentation
-is now available, including a template for monitoring integration performance and sending notifications
-via Slack, Sendgrid (email), or PagerDuty in the event of elevated error rates.
-
 ### Workbench debugging 2024-10-18
 
 Minor updates to Workbench source-level debugging instructions to match the current Workbench and OpenOCD versions.

@@ -1,3 +1,5 @@
+apiHelperAuth = {};
+
 $(document).ready(function() {
     const eventCategory = 'Docs SSO';
 
@@ -29,7 +31,7 @@ $(document).ready(function() {
         localStorage.removeItem('docsGeneral');
         
         if (typeof apiHelper != 'undefined') {
-            apiHelper.isInternal = false;
+            apiHelperAuth.isInternal = false;
         }
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
@@ -167,14 +169,10 @@ $(document).ready(function() {
             if (auth.username.endsWith('particle.io')) {
                 $('.internalMenuItem').show();
                 internalMenuItem = true;
-                if (typeof apiHelper != 'undefined') {
-                    apiHelper.isInternal = true;
-                }
+                apiHelperAuth.isInternal = true;
             }
             else {
-                if (typeof apiHelper != 'undefined') {
-                    apiHelper.isInternal = false;
-                }
+                apiHelperAuth.isInternal = false;
             }
 
         };

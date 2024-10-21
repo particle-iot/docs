@@ -283,14 +283,17 @@
                     "dir": "application-templates",
                     "title": "Application templates",
                     "isSection": true,
+                    "internal": true,
                     "subsections": [
                         {
                             "dir": "application-templates",
-                            "title": "Introduction to application templates"
+                            "title": "Introduction to application templates",
+                            "internal": true
                         },
                         {
                             "dir": "integration-monitor",
-                            "title": "Integration monitor"
+                            "title": "Integration monitor",
+                            "internal": true
                         }
                     ]
                 },

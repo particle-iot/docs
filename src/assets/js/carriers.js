@@ -1697,7 +1697,7 @@ bandFit.updateTestMenu = function() {
         const testObj = bandFit.tests[testKey];
         
         if (testObj.internal) {
-            if (typeof apiHelper == 'undefined' || !apiHelper.isInternal) {
+            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
                 continue;
             }            
         }
