@@ -81,7 +81,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Albania | B524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Algeria | B524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
 | Aruba | B524 | 2G, 3G, Cat1 | Setar |
-| Australia | B524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Australia | B524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Bahrain | B524 | 2G, 3G, Cat1 | Zain |
 | Bangladesh | B524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |

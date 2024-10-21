@@ -1207,7 +1207,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Albania | T524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Algeria | T524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
 | Aruba | T524 | 2G, 3G, Cat1 | Setar |
-| Australia | T524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Australia | T524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Bahrain | T524 | 2G, 3G, Cat1 | Zain |
 | Bangladesh | T524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |

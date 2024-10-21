@@ -4774,28 +4774,26 @@
       "sunset2G": "2017-01-04",
       "sunset3G": "2024-10-28",
       "supersim": {
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 3,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
-        "3G-8",
         "LTE-1",
         "LTE-3",
         "LTE-7",
@@ -4803,7 +4801,8 @@
         "LTE-40"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ],
       "timeline": {
         "2G": [
@@ -4829,7 +4828,7 @@
       "sunset3G": "2024-10-28",
       "lteM1": true,
       "supersim": {
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -4837,17 +4836,15 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 3,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
-        "3G-5",
         "LTE-1",
         "LTE-3",
         "LTE-7",
@@ -4890,10 +4887,11 @@
         "paygRate": 0.25
       },
       "koreAllNet": {
+        "allow3G": false,
         "allowCat1": true
       },
       "koreOneNet": {
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "bands": [
@@ -26564,36 +26562,36 @@
       "country": "Australia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
+      "recommendation": "NR",
+      "reason": "No 2G/3G service as of 2024-10-28"
     },
     {
       "country": "Australia",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "NRND",
-      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
+      "recommendation": "NR",
+      "reason": "No 2G/3G service as of 2024-10-28"
     },
     {
       "country": "Australia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NRND",
-      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
+      "recommendation": "NR",
+      "reason": "No 2G/3G service as of 2024-10-28"
     },
     {
       "country": "Australia",
       "modem": "U260",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
+      "recommendation": "NR",
+      "reason": "No 2G/3G service as of 2024-10-28"
     },
     {
       "country": "Australia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
+      "recommendation": "NR",
+      "reason": "No 2G/3G service as of 2024-10-28"
     },
     {
       "country": "Austria",

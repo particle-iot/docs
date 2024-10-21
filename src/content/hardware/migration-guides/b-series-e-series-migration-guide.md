@@ -1433,7 +1433,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Argentina | &check; | &check; | &nbsp; | &nbsp; |
 | Armenia | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Aruba | &check; | &check; | &nbsp; | &check; |
-| Australia | NRND | NRND | &nbsp; | &check; |
+| Australia | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Austria | &check; | &check; | &nbsp; | &check; |
 | Azerbaijan | &check; | &check; | &nbsp; | &nbsp; |
 | Bahamas | &check; | &nbsp; | &nbsp; | &nbsp; |

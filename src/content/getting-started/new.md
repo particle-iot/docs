@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Removed Australia 3G 2024-10-21
+
+Australia will have no 2G or 3G service as of 2024-10-28; removed 3G as supported from the carrier list
+and datasheets.
+
 ### Workbench debugging 2024-10-18
 
 Minor updates to Workbench source-level debugging instructions to match the current Workbench and OpenOCD versions.

@@ -425,7 +425,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Albania | ONE524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Algeria | ONE524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
 | Aruba | ONE524 | 2G, 3G, Cat1 | Setar |
-| Australia | ONE524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Australia | ONE524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Bahrain | ONE524 | 2G, 3G, Cat1 | Zain |
 | Bangladesh | ONE524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |

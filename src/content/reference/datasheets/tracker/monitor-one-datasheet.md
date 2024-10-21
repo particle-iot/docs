@@ -866,7 +866,7 @@ To be provided at a later date.
 | Albania | MON524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Algeria | MON524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
 | Aruba | MON524 | 2G, 3G, Cat1 | Setar |
-| Australia | MON524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Australia | MON524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | MON524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Bahrain | MON524 | 2G, 3G, Cat1 | Zain |
 | Bangladesh | MON524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |

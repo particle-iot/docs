@@ -1399,7 +1399,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Antigua and Barbuda | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Argentina | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Aruba | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
-| Australia | &check; | &check; | &nbsp; | &nbsp; | &check; |
+| Australia | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Austria | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Azerbaijan | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Bahamas | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |

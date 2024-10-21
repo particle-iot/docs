@@ -1154,7 +1154,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Albania | M524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Algeria | M524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
 | Aruba | M524 | 2G, 3G, Cat1 | Setar |
-| Australia | M524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Australia | M524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | M524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Bahrain | M524 | 2G, 3G, Cat1 | Zain |
 | Bangladesh | M524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |

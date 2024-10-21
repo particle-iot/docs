@@ -619,8 +619,8 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Armenia | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Armenia | Ucom | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Aruba | Setar | &check; | &check; | &check; | &nbsp; |
-| Australia | Optus | &check; | <sup>NRND</sup> | &check; | &nbsp; |
-| Australia | Telstra | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| Australia | Optus | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Australia | Telstra | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Australia | Vodafone | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Austria | 3 (Drei) | &check; | &check; | &check; | &nbsp; |
 | Austria | A1 | &check; | &check; | &check; | &nbsp; |
