@@ -129,6 +129,10 @@ This is the schematic for the v0.5 of the M1 enclosure carrier board. Changes ar
 
 {{imageOverlay src="/assets/images/monitor-one/side-dim.png" alt="Dimensions" class="full-width"}}
 
+{{!-- 
+torque values for screws: 7.5 kgf*cm (42 lbf/in) 
+--}}
+
 ### Dimensions for top cover artwork
 
 {{imageOverlay src="/assets/images/monitor-one/artwork-dimensions.png" alt="Artwork dimensions" class="full-width"}}
