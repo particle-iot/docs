@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Muon datasheet 2024-10-22
+
+The [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) is now available!
+
 ### Removed Australia 3G 2024-10-21
 
 Australia will have no 2G or 3G service as of 2024-10-28; removed 3G as supported from the carrier list

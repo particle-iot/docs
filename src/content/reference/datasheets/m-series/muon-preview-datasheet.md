@@ -8,10 +8,13 @@ description: Muon datasheet
 # Muon datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and there will be changes before release.
+This is a datasheet applies to the v0.5 preview hardware only!
 {{box op="end"}}
 
-For information about the engineering sample preview devices, including setup and errata, see [Muon samples](/reference/datasheets/m-series/muon-samples/).
+See the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) for information about the v1.0 hardware.
+
+For additional about the engineering sample preview devices, including setup and errata, see 
+[Muon samples](/reference/datasheets/m-series/muon-samples/).
 
 ## Overview
 
@@ -82,7 +85,7 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 
 ### Features
 
-{{imageOverlay src="/assets/images/m-series/muon-labeled.png" alt="Features labeled" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-labeled-v0.4.png" alt="Features labeled" class="full-width"}}
 
 | Label | Feature |
 | :---: | :--- |
@@ -774,7 +777,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 {{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
 Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
 that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
-it powers the Ethernet port and LoRaWAN module.
+it powers the Ethernet port, LoRaWAN module, 40-pin expansion hat connector, and QWIIC connector.
 
 The main reason for this is that until the PMIC is configured, the input current with no battery
 connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 

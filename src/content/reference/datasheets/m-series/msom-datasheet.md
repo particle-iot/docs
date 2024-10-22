@@ -7,6 +7,10 @@ description: M-SoM datasheet
 
 # M-SoM datasheet
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/msom-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 ![M-SoM](/assets/images/m-series/msom-top.png)
  
 ## Overview

@@ -180,8 +180,7 @@
                 },
                 {
                     "dir": "muon-boron-migration-guide",
-                    "title": "Muon from Boron or Argon migration guide",
-                    "hidden": true
+                    "title": "Muon from Boron or Argon migration guide"
                 },
                 {
                     "dir": "b-series-boron-migration-guide",

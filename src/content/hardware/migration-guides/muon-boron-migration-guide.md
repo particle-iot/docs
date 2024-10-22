@@ -882,3 +882,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |          | 2024-05-14 | RK | Update for schematic 0.4R4 |
 |          | 2024-05-21 | RK | Update for dimensions |
 |          | 2024-08-04 | RK | Pinmap 0.05 |
+|  1       | 2024-10-22 | RK | Initial release |

@@ -6997,7 +6997,7 @@ uint8_t socBitPrecision()
 {{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
 Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
 that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
-it powers the Ethernet port and LoRaWAN module.
+it powers the Ethernet port, LoRaWAN module, 40-pin expansion hat connector, and QWIIC connector.
 
 The main reason for this is that until the PMIC is configured, the input current with no battery
 connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
@@ -20815,7 +20815,7 @@ The second example adds the `SystemSleepNetworkFlag::INACTIVE_STANDBY` flag whic
 
 Note: You must not sleep longer than the keep-alive value, which by default is 23 minutes in order to wake on data received by cellular. The reason is that if data is not transmitted by the device before the keep-alive expires, the mobile network will remove the channel back to the device, so it can no longer receive data from the cloud. Fortunately in network sleep mode you can wake, transmit data, and go back to sleep in a very short period of time, under 2 seconds, to keep the connection alive without using significanly more battery power.
 
-If you are waking on network activity, be sure to wait for `Particle.connected()` to be true before entering sleep mode. If you device has not completely connected to the cloud, it will not be possible to wake from sleep by network activity.
+If you are waking on network activity, be sure to wait for `Particle.connected()` to be true before entering sleep mode. If your device has not completely connected to the cloud, it will not be possible to wake from sleep by network activity.
 
 If you use `NETWORK_INTERFACE_CELLULAR` without `INACTIVE_STANDBY`, then data from the cloud to the device (function, variable, subscribe, OTA) will wake the device from sleep. However if you sleep for less than the keep-alive length, you can wake up with zero additional overhead. This is offers the fastest wake time with the least data usage.
 
