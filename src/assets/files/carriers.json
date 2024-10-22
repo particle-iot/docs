@@ -20430,7 +20430,7 @@
     {
       "name": "B504MEA",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -20465,7 +20465,7 @@
     {
       "name": "B504MTY",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": true,
       "enterprise": false,
       "wholesale": false,
@@ -21875,6 +21875,18 @@
       "batteryRequired": false
     },
     {
+      "name": "M1ENCLEA",
+      "desc": "M1 Enclosure",
+      "lifecycle": "In development",
+      "accessory": true,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
       "name": "M2BREAKOUT",
       "desc": "Particle M.2 SoM Breakout Board [x1]",
       "lifecycle": "In development",
@@ -22594,7 +22606,6 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "accessory": true,
       "usb": "c",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": false,
@@ -22619,7 +22630,6 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "accessory": true,
       "usb": "c",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": false,
@@ -23393,7 +23403,9 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "PMBATH1EA ",
@@ -23411,21 +23423,10 @@
     },
     {
       "name": "PMBATH1TY",
-      "desc": "Particle Power Module, Battery, with Header [x50]",
-      "lifecycle": "In development",
-      "accessory": true,
-      "multiple": true,
-      "enterprise": false,
-      "wholesale": false,
-      "retail": false,
-      "skuRegion": "global"
-    },
-    {
-      "name": "PMBATH1TY ",
       "desc": "Particle Power Module, Battery, with Header",
       "lifecycle": "In development",
       "skuClass": "power",
-      "singleSku": "PMBATH1EA ",
+      "singleSku": "PMBATH1EA",
       "accessory": true,
       "multiple": true,
       "enterprise": false,
