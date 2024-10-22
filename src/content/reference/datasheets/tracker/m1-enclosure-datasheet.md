@@ -7,7 +7,7 @@ description: M1 enclosure datasheet
 
 # M1 enclosure datasheet
 
-The M1 enclosure makes it easy to deploy Particle Tachyon and Muon, or Rasbperry Pi, projects in a P67-rated weatherproof enclosure
+The M1 enclosure makes it easy to deploy Particle Tachyon and Muon, or Raspberry Pi, projects in a IP67-rated weatherproof enclosure
 similar to the Monitor One.
 
 ![M1 enclosure top](/assets/images/monitor-one/m1-top.jpg)
@@ -16,7 +16,7 @@ The carrier board securely installs your Raspberry Pi compatible board through u
 
 ![M1 enclosure open](/assets/images/monitor-one/m1-top-open.jpg)
 
-The bulkhead includes two M20 holes that can be used with filler plugs or cable glands (included) or can fit other compatible connectors. It also includes two SMA connectors that can be used for external antennas.
+The bulkhead includes two M20 holes that can be used with round hole plugs or cable glands (included) or can fit other compatible connectors. It also includes two SMA connectors that can be used for external antennas.
 
 ![M1 enclosure bulkhead](/assets/images/monitor-one/m1-bulkhead.jpg)
 
@@ -31,8 +31,17 @@ Includes:
 - Back mounting plate
 - M3 & M2 hex tools
 - Mounting hardware for plates (screws, bolts, etc)
+- USB-C cable
 
 The Muon, Tachyon, or Raspberry Pi is not included. Antennas and batteries are sold separately as they may vary depending on the device used.
+
+## Internal features
+
+- ADP8866 LED driver for the 3 RGB LEDs connected by I2C
+- Front RGB status LED
+- Side RGB LEDs (2)
+- Externally accessible button for use by user applications
+- 2-pin connector for 5V power (internal)
 
 ## Mounting
 
@@ -106,6 +115,27 @@ mounts under the carrier board and the expansion header pins passes through the 
 This is the schematic for the v0.5 of the M1 enclosure carrier board. Changes are possible before general availability.
 
 {{imageOverlay src="/assets/images/monitor-one/monitor_pi_v0.5_p1.svg" alt="Schematic" class="full-width"}}
+
+### Dimensions and weight
+
+| Dimensions | Metric | SAE      |
+| :--------- | -----: |  ------: |
+| Width      | 121 mm |   4 3/4" |
+| Height     | 220 mm |   8 5/8" |
+| Depth      |  69 mm | 2 11/16" |
+| Weight     |   |   |
+
+{{imageOverlay src="/assets/images/monitor-one/front-dim.png" alt="Dimensions" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/side-dim.png" alt="Dimensions" class="full-width"}}
+
+### Dimensions for top cover artwork
+
+{{imageOverlay src="/assets/images/monitor-one/artwork-dimensions.png" alt="Artwork dimensions" class="full-width"}}
+
+### 3D models
+
+- [Bottom cover 3D model](/assets/images/monitor-one/bottom-cover.step) (.step)
 
 ## Ordering information
 
