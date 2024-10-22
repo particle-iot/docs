@@ -56,7 +56,7 @@ Arduino that do not support PPP over UART serial as a network connection.
 Tethering can use a very large amount of cellular data. Caution should be used with the existing
 Particle data plans as you can easily exceed your allowed cellular data limit.
 
-In the future, plans with larger data allowances will be available.
+[Contact sales](~https://particle.io/sales/~) if you have a need for higher data allowances.
 
 ## Application firmware
 
