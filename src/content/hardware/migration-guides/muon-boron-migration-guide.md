@@ -24,9 +24,9 @@ The Argon and Boron are pin-based modules that can be installed in solderless br
 
 The Muon is a larger development module and contains a Particle M-SoM mounted in a M.2 NGFF socket, a power supply, and various peripheral chips.
 
-There is an expansion connector on the top of the Muon, 40 pins (2x20), 0.1" (2.54mm) pitch. An expansion card can be mounted directly on top pf the Muon ("a hat"), or can be connected to a solderless breadboard using Dupont wires or ribbon cable. 
+There is an expansion connector on the top of the Muon, 40 pins (2x20), 0.1" (2.54mm) pitch. An expansion card can be mounted directly on top pf the Muon ("a HAT"), or can be connected to a solderless breadboard using Dupont wires or ribbon cable. 
 
-The expansion connector is mostly compatible with the Raspberry Pi expansion connector and some Pi hats can be used on the Muon for expansion.
+The expansion connector is mostly compatible with the Raspberry Pi expansion connector and some Pi HATs can be used on the Muon for expansion.
 
 | Device | Inches | Millimeters (mm) |
 | :--- | :--- | :--- |
@@ -134,7 +134,7 @@ This feature does not exist on the Muon.
 The Muon is not intended to be placed on a carrier board, so doesn't have a land pattern, per se.
 
 The expansion connector dimensions can be found in the Muon datasheet, but the expansion connector is on the top of the Muon
-and intended to be used with a small expansion card on top ("hat") not with a bottom-mounted carrier, like the Argon or Boron.
+and intended to be used with a small expansion card on top ("HAT") not with a bottom-mounted carrier, like the Argon or Boron.
 
 ### GPIO
 

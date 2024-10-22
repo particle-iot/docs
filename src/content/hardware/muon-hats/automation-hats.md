@@ -1,5 +1,5 @@
 ---
-title: Automation hats
+title: Automation HATs
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-projects,zip]
@@ -7,10 +7,10 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-proj
 
 # {{title}}
 
-This page covers hats used in home automation
+This page covers HATs used in home automation
 
 
-## Pimoroni automation hat
+## Pimoroni automation HAT
 
 This hat includes a large number of inputs and outputs. ([Pimoroni](https://shop.pimoroni.com/products/automation-hat?variant=30712316554), [Adafruit](https://www.adafruit.com/product/3289)).
 
@@ -30,14 +30,14 @@ The [pinout](https://pinout.xyz/pinout/automation_hat) is as follows:
 
 Note that both 3V3 (for logic) and 5V (for relays and LEDs) are used on this board. 
 
-There are two chips connected by I2C on the hat:
+There are two chips connected by I2C on the HAT:
 
 | Chip    | Description | I2C Address |
 | :------ | :--- | :--- |
 | SN3218  | 18-channel LED driver | 0x54 |
 | ADS1015 | Analog to digital converter | 0x48 |
 
-The ADS1015 ADC cannot be accessed on the Muon. The problem is that I2C Address 0x48 is used by both the ADS1015 on the automation hat as well as
+The ADS1015 ADC cannot be accessed on the Muon. The problem is that I2C Address 0x48 is used by both the ADS1015 on the automation HAT as well as
 the TMP112A temperature sensor on the Muon itself. These will conflict with each other, allowing neither to be used.
 
 The LEDs are controlled by a SN3218 LED driver chip. The [SN3218_RK](https://github.com/rickkas7/SN3218_RK) library can be used to manage the LEDs.
@@ -52,12 +52,12 @@ This sample code shows how to set outputs (relay or digital) and get digital inp
 It implements a Particle.function to set the digital and relay output values. In also implements a Particle.variable to get the digital input values.
 
 
-### ADC - Pimoroni automation hat
+### ADC - Pimoroni automation HAT
 
-ADC inputs 1 - 3 cannot be used on the Muon. The problem is that I2C Address 0x48 is used by both the ADS1015 on the automation hat as well as
+ADC inputs 1 - 3 cannot be used on the Muon. The problem is that I2C Address 0x48 is used by both the ADS1015 on the automation HAT as well as
 the TMP112A temperature sensor on the Muon itself. These will conflict with each other, allowing neither to be used.
 
-### Digital inputs - Pimoroni automation hat
+### Digital inputs - Pimoroni automation HAT
 
 Digital inputs Input 2 and Input 3 can be read using `digitalRead()`. The value will be `HIGH` or `LOW` (1 or 0, respectively).
 
@@ -73,7 +73,7 @@ When using the sample code above, you can request the variable named `input` and
 You can also request variables from the [Particle console](https://console.particle.io/) in the device view.
 
 
-### Digital outputs - Pimoroni automation hat
+### Digital outputs - Pimoroni automation HAT
 
 All three digital output can be used. Note that you must set the `pinMode` once (typically during setup) before you can use `digitalWrite`.
 

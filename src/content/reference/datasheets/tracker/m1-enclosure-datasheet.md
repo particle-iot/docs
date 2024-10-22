@@ -12,7 +12,7 @@ similar to the Monitor One.
 
 ![M1 enclosure top](/assets/images/monitor-one/m1-top.jpg)
 
-The carrier board securely installs your Raspberry Pi compatible board through use of pin headers and screws. It connects your Muon or Tachyon to the external button and internal LEDs on the carrier board, as well as allowing for expansion hats on the top side. Cutouts in the board accommodate USB-C, PCIe, DSI, and CSI flex cables, ensuring easy access throughout the enclosure. Extra space is available within the enclosure for a GNSS antenna or a battery, depending on your specific use case.
+The carrier board securely installs your Raspberry Pi compatible board through use of pin headers and screws. It connects your Muon or Tachyon to the external button and internal LEDs on the carrier board, as well as allowing for expansion HATs on the top side. Cutouts in the board accommodate USB-C, PCIe, DSI, and CSI flex cables, ensuring easy access throughout the enclosure. Extra space is available within the enclosure for a GNSS antenna or a battery, depending on your specific use case.
 
 ![M1 enclosure open](/assets/images/monitor-one/m1-top-open.jpg)
 

@@ -7,13 +7,13 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-proj
 
 # {{title}}
 
-There are a number of Raspberry Pi hat displays available.
+There are a number of Raspberry Pi HAT displays available.
 
 
 
 ## Color 1.44 128x128 display (ST7735S)
 
-This hat is listed as Waveshare 1.44inch LCD Display HAT for Raspberry Pi 128x128 with Embedded Controller Communicating via SPI Interface
+This HAT is listed as Waveshare 1.44inch LCD Display HAT for Raspberry Pi 128x128 with Embedded Controller Communicating via SPI Interface
 ([Amazon](https://www.amazon.com/gp/product/B077YK8161/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&th=1), [Waveshare](https://www.waveshare.com/product/displays/lcd-oled/lcd-oled-3/1.44inch-lcd-hat.htm)).
 
 - LCD display HAT for Raspberry Pi, 1.44inch diagonal, 128x128 pixels, with embedded controller, communicating via SPI interface.
@@ -25,7 +25,7 @@ This hat is listed as Waveshare 1.44inch LCD Display HAT for Raspberry Pi 128x12
 {{> api-helper-pins mappings="1=3V3,6=GND,GPIO21=Key 1,GPIO20=Key 2,GPIO16=Key 3,GPIO6=Joystick Up,GPIO19=Joystick Down,GPIO5=Joystick Left,GPIO26=Joystick Right,GPIO13=Joystick Press,GPIO11=SPI SCLK,GPIO10=SPI MOSI,GPIO25=DC Display/Command,GPIO8=SPI CS,GPIO27=RST Display Reset,GPIO24=BL Display backlight" platform="Muon" style="columns=hat"}}
 
 
-To use this display, use the `Adafruit_ST7735_RK` library. The [Adafruit_ST7735_RK github](https://github.com/rickkas7/Adafruit_ST7735_RK) contains a README and example code. The pi-hat example works with this board.
+To use this display, use the `Adafruit_ST7735_RK` library. The [Adafruit_ST7735_RK github](https://github.com/rickkas7/Adafruit_ST7735_RK) contains a README and example code. The pi-HAT example works with this board.
 
 The initialization code is typically:
 
@@ -50,7 +50,7 @@ As of Device OS 5.9.0, it's not possible to read `IOEX_PB7` from user firmware, 
 
 ## SSD1305 Monochrome OLED
 
-This hat is listed as 2.23 inch OLED Display HAT for Raspberry Pi 2B/3B/4B/Zero/Zero W Jetson Nano 128×32 Pixels SPI/I2C Interface
+This HAT is listed as 2.23 inch OLED Display HAT for Raspberry Pi 2B/3B/4B/Zero/Zero W Jetson Nano 128×32 Pixels SPI/I2C Interface
 ([Amazon](https://www.amazon.com/Display-Raspberry-Jetson-Interface-XYGStudy/dp/B07Z2GG5K3/ref=sr_1_6), 
 [Waveshare](https://www.waveshare.com/product/raspberry-pi/displays/oled/2.23inch-oled-hat.htm)).
 

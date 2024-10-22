@@ -7176,7 +7176,7 @@ uint8_t socBitPrecision()
 {{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
 Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
 that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
-it powers the Ethernet port, LoRaWAN module, 40-pin expansion hat connector, and QWIIC connector.
+it powers the Ethernet port, LoRaWAN module, 40-pin expansion HAT connector, and QWIIC connector.
 
 The main reason for this is that until the PMIC is configured, the input current with no battery
 connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 

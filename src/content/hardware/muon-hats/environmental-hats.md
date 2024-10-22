@@ -1,5 +1,5 @@
 ---
-title: Environmental hats
+title: Environmental HATs
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-projects,zip]
@@ -7,7 +7,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-proj
 
 # {{title}}
 
-This page covers hats used in environmental monitoring.
+This page covers HATs used in environmental monitoring.
 
 ## Pimoroni enviro + air quality (PIM458)
 
@@ -21,7 +21,7 @@ This page covers hats used in environmental monitoring.
 
 ![](/assets/images/muon-hats/automation-hats/pimoroni-enviro-hat.png)
 
-This hat is available at [Pimoroni](https://shop.pimoroni.com/products/enviro?variant=31155658457171) and [DigiKey](https://shop.pimoroni.com/products/enviro?variant=31155658457171), as well as other locations.
+This HAT is available at [Pimoroni](https://shop.pimoroni.com/products/enviro?variant=31155658457171) and [DigiKey](https://shop.pimoroni.com/products/enviro?variant=31155658457171), as well as other locations.
 
 The [pinout](https://pinout.xyz/pinout/enviro_plus) is as follows:
 
@@ -35,7 +35,7 @@ There are three I2C sensors:
 | ADS1015 | Analog to digital converter | 0x49 |
 | BME280  | Temperature and humidity sensor | 0x76 |
 
-While the ADS1015 ADC is not available on the automation hat, it is available on the enviro hat because it's configured to use I2C address 0x49 so it does not conflict with the TMP112A temperature sensor on the Muon itself.
+While the ADS1015 ADC is not available on the automation HAT, it is available on the enviro HAT because it's configured to use I2C address 0x49 so it does not conflict with the TMP112A temperature sensor on the Muon itself.
 
 The ST7735 LCD display is not useable because the D/C pin (input to display) uses the Pi expansion pin 21 (GPIO9), which is also SPI MISO. The display never sends data to the MCU, and the hat doesn't otherwise use SPI, however the RTL872x SPI does not allow the MISO pin to be used as GPIO while SPI is active. It is possible that a workaround will be found, but right now it does not work.
 
@@ -43,7 +43,7 @@ The I2S microphone is supported by the Muon hardware, but a library is not avail
 
 The LTR559 light sensor can be accessed using the [LTR559_RK](https://github.com/rickkas7/LTR559_RK/) library. It provides basic access
 the read the proximity sensor (PS) and automatic light sensor (ALS) data. Since the interrupt line from the LTR559 is not connected to 
-the hat interface, you can't use hardware interrupts with it.
+the HAT interface, you can't use hardware interrupts with it.
 
 The PMS5003 particulate matter sensor is not currently working for unknown reasons. The data stream is not coming off the
 sensor but the library and setup is in place.

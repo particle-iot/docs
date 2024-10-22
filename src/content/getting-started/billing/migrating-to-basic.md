@@ -21,7 +21,7 @@ When you've reached the limits of the free plan, it's time to upgrade to the bas
 You can select any number of products from your free sandbox to migrate.
 
 - [What is a product?](#what-is-a-product-)
-- [Which products should I move?](#which-products-should-i-move-to-basicplus)
+- [Which products should I move?](#which-products-should-i-move-to-basic-plus-)
 - [What if I don't have a product yet?](#what-if-i-don-39-t-have-a-product-yet-)
 
 ### 2. Name your organization

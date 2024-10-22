@@ -1,5 +1,5 @@
 ---
-title: RS485 (Modbus) and CAN hat
+title: RS485 (Modbus) and CAN HAT
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-projects,zip]
@@ -7,7 +7,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-pins,api-helper-proj
 
 # {{title}}
 
-There are a number of widely available RS485 (Modbus) and CAN hats available. 
+There are a number of widely available RS485 (Modbus) and CAN HATs available. 
 
 Testing was done with Waveshare RS485 CAN HAT for Raspberry Pi 5/4B/3B+/3B/2B/B+/Zero/Zero W/WH/Zero 2W, Long-Distance Communication via RS485/CAN Function Onboard CAN Controller MCP2515 via SPI Interface Transceiver SIT65HVD230DR (from [Amazon](https://www.amazon.com/gp/product/B07VMB1ZKH/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1), [Waveshare](https://www.waveshare.com/rs485-can-hat.htm)) however it should be compatible with most similar devices with the MCP2515 or MCP25625 CAN controller.
 

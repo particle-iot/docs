@@ -273,27 +273,28 @@
         },
         {
             "dir": "muon-hats",
+            "title": "Muon HATs",
             "isSection": true,
             "subsections": [
                 {
                     "dir": "muon-hats",
-                    "title": "Muon hats (community)"
+                    "title": "Muon HATs (community)"
                 },
                 {
                     "dir": "rs485-can-hat",
-                    "title": "RS485 (Modbus) and CAN hat"
+                    "title": "RS485 (Modbus) and CAN HAT"
                 },
                 {
                     "dir": "display-hats",
-                    "title": "Display hats"
+                    "title": "Display HATs"
                 },
                 {
                     "dir": "automation-hats",
-                    "title": "Automation hats"
+                    "title": "Automation HATs"
                 },
                 {
                     "dir": "environmental-hats",
-                    "title": "Environmental hats"
+                    "title": "Environmental HATs"
                 }
             ]
         },
