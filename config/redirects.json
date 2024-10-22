@@ -470,6 +470,7 @@
   "/reference/device-os/api/system-thread": "/reference/device-os/api/system-thread/system-thread",
   "/reference/device-os/api/tcpclient": "/reference/device-os/api/tcpclient/tcpclient",
   "/reference/device-os/api/tcpserver": "/reference/device-os/api/tcpserver/tcpserver",
+  "/reference/device-os/api/tether": "/reference/device-os/api/tether/tether",
   "/reference/device-os/api/threading": "/reference/device-os/api/threading/threading",
   "/reference/device-os/api/time": "/reference/device-os/api/time/time",
   "/reference/device-os/api/tobool-variant-class": "/reference/device-os/api/tobool-variant-class/tobool-variant-class",

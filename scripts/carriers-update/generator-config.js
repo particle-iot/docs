@@ -4658,7 +4658,28 @@ const schemaDocs = require('./schema-docs');
                     }        
                 }); 
             } 
-        },        
+        },
+        // Tethering
+        {
+            guid:'7dc335b7-4ddc-464d-ae96-6231944ccc76', 
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    columns: ['name', 'desc', 'modem', 'region', 'gen', 'lifecycle'],
+                    filterFn:function(skuObj) {
+                        if (!skuObj.modem) {
+                            return true;
+                        }
+                        const modemObj = updater.datastore.findModemByModel(skuObj.modem);
+                        if (!modemObj) {
+                            return true;
+                        }
+
+                        // true to remove from list
+                        return skuObj.family != "b series" || skuObj.sim != 4 || !modemObj.technologies.includes('Cat1');
+                    }        
+                }); 
+            }           
+        },      
         // M1 Enclosure
         {
             // SKU m1 enclosure

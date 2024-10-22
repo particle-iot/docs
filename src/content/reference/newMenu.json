@@ -120,6 +120,10 @@
                 {
                     "dir": "connection-management",
                     "title": "Connection management"
+                },
+                {
+                    "dir": "tethering",
+                    "title": "Tethering"
                 }
             ]
         },
