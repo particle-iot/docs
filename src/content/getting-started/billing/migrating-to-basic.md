@@ -1,14 +1,14 @@
 ---
-title: Migrating to Basic Plan
+title: Migrating to Basic/Plus Plan
 columns: two
 layout: commonTwo.hbs
-description: Migrating to basic plan
+description: Migrating to basic/plus plan
 includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 # {{title}}
 
-When you've reached the limits of the free plan, it's time to upgrade to the basic plan.
+When you've reached the limits of the free plan, it's time to upgrade to the basic/plus plan.
 
 *The basic plan was formerly known as the growth plan*.
 
@@ -18,44 +18,38 @@ When you've reached the limits of the free plan, it's time to upgrade to the bas
 
 ### 1. Select the products you want to upgrade
 
-You can select any number of products from your free sandbox to migrate to basic.
+You can select any number of products from your free sandbox to migrate.
 
 - [What is a product?](#what-is-a-product-)
-- [Which products should I move to basic?](#which-products-should-i-move-to-basic-)
+- [Which products should I move?](#which-products-should-i-move-to-basicplus)
 - [What if I don't have a product yet?](#what-if-i-don-39-t-have-a-product-yet-)
 
 ### 2. Name your organization
 
-All of the products in your basic plan are grouped together into an organization. 
+All of the products in your basic/plus plan are grouped together into an organization. 
 
 - [What is an organization?](#what-is-an-organization-)
 
 ### 3. Choose the number of blocks you need
 
-The basic plan usage is measured in blocks, and you need to pick an initial number of blocks.
+The basic/plus plan usage is measured in blocks, and you need to pick an initial number of blocks.
 
 - [What is a block?](#what-is-a-block-)
 - [How many blocks do I need?](#how-many-blocks-do-i-need-)
 
-### 4. Sign up for basic
+### 4. Sign up for basic/plus
 
-Sign up at the [upgrade to basic page](https://www.particle.io/upgradetogrowth/).
+Sign up at the [upgrade to basic page](https://www.particle.io/upgradetogrowth/) or the [upgrade to plus page](https://www.particle.io/upgrade-to-plus/).
 
-A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to basic plan. This process can take several business days. We will ensure that your service is not impacted during this time.
+A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process. This process can take several business days. We will ensure that your service is not impacted during this time.
 
 You'll be asked for the list of products to migrate, organization name, and number of blocks during your setup call.
 
-<div  align="center">
-<a href="https://www.particle.io/upgradetogrowth/"  target="_blank" class="button">UPGRADE TO BASIC</a>
-</div>
-
-</p>&nbsp;<p>
-
 ## FAQ (frequently asked questions)
 
-### How am I billed for the basic plan?
+### How am I billed for the basic/plus plan?
 
-You initially decide how many blocks you want when you create your basic organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi or cellular. You can find the pricing [below](#what-is-a-block-).
+You initially decide how many blocks you want when you create your organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi or cellular. You can find the pricing [below](#what-is-a-block-).
 
 If another block is needed:
 
@@ -78,11 +72,10 @@ If the increase was a one-time event and you do not need the larger number of bl
 
 Billing is measured in blocks.
 
-- A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month.
-- Up to {{basicTierDevices}} devices.
-- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices.
-- Blocks are specific to cellular or Wi-Fi. Usage is aggregated for all devices in all products in your basic organization of the same class. For example, Electrons, Borons, and B-Series are all cellular devices that can share the same block even though they are in different products.
-- Blocks are {{basicBlockPrice}} per month per block
+- A block includes {{basicTierDataOperationsUnit}} (basic) or  {{plusTierDataOperationsUnit}} (plus) Data Operations per month.
+- Up to {{basicTierDevices}} devices per block.
+- Up to {{basicTierDataOperationsCellularData}} (basic) of cellular data per month, pooled across all devices.
+- Blocks are {{basicBlockPrice}} (basic) or {{plusBlockPrice}} (plus) per month per block.
 
 {{top}}
 
@@ -102,7 +95,7 @@ If you want to try to reduce the number of data operations you are using, see [m
 
 ### How do I add another block?
 
-Once you are on the basic plan, if you exceed the data operations limit, cellular data limit, or device limit an additional block will be added automatically. You do not need to do any manual steps to assure correct operation without interruption.
+Once you are on the basic/plus plan, if you exceed the data operations limit, cellular data limit, or device limit an additional block will be added automatically. You do not need to do any manual steps to assure correct operation without interruption.
 
 {{top}}
 
@@ -154,13 +147,13 @@ If you need to create a product, see the [creating a product](/getting-started/p
 
 {{top}}
 
-### Which products should I move to basic?
+### Which products should I move to basic/plus?
 
-- Any product that will have more than 100 devices in it must be on the basic plan.
+- Any product that will have more than 100 devices in it must be on the basic/plus plan.
 
 - Any product whose devices use more than {{freeTierDataOperationsUnit}} data operations, or large amount of cellular data.
 
-- You can continue to have free plan products as long as they are within the free plan limits. In fact, each member of your organization still has a free plan sandbox that they can use for personal and development devices and do not add your basic plan bill.
+- You can continue to have free plan products as long as they are within the free plan limits. In fact, each member of your organization still has a free plan sandbox that they can use for personal and development devices and do not add your basic/plus plan bill.
 
 {{top}}
 
@@ -180,7 +173,7 @@ An organization groups together one or more products so they:
 
 ### What happens when I move a product to basic?
 
-When you move a product into your basic plan organization:
+When you move a product into your basic/plus plan organization:
 
 - Devices stay online the entire time with no interruption.
 - Webhooks will continue to function.
@@ -234,7 +227,7 @@ If all of your devices are still in the developer sandbox, there are a few steps
 
 ### Moving a product vs. moving devices
 
-Whenever possible you should move entire product(s) into your organization on the basic plan. This is generally painless and has no interruption in service.
+Whenever possible you should move entire product(s) into your organization on the basic/plus plan. This is generally painless and has no interruption in service.
 
 Moving individual devices from one product to another can present certain issues that can be disruptive:
 
@@ -246,7 +239,7 @@ Moving individual devices from one product to another can present certain issues
 
 If you are absolutely sure you want to move devices from a product to another product you can use the [move devices into a product](https://github.com/particle-iot/node-example-device-move) script, however be sure to read all of the caveats on that page before doing so.
 
-- If you want to move entire products from the free plan into your your organization later, you can do so with a [support ticket](https://support.particle.io/). 
+- If you want to move entire products from the free plan into your organization later, you can do so with a [support ticket](https://support.particle.io/). 
 - Team members with administrative access can create new products in your organization directly from the console at any time.
 
 {{top}}
@@ -257,7 +250,7 @@ If you are using oAuth tokens created via the Authentication tab in a user accou
 
 You must create new oAuth tokens from a new client ID and secret created in the destination product. It's not possible to transfer oAuth tokens between accounts or products. 
 
-Authentication tokens created using `particle token create` from the product owner's account will continue to work after migrating to basic, assuming the the original product owner is also a team member of the organization or product.
+Authentication tokens created using `particle token create` from the product owner's account will continue to work after migrating to basic, assuming the original product owner is also a team member of the organization or product.
 
 Authentication tokens created from an oAuth client ID and secret within the product will continue to function after the product is moved to a basic or enterprise organization.
 

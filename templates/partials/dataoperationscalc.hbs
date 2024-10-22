@@ -25,7 +25,8 @@
 const freeMaxDevices = {{freeTierDevices}};
 const freeDataOperations = {{freeTierDataOperationsValue}};
 const devicesPerBlock = {{basicTierDevices}};
-const dataOperationsPerBlock = {{basicTierDataOperationsValue}};
+const basicDataOperationsPerBlock = {{basicTierDataOperationsValue}};
+const plusDataOperationsPerBlock = {{plusTierDataOperationsValue}};
 
 var dataUnitCalc = {};
 
@@ -73,12 +74,21 @@ dataUnitCalc.update = function() {
             res1 = 'Can use the free plan!'
         }
         else {
-            const minBlocksOperations = Math.floor((dataOperations - 1) / dataOperationsPerBlock) + 1;
             const minBlocksDevices = Math.floor((numDevices - 1) / devicesPerBlock) + 1;
+            const minBasicBlocksOperations = Math.floor((dataOperations - 1) / basicDataOperationsPerBlock) + 1;
+            const minPlusBlocksOperations = Math.floor((dataOperations - 1) / plusDataOperationsPerBlock) + 1;
 
-            const blocks = Math.max(minBlocksOperations, minBlocksDevices);
 
-            res1 = 'Requires basic plan with ' + blocks + ' blocks.'
+            if (minBasicBlocksOperations <= minBlocksDevices ) {
+                res1 = 'Requires basic plan with ' + minBasicBlocksOperations + ' blocks.'
+            }
+            else
+            if (minPlusBlocksOperations <= minBlocksDevices) {
+                res1 = 'Plus plan with ' + minPlusBlocksOperations + ' blocks recommended.'
+            }
+            else {
+                res1 = 'Requires basic or plus plan with ' + minBlocksDevices + ' blocks due to the number of devices.'
+            }
         }
 
         res2 = dataUnitCalc.commaValue(dataOperations) + ' data operations per month.';
