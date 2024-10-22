@@ -4658,6 +4658,19 @@ const schemaDocs = require('./schema-docs');
                     }        
                 }); 
             } 
+        },        
+        // M1 Enclosure
+        {
+            // SKU m1 enclosure
+            guid:'1ee1e229-4747-4ebe-9c86-90a2ddbb73af', 
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    columns: ['name', 'desc', 'lifecycle'],
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('M1ENCL');
+                    }        
+                }); 
+            } 
         },
         // Muon
         {

@@ -312,6 +312,10 @@
                             "internal": true
                         },
                         {
+                            "dir": "m1-enclosure-datasheet",
+                            "title": "M1 enclosure datasheet"
+                        },
+                        {
                             "dir": "tracker-m-datasheet",
                             "title": "Tracker M Datasheet",
                             "internal": true
