@@ -8,10 +8,13 @@ description: Muon datasheet
 # Muon datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and there will be changes before release.
+This is a datasheet applies to the v0.5 preview hardware only!
 {{box op="end"}}
 
-For information about the engineering sample preview devices, including setup and errata, see [Muon samples](/reference/datasheets/m-series/muon-samples/).
+See the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) for information about the v1.0 hardware.
+
+For additional about the engineering sample preview devices, including setup and errata, see 
+[Muon samples](/reference/datasheets/m-series/muon-samples/).
 
 ## Overview
 

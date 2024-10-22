@@ -7,6 +7,14 @@ description: Muon datasheet
 
 # Muon datasheet
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/muon-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+This is a preliminary datasheet and there may be changed before general availability.
+{{box op="end"}}
+
 ## Overview
 
 The Muon is a developer kit based on the M-SoM with additional peripherals for easy prototyping.
@@ -1751,7 +1759,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Albania | M524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Algeria | M524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
 | Aruba | M524 | 2G, 3G, Cat1 | Setar |
-| Australia | M524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Australia | M524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | M524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Bahrain | M524 | 2G, 3G, Cat1 | Zain |
 | Bangladesh | M524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
@@ -1911,6 +1919,7 @@ Global, country list to be provided a later date.
 |          | 2024-08-04 | RK | Pinmap 0.05 |
 |          | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
 |   1      | 2024-10-08 | RK | Update for schematic v1.0 |
+|   2      | 2024-10-22 | RK | Public release|
 
 ## Ordering information
 
