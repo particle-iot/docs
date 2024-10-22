@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Plus plan 2024-10-22
+
+Information about the plus plan included in the [migrating to basic/plus](/getting-started/billing/migrating-to-basic/) page.
+
 ### Muon datasheet 2024-10-22
 
 The [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) is now available!
