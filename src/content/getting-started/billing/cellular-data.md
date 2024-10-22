@@ -60,7 +60,8 @@ The following do **not** count against your Data Operations limit:
 - Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
 - Particle cloud API calls do not count against your Data Operations limit
 
-<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Basic plan. In the Basic plan, additional blocks can be added to allow for more data operations.
+<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. 
+In the Free Plan you will have an opportunity to upgrade to the basic/plus plan. In the basic/plus plans, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
 
