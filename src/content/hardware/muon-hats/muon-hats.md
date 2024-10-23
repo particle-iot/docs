@@ -1,5 +1,5 @@
 ---
-title: Muon hats (community)
+title: Muon HATs (community)
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
@@ -8,17 +8,17 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 # {{title}}
 
 The Muon has a 40-pin expansion connector that is compatible with the Raspberry Pi, allowing the use of some
-Raspberry Pi hats (expansion cards) to be used with the Muon. Since the Muon is not an actual Raspberry Pi,
-not all cards are compatible and most require different firmware libraries. Fortunately, many hats use 
+Raspberry Pi HATs (expansion cards) to be used with the Muon. Since the Muon is not an actual Raspberry Pi,
+not all cards are compatible and most require different firmware libraries. Fortunately, many HATs use 
 common chips that already have Particle or Arduino libraries, which generally work with little or no
 modification.
 
 Additional pages include:
 
-- [Automation hats](/hardware/muon-hats/automation-hats/) for home automation.
+- [Automation HATs](/hardware/muon-hats/automation-hats/) for home automation.
 - [Environmental hats](/hardware/muon-hats/environmental-hats/) for environment monitoring.
-- [Display hats](/hardware/muon-hats/display-hats/) LED and OLED displays.
-- [RS485 and CAN hat](/hardware/muon-hats/rs485-can-hat/) for interfacing with Modbus or CAN bus.
+- [Display HATs](/hardware/muon-hats/display-hats/) LED and OLED displays.
+- [RS485 and CAN HAT](/hardware/muon-hats/rs485-can-hat/) for interfacing with Modbus or CAN bus.
 
 ## Contributing
 

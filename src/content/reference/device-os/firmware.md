@@ -3738,6 +3738,185 @@ This enum defines wireless security ciphers.
 | `WLAN_CIPHER_AES_TKIP` | AES or TKIP cipher |
 
 
+## Tether
+
+{{since when="6.2.0"}}
+
+Tethering allows another device to use the cellular network of certain Particle devices. See [tethering](/reference/device-os/tethering/) for more information.
+
+### TetherSerialConfig
+
+The `TetherSerialConfig` class configures the serial port parameters for the Tethering PPP connection.
+
+
+#### serial - TetherSerialConfig
+
+Select the hardware serial port to use for the tethering PPP connection. This must be a hardware serial
+port (not a USB serial port) and hardware flow control (RTS/CTS) is recommended.
+
+```cpp
+// EXAMPLE
+Tether.bind(TetherSerialConfig().baudrate(921600).serial(Serial1));
+
+// PROTOTYPES
+TetherSerialConfig& serial(USARTSerial& s);
+USARTSerial& serial() const;
+```
+
+#### config - TetherSerialConfig
+
+Select serial port configuration options. The values depend on the device and port.
+
+The default is `SERIAL_8N1 | SERIAL_FLOW_CONTROL_RTS_CTS`.
+
+```cpp
+// PROTOTYPES
+TetherSerialConfig& config(unsigned conf);
+unsigned config() const;
+```
+
+
+#### baudrate - TetherSerialConfig
+
+Select the hardware serial port baud rate to use for the tethering PPP connection. 
+
+The default is 921600.
+
+```cpp
+// EXAMPLE
+Tether.bind(TetherSerialConfig().baudrate(921600).serial(Serial1));
+
+// PROTOTYPES
+TetherSerialConfig& baudrate(unsigned baud);
+unsigned baudrate() const;
+```
+
+
+### on() - Tether
+
+{{api name1="Tether.on"}}
+
+`Tether.on()` turns on the tethering support. It defaults to off.
+
+```cpp
+// EXAMPLE
+Tether.bind(TetherSerialConfig().baudrate(921600).serial(Serial1));
+Tether.on();
+Tether.connect();
+```
+
+### off() - Tether
+
+{{api name1="Tether.off"}}
+
+`Tether.off()` turns off tethering support. 
+ 
+### connect() - Tether
+
+{{api name1="Tether.connect"}}
+
+Starts the PPP server so the other device can send requests to it. You will typically turn it on, then connect, after connecting to cellular.
+
+```cpp
+// EXAMPLE
+Tether.bind(TetherSerialConfig().baudrate(921600).serial(Serial1));
+Tether.on();
+Tether.connect();
+
+// SYNTAX
+Tether.connect();
+```
+
+### disconnect() - Tether
+
+{{api name1="Tether.disconnect"}}
+
+Disconnects from the tethering, but leaves it on.
+
+```cpp
+// SYNTAX
+Tether.disconnect();
+```
+
+### connecting() - Tether
+
+{{api name1="Tether.connecting"}}
+
+This function will return `true` while the PPP server is starting up, and `false` once running.
+
+```cpp
+// SYNTAX
+Tether.connecting();
+```
+
+### ready() - Tether
+
+{{api name1="Tether.ready"}}
+
+This function will return `true` once PPP server is running and can accept requests from the other device. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Tether.ready();
+```
+
+### localIP() - Tether
+
+{{api name1="Tether.localIP"}}
+
+`Tether.localIP()` is used to get the IP address of the PPP server as an `IPAddress`.
+
+```cpp
+// EXAMPLE
+SerialLogHandler logHandler;
+
+void setup() {
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  Log.info("localIP: %s", Tether.localIP().toString().c_str());
+}
+```
+
+### subnetMask() - Tether
+
+{{api name1="Tether.subnetMask"}}
+
+`Tether.subnetMask()` returns the subnet mask of the PPP server as an `IPAddress`.
+
+```cpp
+SerialLogHandler logHandler;
+
+void setup() {
+ // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  // Prints out the subnet mask over Serial.
+  Log.info(Tether.subnetMask());
+}
+```
+
+### gatewayIP() - Tether
+
+{{api name1="Tether.gatewayIP"}}
+
+`Tether.gatewayIP()` returns the gateway IP address of the PPP server as an `IPAddress`.
+
+```cpp
+SerialLogHandler logHandler;
+
+void setup() {
+  Serial.begin(9600);
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  // Prints out the gateway IP over Serial.
+  Log.info(Tether.gatewayIP());
+}
+```
+
+
+
 ## Network
 
 The `Network` class can be used instead of `Cellular` or `WiFi` and represents the set of features common across all supported networking types: Cellular, Wi-Fi, and Ethernet. 
@@ -6997,7 +7176,7 @@ uint8_t socBitPrecision()
 {{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
 Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
 that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
-it powers the Ethernet port, LoRaWAN module, 40-pin expansion hat connector, and QWIIC connector.
+it powers the Ethernet port, LoRaWAN module, 40-pin expansion HAT connector, and QWIIC connector.
 
 The main reason for this is that until the PMIC is configured, the input current with no battery
 connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 

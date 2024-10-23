@@ -116,7 +116,7 @@ Overall dimensions are 56mm x 85mm (2.2" x 3.35").
 ### Expansion connector
 
 The Muon has a 40-pin (2x20) male header pin expansion connector on the top of the board, allowing the use of many 
-Raspberry Pi-compatible "hat" expansion cards that sit on top of the Muon. 
+Raspberry Pi-compatible "HAT" expansion cards that sit on top of the Muon. 
 
 The expansion connector includes:
 
@@ -777,7 +777,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 {{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
 Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
 that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
-it powers the Ethernet port, LoRaWAN module, 40-pin expansion hat connector, and QWIIC connector.
+it powers the Ethernet port, LoRaWAN module, 40-pin expansion HAT connector, and QWIIC connector.
 
 The main reason for this is that until the PMIC is configured, the input current with no battery
 connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
@@ -848,20 +848,20 @@ The following are connected to the I/O Expander:
 The Muon can be expanded in several ways:
 
 - Qwiic or Stemma-QT I2C peripherals
-- Raspberry Pi hats
+- Raspberry Pi HATs
 - Dupont wires or ribbon cables to a solderless breadboard
 - A custom expansion card that sits on top of the Muon
 
-### Raspberry Pi hats
+### Raspberry Pi HATs
 
-The Muon can be used with some Raspberry Pi expansion cards ("hats") that sit on top of a Raspberry Pi. Note, however, that are limitations:
+The Muon can be used with some Raspberry Pi expansion cards ("HATs") that sit on top of a Raspberry Pi. Note, however, that are limitations:
 
 - Since the Muon is not a Raspberry Pi, even though the hardware fits, there may not be suitable software to use it.
-- The Pi hat cannot be used to power the Muon.
+- The Pi HAT cannot be used to power the Muon.
 - Some pins have limitations.
 
 
-#### Pi hat connection pins 
+#### Pi HAT connection pins 
 {{!-- BEGIN do not edit content below, it is automatically generated 547410e9-fa4c-4166-9b92-4d365b9a8471 --}}
 
 | Pin | Pi Pin Name | Pin Name | Description | Serial | SPI | I2C | I2S |
@@ -927,7 +927,7 @@ Of note:
 
 <p class="attribution">Dimensions in millimeters (mm)</p>
 
-The expansion card is intended to be 65mm x 56mm and connects to the Muon using a 40-pin female socket (0.1" pitch, 2x20). The expansion card has a female socket on the bottom that mates with the male header pins on the top of the Muon. It's a "hat" configuration.
+The expansion card is intended to be 65mm x 56mm and connects to the Muon using a 40-pin female socket (0.1" pitch, 2x20). The expansion card has a female socket on the bottom that mates with the male header pins on the top of the Muon. It's a "HAT" configuration.
 
 The sample design uses a PTH (through-hole) female socket for strength and to make it easier to assemble with SMD components on the top of the expansion card, but you can use a SMD header reflowed to bottom instead if you prefer.
 

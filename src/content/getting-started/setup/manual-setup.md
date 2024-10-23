@@ -82,7 +82,6 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | PHOTONH | Photon with Headers, [x1] | Micro B |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Micro B |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Micro B |
-| PMBATH1EA | Particle Power Module, Battery, with Header [x1] | &nbsp; |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Micro B |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Micro B |
 | SPKBTTN | Internet Button, [x1] | Micro B |

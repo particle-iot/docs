@@ -101,7 +101,7 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 | 13 | RESET button | 
 | 14 | RGB status LED |
 | 15 | MODE button |
-| 16 | PoE hat connector |
+| 16 | PoE HAT connector |
 
 #### Feature (Bottom)
 
@@ -124,7 +124,7 @@ Overall dimensions are 56mm x 84.8mm (2.2" x 3.34").
 ### Expansion connector
 
 The Muon has a 40-pin (2x20) male header pin expansion connector on the top of the board, allowing the use of many 
-Raspberry Pi-compatible "hat" expansion cards that sit on top of the Muon. 
+Raspberry Pi-compatible "HAT" expansion cards that sit on top of the Muon. 
 
 The expansion connector includes:
 
@@ -145,7 +145,7 @@ Power can be supplied to Muon by:
 - USB-C
 - VIN (6 - 12 VDC, via screw terminals)
 - LiPo battery (via 3-pin JST battery connector)
-- Expansion card (hat)
+- Expansion card (HAT)
 - PoE (with appropriate adapter)
 
 #### USB-C cable warning
@@ -178,7 +178,7 @@ for the sample code and the technical reasons why it is necessary.
 
 #### Expansion card power
 
-A jumper located on the bottom side of the Muon selects the direction of expansion card (hat) 5V power (label 20, above).
+A jumper located on the bottom side of the Muon selects the direction of expansion card (HAT) 5V power (label 20, above).
 
 When the J15 jumper is connecting pins:
 
@@ -191,11 +191,11 @@ When the J15 jumper is connecting pins:
 The Muon itself does not contain PoE (power over Ethernet, IEEE 802.3af/at) circuitry. It does, however, have a Raspberry Pi 5-compatible
 4 pin header located next to the Ethernet jack (label 16, above). 
 
-This allows a PoE hat to get power from the Ethernet jack, convert it to 5VDC 2A (minimum), and supply it to the Muon via the expansion connection 5V.
+This allows a PoE HAT to get power from the Ethernet jack, convert it to 5VDC 2A (minimum), and supply it to the Muon via the expansion connection 5V.
 
 This is one such adapter, made by [Waveshare](https://www.waveshare.com/product/raspberry-pi/hats/interface-power/poe-hat-g.htm).
 
-![PoE hat](/assets/images/m-series/waveshare-poe-hat.png)
+![PoE HAT](/assets/images/m-series/waveshare-poe-hat.png)
 
 Be sure the J15 jumper is connecting pins 1 & 2 to allow the expansion connector 5V to power the Muon.
 
@@ -816,7 +816,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 {{!-- BEGIN shared-blurb 634b391d-826b-47e1-b680-fba6e5ee22dc --}}
 Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
 that can be controlled by a GPIO. On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
-it powers the Ethernet port, LoRaWAN module, 40-pin expansion hat connector, and QWIIC connector.
+it powers the Ethernet port, LoRaWAN module, 40-pin expansion HAT connector, and QWIIC connector.
 
 The main reason for this is that until the PMIC is configured, the input current with no battery
 connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
@@ -901,19 +901,19 @@ The following are connected to the I/O Expander:
 The Muon can be expanded in several ways:
 
 - Qwiic or Stemma-QT I2C peripherals
-- Raspberry Pi hats
+- Raspberry Pi HATs
 - Dupont wires or ribbon cables to a solderless breadboard
 - A custom expansion card that sits on top of the Muon
 
-### Raspberry Pi hats
+### Raspberry Pi HATs
 
-The Muon can be used with some Raspberry Pi expansion cards ("hats") that sit on top of a Raspberry Pi. Note, however, that are limitations:
+The Muon can be used with some Raspberry Pi expansion cards ("HATs") that sit on top of a Raspberry Pi. Note, however, that are limitations:
 
 - Since the Muon is not a Raspberry Pi, even though the hardware fits, there may not be suitable software to use it.
-- The Pi hat cannot be used to power the Muon.
+- The Pi HAT cannot be used to power the Muon.
 - Some pins have limitations.
 
-See [Muon hats](/hardware/muon-hats/muon-hats/) for more information.
+See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 
 
 #### Pi hat connection pins 
@@ -982,7 +982,7 @@ Of note:
 
 <p class="attribution">Dimensions in millimeters (mm)</p>
 
-The expansion card is intended to be 65mm x 56mm and connects to the Muon using a 40-pin female socket (0.1" pitch, 2x20). The expansion card has a female socket on the bottom that mates with the male header pins on the top of the Muon. It's a "hat" configuration.
+The expansion card is intended to be 65mm x 56mm and connects to the Muon using a 40-pin female socket (0.1" pitch, 2x20). The expansion card has a female socket on the bottom that mates with the male header pins on the top of the Muon. It's a "HAT" configuration.
 
 The sample design uses a PTH (through-hole) female socket for strength and to make it easier to assemble with SMD components on the top of the expansion card, but you can use a SMD header reflowed to bottom instead if you prefer.
 

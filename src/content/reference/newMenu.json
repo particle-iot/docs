@@ -120,6 +120,10 @@
                 {
                     "dir": "connection-management",
                     "title": "Connection management"
+                },
+                {
+                    "dir": "tethering",
+                    "title": "Tethering"
                 }
             ]
         },
@@ -310,6 +314,10 @@
                             "dir": "monitor-one-developer-edition-manual",
                             "title": "Monitor One Developer Edition Manual",
                             "internal": true
+                        },
+                        {
+                            "dir": "m1-enclosure-datasheet",
+                            "title": "M1 enclosure datasheet"
                         },
                         {
                             "dir": "tracker-m-datasheet",

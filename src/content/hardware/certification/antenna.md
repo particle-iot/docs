@@ -103,8 +103,8 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Asset Tracker 2G | ASSET2GV2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &nbsp; | PARANTCW1TY | &nbsp; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | PARANTCW1EA | &nbsp; | GA|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &nbsp; | PARANTCW1TY | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2TY | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
@@ -415,8 +415,8 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | Deprecated|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &nbsp; | ANT-FLXV2 | &check; | In development|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
@@ -539,8 +539,8 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | Deprecated|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | &nbsp; | In development|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &check; | &nbsp; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | &nbsp; | GA|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &check; | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
 | B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | Deprecated|
@@ -642,8 +642,8 @@ The following devices have GNSS capabilities:
 | Asset Tracker 2G | ASSET2GV2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | &check; | Deprecated|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | &check; | In development|
-| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &check; | &nbsp; | In development|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | &check; | GA|
+| B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &check; | &nbsp; | GA|
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | &check; | GA|
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | &check; | In development|

@@ -9215,8 +9215,8 @@
             "date": "2024-09-17"
         },
         "reference/device-os/api/power-manager/auxiliarypowercontrolpin-systempowerconfiguration.md": {
-            "hash": "b8275ae799a746926c7b08a3bcd6ae6b3b14218367a198f5bedefce5894edf3b",
-            "date": "2024-10-16"
+            "hash": "2fbe62d4aa8468086aeec3a7c1c37e1e6de98a1cc49d4566af4da0adb09a76e5",
+            "date": "2024-10-22"
         },
         "reference/device-os/api/power-manager/interruptpin-systempowerconfiguration.md": {
             "hash": "58212f6a22cd17fdbce33c271e0aed73fba4642b4e3a535eec3ff9e193c8e681",
@@ -9365,6 +9365,50 @@
         "reference/device-os/api/future/future.md": {
             "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",
             "date": "2024-10-11"
+        },
+        "reference/device-os/api/tether/tether.md": {
+            "hash": "b5063085297f24af001dc42f2f5b8bac5ecc4d5da48f3aaa93ae19a27b659695",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/tetherserialconfig.md": {
+            "hash": "cbcd09d03e12482ae7d46d406d1825fe8c0eab3d5c6ca06c564276bcf1f00f0b",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/on-tether.md": {
+            "hash": "4b0721016ce4d758a5071690a9b5a0e13d3f848af4880e7fb8f446a322bd8ab2",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/off-tether.md": {
+            "hash": "5863c5e38f3b574bd5be72f838d58f1df5f80b652263b1372d99ae89d4ef5974",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/connect-tether.md": {
+            "hash": "ce15cea4391c4ccb438f7e5a6a135bad185eba65e77911efda4b2caef538a9e5",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/disconnect-tether.md": {
+            "hash": "368ee7907ec0691f727e8cd7f381fb3b4f67982eacca03cbfe16ee9e9c644303",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/connecting-tether.md": {
+            "hash": "11be0feb735d2b2783e85fd7c4b3726dcd045d3622d7be70cdfb71f7891e91d2",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/ready-tether.md": {
+            "hash": "300c0c15329e37be943c23cf7ef7165eb6ba19e8954ea00e61fbb155549c24a7",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/localip-tether.md": {
+            "hash": "0ab4bdae4d015a0093b6295688ec19f734f6d6ff7510ea21b6876085d78452c7",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/subnetmask-tether.md": {
+            "hash": "b656682b17d820b7f60b2ec54ff742fb90e6d087e989a64e7fe5b29cca9820cb",
+            "date": "2024-10-22"
+        },
+        "reference/device-os/api/tether/gatewayip-tether.md": {
+            "hash": "cbcbbc1f4a57866a898598c470c3290eeb331bb1e3dba2a3ed302afce43e8f1d",
+            "date": "2024-10-22"
         }
     }
 }

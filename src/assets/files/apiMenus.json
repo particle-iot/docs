@@ -5016,6 +5016,74 @@
       ]
     },
     {
+      "title": "Tether",
+      "dir": "tether",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Tether",
+          "dir": "tether"
+        },
+        {
+          "title": "TetherSerialConfig - Tether",
+          "dir": "tetherserialconfig",
+          "subsections": [
+            {
+              "anchor": "serial-tetherserialconfig",
+              "title": "serial - TetherSerialConfig",
+              "isContent": true
+            },
+            {
+              "anchor": "config-tetherserialconfig",
+              "title": "config - TetherSerialConfig",
+              "isContent": true
+            },
+            {
+              "anchor": "baudrate-tetherserialconfig",
+              "title": "baudrate - TetherSerialConfig",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "on() - Tether - Tether",
+          "dir": "on-tether"
+        },
+        {
+          "title": "off() - Tether - Tether",
+          "dir": "off-tether"
+        },
+        {
+          "title": "connect() - Tether - Tether",
+          "dir": "connect-tether"
+        },
+        {
+          "title": "disconnect() - Tether - Tether",
+          "dir": "disconnect-tether"
+        },
+        {
+          "title": "connecting() - Tether - Tether",
+          "dir": "connecting-tether"
+        },
+        {
+          "title": "ready() - Tether - Tether",
+          "dir": "ready-tether"
+        },
+        {
+          "title": "localIP() - Tether - Tether",
+          "dir": "localip-tether"
+        },
+        {
+          "title": "subnetMask() - Tether - Tether",
+          "dir": "subnetmask-tether"
+        },
+        {
+          "title": "gatewayIP() - Tether - Tether",
+          "dir": "gatewayip-tether"
+        }
+      ]
+    },
+    {
       "title": "Threading",
       "dir": "threading",
       "collapse": true,

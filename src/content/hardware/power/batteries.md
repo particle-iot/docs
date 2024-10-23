@@ -94,8 +94,8 @@ instead of using a battery pack temperature sensor.
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | NRND |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | GA |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | In development |
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | &nbsp; | 2-pin | In development |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | GA |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | &nbsp; | 2-pin | GA |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &nbsp; | 2-pin | Deprecated |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | &nbsp; | 2-pin | NRND |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &nbsp; | 2-pin | GA |
