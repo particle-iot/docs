@@ -21,6 +21,20 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### analogWrite and Servo on Gen 4 2024-10-23
+
+Added a note to analogWrite and Servo that you must specify a non-default PWM frequency for analogWrite
+on Gen 4 devices (M-SoM, P2, Photon 2) or Servo will not function properly.
+
+### M1 enclosure datasheet 2024-10-23
+
+The [M1 enclosure datasheet](/reference/datasheets/tracker/m1-enclosure-datasheet/) is now available.
+
+### Tethering documentation 2024-10-23
+
+The [tethering page](/reference/device-os/tethering/) documents how to use tethering
+on LTE Cat 1 devices to provide TCP/IP to external devices such as the Raspberry Pi.
+
 ### Plus plan 2024-10-22
 
 Information about the plus plan included in the [migrating to basic/plus](/getting-started/billing/migrating-to-basic/) page.

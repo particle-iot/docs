@@ -6276,6 +6276,10 @@ The PWM pins for the M-SoM are:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+Gen 4 devices share a single timer for both PWM (analogWrite)
+and Servo. If you are using Servo, you must set the analogWrite frequency to 50 Hz, which matches
+Servo, or your servo will not function properly. For example: `analogWrite(A2, 255, 50);` using the 
+optional third parameter to set the frequency to 50 Hz for compatibility with Servo.
 
 {{note op="end"}}
 
@@ -17316,6 +17320,13 @@ void loop()
 ```
 
 **NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
+
+{{note op="start" type="gen4"}}
+Gen 4 devices including the M-SoM, P2, and Photon 2 share a single timer for both PWM (analogWrite)
+and Servo. If you are using Servo, you must set the analogWrite frequency to 50 Hz, which matches
+servo, or your servo will not function properly. For example: `analogWrite(A2, 255, 50);` using the 
+optional third parameter to set the frequency.
+{{note op="end"}}
 
 
 ### attach()

@@ -2359,8 +2359,8 @@
             "hash": "3087ca7b4bd067cfb998c77680c813672b2ad42b777eda062c6b9511cd57affd"
         },
         "reference/device-os/api/input-output/analogwrite-pwm.md": {
-            "date": "2024-05-22",
-            "hash": "bb68875a187a480fae85d0cd81c01ee0427cb90885bed7d01fdf07773f95d64e"
+            "date": "2024-10-23",
+            "hash": "17fa000bf88a0e7613bc1a5eb4f548804b8e1d719670a268e4f83259930777c6"
         },
         "reference/device-os/api/input-output/analogwriteresolution-pwm.md": {
             "date": "2024-02-27",
@@ -3171,8 +3171,8 @@
             "hash": "1ba4e7575e507381796f62798f86ca9b47ad6233d9519b558850370ccde5bf1d"
         },
         "reference/device-os/api/servo/servo.md": {
-            "date": "2024-05-07",
-            "hash": "512311c4e138604bdd1e04048f30acb0acab84bc01a6ac9193565c098e346964"
+            "date": "2024-10-23",
+            "hash": "e669bf1e59ac9b1556bc3b386bc473649dae063a8f56e2912dc0ec2a603b9be7"
         },
         "reference/device-os/api/servo/attach.md": {
             "date": "2024-08-16",
