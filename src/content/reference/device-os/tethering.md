@@ -114,7 +114,7 @@ DEVPATH=="/sys/devices/platform/soc/fe215040.serial/tty/ttyS0", ENV{ID_MM_PLATFO
 LABEL="mm_user_rules_end"
 
 # /etc/udev/rules.d/78-mm-user1.rules
-ACTION=="add|change|move", KERNEL=="ttyS0", ENV{ID_MM_TTY_BAUDRATE}="460800", ENV{ID_MM_CANDIDATE}="1", ENV{ID_MM_PLATFORM_DRIVER_PROBE}="1", ENV{ID_MM_DEVICE_PROCESS}="1"
+ACTION=="add|change|move", KERNEL=="ttyS0", ENV{ID_MM_TTY_BAUDRATE}="921600", ENV{ID_MM_CANDIDATE}="1", ENV{ID_MM_PLATFORM_DRIVER_PROBE}="1", ENV{ID_MM_DEVICE_PROCESS}="1"
 ```
 
 For Raspberry Pi 5, use `ttyAMA0`
