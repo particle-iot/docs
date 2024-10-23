@@ -12013,7 +12013,7 @@ Selects which antenna is used by the BLE radio stack. This is a persistent setti
 
 **Note:** B-Series SoM devices do not have an internal (chip) antenna and require an external antenna to use BLE. It's not necessary to select the external antenna on the B-Series SoM as there is no internal option.
 
-On the P2 and Photon 2, this method sets the antenna used for both BLE and Wi-Fi, and must be used instead of `WiFi.selectAntenna()`.
+On the P2 and Photon 2, this method sets the antenna used for both BLE and Wi-Fi.
 
 ```cpp
 // Select the internal antenna
