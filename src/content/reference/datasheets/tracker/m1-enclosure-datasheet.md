@@ -1,24 +1,24 @@
 ---
-title: M1 enclosure datasheet
+title: M1 Enclosure datasheet
 columns: two
 layout: commonTwo.hbs
-description: M1 enclosure datasheet
+description: M1 Enclosure datasheet
 ---
 
-# M1 enclosure datasheet
+# M1 Enclosure datasheet
 
-The M1 enclosure makes it easy to deploy Particle Tachyon and Muon, or Raspberry Pi, projects in a IP67-rated weatherproof enclosure
+The M1 Enclosure makes it easy to deploy Particle Tachyon and Muon, or Raspberry Pi, projects in a IP67-rated weatherproof enclosure
 similar to the Monitor One.
 
-![M1 enclosure top](/assets/images/monitor-one/m1-top.jpg)
+![M1 Enclosure top](/assets/images/monitor-one/m1-top.jpg)
 
 The carrier board securely installs your Raspberry Pi compatible board through use of pin headers and screws. It connects your Muon or Tachyon to the external button and internal LEDs on the carrier board, as well as allowing for expansion HATs on the top side. Cutouts in the board accommodate USB-C, PCIe, DSI, and CSI flex cables, ensuring easy access throughout the enclosure. Extra space is available within the enclosure for a GNSS antenna or a battery, depending on your specific use case.
 
-![M1 enclosure open](/assets/images/monitor-one/m1-top-open.jpg)
+![M1 Enclosure open](/assets/images/monitor-one/m1-top-open.jpg)
 
 The bulkhead includes two M20 holes that can be used with round hole plugs or cable glands (included) or can fit other compatible connectors. It also includes two SMA connectors that can be used for external antennas.
 
-![M1 enclosure bulkhead](/assets/images/monitor-one/m1-bulkhead.jpg)
+![M1 Enclosure bulkhead](/assets/images/monitor-one/m1-bulkhead.jpg)
 
 This enclosure is designed to secure your gateway in various challenging environments, offering flexible mounting options for walls, rails, poles, magnetic surfaces, and more. Ideal for both indoor and outdoor use, this enclosure ensures your devices are safe from dust, water, and other environmental hazards. 
 
@@ -45,7 +45,7 @@ The Muon, Tachyon, or Raspberry Pi is not included. Antennas and batteries are s
 
 ## Mounting
 
-The mounting plate on the M1 enclosure is the same as the Monitor One. The Monitor One is shown in the 
+The mounting plate on the M1 Enclosure is the same as the Monitor One. The Monitor One is shown in the 
 picture, which has different bulkhead connectors, but the mounting plate is the same.
 
 {{imageOverlay src="/assets/images/monitor-one/back-labeled.png" alt="Back View" class="full-width"}}
@@ -105,14 +105,14 @@ There are three LEDs controlled by an ADP8866 I2C PWM controller. It is connecte
 
 ## M1 carrier board
 
-The M1 carrier board fits in the M1 enclosure. The Raspberry Pi-compatible board including the Muon or Tachyon
+The M1 carrier board fits in the M1 Enclosure. The Raspberry Pi-compatible board including the Muon or Tachyon
 mounts under the carrier board and the expansion header pins passes through the carrier board.
 
 {{imageOverlay src="/assets/images/monitor-one/m1-board.png" alt="Carrier board" class="full-width"}}
 
 ## Schematic
 
-This is the schematic for the v0.5 of the M1 enclosure carrier board. Changes are possible before general availability.
+This is the schematic for the v0.5 of the M1 Enclosure carrier board. Changes are possible before general availability.
 
 {{imageOverlay src="/assets/images/monitor-one/monitor_pi_v0.5_p1.svg" alt="Schematic" class="full-width"}}
 
