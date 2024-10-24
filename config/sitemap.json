@@ -495,16 +495,16 @@
             "hash": "fa06b0114321bc59e859b0cf1efa16167394ba2e237012c7784e857e03fa85b5"
         },
         "firmware/best-practices/firmware-introduction.md": {
-            "date": "2024-02-27",
-            "hash": "496aa81f4622eff63c5bea1aac556f356cb87ecafe2003671242ee1b66187cd6"
+            "date": "2024-10-24",
+            "hash": "83d16efc7857cdeecb99b525f41445601c042e2d01af60eadc134d0e9b6d034e"
         },
         "firmware/best-practices/github-actions.md": {
             "date": "2024-08-21",
             "hash": "dd36174e98eb9205b75bc177d521e9e4885288a29fd14ca67330835f2c3c3735"
         },
         "firmware/best-practices/json.md": {
-            "date": "2024-01-24",
-            "hash": "e32112bd1b9af0d40ddbda35900ea98b3addbb573018af61c9757a3e7f44dbfe"
+            "date": "2024-10-24",
+            "hash": "a6a4a75ea0c08d7cf16315de0ddd8f2b928095d35da827b5d183ad6bd1d8179a"
         },
         "firmware/best-practices/libraries.md": {
             "date": "2024-07-08",
@@ -539,8 +539,8 @@
             "hash": "eb430d291cf7911c3f2cd5ff80c10900d754006d085cd5c0e6a84a69f4923acc"
         },
         "firmware/software-design/threading-explainer.md": {
-            "date": "2024-08-02",
-            "hash": "170a455847f8c0f7d5cbc68f193f74d5b11da1ca8a6475356167f9a9a3253e87"
+            "date": "2024-10-24",
+            "hash": "1e875e369f22c53b6404378b96abc83ef5a29f8439896169c50421d04e0bf8dc"
         },
         "firmware/tracker-edge/monitor-edge-api-reference.md": {
             "date": "2024-03-12",
@@ -563,12 +563,12 @@
             "hash": "79a1e257f376e134b14d8b67874be0c8e9b0d37aa9e2346e3891dd7544236e84"
         },
         "getting-started/billing/cellular-data.md": {
-            "date": "2024-04-17",
-            "hash": "50ace88854315c43579cf3f378481f497452352feac8fb3cef56a8ca792e5b77"
+            "date": "2024-10-24",
+            "hash": "b65226663508b563942f5e236c4c2e26d9e01bdaf7d62a1751caa5ef9cb5460b"
         },
         "getting-started/billing/data-operations.md": {
-            "date": "2024-03-13",
-            "hash": "26dcc197d0fe5c8d0e09de4cd943dd2f3f95f4e6f04eb7fc36039e6aeafcbf73"
+            "date": "2024-10-24",
+            "hash": "12e76c3c562b83ea9663ea74e03d7e43b1ce4ce33b0bd63e2c67242f39c0ade0"
         },
         "getting-started/billing/migrating-to-growth.md": {
             "date": "2024-02-27",
@@ -587,16 +587,16 @@
             "hash": "a3beffd6917b1c9c12c68de789afdfbce4e36b2c08a69b8c06635e13f8cecdb6"
         },
         "getting-started/cloud/introduction.md": {
-            "date": "2024-03-13",
-            "hash": "1600b639aabfe4390432860330e62bfeeda662264675b18ef482e512b4b583f9"
+            "date": "2024-10-24",
+            "hash": "d9e77a7220c5626ecae3ebd6949afd03e0741ce9c3c4a459616d4dd436441e4b"
         },
         "getting-started/cloud/ota-updates.md": {
             "date": "2024-03-13",
             "hash": "b64cac79dc2079e0af9ee22eb530859ad8995362643886345614d7e65b554b2d"
         },
         "getting-started/console/console.md": {
-            "date": "2024-09-04",
-            "hash": "e356d3f3244230c9ec1c75c1fa6cadbac4e965f7fed462abf2716997a2d44478"
+            "date": "2024-10-24",
+            "hash": "631356eb459fe0617c83dcf91ad7ffb6c3d2776b71b4e046d3e07df11f47a2ac"
         },
         "getting-started/console/development-devices.md": {
             "date": "2022-05-18",
@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2024-05-24",
-            "hash": "f687eba196af3be4d408b1dab8b120ceee88e9b038457a803025c606964e53cb"
+            "date": "2024-10-24",
+            "hash": "190544e46c4b5ba09acd0b894181a631852e113010853e872d5fe7db5d28dd57"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2024-09-12",
@@ -643,20 +643,20 @@
             "hash": "1b308ced916d849f4e4c7c9f5df66c55d40aad20fd903c97c2660578699a0860"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
-            "date": "2024-02-27",
-            "hash": "36f495ab9f77354dbb6dca82cccb527e4165fe3073d7dbc624f7539bb519860e"
+            "date": "2024-10-24",
+            "hash": "7da32d0b88da26fe0c17a84d299d6261e0352e789d172a90014bc17dd465806d"
         },
         "getting-started/device-os/firmware-libraries.md": {
             "date": "2024-08-12",
             "hash": "bf4318f2fc3173b736c622f568d10f5a6f168851e4d50ea008e4f1cb1902e2c8"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-07-09",
-            "hash": "d29a2c853c388564fc66693c93b146475c68e67fb49c1c7ac60cc722b1d2dae5"
+            "date": "2024-10-24",
+            "hash": "58ce1b4c2528d5fed25e8cef0c33f9af10a95d3120ec4f6dad756f78bb06e1d0"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-08-28",
-            "hash": "a8be6aa76fcf9110c2ee15b4cf7975480b67fed34a4cde1924cf75b63e5dbf8d"
+            "date": "2024-10-24",
+            "hash": "361bb482effad7ed6cd4b2818c29aae8b46afde40a35fd5759879783f5d4c509"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -699,8 +699,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-08-28",
-            "hash": "bb9cd8155ba1ebfe906151707240f1e14030b53d1f1ae7427d376cd42b5bbbc8"
+            "date": "2024-10-24",
+            "hash": "dc1607dc9740fcd87ed7e41a4c6fa2a038ee9f0de0ff18edb5beb2aae45e3b94"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -715,8 +715,8 @@
             "hash": "cad4fea3dfb05e623b7b1b92e7b875d3bbdef000623387c8742b7ffae255eb48"
         },
         "getting-started/tracker/tracker-setup.md": {
-            "date": "2023-11-03",
-            "hash": "cfcfcc6714a401b855918a01153f4a15e3da96d228fae30ccf76965529c2d8af"
+            "date": "2024-10-24",
+            "hash": "2865b84b6b0a2b1b608b3ad78c32c2b36023a500c8514fa7f056c77992e12c44"
         },
         "integrations/google-cloud-platform.md": {
             "date": "2023-08-03",
@@ -803,8 +803,8 @@
             "hash": "227f260583025d5f6d2fcf05f60ea0e6e6870c878fb5a3e0f7db549219236cb9"
         },
         "scaling/quick-start-guide/billing.md": {
-            "date": "2024-03-13",
-            "hash": "18ecbb90b92a7591ddb407d094d81adcadc57cc1163a3e6b9247147e5630ee9b"
+            "date": "2024-10-24",
+            "hash": "1607aaf363a13c74330e1d3bb79ec059f0e87a3924b7860127327ab5e2cb25f1"
         },
         "scaling/quick-start-guide/bulk-device-operations.md": {
             "date": "2024-03-13",
@@ -827,8 +827,8 @@
             "hash": "54a4633bc06696ac16d7158365c238272ee3c1f818cd364ac2af31b36d984f1a"
         },
         "scaling/quick-start-guide/organizations.md": {
-            "date": "2024-03-13",
-            "hash": "8cdfa736b0cdbc3c345f43f5d484bb19715e10247f44b35fa55262c63cfb0706"
+            "date": "2024-10-24",
+            "hash": "127bbb336d9dadca1f21319a30e6c5f26a14877a23c3c5092e91d84123a2946c"
         },
         "scaling/quick-start-guide/returns.md": {
             "date": "2023-02-24",
@@ -935,8 +935,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-08-28",
-            "hash": "8c178fa61093c5844a090306bd0e990e1573421ea886cda7325a226aa175c9e6"
+            "date": "2024-10-24",
+            "hash": "96ff388cecf8c2bf3664217d3c3a25065051e0d917ae0ff07468345205822b88"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -959,8 +959,8 @@
             "hash": "cb6ffee72fadd318093fd10e2c513ababa11bcb734e31dae3634ed6fae658c02"
         },
         "hardware/ethernet/ethernet.md": {
-            "date": "2024-06-15",
-            "hash": "c6a4cd3302b150cfa8ff95b93d4163023ff97b20df51005779586e84c450aeb4"
+            "date": "2024-10-24",
+            "hash": "bda3cfcb23acb1969764a28ffb2ce665993855f5b8b3f7a0fc222629207b6902"
         },
         "hardware/expansion/about-i2c.md": {
             "date": "2024-02-27",
@@ -999,24 +999,24 @@
             "hash": "e1e353090362610b1c69baac04e7a5685a98d800814c2f666ce059470b71eca9"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
-            "date": "2024-08-21",
-            "hash": "7109a7aa3f763ee3a471ca924772640908704a52a8d694844daba226e930b0f8"
+            "date": "2024-10-24",
+            "hash": "3a93716c4fd5e926a7600ba40e9772bdfe7b249520f56510c7eb2c4cbc87f6b8"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2024-07-23",
-            "hash": "f0c90edccef96c2e46529020087543c4cd1abbeae583c7b3a48e3eaf06a14ab9"
+            "date": "2024-10-24",
+            "hash": "8ca97f71d6a8dc9fb20b28278c1e18fc483683c598f2ec32b3bbaa5377c0fea0"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2024-07-23",
-            "hash": "795fd8969c7bfba2cf718eac080e4f09cb124829bbc9c187ed78f5780f07cac9"
+            "date": "2024-10-24",
+            "hash": "161ff9253916388171a9d95e99c28a5a638da1fabb50b32c6581c931f70be7a5"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2024-07-23",
-            "hash": "9be833c03241295b90816821417106367c908f2aabbe23c1b82d6a296678f79a"
+            "date": "2024-10-24",
+            "hash": "da2fc0e9ebcedf61ff54c708d1a039863e937b653bddb2e7c708da48b9610e2a"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2024-05-15",
@@ -1039,12 +1039,12 @@
             "hash": "49738456e66a02cd233164a2eb69ddba54c3409822b828aefa6edd75944b6302"
         },
         "hardware/power/batteries.md": {
-            "date": "2024-08-28",
-            "hash": "045aa9524e8409b77964d341fde95063b7dfcdf9b6f692b5b9d37074a12badf3"
+            "date": "2024-10-24",
+            "hash": "5e84f07015f99d35c023dc56c318e1bf35b4754505b62b2f2997ea1a45dd4378"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2024-08-28",
-            "hash": "c7ba955df8afdadbd07fb1f3c1395219a8311cf15c4e9b92ecc7bed14f6be0d0"
+            "date": "2024-10-24",
+            "hash": "43c355611ebf614ea913f3a6eb53c1d9d91a1cbfc59630c00a9cf61d10831809"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1143,20 +1143,20 @@
             "hash": "e48afaebafec3453fbe88c83758d9950ccac4854ac56256773dce812689cae1b"
         },
         "reference/cloud-apis/authentication.md": {
-            "date": "2023-07-12",
-            "hash": "4b4bc7ee525f87867f00d0926c39bf6479db51b68fd78191246eae4880cf331b"
+            "date": "2024-10-24",
+            "hash": "4bf7516916d7edbeb57dbee581f84e9f3f301ffef1c36c3d224d44ba3094393f"
         },
         "reference/cloud-apis/calling-api-from-web-page.md": {
             "date": "2023-03-17",
             "hash": "c9c0da0fa15aec20bd9c8bbdc12830b2a739320274732272f16956daa39e77b1"
         },
         "reference/cloud-apis/data-report-tutorial.md": {
-            "date": "2024-03-13",
-            "hash": "74b9315484be16ea70298a49d15ff440f68b636eb3074af419bb725240c7204e"
+            "date": "2024-10-24",
+            "hash": "f998b77b51d9a121db7e614f2a666307e5878968f7b1e573769d2412a41f8239"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2024-06-06",
-            "hash": "d91629ebb1cee06b2dbdb9c38bc9c9f83623f5e2e3b2901a9a8f6c79eaf31c95"
+            "date": "2024-10-24",
+            "hash": "5e311c8f845ec5c295faad9da246e8ecb20261587b2341029170f96f4ec55ae0"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -1187,8 +1187,8 @@
             "hash": "7c807ac6a038c040396853c33a587655275c6710629d3664d135a86ebf6b6b0d"
         },
         "reference/mobile-sdks/android.md": {
-            "date": "2023-03-22",
-            "hash": "84f4655b518c33af9fdc4746a7db2c54ac7d0fbc969b54faa6e615d5b00d6797"
+            "date": "2024-10-24",
+            "hash": "4ff6afcba46880ff794afa8dccb9dc1dccd785602aae0cfd1e5e8401e6888ccf"
         },
         "reference/mobile-sdks/ios.md": {
             "date": "2023-03-22",
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-09-09",
-            "hash": "0b7d9d1f1f02477ac508a376db7494ea5d99a891743591617070fdafdb2883a8"
+            "date": "2024-10-24",
+            "hash": "20273ad14a35d055284e7413052ebb497e250df41ae37b3902c6379837e59b02"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1343,16 +1343,16 @@
             "hash": "c66f07ccdca62f04905f0e4f9401df81fc1e8c713bea6a1d2f4a41dea215dd4f"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
-            "date": "2024-07-23",
-            "hash": "b64e693b485265b9c52b32c3a55c6f19aa66aad85c35c6e3ee42d327f0a50552"
+            "date": "2024-10-24",
+            "hash": "62f81feaa2ce5b8cf3bca977d3c8581d2e660bccb099eebe711410a39e598896"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2024-09-03",
-            "hash": "574b884d6e24e84d94c9a094ef303c21795b90eeae2dd39218f4aca3ed2654a0"
+            "date": "2024-10-24",
+            "hash": "5fc550690821493d513cec46e87d571e2b639738b2ba7d23312f1a156cedc2e0"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2024-09-03",
-            "hash": "d0aa7db48ca5e010193bb96db38218b171a6341faa120b636b76a2adef2c39b7"
+            "date": "2024-10-24",
+            "hash": "5b06dd7373dc4e2d02e1bfeb22e021cb2d0b73140b320a08274411290c7bdf1c"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-08-21",
@@ -1379,8 +1379,8 @@
             "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2024-08-21",
-            "hash": "684aa5358d7c2f18d2f2e299e15336690bf0111d16dfcbcc3ae5ed9a073e2074"
+            "date": "2024-10-24",
+            "hash": "d6434fc32cd4cd8c78a15135d09cbfaea2809d38e1d20c07210c560839d1ec05"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
             "date": "2024-03-26",
@@ -1391,12 +1391,12 @@
             "hash": "438890f21500de1d45f46da0038a731bbf12a7c7926f316283f1c0260e16983f"
         },
         "reference/datasheets/e-series/e404x-datasheet.md": {
-            "date": "2024-06-27",
-            "hash": "20c7a2790d197f5584cbd8c9e23b9098a132b44bab1382b9edf4a358df2f3476"
+            "date": "2024-10-24",
+            "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2024-08-21",
-            "hash": "af6d2b824a0ae00f07868964a28203209ff29bc5602092b7d720ee64a50766f6"
+            "date": "2024-10-24",
+            "hash": "3957ea6ba537592c6ec96208895c41170cc1cc1a477e60cafb7e57a01a7bf1f1"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2024-03-15",
@@ -1407,12 +1407,12 @@
             "hash": "a25ee15997fd92068f24b92fa506611af0f0bcbae34daaa769917bec984a3de0"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2024-09-04",
-            "hash": "c7122467224363fa7d9311e2188ba9aad4e69b1af1a1e3846ce5d395191f29e9"
+            "date": "2024-10-24",
+            "hash": "91612b63102e3d32e14d4716d7a84de8f3b3f5f2038b37baedeed570e784f0e9"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2024-08-28",
-            "hash": "a9d7fd05316785bdc914bd234e1576311d282bc3ec16e20e3aac9bbcc7ca6098"
+            "date": "2024-10-24",
+            "hash": "5c1c17b9123216149bf9a7341fb6cbc1f38af2a3e90fa611effea58cd263f90b"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2024-05-15",
@@ -1423,20 +1423,20 @@
             "hash": "f8d9c44479044bee8f53f30f3aeb0a50d3233d0bbd40154dca569cf300849f54"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2024-08-21",
-            "hash": "9ae954aec9daff0971874951c15e7bcac661e5a95ac6f98f6cad2cfa32bb6be2"
+            "date": "2024-10-24",
+            "hash": "e89527cf7cf04651a091a0b6bb0fc1dff52632e9c7dee6e880321d9c84880bd0"
         },
         "reference/datasheets/tracker/tracker-one.md": {
-            "date": "2024-08-21",
-            "hash": "2f8f5dc8d835e39f88de043ef1db9aefc13a7a558e8350b34520ccb3d68e5eaa"
+            "date": "2024-10-24",
+            "hash": "ef4c96fbb58e12cbcd6343a66b2fa8d743ca9ae2cb2ef1bb949a4d96879b104a"
         },
         "reference/datasheets/tracker/tracker-m8-accessories.md": {
             "date": "2023-08-02",
             "hash": "f2e75f5229b4625cbd15c3082ed36c031ca5c17c6d4fd2ebdf727386518b4d1a"
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
-            "date": "2024-08-21",
-            "hash": "63fe03632a86b43d336caa8a7a4bb5a41b2089385ac5a9cfbf2f8b72e4905719"
+            "date": "2024-10-24",
+            "hash": "fb298a403432349a859050ceadf2046c18dae97c34559585936bcbe6379ed584"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
             "date": "2023-03-30",
@@ -1471,16 +1471,16 @@
             "hash": "d938953475a26cb1dcbf81bb58e718857ce997bdffb6e513e16a3670b2b28377"
         },
         "reference/discontinued/software/firmware-core.md": {
-            "date": "2024-01-05",
-            "hash": "55d6c4304359bfee072aa2084b73646d8b43e0238e909f75cf0730c54bfe31d9"
+            "date": "2024-10-24",
+            "hash": "64c3f74116fada72bef54b4fb2b52b879005c9c81a61515e639c5034286c8b65"
         },
         "reference/discontinued/software/firmware-mesh.md": {
             "date": "2022-06-14",
             "hash": "c2a21a44fa7c834e9ce7618f9b0141166434edcbd5a0dcf50b48adb5d396f88f"
         },
         "reference/discontinued/software/firmware-xenon.md": {
-            "date": "2024-01-05",
-            "hash": "1893abb118693cf8e768b30ce7665cea4b7f2c052f10267501e3e5e32dc772a3"
+            "date": "2024-10-24",
+            "hash": "d0eac68d80d998efc3c9a18facd149628a3de746d137c6fb50df11937703ff23"
         },
         "reference/discontinued/software/windows.md": {
             "date": "2023-03-17",
@@ -1543,16 +1543,16 @@
             "hash": "0f9596b49fc12d3869bc93b8347d5e91922eb2efb60c158a04e46c8ef7706946"
         },
         "troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards.md": {
-            "date": "2024-03-13",
-            "hash": "7fca2d33bd9b62462fe8898a8a4a874b2bb9b020e9e0b425004a66417c6e6bd5"
+            "date": "2024-10-24",
+            "hash": "648668f373bba055b04e9f5e8d1a290757a31f3e22fe067bc7f0e453b59ab9b2"
         },
         "troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide.md": {
             "date": "2023-03-17",
             "hash": "dcf70a5347429989c8dfb9f7beb9dfd2ee6be04792969d123b3f2aae7e465182"
         },
         "troubleshooting/guides/device-management/finding-your-device-id.md": {
-            "date": "2023-03-17",
-            "hash": "1bd196b537126fb24848f72a06b532f7ca5789bdb20fa6c2834f12cfb5c8334d"
+            "date": "2024-10-24",
+            "hash": "03fbb3d7261eaca5ce494335a7e963d66b95795539cf0dd0d6ef13bd6eb70d81"
         },
         "troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb.md": {
             "date": "2023-09-06",
@@ -1579,8 +1579,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2024-08-28",
-            "hash": "54bb0fe8af02e085688e4086804f4d4a7390eb4bdc4fd8cd256183c403da7ea0"
+            "date": "2024-10-24",
+            "hash": "3b7535bba6f266e2ed9fd6afaf9549d256c8a42ae7fa614ffedea409f24760b9"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
@@ -1615,12 +1615,12 @@
             "hash": "e9128192e8a6dea5627c5ad950519dcaa14c49064361ed1c50b0f59ff6c78853"
         },
         "troubleshooting/guides/device-troubleshooting/device-blinking-dark-blue.md": {
-            "date": "2023-03-17",
-            "hash": "4462b2935749951bd92587019f6cfc9260c7f5ffc75af6cbc672eeb5080119d9"
+            "date": "2024-10-24",
+            "hash": "0dc699df65a7e27b463309c52c8ddbee4a06e4d7d3bb57c9a2813eeaaf338e5a"
         },
         "troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led.md": {
-            "date": "2024-02-16",
-            "hash": "e8fe938b080a28c8b4fcb1ea0d8e1f4cd828e138c02a2f411269708e1945ce46"
+            "date": "2024-10-24",
+            "hash": "1e1c4563a521c393f8ecd6b9516e0c969f35f0c72a48c2bd3450f62c8f0c65fe"
         },
         "troubleshooting/guides/device-troubleshooting/device-breathing-cyan-but-cannot-connect.md": {
             "date": "2023-04-20",
@@ -1631,8 +1631,8 @@
             "hash": "435cd0c6454cf892f7f5067e2848879235cefb2004fd7a90f56a22ea013c0528"
         },
         "troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware.md": {
-            "date": "2023-03-17",
-            "hash": "555edeb2a69ec53947b30745e408785b0845a075f7affcbe6efa342c9394ba88"
+            "date": "2024-10-24",
+            "hash": "bba8916b0db98858c1efd69bfd077577028898a5a3e5993971229160e1806af7"
         },
         "troubleshooting/guides/device-troubleshooting/troubleshooting-asset-tracker-issues.md": {
             "date": "2024-07-23",
@@ -8171,8 +8171,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "d96a8aa172b2e417b7a3e41e35181457787f4243fdd50c5ba7f31eeaa354a305",
-            "date": "2024-08-28"
+            "hash": "2cebc4fce75a0673501b7b2cbad9b56e9185fea62d6164a79f1b16467ada12e5",
+            "date": "2024-10-24"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ccb442c392451d6ab1fdae214c853b53ac3bf93f98de506dec5ab47fb7037285",
-            "date": "2024-09-16"
+            "hash": "4b22f749f2918c75d23254b4f072359ca59fc6de885745639d36ccb11a2d8d4d",
+            "date": "2024-10-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8291,8 +8291,8 @@
             "date": "2024-09-04"
         },
         "getting-started/logic-ledger/data-transformation.md": {
-            "hash": "0bc67a8e4453518988e6f6053e9d514903acc8373c752ea052b50f1bd6da180a",
-            "date": "2024-09-04"
+            "hash": "95468cd5b3e47cd95d8b3a0eca2c8648f5cb3736c0ff81b151b0abf9fb4fdf4a",
+            "date": "2024-10-24"
         },
         "reference/device-os/api/wifi/getantenna.md": {
             "hash": "6ba7be41647b11824b2b0afc0df7633157d0213f67785a96de7ab5ab0816a74c",
@@ -8303,8 +8303,8 @@
             "date": "2024-01-24"
         },
         "tools/developer-tools/json.md": {
-            "hash": "81d502af6d5a557fd038070442d5f3c896f2045319906913d0658673b2e0872f",
-            "date": "2024-01-24"
+            "hash": "923d519440a0dbbc2713a57ea7c6116e613d09cf94976fb16bcefccb325de729",
+            "date": "2024-10-24"
         },
         "reference/device-os/connection-management.md": {
             "hash": "ee92788deb411ce158390908112a59767782ddd2e17868bfd6f1e128005e33e0",
@@ -8391,20 +8391,20 @@
             "date": "2024-08-05"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
-            "hash": "96a0e634cff50358a9d55b42d8829b0a05ebcae2fcc8a40dc154d9c262319b19",
-            "date": "2024-07-23"
+            "hash": "aac072cf59db57b44f8bc8be96bc9c9ed4d7241e01a4fa0943cb6b0c7a518c61",
+            "date": "2024-10-24"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
             "hash": "b2d3a201bfc9db423cef0d2ff41e81a631b1c355b706647ae10d3262e7b851b6",
             "date": "2024-05-21"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "90a4086043fcfb74723699b58989d29e2e8401f16fe74bae9201580ddffb479f",
-            "date": "2024-09-03"
+            "hash": "d054659b6a5633125f45e9ba8279c5d1cd7d142e0ccb6c184a8d3b5af22c1fb5",
+            "date": "2024-10-24"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "b34f1e593e180cf0c977724b0861a13b2722f1b6c1a53d84e85bb4fe0a1015d1",
-            "date": "2024-08-05"
+            "hash": "a4f93c09835f700299c185aa0f3baa79cbad58c34a78decbf98e779bc2a255e6",
+            "date": "2024-10-24"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -8419,8 +8419,8 @@
             "date": "2024-03-13"
         },
         "getting-started/billing/migrating-to-basic.md": {
-            "hash": "f064c5e82bf216631535ee18fe8d7243c6d1031b03ecad61dbaa16137767e80a",
-            "date": "2024-03-13"
+            "hash": "1856d96ad7c0eff3907edd39fa2c4dc839e18a0bc45019850b3b33d2f3c11ba6",
+            "date": "2024-10-24"
         },
         "integrations/org-integrations.md": {
             "hash": "9d91388b1aaf2f693e355af935ab5d6c3d0c95ed696e714d9f3ad10fedfca43a",
@@ -9059,8 +9059,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "f094a9bea91e62d9e7f40e8a56ca46c8ecc6d5a67c7a40d2ff7692b3a8421bbb",
-            "date": "2024-08-08"
+            "hash": "adbcaf1b88e4a7cf752547db323b0323b05d9b8353bf6b5a1f9f66ba74fa2a30",
+            "date": "2024-10-24"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "8fe3dfe5bf049045235aaeb22cc4216b949808e392cd66c361f04ed47266b404",
@@ -9071,12 +9071,12 @@
             "date": "2024-05-28"
         },
         "hardware/power/pm-bat-datasheet.md": {
-            "hash": "cbe1c2e3d6911cfaf7489504eca5632a59bf7f7e70a9d82c89651f12f3ba88fc",
-            "date": "2024-08-28"
+            "hash": "91372de7b8184f35c8c43f46388be2f13a7ddbfee2633050602cd778a50de6d9",
+            "date": "2024-10-24"
         },
         "hardware/power/pm-dc-datasheet.md": {
-            "hash": "2f012dad096881875256ec00d4ecdb7deba909288ea8852be3c1159975d6df1b",
-            "date": "2024-08-28"
+            "hash": "dfcea32363fb25ca702b1bc2b9129ec646a90a0b18bb520b633ba26ddace7c5b",
+            "date": "2024-10-24"
         },
         "hardware/community/monitor-one-modbus.md": {
             "hash": "98bb3deab9db5bb30e57d050d6c579617f67266879b7dfa4f88ead34521e06c6",
@@ -9091,8 +9091,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "f2d9c046f2a2aba62ec7c7f124060b53c5ef812da801733ceae82a37103b20ee",
-            "date": "2024-09-03"
+            "hash": "36f84fc9d9eafc5cb5e9c35b280f2e61e9a7e11b0c4114a788bf427585ea7211",
+            "date": "2024-10-24"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9115,16 +9115,16 @@
             "date": "2024-06-28"
         },
         "hardware/som/basic-som-design.md": {
-            "hash": "710b077e3532794992955a644f704b2086324c472369cee0759c49cbb4b5ebf5",
-            "date": "2024-07-23"
+            "hash": "c769956849f48de95cf3cfd166366ac7eef34ed5234d9733ebb4684bd85bfc49",
+            "date": "2024-10-24"
         },
         "hardware/som/som-first-board.md": {
             "hash": "b68d6d837be2b6a36a900749e8ce77ee638e03bd8e1986535b740ba6478b2490",
             "date": "2024-06-28"
         },
         "hardware/som/som-guide.md": {
-            "hash": "4090b34293b2e09eacc4a6d3470201c2bd4f8704f859881bff2e8af2235812b8",
-            "date": "2024-07-23"
+            "hash": "0378cbb4b7e5441db43fb98e26e8ea2b1a0bb39f3254279383b4428bff8f3f26",
+            "date": "2024-10-24"
         },
         "getting-started/getting-started.md": {
             "hash": "ae625053e81b7eb53c24ce1608fedeff29140eb0d8a9e60ca4c4f189b3023423",
@@ -9409,6 +9409,58 @@
         "reference/device-os/api/tether/gatewayip-tether.md": {
             "hash": "cbcbbc1f4a57866a898598c470c3290eeb331bb1e3dba2a3ed302afce43e8f1d",
             "date": "2024-10-22"
+        },
+        "tools/cloud-tools/event-decoder.md": {
+            "hash": "0dd5a3d286253100810c4b4cc603f19dd94e1006bc93d7531e8e1c1a316796d9",
+            "date": "2024-10-24"
+        },
+        "hardware/migration-guides/muon-boron-migration-guide.md": {
+            "hash": "7bd253b2a39ad21034aaa053cbc9ef097eac7fac2387ff48b9447b2a443bfb80",
+            "date": "2024-10-24"
+        },
+        "hardware/muon-hats/display-hats.md": {
+            "hash": "501bbb6ab8a3523b74979b926cceacf73d15ff37c0041632f23caae453b45034",
+            "date": "2024-10-24"
+        },
+        "hardware/muon-hats/automation-hats.md": {
+            "hash": "78139201bc6ae944d48f3b30ab9647d9e9c4c26499558fd1d0175853e51dd02d",
+            "date": "2024-10-24"
+        },
+        "hardware/muon-hats/environmental-hats.md": {
+            "hash": "ddfa969e1cfe9a673dcca3aca95cb00e0cd37e9adca35cf48e2ab399af74b24d",
+            "date": "2024-10-24"
+        },
+        "hardware/muon-hats/muon-hats.md": {
+            "hash": "634176baf1987d706d839b3042f766b30b9e6ca39ff77c1bce8a4fd9fec03a55",
+            "date": "2024-10-24"
+        },
+        "hardware/muon-hats/rs485-can-hat.md": {
+            "hash": "4b954fcd6570d345d27d8d6b992c4fafd827ec77d6ed7c6faf4bfebdd39d294d",
+            "date": "2024-10-24"
+        },
+        "getting-started/hardware/tracking-system.md": {
+            "hash": "ba1e9a0196b66716061b668ac28f8eb31b6ea2930378363bee6a232f9ad472dc",
+            "date": "2024-10-24"
+        },
+        "reference/discontinued/software/non-threaded-system-mode.md": {
+            "hash": "2032f0da1d23c433a17d7d02478595c8b2d728356f01a70f55b36cf52c83ed65",
+            "date": "2024-10-24"
+        },
+        "reference/device-os/tethering.md": {
+            "hash": "18b9eeeb69613d73252e9c0badc9c64dc430d1b4026b9e552ac0bf3110522512",
+            "date": "2024-10-24"
+        },
+        "reference/device-os/typed-publish.md": {
+            "hash": "92696ad6f4b1aae256b023fcd455c52610233527de30656379fd5fe101559160",
+            "date": "2024-10-24"
+        },
+        "reference/datasheets/tracker/m1-enclosure-datasheet.md": {
+            "hash": "9980c274d2698ab75e9673e374a70679a7f596e8b6ea8348892b0197b2350588",
+            "date": "2024-10-24"
+        },
+        "troubleshooting/led.md": {
+            "hash": "e589761f603f2097df63956e68747336dd7a97cff486fbf232e1cd0de19361fa",
+            "date": "2024-10-24"
         }
     }
 }

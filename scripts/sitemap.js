@@ -54,6 +54,10 @@ module.exports = function plugin(options) {
                                     const mdPath = e.href.substring(1, e.href.length - 1) + '.md';
                                     visiblePages[mdPath] = true;    
                                 }
+                                else {
+                                    let page = dir + '/' + e.dir + '.md';
+                                    visiblePages[page] = true;
+                                }
                             }
                             if (typeof e.subsections != 'undefined') {
                                 processMenuArray(dir + '/' + e.dir, e.subsections);
@@ -64,6 +68,8 @@ module.exports = function plugin(options) {
                 }
             }
         }
+        // console.log('visiblePages', visiblePages);
+        // console.log('hiddenPages', hiddenPages);
 
         // Create the sitemap file
         var sitemap = '';
