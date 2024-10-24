@@ -11,6 +11,9 @@ description: Controlling external services on the Internet from Particle IoT dev
 
 Webhooks are a simple and flexible way to send data from your Particle devices to other apps and services around the Internet. Webhooks bridge the gap between the physical and the digital world, helping you get your data where you need it to be.
 
+- A number of popular services are in the [integration gallery](/integrations/introduction/). These pre-configure many of the webhook settings for you.
+- If you are familiar with webhooks, you can jump right to the [webhook reference](/reference/cloud-apis/webhooks/) as this page is more of a tutorial.
+
 You could use a webhook to save valuable information in a database, visualize data being read from a sensor, send the latest weather report to your device, trigger a payment, send a text message, and so much more!
 
 <img src="/assets/images/webhooks-overview.png" alt="Webhooks with Particle"/>
@@ -370,6 +373,6 @@ As a quick reference, these are the pre-defined webhook variables available for 
 - `\{{{PRODUCT_ID}}}`: The Product ID of the device that triggered the webhook
 - `\{{{PRODUCT_USER_ID}}}`: The user id of the device owner
 - `\{{{PRODUCT_VERSION}}}`: The firmware version that published the event
-- `{{{PARTICLE_EVENT_JSON}}}`: The entire event (name, value, published at, etc) as a JSON string.
-- `{{{PARTICLE_EVENT_BASE64}}}`: The entire event (name, value, published at, etc) as a Base64-encoded JSON string.
+- `\{{{PARTICLE_EVENT_JSON}}}`: The entire event (name, value, published at, etc) as a JSON string.
+- `\{{{PARTICLE_EVENT_BASE64}}}`: The entire event (name, value, published at, etc) as a Base64-encoded JSON string.
 

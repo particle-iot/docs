@@ -7,7 +7,10 @@ description: Control external web services from your Particle IoT device using t
 
 # {{title}}
 
-Webhooks lets you connect Particle events to other services on the Internet.  If you're new to webhooks, you should start at [the guide for webhooks](/integrations/webhooks/) before continuing on here.
+Webhooks lets you connect Particle events to other services on the Internet.  
+
+- A number of popular services are in the [integration gallery](/integrations/introduction/). These pre-configure many of the webhook settings for you.
+- If you're new to webhooks, you can start at [the guide for webhooks](/integrations/webhooks/) which is more of a tutorial.
 
 You can create and administer webhooks with the [Console](https://console.particle.io) and the [Command Line Interface (CLI)](https://particle.io/cli).
 
