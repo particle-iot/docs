@@ -33,8 +33,6 @@ The Muon is a developer kit based on the M-SoM with additional peripherals for e
 
 {{imageOverlay src="/assets/images/m-series/muon-rendering-top.png" alt="Rendering Top" class="full-width"}}
 
-<p class="attribution">This is a rendering of an earlier version of the Muon. The current design is slightly different.</p>
-
 
 ### M-SoM
 

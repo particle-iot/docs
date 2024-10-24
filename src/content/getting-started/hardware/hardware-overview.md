@@ -193,7 +193,7 @@ The Muon contains an M-SoM module in a M.2 socket and a carrier board with an ex
   - VIN (6-12 VDC)
   - LiPo battery with temperature sensor (3-pin JST-PH)
 
-![](/assets/images/m-series/muon-iso.jpg)
+![](/assets/images/m-series/muon-iso.png)
 
 
 The Muon contains a Particle M-SoM that the following functional units:

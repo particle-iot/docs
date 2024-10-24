@@ -656,7 +656,7 @@
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2024-10-24",
-            "hash": "361bb482effad7ed6cd4b2818c29aae8b46afde40a35fd5759879783f5d4c509"
+            "hash": "25a6a4279713cf167bd9e390690c7c2838bfefcab8f5206903739a21617944c5"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -8403,7 +8403,7 @@
             "date": "2024-10-24"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "a4f93c09835f700299c185aa0f3baa79cbad58c34a78decbf98e779bc2a255e6",
+            "hash": "32cf764b96b09c4e207b83d8e3da06ea774c25a934ef36503db160b67cb5baba",
             "date": "2024-10-24"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
