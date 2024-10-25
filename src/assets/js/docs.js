@@ -313,7 +313,7 @@ $(document).ready(function () {
 
     const windowResizeHandler = function () {
 
-        if (window.innerWidth < 1250) {
+        if (window.innerWidth < 1300) {
             $('.sections').css('display', 'none');
             $('.narrow-top-nav').css('display', 'inline-block');
         }
