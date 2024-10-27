@@ -12,41 +12,239 @@ Webhooks lets you connect Particle events to other services on the Internet.
 - A number of popular services are in the [integration gallery](/integrations/introduction/). These pre-configure many of the webhook settings for you.
 - If you're new to webhooks, you can start at [the guide for webhooks](/integrations/webhooks/) which is more of a tutorial.
 
-You can create and administer webhooks with the [Console](https://console.particle.io) and the [Command Line Interface (CLI)](https://particle.io/cli).
+You can create and administer webhooks with the [console](https://console.particle.io) and the [Command Line Interface (CLI)](https://particle.io/cli).
 
 ## Overview
 
+### Where to configure
+
+In the [console](https://console.particle.io), webhooks can be configured:
+
+- In your sandbox
+- In a product within your sandbox
+- In an organization
+- In a product within your organization
+
+#### In your sandbox
+
+If you are working with developer devices within your account and have not set up a product you can set up 
+an integration here.
+
+#### In a product within your sandbox
+
+A product groups together devices with common firmware. This is recommended for anything more than 
+experimenting as a developer. There is no charge for setting up new products, so you can do so even
+for testing and experimentation.
+
+If you are using a product, you should create integrations within the product, not in your sandbox.
+
+#### In an organization
+
+If you have access to an organization via the popup at the top of the console window, you can 
+create integrations within an organization. This is recommended for many products because it 
+allows a webhook to be used across multiple products easily.
+
+#### In a product within your organization
+
+However, you can still make an integration that is specific to a single organization product.
+
+### Sidebar
+
+Select **Cloud Services** then **Integrations** in the sidebar for your sandbox, sandbox product, organization,
+or organization product.
+
+{{imageOverlay src="/assets/images/console/sidebar.png" alt="Sidebar"}}
+
+
+### Integration gallery
+
+The integration gallery contains pre-configured settings for many services. This page, however,
+focuses on creating a **Custom Webhook**.
+
+{{imageOverlay src="/assets/images/console/custom-webhook.png" alt="Integration gallery"}}
+
+## Basic settings
+
+All webhooks require some basic settings:
+
+{{imageOverlay src="/assets/images/console/custom-webhook-1.png" alt="Basic settings"}}
+
+### Name
+
+This is a descriptive name for the event to make it easier to identify in the console.
+
+If configuring by JSON, this is `name`.
+
+If not specified, the event name will be shown.
+
+### Event name
+
+This is the triggering event for the webhook. Note that this is a case-sensitive prefix, so if you
+trigger off the event `test` it will also trigger for `testing` and `test1`.
+
+You can take advantage of the prefix match to allow a webhook to be triggered off multiple
+events. There is no wildcarding, and you must have at least one character as the event 
+name; it's not possible to create a webhook for every event.
+
+If configuring by JSON, this is `event`.
+
+### URL
+
+This is the URL for the external service to send to. This is required.
+
 ```
-EXAMPLE WEBHOOK
+EXAMPLES
+"url": "https://metrics-api.librato.com/v1/metrics"
+"url": "http://requestb.in/\{{bin}}"
+```
+
+If configuring by JSON, this is `url`.
+
+The URL field can contain Mustache template strings to allow the publishing device to
+add text to the URL.
+
+### Request Type
+
+The HTTP method for the request, one of GET, POST, PUT, or DELETE. The method will depend on what
+your external service is expecting. 
+
+```
+DEFAULT
+"requestType": "POST"
+
+EXAMPLE
+"requestType": "GET"
+```
+
+If configuring by JSON, this is `requestType`.
+
+### Request Format
+
+The request format depends on what your external service is expecting.
+
+#### JSON
+
+If configuring by JSON, this is `json` in the top level of the configuration.
+
+If you are sending to your own service, JSON is recommended is it provides a seamless way to
+transfer data in both directions easily.
+
+#### Web form
+
+If the request type is GET, then the form elements are added to the query string.
+
+For POST and PUT, the form elements are added to the body as `application/x-www-form-urlencoded`
+data. 
+
+If configuring by JSON, this is `form` in the top level of the configuration, a JSON object
+that contains the individual form elements.
+
+
+#### Custom body
+
+The custom body allows you to create arbitrary string data in the body for POST and PUT. 
+
+If configuring by JSON, this is `body` in the top level of the configuration, typically a string
+containing the custom body format.
+
+### Device
+
+The device option is only available for sandbox integrations and allows a webhook to
+be restricted to a single single. There is no way to specify more than one device.
+
+This does not make sense for products or organizations and the option is not present.
+
+If you need to restrict access to certain devices, it's usually better to do this in 
+the web service based on the Device ID of the publishing device.
+
+If configuring by JSON, this is `deviceID`, the 24-character hex string.
+
+
+### Status
+
+This allows the integration to be turned on and off. 
+
+If configuring by JSON, to disable an integration add a `disabled` key and set the value to `true`. 
+You do not need to include this key if you want the integration enabled.
+
+ 
+## Extra settings
+
+Additional settings are available using the **Extra settings** disclosure triangle.
+
+### JSON body extra settings
+
+If you have selected the request type PUT or PUT and a request type of JSON, the following options appear:
+
+{{imageOverlay src="/assets/images/console/custom-webhook-2a.png" alt="JSON body settings"}}
+
+Additionally, you can select **Default** or **Custom**. If you select custom you can edit the fields 
+in the box to include different data.
+
+The default fields are:
+
+```
 {
-  "eventName": "Metric",
-  "url": "http://example.com",
-  "name": "Record my metric",
-  "headers": {
-    "X-Timestamp": "\{{PARTICLE_PUBLISHED_AT}}"
-  },
-  "auth": {
-    "username": "USERNAME",
-    "password": "API_KEY"
-  },
-  "json": {
-    "field1": "\{{{indoorTemp}}}",
-    "field2": "\{{{outdoorTemp}}}",
-    "created_at": "\{{SPARK_PUBLISHED_AT}}"
-  }
+  "event": "{{{PARTICLE_EVENT_NAME}}}",
+  "data": "{{{PARTICLE_EVENT_VALUE}}}",
+  "coreid": "{{{PARTICLE_DEVICE_ID}}}",
+  "published_at": "{{{PARTICLE_PUBLISHED_AT}}}"
 }
 ```
 
-The 3 main parts of the webhook are: which events from which devices trigger it, which service it targets and what data format to use.
+If the data you publish from your device is in JSON format, you can also include specific fields
+from the data. You can also use mustache templates to expand JSON field names to allow for 
+smaller publishes.
 
-An event will trigger a webhook if the event name starts with the webhook `eventName`.
+If configuring by JSON, this is `json` in the top level of the configuration.
 
-Additionally, for non-product (developer sandbox) webhooks: 
 
-- If the webhook has a Device ID specified, only that single Device ID can trigger the webhook.
-- If the webhook has Any specified, then any device claimed to the account that owns the webhook can trigger the webhook by sending the event.
+### Web form extra settings
 
-For product devices, any product device can trigger the webhook. There are no Device ID filters for product webhooks.
+If you have selected the request type PUT or PUT and a request type of Web form, the following options appear:
+
+{{imageOverlay src="/assets/images/console/custom-webhook-2b.png" alt="Web form body settings"}}
+
+If configuring by JSON, this is `form` in the top level of the configuration, a JSON object
+that contains the individual form elements.
+
+### Custom body extra settings
+
+If you have selected the request type PUT or PUT and a request type of Custom body, the following options appear:
+
+{{imageOverlay src="/assets/images/console/custom-webhook-2c.png" alt="Custom body settings"}}
+
+If configuring by JSON, this is `body` in the top level of the configuration, typically a string
+containing the custom body format.
+
+### Query parameters
+
+If you are using GET, this is the only way to send additional data to the server, however this
+option is available for all request types, not just GET. This allows 
+
+{{imageOverlay src="/assets/images/console/custom-webhook-3.png" alt="Query parameter settings"}}
+
+If you are configuring by JSON, this is `query` at the top level of the configuration, a JSON
+object containing the fields to add to the query string.
+
+```
+EXAMPLE
+"query": {
+  "q": "\{{{PARTICLE_EVENT_VALUE}}}",
+  "p": "my app"
+}
+
+REQUEST URL
+http://<url>/?q=data&my+app
+```
+
+A JSON object with key / value pairs to encode as a [query string](https://en.wikipedia.org/wiki/Query_string).
+
+The keys and values can contain variables.
+
+If the [requestType](#requesttype) is GET, the [default data](#default-data) will be added to the query string unless [noDefaults](#nodefaults) is true.
+
+
 
 ## Webhook properties
 
@@ -153,24 +351,6 @@ A JSON object with keys `username` and `password` for [basic HTTP authentication
 
 The values can contain variables.
 
-### query
-
-```
-EXAMPLE
-"query": {
-  "q": "\{{{PARTICLE_EVENT_VALUE}}}",
-  "p": "my app"
-}
-
-REQUEST URL
-http://<url>/?q=data&my+app
-```
-
-A JSON object with key / value pairs to encode as a [query string](https://en.wikipedia.org/wiki/Query_string).
-
-The keys and values can contain variables.
-
-If the [requestType](#requesttype) is GET, the [default data](#default-data) will be added to the query string unless [noDefaults](#nodefaults) is true.
 
 ### form
 
@@ -583,7 +763,49 @@ Events are not guaranteed to be delivered in the order they were sent. They typi
 
 Likewise, events are delivered at least once. In the case of a lost acknowledgement, the device may retransmit the event, which would cause your webhook to execute twice for the same event. You should make sure your server code is aware of this possibility. 
 
-## Using the console
+
+{{!-- 
+Do I need this text?
+
+
+```
+EXAMPLE WEBHOOK
+{
+  "eventName": "Metric",
+  "url": "http://example.com",
+  "name": "Record my metric",
+  "headers": {
+    "X-Timestamp": "\{{PARTICLE_PUBLISHED_AT}}"
+  },
+  "auth": {
+    "username": "USERNAME",
+    "password": "API_KEY"
+  },
+  "json": {
+    "field1": "\{{{indoorTemp}}}",
+    "field2": "\{{{outdoorTemp}}}",
+    "created_at": "\{{SPARK_PUBLISHED_AT}}"
+  }
+}
+```
+
+The 3 main parts of the webhook are: which events from which devices trigger it, which service it targets and what data format to use.
+
+An event will trigger a webhook if the event name starts with the webhook `eventName`.
+
+Additionally, for non-product (developer sandbox) webhooks: 
+
+- If the webhook has a Device ID specified, only that single Device ID can trigger the webhook.
+- If the webhook has Any specified, then any device claimed to the account that owns the webhook can trigger the webhook by sending the event.
+
+For product devices, any product device can trigger the webhook. There are no Device ID filters for product webhooks.
+
+
+--}}
+
+
+{{!-- 
+Using the console - need to update this
 
 The [Webhook Builder](https://console.particle.io/integrations/webhooks/create) is a handy web-based form for creating webhooks.
 
@@ -616,6 +838,7 @@ webhook, the HTTP request sent to the webhook URL, and the full HTTP
 response from the webhook server.
 
 ![Webhook Logs](/assets/images/integrations-event-log.png)
+--}}
 
 ## Using the CLI
 
