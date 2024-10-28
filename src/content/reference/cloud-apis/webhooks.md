@@ -329,7 +329,7 @@ The keys and values can contain variables.
 
 Unless [noDefaults](#nodefaults) is true, the form data will also include [the default data](#default-data).
 
-The properties [form](#form), [json](#json) and [body](#body) are mutually exclusive.
+The properties form](#form), [json](#json) and [body](#body) are mutuaThe properties `form`, `json`, and `body` are mutually exclusive.
 
 
 ### Custom body extra settings
@@ -452,6 +452,9 @@ data actually returned to a device.
 You cannot process a webhook response with another webhook - they cannot be chained. You can, however,
 process a webhook response with Logic.
 
+Response events that are handled by logic do not count as data operations, and have significantly
+larger size limits. See [Unchunked](#unchunked), below.
+
 ```
 DEFAULT (product)
 \{{PARTICLE_DEVICE_ID}}/hook-response/\{{PARTICLE_EVENT_NAME}}
@@ -509,8 +512,56 @@ See the [Variable substitution](#variable-substitution) section for details.
 
 ### Unchunked
 
+Webhook responses to devices are split into 512 byte chunks before sending to devices.
+
+If you response is larger than 512 but less than the maximum allowed by the device (typically 1024 bytes for most Gen 3 and Gen 4 devices),
+then you can send the response unchunked, however if the response exceeds the maximum size it will be discarded.
+
+The main reason to use unchunked is when you want to process the response using Logic. When the recipient is Logic,
+instead of a device, the maximum event is 100 Kbytes. This allows Logic to parse complex data structures easily
+and then only send a small portion to devices, either by publishing another event, or by storing the data in Ledger.
+
+```
+DEFAULT
+"unchunked": false,
+
+EXAMPLE
+"unchunked": true,
+```
 
 ### Encode as data URL
+
+Normally webhook responses are limited to UTF-8 text data due to how events are processed by publish and subscribe.
+
+By checking the **Encode as data URL** checkbox 
+
+
+
+Say you have this binary data that you publish from a device:
+
+```
+0000: a7 22 98 1c 40 1b 9b 80 bb 9d d9 c0 13 bb 4e d0   |  "  @         N 
+0010: a3 c0 ae 81 c5 93 91 2a 83 8e 69 27 b0 c6 17 26   |        *  i'   &
+0020: 85 93 b7 a6 f5 69 c0 4c 9e 3d 53 49 b5 47 f0 44   |      i L =SI G D
+0030: 26 9b 8a 1d e4 bc 73 f9 4d a4 e8 34 c2 56 17 c9   | &     s M  4 V  
+```
+
+A webhook using \{{{PARTICLE_EVENT_VALUE}} will receive this payload:
+
+```
+data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
+```
+
+This is encoded in the [Data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data) format. 
+
+```
+DEFAULT
+"dataUrlResponseEvent": false,
+
+EXAMPLE
+"dataUrlResponseEvent": true,
+```
+
 
 
 
