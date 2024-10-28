@@ -177,7 +177,7 @@
           "type": "integer",
           "title": "Storage Size Limit",
           "description": "Size in kilobytes to limit storage on the local filesytem for unpublished messages.",
-          "default": "64",
+          "default": 64,
           "minimum": 0,
           "maximum": 4000
         },

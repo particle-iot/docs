@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker Edge schema fix 2024-10-28
+
+Fixed default quota values for the Tracker Edge v17 and v18 schemas that could cause
+the data to not be able to be saved.
+
 ### analogWrite and Servo on Gen 4 2024-10-23
 
 Added a note to analogWrite and Servo that you must specify a non-default PWM frequency for analogWrite
