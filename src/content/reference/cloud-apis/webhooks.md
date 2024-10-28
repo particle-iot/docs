@@ -327,9 +327,9 @@ This sets the header to `application/x-www-form-urlencoded`.
 
 The keys and values can contain variables.
 
-Unless [noDefaults](#nodefaults) is true, the form data will also include [the default data](#default-data).
+Unless `noDefaults` is `true`, the form data will also include the default data
 
-The properties form](#form), [json](#json) and [body](#body) are mutuaThe properties `form`, `json`, and `body` are mutually exclusive.
+The properties `form`, `json`, and `body` are mutually exclusive.
 
 
 ### Custom body extra settings
@@ -514,12 +514,12 @@ See the [Variable substitution](#variable-substitution) section for details.
 
 Webhook responses to devices are split into 512 byte chunks before sending to devices.
 
-If you response is larger than 512 but less than the maximum allowed by the device (typically 1024 bytes for most Gen 3 and Gen 4 devices),
-then you can send the response unchunked, however if the response exceeds the maximum size it will be discarded.
-
 The main reason to use unchunked is when you want to process the response using Logic. When the recipient is Logic,
 instead of a device, the maximum event is 100 Kbytes. This allows Logic to parse complex data structures easily
 and then only send a small portion to devices, either by publishing another event, or by storing the data in Ledger.
+
+If your response is larger than 512 but less than the maximum allowed by the device (typically 1024 bytes for most Gen 3 and Gen 4 devices),
+then you can send the response unchunked, however if the response exceeds the maximum size it will be discarded.
 
 ```
 DEFAULT
@@ -533,11 +533,9 @@ EXAMPLE
 
 Normally webhook responses are limited to UTF-8 text data due to how events are processed by publish and subscribe.
 
-By checking the **Encode as data URL** checkbox 
+By checking the **Encode as data URL** checkbox binary data can be sent to Logic or devices.
 
-
-
-Say you have this binary data that you publish from a device:
+Say you have this binary data returned from your webhook:
 
 ```
 0000: a7 22 98 1c 40 1b 9b 80 bb 9d d9 c0 13 bb 4e d0   |  "  @         N 
@@ -546,13 +544,17 @@ Say you have this binary data that you publish from a device:
 0030: 26 9b 8a 1d e4 bc 73 f9 4d a4 e8 34 c2 56 17 c9   | &     s M  4 V  
 ```
 
-A webhook using \{{{PARTICLE_EVENT_VALUE}} will receive this payload:
+This is encoded in the [Data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data) format, which
+looks like this:
 
 ```
 data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
 ```
 
-This is encoded in the [Data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data) format. 
+This allows the binary data to be passed to Logic, devices, or the SSE event stream (which also requires text).
+
+If a device subscribes to the event, the Base 64 data is decoded by the cloud and passed in binary format to the device,
+reducing the size of the data over-the-air. 
 
 ```
 DEFAULT
@@ -561,8 +563,6 @@ DEFAULT
 EXAMPLE
 "dataUrlResponseEvent": true,
 ```
-
-
 
 
 ### Enforce SSL
