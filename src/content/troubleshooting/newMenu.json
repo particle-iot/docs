@@ -160,6 +160,10 @@
                     "isSection": true,
                     "subsections": [
                         {
+                            "dir": "muon-usb-power",
+                            "title": "Muon USB power"
+                        },
+                        {
                             "dir": "troubleshooting-asset-tracker-issues",
                             "title": "Tracker issue troubleshooting"
                         },
