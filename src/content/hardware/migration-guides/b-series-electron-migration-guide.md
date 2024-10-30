@@ -678,7 +678,7 @@ Both require an external cellular antenna.
 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | SNSRKIT3G270 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | NRND|
+| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | Deprecated|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

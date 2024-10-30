@@ -21754,7 +21754,7 @@
     {
       "name": "ELC402TY",
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "BRN404XTRAY50",
       "modem": "R410",
       "multiple": true,
@@ -22238,6 +22238,41 @@
       "retail": false,
       "skuRegion": "global",
       "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "MHAT",
+      "desc": "M-HAT",
+      "lifecycle": "In development",
+      "accessory": true,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "usb": "c",
+      "batteryConn": "jst-ph-3",
+      "batteryRequired": false,
+      "skuRegion": "global"
+    },
+    {
+      "name": "MHAT504e",
+      "desc": "M-HAT with LTE CAT1 for North America",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "usb": "c",
+      "batteryConn": "jst-ph-3",
+      "batteryRequired": false
+    },
+    {
+      "name": "MHAT524e",
+      "desc": "M-HAT with LTE CAT1 for Rest of World",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "usb": "c",
+      "batteryConn": "jst-ph-3",
       "batteryRequired": false
     },
     {
@@ -23423,15 +23458,15 @@
     },
     {
       "name": "PMBATH1TY",
-      "desc": "Particle Power Module, Battery, with Header",
+      "desc": "Particle Power Module, Battery, with Header [x50]",
       "lifecycle": "In development",
       "skuClass": "power",
       "singleSku": "PMBATH1EA",
       "accessory": true,
       "multiple": true,
       "enterprise": false,
-      "wholesale": true,
-      "retail": true,
+      "wholesale": false,
+      "retail": false,
       "skuRegion": "global",
       "usb": false,
       "batteryRequired": false

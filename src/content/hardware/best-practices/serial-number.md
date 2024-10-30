@@ -135,7 +135,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA | P052 |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | NRND | P035 |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated | E4DK |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NRND | E4DT |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Deprecated | E4DT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P036 |
 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA | P054 |
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA | P054 |
@@ -222,7 +222,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | E40M | E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | Deprecated |
 | E40T | E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NRND |
 | E4DK | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated |
-| E4DT | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
+| E4DT | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Deprecated |
 | P005 | E313EA | E-Series 2G/3G (Global - E313), [x1] | Deprecated |
 | P005 | E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | End of life |
 | P006 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | Deprecated |

@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### ELC402TY deprecated 2024-10-30
+
+The remaining stock ELC402TY (Electron LTE CAT-M1 (NorAm), [x1]) has been sold and this SKU is
+no longer available.
+
 ### Tracker Edge schema fix 2024-10-28
 
 Fixed default quota values for the Tracker Edge v17 and v18 schemas that could cause

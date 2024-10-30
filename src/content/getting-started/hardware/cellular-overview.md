@@ -249,7 +249,6 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
 | ASSET2GV2 | Asset Tracker 2G | Global | G350 |  | Deprecated | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 |  | Deprecated | |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
@@ -259,6 +258,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | B524MEA|
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | B524MTY|
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | BRN404XTRAY50|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 |  | Deprecated | |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | Deprecated | |
@@ -350,7 +350,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 2 | Deprecated | E404XTRAY50 |
 | NORAM | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R510 | &check; | 3 | GA | &nbsp; |
 | NORAM | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | Deprecated | BRN404XKIT |
-| NORAM | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | NRND | BRN404XTRAY50 |
+| NORAM | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | Deprecated | BRN404XTRAY50 |
 | NORAM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 2 | Deprecated | &nbsp; |
 | NORAM | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
 | NORAM | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
@@ -441,7 +441,7 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | R410 | E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | &check; | 2 | NRND | &nbsp; |
 | R410 | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 2 | Deprecated | E404XTRAY50 |
 | R410 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 2 | Deprecated | BRN404XKIT |
-| R410 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 2 | NRND | BRN404XTRAY50 |
+| R410 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 2 | Deprecated | BRN404XTRAY50 |
 | R410 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 2 | Deprecated | &nbsp; |
 | R510 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | R510 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
@@ -547,7 +547,7 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | Type KA | E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 2 | Deprecated | &nbsp; |
 | Type KA | E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | NRND | E404XTRAY50 |
 | Type KA | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 2 | Deprecated | BRN404XKIT |
-| Type KA | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | NRND | BRN404XTRAY50 |
+| Type KA | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | Deprecated | BRN404XTRAY50 |
 | Type KA | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | 3 | Deprecated | ONE404MEA |
 | Type KA | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | 3 | Deprecated | ONE404MTY |
 | Type KA | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | 3 | Deprecated | T404MEA |
@@ -857,7 +857,6 @@ The following SKUs have LTE Cat M1 cellular modems:
 | E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 2 | NRND | E404XTRAY50 |
 | E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | R410 | 2 | NRND | &nbsp; |
 | E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | &check; | R410 | 2 | NRND | &nbsp; |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 2 | NRND | BRN404XTRAY50 |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | &nbsp; | BG96-MC | 3 | NRND | T404MTY |
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | B404XMEA |
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | Deprecated | B404XMTY |
@@ -871,6 +870,7 @@ The following SKUs have LTE Cat M1 cellular modems:
 | E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 2 | Deprecated | &nbsp; |
 | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 2 | Deprecated | E404XTRAY50 |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 2 | Deprecated | BRN404XKIT |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 2 | Deprecated | BRN404XTRAY50 |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 2 | Deprecated | &nbsp; |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | &nbsp; | BG96-MC | 3 | Deprecated | ONE404MEA |
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | &nbsp; | BG96-MC | 3 | Deprecated | ONE404MTY |
