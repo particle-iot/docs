@@ -41,8 +41,8 @@ If you are using a product, you should create integrations within the product, n
 #### In an organization
 
 If you have access to an organization via the popup at the top of the console window, you can 
-create integrations within an organization. This is recommended for many products because it 
-allows a webhook to be used across multiple products easily.
+create integrations within an organization. This is recommend because it 
+allows a webhook to be used across multiple products in your organization easily.
 
 #### In a product within your organization
 
@@ -104,16 +104,15 @@ If configuring by JSON, this is `event`.
 ```
 EXAMPLE
 "event": "Temperature"
-
-FIRMWARE EVENTS THAT TRIGGER WEBHOOK
-Particle.publish("Temperature", "25");
-Particle.publish("Temperature/Outside", "25");
 ```
 
 ### Request Type
 
 The HTTP method for the request, one of GET, POST, PUT, or DELETE. The method will depend on what
 your external service is expecting. 
+
+{{imageOverlay src="/assets/images/console/custom-webhook-8.png" alt="Request type"}}
+
 
 ```
 DEFAULT
@@ -129,6 +128,8 @@ If configuring by JSON, this is `requestType`.
 
 The request format depends on what your external service is expecting. This only applies
 to POST and PUT, as the other options (GET and DELETE) do not have a request body.
+
+{{imageOverlay src="/assets/images/console/custom-webhook-9.png" alt="Request format"}}
 
 #### JSON
 
@@ -158,12 +159,13 @@ containing the custom body format.
 ### Device
 
 The device option is only available for sandbox integrations and allows a webhook to
-be restricted to a single single. There is no way to specify more than one device.
+be restricted to a single device. There is no way to specify more than one device.
 
 This does not make sense for products or organizations and the option is not present.
 
-If you need to restrict access to certain devices, it's usually better to do this in 
-the web service based on the Device ID of the publishing device.
+If you need to restrict access to a subset of your devices, it's usually better to do this in 
+the web service based on the Device ID of the publishing device (`coreid` in the default
+data, or you can create a custom key for it).
 
 If configuring by JSON, this is `deviceID`, the 24-character hex string.
 
@@ -197,7 +199,7 @@ Additional settings are available using the **Extra settings** disclosure triang
 You can either use the default fields or specify custom fields. The location where the data is
 passed to the server vary depending on the request method and body type.
 
-| Method | Body Type | Body contents | Content-Type |
+| Method | Body Type | Data passed via | Content-Type |
 | :--- | :--- | :--- | :--- |
 | GET | | Query parameters | |
 | POST or PUT | JSON | JSON data in body | `application/json` |
@@ -247,10 +249,10 @@ like this:
 {{imageOverlay src="/assets/images/console/custom-webhook-warning.png" alt="JSON body warning"}}
 
 Note that the custom template viewer flags line 2 as an error, but this is OK. The template itself
-is not valid JSON because the mustache template `\{{t}}` is not valid JSON, but once the template 
-is resolved and that becomes the number `21.1` it will be valid JSON. Even though a warning is
-flagged, you can still save the template and it will work properly when used (assuming the device
-is publishing the correct data).
+is not valid JSON because the mustache template `\{{t}}` is not valid JSON without double quotes, 
+but once the template is resolved and that becomes the number `21.1` it will be valid JSON. Even 
+though a warning is flagged, you can still save the template and it will work properly when used 
+(assuming the device is publishing the correct data).
 
 If configuring by JSON, this is `json` in the top level of the configuration. This can be an 
 object, or a string containing a JSON object. The string is necessary if the template itself
@@ -412,9 +414,11 @@ The values can contain mustache variables, allowing the device to publish JSON d
 and authentication information.
 
 
-### headers
+### Headers
 
 {{imageOverlay src="/assets/images/console/custom-webhook-5.png" alt="Custom headers"}}
+
+Custom headers are typically used to include an `Authorization` header or to set a `Content-Type` for your data.
 
 ```
 EXAMPLES
@@ -476,6 +480,9 @@ inserts the Device ID of the requesting device in the beginning of the response 
 makes it easy for devices to subscribe to only the responses to webhooks that that device
 generates.
 
+The exception is if the destination is Logic. In this case you will not want to prefix the
+hook-response with the Device ID, as you want a single Logic block to handle all hook responses.
+You could use `hook-response/\{{PARTICLE_EVENT_NAME}}` for example.
 
 [See the product webhook guide](/integrations/webhooks/#product-webhook-responses) for more details.
 
@@ -719,7 +726,7 @@ The included fields are:
 If you specify **form**, **json** or **query**, these fields will be
 included in addition to your data.
 
-Set [noDefaults](#nodefaults) to true to omit the default data.
+Set `noDefaults` to true to omit the default data.
 
 ## Sequence of events
 
@@ -799,8 +806,7 @@ Error responses from the target url will also be sent back in the response event
   "coreid":"particle-internal"
 }
 ```
-Too many errors from a receiving server can result in [webhook
-throttling](#limits).
+Too many errors from a receiving server can result in [webhook throttling](#limits).
 
 The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
 
@@ -813,56 +819,8 @@ Events are not guaranteed to be delivered in the order they were sent. They typi
 Likewise, events are delivered at least once. In the case of a lost acknowledgement, the device may retransmit the event, which would cause your webhook to execute twice for the same event. You should make sure your server code is aware of this possibility. 
 
 
-{{!-- 
-Do I need this text?
-
-
-```
-EXAMPLE WEBHOOK
-{
-  "eventName": "Metric",
-  "url": "http://example.com",
-  "name": "Record my metric",
-  "headers": {
-    "X-Timestamp": "\{{PARTICLE_PUBLISHED_AT}}"
-  },
-  "auth": {
-    "username": "USERNAME",
-    "password": "API_KEY"
-  },
-  "json": {
-    "field1": "\{{{indoorTemp}}}",
-    "field2": "\{{{outdoorTemp}}}",
-    "created_at": "\{{SPARK_PUBLISHED_AT}}"
-  }
-}
-```
-
-The 3 main parts of the webhook are: which events from which devices trigger it, which service it targets and what data format to use.
-
-An event will trigger a webhook if the event name starts with the webhook `eventName`.
-
-Additionally, for non-product (developer sandbox) webhooks: 
-
-- If the webhook has a Device ID specified, only that single Device ID can trigger the webhook.
-- If the webhook has Any specified, then any device claimed to the account that owns the webhook can trigger the webhook by sending the event.
-
-For product devices, any product device can trigger the webhook. There are no Device ID filters for product webhooks.
-
-
---}}
-
 
 {{!-- 
-Using the console - need to update this
-
-The [Webhook Builder](https://console.particle.io/integrations/webhooks/create) is a handy web-based form for creating webhooks.
-
-![Main settings](/assets/images/webhooks/mainsettings.png)
-
-All the webhook properties can be filled out with the form, _except for `body` which is currently not supported on the Console._
-
-Product webhooks can be created through the Console. Navigate into your product, then click Integrations on the left navigation bar, then New integration, Webhook.
 
 You can also use the Console to see an audit trail of webhooks that have
 previously been attempted. From the Integrations page, click on an
@@ -1172,7 +1130,7 @@ And you get a response back in JSON, like this:
 }
 `
 
-Since this a GET request we use the [query](#query) in the hook template.
+Since this a GET request we use the query in the hook template.
 
 The Google API wants a parameter "location" with a value of two decimal numbers for the latitude and longitude, separated by a comma. We can do this easily using the Mustache template `\{{{lat}}},\{{{lng}}}`.
 
