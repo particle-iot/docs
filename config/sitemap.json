@@ -700,7 +700,7 @@
         },
         "getting-started/setup/manual-setup.md": {
             "date": "2024-10-30",
-            "hash": "01b3b1b5a0448e591d3898838f540cb2b2f7256e98205c38ab194809bf897b8b"
+            "hash": "f20416b5faa8eaa9b97fcd435b253bad98b1e29e7418ba3300363ffded651612"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -1040,11 +1040,11 @@
         },
         "hardware/power/batteries.md": {
             "date": "2024-10-30",
-            "hash": "ef02ca3ac1626835ed02cac0e8b8a74d041cdb0b147de49ddb3ed29ba266636b"
+            "hash": "3d62f08e0c8ca70867a4dcc8f466975d127f46223b49ea1d0bbe8946c2904f5a"
         },
         "hardware/power/power-supply-guide.md": {
             "date": "2024-10-30",
-            "hash": "24b3aea1b2055810e842800eeb2f611487f09cd8724f0ad3ef2ae9e0b52d5a0b"
+            "hash": "44520e1ca3ad0594586c64f412df4b626bd93c2914cced55790a03a403576c20"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1580,7 +1580,7 @@
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
             "date": "2024-10-30",
-            "hash": "74e1660d96c16e86f1ce1ac43bbfd88b42d87857ab485182d8b5c543cc722d0d"
+            "hash": "dceddd86b1fe1ac19952ce2fd49a8b94553f9e605e894333bb3afe81fe4203c8"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
