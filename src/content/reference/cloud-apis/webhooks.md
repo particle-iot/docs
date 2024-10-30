@@ -18,9 +18,9 @@ You can create and administer webhooks with the [console](https://console.partic
 
 ### Where to configure
 
-In the [console](https://console.particle.io), webhooks can be configured:
+Webhooks can be configured:
 
-- In your sandbox
+- In your developer sandbox
 - In a product within your sandbox
 - In an organization
 - In a product within your organization
@@ -28,7 +28,7 @@ In the [console](https://console.particle.io), webhooks can be configured:
 #### In your sandbox
 
 If you are working with developer devices within your account and have not set up a product you can set up 
-an integration here.
+an integration here. It will work for all devices claimed to your account.
 
 #### In a product within your sandbox
 
@@ -36,7 +36,9 @@ A product groups together devices with common firmware. This is recommended for 
 experimenting as a developer. There is no charge for setting up new products, so you can do so even
 for testing and experimentation.
 
-If you are using a product, you should create integrations within the product, not in your sandbox.
+If you are using a product, you should create integrations within the product, not directly in your sandbox.
+It will greatly simplify migrating to the basic plan later, if necessary, and also allows the integration
+to work with unclaimed product devices, which is the recommended way of using product devices.
 
 #### In an organization
 
@@ -46,7 +48,8 @@ allows a webhook to be used across multiple products in your organization easily
 
 #### In a product within your organization
 
-However, you can still make an integration that is specific to a single organization product.
+However, you can still make an integration that is specific to a single organization product
+if you need to.
 
 ### Sidebar
 
@@ -83,7 +86,7 @@ does not affect the operation of the webhook.
 
 If configuring by JSON, this is `name`.
 
-If not specified, the event name will be shown in the console. 
+If not specified, the event name and a portion of the URL will be shown in the console. 
 
 ```
 EXAMPLE
@@ -133,10 +136,12 @@ to POST and PUT, as the other options (GET and DELETE) do not have a request bod
 
 #### JSON
 
-If configuring by JSON, this is `json` in the top level of the configuration.
-
 If you are sending to your own service, JSON is recommended is it provides a seamless way to
 transfer data in both directions easily.
+
+If configuring by JSON, this is `json` in the top level of the configuration. It's normally
+an object, but can also be a string. A string is useful if the template itself would not
+be valid JSON before resolving the mustache templates.
 
 #### Web form
 
@@ -146,7 +151,7 @@ For POST and PUT, the form elements are added to the body as `application/x-www-
 data. 
 
 If configuring by JSON, this is `form` in the top level of the configuration, a JSON object
-that contains the individual form elements.
+that contains the individual form elements. This must be valid JSON.
 
 
 #### Custom body
@@ -296,7 +301,7 @@ REQUEST BODY
 
 A JSON object for the data to encode as JSON.
 
-This sets the header to `application/json`.
+This sets the Content-Type header to `application/json`.
 
 The keys or values can contain variables.
 
@@ -325,7 +330,7 @@ Body=Hi%20there%21&To=TO_PHONE_NUMBER&From=FROM_PHONE_NUMBER
 
 A JSON object with key / value pairs to encode as an [HTTP form](https://en.wikipedia.org/wiki/POST_(HTTP%29#Use_for_submitting_web_forms).
 
-This sets the header to `application/x-www-form-urlencoded`.
+This sets the Content-Type header to `application/x-www-form-urlencoded`.
 
 The keys and values can contain variables.
 
@@ -359,7 +364,10 @@ REQUEST BODY
 { "gauges": [{ "name": "click", "value": 2 }] }
 ```
 
-A string that will be used as the body of the web request. Use this key to generate a completely custom request, as JSON, HTML or plain text. You may need to set a Content-Type header for the right format.
+A string that will be used as the body of the web request. Use this key to generate a completely custom request, as JSON, HTML or plain text.
+
+If your server needs a Content-Type or charset, you will need to set it manually using the headers configuration as it is not 
+done automatically for custom body.
 
 You can use any syntax from [mustache templates](http://mustache.github.io/mustache.5.html). Note that using double braces `\{{var}}` will HTML escape strings. Use triple braces `\{{{var}}}` to avoid escaping.
 
@@ -367,7 +375,7 @@ You can use any syntax from [mustache templates](http://mustache.github.io/musta
 ### Query parameters
 
 If you are using GET, this is the only way to send additional data to the server, however this
-option is available for all request types, not just GET. This allows 
+option is available for all request types, not just GET.
 
 {{imageOverlay src="/assets/images/console/custom-webhook-3.png" alt="Query parameter settings"}}
 
@@ -413,6 +421,7 @@ A JSON object with keys `username` and `password` for [basic HTTP authentication
 The values can contain mustache variables, allowing the device to publish JSON data containing both values
 and authentication information.
 
+If using basic authentication you should always use a TLS/SSL encrypted (https) URL.
 
 ### Headers
 
@@ -435,6 +444,8 @@ EXAMPLES
 A JSON object with key / value pairs specifying custom headers. This can be useful for authorization codes or custom headers required by some services.
 
 The keys and values can contain variables.
+
+If sending Authorization headers you should always use a TLS/SSL encrypted (https) URL.
 
 ### Webhook responses
 
@@ -559,6 +570,10 @@ data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFya
 ```
 
 This allows the binary data to be passed to Logic, devices, or the SSE event stream (which also requires text).
+
+When using Logic, the [`dataUrlDecode`](/getting-started/cloud/logic#dataurldecode) function can be used to decode the Data URL encoding to return
+an array of bytes, as well as extract the content-type, for use in your Logic block.
+
 
 If a device subscribes to the event, the Base 64 data is decoded by the cloud and passed in binary format to the device,
 reducing the size of the data over-the-air. 
