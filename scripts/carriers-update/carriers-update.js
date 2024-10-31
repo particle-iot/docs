@@ -3389,6 +3389,11 @@ const generatorConfig = require('./generator-config');
 
             let pins = [];
             for(const pin of platformInfoNew.pins) {
+                if (options.onlyGPIO) {
+                    if (!pin.digitalRead) {
+                        continue;
+                    }
+                }
                 if (options.is5VTolerant) {
                     if (pin.is5VTolerant) {
                         pins.push(pin);

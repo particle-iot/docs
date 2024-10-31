@@ -1914,7 +1914,8 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'interfacePins',
                     platformNew: 'P2',
-                    interface: 'hibernate'
+                    interface: 'hibernate',
+                    onlyGPIO: true,
                 }); 
             } 
         },
@@ -2030,6 +2031,7 @@ const schemaDocs = require('./schema-docs');
                     platformNew: 'Photon 2',
                     interface: 'hibernate',
                     noPinNumbers: true,
+                    onlyGPIO: true,
                 }); 
             } 
         },
@@ -3724,7 +3726,8 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'interfacePins',
                     platformNew: 'M-SoM',
-                    interface: 'hibernate'
+                    interface: 'hibernate',
+                    onlyGPIO: true,
                 }); 
             }                     
         },       
@@ -4325,6 +4328,7 @@ const schemaDocs = require('./schema-docs');
                     interface: 'hibernate',
                     noPinNumbers: false,
                     showM2Pin: true,
+                    onlyGPIO: true,
                 }); 
             }                     
         },   

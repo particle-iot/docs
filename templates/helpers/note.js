@@ -113,8 +113,18 @@ module.exports = function(context) {
             cssClass = 'note-gen4';
         }
         else
+        if (context.hash.type.indexOf("P2Only") >= 0) {
+            message = 'P2 Devices (RTL872x)';
+            cssClass = 'note-gen4';
+        }
+        else
         if (context.hash.type.indexOf("P2") >= 0) {
             message = 'P2 and Photon 2 Devices (RTL872x)';
+            cssClass = 'note-gen4';
+        }
+        else
+        if (context.hash.type.indexOf("Photon2") >= 0) {
+            message = 'Photon 2 Devices (RTL872x)';
             cssClass = 'note-gen4';
         }
         else

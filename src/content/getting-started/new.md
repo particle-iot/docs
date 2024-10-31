@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Gen 4 hibernate wake pins 2024-10-31
+
+Additional pins are available for wake on P2, Photon 2, and M-SoM; these are now documented
+in the datasheets and Device OS firmware API reference.
+
 ### ELC402TY deprecated 2024-10-30
 
 The remaining stock ELC402TY (Electron LTE CAT-M1 (NorAm), [x1]) has been sold and this SKU is

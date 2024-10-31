@@ -245,7 +245,9 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 ### Sleep
 
-- In `HIBERNATE` sleep mode, the M-SoM and P2 can only be wakened via the `WKP` pin, however `WKP` is pin A7 the M-SoM (and B-SoM) but is pin D10 on the P2.
+- In `HIBERNATE` sleep mode, the M-SoM and P2 can only be wakened by certain pins 
+
+- The `WKP` pin is A7 the M-SoM (and B-SoM) but is pin D10 on the P2.
 
 - In `HIBERNATE` sleep mode, certain pins on the M-SoM and P2 do not preserve `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep. See details below.
 
@@ -256,7 +258,15 @@ M-SoM pins related to `HIBERNATE` sleep mode:
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
-| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[13] |
+| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Pin can wake from HIBERNATE sleep | PA[15] |
+| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Pin can wake from HIBERNATE sleep | PA[14] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Pin can wake from HIBERNATE sleep | PA[20] |
+| 48 | D8 | D8 GPIO, SPI SS | Pin can wake from HIBERNATE sleep | PA[19] |
+| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | Pin can wake from HIBERNATE sleep | PA[17] |
+| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | Pin can wake from HIBERNATE sleep | PA[16] |
+| 54 | SCK / D13 | D13 GPIO, SPI SCK | Pin can wake from HIBERNATE sleep | PA[18] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -267,10 +277,16 @@ P2 pins related to `HIBERNATE` sleep mode:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Pin can wake from HIBERNATE sleep | PA[15] |
 | 33 | S6 / D21 | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[31] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | Pin can wake from HIBERNATE sleep | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | Pin can wake from HIBERNATE sleep | PA[13] |
+| 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | Pin can wake from HIBERNATE sleep | PA[14] |
+| 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Pin can wake from HIBERNATE sleep | PA[16] |
 | 47 | S4 / D19 | S4 GPIO, I2S RX. (Was P1S4 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
-| 48 | S5 / D20 | S5 GPIO, I2S CLK. (Was P1S5 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[29] |
+| 51 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[17] |
+| 52 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Pin can wake from HIBERNATE sleep | PA[18] |
+| 53 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | Pin can wake from HIBERNATE sleep | PA[19] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

@@ -415,7 +415,9 @@ BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and
 
 The Photon 2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-The Photon 2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location as the Argon pin D8, which is also the WKP pin.
+The Photon 2 can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALLING`, or `CHANGE`. 
+
+Pin D10 `WKP` is the same module pin location as the Argon pin D8, which is also the WKP pin.
 
 The Photon 2 preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
 
@@ -425,8 +427,15 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
+| D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Pin can wake from HIBERNATE sleep | PA[16] |
+| D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[17] |
+| D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Pin can wake from HIBERNATE sleep | PA[18] |
+| D5 | D5 GPIO, Serial2 RX, SPI1 SS | Pin can wake from HIBERNATE sleep | PA[19] |
+| D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Pin can wake from HIBERNATE sleep | PA[15] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Pin can wake from HIBERNATE sleep | PA[13] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Pin can wake from HIBERNATE sleep | PA[12] |
 | S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Pin can wake from HIBERNATE sleep | PA[14] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

@@ -20770,30 +20770,99 @@ In this mode on wake, device is reset, running setup() again.
 
 ---
 
-{{note op="start" type="P2"}}
-- The P2 and Photon 2 do not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
+{{note op="start" type="P2Only"}}
+- The P2 does not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
 
-- The P2, Photon 2 can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
-
-- On the Photon 2, pin D10 is in the same position as the Argon/Feather pin D8. 
+- The P2 can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
 
 - On the P2, pins S4, S5, and S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 
-- On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+- The P2 does not support wake on analog, BLE, or UART serial.
 
-- The P2 and Photon 2 do not support wake on analog, BLE, or UART serial.
+{{!-- BEGIN do not edit content below, it is automatically generated 6e6f887d-3df4-4cb3-b8e4-67f2aa26ad72 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Pin can wake from HIBERNATE sleep | PA[15] |
+| 33 | S6 / D21 | S6 GPIO, I2S WS. (Was P1S6/TESTMODE on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[31] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX, I2S MCLK. (Was P1S0 on P1.) | Pin can wake from HIBERNATE sleep | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | Pin can wake from HIBERNATE sleep | PA[13] |
+| 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | Pin can wake from HIBERNATE sleep | PA[14] |
+| 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Pin can wake from HIBERNATE sleep | PA[16] |
+| 47 | S4 / D19 | S4 GPIO, I2S RX. (Was P1S4 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 51 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[17] |
+| 52 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Pin can wake from HIBERNATE sleep | PA[18] |
+| 53 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | Pin can wake from HIBERNATE sleep | PA[19] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 {{note op="end"}}
 
 ---
 
+
+{{note op="start" type="Photon2"}}
+- The Photon 2es do not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
+
+- The Photon 2 can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
+
+- On the Photon 2, pin D10 is in the same position as the Argon/Feather pin D8. 
+
+- On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- The Photon 2 does not support wake on analog, BLE, or UART serial.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2bb13ba8-9f9c-44d6-8734-df6e85bb09042 --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Pin can wake from HIBERNATE sleep | PA[16] |
+| D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[17] |
+| D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Pin can wake from HIBERNATE sleep | PA[18] |
+| D5 | D5 GPIO, Serial2 RX, SPI1 SS | Pin can wake from HIBERNATE sleep | PA[19] |
+| D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Pin can wake from HIBERNATE sleep | PA[15] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Pin can wake from HIBERNATE sleep | PA[13] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Pin can wake from HIBERNATE sleep | PA[12] |
+| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Pin can wake from HIBERNATE sleep | PA[14] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+{{note op="end"}}
+
+---
+
+
 {{note op="start" type="M-SoM"}}
 - The M-SoM does not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
 
-- The M-SoM can only wake from `HIBERNATE` mode on `WKP` (A7), `RISING`, `FALLING`, or `CHANGE`.
+- The M-SoM can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
 
 - On the M-SoM, pin D21 does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 
 - The M-SoM does not support wake on analog, BLE, or UART serial.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[13] |
+| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Pin can wake from HIBERNATE sleep | PA[15] |
+| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Pin can wake from HIBERNATE sleep | PA[14] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Pin can wake from HIBERNATE sleep | PA[20] |
+| 48 | D8 | D8 GPIO, SPI SS | Pin can wake from HIBERNATE sleep | PA[19] |
+| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | Pin can wake from HIBERNATE sleep | PA[17] |
+| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | Pin can wake from HIBERNATE sleep | PA[16] |
+| 54 | SCK / D13 | D13 GPIO, SPI SCK | Pin can wake from HIBERNATE sleep | PA[18] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 {{note op="end"}}
 
 ---
@@ -20916,13 +20985,13 @@ On the Tracker SoM, you can pass GPIO connected to the IO Expander directly to t
 
 
 {{note op="start" type="P2"}}
-- The P2, Photon 2 can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
+- The P2, Photon 2 can only wake from `HIBERNATE` mode on certain pins, `RISING`, `FALLING`, or `CHANGE`. See [hibernate sleep mode](#hibernate-systemsleepmode-) for more information.
 {{note op="end"}}
 
 ---
 
 {{note op="start" type="M-SoM"}}
-- The M-SoM can only wake from `HIBERNATE` mode on `WKP` (A7), `RISING`, `FALLING`, or `CHANGE`.
+- The M-SoM can only wake from `HIBERNATE` mode on certain pins, `RISING`, `FALLING`, or `CHANGE`. See [hibernate sleep mode](#hibernate-systemsleepmode-) for more information.
 {{note op="end"}}
 ---
 
