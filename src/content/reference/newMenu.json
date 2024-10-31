@@ -316,10 +316,6 @@
                             "internal": true
                         },
                         {
-                            "dir": "m1-enclosure-datasheet",
-                            "title": "M1 Enclosure datasheet"
-                        },
-                        {
                             "dir": "tracker-m-datasheet",
                             "title": "Tracker M Datasheet",
                             "internal": true
@@ -400,6 +396,10 @@
                         {
                             "dir": "m2-breakout-datasheet",
                             "title": "M.2 breakout board"
+                        },
+                        {
+                            "dir": "m1-enclosure-datasheet",
+                            "title": "M1 Enclosure datasheet"
                         }
                     ]
                 },

@@ -21,10 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M1 Enclosure antenna placement 2024-10-31
+
+Added [recommended antenna placement instructions](/reference/datasheets/m-series/m1-enclosure-datasheet/#muon-antenna-placement) for using the Muon in the M1 enclosure.
+
 ### Gen 4 hibernate wake pins 2024-10-31
 
-Additional pins are available for wake on P2, Photon 2, and M-SoM; these are now documented
-in the datasheets and Device OS firmware API reference.
+Additional pins are available for wake from hibernate sleep on P2, Photon 2, and M-SoM; these are now documented in the datasheets and Device OS firmware API reference.
 
 ### ELC402TY deprecated 2024-10-30
 

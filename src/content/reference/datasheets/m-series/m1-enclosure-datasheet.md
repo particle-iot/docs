@@ -110,6 +110,85 @@ mounts under the carrier board and the expansion header pins passes through the 
 
 {{imageOverlay src="/assets/images/monitor-one/m1-board.png" alt="Carrier board" class="full-width"}}
 
+## Muon Antenna placement
+
+The following antenna placement is recommended when using the Muon in the M1 Enclosure.
+
+### Cellular antennas - Muon
+
+The cellular antenna should be mounted on the lid and connected to the U.FL connector on the M-SoM.
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-cellular-1.jpg" alt="Cellular antenna" class="full-width"}}
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-cellular-2.jpg" alt="Cellular antenna" class="full-width"}}
+
+
+The M-SoM is certified with the following cellular antenna:
+
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+
+Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M-SoM do not include antennas.
+
+
+| Dimension | Value | Unit |
+| :--- | ---: | :---: |
+| Length | 116.0 | mm |
+| Width | 27.0 | mm |
+| Thickness | 0.2 | mm |
+| Cable Length | 189.5 | mm |
+
+
+| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| Peak gain | | | | | | | |
+| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
+
+### GNSS antenna - Muon
+
+The GNSS antenna should be mounted just below the front status LED and connected to the U.FL connector on the M-SoM.
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-gnss.jpg" alt="GNSS antenna" class="full-width"}}
+
+
+| SKU | Description | |
+| :--- | :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+
+Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M-SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
+
+- GNSS support will be added in a future version of Device OS. A [user firmware library](https://github.com/particle-iot/particle-som-gnss) is available now for the M404.
+- Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
+
+
+### Wi-Fi/BLE antenna - Muon
+
+The Wi-Fi ns BLE antenna mounts on the left side, next the carrier board, next to the battery. It must be installed before the carrier board is installed.
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-wifi.jpg" alt="Wi-Fi antenna" class="full-width"}}
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-wifi-2.jpg" alt="Wi-Fi antenna" class="full-width"}}
+
+The M-SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M-SoM does not include a built-in trace antenna on the module.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/particle-p2-photon2-wi-fi-antenna-2-4-5ghz)  |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) |
+
+Single quantity M-SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M-SoM do not include antennas.
+
+### LoRa antenna - Muon
+
+It's expected that the LoRA antenna would use one of the SMA connectors on the bulkhead.
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-lora.jpg" alt="LoRa antenna" class="full-width"}}
+
+
+
 ## Schematic
 
 This is the schematic for the v0.5 of the M1 Enclosure carrier board. Changes are possible before general availability.

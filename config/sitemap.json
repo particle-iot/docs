@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "36e7c5ddaee467ef2556dd0d51abb02278c549333098f20cbbc07aacdc32e2ce",
+            "hash": "6bcd5e05f77d5ded585f04c6dd605912f2cc4c26fc4d33c5d21e87e5ecffe8b1",
             "date": "2024-10-31"
         },
         "getting-started/cloud/logic.md": {
@@ -9465,6 +9465,10 @@
         "troubleshooting/guides/device-troubleshooting/muon-usb-power.md": {
             "hash": "0fa961f58c00dd9333d6551b036f4293d19e48ddc475f78f92548260baabebbc",
             "date": "2024-10-28"
+        },
+        "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
+            "hash": "17cdd0f1af3811a8312065fe4d18dc85f2d1bcba7afafcb8e7c5882ea43d71ba",
+            "date": "2024-10-31"
         }
     }
 }
