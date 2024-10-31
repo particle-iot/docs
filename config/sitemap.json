@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-10-31",
-            "hash": "d8de2f77bebf1fe9d304056c1eed9878d486a132fd6e8c6a311b1e9b0f180355"
+            "hash": "1dca4bd93a1236cb7bbc7e542c1810ba25663471f9f08ef7d05c6db528fa3186"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3011,8 +3011,8 @@
             "hash": "5fe687408e36da41fbf92b0dde12c29424a5748d8184548bd182bddcb08105b9"
         },
         "reference/device-os/api/tcpserver/tcpserver.md": {
-            "date": "2024-02-27",
-            "hash": "e86be391a5ae2153e0f63873c3a2d6227d1973316664880b946d8981a419daaf"
+            "date": "2024-10-31",
+            "hash": "cdb1d7612d1830751a68e2f193186ccef722c6d991a747a57923ee0ee4177712"
         },
         "reference/device-os/api/tcpserver/begin.md": {
             "date": "2023-09-20",
@@ -3043,8 +3043,8 @@
             "hash": "ac1a9fd3c747d30d725a74dda0462a39cf68c00267d65fed30e06e2463ee153b"
         },
         "reference/device-os/api/tcpclient/tcpclient.md": {
-            "date": "2024-09-18",
-            "hash": "a655115c3c05a2dd15a359ea26beae60e0393ef39a9a3cc455a1076cb8f91229"
+            "date": "2024-10-31",
+            "hash": "6ce5d07c5f11f726848de45193a639cdd2e4ad511c52df366880c905201202b9"
         },
         "reference/device-os/api/tcpclient/connected.md": {
             "date": "2023-09-20",
@@ -3103,8 +3103,8 @@
             "hash": "9fc91a92e99828f3c833b2b4c609b5415c38a7c88230b7a7b4ff6da70da3fdb4"
         },
         "reference/device-os/api/udp/begin.md": {
-            "date": "2024-10-15",
-            "hash": "322779f4bbf9437dd36a703c8afc5aadfa097763699393451b904fdae9873a1c"
+            "date": "2024-10-31",
+            "hash": "307e96fcaaf51eb2ef7c149b9d353a62fbcb6f507cbb8cb6b3c52cc36768399c"
         },
         "reference/device-os/api/udp/available.md": {
             "date": "2023-09-20",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "6bcd5e05f77d5ded585f04c6dd605912f2cc4c26fc4d33c5d21e87e5ecffe8b1",
+            "hash": "01750cfdf1bc1ca9eb068c0eca15c464b6374a603883deb5b4a39c3339044c18",
             "date": "2024-10-31"
         },
         "getting-started/cloud/logic.md": {

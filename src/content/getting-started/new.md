@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### TCP and UDP network interface 2024-10-31
+
+Documented the optional network interface parameter for TCPClient, TCPServer, and UDP, used to bind the connection to a specific interface such as Ethernet.
+
 ### M1 Enclosure antenna placement 2024-10-31
 
 Added [recommended antenna placement instructions](/reference/datasheets/m-series/m1-enclosure-datasheet/#muon-antenna-placement) for using the Muon in the M1 enclosure.

@@ -16280,6 +16280,9 @@ Cellular devices (Boron, B-Series SoM, Tracker SoM, Electron, E-Series) do not s
 ```cpp
 // SYNTAX
 TCPServer server = TCPServer(port);
+
+// PROTOTYPE
+TCPServer(uint16_t, network_interface_t nif=0);
 ```
 
 Create a server that listens for incoming connections on the specified port.
@@ -16325,6 +16328,10 @@ void loop()
 }
 ```
 
+`nif` is the network interface to bind to. This is typically omitted, in which case the primary network
+inteface is used (cellular or Wi-Fi). You can, however pass `Ethernet`, `WiFi`, or `Cellular` as this 
+parameter, which will bind to that specific interface. This is most commonly used when you use cellular
+as your cloud connection, but listen for TCP connections on Ethernet from an isolated Ethernet LAN.
 
 ### begin()
 
@@ -16467,6 +16474,10 @@ In most cases, using `TCPClient` is not recommended. If you want to export data 
 ```cpp
 // SYNTAX
 TCPClient client;
+
+// PROTOTYPE
+int connect(IPAddress ip, uint16_t port, network_interface_t nif=0);
+int connect(const char *host, uint16_t port, network_interface_t nif=0);
 ```
 
 ```cpp
@@ -16523,12 +16534,17 @@ When using TCP with debugging logs enabled, you might see something like this:
 
 These errors are documented in the [POSIX error codes](#posix-errors) list. From code, you can find this underlying error code value in the global variable `errno` or using `getWriteError()`.
 
+`nif` is the network interface to use. This is typically omitted, in which case the primary network
+inteface is used (cellular or Wi-Fi). You can, however pass `Ethernet`, `WiFi`, or `Cellular` as this 
+parameter, which will only use that interface to make the outbound TCP connection. 
+
 ---
 {{note op="start" type="cellular"}}
 On cellular devices, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/integrations/webhooks/).
 
 Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
 {{note op="end"}}
+
 
 ### connected()
 
@@ -16876,6 +16892,9 @@ Initializes the UDP library and network settings.
 ```cpp
 // SYNTAX
 Udp.begin(port);
+
+// PROTOTYPE
+uint8_t begin(uint16_t port, network_interface_t nif=0);
 ```
 
 If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
@@ -16908,6 +16927,11 @@ void loop() {
 	}
 }
 ```
+
+`nif` is the network interface to bind to. This is typically omitted, in which case the primary network
+inteface is used (cellular or Wi-Fi). You can, however pass `Ethernet`, `WiFi`, or `Cellular` as this 
+parameter, which will bind to that specific interface. This is most commonly used when you use cellular
+as your cloud connection, but listen for UDP packets on Ethernet from an isolated Ethernet LAN.
 
 ### available()
 
