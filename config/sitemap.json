@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-10-31",
-            "hash": "1dca4bd93a1236cb7bbc7e542c1810ba25663471f9f08ef7d05c6db528fa3186"
+            "date": "2024-11-01",
+            "hash": "3af89ee6fe0fdb21482ffcccac1250bd05262749ecf9dc3cd587aec52bf158c2"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3751,8 +3751,8 @@
             "hash": "846ef359f55aa6ff17cd69a5afafad0d5aca54eee1dcf17f39d2c45f12e9d9fa"
         },
         "reference/device-os/api/system-thread/synchronizing-access-to-shared-system-resources.md": {
-            "date": "2023-09-20",
-            "hash": "29817af30e548aebee03c256ec807f970a2406ac776983b2aad6dd6c32fe9ea2"
+            "date": "2024-11-01",
+            "hash": "ceadfca8a21f7c4af00bfaa515994dd060f608b6a1ecc77b2dd22429cb28ea02"
         },
         "reference/device-os/api/system-thread/waiting-for-the-system.md": {
             "date": "2023-09-20",

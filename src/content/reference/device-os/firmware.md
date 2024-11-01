@@ -22465,9 +22465,16 @@ With system threading enabled, the system thread and the application thread run 
 This can be avoided by acquiring exclusive access to a resource. To get exclusive access to a resource, we can use locks. A lock
 ensures that only the thread owning the lock can access the resource. Any other thread that tries to use the resource via the lock will not be granted access until the first thread eventually unlocks the resource when it is done.
 
-At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use.
+There are a number of shared resources that can be used by the system. These include:
+
+- `Serial` when using listening mode, or when using `SerialLogHandler`.
+- `SPI` on some devices that use Ethernet.
+- `Wire` (I2C) on some devices that use a PMIC and fuel gauge on primary I2C.
+- `PMIC` on devices that use the system power manager and the bq24195 PMIC. 
 
 {{api name1="WITH_LOCK"}}
+
+This example shows how to use locking to share the UART serial port `Serial` between two threads. 
 
 ```
 void print_status()
