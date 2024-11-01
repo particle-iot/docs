@@ -40,6 +40,10 @@ battery support and want to power from an external DC source.
 - Module is 35mm x 22.86mm (1.38" x 0.9")
 - Pins and castellated holes are 2.54mm (0.1") apart
 
+For the castellated module: 4.7mm from the bottom of the circuit board to the top of the shield for the castellated module.
+
+For the pin header module: 7.1mm from the bottom of the plastic strip for the pin header module. This is basically the distance from board to the top of the module if you use a bottom-mount socket like the M.2 breakout board. If you use a top mount socket of course you'd also need to add the height your header.
+
 ## Pinout
 
 {{imageOverlay src="/assets/images/power-module/pm-bat-pinout.svg" alt="Pinout" class="full-width"}}
@@ -158,6 +162,12 @@ The mating header is available from a large number of suppliers in both PTH and 
 | SMD (12) | Sullins | NPTC121KFXC-RC | [Digikey](https://www.digikey.com/product-detail/en/sullins-connector-solutions/NPTC121KFXC-RC/S5604-ND/776062) |
 | SMD (13) | Sullins | NPTC131KFXC-RC | [Digikey](https://www.digikey.com/en/products/detail/sullins-connector-solutions/NPTC131KFXC-RC/776063) |
 
+The bottom-mount headers used on the M.2 Breakout Board will be difficult to source. The parts used are:
+
+- Kaweei CP25411-13G-S116-A
+- Kaweei CP25411-12G-S116-A
+
+
 ## Schematic 
 
 {{imageOverlay src="/assets/images/power-module/pm-bat-schematic.svg" alt="Module schematic" class="full-width"}}
@@ -221,3 +231,4 @@ NTC (negative temperature coefficient), higher voltages indicate lower temperatu
 |          | 2024-04-15 | RK | Corrected the /FUEL_INT pin description |
 | 001      | 2024-06-27 | RK | Initial version |
 | 002      | 2024-09-18 | RK | Add firmware settings |
+| 003      | 2025-11-01 | RK | Added height |

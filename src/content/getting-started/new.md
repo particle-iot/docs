@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Height of PM-BAT 2024-11-01
+
+Added the height of modules to the [PM-BAT datasheet](/hardware/power/pm-bat-datasheet#dimensions).
+
 ### TCP and UDP network interface 2024-10-31
 
 Documented the optional network interface parameter for TCPClient, TCPServer, and UDP, used to bind the connection to a specific interface such as Ethernet.
