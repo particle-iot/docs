@@ -27,16 +27,22 @@ Also beware of some wall adapters that have a USB-C cable, but do not support US
 of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
 to power the Muon.
 
-{{!-- 
 The adapter on the left is not compatible at it's 5V-only, but the adapter on the right, 
-which includes PD, can be used.
+which includes USB-C PD, can be used.
 
 ![](/assets/images/support/usb-c-pd.png)
---}}
+
 
 ## Some Apple adapters
 
 Some Apple MacBook chargers have been reported to not work properly with the Muon.
+
+The Apple 61W USB-C power adapter included with the 13" MacBook Pro 2016 cannot be used 
+to power the Muon.
+
+![](/assets/images/support/usb-apple-3.png)
+
+Some other dual-port Apple USB-C chargers have also been reported to not work.
 
 ![](/assets/images/support/usb-apple-1.png)
 ![](/assets/images/support/usb-apple-2.png)
