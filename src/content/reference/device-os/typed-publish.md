@@ -88,7 +88,7 @@ With Device OS 6.2 structured data, this will be converted into CBOR format inst
 [CBOR](https://cbor.io/), the Concise Binary Object Representation (RFC 8949) can be converted to and from
 JSON without loss.
 
-The JSON data above encodes to 21 bytes of binary CBOR data, a savings of 51%!
+The JSON data above encodes to 21 bytes of binary CBOR data, 51% of the original size!
 
 Since CBOR and be converted to and from JSON transparently, that is exactly what the cloud does before sending the data to
 webhooks and SSE. Your webhook will continue to see JSON data as before, but it will be transmitted more efficiently over-the-air.
