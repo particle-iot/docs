@@ -986,7 +986,7 @@ async function runDeviceOs() {
             const isTrackerOrMonitor = (platformId == 26); 
 
             // This is used to handle the multiple bootloaders on the RTL872x
-            const isRTL827x = platformInfo.baseMcu == 'rtl872x';
+            const isRTL872x = platformInfo.baseMcu == 'rtl872x';
 
             // Pass 1: Download binaries
             for(const module of details.modules) {
@@ -1068,7 +1068,7 @@ async function runDeviceOs() {
                 // radio_stack has flag drop_module_info
                 switch(module.prefixInfo.moduleFunction) {
                     case 'bootloader':
-                        if (isRTL827x) {
+                        if (isRTL872x) {
                             switch(module.prefixInfo.moduleIndex) {
                                 case 2:
                                     module.hexToolName = 'prebootloader-part1';

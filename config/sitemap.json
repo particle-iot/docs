@@ -919,8 +919,8 @@
             "hash": "5467d7f2eb2c89c12d32d04e24c92bf57ff698f413dfcee251700ced984a6c89"
         },
         "hardware/best-practices/watchdog-timers.md": {
-            "date": "2024-06-15",
-            "hash": "cb237387a2fff62e12a531d92e9102c4c104d3ab1f77f8a5e1cd818001f6ea4f"
+            "date": "2024-11-01",
+            "hash": "74a6520a2e1f72e346aeb865a0fb8f773508785403b3c490364660059e840117"
         },
         "hardware/b-series-som/b-series-som-flexibility.md": {
             "date": "2024-02-27",
@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-11-01",
-            "hash": "3af89ee6fe0fdb21482ffcccac1250bd05262749ecf9dc3cd587aec52bf158c2"
+            "hash": "c420d854fcf2bedbfb6afc42a584d47c01d347691cbae47e816dc3c28c7d7b3a"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3455,8 +3455,8 @@
             "hash": "2aa853a7f581c94cec3b65a2cb22731ba723d9cab8dc0c3515eefa23e124a26b"
         },
         "reference/device-os/api/watchdog-hardware/watchdog-hardware.md": {
-            "date": "2024-02-27",
-            "hash": "4087a6bbe2d06492bb0018ff220e67cebbd583446ee33e45e1b8fe80e6614d78"
+            "date": "2024-11-01",
+            "hash": "36bbf9a61c40f274b3a4c4482eb46fb6d73252851882d6b69f115be23243acca"
         },
         "reference/device-os/api/watchdog-hardware/sleep-considerations.md": {
             "date": "2024-02-27",
@@ -3479,8 +3479,8 @@
             "hash": "1b741e45be92ec31feb2443af009ec78f43f217b2a1d295c26e4fcf0cc466b06"
         },
         "reference/device-os/api/watchdog-application/watchdog-application.md": {
-            "date": "2024-02-27",
-            "hash": "cf2b4c12e4cce69cb2497186b75b0eeb64a27bac08439aa5a0a64cbe050c7c3f"
+            "date": "2024-11-01",
+            "hash": "b5bb3f6c4eea66ee979d0e04f5796679825b6ffc8fb8224e96f60ef133bcb742"
         },
         "reference/device-os/api/math/math.md": {
             "date": "2023-09-20",
@@ -6431,8 +6431,8 @@
             "hash": "499e21c13267694b4105abee15899c01ede6a05b77a8e4106c2674cb7b5bfd8e"
         },
         "reference/device-os/libraries/m/Microphone_PDM.md": {
-            "date": "2024-08-28",
-            "hash": "d917859cc949663aa843aa447dab5f8fa5e9363c639aba8c17ac8069c7161f6e"
+            "date": "2024-11-01",
+            "hash": "bc97071cab76a29e921e00068536accbb987499c111cdaf744e51988bd2b8700"
         },
         "reference/device-os/libraries/m/MiniShift-Particle.md": {
             "date": "2024-08-28",

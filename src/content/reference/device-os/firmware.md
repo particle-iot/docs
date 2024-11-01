@@ -19408,7 +19408,7 @@ if (timer.isActive()) {
 
 {{since when="5.3.0"}}
 
-Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B-Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the hardware watchdog built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode.
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B-Series SoM, Argon, Tracker SoM, E404X) and RTL872x (P2, Photon 2) can use the hardware watchdog built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode.
 
 Typically you start it from `setup()`. Since it does not run during firmware updates, it's safe to use a relatively short timeout, however you probably don't want to set it lower than 30 seconds to prevent unintended resets. 
 
@@ -19553,7 +19553,7 @@ A **Watchdog Timer** is designed to rescue your device should an unexpected prob
 
 Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations. In practice, the application watchdog is rarely effective.
 
-Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B-Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the [hardware watchdog](#watchdog-hardware) built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode. Using this, instead of the application watchdog, is recommended.
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B-Series SoM, Argon, Tracker SoM, E404X) and RTL872x (P2, Photon 2) can use the [hardware watchdog](#watchdog-hardware) built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode. Using this, instead of the application watchdog, is recommended.
 
 The page on [watchdog timers](/hardware/best-practices/watchdog-timers/) has information about external hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
