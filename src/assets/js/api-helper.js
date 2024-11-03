@@ -219,7 +219,9 @@ apiHelper.parseDeviceLine = async function(line) {
             if (!result) {
                 result = {};
             }
-            result.serial = token;
+            if (typeof result['serial'] == 'undefined') {
+                result.serial = token;
+            }
         }
         else {
             if (token.match(/[A-Z][A-Za-z0-9]+/)) {
@@ -227,7 +229,9 @@ apiHelper.parseDeviceLine = async function(line) {
                 if (!result) {
                     result = {};
                 }
-                result.serial = token;    
+                if (Object.keys(result).length == 0) {
+                    result.serial = token;    
+                }
             }
         }
 

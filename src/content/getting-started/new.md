@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Import device fix 2024-11-03
+
+Fixed a bug in the [Import devices tool](/tools/cloud-tools/import-devices/) that could cause the actual serial number
+to be overwritten by the mobile secret in some cases when both were present on a line.
+
 ### Height of PM-BAT 2024-11-01
 
 Added the height of modules to the [PM-BAT datasheet](/hardware/power/pm-bat-datasheet#dimensions).
