@@ -1,0 +1,16 @@
+{
+    "name": "export-md",
+    "version": "0.0.1",
+    "description": "",
+    "private": true,
+    "scripts": {},
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+        "yaml": "^2.6.0",
+        "yargs": "^16.2.0"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
