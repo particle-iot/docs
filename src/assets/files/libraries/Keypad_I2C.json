@@ -144,6 +144,26 @@
           "esomx": {
             "HelloKeypad": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "HelloKeypad": true
+          },
+          "bsom": {
+            "HelloKeypad": true
+          },
+          "b5som": {
+            "HelloKeypad": true
+          },
+          "tracker": {
+            "HelloKeypad": true
+          },
+          "p2": {
+            "HelloKeypad": true
+          },
+          "msom": {
+            "HelloKeypad": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.778Z"

@@ -118,6 +118,44 @@
             "complex": true,
             "realtime": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "bsom": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "b5som": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "tracker": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "p2": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          },
+          "msom": {
+            "audio": true,
+            "basic": true,
+            "complex": true,
+            "realtime": true
+          }
         }
       }
     }

@@ -289,6 +289,50 @@
             "04-recheck": true,
             "05-file": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "bsom": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "b5som": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "tracker": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "p2": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "msom": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.794Z"

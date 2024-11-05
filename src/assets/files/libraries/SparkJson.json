@@ -249,6 +249,44 @@
             "JsonParserExample": false,
             "JsonServer": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "bsom": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "b5som": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "tracker": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "p2": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "msom": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.646Z"

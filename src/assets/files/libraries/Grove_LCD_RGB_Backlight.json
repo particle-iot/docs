@@ -539,6 +539,92 @@
             "setColor": true,
             "setCursor": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "bsom": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "b5som": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "tracker": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "p2": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "msom": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.714Z"

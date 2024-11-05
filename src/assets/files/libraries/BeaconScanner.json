@@ -392,6 +392,50 @@
             "tracker-callbacks": false,
             "tracker-continuous": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "bsom": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "b5som": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "tracker": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "p2": {
+            "lairdBt510Log": false,
+            "log": false,
+            "publish": false,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "msom": {
+            "lairdBt510Log": false,
+            "log": false,
+            "publish": false,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.781Z"

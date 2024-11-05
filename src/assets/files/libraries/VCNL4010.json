@@ -143,6 +143,26 @@
           "esomx": {
             "VCNL4010-tester": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "VCNL4010-tester": true
+          },
+          "bsom": {
+            "VCNL4010-tester": true
+          },
+          "b5som": {
+            "VCNL4010-tester": true
+          },
+          "tracker": {
+            "VCNL4010-tester": true
+          },
+          "p2": {
+            "VCNL4010-tester": true
+          },
+          "msom": {
+            "VCNL4010-tester": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.854Z"

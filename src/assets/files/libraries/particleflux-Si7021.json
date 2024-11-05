@@ -216,6 +216,38 @@
             "tiny": true,
             "usage": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "bsom": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "b5som": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "tracker": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "p2": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "msom": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.024Z"

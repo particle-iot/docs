@@ -291,6 +291,50 @@
             "Example4_Change_Settings": true,
             "Example5_FIFO_Average": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "p2": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "msom": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.985Z"

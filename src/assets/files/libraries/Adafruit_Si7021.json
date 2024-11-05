@@ -143,6 +143,26 @@
           "esomx": {
             "si7021": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "si7021": true
+          },
+          "bsom": {
+            "si7021": true
+          },
+          "b5som": {
+            "si7021": true
+          },
+          "tracker": {
+            "si7021": true
+          },
+          "p2": {
+            "si7021": true
+          },
+          "msom": {
+            "si7021": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.682Z"

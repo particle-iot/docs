@@ -143,6 +143,26 @@
           "esomx": {
             "Example": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example": true
+          },
+          "bsom": {
+            "Example": true
+          },
+          "b5som": {
+            "Example": true
+          },
+          "tracker": {
+            "Example": true
+          },
+          "p2": {
+            "Example": true
+          },
+          "msom": {
+            "Example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.912Z"

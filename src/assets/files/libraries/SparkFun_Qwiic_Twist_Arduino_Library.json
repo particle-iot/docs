@@ -486,6 +486,92 @@
             "Example8_Interrupts": true,
             "Example9_ChangeAddress": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example10_WireSettings": true,
+            "Example11_GetVersion": true,
+            "Example12_SetLimit": true,
+            "Example1_BasicReadings": true,
+            "Example2_SetColor": true,
+            "Example3_CrazyColor": true,
+            "Example4_ConnectColors": true,
+            "Example5_TimeStamps": true,
+            "Example6_Difference": true,
+            "Example7_SetCount": true,
+            "Example8_Interrupts": true,
+            "Example9_ChangeAddress": true
+          },
+          "bsom": {
+            "Example10_WireSettings": true,
+            "Example11_GetVersion": true,
+            "Example12_SetLimit": true,
+            "Example1_BasicReadings": true,
+            "Example2_SetColor": true,
+            "Example3_CrazyColor": true,
+            "Example4_ConnectColors": true,
+            "Example5_TimeStamps": true,
+            "Example6_Difference": true,
+            "Example7_SetCount": true,
+            "Example8_Interrupts": true,
+            "Example9_ChangeAddress": true
+          },
+          "b5som": {
+            "Example10_WireSettings": true,
+            "Example11_GetVersion": true,
+            "Example12_SetLimit": true,
+            "Example1_BasicReadings": true,
+            "Example2_SetColor": true,
+            "Example3_CrazyColor": true,
+            "Example4_ConnectColors": true,
+            "Example5_TimeStamps": true,
+            "Example6_Difference": true,
+            "Example7_SetCount": true,
+            "Example8_Interrupts": true,
+            "Example9_ChangeAddress": true
+          },
+          "tracker": {
+            "Example10_WireSettings": true,
+            "Example11_GetVersion": true,
+            "Example12_SetLimit": true,
+            "Example1_BasicReadings": true,
+            "Example2_SetColor": true,
+            "Example3_CrazyColor": true,
+            "Example4_ConnectColors": true,
+            "Example5_TimeStamps": true,
+            "Example6_Difference": true,
+            "Example7_SetCount": true,
+            "Example8_Interrupts": true,
+            "Example9_ChangeAddress": true
+          },
+          "p2": {
+            "Example10_WireSettings": false,
+            "Example11_GetVersion": true,
+            "Example12_SetLimit": true,
+            "Example1_BasicReadings": true,
+            "Example2_SetColor": true,
+            "Example3_CrazyColor": true,
+            "Example4_ConnectColors": true,
+            "Example5_TimeStamps": true,
+            "Example6_Difference": true,
+            "Example7_SetCount": true,
+            "Example8_Interrupts": true,
+            "Example9_ChangeAddress": true
+          },
+          "msom": {
+            "Example10_WireSettings": false,
+            "Example11_GetVersion": true,
+            "Example12_SetLimit": true,
+            "Example1_BasicReadings": true,
+            "Example2_SetColor": true,
+            "Example3_CrazyColor": true,
+            "Example4_ConnectColors": true,
+            "Example5_TimeStamps": true,
+            "Example6_Difference": true,
+            "Example7_SetCount": true,
+            "Example8_Interrupts": true,
+            "Example9_ChangeAddress": true
+          }
         }
       }
     }

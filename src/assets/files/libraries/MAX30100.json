@@ -143,6 +143,26 @@
           "esomx": {
             "MAX30100_Minimal": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MAX30100_Minimal": true
+          },
+          "bsom": {
+            "MAX30100_Minimal": true
+          },
+          "b5som": {
+            "MAX30100_Minimal": true
+          },
+          "tracker": {
+            "MAX30100_Minimal": true
+          },
+          "p2": {
+            "MAX30100_Minimal": true
+          },
+          "msom": {
+            "MAX30100_Minimal": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.804Z"

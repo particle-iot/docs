@@ -286,6 +286,56 @@
             "ssd1306_128x64_spi": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "OLED_featherwing": false,
+            "ssd1306_128x32_i2c": false,
+            "ssd1306_128x32_spi": false,
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "usage": false
+          },
+          "bsom": {
+            "OLED_featherwing": false,
+            "ssd1306_128x32_i2c": false,
+            "ssd1306_128x32_spi": false,
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "usage": false
+          },
+          "b5som": {
+            "OLED_featherwing": false,
+            "ssd1306_128x32_i2c": false,
+            "ssd1306_128x32_spi": false,
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "usage": false
+          },
+          "tracker": {
+            "OLED_featherwing": false,
+            "ssd1306_128x32_i2c": false,
+            "ssd1306_128x32_spi": false,
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "usage": false
+          },
+          "p2": {
+            "OLED_featherwing": false,
+            "ssd1306_128x32_i2c": false,
+            "ssd1306_128x32_spi": false,
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "usage": false
+          },
+          "msom": {
+            "OLED_featherwing": false,
+            "ssd1306_128x32_i2c": false,
+            "ssd1306_128x32_spi": false,
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "usage": false
+          }
         }
       }
     }

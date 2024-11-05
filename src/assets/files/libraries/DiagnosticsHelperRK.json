@@ -217,6 +217,38 @@
             "2-get-json-DiagnosticsHelperRK": true,
             "3-powered-by-DiagnosticsHelperRK": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "bsom": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "b5som": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "tracker": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "p2": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "msom": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.707Z"

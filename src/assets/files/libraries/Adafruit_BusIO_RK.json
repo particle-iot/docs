@@ -535,6 +535,68 @@
             "spi_register_bits": true,
             "spi_registers": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "bsom": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "b5som": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "tracker": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "p2": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "msom": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          }
         }
       }
     }

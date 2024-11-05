@@ -291,6 +291,50 @@
             "Example4-ProcessingHeatCam": true,
             "Example5-HotPixel": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "bsom": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "b5som": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "tracker": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "p2": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "msom": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.984Z"

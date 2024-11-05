@@ -132,6 +132,26 @@
           "esomx": {
             "1-test-vectors": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-test-vectors": true
+          },
+          "bsom": {
+            "1-test-vectors": true
+          },
+          "b5som": {
+            "1-test-vectors": true
+          },
+          "tracker": {
+            "1-test-vectors": true
+          },
+          "p2": {
+            "1-test-vectors": true
+          },
+          "msom": {
+            "1-test-vectors": true
+          }
         }
       }
     }

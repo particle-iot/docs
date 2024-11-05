@@ -388,6 +388,74 @@
             "09-hw-flow": false,
             "10-interrupts": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "bsom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "b5som": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "tracker": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "p2": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "msom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          }
         }
       }
     }

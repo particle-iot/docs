@@ -1,0 +1,127 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SSD1305_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SSD1305_RK/archive/2.2.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SSD1305_RK",
+    "version": "2.2.3",
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "SSD1305 library for Monochrome OLEDs based on SSD1305 drivers",
+    "paragraph": "SSD1305 library for Monochrome OLEDs based on SSD1305 drivers",
+    "category": "Display",
+    "url": "https://github.com/adafruit/Adafruit_SSD1305_Library",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "adafruit-gfx-rk": "1.11.10"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_SSD1305_RK",
+  "versions": {
+    "2.2.3": {
+      "added": "2024-11-04T02:01:51.461Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "bsom": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "b5som": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "tracker": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "p2": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "msom": {
+            "pi-hat": true,
+            "ssd1305test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "boron": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "bsom": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "b5som": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "tracker": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "p2": {
+            "pi-hat": false,
+            "ssd1305test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "boron": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "bsom": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "b5som": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "tracker": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "esomx": {
+            "pi-hat": true,
+            "ssd1305test": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "pi-hat": false,
+            "ssd1305test": true
+          },
+          "electron": {
+            "pi-hat": false,
+            "ssd1305test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit SSD1305 [![Build Status](https://github.com/adafruit/Adafruit_SSD1305/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SSD1305/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_SSD1305/html/index.html)\r\n\r\nThis is the Adafruit SSD1305 Arduino Library for Arduino\r\nTested and works great with the Adafruit SSD1305 Breakout Board\r\n\r\n[<img src=\"https://cdn-shop.adafruit.com/970x728/2719-03.jpg\" width=\"500px\">](https://www.adafruit.com/?q=monochrome%20oled)\r\n\r\nThese displays use I2C or SPI to communicate\r\n\r\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\r\n\r\n# Installation\r\nTo install, use the Arduino Library Manager and search for \"Adafruit SSD1305\" and install the library.\r\n\r\n## Dependencies\r\n * [Adafruit GFX Library](https://github.com/adafruit/Adafruit-GFX-Library)\r\n\r\n# Contributing\r\n\r\nContributions are welcome! Please read our [Code of Conduct](https://github.com/adafruit/Adafruit_SSD1305/blob/master/CODE_OF_CONDUCT.md>)\r\nbefore contributing to help this project stay welcoming.\r\n\r\n## Documentation and doxygen\r\nDocumentation is produced by doxygen. Contributions should include documentation for any new code added.\r\n\r\nSome examples of how to use doxygen can be found in these guide pages:\r\n\r\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen\r\n\r\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen-tips\r\n\r\n## Formatting and clang-format\r\nThis library uses [`clang-format`](https://releases.llvm.org/download.html) to standardize the formatting of `.cpp` and `.h` files.\r\nContributions should be formatted using `clang-format`:\r\n\r\nThe `-i` flag will make the changes to the file.\r\n```bash\r\nclang-format -i *.cpp *.h\r\n```\r\nIf you prefer to make the changes yourself, running `clang-format` without the `-i` flag will print out a formatted version of the file. You can save this to a file and diff it against the original to see the changes.\r\n\r\nNote that the formatting output by `clang-format` is what the automated formatting checker will expect. Any diffs from this formatting will result in a failed build until they are addressed. Using the `-i` flag is highly recommended.\r\n\r\n### clang-format resources\r\n  * [Binary builds and source available on the LLVM downloads page](https://releases.llvm.org/download.html)\r\n  * [Documentation and IDE integration](https://clang.llvm.org/docs/ClangFormat.html)\r\n\r\n## About this Driver\r\nWritten by Limor Fried for Adafruit Industries.\r\nBSD license, check license.txt for more information\r\nAll text above must be included in any redistribution\r\n",
+  "allVersions": [
+    "2.2.3"
+  ]
+}

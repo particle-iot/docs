@@ -215,6 +215,38 @@
             "integration-tests": false,
             "performace-profile": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "bsom": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "b5som": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "tracker": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "p2": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "msom": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.761Z"

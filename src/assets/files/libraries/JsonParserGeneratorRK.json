@@ -265,6 +265,38 @@
             "2-generator": true,
             "3-subscription": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "bsom": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "b5som": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "tracker": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "p2": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "msom": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.655Z"

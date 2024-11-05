@@ -251,6 +251,44 @@
             "UbidotsPublishTimestamp": true,
             "UbidotsSubscribe": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "bsom": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "b5som": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "tracker": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "p2": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "msom": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.725Z"

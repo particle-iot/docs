@@ -68,6 +68,26 @@
           "electron": {
             "Protocentral_ADS1220": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Protocentral_ADS1220": false
+          },
+          "bsom": {
+            "Protocentral_ADS1220": false
+          },
+          "b5som": {
+            "Protocentral_ADS1220": false
+          },
+          "tracker": {
+            "Protocentral_ADS1220": false
+          },
+          "p2": {
+            "Protocentral_ADS1220": false
+          },
+          "msom": {
+            "Protocentral_ADS1220": false
+          }
         }
       }
     }

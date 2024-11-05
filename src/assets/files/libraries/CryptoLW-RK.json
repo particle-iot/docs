@@ -218,6 +218,38 @@
             "2-TestAscon": true,
             "3-TestSpeck": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "bsom": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "b5som": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "tracker": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "p2": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "msom": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.758Z"

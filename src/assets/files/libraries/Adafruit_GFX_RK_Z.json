@@ -133,6 +133,26 @@
           "esomx": {
             "readme": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "readme": false
+          },
+          "bsom": {
+            "readme": false
+          },
+          "b5som": {
+            "readme": false
+          },
+          "tracker": {
+            "readme": false
+          },
+          "p2": {
+            "readme": false
+          },
+          "msom": {
+            "readme": false
+          }
         }
       }
     }

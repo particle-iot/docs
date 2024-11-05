@@ -179,6 +179,32 @@
             "genieSpark_Demo": false,
             "genieSpark_Demo_MultiScreen": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "bsom": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "b5som": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "tracker": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "p2": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "msom": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.934Z"

@@ -66,6 +66,26 @@
           "electron": {
             "RunningAverage-Sample": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "RunningAverage-Sample": true
+          },
+          "bsom": {
+            "RunningAverage-Sample": true
+          },
+          "b5som": {
+            "RunningAverage-Sample": true
+          },
+          "tracker": {
+            "RunningAverage-Sample": true
+          },
+          "p2": {
+            "RunningAverage-Sample": true
+          },
+          "msom": {
+            "RunningAverage-Sample": true
+          }
         }
       }
     }

@@ -105,6 +105,38 @@
             "quaternion_yaw_pitch_roll": false,
             "rotation_vector": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "bsom": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "b5som": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "tracker": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "p2": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          },
+          "msom": {
+            "more_reports": false,
+            "quaternion_yaw_pitch_roll": false,
+            "rotation_vector": false
+          }
         }
       }
     }

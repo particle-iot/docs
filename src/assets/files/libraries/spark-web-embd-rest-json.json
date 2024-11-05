@@ -143,6 +143,26 @@
           "esomx": {
             "spark-web": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "spark-web": true
+          },
+          "bsom": {
+            "spark-web": true
+          },
+          "b5som": {
+            "spark-web": true
+          },
+          "tracker": {
+            "spark-web": true
+          },
+          "p2": {
+            "spark-web": true
+          },
+          "msom": {
+            "spark-web": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.878Z"

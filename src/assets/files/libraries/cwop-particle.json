@@ -143,6 +143,26 @@
           "esomx": {
             "basic-cwop": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "basic-cwop": false
+          },
+          "bsom": {
+            "basic-cwop": false
+          },
+          "b5som": {
+            "basic-cwop": false
+          },
+          "tracker": {
+            "basic-cwop": false
+          },
+          "p2": {
+            "basic-cwop": false
+          },
+          "msom": {
+            "basic-cwop": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.078Z"

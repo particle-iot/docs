@@ -143,6 +143,26 @@
           "esomx": {
             "testStream": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "testStream": true
+          },
+          "bsom": {
+            "testStream": true
+          },
+          "b5som": {
+            "testStream": true
+          },
+          "tracker": {
+            "testStream": true
+          },
+          "p2": {
+            "testStream": true
+          },
+          "msom": {
+            "testStream": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.039Z"

@@ -143,6 +143,26 @@
           "esomx": {
             "basic-data-output": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "basic-data-output": true
+          },
+          "bsom": {
+            "basic-data-output": true
+          },
+          "b5som": {
+            "basic-data-output": true
+          },
+          "tracker": {
+            "basic-data-output": true
+          },
+          "p2": {
+            "basic-data-output": true
+          },
+          "msom": {
+            "basic-data-output": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.826Z"

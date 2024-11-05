@@ -395,6 +395,68 @@
             "testshapes_16x32": false,
             "testshapes_32x32": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "bsom": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "b5som": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "tracker": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "p2": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "msom": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.737Z"

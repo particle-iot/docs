@@ -391,6 +391,68 @@
             "usage": false,
             "writeCharacters": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "bsom": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "b5som": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "tracker": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "p2": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "msom": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          }
         }
       },
       "added": "2023-05-19T20:00:40.115Z"

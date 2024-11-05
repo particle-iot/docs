@@ -290,6 +290,50 @@
             "switchesAndLEDs": true,
             "unitTest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "bsom": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "b5som": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "tracker": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "p2": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "msom": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.797Z"

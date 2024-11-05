@@ -433,6 +433,74 @@
             "8_MakingMusic": false,
             "9_ReleaseFirmware": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "bsom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "b5som": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "tracker": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "p2": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "msom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.627Z"

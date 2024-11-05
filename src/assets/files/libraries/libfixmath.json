@@ -143,6 +143,26 @@
           "esomx": {
             "unittests": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "unittests": true
+          },
+          "bsom": {
+            "unittests": true
+          },
+          "b5som": {
+            "unittests": true
+          },
+          "tracker": {
+            "unittests": true
+          },
+          "p2": {
+            "unittests": true
+          },
+          "msom": {
+            "unittests": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.780Z"

@@ -89,6 +89,26 @@
           "esomx": {
             "WriteMultipleVoltages": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "WriteMultipleVoltages": false
+          },
+          "bsom": {
+            "WriteMultipleVoltages": false
+          },
+          "b5som": {
+            "WriteMultipleVoltages": false
+          },
+          "tracker": {
+            "WriteMultipleVoltages": false
+          },
+          "p2": {
+            "WriteMultipleVoltages": false
+          },
+          "msom": {
+            "WriteMultipleVoltages": false
+          }
         }
       },
       "added": "2023-12-31T15:19:34.731Z"

@@ -181,6 +181,32 @@
             "1-master-simple": true,
             "1-slave-simple": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "bsom": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "b5som": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "tracker": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "p2": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "msom": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.863Z"

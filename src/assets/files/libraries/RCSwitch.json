@@ -251,6 +251,44 @@
             "SparkFunction": false,
             "TypeA_WithDIPSwitches": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "bsom": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "b5som": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "tracker": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "p2": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "msom": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.715Z"

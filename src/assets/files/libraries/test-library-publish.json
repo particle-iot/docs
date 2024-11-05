@@ -213,6 +213,38 @@
             "blink-an-led-slower": false,
             "blink-an-led-very-slow": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "bsom": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "b5som": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "tracker": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "p2": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "msom": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          }
         }
       },
       "added": "2023-03-21T18:31:02.514Z"

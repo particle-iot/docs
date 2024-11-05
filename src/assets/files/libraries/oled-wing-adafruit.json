@@ -149,6 +149,26 @@
           "esomx": {
             "1-demo-oled-wing-adafruit": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "bsom": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "b5som": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "tracker": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "p2": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "msom": {
+            "1-demo-oled-wing-adafruit": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.686Z"

@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "Adafruit_DotStarMatrix_RK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/Adafruit_DotStarMatrix_RK/archive/1.0.3.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/Adafruit_DotStarMatrix_RK/archive/1.0.6.tar.gz"
   },
   "attributes": {
     "name": "Adafruit_DotStarMatrix_RK",
-    "version": "1.0.3",
+    "version": "1.0.6",
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit_GFX-compatible library for DotStar grids. Ported by rickkas7.",
@@ -15,6 +15,10 @@
     "architectures": [
       "*"
     ],
+    "dependencies": {
+      "dotstar": "1.0.1",
+      "adafruit-gfx-rk": "1.11.10"
+    },
     "visibility": "public",
     "mine": false
   },
@@ -148,10 +152,86 @@
         }
       },
       "added": "2022-06-17T10:16:53.937Z"
+    },
+    "1.0.6": {
+      "added": "2024-11-03T10:22:28.419Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "dotstar_wing": true
+          },
+          "bsom": {
+            "dotstar_wing": true
+          },
+          "b5som": {
+            "dotstar_wing": true
+          },
+          "tracker": {
+            "dotstar_wing": true
+          },
+          "p2": {
+            "dotstar_wing": true
+          },
+          "msom": {
+            "dotstar_wing": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "dotstar_wing": true
+          },
+          "boron": {
+            "dotstar_wing": true
+          },
+          "bsom": {
+            "dotstar_wing": true
+          },
+          "b5som": {
+            "dotstar_wing": true
+          },
+          "tracker": {
+            "dotstar_wing": true
+          },
+          "p2": {
+            "dotstar_wing": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "dotstar_wing": true
+          },
+          "boron": {
+            "dotstar_wing": true
+          },
+          "bsom": {
+            "dotstar_wing": true
+          },
+          "b5som": {
+            "dotstar_wing": true
+          },
+          "tracker": {
+            "dotstar_wing": true
+          },
+          "esomx": {
+            "dotstar_wing": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "dotstar_wing": false
+          },
+          "electron": {
+            "dotstar_wing": false
+          }
+        }
+      }
     }
   },
-  "readme": "Adafruit_DotStarMatrix.\n=======================\n\n## Particle Port\n\nThis is a Particle Port of the Adafruit_DotStarMatrix for Particle devices. It can be used with 2nd (Photon/P1/Electron/E Series) and 3rd-generation devices (Argon, Boron, Xenon).\n\n## Original README\n\nAdafruit_GFX-compatible library for DotStar matrices and grids. Controls single and tiled DotStar matrices or grids assembled from DotStar LED strip. Requires Adafruit_DotStar and Adafruit_GFX libraries.\n\nAfter downloading, rename folder to 'Adafruit_DotStarMatrix' and install in Arduino Libraries folder. Restart Arduino IDE, then open File->Sketchbook->Library->Adafruit_DotStarMatrix->matrixtest sketch.\n",
+  "readme": "Adafruit_DotStarMatrix.\n=======================\n\n## Particle Port\n\nThis is a Particle Port of the Adafruit_DotStarMatrix for Particle devices. It can be used with 2nd (Photon/P1/Electron/E Series), (3rd-generation devices (Argon, Boron, Xenon), and 4th-generation devices (Photon2/P2)\n\n## Original README\n\nAdafruit_GFX-compatible library for DotStar matrices and grids. Controls single and tiled DotStar matrices or grids assembled from DotStar LED strip. Requires Adafruit_DotStar and Adafruit_GFX libraries.\n\nAfter downloading, rename folder to 'Adafruit_DotStarMatrix' and install in Arduino Libraries folder. Restart Arduino IDE, then open File->Sketchbook->Library->Adafruit_DotStarMatrix->matrixtest sketch.\n",
   "allVersions": [
+    "1.0.6",
+    "1.0.5",
+    "1.0.4",
     "1.0.3",
     "1.0.2"
   ]

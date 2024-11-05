@@ -251,6 +251,44 @@
             "EasyTransfer_RX_Example": false,
             "EasyTransfer_TX_Example": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "bsom": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "b5som": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "tracker": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "p2": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "msom": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.872Z"

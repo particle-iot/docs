@@ -166,6 +166,32 @@
             "Example1_BasicControl": true,
             "Example3_AdvancedWireSettings": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "bsom": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "b5som": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "tracker": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "p2": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": false
+          },
+          "msom": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": false
+          }
         }
       }
     }

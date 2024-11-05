@@ -290,6 +290,62 @@
             "Sparkfun_ADXL345_Graph": false,
             "Sparkfun_ADXL345_Orientation": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "bsom": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "b5som": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "tracker": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "p2": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "msom": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          }
         }
       }
     }

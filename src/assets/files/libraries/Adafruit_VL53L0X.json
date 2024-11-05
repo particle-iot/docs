@@ -143,6 +143,26 @@
           "esomx": {
             "vl53l0x": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "vl53l0x": true
+          },
+          "bsom": {
+            "vl53l0x": true
+          },
+          "b5som": {
+            "vl53l0x": true
+          },
+          "tracker": {
+            "vl53l0x": true
+          },
+          "p2": {
+            "vl53l0x": true
+          },
+          "msom": {
+            "vl53l0x": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.750Z"

@@ -176,6 +176,32 @@
             "Detect_Key": false,
             "Secret_Code": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "bsom": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "b5som": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "tracker": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "p2": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "msom": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.720Z"

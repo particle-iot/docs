@@ -354,6 +354,68 @@
             "DHT20_simple": true,
             "DHT20_test_esp": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "bsom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "b5som": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "tracker": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "p2": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "msom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
         }
       }
     }

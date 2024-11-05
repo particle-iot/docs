@@ -471,6 +471,80 @@
             "Example8_MultiDisplay": false,
             "Example9_ScrollingString": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "bsom": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "b5som": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "tracker": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "p2": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "msom": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.092Z"

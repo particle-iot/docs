@@ -179,6 +179,32 @@
             "2-tft-basic": false,
             "3-tft-graphicstest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "bsom": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "b5som": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "tracker": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "p2": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "msom": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.927Z"

@@ -143,6 +143,26 @@
           "esomx": {
             "mdns": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "p2": {
+            "mdns": false
+          },
+          "msom": {
+            "mdns": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.115Z"

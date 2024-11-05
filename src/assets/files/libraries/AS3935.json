@@ -144,6 +144,26 @@
           "esomx": {
             "serial-detector": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "serial-detector": true
+          },
+          "bsom": {
+            "serial-detector": true
+          },
+          "b5som": {
+            "serial-detector": true
+          },
+          "tracker": {
+            "serial-detector": true
+          },
+          "p2": {
+            "serial-detector": true
+          },
+          "msom": {
+            "serial-detector": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.922Z"

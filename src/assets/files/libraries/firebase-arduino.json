@@ -319,6 +319,56 @@
             "FirebaseStream_ESP8266": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "bsom": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "b5som": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "tracker": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "p2": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "msom": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.120Z"

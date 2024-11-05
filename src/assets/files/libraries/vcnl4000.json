@@ -130,6 +130,26 @@
           "esomx": {
             "VCNLtester": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "VCNLtester": true
+          },
+          "bsom": {
+            "VCNLtester": true
+          },
+          "b5som": {
+            "VCNLtester": true
+          },
+          "tracker": {
+            "VCNLtester": true
+          },
+          "p2": {
+            "VCNLtester": true
+          },
+          "msom": {
+            "VCNLtester": true
+          }
         }
       }
     }

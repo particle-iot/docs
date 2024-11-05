@@ -223,6 +223,32 @@
             "EPaper29b": false,
             "EPaper29bRotate": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "bsom": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "b5som": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "tracker": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "p2": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "msom": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.911Z"

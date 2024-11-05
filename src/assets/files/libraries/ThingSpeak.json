@@ -327,6 +327,56 @@
             "WriteMultipleVoltages": false,
             "WriteVoltage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": true
+          },
+          "bsom": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "b5som": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "tracker": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "p2": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "msom": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.648Z"

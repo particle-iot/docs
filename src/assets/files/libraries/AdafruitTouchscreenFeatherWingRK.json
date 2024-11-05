@@ -180,6 +180,32 @@
             "graphicstest_featherwing": false,
             "touchpaint_featherwing": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "bsom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "b5som": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "tracker": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "p2": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "msom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.846Z"

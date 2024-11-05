@@ -143,6 +143,26 @@
           "esomx": {
             "AutoTune": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AutoTune": false
+          },
+          "bsom": {
+            "AutoTune": false
+          },
+          "b5som": {
+            "AutoTune": false
+          },
+          "tracker": {
+            "AutoTune": false
+          },
+          "p2": {
+            "AutoTune": false
+          },
+          "msom": {
+            "AutoTune": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.788Z"

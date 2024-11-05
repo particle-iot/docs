@@ -143,6 +143,26 @@
           "esomx": {
             "HC_SR04_Variables": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "HC_SR04_Variables": true
+          },
+          "bsom": {
+            "HC_SR04_Variables": true
+          },
+          "b5som": {
+            "HC_SR04_Variables": true
+          },
+          "tracker": {
+            "HC_SR04_Variables": true
+          },
+          "p2": {
+            "HC_SR04_Variables": true
+          },
+          "msom": {
+            "HC_SR04_Variables": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.677Z"

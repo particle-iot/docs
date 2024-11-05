@@ -198,6 +198,38 @@
             "ISL29125Interrupts": true,
             "ISL29125RGBLED": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "bsom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "b5som": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "tracker": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "p2": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "msom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
         }
       }
     }

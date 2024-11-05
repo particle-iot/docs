@@ -186,6 +186,32 @@
             "1-audio-over-tcp": false,
             "2-audio-over-tcp-16bit": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          },
+          "bsom": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          },
+          "b5som": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          },
+          "tracker": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          },
+          "p2": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          },
+          "msom": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.015Z"

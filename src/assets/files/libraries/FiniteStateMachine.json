@@ -180,6 +180,32 @@
             "example": true,
             "typed": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "example": true,
+            "typed": true
+          },
+          "bsom": {
+            "example": true,
+            "typed": true
+          },
+          "b5som": {
+            "example": true,
+            "typed": true
+          },
+          "tracker": {
+            "example": true,
+            "typed": true
+          },
+          "p2": {
+            "example": true,
+            "typed": true
+          },
+          "msom": {
+            "example": true,
+            "typed": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.705Z"

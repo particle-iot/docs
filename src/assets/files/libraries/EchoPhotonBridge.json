@@ -180,6 +180,32 @@
             "garage candles": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "garage candles": false,
+            "usage": false
+          },
+          "bsom": {
+            "garage candles": false,
+            "usage": false
+          },
+          "b5som": {
+            "garage candles": false,
+            "usage": false
+          },
+          "tracker": {
+            "garage candles": false,
+            "usage": false
+          },
+          "p2": {
+            "garage candles": false,
+            "usage": false
+          },
+          "msom": {
+            "garage candles": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.812Z"

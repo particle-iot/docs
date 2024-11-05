@@ -109,6 +109,32 @@
             "mqttUsage": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "bsom": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "b5som": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "tracker": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "p2": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "msom": {
+            "mqttUsage": false,
+            "usage": false
+          }
         }
       },
       "added": "2023-12-31T15:13:29.031Z"

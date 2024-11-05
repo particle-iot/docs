@@ -143,6 +143,26 @@
           "esomx": {
             "Spark_GettingStartedRF24": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Spark_GettingStartedRF24": true
+          },
+          "bsom": {
+            "Spark_GettingStartedRF24": true
+          },
+          "b5som": {
+            "Spark_GettingStartedRF24": true
+          },
+          "tracker": {
+            "Spark_GettingStartedRF24": true
+          },
+          "p2": {
+            "Spark_GettingStartedRF24": true
+          },
+          "msom": {
+            "Spark_GettingStartedRF24": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.953Z"

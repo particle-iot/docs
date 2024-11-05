@@ -179,6 +179,32 @@
             "beakn-sparkcore": false,
             "beakn-sparkcore-onboard-led": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "bsom": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "b5som": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "tracker": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "p2": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "msom": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.037Z"

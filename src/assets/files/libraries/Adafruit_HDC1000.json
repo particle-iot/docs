@@ -179,6 +179,32 @@
             "HDC1000test": false,
             "HDCMonitorExample": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "bsom": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "b5som": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "tracker": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "p2": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "msom": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.852Z"

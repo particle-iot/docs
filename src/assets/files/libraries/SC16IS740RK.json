@@ -331,6 +331,38 @@
             "2-selftest-SC16IS740RK": true,
             "3-simple-spi-SC16IS740RK": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": false,
+            "2-selftest-SC16IS740RK": false,
+            "3-simple-spi-SC16IS740RK": false
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-selftest-SC16IS740RK": false,
+            "3-simple-spi-SC16IS740RK": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-selftest-SC16IS740RK": false,
+            "3-simple-spi-SC16IS740RK": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-selftest-SC16IS740RK": false,
+            "3-simple-spi-SC16IS740RK": false
+          },
+          "p2": {
+            "1-simple": false,
+            "2-selftest-SC16IS740RK": false,
+            "3-simple-spi-SC16IS740RK": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-selftest-SC16IS740RK": false,
+            "3-simple-spi-SC16IS740RK": false
+          }
         }
       }
     }

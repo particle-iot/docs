@@ -322,6 +322,56 @@
             "UdpClient": false,
             "UdpServer": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "bsom": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "b5som": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "tracker": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "p2": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "msom": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          }
         }
       },
       "added": "2023-05-19T20:19:22.021Z"

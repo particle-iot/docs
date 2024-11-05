@@ -179,6 +179,32 @@
             "pwmtest": true,
             "servo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "bsom": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "b5som": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "tracker": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "p2": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "msom": {
+            "pwmtest": true,
+            "servo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.709Z"

@@ -143,6 +143,26 @@
           "esomx": {
             "SimpleServo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SimpleServo": false
+          },
+          "bsom": {
+            "SimpleServo": false
+          },
+          "b5som": {
+            "SimpleServo": false
+          },
+          "tracker": {
+            "SimpleServo": false
+          },
+          "p2": {
+            "SimpleServo": false
+          },
+          "msom": {
+            "SimpleServo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.980Z"

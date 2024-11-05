@@ -262,6 +262,38 @@
             "heartbeat": true,
             "pingpong": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "bsom": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "b5som": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "tracker": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "p2": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "msom": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.804Z"

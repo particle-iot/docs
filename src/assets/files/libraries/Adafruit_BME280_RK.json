@@ -218,6 +218,38 @@
             "i2c_bme280": true,
             "spi_bme280": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "bsom": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "b5som": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "tracker": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "p2": {
+            "i2c_Wire1": false,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "msom": {
+            "i2c_Wire1": false,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.757Z"

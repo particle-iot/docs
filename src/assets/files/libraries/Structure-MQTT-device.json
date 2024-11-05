@@ -143,6 +143,26 @@
           "esomx": {
             "led-temp-example": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "led-temp-example": true
+          },
+          "bsom": {
+            "led-temp-example": true
+          },
+          "b5som": {
+            "led-temp-example": true
+          },
+          "tracker": {
+            "led-temp-example": true
+          },
+          "p2": {
+            "led-temp-example": true
+          },
+          "msom": {
+            "led-temp-example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.024Z"

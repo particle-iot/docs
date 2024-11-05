@@ -211,6 +211,38 @@
             "gesture_sensor": true,
             "proximity_sensor": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "bsom": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "b5som": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "tracker": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "p2": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "msom": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.857Z"

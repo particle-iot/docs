@@ -398,6 +398,68 @@
             "Example7_AdvanceWire": false,
             "Example8_Interrupts": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "bsom": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "b5som": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "tracker": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "p2": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "msom": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.981Z"

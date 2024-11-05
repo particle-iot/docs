@@ -183,6 +183,32 @@
             "Address_Scanner": false,
             "DS18x20_Temperature": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "bsom": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "b5som": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "tracker": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "p2": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "msom": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.631Z"

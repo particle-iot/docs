@@ -179,6 +179,32 @@
             "listener": false,
             "panel2": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "listener": false,
+            "panel2": false
+          },
+          "bsom": {
+            "listener": false,
+            "panel2": false
+          },
+          "b5som": {
+            "listener": false,
+            "panel2": false
+          },
+          "tracker": {
+            "listener": false,
+            "panel2": false
+          },
+          "p2": {
+            "listener": false,
+            "panel2": false
+          },
+          "msom": {
+            "listener": false,
+            "panel2": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.101Z"

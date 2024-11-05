@@ -675,6 +675,56 @@
             "5-cellular-global-identity": true,
             "6-no-cellular-test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-show-carriers": true,
+            "3-select-carrier": true,
+            "4-cell-locate": true,
+            "5-cellular-global-identity": true,
+            "6-no-cellular-test": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-show-carriers": true,
+            "3-select-carrier": true,
+            "4-cell-locate": true,
+            "5-cellular-global-identity": true,
+            "6-no-cellular-test": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-show-carriers": true,
+            "3-select-carrier": true,
+            "4-cell-locate": true,
+            "5-cellular-global-identity": true,
+            "6-no-cellular-test": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-show-carriers": true,
+            "3-select-carrier": true,
+            "4-cell-locate": true,
+            "5-cellular-global-identity": true,
+            "6-no-cellular-test": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-show-carriers": false,
+            "3-select-carrier": false,
+            "4-cell-locate": false,
+            "5-cellular-global-identity": false,
+            "6-no-cellular-test": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-show-carriers": true,
+            "3-select-carrier": true,
+            "4-cell-locate": true,
+            "5-cellular-global-identity": true,
+            "6-no-cellular-test": true
+          }
         }
       }
     }

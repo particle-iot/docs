@@ -215,6 +215,38 @@
             "send-osc": false,
             "send-receive-osc": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "bsom": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "b5som": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "tracker": {
+            "receive-osc": false,
+            "send-osc": true,
+            "send-receive-osc": false
+          },
+          "p2": {
+            "receive-osc": true,
+            "send-osc": true,
+            "send-receive-osc": true
+          },
+          "msom": {
+            "receive-osc": true,
+            "send-osc": true,
+            "send-receive-osc": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.779Z"

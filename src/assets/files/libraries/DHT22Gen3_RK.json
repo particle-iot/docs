@@ -253,6 +253,44 @@
             "3-publish": true,
             "4-simple-DHT11": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "p2": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.834Z"

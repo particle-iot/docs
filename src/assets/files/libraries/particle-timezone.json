@@ -180,6 +180,32 @@
             "1_timezone_simple": false,
             "2_timezone_advanced": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_timezone_simple": false,
+            "2_timezone_advanced": false
+          },
+          "bsom": {
+            "1_timezone_simple": false,
+            "2_timezone_advanced": false
+          },
+          "b5som": {
+            "1_timezone_simple": false,
+            "2_timezone_advanced": false
+          },
+          "tracker": {
+            "1_timezone_simple": true,
+            "2_timezone_advanced": true
+          },
+          "p2": {
+            "1_timezone_simple": true,
+            "2_timezone_advanced": true
+          },
+          "msom": {
+            "1_timezone_simple": true,
+            "2_timezone_advanced": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.785Z"

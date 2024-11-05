@@ -143,6 +143,26 @@
           "esomx": {
             "dnslookup": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "dnslookup": false
+          },
+          "bsom": {
+            "dnslookup": false
+          },
+          "b5som": {
+            "dnslookup": false
+          },
+          "tracker": {
+            "dnslookup": false
+          },
+          "p2": {
+            "dnslookup": false
+          },
+          "msom": {
+            "dnslookup": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.037Z"

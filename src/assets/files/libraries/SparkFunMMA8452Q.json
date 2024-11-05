@@ -143,6 +143,26 @@
           "esomx": {
             "MMA8452Q-Serial_Example": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "bsom": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "b5som": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "tracker": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "p2": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "msom": {
+            "MMA8452Q-Serial_Example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.691Z"

@@ -179,6 +179,32 @@
             "GroveColorSensorDemo": true,
             "MUXandTwoSensorsDemo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "bsom": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "b5som": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "tracker": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "p2": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "msom": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.098Z"

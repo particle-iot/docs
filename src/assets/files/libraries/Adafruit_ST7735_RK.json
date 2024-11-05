@@ -216,6 +216,32 @@
             "BuildTest": true,
             "graphicstest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BuildTest": true,
+            "graphicstest": true
+          },
+          "bsom": {
+            "BuildTest": true,
+            "graphicstest": true
+          },
+          "b5som": {
+            "BuildTest": true,
+            "graphicstest": true
+          },
+          "tracker": {
+            "BuildTest": true,
+            "graphicstest": true
+          },
+          "p2": {
+            "BuildTest": true,
+            "graphicstest": true
+          },
+          "msom": {
+            "BuildTest": true,
+            "graphicstest": true
+          }
         }
       }
     }

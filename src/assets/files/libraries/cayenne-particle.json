@@ -143,6 +143,26 @@
           "esomx": {
             "01_Cayenne": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01_Cayenne": true
+          },
+          "bsom": {
+            "01_Cayenne": true
+          },
+          "b5som": {
+            "01_Cayenne": true
+          },
+          "tracker": {
+            "01_Cayenne": true
+          },
+          "p2": {
+            "01_Cayenne": true
+          },
+          "msom": {
+            "01_Cayenne": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.851Z"

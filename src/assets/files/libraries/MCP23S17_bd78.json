@@ -143,6 +143,26 @@
           "esomx": {
             "writewords": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "writewords": true
+          },
+          "bsom": {
+            "writewords": true
+          },
+          "b5som": {
+            "writewords": true
+          },
+          "tracker": {
+            "writewords": true
+          },
+          "p2": {
+            "writewords": true
+          },
+          "msom": {
+            "writewords": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.790Z"

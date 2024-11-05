@@ -179,6 +179,32 @@
             "button": false,
             "toggle": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "button": false,
+            "toggle": false
+          },
+          "bsom": {
+            "button": false,
+            "toggle": false
+          },
+          "b5som": {
+            "button": false,
+            "toggle": false
+          },
+          "tracker": {
+            "button": false,
+            "toggle": false
+          },
+          "p2": {
+            "button": true,
+            "toggle": true
+          },
+          "msom": {
+            "button": true,
+            "toggle": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.861Z"

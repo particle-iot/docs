@@ -75,6 +75,26 @@
           "electron": {
             "1-automated-test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-automated-test": true
+          },
+          "bsom": {
+            "1-automated-test": true
+          },
+          "b5som": {
+            "1-automated-test": true
+          },
+          "tracker": {
+            "1-automated-test": true
+          },
+          "p2": {
+            "1-automated-test": true
+          },
+          "msom": {
+            "1-automated-test": true
+          }
         }
       }
     }

@@ -179,6 +179,32 @@
             "BreakoutTouchPaint": false,
             "TouchScreenDemo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "bsom": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "p2": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "msom": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.801Z"

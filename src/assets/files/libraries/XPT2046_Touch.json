@@ -143,6 +143,26 @@
           "esomx": {
             "with_serial": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "with_serial": true
+          },
+          "bsom": {
+            "with_serial": true
+          },
+          "b5som": {
+            "with_serial": true
+          },
+          "tracker": {
+            "with_serial": true
+          },
+          "p2": {
+            "with_serial": true
+          },
+          "msom": {
+            "with_serial": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.824Z"

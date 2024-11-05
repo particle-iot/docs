@@ -179,6 +179,32 @@
             "1_Reading_Temperature": true,
             "2_Publishing_Temperature": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "bsom": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "b5som": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "tracker": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "p2": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "msom": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.905Z"

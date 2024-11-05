@@ -143,6 +143,26 @@
           "esomx": {
             "1_SimpleMonitor": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_SimpleMonitor": false
+          },
+          "bsom": {
+            "1_SimpleMonitor": false
+          },
+          "b5som": {
+            "1_SimpleMonitor": false
+          },
+          "tracker": {
+            "1_SimpleMonitor": false
+          },
+          "p2": {
+            "1_SimpleMonitor": false
+          },
+          "msom": {
+            "1_SimpleMonitor": false
+          }
         }
       },
       "added": "2023-03-21T18:30:11.690Z"

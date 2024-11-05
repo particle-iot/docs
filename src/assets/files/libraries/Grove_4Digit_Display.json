@@ -147,6 +147,26 @@
           "esomx": {
             "NumberFlow": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "NumberFlow": true
+          },
+          "bsom": {
+            "NumberFlow": true
+          },
+          "b5som": {
+            "NumberFlow": true
+          },
+          "tracker": {
+            "NumberFlow": true
+          },
+          "p2": {
+            "NumberFlow": true
+          },
+          "msom": {
+            "NumberFlow": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.695Z"

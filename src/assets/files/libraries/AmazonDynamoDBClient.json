@@ -179,6 +179,32 @@
             "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
             "application": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "bsom": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "b5som": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "tracker": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "p2": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "msom": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.062Z"

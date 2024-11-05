@@ -251,6 +251,44 @@
             "3-reliable-datagram-server": false,
             "4-reliable-datagram-client": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "bsom": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "b5som": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "tracker": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "p2": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "msom": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.759Z"

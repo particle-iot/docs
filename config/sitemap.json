@@ -1155,8 +1155,8 @@
             "hash": "f998b77b51d9a121db7e614f2a666307e5878968f7b1e573769d2412a41f8239"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2024-10-28",
-            "hash": "5e311c8f845ec5c295faad9da246e8ecb20261587b2341029170f96f4ec55ae0"
+            "date": "2024-11-05",
+            "hash": "d91629ebb1cee06b2dbdb9c38bc9c9f83623f5e2e3b2901a9a8f6c79eaf31c95"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -4579,8 +4579,8 @@
             "hash": "6210d42c800c8292aee692e25ec71de6c42aa91aeb464f9b163f6a72b350946d"
         },
         "reference/device-os/libraries/a/Adafruit_DotStarMatrix_RK.md": {
-            "date": "2024-08-28",
-            "hash": "911f89e54105e1e678d5dc7a5d8fcb181b095f89b955c8bd4a2cbfaa132fe62b"
+            "date": "2024-11-05",
+            "hash": "42be579b833ee1648c71e2d8d324388fa086a7d113e39e9d125de24554257cf4"
         },
         "reference/device-os/libraries/a/Adafruit_EPD_RK.md": {
             "date": "2024-08-28",
@@ -5591,8 +5591,8 @@
             "hash": "dd1bf1544c07e2d205ab81778af8554cbd05011f3664812a3c50efdecb95afec"
         },
         "reference/device-os/libraries/d/dotstar.md": {
-            "date": "2024-08-28",
-            "hash": "d3c344edd9d1671a804df1d3d1e78dea21e45a6088228f681dcbff9394b0e6b6"
+            "date": "2024-11-05",
+            "hash": "013f418d8ca0bd5da5e704cbe83173a6d7d155b158613c59b6f280499efbacc1"
         },
         "reference/device-os/libraries/d/drops.md": {
             "date": "2024-08-28",
@@ -5831,8 +5831,8 @@
             "hash": "decaa72925958a206184a23cc94b1f9d1326366b43a99c0ace2279ea66c51e77"
         },
         "reference/device-os/libraries/g/google-maps-device-locator.md": {
-            "date": "2024-08-28",
-            "hash": "74674baa9375489457994ae418abbc21a5ebb26e7364b38982f04166c508ffaf"
+            "date": "2024-11-05",
+            "hash": "117d0cf2c1f693eb2368aa7b7bbfb23ad21777cdaafd7ad3efe968d586d827a2"
         },
         "reference/device-os/libraries/g/GoUrbanAssetTracker.md": {
             "date": "2024-08-28",
@@ -6431,8 +6431,8 @@
             "hash": "499e21c13267694b4105abee15899c01ede6a05b77a8e4106c2674cb7b5bfd8e"
         },
         "reference/device-os/libraries/m/Microphone_PDM.md": {
-            "date": "2024-11-01",
-            "hash": "bc97071cab76a29e921e00068536accbb987499c111cdaf744e51988bd2b8700"
+            "date": "2024-11-05",
+            "hash": "d917859cc949663aa843aa447dab5f8fa5e9363c639aba8c17ac8069c7161f6e"
         },
         "reference/device-os/libraries/m/MiniShift-Particle.md": {
             "date": "2024-08-28",
@@ -9469,6 +9469,22 @@
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
             "hash": "17cdd0f1af3811a8312065fe4d18dc85f2d1bcba7afafcb8e7c5882ea43d71ba",
             "date": "2024-10-31"
+        },
+        "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
+            "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
+            "date": "2024-11-05"
+        },
+        "reference/device-os/libraries/l/LTR559_RK.md": {
+            "hash": "17d25213682e13d806d95865cced84f24674934ab148f2b243979a33af0360eb",
+            "date": "2024-11-05"
+        },
+        "reference/device-os/libraries/p/PMS5003_RK.md": {
+            "hash": "fcd57c0bd004c15b82db5052dec70c8be60c795d9a81955feacd7d124ce12a62",
+            "date": "2024-11-05"
+        },
+        "reference/device-os/libraries/s/SN3218_RK.md": {
+            "hash": "26442a825c31828e1725cc20a3e013e4911848dcf417c2fe365b266f05073f77",
+            "date": "2024-11-05"
         }
     }
 }

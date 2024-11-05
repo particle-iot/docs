@@ -147,6 +147,26 @@
           "esomx": {
             "I2c7SegmentLedDemo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "I2c7SegmentLedDemo": true
+          },
+          "bsom": {
+            "I2c7SegmentLedDemo": true
+          },
+          "b5som": {
+            "I2c7SegmentLedDemo": true
+          },
+          "tracker": {
+            "I2c7SegmentLedDemo": true
+          },
+          "p2": {
+            "I2c7SegmentLedDemo": true
+          },
+          "msom": {
+            "I2c7SegmentLedDemo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.049Z"

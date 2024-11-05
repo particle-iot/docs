@@ -1,0 +1,123 @@
+{
+  "type": "libraries",
+  "id": "SN3218_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SN3218_RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SN3218_RK",
+    "version": "0.0.1",
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
+    "sentence": "SN3218 LED driver library for Particle",
+    "url": "https://github.com/rickkas7/SN3218_RK",
+    "repository": "https://github.com/rickkas7/SN3218_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SN3218_RK",
+  "versions": {
+    "0.0.1": {
+      "added": "2024-11-04T01:55:40.025Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "selftest": true,
+            "simple": true
+          },
+          "bsom": {
+            "selftest": true,
+            "simple": true
+          },
+          "b5som": {
+            "selftest": true,
+            "simple": true
+          },
+          "tracker": {
+            "selftest": true,
+            "simple": true
+          },
+          "p2": {
+            "selftest": true,
+            "simple": true
+          },
+          "msom": {
+            "selftest": true,
+            "simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "selftest": true,
+            "simple": true
+          },
+          "boron": {
+            "selftest": true,
+            "simple": true
+          },
+          "bsom": {
+            "selftest": true,
+            "simple": true
+          },
+          "b5som": {
+            "selftest": true,
+            "simple": true
+          },
+          "tracker": {
+            "selftest": true,
+            "simple": true
+          },
+          "p2": {
+            "selftest": true,
+            "simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "selftest": true,
+            "simple": true
+          },
+          "boron": {
+            "selftest": true,
+            "simple": true
+          },
+          "bsom": {
+            "selftest": true,
+            "simple": true
+          },
+          "b5som": {
+            "selftest": true,
+            "simple": true
+          },
+          "tracker": {
+            "selftest": true,
+            "simple": true
+          },
+          "esomx": {
+            "selftest": true,
+            "simple": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "selftest": true,
+            "simple": true
+          },
+          "electron": {
+            "selftest": true,
+            "simple": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SN3218_RK\n\n*SN3218 LED driver library for Particle*\n\n- Github: https://github.com/rickkas7/SN3218_RK\n- License: MIT\n\nSee the examples and the browseable API documentation for additional information.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

@@ -313,6 +313,26 @@
           "electron": {
             "2-test-suite": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "2-test-suite": true
+          },
+          "bsom": {
+            "2-test-suite": true
+          },
+          "b5som": {
+            "2-test-suite": true
+          },
+          "tracker": {
+            "2-test-suite": true
+          },
+          "p2": {
+            "2-test-suite": true
+          },
+          "msom": {
+            "2-test-suite": true
+          }
         }
       }
     }

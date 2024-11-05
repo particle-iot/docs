@@ -146,6 +146,26 @@
           "esomx": {
             "SHTC3test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SHTC3test": false
+          },
+          "bsom": {
+            "SHTC3test": false
+          },
+          "b5som": {
+            "SHTC3test": false
+          },
+          "tracker": {
+            "SHTC3test": false
+          },
+          "p2": {
+            "SHTC3test": false
+          },
+          "msom": {
+            "SHTC3test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.049Z"

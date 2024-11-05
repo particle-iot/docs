@@ -326,6 +326,56 @@
             "Example5-I2C_Scanner": true,
             "Example6_Change_I2C_Address": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "bsom": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "b5som": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "tracker": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "p2": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "msom": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.953Z"

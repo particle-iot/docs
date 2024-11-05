@@ -143,6 +143,26 @@
           "esomx": {
             "RHT03-Example-Serial": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "RHT03-Example-Serial": true
+          },
+          "bsom": {
+            "RHT03-Example-Serial": true
+          },
+          "b5som": {
+            "RHT03-Example-Serial": true
+          },
+          "tracker": {
+            "RHT03-Example-Serial": true
+          },
+          "p2": {
+            "RHT03-Example-Serial": true
+          },
+          "msom": {
+            "RHT03-Example-Serial": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.697Z"

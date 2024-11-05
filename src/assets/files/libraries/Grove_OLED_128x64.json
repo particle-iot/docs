@@ -468,6 +468,80 @@
             "ScrollLeft": true,
             "ScrollRight": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "bsom": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "b5som": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "tracker": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "p2": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "msom": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.712Z"

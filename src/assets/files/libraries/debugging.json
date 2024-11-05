@@ -284,6 +284,50 @@
             "test-vbat": false,
             "wifi": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "bsom": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "b5som": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "tracker": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "p2": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "msom": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.081Z"

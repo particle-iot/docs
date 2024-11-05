@@ -181,6 +181,32 @@
             "1-simple": true,
             "2-thermostat-interrupt": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.078Z"

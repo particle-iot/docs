@@ -143,6 +143,26 @@
           "esomx": {
             "LCDTest_ST7565": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "LCDTest_ST7565": false
+          },
+          "bsom": {
+            "LCDTest_ST7565": false
+          },
+          "b5som": {
+            "LCDTest_ST7565": false
+          },
+          "tracker": {
+            "LCDTest_ST7565": false
+          },
+          "p2": {
+            "LCDTest_ST7565": false
+          },
+          "msom": {
+            "LCDTest_ST7565": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.968Z"

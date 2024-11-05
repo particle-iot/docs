@@ -218,6 +218,38 @@
             "BQ27441_GPOUT_BAT_LOW": true,
             "BQ27441_GPOUT_SOC_INT": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "bsom": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "b5som": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "tracker": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "p2": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "msom": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.975Z"

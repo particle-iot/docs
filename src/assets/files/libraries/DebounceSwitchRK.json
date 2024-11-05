@@ -469,6 +469,80 @@
             "09-class-member-polling": false,
             "10-per-switch-config": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "bsom": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "b5som": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "tracker": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "p2": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "msom": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.031Z"

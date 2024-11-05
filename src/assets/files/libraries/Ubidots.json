@@ -512,6 +512,86 @@
             "SendValuesUDP": true,
             "sendValuesWithTimestamp": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "bsom": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "b5som": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "tracker": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "p2": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "msom": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.645Z"

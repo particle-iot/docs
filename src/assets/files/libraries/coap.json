@@ -272,6 +272,32 @@
             "coapserver": true,
             "coaptest": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "bsom": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "b5som": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "tracker": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "p2": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "msom": {
+            "coapserver": true,
+            "coaptest": true
+          }
         }
       }
     }

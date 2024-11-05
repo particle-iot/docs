@@ -145,6 +145,26 @@
           "esomx": {
             "1-simple-DeviceKeyHelperRK": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple-DeviceKeyHelperRK": false
+          },
+          "bsom": {
+            "1-simple-DeviceKeyHelperRK": false
+          },
+          "b5som": {
+            "1-simple-DeviceKeyHelperRK": false
+          },
+          "tracker": {
+            "1-simple-DeviceKeyHelperRK": false
+          },
+          "p2": {
+            "1-simple-DeviceKeyHelperRK": false
+          },
+          "msom": {
+            "1-simple-DeviceKeyHelperRK": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.833Z"

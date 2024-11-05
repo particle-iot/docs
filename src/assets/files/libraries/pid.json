@@ -218,6 +218,38 @@
             "PID_Basic": true,
             "PID_RelayOutput": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "bsom": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "b5som": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "tracker": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "p2": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "msom": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.678Z"

@@ -290,6 +290,50 @@
             "singleshotmode": false,
             "whoiam": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "bsom": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "b5som": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "tracker": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "p2": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "msom": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.902Z"

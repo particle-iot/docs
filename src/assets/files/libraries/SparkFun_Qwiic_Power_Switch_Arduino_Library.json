@@ -134,6 +134,26 @@
           "esomx": {
             "Example1_PowerOnOff": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_PowerOnOff": true
+          },
+          "bsom": {
+            "Example1_PowerOnOff": true
+          },
+          "b5som": {
+            "Example1_PowerOnOff": true
+          },
+          "tracker": {
+            "Example1_PowerOnOff": true
+          },
+          "p2": {
+            "Example1_PowerOnOff": true
+          },
+          "msom": {
+            "Example1_PowerOnOff": true
+          }
         }
       }
     }

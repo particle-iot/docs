@@ -323,6 +323,56 @@
             "flash_example": true,
             "pulse_example": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "bsom": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "b5som": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "tracker": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "p2": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "msom": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.732Z"

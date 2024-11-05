@@ -221,6 +221,32 @@
             "1-simple": true,
             "2-tester": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-tester": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.828Z"

@@ -147,6 +147,26 @@
           "esomx": {
             "Steinhart-Thermistor": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Steinhart-Thermistor": true
+          },
+          "bsom": {
+            "Steinhart-Thermistor": true
+          },
+          "b5som": {
+            "Steinhart-Thermistor": true
+          },
+          "tracker": {
+            "Steinhart-Thermistor": true
+          },
+          "p2": {
+            "Steinhart-Thermistor": true
+          },
+          "msom": {
+            "Steinhart-Thermistor": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.993Z"

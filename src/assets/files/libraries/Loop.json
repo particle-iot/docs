@@ -179,6 +179,32 @@
             "loop_example": false,
             "test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "loop_example": false,
+            "test": true
+          },
+          "bsom": {
+            "loop_example": false,
+            "test": true
+          },
+          "b5som": {
+            "loop_example": false,
+            "test": true
+          },
+          "tracker": {
+            "loop_example": false,
+            "test": true
+          },
+          "p2": {
+            "loop_example": false,
+            "test": true
+          },
+          "msom": {
+            "loop_example": false,
+            "test": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.008Z"

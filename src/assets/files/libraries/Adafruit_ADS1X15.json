@@ -215,6 +215,38 @@
             "differential": true,
             "singleended": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "bsom": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "b5som": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "tracker": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "p2": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "msom": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.688Z"

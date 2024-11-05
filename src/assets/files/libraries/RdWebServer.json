@@ -218,6 +218,38 @@
             "Particle_RdWebServerRateTest": false,
             "Particle_RdWebServerTest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "bsom": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "b5som": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "tracker": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "p2": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          },
+          "msom": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.884Z"

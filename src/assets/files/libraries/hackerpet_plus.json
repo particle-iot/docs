@@ -237,6 +237,26 @@
           "electron": {
             "main": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "main": false
+          },
+          "bsom": {
+            "main": false
+          },
+          "b5som": {
+            "main": false
+          },
+          "tracker": {
+            "main": false
+          },
+          "p2": {
+            "main": false
+          },
+          "msom": {
+            "main": false
+          }
         }
       }
     }

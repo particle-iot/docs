@@ -164,6 +164,32 @@
             "1-simple": false,
             "2-alarm": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": false,
+            "2-alarm": false
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-alarm": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-alarm": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-alarm": false
+          },
+          "p2": {
+            "1-simple": false,
+            "2-alarm": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-alarm": false
+          }
         }
       }
     }

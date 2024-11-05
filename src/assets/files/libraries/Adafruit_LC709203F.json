@@ -87,6 +87,32 @@
             "LC709203F_demo": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "LC709203F_demo": false,
+            "usage": false
+          },
+          "bsom": {
+            "LC709203F_demo": false,
+            "usage": false
+          },
+          "b5som": {
+            "LC709203F_demo": false,
+            "usage": false
+          },
+          "tracker": {
+            "LC709203F_demo": false,
+            "usage": false
+          },
+          "p2": {
+            "LC709203F_demo": false,
+            "usage": false
+          },
+          "msom": {
+            "LC709203F_demo": false,
+            "usage": false
+          }
         }
       }
     }

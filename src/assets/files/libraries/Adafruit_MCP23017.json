@@ -215,6 +215,38 @@
             "interrupt": false,
             "toggle": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "bsom": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "b5som": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "tracker": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "p2": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "msom": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.654Z"

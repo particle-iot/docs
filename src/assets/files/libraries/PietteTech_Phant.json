@@ -89,6 +89,26 @@
           "esomx": {
             "phanttest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "phanttest": false
+          },
+          "bsom": {
+            "phanttest": false
+          },
+          "b5som": {
+            "phanttest": false
+          },
+          "tracker": {
+            "phanttest": false
+          },
+          "p2": {
+            "phanttest": true
+          },
+          "msom": {
+            "phanttest": true
+          }
         }
       },
       "added": "2024-06-05T18:16:40.871Z"

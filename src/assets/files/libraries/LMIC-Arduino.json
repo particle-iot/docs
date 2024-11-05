@@ -216,6 +216,38 @@
             "ttn-abp": false,
             "ttn-otaa": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "bsom": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "b5som": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "tracker": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "p2": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "msom": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.095Z"

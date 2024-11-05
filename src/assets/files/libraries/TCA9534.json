@@ -152,6 +152,26 @@
           "esomx": {
             "TCA_example": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "TCA_example": true
+          },
+          "bsom": {
+            "TCA_example": true
+          },
+          "b5som": {
+            "TCA_example": true
+          },
+          "tracker": {
+            "TCA_example": true
+          },
+          "p2": {
+            "TCA_example": true
+          },
+          "msom": {
+            "TCA_example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.929Z"

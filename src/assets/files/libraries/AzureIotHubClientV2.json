@@ -180,6 +180,32 @@
             "AzureIotHub-Full": false,
             "AzureIotHub-Simple": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "bsom": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "b5som": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "tracker": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "p2": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "msom": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.752Z"

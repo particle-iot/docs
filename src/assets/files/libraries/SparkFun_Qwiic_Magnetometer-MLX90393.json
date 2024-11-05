@@ -165,6 +165,32 @@
             "Example1-BasicReadings": true,
             "Example2-ConfigureSensor": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "msom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
         }
       }
     }

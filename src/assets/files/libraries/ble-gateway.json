@@ -215,6 +215,38 @@
             "tracker-bike_speed-heartrate": false,
             "veepeak": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "bsom": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "b5som": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "tracker": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "p2": {
+            "masterbuilt-smoker": false,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "msom": {
+            "masterbuilt-smoker": false,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.056Z"

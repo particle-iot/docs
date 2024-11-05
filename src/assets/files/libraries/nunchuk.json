@@ -144,6 +144,26 @@
           "esomx": {
             "wiichuk-demo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "wiichuk-demo": true
+          },
+          "bsom": {
+            "wiichuk-demo": true
+          },
+          "b5som": {
+            "wiichuk-demo": true
+          },
+          "tracker": {
+            "wiichuk-demo": true
+          },
+          "p2": {
+            "wiichuk-demo": true
+          },
+          "msom": {
+            "wiichuk-demo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.037Z"

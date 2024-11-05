@@ -151,6 +151,26 @@
           "esomx": {
             "getTempAndHumidity": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "getTempAndHumidity": false
+          },
+          "bsom": {
+            "getTempAndHumidity": false
+          },
+          "b5som": {
+            "getTempAndHumidity": false
+          },
+          "tracker": {
+            "getTempAndHumidity": false
+          },
+          "p2": {
+            "getTempAndHumidity": false
+          },
+          "msom": {
+            "getTempAndHumidity": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.793Z"

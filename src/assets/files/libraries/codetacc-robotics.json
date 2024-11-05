@@ -323,6 +323,56 @@
             "5_states": true,
             "6_servos": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "bsom": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "b5som": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "tracker": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "p2": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "msom": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.065Z"

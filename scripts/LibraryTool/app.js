@@ -19,6 +19,10 @@ const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), '
 
 const targetInfo = [
     {
+        version: '6.2.0',
+        platforms: ['boron', 'bsom', 'b5som', 'tracker', 'p2', 'msom'],
+    },
+    {
         version: '5.6.0',
         platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'p2'],
     },

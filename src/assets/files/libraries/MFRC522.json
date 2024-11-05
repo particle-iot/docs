@@ -297,6 +297,38 @@
             "MifareClassicValueBlock": true,
             "ReadAndWrite": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "bsom": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "b5som": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "tracker": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "p2": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "msom": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          }
         }
       }
     }

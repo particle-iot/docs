@@ -179,6 +179,32 @@
             "dmd_clock_readout": false,
             "dmd_demo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "bsom": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "b5som": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "tracker": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "p2": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "msom": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.942Z"

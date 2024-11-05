@@ -215,6 +215,38 @@
             "genieParticle_Demo_MultiScreen": false,
             "genieParticle_WriteStr_Demo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "bsom": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "b5som": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "tracker": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "p2": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "msom": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.760Z"

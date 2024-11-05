@@ -145,6 +145,26 @@
           "esomx": {
             "1-simple-apn": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple-apn": true
+          },
+          "bsom": {
+            "1-simple-apn": true
+          },
+          "b5som": {
+            "1-simple-apn": true
+          },
+          "tracker": {
+            "1-simple-apn": true
+          },
+          "p2": {
+            "1-simple-apn": false
+          },
+          "msom": {
+            "1-simple-apn": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.767Z"

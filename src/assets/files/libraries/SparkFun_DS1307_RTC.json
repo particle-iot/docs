@@ -146,6 +146,26 @@
           "esomx": {
             "DS1307_RTC_Demo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DS1307_RTC_Demo": false
+          },
+          "bsom": {
+            "DS1307_RTC_Demo": false
+          },
+          "b5som": {
+            "DS1307_RTC_Demo": false
+          },
+          "tracker": {
+            "DS1307_RTC_Demo": false
+          },
+          "p2": {
+            "DS1307_RTC_Demo": false
+          },
+          "msom": {
+            "DS1307_RTC_Demo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.016Z"

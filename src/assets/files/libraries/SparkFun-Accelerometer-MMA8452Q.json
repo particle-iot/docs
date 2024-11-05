@@ -146,6 +146,26 @@
           "esomx": {
             "SparkFun_MMA8452Q_Basic": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "bsom": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "b5som": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "tracker": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "p2": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "msom": {
+            "SparkFun_MMA8452Q_Basic": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.825Z"

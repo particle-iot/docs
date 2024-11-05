@@ -143,6 +143,26 @@
           "esomx": {
             "Fade": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Fade": true
+          },
+          "bsom": {
+            "Fade": true
+          },
+          "b5som": {
+            "Fade": true
+          },
+          "tracker": {
+            "Fade": true
+          },
+          "p2": {
+            "Fade": true
+          },
+          "msom": {
+            "Fade": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.018Z"

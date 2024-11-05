@@ -399,6 +399,68 @@
             "player_simple": false,
             "record_ogg": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "bsom": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "b5som": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "tracker": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "p2": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "msom": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.827Z"

@@ -126,6 +126,26 @@
           "esomx": {
             "tlc59711test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "tlc59711test": true
+          },
+          "bsom": {
+            "tlc59711test": true
+          },
+          "b5som": {
+            "tlc59711test": true
+          },
+          "tracker": {
+            "tlc59711test": true
+          },
+          "p2": {
+            "tlc59711test": true
+          },
+          "msom": {
+            "tlc59711test": true
+          }
         }
       }
     }

@@ -147,6 +147,26 @@
           "esomx": {
             "I2cCharDisplayDemo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "I2cCharDisplayDemo": true
+          },
+          "bsom": {
+            "I2cCharDisplayDemo": true
+          },
+          "b5som": {
+            "I2cCharDisplayDemo": true
+          },
+          "tracker": {
+            "I2cCharDisplayDemo": true
+          },
+          "p2": {
+            "I2cCharDisplayDemo": true
+          },
+          "msom": {
+            "I2cCharDisplayDemo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.861Z"

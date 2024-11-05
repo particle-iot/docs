@@ -184,6 +184,32 @@
             "AirQualityWingExample": false,
             "CanaryExample": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "bsom": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "b5som": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "tracker": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "p2": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "msom": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.939Z"

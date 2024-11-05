@@ -143,6 +143,26 @@
           "esomx": {
             "PulseSensorAmped_Arduino_1dot4": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "bsom": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "b5som": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "tracker": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "p2": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "msom": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.734Z"

@@ -212,6 +212,38 @@
             "FPS_Enroll": false,
             "FPS_IDFinger": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "bsom": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "b5som": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "tracker": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "p2": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "msom": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.885Z"

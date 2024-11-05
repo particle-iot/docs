@@ -143,6 +143,26 @@
           "esomx": {
             "1_RGBPongClock": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_RGBPongClock": false
+          },
+          "bsom": {
+            "1_RGBPongClock": false
+          },
+          "b5som": {
+            "1_RGBPongClock": false
+          },
+          "tracker": {
+            "1_RGBPongClock": false
+          },
+          "p2": {
+            "1_RGBPongClock": false
+          },
+          "msom": {
+            "1_RGBPongClock": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.922Z"

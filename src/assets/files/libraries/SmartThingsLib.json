@@ -181,6 +181,32 @@
             "smartbit": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "smartbit": false,
+            "usage": false
+          },
+          "bsom": {
+            "smartbit": false,
+            "usage": false
+          },
+          "b5som": {
+            "smartbit": false,
+            "usage": false
+          },
+          "tracker": {
+            "smartbit": false,
+            "usage": false
+          },
+          "p2": {
+            "smartbit": false,
+            "usage": false
+          },
+          "msom": {
+            "smartbit": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.108Z"

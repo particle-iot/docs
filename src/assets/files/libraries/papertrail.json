@@ -148,6 +148,26 @@
           "esomx": {
             "01_simple_papertrail": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01_simple_papertrail": true
+          },
+          "bsom": {
+            "01_simple_papertrail": true
+          },
+          "b5som": {
+            "01_simple_papertrail": true
+          },
+          "tracker": {
+            "01_simple_papertrail": true
+          },
+          "p2": {
+            "01_simple_papertrail": true
+          },
+          "msom": {
+            "01_simple_papertrail": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.693Z"

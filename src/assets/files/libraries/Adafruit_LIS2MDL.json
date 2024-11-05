@@ -229,6 +229,44 @@
             "compass": false,
             "magsensor": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "LSM303AGR_oled": false,
+            "calibration": false,
+            "compass": false,
+            "magsensor": false
+          },
+          "bsom": {
+            "LSM303AGR_oled": false,
+            "calibration": false,
+            "compass": false,
+            "magsensor": false
+          },
+          "b5som": {
+            "LSM303AGR_oled": false,
+            "calibration": false,
+            "compass": false,
+            "magsensor": false
+          },
+          "tracker": {
+            "LSM303AGR_oled": false,
+            "calibration": false,
+            "compass": false,
+            "magsensor": false
+          },
+          "p2": {
+            "LSM303AGR_oled": false,
+            "calibration": false,
+            "compass": false,
+            "magsensor": false
+          },
+          "msom": {
+            "LSM303AGR_oled": false,
+            "calibration": false,
+            "compass": false,
+            "magsensor": false
+          }
         }
       }
     }

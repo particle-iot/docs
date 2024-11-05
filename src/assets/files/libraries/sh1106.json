@@ -143,6 +143,26 @@
           "esomx": {
             "SH1106": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SH1106": true
+          },
+          "bsom": {
+            "SH1106": true
+          },
+          "b5som": {
+            "SH1106": true
+          },
+          "tracker": {
+            "SH1106": true
+          },
+          "p2": {
+            "SH1106": true
+          },
+          "msom": {
+            "SH1106": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.767Z"

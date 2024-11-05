@@ -661,6 +661,92 @@
             "8_ThreadedMode": false,
             "9_I2C": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "10_PassThrough": true,
+            "11_AssistNowTest": false,
+            "12_FeatherGPS6": true,
+            "1_SimpleGPS": true,
+            "2_GPSCellularOnOff": true,
+            "3_WakeOnMove": true,
+            "4_AccelerometerSamples": true,
+            "5_AccelerometerDirection": true,
+            "6_BackwardCompatibleAPI": true,
+            "7_DataDump": true,
+            "8_ThreadedMode": true,
+            "9_I2C": true
+          },
+          "bsom": {
+            "10_PassThrough": true,
+            "11_AssistNowTest": false,
+            "12_FeatherGPS6": false,
+            "1_SimpleGPS": true,
+            "2_GPSCellularOnOff": true,
+            "3_WakeOnMove": true,
+            "4_AccelerometerSamples": true,
+            "5_AccelerometerDirection": true,
+            "6_BackwardCompatibleAPI": true,
+            "7_DataDump": true,
+            "8_ThreadedMode": true,
+            "9_I2C": true
+          },
+          "b5som": {
+            "10_PassThrough": true,
+            "11_AssistNowTest": false,
+            "12_FeatherGPS6": false,
+            "1_SimpleGPS": true,
+            "2_GPSCellularOnOff": true,
+            "3_WakeOnMove": true,
+            "4_AccelerometerSamples": true,
+            "5_AccelerometerDirection": true,
+            "6_BackwardCompatibleAPI": true,
+            "7_DataDump": true,
+            "8_ThreadedMode": true,
+            "9_I2C": true
+          },
+          "tracker": {
+            "10_PassThrough": true,
+            "11_AssistNowTest": false,
+            "12_FeatherGPS6": false,
+            "1_SimpleGPS": true,
+            "2_GPSCellularOnOff": true,
+            "3_WakeOnMove": true,
+            "4_AccelerometerSamples": true,
+            "5_AccelerometerDirection": true,
+            "6_BackwardCompatibleAPI": true,
+            "7_DataDump": true,
+            "8_ThreadedMode": true,
+            "9_I2C": true
+          },
+          "p2": {
+            "10_PassThrough": true,
+            "11_AssistNowTest": false,
+            "12_FeatherGPS6": false,
+            "1_SimpleGPS": true,
+            "2_GPSCellularOnOff": false,
+            "3_WakeOnMove": true,
+            "4_AccelerometerSamples": true,
+            "5_AccelerometerDirection": true,
+            "6_BackwardCompatibleAPI": true,
+            "7_DataDump": true,
+            "8_ThreadedMode": true,
+            "9_I2C": true
+          },
+          "msom": {
+            "10_PassThrough": true,
+            "11_AssistNowTest": false,
+            "12_FeatherGPS6": false,
+            "1_SimpleGPS": true,
+            "2_GPSCellularOnOff": true,
+            "3_WakeOnMove": true,
+            "4_AccelerometerSamples": true,
+            "5_AccelerometerDirection": true,
+            "6_BackwardCompatibleAPI": true,
+            "7_DataDump": true,
+            "8_ThreadedMode": true,
+            "9_I2C": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.683Z"

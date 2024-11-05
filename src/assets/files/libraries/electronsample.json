@@ -145,6 +145,26 @@
           "esomx": {
             "1-full-electronsample": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-full-electronsample": true
+          },
+          "bsom": {
+            "1-full-electronsample": true
+          },
+          "b5som": {
+            "1-full-electronsample": true
+          },
+          "tracker": {
+            "1-full-electronsample": true
+          },
+          "p2": {
+            "1-full-electronsample": false
+          },
+          "msom": {
+            "1-full-electronsample": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.834Z"

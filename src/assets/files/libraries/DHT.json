@@ -182,6 +182,32 @@
             "DHT_Unified_Sensor": false,
             "DHTtester": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "bsom": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "b5som": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "tracker": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "p2": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "msom": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.698Z"

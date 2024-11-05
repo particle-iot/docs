@@ -196,6 +196,38 @@
             "2-counter-DeviceNotesHelperRK": true,
             "3-print-DeviceNotesHelperRK": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "p2": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "msom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
         }
       }
     }

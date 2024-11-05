@@ -143,6 +143,26 @@
           "esomx": {
             "OLED_test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "OLED_test": false
+          },
+          "bsom": {
+            "OLED_test": false
+          },
+          "b5som": {
+            "OLED_test": false
+          },
+          "tracker": {
+            "OLED_test": false
+          },
+          "p2": {
+            "OLED_test": false
+          },
+          "msom": {
+            "OLED_test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.744Z"

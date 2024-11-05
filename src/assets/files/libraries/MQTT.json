@@ -306,6 +306,44 @@
             "mqtttest": true,
             "threadtest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "bsom": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "b5som": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "tracker": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "p2": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          },
+          "msom": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.632Z"

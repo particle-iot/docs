@@ -254,6 +254,44 @@
             "stepper_oneStepAtATime": true,
             "stepper_speedControl": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "bsom": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "b5som": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "tracker": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "p2": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "msom": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.692Z"

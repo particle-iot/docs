@@ -101,6 +101,38 @@
             "MAX17048_basic": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "bsom": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "b5som": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "tracker": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "p2": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          },
+          "msom": {
+            "MAX17048_advanced": false,
+            "MAX17048_basic": false,
+            "usage": false
+          }
         }
       }
     }

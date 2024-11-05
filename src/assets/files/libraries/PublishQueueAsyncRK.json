@@ -365,6 +365,44 @@
             "3-test-suite": true,
             "4-test-suite-posix": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "bsom": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "b5som": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "tracker": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "p2": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "msom": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.686Z"

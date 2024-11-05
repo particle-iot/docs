@@ -143,6 +143,26 @@
           "esomx": {
             "SHT31test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SHT31test": true
+          },
+          "bsom": {
+            "SHT31test": true
+          },
+          "b5som": {
+            "SHT31test": true
+          },
+          "tracker": {
+            "SHT31test": true
+          },
+          "p2": {
+            "SHT31test": true
+          },
+          "msom": {
+            "SHT31test": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.668Z"

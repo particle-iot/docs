@@ -359,6 +359,62 @@
             "6_accel": false,
             "7_uv": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "bsom": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "b5som": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "tracker": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "p2": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "msom": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.973Z"

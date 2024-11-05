@@ -143,6 +143,26 @@
           "esomx": {
             "XivelyLibSample": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "XivelyLibSample": false
+          },
+          "bsom": {
+            "XivelyLibSample": false
+          },
+          "b5som": {
+            "XivelyLibSample": false
+          },
+          "tracker": {
+            "XivelyLibSample": false
+          },
+          "p2": {
+            "XivelyLibSample": false
+          },
+          "msom": {
+            "XivelyLibSample": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.117Z"

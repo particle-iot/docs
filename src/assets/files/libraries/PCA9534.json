@@ -252,6 +252,44 @@
             "inverted": true,
             "io": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "bsom": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "b5som": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "tracker": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "p2": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "msom": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.896Z"

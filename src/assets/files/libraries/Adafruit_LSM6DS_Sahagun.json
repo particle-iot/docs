@@ -171,6 +171,68 @@
             "adafruit_lsm6dso32_test": false,
             "adafruit_lsm6dsox_test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "bsom": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "b5som": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "tracker": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "p2": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          },
+          "msom": {
+            "adafruit_ism330dhcx_test": false,
+            "adafruit_lsm6ds33_test": false,
+            "adafruit_lsm6ds3trc_test": false,
+            "adafruit_lsm6ds_pedometer": false,
+            "adafruit_lsm6ds_shake": false,
+            "adafruit_lsm6ds_unifiedsensors": false,
+            "adafruit_lsm6dso32_test": false,
+            "adafruit_lsm6dsox_test": false
+          }
         }
       }
     }

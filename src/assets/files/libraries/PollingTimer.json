@@ -216,6 +216,38 @@
             "interval": false,
             "timeout": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "bsom": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "b5som": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "tracker": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "p2": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "msom": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.765Z"

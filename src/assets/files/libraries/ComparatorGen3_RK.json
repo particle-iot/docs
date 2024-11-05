@@ -164,6 +164,32 @@
             "1-simple": false,
             "2-rising": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-rising": false
+          }
         }
       }
     }

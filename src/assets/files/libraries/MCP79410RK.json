@@ -499,6 +499,62 @@
             "7-board-id-set": false,
             "8-board-id": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "bsom": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "b5som": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "tracker": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "p2": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "msom": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          }
         }
       }
     }

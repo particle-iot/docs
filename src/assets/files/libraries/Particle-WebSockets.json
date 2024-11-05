@@ -289,6 +289,50 @@
             "WebSocketServer": false,
             "WebSocketServer_LEDcontrol": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "WebSocketClient": false,
+            "WebSocketClientAVR": false,
+            "WebSocketClientSSL": false,
+            "WebSocketServer": false,
+            "WebSocketServer_LEDcontrol": false
+          },
+          "bsom": {
+            "WebSocketClient": false,
+            "WebSocketClientAVR": false,
+            "WebSocketClientSSL": false,
+            "WebSocketServer": false,
+            "WebSocketServer_LEDcontrol": false
+          },
+          "b5som": {
+            "WebSocketClient": false,
+            "WebSocketClientAVR": false,
+            "WebSocketClientSSL": false,
+            "WebSocketServer": false,
+            "WebSocketServer_LEDcontrol": false
+          },
+          "tracker": {
+            "WebSocketClient": false,
+            "WebSocketClientAVR": false,
+            "WebSocketClientSSL": false,
+            "WebSocketServer": false,
+            "WebSocketServer_LEDcontrol": false
+          },
+          "p2": {
+            "WebSocketClient": false,
+            "WebSocketClientAVR": false,
+            "WebSocketClientSSL": false,
+            "WebSocketServer": false,
+            "WebSocketServer_LEDcontrol": false
+          },
+          "msom": {
+            "WebSocketClient": false,
+            "WebSocketClientAVR": false,
+            "WebSocketClientSSL": false,
+            "WebSocketServer": false,
+            "WebSocketServer_LEDcontrol": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.046Z"

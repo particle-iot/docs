@@ -134,6 +134,26 @@
           "esomx": {
             "1acceladxl362": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1acceladxl362": true
+          },
+          "bsom": {
+            "1acceladxl362": true
+          },
+          "b5som": {
+            "1acceladxl362": true
+          },
+          "tracker": {
+            "1acceladxl362": true
+          },
+          "p2": {
+            "1acceladxl362": true
+          },
+          "msom": {
+            "1acceladxl362": true
+          }
         }
       }
     }

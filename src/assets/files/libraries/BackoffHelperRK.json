@@ -196,6 +196,38 @@
             "2-self-test": true,
             "3-no-sleep": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "bsom": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "b5som": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "tracker": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "p2": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": false
+          },
+          "msom": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          }
         }
       }
     }

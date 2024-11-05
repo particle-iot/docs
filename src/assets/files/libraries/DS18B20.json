@@ -179,6 +179,32 @@
             "ds18b20_MultiDrop": false,
             "ds18b20_SingleDrop": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "bsom": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "b5som": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "tracker": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "p2": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "msom": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.644Z"

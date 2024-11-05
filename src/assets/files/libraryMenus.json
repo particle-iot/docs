@@ -455,6 +455,10 @@
           "dir": "Adafruit_Simple_AHRS"
         },
         {
+          "title": "Adafruit_SSD1305_RK",
+          "dir": "Adafruit_SSD1305_RK"
+        },
+        {
           "title": "Adafruit_SSD1306",
           "dir": "Adafruit_SSD1306"
         },
@@ -2038,6 +2042,10 @@
         {
           "title": "LTC2943",
           "dir": "LTC2943"
+        },
+        {
+          "title": "LTR559_RK",
+          "dir": "LTR559_RK"
         }
       ]
     },
@@ -2644,6 +2652,10 @@
           "dir": "PMS3003"
         },
         {
+          "title": "PMS5003_RK",
+          "dir": "PMS5003_RK"
+        },
+        {
           "title": "PMS7003-Particle-Sensor-Serial",
           "dir": "PMS7003-Particle-Sensor-Serial"
         },
@@ -3115,6 +3127,10 @@
         {
           "title": "SmsWebhookRK",
           "dir": "SmsWebhookRK"
+        },
+        {
+          "title": "SN3218_RK",
+          "dir": "SN3218_RK"
         },
         {
           "title": "SoftAPLib",

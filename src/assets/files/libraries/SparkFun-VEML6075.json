@@ -290,6 +290,50 @@
             "Example4_Calculate_UVI": false,
             "ExampleZ_VEML6075_UV_Test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_Stream_UV": false,
+            "Example2_Configure_UV": false,
+            "Example3_Shutdown": false,
+            "Example4_Calculate_UVI": false,
+            "ExampleZ_VEML6075_UV_Test": false
+          },
+          "bsom": {
+            "Example1_Stream_UV": false,
+            "Example2_Configure_UV": false,
+            "Example3_Shutdown": false,
+            "Example4_Calculate_UVI": false,
+            "ExampleZ_VEML6075_UV_Test": false
+          },
+          "b5som": {
+            "Example1_Stream_UV": false,
+            "Example2_Configure_UV": false,
+            "Example3_Shutdown": false,
+            "Example4_Calculate_UVI": false,
+            "ExampleZ_VEML6075_UV_Test": false
+          },
+          "tracker": {
+            "Example1_Stream_UV": false,
+            "Example2_Configure_UV": false,
+            "Example3_Shutdown": false,
+            "Example4_Calculate_UVI": false,
+            "ExampleZ_VEML6075_UV_Test": false
+          },
+          "p2": {
+            "Example1_Stream_UV": false,
+            "Example2_Configure_UV": false,
+            "Example3_Shutdown": false,
+            "Example4_Calculate_UVI": false,
+            "ExampleZ_VEML6075_UV_Test": false
+          },
+          "msom": {
+            "Example1_Stream_UV": false,
+            "Example2_Configure_UV": false,
+            "Example3_Shutdown": false,
+            "Example4_Calculate_UVI": false,
+            "ExampleZ_VEML6075_UV_Test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.874Z"

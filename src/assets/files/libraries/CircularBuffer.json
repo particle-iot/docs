@@ -401,6 +401,68 @@
             "Struct": false,
             "Test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "bsom": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "b5som": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "tracker": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "p2": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "msom": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.944Z"

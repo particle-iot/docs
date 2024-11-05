@@ -218,6 +218,38 @@
             "CANReceiverCallback": true,
             "CANSender": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "bsom": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "b5som": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "tracker": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "p2": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "msom": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.878Z"

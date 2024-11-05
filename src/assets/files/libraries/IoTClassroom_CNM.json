@@ -154,6 +154,32 @@
             "hue": false,
             "wemo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "hue": false,
+            "wemo": false
+          },
+          "bsom": {
+            "hue": false,
+            "wemo": false
+          },
+          "b5som": {
+            "hue": false,
+            "wemo": false
+          },
+          "tracker": {
+            "hue": false,
+            "wemo": false
+          },
+          "p2": {
+            "hue": true,
+            "wemo": true
+          },
+          "msom": {
+            "hue": true,
+            "wemo": true
+          }
         }
       }
     }

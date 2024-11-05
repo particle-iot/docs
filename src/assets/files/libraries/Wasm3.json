@@ -356,6 +356,50 @@
             "Wasm_Dino_PyBadge": false,
             "Wasm_Fibonacci": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": true,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "bsom": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": true,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "b5som": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": true,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "tracker": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": true,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "p2": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": true,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "msom": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": true,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.695Z"

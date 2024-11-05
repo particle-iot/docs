@@ -181,6 +181,32 @@
             "simple": true,
             "test1m": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "simple": true,
+            "test1m": true
+          },
+          "bsom": {
+            "simple": true,
+            "test1m": true
+          },
+          "b5som": {
+            "simple": true,
+            "test1m": true
+          },
+          "tracker": {
+            "simple": true,
+            "test1m": true
+          },
+          "p2": {
+            "simple": true,
+            "test1m": true
+          },
+          "msom": {
+            "simple": true,
+            "test1m": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.802Z"

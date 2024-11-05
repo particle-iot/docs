@@ -333,6 +333,38 @@
             "SpeedTest": false,
             "TwoKnobs": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "bsom": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "b5som": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "tracker": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "p2": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "msom": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          }
         }
       }
     }

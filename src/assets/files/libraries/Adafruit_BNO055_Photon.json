@@ -283,6 +283,50 @@
             "restore_offsets": true,
             "sensorapi": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "bsom": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "b5som": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "tracker": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "p2": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "msom": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.789Z"

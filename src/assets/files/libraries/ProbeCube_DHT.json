@@ -143,6 +143,26 @@
           "esomx": {
             "DHTtester": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DHTtester": true
+          },
+          "bsom": {
+            "DHTtester": true
+          },
+          "b5som": {
+            "DHTtester": true
+          },
+          "tracker": {
+            "DHTtester": true
+          },
+          "p2": {
+            "DHTtester": true
+          },
+          "msom": {
+            "DHTtester": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.821Z"

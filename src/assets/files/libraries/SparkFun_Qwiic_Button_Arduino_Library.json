@@ -358,6 +358,68 @@
             "Example7_2Buttons": true,
             "Example8_ExtInterrupt": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "bsom": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "b5som": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "tracker": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "p2": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": false,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "msom": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": false,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
         }
       }
     }

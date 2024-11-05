@@ -211,6 +211,38 @@
             "DFRobot_PH_Test": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "bsom": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "b5som": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "tracker": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "p2": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "msom": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.888Z"

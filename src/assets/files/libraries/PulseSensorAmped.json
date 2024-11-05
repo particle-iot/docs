@@ -178,6 +178,32 @@
             "bluetooth": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "bsom": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "b5som": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "tracker": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "p2": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "msom": {
+            "bluetooth": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.005Z"

@@ -175,6 +175,32 @@
             "AirQuality_Sensor": false,
             "usage": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "bsom": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "b5som": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "tracker": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "p2": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "msom": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.933Z"

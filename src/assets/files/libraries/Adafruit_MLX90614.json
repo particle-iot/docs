@@ -148,6 +148,26 @@
           "esomx": {
             "mlxtest": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "mlxtest": true
+          },
+          "bsom": {
+            "mlxtest": true
+          },
+          "b5som": {
+            "mlxtest": true
+          },
+          "tracker": {
+            "mlxtest": true
+          },
+          "p2": {
+            "mlxtest": true
+          },
+          "msom": {
+            "mlxtest": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.725Z"

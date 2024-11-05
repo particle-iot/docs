@@ -327,6 +327,56 @@
             "MicroOLED_DrawBitmap": true,
             "MicroOLED_Hello": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "bsom": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "b5som": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "tracker": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "p2": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "msom": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.071Z"

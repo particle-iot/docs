@@ -179,6 +179,32 @@
             "control-everything-shield-demo": false,
             "relay-shield-demo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "bsom": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "b5som": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "tracker": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "p2": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "msom": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.887Z"

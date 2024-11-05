@@ -211,6 +211,38 @@
             "Snapshot": false,
             "take_picture": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "p2": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "msom": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.109Z"

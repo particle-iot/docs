@@ -146,6 +146,26 @@
           "esomx": {
             "MPU9250BasicAHRS": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MPU9250BasicAHRS": true
+          },
+          "bsom": {
+            "MPU9250BasicAHRS": true
+          },
+          "b5som": {
+            "MPU9250BasicAHRS": true
+          },
+          "tracker": {
+            "MPU9250BasicAHRS": true
+          },
+          "p2": {
+            "MPU9250BasicAHRS": true
+          },
+          "msom": {
+            "MPU9250BasicAHRS": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.787Z"

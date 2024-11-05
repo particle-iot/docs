@@ -143,6 +143,26 @@
           "esomx": {
             "phant": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "phant": true
+          },
+          "bsom": {
+            "phant": true
+          },
+          "b5som": {
+            "phant": true
+          },
+          "tracker": {
+            "phant": true
+          },
+          "p2": {
+            "phant": true
+          },
+          "msom": {
+            "phant": true
+          }
         }
       },
       "added": "2023-05-19T20:32:42.538Z"
