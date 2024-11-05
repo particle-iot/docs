@@ -92,7 +92,7 @@ This function will then populate the Firebase database with the data as it arriv
 
 Now that you can update your asset's temperature every minute (or update the firmware to make it any interval that you would like), it is time to add the business intelligence that your application requires.
 
-With the data in the Firebase database, you could:
+With the data in the Firebase database, you could write a Cloud Function that watches for minimum or maximum temperature and send an alert if they are exceeded:
 
-* Write a Cloud Function that watches for minimum or maximum temperature and send an alert if they are exceeded
 ![coldgraph.png](/assets/images/support/coldgraph.png)
+

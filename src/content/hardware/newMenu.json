@@ -253,6 +253,10 @@
                     "title": "About Modbus"
                 },
                 {
+                    "dir": "neopixel",
+                    "title": "NeoPixel LEDs"
+                },
+                {
                     "dir": "prototyping",
                     "title": "Prototyping"
                 },

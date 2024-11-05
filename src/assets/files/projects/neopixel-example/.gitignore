@@ -1,0 +1,55 @@
+# Key files
+*.der
+*.pem
+
+# Ignore build results and bundles
+*.bin
+*.zip
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+target/*
+
+# Platform-specific settings
+.DS_Store
+*.crc_block
+*.no_crc
+
+# VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Ignore all local history of files
+**/.history
+
+# Windows
+Thumbs.db
+*.stackdump
+[Dd]esktop.ini
+
+# C Prerequisites
+*.d
+
+# C Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# C Linker output
+*.map
+
+# C Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb

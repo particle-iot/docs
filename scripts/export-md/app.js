@@ -28,7 +28,7 @@ const yamlTemplate = {
     models: [],
     language: ['C++'],
     cloudServices: [],
-    integrations: ['qcom-aware'],
+    integrations: [],
     hardwareDependencies: [
         {
             name: 'Tracker One',
@@ -73,7 +73,7 @@ async function run() {
             console.log('--source path not found', {mdPath, mdPartialPath, contentDir});
             process.exit(1);
         }
-        const mdString = fs.readFileSync(mdPath, 'utf8');
+        let mdString = fs.readFileSync(mdPath, 'utf8');
 
         let frontMatter = {};
         let mdLines = [];
@@ -160,12 +160,78 @@ async function run() {
             }
         }
 
+        mdString = mdLines.join('\n');
+
+        {
+            let updates = [];
+
+            // For Azure IoT hub, which uses <img tags that span lines 
+            const matches = [...mdString.matchAll(/<img([^>]+)>/g)];
+            for(const match of matches) {
+                let p = {
+                    index: match.index,
+                    len: match[0].length,
+                    isImage: true,
+                };
+
+                let opts = {};
+                const matches2 = [...match[0].matchAll(/([a-z]+)="([^"]*)"/g)];
+                for(const match2 of matches2) {
+                    opts[match2[1]] = match2[2];
+                }
+
+                if (!opts.src) {
+                    continue;
+                }
+                p.link = opts.src;
+                p.text = opts.alt || '';
+
+                const lastSlashIndex = p.link.lastIndexOf('/');
+                if (lastSlashIndex >= 0) {
+                    p.filename = p.link.substring(lastSlashIndex + 1);
+                }
+                else {
+                    p.filename = p.link;
+                }
+
+                if (p.link.startsWith('/assets/images')) {
+                    const imgData = fs.readFileSync(path.join(srcDir, p.link));
+
+                    fs.writeFileSync(path.join(destImagesPath, p.filename), imgData);
+
+                    p.link = 'images/' + p.filename;
+                }
+
+
+                console.log('p', {p, match: match[0], opts});
+                updates.push(p);
+
+            }
+            for(const p of updates.reverse()) {        
+                if (!p.link) {
+                    continue;
+                }
+
+                let tag = '';
+
+                if (p.isImage) {
+                    tag += '!';
+                }
+                tag += '[' + p.text + ']';
+                tag += '(' + p.link + ')';
+
+                mdString = mdString.substring(0, p.index) + tag + mdString.substring(p.index + p.len);
+            }
+        }
+        
+
+
 
 
         // console.log('parsed', {mdLines, frontMatter});
         const destReadMePath = path.join(argv.dest, 'README.md');
         if (!fs.existsSync(destReadMePath) || argv.force) {
-            fs.writeFileSync(destReadMePath, mdLines.join('\n'));
+            fs.writeFileSync(destReadMePath, mdString);
             console.log('creating ' + destReadMePath);
         }
 
