@@ -1175,8 +1175,8 @@
             "hash": "b528b74549f00d0c258cfaa393f107de920db4b552748ebdbfc2a11674c5387a"
         },
         "reference/developer-tools/jtag.md": {
-            "date": "2024-02-27",
-            "hash": "1089453540432676ac605570a03ba87c4e27419287eaed4db06602f276d9d5bd"
+            "date": "2024-11-06",
+            "hash": "440a1a1ffb4ea702e9afba4e2d52cfb8f0701e5bac9935089117ed10681a5fb1"
         },
         "reference/developer-tools/programming-devices.md": {
             "date": "2024-02-27",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "7d04027c529ed57d33e16192189aced6de497863490d9da7e2e76b8347e14738",
+            "hash": "e4b573084cba262ea590496a2216628638448e002017e7e0c6f1f3f65d59c680",
             "date": "2024-11-06"
         },
         "getting-started/cloud/logic.md": {
@@ -8287,8 +8287,8 @@
             "date": "2024-09-04"
         },
         "getting-started/logic-ledger/logic.md": {
-            "hash": "15f9078d22c1cc8555b75e0bb7e402c04f5cd432569c535f8c335c0eb3f641a7",
-            "date": "2024-09-04"
+            "hash": "329104150aac7d904ea7a63c3d32d825a8c1be8e8af60e44f8fe33c0efc462b7",
+            "date": "2024-11-06"
         },
         "getting-started/logic-ledger/data-transformation.md": {
             "hash": "95468cd5b3e47cd95d8b3a0eca2c8648f5cb3736c0ff81b151b0abf9fb4fdf4a",

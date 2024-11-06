@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Logic APIs 2024-11-06
+
+There are a number of Particle cloud APIs that can now be called from Logic, see [Logic core APIs](/getting-started/logic-ledger/logic/#particle-logic-core-api).
+
 ### Logic and ledger API fixes 2024-11-06
 
 Several logic and ledger APIs showed `/user` in the endpoint URL, but this wasn't correct. 

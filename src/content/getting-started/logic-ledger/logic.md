@@ -267,8 +267,8 @@ The Logic Function code is Javascript. You can use built-in language features su
 - JSON features like `JSON.parse()` and `JSON.stringify()`
 - Standard built-in objects like `Math` and `String`
 - `console.log` (useful for debugging, as the run logs include this log output)
-- [Particle Logic Core API](#particle-logic-core-api) (below)
-- [Particle Encoding API](#particle-encoding-api) (below)
+- [Particle Logic core API](#particle-logic-core-api) (below)
+- [Particle encoding API](#particle-encoding-api) (below)
 - [Vendor packages](#vendor-packages) (below)
 
 This list is not complete! If it's a standard Javascript function it may work and you should just try it. It only
@@ -344,9 +344,9 @@ And, finally, the reformatted object is published. The options (last parameter) 
 }
 ```
 
-### Particle Logic Core API
+### Particle Logic core API
 
-To use the Particle Logic Core API this line is added automatically when using a template:
+To use the Particle Logic core API this line is added automatically when using a template:
 
 ```js
 import Particle from 'particle:core';
@@ -380,6 +380,123 @@ events that devices are subscribed to, you should limit the size and number of e
 
 When publishing to a webhook, the data can exceed the normal 1024 bytes event size limit. When sending to a device, however, you must still limit the size
 of the event data. Events published by Logic do not currently count against your data operations usage.
+
+
+#### ParticleApiResponse
+
+The calls below all return a promise for this object containing the status code (success is typically 200), and data as determined by the API.
+
+```js
+export interface ParticleApiResponse {
+    status: number;
+    body: Record<string, any>;
+}
+```
+
+#### listDevices - core API
+
+This calls [list devices in a product](/reference/cloud-apis/api/#list-devices-in-a-product) from Logic.
+
+```js
+export interface ListDeviceOptions {
+    groups?: string[];
+    sortAttr?: 'deviceId' | 'firmwareVersion' | 'lastHeard' | 'deviceName';
+    sortDir?: 'asc' | 'desc';
+    page?: number;
+    perPage?: number;
+}
+
+export function listDevices(productIdOrSlug: string | number, options?: ListDeviceOptions): Promise<ParticleApiResponse>;
+```
+
+#### getDevice - core API
+
+This calls [get device](/reference/cloud-apis/api/#get-device-information) from Logic.
+
+```js
+export function getDevice(deviceId: string): Promise<ParticleApiResponse>;
+```
+
+#### getLastDeviceVitals - core API
+
+This calls [get last known device vitals](/reference/cloud-apis/api/#get-last-known-device-vitals) for a device from Logic.
+
+```js
+export function getLastDeviceVitals(deviceId: string): Promise<ParticleApiResponse>;
+```
+
+#### listIntegrations - core API
+
+This calls [list integrations](/reference/cloud-apis/api/#list-integrations) from Logic.
+
+```js
+export function listIntegrations(productIdOrSlug: string | number): Promise<ParticleApiResponse>;
+```
+
+#### getIntegration - core API
+
+This calls [get integration](/reference/cloud-apis/api/#get-integration) from Logic.
+
+```js
+export function getIntegration(productIdOrSlug: string | number, integrationId: string): Promise<ParticleApiResponse>;
+```
+
+#### integrationsMetrics - core API
+
+This calls [get integration metrics](/reference/cloud-apis/api/#get-integration-traffic-health-metrics) with the specific options.
+
+```js
+export interface IntegrationsMetricsOptions {
+    startDate?: string;
+    endDate?: string;
+    bucketSize?: number;
+    productFw?: number;
+    deviceOsVersion?: string,
+    deviceGroup?: string
+}
+
+export function integrationsMetrics(productIdOrSlug: string | number, options?: IntegrationsMetricsOptions): Promise<ParticleApiResponse>;
+```
+
+#### listProducts - core API
+
+This calls [list products](/reference/cloud-apis/api/#list-products) from Logic.
+
+```js
+export function listProducts(): Promise<ParticleApiResponse>;
+```
+
+#### listUserProducts - core API
+
+This calls [list user products](/reference/cloud-apis/api/#list-products) from Logic.
+
+```js
+export function listUserProducts(): Promise<ParticleApiResponse>;
+```
+
+#### listOrgProducts - core API
+
+This calls [list org products](/reference/cloud-apis/api/#list-products) from Logic.
+
+```js
+export function listOrgProducts(orgIdOrSlug: string): Promise<ParticleApiResponse>;
+```
+
+#### getProduct - core API
+
+This calls [get product](/reference/cloud-apis/api/#retrieve-a-product) to get information about a product from Logic.
+
+```js
+export function getProduct(productIdOrSlug: string | number): Promise<ParticleApiResponse>;
+```
+
+#### getOrgProduct - core API
+
+This calls [get org product](/reference/cloud-apis/api/#retrieve-a-product) to get information about an organization product from Logic.
+
+```js
+export function getOrgProduct(orgIdOrSlug: string, productIdOrSlug: string | number): Promise<ParticleApiResponse>;
+```
 
 ### Using Ledger from Logic
 

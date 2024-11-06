@@ -75,7 +75,7 @@ Depending on the device, the behavior of chip erase of the internal flash from S
 
 - P1, Photon, E-Series, Electron (Gen 2, STM32F205): Chip erase is not recommended. You will lose all device settings including EEPROM settings, the prefix for the Photon/P1 Wi-Fi network printed on the box, and device keys. The device will not be able to connect to the cloud until the keys are updated in the cloud after chip erase.
 
-- P2, Photon 2 (RTL8721): **Do not chip erase the RTL872x under any circumstances!** Also do not flash anything to address 0 (prebootloader-mbr). The prebootloader-mbr is factory configured for your specific device with the private keys necessary for secure boot. If you erase or overwrite this portion of the flash you will not be able to program or use the device again.
+- P2, Photon 2 (RTL8721) and M-SoM (RTL8722): **Do not chip erase the RTL872x under any circumstances!** Also do not flash anything to address 0 (prebootloader-mbr). The prebootloader-mbr is factory configured for your specific device with the private keys necessary for secure boot. If you erase or overwrite this portion of the flash you will not be able to program or use the device again.
 
 ## Particle Debugger with OpenOCD (via Particle Workbench)
 
@@ -394,9 +394,9 @@ What this does:
 | `-c "exit"` | Exit openocd |
 
 
-## P2 Flashing
+## P2/Photon 2/M-SoM Flashing
 
-The P2 (RTL8721D) software consists of five parts:
+The P2/Photon 2 (RTL8721D) and M-SoM (RTL8722DM) software consists of five parts:
 
 | File | Description | Address |
 | :--- | :--- | --: |
@@ -406,9 +406,9 @@ The P2 (RTL8721D) software consists of five parts:
 | p2-prebootloader-part1 | Pre-bootloader | 0x14000 |
 | p2-prebootloader-mbr | Do not flash this file! | 0x0 |
 
-- **Do not chip erase your P2 or flash the p2-prebootloader-mbr binary!** The p2-prebootloader-mbr is encrypted and is unique for every device as part of the Secure Boot system. If this file is erased you will not be able to boot Device OS on the device. Since the prebootloader-mbr is at address 0x0, make sure you don't accidentally flash a different part to that address, as well.
+- **Do not chip erase your P2/M-SoM or flash the p2-prebootloader-mbr binary!** The p2-prebootloader-mbr is encrypted and is unique for every device as part of the Secure Boot system. If this file is erased you will not be able to boot Device OS on the device. Since the prebootloader-mbr is at address 0x0, make sure you don't accidentally flash a different part to that address, as well.
 - The user firmware binary address will vary. The hex generator will find the appropriate address, as will flashing the firmware by USB.
-- You must always power the P2 externally. Even though it may turn on only connected via the SWD debugger, there will not be sufficient power to successfully program the device.
+- You must always power the P2/M-SoM externally. Even though it may turn on only connected via the SWD debugger, there will not be sufficient power to successfully program the device.
 
 ### P2 with OpenOCD
 
@@ -433,6 +433,10 @@ At this point, the device will reboot, but the user firmware binary (tinker) has
 particle usb dfu
 particle flash --local p2/tinker.bin
 ```
+
+### M-SoM with OpenOCD
+
+The process is the same for the P2, but the binaries are different.
 
 ## Argon and Tracker NCP
 
