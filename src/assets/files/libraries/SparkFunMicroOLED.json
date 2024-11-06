@@ -179,6 +179,32 @@
             "Micro-OLED-Shield-Example": false,
             "OLED-Cube": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "bsom": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "b5som": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "tracker": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "p2": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "msom": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.659Z"

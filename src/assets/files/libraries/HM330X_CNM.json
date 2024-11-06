@@ -68,6 +68,26 @@
           "electron": {
             "basic_demo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "basic_demo": true
+          },
+          "bsom": {
+            "basic_demo": true
+          },
+          "b5som": {
+            "basic_demo": true
+          },
+          "tracker": {
+            "basic_demo": true
+          },
+          "p2": {
+            "basic_demo": true
+          },
+          "msom": {
+            "basic_demo": true
+          }
         }
       }
     }

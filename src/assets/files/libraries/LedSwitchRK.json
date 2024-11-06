@@ -217,6 +217,38 @@
             "2-multiple-LedSwitchRK": false,
             "3-multi-tap-LedSwitchRK": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "bsom": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "b5som": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "tracker": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "p2": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "msom": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.112Z"

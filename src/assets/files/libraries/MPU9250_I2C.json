@@ -142,6 +142,26 @@
           "esomx": {
             "readsensors": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "readsensors": false
+          },
+          "bsom": {
+            "readsensors": false
+          },
+          "b5som": {
+            "readsensors": false
+          },
+          "tracker": {
+            "readsensors": false
+          },
+          "p2": {
+            "readsensors": false
+          },
+          "msom": {
+            "readsensors": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.862Z"

@@ -499,6 +499,62 @@
             "pcf8523": true,
             "softrtc": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": false,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "bsom": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": false,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "b5som": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": false,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "tracker": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": false,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "p2": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": false,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "msom": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": false,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          }
         }
       }
     }

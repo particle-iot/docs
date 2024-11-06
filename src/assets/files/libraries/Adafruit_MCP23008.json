@@ -179,6 +179,32 @@
             "button": true,
             "i2cledtest": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "bsom": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "b5som": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "tracker": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "p2": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "msom": {
+            "button": true,
+            "i2cledtest": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.712Z"

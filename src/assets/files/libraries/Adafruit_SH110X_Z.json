@@ -168,6 +168,32 @@
             "OLED_featherwing": false,
             "SH1107_128x128": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "bsom": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "b5som": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "tracker": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "p2": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "msom": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          }
         }
       }
     }

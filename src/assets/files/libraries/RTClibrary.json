@@ -396,6 +396,68 @@
             "softrtc": true,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "bsom": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "b5som": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "tracker": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "p2": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "msom": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.717Z"

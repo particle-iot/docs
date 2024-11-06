@@ -164,6 +164,32 @@
             "FileSystemTest": false,
             "LargeFileTest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "bsom": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "b5som": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "tracker": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "p2": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "msom": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          }
         }
       }
     }

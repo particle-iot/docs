@@ -143,6 +143,26 @@
           "esomx": {
             "onewiretemp": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "onewiretemp": false
+          },
+          "bsom": {
+            "onewiretemp": false
+          },
+          "b5som": {
+            "onewiretemp": false
+          },
+          "tracker": {
+            "onewiretemp": false
+          },
+          "p2": {
+            "onewiretemp": false
+          },
+          "msom": {
+            "onewiretemp": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.756Z"

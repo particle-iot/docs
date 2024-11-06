@@ -197,6 +197,38 @@
             "oled_demo": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "bsom": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "b5som": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "tracker": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "p2": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "msom": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          }
         }
       }
     }

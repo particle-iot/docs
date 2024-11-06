@@ -214,6 +214,38 @@
             "adxl345_test": false,
             "adxlrun345": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "bsom": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "b5som": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "tracker": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "p2": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "msom": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.762Z"

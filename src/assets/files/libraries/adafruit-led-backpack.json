@@ -215,6 +215,38 @@
             "quadalphanum": true,
             "sevenseg": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "bsom": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "b5som": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "tracker": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "p2": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "msom": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.708Z"

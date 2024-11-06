@@ -179,6 +179,32 @@
             "Continuous": true,
             "Single": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Continuous": true,
+            "Single": true
+          },
+          "bsom": {
+            "Continuous": true,
+            "Single": true
+          },
+          "b5som": {
+            "Continuous": true,
+            "Single": true
+          },
+          "tracker": {
+            "Continuous": true,
+            "Single": true
+          },
+          "p2": {
+            "Continuous": true,
+            "Single": true
+          },
+          "msom": {
+            "Continuous": true,
+            "Single": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.716Z"

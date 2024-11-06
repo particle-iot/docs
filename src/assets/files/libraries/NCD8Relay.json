@@ -215,6 +215,38 @@
             "Loop_Test": false,
             "Time_Activated_Relay": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "p2": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "msom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.778Z"

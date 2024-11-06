@@ -133,6 +133,26 @@
           "esomx": {
             "adt7410test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "adt7410test": false
+          },
+          "bsom": {
+            "adt7410test": false
+          },
+          "b5som": {
+            "adt7410test": false
+          },
+          "tracker": {
+            "adt7410test": false
+          },
+          "p2": {
+            "adt7410test": false
+          },
+          "msom": {
+            "adt7410test": false
+          }
         }
       }
     }

@@ -143,6 +143,26 @@
           "esomx": {
             "Adafruit_TLS2561_U": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Adafruit_TLS2561_U": true
+          },
+          "bsom": {
+            "Adafruit_TLS2561_U": true
+          },
+          "b5som": {
+            "Adafruit_TLS2561_U": true
+          },
+          "tracker": {
+            "Adafruit_TLS2561_U": true
+          },
+          "p2": {
+            "Adafruit_TLS2561_U": true
+          },
+          "msom": {
+            "Adafruit_TLS2561_U": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.728Z"

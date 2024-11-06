@@ -399,6 +399,32 @@
             "01_Particle": false,
             "02_Particle_Electron": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01_Particle": false,
+            "02_Particle_Electron": false
+          },
+          "bsom": {
+            "01_Particle": false,
+            "02_Particle_Electron": false
+          },
+          "b5som": {
+            "01_Particle": false,
+            "02_Particle_Electron": false
+          },
+          "tracker": {
+            "01_Particle": false,
+            "02_Particle_Electron": false
+          },
+          "p2": {
+            "01_Particle": false,
+            "02_Particle_Electron": false
+          },
+          "msom": {
+            "01_Particle": false,
+            "02_Particle_Electron": false
+          }
         }
       }
     }

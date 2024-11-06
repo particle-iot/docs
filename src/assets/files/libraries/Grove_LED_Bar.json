@@ -536,6 +536,92 @@
             "Walk": true,
             "WalkMultiple": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "bsom": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "b5som": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "tracker": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "p2": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "msom": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.891Z"

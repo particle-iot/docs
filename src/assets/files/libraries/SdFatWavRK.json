@@ -132,6 +132,26 @@
           "esomx": {
             "1-tester": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "p2": {
+            "1-tester": true
+          },
+          "msom": {
+            "1-tester": true
+          }
         }
       }
     }

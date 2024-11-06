@@ -178,6 +178,32 @@
             "a1-example": true,
             "a2-example": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "bsom": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "b5som": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "tracker": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "p2": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "msom": {
+            "a1-example": true,
+            "a2-example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.751Z"

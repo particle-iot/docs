@@ -253,6 +253,44 @@
             "2_Accelerometer": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "bsom": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "b5som": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "tracker": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "p2": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "msom": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.811Z"

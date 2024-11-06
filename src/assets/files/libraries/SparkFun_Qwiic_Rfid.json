@@ -290,6 +290,50 @@
             "Example4_ChangeI2CAddress": true,
             "Example5_I2CScanner": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "bsom": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "b5som": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "tracker": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "p2": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "msom": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.898Z"

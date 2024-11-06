@@ -200,6 +200,80 @@
             "Example9_SFE_UBLOX_GNSS_SUPER": false,
             "usage": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_PositionVelocityTime": false,
+            "Example2_PositionVelocityTime_Serial": false,
+            "Example3_PositionVelocityTime_SPI": false,
+            "Example4_CustomI2C": false,
+            "Example5_CustomSerial": false,
+            "Example6_CustomSPI": false,
+            "Example7_Auto_PositionVelocityTime": false,
+            "Example8_PositionVelocityTime_Callback": false,
+            "Example9_SFE_UBLOX_GNSS_SUPER": false,
+            "usage": true
+          },
+          "bsom": {
+            "Example1_PositionVelocityTime": false,
+            "Example2_PositionVelocityTime_Serial": false,
+            "Example3_PositionVelocityTime_SPI": false,
+            "Example4_CustomI2C": false,
+            "Example5_CustomSerial": false,
+            "Example6_CustomSPI": false,
+            "Example7_Auto_PositionVelocityTime": false,
+            "Example8_PositionVelocityTime_Callback": false,
+            "Example9_SFE_UBLOX_GNSS_SUPER": false,
+            "usage": true
+          },
+          "b5som": {
+            "Example1_PositionVelocityTime": false,
+            "Example2_PositionVelocityTime_Serial": false,
+            "Example3_PositionVelocityTime_SPI": false,
+            "Example4_CustomI2C": false,
+            "Example5_CustomSerial": false,
+            "Example6_CustomSPI": false,
+            "Example7_Auto_PositionVelocityTime": false,
+            "Example8_PositionVelocityTime_Callback": false,
+            "Example9_SFE_UBLOX_GNSS_SUPER": false,
+            "usage": true
+          },
+          "tracker": {
+            "Example1_PositionVelocityTime": false,
+            "Example2_PositionVelocityTime_Serial": false,
+            "Example3_PositionVelocityTime_SPI": false,
+            "Example4_CustomI2C": false,
+            "Example5_CustomSerial": false,
+            "Example6_CustomSPI": false,
+            "Example7_Auto_PositionVelocityTime": false,
+            "Example8_PositionVelocityTime_Callback": false,
+            "Example9_SFE_UBLOX_GNSS_SUPER": false,
+            "usage": true
+          },
+          "p2": {
+            "Example1_PositionVelocityTime": false,
+            "Example2_PositionVelocityTime_Serial": false,
+            "Example3_PositionVelocityTime_SPI": false,
+            "Example4_CustomI2C": false,
+            "Example5_CustomSerial": false,
+            "Example6_CustomSPI": false,
+            "Example7_Auto_PositionVelocityTime": false,
+            "Example8_PositionVelocityTime_Callback": false,
+            "Example9_SFE_UBLOX_GNSS_SUPER": false,
+            "usage": true
+          },
+          "msom": {
+            "Example1_PositionVelocityTime": false,
+            "Example2_PositionVelocityTime_Serial": false,
+            "Example3_PositionVelocityTime_SPI": false,
+            "Example4_CustomI2C": false,
+            "Example5_CustomSerial": false,
+            "Example6_CustomSPI": false,
+            "Example7_Auto_PositionVelocityTime": false,
+            "Example8_PositionVelocityTime_Callback": false,
+            "Example9_SFE_UBLOX_GNSS_SUPER": false,
+            "usage": true
+          }
         }
       }
     }

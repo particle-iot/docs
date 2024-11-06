@@ -143,6 +143,26 @@
           "esomx": {
             "KeyPadLCD_Menu": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "KeyPadLCD_Menu": false
+          },
+          "bsom": {
+            "KeyPadLCD_Menu": false
+          },
+          "b5som": {
+            "KeyPadLCD_Menu": false
+          },
+          "tracker": {
+            "KeyPadLCD_Menu": false
+          },
+          "p2": {
+            "KeyPadLCD_Menu": false
+          },
+          "msom": {
+            "KeyPadLCD_Menu": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.910Z"

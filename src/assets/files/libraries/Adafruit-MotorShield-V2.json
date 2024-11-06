@@ -150,6 +150,26 @@
           "esomx": {
             "adafruit-motorshielf-example": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "adafruit-motorshielf-example": false
+          },
+          "bsom": {
+            "adafruit-motorshielf-example": false
+          },
+          "b5som": {
+            "adafruit-motorshielf-example": false
+          },
+          "tracker": {
+            "adafruit-motorshielf-example": false
+          },
+          "p2": {
+            "adafruit-motorshielf-example": false
+          },
+          "msom": {
+            "adafruit-motorshielf-example": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.709Z"

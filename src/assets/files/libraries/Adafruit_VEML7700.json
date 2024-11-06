@@ -143,6 +143,26 @@
           "esomx": {
             "veml7700_test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "veml7700_test": true
+          },
+          "bsom": {
+            "veml7700_test": true
+          },
+          "b5som": {
+            "veml7700_test": true
+          },
+          "tracker": {
+            "veml7700_test": true
+          },
+          "p2": {
+            "veml7700_test": true
+          },
+          "msom": {
+            "veml7700_test": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.809Z"

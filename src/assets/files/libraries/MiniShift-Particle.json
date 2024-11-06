@@ -162,6 +162,26 @@
           "esomx": {
             "serialwrite": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "serialwrite": false
+          },
+          "bsom": {
+            "serialwrite": false
+          },
+          "b5som": {
+            "serialwrite": false
+          },
+          "tracker": {
+            "serialwrite": false
+          },
+          "p2": {
+            "serialwrite": false
+          },
+          "msom": {
+            "serialwrite": false
+          }
         }
       }
     }

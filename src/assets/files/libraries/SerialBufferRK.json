@@ -267,6 +267,38 @@
             "2-test-receiver-SerialBufferRK": true,
             "3-test-sender-SerialBufferRK": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "bsom": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "b5som": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "tracker": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "p2": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "msom": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          }
         }
       }
     }

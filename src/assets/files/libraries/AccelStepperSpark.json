@@ -580,6 +580,98 @@
             "Quickstop": false,
             "Random": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": false,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "bsom": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "b5som": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "tracker": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "p2": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "msom": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.699Z"

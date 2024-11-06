@@ -182,6 +182,32 @@
             "usage": true,
             "using_serial": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "usage": true,
+            "using_serial": true
+          },
+          "bsom": {
+            "usage": true,
+            "using_serial": true
+          },
+          "b5som": {
+            "usage": true,
+            "using_serial": true
+          },
+          "tracker": {
+            "usage": true,
+            "using_serial": true
+          },
+          "p2": {
+            "usage": true,
+            "using_serial": true
+          },
+          "msom": {
+            "usage": true,
+            "using_serial": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.966Z"

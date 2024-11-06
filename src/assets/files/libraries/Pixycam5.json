@@ -179,6 +179,32 @@
             "a01-pixy-d7": false,
             "a02-pixy-serial": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "bsom": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "b5som": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "tracker": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "p2": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "msom": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.929Z"

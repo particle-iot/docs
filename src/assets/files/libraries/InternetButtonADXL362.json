@@ -143,6 +143,26 @@
           "esomx": {
             "ADXL362_SimpleRead": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ADXL362_SimpleRead": false
+          },
+          "bsom": {
+            "ADXL362_SimpleRead": false
+          },
+          "b5som": {
+            "ADXL362_SimpleRead": false
+          },
+          "tracker": {
+            "ADXL362_SimpleRead": false
+          },
+          "p2": {
+            "ADXL362_SimpleRead": false
+          },
+          "msom": {
+            "ADXL362_SimpleRead": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.006Z"

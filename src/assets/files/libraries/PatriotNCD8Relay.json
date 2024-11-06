@@ -95,6 +95,26 @@
           "esomx": {
             "relay": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "relay": false
+          },
+          "bsom": {
+            "relay": false
+          },
+          "b5som": {
+            "relay": false
+          },
+          "tracker": {
+            "relay": false
+          },
+          "p2": {
+            "relay": false
+          },
+          "msom": {
+            "relay": false
+          }
         }
       },
       "added": "2024-07-27T10:09:04.467Z"

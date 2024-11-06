@@ -215,6 +215,38 @@
             "GraphicsTest": true,
             "SpiTftBitmap": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "bsom": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "p2": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "msom": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.805Z"

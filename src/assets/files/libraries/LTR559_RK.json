@@ -1,0 +1,103 @@
+{
+  "type": "libraries",
+  "id": "LTR559_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LTR559_RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "LTR559_RK",
+    "version": "0.0.1",
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
+    "sentence": "LTR559 light sensor library for Particle",
+    "url": "https://github.com/rickkas7/LTR559_RK",
+    "repository": "https://github.com/rickkas7/LTR559_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/reference/device-os/libraries/l/LTR559_RK",
+  "versions": {
+    "0.0.1": {
+      "added": "2024-11-04T01:52:32.036Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": true
+          },
+          "msom": {
+            "simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "esomx": {
+            "simple": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "simple": true
+          },
+          "electron": {
+            "simple": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# LTR559_RK\n\n*LTR559 light sensor library for Particle*\n\nThis library is not complete but does have enough functions implemented to read and\nproximity sensor (PS) and ambient light sensor (ALS) data.\n\nThis library is intended for use with the Pimoroni enviro + air quality (PIM458)\nhat. Since the hat does not implement the interrupt line to the MCU, those functions\nare not completely implemented in this library as they wouldn't be particularly\nuseful.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

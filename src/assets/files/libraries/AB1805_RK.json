@@ -773,6 +773,62 @@
             "06-supercap": true,
             "07-deep-power": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "bsom": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "b5som": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "tracker": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "p2": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": false
+          },
+          "msom": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          }
         }
       }
     }

@@ -290,6 +290,50 @@
             "EthernetShield_NoteOnOffEverySec": false,
             "Wifi_NoteOnOffEverySec": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "bsom": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "b5som": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "tracker": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "p2": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "msom": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.067Z"

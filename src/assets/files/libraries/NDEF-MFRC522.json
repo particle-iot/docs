@@ -368,6 +368,62 @@
             "WriteTag": false,
             "WriteTagMultipleRecords": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CleanTag": false,
+            "EraseTag": false,
+            "FormatTag": false,
+            "ReadTag": false,
+            "ReadTagExtended": false,
+            "WriteTag": false,
+            "WriteTagMultipleRecords": false
+          },
+          "bsom": {
+            "CleanTag": false,
+            "EraseTag": false,
+            "FormatTag": false,
+            "ReadTag": false,
+            "ReadTagExtended": false,
+            "WriteTag": false,
+            "WriteTagMultipleRecords": false
+          },
+          "b5som": {
+            "CleanTag": false,
+            "EraseTag": false,
+            "FormatTag": false,
+            "ReadTag": false,
+            "ReadTagExtended": false,
+            "WriteTag": false,
+            "WriteTagMultipleRecords": false
+          },
+          "tracker": {
+            "CleanTag": false,
+            "EraseTag": false,
+            "FormatTag": false,
+            "ReadTag": false,
+            "ReadTagExtended": false,
+            "WriteTag": false,
+            "WriteTagMultipleRecords": false
+          },
+          "p2": {
+            "CleanTag": false,
+            "EraseTag": false,
+            "FormatTag": false,
+            "ReadTag": false,
+            "ReadTagExtended": false,
+            "WriteTag": false,
+            "WriteTagMultipleRecords": false
+          },
+          "msom": {
+            "CleanTag": false,
+            "EraseTag": false,
+            "FormatTag": false,
+            "ReadTag": false,
+            "ReadTagExtended": false,
+            "WriteTag": false,
+            "WriteTagMultipleRecords": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.041Z"

@@ -89,6 +89,26 @@
           "esomx": {
             "LightTouchDemo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "LightTouchDemo": true
+          },
+          "bsom": {
+            "LightTouchDemo": true
+          },
+          "b5som": {
+            "LightTouchDemo": true
+          },
+          "tracker": {
+            "LightTouchDemo": true
+          },
+          "p2": {
+            "LightTouchDemo": true
+          },
+          "msom": {
+            "LightTouchDemo": true
+          }
         }
       },
       "added": "2023-12-31T15:18:05.739Z"

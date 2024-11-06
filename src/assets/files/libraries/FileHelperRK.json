@@ -153,6 +153,32 @@
             "1-print": false,
             "2-automated-test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "bsom": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "b5som": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "tracker": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "p2": {
+            "1-print": true,
+            "2-automated-test": true
+          },
+          "msom": {
+            "1-print": true,
+            "2-automated-test": true
+          }
         }
       }
     }

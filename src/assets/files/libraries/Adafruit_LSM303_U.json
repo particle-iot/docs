@@ -180,6 +180,32 @@
             "accelsensor": true,
             "magsensor": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "bsom": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "b5som": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "tracker": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "p2": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "msom": {
+            "accelsensor": true,
+            "magsensor": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.855Z"

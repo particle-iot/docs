@@ -217,6 +217,38 @@
             "2-unittest-winbond": true,
             "3-unittest-large": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "bsom": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "b5som": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "tracker": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "p2": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "msom": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.741Z"

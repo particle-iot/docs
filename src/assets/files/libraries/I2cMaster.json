@@ -143,6 +143,26 @@
           "esomx": {
             "I2cMasterTest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "I2cMasterTest": false
+          },
+          "bsom": {
+            "I2cMasterTest": false
+          },
+          "b5som": {
+            "I2cMasterTest": false
+          },
+          "tracker": {
+            "I2cMasterTest": false
+          },
+          "p2": {
+            "I2cMasterTest": false
+          },
+          "msom": {
+            "I2cMasterTest": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.747Z"

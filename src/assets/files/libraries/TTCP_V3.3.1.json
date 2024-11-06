@@ -143,6 +143,26 @@
           "esomx": {
             "mqtttest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "mqtttest": false
+          },
+          "bsom": {
+            "mqtttest": false
+          },
+          "b5som": {
+            "mqtttest": false
+          },
+          "tracker": {
+            "mqtttest": false
+          },
+          "p2": {
+            "mqtttest": false
+          },
+          "msom": {
+            "mqtttest": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.100Z"

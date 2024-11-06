@@ -218,6 +218,38 @@
             "2_Publish_voltage_readings": true,
             "3_Interrupt_on_low_voltage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "bsom": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "b5som": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "tracker": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "p2": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "msom": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.660Z"

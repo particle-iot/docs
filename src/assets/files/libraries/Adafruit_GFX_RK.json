@@ -264,6 +264,26 @@
           "electron": {
             "readme": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "readme": true
+          },
+          "bsom": {
+            "readme": true
+          },
+          "b5som": {
+            "readme": true
+          },
+          "tracker": {
+            "readme": true
+          },
+          "p2": {
+            "readme": true
+          },
+          "msom": {
+            "readme": true
+          }
         }
       }
     }

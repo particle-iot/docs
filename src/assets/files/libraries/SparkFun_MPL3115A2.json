@@ -143,6 +143,26 @@
           "esomx": {
             "SparkFun_MPL3115A2_Example": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "bsom": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "b5som": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "tracker": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "p2": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "msom": {
+            "SparkFun_MPL3115A2_Example": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.729Z"

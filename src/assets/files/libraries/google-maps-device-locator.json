@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "google-maps-device-locator",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/google-maps-device-locator/archive/0.0.7.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/google-maps-device-locator/archive/0.0.8.tar.gz"
   },
   "attributes": {
     "name": "google-maps-device-locator",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for using Google Maps Device Locator Integration",
@@ -15,6 +15,9 @@
     "architectures": [
       "*"
     ],
+    "dependencies": {
+      "cellular-helper": "0.2.7"
+    },
     "visibility": "public",
     "mine": false,
     "verified": true
@@ -150,10 +153,104 @@
         }
       },
       "added": "2022-06-17T10:16:53.650Z"
+    },
+    "0.0.8": {
+      "added": "2024-11-02T13:41:27.825Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-button": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-button": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-button": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-button": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-button": true
+          }
+        }
+      }
     }
   },
-  "readme": "# Google Maps Device Locator\n\n**Library for using the Google Maps Device Locator Integration**\n\nThis library work with the [Google Maps Device Locator Integration](https://docs.particle.io/tutorials/integrations/google-maps/) to find a location based on Wi-Fi or cellular tower information via the [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/intro).\n\n\n## Firmware Library API\n\n### Creating an object\n\nYou normally create an locator object as a global variable in your program:\n\n```\nGoogleMapsDeviceLocator locator;\n```\n\n### Operating modes\n\nThere are three modes of operation:\n\nIf you want to only publish the location once when the device starts up, use withLocateOnce from your setup function.\n\n```\nlocator.withLocateOnce();\n```\n\nTo publish every *n* seconds while connected to the cloud, use withLocatePeriodic. The value is in seconds.\n\n```\nlocator.withLocatePeriodic(120);\n```\n\nTo manually connect, specify neither option and call publishLocation when you want to publish the location\n\n```\nlocator.publishLocation();\n```\n\n### The loop\n\nWith periodic and locate once modes, you must call \n\n```\nlocator.loop();\n```\n\nfrom your loop. It doesn't hurt to always call it, even in manual location mode. It gives the library time to process the data.\n\n### Customizing the event name\n\nThe default event name is **deviceLocator**. You can change that in setup using:\n\n```\nlocator.withEventName(\"myEventName\");\n```\n\nThis also must be updated in the integration, since the eventName is what triggers the webhook. \n\n### Subscription\n\nYou can also have the library tell your firmware code what location was found. Use the withSubscribe option with a callback function.\n\nThis goes in setup() for example:\n\n```\nlocator.withSubscribe(locationCallback).withLocatePeriodic(120);\n```\n\nThe callback function looks like this:\n\n```\nvoid locationCallback(float lat, float lon, float accuracy)\n```\n\nOne possibility is that you could display this information on a small OLED display, for example.\n\n### Debugging\n\nThe library uses the logging feature of system firmware 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.\n\n```\nSerialLogHandler logHandler;\n```\n\n### Special Notes for LTE (SARA-R410M-02B)\n\nFor LTE devices, it's strongly recommended to use this library with Device OS 1.2.1 or later only. \n\nThe Boron LTE and B Series B402 SoM both require 1.2.1 to use the device locator and will not work with older versions of Device OS.\n\nIf you must use a version of Device OS older than 1.2.1:\n\n- The Boron LTE cannot use the device locator with Device OS older than 1.2.1\n- The E Series LTE and Electron LTE require the use of the `withOperator()` method to manually set the MCC, MNC, and operator if not \n\nThe `withOperator(const char *oper, int mcc, int mnc)` method of the locator object allows you to pass in this information. The default is \"AT&T\", 310, 410.\n\nNote that because `withOperator()` is no longer needed with Device OS 1.2.1 and later, it will eventually be removed.\n\n\n## Version History\n\n#### 0.0.7 (2020-08-12)\n\n- Fix compiler warning with 2.0.0.\n\n#### 0.0.6 (2019-10-03)\n\n- Added support for the Boron LTE and B Series B402 SoM when using Device OS 1.2.1 and later.\n- The `withOperator()` function is no longer needed for LTE when using Device OS 1.2.1 and later. \n\n\n#### 0.0.5 (2018-11-27) \n\n- Added support for LTE in the United States, upgrade to CellularHelper 0.0.7\n\n\n\n",
+  "readme": "# Google Maps Device Locator\n\n**Library for using the Google Maps Device Locator Integration**\n\nThis library work with the [Google Maps Device Locator Integration](https://docs.particle.io/tutorials/integrations/google-maps/) to find a location based on Wi-Fi or cellular tower information via the [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/intro).\n\n\n## Firmware Library API\n\n### Creating an object\n\nYou normally create an locator object as a global variable in your program:\n\n```\nGoogleMapsDeviceLocator locator;\n```\n\n### Operating modes\n\nThere are three modes of operation:\n\nIf you want to only publish the location once when the device starts up, use withLocateOnce from your setup function.\n\n```\nlocator.withLocateOnce();\n```\n\nTo publish every *n* seconds while connected to the cloud, use withLocatePeriodic. The value is in seconds.\n\n```\nlocator.withLocatePeriodic(120);\n```\n\nTo manually connect, specify neither option and call publishLocation when you want to publish the location\n\n```\nlocator.publishLocation();\n```\n\n### The loop\n\nWith periodic and locate once modes, you must call \n\n```\nlocator.loop();\n```\n\nfrom your loop. It doesn't hurt to always call it, even in manual location mode. It gives the library time to process the data.\n\n### Customizing the event name\n\nThe default event name is **deviceLocator**. You can change that in setup using:\n\n```\nlocator.withEventName(\"myEventName\");\n```\n\nThis also must be updated in the integration, since the eventName is what triggers the webhook. \n\n### Subscription\n\nYou can also have the library tell your firmware code what location was found. Use the withSubscribe option with a callback function.\n\nThis goes in setup() for example:\n\n```\nlocator.withSubscribe(locationCallback).withLocatePeriodic(120);\n```\n\nThe callback function looks like this:\n\n```\nvoid locationCallback(float lat, float lon, float accuracy)\n```\n\nOne possibility is that you could display this information on a small OLED display, for example.\n\n### Debugging\n\nThe library uses the logging feature of system firmware 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.\n\n```\nSerialLogHandler logHandler;\n```\n\n### Special Notes for LTE (SARA-R410M-02B)\n\nFor LTE devices, it's strongly recommended to use this library with Device OS 1.2.1 or later only. \n\nThe Boron LTE and B Series B402 SoM both require 1.2.1 to use the device locator and will not work with older versions of Device OS.\n\nIf you must use a version of Device OS older than 1.2.1:\n\n- The Boron LTE cannot use the device locator with Device OS older than 1.2.1\n- The E Series LTE and Electron LTE require the use of the `withOperator()` method to manually set the MCC, MNC, and operator if not \n\nThe `withOperator(const char *oper, int mcc, int mnc)` method of the locator object allows you to pass in this information. The default is \"AT&T\", 310, 410.\n\nNote that because `withOperator()` is no longer needed with Device OS 1.2.1 and later, it will eventually be removed.\n\n\n## Version History\n\n#### 0.0.8 (2024-09-26)\n\n- Remove Serial calls, use only Log calls\n- Update CellularHelper to 0.2.7\n\n#### 0.0.7 (2020-08-12)\n\n- Fix compiler warning with 2.0.0.\n\n#### 0.0.6 (2019-10-03)\n\n- Added support for the Boron LTE and B Series B402 SoM when using Device OS 1.2.1 and later.\n- The `withOperator()` function is no longer needed for LTE when using Device OS 1.2.1 and later. \n\n\n#### 0.0.5 (2018-11-27) \n\n- Added support for LTE in the United States, upgrade to CellularHelper 0.0.7\n\n\n\n",
   "allVersions": [
+    "0.0.8",
     "0.0.7",
     "0.0.6",
     "0.0.5",

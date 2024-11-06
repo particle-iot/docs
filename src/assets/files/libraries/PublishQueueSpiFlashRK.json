@@ -90,6 +90,32 @@
             "1-simple": true,
             "2-test-suite": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
         }
       }
     }

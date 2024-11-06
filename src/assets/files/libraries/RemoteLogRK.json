@@ -273,6 +273,44 @@
             "3-Publish": false,
             "4-Server": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-Simple": false,
+            "2-Multicast": false,
+            "3-Publish": false,
+            "4-Server": false
+          },
+          "bsom": {
+            "1-Simple": false,
+            "2-Multicast": false,
+            "3-Publish": false,
+            "4-Server": false
+          },
+          "b5som": {
+            "1-Simple": false,
+            "2-Multicast": false,
+            "3-Publish": false,
+            "4-Server": false
+          },
+          "tracker": {
+            "1-Simple": true,
+            "2-Multicast": true,
+            "3-Publish": false,
+            "4-Server": true
+          },
+          "p2": {
+            "1-Simple": true,
+            "2-Multicast": true,
+            "3-Publish": false,
+            "4-Server": true
+          },
+          "msom": {
+            "1-Simple": true,
+            "2-Multicast": true,
+            "3-Publish": false,
+            "4-Server": true
+          }
         }
       }
     }

@@ -141,6 +141,26 @@
           "esomx": {
             "i2cArduino": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "i2cArduino": false
+          },
+          "bsom": {
+            "i2cArduino": false
+          },
+          "b5som": {
+            "i2cArduino": false
+          },
+          "tracker": {
+            "i2cArduino": false
+          },
+          "p2": {
+            "i2cArduino": false
+          },
+          "msom": {
+            "i2cArduino": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.855Z"

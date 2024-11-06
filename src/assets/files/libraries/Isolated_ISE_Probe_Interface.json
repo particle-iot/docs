@@ -146,6 +146,26 @@
           "esomx": {
             "SAMD21": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SAMD21": true
+          },
+          "bsom": {
+            "SAMD21": true
+          },
+          "b5som": {
+            "SAMD21": true
+          },
+          "tracker": {
+            "SAMD21": true
+          },
+          "p2": {
+            "SAMD21": true
+          },
+          "msom": {
+            "SAMD21": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.113Z"

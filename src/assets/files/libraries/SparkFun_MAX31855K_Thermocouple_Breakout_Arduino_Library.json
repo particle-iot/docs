@@ -134,6 +134,26 @@
           "esomx": {
             "SparkFun_MAX31855K_Thermocouple_Breakout": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "bsom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "b5som": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "tracker": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "p2": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "msom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
         }
       }
     }

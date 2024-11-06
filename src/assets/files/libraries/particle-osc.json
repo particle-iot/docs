@@ -143,6 +143,26 @@
           "esomx": {
             "ip-reporter": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ip-reporter": false
+          },
+          "bsom": {
+            "ip-reporter": false
+          },
+          "b5som": {
+            "ip-reporter": false
+          },
+          "tracker": {
+            "ip-reporter": false
+          },
+          "p2": {
+            "ip-reporter": false
+          },
+          "msom": {
+            "ip-reporter": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.977Z"

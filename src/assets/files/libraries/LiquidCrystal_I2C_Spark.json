@@ -143,6 +143,26 @@
           "esomx": {
             "ClockExample": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ClockExample": true
+          },
+          "bsom": {
+            "ClockExample": true
+          },
+          "b5som": {
+            "ClockExample": true
+          },
+          "tracker": {
+            "ClockExample": true
+          },
+          "p2": {
+            "ClockExample": true
+          },
+          "msom": {
+            "ClockExample": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.648Z"

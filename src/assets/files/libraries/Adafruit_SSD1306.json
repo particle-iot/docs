@@ -215,6 +215,38 @@
             "ssd1306_128x64_spi": false,
             "surfsoon-oled": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "bsom": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "b5som": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "tracker": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "p2": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "msom": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.643Z"

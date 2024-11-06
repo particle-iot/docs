@@ -146,6 +146,26 @@
           "esomx": {
             "base64": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "base64": true
+          },
+          "bsom": {
+            "base64": true
+          },
+          "b5som": {
+            "base64": true
+          },
+          "tracker": {
+            "base64": true
+          },
+          "p2": {
+            "base64": true
+          },
+          "msom": {
+            "base64": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.704Z"

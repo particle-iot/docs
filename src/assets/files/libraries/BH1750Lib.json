@@ -143,6 +143,26 @@
           "esomx": {
             "BH1750LibSample": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BH1750LibSample": false
+          },
+          "bsom": {
+            "BH1750LibSample": false
+          },
+          "b5som": {
+            "BH1750LibSample": false
+          },
+          "tracker": {
+            "BH1750LibSample": false
+          },
+          "p2": {
+            "BH1750LibSample": false
+          },
+          "msom": {
+            "BH1750LibSample": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.765Z"

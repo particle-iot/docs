@@ -1,0 +1,105 @@
+{
+  "type": "libraries",
+  "id": "PMS5003_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PMS5003_RK/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "PMS5003_RK",
+    "version": "0.0.3",
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
+    "sentence": "PMS5003 particulate sensor library for Particle",
+    "url": "https://github.com/rickkas7/PMS5003_RK",
+    "repository": "https://github.com/rickkas7/PMS5003_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/reference/device-os/libraries/p/PMS5003_RK",
+  "versions": {
+    "0.0.3": {
+      "added": "2024-11-04T01:49:25.129Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": true
+          },
+          "msom": {
+            "simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "esomx": {
+            "simple": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "simple": true
+          },
+          "electron": {
+            "simple": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# PMS5003_RK\n\n*PMS5003 particulate sensor library for Particle*\n\nThis library is not yet complete. It can read from PMS5003 and PMS7003 sensors\nsuccessfully, however.\n\nThe idea is that there would be some additional functions to average the \ndata better in the future.\n\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

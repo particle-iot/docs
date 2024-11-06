@@ -361,6 +361,62 @@
             "6-tcp-server": true,
             "7-cmd-options-test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": false,
+            "2-line-editing": false,
+            "3-line-editing-uart": false,
+            "4-print-message": false,
+            "5-log-handler": false,
+            "6-tcp-server": false,
+            "7-cmd-options-test": false
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-line-editing": false,
+            "3-line-editing-uart": false,
+            "4-print-message": false,
+            "5-log-handler": false,
+            "6-tcp-server": false,
+            "7-cmd-options-test": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-line-editing": false,
+            "3-line-editing-uart": false,
+            "4-print-message": false,
+            "5-log-handler": false,
+            "6-tcp-server": false,
+            "7-cmd-options-test": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-line-editing": false,
+            "3-line-editing-uart": false,
+            "4-print-message": false,
+            "5-log-handler": false,
+            "6-tcp-server": false,
+            "7-cmd-options-test": false
+          },
+          "p2": {
+            "1-simple": false,
+            "2-line-editing": false,
+            "3-line-editing-uart": false,
+            "4-print-message": false,
+            "5-log-handler": false,
+            "6-tcp-server": false,
+            "7-cmd-options-test": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-line-editing": false,
+            "3-line-editing-uart": false,
+            "4-print-message": false,
+            "5-log-handler": false,
+            "6-tcp-server": false,
+            "7-cmd-options-test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.007Z"

@@ -146,6 +146,26 @@
           "esomx": {
             "BlinkerWithClass": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BlinkerWithClass": false
+          },
+          "bsom": {
+            "BlinkerWithClass": false
+          },
+          "b5som": {
+            "BlinkerWithClass": false
+          },
+          "tracker": {
+            "BlinkerWithClass": false
+          },
+          "p2": {
+            "BlinkerWithClass": false
+          },
+          "msom": {
+            "BlinkerWithClass": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.035Z"

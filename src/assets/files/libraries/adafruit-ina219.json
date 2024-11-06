@@ -143,6 +143,26 @@
           "esomx": {
             "get-current": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "get-current": true
+          },
+          "bsom": {
+            "get-current": true
+          },
+          "b5som": {
+            "get-current": true
+          },
+          "tracker": {
+            "get-current": true
+          },
+          "p2": {
+            "get-current": true
+          },
+          "msom": {
+            "get-current": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.685Z"

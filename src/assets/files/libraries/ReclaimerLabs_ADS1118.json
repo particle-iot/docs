@@ -146,6 +146,26 @@
           "esomx": {
             "thermocouple_monitor": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "thermocouple_monitor": true
+          },
+          "bsom": {
+            "thermocouple_monitor": true
+          },
+          "b5som": {
+            "thermocouple_monitor": true
+          },
+          "tracker": {
+            "thermocouple_monitor": true
+          },
+          "p2": {
+            "thermocouple_monitor": true
+          },
+          "msom": {
+            "thermocouple_monitor": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.055Z"

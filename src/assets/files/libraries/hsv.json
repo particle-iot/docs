@@ -143,6 +143,26 @@
           "esomx": {
             "rainbow": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "rainbow": true
+          },
+          "bsom": {
+            "rainbow": true
+          },
+          "b5som": {
+            "rainbow": true
+          },
+          "tracker": {
+            "rainbow": true
+          },
+          "p2": {
+            "rainbow": true
+          },
+          "msom": {
+            "rainbow": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.851Z"

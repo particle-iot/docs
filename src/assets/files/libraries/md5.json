@@ -143,6 +143,26 @@
           "esomx": {
             "test_md5": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "test_md5": false
+          },
+          "bsom": {
+            "test_md5": false
+          },
+          "b5som": {
+            "test_md5": false
+          },
+          "tracker": {
+            "test_md5": true
+          },
+          "p2": {
+            "test_md5": true
+          },
+          "msom": {
+            "test_md5": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.818Z"

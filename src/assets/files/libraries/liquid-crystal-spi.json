@@ -215,6 +215,38 @@
             "lcd-hardware-spi": false,
             "lcd-software-spi": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "bsom": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "b5som": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "tracker": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "p2": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "msom": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.957Z"

@@ -143,6 +143,26 @@
           "esomx": {
             "test_L9110": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "test_L9110": false
+          },
+          "bsom": {
+            "test_L9110": false
+          },
+          "b5som": {
+            "test_L9110": false
+          },
+          "tracker": {
+            "test_L9110": false
+          },
+          "p2": {
+            "test_L9110": false
+          },
+          "msom": {
+            "test_L9110": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.999Z"

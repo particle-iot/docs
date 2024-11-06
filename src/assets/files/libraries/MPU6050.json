@@ -215,6 +215,38 @@
             "MPU6050_raw": false,
             "example-mpu-dump-to-serial": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "bsom": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "b5som": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "tracker": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "p2": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "msom": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.665Z"

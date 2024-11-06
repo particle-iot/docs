@@ -264,6 +264,38 @@
             "DHT_example": false,
             "DHT_simple": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "bsom": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "b5som": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "tracker": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "p2": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "msom": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.650Z"

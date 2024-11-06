@@ -146,6 +146,26 @@
           "esomx": {
             "SparkFun_TMP102_Breakout_Example": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "bsom": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "b5som": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "tracker": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "p2": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "msom": {
+            "SparkFun_TMP102_Breakout_Example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.897Z"

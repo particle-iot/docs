@@ -142,6 +142,26 @@
           "esomx": {
             "photon-wdgs-demo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "photon-wdgs-demo": false
+          },
+          "bsom": {
+            "photon-wdgs-demo": false
+          },
+          "b5som": {
+            "photon-wdgs-demo": false
+          },
+          "tracker": {
+            "photon-wdgs-demo": false
+          },
+          "p2": {
+            "photon-wdgs-demo": false
+          },
+          "msom": {
+            "photon-wdgs-demo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.736Z"

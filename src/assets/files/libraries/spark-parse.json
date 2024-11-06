@@ -141,6 +141,26 @@
           "esomx": {
             "parse_hex": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "parse_hex": true
+          },
+          "bsom": {
+            "parse_hex": true
+          },
+          "b5som": {
+            "parse_hex": true
+          },
+          "tracker": {
+            "parse_hex": true
+          },
+          "p2": {
+            "parse_hex": true
+          },
+          "msom": {
+            "parse_hex": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.096Z"

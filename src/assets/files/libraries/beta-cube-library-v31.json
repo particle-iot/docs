@@ -359,6 +359,62 @@
             "streaming": false,
             "text": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "bsom": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "b5som": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "tracker": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "p2": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "msom": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.964Z"

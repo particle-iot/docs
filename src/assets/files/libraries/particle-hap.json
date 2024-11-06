@@ -435,6 +435,74 @@
             "roomba": false,
             "singlenixie": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "bsom": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "b5som": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "tracker": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "p2": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "msom": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.799Z"

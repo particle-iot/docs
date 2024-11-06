@@ -148,6 +148,26 @@
           "esomx": {
             "lsm9ds1": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "lsm9ds1": false
+          },
+          "bsom": {
+            "lsm9ds1": false
+          },
+          "b5som": {
+            "lsm9ds1": false
+          },
+          "tracker": {
+            "lsm9ds1": false
+          },
+          "p2": {
+            "lsm9ds1": false
+          },
+          "msom": {
+            "lsm9ds1": false
+          }
         }
       },
       "added": "2023-03-21T18:33:57.468Z"

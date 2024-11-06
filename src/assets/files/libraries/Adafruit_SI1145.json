@@ -143,6 +143,26 @@
           "esomx": {
             "si1145test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "si1145test": true
+          },
+          "bsom": {
+            "si1145test": true
+          },
+          "b5som": {
+            "si1145test": true
+          },
+          "tracker": {
+            "si1145test": true
+          },
+          "p2": {
+            "si1145test": true
+          },
+          "msom": {
+            "si1145test": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.745Z"

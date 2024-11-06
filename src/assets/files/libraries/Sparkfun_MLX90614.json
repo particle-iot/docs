@@ -283,6 +283,50 @@
             "MLX90614_Set_Emissivity": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "bsom": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "b5som": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "tracker": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "p2": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "msom": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.094Z"

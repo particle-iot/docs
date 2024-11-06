@@ -146,6 +146,26 @@
           "esomx": {
             "Adafruit_PM25AQI_demo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Adafruit_PM25AQI_demo": true
+          },
+          "bsom": {
+            "Adafruit_PM25AQI_demo": true
+          },
+          "b5som": {
+            "Adafruit_PM25AQI_demo": true
+          },
+          "tracker": {
+            "Adafruit_PM25AQI_demo": true
+          },
+          "p2": {
+            "Adafruit_PM25AQI_demo": true
+          },
+          "msom": {
+            "Adafruit_PM25AQI_demo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.923Z"

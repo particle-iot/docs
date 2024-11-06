@@ -176,6 +176,32 @@
             "readAM2320": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "bsom": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "b5som": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "tracker": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "p2": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "msom": {
+            "readAM2320": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.057Z"

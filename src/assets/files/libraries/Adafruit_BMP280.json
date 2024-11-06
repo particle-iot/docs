@@ -143,6 +143,26 @@
           "esomx": {
             "BMP280": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BMP280": true
+          },
+          "bsom": {
+            "BMP280": true
+          },
+          "b5som": {
+            "BMP280": true
+          },
+          "tracker": {
+            "BMP280": true
+          },
+          "p2": {
+            "BMP280": true
+          },
+          "msom": {
+            "BMP280": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.669Z"

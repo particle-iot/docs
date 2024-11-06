@@ -390,6 +390,38 @@
             "2-notify": true,
             "3-extra-fields": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "p2": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          }
         }
       }
     }

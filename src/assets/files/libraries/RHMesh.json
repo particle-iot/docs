@@ -175,6 +175,32 @@
             "raspi": false,
             "usage": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "raspi": false,
+            "usage": true
+          },
+          "bsom": {
+            "raspi": false,
+            "usage": true
+          },
+          "b5som": {
+            "raspi": false,
+            "usage": true
+          },
+          "tracker": {
+            "raspi": false,
+            "usage": true
+          },
+          "p2": {
+            "raspi": false,
+            "usage": true
+          },
+          "msom": {
+            "raspi": false,
+            "usage": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.076Z"

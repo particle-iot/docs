@@ -228,6 +228,44 @@
             "06-retained": true,
             "07-validate": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "bsom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "b5som": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "tracker": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "p2": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "msom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
         }
       }
     }

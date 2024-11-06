@@ -448,6 +448,44 @@
             "3-tcp-ADXL362DMA": false,
             "4-rollpitch-ADXL362DMA": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "bsom": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "b5som": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "tracker": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "p2": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "msom": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          }
         }
       }
     }

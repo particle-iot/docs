@@ -254,6 +254,44 @@
             "Example3-ConfigurationSettings": false,
             "Example4-ThresholdTests": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "msom": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.047Z"

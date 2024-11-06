@@ -218,6 +218,38 @@
             "constcurrent_demo": false,
             "ledbutton_demo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "bsom": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "b5som": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "tracker": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "p2": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "msom": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.079Z"

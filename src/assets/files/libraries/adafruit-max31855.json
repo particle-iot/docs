@@ -179,6 +179,32 @@
             "lcd-thermocouple": false,
             "serial-thermocouple": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "bsom": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "b5som": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "tracker": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "p2": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "msom": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.822Z"

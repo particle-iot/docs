@@ -143,6 +143,26 @@
           "esomx": {
             "light-wave": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "light-wave": true
+          },
+          "bsom": {
+            "light-wave": true
+          },
+          "b5som": {
+            "light-wave": true
+          },
+          "tracker": {
+            "light-wave": true
+          },
+          "p2": {
+            "light-wave": true
+          },
+          "msom": {
+            "light-wave": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.722Z"

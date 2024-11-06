@@ -254,6 +254,44 @@
             "pulsingBackground": false,
             "shell": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "bsom": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "b5som": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "tracker": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "p2": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "msom": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.775Z"

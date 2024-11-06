@@ -113,6 +113,44 @@
             "3-static-config": false,
             "4-static": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-static-config": false,
+            "4-static": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-static-config": false,
+            "4-static": false
+          }
         }
       }
     }

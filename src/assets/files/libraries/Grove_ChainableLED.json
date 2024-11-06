@@ -147,6 +147,26 @@
           "esomx": {
             "CycleThroughColors": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CycleThroughColors": true
+          },
+          "bsom": {
+            "CycleThroughColors": true
+          },
+          "b5som": {
+            "CycleThroughColors": true
+          },
+          "tracker": {
+            "CycleThroughColors": true
+          },
+          "p2": {
+            "CycleThroughColors": true
+          },
+          "msom": {
+            "CycleThroughColors": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.687Z"

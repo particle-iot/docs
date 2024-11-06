@@ -287,6 +287,50 @@
             "PublishWithTimestamp": true,
             "StaticBuffer": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "bsom": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "b5som": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "tracker": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "p2": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "msom": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.870Z"

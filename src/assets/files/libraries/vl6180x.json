@@ -133,6 +133,26 @@
           "esomx": {
             "SparkFun_VL6180X_demo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "bsom": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "b5som": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "tracker": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "p2": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "msom": {
+            "SparkFun_VL6180X_demo": false
+          }
         }
       }
     }

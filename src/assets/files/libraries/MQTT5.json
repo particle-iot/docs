@@ -178,6 +178,32 @@
             "advanced": true,
             "basic": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "advanced": true,
+            "basic": true
+          },
+          "bsom": {
+            "advanced": true,
+            "basic": true
+          },
+          "b5som": {
+            "advanced": true,
+            "basic": true
+          },
+          "tracker": {
+            "advanced": true,
+            "basic": true
+          },
+          "p2": {
+            "advanced": true,
+            "basic": true
+          },
+          "msom": {
+            "advanced": true,
+            "basic": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.027Z"

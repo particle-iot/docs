@@ -361,6 +361,62 @@
             "07-devicenotes": true,
             "08-googlesheets": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "bsom": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "b5som": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "tracker": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "p2": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "msom": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.971Z"

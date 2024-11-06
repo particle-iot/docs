@@ -254,6 +254,44 @@
             "Example3-FastRead": false,
             "Tester": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "bsom": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "b5som": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "tracker": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "p2": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "msom": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.075Z"

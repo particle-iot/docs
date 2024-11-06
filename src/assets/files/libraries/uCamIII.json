@@ -146,6 +146,26 @@
           "esomx": {
             "uCamTestSingleFile": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "uCamTestSingleFile": false
+          },
+          "bsom": {
+            "uCamTestSingleFile": false
+          },
+          "b5som": {
+            "uCamTestSingleFile": false
+          },
+          "tracker": {
+            "uCamTestSingleFile": false
+          },
+          "p2": {
+            "uCamTestSingleFile": false
+          },
+          "msom": {
+            "uCamTestSingleFile": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.883Z"

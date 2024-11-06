@@ -143,6 +143,26 @@
           "esomx": {
             "RSSI_Example": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "RSSI_Example": false
+          },
+          "bsom": {
+            "RSSI_Example": false
+          },
+          "b5som": {
+            "RSSI_Example": false
+          },
+          "tracker": {
+            "RSSI_Example": false
+          },
+          "p2": {
+            "RSSI_Example": false
+          },
+          "msom": {
+            "RSSI_Example": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.920Z"

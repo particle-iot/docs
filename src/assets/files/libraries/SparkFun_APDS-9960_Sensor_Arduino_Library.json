@@ -262,6 +262,50 @@
             "ProximityInterrupt": true,
             "ProximitySensor": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "bsom": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "b5som": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "tracker": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "p2": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "msom": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          }
         }
       }
     }

@@ -141,6 +141,26 @@
           "esomx": {
             "MMA7660FC_Demo": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MMA7660FC_Demo": true
+          },
+          "bsom": {
+            "MMA7660FC_Demo": true
+          },
+          "b5som": {
+            "MMA7660FC_Demo": true
+          },
+          "tracker": {
+            "MMA7660FC_Demo": true
+          },
+          "p2": {
+            "MMA7660FC_Demo": true
+          },
+          "msom": {
+            "MMA7660FC_Demo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.010Z"

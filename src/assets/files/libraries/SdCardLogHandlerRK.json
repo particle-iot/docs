@@ -217,6 +217,38 @@
             "2-categories": true,
             "3-print": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.710Z"

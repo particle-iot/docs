@@ -143,6 +143,26 @@
           "esomx": {
             "TCS34725": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "TCS34725": true
+          },
+          "bsom": {
+            "TCS34725": true
+          },
+          "b5som": {
+            "TCS34725": true
+          },
+          "tracker": {
+            "TCS34725": true
+          },
+          "p2": {
+            "TCS34725": true
+          },
+          "msom": {
+            "TCS34725": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.717Z"

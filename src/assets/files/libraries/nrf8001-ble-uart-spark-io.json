@@ -179,6 +179,32 @@
             "ble-mesh-cloud": false,
             "nrf8001-ble-uart": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "bsom": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "b5som": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "tracker": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "p2": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "msom": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.971Z"

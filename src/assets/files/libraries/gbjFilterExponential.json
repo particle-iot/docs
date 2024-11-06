@@ -151,6 +151,26 @@
           "esomx": {
             "analog_input_filtering": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "analog_input_filtering": false
+          },
+          "bsom": {
+            "analog_input_filtering": false
+          },
+          "b5som": {
+            "analog_input_filtering": false
+          },
+          "tracker": {
+            "analog_input_filtering": false
+          },
+          "p2": {
+            "analog_input_filtering": false
+          },
+          "msom": {
+            "analog_input_filtering": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.955Z"

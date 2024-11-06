@@ -179,6 +179,32 @@
             "LSM9DS1_Basic_I2C": false,
             "LSM9DS1_Basic_SPI": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "bsom": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "b5som": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "tracker": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "p2": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "msom": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.694Z"

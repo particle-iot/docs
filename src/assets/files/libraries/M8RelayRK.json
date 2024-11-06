@@ -196,6 +196,38 @@
             "2-latching": false,
             "3-manual": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "bsom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "b5som": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "tracker": {
+            "1-quad": true,
+            "2-latching": true,
+            "3-manual": true
+          },
+          "p2": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "msom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
         }
       }
     }

@@ -215,6 +215,38 @@
             "2-SdRotatingFile": true,
             "3-TimeSync": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "bsom": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "b5som": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "tracker": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "p2": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "msom": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.819Z"

@@ -326,6 +326,62 @@
             "Example6_mux_clock_output": true,
             "Example7_external_clock": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_generate_clock": true,
+            "Example2_generate_multiple_clocks": true,
+            "Example3_int_and_frac_divider_calc": true,
+            "Example4_change_skew": true,
+            "Example5_change_slew_rate": true,
+            "Example6_mux_clock_output": true,
+            "Example7_external_clock": true
+          },
+          "bsom": {
+            "Example1_generate_clock": true,
+            "Example2_generate_multiple_clocks": true,
+            "Example3_int_and_frac_divider_calc": true,
+            "Example4_change_skew": true,
+            "Example5_change_slew_rate": true,
+            "Example6_mux_clock_output": true,
+            "Example7_external_clock": true
+          },
+          "b5som": {
+            "Example1_generate_clock": true,
+            "Example2_generate_multiple_clocks": true,
+            "Example3_int_and_frac_divider_calc": true,
+            "Example4_change_skew": true,
+            "Example5_change_slew_rate": true,
+            "Example6_mux_clock_output": true,
+            "Example7_external_clock": true
+          },
+          "tracker": {
+            "Example1_generate_clock": true,
+            "Example2_generate_multiple_clocks": true,
+            "Example3_int_and_frac_divider_calc": true,
+            "Example4_change_skew": true,
+            "Example5_change_slew_rate": true,
+            "Example6_mux_clock_output": true,
+            "Example7_external_clock": true
+          },
+          "p2": {
+            "Example1_generate_clock": true,
+            "Example2_generate_multiple_clocks": true,
+            "Example3_int_and_frac_divider_calc": true,
+            "Example4_change_skew": true,
+            "Example5_change_slew_rate": true,
+            "Example6_mux_clock_output": true,
+            "Example7_external_clock": true
+          },
+          "msom": {
+            "Example1_generate_clock": true,
+            "Example2_generate_multiple_clocks": true,
+            "Example3_int_and_frac_divider_calc": true,
+            "Example4_change_skew": true,
+            "Example5_change_slew_rate": true,
+            "Example6_mux_clock_output": true,
+            "Example7_external_clock": true
+          }
         }
       }
     }

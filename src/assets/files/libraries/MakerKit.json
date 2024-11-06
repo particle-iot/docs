@@ -253,6 +253,44 @@
             "3_conf_rm_monitor": false,
             "4_temp_logger": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "bsom": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "b5som": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "tracker": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "p2": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "msom": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.776Z"

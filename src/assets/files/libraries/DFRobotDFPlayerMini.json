@@ -220,6 +220,38 @@
             "GetStarted": false,
             "Usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "bsom": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "b5som": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "tracker": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "p2": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "msom": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.740Z"

@@ -326,6 +326,56 @@
             "TwoMasterMotorTest": false,
             "TwoMotorRobot": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "bsom": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "b5som": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "tracker": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "p2": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "msom": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.939Z"

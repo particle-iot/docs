@@ -2438,6 +2438,80 @@
             "ProgmemExample": true,
             "StringExample": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": true,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "bsom": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": true,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "b5som": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": true,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "tracker": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": true,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "p2": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": true,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "msom": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": true,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          }
         }
       }
     }

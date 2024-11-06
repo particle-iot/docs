@@ -180,6 +180,32 @@
             "basic": true,
             "migration": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "basic": true,
+            "migration": true
+          },
+          "bsom": {
+            "basic": true,
+            "migration": true
+          },
+          "b5som": {
+            "basic": true,
+            "migration": true
+          },
+          "tracker": {
+            "basic": true,
+            "migration": true
+          },
+          "p2": {
+            "basic": true,
+            "migration": true
+          },
+          "msom": {
+            "basic": true,
+            "migration": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.978Z"

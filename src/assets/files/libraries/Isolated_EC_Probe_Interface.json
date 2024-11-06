@@ -398,6 +398,68 @@
             "Temperature": true,
             "TemperatureCompensation": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "bsom": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "b5som": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "tracker": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "p2": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "msom": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.096Z"

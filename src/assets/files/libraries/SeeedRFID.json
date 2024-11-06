@@ -143,6 +143,26 @@
           "esomx": {
             "RFID_UART": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "RFID_UART": false
+          },
+          "bsom": {
+            "RFID_UART": false
+          },
+          "b5som": {
+            "RFID_UART": false
+          },
+          "tracker": {
+            "RFID_UART": false
+          },
+          "p2": {
+            "RFID_UART": false
+          },
+          "msom": {
+            "RFID_UART": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.918Z"

@@ -252,6 +252,44 @@
             "Example3_EnableRTCM": false,
             "Example4_StartRTCMBase": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "bsom": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "b5som": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "tracker": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "p2": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "msom": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.941Z"

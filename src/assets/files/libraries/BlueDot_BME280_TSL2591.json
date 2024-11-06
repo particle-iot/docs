@@ -147,6 +147,26 @@
           "esomx": {
             "BME280_TSL2591_Test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BME280_TSL2591_Test": false
+          },
+          "bsom": {
+            "BME280_TSL2591_Test": false
+          },
+          "b5som": {
+            "BME280_TSL2591_Test": false
+          },
+          "tracker": {
+            "BME280_TSL2591_Test": false
+          },
+          "p2": {
+            "BME280_TSL2591_Test": false
+          },
+          "msom": {
+            "BME280_TSL2591_Test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.004Z"

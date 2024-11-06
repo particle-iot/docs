@@ -183,6 +183,32 @@
             "AES_GCM": false,
             "mbedtls_self_tests": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "bsom": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "b5som": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "tracker": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "p2": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "msom": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.923Z"

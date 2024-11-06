@@ -141,6 +141,26 @@
           "esomx": {
             "demo_tsl2561": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "demo_tsl2561": true
+          },
+          "bsom": {
+            "demo_tsl2561": true
+          },
+          "b5som": {
+            "demo_tsl2561": true
+          },
+          "tracker": {
+            "demo_tsl2561": true
+          },
+          "p2": {
+            "demo_tsl2561": true
+          },
+          "msom": {
+            "demo_tsl2561": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.816Z"

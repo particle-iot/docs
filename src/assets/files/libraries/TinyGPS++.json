@@ -359,6 +359,62 @@
             "SatelliteTracker": false,
             "UsingCustomFields": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "bsom": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "b5som": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "tracker": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "p2": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "msom": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.658Z"

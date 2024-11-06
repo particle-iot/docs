@@ -143,6 +143,26 @@
           "esomx": {
             "MAX17043_Simple": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MAX17043_Simple": true
+          },
+          "bsom": {
+            "MAX17043_Simple": true
+          },
+          "b5som": {
+            "MAX17043_Simple": true
+          },
+          "tracker": {
+            "MAX17043_Simple": true
+          },
+          "p2": {
+            "MAX17043_Simple": true
+          },
+          "msom": {
+            "MAX17043_Simple": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.674Z"

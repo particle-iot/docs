@@ -89,6 +89,26 @@
           "esomx": {
             "Protocentral_ADS1220": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Protocentral_ADS1220": true
+          },
+          "bsom": {
+            "Protocentral_ADS1220": true
+          },
+          "b5som": {
+            "Protocentral_ADS1220": true
+          },
+          "tracker": {
+            "Protocentral_ADS1220": true
+          },
+          "p2": {
+            "Protocentral_ADS1220": true
+          },
+          "msom": {
+            "Protocentral_ADS1220": true
+          }
         }
       },
       "added": "2023-12-31T15:21:00.185Z"

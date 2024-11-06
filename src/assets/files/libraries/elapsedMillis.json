@@ -143,6 +143,26 @@
           "esomx": {
             "elapsedMillisDemo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "elapsedMillisDemo": true
+          },
+          "bsom": {
+            "elapsedMillisDemo": true
+          },
+          "b5som": {
+            "elapsedMillisDemo": true
+          },
+          "tracker": {
+            "elapsedMillisDemo": true
+          },
+          "p2": {
+            "elapsedMillisDemo": true
+          },
+          "msom": {
+            "elapsedMillisDemo": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.672Z"

@@ -228,6 +228,44 @@
             "3-test-suite-LP5562-RK": true,
             "4-indicators-LP5562-RK": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "bsom": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "b5som": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "tracker": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "p2": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "msom": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          }
         }
       }
     }

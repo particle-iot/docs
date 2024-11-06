@@ -73,6 +73,26 @@
           "electron": {
             "sensortest": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "sensortest": false
+          },
+          "bsom": {
+            "sensortest": false
+          },
+          "b5som": {
+            "sensortest": false
+          },
+          "tracker": {
+            "sensortest": false
+          },
+          "p2": {
+            "sensortest": false
+          },
+          "msom": {
+            "sensortest": false
+          }
         }
       }
     }

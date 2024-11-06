@@ -143,6 +143,26 @@
           "esomx": {
             "gateway": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "gateway": false
+          },
+          "bsom": {
+            "gateway": false
+          },
+          "b5som": {
+            "gateway": false
+          },
+          "tracker": {
+            "gateway": false
+          },
+          "p2": {
+            "gateway": false
+          },
+          "msom": {
+            "gateway": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.825Z"

@@ -502,6 +502,62 @@
             "6-list-files-SpiffsParticleRK": false,
             "7-large-files-SpiffsParticleRK": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "bsom": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "b5som": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "tracker": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "p2": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": false,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "msom": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          }
         }
       }
     }

@@ -143,6 +143,26 @@
           "esomx": {
             "app": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "app": false
+          },
+          "bsom": {
+            "app": false
+          },
+          "b5som": {
+            "app": false
+          },
+          "tracker": {
+            "app": false
+          },
+          "p2": {
+            "app": false
+          },
+          "msom": {
+            "app": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.822Z"

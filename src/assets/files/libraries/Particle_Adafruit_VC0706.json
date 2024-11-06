@@ -165,6 +165,32 @@
             "MotionDetect": false,
             "Snapshot": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "p2": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "msom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
         }
       }
     }

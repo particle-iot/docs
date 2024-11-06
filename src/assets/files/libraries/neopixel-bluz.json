@@ -143,6 +143,26 @@
           "esomx": {
             "neo": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "neo": false
+          },
+          "bsom": {
+            "neo": false
+          },
+          "b5som": {
+            "neo": false
+          },
+          "tracker": {
+            "neo": false
+          },
+          "p2": {
+            "neo": false
+          },
+          "msom": {
+            "neo": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.030Z"

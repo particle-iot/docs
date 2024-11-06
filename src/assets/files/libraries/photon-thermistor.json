@@ -148,6 +148,26 @@
           "esomx": {
             "temperature": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "temperature": true
+          },
+          "bsom": {
+            "temperature": true
+          },
+          "b5som": {
+            "temperature": true
+          },
+          "tracker": {
+            "temperature": true
+          },
+          "p2": {
+            "temperature": true
+          },
+          "msom": {
+            "temperature": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.684Z"

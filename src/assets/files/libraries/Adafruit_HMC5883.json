@@ -141,6 +141,26 @@
           "esomx": {
             "magsensor": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "magsensor": false
+          },
+          "bsom": {
+            "magsensor": false
+          },
+          "b5som": {
+            "magsensor": false
+          },
+          "tracker": {
+            "magsensor": false
+          },
+          "p2": {
+            "magsensor": false
+          },
+          "msom": {
+            "magsensor": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.837Z"

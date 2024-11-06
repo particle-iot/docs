@@ -215,6 +215,38 @@
             "2_no_lib": true,
             "3_run": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "bsom": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "b5som": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "tracker": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "p2": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "msom": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.911Z"

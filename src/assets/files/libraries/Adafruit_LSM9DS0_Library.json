@@ -165,6 +165,32 @@
             "lsm9doftest": false,
             "sensorapi": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "bsom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "b5som": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "tracker": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "p2": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "msom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
         }
       }
     }

@@ -399,6 +399,68 @@
             "Example8_Core": true,
             "Example9_AdvancedBegin": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": false
+          },
+          "msom": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.017Z"

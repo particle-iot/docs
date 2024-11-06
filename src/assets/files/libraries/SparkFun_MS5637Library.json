@@ -357,6 +357,68 @@
             "Example9_Original_TE_Example": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "bsom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "b5som": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "tracker": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "p2": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "msom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          }
         }
       }
     }

@@ -179,6 +179,32 @@
             "azimuth": true,
             "raw": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "azimuth": true,
+            "raw": true
+          },
+          "bsom": {
+            "azimuth": true,
+            "raw": true
+          },
+          "b5som": {
+            "azimuth": true,
+            "raw": true
+          },
+          "tracker": {
+            "azimuth": true,
+            "raw": true
+          },
+          "p2": {
+            "azimuth": true,
+            "raw": true
+          },
+          "msom": {
+            "azimuth": true,
+            "raw": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.086Z"

@@ -215,6 +215,38 @@
             "sh1106_128x64_spi": false,
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "bsom": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "b5som": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "tracker": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "p2": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "msom": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.984Z"

@@ -249,6 +249,44 @@
             "Loop_Test": false,
             "Slack_Sign": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "bsom": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "b5som": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "tracker": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "p2": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "msom": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.723Z"

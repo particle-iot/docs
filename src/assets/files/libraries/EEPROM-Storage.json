@@ -294,6 +294,50 @@
             "sizeof": true,
             "tests": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "bsom": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "b5som": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "tracker": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "p2": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "msom": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.772Z"

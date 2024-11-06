@@ -183,6 +183,32 @@
             "UltraDisOnSeeedSerialLcd": false,
             "UltrasonicDisplayOnTerm": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "bsom": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "b5som": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "tracker": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "p2": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "msom": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.706Z"

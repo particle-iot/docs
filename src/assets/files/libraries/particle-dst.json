@@ -216,6 +216,38 @@
             "manual_switch": true,
             "test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "bsom": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "b5som": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "tracker": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "p2": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "msom": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.871Z"

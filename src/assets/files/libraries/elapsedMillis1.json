@@ -89,6 +89,26 @@
           "esomx": {
             "spark_deck_lights": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "spark_deck_lights": false
+          },
+          "bsom": {
+            "spark_deck_lights": false
+          },
+          "b5som": {
+            "spark_deck_lights": false
+          },
+          "tracker": {
+            "spark_deck_lights": false
+          },
+          "p2": {
+            "spark_deck_lights": false
+          },
+          "msom": {
+            "spark_deck_lights": false
+          }
         }
       },
       "added": "2023-12-31T15:20:22.556Z"

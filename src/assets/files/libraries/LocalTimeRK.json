@@ -342,6 +342,38 @@
             "2-schedule": true,
             "3-cascade": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-schedule": true,
+            "3-cascade": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-schedule": true,
+            "3-cascade": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-schedule": true,
+            "3-cascade": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-schedule": true,
+            "3-cascade": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-schedule": true,
+            "3-cascade": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-schedule": true,
+            "3-cascade": true
+          }
         }
       }
     }

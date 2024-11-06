@@ -287,6 +287,50 @@
             "SoftPWM_Spark_LED_Blink": false,
             "SoftPWM_Wiring_HeartBeat": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "bsom": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "b5som": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "tracker": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "p2": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "msom": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.812Z"

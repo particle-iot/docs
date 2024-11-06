@@ -453,6 +453,86 @@
             "Example10_ChangeAddress": true,
             "Example11_2LEDSticks": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example01_Blink": true,
+            "Example02_SinglePixels": true,
+            "Example03_SinglePixels2": true,
+            "Example04_SetBrightness": true,
+            "Example05_BinaryCounter": true,
+            "Example06_ColorGradient": true,
+            "Example07_CycleRainbow": true,
+            "Example08_WalkingRainbow": true,
+            "Example09_ChangeLength": true,
+            "Example10_ChangeAddress": true,
+            "Example11_2LEDSticks": true
+          },
+          "bsom": {
+            "Example01_Blink": true,
+            "Example02_SinglePixels": true,
+            "Example03_SinglePixels2": true,
+            "Example04_SetBrightness": true,
+            "Example05_BinaryCounter": true,
+            "Example06_ColorGradient": true,
+            "Example07_CycleRainbow": true,
+            "Example08_WalkingRainbow": true,
+            "Example09_ChangeLength": true,
+            "Example10_ChangeAddress": true,
+            "Example11_2LEDSticks": true
+          },
+          "b5som": {
+            "Example01_Blink": true,
+            "Example02_SinglePixels": true,
+            "Example03_SinglePixels2": true,
+            "Example04_SetBrightness": true,
+            "Example05_BinaryCounter": true,
+            "Example06_ColorGradient": true,
+            "Example07_CycleRainbow": true,
+            "Example08_WalkingRainbow": true,
+            "Example09_ChangeLength": true,
+            "Example10_ChangeAddress": true,
+            "Example11_2LEDSticks": true
+          },
+          "tracker": {
+            "Example01_Blink": true,
+            "Example02_SinglePixels": true,
+            "Example03_SinglePixels2": true,
+            "Example04_SetBrightness": true,
+            "Example05_BinaryCounter": true,
+            "Example06_ColorGradient": true,
+            "Example07_CycleRainbow": true,
+            "Example08_WalkingRainbow": true,
+            "Example09_ChangeLength": true,
+            "Example10_ChangeAddress": true,
+            "Example11_2LEDSticks": true
+          },
+          "p2": {
+            "Example01_Blink": true,
+            "Example02_SinglePixels": true,
+            "Example03_SinglePixels2": true,
+            "Example04_SetBrightness": true,
+            "Example05_BinaryCounter": true,
+            "Example06_ColorGradient": true,
+            "Example07_CycleRainbow": true,
+            "Example08_WalkingRainbow": true,
+            "Example09_ChangeLength": true,
+            "Example10_ChangeAddress": true,
+            "Example11_2LEDSticks": true
+          },
+          "msom": {
+            "Example01_Blink": true,
+            "Example02_SinglePixels": true,
+            "Example03_SinglePixels2": true,
+            "Example04_SetBrightness": true,
+            "Example05_BinaryCounter": true,
+            "Example06_ColorGradient": true,
+            "Example07_CycleRainbow": true,
+            "Example08_WalkingRainbow": true,
+            "Example09_ChangeLength": true,
+            "Example10_ChangeAddress": true,
+            "Example11_2LEDSticks": true
+          }
         }
       }
     }

@@ -398,6 +398,68 @@
             "Example7_Basic_Readings_Interrupts": true,
             "Example8_SPO2": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false
+          },
+          "p2": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false
+          },
+          "msom": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.034Z"

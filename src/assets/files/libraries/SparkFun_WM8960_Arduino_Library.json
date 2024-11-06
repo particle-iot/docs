@@ -214,6 +214,86 @@
             "Example_13_DacGain": true,
             "Example_14_ElectretMics": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "bsom": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "b5som": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "tracker": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "p2": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          },
+          "msom": {
+            "Example_01_Volume": true,
+            "Example_02_INPUT2": true,
+            "Example_03_INPUT1": true,
+            "Example_04_Speaker": true,
+            "Example_05_Loopback": true,
+            "Example_06_3D_Enhance": true,
+            "Example_07_MicBias": true,
+            "Example_10_AdcGain": true,
+            "Example_12_AutomaticLevelControl": true,
+            "Example_13_DacGain": true,
+            "Example_14_ElectretMics": true
+          }
         }
       }
     }

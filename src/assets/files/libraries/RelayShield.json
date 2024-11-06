@@ -215,6 +215,38 @@
             "2_Control_All_Relays": false,
             "3_Internet_Relays": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "bsom": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "b5som": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "tracker": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "p2": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "msom": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.681Z"

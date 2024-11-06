@@ -133,6 +133,26 @@
           "esomx": {
             "SHT4test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "SHT4test": true
+          },
+          "bsom": {
+            "SHT4test": true
+          },
+          "b5som": {
+            "SHT4test": true
+          },
+          "tracker": {
+            "SHT4test": true
+          },
+          "p2": {
+            "SHT4test": true
+          },
+          "msom": {
+            "SHT4test": true
+          }
         }
       }
     }

@@ -143,6 +143,26 @@
           "esomx": {
             "arduinolifx": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "arduinolifx": false
+          },
+          "bsom": {
+            "arduinolifx": false
+          },
+          "b5som": {
+            "arduinolifx": false
+          },
+          "tracker": {
+            "arduinolifx": false
+          },
+          "p2": {
+            "arduinolifx": false
+          },
+          "msom": {
+            "arduinolifx": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.090Z"

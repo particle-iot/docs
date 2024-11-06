@@ -179,6 +179,32 @@
             "application_gmail": true,
             "application_gxls": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "bsom": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "b5som": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "tracker": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "p2": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "msom": {
+            "application_gmail": true,
+            "application_gxls": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.040Z"

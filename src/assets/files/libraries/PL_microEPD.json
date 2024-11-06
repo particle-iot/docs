@@ -334,6 +334,56 @@
             "_05_TapCounter": false,
             "_06_WakeOnTap": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "bsom": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "b5som": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "tracker": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "p2": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "msom": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.860Z"

@@ -231,6 +231,32 @@
             "selftest-24LC01-RK": false,
             "simple-24LC01-RK": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "selftest-24LC01-RK": false,
+            "simple-24LC01-RK": false
+          },
+          "bsom": {
+            "selftest-24LC01-RK": false,
+            "simple-24LC01-RK": false
+          },
+          "b5som": {
+            "selftest-24LC01-RK": false,
+            "simple-24LC01-RK": false
+          },
+          "tracker": {
+            "selftest-24LC01-RK": false,
+            "simple-24LC01-RK": false
+          },
+          "p2": {
+            "selftest-24LC01-RK": false,
+            "simple-24LC01-RK": false
+          },
+          "msom": {
+            "selftest-24LC01-RK": false,
+            "simple-24LC01-RK": false
+          }
         }
       }
     }

@@ -255,6 +255,44 @@
             "I2C_ReadAllData": true,
             "I2C_and_SPI_Multisensor": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "bsom": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "b5som": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "tracker": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "p2": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "msom": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.689Z"

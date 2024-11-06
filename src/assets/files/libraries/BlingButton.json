@@ -89,6 +89,26 @@
           "esomx": {
             "TestExample": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "TestExample": false
+          },
+          "bsom": {
+            "TestExample": false
+          },
+          "b5som": {
+            "TestExample": false
+          },
+          "tracker": {
+            "TestExample": false
+          },
+          "p2": {
+            "TestExample": false
+          },
+          "msom": {
+            "TestExample": false
+          }
         }
       },
       "added": "2024-08-28T16:15:46.166Z"

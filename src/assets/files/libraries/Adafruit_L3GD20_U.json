@@ -143,6 +143,26 @@
           "esomx": {
             "Adafruit_L3GD20_U_test": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Adafruit_L3GD20_U_test": true
+          },
+          "bsom": {
+            "Adafruit_L3GD20_U_test": true
+          },
+          "b5som": {
+            "Adafruit_L3GD20_U_test": true
+          },
+          "tracker": {
+            "Adafruit_L3GD20_U_test": true
+          },
+          "p2": {
+            "Adafruit_L3GD20_U_test": true
+          },
+          "msom": {
+            "Adafruit_L3GD20_U_test": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.991Z"

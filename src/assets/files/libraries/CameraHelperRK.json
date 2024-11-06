@@ -81,6 +81,26 @@
           "electron": {
             "1-simple": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": false
+          },
+          "p2": {
+            "1-simple": true
+          },
+          "msom": {
+            "1-simple": true
+          }
         }
       }
     }

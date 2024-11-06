@@ -362,6 +362,62 @@
             "Example6_pyRGBVisualizer": false,
             "ExampleZ_testSketch": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "bsom": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "b5som": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "tracker": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "p2": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "msom": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.993Z"

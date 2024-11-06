@@ -177,6 +177,32 @@
             "glowfish-post-test": false,
             "timeapi-test": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "bsom": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "b5som": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "tracker": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "p2": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "msom": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.079Z"

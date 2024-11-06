@@ -362,6 +362,62 @@
             "Example06_DisableInterrupt": true,
             "Example07_SetSensitivity": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "bsom": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "b5som": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "tracker": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "p2": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "msom": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.020Z"

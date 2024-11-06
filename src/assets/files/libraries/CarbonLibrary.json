@@ -142,6 +142,26 @@
           "esomx": {
             "CarbonLibrary": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "CarbonLibrary": false
+          },
+          "bsom": {
+            "CarbonLibrary": false
+          },
+          "b5som": {
+            "CarbonLibrary": false
+          },
+          "tracker": {
+            "CarbonLibrary": false
+          },
+          "p2": {
+            "CarbonLibrary": false
+          },
+          "msom": {
+            "CarbonLibrary": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.119Z"
