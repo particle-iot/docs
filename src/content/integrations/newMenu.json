@@ -32,6 +32,10 @@
                 {
                     "dir": "google-cloud-platform",
                     "title": "Google cloud platform"
+                },
+                {
+                    "dir": "azure-iot-hub",
+                    "title": "Azure IoT Hub"
                 }
             ]
         },
@@ -42,10 +46,6 @@
                 {
                     "dir": "about-community-integrations",
                     "title": "About community integrations"
-                },
-                {
-                    "dir": "azure-iot-hub",
-                    "title": "Azure IoT Hub"
                 },
                 {
                     "dir": "influxdata",

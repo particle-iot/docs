@@ -306,6 +306,7 @@
   "/ifttt": "/archives/ifttt",
   "/integrations": "/integrations/introduction",
   "/integrations/community-integrations": "/integrations/community-integrations/blynk",
+  "/integrations/community-integrations/azure-iot-hub": "/integrations/integrations/azure-iot-hub",
   "/integrations/google-cloud-platform": "/integrations/integrations/google-cloud-platform",
   "/integrations/google-maps": "/integrations/integrations/google-maps",
   "/integrations/integrations": "/integrations/integrations/aws",
