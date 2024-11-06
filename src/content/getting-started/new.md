@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Logic and ledger API fixes 2024-11-06
+
+Several logic and ledger APIs showed `/user` in the endpoint URL, but this wasn't correct. 
+
 ### Cellular global identity 2024-11-06
 
 The [cellular_global_identity](/reference/device-os/api/cellular/cellular-global-identity/) function, used to get the MCC, MNC, LAC, and cell identifier, is now documented.

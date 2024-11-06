@@ -9988,7 +9988,7 @@
   },
   {
     "type": "get",
-    "url": "/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions",
+    "url": "/v1/ledgers/:ledgerName/instances/:scopeValue/versions",
     "title": "List ledger instance versions",
     "description": "<p>Lists all ledger instance versions.</p>",
     "group": "Ledger.10",
@@ -10047,8 +10047,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue/versions\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue/versions\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10060,8 +10060,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue/versions",
-          "content": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue/versions\nHTTP/1.1 200 OK\n{\n  \"versions\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"replaced_at\": \"2023-11-28T15:02:04.799Z\"\n    }\n  ],\n  \"meta\": {\n    \"has_more\": false\n   }\n}",
+          "title": "GET /v1/ledgers/:ledgerName/instances/:scopeValue/versions",
+          "content": "GET /v1/ledgers/:ledgerName/instances/:scopeValue/versions\nHTTP/1.1 200 OK\n{\n  \"versions\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"replaced_at\": \"2023-11-28T15:02:04.799Z\"\n    }\n  ],\n  \"meta\": {\n    \"has_more\": false\n   }\n}",
           "type": "json"
         }
       ]
@@ -10069,11 +10069,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.10",
-    "name": "GetV1UsersLedgersLedgernameInstancesScopevalueVersions"
+    "name": "GetV1LedgersLedgernameInstancesScopevalueVersions"
   },
   {
     "type": "get",
-    "url": "/v1/users/ledgers",
+    "url": "/v1/ledgers",
     "title": "List ledger definitions",
     "description": "<p>Lists all ledger definitions belonging to the Sandbox or organization.</p>",
     "group": "Ledger.1",
@@ -10124,8 +10124,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/ledgers\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/ledgers\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10137,8 +10137,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/ledgers",
-          "content": "GET /v1/users/ledgers\nHTTP/1.1 200 OK\n{\n  \"ledgers\": [\n    {\n      \"scope\": \"Owner\",\n      \"name\": \"My Ledger\",\n      \"description\": \"My Ledger Description\",\n      \"direction\": \"Downstream\",\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
+          "title": "GET /v1/ledgers",
+          "content": "GET /v1/ledgers\nHTTP/1.1 200 OK\n{\n  \"ledgers\": [\n    {\n      \"scope\": \"Owner\",\n      \"name\": \"My Ledger\",\n      \"description\": \"My Ledger Description\",\n      \"direction\": \"Downstream\",\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
           "type": "json"
         }
       ]
@@ -10146,11 +10146,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.1",
-    "name": "GetV1UsersLedgers"
+    "name": "GetV1Ledgers"
   },
   {
     "type": "get",
-    "url": "/v1/users/ledgers/:ledgerName",
+    "url": "/v1/ledgers/:ledgerName",
     "title": "Get ledger definition",
     "description": "<p>Returns the specified ledger definition.</p>",
     "group": "Ledger.2",
@@ -10183,8 +10183,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10196,8 +10196,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/ledgers/:ledgerName",
-          "content": "GET /v1/users/ledgers/:ledgerName\nHTTP/1.1 200 OK\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "title": "GET /v1/ledgers/:ledgerName",
+          "content": "GET /v1/ledgers/:ledgerName\nHTTP/1.1 200 OK\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
           "type": "json"
         }
       ]
@@ -10205,11 +10205,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.2",
-    "name": "GetV1UsersLedgersLedgername"
+    "name": "GetV1LedgersLedgername"
   },
   {
     "type": "post",
-    "url": "/v1/users/ledgers",
+    "url": "/v1/ledgers",
     "title": "Create a new ledger definition",
     "description": "<p>Creates a ledger definition.</p>",
     "group": "Ledger.3",
@@ -10244,8 +10244,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/ledgers\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
+        "title": "$ curl \"https://api.particle.io/v1/ledgers\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
         "type": "bash"
       },
       {
@@ -10257,8 +10257,8 @@
     "success": {
       "examples": [
         {
-          "title": "POST /v1/users/ledgers",
-          "content": "POST /v1/users/ledgers\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "title": "POST /v1/ledgers",
+          "content": "POST /v1/ledgers\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
           "type": "json"
         }
       ]
@@ -10266,11 +10266,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.3",
-    "name": "PostV1UsersLedgers"
+    "name": "PostV1Ledgers"
   },
   {
     "type": "put",
-    "url": "/v1/users/ledgers/:ledgerName",
+    "url": "/v1/ledgers/:ledgerName",
     "title": "Update ledger definition",
     "description": "<p>Updates the ledger definition.</p>",
     "group": "Ledger.4",
@@ -10313,8 +10313,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl -X PUT \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\",
-        "content": "$ curl -X PUT \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/ledgers/:ledgerName\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
         "type": "bash"
       },
       {
@@ -10326,8 +10326,8 @@
     "success": {
       "examples": [
         {
-          "title": "PUT /v1/users/ledgers/:ledgerName",
-          "content": "PUT /v1/users/ledgers/:ledgerName\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "title": "PUT /v1/ledgers/:ledgerName",
+          "content": "PUT /v1/ledgers/:ledgerName\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
           "type": "json"
         }
       ]
@@ -10335,11 +10335,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.4",
-    "name": "PutV1UsersLedgersLedgername"
+    "name": "PutV1LedgersLedgername"
   },
   {
     "type": "delete",
-    "url": "/v1/users/ledgers/:ledgerName",
+    "url": "/v1/ledgers/:ledgerName",
     "title": "Archive a ledger definition",
     "description": "<p>Archives a ledger definition.</p>",
     "group": "Ledger.5",
@@ -10372,8 +10372,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl -X DELETE \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\",
-        "content": "$ curl -X DELETE \"https://api.particle.io/v1/users/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10385,8 +10385,8 @@
     "success": {
       "examples": [
         {
-          "title": "DELETE /v1/users/ledgers/:ledgerName",
-          "content": "DELETE /v1/users/ledgers/:ledgerName\nHTTP/1.1 204 No content",
+          "title": "DELETE /v1/ledgers/:ledgerName",
+          "content": "DELETE /v1/ledgers/:ledgerName\nHTTP/1.1 204 No content",
           "type": "json"
         }
       ]
@@ -10394,11 +10394,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.5",
-    "name": "DeleteV1UsersLedgersLedgername"
+    "name": "DeleteV1LedgersLedgername"
   },
   {
     "type": "get",
-    "url": "/v1/users/ledgers/:ledgerName/instances",
+    "url": "/v1/ledgers/:ledgerName/instances",
     "title": "List ledger instances",
     "description": "<p>Lists all ledger instances.</p>",
     "group": "Ledger.6",
@@ -10449,8 +10449,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10462,8 +10462,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/ledgers/:ledgerName/instances",
-          "content": "GET /v1/users/ledgers/:ledgerName/instances\nHTTP/1.1 200 OK\n{\n  \"instances\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"456\",\n        \"not_owned\": true\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
+          "title": "GET /v1/ledgers/:ledgerName/instances",
+          "content": "GET /v1/ledgers/:ledgerName/instances\nHTTP/1.1 200 OK\n{\n  \"instances\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"456\",\n        \"not_owned\": true\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
           "type": "json"
         }
       ]
@@ -10471,11 +10471,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.6",
-    "name": "GetV1UsersLedgersLedgernameInstances"
+    "name": "GetV1LedgersLedgernameInstances"
   },
   {
     "type": "get",
-    "url": "/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+    "url": "/v1/ledgers/:ledgerName/instances/:scopeValue",
     "title": "Get ledger instance",
     "description": "<p>Returns the specified ledger instance.</p>",
     "group": "Ledger.7",
@@ -10516,8 +10516,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10529,8 +10529,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue",
-          "content": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "title": "GET /v1/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "GET /v1/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
           "type": "json"
         }
       ]
@@ -10538,11 +10538,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.7",
-    "name": "GetV1UsersLedgersLedgernameInstancesScopevalue"
+    "name": "GetV1LedgersLedgernameInstancesScopevalue"
   },
   {
     "type": "get",
-    "url": "/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+    "url": "/v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
     "title": "Get ledger instance version",
     "description": "<p>Returns the specified version of a ledger instance.</p>",
     "group": "Ledger.7",
@@ -10591,8 +10591,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10604,8 +10604,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
-          "content": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "title": "GET /v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+          "content": "GET /v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
           "type": "json"
         }
       ]
@@ -10613,11 +10613,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.7",
-    "name": "GetV1UsersLedgersLedgernameInstancesScopevalueVersionsVersion"
+    "name": "GetV1LedgersLedgernameInstancesScopevalueVersionsVersion"
   },
   {
     "type": "put",
-    "url": "/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+    "url": "/v1/ledgers/:ledgerName/instances/:scopeValue",
     "title": "Set the ledger instance data",
     "description": "<p>Sets the data of the specified ledger instance.</p>",
     "group": "Ledger.8",
@@ -10668,8 +10668,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl -X PUT \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\",
-        "content": "$ curl -X PUT \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @data.json",
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @data.json",
         "type": "bash"
       },
       {
@@ -10681,8 +10681,8 @@
     "success": {
       "examples": [
         {
-          "title": "PUT /v1/users/ledgers/:ledgerName/instances/:scopeValue",
-          "content": "PUT /v1/users/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 201 Created\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {\n      \"foo\": \"bar\"\n    },\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "title": "PUT /v1/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "PUT /v1/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 201 Created\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {\n      \"foo\": \"bar\"\n    },\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
           "type": "json"
         }
       ]
@@ -10690,11 +10690,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.8",
-    "name": "PutV1UsersLedgersLedgernameInstancesScopevalue"
+    "name": "PutV1LedgersLedgernameInstancesScopevalue"
   },
   {
     "type": "delete",
-    "url": "/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+    "url": "/v1/ledgers/:ledgerName/instances/:scopeValue",
     "title": "Delete ledger instance",
     "description": "<p>Deletes the specified ledger instance.</p>",
     "group": "Ledger.9",
@@ -10735,8 +10735,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl -X DELETE \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\",
-        "content": "$ curl -X DELETE \"https://api.particle.io/v1/users/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10748,8 +10748,8 @@
     "success": {
       "examples": [
         {
-          "title": "DELETE /v1/users/ledgers/:ledgerName/instances/:scopeValue",
-          "content": "DELETE /v1/users/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 204 No content",
+          "title": "DELETE /v1/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "DELETE /v1/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 204 No content",
           "type": "json"
         }
       ]
@@ -10757,7 +10757,7 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Ledger.9",
-    "name": "DeleteV1UsersLedgersLedgernameInstancesScopevalue"
+    "name": "DeleteV1LedgersLedgernameInstancesScopevalue"
   },
   {
     "type": "get",
@@ -11045,7 +11045,7 @@
   },
   {
     "type": "get",
-    "url": "/v1/users/logic/functions/:logicFunctionId/stats",
+    "url": "/v1/logic/functions/:logicFunctionId/stats",
     "title": "Get logic function stats",
     "description": "<p>Returns the specified logic function stats.</p>",
     "group": "Logic.10",
@@ -11078,8 +11078,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/stats\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/stats\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/stats\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/stats\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11091,8 +11091,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/logic/functions/:logicFunctionId/stats",
-          "content": "GET /v1/users/logic/functions/:logicFunctionId/stats\nHTTP/1.1 200 OK\n{\n   \"logic_function_stats\": [\n     {\n       \"date\": \"20231106\",\n       \"success\": 175,\n       \"failure\": 168,\n       \"timeout\": 0\n     }\n   ]\n}",
+          "title": "GET /v1/logic/functions/:logicFunctionId/stats",
+          "content": "GET /v1/logic/functions/:logicFunctionId/stats\nHTTP/1.1 200 OK\n{\n   \"logic_function_stats\": [\n     {\n       \"date\": \"20231106\",\n       \"success\": 175,\n       \"failure\": 168,\n       \"timeout\": 0\n     }\n   ]\n}",
           "type": "json"
         }
       ]
@@ -11100,11 +11100,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.10",
-    "name": "GetV1UsersLogicFunctionsLogicfunctionidStats"
+    "name": "GetV1LogicFunctionsLogicfunctionidStats"
   },
   {
     "type": "post",
-    "url": "/v1/users/logic/execute",
+    "url": "/v1/logic/execute",
     "title": "Execute logic function",
     "description": "<p>Executes the provided logic function.</p>",
     "group": "Logic.1",
@@ -11240,8 +11240,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/execute\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/execute\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @debug_function.json",
+        "title": "$ curl \"https://api.particle.io/v1/logic/execute\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/execute\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @debug_function.json",
         "type": "bash"
       },
       {
@@ -11253,8 +11253,8 @@
     "success": {
       "examples": [
         {
-          "title": "POST /v1/users/logic/execute",
-          "content": "POST /v1/users/logic/execute\nHTTP/1.1 200 OK\n{\n  \"result\": {\n    \"status\": \"Success\",\n    \"logs\": []\n  }\n}",
+          "title": "POST /v1/logic/execute",
+          "content": "POST /v1/logic/execute\nHTTP/1.1 200 OK\n{\n  \"result\": {\n    \"status\": \"Success\",\n    \"logs\": []\n  }\n}",
           "type": "json"
         }
       ]
@@ -11262,11 +11262,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.1",
-    "name": "PostV1UsersLogicExecute"
+    "name": "PostV1LogicExecute"
   },
   {
     "type": "get",
-    "url": "/v1/users/logic/functions",
+    "url": "/v1/logic/functions",
     "title": "List logic functions",
     "description": "<p>Lists all logic functions belonging to the specified Sandbox or organization.</p>",
     "group": "Logic.2",
@@ -11301,8 +11301,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/functions?today_stats=true\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/functions?today_stats=true\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/logic/functions?today_stats=true\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/functions?today_stats=true\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11314,8 +11314,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/logic/functions?today_stats=true",
-          "content": "GET /v1/users/logic/functions?today_stats=true\nHTTP/1.1 200 OK\n{\n  \"logic_functions\": [\n    {\n      \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n      \"owner_id\": \"user:deadbeef\",\n      \"version\": 4,\n      \"enabled\": false,\n      \"name\": \"My Logic Function\",\n      \"description\": \"\",\n      \"template_slug\": null,\n      \"source\": {\n        \"type\": \"JavaScript\",\n        \"code\": \"export default function main() {}\"\n      },\n      \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n      \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n      \"created_by\": \"user:deadbeef\",\n      \"updated_by\": \"user:deadbeef\",\n      \"logic_triggers\": [\n        {\n          \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n          \"type\": \"Scheduled\",\n          \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n          \"enabled\": true,\n          \"version\": 4,\n          \"cron\": \"0 0 0 0 0\",\n          \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n          \"end_at\": null,\n          \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n          \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n        }\n      ],\n      \"today_stats\": {\n        \"success\": 0,\n        \"failure\": 0,\n        \"timeout\": 0\n      }\n    }\n  ]\n}",
+          "title": "GET /v1/logic/functions?today_stats=true",
+          "content": "GET /v1/logic/functions?today_stats=true\nHTTP/1.1 200 OK\n{\n  \"logic_functions\": [\n    {\n      \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n      \"owner_id\": \"user:deadbeef\",\n      \"version\": 4,\n      \"enabled\": false,\n      \"name\": \"My Logic Function\",\n      \"description\": \"\",\n      \"template_slug\": null,\n      \"source\": {\n        \"type\": \"JavaScript\",\n        \"code\": \"export default function main() {}\"\n      },\n      \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n      \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n      \"created_by\": \"user:deadbeef\",\n      \"updated_by\": \"user:deadbeef\",\n      \"logic_triggers\": [\n        {\n          \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n          \"type\": \"Scheduled\",\n          \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n          \"enabled\": true,\n          \"version\": 4,\n          \"cron\": \"0 0 0 0 0\",\n          \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n          \"end_at\": null,\n          \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n          \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n        }\n      ],\n      \"today_stats\": {\n        \"success\": 0,\n        \"failure\": 0,\n        \"timeout\": 0\n      }\n    }\n  ]\n}",
           "type": "json"
         }
       ]
@@ -11323,11 +11323,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.2",
-    "name": "GetV1UsersLogicFunctions"
+    "name": "GetV1LogicFunctions"
   },
   {
     "type": "get",
-    "url": "/v1/users/logic/functions/:logicFunctionId",
+    "url": "/v1/logic/functions/:logicFunctionId",
     "title": "Get logic function",
     "description": "<p>Returns the specified logic function.</p>",
     "group": "Logic.3",
@@ -11360,8 +11360,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11373,8 +11373,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/logic/functions/:logicFunctionId",
-          "content": "GET /v1/users/logic/functions/:logicFunctionId\nHTTP/1.1 200 OK\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
+          "title": "GET /v1/logic/functions/:logicFunctionId",
+          "content": "GET /v1/logic/functions/:logicFunctionId\nHTTP/1.1 200 OK\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
           "type": "json"
         }
       ]
@@ -11382,11 +11382,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.3",
-    "name": "GetV1UsersLogicFunctionsLogicfunctionid"
+    "name": "GetV1LogicFunctionsLogicfunctionid"
   },
   {
     "type": "post",
-    "url": "/v1/users/logic/functions",
+    "url": "/v1/logic/functions",
     "title": "Create a new logic function",
     "description": "<p>Creates a logic function.</p>",
     "group": "Logic.4",
@@ -11421,8 +11421,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/functions\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/functions\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
+        "title": "$ curl \"https://api.particle.io/v1/logic/functions\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/functions\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
         "type": "bash"
       },
       {
@@ -11434,8 +11434,8 @@
     "success": {
       "examples": [
         {
-          "title": "POST /v1/users/logic/functions",
-          "content": "POST /v1/users/logic/functions\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
+          "title": "POST /v1/logic/functions",
+          "content": "POST /v1/logic/functions\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
           "type": "json"
         }
       ]
@@ -11443,11 +11443,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.4",
-    "name": "PostV1UsersLogicFunctions"
+    "name": "PostV1LogicFunctions"
   },
   {
     "type": "put",
-    "url": "/v1/users/logic/functions/:logicFunctionId",
+    "url": "/v1/logic/functions/:logicFunctionId",
     "title": "Update logic function",
     "description": "<p>Updates the logic function.</p>",
     "group": "Logic.5",
@@ -11490,8 +11490,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl -X PUT \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\",
-        "content": "$ curl -X PUT \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
         "type": "bash"
       },
       {
@@ -11503,8 +11503,8 @@
     "success": {
       "examples": [
         {
-          "title": "PUT /v1/users/logic/functions/:logicFunctionId",
-          "content": "PUT /v1/users/logic/functions/:logicFunctionId\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ],\n    \"today_stats\": {\n      \"success\": 0,\n      \"failure\": 0,\n      \"timeout\": 0\n    }\n  }\n}",
+          "title": "PUT /v1/logic/functions/:logicFunctionId",
+          "content": "PUT /v1/logic/functions/:logicFunctionId\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ],\n    \"today_stats\": {\n      \"success\": 0,\n      \"failure\": 0,\n      \"timeout\": 0\n    }\n  }\n}",
           "type": "json"
         }
       ]
@@ -11512,11 +11512,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.5",
-    "name": "PutV1UsersLogicFunctionsLogicfunctionid"
+    "name": "PutV1LogicFunctionsLogicfunctionid"
   },
   {
     "type": "delete",
-    "url": "/v1/users/logic/functions/:logicFunctionId",
+    "url": "/v1/logic/functions/:logicFunctionId",
     "title": "Delete logic function",
     "description": "<p>Deletes the specified logic function.</p>",
     "group": "Logic.6",
@@ -11549,8 +11549,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl -X DELETE \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\",
-        "content": "$ curl -X DELETE \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11562,8 +11562,8 @@
     "success": {
       "examples": [
         {
-          "title": "DELETE /v1/users/logic/functions/:logicFunctionId",
-          "content": "DELETE /v1/users/logic/functions/:logicFunctionId\nHTTP/1.1 204 No content",
+          "title": "DELETE /v1/logic/functions/:logicFunctionId",
+          "content": "DELETE /v1/logic/functions/:logicFunctionId\nHTTP/1.1 204 No content",
           "type": "json"
         }
       ]
@@ -11571,11 +11571,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.6",
-    "name": "DeleteV1UsersLogicFunctionsLogicfunctionid"
+    "name": "DeleteV1LogicFunctionsLogicfunctionid"
   },
   {
     "type": "get",
-    "url": "/v1/users/logic/functions/:logicFunctionId/runs",
+    "url": "/v1/logic/functions/:logicFunctionId/runs",
     "title": "List logic functions runs",
     "description": "<p>Lists all runs for the specified logic function.</p>",
     "group": "Logic.7",
@@ -11608,8 +11608,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11621,8 +11621,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/logic/functions/:logicFunctionId/runs",
-          "content": "GET /v1/users/logic/functions/:logicFunctionId/runs\nHTTP/1.1 200 OK\n{\n  \"logic_runs\": [\n    {\n      \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n      \"owner_id\": \"user:deadbeef\",\n      \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n      \"logic_trigger_type\": \"Scheduled\",\n      \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n      \"status\": \"Success\",\n      \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n      \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n      \"log_filename\": \"user:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n    }\n  ]\n}",
+          "title": "GET /v1/logic/functions/:logicFunctionId/runs",
+          "content": "GET /v1/logic/functions/:logicFunctionId/runs\nHTTP/1.1 200 OK\n{\n  \"logic_runs\": [\n    {\n      \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n      \"owner_id\": \"user:deadbeef\",\n      \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n      \"logic_trigger_type\": \"Scheduled\",\n      \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n      \"status\": \"Success\",\n      \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n      \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n      \"log_filename\": \"user:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n    }\n  ]\n}",
           "type": "json"
         }
       ]
@@ -11630,11 +11630,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.7",
-    "name": "GetV1UsersLogicFunctionsLogicfunctionidRuns"
+    "name": "GetV1LogicFunctionsLogicfunctionidRuns"
   },
   {
     "type": "get",
-    "url": "/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId",
+    "url": "/v1/logic/functions/:logicFunctionId/runs/:logicRunId",
     "title": "Get logic function run",
     "description": "<p>Returns the specified logic function run.</p>",
     "group": "Logic.8",
@@ -11675,8 +11675,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs/:logicRunId\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs/:logicRunId\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11688,8 +11688,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/logic/functions/:logicFunctionId/runs/:logicRunId",
-          "content": "GET /v1/users/logic/functions/:logicFunctionId/runs/:logicRunId\nHTTP/1.1 200 OK\n{\n  \"logic_run\": {\n    \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n    \"owner_id\": \"users:deadbeef\",\n    \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n    \"logic_trigger_type\": \"Scheduled\",\n    \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n    \"status\": \"Success\",\n    \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n    \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n    \"log_filename\": \"users:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n  }\n}",
+          "title": "GET /v1/logic/functions/:logicFunctionId/runs/:logicRunId",
+          "content": "GET /v1/logic/functions/:logicFunctionId/runs/:logicRunId\nHTTP/1.1 200 OK\n{\n  \"logic_run\": {\n    \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n    \"owner_id\": \"users:deadbeef\",\n    \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n    \"logic_trigger_type\": \"Scheduled\",\n    \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n    \"status\": \"Success\",\n    \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n    \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n    \"log_filename\": \"users:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n  }\n}",
           "type": "json"
         }
       ]
@@ -11697,11 +11697,11 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.8",
-    "name": "GetV1UsersLogicFunctionsLogicfunctionidRunsLogicrunid"
+    "name": "GetV1LogicFunctionsLogicfunctionidRunsLogicrunid"
   },
   {
     "type": "get",
-    "url": "/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+    "url": "/v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
     "title": "Get logic function run logs",
     "description": "<p>Returns the specified logic function run logs.</p>",
     "group": "Logic.9",
@@ -11742,8 +11742,8 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "title": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11755,8 +11755,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
-          "content": "GET /v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs\nHTTP/1.1 200 OK\n{\n  \"logic_run_logs\": {\n    \"logs\": [\n      {\n        \"level\": \"Info\",\n        \"timestamp\": \"2023-11-07T18:20:59.470Z\",\n        \"args\": [\n          \"Hello\"\n        ]\n      }\n    ]\n  }\n}",
+          "title": "GET /v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+          "content": "GET /v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs\nHTTP/1.1 200 OK\n{\n  \"logic_run_logs\": {\n    \"logs\": [\n      {\n        \"level\": \"Info\",\n        \"timestamp\": \"2023-11-07T18:20:59.470Z\",\n        \"args\": [\n          \"Hello\"\n        ]\n      }\n    ]\n  }\n}",
           "type": "json"
         }
       ]
@@ -11764,7 +11764,7 @@
     "version": "0.0.0",
     "filename": "src/views/subspace.js",
     "groupTitle": "Logic.9",
-    "name": "GetV1UsersLogicFunctionsLogicfunctionidRunsLogicrunidLogs"
+    "name": "GetV1LogicFunctionsLogicfunctionidRunsLogicrunidLogs"
   },
   {
     "type": "get",

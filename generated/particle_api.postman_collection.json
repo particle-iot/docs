@@ -218,7 +218,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-10-07T10:03:32.000Z",
+                  "value": "2024-11-06T14:27:08.814Z",
                   "disabled": true
                 }
               ]
@@ -283,7 +283,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-10-07T10:03:32.002Z",
+                      "value": "2024-11-06T14:27:08.817Z",
                       "disabled": true
                     }
                   ]
@@ -1680,7 +1680,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-10-07T10:03:32.019Z",
+                  "value": "2024-11-06T14:27:08.830Z",
                   "disabled": true
                 },
                 {
@@ -1740,7 +1740,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-10-07T10:03:32.020Z",
+                      "value": "2024-11-06T14:27:08.830Z",
                       "disabled": true
                     },
                     {
@@ -3294,13 +3294,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-10-07T10:03:32.032Z",
+                  "value": "2024-11-06T14:27:08.839Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-10-07T10:03:32.032Z",
+                  "value": "2024-11-06T14:27:08.839Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4717,13 +4717,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-10-07T10:03:32.051Z",
+                  "value": "2024-11-06T14:27:08.845Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-10-07T10:03:32.051Z",
+                  "value": "2024-11-06T14:27:08.845Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4824,13 +4824,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-10-07T10:03:32.053Z",
+                  "value": "2024-11-06T14:27:08.846Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-10-07T10:03:32.053Z",
+                  "value": "2024-11-06T14:27:08.847Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4931,13 +4931,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-10-07T10:03:32.054Z",
+                  "value": "2024-11-06T14:27:08.848Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-10-07T10:03:32.054Z",
+                  "value": "2024-11-06T14:27:08.848Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5038,13 +5038,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-10-07T10:03:32.064Z",
+                  "value": "2024-11-06T14:27:08.849Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-10-07T10:03:32.064Z",
+                  "value": "2024-11-06T14:27:08.849Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5145,13 +5145,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-10-07T10:03:32.066Z",
+                  "value": "2024-11-06T14:27:08.850Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-10-07T10:03:32.066Z",
+                  "value": "2024-11-06T14:27:08.850Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -6799,13 +6799,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions",
+              "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue/versions",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName",
                 "instances",
@@ -6862,13 +6861,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue/versions",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName",
                     "instances",
@@ -6884,7 +6882,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue/versions\nHTTP/1.1 200 OK\n{\n  \"versions\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"replaced_at\": \"2023-11-28T15:02:04.799Z\"\n    }\n  ],\n  \"meta\": {\n    \"has_more\": false\n   }\n}"
+              "body": "GET /v1/ledgers/:ledgerName/instances/:scopeValue/versions\nHTTP/1.1 200 OK\n{\n  \"versions\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"replaced_at\": \"2023-11-28T15:02:04.799Z\"\n    }\n  ],\n  \"meta\": {\n    \"has_more\": false\n   }\n}"
             }
           ]
         },
@@ -6896,13 +6894,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers",
+              "raw": "{{url}}/v1/ledgers",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers"
               ],
               "query": [
@@ -6949,13 +6946,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers",
+                  "raw": "{{url}}/v1/ledgers",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers"
                   ]
                 }
@@ -6967,7 +6963,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/ledgers\nHTTP/1.1 200 OK\n{\n  \"ledgers\": [\n    {\n      \"scope\": \"Owner\",\n      \"name\": \"My Ledger\",\n      \"description\": \"My Ledger Description\",\n      \"direction\": \"Downstream\",\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}"
+              "body": "GET /v1/ledgers\nHTTP/1.1 200 OK\n{\n  \"ledgers\": [\n    {\n      \"scope\": \"Owner\",\n      \"name\": \"My Ledger\",\n      \"description\": \"My Ledger Description\",\n      \"direction\": \"Downstream\",\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}"
             }
           ]
         },
@@ -6979,13 +6975,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName",
+              "raw": "{{url}}/v1/ledgers/:ledgerName",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName"
               ],
@@ -7020,13 +7015,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName"
                   ]
@@ -7039,7 +7033,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/ledgers/:ledgerName\nHTTP/1.1 200 OK\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}"
+              "body": "GET /v1/ledgers/:ledgerName\nHTTP/1.1 200 OK\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}"
             }
           ]
         },
@@ -7051,13 +7045,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances",
+              "raw": "{{url}}/v1/ledgers/:ledgerName/instances",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName",
                 "instances"
@@ -7106,13 +7099,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName/instances",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName",
                     "instances"
@@ -7126,7 +7118,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/ledgers/:ledgerName/instances\nHTTP/1.1 200 OK\n{\n  \"instances\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"456\",\n        \"not_owned\": true\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}"
+              "body": "GET /v1/ledgers/:ledgerName/instances\nHTTP/1.1 200 OK\n{\n  \"instances\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"456\",\n        \"not_owned\": true\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}"
             }
           ]
         },
@@ -7138,13 +7130,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+              "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName",
                 "instances",
@@ -7187,13 +7178,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName",
                     "instances",
@@ -7208,7 +7198,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}"
+              "body": "GET /v1/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}"
             }
           ]
         },
@@ -7220,13 +7210,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+              "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName",
                 "instances",
@@ -7277,13 +7266,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName",
                     "instances",
@@ -7300,7 +7288,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/ledgers/:ledgerName/instances/:scopeValue/versions/:version\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}"
+              "body": "GET /v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}"
             }
           ]
         },
@@ -7320,13 +7308,12 @@
               "raw": "{\n  \"definition\": {\n    \"key\": \"value\"\n  }\n}"
             },
             "url": {
-              "raw": "{{url}}/v1/users/ledgers",
+              "raw": "{{url}}/v1/ledgers",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers"
               ],
               "query": [],
@@ -7357,13 +7344,12 @@
                   "raw": "{\n  \"definition\": {\n    \"key\": \"value\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers",
+                  "raw": "{{url}}/v1/ledgers",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers"
                   ]
                 }
@@ -7375,7 +7361,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "POST /v1/users/ledgers\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}"
+              "body": "POST /v1/ledgers\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}"
             }
           ]
         },
@@ -7395,13 +7381,12 @@
               "raw": "{\n  \"definition\": {\n    \"key\": \"value\"\n  }\n}"
             },
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName",
+              "raw": "{{url}}/v1/ledgers/:ledgerName",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName"
               ],
@@ -7439,13 +7424,12 @@
                   "raw": "{\n  \"definition\": {\n    \"key\": \"value\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName"
                   ]
@@ -7458,7 +7442,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "PUT /v1/users/ledgers/:ledgerName\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}"
+              "body": "PUT /v1/ledgers/:ledgerName\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}"
             }
           ]
         },
@@ -7478,13 +7462,12 @@
               "raw": "{\n  \"data\": {\n    \"key\": \"value\"\n  }\n}"
             },
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+              "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName",
                 "instances",
@@ -7530,13 +7513,12 @@
                   "raw": "{\n  \"data\": {\n    \"key\": \"value\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName",
                     "instances",
@@ -7551,7 +7533,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "PUT /v1/users/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 201 Created\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {\n      \"foo\": \"bar\"\n    },\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}"
+              "body": "PUT /v1/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 201 Created\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {\n      \"foo\": \"bar\"\n    },\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}"
             }
           ]
         },
@@ -7563,13 +7545,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName",
+              "raw": "{{url}}/v1/ledgers/:ledgerName",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName"
               ],
@@ -7604,13 +7585,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName"
                   ]
@@ -7623,7 +7603,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "DELETE /v1/users/ledgers/:ledgerName\nHTTP/1.1 204 No content"
+              "body": "DELETE /v1/ledgers/:ledgerName\nHTTP/1.1 204 No content"
             }
           ]
         },
@@ -7635,13 +7615,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+              "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "ledgers",
                 ":ledgerName",
                 "instances",
@@ -7684,13 +7663,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/ledgers/:ledgerName/instances/:scopeValue",
+                  "raw": "{{url}}/v1/ledgers/:ledgerName/instances/:scopeValue",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "ledgers",
                     ":ledgerName",
                     "instances",
@@ -7705,7 +7683,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "DELETE /v1/users/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 204 No content"
+              "body": "DELETE /v1/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 204 No content"
             }
           ]
         }
@@ -8093,13 +8071,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/stats",
+              "raw": "{{url}}/v1/logic/functions/:logicFunctionId/stats",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions",
                 ":logicFunctionId",
@@ -8136,13 +8113,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/stats",
+                  "raw": "{{url}}/v1/logic/functions/:logicFunctionId/stats",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions",
                     ":logicFunctionId",
@@ -8157,7 +8133,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/logic/functions/:logicFunctionId/stats\nHTTP/1.1 200 OK\n{\n   \"logic_function_stats\": [\n     {\n       \"date\": \"20231106\",\n       \"success\": 175,\n       \"failure\": 168,\n       \"timeout\": 0\n     }\n   ]\n}"
+              "body": "GET /v1/logic/functions/:logicFunctionId/stats\nHTTP/1.1 200 OK\n{\n   \"logic_function_stats\": [\n     {\n       \"date\": \"20231106\",\n       \"success\": 175,\n       \"failure\": 168,\n       \"timeout\": 0\n     }\n   ]\n}"
             }
           ]
         },
@@ -8169,13 +8145,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions",
+              "raw": "{{url}}/v1/logic/functions",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions"
               ],
@@ -8211,13 +8186,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions",
+                  "raw": "{{url}}/v1/logic/functions",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions"
                   ]
@@ -8230,7 +8204,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/logic/functions?today_stats=true\nHTTP/1.1 200 OK\n{\n  \"logic_functions\": [\n    {\n      \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n      \"owner_id\": \"user:deadbeef\",\n      \"version\": 4,\n      \"enabled\": false,\n      \"name\": \"My Logic Function\",\n      \"description\": \"\",\n      \"template_slug\": null,\n      \"source\": {\n        \"type\": \"JavaScript\",\n        \"code\": \"export default function main() {}\"\n      },\n      \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n      \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n      \"created_by\": \"user:deadbeef\",\n      \"updated_by\": \"user:deadbeef\",\n      \"logic_triggers\": [\n        {\n          \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n          \"type\": \"Scheduled\",\n          \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n          \"enabled\": true,\n          \"version\": 4,\n          \"cron\": \"0 0 0 0 0\",\n          \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n          \"end_at\": null,\n          \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n          \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n        }\n      ],\n      \"today_stats\": {\n        \"success\": 0,\n        \"failure\": 0,\n        \"timeout\": 0\n      }\n    }\n  ]\n}"
+              "body": "GET /v1/logic/functions?today_stats=true\nHTTP/1.1 200 OK\n{\n  \"logic_functions\": [\n    {\n      \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n      \"owner_id\": \"user:deadbeef\",\n      \"version\": 4,\n      \"enabled\": false,\n      \"name\": \"My Logic Function\",\n      \"description\": \"\",\n      \"template_slug\": null,\n      \"source\": {\n        \"type\": \"JavaScript\",\n        \"code\": \"export default function main() {}\"\n      },\n      \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n      \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n      \"created_by\": \"user:deadbeef\",\n      \"updated_by\": \"user:deadbeef\",\n      \"logic_triggers\": [\n        {\n          \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n          \"type\": \"Scheduled\",\n          \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n          \"enabled\": true,\n          \"version\": 4,\n          \"cron\": \"0 0 0 0 0\",\n          \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n          \"end_at\": null,\n          \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n          \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n        }\n      ],\n      \"today_stats\": {\n        \"success\": 0,\n        \"failure\": 0,\n        \"timeout\": 0\n      }\n    }\n  ]\n}"
             }
           ]
         },
@@ -8242,13 +8216,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId",
+              "raw": "{{url}}/v1/logic/functions/:logicFunctionId",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions",
                 ":logicFunctionId"
@@ -8284,13 +8257,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId",
+                  "raw": "{{url}}/v1/logic/functions/:logicFunctionId",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions",
                     ":logicFunctionId"
@@ -8304,7 +8276,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/logic/functions/:logicFunctionId\nHTTP/1.1 200 OK\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}"
+              "body": "GET /v1/logic/functions/:logicFunctionId\nHTTP/1.1 200 OK\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}"
             }
           ]
         },
@@ -8316,13 +8288,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/runs",
+              "raw": "{{url}}/v1/logic/functions/:logicFunctionId/runs",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions",
                 ":logicFunctionId",
@@ -8359,13 +8330,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/runs",
+                  "raw": "{{url}}/v1/logic/functions/:logicFunctionId/runs",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions",
                     ":logicFunctionId",
@@ -8380,7 +8350,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/logic/functions/:logicFunctionId/runs\nHTTP/1.1 200 OK\n{\n  \"logic_runs\": [\n    {\n      \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n      \"owner_id\": \"user:deadbeef\",\n      \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n      \"logic_trigger_type\": \"Scheduled\",\n      \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n      \"status\": \"Success\",\n      \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n      \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n      \"log_filename\": \"user:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n    }\n  ]\n}"
+              "body": "GET /v1/logic/functions/:logicFunctionId/runs\nHTTP/1.1 200 OK\n{\n  \"logic_runs\": [\n    {\n      \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n      \"owner_id\": \"user:deadbeef\",\n      \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n      \"logic_trigger_type\": \"Scheduled\",\n      \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n      \"status\": \"Success\",\n      \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n      \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n      \"log_filename\": \"user:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n    }\n  ]\n}"
             }
           ]
         },
@@ -8392,13 +8362,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId",
+              "raw": "{{url}}/v1/logic/functions/:logicFunctionId/runs/:logicRunId",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions",
                 ":logicFunctionId",
@@ -8442,13 +8411,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId",
+                  "raw": "{{url}}/v1/logic/functions/:logicFunctionId/runs/:logicRunId",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions",
                     ":logicFunctionId",
@@ -8464,7 +8432,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/logic/functions/:logicFunctionId/runs/:logicRunId\nHTTP/1.1 200 OK\n{\n  \"logic_run\": {\n    \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n    \"owner_id\": \"users:deadbeef\",\n    \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n    \"logic_trigger_type\": \"Scheduled\",\n    \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n    \"status\": \"Success\",\n    \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n    \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n    \"log_filename\": \"users:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n  }\n}"
+              "body": "GET /v1/logic/functions/:logicFunctionId/runs/:logicRunId\nHTTP/1.1 200 OK\n{\n  \"logic_run\": {\n    \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n    \"owner_id\": \"users:deadbeef\",\n    \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n    \"logic_trigger_type\": \"Scheduled\",\n    \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n    \"status\": \"Success\",\n    \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n    \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n    \"log_filename\": \"users:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n  }\n}"
             }
           ]
         },
@@ -8476,13 +8444,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+              "raw": "{{url}}/v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions",
                 ":logicFunctionId",
@@ -8527,13 +8494,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+                  "raw": "{{url}}/v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions",
                     ":logicFunctionId",
@@ -8550,7 +8516,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/users/logic/functions/:logicFunctionId/runs/:logicRunId/logs\nHTTP/1.1 200 OK\n{\n  \"logic_run_logs\": {\n    \"logs\": [\n      {\n        \"level\": \"Info\",\n        \"timestamp\": \"2023-11-07T18:20:59.470Z\",\n        \"args\": [\n          \"Hello\"\n        ]\n      }\n    ]\n  }\n}"
+              "body": "GET /v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs\nHTTP/1.1 200 OK\n{\n  \"logic_run_logs\": {\n    \"logs\": [\n      {\n        \"level\": \"Info\",\n        \"timestamp\": \"2023-11-07T18:20:59.470Z\",\n        \"args\": [\n          \"Hello\"\n        ]\n      }\n    ]\n  }\n}"
             }
           ]
         },
@@ -8570,13 +8536,12 @@
               "raw": "{\n  \"source\": {\n    \"key\": \"value\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  },\n  \"event\": {\n    \"key\": \"value\",\n    \"event_data\": \"string\",\n    \"device_id\": \"string\",\n    \"product_id\": \"string\"\n  },\n  \"api_username\": \"string\"\n}"
             },
             "url": {
-              "raw": "{{url}}/v1/users/logic/execute",
+              "raw": "{{url}}/v1/logic/execute",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "execute"
               ],
@@ -8608,13 +8573,12 @@
                   "raw": "{\n  \"source\": {\n    \"key\": \"value\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  },\n  \"event\": {\n    \"key\": \"value\",\n    \"event_data\": \"string\",\n    \"device_id\": \"string\",\n    \"product_id\": \"string\"\n  },\n  \"api_username\": \"string\"\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/execute",
+                  "raw": "{{url}}/v1/logic/execute",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "execute"
                   ]
@@ -8627,7 +8591,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "POST /v1/users/logic/execute\nHTTP/1.1 200 OK\n{\n  \"result\": {\n    \"status\": \"Success\",\n    \"logs\": []\n  }\n}"
+              "body": "POST /v1/logic/execute\nHTTP/1.1 200 OK\n{\n  \"result\": {\n    \"status\": \"Success\",\n    \"logs\": []\n  }\n}"
             }
           ]
         },
@@ -8647,13 +8611,12 @@
               "raw": "{\n  \"logic_function\": {\n    \"key\": \"value\"\n  }\n}"
             },
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions",
+              "raw": "{{url}}/v1/logic/functions",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions"
               ],
@@ -8685,13 +8648,12 @@
                   "raw": "{\n  \"logic_function\": {\n    \"key\": \"value\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions",
+                  "raw": "{{url}}/v1/logic/functions",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions"
                   ]
@@ -8704,7 +8666,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "POST /v1/users/logic/functions\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}"
+              "body": "POST /v1/logic/functions\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}"
             }
           ]
         },
@@ -8724,13 +8686,12 @@
               "raw": "{\n  \"logic_function\": {\n    \"key\": \"value\"\n  }\n}"
             },
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId",
+              "raw": "{{url}}/v1/logic/functions/:logicFunctionId",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions",
                 ":logicFunctionId"
@@ -8769,13 +8730,12 @@
                   "raw": "{\n  \"logic_function\": {\n    \"key\": \"value\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId",
+                  "raw": "{{url}}/v1/logic/functions/:logicFunctionId",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions",
                     ":logicFunctionId"
@@ -8789,7 +8749,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "PUT /v1/users/logic/functions/:logicFunctionId\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ],\n    \"today_stats\": {\n      \"success\": 0,\n      \"failure\": 0,\n      \"timeout\": 0\n    }\n  }\n}"
+              "body": "PUT /v1/logic/functions/:logicFunctionId\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"user:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ],\n    \"today_stats\": {\n      \"success\": 0,\n      \"failure\": 0,\n      \"timeout\": 0\n    }\n  }\n}"
             }
           ]
         },
@@ -8801,13 +8761,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId",
+              "raw": "{{url}}/v1/logic/functions/:logicFunctionId",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "v1",
-                "users",
                 "logic",
                 "functions",
                 ":logicFunctionId"
@@ -8843,13 +8802,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/v1/users/logic/functions/:logicFunctionId",
+                  "raw": "{{url}}/v1/logic/functions/:logicFunctionId",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
                     "v1",
-                    "users",
                     "logic",
                     "functions",
                     ":logicFunctionId"
@@ -8863,7 +8821,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "DELETE /v1/users/logic/functions/:logicFunctionId\nHTTP/1.1 204 No content"
+              "body": "DELETE /v1/logic/functions/:logicFunctionId\nHTTP/1.1 204 No content"
             }
           ]
         }
