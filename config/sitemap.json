@@ -1171,8 +1171,8 @@
             "hash": "1b0d8258dbea7c81ec53fe033d7986750b266a71baf61f2878ebc25635b77424"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-08-29",
-            "hash": "1edb9a8defc92258479b1e556ef0589ac4d98d875e0fca09ef15e2efcae5b95f"
+            "date": "2024-11-06",
+            "hash": "b528b74549f00d0c258cfaa393f107de920db4b552748ebdbfc2a11674c5387a"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-02-27",
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-11-01",
-            "hash": "c420d854fcf2bedbfb6afc42a584d47c01d347691cbae47e816dc3c28c7d7b3a"
+            "date": "2024-11-06",
+            "hash": "64be3e17aa0c35f5367f4dca28b71c6b3fb9f3361c89d799fa2d3774673b70f9"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1567,8 +1567,8 @@
             "hash": "928607f8042763f43fc0ed16f46e443cf5f1d832a0b043459b99bc023b0bcf7d"
         },
         "troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token.md": {
-            "date": "2022-06-29",
-            "hash": "709e26864a9a0a2e28bbe6430ef3dbd207f78e24db6f61c673d9eed492827a3b"
+            "date": "2024-11-06",
+            "hash": "e4aa20726a53af4a4d4ba2678a59f403cfaa63d817ca80904425891a2490a255"
         },
         "troubleshooting/guides/device-management/sim-activation-troubleshooting.md": {
             "date": "2023-04-20",
@@ -2251,8 +2251,8 @@
             "hash": "22c6b7cc00d3bd070b24acc0c021f687e018cab7440a2aff26f72d7c0223322c"
         },
         "reference/device-os/api/cellular/getbandavailable.md": {
-            "date": "2024-02-27",
-            "hash": "afde3c2d21df8e15b799fc904b37f9ea0444aa9d67542fc4dc13181777095f9c"
+            "date": "2024-11-06",
+            "hash": "6f0323ee361285f5bef5ceb73b7a556a0b421f65b4220d509da91bb4f7818d0b"
         },
         "reference/device-os/api/cellular/getbandselect.md": {
             "date": "2024-02-27",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "41f46dd3b601fc631f6d72a822cf5b2bd44e7d8efeee745f9a90beda3bd4c130",
+            "hash": "e454dc4af04320ea9f2e2e5d4a8b5e5c1f186f6ac6aee8b57860fe1d6a3ae4c0",
             "date": "2024-11-06"
         },
         "getting-started/cloud/logic.md": {
@@ -9492,6 +9492,10 @@
         },
         "integrations/integrations/azure-iot-hub.md": {
             "hash": "2ecdca02489d2d385b6cec2eae17bc442a1b28fda47bdbe8cc39ea826a528755",
+            "date": "2024-11-06"
+        },
+        "reference/device-os/api/cellular/cellular-global-identity.md": {
+            "hash": "06c7f053805296b195685adfb24cdb68fceea2a8492a36cf5610007ef0e153a8",
             "date": "2024-11-06"
         }
     }

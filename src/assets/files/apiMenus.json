@@ -1109,6 +1109,27 @@
           "dir": "getbandavailable"
         },
         {
+          "title": "Cellular global identity - Cellular",
+          "dir": "cellular-global-identity",
+          "subsections": [
+            {
+              "anchor": "cellular_global_identity-function",
+              "title": "cellular_global_identity function",
+              "isContent": true
+            },
+            {
+              "anchor": "cellular_global_identity-result-codes",
+              "title": "cellular_global_identity result codes",
+              "isContent": true
+            },
+            {
+              "anchor": "cellularglobalidentity-structure",
+              "title": "CellularGlobalIdentity structure",
+              "isContent": true
+            }
+          ]
+        },
+        {
           "title": "getBandSelect() - Cellular",
           "dir": "getbandselect"
         },

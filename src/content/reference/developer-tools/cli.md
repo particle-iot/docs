@@ -1462,41 +1462,6 @@ You can also inspect a .zip file containing a binary with additional assets.
 ## particle token
 
 
-### particle token list
-Retrieve all the access token under your Particle account.
-
-```sh
-$ particle token list
-Checking with the cloud...
-? Using account cli@particle.io
-Please enter your password: *******
-
-spark-ide
- Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
- Expires at: null
-
-cloud-compile
- Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
- Expires at: null
-
-spark-cli
- Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
- Expires at: null
-
-__PASSWORD_ONLY__
- Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
- Expires at: 2017-06-12T13:42:46.308Z
-
-__PASSWORD_ONLY__
- Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
- Expires at: 2017-06-12T09:03:45.797Z
-
-__PASSWORD_ONLY__ (active)
- Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
- Expires at: 2017-06-12T08:44:16.371Z
-```
-
-
 ### particle token create
 Create a new access token under your Particle account.
 

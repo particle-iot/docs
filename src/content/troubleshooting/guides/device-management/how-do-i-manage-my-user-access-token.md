@@ -12,15 +12,7 @@ Until recently, Particle users were able to access their User Access Token from 
 Follow the instructions to [install the Particle CLI](/getting-started/developer-tools/cli/).
     
 Once you have the CLI installed, open up your command line (for Mac OS, the Terminal, for Windows, cmd.exe) and use the following command to **log in**:  
-particle login  
-
-You can then **list your current tokens** with:  
-
-```
-particle token list  
-```
-
-and create a new token with:  
+particle login then create a new token with:  
 
 ```
 particle token create

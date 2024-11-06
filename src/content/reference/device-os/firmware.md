@@ -5247,6 +5247,100 @@ else {
 }
 ```
 
+### Cellular global identity
+
+This call returns information about the connected cell tower, including the MCC, MNC, LAC, and Cell Identifier.
+
+The device must be connected to a tower (breathing green or cyan) for this call to be used.
+
+#### cellular_global_identity function
+
+```cpp
+// PROTOTYPES
+cellular_result_t cellular_global_identity(CellularGlobalIdentity* cgi, void* reserved = NULL);
+
+typedef int cellular_result_t;
+
+// EXAMPLE
+CellularGlobalIdentity cgi = {0};
+cgi.size = sizeof(CellularGlobalIdentity);
+cgi.version = CGI_VERSION_LATEST;
+
+cellular_result_t res = cellular_global_identity(&cgi, NULL);
+if (res == SYSTEM_ERROR_NONE) {
+    Variant tower;
+    tower.set("mcc", cgi.mobile_country_code);
+    tower.set("mnc", cgi.mobile_network_code);
+    tower.set("cid", cgi.cell_id);
+    tower.set("lac", cgi.location_area_code);
+    // Do something with tower here, like add to a ledger
+}
+```
+
+#### cellular_global_identity result codes
+
+| Result | Description |
+| :--- | :--- |
+| `SYSTEM_ERROR_NONE` | Success (0) |
+| `SYSTEM_ERROR_AT_NOT_OK` | Cellular modem returned an error |
+| `SYSTEM_ERROR_AT_RESPONSE_UNEXPECTED` | Cellular modem returned unexpected data |
+| `SYSTEM_ERROR_BAD_DATA` | Cellular modem returned unexpected data |
+| `SYSTER_ERROR_INVALID_ARGUMENT` | Invalid `CellularGlobalIdentity` structure |
+| `SYSTEM_ERROR_INVALID_STATE` | The device is not connected to cellular |
+| `SYSTER_ERROR_UNKNOWN` | Unknown error |
+  
+
+#### CellularGlobalIdentity structure
+
+| Type | Field | Description |
+| :--- | :--- | :--- |
+| `uint16_t` | `size;` | Initialize to `sizeof(CellularGlobalIdentity)` |
+| `uint16_t` | `version` | Initialize to  `CGI_VERSION_LATEST` |
+| `uint8_t` | `cgi_flags` |  Filled in with flag bits, see list below |
+| `uint16_t` | `mobile_country_code` | Mobile Country Code (MCC) |
+| `uint16_t` | `mobile_network_code` | Mobile Network Code  (MNC) |
+| `uint16_t` | `location_area_code` | Location Area Code (LAC) |
+| `uint32_t` | `cell_id` | Cell Identifier |
+
+```cpp
+// Type definitions
+typedef enum __attribute__((__packed__)) CgiVersion
+{
+    CGI_VERSION_1,
+    CGI_VERSION_LATEST = CGI_VERSION_1,
+} CgiVersion;
+
+typedef enum __attribute__((__packed__)) CgiFlags
+{
+    CGI_FLAG_TWO_DIGIT_MNC = 0b00000001, /*!< Indicates two-digit format of Mobile Network Code */
+} CgiFlags;
+
+typedef struct __attribute__((__packed__))
+{
+    uint16_t size; /*!< \c size is specified by the user application, to inform the device-os of the
+                      amount of space allocated to the structure */
+    uint16_t version;  /*!< \c version is specified by the user application, to inform the
+                          device-os of the version of the information to be returned */
+    uint8_t reserved;  /*!< \c reserved is allocated for future usage */
+    uint8_t cgi_flags; /*!< \c cgi_flags Indicates the structure/configuration of the values in
+                           CellularGlobalIdentity */
+    uint16_t mobile_country_code; /*!< \c mobile_country_code consists of three decimal digits and
+                                     identifies uniquely the country of domicile of the mobile
+                                     subscription */
+    uint16_t mobile_network_code; /*!< \c mobile_network_code consists of three decimal digits and
+                                     identifies the home PLMN of the mobile subscription */
+    uint16_t location_area_code;  /*!< \c location_area_code is a fixed length code (of 2 octets)
+                                     identifying a location area within a PLMN */
+    uint32_t cell_id; /*!< \c cell_id is of fixed length with 4 octets and it can be coded using a
+                         full hexadecimal representation */
+} CellularGlobalIdentity;
+
+// Example initialization
+CellularGlobalIdentity cgi = {0};
+cgi.size = sizeof(CellularGlobalIdentity);
+cgi.version = CGI_VERSION_LATEST;
+```
+
 
 ### getBandSelect()
 

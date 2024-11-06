@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cellular global identity 2024-11-06
+
+The [cellular_global_identity](/reference/device-os/api/cellular/cellular-global-identity/) function, used to get the MCC, MNC, LAC, and cell identifier, is now documented.
+
+### Removed particle token list 2024-11-06
+
+This command has been removed from the Particle CLI for security reasons.
+
 ### Library builds 6.2.0 2024-11-06
 
 The [library viewer](/reference/device-os/libraries/search/) now includes tests build for 6.2.0 and M-SoM. 
