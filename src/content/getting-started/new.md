@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library builds 6.2.0 2024-11-06
+
+The [library viewer](/reference/device-os/libraries/search/) now includes tests build for 6.2.0 and M-SoM. 
+
 ### NeoPixel tutorial 2024-11-04
 
 Added a [NeoPixel tutorial](/hardware/expansion/neopixel/).
