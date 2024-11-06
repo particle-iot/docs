@@ -16427,6 +16427,9 @@ inteface is used (cellular or Wi-Fi). You can, however pass `Ethernet`, `WiFi`, 
 parameter, which will bind to that specific interface. This is most commonly used when you use cellular
 as your cloud connection, but listen for TCP connections on Ethernet from an isolated Ethernet LAN.
 
+In Device OS 6.2.0 and later, `nif` can be `Tether` to listen for connection from another device 
+such as a Raspberry Pi connected by UART serial.
+
 ### begin()
 
 {{api name1="TCPServer::begin"}}
@@ -16631,6 +16634,10 @@ These errors are documented in the [POSIX error codes](#posix-errors) list. From
 `nif` is the network interface to use. This is typically omitted, in which case the primary network
 inteface is used (cellular or Wi-Fi). You can, however pass `Ethernet`, `WiFi`, or `Cellular` as this 
 parameter, which will only use that interface to make the outbound TCP connection. 
+
+In Device OS 6.2.0 and later, `nif` can be `Tether` to make connections to a device 
+such as a Raspberry Pi connected by UART serial.
+
 
 ---
 {{note op="start" type="cellular"}}
@@ -17026,6 +17033,10 @@ void loop() {
 inteface is used (cellular or Wi-Fi). You can, however pass `Ethernet`, `WiFi`, or `Cellular` as this 
 parameter, which will bind to that specific interface. This is most commonly used when you use cellular
 as your cloud connection, but listen for UDP packets on Ethernet from an isolated Ethernet LAN.
+
+In Device OS 6.2.0 and later, `nif` can be `Tether` to allow UDP to and from another device 
+such as a Raspberry Pi connected by UART serial.
+
 
 ### available()
 

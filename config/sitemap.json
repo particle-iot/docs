@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-11-06",
-            "hash": "64be3e17aa0c35f5367f4dca28b71c6b3fb9f3361c89d799fa2d3774673b70f9"
+            "hash": "cf55986cf5ebaf6a91b297eab8ab5147f59c88e62606983bb61ea60818d8d180"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3011,8 +3011,8 @@
             "hash": "5fe687408e36da41fbf92b0dde12c29424a5748d8184548bd182bddcb08105b9"
         },
         "reference/device-os/api/tcpserver/tcpserver.md": {
-            "date": "2024-10-31",
-            "hash": "cdb1d7612d1830751a68e2f193186ccef722c6d991a747a57923ee0ee4177712"
+            "date": "2024-11-06",
+            "hash": "44e748a6b480c67a9cb3dbad97240f896bc40893fed30458c9977a5904e6bdb2"
         },
         "reference/device-os/api/tcpserver/begin.md": {
             "date": "2023-09-20",
@@ -3043,8 +3043,8 @@
             "hash": "ac1a9fd3c747d30d725a74dda0462a39cf68c00267d65fed30e06e2463ee153b"
         },
         "reference/device-os/api/tcpclient/tcpclient.md": {
-            "date": "2024-10-31",
-            "hash": "6ce5d07c5f11f726848de45193a639cdd2e4ad511c52df366880c905201202b9"
+            "date": "2024-11-06",
+            "hash": "7e6bc0419f5c6358dc3fcadf79836bd958287a99e4d76bc91f7f718ea5c3669f"
         },
         "reference/device-os/api/tcpclient/connected.md": {
             "date": "2023-09-20",
@@ -3103,8 +3103,8 @@
             "hash": "9fc91a92e99828f3c833b2b4c609b5415c38a7c88230b7a7b4ff6da70da3fdb4"
         },
         "reference/device-os/api/udp/begin.md": {
-            "date": "2024-10-31",
-            "hash": "307e96fcaaf51eb2ef7c149b9d353a62fbcb6f507cbb8cb6b3c52cc36768399c"
+            "date": "2024-11-06",
+            "hash": "1a4a4142bc8205505347e9e3e32edc8f510a484104ecfba5438b1abcd590c947"
         },
         "reference/device-os/api/udp/available.md": {
             "date": "2023-09-20",
