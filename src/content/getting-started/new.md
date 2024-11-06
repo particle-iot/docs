@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### NeoPixel tutorial 2024-11-04
+
+Added a [NeoPixel tutorial](/hardware/expansion/neopixel/).
+
 ### Import device fix 2024-11-03
 
 Fixed a bug in the [Import devices tool](/tools/cloud-tools/import-devices/) that could cause the actual serial number

@@ -979,8 +979,8 @@
             "hash": "d6c77920e8bdadbf2e65edd079dd8113d49a8a889344b0432f62bac2afc6ca57"
         },
         "hardware/expansion/create-a-custom-cold-chain-solution-using-gen3-devices-and-ble.md": {
-            "date": "2023-03-17",
-            "hash": "c7ef510bfc2e2666ade942c1fff1177d66ccf1345d7cb7d2ca46d50ea5c1a7c7"
+            "date": "2024-11-06",
+            "hash": "e850669280b7a8a3b572d8bc00ceefd9796d0d093bcd006367fafd4907f0dc85"
         },
         "hardware/expansion/feather.md": {
             "date": "2024-01-05",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "6604029333efcdfb39b9dc354549e0b1a8d558e15e82996403032ed17c17b3a2",
-            "date": "2024-11-03"
+            "hash": "6181e6cb5e892f7fed39bf46bf531933e3fa94a68a3d5e1ab694e2024651612b",
+            "date": "2024-11-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9485,6 +9485,10 @@
         "reference/device-os/libraries/s/SN3218_RK.md": {
             "hash": "26442a825c31828e1725cc20a3e013e4911848dcf417c2fe365b266f05073f77",
             "date": "2024-11-05"
+        },
+        "hardware/expansion/neopixel.md": {
+            "hash": "99b87cbc7eb8c0215205de94853bd410416cce1945196b0ed87b29c24ee4047d",
+            "date": "2024-11-06"
         }
     }
 }
