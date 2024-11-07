@@ -735,8 +735,8 @@
             "hash": "cda7b60539e868a37f716cb8574410188162b87a28e96d4a069b1c6a314b8dad"
         },
         "integrations/webhooks.md": {
-            "date": "2024-06-08",
-            "hash": "23212a069467075aa10c877a70b1304a13b3bf712b3b421d807dfcab7fac94fe"
+            "date": "2024-10-28",
+            "hash": "8249affd52ea0af6e6f70365309d9a5dc9aeac160a67c2bb9a3947ef006de0d4"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2024-05-24",
@@ -1167,8 +1167,8 @@
             "hash": "40f46b9083bb58fd20e3e38ce3f0a00d7d6098f579d5d6962e2821d4e41e43e9"
         },
         "reference/cloud-apis/webhooks.md": {
-            "date": "2024-06-08",
-            "hash": "1b0d8258dbea7c81ec53fe033d7986750b266a71baf61f2878ebc25635b77424"
+            "date": "2024-11-07",
+            "hash": "2a78a4a042c00f6ef3fc56e0e389f33e75bf484494d348c9bdae4ce6d30a0b03"
         },
         "reference/developer-tools/cli.md": {
             "date": "2024-11-06",
@@ -8287,8 +8287,8 @@
             "date": "2024-09-04"
         },
         "getting-started/logic-ledger/logic.md": {
-            "hash": "329104150aac7d904ea7a63c3d32d825a8c1be8e8af60e44f8fe33c0efc462b7",
-            "date": "2024-11-06"
+            "hash": "36a483a31b120f52eed76ed83253f9a615e26fea54d57e8c041bf66afa9a6afe",
+            "date": "2024-11-07"
         },
         "getting-started/logic-ledger/data-transformation.md": {
             "hash": "95468cd5b3e47cd95d8b3a0eca2c8648f5cb3736c0ff81b151b0abf9fb4fdf4a",

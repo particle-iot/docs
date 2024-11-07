@@ -208,6 +208,66 @@ Particle.publish("sensor-test", buf);
 
 Remember that Logic Functions only work with product devices. The devices can be product developer devices (or not) and can be claimed or unclaimed.
 
+### Implementing webhook response handlers
+
+There are a few options to must set to handle a webhook response from Logic.
+
+{{imageOverlay src="/assets/images/console/custom-webhook-6.png" alt="Webhook responses"}}
+
+### Response Topic
+
+This setting determines the name of the event that is published containing the response from the webhook.
+
+
+You will need to make sure the Response topic does not embed the publishing device Device ID in the topic
+as you want a single logic block to be used for all devices.
+
+```
+hook-response/\{{PARTICLE_EVENT_NAME}}
+```
+
+### responseTemplate
+
+You will typically want to pass the entire response to Logic, so you can leave this field blank.
+
+
+### Unchunked
+
+Webhook responses to devices are split into 512 byte chunks before sending to devices.
+
+Logic, however, can accept large publishes up to 100 Kbytes, and you should check the **Unchunked**
+option in the webhook as this not only prevents chucking, but prevents adding a sequence number
+such as `/0`, `/1`, etc. to the end of the event name.
+
+Since Logic requires an exact match of the event name, the sequence numbers can be problematic.
+
+### Encode as data URL
+
+Normally webhook responses are limited to UTF-8 text data due to how events are processed by publish and subscribe.
+
+If your response is JSON, you should leave this checkbox unchecked.
+
+However, if your server is returning binary data, you should check the  **Encode as data URL** checkbox.
+
+Say you have this binary data returned from your webhook:
+
+```
+0000: a7 22 98 1c 40 1b 9b 80 bb 9d d9 c0 13 bb 4e d0   |  "  @         N 
+0010: a3 c0 ae 81 c5 93 91 2a 83 8e 69 27 b0 c6 17 26   |        *  i'   &
+0020: 85 93 b7 a6 f5 69 c0 4c 9e 3d 53 49 b5 47 f0 44   |      i L =SI G D
+0030: 26 9b 8a 1d e4 bc 73 f9 4d a4 e8 34 c2 56 17 c9   | &     s M  4 V  
+```
+
+This is encoded in the [Data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data) format, which
+looks like this:
+
+```
+data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
+```
+
+The [`dataUrlDecode`](#dataurldecode) function, below, can be used to decode the Base 64 encoding to return
+an array of bytes, as well as extract the content-type, from your Logic block.
+
 ### Scheduled events
 
 When using the scheduled event template, the following code is provided to start:
@@ -715,6 +775,29 @@ export function base85Decode(input: string): number[];
 ```
 
 In your device firmware, use the [Base85](https://github.com/particle-iot/base85) library to encode or decode Base85.
+
+#### dataUrlEncode
+
+Encodes data into a data URL
+
+```js
+// PROTOTYPE
+export function dataUrlEncode(data: string | number[] | Uint8Array, mimeType?: string, parameters?: Record<string, string>): string;
+```
+
+- `data` the actual data (string or array of numbers)
+- `mimeType` the type of the data. Default is application/octet-stream if not provided
+- `parameters` additional parameters for the data URL, for example: `filename=cat.jpg`
+- returns the encoded data URL
+
+#### dataUrlDecode
+
+Decodes a data URL. extracting its mime type, parameters (optional), and an array of numbers for the bytes in the data.
+
+```js
+// PROTOTYPE
+export function dataUrlDecode(dataUrl: string): { mimeType: string, parameters: Record<string, string>, data: number[] }
+```
 
 
 #### bytesToString
