@@ -3,6 +3,7 @@ title: Tethering
 columns: two
 layout: commonTwo.hbs
 description: Tethering
+includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 # Tethering
@@ -34,7 +35,7 @@ You cannot use a LTE Cat M1 module, such as the B404X, Boron 404X, or M404.
 ### Serial connection
 
 Tethering uses a UART serial connection between the other device (such as a Rasbperry Pi) and the 
-Particle device. Hardware flow control (RTS/CTS) is recommended, as is using a high baud rate.
+Particle device. Hardware flow control (RTS/CTS) is recommended, as is using a high baud rate. 921600 baud works well.
 
 All current Particle devices have 3.3V logic on UART ports, so if your other device
 is a 5V device, it would need level shifters. Raspberry Pi devices are 3.3V.
@@ -90,14 +91,45 @@ void loop() {
 
 For information about the `Tether` class, see the [Device OS API reference](/reference/device-os/api/tether/).
 
+### TCP and UDP
+
+It is possible to use TCPServer, TCPClient, and UDP to communicate between the other device
+and the Particle device over TCP or UDP over the tethering connection. 
+
+When binding listening connections, or making an outgoing connection or sending packets,
+an optional `nif` specifies the network interface to use. This can be `Tether` for the 
+tethering interface.
+
 ## Raspberry Pi
 
 If using a Raspberry Pi as the other device, you must configure it to establish a PPP connection
 over its serial port instead of Ethernet or Wi-Fi.
 
-A script to automate this will be provided in the future, but if you'd like to attempt it
-yourself now, you can follow the brief notes below.
+### Setup script - Raspberry Pi
 
+The script below makes it easy if you are using Debian 12 "bookworm" for 32-bit or 64-bit ARM
+on a Raspberry Pi 4 or Raspberry Pi 5.
+
+{{> codebox content="/assets/files/enable-tethering.sh" format="sh" height="400" flash="true"}}
+
+Download and run this script on your Raspberry Pi:
+
+```
+bash enable-tethering.sh
+```
+
+This script:
+
+1. Disables the linux serial console on the USART needed for tethering
+2. Enables a USART with flow control on the USART pins
+3. Disable sany PPP options, create default options for the new tty PPP device
+4. Adds udev rules for the new PPP tty device
+5. Scans for the modem in modem manager
+6. Creates a connection to the modem using NetworkManager
+
+### Manual setup - Raspberry Pi
+
+If you prefer to set up the connection manually, these notes may be helpful.
 
 {{collapse op="start" label="Manual Linux setup notes"}}
 

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tethering script 2024-11-07
+
+Updated the [tethering reference](/reference/device-os/tethering/) with a script to simplify installation on a Raspberry Pi.
+
 ### Updated webhook reference 2024-11-07
 
 Updated [webhook reference](/reference/cloud-apis/webhooks/) with much more information.
