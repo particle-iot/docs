@@ -100,10 +100,64 @@ When binding listening connections, or making an outgoing connection or sending 
 an optional `nif` specifies the network interface to use. This can be `Tether` for the 
 tethering interface.
 
+### Particle M.2 breakout
+
+If you are using the M.2 breakout board or M.2 evaluation board with the B504 and B524, you will 
+be using these pins on the expansion header.
+
+{{imageOverlay src="/assets/images/pi/eval-serial.svg"}}
+
+### SoM custom board
+
+If you are using your own custom board you will be using these pins on the B504 and B524 B-Series SoM.
+
+{{!-- BEGIN do not edit content below, it is automatically generated f054fe69-870e-43d3-bd07-4d3168908a2b --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | Serial TX, GPIO | Serial1 TX | P0.06 |
+| 38 | RX / D10 | Serial RX, GPIO | Serial1 RX | P0.08 |
+| 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | Serial1 CTS | P1.01 |
+| 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | Serial1 RTS | P1.02 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
 ## Raspberry Pi
 
 If using a Raspberry Pi as the other device, you must configure it to establish a PPP connection
 over its serial port instead of Ethernet or Wi-Fi.
+
+### Serial connections - Raspberry Pi 5
+
+The setup script, below, uses UART0 for the tethering connection on the Raspberry Pi 5.
+
+{{imageOverlay src="/assets/images/pi/pi5-uart0.svg"}}
+
+- Be sure to cross TX-RX and CTS-RTS between the Pi and the B-SoM! For example, the Particle TX connects to the Pi RX.
+- Also be sure the GND pin is connected between the Pi and the B-SoM.
+- Do not connect 3V3 or 5V between the Pi and B-SoM! 
+- You may connect the Pi 5V to Particle device VIN if you are powering the Particle device from the Pi.
+
+If you wish to use a different port, the following ports are available on the Raspberry Pi 5.
+
+{{imageOverlay src="/assets/images/pi/pi5-serial.svg"}}
+
+
+### Serial connections - Raspberry Pi 4
+
+{{imageOverlay src="/assets/images/pi/pi4-uart2.svg"}}
+
+- Be sure to cross TX-RX and CTS-RTS between the Pi and the B-SoM! For example, the Particle TX connects to the Pi RX.
+- Also be sure the GND pin is connected between the Pi and the B-SoM.
+- Do not connect 3V3 or 5V between the Pi and B-SoM! 
+- You may connect the Pi 5V to Particle device VIN if you are powering the Particle device from the Pi.
+
+If you wish to use a different port, the following ports are available on the Raspberry Pi 4. Note that you should not use UART0 as it does not support flow control.
+
+{{imageOverlay src="/assets/images/pi/pi4-serial.svg"}}
+
 
 ### Setup script - Raspberry Pi
 

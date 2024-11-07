@@ -1064,7 +1064,7 @@ const svg = require('./svg');
             // deviceImage: 
             outputPath: generateOptions.outputPath,
             width: 1030,
-            height: 650,
+            height: 550,
             background: 'white',
             pins: [
                 {   // Left side
@@ -1077,7 +1077,7 @@ const svg = require('./svg');
                     count: 60,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
+                    columns: generateOptions.columns || [
                         {
                             width: 30,
                             keys: ['num'],
@@ -1121,7 +1121,7 @@ const svg = require('./svg');
                     count: 60,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
+                    columns: generateOptions.columns || [
                         {
                             width: 30,
                             keys: ['num'],
@@ -1154,6 +1154,7 @@ const svg = require('./svg');
 
         await diagram.generate(options, files);
     };
+
 
 
     diagram.generatePowerModule = async function(generateOptions, files) {        
@@ -1849,6 +1850,46 @@ const svg = require('./svg');
     }
 
 
+
+    diagram.generatePi = async function(generateOptions, files) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: generateOptions.platformName,
+            outputPath: generateOptions.outputPath,
+            width: 1000,
+            height: 500,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 498,
+                    y: 50,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 20,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side 
+                    num: 2,
+                    x: 502,
+                    y: 50,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 20,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+            ]
+        });
+
+        await diagram.generate(options, files);
+    }
+
     diagram.generateTrackerMExpansion = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -2381,6 +2422,104 @@ const svg = require('./svg');
             ],
             outputPath: 'assets/images/m-series/muon-gpio.svg',
         }, generateOptions), files);
+
+        await diagram.generatePi(Object.assign({
+            platformName: 'pi5',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 50,
+                    keys: ['uart0'],
+                },
+            ],
+            outputPath: 'assets/images/pi/pi5-uart0.svg',
+        }, generateOptions), files);
+
+        await diagram.generatePi(Object.assign({
+            platformName: 'pi5',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['serial'],
+                },
+            ],
+            outputPath: 'assets/images/pi/pi5-serial.svg',
+        }, generateOptions), files);
+
+
+        await diagram.generatePi(Object.assign({
+            platformName: 'pi4',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 50,
+                    keys: ['uart2'],
+                },
+            ],
+            outputPath: 'assets/images/pi/pi4-uart2.svg',
+        }, generateOptions), files);
+
+
+        await diagram.generatePi(Object.assign({
+            platformName: 'pi4',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['serial'],
+                },
+            ],
+            outputPath: 'assets/images/pi/pi4-serial.svg',
+        }, generateOptions), files);
+
+        await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'M.2 SoM breakout board header, B-SoM',
+            outputPath: 'assets/images/pi/eval-serial.svg',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['serial'],
+                },
+            ],
+         }), files);
+
 
     }
 

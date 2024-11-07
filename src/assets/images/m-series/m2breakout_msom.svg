@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1030" height="650" >
-  <rect x="0" y="0" width="1030" height="650" fill="white" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1030" height="550" >
+  <rect x="0" y="0" width="1030" height="550" fill="white" >
   </rect>
   <g transform="translate(500,30) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >

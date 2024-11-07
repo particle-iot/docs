@@ -357,6 +357,7 @@
             "hibernate": "Pin can wake from HIBERNATE sleep",
             "internalPull": "2.1K",
             "is5VTolerant": false,
+            "isIO": true,
             "m2Pin": 54,
             "net": "M2_SPI_SCK",
             "rpi": "GPIO11 (SCLK)",
