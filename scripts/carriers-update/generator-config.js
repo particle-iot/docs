@@ -4684,6 +4684,161 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }           
         },      
+        {
+            guid:'71ebb5bc-2b24-40c6-98fe-40cc38acc89a',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'connectionDiagram',
+                    platformOld: 'pi5', // from (left)
+                    platformNew: 'M.2 SoM breakout board header, B-SoM', // to (right)
+                    connections: [
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO14',
+                            fromLabel: 'UART0_TX',
+                            toKey: 'name',
+                            toValue: 'RX',
+                            toLabel: 'Serial1 RX'
+                        },
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO15',
+                            fromLabel: 'UART0_RX',
+                            toKey: 'name',
+                            toValue: 'TX',
+                            toLabel: 'Serial1 TX'
+                        },
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO16',
+                            fromLabel: 'UART0_CTS',
+                            toKey: 'name',
+                            toValue: 'D2',
+                            toLabel: 'Serial1 RTS'
+                        },
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO17',
+                            fromLabel: 'UART0_RTS',
+                            toKey: 'name',
+                            toValue: 'D3',
+                            toLabel: 'Serial1 CTS'
+                        },
+                        {
+                            fromKey: 'num',
+                            fromValue: 6,
+                            fromLabel: '',
+                            toKey: 'num',
+                            toValue: 1,
+                            toLabel: ''
+                        },
+                    ],
+                    columns: [
+                        {
+                            key: 'from.num',
+                            title: 'Pi Pin Num',
+                        },
+                        {
+                            key: 'from.name',
+                            title: 'Pi GPIO',
+                        },
+                        {
+                            key: 'fromLabel',
+                            title: 'Pi Function',
+                        },
+                        {
+                            isSeparator: true, // separator between from and to
+                        },
+                        {
+                            key: 'to.name',
+                            title: 'Particle Name',
+                        },
+                        {
+                            key: 'toLabel',
+                            title: 'Particle Function',
+                        },
+                    ],
+                }); 
+            },
+        },
+        {
+            guid:'1b6753e8-fead-433a-8fa0-476c6a851e2e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'connectionDiagram',
+                    platformOld: 'pi4', // from (left)
+                    platformNew: 'M.2 SoM breakout board header, B-SoM', // to (right)
+                    connections: [
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO0',
+                            fromLabel: 'UART2_TX',
+                            toKey: 'name',
+                            toValue: 'RX',
+                            toLabel: 'Serial1 RX'
+                        },
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO1',
+                            fromLabel: 'UART2_RX',
+                            toKey: 'name',
+                            toValue: 'TX',
+                            toLabel: 'Serial1 TX'
+                        },
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO2',
+                            fromLabel: 'UART2_CTS',
+                            toKey: 'name',
+                            toValue: 'D2',
+                            toLabel: 'Serial1 RTS'
+                        },
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO3',
+                            fromLabel: 'UART2_RTS',
+                            toKey: 'name',
+                            toValue: 'D3',
+                            toLabel: 'Serial1 CTS'
+                        },
+                        {
+                            fromKey: 'num',
+                            fromValue: 6,
+                            fromLabel: '',
+                            toKey: 'num',
+                            toValue: 1,
+                            toLabel: ''
+                        },
+
+                    ],
+                    columns: [
+                        {
+                            key: 'from.num',
+                            title: 'Pi Pin Num',
+                        },
+                        {
+                            key: 'from.name',
+                            title: 'Pi GPIO',
+                        },
+                        {
+                            key: 'fromLabel',
+                            title: 'Pi Function',
+                        },
+                        {
+                            isSeparator: true, // separator between from and to
+                        },
+                        {
+                            key: 'to.name',
+                            title: 'Particle Name',
+                        },
+                        {
+                            key: 'toLabel',
+                            title: 'Particle Function',
+                        },
+                    ],
+                }); 
+            },
+        },
         // M1 Enclosure
         {
             // SKU m1 enclosure

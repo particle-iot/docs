@@ -2048,7 +2048,6 @@ const generatorConfig = require('./generator-config');
         }
     }
 
-
     updater.generatePinInfo = function(options) {
 
         const expandMorePins = function(pinArray) {
@@ -2538,7 +2537,51 @@ const generatorConfig = require('./generator-config');
         }
 
 
+        if (options.style == 'connectionDiagram') {
+            let tableOptions = {
+                columns: [],
+            };
 
+            for(const col of options.columns) {
+                if (col.isSeparator) {
+                    tableOptions.columns.push({
+                        title: '\u2194',
+                    });        
+                } 
+                else {
+                    tableOptions.columns.push({
+                        key: col.key,
+                        title: col.title || col.key,
+                    });        
+                }
+            }
+
+            let tableData = [];
+            for(const conn of options.connections) {
+                let td = Object.assign({}, conn);
+
+                const pinFrom = platformInfoOld.pins.find(e => e[conn.fromKey] == conn.fromValue);
+                if (pinFrom) {
+                    for(const key in pinFrom) {
+                        td['from.' + key] = pinFrom[key];
+                    }
+                }
+
+                const pinTo = platformInfoNew.pins.find(e => e[conn.toKey] == conn.toValue);
+                if (pinTo) {
+                    for(const key in pinTo) {
+                        td['to.' + key] = pinTo[key];
+                    }
+                }
+
+                tableData.push(td);
+            }
+            // console.log('connectionDiagram', tableData);
+            
+            md += updater.generateTable(tableOptions, tableData);
+
+        }
+        else
         if (options.style == 'expansion-muon-monitor-one') {
             let pins = [];
             for(const pin of platformInfoNew.pins) {

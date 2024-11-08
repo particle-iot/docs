@@ -4841,7 +4841,7 @@
           "isIO": true,
           "rpiGPIO": 2,
           "serial": "UART2_CTS",
-          "uart2": "CTS"
+          "uart2": "UART2_CTS"
         },
         {
           "num": 5,
@@ -4851,7 +4851,7 @@
           "isIO": true,
           "rpiGPIO": 3,
           "serial": "UART2_RTS",
-          "uart2": "RTS"
+          "uart2": "UART2_RTS"
         },
         {
           "num": 6,
@@ -4875,7 +4875,7 @@
           "isIO": true,
           "rpiGPIO": 4,
           "serial": "UART3_TX",
-          "uart3": "TX"
+          "uart3": "UART3_TX"
         },
         {
           "num": 8,
@@ -4884,8 +4884,8 @@
           "isIO": true,
           "rpiGPIO": 14,
           "serial": "UART0_TX, UART5_CTS",
-          "uart0": "TX",
-          "uart5": "CTS"
+          "uart0": "UART0_TX",
+          "uart5": "UART5_CTS"
         },
         {
           "num": 10,
@@ -4894,8 +4894,8 @@
           "isIO": true,
           "rpiGPIO": 15,
           "serial": "UART0_RX, UART5_RTS",
-          "uart0": "RX",
-          "uart5": "RTS"
+          "uart0": "UART0_RX",
+          "uart5": "UART5_RTS"
         },
         {
           "num": 11,
@@ -4906,7 +4906,7 @@
         },
         {
           "num": 12,
-          "name": "GP1O18",
+          "name": "GPIO18",
           "desc": "GPIO18",
           "isIO": true,
           "rpiGPIO": 18
@@ -4948,7 +4948,7 @@
           "rpiGPIO": 10,
           "serial": "UART4_CTS",
           "spi": "MOSI",
-          "uart4": "CTS"
+          "uart4": "UART4_CTS"
         },
         {
           "num": 21,
@@ -4958,7 +4958,7 @@
           "rpiGPIO": 9,
           "serial": "UART4_RX",
           "spi": "MISO",
-          "uart4": "RX"
+          "uart4": "UART4_RX"
         },
         {
           "num": 22,
@@ -4975,7 +4975,7 @@
           "rpiGPIO": 11,
           "serial": "UART4_RTS",
           "spi": "SCLK",
-          "uart4": "RTS"
+          "uart4": "UART4_RTS"
         },
         {
           "num": 24,
@@ -4985,7 +4985,7 @@
           "rpiGPIO": 8,
           "serial": "UART4_TX",
           "spi": "CE0",
-          "uart4": "TX"
+          "uart4": "UART4_TX"
         },
         {
           "num": 26,
@@ -4995,7 +4995,7 @@
           "rpiGPIO": 7,
           "serial": "UART3_RTS",
           "spi": "CE1",
-          "uart3": "RTS"
+          "uart3": "UART3_RTS"
         },
         {
           "num": 27,
@@ -5005,7 +5005,7 @@
           "isIO": true,
           "rpiGPIO": 0,
           "serial": "UART2_TX",
-          "uart2": "TX"
+          "uart2": "UART2_TX"
         },
         {
           "num": 28,
@@ -5015,7 +5015,7 @@
           "isIO": true,
           "rpiGPIO": 1,
           "serial": "UART2_RX",
-          "uart2": "RX"
+          "uart2": "UART2_RX"
         },
         {
           "num": 29,
@@ -5024,7 +5024,7 @@
           "isIO": true,
           "rpiGPIO": 5,
           "serial": "UART3_RX",
-          "uart3": "RX"
+          "uart3": "UART3_RX"
         },
         {
           "num": 31,
@@ -5033,7 +5033,7 @@
           "isIO": true,
           "rpiGPIO": 6,
           "serial": "UART3_CTS",
-          "uart3": "CTS"
+          "uart3": "UART3_CTS"
         },
         {
           "num": 32,
@@ -5043,7 +5043,7 @@
           "pwm": "PWM0",
           "rpiGPIO": 12,
           "serial": "UART5_TX",
-          "uart5": "TX"
+          "uart5": "UART5_TX"
         },
         {
           "num": 33,
@@ -5053,7 +5053,7 @@
           "pwm": "PWM1",
           "rpiGPIO": 13,
           "serial": "UART5_RX",
-          "uart5": "RX"
+          "uart5": "UART5_RX"
         },
         {
           "num": 35,
@@ -5066,7 +5066,7 @@
         },
         {
           "num": 36,
-          "name": "GPIO16, CTS0",
+          "name": "GPIO16",
           "desc": "GPIO16",
           "isIO": true,
           "rpiGPIO": 16
@@ -5148,7 +5148,7 @@
           "isIO": true,
           "rpiGPIO": 2,
           "serial": "UART1_CTS",
-          "uart1": "CTS"
+          "uart1": "UART1_CTS"
         },
         {
           "num": 5,
@@ -5158,7 +5158,7 @@
           "isIO": true,
           "rpiGPIO": 3,
           "serial": "UART1_RTS",
-          "uart1": "RTS"
+          "uart1": "UART1_RTS"
         },
         {
           "num": 6,
@@ -5182,7 +5182,7 @@
           "isIO": true,
           "rpiGPIO": 4,
           "serial": "UART2_TX",
-          "uart2": "TX"
+          "uart2": "UART2_TX"
         },
         {
           "num": 8,
@@ -5191,8 +5191,8 @@
           "isIO": true,
           "rpiGPIO": 14,
           "serial": "UART0_TX, UART4_CTS",
-          "uart0": "TX",
-          "uart4": "CTS"
+          "uart0": "UART0_TX",
+          "uart4": "UART4_CTS"
         },
         {
           "num": 10,
@@ -5201,8 +5201,8 @@
           "isIO": true,
           "rpiGPIO": 15,
           "serial": "UART0_RX, UART4_RTS",
-          "uart0": "RX",
-          "uart4": "RTS"
+          "uart0": "UART0_RX",
+          "uart4": "UART4_RTS"
         },
         {
           "num": 11,
@@ -5211,11 +5211,11 @@
           "isIO": true,
           "rpiGPIO": 17,
           "serial": "UART0_RTS",
-          "uart0": "RTS"
+          "uart0": "UART0_RTS"
         },
         {
           "num": 12,
-          "name": "GP1O18",
+          "name": "GPIO18",
           "desc": "GPIO18",
           "isIO": true,
           "rpiGPIO": 18
@@ -5257,7 +5257,7 @@
           "rpiGPIO": 10,
           "serial": "UART3_CTS",
           "spi": "MOSI",
-          "uart3": "CTS"
+          "uart3": "UART3_CTS"
         },
         {
           "num": 21,
@@ -5267,7 +5267,7 @@
           "rpiGPIO": 9,
           "serial": "UART3_RX",
           "spi": "MISO",
-          "uart3": "RX"
+          "uart3": "UART3_RX"
         },
         {
           "num": 22,
@@ -5284,7 +5284,7 @@
           "rpiGPIO": 11,
           "serial": "UART3_RTS",
           "spi": "SCLK",
-          "uart3": "RTS"
+          "uart3": "UART3_RTS"
         },
         {
           "num": 24,
@@ -5294,7 +5294,7 @@
           "rpiGPIO": 8,
           "serial": "UART3_TX",
           "spi": "CE0",
-          "uart3": "TX"
+          "uart3": "UART3_TX"
         },
         {
           "num": 26,
@@ -5304,7 +5304,7 @@
           "rpiGPIO": 7,
           "serial": "UART2_RTS",
           "spi": "CE1",
-          "uart2": "RTS"
+          "uart2": "UART2_RTS"
         },
         {
           "num": 27,
@@ -5314,7 +5314,7 @@
           "isIO": true,
           "rpiGPIO": 0,
           "serial": "UART1_TX",
-          "uart1": "TX"
+          "uart1": "UART1_TX"
         },
         {
           "num": 28,
@@ -5324,7 +5324,7 @@
           "isIO": true,
           "rpiGPIO": 1,
           "serial": "UART1_RX",
-          "uart1": "RX"
+          "uart1": "UART1_RX"
         },
         {
           "num": 29,
@@ -5333,7 +5333,7 @@
           "isIO": true,
           "rpiGPIO": 5,
           "serial": "UART2_RX",
-          "uart2": "RX"
+          "uart2": "UART2_RX"
         },
         {
           "num": 31,
@@ -5342,7 +5342,7 @@
           "isIO": true,
           "rpiGPIO": 6,
           "serial": "UART2_CTS",
-          "uart2": "CTS"
+          "uart2": "UART2_CTS"
         },
         {
           "num": 32,
@@ -5352,7 +5352,7 @@
           "pwm": "PWM0",
           "rpiGPIO": 12,
           "serial": "UART4_TX",
-          "uart4": "TX"
+          "uart4": "UART4_TX"
         },
         {
           "num": 33,
@@ -5362,7 +5362,7 @@
           "pwm": "PWM1",
           "rpiGPIO": 13,
           "serial": "UART4_RX",
-          "uart4": "RX"
+          "uart4": "UART4_RX"
         },
         {
           "num": 35,
@@ -5380,7 +5380,7 @@
           "isIO": true,
           "rpiGPIO": 16,
           "serial": "UART0_CTS",
-          "uart0": "CTS"
+          "uart0": "UART0_CTS"
         },
         {
           "num": 37,

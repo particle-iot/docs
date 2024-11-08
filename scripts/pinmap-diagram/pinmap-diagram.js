@@ -96,6 +96,14 @@ const svg = require('./svg');
             }).svg({}, options.deviceImage);    
         }
 
+        let featureColors = Object.assign({}, options.featureColors);
+
+        if (options.featureColorsOverride) {
+            for(const key in options.featureColorsOverride) {
+                featureColors[key] = options.featureColorsOverride[key];
+            }
+        }
+
         for(const p of options.pins) {
             
             let x = p.x;
@@ -213,15 +221,15 @@ const svg = require('./svg');
                                     let bgColor = p.columns[jj].bgColor;
 
                                     if (!bgColor) {
-                                        bgColor = options.featureColors[key];
+                                        bgColor = featureColors[key];
                                     } 
                                     if (!bgColor) {
-                                        bgColor = options.featureColors['default'];
+                                        bgColor = featureColors['default'];
                                         if (!bgColor) {
                                             bgColor = 'white';
                                         }
                                     }
-                                    let textColor = options.featureTextWhite.includes(key) ? 'white' : 'black';
+                                    let textColor = options.featureTextWhite.includes(bgColor) ? 'white' : 'black';
                                     
                                     if (dir < 0) {
                                         group.line({
@@ -395,8 +403,19 @@ const svg = require('./svg');
             spi: '#36CE7E', // Mint_800 (old: light gray)
             swd: '#858A9B', // Gray_400 (old: blueish-gray same as jtag)
             somPin: '#FF9F61', // Tangerine_400 (old: peach)
+            uart0: '#CD2355', // Raspberry Pi color 
+            uart1: '#CD2355', // Raspberry Pi color 
+            uart2: '#CD2355', // Raspberry Pi color 
+            uart3: '#CD2355', // Raspberry Pi color 
+            uart4: '#CD2355', // Raspberry Pi color 
+            uart5: '#CD2355', // Raspberry Pi color 
         },
-        featureTextWhite: ['isPower', 'isGnd', 'analogWritePWM', 'rpi'],
+        featureTextWhite: [
+            '#B80023', // isPower Watermelon_900 old: red (except for GND, see isGND)
+            '#01131D', // isGnd Midnight_800 (old: black)
+            '#007580', // analogWritePWM ParticleBlue_800: (old: pink) 
+            '#CD2355', // rpi Raspberry Pi color 
+        ],
     };
 
 
@@ -1852,10 +1871,10 @@ const svg = require('./svg');
 
 
     diagram.generatePi = async function(generateOptions, files) {
-        
-        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: generateOptions.platformName,
-            outputPath: generateOptions.outputPath,
+
+        let defaultOptions = {
+            // platformName: generateOptions.platformName,
+            // outputPath: generateOptions.outputPath,
             width: 1000,
             height: 500,
             background: 'white',
@@ -1884,8 +1903,11 @@ const svg = require('./svg');
                     yDir: 0,
                     columns: generateOptions.columns,
                 },
-            ]
-        });
+            ]            
+        }
+
+        let options = Object.assign({}, diagram.optionsCommon, defaultOptions, generateOptions);
+
 
         await diagram.generate(options, files);
     }
@@ -2435,7 +2457,7 @@ const svg = require('./svg');
                     keys: ['name'],
                 },
                 {
-                    width: 50,
+                    width: 100,
                     keys: ['uart0'],
                 },
             ],
@@ -2454,11 +2476,14 @@ const svg = require('./svg');
                     keys: ['name'],
                 },
                 {
-                    width: 100,
+                    width: 120,
                     keys: ['serial'],
                 },
             ],
             outputPath: 'assets/images/pi/pi5-serial.svg',
+            featureColorsOverride: {
+                serial: '#CD2355', // Raspberry Pi color 
+            },
         }, generateOptions), files);
 
 
@@ -2474,7 +2499,7 @@ const svg = require('./svg');
                     keys: ['name'],
                 },
                 {
-                    width: 50,
+                    width: 100,
                     keys: ['uart2'],
                 },
             ],
@@ -2494,11 +2519,14 @@ const svg = require('./svg');
                     keys: ['name'],
                 },
                 {
-                    width: 100,
+                    width: 120,
                     keys: ['serial'],
                 },
             ],
             outputPath: 'assets/images/pi/pi4-serial.svg',
+            featureColorsOverride: {
+                serial: '#CD2355', // Raspberry Pi color 
+            },
         }, generateOptions), files);
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {

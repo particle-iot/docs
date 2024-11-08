@@ -135,6 +135,22 @@ The setup script, below, uses UART0 for the tethering connection on the Raspberr
 
 {{imageOverlay src="/assets/images/pi/pi5-uart0.svg"}}
 
+
+{{!-- BEGIN do not edit content below, it is automatically generated 71ebb5bc-2b24-40c6-98fe-40cc38acc89a --}}
+
+| Pi Pin Num | Pi GPIO | Pi Function | ↔ | Particle Name | Particle Function |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 8 | GPIO14 | UART0_TX | &nbsp; | RX | Serial1 RX |
+| 10 | GPIO15 | UART0_RX | &nbsp; | TX | Serial1 TX |
+| 36 | GPIO16 | UART0_CTS | &nbsp; | D2 | Serial1 RTS |
+| 11 | GPIO17 | UART0_RTS | &nbsp; | D3 | Serial1 CTS |
+| 6 | GND | &nbsp; | &nbsp; | GND | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
 - Be sure to cross TX-RX and CTS-RTS between the Pi and the B-SoM! For example, the Particle TX connects to the Pi RX.
 - Also be sure the GND pin is connected between the Pi and the B-SoM.
 - Do not connect 3V3 or 5V between the Pi and B-SoM! 
@@ -148,6 +164,24 @@ If you wish to use a different port, the following ports are available on the Ra
 ### Serial connections - Raspberry Pi 4
 
 {{imageOverlay src="/assets/images/pi/pi4-uart2.svg"}}
+
+
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 1b6753e8-fead-433a-8fa0-476c6a851e2e --}}
+
+| Pi Pin Num | Pi GPIO | Pi Function | ↔ | Particle Name | Particle Function |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 27 | GPIO0 | UART2_TX | &nbsp; | RX | Serial1 RX |
+| 28 | GPIO1 | UART2_RX | &nbsp; | TX | Serial1 TX |
+| 3 | GPIO2 | UART2_CTS | &nbsp; | D2 | Serial1 RTS |
+| 5 | GPIO3 | UART2_RTS | &nbsp; | D3 | Serial1 CTS |
+| 6 | GND | &nbsp; | &nbsp; | GND | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
 
 - Be sure to cross TX-RX and CTS-RTS between the Pi and the B-SoM! For example, the Particle TX connects to the Pi RX.
 - Also be sure the GND pin is connected between the Pi and the B-SoM.

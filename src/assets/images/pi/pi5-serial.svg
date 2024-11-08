@@ -30,9 +30,9 @@
 GPIO2    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART1_CTS    </text>
   </g>
   <g transform="translate(498,92) " >
@@ -50,9 +50,9 @@ UART1_CTS    </text>
 GPIO3    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART1_RTS    </text>
   </g>
   <g transform="translate(498,113) " >
@@ -70,9 +70,9 @@ UART1_RTS    </text>
 GPIO4    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART2_TX    </text>
   </g>
   <g transform="translate(498,134) " >
@@ -104,9 +104,9 @@ GND    </text>
 GPIO17    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART0_RTS    </text>
   </g>
   <g transform="translate(498,176) " >
@@ -166,9 +166,9 @@ GPIO22    </text>
 GPIO10    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART3_CTS    </text>
   </g>
   <g transform="translate(498,260) " >
@@ -186,9 +186,9 @@ UART3_CTS    </text>
 GPIO9    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART3_RX    </text>
   </g>
   <g transform="translate(498,281) " >
@@ -206,9 +206,9 @@ UART3_RX    </text>
 GPIO11    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART3_RTS    </text>
   </g>
   <g transform="translate(498,302) " >
@@ -240,9 +240,9 @@ GND    </text>
 GPIO0    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART1_TX    </text>
   </g>
   <g transform="translate(498,344) " >
@@ -260,9 +260,9 @@ UART1_TX    </text>
 GPIO5    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART2_RX    </text>
   </g>
   <g transform="translate(498,365) " >
@@ -280,9 +280,9 @@ UART2_RX    </text>
 GPIO6    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART2_CTS    </text>
   </g>
   <g transform="translate(498,386) " >
@@ -300,9 +300,9 @@ UART2_CTS    </text>
 GPIO13    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-178" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART4_RX    </text>
   </g>
   <g transform="translate(498,407) " >
@@ -404,9 +404,9 @@ GND    </text>
 GPIO14    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART0_TX, UART4_CTS    </text>
   </g>
   <g transform="translate(502,134) " >
@@ -424,9 +424,9 @@ UART0_TX, UART4_CTS    </text>
 GPIO15    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART0_RX, UART4_RTS    </text>
   </g>
   <g transform="translate(502,155) " >
@@ -441,7 +441,7 @@ UART0_RX, UART4_RTS    </text>
     <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-GP1O18    </text>
+GPIO18    </text>
   </g>
   <g transform="translate(502,176) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -528,9 +528,9 @@ GPIO25    </text>
 GPIO8    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART3_TX    </text>
   </g>
   <g transform="translate(502,302) " >
@@ -548,9 +548,9 @@ UART3_TX    </text>
 GPIO7    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART2_RTS    </text>
   </g>
   <g transform="translate(502,323) " >
@@ -568,9 +568,9 @@ UART2_RTS    </text>
 GPIO1    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART1_RX    </text>
   </g>
   <g transform="translate(502,344) " >
@@ -602,9 +602,9 @@ GND    </text>
 GPIO12    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART4_TX    </text>
   </g>
   <g transform="translate(502,386) " >
@@ -636,9 +636,9 @@ GND    </text>
 GPIO16    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="100" height="16" stroke="black" fill="#AFE4EE" >
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 UART0_CTS    </text>
   </g>
   <g transform="translate(502,428) " >
