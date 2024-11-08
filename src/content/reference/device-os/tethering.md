@@ -63,31 +63,7 @@ Particle data plans as you can easily exceed your allowed cellular data limit.
 
 In order to use tethering, it must be enabled:
 
-```cpp
-#include "Particle.h"
-
-SerialLogHandler dbg(115200, LOG_LEVEL_INFO);
-
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-SYSTEM_THREAD(ENABLED);
-
-/* executes once at startup */
-void setup() {
-    // waitUntil(Serial.isConnected);
-    // Enable Cellular
-    Cellular.on();
-    Cellular.connect();
-    // Bind Tether interface to Serial1 @ 921600 baudrate with default settings (8n1 + RTS/CTS flow control)
-    Tether.bind(TetherSerialConfig().baudrate(921600).serial(Serial1));
-    // Turn on Tether interface and bring it up
-    Tether.on();
-    Tether.connect();
-}
-
-void loop() {
-}
-```
+{{> codebox content="/assets/files/tether.cpp" format="cpp" height="400" flash="true"}}
 
 For information about the `Tether` class, see the [Device OS API reference](/reference/device-os/api/tether/).
 
@@ -129,6 +105,11 @@ If you are using your own custom board you will be using these pins on the B504 
 If using a Raspberry Pi as the other device, you must configure it to establish a PPP connection
 over its serial port instead of Ethernet or Wi-Fi.
 
+- Be sure to cross TX &#x2194; RX and CTS &#x2194; RTS between the Pi and the B-SoM. For example, the Particle TX connects to the Pi RX.
+- Be sure the GND pin is connected between the Pi and the B-SoM.
+- Do not connect 3V3 or 5V between the Pi and B-SoM! 
+- You may connect the Pi 5V to Particle device VIN if you are powering the Particle device from the Pi hat connector.
+
 ### Serial connections - Raspberry Pi 5
 
 The setup script, below, uses UART0 for the tethering connection on the Raspberry Pi 5.
@@ -149,12 +130,6 @@ The setup script, below, uses UART0 for the tethering connection on the Raspberr
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
-
-
-- Be sure to cross TX-RX and CTS-RTS between the Pi and the B-SoM! For example, the Particle TX connects to the Pi RX.
-- Also be sure the GND pin is connected between the Pi and the B-SoM.
-- Do not connect 3V3 or 5V between the Pi and B-SoM! 
-- You may connect the Pi 5V to Particle device VIN if you are powering the Particle device from the Pi.
 
 If you wish to use a different port, the following ports are available on the Raspberry Pi 5.
 
@@ -182,12 +157,6 @@ If you wish to use a different port, the following ports are available on the Ra
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 
-
-- Be sure to cross TX-RX and CTS-RTS between the Pi and the B-SoM! For example, the Particle TX connects to the Pi RX.
-- Also be sure the GND pin is connected between the Pi and the B-SoM.
-- Do not connect 3V3 or 5V between the Pi and B-SoM! 
-- You may connect the Pi 5V to Particle device VIN if you are powering the Particle device from the Pi.
-
 If you wish to use a different port, the following ports are available on the Raspberry Pi 4. Note that you should not use UART0 as it does not support flow control.
 
 {{imageOverlay src="/assets/images/pi/pi4-serial.svg"}}
@@ -198,7 +167,7 @@ If you wish to use a different port, the following ports are available on the Ra
 The script below makes it easy if you are using Debian 12 "bookworm" for 32-bit or 64-bit ARM
 on a Raspberry Pi 4 or Raspberry Pi 5.
 
-{{> codebox content="/assets/files/enable-tethering.sh" format="sh" height="400" flash="true"}}
+{{> codebox content="/assets/files/enable-tethering.sh" format="sh" height="400" flash="false"}}
 
 Download and run this script on your Raspberry Pi:
 
