@@ -63,31 +63,7 @@ Particle data plans as you can easily exceed your allowed cellular data limit.
 
 In order to use tethering, it must be enabled:
 
-```cpp
-#include "Particle.h"
-
-SerialLogHandler dbg(115200, LOG_LEVEL_INFO);
-
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-SYSTEM_THREAD(ENABLED);
-
-/* executes once at startup */
-void setup() {
-    // waitUntil(Serial.isConnected);
-    // Enable Cellular
-    Cellular.on();
-    Cellular.connect();
-    // Bind Tether interface to Serial1 @ 921600 baudrate with default settings (8n1 + RTS/CTS flow control)
-    Tether.bind(TetherSerialConfig().baudrate(921600).serial(Serial1));
-    // Turn on Tether interface and bring it up
-    Tether.on();
-    Tether.connect();
-}
-
-void loop() {
-}
-```
+{{> codebox content="/assets/files/tether.cpp" format="cpp" height="400" flash="true"}}
 
 For information about the `Tether` class, see the [Device OS API reference](/reference/device-os/api/tether/).
 
@@ -100,17 +76,98 @@ When binding listening connections, or making an outgoing connection or sending 
 an optional `nif` specifies the network interface to use. This can be `Tether` for the 
 tethering interface.
 
+### Particle M.2 breakout
+
+If you are using the M.2 breakout board or M.2 evaluation board with the B504 and B524, you will 
+be using these pins on the expansion header.
+
+{{imageOverlay src="/assets/images/pi/eval-serial.svg"}}
+
+### SoM custom board
+
+If you are using your own custom board you will be using these pins on the B504 and B524 B-Series SoM.
+
+{{!-- BEGIN do not edit content below, it is automatically generated f054fe69-870e-43d3-bd07-4d3168908a2b --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | Serial TX, GPIO | Serial1 TX | P0.06 |
+| 38 | RX / D10 | Serial RX, GPIO | Serial1 RX | P0.08 |
+| 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | Serial1 CTS | P1.01 |
+| 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | Serial1 RTS | P1.02 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
 ## Raspberry Pi
 
 If using a Raspberry Pi as the other device, you must configure it to establish a PPP connection
 over its serial port instead of Ethernet or Wi-Fi.
+
+- Be sure to cross TX &#x2194; RX and CTS &#x2194; RTS between the Pi and the B-SoM. For example, the Particle TX connects to the Pi RX.
+- Be sure the GND pin is connected between the Pi and the B-SoM.
+- Do not connect 3V3 or 5V between the Pi and B-SoM! 
+- You may connect the Pi 5V to Particle device VIN if you are powering the Particle device from the Pi hat connector.
+
+### Serial connections - Raspberry Pi 5
+
+The setup script, below, uses UART0 for the tethering connection on the Raspberry Pi 5.
+
+{{imageOverlay src="/assets/images/pi/pi5-uart0.svg"}}
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 71ebb5bc-2b24-40c6-98fe-40cc38acc89a --}}
+
+| Pi Pin Num | Pi GPIO | Pi Function | ↔ | Particle Name | Particle Function |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 8 | GPIO14 | UART0_TX | &nbsp; | RX | Serial1 RX |
+| 10 | GPIO15 | UART0_RX | &nbsp; | TX | Serial1 TX |
+| 36 | GPIO16 | UART0_CTS | &nbsp; | D2 | Serial1 RTS |
+| 11 | GPIO17 | UART0_RTS | &nbsp; | D3 | Serial1 CTS |
+| 6 | GND | &nbsp; | &nbsp; | GND | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+If you wish to use a different port, the following ports are available on the Raspberry Pi 5.
+
+{{imageOverlay src="/assets/images/pi/pi5-serial.svg"}}
+
+
+### Serial connections - Raspberry Pi 4
+
+{{imageOverlay src="/assets/images/pi/pi4-uart2.svg"}}
+
+
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 1b6753e8-fead-433a-8fa0-476c6a851e2e --}}
+
+| Pi Pin Num | Pi GPIO | Pi Function | ↔ | Particle Name | Particle Function |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 27 | GPIO0 | UART2_TX | &nbsp; | RX | Serial1 RX |
+| 28 | GPIO1 | UART2_RX | &nbsp; | TX | Serial1 TX |
+| 3 | GPIO2 | UART2_CTS | &nbsp; | D2 | Serial1 RTS |
+| 5 | GPIO3 | UART2_RTS | &nbsp; | D3 | Serial1 CTS |
+| 6 | GND | &nbsp; | &nbsp; | GND | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+If you wish to use a different port, the following ports are available on the Raspberry Pi 4. Note that you should not use UART0 as it does not support flow control.
+
+{{imageOverlay src="/assets/images/pi/pi4-serial.svg"}}
+
 
 ### Setup script - Raspberry Pi
 
 The script below makes it easy if you are using Debian 12 "bookworm" for 32-bit or 64-bit ARM
 on a Raspberry Pi 4 or Raspberry Pi 5.
 
-{{> codebox content="/assets/files/enable-tethering.sh" format="sh" height="400" flash="true"}}
+{{> codebox content="/assets/files/enable-tethering.sh" format="sh" height="400" flash="false"}}
 
 Download and run this script on your Raspberry Pi:
 

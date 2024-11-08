@@ -3872,6 +3872,7 @@
           "hibernate": "Pin can wake from HIBERNATE sleep",
           "internalPull": "2.1K",
           "is5VTolerant": false,
+          "isIO": true,
           "m2Pin": 54,
           "net": "M2_SPI_SCK",
           "rpi": "GPIO11 (SCLK)",
@@ -4809,6 +4810,624 @@
         ]
       },
       "mcu": "RTL8721D"
+    },
+    {
+      "id": 0,
+      "name": "pi4",
+      "pins": [
+        {
+          "num": 1,
+          "name": "3V3",
+          "desc": "3.3V power",
+          "isPower": true,
+          "morePins": [
+            17
+          ]
+        },
+        {
+          "num": 2,
+          "name": "5V",
+          "desc": "5V power",
+          "isPower": true,
+          "morePins": [
+            4
+          ]
+        },
+        {
+          "num": 3,
+          "name": "GPIO2",
+          "desc": "GPIO2, SDA",
+          "i2c": "I2C1_SDA",
+          "isIO": true,
+          "rpiGPIO": 2,
+          "serial": "UART2_CTS",
+          "uart2": "UART2_CTS"
+        },
+        {
+          "num": 5,
+          "name": "GPIO3",
+          "desc": "GPIO3, SCL",
+          "i2c": "I2C1_SCL",
+          "isIO": true,
+          "rpiGPIO": 3,
+          "serial": "UART2_RTS",
+          "uart2": "UART2_RTS"
+        },
+        {
+          "num": 6,
+          "name": "GND",
+          "desc": "Ground",
+          "isPower": true,
+          "morePins": [
+            9,
+            14,
+            20,
+            25,
+            30,
+            34,
+            39
+          ]
+        },
+        {
+          "num": 7,
+          "name": "GPIO4",
+          "desc": "GPIO4, GPCKL0",
+          "isIO": true,
+          "rpiGPIO": 4,
+          "serial": "UART3_TX",
+          "uart3": "UART3_TX"
+        },
+        {
+          "num": 8,
+          "name": "GPIO14",
+          "desc": "GPIO14, TXD0",
+          "isIO": true,
+          "rpiGPIO": 14,
+          "serial": "UART0_TX, UART5_CTS",
+          "uart0": "UART0_TX",
+          "uart5": "UART5_CTS"
+        },
+        {
+          "num": 10,
+          "name": "GPIO15",
+          "desc": "GPIO15, RXD0",
+          "isIO": true,
+          "rpiGPIO": 15,
+          "serial": "UART0_RX, UART5_RTS",
+          "uart0": "UART0_RX",
+          "uart5": "UART5_RTS"
+        },
+        {
+          "num": 11,
+          "name": "GPIO17",
+          "desc": "GPIO17",
+          "isIO": true,
+          "rpiGPIO": 17
+        },
+        {
+          "num": 12,
+          "name": "GPIO18",
+          "desc": "GPIO18",
+          "isIO": true,
+          "rpiGPIO": 18
+        },
+        {
+          "num": 13,
+          "name": "GPIO27",
+          "altName": "GPIO27",
+          "isIO": true,
+          "rpiGPIO": 27,
+          "rpiPWM": "PWM1"
+        },
+        {
+          "num": 15,
+          "name": "GPIO22",
+          "desc": "GPIO22",
+          "isIO": true,
+          "rpiGPIO": 22
+        },
+        {
+          "num": 16,
+          "name": "GPIO23",
+          "desc": "GPIO23",
+          "isIO": true,
+          "rpiGPIO": 23
+        },
+        {
+          "num": 18,
+          "name": "GPIO24",
+          "desc": "GPIO24",
+          "isIO": true,
+          "rpiGPIO": 24
+        },
+        {
+          "num": 19,
+          "name": "GPIO10",
+          "desc": "GPIO10, MOSI",
+          "isIO": true,
+          "rpiGPIO": 10,
+          "serial": "UART4_CTS",
+          "spi": "MOSI",
+          "uart4": "UART4_CTS"
+        },
+        {
+          "num": 21,
+          "name": "GPIO9",
+          "desc": "GPIO9, MISO",
+          "isIO": true,
+          "rpiGPIO": 9,
+          "serial": "UART4_RX",
+          "spi": "MISO",
+          "uart4": "UART4_RX"
+        },
+        {
+          "num": 22,
+          "name": "GPIO25",
+          "desc": "GPIO25",
+          "isIO": true,
+          "rpiGPIO": 25
+        },
+        {
+          "num": 23,
+          "name": "GPIO11",
+          "desc": "GPIO11, SCLK",
+          "isIO": true,
+          "rpiGPIO": 11,
+          "serial": "UART4_RTS",
+          "spi": "SCLK",
+          "uart4": "UART4_RTS"
+        },
+        {
+          "num": 24,
+          "name": "GPIO8",
+          "desc": "GPIO8, SPI CE0",
+          "isIO": true,
+          "rpiGPIO": 8,
+          "serial": "UART4_TX",
+          "spi": "CE0",
+          "uart4": "UART4_TX"
+        },
+        {
+          "num": 26,
+          "name": "GPIO7",
+          "desc": "GPIO7, SPI CE1",
+          "isIO": true,
+          "rpiGPIO": 7,
+          "serial": "UART3_RTS",
+          "spi": "CE1",
+          "uart3": "UART3_RTS"
+        },
+        {
+          "num": 27,
+          "name": "GPIO0",
+          "desc": "GPIO0, ID_SD",
+          "i2c": "I2S0_SDA",
+          "isIO": true,
+          "rpiGPIO": 0,
+          "serial": "UART2_TX",
+          "uart2": "UART2_TX"
+        },
+        {
+          "num": 28,
+          "name": "GPIO1",
+          "desc": "GPIO1 (ID_SC)",
+          "i2c": "I2S0_SCL",
+          "isIO": true,
+          "rpiGPIO": 1,
+          "serial": "UART2_RX",
+          "uart2": "UART2_RX"
+        },
+        {
+          "num": 29,
+          "name": "GPIO5",
+          "desc": "GPIO5",
+          "isIO": true,
+          "rpiGPIO": 5,
+          "serial": "UART3_RX",
+          "uart3": "UART3_RX"
+        },
+        {
+          "num": 31,
+          "name": "GPIO6",
+          "desc": "GPIO6",
+          "isIO": true,
+          "rpiGPIO": 6,
+          "serial": "UART3_CTS",
+          "uart3": "UART3_CTS"
+        },
+        {
+          "num": 32,
+          "name": "GPIO12",
+          "desc": "GPIO12, PWM0",
+          "isIO": true,
+          "pwm": "PWM0",
+          "rpiGPIO": 12,
+          "serial": "UART5_TX",
+          "uart5": "UART5_TX"
+        },
+        {
+          "num": 33,
+          "name": "GPIO13",
+          "desc": "GPIO13, PWM1",
+          "isIO": true,
+          "pwm": "PWM1",
+          "rpiGPIO": 13,
+          "serial": "UART5_RX",
+          "uart5": "UART5_RX"
+        },
+        {
+          "num": 35,
+          "name": "GPIO19",
+          "desc": "GPIO19, PCM_FS",
+          "i2s": "I2S WS",
+          "isIO": true,
+          "rpiGPIO": 19,
+          "rpiPCM": "PCM_FS"
+        },
+        {
+          "num": 36,
+          "name": "GPIO16",
+          "desc": "GPIO16",
+          "isIO": true,
+          "rpiGPIO": 16
+        },
+        {
+          "num": 37,
+          "name": "GPIO26",
+          "desc": "GPIO26",
+          "isIO": true,
+          "rpiGPIO": 26
+        },
+        {
+          "num": 38,
+          "name": "GPIO20",
+          "desc": "GPIO20, PCM_DIN",
+          "isIO": true,
+          "pcm": "PCM_DIN",
+          "rpiGPIO": 20
+        },
+        {
+          "num": 40,
+          "name": "GPIO21",
+          "desc": "GPIO21, PCM_DOUT",
+          "isIO": true,
+          "rpiGPIO": 21
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      }
+    },
+    {
+      "id": 0,
+      "name": "pi5",
+      "pins": [
+        {
+          "num": 1,
+          "name": "3V3",
+          "desc": "3.3V power",
+          "isPower": true,
+          "morePins": [
+            17
+          ]
+        },
+        {
+          "num": 2,
+          "name": "5V",
+          "desc": "5V power",
+          "isPower": true,
+          "morePins": [
+            4
+          ]
+        },
+        {
+          "num": 3,
+          "name": "GPIO2",
+          "desc": "GPIO2, SDA",
+          "i2c": "I2C1_SDA",
+          "isIO": true,
+          "rpiGPIO": 2,
+          "serial": "UART1_CTS",
+          "uart1": "UART1_CTS"
+        },
+        {
+          "num": 5,
+          "name": "GPIO3",
+          "desc": "GPIO3, SCL",
+          "i2c": "I2C1_SCL",
+          "isIO": true,
+          "rpiGPIO": 3,
+          "serial": "UART1_RTS",
+          "uart1": "UART1_RTS"
+        },
+        {
+          "num": 6,
+          "name": "GND",
+          "desc": "Ground",
+          "isPower": true,
+          "morePins": [
+            9,
+            14,
+            20,
+            25,
+            30,
+            34,
+            39
+          ]
+        },
+        {
+          "num": 7,
+          "name": "GPIO4",
+          "desc": "GPIO4, GPCKL0",
+          "isIO": true,
+          "rpiGPIO": 4,
+          "serial": "UART2_TX",
+          "uart2": "UART2_TX"
+        },
+        {
+          "num": 8,
+          "name": "GPIO14",
+          "desc": "GPIO14, TXD0",
+          "isIO": true,
+          "rpiGPIO": 14,
+          "serial": "UART0_TX, UART4_CTS",
+          "uart0": "UART0_TX",
+          "uart4": "UART4_CTS"
+        },
+        {
+          "num": 10,
+          "name": "GPIO15",
+          "desc": "GPIO15, RXD0",
+          "isIO": true,
+          "rpiGPIO": 15,
+          "serial": "UART0_RX, UART4_RTS",
+          "uart0": "UART0_RX",
+          "uart4": "UART4_RTS"
+        },
+        {
+          "num": 11,
+          "name": "GPIO17",
+          "desc": "GPIO17",
+          "isIO": true,
+          "rpiGPIO": 17,
+          "serial": "UART0_RTS",
+          "uart0": "UART0_RTS"
+        },
+        {
+          "num": 12,
+          "name": "GPIO18",
+          "desc": "GPIO18",
+          "isIO": true,
+          "rpiGPIO": 18
+        },
+        {
+          "num": 13,
+          "name": "GPIO27",
+          "altName": "GPIO27",
+          "isIO": true,
+          "rpiGPIO": 27,
+          "rpiPWM": "PWM1"
+        },
+        {
+          "num": 15,
+          "name": "GPIO22",
+          "desc": "GPIO22",
+          "isIO": true,
+          "rpiGPIO": 22
+        },
+        {
+          "num": 16,
+          "name": "GPIO23",
+          "desc": "GPIO23",
+          "isIO": true,
+          "rpiGPIO": 23
+        },
+        {
+          "num": 18,
+          "name": "GPIO24",
+          "desc": "GPIO24",
+          "isIO": true,
+          "rpiGPIO": 24
+        },
+        {
+          "num": 19,
+          "name": "GPIO10",
+          "desc": "GPIO10, MOSI",
+          "isIO": true,
+          "rpiGPIO": 10,
+          "serial": "UART3_CTS",
+          "spi": "MOSI",
+          "uart3": "UART3_CTS"
+        },
+        {
+          "num": 21,
+          "name": "GPIO9",
+          "desc": "GPIO9, MISO",
+          "isIO": true,
+          "rpiGPIO": 9,
+          "serial": "UART3_RX",
+          "spi": "MISO",
+          "uart3": "UART3_RX"
+        },
+        {
+          "num": 22,
+          "name": "GPIO25",
+          "desc": "GPIO25",
+          "isIO": true,
+          "rpiGPIO": 25
+        },
+        {
+          "num": 23,
+          "name": "GPIO11",
+          "desc": "GPIO11, SCLK",
+          "isIO": true,
+          "rpiGPIO": 11,
+          "serial": "UART3_RTS",
+          "spi": "SCLK",
+          "uart3": "UART3_RTS"
+        },
+        {
+          "num": 24,
+          "name": "GPIO8",
+          "desc": "GPIO8, SPI CE0",
+          "isIO": true,
+          "rpiGPIO": 8,
+          "serial": "UART3_TX",
+          "spi": "CE0",
+          "uart3": "UART3_TX"
+        },
+        {
+          "num": 26,
+          "name": "GPIO7",
+          "desc": "GPIO7, SPI CE1",
+          "isIO": true,
+          "rpiGPIO": 7,
+          "serial": "UART2_RTS",
+          "spi": "CE1",
+          "uart2": "UART2_RTS"
+        },
+        {
+          "num": 27,
+          "name": "GPIO0",
+          "desc": "GPIO0, ID_SD",
+          "i2c": "I2S0_SDA",
+          "isIO": true,
+          "rpiGPIO": 0,
+          "serial": "UART1_TX",
+          "uart1": "UART1_TX"
+        },
+        {
+          "num": 28,
+          "name": "GPIO1",
+          "desc": "GPIO1 (ID_SC)",
+          "i2c": "I2S0_SCL",
+          "isIO": true,
+          "rpiGPIO": 1,
+          "serial": "UART1_RX",
+          "uart1": "UART1_RX"
+        },
+        {
+          "num": 29,
+          "name": "GPIO5",
+          "desc": "GPIO5",
+          "isIO": true,
+          "rpiGPIO": 5,
+          "serial": "UART2_RX",
+          "uart2": "UART2_RX"
+        },
+        {
+          "num": 31,
+          "name": "GPIO6",
+          "desc": "GPIO6",
+          "isIO": true,
+          "rpiGPIO": 6,
+          "serial": "UART2_CTS",
+          "uart2": "UART2_CTS"
+        },
+        {
+          "num": 32,
+          "name": "GPIO12",
+          "desc": "GPIO12, PWM0",
+          "isIO": true,
+          "pwm": "PWM0",
+          "rpiGPIO": 12,
+          "serial": "UART4_TX",
+          "uart4": "UART4_TX"
+        },
+        {
+          "num": 33,
+          "name": "GPIO13",
+          "desc": "GPIO13, PWM1",
+          "isIO": true,
+          "pwm": "PWM1",
+          "rpiGPIO": 13,
+          "serial": "UART4_RX",
+          "uart4": "UART4_RX"
+        },
+        {
+          "num": 35,
+          "name": "GPIO19",
+          "desc": "GPIO19, PCM_FS",
+          "i2s": "I2S WS",
+          "isIO": true,
+          "rpiGPIO": 19,
+          "rpiPCM": "PCM_FS"
+        },
+        {
+          "num": 36,
+          "name": "GPIO16",
+          "desc": "GPIO16",
+          "isIO": true,
+          "rpiGPIO": 16,
+          "serial": "UART0_CTS",
+          "uart0": "UART0_CTS"
+        },
+        {
+          "num": 37,
+          "name": "GPIO26",
+          "desc": "GPIO26",
+          "isIO": true,
+          "rpiGPIO": 26
+        },
+        {
+          "num": 38,
+          "name": "GPIO20",
+          "desc": "GPIO20, PCM_DIN",
+          "isIO": true,
+          "pcm": "PCM_DIN",
+          "rpiGPIO": 20
+        },
+        {
+          "num": 40,
+          "name": "GPIO21",
+          "desc": "GPIO21, PCM_DOUT",
+          "isIO": true,
+          "rpiGPIO": 21
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      }
     },
     {
       "id": 0,
