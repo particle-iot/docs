@@ -870,7 +870,7 @@ Product webhooks cannot currently be created through the CLI.
 
 ### particle webhook create
 
-Registers your Webhook with the Particle Device Cloud.  Creates a request to the given url when your event is sent.  See [the list of properties](#webhook-properties) for JSON formatting requirements and parameters.
+Registers your Webhook with the Particle Device Cloud.  Creates a request to the given url when your event is sent.
 
 ```sh
 # how to create a webhook with json data using the CLI
@@ -1053,7 +1053,7 @@ content-length: 55
 ```
 
 If you have to send the data as JSON numbers instead of JSON strings,
-the current workaround is to use the [body](#body) property.
+the current workaround is to use the body property.
 
 ```
 WEBHOOK
