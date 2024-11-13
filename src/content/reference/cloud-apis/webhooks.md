@@ -399,6 +399,7 @@ The keys and values can contain variables.
 
 If the `requestType` is `GET`, the default data will be added to the query string unless `noDefaults` is true.
 
+If you are using a webhook to access the Particle cloud API, you should use an `Authorization` header. Do not include the access token in a query parameter or URL.
 
 
 ### HTTP basic auth

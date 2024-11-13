@@ -230,7 +230,19 @@ This is the call a function example with the arg parameter, but also adds in an 
 
 It is recommended that you use the `Authorization` header for passing an access token.
 
-For accounts created after December 2024, passing an access token by query parameter will no longer be available for security reasons.
+If you are using a URL like this, with an access_token in the URL, you are using a query parameter.
+
+```
+https://api.particle.io/v1/devices/?access_token=f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0
+```
+
+For accounts created after December 2024, passing an access token by query parameter will no longer be available for security reasons. There is currently no schedule to disable query parameter authentication for existing accounts, but we do recommend changing to an `Authorization` header.
+
+The reason for the change is that passing authentication information in the URL can often make it easier to leak account credentials unintentionally.
+
+- It may appear in your browser history
+- Often URLs are logged which would cause authentication tokens to be leaked via logging
+
 
 {{collapse op="start" label="Show older information"}}
 

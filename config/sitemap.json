@@ -576,7 +576,7 @@
         },
         "getting-started/cloud/cloud-api.md": {
             "date": "2024-11-13",
-            "hash": "4b366d5390071899330c71a8adf2ca1dfaa55e77599c6f318622f706c9c623cb"
+            "hash": "2f7eb59dcfb7572762d02ac2f14036bd83e987f7c7ffeb6f0d6b6b4cd94ab075"
         },
         "getting-started/cloud/cloud-communication.md": {
             "date": "2024-02-20",
@@ -1167,8 +1167,8 @@
             "hash": "40f46b9083bb58fd20e3e38ce3f0a00d7d6098f579d5d6962e2821d4e41e43e9"
         },
         "reference/cloud-apis/webhooks.md": {
-            "date": "2024-11-08",
-            "hash": "542c93e9ddf421f8cdd8eac242a0e70b5d63b8b0eed7d7c246e149cd35e0df47"
+            "date": "2024-11-13",
+            "hash": "b4453e56a2580505f67707080688e877b65a735d86c69638d9acee75e2ab0ab1"
         },
         "reference/developer-tools/cli.md": {
             "date": "2024-11-06",
