@@ -222,7 +222,10 @@ $(document).ready(function() {
                     analytics.track('Success', {category:'Get Variable'});
                     setStatus(resp.result);
                 },
-                headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'X-Particle-Tool': 'particle-docs',
+                },
                 url: 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName,
             });    
     

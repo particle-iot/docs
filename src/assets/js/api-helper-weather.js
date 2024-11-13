@@ -243,7 +243,8 @@ $(document).ready(function () {
                         },
                         headers: {
                             'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                            'Accept': 'application/json'
+                            'Accept': 'application/json',
+                            'X-Particle-Tool': 'particle-docs',
                         },
                         method: 'POST',
                         success: function (resp, textStatus, jqXHR) {
@@ -712,7 +713,8 @@ $(document).ready(function () {
                     $(respElem).show();
                 },
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {

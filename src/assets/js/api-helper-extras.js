@@ -438,7 +438,8 @@ $(document).ready(function() {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -501,7 +502,8 @@ $(document).ready(function() {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -1468,7 +1470,10 @@ $(document).ready(function() {
                         setStatus('');
                     }, 8000);
                 },
-                headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'X-Particle-Tool': 'particle-docs',
+                },
                 url: 'https://api.particle.io/v1/devices/' + deviceId,
             });    
 
@@ -2440,7 +2445,8 @@ $(document).ready(function() {
                     },
                     headers: {
                         'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     },
                     method: 'POST',
                     success: function (resp, textStatus, jqXHR) {
@@ -3068,7 +3074,8 @@ $(document).ready(function() {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {

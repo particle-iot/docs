@@ -643,7 +643,8 @@ $(document).ready(function() {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -717,7 +718,8 @@ $(document).ready(function() {
                     },
                     headers: {
                         'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     },
                     method: 'PUT',
                     success: function (resp, textStatus, jqXHR) {
@@ -756,7 +758,8 @@ $(document).ready(function() {
                     },
                     headers: {
                         'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     },
                     method: 'POST',
                     success: function (resp, textStatus, jqXHR) {
@@ -957,7 +960,8 @@ $(document).ready(function() {
                     },
                     headers: {
                         'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     },
                     method: 'POST',
                     processData: false,
@@ -995,7 +999,8 @@ $(document).ready(function() {
                     reject();
                 },
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -1307,6 +1312,7 @@ $(document).ready(function() {
                                                     },
                                                     headers: {
                                                         'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                                        'X-Particle-Tool': 'particle-docs',
                                                     },                                
                                                     url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + deviceObj.id,
                                                 });    
@@ -1555,7 +1561,8 @@ $(document).ready(function() {
                             },
                             headers: {
                                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                'Accept': 'application/json'
+                                'Accept': 'application/json',
+                                'X-Particle-Tool': 'particle-docs',
                             },
                             method: options.method,
                             success: function (resp, textStatus, jqXHR) {
@@ -1598,7 +1605,8 @@ $(document).ready(function() {
                             },
                             headers: {
                                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                'Accept': 'application/json'
+                                'Accept': 'application/json',
+                                'X-Particle-Tool': 'particle-docs',
                             },
                             method: options.method || 'GET',
                             success: function (resp, textStatus, jqXHR) {
@@ -1762,7 +1770,10 @@ $(document).ready(function() {
                                 if (webhookDemo.productFirmware.length != 0) {
 
                                     const binary = await new Promise(function(resolve, reject) {
-                                        fetch('https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/1/binary', {headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token}}) 
+                                        fetch('https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/1/binary', {
+                                                headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                                                'X-Particle-Tool': 'particle-docs',
+                                            }) 
                                             .then(response => response.arrayBuffer())
                                             .then(buffer => resolve(buffer));
                                     });
@@ -1797,7 +1808,8 @@ $(document).ready(function() {
                                             },
                                             headers: {
                                                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                                'Accept': 'application/json'
+                                                'Accept': 'application/json',
+                                                'X-Particle-Tool': 'particle-docs',
                                             },
                                             method: 'POST',
                                             processData: false,
@@ -1817,7 +1829,11 @@ $(document).ready(function() {
 
     
                                     const binary = await new Promise(function(resolve, reject) {
-                                        fetch('https://api.particle.io' + compileRes.binary_url, {headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token}}) 
+                                        fetch('https://api.particle.io' + compileRes.binary_url, {
+                                                headers: {
+                                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                                    'X-Particle-Tool': 'particle-docs',
+                                                }}) 
                                             .then(response => response.arrayBuffer())
                                             .then(buffer => resolve(buffer));
                                     });
@@ -1845,7 +1861,8 @@ $(document).ready(function() {
                                             },
                                             headers: {
                                                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                                'Accept': 'application/json'
+                                                'Accept': 'application/json',
+                                                'X-Particle-Tool': 'particle-docs',
                                             },
                                             method: 'POST',
                                             processData: false,
@@ -1893,7 +1910,8 @@ $(document).ready(function() {
                                         },
                                         headers: {
                                             'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                            'Accept': 'application/json'
+                                            'Accept': 'application/json',
+                                            'X-Particle-Tool': 'particle-docs',
                                         },
                                         method: 'PUT',
                                         processData: false,
@@ -1960,7 +1978,8 @@ $(document).ready(function() {
                         },
                         headers: {
                             'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                            'Accept': 'application/json'
+                            'Accept': 'application/json',
+                            'X-Particle-Tool': 'particle-docs',
                         },
                         method: 'POST',
                         success: function (resp, textStatus, jqXHR) {
@@ -2043,7 +2062,8 @@ $(document).ready(function() {
                         },
                         headers: {
                             'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                            'Accept': 'application/json'
+                            'Accept': 'application/json',
+                            'X-Particle-Tool': 'particle-docs',
                         },
                         method: 'POST',
                         success: function (resp, textStatus, jqXHR) {
@@ -2356,7 +2376,8 @@ $(document).ready(function() {
             },
             headers: {
                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'X-Particle-Tool': 'particle-docs',
             },
             method: 'POST',
             success: function (resp, textStatus, jqXHR) {
@@ -2608,7 +2629,10 @@ $(document).ready(function() {
                             success: function (resp) {
                                 resolve();
                             },
-                            headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'X-Particle-Tool': 'particle-docs',
+                            },
                             url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + dev.id
                         });    
                     });
@@ -2659,7 +2683,8 @@ $(document).ready(function() {
                         },
                         headers: {
                             'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                            'Accept': 'application/json'
+                            'Accept': 'application/json',
+                            'X-Particle-Tool': 'particle-docs',
                         },
                         method: 'DELETE',
                         success: function (resp, textStatus, jqXHR) {
