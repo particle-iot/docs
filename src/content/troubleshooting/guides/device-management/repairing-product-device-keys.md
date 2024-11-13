@@ -126,10 +126,10 @@ curl -X POST https://api.particle.io/oauth/token -u "test2-1236:b316a0cef80ba7ff
 
 This will return an access\_token for the customer. Let's say it was f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0.
 
-The device should be able to come online now that the keys have been updated. Now claim the device:
+The device should be able to come online now that the keys have been updated. Now claim the device. 
 
 ```
-curl https://api.particle.io/v1/devices -d id=1d0034000fffffffffff3933 -d access_token=f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0
+curl https://api.particle.io/v1/devices -d id=1d0034000fffffffffff3933 -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"
 ```
 
 - Replace 1d0034000fffffffffff3933 with the device ID  

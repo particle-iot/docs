@@ -779,7 +779,8 @@ apiHelper.flashDevice = function(deviceId, code, codebox) {
                 setStatus(resp.output + '<br/><pre>' + resp.errors.join('\n') + '</pre>');
             }
         },
-        url: 'https://api.particle.io/v1/devices/' + deviceId + "?access_token=" + apiHelper.auth.access_token,
+        headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+        url: 'https://api.particle.io/v1/devices/' + deviceId,
     });    
 
 };

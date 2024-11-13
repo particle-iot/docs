@@ -446,7 +446,7 @@ The easiest way to set the schema is using the control here.
 You can also set the schema manually using curl:
 
 ```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
+curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId' -H "Authorization: Bearer :access_token" -H  'Content-Type: application/schema+json' -d @engine-schema.json
 ```
 
 Be sure to update:
@@ -472,7 +472,7 @@ There is a pretty obvious mapping from the JSON above to the fields in the conso
 You can also set the values using the API directly, such as by using curl:
 
 ```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H "Content-Type: application/json" -d "{\"engine\":{\"idle\":1550,\"fastpub\":30000}}"
+curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId' -H "Authorization: Bearer :access_token" -H "Content-Type: application/json" -d "{\"engine\":{\"idle\":1550,\"fastpub\":30000}}"
 ```
 
 Be sure to update:

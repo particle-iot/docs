@@ -525,7 +525,8 @@ $(document).ready(function() {
                             apiHelper.localLogin.tokenLogin = true;
                             loginSuccess($(accessTokenInputElem).val());
                         },
-                        url: 'https://api.particle.io/v1/user?access_token=' + $(accessTokenInputElem).val(),
+                        headers: {'Authorization': 'Bearer ' + $(accessTokenInputElem).val()},
+                        url: 'https://api.particle.io/v1/user',
                     });
                     break;
             }

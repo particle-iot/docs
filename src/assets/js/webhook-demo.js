@@ -1305,7 +1305,10 @@ $(document).ready(function() {
                                                     success: function (resp) {
                                                         resolve();
                                                     },
-                                                    url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + deviceObj.id + "?access_token=" + apiHelper.auth.access_token,
+                                                    headers: {
+                                                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                                    },                                
+                                                    url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + deviceObj.id,
                                                 });    
                                             });        
                                             
@@ -1759,7 +1762,7 @@ $(document).ready(function() {
                                 if (webhookDemo.productFirmware.length != 0) {
 
                                     const binary = await new Promise(function(resolve, reject) {
-                                        fetch('https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/1/binary' + '?access_token=' + apiHelper.auth.access_token) 
+                                        fetch('https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/1/binary', {headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token}}) 
                                             .then(response => response.arrayBuffer())
                                             .then(buffer => resolve(buffer));
                                     });
@@ -1814,7 +1817,7 @@ $(document).ready(function() {
 
     
                                     const binary = await new Promise(function(resolve, reject) {
-                                        fetch('https://api.particle.io' + compileRes.binary_url + '?access_token=' + apiHelper.auth.access_token) 
+                                        fetch('https://api.particle.io' + compileRes.binary_url, {headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token}}) 
                                             .then(response => response.arrayBuffer())
                                             .then(buffer => resolve(buffer));
                                     });
@@ -2605,7 +2608,8 @@ $(document).ready(function() {
                             success: function (resp) {
                                 resolve();
                             },
-                            url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + dev.id + "?access_token=" + apiHelper.auth.access_token,
+                            headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                            url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + dev.id
                         });    
                     });
                 }

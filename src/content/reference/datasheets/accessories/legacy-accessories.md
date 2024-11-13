@@ -188,8 +188,10 @@ POST /v1/devices/{DEVICE_ID}/relay
 
 # EXAMPLE REQUEST
 curl https://api.particle.io/v1/devices/0123456789abcdef/relay \
-  -d access_token=123412341234 -d params=r1,HIGH
+  -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"  -d params=r1,HIGH
 ```
+
+Replace the access token with a valid access token, such as from `particle token create`.
 
 ### Relay shield - specifications (v3.x.x)
  - Operating voltage: 7 to 20V DC

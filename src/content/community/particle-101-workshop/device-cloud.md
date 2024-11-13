@@ -51,8 +51,12 @@ The next few steps assume you have cURL installed on your machine. If you don't 
 <br /><br />
 2.  With your token and Device ID in hand, type the following cURL command into a terminal window, replacing the text below in `< >` with your information.
 ```bash
-curl https://api.particle.io/v1/devices?access_token=<your token>
+curl https://api.particle.io/v1/devices -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0" 
 ```
+
+Replace the access token with a valid access token, such as from `particle token create`.
+
+
 By default, the response will generate a wall of text in your terminal. If you have Python 2.6+ installed on your machine, you can pipe the output to the `json.tool` and get pretty-printed JSON.
 ```bash
 curl https://api.particle.io/v1/devices\?access_token\=<your token>
@@ -65,7 +69,7 @@ curl https://api.particle.io/v1/devices\?access_token\=<your token>
 4.  Let's call the `toggleLed` function using the Device Cloud API. Type the following, again replacing the text below in `< >` with your information.
 ```bash
 curl https://api.particle.io/v1/devices/<device id>/toggleLed \
-     -d access_token=<your token>
+     -H "Authorization: Bearer your token>"
 ```
 ![](/assets/images/workshops/particle-101/04/curlcall.gif)
 

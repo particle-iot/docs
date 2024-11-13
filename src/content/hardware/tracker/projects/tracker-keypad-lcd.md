@@ -334,7 +334,7 @@ Append the current keys that have been pressed to the location event. This is wh
 The cloud configuration cannot be set from the console, but you can set it from the CLI using curl. 
 
 ```bash
-curl -X PUT https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken -H "Content-Type: application/json" -d "{\"lcdkeypad\":{\"contrast\":10}}"
+curl -X PUT https://api.particle.io/v1/products/:productId/config/:deviceId -H "Authorization: Bearer :access_token" -H "Content-Type: application/json" -d "{\"lcdkeypad\":{\"contrast\":10}}"
 ```
 
 Be sure to update:

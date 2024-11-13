@@ -208,6 +208,10 @@ This is the get variable example using the `Authorization` header:
 
 #### Form body
 
+It is recommended that you use the `Authorization` header for passing an access token, as this works for all request types.
+
+{{collapse op="start" label="Show older information"}}
+
 The form body can be used with calls that require POST or PUT, like call a function. It cannot be used with GET operations as there is no body for GET.
 
 The form URL encoded method is the default for how web forms are encoded. It's also the format used when using curl with the `-d` option.
@@ -220,12 +224,15 @@ arg=255,255,0&access_token=ffff3e262d049ffffc97c5ffffff81cb84f9ffff
 
 This is the call a function example with the arg parameter, but also adds in an `access_token`.
 
-This is an example of using form encoding instead of JSON, and including the access token in the form body:
-
-{{> cloud-api-function style="form" deviceSelect="1"}}
-
+{{collapse op="end"}}
 
 #### Query parameter
+
+It is recommended that you use the `Authorization` header for passing an access token.
+
+For accounts created after December 2024, passing an access token by query parameter will no longer be available for security reasons.
+
+{{collapse op="start" label="Show older information"}}
 
 For GET requests, you can include the access token at the end of the URL. This does not work for POST and PUT requests, so you cannot use this technique for calling a function, for example.
 
@@ -245,9 +252,8 @@ $.ajax({
 });    
 ```
 
-This is the get variable example using the query parameter:
+{{collapse op="end"}}
 
-{{> cloud-api-get-variable style="query" deviceSelect="1"}}
 
 ### Access token safety
 

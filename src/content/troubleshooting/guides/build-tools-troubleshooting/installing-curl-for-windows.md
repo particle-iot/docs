@@ -147,8 +147,9 @@ Make sure you keep your token secret, because it allows access and control over 
 You should now be able to open a Command Prompt window and type in a command like:
 
 ```
-curl https://api.particle.io/v1/devices?access_token=PASTE_YOUR_ACCESS_TOKEN_HERE
-
+curl https://api.particle.io/v1/devices -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0" 
 ```
+
+Replace the access token with a valid access token, such as from `particle token create`.
 
 Also note: Many of the examples show a command that continues across lines with a backslash (\\) at the end of the line. This is the correct character for Mac and Linux, but using the Windows Command Prompt you should use the carat (^) instead.

@@ -31,7 +31,7 @@ VAR=$(curl https://api.particle.io/v1/products/$3/groups \
 -d name=$1 \
 -d description="added via script" \
 -d color="#cae6f6" \
--d access_token=$2);
+-H "Authorization: Bearer $2" \
 # Log result of creating group
 echo $VAR >> "$filename";
 
@@ -47,7 +47,7 @@ else
 fi
 
 # Take the action of adding the list of devices to the product
-VAR=$(curl "https://api.particle.io/v1/products/$3/devices?access_token=$2" -F file=@"$4");
+VAR=$(curl "https://api.particle.io/v1/products/$3/devices" -H "Authorization: Bearer $2" -F file=@"$4");
 # Log result of adding device to product
 echo $VAR >> "$filename";
 

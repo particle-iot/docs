@@ -656,7 +656,7 @@ function doPost(e) {
   var deviceNameCache = cache.get(cacheKey);
   if (!deviceNameCache) {
     // The device name was not cached, so use the Particle Cloud API
-    var result = UrlFetchApp.fetch('https://api.particle.io/v1/devices?access_token=' + particleApiToken);   
+    var result = UrlFetchApp.fetch('https://api.particle.io/v1/devices', {headers: {'Authorization': 'Bearer ' + particleApiToken}});   
     var resultJson = JSON.parse(result.getContentText());
     
     deviceNameCache = {};
@@ -757,7 +757,7 @@ The result of the device list Particle Cloud API call is an array of JSON, which
 ```js
 if (!deviceNameCache) {
     // The device name was not cached, so use the Particle Cloud API
-    var result = UrlFetchApp.fetch('https://api.particle.io/v1/devices?access_token=' + particleApiToken);   
+    var result = UrlFetchApp.fetch('https://api.particle.io/v1/devices', {headers: {'Authorization': 'Bearer ' + particleApiToken}});   
     var resultJson = JSON.parse(result.getContentText());
 ```
 

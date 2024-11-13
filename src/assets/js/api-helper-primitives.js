@@ -222,7 +222,8 @@ $(document).ready(function() {
                     analytics.track('Success', {category:'Get Variable'});
                     setStatus(resp.result);
                 },
-                url: 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName + "?access_token=" + apiHelper.auth.access_token,
+                headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                url: 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName,
             });    
     
         });

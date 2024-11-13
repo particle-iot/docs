@@ -92,7 +92,8 @@ apiHelper.downloadSchema = function(filename, product, deviceId, next) {
             analytics.track('Download Success', {category:'Tracker Schema'});
             next();
         },
-        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl + '?access_token=' + apiHelper.auth.access_token
+        headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
     });    
 };
 
@@ -111,7 +112,8 @@ apiHelper.getTrackerConfig = function(product, deviceId, completion) {
         success: function (resp) {
             completion(resp.configuration);
         },
-        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl + '?access_token=' + apiHelper.auth.access_token
+        headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
     });    
 
 };
@@ -494,7 +496,8 @@ $(document).ready(async function() {
 
                         getThisConfig();   
                     },
-                    url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl + '?access_token=' + apiHelper.auth.access_token
+                    headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                    url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
                 });    
             
             };
@@ -889,7 +892,8 @@ $(document).ready(async function() {
                     success: function (resp) {
                         resolve(resp);
                     },
-                    url: 'https://api.particle.io/v1/products/' + productId + '/config' + '?access_token=' + apiHelper.auth.access_token
+                    headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config'
                 });                
             });
         };

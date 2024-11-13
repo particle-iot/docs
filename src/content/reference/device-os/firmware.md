@@ -179,11 +179,11 @@ There are four supported data types:
 ```sh
 # EXAMPLE REQUEST IN TERMINAL
 # Device ID is 0123456789abcdef
-# Your access token is 123412341234
-curl "https://api.particle.io/v1/devices/0123456789abcdef/flag?access_token=123412341234"
-curl "https://api.particle.io/v1/devices/0123456789abcdef/analogvalue?access_token=123412341234"
-curl "https://api.particle.io/v1/devices/0123456789abcdef/temp?access_token=123412341234"
-curl "https://api.particle.io/v1/devices/0123456789abcdef/mess?access_token=123412341234"
+# Your access token is f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0
+curl "https://api.particle.io/v1/devices/0123456789abcdef/flag" -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"
+curl "https://api.particle.io/v1/devices/0123456789abcdef/analogvalue" -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"
+curl "https://api.particle.io/v1/devices/0123456789abcdef/temp" -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"
+curl "https://api.particle.io/v1/devices/0123456789abcdef/mess" -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"
 
 # In return you'll get something like this:
 false
@@ -398,9 +398,11 @@ POST /v1/devices/{DEVICE_ID}/{FUNCTION}
 
 # EXAMPLE REQUEST
 curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
-     -d access_token=123412341234 \
+     -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0" \
      -d "args=coffee"
 ```
+
+Replace the access token with a valid access token, such as from `particle token create`.
 
 
 ### Particle.publish()

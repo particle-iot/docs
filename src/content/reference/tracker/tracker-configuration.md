@@ -238,7 +238,7 @@ At this time, the schema can only be set using the Particle Cloud API. Examples 
 It's a good idea to make a backup copy of the schema before you modify it. The feature to delete the custom schema and revert to the factory default is planned but not currently implemented. 
 
 ```
-curl -X GET 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H 'Accept: application/schema+json' -o backup-schema.json
+curl -X GET 'https://api.particle.io/v1/products/:productId/config' -H "Authorization: Bearer :access_token" -H 'Accept: application/schema+json' -o backup-schema.json
 ```
 
 - `:productId` with your product ID
@@ -251,7 +251,7 @@ This will return a big block of JSON data and save it in the file backup-schema.
 There is no UI for setting the configuration in the console, but you, you will need to set it using curl:
 
 ```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
+curl -X PUT 'https://api.particle.io/v1/products/:productId/config' -H "Authorization: Bearer :access_token" -H 'Content-Type: application/schema+json' -d @engine-schema.json
 ```
 
 - `:productId` with your product ID
@@ -263,7 +263,7 @@ curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=
 You can also set the values using the API directly, such as by using curl:
 
 ```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H 'Content-Type: application/json' -d '{"engine":{"idle":1550,"fastpub":30000}}'
+curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId' -H "Authorization: Bearer :access_token" -H 'Content-Type: application/json' -d '{"engine":{"idle":1550,"fastpub":30000}}'
 ```
 
 Be sure to update:
