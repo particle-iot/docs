@@ -1771,9 +1771,10 @@ $(document).ready(function() {
 
                                     const binary = await new Promise(function(resolve, reject) {
                                         fetch('https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/1/binary', {
-                                                headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
-                                                'X-Particle-Tool': 'particle-docs',
-                                            }) 
+                                                headers: {
+                                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                                                    'X-Particle-Tool': 'particle-docs',
+                                                }) 
                                             .then(response => response.arrayBuffer())
                                             .then(buffer => resolve(buffer));
                                     });

@@ -94,7 +94,10 @@ apiHelper.downloadSchema = function(filename, product, deviceId, next) {
             analytics.track('Download Success', {category:'Tracker Schema'});
             next();
         },
-        headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+        headers: {
+            'Authorization':'Bearer ' + apiHelper.auth.access_token,
+            'X-Particle-Tool': 'particle-docs',
+        },
         url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
     });    
 };
@@ -115,7 +118,10 @@ apiHelper.getTrackerConfig = function(product, deviceId, completion) {
         success: function (resp) {
             completion(resp.configuration);
         },
-        headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+        headers: {
+            'Authorization':'Bearer ' + apiHelper.auth.access_token,
+            'X-Particle-Tool': 'particle-docs',
+        },
         url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
     });    
 
@@ -900,7 +906,10 @@ $(document).ready(async function() {
                     success: function (resp) {
                         resolve(resp);
                     },
-                    headers: {'Authorization': 'Bearer ' + apiHelper.auth.access_token},
+                    headers: {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'X-Particle-Tool': 'particle-docs',
+                    },
                     url: 'https://api.particle.io/v1/products/' + productId + '/config'
                 });                
             });
