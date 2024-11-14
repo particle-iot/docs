@@ -114,6 +114,13 @@ $(document).ready(function () {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
                 if (pageObj) {
                     pageObj.ticketForm = pageOptions.page;
+
+                    const tempTicketFormObj = troubleshootingJson.ticketForm.find(e => e.id == pageOptions.page);
+                    if (tempTicketFormObj) {
+                        for(const key in tempTicketFormObj) {
+                            pageObj[key] = tempTicketFormObj[key];
+                        }
+                    }
                 }
             }
             if (pageObj.doNotRestore && pageOptions.loadPath) {
