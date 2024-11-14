@@ -69,7 +69,7 @@ curl https://api.particle.io/v1/devices\?access_token\=<your token>
 4.  Let's call the `toggleLed` function using the Device Cloud API. Type the following, again replacing the text below in `< >` with your information.
 ```bash
 curl https://api.particle.io/v1/devices/<device id>/toggleLed \
-     -H "Authorization: Bearer your token>"
+     -H "Authorization: Bearer <your token>"
 ```
 ![](/assets/images/workshops/particle-101/04/curlcall.gif)
 

@@ -248,7 +248,7 @@ This will return a big block of JSON data and save it in the file backup-schema.
 
 #### Setting a custom schema
 
-There is no UI for setting the configuration in the console, but you, you will need to set it using curl:
+There is no UI for setting the configuration in the console; you will need to set it using curl:
 
 ```
 curl -X PUT 'https://api.particle.io/v1/products/:productId/config' -H "Authorization: Bearer :access_token" -H 'Content-Type: application/schema+json' -d @engine-schema.json
