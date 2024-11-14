@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### SKU deprecation 2024-11-14
+
+The remaining stock of Particle Debugger, [x1] (ACC-DEBUG) and Argon Air Quality Monitor Kit [x1] (ARG-AQKT)
+has been sold and these items are now deprecated.
+
 ### Authentication tokens 2024-11-13
 
 Updated information about using an authentication token query parameters, which will be not be allowed for security reasons. Only an Authorization header should be used. This change only affects newly created accounts.

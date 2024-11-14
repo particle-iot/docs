@@ -699,8 +699,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-10-30",
-            "hash": "f20416b5faa8eaa9b97fcd435b253bad98b1e29e7418ba3300363ffded651612"
+            "date": "2024-11-14",
+            "hash": "b487bd336ead6b5c095dccb0848708e47803beab4d8f0d55bc548ead90ee03c4"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,16 +935,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-10-30",
-            "hash": "dc3a5019428ca227b86132f3ee11467195368136f7530cf191b6241617791500"
+            "date": "2024-11-14",
+            "hash": "8d026e91dffc3efcce65cc126b23ea4061c6a881f10dc22e9ee574d6d40d11b3"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-08-28",
-            "hash": "9688b8aae1367de71a087e40d8342bb2614a2bea9f0de69b3eaa0b80adce79a3"
+            "date": "2024-11-14",
+            "hash": "ca9baa245b27f885386a844f0c7c32cd8e1f8694deee6a4323b116c96283ca61"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1039,12 +1039,12 @@
             "hash": "fed3185845e4953027f14c6e62b4efae9cb36c47712b41203f765728a295007f"
         },
         "hardware/power/batteries.md": {
-            "date": "2024-10-30",
-            "hash": "3d62f08e0c8ca70867a4dcc8f466975d127f46223b49ea1d0bbe8946c2904f5a"
+            "date": "2024-11-14",
+            "hash": "e0c4ba3758d2dce5706634dc3df1724c7b20ef1175187ad57d8bb757cfe46692"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2024-10-30",
-            "hash": "44520e1ca3ad0594586c64f412df4b626bd93c2914cced55790a03a403576c20"
+            "date": "2024-11-14",
+            "hash": "bc25f4b6350434c0594425c8c9ad74d4bcbe0c1e8ba7a4a81b5637a3c17e039d"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1399,8 +1399,8 @@
             "hash": "42d24bd2e75b5484a243120c4a1dd04207bd9d8e312dc67a7b52d03a62be4ca8"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
-            "date": "2024-03-15",
-            "hash": "a02198eddbeb9c67326d2b877f6fd7df9b706ebd2add5e11eb6df67e2a63f30d"
+            "date": "2024-11-14",
+            "hash": "574bbecea9552a3d85ba2be571dc11497affb085afe0677dbc34fc30a883db08"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2024-05-15",
@@ -1579,8 +1579,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2024-10-30",
-            "hash": "dceddd86b1fe1ac19952ce2fd49a8b94553f9e605e894333bb3afe81fe4203c8"
+            "date": "2024-11-14",
+            "hash": "2924489f4f3dde90411f6af915cd7a1f006b1d820abe57abba98351858c2ed87"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2024-11-13",
@@ -8171,8 +8171,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "35a5ecade3d5ab004597f01bf9c730af4e599af891ed3bb38110287fd862b211",
-            "date": "2024-10-30"
+            "hash": "1664b989c40f5becdaeac2744375b0ff48c0e37c1fb423d632fb5e059e274362",
+            "date": "2024-11-14"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "fead9e3834c443f5ecfb0f44a07e4f9c9263de9204598642726870041126dddd",
-            "date": "2024-11-13"
+            "hash": "562592f79bf857ac1144f0a1fd8c988d8f6c12b2a1636894c6cb6ff88a27f24a",
+            "date": "2024-11-14"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

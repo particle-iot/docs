@@ -419,7 +419,7 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
-| MUONCBKIT | Muon Carrier Board | Fast<sup>1</sup> | In development | |
+| MUONCBKIT | Muon Carrier Board Kit | Fast<sup>1</sup> | In development | |
 | MUONCB-BETA | Muon Carrier Board - Beta Sample | Fast<sup>1</sup> | In development | |
 | MUONCB | Muon Carrier Board | Fast<sup>1</sup> | In development | |
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |

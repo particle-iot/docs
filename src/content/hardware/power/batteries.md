@@ -79,7 +79,7 @@ instead of using a battery pack temperature sensor.
 
 | SKU | Description | USB connector | Battery Connector | Lifecycle |
 | :--- | :--- | :---: | :---: | :--- |
-| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | micro-b | 2-pin | NRND |
+| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARG-LDKT | Argon Leak Detection Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARG-STRTKT | Argon Starter Kit [x1] | micro-b | 2-pin | NRND |
 | ARGN-H | Argon [x1] | micro-b | 2-pin | Deprecated |
@@ -152,7 +152,7 @@ instead of using a battery pack temperature sensor.
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
 | MUONCB | Muon Carrier Board | c | 3-pin | In development |
 | MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | In development |
-| MUONCBKIT | Muon Carrier Board | c | 3-pin | In development |
+| MUONCBKIT | Muon Carrier Board Kit | c | 3-pin | In development |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
 | XENNTRAY50 | Xenon [x50] | micro-b | 2-pin | End of life |

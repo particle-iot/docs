@@ -165,8 +165,8 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | 1 | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | 1 | &nbsp; | GA|
 | Muon Carrier Board | MUONCB | &nbsp; | PARANTCW1EA | &nbsp; | In development|
-| Muon Carrier Board | MUONCBKIT | &nbsp; | PARANTCW1EA | &nbsp; | In development|
 | Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTCW1EA | &nbsp; | In development|
+| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTCW1EA | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | PARANTCW1EA | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &check; | PARANTCW1EA | &nbsp; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &check; | PARANTCW1EA | &nbsp; | In development|
@@ -289,7 +289,7 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
 | Argon [x1] | ARGN-H | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
-| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
@@ -304,8 +304,8 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | 1 | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
 | Muon Carrier Board | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon Carrier Board | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &nbsp; | PARANTWM1EA | &check; | In development|
@@ -410,7 +410,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
 | Argon [x1] | ARGN-H | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
@@ -451,8 +451,8 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
 | Muon Carrier Board | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon Carrier Board | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &nbsp; | PARANTWM1EA | &check; | In development|
@@ -534,7 +534,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Device | SKU  | Compatible | Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :-------: |
 | Argon [x1] | ARGN-H | &check; | &nbsp; | Deprecated|
-| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | &nbsp; | NRND|
+| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | &nbsp; | Deprecated|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | NRND|
@@ -653,8 +653,8 @@ The following devices have GNSS capabilities:
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &check; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &check; | GA|
 | Muon Carrier Board | MUONCB | &check; | &nbsp; | In development|
-| Muon Carrier Board | MUONCBKIT | &check; | &nbsp; | In development|
 | Muon Carrier Board - Beta Sample | MUONCB-BETA | &check; | &nbsp; | In development|
+| Muon Carrier Board Kit | MUONCBKIT | &check; | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | &check; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &check; | &check; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &check; | &check; | In development|

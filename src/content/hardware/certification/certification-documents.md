@@ -17,9 +17,9 @@ The Argon is not recommended for new designs and will be deprecated with the exi
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | NRND | |
 | ARG-STRTKT | Argon Starter Kit [x1] | Global | NRND | |
 | ARGNKIT | Argon, Starter Kit  [x1] | Global | NRND | |
+| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | Deprecated | |
 | ARG-LDKT | Argon Leak Detection Kit [x1] | Global | Deprecated | |
 | ARGN-H | Argon [x1] | Global | Deprecated | |
 | ARGNTRAY50 | Argon, Tray [x50] | Global | Deprecated | |

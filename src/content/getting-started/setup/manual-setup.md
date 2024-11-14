@@ -74,7 +74,7 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUONCB | Muon Carrier Board | USB-C |
 | MUONCB-BETA | Muon Carrier Board - Beta Sample | USB-C |
-| MUONCBKIT | Muon Carrier Board | USB-C |
+| MUONCBKIT | Muon Carrier Board Kit | USB-C |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |

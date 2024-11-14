@@ -77,7 +77,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 
 | SKU | Description | Lifecycle | Prefix |
 | :--- | :--- | :--- | :--- |
-| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | NRND | P011 |
+| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Deprecated | P011 |
 | ARG-LDKT | Argon Leak Detection Kit [x1] | Deprecated | P013 |
 | ARG-STRTKT | Argon Starter Kit [x1] | NRND | P010 |
 | ARGN-H | Argon [x1] | Deprecated | ARNH |
@@ -228,7 +228,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P006 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | Deprecated |
 | P007 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | Deprecated |
 | P010 | ARG-STRTKT | Argon Starter Kit [x1] | NRND |
-| P011 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | NRND |
+| P011 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Deprecated |
 | P012 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | Deprecated |
 | P013 | ARG-LDKT | Argon Leak Detection Kit [x1] | Deprecated |
 | P019 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | Deprecated |

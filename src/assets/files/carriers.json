@@ -19839,7 +19839,7 @@
     {
       "name": "ACC-DEBUG",
       "desc": "Particle Debugger, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global",
@@ -19966,7 +19966,7 @@
     {
       "name": "ARG-AQKT",
       "desc": "Argon Air Quality Monitor Kit [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -22660,7 +22660,7 @@
     },
     {
       "name": "MUONCBKIT",
-      "desc": "Muon Carrier Board",
+      "desc": "Muon Carrier Board Kit",
       "lifecycle": "In development",
       "enterprise": false,
       "wholesale": false,
