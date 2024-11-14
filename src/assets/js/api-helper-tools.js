@@ -1300,7 +1300,8 @@ $(document).ready(function() {
                             },
                             headers: {
                                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                'Accept': 'application/json'
+                                'Accept': 'application/json',
+                                'X-Particle-Tool': 'particle-docs',
                             },
                             method: 'POST',
                             processData: false,
@@ -1386,7 +1387,8 @@ $(document).ready(function() {
                                 },
                                 headers: {
                                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                    'Accept': 'application/json'
+                                    'Accept': 'application/json',
+                                    'X-Particle-Tool': 'particle-docs',
                                 },
                                 method: 'PUT',
                                 success: function (resp) {

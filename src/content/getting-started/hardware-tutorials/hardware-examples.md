@@ -523,18 +523,12 @@ GET /v1/devices/{DEVICE_ID}/analogvalue
 
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef
-# Your access token is 123412341234
+# Your access token is f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0
 curl -G https://api.particle.io/v1/devices/0123456789abcdef/analogvalue \
-  -d access_token=123412341234
+  -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"
 ```
 
-You can see a JSON output of your Particle.variable() call by going to:
-
-```
-https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
-```
-
-(Be sure to replace `your-device-ID-goes-here` with your actual device ID and `your-access-token-goes-here` with your actual access token!)
+Replace the access token with a valid access token, such as from `particle token create`.
 
 You can also check out this value by using the command line. Type:
 

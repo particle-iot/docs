@@ -21,6 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Authentication tokens 2024-11-13
+
+Updated information about using an authentication token query parameters, which will be not be allowed for security reasons. Only an Authorization header should be used. This change only affects newly created accounts.
+
+Also updated the version of particle-api-js used by the docs itself to 11.1.1.
+
 ### Tethering script 2024-11-07
 
 Updated the [tethering reference](/reference/device-os/tethering/) with a script to simplify installation on a Raspberry Pi.

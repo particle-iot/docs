@@ -108,7 +108,7 @@ Then activate the SIM:
 ```
 curl "https://api.particle.io/v1/products/$PRODUCT_NUM/sims" 
 -d 'sims[]=$ICCID' 
--d access_token=$ACCESS_TOKEN
+-H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
 There are numerous wireless scanners that emulate a USB keyboard, which is handy for scanning the number directly into a manufacturing script.
@@ -135,7 +135,7 @@ Then you can activate the SIM:
 ```
 curl "https://api.particle.io/v1/products/$PRODUCT_NUM/sims" 
 -d 'sims[]=$ICCID' 
--d access_token=$ACCESS_TOKEN
+-H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
 ## Assembly and test
@@ -238,9 +238,12 @@ Add the device to the destination Product, providing the following curl command 
 The curl command:
 
 ```
-curl "https://api.particle.io/v1/products/$PRODUCT_NUM/devices?access_token=$ACCESS_TOKEN" 
+curl "https://api.particle.io/v1/products/$PRODUCT_NUM/devices" \
+-H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0" \
 -d id=$DEVICE_ID_OR_SERIAL_NUMBER
 ```
+
+Replace the access token with a valid access token, such as from `particle token create`.
 
 Note: importing your device into a product will also activate its SIM card (for all devices except 2G/3G Electron).
 
@@ -259,7 +262,7 @@ curl "https://api.particle.io/v1/products/$3/groups" \
 -d name=$GROUP_NAME \
 -d description="added via mfg script" \
 -d color="#cae6f6" \
--d access_token=$ACCESS_TOKEN;
+-H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
 - Add the group name to the device:
@@ -280,7 +283,7 @@ This can be done by passing the Serial Number from step as the variable $DEVICE_
 ```
 curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices/$DEVICE_ID" \
     -d name=$DEVICE_NAME \
-    -d access_token=$ACCESS_TOKEN;
+    -H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
 ### Claim the device
@@ -302,7 +305,7 @@ A generic administrator account is strongly recommended (particle@company.com, f
 ```
 curl "https://api.particle.io/v1/devices 
 -d id=$DEVICE_ID 
--d access_token=$ACCESS_TOKEN"
+-H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
 ## Scripting the provisioning process

@@ -100,7 +100,9 @@ $(document).ready(function () {
         let requestStr = request.method + ' ' + request.url + '\n';
         if (request.headers) {
             for (const header in request.headers) {
-                requestStr += header + ': ' + request.headers[header] + '\n';
+                if (header != 'X-Particle-Tool') {
+                    requestStr += header + ': ' + request.headers[header] + '\n';
+                }
             }
         }
         if (request.contentType) {
@@ -174,7 +176,8 @@ $(document).ready(function () {
                     },
                     headers: {
                         'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     },
                     method: 'GET',
                     success: function (resp, textStatus, jqXHR) {
@@ -315,7 +318,8 @@ $(document).ready(function () {
                 case 'authHeader':
                     request.headers = {
                         'Authorization': 'Bearer ' + opts.accessToken,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     };
                     break;
 
@@ -381,7 +385,8 @@ $(document).ready(function () {
                 case 'authHeader':
                     request.headers = {
                         'Authorization': 'Bearer ' + opts.accessToken,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     };
                     request.data = JSON.stringify({ arg: functionParameter });
                     request.contentType = 'application/json';
@@ -390,7 +395,8 @@ $(document).ready(function () {
                 case 'authHeaderForm':
                     request.headers = {
                         'Authorization': 'Bearer ' + opts.accessToken,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     };
                     request.data = 'arg=' + encodeURIComponent(functionParameter);
                     request.contentType = 'application/x-www-form-urlencoded';
@@ -468,7 +474,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -555,7 +562,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -628,7 +636,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -701,7 +710,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -818,7 +828,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Basic ' + btoa(clientId + ":" + clientSecret),
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -905,6 +916,7 @@ $(document).ready(function () {
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': 'Basic ' + btoa('particle:particle'),
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -956,7 +968,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -1031,7 +1044,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -1088,7 +1102,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -1147,7 +1162,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -1245,7 +1261,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + opts.accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -1318,7 +1335,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + opts.accessToken,
-                    accept
+                    'Accept': accept,
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -1395,7 +1413,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + opts.accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
@@ -1451,7 +1470,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + opts.accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
@@ -1506,7 +1526,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + opts.accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -1557,7 +1578,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + opts.accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
@@ -1634,7 +1656,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Basic ' + btoa(clientId + ":" + clientSecret),
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -1713,7 +1736,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Basic ' + btoa(clientId + ":" + clientSecret),
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -1829,7 +1853,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -1891,6 +1916,7 @@ $(document).ready(function () {
                     $(respElem).show();
                 },
                 headers: {
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -1931,6 +1957,7 @@ $(document).ready(function () {
                     $(respElem).show();
                 },
                 headers: {
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -2048,7 +2075,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -2103,7 +2131,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -2158,7 +2187,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'DELETE',
                 success: function (resp, textStatus, jqXHR) {
@@ -2209,7 +2239,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
@@ -2261,7 +2292,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'DELETE',
                 success: function (resp, textStatus, jqXHR) {
@@ -2995,7 +3027,8 @@ $(document).ready(function () {
                             headers: {
                                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
                                 'Accept': 'application/json',
-                                'Content-Type': 'application/json'
+                                'Content-Type': 'application/json',
+                                'X-Particle-Tool': 'particle-docs',
                             },
                             method: 'POST',
                             success: function (resp, textStatus, jqXHR) {
@@ -3033,7 +3066,8 @@ $(document).ready(function () {
                                 headers: {
                                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
                                     'Accept': 'application/json',
-                                    'Content-Type': 'application/json'
+                                    'Content-Type': 'application/json',
+                                    'X-Particle-Tool': 'particle-docs',
                                 },
                                 method: 'PUT',
                                 success: function (resp, textStatus, jqXHR) {
@@ -3087,6 +3121,7 @@ $(document).ready(function () {
                                 headers: {
                                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
                                     'Accept': 'application/json',
+                                    'X-Particle-Tool': 'particle-docs',
                                 },
                                 method: 'DELETE',
                                 success: function (resp, textStatus, jqXHR) {
@@ -3488,7 +3523,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -3592,7 +3628,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -3787,7 +3824,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -3829,7 +3867,8 @@ $(document).ready(function () {
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'X-Particle-Tool': 'particle-docs',
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
@@ -4010,6 +4049,9 @@ $(document).ready(function () {
             if (!options) {
                 return;
             }
+            const headers = Object.assign({}, {
+                'X-Particle-Tool': 'particle-docs',
+            }, options.headers);
 
             let request = {
                 dataType: options.dataType,
@@ -4027,7 +4069,7 @@ $(document).ready(function () {
                         options.errorCallback(jqXHR);
                     }
                 },
-                headers: options.headers,
+                headers: headers,
                 method: options.method,
                 success: function (resp, textStatus, jqXHR) {
                     //setStatus('');

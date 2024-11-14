@@ -222,14 +222,15 @@ It is also possible to flash devices using the REST API.
 For example, you can use the [flash a device with a pre-compiled binary](/reference/cloud-apis/api/#flash-a-device-with-a-pre-compiled-binary) API to program a device.
 
 ```
-$ curl -X PUT "https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234" \
+$ curl -X PUT "https://api.particle.io/v1/devices/0123456789abcdef01234567?" \
+       -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0" \
        -F file=@my-firmware-app.bin \
        -F file_type=binary
 ```
 
 With products, as a team member you can flash product development devices that are part of the product but not claimed to your account using the API. This allows for shared pools of devices across team members.
 
-In order to use the product REST API you'll need a product bearer token. To get started, the easiest way to get one is to open the console, your product, click **Events** (1) within your product, **View events from a terminal** (2), then copy and paste the token (highlighted). Note that it spans two lines, and is the part after `access_token=` and not including the equal sign.
+In order to use the product REST API you'll need a product bearer token. To get started, the easiest way to get one is to open the console, your product, click **Events** (1) within your product, **View events from a terminal** (2), then copy and paste the token (highlighted).
 
 ![Product token from console](/assets/images/product-token.png)
 
@@ -238,7 +239,8 @@ Note that this token is short-lived and will be invalided when you log out of th
 You'll use the product variation of the [flash a device with a pre-compiled binary](/reference/cloud-apis/api/#flash-a-device-with-a-pre-compiled-binary) API.
 
 ```
-$ curl -X PUT "https://api.particle.io/v1/products/:productIdOrSlug/devices/0123456789abcdef01234567?access_token=1234" \
+$ curl -X PUT "https://api.particle.io/v1/products/:productIdOrSlug/devices/0123456789abcdef01234567" \
+       -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0" \
        -F file=@my-firmware-app.bin \
        -F file_type=binary
 ```

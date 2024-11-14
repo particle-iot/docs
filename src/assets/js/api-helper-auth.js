@@ -40,8 +40,9 @@ $(document).ready(function() {
             if (!apiHelper.localLogin.tokenLogin) {
                 // Invalidate the token on the cloud side
                 $.ajax({
-                    data: {
-                        'access_token': apiHelper.localLogin.access_token
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.localLogin.access_token,
+                        'X-Particle-Tool': 'particle-docs',
                     },
                     method: 'DELETE',
                     complete: function () {
@@ -305,8 +306,9 @@ $(document).ready(function() {
                         await new Promise(function(resolve) {
                             $.ajax({
                                 dataType: 'json',
-                                data: {
-                                    'access_token': apiHelper.auth.access_token
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'X-Particle-Tool': 'particle-docs',
                                 },
                                 error: function(err) {
                                     // If unable to get agreements, still show enterprise for now
@@ -525,7 +527,11 @@ $(document).ready(function() {
                             apiHelper.localLogin.tokenLogin = true;
                             loginSuccess($(accessTokenInputElem).val());
                         },
-                        url: 'https://api.particle.io/v1/user?access_token=' + $(accessTokenInputElem).val(),
+                        headers: {
+                            'Authorization': 'Bearer ' + $(accessTokenInputElem).val(),
+                            'X-Particle-Tool': 'particle-docs',
+                        },
+                        url: 'https://api.particle.io/v1/user',
                     });
                     break;
             }

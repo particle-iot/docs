@@ -489,7 +489,8 @@ apiHelper.sandboxProducts = function() {
                     },
                     headers: {
                         'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-Particle-Tool': 'particle-docs',
                     },
                     method: 'GET',
                     success: function (resp, textStatus, jqXHR) {
@@ -779,7 +780,11 @@ apiHelper.flashDevice = function(deviceId, code, codebox) {
                 setStatus(resp.output + '<br/><pre>' + resp.errors.join('\n') + '</pre>');
             }
         },
-        url: 'https://api.particle.io/v1/devices/' + deviceId + "?access_token=" + apiHelper.auth.access_token,
+        headers: {
+            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+            'X-Particle-Tool': 'particle-docs',
+        },
+        url: 'https://api.particle.io/v1/devices/' + deviceId,
     });    
 
 };
@@ -855,7 +860,8 @@ apiHelper.getTeamMembers = async function(options) {
             dataType: 'json',
             headers: {
                 'Accept':'application/json',
-                'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+                'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token,
+                'X-Particle-Tool': 'particle-docs',
             },
             method: 'GET',
             url: fnOptions.url,
@@ -1037,7 +1043,8 @@ apiHelper.unclaimDevice = async function(deviceId) {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
-            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token,
+            'X-Particle-Tool': 'particle-docs',
         },
         method: 'DELETE',
         url: 'https://api.particle.io/v1/devices/' + deviceId
@@ -1049,7 +1056,8 @@ apiHelper.unclaimProductDevice = async function(deviceId, productId) {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
-            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token,
+            'X-Particle-Tool': 'particle-docs',
         },
         method: 'DELETE',
         url: 'https://api.particle.io/v1/products/' + productId +'devices' + deviceId + '/owner'
@@ -1061,7 +1069,8 @@ apiHelper.removeProductDevice = async function(deviceId, productId) {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
-            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token,
+            'X-Particle-Tool': 'particle-docs',
         },
         method: 'DELETE',
         url: 'https://api.particle.io/v1/products/' + productId +'devices' + deviceId

@@ -299,7 +299,7 @@ int blynkLED(String on_off)
   // -1 if an unexpected on_off value is received.
   // Cloud functions must return int and take one String argument
   // curl https://api.particle.io/v1/devices/{your 25 char device id}/blynk_led
-  // -d access_token={your 40 char access token}
+  // -H "Authorization: Bearer {your 40 char access token}"
   // -d "args=on/off"
 
   if (on_off == "on" || on_off == "1")

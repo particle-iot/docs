@@ -64,6 +64,7 @@ const setupFirmware = require('./setup-firmware.js');
 const troubleshooting = require('./troubleshooting.js').metalsmith;
 const autoInclude = require('./auto-include.js').metalsmith;
 const postman = require('./postman.js').metalsmith;
+const copyFiles = require('./copy-files.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -145,6 +146,20 @@ exports.metalsmith = function () {
               pinInfo: path.normalize(path.join(__dirname, '..', 'src', 'assets', 'files', 'pinInfo.json')),
             });
         }))
+    .use(msIf(
+      environment === 'development',
+      copyFiles({
+        sourceTopDir: '..',
+        destTopDir: '../src',
+        copy: [
+          {
+            sourceDir: 'node_modules/particle-api-js/dist',
+            destDir: 'assets/js',
+            files: ['particle.min.js', 'particle.min.js.map'],
+          }
+        ],
+      })
+    ))
     .use(troubleshooting({
         sourceDir: '../src',
         jsonFile: 'assets/files/troubleshooting.json',

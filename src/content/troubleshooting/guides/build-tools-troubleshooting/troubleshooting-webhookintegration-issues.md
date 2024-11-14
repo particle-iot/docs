@@ -51,9 +51,9 @@ Now that you are familiar with the general layout of this page, let's dive deepe
 Let's say your Integrations History graph is emptier than you'd expect. This typically points to an issue downstream, where something is blocking the passage of expected Events from your device to our Integrations infrastructure. This is most often one of four things:
 
 * Check that the device is claimed to the actual Product Owner. This will minimize setup inconsistency and ensure all Events are published.
-* Your devices are offline or not Publishing Events as expected. The easiest way to check this would be to simply set up an Events Stream for the target event:  
+* Your devices are offline or not Publishing Events as expected. The easiest way to check this would be to simply set up an Events Stream for the target event, replacing the access token with a valid access token, such as from `particle token create`.
 ```  
-$ curl "https://api.particle.io/v1/events/:EVENTNAME?access_token=1234"  
+$ curl "https://api.particle.io/v1/events/:EVENTNAME" -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0"  
 ```  
 or by following the instructions here ([link](/reference/cloud-apis/api/#get-a-stream-of-events)). Ensure that a test device with guaranteed connectivity is able to Publish to this Event successfully and then watch for the rest of your expected devices.
 * Double-check against your devices' Events Stream in the Console - this is accessible to you either across your User- or Product-scope via the left-hand toolbar:  

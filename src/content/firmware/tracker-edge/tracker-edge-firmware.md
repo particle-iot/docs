@@ -380,7 +380,7 @@ To check the latest data on a device, you can query the Cloud API using the curl
 - The device ID you want to query. Replace `e00fce68ffffffffff46f6` in the command below with the device ID (24-character hex).
 
 ```bash
-curl "https://api.particle.io/v1/products/1234/locations/e00fce68ffffffffff46f6?access_token=903a7ab752f2dcf8ed8ffffffffffff24b467131"
+curl "https://api.particle.io/v1/products/1234/locations/e00fce68ffffffffff46f6?" -H "Authorization: Bearer 903a7ab752f2dcf8ed8ffffffffffff24b467131" 
 ```
 
 This should return something like this. Note the addition of the `speed` data from our custom location event callback.
