@@ -76,7 +76,9 @@ $(document).ready(function () {
         let requestStr = request.method + ' ' + request.url + '\n';
         if (request.headers) {
             for (const header in request.headers) {
-                requestStr += header + ': ' + request.headers[header] + '\n';
+                if (header != 'X-Particle-Tool') {
+                    requestStr += header + ': ' + request.headers[header] + '\n';
+                }
             }
         }
         if (request.contentType) {
