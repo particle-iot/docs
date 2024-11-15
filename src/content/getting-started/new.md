@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Window width fix 2024-11-15
+
+Fixed an issue where the search icon and username would drop below the menubar at certain screen widths, depending on the length of your user email, if logged in.
+
 ### SKU deprecation 2024-11-14
 
 The remaining stock of Particle Debugger, [x1] (ACC-DEBUG) and Argon Air Quality Monitor Kit [x1] (ARG-AQKT)

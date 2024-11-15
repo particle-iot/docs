@@ -313,7 +313,17 @@ $(document).ready(function () {
 
     const windowResizeHandler = function () {
 
-        if (window.innerWidth < 1300) {
+        let p = {
+            // window: window.innerWidth,
+            // menu: $('div.navMenu').width(),
+            header: $('div.header').width(),
+            sections: $('div.sections').width(),
+            right: $('div.right').width(),
+        }
+        p.makeNarrow = (p.header - p.right) < 800;
+        // console.log('p', p);
+
+        if (window.innerWidth < 1300 || p.makeNarrow) {
             $('.sections').css('display', 'none');
             $('.narrow-top-nav').css('display', 'inline-block');
         }
