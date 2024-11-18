@@ -350,7 +350,45 @@ Gets the current state of the disable charging feature. The default is not disab
 
 The `CloudService` is initialized by `Tracker` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code. You can also register a custom command handler:
 
+### registerCommand - CloudService
+
+Registers a function to be called when a `cmd` with the specified name is issued from the cloud.
+
+```cpp
+// INCLUDE
+#include "cloud_service.h"
+
+// PROTOTYPE
+int registerCommand(const char *name, std::function<int(JSONValue *)> handler);
+
+// HANDLER FUNCTION PROTOTYPE
+int myCallback(JSONValue *)
+```
+
+The callback can be a C++ function, or a C++11 lambda.
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
+
+<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
+
+Some commands you can enter into the box:
+
+{{!-- BEGIN shared-blurb d529b260-c0c2-481a-ac2b-87680b9cf2d8 --}} 
+| Command | Purpose |
+| :------ | :--- |
+| `{"cmd":"enter_shipping"}` | Enter shipping mode |
+| `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+| `{"cmd":"reset"}` | Gracefully reset the device |
+| `{"cmd":"get_cfg"}` |  Get all configuration objects in the device |
+| `{"cmd":"reset_to_factory"}` | Perform a factory reset for configuration |
+{{!-- END shared-blurb --}}
+
+Using `registerCommand` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
+
+
 ### regCommandCallback - CloudService
+
+In Tracker Edge v18 and earlier, the `regCommandCallback()` method was used instead.
 
 ```cpp
 // INCLUDE
@@ -377,24 +415,6 @@ enum CloudServiceStatus {
     TIMEOUT, // waiting for application response, etc
 };
 ```
-
-When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
-
-<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
-
-Some commands you can enter into the box:
-
-{{!-- BEGIN shared-blurb d529b260-c0c2-481a-ac2b-87680b9cf2d8 --}} 
-| Command | Purpose |
-| :------ | :--- |
-| `{"cmd":"enter_shipping"}` | Enter shipping mode |
-| `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
-| `{"cmd":"reset"}` | Gracefully reset the device |
-| `{"cmd":"get_cfg"}` |  Get all configuration objects in the device |
-| `{"cmd":"reset_to_factory"}` | Perform a factory reset for configuration |
-{{!-- END shared-blurb --}}
-
-Using `regCommandCallback` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
 
 ## TrackerLocation
 

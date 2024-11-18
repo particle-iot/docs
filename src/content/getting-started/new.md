@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### RegisterCommand 2024-11-18
+
+Added documentation for the Tracker Edge v19 and Monitor Edge `registerCommand()` method in the cloud service; this takes the 
+place of `regCommandCallback()` in older versions of Tracker Edge.
+
 ### Window width fix 2024-11-15
 
 Fixed an issue where the search icon and username would drop below the menubar at certain screen widths, depending on the length of your user email, if logged in.

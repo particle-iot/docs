@@ -281,7 +281,7 @@ Some commands you can enter into the box:
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Monitor One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by powering the device from the M12 8-pin connector.
 
-It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/monitor-edge-api-reference/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
+It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/monitor-edge-api-reference/#registercommand-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 

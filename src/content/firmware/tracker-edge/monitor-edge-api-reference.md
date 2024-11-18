@@ -348,32 +348,16 @@ Gets the number of times to try GNSS initialization. The default is 1.
 
 The `CloudService` is initialized by `Edge` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code. You can also register a custom command handler:
 
-### regCommandCallback - CloudService
+### registerCommand - CloudService
+
+Registers a function to be called when a `cmd` with the specified name is issued from the cloud.
 
 ```cpp
 // INCLUDE
 #include "cloud_service.h"
 
-// CALLBACK PROTOTYPE
-typedef std::function<int(CloudServiceStatus status, JSONValue *, const void *context)> cloud_service_cb_t;
-
 // PROTOTYPE
-int regCommandCallback(const char *name, cloud_service_cb_t cb, uint32_t req_id=0, uint32_t timeout_ms=0, const void *context=nullptr);
-
-template <typename T>
-int regCommandCallback(const char *name,
-    int (T::*cb)(CloudServiceStatus status, JSONValue *, const void *context),
-    T *instance,
-    uint32_t req_id=0,
-    uint32_t timeout_ms=0,
-    const void *context=nullptr);
-
-// STATUS CODES
-enum CloudServiceStatus {
-    SUCCESS = 0,
-    FAILURE, // publish to Particle cloud failed, etc
-    TIMEOUT, // waiting for application response, etc
-};
+int registerCommand(const char *name, std::function<int(JSONValue *)> handler);
 ```
 
 When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
@@ -392,8 +376,7 @@ Some commands you can enter into the box:
 | `{"cmd":"reset_to_factory"}` | Perform a factory reset for configuration |
 {{!-- END shared-blurb --}}
 
-
-Using `regCommandCallback` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
+Using `registerCommand` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
 
 ## EdgeLocation
 

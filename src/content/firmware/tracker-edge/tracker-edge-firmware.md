@@ -144,6 +144,11 @@ Tracker Edge v18 and earlier are not compatible Device OS 5.x. If you wish to ta
 instructions below and use the **develop** branch of tracker-edge.
 {{note op="end"}}
 
+### Tracker Edge v19
+
+At this time, Tracker Edge v19 does not compile on Device OS 6.2.0 due a missing `HAL_Validate_Pin_Function()` function. Using 6.1.1
+or commenting out the offending line, are workarounds.
+
 ### Tracker Edge v18
 
 Prior to June 2023, you could not build Tracker Edge v18 using the cloud compilers. This included **Particle: Cloud compile** and **Particle: Cloud flash** in Workbench and the `particle compile` and `particle flash` commands in the CLI. 
@@ -552,7 +557,7 @@ Some commands you can enter into the box:
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 
-It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/tracker-edge-api-reference/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
+It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/tracker-edge-api-reference/#registercommand-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
