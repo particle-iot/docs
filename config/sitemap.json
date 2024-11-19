@@ -1067,8 +1067,8 @@
             "hash": "69fff45ce074820dc853f167bfb8ed999ef0561bd7be064eee9e5bce3a4f47f0"
         },
         "hardware/tracker/projects/tracker-1wire.md": {
-            "date": "2023-03-17",
-            "hash": "83eb494f141c10079e54e58d545f0d1473b3d462648ee805d790d091e2e83725"
+            "date": "2024-11-19",
+            "hash": "c016ca4d65e3523b997c69aa779f8849298d76717e4cb3d9f93031b25e7094da"
         },
         "hardware/tracker/projects/tracker-4-20ma-quad.md": {
             "date": "2023-03-17",
@@ -1095,8 +1095,8 @@
             "hash": "28276b6ab3dc13679b888be7d94f25d362ce6a3908ed8753615ba9a734f6a9bd"
         },
         "hardware/tracker/projects/tracker-gpio.md": {
-            "date": "2023-03-17",
-            "hash": "d7d048ed7ae336192a48959930a9d24e2d444efa2c0e51e88957f58130464d42"
+            "date": "2024-11-19",
+            "hash": "8efbc6f3888e1f258e4515b30d40e09d283c10adde10862e8eebdf64193c4bc2"
         },
         "hardware/tracker/projects/tracker-i2c-scanner.md": {
             "date": "2022-05-18",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c5f45214deab0de23353ff689c819dfad214610532597929b2412101af141d88",
+            "hash": "632eadce0d891f7d7da7340ab5c4f9e6165aa22723a20ccc28370423a41354fa",
             "date": "2024-11-19"
         },
         "getting-started/cloud/logic.md": {

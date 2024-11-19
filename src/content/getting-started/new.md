@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Query parameter authentication deprecation 2024-11-19
 
-Added a new page that summarizes [query parameter authentication deprecation](/reference/discontinued/query-auth/).
+Added a new page that summarizes [query parameter authentication deprecation](/reference/discontinued/software/query-auth/).
 
 ### RegisterCommand 2024-11-18
 

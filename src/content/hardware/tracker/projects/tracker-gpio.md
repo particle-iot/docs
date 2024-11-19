@@ -44,11 +44,7 @@ You'd typically connect those wires to your custom expansion board using one of 
 - Terminate with screw terminals on your board
 - Terminate by soldering the wires to your board
 
-This example design is intended to be a prototype for illustration purposes only. It includes the same B8B-PH connector that is inside the Tracker One on the Tracker Carrier board. This connector is inexpensive and can be attached to the Tracker One Carrier Board or an eval adapter using an easy-to-build PHR-8 to PHR-8 cable:
-
-![Eval Adapter](/assets/images/app-notes/AN013/eval.jpg)
-
-If you are interested in prototyping designs intended to connect to the Tracker One M8 connector, but want to do it using the Tracker SoM Evaluation Board, you may be interested in [this project](https://github.com/rickkas7/M8-Eval-Adapter). It's only a set of design files, BoM, etc. and you'd need to fabricate the board and build it yourself; it's not available as a finished product. It also explains a bit more about how the M8 connector can be used.
+This example design is intended to be a prototype for illustration purposes only. It includes the same B8B-PH connector that is inside the Tracker One on the Tracker Carrier board. This connector is inexpensive and can be attached to the Tracker One Carrier Board.
 
 
 ## Hardware design
