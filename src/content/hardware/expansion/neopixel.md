@@ -55,6 +55,14 @@ There are only two pins that can be for NeoPixel on the Photon 2 and P2:
 | MOSI | `SPI` |
 | D2 | `SPI1` |
 
+Use `SPI` or `SPI1` as the `PIXEL_PIN` on Photon 2/P2. For example:
+
+```cpp
+#define PIXEL_COUNT 10
+#define PIXEL_PIN SPI
+#define PIXEL_TYPE WS2812B
+Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);
+```
 
 ### Gen 3 (Argon, Boron, B-SoM)
 
@@ -64,7 +72,15 @@ These pins can be used:
  - D4, D6, D7, D8
  - A0, A1, A2, A3
 
-Set `PIXEL_PIN` to be the pin you have selected.
+Set `PIXEL_PIN` to be the pin you have selected. For example:
+
+```cpp
+#define PIXEL_COUNT 10
+#define PIXEL_PIN D2
+#define PIXEL_TYPE WS2812B
+Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);
+```
+
 
 Normally you only use a single pin for NeoPixels, but if you do have multiple pixels you
 can only select one from each group.
