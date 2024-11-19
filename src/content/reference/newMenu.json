@@ -668,6 +668,10 @@
                             "title": "Non-threaded system mode"
                         },
                         {
+                            "dir": "query-auth",
+                            "title": "Query authentication"
+                        },
+                        {
                             "dir": "dev",
                             "title": "Desktop IDE (Dev)",
                             "href": "/getting-started/developer-tools/workbench/"

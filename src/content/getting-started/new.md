@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Query parameter authentication deprecation 2024-11-19
+
+Added a new page that summarizes [query parameter authentication deprecation](/reference/discontinued/query-auth/).
+
 ### RegisterCommand 2024-11-18
 
 Added documentation for the Tracker Edge v19 and Monitor Edge `registerCommand()` method in the cloud service; this takes the 

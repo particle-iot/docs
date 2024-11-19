@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ad96467b2e43c6697a56ad754697eb152f47b5cd2d9916cbdd63e12a3143bd01",
-            "date": "2024-11-18"
+            "hash": "c5f45214deab0de23353ff689c819dfad214610532597929b2412101af141d88",
+            "date": "2024-11-19"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9501,6 +9501,10 @@
         "notes/not-particle-for-men.md": {
             "hash": "6bccafc9d93d714d945b0525a2e4f2c28b7e1d33a6608bb58c7923e6215c1166",
             "date": "2024-11-14"
+        },
+        "reference/discontinued/software/query-auth.md": {
+            "hash": "8071966f77328a6e8bca822c055bb933c41aaf22547cb69266bfe4aa1f7b6727",
+            "date": "2024-11-19"
         }
     }
 }
