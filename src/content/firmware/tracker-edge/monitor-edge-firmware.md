@@ -384,6 +384,23 @@ To summarize:
   - **Commit** marks all of the changes are ready to go as one package of changes
   - **Push** uploads the package of changes to GitHub
 
+## Software licenses
+
+{{!-- BEGIN shared-blurb 5b82e62a-f238-4554-9b3c-ef679e919893 --}}
+Tracker Edge and Monitor Edge software is Apache licensed, which is a permissive license.
+
+The Apache License 2.0 explicitly grants the ability to use modified or unmodified versions of the source in open or closed source projects, in source or binary form. You can make a modified version of Tracker Edge, known as a derivative work, and not publish the changed source, or continue to make it open-source, whichever you prefer.
+
+The exception is if you include libraries in your application that are licensed GPL (GNU public license) or LGPL. These licenses require that you open source your project that includes a GPL or LGPL library, with the same license. 
+
+This is the reason Tracker Edge and Monitor Edge do not use the more popular MCP_CAN library for CAN bus; it is GPL licensed and would have required your application to be open sourced if we had used that instead. The CAN library used in Tracker Edge is Apache 2.0 licensed. MIT and BSD licenses work similarly to Apache.
+
+The confusing exception to the exception is LGPL code that is dynamically linked to an application. This is how parts of Device OS, some of which are LGPL licensed, can be used in closed source user firmware. Since Device OS is dynamically linked to user firmware, the LGPL exception can be used to allow the derivative work to be closed source.
+
+Using a library from user firmware, on the other hand, uses static linking so you cannot use the LGPL library exception for firmware libraries added to user firmware applications. 
+
+For more information, see [libraries and software licenses](firmware/best-practices/libraries/#libraries-and-software-licenses).
+{{!-- END shared-blurb --}}
 
 ## Learn more 
 

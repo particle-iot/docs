@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker Edge licenses 2024-11-20
+
+Added a discussion of [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/#software-licenses) and [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/#software-licenses)
+software licenses and the use of open-source libraries in closed-source applications.
+
 ### M-SoM and Muon power 2024-11-20
 
 Added an additional warning to the M-SoM migration guides that the power requirements are different than previous Particle devices.
