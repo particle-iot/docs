@@ -27,9 +27,9 @@ The best-case and worse-case resolution of the various technologies is:
 
 | Technology | Best-Case | Worst-Case | 
 | :--- | :--- | :--- |
-| GNSS | 1.8 meters | 100 kilometers |
+| GNSS | 1.8 meters | 500 meters |
 | Wi-Fi | 24 meters |  | 
 | Cellular Tower | 123 meters | 10 kilometers |
 
-The worse-case GNSS precision is theoretical, based on visibility of a minimum number of satellites, combined with multi-path interference. Practically speaking, when there is a GNSS lock, the reported location is generally within 500 meters (1640 feet, or 1/3 of a mile) of the actual location, and often within 10 meters.
+The theoretical worst-case GNSS precision, based on visibility of a minimum number of satellites, combined with multi-path interference is 100 kilometers. Practically speaking, when there is a GNSS lock, the reported location is generally within 500 meters (1640 feet, or 1/3 of a mile) of the actual location, and often within 10 meters.
 

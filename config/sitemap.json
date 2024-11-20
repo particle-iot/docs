@@ -1255,8 +1255,8 @@
             "hash": "c45f0908414aef05824e99d92fa31111fb0e263654f64f2f3afcb1805660e0dd"
         },
         "reference/tracker/location-fusion.md": {
-            "date": "2022-11-29",
-            "hash": "8059715e1f053a59c3b16a1d35cc0656bfccf72908439eee88eaada33f4c06a4"
+            "date": "2024-11-20",
+            "hash": "89bf1dfaaf56a4bfac1b32cc420d98d1211569ace031d5ec2197fa1235128053"
         },
         "reference/tracker/tracker-configuration.md": {
             "date": "2024-11-14",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "1e86bf5b1e0a0b1ad06f881337536bca7da7b1f7f67606102aaf3b7f11e69717",
+            "hash": "1d26d0e25ccfbcac5dd0cff0edea3e61969d3fbbe878bd4bb46508e4b44172bc",
             "date": "2024-11-20"
         },
         "getting-started/cloud/logic.md": {
@@ -8383,28 +8383,28 @@
             "date": "2024-08-29"
         },
         "hardware/migration-guides/msom-b-series-migration-guide.md": {
-            "hash": "b3591cc5867e455cc6a70898a54f619a61e60c754f9e8ac452b3005f1fecb9f5",
-            "date": "2024-10-31"
+            "hash": "feb427ea04b35ae3c677f2ec229da63da35b22337589c0ea8598083940aaeb72",
+            "date": "2024-11-20"
         },
         "hardware/migration-guides/msom-boron-migration-guide.md": {
-            "hash": "73effc3e77c525a065cec71c885165c364208b44fa44ffa0459bad0846e91278",
-            "date": "2024-10-31"
+            "hash": "fbbf29a3bf47073c82f4bd6c67c6c4e99313264d074db6378776e3111ce4c25e",
+            "date": "2024-11-20"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
-            "hash": "16c898ddd71f3cdd249b7559d7f4bf5e5f3b08f331d85a5f269bee6ce70b62e0",
-            "date": "2024-10-31"
+            "hash": "b263735d14b86326d392c908e7c7109bc5fdb1b83b5030bcdc2b689b0f34dd1c",
+            "date": "2024-11-20"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
-            "hash": "f60bb6b6a52f3c336ea9aed90826f75b034024cd2ca76006820c4e601d491651",
-            "date": "2024-10-31"
+            "hash": "63c67c8cbf8592b473523b4d23871f930c55468be69b1041427673eb1710a7de",
+            "date": "2024-11-20"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
             "hash": "41588c3fbe92fb98b00adaca25a6626d0cc1f95decbc8f5cdffe00cb37783a4b",
             "date": "2024-10-31"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "a4c9124b2923c52ad345022ecbffef2ccb280c1facd5e784a1f6c95272b9520d",
-            "date": "2024-10-31"
+            "hash": "5a36706ce74333df3795afbcb85dbfa0e051f99eb7039f99e236a41d6af3cc90",
+            "date": "2024-11-20"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9415,8 +9415,8 @@
             "date": "2024-10-28"
         },
         "hardware/migration-guides/muon-boron-migration-guide.md": {
-            "hash": "e1919ddfa1703031e90f44af8d397a24996c0f09dc1c6523a49deef921fb73f3",
-            "date": "2024-10-31"
+            "hash": "866c1c593f45abf1f171db7e7946c2a4b59f8e817c6cd95e63c91c64701885f0",
+            "date": "2024-11-20"
         },
         "hardware/muon-hats/automation-hats.md": {
             "hash": "78139201bc6ae944d48f3b30ab9647d9e9c4c26499558fd1d0175853e51dd02d",

@@ -150,6 +150,7 @@ Power can be supplied to Muon by:
 
 #### USB-C cable warning
 
+{{!-- BEGIN shared-blurb c3d00a89-9f50-4d63-bf29-c07645b09e8f --}}
 You must use an actual USB-C port or USB-C power adapter to power the Muon by USB.
 
 **A USB-A to USB-C cable will not power the Muon or charge the battery**
@@ -163,6 +164,9 @@ be changed and the port will not be able to power the Muon.
 Also beware of some wall adapters that have a USB-C cable, but do not support USB-C PD. Some
 of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
 to power the Muon.
+
+See [Muon USB Power](/troubleshooting/guides/device-troubleshooting/muon-usb-power/) for more information.
+{{!-- END shared-blurb --}}
 
 #### Expansion and peripheral power
 

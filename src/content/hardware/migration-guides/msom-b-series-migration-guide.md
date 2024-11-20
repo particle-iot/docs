@@ -51,6 +51,10 @@ There is a 2 MB flash file system for storing user data. This is the same size a
 
 ### Voltage regulators
 
+{{box op="start" cssClass="boxed warningBox"}}
+The M-SoM has peak power usage that is higher than the B-SoM. Be sure the check the guidelines below carefully.
+{{box op="end"}}
+
 #### VCC
 
 VCC is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery.

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-SoM and Muon power 2024-11-20
+
+Added an additional warning to the M-SoM migration guides that the power requirements are different than previous Particle devices.
+
 ### Import device tool fix 2024-11-20
 
 Fixed a bug in the [Import devices tool](/tools/cloud-tools/import-devices/) where it would not import Wi-Fi devices that do not have an ICCID.

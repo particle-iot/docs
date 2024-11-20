@@ -86,6 +86,25 @@ The Argon and Boron have a USB Micro B connector.
 
 The Muon has a USB C connector.
 
+{{!-- BEGIN shared-blurb c3d00a89-9f50-4d63-bf29-c07645b09e8f --}}
+You must use an actual USB-C port or USB-C power adapter to power the Muon by USB.
+
+**A USB-A to USB-C cable will not power the Muon or charge the battery**
+
+The reason is that the Muon uses USB-C PD to change the USB port voltage to 9V and request enough
+current to power the Muon. 
+
+When using a USB-2 or USB-3 port with USB-A to USB-C adapter cable, the USB port voltage cannot
+be changed and the port will not be able to power the Muon.
+
+Also beware of some wall adapters that have a USB-C cable, but do not support USB-C PD. Some
+of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
+to power the Muon.
+
+See [Muon USB Power](/troubleshooting/guides/device-troubleshooting/muon-usb-power/) for more information.
+{{!-- END shared-blurb --}}
+
+
 ### SWD/JTAG
 
 The Muon has the same 10-pin (2x5) SWD/JTAG debugging connector as the Argon and Boron.

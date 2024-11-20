@@ -156,6 +156,14 @@ As this board doesn't really do much, you'll unlikely use it as-is, but you can 
 
 ## Power requirements
 
+{{box op="start" cssClass="boxed warningBox"}}
+The M-SoM has peak power usage that is higher than the E-Series SoM. Be sure the check the guidelines below carefully.
+{{box op="end"}}
+
+As the M-SoM does not include a built-in power supply like the E-Series SoM, you may want to consider using the
+[PM-BAT](/hardware/power/pm-bat-datasheet/) power module that includes the PMIC, fuel gauge, and voltage
+regulators.
+
 #### VCC
 
 VCC is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
