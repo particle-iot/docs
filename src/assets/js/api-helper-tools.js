@@ -1094,11 +1094,11 @@ $(document).ready(function() {
             let deviceObj;
 
             if (deviceList) {
-                deviceObj = deviceList.find(e => (e.id == tableDeviceObj.deviceId));
+                deviceObj = deviceList.find(e => (typeof e.id != 'undefined' && e.id == tableDeviceObj.deviceId));
                 if (!deviceObj) {
-                    deviceObj = deviceList.find(e => (e.serial_number == tableDeviceObj.serial));
+                    deviceObj = deviceList.find(e => (typeof e.serial_number != 'undefined' && e.serial_number == tableDeviceObj.serial));
                     if (!deviceObj) {
-                        deviceObj = deviceList.find(e => (e.iccid == tableDeviceObj.iccid));
+                        deviceObj = deviceList.find(e => (typeof e.iccid != 'undefined' && e.iccid == tableDeviceObj.iccid));
                     }
                 }                
             }
