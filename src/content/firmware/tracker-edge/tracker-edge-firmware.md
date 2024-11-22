@@ -578,7 +578,7 @@ The confusing exception to the exception is LGPL code that is dynamically linked
 
 Using a library from user firmware, on the other hand, uses static linking so you cannot use the LGPL library exception for firmware libraries added to user firmware applications. 
 
-For more information, see [libraries and software licenses](firmware/best-practices/libraries/#libraries-and-software-licenses).
+For more information, see [libraries and software licenses](/firmware/best-practices/libraries/#libraries-and-software-licenses).
 {{!-- END shared-blurb --}}
 
 
