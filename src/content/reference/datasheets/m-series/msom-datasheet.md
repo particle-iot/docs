@@ -397,7 +397,7 @@ Certain GPIO will change state at boot, or cause the MCU to enter a special mode
 
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
-- SoM pin 43 (A5) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A5 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+- SoM pin 43 (A5) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A5 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at boot by the MCU.
 
 {{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
 The ADCs on the M-SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
