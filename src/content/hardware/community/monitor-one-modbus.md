@@ -106,7 +106,7 @@ By clicking the **Map** icon on the left bar, the page will display all the devi
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image14.png" alt="" class="no-darken"}}
 
-Is possible to change the fleet-wide configurations here, by clicking **Configure fleet** on the top right side of the page.
+It is possible to change the fleet-wide configurations from here by clicking **Configure fleet** on the top right side of the page.
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image15.png" alt="" class="no-darken"}}
 
