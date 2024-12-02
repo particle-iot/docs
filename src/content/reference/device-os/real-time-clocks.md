@@ -16,9 +16,19 @@ It is possible to do local time calculations, however you must maintain the time
 
 The RTC is generally accurate within a few seconds of the actual time.
 
-## Gen 2 vs. Gen 3
+## Gen 4
 
-Gen 2 devices (E-Series, Electron, and Photon) have a STM32F205 MCU and Gen 3 devices (Tracker, B-Series SoM, Boron, and Argon) have an nRF52840 MCU. These different processors handle the RTC differently, especially with regards to sleep modes.
+Gen 4 devices (P2, Photon 2, M-SoM) have a RTL872x MCU.
+
+The RTL872x RTC continues to run while in `HIBERNATE` sleep so you can wake based on duration from hibernate sleep. However, since the system resets after waking from hibernate sleep mode, the clock time and date will be unset until it is received from the cloud.
+
+The RTL872x RTC will also be reset on any device reset, including the RESET button, pin, System.reset(), OTA reboot, etc. and the clock time will be unset until it is received from the cloud. 
+
+There is no way to add an external backup battery to the RTL872x RTC.
+
+## Gen 3
+
+Gen 3 devices (Tracker, B-Series SoM, Boron, and Argon) have an nRF52840 MCU. These different processors handle the RTC differently, especially with regards to sleep modes.
 
 The most important distinction is that on Gen 3 devices, the RTC does not run in [`HIBERNATE`](/reference/device-os/api/sleep-sleep/hibernate-systemsleepmode/) sleep mode (formerly `SLEEP_MODE_DEEP`). This has two important effects:
 
@@ -27,7 +37,17 @@ The most important distinction is that on Gen 3 devices, the RTC does not run in
 
 One important mitigating factor is that Gen 3 [`ULTRA_LOW_POWER`](/reference/device-os/api/sleep-sleep/ultra_low_power-systemsleepmode/) uses only slightly more power than `HIBERNATE` and the RTC continues to operate in `ULTRA_LOW_POWER` mode. This is typically the best solution for Gen 3 devices.
 
-## Gen 2 VBAT
+There is no way to add an external backup battery to the nRF52 RTC.
+
+## Gen 2
+
+Gen 2 devices (E-Series, Electron, Photon 1, and P1) have a STM32F205 MCU. 
+
+The STM32 RTC continues to run while in `HIBERNATE` sleep so you can wake based on time from hibernate sleep.
+
+The STM32 RTC also is preserved across system reset.
+
+### Gen 2 VBAT
 
 Another important difference is that some Gen 2 devices support the VBAT input. This allows an external 3.6 volt lithium coin cell battery such as a CR1220 or CR2032 to power the RTC for years. It's also possible to use a supercap instead of a coin cell battery.
 

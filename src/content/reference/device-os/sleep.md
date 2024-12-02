@@ -61,6 +61,8 @@ You'll probably want to choose the lowest power option that has the options you 
 
 - On Gen 3 devices (Boron, B-Series SoM, Argon, Tracker), the RTC is not operational in `HIBERNATE` sleep mode, and you cannot wake based on time.
 
+- On Gen 4 devices (P2, Photon 2, M-SoM) and Gen 2 devices (E-Series, Electron, Photon 1, P1) the RTC is operational in `HIBERNATE` sleep mode and you can wake based on time.
+
 - On the P2, Photon 2, and Gen 2 (E-Series, Electron, Photon, P1), GPIO outputs are not preserved in `HIBERNATE` mode. They go into high-impedance while in hibernate sleep.
 
 - In `HIBERNATE` mode, the device wakes as if it has been reset. It goes through `setup()` again and starts with all non-retained variables cleared. In `ULTRA_LOW_POWER` and `STOP` modes, execution continues after the line of code that put the device to sleep, with all variables preserved.

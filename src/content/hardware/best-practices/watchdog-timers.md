@@ -13,7 +13,7 @@ You can download the files associated with this app note [as a zip file](/assets
 
 A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-On Gen 3 devices using Device OS 5.3.0 and later, it is possible to enable the hardware watchdog timer in the nRF52840 or RTL872x MCU. This is available when running in normal operating mode, and is not used in DFU or safe mode. See [hardware watchdog](/reference/device-os/api/watchdog-hardware/watchdog-hardware/) for more information.
+On Gen 3 devices using Device OS 5.3.0 and later, and Gen 4 devices, it is possible to enable the hardware watchdog timer in the nRF52840 or RTL872x MCU. This is available when running in normal operating mode, and is not used in DFU or safe mode. See [hardware watchdog](/reference/device-os/api/watchdog-hardware/watchdog-hardware/) for more information. Using this is effective and eliminates the need for an external hardware watchdog.
 
 Device OS also includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
 
@@ -165,7 +165,11 @@ The AB1805 has a number of useful features:
 - Real-time clock (optional)
 - Separate RTC backup battery or super-capacitor (optional)
 
-The nRF52 MCU has a number of sleep modes. While the nRF52 RTC is enabled in STOP and ULP (ultra-low power) sleep modes, it is disabled in the lowest power mode, HIBERNATE mode. Using an external RTC like the AB1805 makes it possible to use its RTC to wake by time and reset the MCU clock after wake, without needing to get the time from the cloud.
+The Gen 3 nRF52 MCU has a number of sleep modes. While the nRF52 RTC is enabled in STOP and ULP (ultra-low power) sleep modes, it is disabled in the lowest power mode, HIBERNATE mode. Using an external RTC like the AB1805 makes it possible to use its RTC to wake by time and reset the MCU clock after wake, without needing to get the time from the cloud.
+
+The RTC in Gen 4 devices (RTL872x MCU) continues to operate in hibernate sleep mode, so an external hardware
+clock is not require to wake based on time in hibernate sleep mode. You still may want to use an external RTC
+if you want the clock to be preserved across device reset and power down.
 
 There are two versions of this board:
 
@@ -173,6 +177,7 @@ There are two versions of this board:
 - FeatherAB1805-SC uses a super-capacitor for the RTC backup power and deep power-off
 
 
+ 
 ### Connections between AB1805 and MCU
 
 The AB1805 is connected like this (from the FeatherAB1805-SC schematic):

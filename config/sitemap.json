@@ -919,8 +919,8 @@
             "hash": "5467d7f2eb2c89c12d32d04e24c92bf57ff698f413dfcee251700ced984a6c89"
         },
         "hardware/best-practices/watchdog-timers.md": {
-            "date": "2024-11-01",
-            "hash": "74a6520a2e1f72e346aeb865a0fb8f773508785403b3c490364660059e840117"
+            "date": "2024-12-02",
+            "hash": "e2a739924d26f94e6b64190dfc43865a596e4e75f440254b294c613f64283df3"
         },
         "hardware/b-series-som/b-series-som-flexibility.md": {
             "date": "2024-02-27",
@@ -1299,16 +1299,16 @@
             "hash": "fd30e34c959ef5594fc3845d4465feab7fb7ba60ecde7b79aeb86e385d831d6b"
         },
         "reference/device-os/real-time-clocks.md": {
-            "date": "2024-02-27",
-            "hash": "7cebc46226f70e487b0705efa449b76e17d9204c6eca72be104562c0bdf603f7"
+            "date": "2024-12-02",
+            "hash": "8ebf4177147019f57b4cbc31e514fadc8b6037d06b87efb78dafd936e2c04e39"
         },
         "reference/device-os/release-notes.md": {
             "date": "2022-10-14",
             "hash": "fc7bd4aaa0b9b9a2b4ed679c71579a7255d519a0e567d3cb202354d40275b697"
         },
         "reference/device-os/sleep.md": {
-            "date": "2024-02-27",
-            "hash": "82c728c0a06eb33695651f2bf7cc1e933d11e6a21db96c5421dc1fe5393a9d01"
+            "date": "2024-12-02",
+            "hash": "a4f28a66b456775211f9d273a411bf142d451e7fc07d1f018d05bda835b31346"
         },
         "reference/device-os/versions.md": {
             "date": "2024-09-12",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5c405184c689228c8b485632c7de18ff229ab650085b537cab010bca82cfa78f",
+            "hash": "977036d52e1ad19060efc40aec8d24b97afce6da407a4628c82ca32a5dbd63c5",
             "date": "2024-12-02"
         },
         "getting-started/cloud/logic.md": {

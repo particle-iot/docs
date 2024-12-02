@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Real-time clocks 2024-12-02
+
+Added Gen 4 devices to the [real-time clock guide](/reference/device-os/real-time-clocks/).
+
 ### M1 Enclosure update 2024-12-02
 
 Updated assembly instructions for the [M1 enclosure](/reference/datasheets/m-series/m1-enclosure-datasheet/). 
