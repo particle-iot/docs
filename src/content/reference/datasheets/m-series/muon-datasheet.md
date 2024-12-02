@@ -33,6 +33,19 @@ The Muon is a developer kit based on the M-SoM with additional peripherals for e
 
 {{imageOverlay src="/assets/images/m-series/muon-rendering-top.png" alt="Rendering Top" class="full-width"}}
 
+## Setup
+
+It's strongly recommended that you initially set up your Muon using [setup.particle.io](https://setup.particle.io). In addition to
+updating the Device OS software and activating your SIM card, it also enables `3V3_AUX` power.
+
+{{box op="start" cssClass="boxed warningBox"}}
+Muon features such as Ethernet, LoRA, QWIIC, and power on the 40-pin HAT connector default to off unless enabled during setup.
+{{box op="end"}}
+
+See [Power](#power), below, for additional information, including:
+
+- Power adapter requirements
+- How to enable `3V3_AUX` power when manually setting up devices, or when doing fleet setup
 
 ### M-SoM
 
@@ -170,13 +183,13 @@ See [Muon USB Power](/troubleshooting/guides/device-troubleshooting/muon-usb-pow
 
 #### Expansion and peripheral power
 
-The onboard peripherals including Ethernet, the LoRa radio, and the expansion card are powered by the
+The onboard peripherals including Ethernet, the LoRa radio, QWIIC, and the expansion HAT connector are powered by the
 3V3_AUX power supply.
 
 If you use [setup.particle.io](https://setup.particle.io/) to set up your Muon, 3V3_AUX will be set up
 automatically. 
 
-If you want to do it manually, the see the section [Firmware settings](#firmware-settings), below
+If you want to do it manually, the see the section [Firmware settings](#firmware-settings), below, 
 for the sample code and the technical reasons why it is necessary.
 
 
@@ -1928,21 +1941,3 @@ Global, country list to be provided a later date.
 |          | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
 |   1      | 2024-10-08 | RK | Update for schematic v1.0 |
 |   2      | 2024-10-22 | RK | Public release|
-
-## Ordering information
-
-{{!-- BEGIN do not edit content below, it is automatically generated f4a91103-4428-4732-a1bc-83784f9bf207 --}}
-
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
-| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
-| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
-| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
-| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.

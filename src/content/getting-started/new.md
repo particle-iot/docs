@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M1 Enclosure update 2024-12-02
+
+Updated assembly instructions for the [M1 enclosure](/reference/datasheets/m-series/m1-enclosure-datasheet/). 
+
 ### Tracker Edge licenses 2024-11-20
 
 Added a discussion of [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/#software-licenses) and [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/#software-licenses)
