@@ -652,11 +652,11 @@
         },
         "getting-started/hardware/cellular-overview.md": {
             "date": "2024-12-02",
-            "hash": "f5b91b4211d96b245c3e272695365a92a318dd7abd1154cee0a5608b1cc2b85a"
+            "hash": "8ec9ae2da83dc18c0221f817ec777ec5408e9ecb3b8a26e04641f092a929844a"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2024-12-02",
-            "hash": "6e536691159139cfeeba42ac13ce96796d0548d8a14f69cdd9bda2c71cb8bea3"
+            "hash": "d3ffa44f8a99f7c7308d658487c1407990c40681c38add9861e8254d08713ffc"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -700,7 +700,7 @@
         },
         "getting-started/setup/manual-setup.md": {
             "date": "2024-12-02",
-            "hash": "148c9708b48ea0fec5b7afed853a494ea8ee8773032315c2e1fba881532bf5c8"
+            "hash": "78a9421af6f7df88a0f7c65c27727ad3a29234aaf16b2dd12053962fbf902d8b"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -936,7 +936,7 @@
         },
         "hardware/certification/antenna.md": {
             "date": "2024-12-02",
-            "hash": "42bf4e0821b1cd053a658f7ca0f8af7a477f46390864d1cef60ba84289ebc2f3"
+            "hash": "e9965bc49be730e8c8ca01297735d764d956f9ca9a9093622fc0187099946ef8"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -944,7 +944,7 @@
         },
         "hardware/certification/certification-documents.md": {
             "date": "2024-12-02",
-            "hash": "a69f15a8b22f1e89c1e27e259247dfce0df4f3dfb8b770354b89ffbe97faa20a"
+            "hash": "18a23efa68e8673e8cf3fc874d234787265533bd404816d0d383d05f052f984c"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1040,11 +1040,11 @@
         },
         "hardware/power/batteries.md": {
             "date": "2024-12-02",
-            "hash": "ecee81440aba94bad92bde8fb1723f2c0173b6a89108c606958f49aa63706212"
+            "hash": "da3c5af027ccca56cb5b0a2005b2143d190706c9413d9686975036ae1cb6de13"
         },
         "hardware/power/power-supply-guide.md": {
             "date": "2024-12-02",
-            "hash": "32e316fca54fbd29b0c46ca936d4001da2b26087b4974136425dca9cca69a95e"
+            "hash": "f697e729835bca8c0332a4ff2174a6a00728e23fed031f2c85429c4af25cd4f5"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1128,7 +1128,7 @@
         },
         "reference/cellular/lte-cat-1-expansion.md": {
             "date": "2024-12-02",
-            "hash": "50e654d98ba51f8c4df4dbcca48d2f77cd12f1e0aa40ca409349f3c0f9aac4e5"
+            "hash": "996b9db78ef6ebb626b746df7f1ec968c4d95de53c2ae5e8c18e3c5f6c623855"
         },
         "reference/cellular/sim-cards.md": {
             "date": "2024-02-27",
@@ -1400,7 +1400,7 @@
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2024-12-02",
-            "hash": "4d06c77e15d413f2f326a782b3b6036f5b452553780a72b81bcf329c8e74a23b"
+            "hash": "7a247e2efe2c1c0500badcf40d9508cfe2f0225af307eecd3793ee3ae4396e11"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2024-05-15",
@@ -1580,7 +1580,7 @@
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
             "date": "2024-12-02",
-            "hash": "1db55191ad1693fa0db15d0725db231db30f329dd069efe3c5f44059a36179d7"
+            "hash": "a58c90a36fd37c4a5ee9b6ee28da455068cf8e939ea645d94a8015b9e3f299ff"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2024-11-13",
@@ -8171,7 +8171,7 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "ab01b3dd4a8cd0ab00055b8d7cf4d729d47711d8824f0ab56b86ba01a8165b3f",
+            "hash": "237fd1badad350915dcc3b22a3d8dedbcbb4d131391def24a4547cbe44df6a3e",
             "date": "2024-12-02"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "977036d52e1ad19060efc40aec8d24b97afce6da407a4628c82ca32a5dbd63c5",
+            "hash": "9c552dbc9a8960b24b042f304f53ac518c6dd9c4d379d6460765a5ebf21011d1",
             "date": "2024-12-02"
         },
         "getting-started/cloud/logic.md": {
@@ -8403,7 +8403,7 @@
             "date": "2024-12-02"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "d370ef11d8bdce4e63ed092f7962059f8f4742cdf57d63994673bee999bbbe2e",
+            "hash": "56a692f951f20cdf9b360724d1c5e880ee5f1cc05a0be516a596ea474e6f6d45",
             "date": "2024-12-02"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
@@ -9147,7 +9147,7 @@
             "date": "2024-07-23"
         },
         "reference/cellular/verizon-faq.md": {
-            "hash": "cbec60a5177b212c68a961a2a4157eb406429ebb189287a6fbef91062a849d9d",
+            "hash": "9a728c8eb581497ebfe5057b63d2e37f358ace6cd77f023e2e84fd018cb4026a",
             "date": "2024-12-02"
         },
         "reference/device-os/libraries/a/Adafruit_ADS1X15_multi.md": {

@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### SKU deprecation 2024-12-02
+
+ARG-STRTKT (Argon starter kit) is now deprecated and will no longer be available. Muon kit SKUs have been renamed but are otherwise the same.
+
+
 ### Real-time clocks 2024-12-02
 
 Added Gen 4 devices to the [real-time clock guide](/reference/device-os/real-time-clocks/).
