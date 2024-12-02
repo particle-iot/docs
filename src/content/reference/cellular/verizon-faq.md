@@ -103,10 +103,10 @@ If you are using a different antenna, and had previously undergone intentional r
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
-| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
+| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
-| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | 1 | &nbsp; |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | 1 | &nbsp; |
 | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | ANTCW2EA | &nbsp; |

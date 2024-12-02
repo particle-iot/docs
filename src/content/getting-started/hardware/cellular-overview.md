@@ -318,12 +318,12 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | Global | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | GA | &nbsp; |
 | Global | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | BG95-M5 | &check; | 4 | GA | &nbsp; |
 | Global | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | BG95-S5 | &check; | 4 | In development | &nbsp; |
+| Global | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | In development | &nbsp; |
 | Global | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | In development | &nbsp; |
-| Global | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | In development | &nbsp; |
+| Global | MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | EG91-EX | &check; | 4 | In development | &nbsp; |
 | Global | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | EG91-EX | &check; | 4 | In development | &nbsp; |
-| Global | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | EG91-EX | &check; | 4 | In development | &nbsp; |
+| Global | MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | BG95-S5 | &check; | 4 | In development | &nbsp; |
 | Global | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | BG95-S5 | &check; | 4 | In development | &nbsp; |
-| Global | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | BG95-S5 | &check; | 4 | In development | &nbsp; |
 | NORAM | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 3 | Deprecated | B404XMEA |
 | NORAM | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 3 | Deprecated | B404XMTY |
 | NORAM | B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | R410 | &check; | 3 | Deprecated | B404XMEA |
@@ -382,11 +382,11 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
 | BG95-M5 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | &check; | 4 | GA | &nbsp; |
 | BG95-M5 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | &check; | 4 | GA | &nbsp; |
+| BG95-M5 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
 | BG95-M5 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
-| BG95-M5 | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
 | BG95-S5 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
+| BG95-S5 | MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
 | BG95-S5 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
-| BG95-S5 | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
 | BG96-MC | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | BG96-MC | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | 3 | In development | &nbsp; |
 | BG96-MC | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | Deprecated | ONE404MEA |
@@ -406,8 +406,8 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | EG91-EX | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 4 | GA | &nbsp; |
 | EG91-EX | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | 4 | GA | &nbsp; |
 | EG91-EX | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-EX | MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
 | EG91-EX | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
-| EG91-EX | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
 | EG91-EX | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | 3 | GA | ONE524MEA |
 | EG91-EX | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &nbsp; | 3 | GA | ONE524MTY |
 | EG91-EX | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
@@ -521,12 +521,12 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
 | EtherSIM | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
+| EtherSIM | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | BG95-M5 | 4 | In development | &nbsp; |
 | EtherSIM | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | 4 | In development | &nbsp; |
-| EtherSIM | MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | 4 | In development | &nbsp; |
+| EtherSIM | MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Global | EG91-EX | 4 | In development | &nbsp; |
 | EtherSIM | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | 4 | In development | &nbsp; |
-| EtherSIM | MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | 4 | In development | &nbsp; |
+| EtherSIM | MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | Global | BG95-S5 | 4 | In development | &nbsp; |
 | EtherSIM | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | 4 | In development | &nbsp; |
-| EtherSIM | MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | 4 | In development | &nbsp; |
 | EtherSIM | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
@@ -847,10 +847,10 @@ The following SKUs have LTE Cat M1 cellular modems:
 | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | &check; | BG95-S5 | 4 | In development | &nbsp; |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | &check; | BG95-M5 | 4 | In development | &nbsp; |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | &check; | BG95-M5 | 4 | In development | &nbsp; |
-| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | &check; | BG95-M5 | 4 | In development | &nbsp; |
+| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | Global | &check; | BG95-S5 | 4 | In development | &nbsp; |
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | &check; | BG95-S5 | 4 | In development | &nbsp; |
-| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | &check; | BG95-S5 | 4 | In development | &nbsp; |
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 3 | NRND | B404XMTY |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404XTRAY50 |
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | R410 | 2 | NRND | &nbsp; |
@@ -921,8 +921,8 @@ The following SKU have LTE Cat 1 cellular modems:
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Global | &check; | EG91-EX | 4 | In development | &nbsp; |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | &check; | EG91-EX | 4 | In development | &nbsp; |
-| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | &check; | EG91-EX | 4 | In development | &nbsp; |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-E | 3 | NRND | B524MTY |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | T524MKIT |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | EG91-E | 3 | Deprecated | B524MEA |

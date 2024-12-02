@@ -81,7 +81,7 @@ instead of using a battery pack temperature sensor.
 | :--- | :--- | :---: | :---: | :--- |
 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARG-LDKT | Argon Leak Detection Kit [x1] | micro-b | 2-pin | Deprecated |
-| ARG-STRTKT | Argon Starter Kit [x1] | micro-b | 2-pin | NRND |
+| ARG-STRTKT | Argon Starter Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARGN-H | Argon [x1] | micro-b | 2-pin | Deprecated |
 | ARGNKIT | Argon, Starter Kit  [x1] | micro-b | 2-pin | NRND |
 | ARGNTRAY50 | Argon, Tray [x50] | micro-b | 2-pin | Deprecated |
@@ -144,13 +144,13 @@ instead of using a battery pack temperature sensor.
 | MHAT | M-HAT | c | 3-pin | In development |
 | MHAT504e | M-HAT with LTE CAT1 for North America | c | 3-pin | In development |
 | MHAT524e | M-HAT with LTE CAT1 for Rest of World | c | 3-pin | In development |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | c | 3-pin | In development |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
-| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | c | 3-pin | In development |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | In development |
-| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | c | 3-pin | In development |
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
-| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
-| MUONCB | Muon Carrier Board | c | 3-pin | In development |
+| MUONCB | Muon Carrier Board (Dev Board only) | c | 3-pin | In development |
 | MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | In development |
 | MUONCBKIT | Muon Carrier Board Kit | c | 3-pin | In development |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
