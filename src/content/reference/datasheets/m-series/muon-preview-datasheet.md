@@ -969,6 +969,23 @@ To be provided at a later date.
 **To be provided at a later date**
 
 
+## Changes in version 1.0
+
+- Improvements to 12V DC input circuitry
+- Added PoE support and corresponding 4-pin header
+- Changed RTC connector orientation.
+- Changed 3-pin battery connector to vertical.
+- Removed onboard WiFi chip antenna.
+- Moved RGB LED to edge of board near USB-C connector to match Raspberry Pi layout.
+- Moved Mode button to edge of board near USB-C connector to match Raspberry Pi layout.
+
+Additionally, there is an important difference in pin mapping:
+
+On v0.5 engineering samples, M.2 pin 47 is `VBAT_MEAS` and PA[20] is on M.2 pin 57 (SOM17 on the M.2 breakout board).
+
+On the production M-SoM, pin A7/D28/WKP is on M.2 pin 47 and MCU pin PA[20].
+
+
 ## Product Handling
 
 ### ESD Precautions
