@@ -78,7 +78,7 @@ Finally, the page will update the device with the latest Monitor Edge firmware v
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image10.png" alt="" class="no-darken"}}
 
-Once the device is updated, is possible to go to the device page by clicking on the **Go to Console** button.
+Once the device is updated, it is possible to go to the device page by clicking on the **Go to Console** button.
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image11.png" alt="" }}
 
