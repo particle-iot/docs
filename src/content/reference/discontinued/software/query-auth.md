@@ -8,7 +8,7 @@ description: Authentication by query parameter deprecation
 # {{title}}
 
 
-For accounts created after December 2024, passing an access token by query parameter will no longer be available for security reasons. There is currently no schedule to disable query parameter authentication for existing accounts, but we do recommend changing to an `Authorization` header.
+For accounts created after December 4, 2024, passing an access token by query parameter will no longer be available for security reasons. There is currently no schedule to disable query parameter authentication for existing accounts, but we do recommend changing to an `Authorization` header.
 
 If you are using a URL like this, with an access_token in the URL for a GET request, you are using a query parameter.
 

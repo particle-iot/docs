@@ -575,8 +575,8 @@
             "hash": "920d62dd8f5ee174915884a202642b182c1cbd0bcbebea9b17731998dc9fd1a4"
         },
         "getting-started/cloud/cloud-api.md": {
-            "date": "2024-11-13",
-            "hash": "2f7eb59dcfb7572762d02ac2f14036bd83e987f7c7ffeb6f0d6b6b4cd94ab075"
+            "date": "2024-12-02",
+            "hash": "2f0bb12f679323731ed0434e39384211e9cbf82a69863d783c1fe54c4c030c56"
         },
         "getting-started/cloud/cloud-communication.md": {
             "date": "2024-02-20",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "9c552dbc9a8960b24b042f304f53ac518c6dd9c4d379d6460765a5ebf21011d1",
+            "hash": "a0a6d09c2899b72cf35db6161f3603d6398610f0d28c255914cf707e1c7fb755",
             "date": "2024-12-02"
         },
         "getting-started/cloud/logic.md": {
@@ -9503,8 +9503,8 @@
             "date": "2024-11-14"
         },
         "reference/discontinued/software/query-auth.md": {
-            "hash": "8071966f77328a6e8bca822c055bb933c41aaf22547cb69266bfe4aa1f7b6727",
-            "date": "2024-11-19"
+            "hash": "0a7e30aa0952470eed6dd8448a36fba8dff5701cf8debd3ba8db3bc696c68844",
+            "date": "2024-12-02"
         }
     }
 }
