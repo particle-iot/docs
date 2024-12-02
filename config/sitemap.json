@@ -8399,8 +8399,8 @@
             "date": "2024-11-20"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "41588c3fbe92fb98b00adaca25a6626d0cc1f95decbc8f5cdffe00cb37783a4b",
-            "date": "2024-10-31"
+            "hash": "9652ccd875fc4a1d7a6c4b481199e0e69012cab93a3d0a708304557243f77788",
+            "date": "2024-12-02"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "5a36706ce74333df3795afbcb85dbfa0e051f99eb7039f99e236a41d6af3cc90",
@@ -9467,8 +9467,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "17cdd0f1af3811a8312065fe4d18dc85f2d1bcba7afafcb8e7c5882ea43d71ba",
-            "date": "2024-10-31"
+            "hash": "545b237217b99e2a148a34fc94ee7deacf4478bc714924f83b5f29723a7d2779",
+            "date": "2024-12-02"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",

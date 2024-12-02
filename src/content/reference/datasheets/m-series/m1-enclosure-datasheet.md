@@ -118,9 +118,7 @@ The following antenna placement is recommended when using the Muon in the M1 Enc
 
 The cellular antenna should be mounted on the lid and connected to the U.FL connector on the M-SoM.
 
-{{imageOverlay src="/assets/images/m-series/m1-muon-cellular-1.jpg" alt="Cellular antenna" class="full-width"}}
-
-{{imageOverlay src="/assets/images/m-series/m1-muon-cellular-2.jpg" alt="Cellular antenna" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/m1-muon-cellular.jpg" alt="Cellular antenna" class="full-width"}}
 
 
 The M-SoM is certified with the following cellular antenna:
@@ -166,11 +164,17 @@ Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tr
 
 ### Wi-Fi/BLE antenna - Muon
 
-The Wi-Fi ns BLE antenna mounts on the left side, next the carrier board, next to the battery. It must be installed before the carrier board is installed.
+The Wi-Fi and BLE antenna mounts on the left side, next the carrier board, next to the battery. It must be installed before the carrier board is installed.
 
-{{imageOverlay src="/assets/images/m-series/m1-muon-wifi.jpg" alt="Wi-Fi antenna" class="full-width"}}
+Install the wifi antenna sufficiently below the silicone gasket to avoid interference.
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-wifi-1.jpg" alt="Wi-Fi antenna" class="full-width"}}
+
+Make sure the wifi antenna cable is routed as such to avoid difficulty in assembly.
 
 {{imageOverlay src="/assets/images/m-series/m1-muon-wifi-2.jpg" alt="Wi-Fi antenna" class="full-width"}}
+
+{{imageOverlay src="/assets/images/m-series/m1-muon-wifi-3.jpg" alt="Wi-Fi antenna" class="full-width"}}
 
 The M-SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M-SoM does not include a built-in trace antenna on the module.
 
@@ -244,3 +248,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | Revision | Date       | Author | Comments |
 |:---------|:-----------|:-------|:---------|
 | pre      | 2024-10-22 | RK     | Preliminary version |
+|          | 2024-12-02 | RK     | Updated pictures and added note about positioning of Wi-Fi antenna |
