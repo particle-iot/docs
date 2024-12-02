@@ -106,7 +106,7 @@ By clicking the **Map** icon on the left bar, the page will display all the devi
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image14.png" alt="" class="no-darken"}}
 
-Is possible to change the fleet-wide configurations here, by clicking **Configure fleet** on the top right side of the page.
+It is possible to change the fleet-wide configurations from here by clicking **Configure fleet** on the top right side of the page.
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image15.png" alt="" class="no-darken"}}
 
@@ -394,7 +394,7 @@ function Decoder(payload, event)
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image49.png" alt="" }}
 
-Is possible to copy a modbus payload sample from the Particle console and put it into the datacake test field to try the decoding function.
+It is possible to copy a modbus payload sample from the Particle console and put it into the datacake test field to try the decoding function.
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image50.png" alt="" class="no-darken"}}
 
@@ -432,7 +432,7 @@ On the **Gauge** tab, change the Gauge type to circular and add a color scheme b
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image59.png" alt="" }}
 
-Once created, is possible to resize/arrange the cards.
+Once created, it is possible to resize/arrange the cards.
 
 {{imageOverlay src="/assets/images/hardware-community/monitor-one-modbus/Image60.png" alt="" }}
 
