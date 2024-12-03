@@ -248,7 +248,7 @@ If you use this technique, make sure you also disable charging, just in case the
 
 Shipping mode allows the battery to be disconnected electronically so the discharge rate is minimal and the device can be left in this state for months without having to physically disconnect the battery. It also prevents the device from being turned on accidentally while in transit, such as by bumping a power button.
 
-Only the Tracker One has built-in support for shipping mode, but all bq24195 devices can use this technique by disabling the BATFAT. 
+Only the Tracker One has built-in support for shipping mode, but all bq24195 devices can use this technique by disabling the BATFET. 
 
 An important consideration is that the only way to exit shipping mode is to supply external power, either by USB or VIN. It's not possible to exit shipping mode by time, button press, etc..
 
