@@ -859,7 +859,6 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 
 
-
 ### Particle.process()
 
 {{api name1="Particle.process"}}
@@ -945,29 +944,8 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Device Cloud.
 
 ```cpp
-// SYNTAX
-Particle.syncTimePending();
-
-
-// EXAMPLE
-SerialLogHandler logHandler;
-
-void loop()
-{
-  // Request time synchronization from the Particle Device Cloud
-  Particle.syncTime();
-  // Wait until the device receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
-  while(Particle.syncTimePending())
-  {
-    //
-    // Do something else
-    //
-
-    Particle.process();
-  }
-  // Print current time
-  Log.info("Current time: %s", Time.timeStr().c_str());
-}
+// PROTOTYPE
+bool syncTimePending(void)
 ```
 
 See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
@@ -978,7 +956,6 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ```cpp
 // EXAMPLE
-
 SerialLogHandler logHandler;
 
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
@@ -1012,9 +989,9 @@ void loop() {
 Used to check when time was last synchronized with Particle Device Cloud.
 
 ```cpp
-// SYNTAX
-Particle.timeSyncedLast();
-Particle.timeSyncedLast(timestamp);
+// PROTOTYPES
+system_tick_t timeSyncedLast(void);
+system_tick_t timeSyncedLast(time_t& tm);
 ```
 
 Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Device Cloud was performed.
@@ -1055,7 +1032,7 @@ void loop() {
 
 ```
 
-Note: Calling Particle
+Requesting the public IP uses two data operations, one for the request and one for the response.
 
 
 ### Get device name
@@ -1093,6 +1070,8 @@ makes this easy. The link includes instructions and the library is available in
 Particle Workbench by using **Particle: Install Library** or in the Web IDE
 by searching for **DeviceNameHelperRK**.
 
+Requesting the device name uses two data operations, one for the request and one for the response.
+
 ### Get random seed
 
 Grab 40 bytes of randomness from the cloud and {e}n{c}r{y}p{t} away!
@@ -1110,6 +1089,9 @@ void setup() {
     Particle.publish("particle/device/random");
 }
 ```
+
+Requesting a random seed uses two data operations, one for the request and one for the response.
+
 
 ## Publish
 
@@ -18977,7 +18959,7 @@ Time.isValid();
 Used to check if current time is valid. This function will return `true` if:
 - Time has been set manually using [`Time.setTime()`](#settime-)
 - Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
-- Correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#retained-memory) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.
+- On Gen 2 devices only, the correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#retained-memory) for cases when RTC retains the time.
 
 **NOTE:** When the device is running in `AUTOMATIC` mode and threading is disabled this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once it synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
 
@@ -19003,6 +18985,8 @@ void loop()
 }
 
 ```
+
+
 
 For more information about real-time clocks on Particle devices, see [Learn more about real-time clocks](/reference/device-os/real-time-clocks/).
 
@@ -19079,6 +19063,12 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
 The `attachInterrpt()` function is not interrupt-safe. Do not call it from within an interrupt service routine (ISR).
+
+---
+{{note op="start" type="gen4"}}
+There are no limitations on attaching interrupts on Gen 4 devices, however there are limitations on pins that can be used
+for waking from HIBERNATE sleep mode by pin interrupt.
+{{note op="end"}}
 
 ---
 {{note op="start" type="gen3"}}
@@ -19225,6 +19215,7 @@ class Robot {
 Robot myRobot;
 // nothing else needed in setup() or loop()
 ```
+
 
 **Using Interrupts:**
 Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
@@ -20896,6 +20887,8 @@ In this mode on wake, device is reset, running setup() again.
 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 
+- On Gen 3 devices the RTC does not run in HIBERNATE sleep and clock time and date will not be valid until the next cloud connection. 
+
 - Gen 3 devices (Argon, Boron, B-Series SoM, E404X, Tracker SoM, Tracker One), can wake on analog voltage comparison.
 {{note op="end"}}
 
@@ -20907,6 +20900,8 @@ In this mode on wake, device is reset, running setup() again.
 - The P2 can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
 
 - On the P2, pins S4, S5, and S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- On the P2, when waking from `HIBERNATE` the RTC will be reset and clock time and date will not be valid until the next cloud connection. 
 
 - The P2 does not support wake on analog, BLE, or UART serial.
 
@@ -20942,6 +20937,8 @@ In this mode on wake, device is reset, running setup() again.
 
 - On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 
+- On the Photon 2, when waking from `HIBERNATE` the RTC will be reset and clock time and date will not be valid until the next cloud connection. 
+
 - The Photon 2 does not support wake on analog, BLE, or UART serial.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2bb13ba8-9f9c-44d6-8734-df6e85bb09042 --}}
@@ -20973,6 +20970,8 @@ In this mode on wake, device is reset, running setup() again.
 - The M-SoM can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
 
 - On the M-SoM, pin D21 does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- On the M-SoM, when waking from `HIBERNATE` the RTC will be reset and clock time and date will not be valid until the next cloud connection. 
 
 - The M-SoM does not support wake on analog, BLE, or UART serial.
 
@@ -21088,7 +21087,7 @@ Specifies wake on pin. The mode is:
 
 You can use `.gpio()` multiple times to wake on any of multiple pins, with the limitations below.
 
-If you are using `RISING` mode, then an internal pull-down, equivalent to `INPUT_PULLDOWN` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices. It varies depending on the pin on the P2 and Photon 2.
+If you are using `RISING` mode, then an internal pull-down, equivalent to `INPUT_PULLDOWN` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices. It varies depending on the pin on the P2 and Photon 2. Never use a `RISING` interrupt on an open-collector output that uses an external pull-up resistor, as the competing pull resistors can prevent the signal from ever going high.
 
 If you are using `FALLING` mode, then an internal pull-up, equivalent to `INPUT_PULLUP` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices. It varies depending on the pin on the P2 and Photon 2.
 

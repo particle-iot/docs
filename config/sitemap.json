@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-11-13",
-            "hash": "9721c2936b2898ddf157daa560ba354db103f4e8d0dfa3ad97882992677daf2d"
+            "date": "2024-12-03",
+            "hash": "208147447fc9b7bdabc49d613af8f918e557f22824950b063746422ecc213b2a"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1787,8 +1787,8 @@
             "hash": "773fd72815c78baf8c5c763aa9706017a7eaa7cf3823719f2df350ceb429b029"
         },
         "reference/device-os/api/cloud-functions/particle-keepalive.md": {
-            "date": "2024-02-27",
-            "hash": "4b0fb9745c17b41e9ede741d73c7dec2f214dfc7d886863c7b8a4358b3dd880b"
+            "date": "2024-12-03",
+            "hash": "d3f89e7680ca73f952f174667757ac1498789adcb9734da8c205a92ac686bd04"
         },
         "reference/device-os/api/cloud-functions/particle-process.md": {
             "date": "2024-10-15",
@@ -1803,24 +1803,24 @@
             "hash": "d417e24cef1bca9d58493d37839aaf5dcddeb88ad8d55e4da88424bd06b6ad1e"
         },
         "reference/device-os/api/cloud-functions/particle-synctimepending.md": {
-            "date": "2023-09-20",
-            "hash": "36e3dfc6200ba9d48b5a61908a519bff251471d68ab1ee198b22c8b63844ccf7"
+            "date": "2024-12-03",
+            "hash": "0fb499bfdc7c95192a9aa104f41a3fae5e74f0c5cbb7c682b59dffbc782962d8"
         },
         "reference/device-os/api/cloud-functions/particle-timesyncedlast.md": {
-            "date": "2023-09-20",
-            "hash": "ec933e4b62bc4b6c1d649956b383789818baef1882b4cab9496a0ccea0eee577"
+            "date": "2024-12-03",
+            "hash": "6e93f9a368df5de2c48cb043db8c3f79084a34cf0bd20236668eb9d394b1e4e0"
         },
         "reference/device-os/api/cloud-functions/get-public-ip.md": {
-            "date": "2023-09-20",
-            "hash": "19d33fca3721be2328a24c48433a3a305b0f4257cf6d96ac49cbaaf8fc81fe10"
+            "date": "2024-12-03",
+            "hash": "496039fd001da28f00d48b423738860232324fb92c05372aba59dff146e9c37c"
         },
         "reference/device-os/api/cloud-functions/get-device-name.md": {
-            "date": "2023-09-20",
-            "hash": "3c23184c01eb98c95e40e12406dee3bdc875f99ff04a35a6ec8d85f56211f926"
+            "date": "2024-12-03",
+            "hash": "0a9d728b91f6baf8a2a4f32eb81237550f4b5298414c18be781923465269f508"
         },
         "reference/device-os/api/cloud-functions/get-random-seed.md": {
-            "date": "2023-09-20",
-            "hash": "92aa2922ce92a8e2d80d84d8d309cc1d47247f1149bd6d0606885f873b34da44"
+            "date": "2024-12-03",
+            "hash": "d1da96fedbb58b81aeb7937a1b6add482930cfce05505ffc73c07b298176d986"
         },
         "reference/device-os/api/ethernet/ethernet.md": {
             "date": "2024-09-17",
@@ -3383,8 +3383,8 @@
             "hash": "46848cb0e29bf488d51124d7c190c86e24e0df2314a98debbd377ad14f92750d"
         },
         "reference/device-os/api/time/isvalid.md": {
-            "date": "2023-09-20",
-            "hash": "5f964e493a1f850b91ba10d83764d38a6de229189d429e2a6694888797e0fd09"
+            "date": "2024-12-03",
+            "hash": "3903b70cf9b58fce5f0ecb92a835eade02d93e936c4d558c4556a0c166c51664"
         },
         "reference/device-os/api/time/advanced.md": {
             "date": "2023-09-20",
@@ -3399,8 +3399,8 @@
             "hash": "63fa3f5429cd791e6bb0b287fbd464ef87587e0dd57916430eef6305b0163895"
         },
         "reference/device-os/api/interrupts/attachinterrupt.md": {
-            "date": "2024-02-27",
-            "hash": "d08a2434347abb83e3a60b65e65da7c1c8db0695f1610449443222472fc8d8ce"
+            "date": "2024-12-03",
+            "hash": "fb5da020dfad7cefff5d85acb92963bec6a31e55d6dcd023276f4b1c1087b437"
         },
         "reference/device-os/api/interrupts/detachinterrupt.md": {
             "date": "2023-09-20",
@@ -3619,16 +3619,16 @@
             "hash": "c175b082e2e5362694fce5873fe7871dd95c92c9414eaa7a0c617047eae20d85"
         },
         "reference/device-os/api/sleep-sleep/hibernate-systemsleepmode.md": {
-            "date": "2024-10-31",
-            "hash": "d00ebef52cb05a2763523236c0dda768a1a6715423e6757d5bcb255f2945cb59"
+            "date": "2024-12-03",
+            "hash": "87c0c08d34433e99ecd9b3435c72e0b5641a309ee7cfd7df886f7b12d403f9ca"
         },
         "reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration.md": {
             "date": "2024-07-31",
             "hash": "cf57304a844c7261eb9df49acd5530b143456de700e52ad046507604458b9be3"
         },
         "reference/device-os/api/sleep-sleep/gpio-systemsleepconfiguration.md": {
-            "date": "2024-10-31",
-            "hash": "e2e8c2b54aeb39bd977a24e41b53a02cfe8d5386223d6972f89606b0146b887a"
+            "date": "2024-12-03",
+            "hash": "63855f5b3ed7caba7701f413420bf821c85a1587d85768f244cbf0f6359c79af"
         },
         "reference/device-os/api/sleep-sleep/flag-systemsleepconfiguration.md": {
             "date": "2023-09-20",
