@@ -567,7 +567,7 @@
             "is5VTolerant": false,
             "isIO": true,
             "m2Pin": 40,
-            "net": "M2_D5/CTS",
+            "net": "M2_D3/CTS",
             "rpi": "GPIO16",
             "rpiGPIO": 16,
             "serial": "Serial1 (CTS) |CTS. Use Serial1 object.",
