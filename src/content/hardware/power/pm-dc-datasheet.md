@@ -160,9 +160,9 @@ The mating header is available from a large number of suppliers in both PTH and 
 | SKU | Description | Lifecycle |
 | :--- | :--- | :--- |
 | PMDCH1EA | Particle Power Module, DC, with Header [x1] | In development |
-| PMDCH1TY | Particle Power Module, DC, with Header [x50] | Beta |
+| PMDCH1TY | Particle Power Module, DC, with Header [x50] | In development |
 | PMDCNH1EA | Particle Power Module, DC, No Header | In development |
-| PMDCNH1TY | Particle Power Module, DC, without Header [x50] | GA |
+| PMDCNH1TY | Particle Power Module, DC, without Header [x50] | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

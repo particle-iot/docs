@@ -83,7 +83,7 @@ instead of using a battery pack temperature sensor.
 | ARG-LDKT | Argon Leak Detection Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARG-STRTKT | Argon Starter Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARGN-H | Argon [x1] | micro-b | 2-pin | Deprecated |
-| ARGNKIT | Argon, Starter Kit  [x1] | micro-b | 2-pin | NRND |
+| ARGNKIT | Argon, Starter Kit  [x1] | micro-b | 2-pin | Deprecated |
 | ARGNTRAY50 | Argon, Tray [x50] | micro-b | 2-pin | Deprecated |
 | ASSET2GV2 | Asset Tracker 2G | micro-b | 2-pin | Deprecated |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | micro-b | 2-pin | Deprecated |

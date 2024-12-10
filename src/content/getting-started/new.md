@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Argon kit deprecation 2024-12-10
+
+The Argon kit (ARGNKIT) is now deprecated and will no longer be available.
+
 ### Query auth deprecation 2024-12-04
 
 The date for [query auth deprecation](/reference/discontinued/software/query-auth/) is December 4, 2024. It was previously

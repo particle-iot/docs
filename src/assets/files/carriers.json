@@ -20079,7 +20079,7 @@
     {
       "name": "ARGNKIT",
       "desc": "Argon, Starter Kit  [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -23517,7 +23517,7 @@
     {
       "name": "PMDCH1TY",
       "desc": "Particle Power Module, DC, with Header [x50]",
-      "lifecycle": "Beta",
+      "lifecycle": "In development",
       "skuClass": "power",
       "singleSku": "PMDCH1EA",
       "accessory": true,
@@ -23546,7 +23546,7 @@
     {
       "name": "PMDCNH1TY",
       "desc": "Particle Power Module, DC, without Header [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "In development",
       "skuClass": "power",
       "singleSku": "PMDCNH1EA",
       "accessory": true,
@@ -24216,6 +24216,22 @@
       "platformId": 14,
       "prefix": "XENT",
       "endOfSupport": "2020-12-31"
+    },
+    {
+      "name": "B504EMEA",
+      "desc": "",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
+    },
+    {
+      "name": "B504EMTY",
+      "desc": "",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
     }
   ],
   "skuClass": [

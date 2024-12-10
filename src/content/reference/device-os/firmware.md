@@ -1960,7 +1960,7 @@ auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nu
 ```
 
 
-### on()
+### on() - Ethernet
 
 {{api name1="Ethernet.on"}}
 
@@ -1968,13 +1968,48 @@ auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nu
 
 Note that `Ethernet.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Ethernet module off.
 
-### off()
+### off() - Ethernet
 
 {{api name1="Ethernet.off"}}
 
 `Ethernet.off()` turns off the Ethernet module. 
  
-### connect()
+
+### isOn() - Ethernet
+
+{{api name1="Ethernet.isOn"}}
+
+{{since when="2.1.0"}}
+
+This function will return `true` if the Ethernet is available, powered on, and went through low level initialization. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Ethernet.isOn();
+
+// EXAMPLE
+Ethernet.on();
+waitFor(Ethernet.isOn, 30000);
+```
+
+### isOff() - Ethernet
+
+{{api name1="Ethernet.isOff"}}
+
+{{since when="2.1.0"}}
+
+This function will return `true` if the Ethernet is powered off. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Ethernet.isOff();
+
+// EXAMPLE
+Ethernet.off();
+waitFor(Ethernet.isOff, 60000);
+```
+
+### connect() - Ethernet
 
 {{api name1="Ethernet.connect"}}
 
@@ -1985,7 +2020,7 @@ Attempts to connect to the Ethernet network. When this function returns, the dev
 Ethernet.connect();
 ```
 
-### disconnect()
+### disconnect() - Ethernet
 
 {{api name1="Ethernet.disconnect"}}
 
@@ -1996,7 +2031,7 @@ Disconnects from the Ethernet network, but leaves the Ethernet module on.
 Ethernet.disconnect();
 ```
 
-### connecting()
+### connecting() - Ethernet
 
 {{api name1="Ethernet.connecting"}}
 
@@ -2007,7 +2042,7 @@ This function will return `true` once the device is attempting to connect, and w
 Ethernet.connecting();
 ```
 
-### ready()
+### ready() - Ethernet
 
 {{api name1="Ethernet.ready"}}
 
@@ -2020,7 +2055,7 @@ Ethernet.ready();
 
 In order for Ethernet to be considered ready the Ethernet link must be up, and IP address assigned, DNS configured, and a gateway set. Thus if you using isolated Ethernet (gateway of 0.0.0.0), you cannot use `Ethernet.ready()` to determine if it's up. This is because Ethernet.ready() implies that it's ready to be used for the cloud connection, which is not true for isolated LANs. If you want to check for isolated LAN up, you can use `!Ethernet.connecting() && Ethernet.localIP() != IPAddress()`
 
-### setConfig() [Ethernet]
+### setConfig() - Ethernet
 
 {{api name1="Ethernet.setConfig"}}
 
@@ -2040,7 +2075,7 @@ Ethernet.setConfig(NetworkInterfaceConfig()
   .dns(SockAddr({192,168,1,1})));
 ```
 
-### getConfig() [Ethernet]
+### getConfig() - Ethernet
 
 {{api name1="Ethernet.getConfig"}}
 
@@ -2054,7 +2089,7 @@ particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 ```
 
 
-### prefer() [Ethernet]
+### prefer() - Ethernet
 
 {{api name1="Ethernet.prefer"}}
 
@@ -2080,7 +2115,7 @@ Ethernet.prefer();
 Ethernet.prefer(false);
 ```
 
-### isPreferred() [Ethernet]
+### isPreferred() - Ethernet
 
 {{api name1="Ethernet.isPreferred"}}
 
@@ -2096,7 +2131,7 @@ if (Ethernet.isPreferred()) {
 }
 ```
 
-### listen()
+### listen() - Ethernet
 
 {{api name1="Ethernet.listen"}}
 
@@ -2119,7 +2154,7 @@ Ethernet.listen(false);
 
 ```
 
-### listening()
+### listening() - Ethernet
 
 {{api name1="Ethernet.listening"}}
 
@@ -2134,7 +2169,7 @@ This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using thread
 user firmware from running, so you would not have an opportunity to test the value and calling this always 
 returns false. With Device OS {{systemThreadRequired}} and later, system thread is always enabled.
 
-### setListenTimeout()
+### setListenTimeout() - Ethernet
 
 {{api name1="Ethernet.setListenTimeout"}}
 
@@ -2150,7 +2185,7 @@ Ethernet.setListenTimeout(seconds);
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `Ethernet.setListenTimeout(5min)` for 5 minutes.
 
-### getListenTimeout()
+### getListenTimeout() - Ethernet
 
 {{api name1="Ethernet.getListenTimeout"}}
 
@@ -2162,7 +2197,7 @@ uint16_t seconds = Ethernet.getListenTimeout();
 `Ethernet.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Ethernet devices do not have any timeout set (seconds=0).
 
 
-### macAddress()
+### macAddress() - Ethernet
 
 {{api name1="Ethernet.macAddress"}}
 
@@ -2183,7 +2218,7 @@ void setup() {
 }
 ```
 
-### localIP()
+### localIP() - Ethernet
 
 {{api name1="Ethernet.localIP"}}
 
@@ -2201,7 +2236,7 @@ void setup() {
 }
 ```
 
-### subnetMask()
+### subnetMask() - Ethernet
 
 {{api name1="Ethernet.subnetMask"}}
 
@@ -2219,7 +2254,7 @@ void setup() {
 }
 ```
 
-### gatewayIP()
+### gatewayIP() - Ethernet
 
 {{api name1="Ethernet.gatewayIP"}}
 
@@ -2238,14 +2273,14 @@ void setup() {
 }
 ```
 
-### dnsServerIP()
+### dnsServerIP() - Ethernet
 
 {{api name1="Ethernet.dnsServerIP"}}
 
 `Ethernet.dnsServerIP()` retrieves the IP address of the DNS server that resolves
 DNS requests for the device's network connection. This will often be 0.0.0.0.
 
-### dhcpServerIP()
+### dhcpServerIP() - Ethernet
 
 {{api name1="Ethernet.dhcpServerIP"}}
 

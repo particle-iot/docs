@@ -1451,84 +1451,92 @@
           ]
         },
         {
-          "title": "on() - Ethernet",
-          "dir": "on"
+          "title": "on() - Ethernet - Ethernet",
+          "dir": "on-ethernet"
         },
         {
-          "title": "off() - Ethernet",
-          "dir": "off"
+          "title": "off() - Ethernet - Ethernet",
+          "dir": "off-ethernet"
         },
         {
-          "title": "connect() - Ethernet",
-          "dir": "connect"
+          "title": "isOn() - Ethernet - Ethernet",
+          "dir": "ison-ethernet"
         },
         {
-          "title": "disconnect() - Ethernet",
-          "dir": "disconnect"
+          "title": "isOff() - Ethernet - Ethernet",
+          "dir": "isoff-ethernet"
         },
         {
-          "title": "connecting() - Ethernet",
-          "dir": "connecting"
+          "title": "connect() - Ethernet - Ethernet",
+          "dir": "connect-ethernet"
         },
         {
-          "title": "ready() - Ethernet",
-          "dir": "ready"
+          "title": "disconnect() - Ethernet - Ethernet",
+          "dir": "disconnect-ethernet"
         },
         {
-          "title": "setConfig() [Ethernet] - Ethernet",
+          "title": "connecting() - Ethernet - Ethernet",
+          "dir": "connecting-ethernet"
+        },
+        {
+          "title": "ready() - Ethernet - Ethernet",
+          "dir": "ready-ethernet"
+        },
+        {
+          "title": "setConfig() - Ethernet - Ethernet",
           "dir": "setconfig-ethernet"
         },
         {
-          "title": "getConfig() [Ethernet] - Ethernet",
+          "title": "getConfig() - Ethernet - Ethernet",
           "dir": "getconfig-ethernet"
         },
         {
-          "title": "prefer() [Ethernet] - Ethernet",
+          "title": "prefer() - Ethernet - Ethernet",
           "dir": "prefer-ethernet"
         },
         {
-          "title": "isPreferred() [Ethernet] - Ethernet",
+          "title": "isPreferred() - Ethernet - Ethernet",
           "dir": "ispreferred-ethernet"
         },
         {
-          "title": "listen() - Ethernet",
-          "dir": "listen"
+          "title": "listen() - Ethernet - Ethernet",
+          "dir": "listen-ethernet"
         },
         {
-          "title": "listening() - Ethernet",
-          "dir": "listening"
+          "title": "listening() - Ethernet - Ethernet",
+          "dir": "listening-ethernet"
         },
         {
-          "title": "setListenTimeout() - Ethernet",
-          "dir": "setlistentimeout"
+          "title": "setListenTimeout() - Ethernet - Ethernet",
+          "dir": "setlistentimeout-ethernet"
         },
         {
-          "title": "getListenTimeout() - Ethernet",
-          "dir": "getlistentimeout"
+          "title": "getListenTimeout() - Ethernet - Ethernet",
+          "dir": "getlistentimeout-ethernet"
         },
         {
-          "title": "macAddress() - Ethernet",
-          "dir": "macaddress"
+          "title": "macAddress() - Ethernet - Ethernet",
+          "dir": "macaddress-ethernet"
         },
         {
-          "title": "localIP() - Ethernet",
-          "dir": "localip"
+          "title": "localIP() - Ethernet - Ethernet",
+          "dir": "localip-ethernet"
         },
         {
-          "title": "subnetMask() - Ethernet",
-          "dir": "subnetmask"
+          "title": "subnetMask() - Ethernet - Ethernet",
+          "dir": "subnetmask-ethernet"
         },
         {
-          "title": "gatewayIP() - Ethernet",
-          "dir": "gatewayip"
+          "title": "gatewayIP() - Ethernet - Ethernet",
+          "dir": "gatewayip-ethernet"
         },
         {
-          "title": "dnsServerIP() - Ethernet",
-          "dir": "dnsserverip"
+          "title": "dnsServerIP() - Ethernet - Ethernet",
+          "dir": "dnsserverip-ethernet"
         },
         {
-          "title": "dhcpServerIP() - Ethernet",
-          "dir": "dhcpserverip"
+          "title": "dhcpServerIP() - Ethernet - Ethernet",
+          "dir": "dhcpserverip-ethernet"
         }
       ]
     },
@@ -2628,12 +2636,12 @@
               "isContent": true
             },
             {
-              "anchor": "on--3",
+              "anchor": "on--2",
               "title": "on()",
               "isContent": true
             },
             {
-              "anchor": "off--3",
+              "anchor": "off--2",
               "title": "off()",
               "isContent": true
             },

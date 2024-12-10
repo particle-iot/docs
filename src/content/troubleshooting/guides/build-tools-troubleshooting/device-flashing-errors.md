@@ -29,6 +29,8 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | ASSET2GV2 | Asset Tracker 2G | Micro B |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Micro B |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Micro B |
+| B504EMEA | &nbsp; | &nbsp; |
+| B504EMTY | &nbsp; | &nbsp; |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Micro B |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Micro B |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Micro B |

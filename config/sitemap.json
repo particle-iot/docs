@@ -699,8 +699,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-12-02",
-            "hash": "78a9421af6f7df88a0f7c65c27727ad3a29234aaf16b2dd12053962fbf902d8b"
+            "date": "2024-12-10",
+            "hash": "2e12945aec53b5056dfe12127ab867bdbc3fa077bf866097c8b9fb18acb5515e"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,16 +935,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-12-02",
-            "hash": "e9965bc49be730e8c8ca01297735d764d956f9ca9a9093622fc0187099946ef8"
+            "date": "2024-12-10",
+            "hash": "75e9043c5e3abc45abc6ea53ad77363025eb1cbdf4c4e22f39f741cd7e086296"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2024-12-02",
-            "hash": "18a23efa68e8673e8cf3fc874d234787265533bd404816d0d383d05f052f984c"
+            "date": "2024-12-10",
+            "hash": "7b4c4d410e3725314c6d5110aac1df4870925f1360e9f3f038a6ada02b44092e"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1039,12 +1039,12 @@
             "hash": "fed3185845e4953027f14c6e62b4efae9cb36c47712b41203f765728a295007f"
         },
         "hardware/power/batteries.md": {
-            "date": "2024-12-02",
-            "hash": "da3c5af027ccca56cb5b0a2005b2143d190706c9413d9686975036ae1cb6de13"
+            "date": "2024-12-10",
+            "hash": "84b23c57ad7d6ead10a25d9f8a6f9e762287d123f466bc6ded5ae0b3d9fafb4c"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2024-12-03",
-            "hash": "8c7c9d948c01a2e919ab081391c799390813b60d5a2f1718f91c10ffb36f5f2d"
+            "date": "2024-12-10",
+            "hash": "b0973fcfc62fb6a297e304a2824d67222d326dfe11e1e8717b702abd7c23407b"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-12-03",
-            "hash": "208147447fc9b7bdabc49d613af8f918e557f22824950b063746422ecc213b2a"
+            "date": "2024-12-10",
+            "hash": "1259fffaa65b2dfc1c13f12f001970c9c6731cacbb4e608b4cfea05adc8332ef"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1399,8 +1399,8 @@
             "hash": "42d24bd2e75b5484a243120c4a1dd04207bd9d8e312dc67a7b52d03a62be4ca8"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
-            "date": "2024-12-02",
-            "hash": "7a247e2efe2c1c0500badcf40d9508cfe2f0225af307eecd3793ee3ae4396e11"
+            "date": "2024-12-10",
+            "hash": "f2948adc84ed2392feb02dde7b1ea2a623e4b8b89f6af5563e8b9f11e5dbaf8c"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2024-05-15",
@@ -1579,8 +1579,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2024-12-02",
-            "hash": "a58c90a36fd37c4a5ee9b6ee28da455068cf8e939ea645d94a8015b9e3f299ff"
+            "date": "2024-12-10",
+            "hash": "2cd5c6c7f7f213c6e4678e42b16f2bdb5409fcd62a255d09725799085d768867"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2024-11-13",
@@ -1835,8 +1835,8 @@
             "hash": "f89272b466861fe8a60d8fea2b7cbbe679870c476951db7e333110221e0f702d"
         },
         "reference/device-os/api/ethernet/off.md": {
-            "date": "2023-09-20",
-            "hash": "f2eff8dca852b0c80707af40e600474b48e5a3d08b44eface636d9cfe4909d55"
+            "date": "2024-12-10",
+            "hash": "7db23170fd98a3ede770be83354821707491013ca4aee2ec59f1e5607d0127ab"
         },
         "reference/device-os/api/ethernet/connect.md": {
             "date": "2023-09-20",
@@ -1855,12 +1855,12 @@
             "hash": "93e1050fa0675a2aadd8916ea5891ddc78b3da065f4c7d86770c87e78280c338"
         },
         "reference/device-os/api/ethernet/setconfig-ethernet.md": {
-            "date": "2024-01-12",
-            "hash": "cec96ee5b346e539fa85e1fceab10e53d7af09558c514281480e35322affef3f"
+            "date": "2024-12-10",
+            "hash": "6eab2a27512fa6c77124dee4abd7ad7e374a9fe20b3cecff1822d02de02f0f6c"
         },
         "reference/device-os/api/ethernet/getconfig-ethernet.md": {
-            "date": "2023-10-30",
-            "hash": "36f2f3a611c135070348fb9d73e0c66a7894cc0c5ec89d110ba868970257eddf"
+            "date": "2024-12-10",
+            "hash": "b95a319216f4d6a616e2e71cd9f7a4242d3dd1599571461703d432bc9e5bd705"
         },
         "reference/device-os/api/ethernet/listen.md": {
             "date": "2023-09-20",
@@ -2159,11 +2159,11 @@
             "hash": "77e5fab40617550bc37a9fbd4a6af3524b4709ddedb5b6aebd33c20ac6c2f507"
         },
         "reference/device-os/api/cellular/on.md": {
-            "date": "2023-09-20",
+            "date": "2024-12-10",
             "hash": "38300d244ae5d3791aeed79f5052adb4d058667c8a9f8c666c20c089a208f5d8"
         },
         "reference/device-os/api/cellular/off.md": {
-            "date": "2023-09-20",
+            "date": "2024-12-10",
             "hash": "9790af5833e45b6bc410083d3f70e0498fa4b3e9330612f28e5728782e243e21"
         },
         "reference/device-os/api/cellular/ison.md": {
@@ -2271,8 +2271,8 @@
             "hash": "345b7c777cb5dfc70f5aa0d0daa6c5d3ae104094ea7d8b8d50e6a4a1b692840c"
         },
         "reference/device-os/api/cellular/command.md": {
-            "date": "2024-05-07",
-            "hash": "35b46dcada83fdff04508a7f49f77d0bb7d6808528e8ab2ceeb37ec0bb3139bb"
+            "date": "2024-12-10",
+            "hash": "c910bfe64c1efe3d63a1a9065a60146c9be377992bd36798a8f9364c3e850d71"
         },
         "reference/device-os/api/battery-voltage/battery-voltage-photon-2.md": {
             "date": "2023-10-21",
@@ -8171,8 +8171,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "237fd1badad350915dcc3b22a3d8dedbcbb4d131391def24a4547cbe44df6a3e",
-            "date": "2024-12-02"
+            "hash": "b461686599e5bc47984a8ab703e35afa8c734bc6bcdbdee2784e2671a30cbba7",
+            "date": "2024-12-10"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a0a6d09c2899b72cf35db6161f3603d6398610f0d28c255914cf707e1c7fb755",
-            "date": "2024-12-02"
+            "hash": "eac7ec4407e6569553238b79b78e3ce69d10e0bd7643861ae5fc2d1c9166d799",
+            "date": "2024-12-10"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8347,12 +8347,12 @@
             "date": "2024-01-30"
         },
         "reference/device-os/api/ethernet/prefer-ethernet.md": {
-            "hash": "ed6dc8a7e2e8da380c620d67bb53a9e3fea501958bb9519db46f616eee0a39cd",
-            "date": "2024-01-30"
+            "hash": "8a8ab285eb072a03c9f5c282f4d10adcf1c188a1657cc221e23f0377ead3e30e",
+            "date": "2024-12-10"
         },
         "reference/device-os/api/ethernet/ispreferred-ethernet.md": {
-            "hash": "ffcc27d834cda4c3625835ea73d82d9cc4b96edc874789a71da402a9382fab1a",
-            "date": "2024-01-30"
+            "hash": "cb32d89615f13e97203fa2e5a19b79b5dc467e87faabba81a7d6c65055694226",
+            "date": "2024-12-10"
         },
         "reference/device-os/api/network/prefer-network.md": {
             "hash": "89189a271aec6751028335f54ecb3aa9144256024fad35c6f4131145e928236b",
@@ -9075,8 +9075,8 @@
             "date": "2024-11-01"
         },
         "hardware/power/pm-dc-datasheet.md": {
-            "hash": "dfcea32363fb25ca702b1bc2b9129ec646a90a0b18bb520b633ba26ddace7c5b",
-            "date": "2024-10-28"
+            "hash": "57b563c7fb35ec975c0ce96fcb0c33777f15649593da3f4651bb9560316ce2de",
+            "date": "2024-12-10"
         },
         "hardware/community/monitor-one-modbus.md": {
             "hash": "000741881b27423fbd3c4ae3f92387716a0cac448012a9abe40bcef86408ae92",
@@ -9505,6 +9505,86 @@
         "reference/discontinued/software/query-auth.md": {
             "hash": "0a7e30aa0952470eed6dd8448a36fba8dff5701cf8debd3ba8db3bc696c68844",
             "date": "2024-12-02"
+        },
+        "reference/device-os/api/ethernet/ison.md": {
+            "hash": "d96d9b6a6a665f576e86628c3baead47133df043ea666ba890dc5adeec8f8a4e",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/isoff.md": {
+            "hash": "76a2fc4a10dd02eb332a7db06296ba32be9172475c2119988adb0307e816ed01",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/on-ethernet.md": {
+            "hash": "ac0a28fde583e1493f62b5ebc82db3e5e8f0f5e0f812fcd924acc79c1391d32c",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/off-ethernet.md": {
+            "hash": "ce9944e4d1a9ec69938443d021fccf95e850c43a01c5e45dd083910d00457062",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/ison-ethernet.md": {
+            "hash": "bdc579aaf3f0c68ec01a3485914ee77869ef2174dd3905d9c2cfcd2c091f854e",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/isoff-ethernet.md": {
+            "hash": "4a976d620b239baf7274c84421ff22f0f101123592b9aaba0072c6dc6ca5a757",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/connect-ethernet.md": {
+            "hash": "54ddedf324207bdbc91b856f9c99e5959b75e1b84f00e7e6be62415925e4c97f",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/disconnect-ethernet.md": {
+            "hash": "ffecdf961cc404be43f34b449a8d0dcc84df71b745682dd41e6f3f9d421a137f",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/connecting-ethernet.md": {
+            "hash": "f9ffe2f6cd3e25c58931f5cb8ccae1ff341752782c921682ce79c7c2d85cca2e",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/ready-ethernet.md": {
+            "hash": "d22b2f90ff2c831cf501d9c1fcf11124c9e9ba55cd61dc176e4112a9f9090be3",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/listen-ethernet.md": {
+            "hash": "cd9d120157e4ebc7a140ccf571351f19430be6c00888c57eea1edefa25fad1c5",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/listening-ethernet.md": {
+            "hash": "23ea84e59ae0874b850ebf2ab08376ee75dee0f0b78d128f61357dee185ec827",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/setlistentimeout-ethernet.md": {
+            "hash": "fc9f6932453a5f1082b9e315821ec8c845b4eae15cc2bf430fc03c3d163ea7fc",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/getlistentimeout-ethernet.md": {
+            "hash": "19fd4b155be805e362a8c51f7bc617d052c962160137ce43165945f2f6fe415a",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/macaddress-ethernet.md": {
+            "hash": "d3212719ad53abfc47022157a3e80cf288ae26c0afeaf37e6029e38f137e6237",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/localip-ethernet.md": {
+            "hash": "ce7b72b6b24f8000722fbe534e2d9c481c248b6102f2c4787f0b93538653fac5",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/subnetmask-ethernet.md": {
+            "hash": "1b183eb89d5d0b152b4977d38f70f6ba802a3a0c7572ec38f8829b3e148d03a0",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/gatewayip-ethernet.md": {
+            "hash": "8fbb3c70ae3aad15d66d16dc262a54bfc978b3e2c0dd6d8bdd90ad3839a5f20f",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/dnsserverip-ethernet.md": {
+            "hash": "ad28a9c3d835954687e3a2b68e7133c2cd244c2bcd5dd41b4da2c869c13fe4d2",
+            "date": "2024-12-10"
+        },
+        "reference/device-os/api/ethernet/dhcpserverip-ethernet.md": {
+            "hash": "349793dd3637629c8eb819a1a94ae5e047248285a04c60c5e0640e3418cb7204",
+            "date": "2024-12-10"
         }
     }
 }

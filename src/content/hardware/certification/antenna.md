@@ -292,7 +292,7 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 | Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
-| Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2-50 | &nbsp; | Deprecated|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | trace | 4 | &nbsp; | Deprecated|
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | GA|
@@ -413,7 +413,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | Deprecated|
 | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &nbsp; | ANT-FLXV2-50 | &nbsp; | GA|
@@ -537,7 +537,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | &nbsp; | Deprecated|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | Deprecated|
-| Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | NRND|
+| Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | Deprecated|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | Deprecated|
 | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | B504MEA | &check; | &nbsp; | GA|
 | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | B504MTY | &check; | &nbsp; | GA|
