@@ -572,6 +572,11 @@
                 {
                     "dir": "tan013",
                     "title": "TAN013 - Tracker Manufacturing Firmware 3.3.0"
+                },
+                {
+                    "dir": "tan014",
+                    "title": "TAN014 - SARA-R510 band selection",
+                    "internal": true
                 }
             ]
         },
