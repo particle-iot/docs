@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Ethernet pin remapping 2024-12-12
+
+Added additional instructions to [Ethernet pin remapping](/reference/device-os/api/ethernet/pin-configuration-ethernet/) 
+including how to reset the default values, and a warning about lower performance when not using interrupts.
+
 ### Updated Canada 2G/3G sunset 2024-12-12
 
 There is a new page for [Canada 2G/3G sunset](/reference/discontinued/cellular/canada-sunset/) information.

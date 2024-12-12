@@ -49,6 +49,8 @@
   "/reference/device-os/firmware/#future": "/reference/device-os/api/future/future/",
   "/reference/device-os/firmware/#ethernet": "/reference/device-os/api/ethernet/ethernet/",
   "/reference/device-os/firmware/#pin-configuration-ethernet": "/reference/device-os/api/ethernet/pin-configuration-ethernet/",
+  "/reference/device-os/firmware/#reset-to-defaults-ethernet-pin-remapping": "/reference/device-os/api/ethernet/pin-configuration-ethernet/#reset-to-defaults-ethernet-pin-remapping",
+  "/reference/device-os/firmware/#sample-application-ethernet-pin-remapping": "/reference/device-os/api/ethernet/pin-configuration-ethernet/#sample-application-ethernet-pin-remapping",
   "/reference/device-os/firmware/#muon-ethernet-configuration": "/reference/device-os/api/ethernet/pin-configuration-ethernet/#muon-ethernet-configuration",
   "/reference/device-os/firmware/#m-2-som-breakout-board-ethernet-configuration": "/reference/device-os/api/ethernet/pin-configuration-ethernet/#m-2-som-breakout-board-ethernet-configuration",
   "/reference/device-os/firmware/#on-ethernet": "/reference/device-os/api/ethernet/on-ethernet/",

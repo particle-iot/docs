@@ -1782,9 +1782,13 @@ If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Fea
 
 {{since when="5.3.0"}}
 
-In Device OS 5.3.x, it is possible to reconfigure the pins that are used for Ethernet control signals CS, RESET, and INT. This may be desirable if you need to use pins D3-D5 for other purposes, such as `SPI1`.
+In Device OS 5.3.0, it is possible to reconfigure the pins that are used for Ethernet control signals CS, RESET, and INT. This may be desirable if you need to use pins D3-D5 for other purposes, such as `SPI1`.
 
-In Device OS 5.9.9 and later, it's possible to configure RESET and INT as PIN_INVALID, meaning you are not using hardware reset and interrupt.
+In Device OS 5.9.0 and later, it's possible to configure RESET and INT as PIN_INVALID, meaning you are not using hardware reset and interrupt.
+
+**Not using an interrupt pin will use poling and will reduce performance.**
+
+The CS pin is always required.
 
 The correct order of operations is:
 
@@ -1817,10 +1821,25 @@ System.enableFeature(FEATURE_ETHERNET_DETECTION);
 System.reset();
 ```
 
+#### Reset to defaults - Ethernet pin remapping
+
 In Device OS 6.1.1 and earlier, if you wanted to restore a pin to its default value, you could set it to `PIN_INVALID`. This is no 
 longer possible as `PIN_INVALID` is now a usable value for the `int_pin` for operation without a hardware interrupt pin.
 You must set it back to the actual default pin to restore default pin mapping.
 
+The following code will reset the pin remapping to the default values:
+
+```cpp
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+remap.cs_pin = HAL_PLATFORM_ETHERNET_WIZNETIF_CS_PIN_DEFAULT;
+remap.reset_pin = HAL_PLATFORM_ETHERNET_WIZNETIF_RESET_PIN_DEFAULT;
+remap.int_pin = HAL_PLATFORM_ETHERNET_WIZNETIF_INT_PIN_DEFAULT;
+
+if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+```
+
+#### Sample application - Ethernet pin remapping
 Here's a full sample application for testing:
 
 ```cpp
@@ -1919,6 +1938,8 @@ void loop() {
 The following code can be used to enable Ethernet on the Muon. This only needs to be done
 once and the device must be reset after configuration for the changes to take effect.
 
+This is done automatically by setup.particle.io, but this technique can be used if manually setting up devices, or setting up a fleet.
+
 ```cpp
 // Enable 3V3_AUX
 SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
@@ -1941,6 +1962,8 @@ auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nu
 
 The following code can be used to enable Ethernet on the M.2 SoM breakout board. This only needs to be done
 once and the device must be reset after configuration for the changes to take effect.
+
+This is done automatically by setup.particle.io, but this technique can be used if manually setting up devices, or setting up a fleet.
 
 ```cpp
 // Enable 3V3_AUX

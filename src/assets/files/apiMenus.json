@@ -1439,6 +1439,16 @@
           "dir": "pin-configuration-ethernet",
           "subsections": [
             {
+              "anchor": "reset-to-defaults-ethernet-pin-remapping",
+              "title": "Reset to defaults - Ethernet pin remapping",
+              "isContent": true
+            },
+            {
+              "anchor": "sample-application-ethernet-pin-remapping",
+              "title": "Sample application - Ethernet pin remapping",
+              "isContent": true
+            },
+            {
               "anchor": "muon-ethernet-configuration",
               "title": "Muon Ethernet configuration",
               "isContent": true
