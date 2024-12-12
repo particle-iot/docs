@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated Canada 2G/3G sunset 2024-12-12
+
+There is a new page for [Canada 2G/3G sunset](/reference/discontinued/cellular/canada-sunset/) information.
+
 ### Argon kit deprecation 2024-12-10
 
 The Argon kit (ARGNKIT) is now deprecated and will no longer be available.

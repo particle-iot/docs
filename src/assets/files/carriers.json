@@ -6502,7 +6502,7 @@
       "country": "Canada",
       "carrier": "Rogers Wireless",
       "sunset2G": "",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2025-07-31",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -19488,6 +19488,39 @@
       ]
     },
     {
+      "model": "EG800Q-EU",
+      "manufacturer": "quectel",
+      "name": "Europe LTE Cat 1",
+      "bands": [
+        "Cat1-1",
+        "Cat1-3",
+        "Cat1-5",
+        "Cat1-7",
+        "Cat1-8",
+        "Cat1-20",
+        "Cat1-28"
+      ],
+      "technologies": [
+        "Cat1"
+      ]
+    },
+    {
+      "model": "EG800Q-NA",
+      "manufacturer": "quectel",
+      "name": "NorAm LTE Cat 1",
+      "bands": [
+        "Cat1-2",
+        "Cat1-4",
+        "Cat1-5",
+        "Cat1-12",
+        "Cat1-13",
+        "Cat1-66"
+      ],
+      "technologies": [
+        "Cat1"
+      ]
+    },
+    {
       "model": "EG91-E",
       "manufacturer": "quectel",
       "name": "Europe LTE Cat 1",
@@ -20426,6 +20459,22 @@
       "batteryRequired": false,
       "verizon": true,
       "m2som": true
+    },
+    {
+      "name": "B504EMEA",
+      "desc": "",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
+    },
+    {
+      "name": "B504EMTY",
+      "desc": "",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
     },
     {
       "name": "B504MEA",
@@ -24216,22 +24265,6 @@
       "platformId": 14,
       "prefix": "XENT",
       "endOfSupport": "2020-12-31"
-    },
-    {
-      "name": "B504EMEA",
-      "desc": "",
-      "lifecycle": "In development",
-      "enterprise": false,
-      "wholesale": false,
-      "retail": false
-    },
-    {
-      "name": "B504EMTY",
-      "desc": "",
-      "lifecycle": "In development",
-      "enterprise": false,
-      "wholesale": false,
-      "retail": false
     }
   ],
   "skuClass": [

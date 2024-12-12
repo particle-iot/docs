@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "eac7ec4407e6569553238b79b78e3ce69d10e0bd7643861ae5fc2d1c9166d799",
-            "date": "2024-12-10"
+            "hash": "ae81ee2a399c553e3b50ae4652e8aa68a2efa7563904f39d114af660c3d0c8e5",
+            "date": "2024-12-12"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9585,6 +9585,10 @@
         "reference/device-os/api/ethernet/dhcpserverip-ethernet.md": {
             "hash": "349793dd3637629c8eb819a1a94ae5e047248285a04c60c5e0640e3418cb7204",
             "date": "2024-12-10"
+        },
+        "reference/discontinued/cellular/canada-sunset.md": {
+            "hash": "726ccbaf30e4784a7aba6f0a2ea4273a0f966b048bab0c31f50de60fe7488aca",
+            "date": "2024-12-12"
         }
     }
 }

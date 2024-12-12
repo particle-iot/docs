@@ -617,6 +617,10 @@
                             "title": "US 2G/3G Sunset"
                         },
                         {
+                            "dir": "canada-sunset",
+                            "title": "Canada 2G/3G Sunset"
+                        },
+                        {
                             "dir": "au-nz-sunset",
                             "title": "Australia and New Zealand 2G/3G Sunset"
                         },
