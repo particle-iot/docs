@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B504 2024-12-13
+
+The B-Series SoM B504 did not previously list Verizon as supported for enterprise customers, though it is supported.
+
 ### Ethernet pin remapping 2024-12-12
 
 Added additional instructions to [Ethernet pin remapping](/reference/device-os/api/ethernet/pin-configuration-ethernet/) 
