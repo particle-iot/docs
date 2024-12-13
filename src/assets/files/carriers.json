@@ -18733,7 +18733,7 @@
       "supersim": {
         "allow2G": false,
         "allow3G": false,
-        "allowCat1": false,
+        "allowCat1": 7,
         "allowM1": 7
       },
       "bands": [

@@ -1231,6 +1231,10 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                             }
                             else {
                                 cellContents = '\u2705'; // Green Check
+                                if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey]['allow' + tag] == 7) {
+                                    cellContents += '<sup>' + options.footnotes['warnVerizon'] + '</sup>';
+                                    showFootnotes.warnVerizon = true;                                        
+                                }
                             }
                         }
                         else {
