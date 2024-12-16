@@ -29981,7 +29981,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v6.2.x releases|[v6.2.0](https://github.com/particle-iot/device-os/releases/tag/v6.2.0)|-|-|-|-|-|-|
+|v6.2.x releases|[v6.2.0](https://github.com/particle-iot/device-os/releases/tag/v6.2.0)|[v6.2.1](https://github.com/particle-iot/device-os/releases/tag/v6.2.1)|-|-|-|-|-|
 |v5.9.x releases|[v5.9.0](https://github.com/particle-iot/device-os/releases/tag/v5.9.0)|-|-|-|-|-|-|
 |v5.8.x releases|[v5.8.0](https://github.com/particle-iot/device-os/releases/tag/v5.8.0)|[v5.8.2](https://github.com/particle-iot/device-os/releases/tag/v5.8.2)|-|-|-|-|-|
 |v5.7.x releases|[v5.7.0](https://github.com/particle-iot/device-os/releases/tag/v5.7.0)|-|-|-|-|-|-|
@@ -30041,7 +30041,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v6.2.x releases|[v6.2.0](/reference/device-os/firmware/?fw_ver=6.2.0&cli_ver=3.27.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v6.2.x releases|[v6.2.0](/reference/device-os/firmware/?fw_ver=6.2.0&cli_ver=3.27.1&electron_parts=3#programming-and-debugging-notes)|[v6.2.1](/reference/device-os/firmware/?fw_ver=6.2.1&cli_ver=3.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v5.9.x releases|[v5.9.0](/reference/device-os/firmware/?fw_ver=5.9.0&cli_ver=3.26.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v5.8.x releases|[v5.8.0](/reference/device-os/firmware/?fw_ver=5.8.0&cli_ver=3.21.0&electron_parts=3#programming-and-debugging-notes)|[v5.8.2](/reference/device-os/firmware/?fw_ver=5.8.2&cli_ver=3.24.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v5.7.x releases|[v5.7.0](/reference/device-os/firmware/?fw_ver=5.7.0&cli_ver=3.19.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
@@ -30099,6 +30099,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v3.29.0 = 6.2.1
 v3.27.1 = 6.2.0
 v3.26.0 = 5.9.0
 v3.24.0 = 5.8.2
@@ -30392,6 +30393,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@3.26.0endif
 ##### @CLI_VER@3.27.1if
 ##### @CLI_VER@3.27.1endif
+##### @CLI_VER@3.29.0if
+##### @CLI_VER@3.29.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
