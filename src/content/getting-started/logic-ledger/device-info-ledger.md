@@ -102,8 +102,8 @@ this using the Advanced tab:
     "includeGeneral": true,
     "includeDiag": true,
     "includeTower": true,
-    "logLevel": "LOG_LEVEL_INFO",
-    "logFilters": [],
+    "logLevel": "INFO",
+    "logFilters": {},
 }
 ```
 
@@ -128,6 +128,12 @@ Each instance of this Ledger corresponds to a single device override. The value 
 
 {{> project-browser project="device-info-ledger" default-file="src/device-info-ledger.cpp" height="400"}}
 
+## Library information
+
+This project uses the [DeviceInfoLedger](https://github.com/particle-iot/DeviceInfoLedger/) library, which makes it easy to:
+
+- Store cloud-based configuration for devices (DeviceConfigLedger)
+- Store Particle device log data and device information in Ledger (DeviceInfoLedger)
 
 ## Viewing data
 
@@ -138,76 +144,28 @@ The tool below can be used to view the logs once they've been uploaded to the cl
 
 ## Configuration 
 
-### Local configuration
-
-Local configuration stores the default configuration in the source code as a string containing JSON data. 
-
-It's very tedious typing JSON strings into a C++ string because of the need to escape double quotes, but the [Convert JSON to code](/tools/developer-tools/json/) tool makes it painless. Just paste the JSON into the box, hit the button, and copy and paste the code into your source.
-
-For example, this JSON:
-
-```json
-{
-    "lastRunLog": 1024,
-    "connectionLog": 2048,
-    "includeGeneral": true,
-    "includeDiag": true,
-    "includeTower": true,
-    "logLevel": "LOG_LEVEL_INFO",
-    "logFilters": [],
-}
-```
-
-Converted to code looks like:
-
-```cpp
-const char localConfig[] = 
-"{"
-    "\"lastRunLog\": 1024,"
-    "\"connectionLog\": 2048,"
-    "\"includeGeneral\": true,"
-    "\"includeDiag\": false,"
-    "\"includeTower\": false,"
-    "\"logLevel\": \"LOG_LEVEL_INFO\","
-    "\"logFilters\": []"
-"}";
-```
-
-You set a local config using `withLocalConfig` from setup() like this:
-
-```cpp
-DeviceInfoLedger::instance()
-    .withLocalConfig(localConfig)
-    .withRetainedBuffer(retainedLogs, sizeof(retainedLogs))
-    .setup(); 
-```
 
 ### Default configuration in Ledger
 
-You can also configure the product defaults in the cloud using Ledger using setup() code like this:
+You can configure the product defaults and device overrides in the cloud using Ledger using setup() code like this:
 
 ```cpp
+// This sets up remote configuration
+DeviceConfigLedger::instance()
+    .withConfigDefaultLedgerName("device-info-defaults")
+    .withConfigDeviceLedgerName("device-info-config")
+    .setup();
+
+// This sets up the device information in ledger
 DeviceInfoLedger::instance()
-    .withConfigDefaultLedgerEnabled(true)
+    .withInfoLedgerName("device-info")
     .withRetainedBuffer(retainedLogs, sizeof(retainedLogs))
     .setup(); 
 ```
 
-It is also possible to change the Ledger name. It currently must be a cloud to device Ledger with a product scope; you cannot use
-an owner or organization scope at this time.
-
+If you don't want the device-specific override ledger, remove the `withConfigDeviceLedgerName()` line.
 
 ### Device overrides in Ledger
-
-To enable the device-specific override feature, use `withConfigDeviceLedgerEnabled()` in your setup code.
-
-```cpp
-DeviceInfoLedger::instance()
-    .withConfigDefaultLedgerEnabled(true)
-    .withConfigDeviceLedgerEnabled(true)
-    .withRetainedBuffer(retainedLogs, sizeof(retainedLogs))
-    .setup(); 
-```
 
 You can create an instance in the `device-info-config` Ledger for a specific Device ID. This only needs to set the
 overrides to the default configuration (either cloud or local). 
@@ -217,8 +175,8 @@ For example, this JSON will increase the size of the connection log and set it t
 ```json
 {
     "connectionLog": 4096,
-    "logLevel": "LOG_LEVEL_TRACE",
-    "logFilters": [],
+    "logLevel": "TRACE",
+    "logFilters": {},
 }
 ```
 
@@ -226,17 +184,11 @@ This is an example using log filters to set the level for specific categories:
 
 ```json
 {
-    "logLevel": "LOG_LEVEL_WARN",
-    "logFilters": [
-        {
-            "category": "LOG_LEVEL_INFO",
-            "level": "app"
-        },
-        {
-            "category": "LOG_LEVEL_TRACE",
-            "level": "app.network"
-        }
-    ]
+    "logLevel": "WARN",
+    "logFilters": {
+        "app": "INFO",
+        "app.network": "TRACE"
+    }
 }
 ```
 
@@ -250,4 +202,4 @@ SerialLogHandler logHandler(LOG_LEVEL_WARN, { // Logging level for non-applicati
 ```
 
 Log settings in the cloud only affect the cloud logs, however, not the local USB serial logs. You can specify 
-different settings for `SerialLogHamdler`.
+different settings for `SerialLogHandler`.
