@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### TAN014 - SARA-R510 band selection 2024-12-16
+
+[TAN014 - SARA-R510 band selection](/reference/technical-advisory-notices/tan014/) is now available.
+
 ### Device OS 6.2.1 2024-12-16
 
 Device OS 6.2.1 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.

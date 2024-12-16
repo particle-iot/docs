@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "3c0499ff9b5096e0d864f0de0d35a5cd62612c55a7fec7aefa7433c346ce181f",
+            "hash": "09318b282d072d2d39ecefc3f31366e5d0244753241ae6b68ec45e21d5560d5a",
             "date": "2024-12-16"
         },
         "getting-started/cloud/logic.md": {
@@ -9589,6 +9589,10 @@
         "reference/discontinued/cellular/canada-sunset.md": {
             "hash": "726ccbaf30e4784a7aba6f0a2ea4273a0f966b048bab0c31f50de60fe7488aca",
             "date": "2024-12-12"
+        },
+        "reference/technical-advisory-notices/tan014.md": {
+            "hash": "9c2511d83b33a1ad8c4457e7a0f37ab79f7d55d9e0e2ccb82611349431b6de6d",
+            "date": "2024-12-16"
         }
     }
 }
