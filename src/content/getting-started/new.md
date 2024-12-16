@@ -21,6 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### DeviceInfoLedger 2024-12-16
+
+The [Device information in ledger](/getting-started/logic-ledger/device-info-ledger/) example now includes 
+a [documented library](https://github.com/particle-iot/DeviceInfoLedger) to make it easier to add the 
+feature to your firmware.
+
 ### B504 2024-12-13
 
 The B-Series SoM B504 did not previously list Verizon as supported for enterprise customers, though it is supported.
