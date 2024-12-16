@@ -21,11 +21,16 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.2.1 2024-12-16
+
+Device OS 6.2.1 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.
+
 ### DeviceInfoLedger 2024-12-16
 
 The [Device information in ledger](/getting-started/logic-ledger/device-info-ledger/) example now includes 
 a [documented library](https://github.com/particle-iot/DeviceInfoLedger) to make it easier to add the 
-feature to your firmware.
+feature to your firmware. It also factors out the cloud configuration code so you can use that separately
+from the device information ledger.
 
 ### B504 2024-12-13
 

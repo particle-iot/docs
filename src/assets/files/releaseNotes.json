@@ -28903,6 +28903,156 @@
                 2834,
                 2835
             ]
+        },
+        "v6.2.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.2.1",
+            "tag_name": "v6.2.1",
+            "name": "v6.2.1 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2024-12-12T22:03:15Z",
+            "published_at": "2024-12-16T16:34:33Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2838
+                    ],
+                    "section": "FEATURES",
+                    "text": "Expose ICCID to Modem Manager when tethering"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2842
+                    ],
+                    "section": "FEATURES",
+                    "text": "BG95-S5 support"
+                },
+                {
+                    "tags": [
+                        "BLE"
+                    ],
+                    "prs": [
+                        2837
+                    ],
+                    "section": "FEATURES",
+                    "text": "`BLE.setAdvertisingScheme()` API"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2841
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Optimize QSPI flash writes (to use highest clock speed and IO mode) and erasures (use 32K and 64K blocks when possible)"
+                },
+                {
+                    "tags": [
+                        "Ethernet"
+                    ],
+                    "prs": [
+                        2846
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Minor performance optimizations"
+                },
+                {
+                    "tags": [
+                        "Ethernet"
+                    ],
+                    "prs": [],
+                    "section": "ENHANCEMENTS",
+                    "text": "Enable internal pull-up on interrupt line in case external one is not populated to prevent it from floating [684047d7](https://github.com/particle-iot/device-os/commit/684047d7a26f20a002f9c51886421870b5c94f63)"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2849
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "WiFi: Always perform a scan before connect and use both SSID + BSSID to initiate the connection"
+                },
+                {
+                    "tags": [
+                        "Cellular",
+                        "R510"
+                    ],
+                    "prs": [
+                        2850
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Extend EHS (Emergency Hardware Shutdown) sequence timing due to reduced clock rate while in (UPSV=1) Power Saving mode"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2841
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix DMA issue when writing from internal flash to external flash"
+                },
+                {
+                    "tags": [
+                        "Ethernet"
+                    ],
+                    "prs": [
+                        2846
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix default pin configuration/validation"
+                },
+                {
+                    "tags": [
+                        "Cellular",
+                        "R510"
+                    ],
+                    "prs": [
+                        2845
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Device OS 6.2.0 unmasked all bands on R510; however LTE Cat-M1 band 71 shall be re-disabled. See our [Technical Advisory Note](https://docs.particle.io/reference/technical-advisory-notices/tan014/) for more info"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2836
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE: Fix a deadlock between `BLE.connect()` and `BLE.peerCentral()` calls in different threads"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2839
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE: Fix connection issues operating in peripheral/central roles concurrently"
+                }
+            ],
+            "prs": [
+                2836,
+                2837,
+                2838,
+                2839,
+                2841,
+                2842,
+                2845,
+                2846,
+                2849,
+                2850
+            ]
         }
     },
     "pulls": {
@@ -42735,6 +42885,117 @@
             "state": "open",
             "created_at": "2024-10-15T16:46:18Z",
             "detail": "There is deadlock happening among multi-threads.\n1. Custom thread acuired the `HAL BLE lock` when calling `BLE.connect()`, relying on BLE event thread to release the lock, thus, suspended.\n2. User thread acquired the `wiring BLE lock` when calling `BLE.peerCentral()`, followed by trying acquiring the `HAL BLE lock`, thus, suspended.\n3. BLE event thread tries acquiring the `wiring BLE lock` when invoking callback, thus, suspended."
+        },
+        "2837": {
+            "url": "https://github.com/particle-iot/device-os/pull/2837",
+            "number": 2837,
+            "title": "Add API to set advertising scheme on disconnected",
+            "state": "closed",
+            "created_at": "2024-10-16T16:59:06Z",
+            "detail": "Currently when device acting as BLE peripheral is disconnected from peer device, it will re-start advertising automatically. In some use cases, user may wants to stop advertising on disconnected, unless otherwise user manually calls `BLE.advertise()` to start advertising."
+        },
+        "2838": {
+            "url": "https://github.com/particle-iot/device-os/pull/2838",
+            "number": 2838,
+            "title": "[tether] expose ICCID",
+            "state": "closed",
+            "created_at": "2024-10-17T14:21:08Z",
+            "detail": "Exposes ICCID to Modem Manager. See https://www.notion.so/particle/6-2-0-Tethering-testing-118d40caa5dc807ea313de75973a049c?pvs=4 for testing notes and https://s.slack.com/archives/CHM3VNVN1/p1729102123537429"
+        },
+        "2839": {
+            "url": "https://github.com/particle-iot/device-os/pull/2839",
+            "number": 2839,
+            "title": "[Gen4] ble: clear connecting flag on connected for peripheral role",
+            "state": "closed",
+            "created_at": "2024-10-17T15:27:45Z",
+            "detail": "When a device is connected as BLE peripheral, it cannot connect to a BLE periperhal device."
+        },
+        "2840": {
+            "url": "https://github.com/particle-iot/device-os/pull/2840",
+            "number": 2840,
+            "title": "New cloud event API",
+            "state": "open",
+            "created_at": "2024-10-24T13:58:50Z",
+            "detail": "This PR introduces a [new API](https://github.com/particle-iot/device-os/blob/new-event-api/sc-131168/wiring/inc/spark_wiring_cloud_event.h) for publishing and subscribing to cloud events. The new API supports sending and receiving up to 16K of data in an event."
+        },
+        "2841": {
+            "url": "https://github.com/particle-iot/device-os/pull/2841",
+            "number": 2841,
+            "title": "[Gen 4] Optimize QSPI flash writes and erasures",
+            "state": "closed",
+            "created_at": "2024-11-12T11:20:34Z",
+            "detail": "1. We are unable to write anything over 8 bytes at a time to the QSPI flash.\n2. QSPI flash clock speed and IO mode (2IO/4IO) are not correctly calibrated on boot\n3. Erasures do not use 32K and 64K operations where possible"
+        },
+        "2842": {
+            "url": "https://github.com/particle-iot/device-os/pull/2842",
+            "number": 2842,
+            "title": "Allow Device OS to initialize BG95-S5 modems",
+            "state": "closed",
+            "created_at": "2024-11-26T23:57:39Z",
+            "detail": "Device OS fails to init BG95-S5 modem due to failing `AT+CPIN?` commands. See discussion [here](https://s.slack.com/archives/C06K0107RE1/p1731541647363639?thread_ts=1731098248.864349&cid=C06K0107RE1)"
+        },
+        "2843": {
+            "url": "https://github.com/particle-iot/device-os/pull/2843",
+            "number": 2843,
+            "title": "[gen3] fix internal -> external flash writes",
+            "state": "closed",
+            "created_at": "2024-12-04T16:15:14Z",
+            "detail": "External flash writes must be performed from RAM and can't be done directly from internal flash due to DMA requirements."
+        },
+        "2844": {
+            "url": "https://github.com/particle-iot/device-os/pull/2844",
+            "number": 2844,
+            "title": "Adds Electron2 Support",
+            "state": "open",
+            "created_at": "2024-12-06T06:45:23Z"
+        },
+        "2845": {
+            "url": "https://github.com/particle-iot/device-os/pull/2845",
+            "number": 2845,
+            "title": "[r510] ensures LTE Cat-M1 band 71 is disabled",
+            "state": "closed",
+            "created_at": "2024-12-10T02:57:53Z",
+            "detail": "- Device OS 6.2.0 unmasked all bands on R510, however band 71 should be disabled."
+        },
+        "2846": {
+            "url": "https://github.com/particle-iot/device-os/pull/2846",
+            "number": 2846,
+            "title": "[network] fixes Ethernet default config/validation, minor optimizations",
+            "state": "closed",
+            "created_at": "2024-12-11T15:20:42Z",
+            "detail": "`PIN_INVALID` should not be used as a default pin setting for wiznet config. It's very easy to put ethernet driver into a not so performant mode due to lack of interrupt pin configuration."
+        },
+        "2847": {
+            "url": "https://github.com/particle-iot/device-os/pull/2847",
+            "number": 2847,
+            "title": "[network] postpone ethernet interface initialization to allow STARTUP() call to override pin configuration without a reset",
+            "state": "closed",
+            "created_at": "2024-12-11T16:16:26Z",
+            "detail": "As title says. Postpones Ethernet interface initialization until after power management is initialized for all the platforms (even without aux power support). This happens after global app constructors are called, so should allow `STARTUP()` to override pin configuration for W5500."
+        },
+        "2848": {
+            "url": "https://github.com/particle-iot/device-os/pull/2848",
+            "number": 2848,
+            "title": "[network] postpone ethernet interface initialization to allow STARTUP() call to override pin configuration without a reset",
+            "state": "open",
+            "created_at": "2024-12-11T17:35:00Z",
+            "detail": "As title says. Postpones Ethernet interface initialization until after power management is initialized for all the platforms (even without aux power support). This happens after global app constructors are called, so should allow `STARTUP()` to override pin configuration for W5500."
+        },
+        "2849": {
+            "url": "https://github.com/particle-iot/device-os/pull/2849",
+            "number": 2849,
+            "title": "[gen4] wifi: use BSSID from scan result, always perform scans before connect",
+            "state": "closed",
+            "created_at": "2024-12-11T18:28:32Z",
+            "detail": "Default connect sequence in RTL872x SDK doesn't seem to work well with single SSID/multiple BSSIDs, apply the same workaround as for ESP32-based platforms to always perform a scan and use the best access point (BSSID) based on signal strength to connect to, instead of just blindly letting the SDK to connect by SSID name.\n\n(I2C log change is unrelated, just fixing an annoying log line that can occur with flaky I2C buses or devices that like to NACK a lot)"
+        },
+        "2850": {
+            "url": "https://github.com/particle-iot/device-os/pull/2850",
+            "number": 2850,
+            "title": "[u-blox][r510] fixes EHS timing when modem locks up while in Power Saving mode",
+            "state": "closed",
+            "created_at": "2024-12-11T19:27:38Z",
+            "detail": "- u-blox R510 modems have a reduced clock timing when in Power Saving mode, and if they should lock-up in that mode and require recovery intervention with the Emergency Hardware Shutdown (EHS) procedure, the standard documented timing will not recover them.  Instead, timings given by u-blox for a 1/4 clock rate shall be used."
         }
     }
 }
