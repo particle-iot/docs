@@ -1148,6 +1148,10 @@
           "dir": "DeviceGroupHelperRK"
         },
         {
+          "title": "DeviceInfoLedger",
+          "dir": "DeviceInfoLedger"
+        },
+        {
           "title": "DeviceKeyHelperRK",
           "dir": "DeviceKeyHelperRK"
         },
@@ -1833,6 +1837,10 @@
       "dir": "j",
       "collapse": true,
       "subsections": [
+        {
+          "title": "JA_PN532",
+          "dir": "JA_PN532"
+        },
         {
           "title": "jsmn",
           "dir": "jsmn"
@@ -2754,6 +2762,10 @@
         {
           "title": "PulseSensorAmped",
           "dir": "PulseSensorAmped"
+        },
+        {
+          "title": "pulsesensoramped_p2",
+          "dir": "pulsesensoramped_p2"
         }
       ]
     },
@@ -3399,6 +3411,10 @@
         {
           "title": "SparkFun_SHTC3_Arduino_Library",
           "dir": "SparkFun_SHTC3_Arduino_Library"
+        },
+        {
+          "title": "SparkFun_STHS34PF80_Arduino_Library",
+          "dir": "SparkFun_STHS34PF80_Arduino_Library"
         },
         {
           "title": "SparkFun_TMP102_Arduino_Library",

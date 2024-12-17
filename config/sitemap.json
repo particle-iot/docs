@@ -1155,7 +1155,7 @@
             "hash": "f998b77b51d9a121db7e614f2a666307e5878968f7b1e573769d2412a41f8239"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2024-11-13",
+            "date": "2024-12-17",
             "hash": "4978c808b23aa6b3ef7b4d961b20f9ff60705f5d62a5534bfb18fbd6896a992c"
         },
         "reference/cloud-apis/node-js.md": {
@@ -4583,8 +4583,8 @@
             "hash": "42be579b833ee1648c71e2d8d324388fa086a7d113e39e9d125de24554257cf4"
         },
         "reference/device-os/libraries/a/Adafruit_EPD_RK.md": {
-            "date": "2024-08-28",
-            "hash": "6b6b5593b776e92cfbb6a1f508eecedbc1cb322cff4931b8b623d00a827e7914"
+            "date": "2024-12-17",
+            "hash": "aa4d5fa4b0932086c9b69ee04bbd255515392f42616bdce796405576f85712d2"
         },
         "reference/device-os/libraries/a/Adafruit_Fingerprint.md": {
             "date": "2024-08-28",
@@ -5147,8 +5147,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2024-09-18",
-            "hash": "d4f649971ce59f5bd375a5cbe6c5f602f1bb6e83800858e074afc972d81d83d6"
+            "date": "2024-12-17",
+            "hash": "702906a2cdb29dd5f23be28d8e671b4112e6527b2bd964d1c92b167a28f4cea4"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -5567,8 +5567,8 @@
             "hash": "378c37b86faf12f4ff27efd4b048f5e2765d2bd88a4e42fef06f6634906cc0c2"
         },
         "reference/device-os/libraries/d/DHT22Gen3_RK.md": {
-            "date": "2024-08-28",
-            "hash": "db4e5ad6e98a46347932eaddd42a2c2b66ce7a0e792e29b5552711853b2d7588"
+            "date": "2024-12-17",
+            "hash": "7626917a49dcb5c59178e309f86d8762b32610c365688e4e77421a8da9d7ace8"
         },
         "reference/device-os/libraries/d/DiagnosticsHelperRK.md": {
             "date": "2024-08-28",
@@ -6263,8 +6263,8 @@
             "hash": "dbc255e5e49c7d8a91f9aeac397a3565282827f52654e3b90bb6dd4643c756f5"
         },
         "reference/device-os/libraries/l/LocalTimeRK.md": {
-            "date": "2024-08-28",
-            "hash": "aea734a4308b408434c0efe5e7c280833c4c7f6dce1a9c7a18d2f6cf98162f8a"
+            "date": "2024-12-17",
+            "hash": "9217d60148665278ad565f7977f076197b8bbed135a9a2ccc6959aa5006d9cd4"
         },
         "reference/device-os/libraries/l/locator.md": {
             "date": "2024-08-28",
@@ -9593,6 +9593,22 @@
         "reference/technical-advisory-notices/tan014.md": {
             "hash": "9c2511d83b33a1ad8c4457e7a0f37ab79f7d55d9e0e2ccb82611349431b6de6d",
             "date": "2024-12-16"
+        },
+        "reference/device-os/libraries/d/DeviceInfoLedger.md": {
+            "hash": "64aea793533f2fb031f6f8d774439a1409e426b73fb1c092e228d412ddacfe1e",
+            "date": "2024-12-17"
+        },
+        "reference/device-os/libraries/j/JA_PN532.md": {
+            "hash": "50d33b45dc331a59e6831cb78cd559734af4c08c9072b325c966e3c09ee739d8",
+            "date": "2024-12-17"
+        },
+        "reference/device-os/libraries/p/pulsesensoramped_p2.md": {
+            "hash": "798f5890d0d6efc0f38b3e3645da0cccf612c95a310b01b0bb94864e02a46fe2",
+            "date": "2024-12-17"
+        },
+        "reference/device-os/libraries/s/SparkFun_STHS34PF80_Arduino_Library.md": {
+            "hash": "61900218271f7c74670fb9dd3756f57b7aecaa1da38219c396fba052fd12508d",
+            "date": "2024-12-17"
         }
     }
 }

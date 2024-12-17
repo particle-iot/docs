@@ -1,0 +1,185 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_STHS34PF80_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_STHS34PF80_Arduino_Library/archive/1.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_STHS34PF80_Arduino_Library",
+    "version": "1.0.4",
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "A library to drive the STMicroelectronics infrared sensor STHS34PF80.",
+    "paragraph": "The STHS34PF80 is a low-power, high-sensitivity infrared sensor for presence and motion detection.",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_STHS34PF80_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_STHS34PF80_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_STHS34PF80_Arduino_Library",
+  "versions": {
+    "1.0.4": {
+      "added": "2024-12-17T11:20:49.490Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "msom": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "esomx": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_Interrupts": true,
+            "Example3_EmbeddedFunctions": true,
+            "Example4_SPIFunctionality": true,
+            "Example5_ArduinoPlotterOutput": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun STHS34PF80 Arduino Library\n========================================\n\n\nThis is the SparkFun library for the STMicroelectronics STHS34PF80 IR sensor with an operating wavelength between 5 µm and 20 µm with I<sup>2</sup>C and SPI interface. (https://www.sparkfun.com/products/22494). \n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **/Documentation** - Datasheet and application note for the STHS34PF80.\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n* **CONTRIBUTING.md** - guidance on how to contribute to this library.\n\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Hookup Guide](https://docs.sparkfun.com/SparkFun_Qwiic_Human_Presence_Sensor-STHS34PF80/introduction/)** - Basic hookup guide for the SparkFun Qwiic STHS34PF80.\n* **[Product Repository](https://github.com/sparkfun/SparkFun_Qwiic_Human_Presence_Sensor-STHS34PF80)** - Main repository for the SparkFun Qwiic STHS34PF80 (including hardware files)\n\n\nProducts that use this Library \n---------------------------------\n\n* [*SEN-22494*](https://www.sparkfun.com/products/22494)\n* [*SEN-23253*](https://www.sparkfun.com/products/23253)\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun forums](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n",
+  "allVersions": [
+    "1.0.4"
+  ]
+}

@@ -499,7 +499,7 @@
   "/reference/device-os/libraries/g": "/reference/device-os/libraries/g/G35",
   "/reference/device-os/libraries/h": "/reference/device-os/libraries/h/hackerpet",
   "/reference/device-os/libraries/i": "/reference/device-os/libraries/i/i2c_anything",
-  "/reference/device-os/libraries/j": "/reference/device-os/libraries/j/jsmn",
+  "/reference/device-os/libraries/j": "/reference/device-os/libraries/j/JA_PN532",
   "/reference/device-os/libraries/k": "/reference/device-os/libraries/k/Kalman",
   "/reference/device-os/libraries/l": "/reference/device-os/libraries/l/L3D",
   "/reference/device-os/libraries/m": "/reference/device-os/libraries/m/M8RelayRK",
