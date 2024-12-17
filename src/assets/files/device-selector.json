@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "title": "Developer type",
+            "options": [
+                {
+                    "id": "dth",
+                    "title": "Hobbyist",
+                    "type": "checkbox"
+                },
+                {
+                    "id": "dtp",
+                    "title": "Prototyping for a future product",
+                    "type": "checkbox"
+                },
+                {
+                    "id": "dts",
+                    "title": "Ready to scale",
+                    "type": "checkbox"
+                }
+            ]
+        }
+    ]
+}
