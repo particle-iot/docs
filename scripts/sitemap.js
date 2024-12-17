@@ -84,10 +84,11 @@ module.exports = function plugin(options) {
             'reference/device-os/api/',
             'reference/device-os/libraries/',
             'troubleshooting/led/',
+        ];
+        const ignoreDirectories = [
             'notes',
             'test',
         ];
-
 
         for(const fileName in files) {
             if (!fileName.match(/md$/)) {
@@ -108,6 +109,17 @@ module.exports = function plugin(options) {
             }
 
             if (hiddenPages[fileName]) {
+                continue;
+            }
+
+            let ignoreDirectory = false;
+            for(const p of ignoreDirectories) {
+                if (fileName.startsWith(p)) {
+                    ignoreDirectory = true;
+                    break;
+                }
+            }
+            if (ignoreDirectory) {
                 continue;
             }
 
