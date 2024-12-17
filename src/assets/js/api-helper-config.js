@@ -49,7 +49,7 @@ apiHelper.uploadSchema = function(schema, product, deviceId, next) {
     $.ajax({
         data: schema,
         error: function(err) {
-            next(err.responseJSON.message);
+            next(err);
         },
         headers: {
             'Authorization':'Bearer ' + apiHelper.auth.access_token,
@@ -81,7 +81,7 @@ apiHelper.downloadSchema = function(filename, product, deviceId, next) {
     $.ajax({
         dataType: 'text',
         error: function(err) {
-            next(err.responseJSON.message);
+            next(err);
         },
         headers: {
             'Accept':'application/schema+json',
