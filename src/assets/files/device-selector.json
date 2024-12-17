@@ -18,7 +18,8 @@
                     "title": "Ready to scale",
                     "type": "checkbox"
                 }
-            ]
+            ],
+            "note": "device-selector-developer-type.md"
         }
     ]
 }

@@ -1,9 +1,13 @@
 $(document).ready(function() {
+    const parser = new DOMParser();
+
     let deviceSelector = {
     };
 
     $('.deviceSelector').each( function() {
         const thisPartial = $(this);
+
+        const notesUrlBase = '/notes/';
 
         deviceSelector.elem = thisPartial;
         $(thisPartial).data('deviceSelector', deviceSelector);
@@ -38,7 +42,7 @@ $(document).ready(function() {
     
         }
 
-        const renderQuestions = function() {
+        const renderQuestions = async function() {
             $(deviceSelector.elem).empty();
 
             const questionElem = document.createElement('h2');
@@ -61,6 +65,7 @@ $(document).ready(function() {
                         
                         const checkboxElem = document.createElement('input');
                         $(checkboxElem).attr('type', optionsObj.type);
+                        $(checkboxElem).addClass('device-selector-checkbox');
                         $(labelElem).append(checkboxElem);
 
                         $(checkboxElem).on('click', function() {
@@ -86,6 +91,24 @@ $(document).ready(function() {
                     
                     $(questionElem).append(optionDivElem);
                 }
+
+                if (questionObj.note) {
+                    const url = notesUrlBase + questionObj.note.replace('.md', '/index.html');
+
+                    const noteFetch = await fetch(url);
+                    const noteText = await noteFetch.text();                
+    
+                    const noteDocument = parser.parseFromString(noteText, 'text/html');
+    
+                    const noteElem = document.createElement('div');
+                    const contentElem = $(noteDocument).find('.content');
+                    $(contentElem).removeClass('content');
+                    $(contentElem).addClass('device-selector-note');
+                    $(noteElem).html(contentElem);
+                    $(questionElem).append(noteElem);
+
+                }
+
 
                 $(deviceSelector.elem).append(questionElem);
             }
@@ -135,7 +158,7 @@ $(document).ready(function() {
     
             console.log('deviceSelector', deviceSelector);
 
-            renderQuestions();
+            await renderQuestions();
     
             loadQuerySettings();
         }
