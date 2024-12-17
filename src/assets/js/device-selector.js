@@ -51,21 +51,24 @@ $(document).ready(function() {
 
 
             for(const questionObj of deviceSelector.config.questions) {
-                const questionElem = document.createElement('div');
+                const questionElem = questionObj.questionElem = document.createElement('div');
 
                 const headerElem = document.createElement('h3');
                 $(headerElem).text(questionObj.title);
                 $(questionElem).append(headerElem);
 
-                for(const optionsObj of questionObj.options) {
-                    const optionDivElem = document.createElement('div');
+                if (questionObj.checkboxes) {
 
-                    if (optionsObj.type == 'checkbox') {
+                    for(const optionsObj of questionObj.checkboxes) {
+                        const optionDivElem = document.createElement('div');
+                        
                         const labelElem = document.createElement('label');
                         
                         const checkboxElem = document.createElement('input');
-                        $(checkboxElem).attr('type', optionsObj.type);
+                        $(checkboxElem).attr('type', 'checkbox');
                         $(checkboxElem).addClass('device-selector-checkbox');
+                        $(checkboxElem).data('optionsObj', optionsObj);
+                        $(checkboxElem).data('id', optionsObj.id);
                         $(labelElem).append(checkboxElem);
 
                         $(checkboxElem).on('click', function() {
@@ -87,13 +90,23 @@ $(document).ready(function() {
                         $(labelElem).append(textElem);
                         
                         $(optionDivElem).append(labelElem);
+                            
+                        $(questionElem).append(optionDivElem);
+                    }
+                }
+                
+                if (questionObj.note) {
+                    let detailsElem;
+                    if (questionObj.note.details) {
+                        detailsElem = containerElem = document.createElement('details');
+                        $(detailsElem).addClass('device-selector-details');
+    
+                        const summaryElem = document.createElement('summary');
+                        $(summaryElem).text(questionObj.note.summary ? questionObj.note.summary : 'Additional information');
+                        $(detailsElem).append(summaryElem);    
                     }
                     
-                    $(questionElem).append(optionDivElem);
-                }
-
-                if (questionObj.note) {
-                    const url = notesUrlBase + questionObj.note.replace('.md', '/index.html');
+                    const url = notesUrlBase + questionObj.note.file.replace('.md', '/index.html');
 
                     const noteFetch = await fetch(url);
                     const noteText = await noteFetch.text();                
@@ -105,13 +118,19 @@ $(document).ready(function() {
                     $(contentElem).removeClass('content');
                     $(contentElem).addClass('device-selector-note');
                     $(noteElem).html(contentElem);
-                    $(questionElem).append(noteElem);
 
+                    if (detailsElem) {
+                        $(detailsElem).append(noteElem);
+                        $(questionElem).append(detailsElem);
+                    }
+                    else {
+                        $(questionElem).append(noteElem);
+                    }
                 }
-
 
                 $(deviceSelector.elem).append(questionElem);
             }
+
 
             deviceSelector.answerElem = document.createElement('h2');
             $(deviceSelector.answerElem).text('Solutions');
