@@ -1,25 +1,56 @@
 {
     "questions": [
         {
+            "title": "Connectivity",
+            "id": "c",
+            "checkboxes": [
+                {
+                    "id": "cc",
+                    "title": "Cellular"
+                },
+                {
+                    "id": "cw",
+                    "title": "Wi-Fi"
+                },
+                {
+                    "id": "ce",
+                    "title": "Ethernet"
+                },
+                {
+                    "id": "cs",
+                    "title": "Satellite (NTN)"
+                },
+                {
+                    "id": "cl",
+                    "title": "LoRaWAN"
+                }
+            ],
+            "note": {
+                "file": "device-selector-connectivity.md",
+                "details": false
+            }
+        },
+        {
             "title": "Developer type",
-            "options": [
+            "id": "dt",
+            "checkboxes": [
                 {
                     "id": "dth",
-                    "title": "Hobbyist",
-                    "type": "checkbox"
+                    "title": "Hobbyist"
                 },
                 {
                     "id": "dtp",
-                    "title": "Prototyping for a future product",
-                    "type": "checkbox"
+                    "title": "Prototyping for a future product"
                 },
                 {
                     "id": "dts",
-                    "title": "Ready to scale",
-                    "type": "checkbox"
+                    "title": "Ready to scale"
                 }
             ],
-            "note": "device-selector-developer-type.md"
+            "note": {
+                "file": "device-selector-developer-type.md",
+                "details": false
+            }
         }
     ]
 }
