@@ -18,19 +18,93 @@ $(document).ready(function() {
         deviceSelector.saveFunctions = [];
         deviceSelector.lastQuery = '';
 
-        const saveSettings = function() {
-            let settings = {};
+        const renderNote = async function(options) {
+            let detailsElem;
+            if (options.options.noteObj.details) {
+                detailsElem = containerElem = document.createElement('details');
+                $(detailsElem).addClass('device-selector-details');
 
-            for(const fn of deviceSelector.saveFunctions) {
-                fn(settings);
+                const summaryElem = document.createElement('summary');
+                $(summaryElem).text(options.noteObj.summary ? options.noteObj.summary : 'Additional information');
+                $(detailsElem).append(summaryElem);    
+            }
+            
+            const url = notesUrlBase + options.noteObj.file.replace('.md', '/index.html');
+
+            const noteFetch = await fetch(url);
+            const noteText = await noteFetch.text();                
+
+            const noteDocument = parser.parseFromString(noteText, 'text/html');
+
+            const noteElem = document.createElement('div');
+            const contentElem = $(noteDocument).find('.content');
+            $(contentElem).removeClass('content');
+            $(contentElem).addClass('device-selector-note');
+            $(noteElem).html(contentElem);
+
+            if (detailsElem) {
+                $(detailsElem).append(noteElem);
+                $(options.containerElem).append(detailsElem);
+            }
+            else {
+                $(options.containerElem).append(noteElem);
+            }
+        }
+
+        const renderSolutions = async function() {
+            $(deviceSelector.answerInnerElem).empty();
+
+            // No selected checkboxes is wildcard
+
+            // Rank solutions
+            let showSolutions = [];
+
+            for(const solutionObj of deviceSelector.config.solutions) {
+                showSolutions.push(solutionObj);
             }
 
-            console.log('saveSettings', settings);
+            // Render ranked solutions
+            for(const solutionObj of showSolutions) {
+
+                const solutionElem = document.createElement('div');
+
+                const headerElem = document.createElement('h3');
+                $(headerElem).text(solutionObj.title);
+                $(solutionElem).append(headerElem);
+
+
+                if (solutionObj.note) {
+                    await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
+                }
+
+                $(deviceSelector.answerInnerElem).append(solutionElem);
+            }
+        }
+        /*
+            "solutions": [
+        {
+            "pt": ["ptg"],
+            "c": ["cc"],
+            "lo": ["lon", "loe", "loo"],
+            "cp": ["cpl", "cpm"],
+            "title": "Tracker One",
+            "image": ""
+        }
+    ]
+
+    */
+
+        const saveSettings = function() {
+            deviceSelector.settings = {};
+
+            for(const fn of deviceSelector.saveFunctions) {
+                fn(deviceSelector.settings);
+            }
 
             let query = '';
             let sep = '?';
-            for(const key in settings) {
-                const value = settings[key];
+            for(const key in deviceSelector.settings) {
+                const value = deviceSelector.settings[key];
     
                 query += sep + key + '=' + encodeURIComponent(value);
                 sep = '&';
@@ -39,8 +113,9 @@ $(document).ready(function() {
                 history.pushState(null, '', query);
                 deviceSelector.lastQuery = query;
             }
-    
+            renderSolutions();
         }
+
 
         const renderQuestions = async function() {
             $(deviceSelector.elem).empty();
@@ -166,45 +241,22 @@ $(document).ready(function() {
                 
 
                 if (questionObj.note) {
-                    let detailsElem;
-                    if (questionObj.note.details) {
-                        detailsElem = containerElem = document.createElement('details');
-                        $(detailsElem).addClass('device-selector-details');
-    
-                        const summaryElem = document.createElement('summary');
-                        $(summaryElem).text(questionObj.note.summary ? questionObj.note.summary : 'Additional information');
-                        $(detailsElem).append(summaryElem);    
-                    }
-                    
-                    const url = notesUrlBase + questionObj.note.file.replace('.md', '/index.html');
-
-                    const noteFetch = await fetch(url);
-                    const noteText = await noteFetch.text();                
-    
-                    const noteDocument = parser.parseFromString(noteText, 'text/html');
-    
-                    const noteElem = document.createElement('div');
-                    const contentElem = $(noteDocument).find('.content');
-                    $(contentElem).removeClass('content');
-                    $(contentElem).addClass('device-selector-note');
-                    $(noteElem).html(contentElem);
-
-                    if (detailsElem) {
-                        $(detailsElem).append(noteElem);
-                        $(questionElem).append(detailsElem);
-                    }
-                    else {
-                        $(questionElem).append(noteElem);
-                    }
+                    await renderNote({noteObj: questionObj.note, containerElem: questionElem});
                 }
 
                 $(deviceSelector.elem).append(questionElem);
             }
 
+            deviceSelector.answerOuterElem = document.createElement('div');
 
-            deviceSelector.answerElem = document.createElement('h2');
-            $(deviceSelector.answerElem).text('Solutions');
-            $(deviceSelector.elem).append(deviceSelector.answerElem);
+            const headerElem = document.createElement('h2');
+            $(headerElem).text('Solutions');
+            $(deviceSelector.answerOuterElem).append(headerElem);
+
+            deviceSelector.answerInnerElem = document.createElement('div');
+            $(deviceSelector.answerOuterElem).append(deviceSelector.answerInnerElem);
+
+            $(deviceSelector.elem).append(deviceSelector.answerOuterElem);
 
         }
 
@@ -250,6 +302,8 @@ $(document).ready(function() {
             await renderQuestions();
     
             loadQuerySettings();
+
+            await renderSolutions();
         }
 
         run();
