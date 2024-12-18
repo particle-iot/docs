@@ -92,9 +92,28 @@
                 {
                     "id": "cph",
                     "title": "High",
-                    "description": "Large machine learning models, video or sound processing"
+                    "description": "Large machine learning models, video or sound local processing."
                 }
             ]
         }
+    ],
+    "solutions": [
+        {
+            "pt": ["ptg"],
+            "c": ["cc"],
+            "lo": ["lon", "loe", "loo"],
+            "cp": ["cpl"],
+            "title": "Tracker One",
+            "image": ""
+        },
+        {
+            "pt": ["ptg"],
+            "c": ["cc"],
+            "lo": ["lon", "loe", "loo"],
+            "cp": ["cpl"],
+            "title": "Monitor One",
+            "image": ""
+        }
+
     ]
 }
