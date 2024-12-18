@@ -21,29 +21,7 @@
                 "file": "device-selector-project-type.md",
                 "details": false
             }
-        },        
-        {
-            "title": "Development stage",
-            "id": "ds",
-            "checkboxes": [
-                {
-                    "id": "dsh",
-                    "title": "Hobbyist"
-                },
-                {
-                    "id": "dsp",
-                    "title": "Prototyping for a future product"
-                },
-                {
-                    "id": "dss",
-                    "title": "Ready to scale"
-                }
-            ],
-            "note": {
-                "file": "device-selector-development-stage.md",
-                "details": false
-            }
-        },        
+        },
         {
             "title": "Connectivity",
             "id": "c",
