@@ -60,16 +60,20 @@ $(document).ready(function() {
                 if (questionObj.checkboxes) {
 
                     for(const optionsObj of questionObj.checkboxes) {
-                        const optionDivElem = document.createElement('div');
+                        const outerDivElem = document.createElement('div');
+                        $(outerDivElem).addClass('device-selector-outer-checkbox-div');
                         
+                        const topDivElem = document.createElement('div');
+
                         const labelElem = document.createElement('label');
                         
                         const checkboxElem = document.createElement('input');
                         $(checkboxElem).attr('type', 'checkbox');
                         $(checkboxElem).addClass('device-selector-checkbox');
-                        $(checkboxElem).data('optionsObj', optionsObj);
-                        $(checkboxElem).data('id', optionsObj.id);
                         $(labelElem).append(checkboxElem);
+                        if (optionsObj.checked) {
+                            $(checkboxElem).prop('checked', true);
+                        }
 
                         $(checkboxElem).on('click', function() {
                             saveSettings();
@@ -89,12 +93,78 @@ $(document).ready(function() {
                         const textElem = document.createTextNode(optionsObj.title);
                         $(labelElem).append(textElem);
                         
-                        $(optionDivElem).append(labelElem);
+                        $(topDivElem).append(labelElem);
+                        $(outerDivElem).append(topDivElem);
+
+                        if (optionsObj.description) {
+                            const lowerDivElem = document.createElement('div');
+                            $(lowerDivElem).addClass('device-selector-description');
+                            $(lowerDivElem).text(optionsObj.description);
                             
-                        $(questionElem).append(optionDivElem);
+                            $(outerDivElem).append(lowerDivElem);
+                        }
+
+
+                            
+                        $(questionElem).append(outerDivElem);
                     }
                 }
                 
+                if (questionObj.radio) {
+                    deviceSelector.saveFunctions.push(function(settings) {
+                        settings[questionObj.id] = $(questionElem).find('input:checked').val();
+                    });
+
+                    for(const optionsObj of questionObj.radio) {
+                        const outerDivElem = document.createElement('div');
+                        $(outerDivElem).addClass('device-selector-outer-checkbox-div');
+                        
+                        const topDivElem = document.createElement('div');
+
+                        const labelElem = document.createElement('label');
+                        
+                        const radioElem = document.createElement('input');
+                        $(radioElem).attr('type', 'radio');
+                        $(radioElem).attr('name', questionObj.id);
+                        $(radioElem).attr('value', optionsObj.id);
+                        $(radioElem).addClass('device-selector-checkbox');
+                        if (optionsObj.checked) {
+                            $(radioElem).prop('checked', true);
+                        }
+                        $(labelElem).append(radioElem);
+
+                        $(radioElem).on('click', function() {
+                            saveSettings();
+                        });
+
+                        deviceSelector.loadFunctions.push(function() {
+                            const value = deviceSelector.urlParams.get(questionObj.id);
+                            if (value == optionsObj.id) {
+                                $(radioElem).prop('checked', true);
+                            }
+                        });
+
+                        const textElem = document.createTextNode(optionsObj.title);
+                        $(labelElem).append(textElem);
+                        
+                        $(topDivElem).append(labelElem);
+                        $(outerDivElem).append(topDivElem);
+
+                        if (optionsObj.description) {
+                            const lowerDivElem = document.createElement('div');
+                            $(lowerDivElem).addClass('device-selector-description');
+                            $(lowerDivElem).text(optionsObj.description);
+                            
+                            $(outerDivElem).append(lowerDivElem);
+                        }
+
+
+                            
+                        $(questionElem).append(outerDivElem);
+                    }
+                }
+                
+
                 if (questionObj.note) {
                     let detailsElem;
                     if (questionObj.note.details) {

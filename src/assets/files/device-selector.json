@@ -6,21 +6,20 @@
             "checkboxes": [
                 {
                     "id": "ptg",
-                    "title": "Gateway (all-in-one)"
+                    "title": "Gateway (all-in-one)",
+                    "description": "Gateway devices are all-in-one, complete with an enclosure, ready to be deployed in your project for both prototyping and production."
                 },
                 {
                     "id": "ptd",
-                    "title": "Development kit"
+                    "title": "Development kit",
+                    "description": "Developer kits are designed for experimentation, hobbyists, and prototyping."
                 },
                 {
                     "id": "ptm",
-                    "title": "Module"
+                    "title": "Module",
+                    "description": "Production modules are designed for mass production. In many cases you will need to create your own circuit board to utilize the module."
                 }
-            ],
-            "note": {
-                "file": "device-selector-project-type.md",
-                "details": false
-            }
+            ]
         },
         {
             "title": "Connectivity",
@@ -28,29 +27,74 @@
             "checkboxes": [
                 {
                     "id": "cc",
-                    "title": "Cellular"
+                    "title": "Cellular",
+                    "description": "Cellular is a popular option for products because it doesn't depend on your customer's Wi-Fi."                    
                 },
                 {
                     "id": "cw",
-                    "title": "Wi-Fi"
+                    "title": "Wi-Fi",
+                    "description": "This is the least expensive option, and works globally."
                 },
                 {
                     "id": "ce",
-                    "title": "Ethernet"
+                    "title": "Ethernet",
+                    "description": "This option is ideal for some industrial applications where there may not be cellular or Wi-Fi available."
                 },
                 {
                     "id": "cs",
-                    "title": "Satellite (NTN)"
+                    "title": "Satellite (NTN)",
+                    "description": "This option is helpful for low-data remote sensing applications, or as an emergency backup tp cellular."
                 },
                 {
                     "id": "cl",
-                    "title": "LoRaWAN"
+                    "title": "LoRaWAN",
+                    "description": "This option is helpful for low-data remote sensing applications in some locations with poor cellular connectivity."
                 }
-            ],
-            "note": {
-                "file": "device-selector-connectivity.md",
-                "details": false
-            }
+            ]
+        },
+        {
+            "title": "Location",
+            "id": "lo",
+            "checkboxes": [
+                {
+                    "id": "lon",
+                    "title": "North America (United States, Canada, Mexico)"
+                },
+                {
+                    "id": "loe",
+                    "title": "Europe, Middle East, Africa, Asia"
+                },
+                {
+                    "id": "loo",
+                    "title": "Australia, New Zealand"
+                },
+                {
+                    "id": "loa",
+                    "title": "Central America, South America, Caribbean"
+                }
+            ]
+        },
+        {
+            "title": "Computing power required",
+            "id": "cp",
+            "radio": [
+                {
+                    "id": "cpl",
+                    "title": "Low",
+                    "description": "Remote sensor monitoring, for example.",
+                    "checked": true                
+                },
+                {
+                    "id": "cpm",
+                    "title": "Medium",
+                    "description": "Some local data analysis. Small machine learning models or classifiers."
+                },
+                {
+                    "id": "cph",
+                    "title": "High",
+                    "description": "Large machine learning models, video or sound processing"
+                }
+            ]
         }
     ]
 }
