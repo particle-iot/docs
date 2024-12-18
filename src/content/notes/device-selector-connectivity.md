@@ -1,1 +1,0 @@
-Particle devices have different connectivity options.
