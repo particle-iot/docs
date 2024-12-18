@@ -19700,6 +19700,12 @@
       "description": "Twilio SuperSIM",
       "simPlanKey": "supersim",
       "name": "EtherSIM"
+    },
+    {
+      "id": 5,
+      "description": "EtherSIM+",
+      "simPlanKey": "supersim",
+      "name": "EtherSIM+"
     }
   ],
   "simPlans": [
@@ -20023,7 +20029,8 @@
       "prefix": "P011",
       "platformId": 12,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "ARG-LDKT",
@@ -20049,7 +20056,8 @@
       "prefix": "P013",
       "platformId": 12,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "ARG-STRTKT",
@@ -20078,7 +20086,8 @@
       "prefix": "P010",
       "platformId": 12,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "ARGN-H",
@@ -20107,7 +20116,8 @@
       "prefix": "ARNH",
       "platformId": 12,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "ARGNKIT",
@@ -20136,7 +20146,8 @@
       "prefix": "ARNK",
       "platformId": 12,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "ARGNTRAY50",
@@ -20167,7 +20178,8 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "ASSET2GV2",
@@ -20193,7 +20205,8 @@
       "prefix": "A35K",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "ASSET3G260V2",
@@ -20219,7 +20232,8 @@
       "prefix": "A26K",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "ASSET3G270V2",
@@ -20245,7 +20259,8 @@
       "prefix": "A27K",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "B402MEA",
@@ -20279,7 +20294,8 @@
       "platformId": 23,
       "usb": false,
       "batteryRequired": false,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B402MTY",
@@ -20315,7 +20331,8 @@
       "wholesale": true,
       "retail": false,
       "endOfSupport": "2025-03-31",
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B404MEA",
@@ -20350,7 +20367,8 @@
       "usb": false,
       "batteryRequired": false,
       "verizon": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B404MTY",
@@ -20387,7 +20405,8 @@
       "wholesale": true,
       "retail": false,
       "endOfSupport": "2025-03-31",
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B404XMEA",
@@ -20422,7 +20441,8 @@
       "usb": false,
       "batteryRequired": false,
       "verizon": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B404XMTY",
@@ -20458,23 +20478,81 @@
       "usb": false,
       "batteryRequired": false,
       "verizon": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B504EMEA",
-      "desc": "",
+      "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1]",
       "lifecycle": "In development",
       "enterprise": false,
       "wholesale": false,
-      "retail": false
+      "retail": false,
+      "multiple": false,
+      "modem": "EG91-NAX",
+      "sim": 5,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "b series",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": true,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "batteryConn": "jst-ph-2",
+      "prefix": "P069",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true,
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B504EMTY",
-      "desc": "",
+      "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50]",
       "lifecycle": "In development",
       "enterprise": false,
       "wholesale": false,
-      "retail": false
+      "retail": false,
+      "multiple": true,
+      "modem": "EG91-NAX",
+      "singleSku": "B504MEA",
+      "sim": 5,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "b series",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": false,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": false,
+      "batteryConn": "jst-ph-2",
+      "prefix": "P069",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true,
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B504MEA",
@@ -20509,7 +20587,8 @@
       "platformId": 25,
       "usb": false,
       "batteryRequired": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B504MTY",
@@ -20545,7 +20624,8 @@
       "platformId": 25,
       "usb": false,
       "batteryRequired": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B523MEA",
@@ -20580,7 +20660,8 @@
       "platformId": 25,
       "usb": false,
       "batteryRequired": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B523MTY",
@@ -20617,7 +20698,8 @@
       "wholesale": true,
       "retail": false,
       "endOfSupport": "2025-03-31",
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B524MEA",
@@ -20650,7 +20732,8 @@
       "platformId": 25,
       "usb": false,
       "batteryRequired": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "B524MTY",
@@ -20684,7 +20767,8 @@
       "platformId": 25,
       "usb": false,
       "batteryRequired": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BAT1800",
@@ -20741,7 +20825,8 @@
       "wholesale": true,
       "retail": true,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN310TRAY50",
@@ -20777,7 +20862,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN314KIT",
@@ -20811,7 +20897,8 @@
       "prefix": "P027",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN314TRAY50",
@@ -20846,7 +20933,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN402",
@@ -20877,7 +20965,8 @@
       "prefix": "B40H",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN402-AQKT",
@@ -20907,7 +20996,8 @@
       "prefix": "P012",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN402KIT",
@@ -20938,7 +21028,8 @@
       "prefix": "B40K",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN402TRAY50",
@@ -20974,7 +21065,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN404",
@@ -21006,7 +21098,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN404KIT",
@@ -21038,7 +21131,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN404TRAY50",
@@ -21071,7 +21165,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN404X",
@@ -21106,7 +21201,8 @@
       "retail": true,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN404XKIT",
@@ -21141,7 +21237,8 @@
       "retail": true,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "BRN404XTRAY50",
@@ -21177,7 +21274,8 @@
       "retail": false,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "E260KIT",
@@ -21202,7 +21300,8 @@
       "prefix": "E26K",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E260TRAY50",
@@ -21227,7 +21326,8 @@
       "prefix": "E26T",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E270KIT",
@@ -21252,7 +21352,8 @@
       "prefix": "E27K",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E270TRAY50",
@@ -21281,7 +21382,8 @@
       "retail": false,
       "usb": "micro-b",
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E310KIT",
@@ -21310,7 +21412,8 @@
       "wholesale": true,
       "retail": true,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E310MOD1",
@@ -21334,7 +21437,8 @@
       "prefix": "E31M",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E310TRAY50",
@@ -21362,7 +21466,8 @@
       "prefix": "E31T",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E313EA",
@@ -21386,7 +21491,8 @@
       "prefix": "P005",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E313TRAY50",
@@ -21411,7 +21517,8 @@
       "prefix": "P005",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E314KIT",
@@ -21439,7 +21546,8 @@
       "prefix": "P029",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E314MOD1",
@@ -21463,7 +21571,8 @@
       "prefix": "P029",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E314TRAY50",
@@ -21492,7 +21601,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E350KIT",
@@ -21516,7 +21626,8 @@
       "prefix": "E35K",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E350TRAY50",
@@ -21541,7 +21652,8 @@
       "prefix": "E35T",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E402KIT",
@@ -21569,7 +21681,8 @@
       "wholesale": true,
       "retail": true,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E402MOD1",
@@ -21593,7 +21706,8 @@
       "prefix": "E40M",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E402TRAY50",
@@ -21623,7 +21737,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E404KIT",
@@ -21651,7 +21766,8 @@
       "prefix": "P030",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E404MOD1",
@@ -21678,7 +21794,8 @@
       "prefix": "P030",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E404TRAY50",
@@ -21704,7 +21821,8 @@
       "prefix": "P030",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "E404XTRAY50",
@@ -21733,7 +21851,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "EDGEAISNSRKIT",
@@ -21773,7 +21892,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "ELC402EA",
@@ -21798,7 +21918,8 @@
       "prefix": "E4DK",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "ELC402TY",
@@ -21828,7 +21949,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "ELC404TY",
@@ -21854,7 +21976,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "FWNG-ETH",
@@ -22001,7 +22124,8 @@
       "usb": false,
       "batteryRequired": false,
       "verizon": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "M404MTY",
@@ -22040,7 +22164,8 @@
       "usb": false,
       "batteryRequired": false,
       "verizon": true,
-      "m2som": true
+      "m2som": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "M524MEA",
@@ -22077,7 +22202,8 @@
       "batteryConn": false,
       "usb": false,
       "batteryRequired": false,
-      "m2som": true
+      "m2som": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "M524MTY",
@@ -22115,7 +22241,46 @@
       "batteryConn": false,
       "usb": false,
       "batteryRequired": false,
-      "m2som": true
+      "m2som": true,
+      "mcu": "rtl872x"
+    },
+    {
+      "name": "M635EMEA",
+      "desc": "M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "modem": "BG95-S5",
+      "sim": 5,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P068",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": false,
+      "batteryRequired": false,
+      "m2som": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "M635MEA",
@@ -22152,7 +22317,8 @@
       "batteryConn": false,
       "usb": false,
       "batteryRequired": false,
-      "m2som": true
+      "m2som": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "M8CAB3VEA",
@@ -22360,7 +22526,8 @@
       "platformId": 26,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "MON404E02C01KIT",
@@ -22398,7 +22565,8 @@
       "platformId": 26,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "MON524E01C01KIT",
@@ -22436,7 +22604,8 @@
       "platformId": 26,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "MUON404",
@@ -22473,7 +22642,8 @@
       "batteryConn": "jst-ph-3",
       "usb": "c",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "MUON404EA",
@@ -22510,7 +22680,8 @@
       "batteryConn": "jst-ph-3",
       "usb": "c",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "MUON524",
@@ -22546,7 +22717,8 @@
       "platformId": 35,
       "batteryConn": "jst-ph-3",
       "usb": "c",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "rtl872x"
     },
     {
       "name": "MUON524EA",
@@ -22582,7 +22754,8 @@
       "platformId": 35,
       "batteryConn": "jst-ph-3",
       "usb": "c",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "rtl872x"
     },
     {
       "name": "MUON635",
@@ -22619,7 +22792,8 @@
       "batteryConn": "jst-ph-3",
       "usb": "c",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "MUON635EA",
@@ -22656,7 +22830,8 @@
       "batteryConn": "jst-ph-3",
       "usb": "c",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "rtl872x"
     },
     {
       "name": "MUONCB",
@@ -22764,7 +22939,8 @@
       "prefix": "P024",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "ONE402MTY",
@@ -22800,7 +22976,8 @@
       "prefix": "P024",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "ONE404MEA",
@@ -22838,7 +23015,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "ONE404MTY",
@@ -22878,7 +23056,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "ONE523MEA",
@@ -22917,7 +23096,8 @@
       "prefix": "P025",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "ONE523MTY",
@@ -22958,7 +23138,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "ONE524MEA",
@@ -22995,7 +23176,8 @@
       "prefix": "P032",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "ONE524MTY",
@@ -23034,7 +23216,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "P0MOD10",
@@ -23054,7 +23237,8 @@
       "prefix": "P0MD",
       "platformId": 6,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "P0REEL",
@@ -23074,7 +23258,8 @@
       "prefix": "",
       "platformId": 6,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "P1MOD10",
@@ -23097,7 +23282,8 @@
       "prefix": "P1MD",
       "platformId": 8,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "P1REEL",
@@ -23121,7 +23307,8 @@
       "platformId": 8,
       "usb": false,
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "P2MOD10",
@@ -23148,7 +23335,8 @@
       "prefix": "P046",
       "platformId": 32,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "P2REEL",
@@ -23175,7 +23363,8 @@
       "prefix": "P046",
       "platformId": 32,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "PARANTC41EA",
@@ -23292,7 +23481,8 @@
       "prefix": "P051",
       "platformId": 32,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "PHN2KIT",
@@ -23318,7 +23508,8 @@
       "prefix": "P051",
       "platformId": 32,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "PHN2MEA",
@@ -23344,7 +23535,8 @@
       "prefix": "P051",
       "platformId": 32,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "PHN2MTY",
@@ -23371,7 +23563,8 @@
       "prefix": "P051",
       "platformId": 32,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "PHNTRAYH",
@@ -23395,7 +23588,8 @@
       "platformId": 6,
       "usb": "micro-b",
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "PHNTRAYNOH",
@@ -23419,7 +23613,8 @@
       "platformId": 6,
       "usb": "micro-b",
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "stm32f2xx"
     },
     {
       "name": "PHOTONH",
@@ -23438,7 +23633,8 @@
       "prefix": "PHHM",
       "platformId": 6,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "PHOTONKIT",
@@ -23457,7 +23653,8 @@
       "prefix": "PHHK",
       "platformId": 6,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "PHOTONNOH",
@@ -23476,7 +23673,8 @@
       "prefix": "PHNM",
       "platformId": 6,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "PMBATH1EA",
@@ -23731,7 +23929,8 @@
       "prefix": "S26K",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "SNSRKIT3G270",
@@ -23757,7 +23956,8 @@
       "wholesale": true,
       "retail": true,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "stm32f2xx"
     },
     {
       "name": "SPKBTTN",
@@ -23805,7 +24005,8 @@
       "prefix": "P024",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "T402MKIT",
@@ -23841,7 +24042,8 @@
       "prefix": "P024",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "mcu": "nrf52840"
     },
     {
       "name": "T402MTY",
@@ -23882,7 +24084,8 @@
       "platformId": 26,
       "usb": false,
       "batteryRequired": false,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "T404MEA",
@@ -23921,7 +24124,8 @@
       "verizon": true,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "T404MKIT",
@@ -23960,7 +24164,8 @@
       "verizon": true,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "T404MTY",
@@ -24001,7 +24206,8 @@
       "usb": false,
       "batteryRequired": false,
       "verizon": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "T523MEA",
@@ -24038,7 +24244,8 @@
       "prefix": "P025",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "T523MKIT",
@@ -24078,7 +24285,8 @@
       "prefix": "P025",
       "platformId": 26,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "T523MTY",
@@ -24116,7 +24324,8 @@
       "prefix": "P025",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "T524MEA",
@@ -24154,7 +24363,8 @@
       "batteryRequired": true,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "T524MKIT",
@@ -24192,7 +24402,8 @@
       "batteryRequired": true,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "mcu": "nrf52840"
     },
     {
       "name": "T524MTY",
@@ -24232,7 +24443,8 @@
       "platformId": 26,
       "usb": false,
       "batteryRequired": true,
-      "endOfSupport": "2025-03-31"
+      "endOfSupport": "2025-03-31",
+      "mcu": "nrf52840"
     },
     {
       "name": "XENNTRAY50",
@@ -24264,7 +24476,8 @@
       "batteryRequired": false,
       "platformId": 14,
       "prefix": "XENT",
-      "endOfSupport": "2020-12-31"
+      "endOfSupport": "2020-12-31",
+      "mcu": "nrf52840"
     }
   ],
   "skuClass": [
@@ -25136,10 +25349,31 @@
       "lifecycle": "GA"
     },
     {
+      "sim": 5,
+      "simPlan": 40,
+      "modem": "BG95-S5",
+      "desc": "M Series LTE M1/2G/Satellite (Global, EtherSIM)",
+      "lifecycle": "In development"
+    },
+    {
       "sim": 4,
       "simPlan": 40,
       "modem": "BG95-S5",
       "desc": "M-Series LTE M1/2G/NTN Satellite Global EtherSIM",
+      "lifecycle": "In development"
+    },
+    {
+      "sim": 5,
+      "simPlan": 40,
+      "modem": "EG91-E",
+      "desc": "B-Series B524E LTE Cat1/3G/2G EMEAA EtherSIM+",
+      "lifecycle": "In development"
+    },
+    {
+      "sim": 5,
+      "simPlan": 40,
+      "modem": "EG91-NAX",
+      "desc": "B-Series B504E LTE Cat1/3G NorAm EtherSIM+",
       "lifecycle": "In development"
     },
     {
@@ -25229,6 +25463,11 @@
     },
     {
       "country": "Afghanistan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Afghanistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25255,6 +25494,11 @@
     },
     {
       "country": "Afghanistan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Afghanistan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -25270,6 +25514,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Afghanistan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Afghanistan",
@@ -25346,6 +25595,11 @@
     },
     {
       "country": "Albania",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Albania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25372,6 +25626,11 @@
     },
     {
       "country": "Albania",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Albania",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -25387,6 +25646,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Albania",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Albania",
@@ -25465,6 +25729,11 @@
     },
     {
       "country": "Algeria",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Algeria",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25493,6 +25762,11 @@
     },
     {
       "country": "Algeria",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Algeria",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -25510,6 +25784,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Algeria",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Algeria",
@@ -25587,6 +25866,11 @@
     },
     {
       "country": "Andorra",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Andorra",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25615,6 +25899,11 @@
     },
     {
       "country": "Andorra",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Andorra",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -25632,6 +25921,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Andorra",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Andorra",
@@ -25712,6 +26006,11 @@
     },
     {
       "country": "Angola",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Angola",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25740,6 +26039,11 @@
     },
     {
       "country": "Angola",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Angola",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -25757,6 +26061,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Angola",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Angola",
@@ -25837,6 +26146,11 @@
     },
     {
       "country": "Anguilla",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Anguilla",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25862,6 +26176,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Anguilla",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Anguilla",
@@ -25886,6 +26205,11 @@
     },
     {
       "country": "Anguilla",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Anguilla",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -25959,6 +26283,11 @@
     },
     {
       "country": "Antarctica",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Antarctica",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25987,6 +26316,11 @@
     },
     {
       "country": "Antarctica",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Antarctica",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -26004,6 +26338,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Antarctica",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Antarctica",
@@ -26081,6 +26420,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Antigua and Barbuda",
@@ -26109,6 +26453,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Antigua and Barbuda",
@@ -26133,6 +26482,11 @@
     },
     {
       "country": "Antigua and Barbuda",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Antigua and Barbuda",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26206,6 +26560,11 @@
     },
     {
       "country": "Argentina",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Argentina",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26231,6 +26590,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Argentina",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Argentina",
@@ -26255,6 +26619,11 @@
     },
     {
       "country": "Argentina",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Argentina",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26328,6 +26697,11 @@
     },
     {
       "country": "Armenia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Armenia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26353,6 +26727,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Armenia",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Armenia",
@@ -26376,6 +26755,11 @@
     },
     {
       "country": "Armenia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Armenia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -26448,6 +26832,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Aruba",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Aruba",
@@ -26476,6 +26865,11 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Aruba",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Aruba",
@@ -26500,6 +26894,11 @@
     },
     {
       "country": "Aruba",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Aruba",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26573,6 +26972,11 @@
     },
     {
       "country": "Australia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Australia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26599,6 +27003,11 @@
     },
     {
       "country": "Australia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Australia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -26614,6 +27023,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Australia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Australia",
@@ -26694,6 +27108,11 @@
     },
     {
       "country": "Austria",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Austria",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26720,6 +27139,11 @@
     },
     {
       "country": "Austria",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Austria",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -26735,6 +27159,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Austria",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Austria",
@@ -26811,6 +27240,11 @@
     },
     {
       "country": "Azerbaijan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Azerbaijan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26839,6 +27273,11 @@
     },
     {
       "country": "Azerbaijan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Azerbaijan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -26856,6 +27295,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Azerbaijan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Azerbaijan",
@@ -26932,6 +27376,11 @@
     },
     {
       "country": "Bahamas",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bahamas",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26960,6 +27409,11 @@
     },
     {
       "country": "Bahamas",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Bahamas",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -26978,6 +27432,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Bahamas",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Bahamas",
@@ -27055,6 +27514,11 @@
     },
     {
       "country": "Bahrain",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bahrain",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27082,6 +27546,11 @@
     },
     {
       "country": "Bahrain",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Bahrain",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -27098,6 +27567,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Bahrain",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Bahrain",
@@ -27174,6 +27648,11 @@
     },
     {
       "country": "Bangladesh",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bangladesh",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27201,6 +27680,11 @@
     },
     {
       "country": "Bangladesh",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Bangladesh",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -27217,6 +27701,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Bangladesh",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Bangladesh",
@@ -27290,6 +27779,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Barbados",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Barbados",
@@ -27318,6 +27812,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Barbados",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Barbados",
@@ -27342,6 +27841,11 @@
     },
     {
       "country": "Barbados",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Barbados",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -27415,6 +27919,11 @@
     },
     {
       "country": "Belarus",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Belarus",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27442,6 +27951,11 @@
     },
     {
       "country": "Belarus",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Belarus",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -27458,6 +27972,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Belarus",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Belarus",
@@ -27535,6 +28054,11 @@
     },
     {
       "country": "Belgium",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Belgium",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27561,6 +28085,11 @@
     },
     {
       "country": "Belgium",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Belgium",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -27576,6 +28105,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Belgium",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Belgium",
@@ -27652,6 +28186,11 @@
     },
     {
       "country": "Belize",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Belize",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27677,6 +28216,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Belize",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Belize",
@@ -27701,6 +28245,11 @@
     },
     {
       "country": "Belize",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Belize",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -27774,6 +28323,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Benin",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Benin",
@@ -27804,6 +28358,11 @@
     },
     {
       "country": "Benin",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Benin",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -27820,6 +28379,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Benin",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Benin",
@@ -27899,6 +28463,11 @@
     },
     {
       "country": "Bermuda",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bermuda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27927,6 +28496,11 @@
     },
     {
       "country": "Bermuda",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Bermuda",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -27945,6 +28519,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Bermuda",
@@ -28022,6 +28601,11 @@
     },
     {
       "country": "Bolivia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bolivia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28047,6 +28631,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bolivia",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Bolivia",
@@ -28071,6 +28660,11 @@
     },
     {
       "country": "Bolivia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Bolivia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -28145,6 +28739,11 @@
     },
     {
       "country": "Bonaire",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bonaire",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28173,6 +28772,11 @@
     },
     {
       "country": "Bonaire",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Bonaire",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -28191,6 +28795,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Bonaire",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Bonaire",
@@ -28271,6 +28880,11 @@
     },
     {
       "country": "Bosnia and Herzegovina",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bosnia and Herzegovina",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28298,6 +28912,11 @@
     },
     {
       "country": "Bosnia and Herzegovina",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Bosnia and Herzegovina",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -28314,6 +28933,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Bosnia and Herzegovina",
@@ -28388,6 +29012,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Botswana",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Botswana",
@@ -28419,6 +29048,11 @@
     },
     {
       "country": "Botswana",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Botswana",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -28436,6 +29070,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Botswana",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Botswana",
@@ -28512,6 +29151,11 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Brazil",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Brazil",
@@ -28542,6 +29186,11 @@
       "recommendation": "NR",
       "reason": "Limited band compatibility, roaming restrictions",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Brazil",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Brazil",
@@ -28565,6 +29214,11 @@
       "recommendation": "NR",
       "reason": "Poor band fit",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Brazil",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Brazil",
@@ -28647,6 +29301,11 @@
     },
     {
       "country": "Brunei",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Brunei",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28674,6 +29333,11 @@
     },
     {
       "country": "Brunei",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Brunei",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -28690,6 +29354,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Brunei",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Brunei",
@@ -28768,6 +29437,11 @@
     },
     {
       "country": "Bulgaria",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Bulgaria",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28794,6 +29468,11 @@
     },
     {
       "country": "Bulgaria",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Bulgaria",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -28809,6 +29488,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Bulgaria",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Bulgaria",
@@ -28885,6 +29569,11 @@
     },
     {
       "country": "Burkina Faso",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Burkina Faso",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28913,6 +29602,11 @@
     },
     {
       "country": "Burkina Faso",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Burkina Faso",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -28930,6 +29624,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Burkina Faso",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Burkina Faso",
@@ -29009,6 +29708,11 @@
     },
     {
       "country": "Burundi",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Burundi",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29037,6 +29741,11 @@
     },
     {
       "country": "Burundi",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Burundi",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -29054,6 +29763,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Burundi",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Burundi",
@@ -29134,6 +29848,11 @@
     },
     {
       "country": "Cabo Verde",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Cabo Verde",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29162,6 +29881,11 @@
     },
     {
       "country": "Cabo Verde",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Cabo Verde",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -29179,6 +29903,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Cabo Verde",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Cabo Verde",
@@ -29256,6 +29985,11 @@
     },
     {
       "country": "Cambodia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Cambodia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29283,6 +30017,11 @@
     },
     {
       "country": "Cambodia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Cambodia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -29299,6 +30038,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Cambodia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Cambodia",
@@ -29377,6 +30121,11 @@
     },
     {
       "country": "Cameroon",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Cameroon",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29405,6 +30154,11 @@
     },
     {
       "country": "Cameroon",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Cameroon",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -29422,6 +30176,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Cameroon",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Cameroon",
@@ -29498,6 +30257,11 @@
     },
     {
       "country": "Canada",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Canada",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "YES"
@@ -29524,6 +30288,11 @@
     },
     {
       "country": "Canada",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Canada",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -29541,6 +30310,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Canada",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Canada",
@@ -29614,6 +30388,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cayman Islands",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Cayman Islands",
@@ -29642,6 +30421,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Cayman Islands",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Cayman Islands",
@@ -29666,6 +30450,11 @@
     },
     {
       "country": "Cayman Islands",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Cayman Islands",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -29739,6 +30528,11 @@
     },
     {
       "country": "Central African Republic",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Central African Republic",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29766,6 +30560,11 @@
     },
     {
       "country": "Central African Republic",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Central African Republic",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -29782,6 +30581,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Central African Republic",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Central African Republic",
@@ -29861,6 +30665,11 @@
     },
     {
       "country": "Chad",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Chad",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29888,6 +30697,11 @@
     },
     {
       "country": "Chad",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Chad",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -29904,6 +30718,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Chad",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Chad",
@@ -29979,6 +30798,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Chile",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Chile",
@@ -30007,6 +30831,11 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Chile",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Chile",
@@ -30031,6 +30860,11 @@
     },
     {
       "country": "Chile",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Chile",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30106,6 +30940,11 @@
     },
     {
       "country": "China",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "China",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30136,6 +30975,11 @@
     },
     {
       "country": "China",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "China",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -30155,6 +30999,11 @@
       "sim": 4,
       "recommendation": "NR",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "China",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "China",
@@ -30235,6 +31084,11 @@
     },
     {
       "country": "Colombia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Colombia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30260,6 +31114,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Colombia",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Colombia",
@@ -30284,6 +31143,11 @@
     },
     {
       "country": "Colombia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Colombia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30357,6 +31221,11 @@
     },
     {
       "country": "Congo (Brazzaville)",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Congo (Brazzaville)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30384,6 +31253,11 @@
     },
     {
       "country": "Congo (Brazzaville)",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Congo (Brazzaville)",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -30400,6 +31274,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Congo (Brazzaville)",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Congo (Brazzaville)",
@@ -30476,6 +31355,11 @@
     },
     {
       "country": "Congo (Kinshasa)",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Congo (Kinshasa)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30503,6 +31387,11 @@
     },
     {
       "country": "Congo (Kinshasa)",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Congo (Kinshasa)",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -30519,6 +31408,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Congo (Kinshasa)",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Congo (Kinshasa)",
@@ -30594,6 +31488,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Costa Rica",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Costa Rica",
@@ -30622,6 +31521,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "May work with partial band support"
+    },
+    {
+      "country": "Costa Rica",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Costa Rica",
@@ -30646,6 +31550,11 @@
     },
     {
       "country": "Costa Rica",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Costa Rica",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30716,6 +31625,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Côte d'Ivoire",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Côte d'Ivoire",
@@ -30747,6 +31661,11 @@
     },
     {
       "country": "Côte d'Ivoire",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Côte d'Ivoire",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -30767,6 +31686,11 @@
     },
     {
       "country": "Côte d'Ivoire",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Côte d'Ivoire",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30841,6 +31765,11 @@
     },
     {
       "country": "Croatia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Croatia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30864,6 +31793,11 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Croatia",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Croatia",
@@ -30885,6 +31819,11 @@
     },
     {
       "country": "Croatia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Croatia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30958,6 +31897,11 @@
     },
     {
       "country": "Cuba",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Cuba",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30986,6 +31930,11 @@
     },
     {
       "country": "Cuba",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Cuba",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -31004,6 +31953,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Cuba",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Cuba",
@@ -31084,6 +32038,11 @@
     },
     {
       "country": "Curaçao",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Curaçao",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31112,6 +32071,11 @@
     },
     {
       "country": "Curaçao",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Curaçao",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -31130,6 +32094,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Curaçao",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Curaçao",
@@ -31204,6 +32173,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cyprus",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Cyprus",
@@ -31234,6 +32208,11 @@
     },
     {
       "country": "Cyprus",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Cyprus",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -31253,6 +32232,11 @@
     },
     {
       "country": "Cyprus",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Cyprus",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -31326,6 +32310,11 @@
     },
     {
       "country": "Czechia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Czechia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31352,6 +32341,11 @@
     },
     {
       "country": "Czechia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Czechia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -31367,6 +32361,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Czechia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Czechia",
@@ -31443,6 +32442,11 @@
     },
     {
       "country": "Denmark",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Denmark",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31469,6 +32473,11 @@
     },
     {
       "country": "Denmark",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Denmark",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -31484,6 +32493,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Denmark",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Denmark",
@@ -31560,6 +32574,11 @@
     },
     {
       "country": "Dominica",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Dominica",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31585,6 +32604,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Dominica",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Dominica",
@@ -31609,6 +32633,11 @@
     },
     {
       "country": "Dominica",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Dominica",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -31682,6 +32711,11 @@
     },
     {
       "country": "Dominican Republic",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Dominican Republic",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31707,6 +32741,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Dominican Republic",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Dominican Republic",
@@ -31731,6 +32770,11 @@
     },
     {
       "country": "Dominican Republic",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Dominican Republic",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -31804,6 +32848,11 @@
     },
     {
       "country": "Ecuador",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Ecuador",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31829,6 +32878,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Ecuador",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Ecuador",
@@ -31853,6 +32907,11 @@
     },
     {
       "country": "Ecuador",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Ecuador",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -31926,6 +32985,11 @@
     },
     {
       "country": "Egypt",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Egypt",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31951,6 +33015,11 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Egypt",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Egypt",
@@ -31974,6 +33043,11 @@
     },
     {
       "country": "Egypt",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Egypt",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -32048,6 +33122,11 @@
     },
     {
       "country": "El Salvador",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "El Salvador",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32073,6 +33152,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "El Salvador",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "El Salvador",
@@ -32097,6 +33181,11 @@
     },
     {
       "country": "El Salvador",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "El Salvador",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -32170,6 +33259,11 @@
     },
     {
       "country": "Equatorial Guinea",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Equatorial Guinea",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32198,6 +33292,11 @@
     },
     {
       "country": "Equatorial Guinea",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Equatorial Guinea",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -32215,6 +33314,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Equatorial Guinea",
@@ -32295,6 +33399,11 @@
     },
     {
       "country": "Estonia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Estonia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32321,6 +33430,11 @@
     },
     {
       "country": "Estonia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Estonia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -32336,6 +33450,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Estonia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Estonia",
@@ -32412,6 +33531,11 @@
     },
     {
       "country": "eSwatini",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "eSwatini",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32440,6 +33564,11 @@
     },
     {
       "country": "eSwatini",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "eSwatini",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -32457,6 +33586,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "eSwatini",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "eSwatini",
@@ -32534,6 +33668,11 @@
     },
     {
       "country": "Ethiopia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Ethiopia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32562,6 +33701,11 @@
     },
     {
       "country": "Ethiopia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Ethiopia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -32582,6 +33726,11 @@
     },
     {
       "country": "Ethiopia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Ethiopia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -32658,6 +33807,11 @@
     },
     {
       "country": "Faroe Islands",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Faroe Islands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32684,6 +33838,11 @@
     },
     {
       "country": "Faroe Islands",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Faroe Islands",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -32699,6 +33858,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Faroe Islands",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Faroe Islands",
@@ -32777,6 +33941,11 @@
     },
     {
       "country": "Fiji",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Fiji",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32804,6 +33973,11 @@
     },
     {
       "country": "Fiji",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Fiji",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -32820,6 +33994,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Fiji",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Fiji",
@@ -32899,6 +34078,11 @@
     },
     {
       "country": "Finland",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Finland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32925,6 +34109,11 @@
     },
     {
       "country": "Finland",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Finland",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -32940,6 +34129,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Finland",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Finland",
@@ -33016,6 +34210,11 @@
     },
     {
       "country": "France",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "France",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33042,6 +34241,11 @@
     },
     {
       "country": "France",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "France",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -33057,6 +34261,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "France",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "France",
@@ -33130,6 +34339,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "French Guiana",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "French Guiana",
@@ -33161,6 +34375,11 @@
     },
     {
       "country": "French Guiana",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "French Guiana",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -33178,6 +34397,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "French Guiana",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "French Guiana",
@@ -33253,6 +34477,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gabon",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Gabon",
@@ -33283,6 +34512,11 @@
     },
     {
       "country": "Gabon",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Gabon",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -33302,6 +34536,11 @@
     },
     {
       "country": "Gabon",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Gabon",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -33375,6 +34614,11 @@
     },
     {
       "country": "Gambia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Gambia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33403,6 +34647,11 @@
     },
     {
       "country": "Gambia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Gambia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -33420,6 +34669,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Gambia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Gambia",
@@ -33500,6 +34754,11 @@
     },
     {
       "country": "Georgia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Georgia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33528,6 +34787,11 @@
     },
     {
       "country": "Georgia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Georgia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -33545,6 +34809,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Georgia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Georgia",
@@ -33621,6 +34890,11 @@
     },
     {
       "country": "Germany",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Germany",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33647,6 +34921,11 @@
     },
     {
       "country": "Germany",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Germany",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -33662,6 +34941,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Germany",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Germany",
@@ -33735,6 +35019,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ghana",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Ghana",
@@ -33765,6 +35054,11 @@
     },
     {
       "country": "Ghana",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Ghana",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -33784,6 +35078,11 @@
     },
     {
       "country": "Ghana",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Ghana",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -33857,6 +35156,11 @@
     },
     {
       "country": "Gibraltar",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Gibraltar",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33883,6 +35187,11 @@
     },
     {
       "country": "Gibraltar",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Gibraltar",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -33898,6 +35207,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Gibraltar",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Gibraltar",
@@ -33974,6 +35288,11 @@
     },
     {
       "country": "Greece",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Greece",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34000,6 +35319,11 @@
     },
     {
       "country": "Greece",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Greece",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -34015,6 +35339,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Greece",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Greece",
@@ -34091,6 +35420,11 @@
     },
     {
       "country": "Greenland",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Greenland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34119,6 +35453,11 @@
     },
     {
       "country": "Greenland",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Greenland",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -34136,6 +35475,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Greenland",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Greenland",
@@ -34211,6 +35555,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Grenada",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Grenada",
@@ -34239,6 +35588,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Grenada",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Grenada",
@@ -34263,6 +35617,11 @@
     },
     {
       "country": "Grenada",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Grenada",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -34333,6 +35692,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guadeloupe",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Guadeloupe",
@@ -34364,6 +35728,11 @@
     },
     {
       "country": "Guadeloupe",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Guadeloupe",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -34382,6 +35751,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Guadeloupe",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Guadeloupe",
@@ -34457,6 +35831,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guam",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Guam",
@@ -34488,6 +35867,11 @@
     },
     {
       "country": "Guam",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Guam",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -34504,6 +35888,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Guam",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Guam",
@@ -34583,6 +35972,11 @@
     },
     {
       "country": "Guatemala",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Guatemala",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34611,6 +36005,11 @@
     },
     {
       "country": "Guatemala",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Guatemala",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -34629,6 +36028,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Guatemala",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Guatemala",
@@ -34705,6 +36109,11 @@
     },
     {
       "country": "Guernsey",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Guernsey",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34732,6 +36141,11 @@
     },
     {
       "country": "Guernsey",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Guernsey",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -34748,6 +36162,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Guernsey",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Guernsey",
@@ -34827,6 +36246,11 @@
     },
     {
       "country": "Guinea",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Guinea",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34855,6 +36279,11 @@
     },
     {
       "country": "Guinea",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Guinea",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -34872,6 +36301,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Guinea",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Guinea",
@@ -34951,6 +36385,11 @@
     },
     {
       "country": "Guinea-Bissau",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Guinea-Bissau",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34979,6 +36418,11 @@
     },
     {
       "country": "Guinea-Bissau",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Guinea-Bissau",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -34996,6 +36440,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Guinea-Bissau",
@@ -35070,6 +36519,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guyana",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Guyana",
@@ -35101,6 +36555,11 @@
     },
     {
       "country": "Guyana",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Guyana",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -35121,6 +36580,11 @@
     },
     {
       "country": "Guyana",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Guyana",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -35194,6 +36658,11 @@
     },
     {
       "country": "Haiti",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Haiti",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35219,6 +36688,11 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Haiti",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Haiti",
@@ -35243,6 +36717,11 @@
     },
     {
       "country": "Haiti",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Haiti",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -35316,6 +36795,11 @@
     },
     {
       "country": "Holy See (Vatican City)",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Holy See (Vatican City)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35343,6 +36827,11 @@
     },
     {
       "country": "Holy See (Vatican City)",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Holy See (Vatican City)",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -35359,6 +36848,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Holy See (Vatican City)",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Holy See (Vatican City)",
@@ -35438,6 +36932,11 @@
     },
     {
       "country": "Honduras",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Honduras",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35463,6 +36962,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Honduras",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Honduras",
@@ -35487,6 +36991,11 @@
     },
     {
       "country": "Honduras",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Honduras",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -35557,6 +37066,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Hong Kong",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Hong Kong",
@@ -35588,6 +37102,11 @@
     },
     {
       "country": "Hong Kong",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Hong Kong",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -35608,6 +37127,11 @@
     },
     {
       "country": "Hong Kong",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Hong Kong",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -35682,6 +37206,11 @@
     },
     {
       "country": "Hungary",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Hungary",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35708,6 +37237,11 @@
     },
     {
       "country": "Hungary",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Hungary",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -35723,6 +37257,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Hungary",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Hungary",
@@ -35799,6 +37338,11 @@
     },
     {
       "country": "Iceland",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Iceland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35825,6 +37369,11 @@
     },
     {
       "country": "Iceland",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Iceland",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -35840,6 +37389,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Iceland",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Iceland",
@@ -35915,6 +37469,11 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "India",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "India",
@@ -35947,6 +37506,11 @@
     },
     {
       "country": "India",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "India",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -35965,6 +37529,11 @@
       "sim": 4,
       "recommendation": "NR",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "India",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "India",
@@ -36047,6 +37616,11 @@
     },
     {
       "country": "Indonesia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Indonesia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36074,6 +37648,11 @@
     },
     {
       "country": "Indonesia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Indonesia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -36090,6 +37669,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Indonesia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Indonesia",
@@ -36166,6 +37750,11 @@
     },
     {
       "country": "Iran",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Iran",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36194,6 +37783,11 @@
     },
     {
       "country": "Iran",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Iran",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -36211,6 +37805,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Iran",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Iran",
@@ -36291,6 +37890,11 @@
     },
     {
       "country": "Iraq",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Iraq",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36319,6 +37923,11 @@
     },
     {
       "country": "Iraq",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Iraq",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -36336,6 +37945,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Iraq",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Iraq",
@@ -36416,6 +38030,11 @@
     },
     {
       "country": "Ireland",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Ireland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36442,6 +38061,11 @@
     },
     {
       "country": "Ireland",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Ireland",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -36457,6 +38081,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Ireland",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Ireland",
@@ -36533,6 +38162,11 @@
     },
     {
       "country": "Isle of Man",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Isle of Man",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36560,6 +38194,11 @@
     },
     {
       "country": "Isle of Man",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Isle of Man",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -36576,6 +38215,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Isle of Man",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Isle of Man",
@@ -36655,6 +38299,11 @@
     },
     {
       "country": "Israel",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Israel",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36682,6 +38331,11 @@
     },
     {
       "country": "Israel",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Israel",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -36698,6 +38352,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Israel",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Israel",
@@ -36774,6 +38433,11 @@
     },
     {
       "country": "Italy",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Italy",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36800,6 +38464,11 @@
     },
     {
       "country": "Italy",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Italy",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -36815,6 +38484,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Italy",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Italy",
@@ -36888,6 +38562,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jamaica",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Jamaica",
@@ -36916,6 +38595,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "May work on Digicel"
+    },
+    {
+      "country": "Jamaica",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Jamaica",
@@ -36940,6 +38624,11 @@
     },
     {
       "country": "Jamaica",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Jamaica",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -37013,6 +38702,11 @@
     },
     {
       "country": "Japan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Japan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37041,6 +38735,11 @@
     },
     {
       "country": "Japan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Japan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -37058,6 +38757,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Japan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Japan",
@@ -37134,6 +38838,11 @@
     },
     {
       "country": "Jersey",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Jersey",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37160,6 +38869,11 @@
     },
     {
       "country": "Jersey",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Jersey",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -37175,6 +38889,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Jersey",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Jersey",
@@ -37251,6 +38970,11 @@
     },
     {
       "country": "Jordan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Jordan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37278,6 +39002,11 @@
     },
     {
       "country": "Jordan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Jordan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -37294,6 +39023,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Jordan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Jordan",
@@ -37372,6 +39106,11 @@
     },
     {
       "country": "Kazakhstan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Kazakhstan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37400,6 +39139,11 @@
     },
     {
       "country": "Kazakhstan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Kazakhstan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -37417,6 +39161,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Kazakhstan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Kazakhstan",
@@ -37494,6 +39243,11 @@
     },
     {
       "country": "Kenya",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Kenya",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37521,6 +39275,11 @@
     },
     {
       "country": "Kenya",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Kenya",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -37537,6 +39296,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Kenya",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Kenya",
@@ -37613,6 +39377,11 @@
     },
     {
       "country": "Kiribati",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Kiribati",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37641,6 +39410,11 @@
     },
     {
       "country": "Kiribati",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Kiribati",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -37658,6 +39432,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Kiribati",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Kiribati",
@@ -37738,6 +39517,11 @@
     },
     {
       "country": "Kosovo",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Kosovo",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37766,6 +39550,11 @@
     },
     {
       "country": "Kosovo",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Kosovo",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -37783,6 +39572,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Kosovo",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Kosovo",
@@ -37863,6 +39657,11 @@
     },
     {
       "country": "Kuwait",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Kuwait",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37890,6 +39689,11 @@
     },
     {
       "country": "Kuwait",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Kuwait",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -37906,6 +39710,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Kuwait",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Kuwait",
@@ -37979,6 +39788,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Kyrgyzstan",
@@ -38010,6 +39824,11 @@
     },
     {
       "country": "Kyrgyzstan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Kyrgyzstan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -38030,6 +39849,11 @@
     },
     {
       "country": "Kyrgyzstan",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Kyrgyzstan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -38106,6 +39930,11 @@
     },
     {
       "country": "Lao People's Democratic Republic",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Lao People's Democratic Republic",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38134,6 +39963,11 @@
     },
     {
       "country": "Lao People's Democratic Republic",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Lao People's Democratic Republic",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -38151,6 +39985,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Lao People's Democratic Republic",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Lao People's Democratic Republic",
@@ -38231,6 +40070,11 @@
     },
     {
       "country": "Latvia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Latvia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38257,6 +40101,11 @@
     },
     {
       "country": "Latvia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Latvia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -38272,6 +40121,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Latvia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Latvia",
@@ -38348,6 +40202,11 @@
     },
     {
       "country": "Lebanon",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Lebanon",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38376,6 +40235,11 @@
     },
     {
       "country": "Lebanon",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Lebanon",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -38393,6 +40257,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Lebanon",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Lebanon",
@@ -38473,6 +40342,11 @@
     },
     {
       "country": "Lesotho",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Lesotho",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38500,6 +40374,11 @@
     },
     {
       "country": "Lesotho",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Lesotho",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -38516,6 +40395,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Lesotho",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Lesotho",
@@ -38595,6 +40479,11 @@
     },
     {
       "country": "Liechtenstein",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Liechtenstein",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38621,6 +40510,11 @@
     },
     {
       "country": "Liechtenstein",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Liechtenstein",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -38636,6 +40530,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Liechtenstein",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Liechtenstein",
@@ -38712,6 +40611,11 @@
     },
     {
       "country": "Lithuania",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Lithuania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38738,6 +40642,11 @@
     },
     {
       "country": "Lithuania",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Lithuania",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -38753,6 +40662,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Lithuania",
@@ -38829,6 +40743,11 @@
     },
     {
       "country": "Luxembourg",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Luxembourg",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38855,6 +40774,11 @@
     },
     {
       "country": "Luxembourg",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Luxembourg",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -38870,6 +40794,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Luxembourg",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Luxembourg",
@@ -38946,6 +40875,11 @@
     },
     {
       "country": "Macao",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Macao",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38974,6 +40908,11 @@
     },
     {
       "country": "Macao",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Macao",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -38991,6 +40930,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Macao",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Macao",
@@ -39070,6 +41014,11 @@
     },
     {
       "country": "Madagascar",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Madagascar",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39097,6 +41046,11 @@
     },
     {
       "country": "Madagascar",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Madagascar",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -39113,6 +41067,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Madagascar",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Madagascar",
@@ -39189,6 +41148,11 @@
     },
     {
       "country": "Malawi",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Malawi",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39216,6 +41180,11 @@
     },
     {
       "country": "Malawi",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Malawi",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -39232,6 +41201,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Malawi",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Malawi",
@@ -39310,6 +41284,11 @@
     },
     {
       "country": "Malaysia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Malaysia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39337,6 +41316,11 @@
     },
     {
       "country": "Malaysia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Malaysia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -39353,6 +41337,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Malaysia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Malaysia",
@@ -39429,6 +41418,11 @@
     },
     {
       "country": "Maldives",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Maldives",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39457,6 +41451,11 @@
     },
     {
       "country": "Maldives",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Maldives",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -39474,6 +41473,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Maldives",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Maldives",
@@ -39554,6 +41558,11 @@
     },
     {
       "country": "Mali",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Mali",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39582,6 +41591,11 @@
     },
     {
       "country": "Mali",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Mali",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -39599,6 +41613,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Mali",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Mali",
@@ -39679,6 +41698,11 @@
     },
     {
       "country": "Malta",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Malta",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39705,6 +41729,11 @@
     },
     {
       "country": "Malta",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Malta",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -39720,6 +41749,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Malta",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Malta",
@@ -39793,6 +41827,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Martinique",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Martinique",
@@ -39824,6 +41863,11 @@
     },
     {
       "country": "Martinique",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Martinique",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -39845,6 +41889,11 @@
     },
     {
       "country": "Martinique",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Martinique",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -39921,6 +41970,11 @@
     },
     {
       "country": "Mauritania",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Mauritania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39946,6 +42000,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Mauritania",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Mauritania",
@@ -39969,6 +42028,11 @@
     },
     {
       "country": "Mauritania",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Mauritania",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -40046,6 +42110,11 @@
     },
     {
       "country": "Mauritius",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Mauritius",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40071,6 +42140,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Mauritius",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Mauritius",
@@ -40094,6 +42168,11 @@
     },
     {
       "country": "Mauritius",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Mauritius",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -40171,6 +42250,11 @@
     },
     {
       "country": "Mayotte",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Mayotte",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40196,6 +42280,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Mayotte",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Mayotte",
@@ -40219,6 +42308,11 @@
     },
     {
       "country": "Mayotte",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Mayotte",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -40294,6 +42388,11 @@
     },
     {
       "country": "Mexico",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Mexico",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "YES"
@@ -40320,6 +42419,11 @@
     },
     {
       "country": "Mexico",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Mexico",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -40337,6 +42441,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Mexico",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Mexico",
@@ -40413,6 +42522,11 @@
     },
     {
       "country": "Moldova",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Moldova",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40440,6 +42554,11 @@
     },
     {
       "country": "Moldova",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Moldova",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -40456,6 +42575,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Moldova",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Moldova",
@@ -40533,6 +42657,11 @@
     },
     {
       "country": "Monaco",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Monaco",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40561,6 +42690,11 @@
     },
     {
       "country": "Monaco",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Monaco",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -40578,6 +42712,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Monaco",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Monaco",
@@ -40655,6 +42794,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mongolia",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Mongolia",
@@ -40685,6 +42829,11 @@
     },
     {
       "country": "Mongolia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Mongolia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -40704,6 +42853,11 @@
     },
     {
       "country": "Mongolia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Mongolia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -40777,6 +42931,11 @@
     },
     {
       "country": "Montenegro",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Montenegro",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40800,6 +42959,11 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Montenegro",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Montenegro",
@@ -40821,6 +42985,11 @@
     },
     {
       "country": "Montenegro",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Montenegro",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -40894,6 +43063,11 @@
     },
     {
       "country": "Montserrat",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Montserrat",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40919,6 +43093,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Montserrat",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Montserrat",
@@ -40943,6 +43122,11 @@
     },
     {
       "country": "Montserrat",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Montserrat",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -41014,6 +43198,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Morocco",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Morocco",
@@ -41045,6 +43234,11 @@
     },
     {
       "country": "Morocco",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Morocco",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -41062,6 +43256,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Morocco",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Morocco",
@@ -41139,6 +43338,11 @@
     },
     {
       "country": "Mozambique",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Mozambique",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41166,6 +43370,11 @@
     },
     {
       "country": "Mozambique",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Mozambique",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -41182,6 +43391,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Mozambique",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Mozambique",
@@ -41258,6 +43472,11 @@
     },
     {
       "country": "Myanmar",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Myanmar",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41286,6 +43505,11 @@
     },
     {
       "country": "Myanmar",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Myanmar",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -41303,6 +43527,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Myanmar",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Myanmar",
@@ -41382,6 +43611,11 @@
     },
     {
       "country": "Namibia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Namibia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41410,6 +43644,11 @@
     },
     {
       "country": "Namibia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Namibia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -41430,6 +43669,11 @@
     },
     {
       "country": "Namibia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Namibia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -41506,6 +43750,11 @@
     },
     {
       "country": "Nauru",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Nauru",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41533,6 +43782,11 @@
     },
     {
       "country": "Nauru",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Nauru",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -41549,6 +43803,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Nauru",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Nauru",
@@ -41628,6 +43887,11 @@
     },
     {
       "country": "Nepal",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Nepal",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41656,6 +43920,11 @@
     },
     {
       "country": "Nepal",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Nepal",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -41673,6 +43942,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Nepal",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Nepal",
@@ -41753,6 +44027,11 @@
     },
     {
       "country": "Netherlands",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Netherlands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41779,6 +44058,11 @@
     },
     {
       "country": "Netherlands",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Netherlands",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -41794,6 +44078,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Netherlands",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Netherlands",
@@ -41870,6 +44159,11 @@
     },
     {
       "country": "Netherlands Antilles",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Netherlands Antilles",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41898,6 +44192,11 @@
     },
     {
       "country": "Netherlands Antilles",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Netherlands Antilles",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -41916,6 +44215,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Netherlands Antilles",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Netherlands Antilles",
@@ -41996,6 +44300,11 @@
     },
     {
       "country": "New Zealand",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "New Zealand",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42022,6 +44331,11 @@
     },
     {
       "country": "New Zealand",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "New Zealand",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -42037,6 +44351,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "New Zealand",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "New Zealand",
@@ -42117,6 +44436,11 @@
     },
     {
       "country": "Nicaragua",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Nicaragua",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42142,6 +44466,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Nicaragua",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Nicaragua",
@@ -42166,6 +44495,11 @@
     },
     {
       "country": "Nicaragua",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Nicaragua",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -42239,6 +44573,11 @@
     },
     {
       "country": "Niger",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Niger",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42263,6 +44602,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Niger",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Niger",
@@ -42285,6 +44629,11 @@
     },
     {
       "country": "Niger",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Niger",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -42356,6 +44705,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nigeria",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Nigeria",
@@ -42386,6 +44740,11 @@
     },
     {
       "country": "Nigeria",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Nigeria",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -42405,6 +44764,11 @@
     },
     {
       "country": "Nigeria",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Nigeria",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -42478,6 +44842,11 @@
     },
     {
       "country": "North Macedonia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "North Macedonia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42504,6 +44873,11 @@
     },
     {
       "country": "North Macedonia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "North Macedonia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -42519,6 +44893,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "North Macedonia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "North Macedonia",
@@ -42595,6 +44974,11 @@
     },
     {
       "country": "Norway",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Norway",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42621,6 +45005,11 @@
     },
     {
       "country": "Norway",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Norway",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -42636,6 +45025,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Norway",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Norway",
@@ -42714,6 +45108,11 @@
     },
     {
       "country": "Oman",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Oman",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42745,6 +45144,11 @@
     },
     {
       "country": "Oman",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Oman",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -42765,6 +45169,11 @@
       "sim": 4,
       "recommendation": "NR",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Oman",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Oman",
@@ -42851,6 +45260,11 @@
     },
     {
       "country": "Pakistan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Pakistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42878,6 +45292,11 @@
     },
     {
       "country": "Pakistan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Pakistan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -42894,6 +45313,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Pakistan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Pakistan",
@@ -42970,6 +45394,11 @@
     },
     {
       "country": "Palestine",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Palestine",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42998,6 +45427,11 @@
     },
     {
       "country": "Palestine",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Palestine",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -43015,6 +45449,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Palestine",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Palestine",
@@ -43094,6 +45533,11 @@
     },
     {
       "country": "Panama",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Panama",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43119,6 +45563,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Panama",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Panama",
@@ -43143,6 +45592,11 @@
     },
     {
       "country": "Panama",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Panama",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -43216,6 +45670,11 @@
     },
     {
       "country": "Papua New Guinea",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Papua New Guinea",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43244,6 +45703,11 @@
     },
     {
       "country": "Papua New Guinea",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Papua New Guinea",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -43261,6 +45725,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Papua New Guinea",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Papua New Guinea",
@@ -43340,6 +45809,11 @@
     },
     {
       "country": "Paraguay",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Paraguay",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43365,6 +45839,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Paraguay",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Paraguay",
@@ -43389,6 +45868,11 @@
     },
     {
       "country": "Paraguay",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Paraguay",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -43464,6 +45948,11 @@
     },
     {
       "country": "Peru",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Peru",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43489,6 +45978,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Peru",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Peru",
@@ -43513,6 +46007,11 @@
     },
     {
       "country": "Peru",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Peru",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -43586,6 +46085,11 @@
     },
     {
       "country": "Philippines",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Philippines",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43612,6 +46116,11 @@
     },
     {
       "country": "Philippines",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Philippines",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -43627,6 +46136,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Philippines",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Philippines",
@@ -43703,6 +46217,11 @@
     },
     {
       "country": "Poland",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Poland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43729,6 +46248,11 @@
     },
     {
       "country": "Poland",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Poland",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -43744,6 +46268,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Poland",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Poland",
@@ -43820,6 +46349,11 @@
     },
     {
       "country": "Portugal",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Portugal",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43846,6 +46380,11 @@
     },
     {
       "country": "Portugal",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Portugal",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -43861,6 +46400,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Portugal",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Portugal",
@@ -43937,6 +46481,11 @@
     },
     {
       "country": "Puerto Rico",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Puerto Rico",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43965,6 +46514,11 @@
     },
     {
       "country": "Puerto Rico",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Puerto Rico",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -43982,6 +46536,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Puerto Rico",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Puerto Rico",
@@ -44056,6 +46615,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Qatar",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Qatar",
@@ -44086,6 +46650,11 @@
     },
     {
       "country": "Qatar",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Qatar",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -44105,6 +46674,11 @@
     },
     {
       "country": "Qatar",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Qatar",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -44178,6 +46752,11 @@
     },
     {
       "country": "Réunion",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Réunion",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44205,6 +46784,11 @@
     },
     {
       "country": "Réunion",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Réunion",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -44221,6 +46805,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Réunion",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Réunion",
@@ -44298,6 +46887,11 @@
     },
     {
       "country": "Romania",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Romania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44324,6 +46918,11 @@
     },
     {
       "country": "Romania",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Romania",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -44339,6 +46938,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Romania",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Romania",
@@ -44414,6 +47018,11 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Russia",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Russia",
@@ -44447,6 +47056,11 @@
     },
     {
       "country": "Russia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Russia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -44466,6 +47080,11 @@
       "sim": 4,
       "recommendation": "NR",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Russia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Russia",
@@ -44546,6 +47165,11 @@
     },
     {
       "country": "Rwanda",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Rwanda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44573,6 +47197,11 @@
     },
     {
       "country": "Rwanda",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Rwanda",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -44592,6 +47221,11 @@
     },
     {
       "country": "Rwanda",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Rwanda",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -44665,6 +47299,11 @@
     },
     {
       "country": "Saint Barthélemy",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Saint Barthélemy",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44693,6 +47332,11 @@
     },
     {
       "country": "Saint Barthélemy",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Saint Barthélemy",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -44711,6 +47355,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saint Barthélemy",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Saint Barthélemy",
@@ -44790,6 +47439,11 @@
     },
     {
       "country": "Saint Kitts and Nevis",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Saint Kitts and Nevis",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44815,6 +47469,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Saint Kitts and Nevis",
@@ -44839,6 +47498,11 @@
     },
     {
       "country": "Saint Kitts and Nevis",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Saint Kitts and Nevis",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -44912,6 +47576,11 @@
     },
     {
       "country": "Saint Lucia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Saint Lucia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44937,6 +47606,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saint Lucia",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Saint Lucia",
@@ -44961,6 +47635,11 @@
     },
     {
       "country": "Saint Lucia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Saint Lucia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -45034,6 +47713,11 @@
     },
     {
       "country": "Saint Martin (French part)",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Saint Martin (French part)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45062,6 +47746,11 @@
     },
     {
       "country": "Saint Martin (French part)",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Saint Martin (French part)",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -45080,6 +47769,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saint Martin (French part)",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Saint Martin (French part)",
@@ -45159,6 +47853,11 @@
     },
     {
       "country": "Saint Vincent and the Grenadines",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45184,6 +47883,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -45208,6 +47912,11 @@
     },
     {
       "country": "Saint Vincent and the Grenadines",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -45281,6 +47990,11 @@
     },
     {
       "country": "Samoa",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Samoa",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45306,6 +48020,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Samoa",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Samoa",
@@ -45329,6 +48048,11 @@
     },
     {
       "country": "Samoa",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Samoa",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -45406,6 +48130,11 @@
     },
     {
       "country": "San Marino",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "San Marino",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45433,6 +48162,11 @@
     },
     {
       "country": "San Marino",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "San Marino",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -45449,6 +48183,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "San Marino",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "San Marino",
@@ -45527,6 +48266,11 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Saudi Arabia",
@@ -45561,6 +48305,11 @@
     },
     {
       "country": "Saudi Arabia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Saudi Arabia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -45584,6 +48333,11 @@
     },
     {
       "country": "Saudi Arabia",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Saudi Arabia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -45664,6 +48418,11 @@
     },
     {
       "country": "Senegal",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Senegal",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45692,6 +48451,11 @@
     },
     {
       "country": "Senegal",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Senegal",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -45709,6 +48473,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Senegal",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Senegal",
@@ -45789,6 +48558,11 @@
     },
     {
       "country": "Serbia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Serbia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45815,6 +48589,11 @@
     },
     {
       "country": "Serbia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Serbia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -45830,6 +48609,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Serbia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Serbia",
@@ -45906,6 +48690,11 @@
     },
     {
       "country": "Seychelles",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Seychelles",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -45933,6 +48722,11 @@
     },
     {
       "country": "Seychelles",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Seychelles",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -45949,6 +48743,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Seychelles",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Seychelles",
@@ -46024,6 +48823,11 @@
     },
     {
       "country": "Sierra Leone",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Sierra Leone",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46052,6 +48856,11 @@
     },
     {
       "country": "Sierra Leone",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Sierra Leone",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -46069,6 +48878,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Sierra Leone",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Sierra Leone",
@@ -46151,6 +48965,11 @@
     },
     {
       "country": "Singapore",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Singapore",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46180,6 +48999,11 @@
     },
     {
       "country": "Singapore",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Singapore",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -46198,6 +49022,11 @@
       "sim": 4,
       "recommendation": "NR",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Singapore",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Singapore",
@@ -46278,6 +49107,11 @@
     },
     {
       "country": "Sint Maarten",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Sint Maarten",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46306,6 +49140,11 @@
     },
     {
       "country": "Sint Maarten",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Sint Maarten",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -46323,6 +49162,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Sint Maarten",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Sint Maarten",
@@ -46402,6 +49246,11 @@
     },
     {
       "country": "Slovakia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Slovakia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46428,6 +49277,11 @@
     },
     {
       "country": "Slovakia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Slovakia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -46443,6 +49297,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Slovakia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Slovakia",
@@ -46519,6 +49378,11 @@
     },
     {
       "country": "Slovenia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Slovenia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46545,6 +49409,11 @@
     },
     {
       "country": "Slovenia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Slovenia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -46560,6 +49429,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Slovenia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Slovenia",
@@ -46636,6 +49510,11 @@
     },
     {
       "country": "Solomon Islands",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Solomon Islands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46663,6 +49542,11 @@
     },
     {
       "country": "Solomon Islands",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Solomon Islands",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -46679,6 +49563,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Solomon Islands",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Solomon Islands",
@@ -46758,6 +49647,11 @@
     },
     {
       "country": "Somalia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Somalia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46786,6 +49680,11 @@
     },
     {
       "country": "Somalia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Somalia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -46803,6 +49702,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Somalia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Somalia",
@@ -46883,6 +49787,11 @@
     },
     {
       "country": "South Africa",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "South Africa",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -46910,6 +49819,11 @@
     },
     {
       "country": "South Africa",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "South Africa",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -46926,6 +49840,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "South Africa",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "South Africa",
@@ -47002,6 +49921,11 @@
     },
     {
       "country": "South Korea",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "South Korea",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47029,6 +49953,11 @@
     },
     {
       "country": "South Korea",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "South Korea",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -47045,6 +49974,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "South Korea",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "South Korea",
@@ -47121,6 +50055,11 @@
     },
     {
       "country": "South Sudan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "South Sudan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47148,6 +50087,11 @@
     },
     {
       "country": "South Sudan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "South Sudan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -47164,6 +50108,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "South Sudan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "South Sudan",
@@ -47242,6 +50191,11 @@
     },
     {
       "country": "Spain",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Spain",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47268,6 +50222,11 @@
     },
     {
       "country": "Spain",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Spain",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -47283,6 +50242,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Spain",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Spain",
@@ -47359,6 +50323,11 @@
     },
     {
       "country": "Sri Lanka",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Sri Lanka",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47386,6 +50355,11 @@
     },
     {
       "country": "Sri Lanka",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Sri Lanka",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -47402,6 +50376,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Sri Lanka",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Sri Lanka",
@@ -47475,6 +50454,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Suriname",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Suriname",
@@ -47506,6 +50490,11 @@
     },
     {
       "country": "Suriname",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Suriname",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -47526,6 +50515,11 @@
     },
     {
       "country": "Suriname",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Suriname",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -47599,6 +50593,11 @@
     },
     {
       "country": "Svalbard and Jan Mayen",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47626,6 +50625,11 @@
     },
     {
       "country": "Svalbard and Jan Mayen",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -47642,6 +50646,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Svalbard and Jan Mayen",
@@ -47721,6 +50730,11 @@
     },
     {
       "country": "Sweden",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Sweden",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47747,6 +50761,11 @@
     },
     {
       "country": "Sweden",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Sweden",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -47762,6 +50781,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Sweden",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Sweden",
@@ -47838,6 +50862,11 @@
     },
     {
       "country": "Switzerland",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Switzerland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -47864,6 +50893,11 @@
     },
     {
       "country": "Switzerland",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Switzerland",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -47879,6 +50913,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Switzerland",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Switzerland",
@@ -47952,6 +50991,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Taiwan",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Taiwan",
@@ -47982,6 +51026,11 @@
     },
     {
       "country": "Taiwan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Taiwan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -47998,6 +51047,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Taiwan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Taiwan",
@@ -48070,6 +51124,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tajikistan",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Tajikistan",
@@ -48101,6 +51160,11 @@
     },
     {
       "country": "Tajikistan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Tajikistan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -48121,6 +51185,11 @@
     },
     {
       "country": "Tajikistan",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Tajikistan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -48197,6 +51266,11 @@
     },
     {
       "country": "Tanzania",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Tanzania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48224,6 +51298,11 @@
     },
     {
       "country": "Tanzania",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Tanzania",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -48240,6 +51319,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Tanzania",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Tanzania",
@@ -48316,6 +51400,11 @@
     },
     {
       "country": "Thailand",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Thailand",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48343,6 +51432,11 @@
     },
     {
       "country": "Thailand",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Thailand",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -48359,6 +51453,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Thailand",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Thailand",
@@ -48435,6 +51534,11 @@
     },
     {
       "country": "Togo",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Togo",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48462,6 +51566,11 @@
     },
     {
       "country": "Togo",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Togo",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -48478,6 +51587,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Togo",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Togo",
@@ -48557,6 +51671,11 @@
     },
     {
       "country": "Tonga",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Tonga",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48585,6 +51704,11 @@
     },
     {
       "country": "Tonga",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Tonga",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -48602,6 +51726,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Tonga",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Tonga",
@@ -48682,6 +51811,11 @@
     },
     {
       "country": "Trinidad and Tobago",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Trinidad and Tobago",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48707,6 +51841,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "modem": "EG91-E",
+      "sim": 5
     },
     {
       "country": "Trinidad and Tobago",
@@ -48731,6 +51870,11 @@
     },
     {
       "country": "Trinidad and Tobago",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Trinidad and Tobago",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -48804,6 +51948,11 @@
     },
     {
       "country": "Tunisia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Tunisia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48832,6 +51981,11 @@
     },
     {
       "country": "Tunisia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Tunisia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -48849,6 +52003,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Tunisia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Tunisia",
@@ -48928,6 +52087,11 @@
     },
     {
       "country": "Turkey",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Turkey",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -48959,6 +52123,11 @@
     },
     {
       "country": "Turkey",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Turkey",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -48979,6 +52148,11 @@
       "sim": 4,
       "recommendation": "NR",
       "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Turkey",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Turkey",
@@ -49067,6 +52241,11 @@
     },
     {
       "country": "Turks and Caicos Islands",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Turks and Caicos Islands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -49095,6 +52274,11 @@
     },
     {
       "country": "Turks and Caicos Islands",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Turks and Caicos Islands",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -49113,6 +52297,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Turks and Caicos Islands",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Turks and Caicos Islands",
@@ -49191,6 +52380,11 @@
     },
     {
       "country": "Uganda",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Uganda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -49218,6 +52412,11 @@
     },
     {
       "country": "Uganda",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Uganda",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -49234,6 +52433,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Uganda",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Uganda",
@@ -49310,6 +52514,11 @@
     },
     {
       "country": "Ukraine",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Ukraine",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -49338,6 +52547,11 @@
     },
     {
       "country": "Ukraine",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Ukraine",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -49355,6 +52569,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Ukraine",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Ukraine",
@@ -49433,6 +52652,11 @@
     },
     {
       "country": "United Arab Emirates",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "United Arab Emirates",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -49463,6 +52687,11 @@
     },
     {
       "country": "United Arab Emirates",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "United Arab Emirates",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -49482,6 +52711,11 @@
       "sim": 4,
       "recommendation": "NR",
       "roamingRestrictions": "warn"
+    },
+    {
+      "country": "United Arab Emirates",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "United Arab Emirates",
@@ -49563,6 +52797,11 @@
     },
     {
       "country": "United Kingdom",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "United Kingdom",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -49589,6 +52828,11 @@
     },
     {
       "country": "United Kingdom",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "United Kingdom",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "YES"
@@ -49604,6 +52848,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "United Kingdom",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "United Kingdom",
@@ -49678,6 +52927,11 @@
     },
     {
       "country": "United States",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "United States",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "YES"
@@ -49704,6 +52958,11 @@
     },
     {
       "country": "United States",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "United States",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -49721,6 +52980,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "United States",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "United States",
@@ -49796,6 +53060,11 @@
     },
     {
       "country": "Uruguay",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Uruguay",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -49824,6 +53093,11 @@
     },
     {
       "country": "Uruguay",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Uruguay",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -49842,6 +53116,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Uruguay",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Uruguay",
@@ -49918,6 +53197,11 @@
     },
     {
       "country": "Uzbekistan",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Uzbekistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -49946,6 +53230,11 @@
     },
     {
       "country": "Uzbekistan",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Uzbekistan",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -49963,6 +53252,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Uzbekistan",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Uzbekistan",
@@ -50041,6 +53335,11 @@
     },
     {
       "country": "Vanuatu",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Vanuatu",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -50069,6 +53368,11 @@
     },
     {
       "country": "Vanuatu",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Vanuatu",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -50086,6 +53390,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Vanuatu",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Vanuatu",
@@ -50166,6 +53475,11 @@
     },
     {
       "country": "Venezuela",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Venezuela",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -50194,6 +53508,11 @@
     },
     {
       "country": "Venezuela",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Venezuela",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -50212,6 +53531,11 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Venezuela",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Venezuela",
@@ -50285,6 +53609,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Vietnam",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Vietnam",
@@ -50316,6 +53645,11 @@
     },
     {
       "country": "Vietnam",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Vietnam",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -50333,6 +53667,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Vietnam",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Vietnam",
@@ -50407,6 +53746,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Virgin Islands (British)",
+      "modem": "BG95-S5",
+      "sim": 5
     },
     {
       "country": "Virgin Islands (British)",
@@ -50438,6 +53782,11 @@
     },
     {
       "country": "Virgin Islands (British)",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Virgin Islands (British)",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
@@ -50459,6 +53808,11 @@
     },
     {
       "country": "Virgin Islands (British)",
+      "modem": "EG91-NAX",
+      "sim": 5
+    },
+    {
+      "country": "Virgin Islands (British)",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -50532,6 +53886,11 @@
     },
     {
       "country": "Virgin Islands (U.S.)",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -50560,6 +53919,11 @@
     },
     {
       "country": "Virgin Islands (U.S.)",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -50578,6 +53942,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -50658,6 +54027,11 @@
     },
     {
       "country": "Yemen",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Yemen",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -50686,6 +54060,11 @@
     },
     {
       "country": "Yemen",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Yemen",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -50703,6 +54082,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Yemen",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Yemen",
@@ -50781,6 +54165,11 @@
     },
     {
       "country": "Zambia",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Zambia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -50808,6 +54197,11 @@
     },
     {
       "country": "Zambia",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Zambia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
@@ -50824,6 +54218,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Zambia",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Zambia",
@@ -50902,6 +54301,11 @@
     },
     {
       "country": "Zimbabwe",
+      "modem": "BG95-S5",
+      "sim": 5
+    },
+    {
+      "country": "Zimbabwe",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -50930,6 +54334,11 @@
     },
     {
       "country": "Zimbabwe",
+      "modem": "EG91-E",
+      "sim": 5
+    },
+    {
+      "country": "Zimbabwe",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
@@ -50947,6 +54356,11 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR"
+    },
+    {
+      "country": "Zimbabwe",
+      "modem": "EG91-NAX",
+      "sim": 5
     },
     {
       "country": "Zimbabwe",
@@ -51100,6 +54514,33 @@
       "description": "There may be roaming restrictions"
     }
   ],
+  "mcus": {
+    "nrf52840": {
+      "ble": "5",
+      "cpu": "ARM Cortex M4F CPU, 64 MHz",
+      "flashFileSystem": "2 MB",
+      "nfcTag": true,
+      "userAppSize": "256KB",
+      "userRam": "80 KB"
+    },
+    "rtl872x": {
+      "ble": "5",
+      "cpu": "ARM Cortex M33 CPU, 200 MHz",
+      "flashFileSystem": "2 MB",
+      "nfcTag": false,
+      "userAppSize": "2048KB",
+      "userRam": "3072 KB",
+      "wifi": "802.11a/b/g/n"
+    },
+    "stm32f2xx": {
+      "ble": false,
+      "cpu": "ARM Cortex M3 CPU, 120 MHz",
+      "flashFileSystem": false,
+      "nfcTag": false,
+      "userAppSize": "128 KB",
+      "userRam": "50 KB"
+    }
+  },
   "deviceConstants": {
     "core": {
       "id": 0,
