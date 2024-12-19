@@ -57,15 +57,30 @@ $(document).ready(function() {
             // Update scores
             let showSolutions = [];
 
+            let onlyGateway = false;
+            if (deviceSelector.settings.ptg === '1') {
+                onlyGateway = true;
+
+                const questionObj = deviceSelector.config.questions.find(e => e.id == 'pt');
+                for(const optionsObj of questionObj.checkboxes) {
+                    if (optionsObj.id != 'ptg' && deviceSelector.settings[optionsObj.id] === '1') {
+                        onlyGateway = false;
+                    }
+                }
+            }
+            
+
             for(const solutionObj of deviceSelector.config.solutions) {
                 solutionObj.score = 0;
+                solutionObj.partialMatch = false;
+                solutionObj.reasons = [];
 
                 for(const questionObj of deviceSelector.config.questions) {
-                    if (!solutionObj[questionObj.id]) {
-                        // Solution is false or undefined, reduce the score
-                        solutionObj.score--;
-                        continue;
+                    if (onlyGateway && !solutionObj.pt.includes('ptg')) {
+                        solutionObj.score -= 100;
+                        solutionObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
                     }
+
 
                     if (questionObj.checkboxes) {
                         let hasCheckbox = false;
@@ -79,19 +94,44 @@ $(document).ready(function() {
                         
                         if (hasCheckbox) {
                             // User selected at least one option, so add rankings
+                            let hasAny = false;
+
                             for(const optionsObj of questionObj.checkboxes) {
                                 if (deviceSelector.settings[optionsObj.id] === '1') {
                                     if (solutionObj[questionObj.id].includes(deviceSelector.settings[optionsObj.id])) {
                                         solutionObj.score++;
+                                        hasAny = true;
                                     }
                                 }
+                            }
+                            if (hasAny) {
+                                if (!solutionObj[questionObj.id]) {
+                                    // Solution is false or undefined, reduce the score
+                                    solutionObj.score--;
+                                    solutionObj.reasons.push('solution false or undefined for ' + questionObj.id);
+                                }            
+                            }
+                            else {
+                                solutionObj.reasons.push('solution false or undefined for ' + questionObj.id);
+                                solutionObj.partialMatch = true;
                             }
                         }
                     }
                     if (questionObj.radio) {
                         // Radio buttons always have an answer
-                        if (solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.radio.id])) {
+                        if (questionObj.id == 'g' && deviceSelector.settings.g == 'gl') {
+                            // Geolocation not needed, allow any 
+                            solutionObj.reasons.push('geolocation not needed ' + questionObj.id);
                             solutionObj.score++;
+                        }
+                        else
+                        if (solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.radio.id])) {
+                            solutionObj.reasons.push('radio question included, increasing score' + questionObj.id);
+                            solutionObj.score++;
+                        }
+                        else {
+                            solutionObj.reasons.push('radio undefined for ' + questionObj.id);
+                            solutionObj.partialMatch = true;
                         }
                     }
                 }
@@ -99,10 +139,24 @@ $(document).ready(function() {
                 if (solutionObj.score >= 0) {
                     showSolutions.push(solutionObj);
                 }
+                else {
+                    console.log('skipped solution', solutionObj);
+                }
             }
 
             // Rank solutions
-            showSolutions.sort((a, b) => b.score - a.score);
+            showSolutions.sort(function(a, b) {
+                if (a.partialMatch && !b.partialMatch) {
+                    return -1;
+                }
+                else
+                if (!a.partialMatch && b.partialMatch) {
+                    return +1;
+                }
+                else {
+                    return b.score - a.score;
+                }
+            });
 
             console.log('showSolutions', showSolutions);
 
