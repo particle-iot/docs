@@ -95,7 +95,30 @@
                     "description": "Large machine learning models, video or sound local processing."
                 }
             ]
+        },
+        {
+            "title": "Geolocation",
+            "id": "g",
+            "radio": [
+                {
+                    "id": "gl",
+                    "title": "Geolocation not needed",
+                    "description": "I do not need precise location from GNSS (GPS)",
+                    "checked": true                
+                },
+                {
+                    "id": "gm",
+                    "title": "Some geolocation desired",
+                    "description": "I would like location, but it's not the primary focus of my product. Or the item does not move frequently."
+                },
+                {
+                    "id": "gh",
+                    "title": "Precise geolocation needed",
+                    "description": "I would like GNSS (GPS) with RTK and location fusion with Wi-Fi and cellular assist. Or my product is in a moving vehicle."
+                }
+            ]
         }
+
     ],
     "solutions": [
         {
@@ -103,6 +126,7 @@
             "c": ["cc"],
             "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
+            "g": ["gh"],
             "title": "Tracker One",
             "image": ""
         },
@@ -111,7 +135,42 @@
             "c": ["cc"],
             "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
+            "g": ["gh"],
             "title": "Monitor One",
+            "image": ""
+        },
+        {
+            "pt": ["ptm"],
+            "c": ["cc", "cw"],
+            "lo": ["lon", "loe", "loo"],
+            "cp": ["cpm"],
+            "g": ["gl", "gm"],
+            "title": "M-SoM",
+            "image": ""
+        },
+        {
+            "pt": ["ptm"],
+            "c": ["cc"],
+            "lo": ["lon", "loe", "loo"],
+            "cp": ["cpl"],
+            "g": ["gl", "gm"],
+            "title": "B-SoM",
+            "image": ""
+        },
+        {
+            "pt": ["ptm"],
+            "c": ["cw"],
+            "cp": ["cpm"],
+            "g": false,
+            "title": "P2",
+            "image": ""
+        },
+        {
+            "pt": ["ptd"],
+            "c": ["cw"],
+            "cp": ["cpm"],
+            "g": false,
+            "title": "Photon 2",
             "image": ""
         }
 
