@@ -54,14 +54,57 @@ $(document).ready(function() {
         const renderSolutions = async function() {
             $(deviceSelector.answerInnerElem).empty();
 
-            // No selected checkboxes is wildcard
-
-            // Rank solutions
+            // Update scores
             let showSolutions = [];
 
             for(const solutionObj of deviceSelector.config.solutions) {
-                showSolutions.push(solutionObj);
+                solutionObj.score = 0;
+
+                for(const questionObj of deviceSelector.config.questions) {
+                    if (!solutionObj[questionObj.id]) {
+                        // Solution is false or undefined, reduce the score
+                        solutionObj.score--;
+                        continue;
+                    }
+
+                    if (questionObj.checkboxes) {
+                        let hasCheckbox = false;
+
+                        for(const optionsObj of questionObj.checkboxes) {
+                            if (deviceSelector.settings[optionsObj.id] === '1') {
+                                hasCheckbox = true;
+                                break;
+                            }
+                        }
+                        
+                        if (hasCheckbox) {
+                            // User selected at least one option, so add rankings
+                            for(const optionsObj of questionObj.checkboxes) {
+                                if (deviceSelector.settings[optionsObj.id] === '1') {
+                                    if (solutionObj[questionObj.id].includes(deviceSelector.settings[optionsObj.id])) {
+                                        solutionObj.score++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (questionObj.radio) {
+                        // Radio buttons always have an answer
+                        if (solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.radio.id])) {
+                            solutionObj.score++;
+                        }
+                    }
+                }
+
+                if (solutionObj.score >= 0) {
+                    showSolutions.push(solutionObj);
+                }
             }
+
+            // Rank solutions
+            showSolutions.sort((a, b) => b.score - a.score);
+
+            console.log('showSolutions', showSolutions);
 
             // Render ranked solutions
             for(const solutionObj of showSolutions) {
@@ -264,6 +307,7 @@ $(document).ready(function() {
             for(const fn of deviceSelector.loadFunctions) {
                 fn();
             }
+            saveSettings();
         };
 
 
