@@ -61,6 +61,7 @@ You should not create a new access token for each API operation! You should inst
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
+- If a single IP address sends 10 consecutive failed create token requests, the API will block further attempts from that IP address for 30 minutes. After this lockout period, requests from the same IP address will be allowed again.
 - Can be increased for enterprise customers
 - API Route: POST /oauth/token
 {{!-- END shared-blurb --}}

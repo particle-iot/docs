@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Create access token limit 2024-12-20
+
+There is an additional rate limit after 10 failed attempts to create an access token. See [Create an access token rate limits](/reference/cloud-apis/api/#create-an-access-token-api-rate-limits/).
+
 ### Hibernate on Gen 4 2024-12-20
 
 Clarified which pins can be used to wake from hibernate sleep mode on Gen 4 (RTL872x) and split the pins that can wake from hibernate table from the pins that don't support pull-up or pull-down in hibernate sleep mode into two separate tables to reduce confusion. Datasheets and Device OS firmware API reference updated.

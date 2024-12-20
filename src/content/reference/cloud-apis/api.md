@@ -421,6 +421,7 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
+- If a single IP address sends 10 consecutive failed create token requests, the API will block further attempts from that IP address for 30 minutes. After this lockout period, requests from the same IP address will be allowed again.
 - Can be increased for enterprise customers
 - API Route: POST /oauth/token
 {{!-- END shared-blurb --}}

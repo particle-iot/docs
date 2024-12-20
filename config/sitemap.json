@@ -1135,12 +1135,12 @@
             "hash": "c05c434dbf8c593e73664e664db332c5007d4421353cf087caa1791c40c7ded8"
         },
         "reference/cloud-apis/access-tokens.md": {
-            "date": "2024-09-04",
-            "hash": "df4663336ca8a99ec78f3029e624d52635c22b6c0ccdc580b6eb69cbe328f745"
+            "date": "2024-12-20",
+            "hash": "264776c70a5538439141848e0febae9ecf64814c88342a38137f5a27f6c676b7"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2024-07-09",
-            "hash": "e48afaebafec3453fbe88c83758d9950ccac4854ac56256773dce812689cae1b"
+            "date": "2024-12-20",
+            "hash": "494644f31e5ff865781da9a3b15a6df2ce58957a24daf0c3b9d9bd37f7320547"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2024-10-28",
@@ -8231,7 +8231,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "61a2512a26e8549854a57ecaa1d915799aef8d4b3d4fdef3897889ec3ddc8008",
+            "hash": "24b2ad00510583d7c752d082d26cca83c1297b67ff09a8791b75d1c7a7ab56f0",
             "date": "2024-12-20"
         },
         "getting-started/cloud/logic.md": {
