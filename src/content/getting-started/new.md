@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### firmware_update_failed fix 2024-12-20
+
+Using `firmware_update_failed` in case statement with an `int` param now requires a cast to compile.
+
 ### Libraries update 2024-12-17
 
 Updated the library viewer with currently available public libraries.

@@ -563,7 +563,7 @@ void firmwareUpdateHandler(system_event_t event, int param) {
             break;
 
         case firmware_update_complete:
-        case firmware_update_failed:
+        case (int)firmware_update_failed:
             firmwareUpdateInProgress = false;
             break;
     }
