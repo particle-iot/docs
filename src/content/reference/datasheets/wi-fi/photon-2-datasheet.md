@@ -419,10 +419,6 @@ The Photon 2 can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`
 
 Pin D10 `WKP` is the same module pin location as the Argon pin D8, which is also the WKP pin.
 
-The Photon 2 preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
-
-Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin S4 can only use an external hardware pull-up or pull down.
-
 {{!-- BEGIN do not edit content below, it is automatically generated 2bb13ba8-9f9c-44d6-8734-df6e85bb09042 --}}
 
 | Pin Name | Description | Interface | MCU |
@@ -434,8 +430,20 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Pin can wake from HIBERNATE sleep | PA[15] |
 | MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Pin can wake from HIBERNATE sleep | PA[13] |
 | MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Pin can wake from HIBERNATE sleep | PA[12] |
-| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Pin can wake from HIBERNATE sleep | PA[14] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+The Photon 2 preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
+
+Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin S4 can only use an external hardware pull-up or pull down.
+
+{{!-- BEGIN do not edit content below, it is automatically generated aff3d900-5161-48b1-a3b2-948739caea97 --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

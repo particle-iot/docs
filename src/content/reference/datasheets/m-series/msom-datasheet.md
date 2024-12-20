@@ -620,13 +620,11 @@ The M-SoM can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `
 
 The M-SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
 
-Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[13] |
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Pin can wake from HIBERNATE sleep | PA[15] |
@@ -639,6 +637,19 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+
+Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down. It also cannot be used to wake from hibernate sleep mode.
+
+{{!-- BEGIN do not edit content below, it is automatically generated c9bab6c3-be4f-44e8-aea3-d1a738422b13 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 
 
 ### SETUP and RESET button

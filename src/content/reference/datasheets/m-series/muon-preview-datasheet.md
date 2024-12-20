@@ -771,7 +771,6 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 | 10 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Pin can wake from HIBERNATE sleep | 38 | PA[13] |
 | 11 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Pin can wake from HIBERNATE sleep | 42 | PA[14] |
 | 36 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Pin can wake from HIBERNATE sleep | 40 | PA[15] |
-| 38 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | 17 | PA[0] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

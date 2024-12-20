@@ -817,8 +817,6 @@ The Muon/M-SoM can only wake from `HIBERNATE` sleep mode on on certain pins, `RI
 
 The Muon/M-SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
 
-Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down.
-
 {{!-- BEGIN do not edit content below, it is automatically generated 2629e77b-eb69-4f63-8f0e-011032c72782 --}}
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU |
@@ -827,10 +825,24 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 | 10 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Pin can wake from HIBERNATE sleep | 38 | PA[13] |
 | 11 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Pin can wake from HIBERNATE sleep | 42 | PA[14] |
 | 36 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Pin can wake from HIBERNATE sleep | 40 | PA[15] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down. These pins also cannot be used to wake from hibernate sleep mode.
+
+{{!-- BEGIN do not edit content below, it is automatically generated ecbef542-699d-4e47-bf18-b4568b48c0c7 --}}
+
+| Pin | Pin Name | Description | Interface | M2 Pin | MCU |
+| :---: | :--- | :--- | :--- | :--- | :--- |
 | 38 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | 17 | PA[0] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
+
 
 ## Firmware settings
 

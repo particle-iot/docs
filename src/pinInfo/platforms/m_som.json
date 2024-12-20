@@ -82,7 +82,7 @@
             "digitalRead": true,
             "digitalWrite": true,
             "hardwarePin": "PA[0]",
-            "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode.",
+            "hibernatePull": "No internal pull up or pull down in HIBERNATE sleep mode.",
             "i2s": "I2S RX",
             "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
             "is5VTolerant": false,

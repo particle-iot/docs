@@ -362,7 +362,6 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Pin can wake from HIBERNATE sleep | PA[13] |
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Pin can wake from HIBERNATE sleep | PA[15] |

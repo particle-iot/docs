@@ -401,7 +401,6 @@ The Photon 2 can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`
 | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Pin can wake from HIBERNATE sleep | PA[15] |
 | MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Pin can wake from HIBERNATE sleep | PA[13] |
 | MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Pin can wake from HIBERNATE sleep | PA[12] |
-| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Pin can wake from HIBERNATE sleep | PA[14] |
 
 

@@ -1920,6 +1920,17 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         {
+            guid:'eaaf88f3-6d4b-41e8-b183-74ba8141dec1',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'P2',
+                    interface: 'hibernatePull',
+                    onlyGPIO: true,
+                }); 
+            } 
+        },
+        {
             guid:'3b7b8712-9617-11ec-b909-0242ac120002',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -2030,6 +2041,18 @@ const schemaDocs = require('./schema-docs');
                     style: 'interfacePins',
                     platformNew: 'Photon 2',
                     interface: 'hibernate',
+                    noPinNumbers: true,
+                    onlyGPIO: true,
+                }); 
+            } 
+        },
+        {
+            guid:'aff3d900-5161-48b1-a3b2-948739caea97',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Photon 2',
+                    interface: 'hibernatePull',
                     noPinNumbers: true,
                     onlyGPIO: true,
                 }); 
@@ -3732,6 +3755,17 @@ const schemaDocs = require('./schema-docs');
             }                     
         },       
         {
+            guid:'c9bab6c3-be4f-44e8-aea3-d1a738422b13',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M-SoM',
+                    interface: 'hibernatePull',
+                    onlyGPIO: true,
+                }); 
+            }                     
+        },       
+        {
             guid:'6d82afd2-3dd4-4a30-a75b-7d9b0b780986', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -4319,7 +4353,8 @@ const schemaDocs = require('./schema-docs');
                     ],
                 }); 
             } 
-        }, {
+        }, 
+        {
             guid:'2629e77b-eb69-4f63-8f0e-011032c72782',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -4333,6 +4368,18 @@ const schemaDocs = require('./schema-docs');
             }                     
         },   
         {
+            guid:'ecbef542-699d-4e47-bf18-b4568b48c0c7',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'hibernatePull',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    onlyGPIO: true,
+                }); 
+            }                     
+        },           {
             guid:'c9e7a163-b53c-4c4f-81ff-f84ec7344a0c',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
