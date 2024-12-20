@@ -20955,7 +20955,7 @@ In this mode on wake, device is reset, running setup() again.
 {{note op="start" type="P2Only"}}
 - The P2 does not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
 
-- The P2 can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
+- The P2 can only wake from `HIBERNATE` mode on the pins listed below with the note "Pin can wake from HIBERNATE sleep," `RISING`, `FALLING`, or `CHANGE`.
 
 - On the P2, pins S4, S5, and S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 
@@ -20989,7 +20989,7 @@ In this mode on wake, device is reset, running setup() again.
 {{note op="start" type="Photon2"}}
 - The Photon 2es do not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
 
-- The Photon 2 can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
+- The Photon 2 can only wake from `HIBERNATE` on the pins listed below with the note "Pin can wake from HIBERNATE sleep," `RISING`, `FALLING`, or `CHANGE`.
 
 - On the Photon 2, pin D10 is in the same position as the Argon/Feather pin D8. 
 
@@ -21025,7 +21025,7 @@ In this mode on wake, device is reset, running setup() again.
 {{note op="start" type="M-SoM"}}
 - The M-SoM does not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
 
-- The M-SoM can only wake from `HIBERNATE` mode on the pins listed below, `RISING`, `FALLING`, or `CHANGE`.
+- The M-SoM can only wake from `HIBERNATE` mode on the pins listed below with the note "Pin can wake from HIBERNATE sleep," `RISING`, `FALLING`, or `CHANGE`.
 
 - On the M-SoM, pin D21 does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 

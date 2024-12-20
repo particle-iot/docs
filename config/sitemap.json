@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-12-16",
-            "hash": "f4284a11071dc9efb26ab4de9bb51082a22dd0f52f0a5c52423d6ed1af87ae76"
+            "date": "2024-12-20",
+            "hash": "9a79b1eb67c4e5ed03adfc30e6898a72908dc1f62100c943358401e9f64134c6"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3619,8 +3619,8 @@
             "hash": "c175b082e2e5362694fce5873fe7871dd95c92c9414eaa7a0c617047eae20d85"
         },
         "reference/device-os/api/sleep-sleep/hibernate-systemsleepmode.md": {
-            "date": "2024-12-03",
-            "hash": "87c0c08d34433e99ecd9b3435c72e0b5641a309ee7cfd7df886f7b12d403f9ca"
+            "date": "2024-12-20",
+            "hash": "6e2ee472e74de8ac40af199d2bd06d5d3e6f53fac59c3c4c14a048519d37ce87"
         },
         "reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration.md": {
             "date": "2024-07-31",
