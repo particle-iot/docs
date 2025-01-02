@@ -1953,3 +1953,4 @@ Global, country list to be provided a later date.
 |          | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
 |   1      | 2024-10-08 | RK | Update for schematic v1.0 |
 |   2      | 2024-10-22 | RK | Public release|
+|   3      | 2025-01-02 | RK | Wrong pin listed for the power manager interrupt pin; it is A7, not A6 |
