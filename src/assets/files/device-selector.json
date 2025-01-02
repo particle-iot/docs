@@ -142,11 +142,11 @@
         }
 
     ],
+    "mergeSolutionKeys": ["c"],
     "solutions": [
         {
             "pt": ["ptg"],
             "c": ["cc"],
-            "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
             "g": ["gh"],
             "ex": ["m8"],
@@ -155,13 +155,13 @@
             "variations": [
                 {
                     "lo": ["lon"],
-                    "title": "Tracker One (ONE404)",
+                    "title": "Tracker One (404)",
                     "skuEach": ["ONE404MEA"],
                     "skuTray": ["ONE494MTY"]
                 },
                 {
                     "lo": ["loe", "loo"],
-                    "title": "Tracker One (ONE523)",
+                    "title": "Tracker One (523)",
                     "skuEach": ["ONE523MEA"],
                     "skuTray": ["ONE523MTY"]
                 }
@@ -170,12 +170,23 @@
         {
             "pt": ["ptg"],
             "c": ["cc"],
-            "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
             "g": ["gh"],
             "ex": ["m1"],
             "title": "Monitor One",
-            "image": ""
+            "image": "",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "title": "Monitor One (404)",
+                    "skuEach": ["MON404E01C01KIT"]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "title": "Monitor One (524)",
+                    "skuEach": ["MON524E01C01KIT"]
+                }
+            ]
         },
         {
             "pt": ["ptm"],
@@ -190,12 +201,50 @@
         {
             "pt": ["ptd"],
             "c": ["cc", "cw", "ce", "cl"],
-            "lo": ["lon", "loe", "loo"],
             "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
             "ex": ["p"],
             "title": "Muon",
-            "image": ""
+            "image": "",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "title": "Muon (404)",
+                    "skuEach": ["MUON404", "MON404EA"],
+                    "variations": [
+                        {
+                            "pt": ["ptg"],
+                            "title": "Muon (404) + M1 Enclosure",
+                            "skuEach": ["M1ENCLEA"]
+                        }
+                    ]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "title": "Muon (524)",
+                    "skuEach": ["MUON524", "MUON524EA"],
+                    "variations": [
+                        {
+                            "pt": ["ptg"],
+                            "title": "Muon (524) + M1 Enclosure",
+                            "skuEach": ["M1ENCLEA"]
+                        }
+                    ]
+                },
+                {
+                    "lo": ["lon", "loe", "loo"],
+                    "c": ["cs"],
+                    "title": "Muon (625)",
+                    "skuEach": ["MUON635"],
+                    "variations": [
+                        {
+                            "pt": ["ptg"],
+                            "title": "Muon (625) + M1 Enclosure",
+                            "skuEach": ["M1ENCLEA"]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "pt": ["ptg"],
