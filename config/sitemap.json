@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-12-20",
-            "hash": "0a155e5f7a7fce660636d59c0f698571e257880eaba5a2a2c802662e89e116ae"
+            "date": "2025-01-02",
+            "hash": "e4661800e441d89a760f41e10689b958b550ef631aa6158950e14b30c594f9f2"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1827,7 +1827,7 @@
             "hash": "dd5ad7914917577f67a467fbdd155859c4932d74b1156d303d9fce17187be561"
         },
         "reference/device-os/api/ethernet/pin-configuration-ethernet.md": {
-            "date": "2024-12-12",
+            "date": "2025-01-02",
             "hash": "0a8d19a7c31a15d2935327ecf5d472ab1d4d0bd94fb322db43f04f136de309c4"
         },
         "reference/device-os/api/ethernet/on.md": {
@@ -3723,8 +3723,8 @@
             "hash": "39eb4c54367546352b5e64746ae1131c0c0b95fff480ba0b538fe2e450ba492f"
         },
         "reference/device-os/api/system-modes/manual-mode.md": {
-            "date": "2023-09-20",
-            "hash": "d5920fbd64a3fd0c6355292ea3d77238d3a6bcea7418ee3e75eea24b843e57c6"
+            "date": "2025-01-02",
+            "hash": "c874aa5ca4ddadd958242ed1f5eb4da440ebf2a3d3d8bc0191425f44f1cf75a8"
         },
         "reference/device-os/api/system-thread/system-thread.md": {
             "date": "2024-10-15",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "24b2ad00510583d7c752d082d26cca83c1297b67ff09a8791b75d1c7a7ab56f0",
-            "date": "2024-12-20"
+            "hash": "0213c6108691a07b3d83be6dc6d94c97190fea903304299a361f9e882e4a08e5",
+            "date": "2025-01-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8403,8 +8403,8 @@
             "date": "2024-12-20"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "81e67167c755dac2e408055a57e6c4fc2149bac0b4fc9ed48492c236abe99687",
-            "date": "2024-12-20"
+            "hash": "04558bb7098355d038b9fdb167df18d3078dd164c29bfdcd95db40a665d5fd33",
+            "date": "2025-01-02"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9216,7 +9216,7 @@
         },
         "reference/device-os/api/power-manager/auxiliarypowercontrolpin-systempowerconfiguration.md": {
             "hash": "2fbe62d4aa8468086aeec3a7c1c37e1e6de98a1cc49d4566af4da0adb09a76e5",
-            "date": "2024-10-22"
+            "date": "2025-01-02"
         },
         "reference/device-os/api/power-manager/interruptpin-systempowerconfiguration.md": {
             "hash": "58212f6a22cd17fdbce33c271e0aed73fba4642b4e3a535eec3ff9e193c8e681",

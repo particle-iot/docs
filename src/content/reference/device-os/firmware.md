@@ -22437,8 +22437,7 @@ void loop() {
 
 There are many hidden pitfalls when using `MANUAL` system mode with cloud connectivity, and it may interact unexpectedly with threading. 
 
-The only recommended use case for `MANUAL` mode is when you have no cloud connectivity at all, such as when you are using the device with no 
-cloud connectivity at all. For example, if you are only using BLE or NFC.
+The only recommended use case for `MANUAL` mode is when you have no cloud connectivity at all, such as when you are only using BLE or NFC.
 
 ```cpp
 SYSTEM_MODE(MANUAL);

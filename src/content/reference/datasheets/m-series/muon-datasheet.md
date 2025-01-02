@@ -871,7 +871,7 @@ once and the device must be reset after configuration for the changes to take ef
 ```cpp
 // Enable 3V3_AUX
 SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
-powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A6);
+powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A7);
 System.setPowerConfiguration(powerConfig);
 
 // Enable Ethernet
@@ -892,7 +892,7 @@ turn on at boot.
 ```cpp
 // Manual management of 3V3_AUX
 SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
-powerConfig.auxiliaryPowerControlPin(PIN_INVALID).interruptPin(A6);
+powerConfig.auxiliaryPowerControlPin(PIN_INVALID).interruptPin(A7);
 System.setPowerConfiguration(powerConfig);
 ```
 
