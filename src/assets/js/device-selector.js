@@ -119,7 +119,7 @@ $(document).ready(function() {
                             solutionObj.reasons.push('geolocation not needed ' + questionObj.id);
                         }
                         else
-                        if (solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.id])) {
+                        if (Array.isArray(solutionObj[questionObj.id]) && solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.id])) {
                             solutionObj.reasons.push('radio question included' + questionObj.id);
                         }
                         else {
@@ -327,21 +327,35 @@ $(document).ready(function() {
             deviceSelector.solutions = [];
 
             function processObj(parentObj, solutionObj) {
-                if (typeof solutionObj.variations != 'undefined') {
-                    for(const variationSolutionObj of solutionObj.variations) {
-                        processObj(solutionObj, variationSolutionObj)
-                    }
-                }
-                else {
-                    if (parentObj) {
-                        const tempObj = Object.assign({}, parentObj);
-                        for(const key in solutionObj) {
-                            tempObj[key] = solutionObj[key];
+                let combinedObj = parentObj ? Object.assign({}, parentObj) : {};
+
+                for(const key in solutionObj) {
+                    if (deviceSelector.config.mergeSolutionKeys.includes(key)) {
+                        if (Array.isArray(combinedObj[key])) {
+                            let tempArray = [];
+                            for(const item of combinedObj[key]) {
+                                tempArray.push(item);
+                            }
+                            for(const item of solutionObj[key]) {
+                                if (!tempArray.includes(item)) {
+                                    tempArray.push(item);
+                                }
+                            }
+                            combinedObj[key] = tempArray;
                         }
-                        deviceSelector.solutions.push(tempObj);
+                        else {
+                            combinedObj[key] = solutionObj[key];
+                        }    
                     }
                     else {
-                        deviceSelector.solutions.push(Object.assign({}, solutionObj));
+                        combinedObj[key] = solutionObj[key];
+                    }  
+                }
+                deviceSelector.solutions.push(combinedObj);              
+
+                if (typeof solutionObj.variations != 'undefined') {
+                    for(const variationSolutionObj of solutionObj.variations) {
+                        processObj(combinedObj, variationSolutionObj)
                     }
                 }
             }
