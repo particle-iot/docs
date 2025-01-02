@@ -97,6 +97,28 @@
             ]
         },
         {
+            "title": "Expansion options (optional)",
+            "id": "ex",
+            "checkboxes": [
+                {
+                    "id": "f",
+                    "title": "Adafruit Feather"
+                },
+                {
+                    "id": "p",
+                    "title": "Raspberry Pi (40-pin)"
+                },
+                {
+                    "id": "m8",
+                    "title": "M8 8-pin connector"
+                },
+                {
+                    "id": "m1",
+                    "title": "Monitor One expansion card"
+                }
+            ]
+        },
+        {
             "title": "Geolocation",
             "id": "g",
             "radio": [
@@ -127,6 +149,7 @@
             "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
             "g": ["gh"],
+            "ex": ["m8"],
             "title": "Tracker One",
             "image": ""
         },
@@ -136,6 +159,7 @@
             "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
             "g": ["gh"],
+            "ex": ["m1"],
             "title": "Monitor One",
             "image": ""
         },
@@ -145,7 +169,28 @@
             "lo": ["lon", "loe", "loo"],
             "cp": ["cpm"],
             "g": ["gl", "gm"],
+            "ex": false,
             "title": "M-SoM",
+            "image": ""
+        },
+        {
+            "pt": ["ptd"],
+            "c": ["cc", "cw", "ce", "cl"],
+            "lo": ["lon", "loe", "loo"],
+            "cp": ["cpl", "cpm"],
+            "g": ["gl", "gm"],
+            "ex": ["p"],
+            "title": "Muon",
+            "image": ""
+        },
+        {
+            "pt": ["ptg"],
+            "c": ["cc", "cw", "ce", "cl"],
+            "lo": ["lon", "loe", "loo"],
+            "cp": ["cpl", "cpm"],
+            "g": ["gl", "gm"],
+            "ex": ["p"],
+            "title": "Muon with M1 Enclosure",
             "image": ""
         },
         {
@@ -154,25 +199,36 @@
             "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
             "g": ["gl", "gm"],
+            "ex": false,
             "title": "B-SoM",
             "image": ""
         },
         {
             "pt": ["ptm"],
             "c": ["cw"],
-            "cp": ["cpm"],
+            "cp": ["cpl", "cpm"],
             "g": false,
+            "ex": false,
             "title": "P2",
             "image": ""
         },
         {
             "pt": ["ptd"],
             "c": ["cw"],
-            "cp": ["cpm"],
+            "cp": ["cpl", "cpm"],
             "g": false,
+            "ex": ["f"],
             "title": "Photon 2",
             "image": ""
+        },
+        {
+            "pt": ["ptd"],
+            "c": ["cc", "ce"],
+            "cp": ["cpm","cph"],
+            "g": ["gl", "gm"],
+            "ex": ["p"],
+            "title": "Tachyon",
+            "image": ""
         }
-
     ]
 }
