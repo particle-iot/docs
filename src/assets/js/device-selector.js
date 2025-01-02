@@ -153,6 +153,16 @@ $(document).ready(function() {
                     await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
                 }
 
+                // Render SKUs
+                for(const skuGroup of [{key:'skuEach', title:'Single unit SKUs'}, {key:'skuTray', title:'Tray SKUs'}]) {
+                    if (typeof solutionObj[skuGroup.key] != 'undefined') {
+                        const skuHeaderElem = document.createElement('h4');
+                        $(skuHeaderElem).text(skuGroup.title);
+
+                        $(solutionElem).append(skuHeaderElem);
+                    }
+                }
+ 
                 $(deviceSelector.answerInnerElem).append(solutionElem);
             }
         }
