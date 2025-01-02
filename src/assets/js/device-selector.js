@@ -160,6 +160,68 @@ $(document).ready(function() {
                         $(skuHeaderElem).text(skuGroup.title);
 
                         $(solutionElem).append(skuHeaderElem);
+
+                        const tableElem = document.createElement('table');
+                        $(tableElem).addClass('apiHelperTableNoMargin')
+
+                        const columnInfo = [
+                            {
+                                title: 'SKU',
+                                width: '100px',
+                                key: 'name',
+                            },
+                            {
+                                title: 'Description',
+                                width: '350px',
+                                key: 'desc',
+                            },
+                            {
+                                title: 'Lifecycle',
+                                width: '120px',
+                                key: 'lifecycle',
+                            },
+                        ];
+
+                        {
+                            const theadElem = document.createElement('thead');
+                            const trElem = document.createElement('tr');
+
+                            for(const col of columnInfo) {
+                                const tdElem = document.createElement('td');                                
+                                $(tdElem).text(col.title);
+                                $(trElem).append(tdElem);
+                            }
+
+
+                            $(theadElem).append(trElem);
+                            $(tableElem).append(theadElem);    
+                        }
+
+                        const tbodyElem = document.createElement('tbody');
+
+                        for(const skuName of solutionObj[skuGroup.key]) {
+                            const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
+                            if (!skuObj) {
+                                continue;
+                            }
+
+                            const trElem = document.createElement('tr');
+
+                            for(const col of columnInfo) {
+                                const tdElem = document.createElement('td'); 
+                                $(tdElem).css('width', col.width);
+                                if (skuObj[col.key]) {
+                                    $(tdElem).text(skuObj[col.key]);
+                                }
+                                $(trElem).append(tdElem);
+                            }
+
+                            $(tbodyElem).append(trElem);
+                        }
+
+                        $(tableElem).append(tbodyElem);
+                        
+                        $(solutionElem).append(tableElem);
                     }
                 }
  
