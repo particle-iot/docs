@@ -151,7 +151,21 @@
             "g": ["gh"],
             "ex": ["m8"],
             "title": "Tracker One",
-            "image": ""
+            "image": "",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "title": "Tracker One (ONE404)",
+                    "skuEach": ["ONE404MEA"],
+                    "skuTray": ["ONE494MTY"]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "title": "Tracker One (ONE523)",
+                    "skuEach": ["ONE523MEA"],
+                    "skuTray": ["ONE523MTY"]
+                }
+            ]
         },
         {
             "pt": ["ptg"],

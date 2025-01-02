@@ -70,7 +70,7 @@ $(document).ready(function() {
             }
             
 
-            for(const solutionObj of deviceSelector.config.solutions) {
+            for(const solutionObj of deviceSelector.solutions) {
                 solutionObj.show = true
                 solutionObj.reasons = [];
 
@@ -323,6 +323,34 @@ $(document).ready(function() {
 
         }
 
+        const expandSolutionVariations = function() {
+            deviceSelector.solutions = [];
+
+            function processObj(parentObj, solutionObj) {
+                if (typeof solutionObj.variations != 'undefined') {
+                    for(const variationSolutionObj of solutionObj.variations) {
+                        processObj(solutionObj, variationSolutionObj)
+                    }
+                }
+                else {
+                    if (parentObj) {
+                        const tempObj = Object.assign({}, parentObj);
+                        for(const key in solutionObj) {
+                            tempObj[key] = solutionObj[key];
+                        }
+                        deviceSelector.solutions.push(tempObj);
+                    }
+                    else {
+                        deviceSelector.solutions.push(Object.assign({}, solutionObj));
+                    }
+                }
+            }
+
+            for(const solutionObj of deviceSelector.config.solutions) {
+                processObj(null, solutionObj);
+            }
+        }
+
         const loadQuerySettings = function() {
             for(const fn of deviceSelector.loadFunctions) {
                 fn();
@@ -362,6 +390,8 @@ $(document).ready(function() {
             await Promise.all(promises);
     
             console.log('deviceSelector', deviceSelector);
+
+            expandSolutionVariations();
 
             await renderQuestions();
     
