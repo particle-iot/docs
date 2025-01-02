@@ -71,13 +71,12 @@ $(document).ready(function() {
             
 
             for(const solutionObj of deviceSelector.config.solutions) {
-                solutionObj.score = 0;
-                solutionObj.partialMatch = false;
+                solutionObj.show = true
                 solutionObj.reasons = [];
 
                 for(const questionObj of deviceSelector.config.questions) {
                     if (onlyGateway && !solutionObj.pt.includes('ptg')) {
-                        solutionObj.score -= 100;
+                        solutionObj.show = false;
                         solutionObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
                     }
 
@@ -98,23 +97,19 @@ $(document).ready(function() {
 
                             for(const optionsObj of questionObj.checkboxes) {
                                 if (deviceSelector.settings[optionsObj.id] === '1') {
-                                    if (solutionObj[questionObj.id].includes(deviceSelector.settings[optionsObj.id])) {
-                                        solutionObj.score++;
+                                    if (Array.isArray(solutionObj[questionObj.id]) && 
+                                        solutionObj[questionObj.id].includes(optionsObj.id)) {
                                         hasAny = true;
                                     }
                                 }
                             }
-                            if (hasAny) {
-                                if (!solutionObj[questionObj.id]) {
-                                    // Solution is false or undefined, reduce the score
-                                    solutionObj.score--;
-                                    solutionObj.reasons.push('solution false or undefined for ' + questionObj.id);
-                                }            
+                            if (!hasAny) {
+                                solutionObj.show = false;
+                                solutionObj.reasons.push('not a solution for for ' + questionObj.id);
                             }
-                            else {
-                                solutionObj.reasons.push('solution false or undefined for ' + questionObj.id);
-                                solutionObj.partialMatch = true;
-                            }
+                        }
+                        else {
+                            // No checkbox checked, allow any answer
                         }
                     }
                     if (questionObj.radio) {
@@ -122,21 +117,19 @@ $(document).ready(function() {
                         if (questionObj.id == 'g' && deviceSelector.settings.g == 'gl') {
                             // Geolocation not needed, allow any 
                             solutionObj.reasons.push('geolocation not needed ' + questionObj.id);
-                            solutionObj.score++;
                         }
                         else
-                        if (solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.radio.id])) {
-                            solutionObj.reasons.push('radio question included, increasing score' + questionObj.id);
-                            solutionObj.score++;
+                        if (solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.id])) {
+                            solutionObj.reasons.push('radio question included' + questionObj.id);
                         }
                         else {
-                            solutionObj.reasons.push('radio undefined for ' + questionObj.id);
-                            solutionObj.partialMatch = true;
+                            solutionObj.reasons.push('radio undefined for question=' + questionObj.id + ' value=' + questionObj.id);
+                            solutionObj.show = false;
                         }
                     }
                 }
 
-                if (solutionObj.score >= 0) {
+                if (solutionObj.show) {
                     showSolutions.push(solutionObj);
                 }
                 else {
@@ -144,23 +137,9 @@ $(document).ready(function() {
                 }
             }
 
-            // Rank solutions
-            showSolutions.sort(function(a, b) {
-                if (a.partialMatch && !b.partialMatch) {
-                    return -1;
-                }
-                else
-                if (!a.partialMatch && b.partialMatch) {
-                    return +1;
-                }
-                else {
-                    return b.score - a.score;
-                }
-            });
-
+            // Render solutions
             console.log('showSolutions', showSolutions);
 
-            // Render ranked solutions
             for(const solutionObj of showSolutions) {
 
                 const solutionElem = document.createElement('div');
@@ -177,20 +156,7 @@ $(document).ready(function() {
                 $(deviceSelector.answerInnerElem).append(solutionElem);
             }
         }
-        /*
-            "solutions": [
-        {
-            "pt": ["ptg"],
-            "c": ["cc"],
-            "lo": ["lon", "loe", "loo"],
-            "cp": ["cpl", "cpm"],
-            "title": "Tracker One",
-            "image": ""
-        }
-    ]
-
-    */
-
+        
         const saveSettings = function() {
             deviceSelector.settings = {};
 
