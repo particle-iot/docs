@@ -156,14 +156,12 @@
                 {
                     "lo": ["lon"],
                     "title": "Tracker One (404)",
-                    "skuEach": ["ONE404MEA"],
-                    "skuTray": ["ONE494MTY"]
+                    "skus": ["ONE404MEA", "ONE494MTY"]
                 },
                 {
                     "lo": ["loe", "loo"],
                     "title": "Tracker One (523)",
-                    "skuEach": ["ONE523MEA"],
-                    "skuTray": ["ONE523MTY"]
+                    "skus": ["ONE523MEA", "ONE523MTY"]
                 }
             ]
         },
@@ -179,12 +177,12 @@
                 {
                     "lo": ["lon"],
                     "title": "Monitor One (404)",
-                    "skuEach": ["MON404E01C01KIT"]
+                    "skus": ["MON404E01C01KIT"]
                 },
                 {
                     "lo": ["loe", "loo"],
                     "title": "Monitor One (524)",
-                    "skuEach": ["MON524E01C01KIT"]
+                    "skus": ["MON524E01C01KIT"]
                 }
             ]
         },
@@ -211,25 +209,25 @@
                 {
                     "lo": ["lon"],
                     "title": "Muon (404)",
-                    "skuEach": ["MUON404", "MUON404EA"]
+                    "skus": ["MUON404", "MUON404EA"]
                 },
                 {
                     "lo": ["loe", "loo"],
                     "title": "Muon (524)",
-                    "skuEach": ["MUON524", "MUON524EA"]
+                    "skus": ["MUON524", "MUON524EA"]
                 },
                 {
                     "lo": ["lon", "loe", "loo"],
                     "c": ["cs"],
                     "title": "Muon (625)",
-                    "skuEach": ["MUON635"]
+                    "skus": ["MUON635"]
                 }
             ]
         },
         {
             "pt": ["ptg"],
             "title": "Muon (404) + M1 Enclosure",
-            "skuEach": ["M1ENCLEA"],
+            "skus": ["M1ENCLEA"],
             "derivedFrom": "Muon"
         },
         {
