@@ -51,96 +51,193 @@ $(document).ready(function() {
             }
         }
 
+        const checkSolution = function(solutionObj, options) {
+            solutionObj.show = true;
+
+            for(const questionObj of deviceSelector.config.questions) {
+                if (options.onlyGateway && !solutionObj.pt.includes('ptg')) {
+                    solutionObj.show = false;
+                    solutionObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
+                }
+
+                if (questionObj.checkboxes) {
+                    let hasCheckbox = false;
+
+                    for(const optionsObj of questionObj.checkboxes) {
+                        if (deviceSelector.settings[optionsObj.id] === '1') {
+                            hasCheckbox = true;
+                            break;
+                        }
+                    }
+                    
+                    if (hasCheckbox) {
+                        // User selected at least one option, so add rankings
+                        let hasAny = false;
+
+                        for(const optionsObj of questionObj.checkboxes) {
+                            if (deviceSelector.settings[optionsObj.id] === '1') {
+                                if (Array.isArray(solutionObj[questionObj.id]) && 
+                                    solutionObj[questionObj.id].includes(optionsObj.id)) {
+                                    hasAny = true;
+                                }
+                            }
+                        }
+                        if (!hasAny) {
+                            solutionObj.show = false;
+                            solutionObj.reasons.push('not a solution for for ' + questionObj.id);
+                        }
+                    }
+                    else {
+                        // No checkbox checked, allow any answer
+                    }
+                }
+                if (questionObj.radio) {
+                    // Radio buttons always have an answer
+                    if (questionObj.id == 'g' && deviceSelector.settings.g == 'gl') {
+                        // Geolocation not needed, allow any 
+                        solutionObj.reasons.push('geolocation not needed ' + questionObj.id);
+                    }
+                    else
+                    if (Array.isArray(solutionObj[questionObj.id]) && solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.id])) {
+                        solutionObj.reasons.push('radio question included' + questionObj.id);
+                    }
+                    else {
+                        solutionObj.reasons.push('radio undefined for question=' + questionObj.id + ' value=' + deviceSelector.settings[questionObj.id]);
+                        solutionObj.show = false;
+                    }
+                }
+            }
+
+            if (!solutionObj.show) {
+                console.log('skipped solution', solutionObj);
+            }
+        }
+
+        const renderVariation = async function(solutionElem, variationObj, options) {
+            // Render SKUs
+            for(const skuGroup of [{key:'skuEach', title:'Single unit SKUs'}, {key:'skuTray', title:'Tray SKUs'}]) {
+                if (typeof variationObj[skuGroup.key] != 'undefined') {
+                    const skuHeaderElem = document.createElement('h4');
+                    $(skuHeaderElem).text(skuGroup.title);
+
+                    $(solutionElem).append(skuHeaderElem);
+
+                    const tableElem = document.createElement('table');
+                    $(tableElem).addClass('apiHelperTableNoMargin')
+
+                    const columnInfo = [
+                        {
+                            title: 'SKU',
+                            width: '100px',
+                            key: 'name',
+                        },
+                        {
+                            title: 'Description',
+                            width: '350px',
+                            key: 'desc',
+                        },
+                        {
+                            title: 'Lifecycle',
+                            width: '120px',
+                            key: 'lifecycle',
+                        },
+                    ];
+
+                    {
+                        const theadElem = document.createElement('thead');
+                        const trElem = document.createElement('tr');
+
+                        for(const col of columnInfo) {
+                            const tdElem = document.createElement('td');                                
+                            $(tdElem).text(col.title);
+                            $(trElem).append(tdElem);
+                        }
+
+
+                        $(theadElem).append(trElem);
+                        $(tableElem).append(theadElem);    
+                    }
+
+                    const tbodyElem = document.createElement('tbody');
+
+                    for(const skuName of variationObj[skuGroup.key]) {
+                        const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
+                        if (!skuObj) {
+                            continue;
+                        }
+
+                        const trElem = document.createElement('tr');
+
+                        for(const col of columnInfo) {
+                            const tdElem = document.createElement('td'); 
+                            $(tdElem).css('width', col.width);
+                            if (skuObj[col.key]) {
+                                $(tdElem).text(skuObj[col.key]);
+                            }
+                            $(trElem).append(tdElem);
+                        }
+
+                        $(tbodyElem).append(trElem);
+                    }
+
+                    $(tableElem).append(tbodyElem);
+                    
+                    $(solutionElem).append(tableElem);
+                }
+            }
+        }
+
         const renderSolutions = async function() {
             $(deviceSelector.answerInnerElem).empty();
 
-            // Update scores
-            let showSolutions = [];
+            // Clear the show selection flag
+            for(const solutionObj of deviceSelector.solutions) {
+                solutionObj.show = false;
+                solutionObj.reasons = [];
+                if (solutionObj.variations) {
+                    for(const variationObj of solutionObj.variations) {
+                        variationObj.show = false;
+                        variationObj.reasons = [];
+                    }
+                }
+            }
 
-            let onlyGateway = false;
+            // Check and see if we are only showing gateways
+            let checkSolutionOptions = {
+                onlyGateway: false,
+            };
+
             if (deviceSelector.settings.ptg === '1') {
-                onlyGateway = true;
+                checkSolutionOptions.onlyGateway = true;
 
                 const questionObj = deviceSelector.config.questions.find(e => e.id == 'pt');
                 for(const optionsObj of questionObj.checkboxes) {
                     if (optionsObj.id != 'ptg' && deviceSelector.settings[optionsObj.id] === '1') {
-                        onlyGateway = false;
+                        checkSolutionOptions.onlyGateway = false;
                     }
                 }
             }
             
-
             for(const solutionObj of deviceSelector.solutions) {
-                solutionObj.show = true
-                solutionObj.reasons = [];
-
-                for(const questionObj of deviceSelector.config.questions) {
-                    if (onlyGateway && !solutionObj.pt.includes('ptg')) {
-                        solutionObj.show = false;
-                        solutionObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
-                    }
-
-
-                    if (questionObj.checkboxes) {
-                        let hasCheckbox = false;
-
-                        for(const optionsObj of questionObj.checkboxes) {
-                            if (deviceSelector.settings[optionsObj.id] === '1') {
-                                hasCheckbox = true;
-                                break;
-                            }
-                        }
-                        
-                        if (hasCheckbox) {
-                            // User selected at least one option, so add rankings
-                            let hasAny = false;
-
-                            for(const optionsObj of questionObj.checkboxes) {
-                                if (deviceSelector.settings[optionsObj.id] === '1') {
-                                    if (Array.isArray(solutionObj[questionObj.id]) && 
-                                        solutionObj[questionObj.id].includes(optionsObj.id)) {
-                                        hasAny = true;
-                                    }
-                                }
-                            }
-                            if (!hasAny) {
-                                solutionObj.show = false;
-                                solutionObj.reasons.push('not a solution for for ' + questionObj.id);
-                            }
-                        }
-                        else {
-                            // No checkbox checked, allow any answer
+                if (solutionObj.variations) {
+                    for(const variationObj of solutionObj.variations) {
+                        checkSolution(variationObj, checkSolutionOptions);
+                        if (variationObj.show) {
+                            solutionObj.show = true;
                         }
                     }
-                    if (questionObj.radio) {
-                        // Radio buttons always have an answer
-                        if (questionObj.id == 'g' && deviceSelector.settings.g == 'gl') {
-                            // Geolocation not needed, allow any 
-                            solutionObj.reasons.push('geolocation not needed ' + questionObj.id);
-                        }
-                        else
-                        if (Array.isArray(solutionObj[questionObj.id]) && solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.id])) {
-                            solutionObj.reasons.push('radio question included' + questionObj.id);
-                        }
-                        else {
-                            solutionObj.reasons.push('radio undefined for question=' + questionObj.id + ' value=' + questionObj.id);
-                            solutionObj.show = false;
-                        }
-                    }
-                }
-
-                if (solutionObj.show) {
-                    showSolutions.push(solutionObj);
                 }
                 else {
-                    console.log('skipped solution', solutionObj);
+                    checkSolution(solutionObj, checkSolutionOptions);
                 }
             }
 
             // Render solutions
-            console.log('showSolutions', showSolutions);
 
-            for(const solutionObj of showSolutions) {
+            for(const solutionObj of deviceSelector.solutions) {
+                if (!solutionObj.show) {
+                    continue;
+                }
 
                 const solutionElem = document.createElement('div');
 
@@ -153,77 +250,17 @@ $(document).ready(function() {
                     await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
                 }
 
-                // Render SKUs
-                for(const skuGroup of [{key:'skuEach', title:'Single unit SKUs'}, {key:'skuTray', title:'Tray SKUs'}]) {
-                    if (typeof solutionObj[skuGroup.key] != 'undefined') {
-                        const skuHeaderElem = document.createElement('h4');
-                        $(skuHeaderElem).text(skuGroup.title);
-
-                        $(solutionElem).append(skuHeaderElem);
-
-                        const tableElem = document.createElement('table');
-                        $(tableElem).addClass('apiHelperTableNoMargin')
-
-                        const columnInfo = [
-                            {
-                                title: 'SKU',
-                                width: '100px',
-                                key: 'name',
-                            },
-                            {
-                                title: 'Description',
-                                width: '350px',
-                                key: 'desc',
-                            },
-                            {
-                                title: 'Lifecycle',
-                                width: '120px',
-                                key: 'lifecycle',
-                            },
-                        ];
-
-                        {
-                            const theadElem = document.createElement('thead');
-                            const trElem = document.createElement('tr');
-
-                            for(const col of columnInfo) {
-                                const tdElem = document.createElement('td');                                
-                                $(tdElem).text(col.title);
-                                $(trElem).append(tdElem);
-                            }
-
-
-                            $(theadElem).append(trElem);
-                            $(tableElem).append(theadElem);    
+                if (solutionObj.variations) {
+                    for(const variationObj of solutionObj.variations) {
+                        if (variationObj.show) {
+                            await renderVariation(solutionElem, variationObj, {});
                         }
-
-                        const tbodyElem = document.createElement('tbody');
-
-                        for(const skuName of solutionObj[skuGroup.key]) {
-                            const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
-                            if (!skuObj) {
-                                continue;
-                            }
-
-                            const trElem = document.createElement('tr');
-
-                            for(const col of columnInfo) {
-                                const tdElem = document.createElement('td'); 
-                                $(tdElem).css('width', col.width);
-                                if (skuObj[col.key]) {
-                                    $(tdElem).text(skuObj[col.key]);
-                                }
-                                $(trElem).append(tdElem);
-                            }
-
-                            $(tbodyElem).append(trElem);
-                        }
-
-                        $(tableElem).append(tbodyElem);
-                        
-                        $(solutionElem).append(tableElem);
                     }
                 }
+                else {
+                    await renderVariation(solutionElem, solutionObj, {});
+                }
+
  
                 $(deviceSelector.answerInnerElem).append(solutionElem);
             }
@@ -398,6 +435,44 @@ $(document).ready(function() {
         const expandSolutionVariations = function() {
             deviceSelector.solutions = [];
 
+            const noCopyKeys = ['id', 'variations'];
+
+            // Expand tags in variations
+            for(const solutionObj of deviceSelector.config.solutions) {
+                const newSolutionObj = Object.assign({}, solutionObj);
+
+                if (newSolutionObj.variations) {
+                    for(const variationObj of newSolutionObj.variations) {
+                        for(const key in newSolutionObj) {
+                            if (!noCopyKeys.includes(key)) {
+                                if (typeof variationObj[key] == 'undefined') {
+                                    variationObj[key] = newSolutionObj[key];
+                                }
+                            }
+                        }
+                    }
+                }
+                deviceSelector.solutions.push(newSolutionObj);
+            }
+
+            // Handle derivedFrom
+            for(const solutionObj of deviceSelector.solutions) {
+                if (solutionObj.derivedFrom) {
+                    const baseSolutionObj = deviceSelector.solutions.find(e => e.id == solutionObj.derivedFrom);
+                    if (baseSolutionObj) {
+                        for(const key in baseSolutionObj) {
+                            if (typeof solutionObj[key] == 'undefined') {
+                                solutionObj[key] = baseSolutionObj[key];
+                            }
+                        }
+                    }
+                }
+            }
+
+            console.log('deviceSelector.solutions', deviceSelector.solutions);
+
+            /*
+            // Old way; delete this code soon
             function processObj(parentObj, solutionObj) {
                 let combinedObj = parentObj ? Object.assign({}, parentObj) : {};
 
@@ -435,6 +510,7 @@ $(document).ready(function() {
             for(const solutionObj of deviceSelector.config.solutions) {
                 processObj(null, solutionObj);
             }
+                */
         }
 
         const loadQuerySettings = function() {
