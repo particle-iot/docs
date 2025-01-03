@@ -51,6 +51,90 @@ $(document).ready(function() {
             }
         }
 
+        const renderVariation = async function(solutionElem, solutionObj, options) {
+            const headerElem = document.createElement(typeof options.headerTag != 'undefined' ? options.headerTag : 'h3');
+            $(headerElem).text(solutionObj.title);
+            $(solutionElem).append(headerElem);
+
+
+            if (solutionObj.note) {
+                await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
+            }
+
+            // Render SKUs
+            for(const skuGroup of [{key:'skuEach', title:'Single unit SKUs'}, {key:'skuTray', title:'Tray SKUs'}]) {
+                if (typeof solutionObj[skuGroup.key] != 'undefined') {
+                    const skuHeaderElem = document.createElement('h4');
+                    $(skuHeaderElem).text(skuGroup.title);
+
+                    $(solutionElem).append(skuHeaderElem);
+
+                    const tableElem = document.createElement('table');
+                    $(tableElem).addClass('apiHelperTableNoMargin')
+
+                    const columnInfo = [
+                        {
+                            title: 'SKU',
+                            width: '100px',
+                            key: 'name',
+                        },
+                        {
+                            title: 'Description',
+                            width: '350px',
+                            key: 'desc',
+                        },
+                        {
+                            title: 'Lifecycle',
+                            width: '120px',
+                            key: 'lifecycle',
+                        },
+                    ];
+
+                    {
+                        const theadElem = document.createElement('thead');
+                        const trElem = document.createElement('tr');
+
+                        for(const col of columnInfo) {
+                            const tdElem = document.createElement('td');                                
+                            $(tdElem).text(col.title);
+                            $(trElem).append(tdElem);
+                        }
+
+
+                        $(theadElem).append(trElem);
+                        $(tableElem).append(theadElem);    
+                    }
+
+                    const tbodyElem = document.createElement('tbody');
+
+                    for(const skuName of solutionObj[skuGroup.key]) {
+                        const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
+                        if (!skuObj) {
+                            continue;
+                        }
+
+                        const trElem = document.createElement('tr');
+
+                        for(const col of columnInfo) {
+                            const tdElem = document.createElement('td'); 
+                            $(tdElem).css('width', col.width);
+                            if (skuObj[col.key]) {
+                                $(tdElem).text(skuObj[col.key]);
+                            }
+                            $(trElem).append(tdElem);
+                        }
+
+                        $(tbodyElem).append(trElem);
+                    }
+
+                    $(tableElem).append(tbodyElem);
+                    
+                    $(solutionElem).append(tableElem);
+                }
+            }
+
+        }
+
         const renderSolutions = async function() {
             $(deviceSelector.answerInnerElem).empty();
 
@@ -144,87 +228,14 @@ $(document).ready(function() {
 
                 const solutionElem = document.createElement('div');
 
-                const headerElem = document.createElement('h3');
-                $(headerElem).text(solutionObj.title);
-                $(solutionElem).append(headerElem);
+                await renderVariation(solutionElem, solutionObj, {headingTag: 'h3'});
 
-
-                if (solutionObj.note) {
-                    await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
-                }
-
-                // Render SKUs
-                for(const skuGroup of [{key:'skuEach', title:'Single unit SKUs'}, {key:'skuTray', title:'Tray SKUs'}]) {
-                    if (typeof solutionObj[skuGroup.key] != 'undefined') {
-                        const skuHeaderElem = document.createElement('h4');
-                        $(skuHeaderElem).text(skuGroup.title);
-
-                        $(solutionElem).append(skuHeaderElem);
-
-                        const tableElem = document.createElement('table');
-                        $(tableElem).addClass('apiHelperTableNoMargin')
-
-                        const columnInfo = [
-                            {
-                                title: 'SKU',
-                                width: '100px',
-                                key: 'name',
-                            },
-                            {
-                                title: 'Description',
-                                width: '350px',
-                                key: 'desc',
-                            },
-                            {
-                                title: 'Lifecycle',
-                                width: '120px',
-                                key: 'lifecycle',
-                            },
-                        ];
-
-                        {
-                            const theadElem = document.createElement('thead');
-                            const trElem = document.createElement('tr');
-
-                            for(const col of columnInfo) {
-                                const tdElem = document.createElement('td');                                
-                                $(tdElem).text(col.title);
-                                $(trElem).append(tdElem);
-                            }
-
-
-                            $(theadElem).append(trElem);
-                            $(tableElem).append(theadElem);    
-                        }
-
-                        const tbodyElem = document.createElement('tbody');
-
-                        for(const skuName of solutionObj[skuGroup.key]) {
-                            const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
-                            if (!skuObj) {
-                                continue;
-                            }
-
-                            const trElem = document.createElement('tr');
-
-                            for(const col of columnInfo) {
-                                const tdElem = document.createElement('td'); 
-                                $(tdElem).css('width', col.width);
-                                if (skuObj[col.key]) {
-                                    $(tdElem).text(skuObj[col.key]);
-                                }
-                                $(trElem).append(tdElem);
-                            }
-
-                            $(tbodyElem).append(trElem);
-                        }
-
-                        $(tableElem).append(tbodyElem);
-                        
-                        $(solutionElem).append(tableElem);
+                if (solutionElem.subVariations) {
+                    for(const variationObj of solutionElem.subVariations) {
+                        await renderVariation(solutionElem, variationObj, {headingTag: 'h4'});
                     }
                 }
- 
+
                 $(deviceSelector.answerInnerElem).append(solutionElem);
             }
         }
@@ -398,7 +409,7 @@ $(document).ready(function() {
         const expandSolutionVariations = function() {
             deviceSelector.solutions = [];
 
-            function processObj(parentObj, solutionObj) {
+            function processObj(topObj, parentObj, solutionObj) {
                 let combinedObj = parentObj ? Object.assign({}, parentObj) : {};
 
                 for(const key in solutionObj) {
@@ -423,17 +434,31 @@ $(document).ready(function() {
                         combinedObj[key] = solutionObj[key];
                     }  
                 }
-                deviceSelector.solutions.push(combinedObj);              
+
+                if (!topObj) {
+                    topObj = combinedObj;
+                }
+
+                if (!parentObj || combinedObj.primaryVariation) {
+                    deviceSelector.solutions.push(combinedObj);              
+                }
+                else {
+                    if (!topObj.subVariations) {
+                        topObj.subVariations = [];
+                    }
+                    topObj.subVariations.push(combinedObj);
+                }
 
                 if (typeof solutionObj.variations != 'undefined') {
                     for(const variationSolutionObj of solutionObj.variations) {
-                        processObj(combinedObj, variationSolutionObj)
+                        processObj(topObj, combinedObj, variationSolutionObj)
                     }
                 }
+
             }
 
             for(const solutionObj of deviceSelector.config.solutions) {
-                processObj(null, solutionObj);
+                processObj(null, null, solutionObj);
             }
         }
 

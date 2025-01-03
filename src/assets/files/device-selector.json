@@ -215,7 +215,8 @@
                         {
                             "pt": ["ptg"],
                             "title": "Muon (404) + M1 Enclosure",
-                            "skuEach": ["M1ENCLEA"]
+                            "skuEach": ["M1ENCLEA"],
+                            "primaryVariant": true
                         }
                     ]
                 },
@@ -227,7 +228,8 @@
                         {
                             "pt": ["ptg"],
                             "title": "Muon (524) + M1 Enclosure",
-                            "skuEach": ["M1ENCLEA"]
+                            "skuEach": ["M1ENCLEA"],
+                            "primaryVariant": true
                         }
                     ]
                 },
@@ -240,7 +242,8 @@
                         {
                             "pt": ["ptg"],
                             "title": "Muon (625) + M1 Enclosure",
-                            "skuEach": ["M1ENCLEA"]
+                            "skuEach": ["M1ENCLEA"],
+                            "primaryVariation": true
                         }
                     ]
                 }
