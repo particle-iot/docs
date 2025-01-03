@@ -192,13 +192,14 @@
             "pt": ["ptm"],
             "c": ["cc", "cw"],
             "lo": ["lon", "loe", "loo"],
-            "cp": ["cpm"],
+            "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
             "ex": false,
             "title": "M-SoM",
             "image": ""
         },
         {
+            "id": "Muon",
             "pt": ["ptd"],
             "c": ["cc", "cw", "ce", "cl"],
             "cp": ["cpl", "cpm"],
@@ -210,41 +211,26 @@
                 {
                     "lo": ["lon"],
                     "title": "Muon (404)",
-                    "skuEach": ["MUON404", "MUON404EA"],
-                    "variations": [
-                        {
-                            "pt": ["ptg"],
-                            "title": "Muon (404) + M1 Enclosure",
-                            "skuEach": ["M1ENCLEA"]
-                        }
-                    ]
+                    "skuEach": ["MUON404", "MUON404EA"]
                 },
                 {
                     "lo": ["loe", "loo"],
                     "title": "Muon (524)",
-                    "skuEach": ["MUON524", "MUON524EA"],
-                    "variations": [
-                        {
-                            "pt": ["ptg"],
-                            "title": "Muon (524) + M1 Enclosure",
-                            "skuEach": ["M1ENCLEA"]
-                        }
-                    ]
+                    "skuEach": ["MUON524", "MUON524EA"]
                 },
                 {
                     "lo": ["lon", "loe", "loo"],
                     "c": ["cs"],
                     "title": "Muon (625)",
-                    "skuEach": ["MUON635"],
-                    "variations": [
-                        {
-                            "pt": ["ptg"],
-                            "title": "Muon (625) + M1 Enclosure",
-                            "skuEach": ["M1ENCLEA"]
-                        }
-                    ]
+                    "skuEach": ["MUON635"]
                 }
             ]
+        },
+        {
+            "pt": ["ptg"],
+            "title": "Muon (404) + M1 Enclosure",
+            "skuEach": ["M1ENCLEA"],
+            "derivedFrom": "Muon"
         },
         {
             "pt": ["ptm"],
