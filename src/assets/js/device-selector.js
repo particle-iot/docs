@@ -114,76 +114,83 @@ $(document).ready(function() {
         }
 
         const renderVariation = async function(solutionElem, variationObj, options) {
+
+            const headerElem = document.createElement('h4');
+            $(headerElem).text(variationObj.title);
+            $(solutionElem).append(headerElem);
+
+
+            if (variationObj.note) {
+                await renderNote({noteObj: variationObj.note, containerElem: solutionElem});
+            }
+
             // Render SKUs
-            for(const skuGroup of [{key:'skuEach', title:'Single unit SKUs'}, {key:'skuTray', title:'Tray SKUs'}]) {
-                if (typeof variationObj[skuGroup.key] != 'undefined') {
-                    const skuHeaderElem = document.createElement('h4');
-                    $(skuHeaderElem).text(skuGroup.title);
+            if (typeof variationObj.skus != 'undefined') {
+                // const skuHeaderElem = document.createElement('h4');
+                // $(skuHeaderElem).text('SKUs');
+                // $(solutionElem).append(skuHeaderElem);
 
-                    $(solutionElem).append(skuHeaderElem);
+                const tableElem = document.createElement('table');
+                $(tableElem).addClass('apiHelperTableNoMargin')
 
-                    const tableElem = document.createElement('table');
-                    $(tableElem).addClass('apiHelperTableNoMargin')
-
-                    const columnInfo = [
-                        {
-                            title: 'SKU',
-                            width: '100px',
-                            key: 'name',
-                        },
-                        {
-                            title: 'Description',
-                            width: '350px',
-                            key: 'desc',
-                        },
-                        {
-                            title: 'Lifecycle',
-                            width: '120px',
-                            key: 'lifecycle',
-                        },
-                    ];
-
+                const columnInfo = [
                     {
-                        const theadElem = document.createElement('thead');
-                        const trElem = document.createElement('tr');
+                        title: 'SKU',
+                        width: '100px',
+                        key: 'name',
+                    },
+                    {
+                        title: 'Description',
+                        width: '350px',
+                        key: 'desc',
+                    },
+                    {
+                        title: 'Lifecycle',
+                        width: '120px',
+                        key: 'lifecycle',
+                    },
+                ];
 
-                        for(const col of columnInfo) {
-                            const tdElem = document.createElement('td');                                
-                            $(tdElem).text(col.title);
-                            $(trElem).append(tdElem);
-                        }
+                {
+                    const theadElem = document.createElement('thead');
+                    const trElem = document.createElement('tr');
 
-
-                        $(theadElem).append(trElem);
-                        $(tableElem).append(theadElem);    
+                    for(const col of columnInfo) {
+                        const tdElem = document.createElement('td');                                
+                        $(tdElem).text(col.title);
+                        $(trElem).append(tdElem);
                     }
 
-                    const tbodyElem = document.createElement('tbody');
 
-                    for(const skuName of variationObj[skuGroup.key]) {
-                        const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
-                        if (!skuObj) {
-                            continue;
-                        }
-
-                        const trElem = document.createElement('tr');
-
-                        for(const col of columnInfo) {
-                            const tdElem = document.createElement('td'); 
-                            $(tdElem).css('width', col.width);
-                            if (skuObj[col.key]) {
-                                $(tdElem).text(skuObj[col.key]);
-                            }
-                            $(trElem).append(tdElem);
-                        }
-
-                        $(tbodyElem).append(trElem);
-                    }
-
-                    $(tableElem).append(tbodyElem);
-                    
-                    $(solutionElem).append(tableElem);
+                    $(theadElem).append(trElem);
+                    $(tableElem).append(theadElem);    
                 }
+
+                const tbodyElem = document.createElement('tbody');
+
+                for(const skuName of variationObj.skus) {
+                    const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
+                    if (!skuObj) {
+                        continue;
+                    }
+
+                    const trElem = document.createElement('tr');
+
+                    for(const col of columnInfo) {
+                        const tdElem = document.createElement('td'); 
+                        $(tdElem).css('width', col.width);
+                        if (skuObj[col.key]) {
+                            $(tdElem).text(skuObj[col.key]);
+                        }
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(tbodyElem).append(trElem);
+                }
+
+                $(tableElem).append(tbodyElem);
+                
+                $(solutionElem).append(tableElem);
             }
         }
 
@@ -461,8 +468,10 @@ $(document).ready(function() {
                     const baseSolutionObj = deviceSelector.solutions.find(e => e.id == solutionObj.derivedFrom);
                     if (baseSolutionObj) {
                         for(const key in baseSolutionObj) {
-                            if (typeof solutionObj[key] == 'undefined') {
-                                solutionObj[key] = baseSolutionObj[key];
+                            if (!noCopyKeys.includes(key)) {
+                                if (typeof solutionObj[key] == 'undefined') {
+                                    solutionObj[key] = baseSolutionObj[key];
+                                }
                             }
                         }
                     }
