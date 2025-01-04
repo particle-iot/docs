@@ -125,10 +125,15 @@ $(document).ready(function() {
             }
 
             // Render SKUs
+            let variationInfo = {
+                countries: [],
+                possibleCountries: 0,
+            };
+
             if (typeof variationObj.skus != 'undefined') {
-                // const skuHeaderElem = document.createElement('h4');
-                // $(skuHeaderElem).text('SKUs');
-                // $(solutionElem).append(skuHeaderElem);
+                const headerElem = document.createElement('h5');
+                $(headerElem).text('SKUs - ' + variationObj.title);
+                $(solutionElem).append(headerElem);
 
                 const tableElem = document.createElement('table');
                 $(tableElem).addClass('apiHelperTableNoMargin')
@@ -173,6 +178,9 @@ $(document).ready(function() {
                     if (!skuObj) {
                         continue;
                     }
+                    if (typeof variationInfo.skuObj == 'undefined') {
+                        variationInfo.skuObj = skuObj;
+                    }
 
                     const trElem = document.createElement('tr');
 
@@ -192,6 +200,68 @@ $(document).ready(function() {
                 
                 $(solutionElem).append(tableElem);
             }
+
+            if (typeof variationInfo.skuObj != 'undefined' && typeof variationInfo.skuObj.sim != 'undefined') {
+                // ;modem, .,sim, .simPlans[], 
+                variationInfo.modemObj = deviceSelector.carriersJson.modems.find(e => e.model == variationInfo.skuObj.modem);
+
+                for(const cmsObj of deviceSelector.carriersJson.countryModemSim) {
+                    if (cmsObj.modem == variationInfo.skuObj.modem && cmsObj.sim == variationInfo.skuObj.sim) {
+                        if (cmsObj.recommendation == 'YES') {
+                            variationInfo.countries.push(cmsObj.country);
+                        }
+                        else
+                        if (cmsObj.recommendation == 'POSS') {
+                            variationInfo.possibleCountries++;
+                        }
+                    }
+                }
+
+                console.log('variationInfo', variationInfo);
+            }
+
+            if (variationInfo.countries.length > 0) {
+                const headerElem = document.createElement('h5');
+                $(headerElem).text('Supported countries - ' + variationObj.title);
+                $(solutionElem).append(headerElem);
+    
+                const tableElem = document.createElement('table');
+                $(tableElem).addClass('apiHelperTableNoMargin')
+
+                const columnInfo = {
+                    columns: 6,
+                    columnWidth: '130px',
+                    columnNum: -1,
+                }
+
+                const tbodyElem = document.createElement('tbody');
+
+                for(const country of variationInfo.countries) {
+                    if (columnInfo.columnNum < 0) {
+                        columnInfo.trElem = document.createElement('tr');
+                        columnInfo.columnNum  = 0;
+                    }
+                    const tdElem = document.createElement('td'); 
+                    $(tdElem).css('width', columnInfo.columnWidth);
+                    $(tdElem).text(country);
+
+                    $(columnInfo.trElem).append(tdElem);
+
+                    if (++columnInfo.columnNum >= columnInfo.columns) {
+                        $(tbodyElem).append(columnInfo.trElem);
+                        columnInfo.trElem = null;
+                        columnInfo.columnNum = -1;
+                    }
+                }
+
+                if (columnInfo.trElem) {
+                    $(tbodyElem).append(columnInfo.trElem);
+                }
+
+                $(tableElem).append(tbodyElem);
+                $(solutionElem).append(tableElem);                
+            }
+
         }
 
         const renderSolutions = async function() {
@@ -446,9 +516,11 @@ $(document).ready(function() {
 
             // Expand tags in variations
             for(const solutionObj of deviceSelector.config.solutions) {
+
                 const newSolutionObj = Object.assign({}, solutionObj);
 
                 if (newSolutionObj.variations) {
+
                     for(const variationObj of newSolutionObj.variations) {
                         for(const key in newSolutionObj) {
                             if (!noCopyKeys.includes(key)) {
@@ -474,6 +546,23 @@ $(document).ready(function() {
                                 }
                             }
                         }
+                        // Handle variations in baseSolution
+                        // Need to fix this to not copy id and title!
+                        /*
+                        if (baseSolutionObj.variations) {
+                            solutionObj.variations = [];
+                            for(const variationObj of baseSolutionObj.variations) {
+                                const newVariationObj = Object.assign({}, variationObj);
+                                if (solutionObj.skus) {
+                                    for(const skuName of solutionObj.skus) {
+                                        newVariationObj.skus.push(skuName);
+                                    }
+                                }
+                                solutionObj.variations.push(newVariationObj);
+                            }
+
+                        }
+                        */
                     }
                 }
             }
