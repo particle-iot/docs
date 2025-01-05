@@ -155,13 +155,13 @@
             "variations": [
                 {
                     "lo": ["lon"],
-                    "title": "Tracker One (404)",
+                    "variationTitle": "404",
                     "skus": ["ONE404MEA", "ONE494MTY"]
                 },
                 {
                     "lo": ["loe", "loo"],
-                    "title": "Tracker One (523)",
-                    "skus": ["ONE523MEA", "ONE523MTY"]
+                    "variationTitle": "Tracker One (524)",
+                    "skus": ["ONE524MEA", "ONE524MTY"]
                 }
             ]
         },
@@ -176,17 +176,52 @@
             "variations": [
                 {
                     "lo": ["lon"],
-                    "title": "Monitor One (404)",
+                    "variationTitle": "404",
                     "skus": ["MON404E01C01KIT"]
                 },
                 {
                     "lo": ["loe", "loo"],
-                    "title": "Monitor One (524)",
+                    "variationTitle": "524",
                     "skus": ["MON524E01C01KIT"]
                 }
             ]
         },
         {
+            "id": "Tracker-SoM",
+            "pt": ["ptm"],
+            "c": ["cc"],
+            "cp": ["cpl"],
+            "g": ["gh"],
+            "ex": false,
+            "title": "Tracker SoM",
+            "image": "",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "variationTitle": "404",
+                    "skus": ["T404MEA", "T404MTX"]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "variationTitle": "524",
+                    "skus": ["T524MEA", "T524MTY"]
+                },
+                {
+                    "lo": ["lon"],
+                    "pt": ["ptd"],
+                    "variationTitle": "Evaluation Kit 404",
+                    "skus": ["T404MKIT"]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "pt": ["ptd"],
+                    "variationTitle": "Evaluation Kit 524",
+                    "skus": ["T524MKIT"]
+                }
+            ]
+        },        
+        {
+            "id": "M-SoM",
             "pt": ["ptm"],
             "c": ["cc", "cw"],
             "lo": ["lon", "loe", "loo"],
@@ -194,7 +229,31 @@
             "g": ["gl", "gm"],
             "ex": false,
             "title": "M-SoM",
-            "image": ""
+            "image": "",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "variationTitle": "404",
+                    "skus": ["M404MEA", "M404MTY"]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "variationTitle": "524",
+                    "skus": ["M524MEA", "M524MTY"]
+                },
+                {
+                    "lo": ["lon", "loe", "loo"],
+                    "c": ["cs"],
+                    "variationTitle": "635",
+                    "skus": ["M635MEA", "M635MTY"]
+                }
+            ]
+        },
+        {
+            "pt": ["ptd"],
+            "title": "M-SoM + M.2 Breakout Board",
+            "skus": ["M2BREAKOUT"],
+            "derivedFrom": "M-SoM"
         },
         {
             "id": "Muon",
@@ -208,46 +267,73 @@
             "variations": [
                 {
                     "lo": ["lon"],
-                    "title": "Muon (404)",
+                    "variationTitle": "404",
                     "skus": ["MUON404", "MUON404EA"]
                 },
                 {
                     "lo": ["loe", "loo"],
-                    "title": "Muon (524)",
+                    "variationTitle": "524",
                     "skus": ["MUON524", "MUON524EA"]
                 },
                 {
                     "lo": ["lon", "loe", "loo"],
                     "c": ["cs"],
-                    "title": "Muon (625)",
+                    "variationTitle": "635",
                     "skus": ["MUON635"]
                 }
             ]
         },
         {
             "pt": ["ptg"],
-            "title": "Muon (404) + M1 Enclosure",
+            "title": "Muon + M1 Enclosure",
             "skus": ["M1ENCLEA"],
             "derivedFrom": "Muon"
         },
         {
             "pt": ["ptm"],
             "c": ["cc"],
-            "lo": ["lon", "loe", "loo"],
             "cp": ["cpl"],
-            "g": ["gl", "gm"],
+            "g": false,
             "ex": false,
             "title": "B-SoM",
-            "image": ""
+            "image": "",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "variationTitle": "404X",
+                    "skus": ["B404XMEA", "B404XMTY"]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "variationTitle": "524",
+                    "skus": ["B524MEA", "B524MTY"]
+                }
+            ]            
         },
         {
+            "pt": ["ptd"],
+            "c": ["cc"],
+            "cp": ["cpl"],
+            "g": false,
+            "ex": false,
+            "title": "Boron",
+            "image": "",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "variationTitle": "404X",
+                    "skus": ["BRN404X", "RN404XKIT", "BRN404XTRAY50"]
+                }
+            ]            
+        },        {
             "pt": ["ptm"],
             "c": ["cw"],
             "cp": ["cpl", "cpm"],
             "g": false,
             "ex": false,
             "title": "P2",
-            "image": ""
+            "image": "",
+            "skus": ["P2MOD10", "P2REEL"]
         },
         {
             "pt": ["ptd"],
@@ -256,7 +342,8 @@
             "g": false,
             "ex": ["f"],
             "title": "Photon 2",
-            "image": ""
+            "image": "",
+            "skus": ["PHN2MEA", "PHN2MTY"]
         },
         {
             "pt": ["ptd"],

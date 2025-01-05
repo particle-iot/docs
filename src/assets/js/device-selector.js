@@ -116,7 +116,14 @@ $(document).ready(function() {
         const renderVariation = async function(solutionElem, variationObj, options) {
 
             const headerElem = document.createElement('h4');
-            $(headerElem).text(variationObj.title);
+            let title;
+            if (variationObj.variationTitle && options.solutionObj) {
+                title = options.solutionObj.title + ' (' + variationObj.variationTitle + ')';
+            }
+            else {
+                title = variationObj.title;
+            }
+            $(headerElem).text(title);
             $(solutionElem).append(headerElem);
 
 
@@ -132,7 +139,7 @@ $(document).ready(function() {
 
             if (typeof variationObj.skus != 'undefined') {
                 const headerElem = document.createElement('h5');
-                $(headerElem).text('SKUs - ' + variationObj.title);
+                $(headerElem).text('SKUs - ' + title);
                 $(solutionElem).append(headerElem);
 
                 const tableElem = document.createElement('table');
@@ -222,7 +229,7 @@ $(document).ready(function() {
 
             if (variationInfo.countries.length > 0) {
                 const headerElem = document.createElement('h5');
-                $(headerElem).text('Supported countries - ' + variationObj.title);
+                $(headerElem).text('Supported countries (cellular) - ' + title);
                 $(solutionElem).append(headerElem);
     
                 const tableElem = document.createElement('table');
@@ -330,7 +337,7 @@ $(document).ready(function() {
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
                         if (variationObj.show) {
-                            await renderVariation(solutionElem, variationObj, {});
+                            await renderVariation(solutionElem, variationObj, {solutionObj});
                         }
                     }
                 }
@@ -512,7 +519,6 @@ $(document).ready(function() {
         const expandSolutionVariations = function() {
             deviceSelector.solutions = [];
 
-            const noCopyKeys = ['id', 'variations'];
 
             // Expand tags in variations
             for(const solutionObj of deviceSelector.config.solutions) {
@@ -520,6 +526,7 @@ $(document).ready(function() {
                 const newSolutionObj = Object.assign({}, solutionObj);
 
                 if (newSolutionObj.variations) {
+                    const noCopyKeys = ['id', 'variations'];
 
                     for(const variationObj of newSolutionObj.variations) {
                         for(const key in newSolutionObj) {
@@ -539,6 +546,9 @@ $(document).ready(function() {
                 if (solutionObj.derivedFrom) {
                     const baseSolutionObj = deviceSelector.solutions.find(e => e.id == solutionObj.derivedFrom);
                     if (baseSolutionObj) {
+                        // variations are copied for derivedFrom
+                        const noCopyKeys = ['id'];
+
                         for(const key in baseSolutionObj) {
                             if (!noCopyKeys.includes(key)) {
                                 if (typeof solutionObj[key] == 'undefined') {
@@ -546,69 +556,12 @@ $(document).ready(function() {
                                 }
                             }
                         }
-                        // Handle variations in baseSolution
-                        // Need to fix this to not copy id and title!
-                        /*
-                        if (baseSolutionObj.variations) {
-                            solutionObj.variations = [];
-                            for(const variationObj of baseSolutionObj.variations) {
-                                const newVariationObj = Object.assign({}, variationObj);
-                                if (solutionObj.skus) {
-                                    for(const skuName of solutionObj.skus) {
-                                        newVariationObj.skus.push(skuName);
-                                    }
-                                }
-                                solutionObj.variations.push(newVariationObj);
-                            }
-
-                        }
-                        */
                     }
                 }
             }
 
             console.log('deviceSelector.solutions', deviceSelector.solutions);
 
-            /*
-            // Old way; delete this code soon
-            function processObj(parentObj, solutionObj) {
-                let combinedObj = parentObj ? Object.assign({}, parentObj) : {};
-
-                for(const key in solutionObj) {
-                    if (deviceSelector.config.mergeSolutionKeys.includes(key)) {
-                        if (Array.isArray(combinedObj[key])) {
-                            let tempArray = [];
-                            for(const item of combinedObj[key]) {
-                                tempArray.push(item);
-                            }
-                            for(const item of solutionObj[key]) {
-                                if (!tempArray.includes(item)) {
-                                    tempArray.push(item);
-                                }
-                            }
-                            combinedObj[key] = tempArray;
-                        }
-                        else {
-                            combinedObj[key] = solutionObj[key];
-                        }    
-                    }
-                    else {
-                        combinedObj[key] = solutionObj[key];
-                    }  
-                }
-                deviceSelector.solutions.push(combinedObj);              
-
-                if (typeof solutionObj.variations != 'undefined') {
-                    for(const variationSolutionObj of solutionObj.variations) {
-                        processObj(combinedObj, variationSolutionObj)
-                    }
-                }
-            }
-
-            for(const solutionObj of deviceSelector.config.solutions) {
-                processObj(null, solutionObj);
-            }
-                */
         }
 
         const loadQuerySettings = function() {
