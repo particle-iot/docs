@@ -109,7 +109,7 @@ $(document).ready(function() {
             }
 
             if (!solutionObj.show) {
-                console.log('skipped solution', solutionObj);
+                // console.log('skipped solution', solutionObj);
             }
         }
 
@@ -323,6 +323,8 @@ $(document).ready(function() {
                     continue;
                 }
 
+                // console.log('render solution ' + solutionObj.title, solutionObj);
+
                 const solutionElem = document.createElement('div');
 
                 const headerElem = document.createElement('h3');
@@ -350,7 +352,7 @@ $(document).ready(function() {
             }
         }
         
-        const saveSettings = function() {
+        const saveSettings = async function() {
             deviceSelector.settings = {};
 
             for(const fn of deviceSelector.saveFunctions) {
@@ -369,7 +371,7 @@ $(document).ready(function() {
                 history.pushState(null, '', query);
                 deviceSelector.lastQuery = query;
             }
-            renderSolutions();
+            await renderSolutions();
         }
 
 
@@ -406,8 +408,8 @@ $(document).ready(function() {
                             $(checkboxElem).prop('checked', true);
                         }
 
-                        $(checkboxElem).on('click', function() {
-                            saveSettings();
+                        $(checkboxElem).on('click', async function() {
+                            await saveSettings();
                         });
 
                         deviceSelector.loadFunctions.push(function() {
@@ -464,8 +466,8 @@ $(document).ready(function() {
                         }
                         $(labelElem).append(radioElem);
 
-                        $(radioElem).on('click', function() {
-                            saveSettings();
+                        $(radioElem).on('click', async function() {
+                            await saveSettings();
                         });
 
                         deviceSelector.loadFunctions.push(function() {
@@ -564,18 +566,18 @@ $(document).ready(function() {
 
         }
 
-        const loadQuerySettings = function() {
+        const loadQuerySettings = async function() {
             for(const fn of deviceSelector.loadFunctions) {
                 fn();
             }
-            saveSettings();
+            await saveSettings();
         };
 
 
-        window.addEventListener('popstate', function(event) {
+        window.addEventListener('popstate', async function(event) {
             deviceSelector.urlParams = new URLSearchParams(window.location.search);
             
-            loadQuerySettings();
+            await loadQuerySettings();
         });
 
 
@@ -602,15 +604,14 @@ $(document).ready(function() {
         
             await Promise.all(promises);
     
-            console.log('deviceSelector', deviceSelector);
-
             expandSolutionVariations();
+
+            console.log('deviceSelector', deviceSelector);
 
             await renderQuestions();
     
-            loadQuerySettings();
-
-            await renderSolutions();
+            // loadQuerySettings calls renderSolutions() via saveSettings()
+            await loadQuerySettings();
         }
 
         run();
