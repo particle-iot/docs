@@ -187,10 +187,6 @@
                 {
                     "dir": "device-claiming",
                     "title": "Device claiming"
-                },
-                {
-                    "dir": "function-publish-demo",
-                    "title": "Function and publish demo"
                 }
             ]
         },

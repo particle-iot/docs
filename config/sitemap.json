@@ -582,10 +582,6 @@
             "date": "2024-02-20",
             "hash": "4ac918686f80b4d7ca3452661877abc61cc5762974abf50664f5cff7880d8354"
         },
-        "getting-started/cloud/function-publish-demo.md": {
-            "date": "2024-03-13",
-            "hash": "a3beffd6917b1c9c12c68de789afdfbce4e36b2c08a69b8c06635e13f8cecdb6"
-        },
         "getting-started/cloud/introduction.md": {
             "date": "2024-10-28",
             "hash": "d9e77a7220c5626ecae3ebd6949afd03e0741ce9c3c4a459616d4dd436441e4b"
@@ -729,10 +725,6 @@
         "integrations/integrations.md": {
             "date": "2023-08-03",
             "hash": "79544fe82b6ff8f4ce196599abb70c06ddff51b40697654c4a192c14c028c5d8"
-        },
-        "integrations/webhook-demo.md": {
-            "date": "2024-03-13",
-            "hash": "cda7b60539e868a37f716cb8574410188162b87a28e96d4a069b1c6a314b8dad"
         },
         "integrations/webhooks.md": {
             "date": "2024-10-28",

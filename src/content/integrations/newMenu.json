@@ -14,10 +14,6 @@
             "title": "Webhooks"
         },
         {
-            "dir": "webhook-demo",
-            "title": "Webhook demo"
-        },
-        {
             "dir": "integrations",
             "isSection": true,
             "subsections": [
