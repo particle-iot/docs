@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-SoM reserved SoM pins 2025-01-06
+
+Added note explaining reserved pins on the M.2 connector to the M-SoM datasheet; it was in the B-SoM datasheets but not M-SoM.
+
 ### Muon datasheet power interrupt 2025-01-02
 
 The Muon datasheet had the wrong pin listed for the power manager interrupt pin. It is A7, not A6. It was correct in the Device OS firmware API reference.

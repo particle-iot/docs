@@ -212,6 +212,13 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 {{imageOverlay src="/assets/images/msom.svg" alt="Pinout" class="full-width"}}
 
+### Common SoM pins
+
+{{!-- BEGIN shared-blurb 0988fa39-ba4b-427c-82c2-0c83c305b0b7 --}}
+<span style="padding: 0px 10px 0px 10px; color:#01131D; background-color:#FF9F61; ">RESERVED</span> and <span style="padding: 0px 10px 0px 10px; color:#01131D; background-color:#FF9F61; ">SOM</span> pins may vary across different SoM models. If you are designing for this specific module, or similar modules, you can use the indicated functions even if the pin is marked RESERVED.
+
+The nRF52840 B-SoM has some differences from the RTL8722 M-SoM. Future modules with a different MCU may have different pin functions. An effort will be made to assign all of the listed functions for ADC, PWM, SPI, etc. from the set of common SoM pin functions in future modules, but the functions on RESERVED and SOM pins will likely vary.
+{{!-- END shared-blurb --}}
 
 ### Pin function by pin name
 
@@ -1473,3 +1480,4 @@ Global, country list to be provided a later date.
 | 009      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
 | 010      | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
 | 011      | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
+| 012      | 2025-01-06 | RK | Added note explaining reserved SoM pins |

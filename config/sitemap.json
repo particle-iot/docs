@@ -1343,16 +1343,16 @@
             "hash": "c66f07ccdca62f04905f0e4f9401df81fc1e8c713bea6a1d2f4a41dea215dd4f"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
-            "date": "2024-10-28",
-            "hash": "62f81feaa2ce5b8cf3bca977d3c8581d2e660bccb099eebe711410a39e598896"
+            "date": "2025-01-06",
+            "hash": "97a1ac6dbb66cb64f6b73c130bfeca47c6e059843f4329427cbcd635372fae93"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2024-10-28",
-            "hash": "5fc550690821493d513cec46e87d571e2b639738b2ba7d23312f1a156cedc2e0"
+            "date": "2025-01-06",
+            "hash": "d5776460db90593759456ea2f0150d395b29b55ccc017d32bf6378a951ecd176"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2024-10-28",
-            "hash": "5b06dd7373dc4e2d02e1bfeb22e021cb2d0b73140b320a08274411290c7bdf1c"
+            "date": "2025-01-06",
+            "hash": "bfc377b1b5b6fed62a32ece2c223d3e49b45154c32fa79210552d6e3f279047d"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2024-08-21",
@@ -8231,8 +8231,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "0213c6108691a07b3d83be6dc6d94c97190fea903304299a361f9e882e4a08e5",
-            "date": "2025-01-02"
+            "hash": "e8e4b4f27f5319a8808cd13da79fd8757e497ac9a5cfeda1aa22ae23e5e5416c",
+            "date": "2025-01-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8399,8 +8399,8 @@
             "date": "2024-12-20"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "a67a9bf40bcab4ca8fe21a36d14b8addaf4327a21740875347a895d322d70014",
-            "date": "2024-12-20"
+            "hash": "98961d094b8e1928f04ac3c36ad9c017d8472fbeaa379988327e27421f7cd013",
+            "date": "2025-01-06"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "802a59366948a4970ba540894b7685185725b05d8eb7ddd4ea79ce84aa7095e3",
@@ -9091,8 +9091,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "7b838762c7ff6234b798c130246f845e513121687344c7c8804738668f4b7692",
-            "date": "2024-12-20"
+            "hash": "c33de6a9a93edd9645885852b1c636a71757a5bd81ae1f9eae8f5267509082e9",
+            "date": "2025-01-06"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
