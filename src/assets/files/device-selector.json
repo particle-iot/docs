@@ -160,7 +160,7 @@
                 },
                 {
                     "lo": ["loe", "loo"],
-                    "variationTitle": "Tracker One (524)",
+                    "variationTitle": "524",
                     "skus": ["ONE524MEA", "ONE524MTY"]
                 }
             ]
@@ -315,7 +315,7 @@
             "c": ["cc"],
             "cp": ["cpl"],
             "g": false,
-            "ex": false,
+            "ex": ["f"],
             "title": "Boron",
             "image": "",
             "variations": [
