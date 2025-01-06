@@ -197,11 +197,10 @@ for the sample code and the technical reasons why it is necessary.
 
 A jumper located on the bottom side of the Muon selects the direction of expansion card (HAT) 5V power (label 20, above).
 
-When the J15 jumper is connecting pins:
+- Connecting `5V_IN` and center pin: Expansion card powers the Muon (typically from PoE) 
+- Connecting `5V_OUT` and center pin: The Muon powers expansion card (from USB-C, USB, or LiPo)
 
-- 1 & 2: Expansion card powers the Muon (typically from PoE)
-- 2 & 3: The Muon powers expansion card (from USB-C, USB, or LiPo)
-
+{{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper" class="full-width"}}
 
 #### PoE power
 

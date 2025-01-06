@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e8e4b4f27f5319a8808cd13da79fd8757e497ac9a5cfeda1aa22ae23e5e5416c",
+            "hash": "9e13744566c372619d332e017db09025faf356be24cd6ab19e30cc2f71615bf8",
             "date": "2025-01-06"
         },
         "getting-started/cloud/logic.md": {
@@ -8395,8 +8395,8 @@
             "date": "2025-01-06"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "802a59366948a4970ba540894b7685185725b05d8eb7ddd4ea79ce84aa7095e3",
-            "date": "2025-01-02"
+            "hash": "01c9530d78d282baadaa1ae4e9c7ccd3577f7bbf4d1be1c9d914cb850776ec9e",
+            "date": "2025-01-06"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "545b237217b99e2a148a34fc94ee7deacf4478bc714924f83b5f29723a7d2779",
-            "date": "2024-12-02"
+            "hash": "c5dec429f23c1801e8abcaa902a462eebc9f40d29ef3c34e577706362044f2b2",
+            "date": "2025-01-06"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",

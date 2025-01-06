@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Muon power jumper 2025-01-06
+
+Added a warning to the M1 enclosure datasheet to set the power jumper before installation. Also added a picture of the jumper to the Muon datasheet.
+
 ### M-SoM reserved SoM pins 2025-01-06
 
 Added note explaining reserved pins on the M.2 connector to the M-SoM datasheet; it was in the B-SoM datasheets but not M-SoM.
