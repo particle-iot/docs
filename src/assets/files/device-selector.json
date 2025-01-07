@@ -193,6 +193,7 @@
             "cp": ["cpl"],
             "g": ["gh"],
             "ex": false,
+            "ceOptional": true,
             "title": "Tracker SoM",
             "image": "",
             "variations": [
@@ -228,6 +229,7 @@
             "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
             "ex": false,
+            "ceOptional": true,
             "title": "M-SoM",
             "image": "",
             "variations": [
@@ -253,6 +255,7 @@
             "pt": ["ptd"],
             "title": "M-SoM + M.2 Breakout Board",
             "skus": ["M2BREAKOUT"],
+            "ceOptional": false,
             "derivedFrom": "M-SoM"
         },
         {
@@ -295,6 +298,7 @@
             "cp": ["cpl"],
             "g": false,
             "ex": false,
+            "ceOptional": true,
             "title": "B-SoM",
             "image": "",
             "variations": [
@@ -316,6 +320,7 @@
             "cp": ["cpl"],
             "g": false,
             "ex": ["f"],
+            "ceOptional": true,
             "title": "Boron",
             "image": "",
             "variations": [
@@ -331,6 +336,7 @@
             "cp": ["cpl", "cpm"],
             "g": false,
             "ex": false,
+            "ceOptional": true,
             "title": "P2",
             "image": "",
             "skus": ["P2MOD10", "P2REEL"]
@@ -341,6 +347,7 @@
             "cp": ["cpl", "cpm"],
             "g": false,
             "ex": ["f"],
+            "ceOptional": true,
             "title": "Photon 2",
             "image": "",
             "skus": ["PHN2MEA", "PHN2MTY"]

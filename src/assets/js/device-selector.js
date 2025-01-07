@@ -59,7 +59,7 @@ $(document).ready(function() {
                     solutionObj.show = false;
                     solutionObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
                 }
-
+                
                 if (questionObj.checkboxes) {
                     let hasCheckbox = false;
 
@@ -82,6 +82,13 @@ $(document).ready(function() {
                                 }
                             }
                         }
+                        if (questionObj.id == 'c' && deviceSelector.settings.ce === '1') {
+                            // User has requested Ethernet
+                            if (options.ceOptional) {
+                                hasAny = true;
+                            }
+                        }
+
                         if (!hasAny) {
                             solutionObj.show = false;
                             solutionObj.reasons.push('not a solution for for ' + questionObj.id);
@@ -224,7 +231,7 @@ $(document).ready(function() {
                     }
                 }
 
-                console.log('variationInfo', variationInfo);
+                console.log('renderVariation ' + variationObj.variationTitle || variationObj.title, variationInfo);
             }
 
             if (variationInfo.countries.length > 0) {
@@ -303,6 +310,10 @@ $(document).ready(function() {
             }
             
             for(const solutionObj of deviceSelector.solutions) {
+                // Use only the solution, not the variation, for ceOptional because variations inherit
+                // from derivedFrom, which may still have it set
+                checkSolutionOptions.ceOptional = solutionObj.ceOptional;
+
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
                         checkSolution(variationObj, checkSolutionOptions);
@@ -323,7 +334,7 @@ $(document).ready(function() {
                     continue;
                 }
 
-                // console.log('render solution ' + solutionObj.title, solutionObj);
+                console.log('render solution ' + solutionObj.title, solutionObj);
 
                 const solutionElem = document.createElement('div');
 
