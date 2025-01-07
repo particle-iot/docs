@@ -84,7 +84,7 @@ $(document).ready(function() {
                         }
                         if (questionObj.id == 'c' && deviceSelector.settings.ce === '1') {
                             // User has requested Ethernet
-                            if (options.ceOptional) {
+                            if (solutionObj.ceOptional) {
                                 hasAny = true;
                             }
                         }
@@ -310,10 +310,6 @@ $(document).ready(function() {
             }
             
             for(const solutionObj of deviceSelector.solutions) {
-                // Use only the solution, not the variation, for ceOptional because variations inherit
-                // from derivedFrom, which may still have it set
-                checkSolutionOptions.ceOptional = solutionObj.ceOptional;
-
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
                         checkSolution(variationObj, checkSolutionOptions);
@@ -534,36 +530,52 @@ $(document).ready(function() {
 
         }
 
+        const cloneSolutionObj = function(solutionObj, options = {}) {
+            const newSolutionObj = {};
+
+            for(const key in solutionObj) {
+                if (typeof options.noCopyKeys != 'undefined') {
+                    if (options.noCopyKeys.includes(key)) {
+                        continue;
+                    }
+                }
+
+                if (Array.isArray(solutionObj[key])) {
+                    const newArray = [];
+
+                    for(const e of solutionObj[key]) {
+                        if (typeof e == 'object') {
+                            newArray.push(Object.assign({}, e));
+                        }
+                        else {
+                            newArray.push(e);
+                        }
+                    }
+                    newSolutionObj[key] = newArray;
+                }
+                else {
+                    newSolutionObj[key] = solutionObj[key];
+                }
+            }
+            return newSolutionObj;
+        }
+
         const expandSolutionVariations = function() {
             deviceSelector.solutions = [];
 
-
-            // Expand tags in variations
+            // Duplicate so the copy can be modified
             for(const solutionObj of deviceSelector.config.solutions) {
-
-                const newSolutionObj = Object.assign({}, solutionObj);
-
-                if (newSolutionObj.variations) {
-                    const noCopyKeys = ['id', 'variations'];
-
-                    for(const variationObj of newSolutionObj.variations) {
-                        for(const key in newSolutionObj) {
-                            if (!noCopyKeys.includes(key)) {
-                                if (typeof variationObj[key] == 'undefined') {
-                                    variationObj[key] = newSolutionObj[key];
-                                }
-                            }
-                        }
-                    }
-                }
-                deviceSelector.solutions.push(newSolutionObj);
+                deviceSelector.solutions.push(cloneSolutionObj(solutionObj, {}));
             }
 
             // Handle derivedFrom
             for(const solutionObj of deviceSelector.solutions) {
                 if (solutionObj.derivedFrom) {
-                    const baseSolutionObj = deviceSelector.solutions.find(e => e.id == solutionObj.derivedFrom);
+                    let baseSolutionObj = deviceSelector.solutions.find(e => e.id == solutionObj.derivedFrom);
                     if (baseSolutionObj) {
+                        // Duplicate it so the variations array is a copy so it can be modified
+                        baseSolutionObj = cloneSolutionObj(baseSolutionObj, {});
+
                         // variations are copied for derivedFrom
                         const noCopyKeys = ['id'];
 
@@ -577,6 +589,26 @@ $(document).ready(function() {
                     }
                 }
             }
+
+            // Expand tags in variations
+            for(const solutionObj of deviceSelector.solutions) {
+
+                if (solutionObj.variations) {
+                    const noCopyKeys = ['id', 'variations'];
+
+                    for(const variationObj of solutionObj.variations) {
+                        for(const key in solutionObj) {
+                            if (!noCopyKeys.includes(key)) {
+                                if (typeof variationObj[key] == 'undefined') {
+                                    variationObj[key] = solutionObj[key];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
 
             console.log('deviceSelector.solutions', deviceSelector.solutions);
 
