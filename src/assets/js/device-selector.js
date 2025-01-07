@@ -309,6 +309,7 @@ $(document).ready(function() {
                 }
             }
             
+            // If variation is shown, also propagate the show flag up into the solution
             for(const solutionObj of deviceSelector.solutions) {
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
@@ -324,7 +325,6 @@ $(document).ready(function() {
             }
 
             // Render solutions
-
             for(const solutionObj of deviceSelector.solutions) {
                 if (!solutionObj.show) {
                     continue;
@@ -338,10 +338,18 @@ $(document).ready(function() {
                 $(headerElem).text(solutionObj.title);
                 $(solutionElem).append(headerElem);
 
-
+                // Note
                 if (solutionObj.note) {
                     await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
                 }
+
+                // Image
+
+                // Solution fit
+
+                // Details (MCU, RAM, etc.)
+
+                // Variations and SKUs
                 let renderVariationOptions = {
                     isVariation: !!solutionObj.variations,
                     solutionObj,
@@ -606,6 +614,51 @@ $(document).ready(function() {
                         }
                     }
                 }
+            }
+
+            // Combined list of SKUs per solution            
+            for(const solutionObj of deviceSelector.solutions) {
+                solutionObj.nonAccessorySkus = [];
+
+                const skuArrays = [];
+
+                if (solutionObj.variations) {
+                    for(const variationObj of solutionObj.variations) {
+                        if (variationObj.skus) {
+                            skuArrays.push(variationObj.skus);
+                        }    
+                    }                    
+                }
+                else {
+                    if (solutionObj.skus) {
+                        skuArrays.push(solutionObj.skus);
+                    }
+                }
+
+                for(const skuArray of skuArrays) {
+                    for(const skuName of skuArray) {
+                        const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
+                        if (skuObj) {
+                            if (!skuObj.accessory) {
+                                if (!solutionObj.nonAccessorySkus.includes(skuName)) {
+                                    solutionObj.nonAccessorySkus.push(skuName);
+                                }
+                            }
+                        }    
+                    }
+                }
+
+                // MCU information
+                for(const skuName of solutionObj.nonAccessorySkus) {
+                    const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
+                    if (skuObj && skuObj.mcu) {
+                        const mcuObj = skuObj.mcu[skuObj.mcu];
+                        if (mcuObj) {
+                            solutionObj.mcuObj = mcuObj;
+                        }
+                    }
+                }
+
             }
 
 
