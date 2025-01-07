@@ -68,6 +68,15 @@ Power supply requirements:
 - Maintain these values at no-load as well as maximum load
 {{!-- END shared-blurb --}}
 
+{{!-- BEGIN shared-blurb 09b8c1f0-e4f0-486b-8f53-5ec64fc00d6f --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
+See [supervisory reset](/reference/datasheets/m-series/msom-datasheet/#supervisory-reset) in the M-SoM datasheet, for additional information.
+{{!-- END shared-blurb --}}
+
 ### Land pattern
 
 The land pattern for the M.2 connector on the M-SoM is:
@@ -924,3 +933,4 @@ Most third-party libraries are believed to be compatible between the P2 and M-So
 |          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |
 | 001      | 2024-04-02 | RK | General availability |
 | 002      | 2024-04-18 | RK | Add PDM microphone |
+| 003      | 2025-01-07 | RK | Added power supply notes |

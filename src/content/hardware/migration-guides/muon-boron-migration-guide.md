@@ -141,6 +141,32 @@ The Muon uses the same PMIC and fuel gauge chips as the Boron.
 
 <p class="attribution">Facing the plug on the battery side</p>
 
+### 3V3
+
+The Boron includes a built-in power supply. You must supply 3V3 and VCC (3V7) separately the M-SoM from your own power supply.
+
+3V3 is used to supply power to MCU, Wi-Fi, BLE, logic ICs, memory, etc.. Make sure that the supply can handle a minimum of 500 mA. 
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb 09b8c1f0-e4f0-486b-8f53-5ec64fc00d6f --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
+See [supervisory reset](/reference/datasheets/m-series/msom-datasheet/#supervisory-reset) in the M-SoM datasheet, for additional information.
+{{!-- END shared-blurb --}}
+
 
 ### EN pin
 
@@ -909,3 +935,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |          | 2024-05-21 | RK | Update for dimensions |
 |          | 2024-08-04 | RK | Pinmap 0.05 |
 |  1       | 2024-10-22 | RK | Initial release |
+|  2       | 2025-01-07 | RK | Added power supply notes |

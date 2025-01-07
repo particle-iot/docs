@@ -80,6 +80,29 @@ Power supply requirements:
 
 If you are migrating from the B Series SoM, note that the required current on 3.3V is 500 mA with the M-SoM, vs. 150 mA on the B Series SoM, because of the Wi-Fi radio.
 
+**The M-SoM requires significantly more current on 3V3 than the B-SoM** and may require modifications to your power supply.
+
+3V3 is used to supply power to RTL8721 MCU, Wi-Fi, memory, etc.. 3.3V at a minimum of 500 mA is required. 
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb 09b8c1f0-e4f0-486b-8f53-5ec64fc00d6f --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
+See [supervisory reset](/reference/datasheets/m-series/msom-datasheet/#supervisory-reset) in the M-SoM datasheet, for additional information.
+{{!-- END shared-blurb --}}
 
 ### Brief comparison
 
@@ -1061,3 +1084,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |
 | 001      | 2024-04-02 | RK | General availability |
 | 002      | 2024-04-18 | RK | Add PDM microphone |
+| 003      | 2025-01-07 | RK | Added power supply notes |

@@ -164,6 +164,26 @@ the voltage regulator so you can choose any model as long as it meets the voltag
   - The Argon used a Torex XCL223, which is no longer available. The pin compatible XCL224 is also no longer available.
 - If the input voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
 
+**The P2 requires more peak current and is more sensitive to power fluctuation than the Photon 1**.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb ad7de0c4-ad9d-4c52-b79c-becc0215c061 --}}
+In some cases, it may be necessary to add a supervisory/reset IC, such as the Richtek RT9818C or SG Micro SGM809-RXN3L/TR:
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
+See [supervisory reset](/reference/datasheets/wi-fi/p2-datasheet/#supervisory-reset) in the P2 datasheet, for additional information.
+{{!-- END shared-blurb --}}
+
 ### VBAT
 
 On the Photon, a lithium coin cell or supercap can be attached to the VBAT pin to keep the real-time clock running, and keep the backup SRAM (retained memory). 
@@ -1266,3 +1286,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | 002 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 | 003 | 2023-05-05 | RK | Fix available RAM |
 | 004 | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
+| 005 | 2025-01-07 | RK | Added power supply notes |

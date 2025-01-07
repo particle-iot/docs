@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Migration guides 2025-01-07
+
+Added power supply notes to all P2 and M-SoM migration guides.
+
 ### Muon power jumper 2025-01-06
 
 Added a warning to the M1 enclosure datasheet to set the power jumper before installation. Also added a picture of the jumper to the Muon datasheet.
