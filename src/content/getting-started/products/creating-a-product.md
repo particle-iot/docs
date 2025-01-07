@@ -126,9 +126,7 @@ In order to remove a device from the billable device count, you must **Remove de
 
 Adding a device to a product in the enterprise plan can be done in advance, and in bulk. The enterprise plan has the concept of **metered devices** which includes all devices that have connected to the cloud at least once. Thus you can add many devices to your product at once, and only when you first turn them on and connect to the cloud does billing start. This allows devices to be assembled and configured without starting billing yet.
 
-Additionally, enterprise products have a six-month manufacturing grace period. For the first six months after the device first connects to the cloud, the device will only count as a metered device if it makes a connection to the Particle cloud. If the device is completely offline for the billing month, it will not count as a billable device.
-
-After the six-month manufacturing grace period, it behaves as the basic plan, and will be counted as a billable device even if it does not connect to the cloud.
+Once a device connects to the cloud the first time it will be counted as a billable device even if it does not connect to the cloud in future months.
 
 It's possible to set up the device by USB or JTAG/SWD, as long as it does not connect to the Particle cloud. Thus you can use your own manufacturing firmware to test your circuit board, custom sensors, etc. without starting the billing process.
 
