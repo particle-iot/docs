@@ -122,17 +122,17 @@ $(document).ready(function() {
 
         const renderVariation = async function(solutionElem, variationObj, options) {
 
-            const headerElem = document.createElement('h4');
             let title;
-            if (variationObj.variationTitle && options.solutionObj) {
+            if (variationObj.variationTitle && options.isVariation) {
                 title = options.solutionObj.title + ' (' + variationObj.variationTitle + ')';
+
+                const headerElem = document.createElement('h4');
+                $(headerElem).text(title);
+                $(solutionElem).append(headerElem);
             }
             else {
                 title = variationObj.title;
             }
-            $(headerElem).text(title);
-            $(solutionElem).append(headerElem);
-
 
             if (variationObj.note) {
                 await renderNote({noteObj: variationObj.note, containerElem: solutionElem});
@@ -346,16 +346,21 @@ $(document).ready(function() {
                 if (solutionObj.note) {
                     await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
                 }
+                let renderVariationOptions = {
+                    isVariation: !!solutionObj.variations,
+                    solutionObj,
+                };
+
 
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
                         if (variationObj.show) {
-                            await renderVariation(solutionElem, variationObj, {solutionObj});
+                            await renderVariation(solutionElem, variationObj, renderVariationOptions);
                         }
                     }
                 }
                 else {
-                    await renderVariation(solutionElem, solutionObj, {});
+                    await renderVariation(solutionElem, solutionObj, renderVariationOptions);
                 }
 
  
