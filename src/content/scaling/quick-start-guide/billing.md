@@ -63,12 +63,11 @@ For cellular devices, if the SIM is deactivated for the entire billing month, it
 
 Product device counts are not affected by device claiming, whether unclaimed product devices, claimed to a single account, claimed to a team member, or claimed to a customer.
 
-{{collapse op="start" label="Manufacturing grace period"}}
-In earlier enterprise plans, there was a manufacturing grace period. 
 
-After the device came online for the first time, if in any of the six billing months the device did not come online, it would not be counted as a billable device. 
+## Manufacturing grace period
 
-This only applied in the enterprise plan; in basic or free there is no manufacturing grace period.
+Some some enterprise plans, there is a six month manufacturing grace period. After the device comes online for the first time, if in any of the first six billing months the device does not come online, it will not be counted as a billable device.
 
-Current enterprise plans do not have the manufacturing grace period; it is consistent across plans now.
-{{collapse op="end"}}
+After the six month manufacturing grace period, the device will count as a billable device whether it comes online or not.
+
+This only applies to some enterprise plans; in basic, free, and other enterprise plans there is no manufacturing grace period.
