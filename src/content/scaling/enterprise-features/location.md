@@ -13,7 +13,7 @@ This page discusses geolocation services on the enterprise plan. For additional 
 
 Particle Location Services can use the following geolocation methods:
 
-{!-- BEGIN shared-blurb 47267ac9-0ada-4300-9c07-71b68e532609 --}}
+{{!-- BEGIN shared-blurb 47267ac9-0ada-4300-9c07-71b68e532609 --}}
 #### GNSS (GPS)
 - Primary Method for Tracker devices
 - High-precision (up to ~1.8 meters)
@@ -84,11 +84,13 @@ as a `loc` event and used with location fusion on some plans. Additional data op
 
 ### Plan summary
 
+{{!-- BEGIN shared-blurb 5b46fb4b-bac6-496d-8a0d-ca3e2ccf43b8 --}}
 | | Sandbox | Basic | Enterprise |
 | :--- | :---: | :---: | :---: |
 | Device Vitals location | Once per week | Once per week | Every update |
 | Location fusion | Yes | Tracker only | Yes |
 | Non-tracker location history | None | None | 1 or 6 months |
+{{!-- END shared-blurb --}}
 
 
 ## Location storage

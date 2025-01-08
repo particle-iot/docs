@@ -179,11 +179,13 @@ your own `loc` events based on the hardware and library that you selected.
 
 ### Plan summary
 
+{{!-- BEGIN shared-blurb 5b46fb4b-bac6-496d-8a0d-ca3e2ccf43b8 --}}
 | | Sandbox | Basic | Enterprise |
 | :--- | :---: | :---: | :---: |
 | Device Vitals location | Once per week | Once per week | Every update |
 | Location fusion | Yes | Tracker only | Yes |
 | Non-tracker location history | None | None | 1 or 6 months |
+{{!-- END shared-blurb --}}
 
 
 ## Location storage
