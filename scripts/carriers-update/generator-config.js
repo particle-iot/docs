@@ -3470,7 +3470,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.simActivationSpeed(); 
             } 
         },
-        // tutorials/particle-hardware.md
+        // location 
         {
             guid:'b7083b52-4bd3-47a6-85e8-396922c41b33',
             generatorFn:function(updater) {
@@ -3483,6 +3483,43 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'89024c15-a66e-466b-9449-48bc25856725',
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
+                    columns: ['name', 'desc', 'region', 'lifecycle'],
+                    filterFn: function(skuObj) {
+                        return skuObj.family != 'tracker' || !skuObj.name.startsWith('MON');
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'4507ee1f-212e-4638-8320-6e8d6d9f7873',
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
+                    columns: ['name', 'desc', 'region', 'lifecycle'],
+                    filterFn: function(skuObj) {
+                        return skuObj.family != 'b series' || !skuObj.gnss;
+                    },
+                }); 
+            },
+        },
+        {
+            guid:'c864a725-a712-44ad-b4e9-ccb882e860b7',
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
+                    columns: ['name', 'desc', 'region', 'lifecycle'],
+                    filterFn: function(skuObj) {
+                        return skuObj.family != 'm series';
+                    },
+                }); 
+            },
+        },
+        // tutorials/particle-hardware.md
         {
             guid:'6a02fd77-1222-4208-8da5-45c9290c5f6d',
             generatorFn:function(updater) {
