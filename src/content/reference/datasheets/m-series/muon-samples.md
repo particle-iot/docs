@@ -11,7 +11,7 @@ For the complete datasheet, see [Muon preview datasheet](/reference/datasheets/m
 
 ## Features
 
-{{imageOverlay src="/assets/images/m-series/muon-labeled.png" alt="Features labeled" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-labeled-v0.4.png" alt="Features labeled" class="full-width"}}
 
 | Label | Feature |
 | :---: | :--- |
@@ -55,10 +55,9 @@ You may find it easier to attach the antenna connectors before putting the Muon 
 
 To set up your Muon preview device, connect a USB-C cable from connector 3 to your computer, then proceed to [setup.particle.io](https://setup.particle.io/) to complete the setup of your device.
 
-{{imageOverlay src="/assets/images/m-series/muon-usb.png" alt="USB connection" class="full-width"}}
-
 ## USB-C cable warning
 
+{{!-- BEGIN shared-blurb c3d00a89-9f50-4d63-bf29-c07645b09e8f --}}
 You must use an actual USB-C port or USB-C power adapter to power the Muon by USB.
 
 **A USB-A to USB-C cable will not power the Muon or charge the battery**
@@ -72,6 +71,9 @@ be changed and the port will not be able to power the Muon.
 Also beware of some wall adapters that have a USB-C cable, but do not support USB-C PD. Some
 of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
 to power the Muon.
+
+See [Muon USB Power](/troubleshooting/guides/device-troubleshooting/muon-usb-power/) for more information.
+{{!-- END shared-blurb --}}
 
 
 ## Errata (v0.5)
@@ -104,6 +106,11 @@ To avoid any problems:
 We appreciate your attention to this matter and are here to assist with any questions or concerns you may have. A solution is implemented for the next version.
 
 
+### Revision history
 
-
+| Revision | Date | Author | Comments |
+|:---------|:-----|:-------|:---------|
+|   1      | 2024-09-12 | RK | Initial version |
+|   2      | 2024-10-17 | RK | USB cable warning |
+|   3      | 2025-01-08 | RK | Updated antenna placement diagram |
 
