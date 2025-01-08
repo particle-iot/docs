@@ -107,12 +107,23 @@
                 {
                     "dir": "what-are-particles-best-practices-with-respect-to-device-os-version-management",
                     "title": "What are Particle's Best Practices with respect to Device OS Version Management?"
-                },
+                }
+            ]
+        },
+        {
+            "dir": "enterprise-features",
+            "isSection": true,
+            "subsections": [
                 {
                     "dir": "device-protection",
                     "title": "Device Protection"
+                },
+                {
+                    "dir": "location",
+                    "title": "Location"
                 }
             ]
         }
+
     ]
 }
