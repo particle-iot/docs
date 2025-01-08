@@ -152,6 +152,7 @@
             "ex": ["m8"],
             "title": "Tracker One",
             "image": "",
+            "wifi": "2.4 GHz (only for geolocation)",
             "variations": [
                 {
                     "lo": ["lon"],
@@ -173,6 +174,7 @@
             "ex": ["m1"],
             "title": "Monitor One",
             "image": "",
+            "wifi": "2.4 GHz (only for geolocation)",
             "variations": [
                 {
                     "lo": ["lon"],
@@ -196,6 +198,7 @@
             "ceOptional": true,
             "title": "Tracker SoM",
             "image": "",
+            "wifi": "2.4 GHz (only for geolocation)",
             "variations": [
                 {
                     "lo": ["lon"],
@@ -232,6 +235,7 @@
             "ceOptional": true,
             "title": "M-SoM",
             "image": "",
+            "wifi": "2.4 and 5 GHz",
             "variations": [
                 {
                     "lo": ["lon"],
@@ -267,6 +271,7 @@
             "ex": ["p"],
             "title": "Muon",
             "image": "",
+            "wifi": "2.4 and 5 GHz",
             "variations": [
                 {
                     "lo": ["lon"],
@@ -301,6 +306,7 @@
             "ceOptional": true,
             "title": "B-SoM",
             "image": "",
+            "wifi": false,
             "variations": [
                 {
                     "lo": ["lon"],
@@ -323,6 +329,7 @@
             "ceOptional": true,
             "title": "Boron",
             "image": "",
+            "wifi": false,
             "variations": [
                 {
                     "lo": ["lon"],
@@ -339,6 +346,7 @@
             "ceOptional": true,
             "title": "P2",
             "image": "",
+            "wifi": "2.4 and 5 GHz",
             "skus": ["P2MOD10", "P2REEL"]
         },
         {
@@ -350,6 +358,7 @@
             "ceOptional": true,
             "title": "Photon 2",
             "image": "",
+            "wifi": "2.4 and 5 GHz",
             "skus": ["PHN2MEA", "PHN2MTY"]
         },
         {
@@ -358,6 +367,7 @@
             "cp": ["cpm","cph"],
             "g": ["gl", "gm"],
             "ex": ["p"],
+            "wifi": "Wi-Fi 6E",
             "title": "Tachyon",
             "image": ""
         }

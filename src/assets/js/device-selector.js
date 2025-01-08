@@ -652,13 +652,13 @@ $(document).ready(function() {
                 for(const skuName of solutionObj.nonAccessorySkus) {
                     const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
                     if (skuObj && skuObj.mcu) {
-                        const mcuObj = skuObj.mcu[skuObj.mcu];
+                        const mcuObj = deviceSelector.carriersJson.mcus[skuObj.mcu];
                         if (mcuObj) {
                             solutionObj.mcuObj = mcuObj;
+                            break;
                         }
                     }
                 }
-
             }
 
 
