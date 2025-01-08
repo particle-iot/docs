@@ -57,8 +57,8 @@ support for a LiPo battery as well as DC input.
 | 8 | NC | Leave unconnected |
 | 9 | GND | Ground |
 | 10 | GND | Ground |
-| 11 | VIN | Power in (4V - 40V) |
-| 12 | VIN | Power in (4V - 40V) |
+| 11 | VIN | Power in (5V - 12V) |
+| 12 | VIN | Power in (5V - 12V) |
 | 13 | NC | Leave unconnected (charge indicator on PM-BAT) |
 | 14 | NC | Leave unconnected (SCL on PM-BAT) |
 | 15 | NC | Leave unconnected (SDA on PM-BAT) |
@@ -178,3 +178,4 @@ The mating header is available from a large number of suppliers in both PTH and 
 | 001      | 2024-06-27 | RK | Initial version |
 | 002      | 2024-08-08 | RK | Input voltage range is 5-12 VDC |
 | 003      | 2024-09-18 | RK | Add firmware settings |
+| 004      | 2025-01-08 | RK | Fixed input voltage in table |

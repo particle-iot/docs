@@ -51,7 +51,7 @@
         {
             "num": 11,
             "name": "VIN",
-            "desc": "Power in (4V - 40V)",
+            "desc": "Power in (5V - 12V)",
             "morePins": [
                 12
             ]
