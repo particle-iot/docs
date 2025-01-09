@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### TAN015 - SARA-R510 reset procedure
+
+[TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/) is now available.
+
 ### Migration guides 2025-01-07
 
 Added power supply notes to all P2 and M-SoM migration guides.
