@@ -21,6 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+{{!-- 
+### TAN015 - SARA-R510 reset procedure 2025-01-13
+
+[TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/) is now available.
+--}}
+
 ### EEPROM and objects 2025-01-10
 
 Additional information on using [EEPROM and objects](/reference/device-os/api/eeprom/eeprom-and-objects/) is now available.
