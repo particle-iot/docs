@@ -20247,6 +20247,158 @@ The default value of bytes in the EEPROM is 255 (hexadecimal 0xFF) so reading an
 device will return an object filled with 0xFF. One trick to deal with default data is to include
 a version field that you can check to see if there was valid data written in the EEPROM.
 
+### EEPROM and objects
+
+You should only use EEPROM to restore primitive types like `int`, `bool`, `char`, arrays of these
+types, and simple `struct`.
+
+You cannot store `String` values in EEPROM. Since this object stores the contents of the string in 
+a separate heap-allocated memory block, it will not be restored properly. This also applies to
+other similar classes like `Variant`.
+
+If you want to store character strings, you should use a fixed-length array of `char` instead of
+string. 
+
+### EEPROM sample code
+
+This is an example of using the EEPROM to store various data types.
+
+```cpp
+#include "Particle.h"
+
+void clearEEPROM(); // forward declaration
+
+// This is just a list of 16 fish names from Wikipedia for testing
+const char *fishNames[] = {"Aeneus corydoras", "African glass catfish", "African lungfish", "Aholehole",
+						   "Airbreathing catfish", "Airsac catfish", "Alaska blackfish", "Albacore",
+						   "Alewife", "Alfonsino", "Algae eater", "Alligatorfish",
+						   "Alligator gar", "American sole", "Amur pike", "Anchovy"};
+
+typedef struct {
+	int a;
+	float b;
+	bool c;
+} SimpleStruct;
+
+void setup() {
+	Serial.begin(9600);
+
+	// clearEEPROM();
+}
+
+
+void loop() {
+	int addr = 0;
+	int intVal;
+
+	// int
+	{
+		// You can get and put simple values like int, long, bool, etc. using get and put directly
+
+		EEPROM.get(addr, intVal);
+		Serial.printlnf("addr=%d, intVal=%d, sizeof(int)=%d", addr, intVal, sizeof(int));
+
+		intVal++;
+		EEPROM.put(addr, intVal);
+
+		addr += sizeof(int);
+	}
+	// double
+	{
+		double doubleVal;
+
+		// Same for float, double
+		EEPROM.get(addr, doubleVal);
+		Serial.printlnf("addr=%d, doubleVal=%lf, sizeof(doubleVal)=%d", addr, doubleVal, sizeof(doubleVal));
+
+		doubleVal += 0.1;
+		EEPROM.put(addr, doubleVal);
+
+		addr += sizeof(doubleVal);
+	}
+
+	// Strings are a bit more of a pain because you have to know how much space you want to reserve.
+	// In this example, we store a string of up to 15 characters, plus a null byte, in a 16 character buffer
+	{
+		const int STRING_BUF_SIZE = 16;
+		char stringBuf[STRING_BUF_SIZE];
+
+		EEPROM.get(addr, stringBuf);
+		stringBuf[sizeof(stringBuf) - 1] = 0; // make sure it's null terminated
+
+		// Initialize a String object from the buffer
+		String str(stringBuf);
+
+		Serial.printlnf("addr=%d, str=%s, sizeof(stringBuf)=%d", addr, str.c_str(), sizeof(stringBuf));
+
+		str = String(fishNames[intVal & 0xf]);
+		Serial.printlnf("next fish name=%s", str.c_str());
+
+		// getBytes handles truncating the string if it's longer than the buffer.
+		str.getBytes((unsigned char *)stringBuf, sizeof(stringBuf));
+		EEPROM.put(addr, stringBuf);
+
+		addr += sizeof(stringBuf);
+	}
+
+	// A simple structure
+	{
+		SimpleStruct data;
+
+		// You can even store a small structure of values
+		EEPROM.get(addr, data);
+		Serial.printlnf("addr=%d, a=%d b=%f c=%d, sizeof(data)=%d", addr, data.a, data.b, data.c, sizeof(data));
+
+		data.a += 2;
+		data.b += 0.02;
+		data.c = !data.c;
+
+		EEPROM.put(addr, data);
+
+		addr += sizeof(data);
+	}
+	Serial.println("--------");
+
+	delay(30000);
+}
+
+void clearEEPROM() {
+	for(int addr = 0; addr < 256; addr++) {
+		EEPROM.write(addr, 0);
+	}
+}
+```
+
+Output from the sample code:
+
+```
+addr=0, intVal=0, sizeof(int)=4
+addr=4, doubleVal=0.000000, sizeof(doubleVal)=8
+addr=12, str=, sizeof(stringBuf)=16
+next fish name=African glass catfish
+addr=28, a=0 b=0.000000 c=0, sizeof(data)=12
+--------
+addr=0, intVal=1, sizeof(int)=4
+addr=4, doubleVal=0.100000, sizeof(doubleVal)=8
+addr=12, str=African glass c, sizeof(stringBuf)=16
+next fish name=African lungfish
+addr=28, a=2 b=0.020000 c=1, sizeof(data)=12
+--------
+addr=0, intVal=2, sizeof(int)=4
+addr=4, doubleVal=0.200000, sizeof(doubleVal)=8
+addr=12, str=African lungfis, sizeof(stringBuf)=16
+next fish name=Aholehole
+addr=28, a=4 b=0.040000 c=0, sizeof(data)=12
+--------
+addr=0, intVal=3, sizeof(int)=4
+addr=4, doubleVal=0.300000, sizeof(doubleVal)=8
+addr=12, str=Aholehole, sizeof(stringBuf)=16
+next fish name=Airbreathing catfish
+addr=28, a=6 b=0.060000 c=1, sizeof(data)=12
+--------
+```
+
+
 ### read()
 
 {{api name1="EEPROM.read"}}

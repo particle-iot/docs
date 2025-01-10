@@ -894,6 +894,8 @@
   "/reference/device-os/firmware/#length--1": "/reference/device-os/api/eeprom/length/",
   "/reference/device-os/firmware/#put-": "/reference/device-os/api/eeprom/put/",
   "/reference/device-os/firmware/#get-": "/reference/device-os/api/eeprom/get/",
+  "/reference/device-os/firmware/#eeprom-and-objects": "/reference/device-os/api/eeprom/eeprom-and-objects/",
+  "/reference/device-os/firmware/#eeprom-sample-code": "/reference/device-os/api/eeprom/eeprom-sample-code/",
   "/reference/device-os/firmware/#read--5": "/reference/device-os/api/eeprom/read/",
   "/reference/device-os/firmware/#write--7": "/reference/device-os/api/eeprom/write/",
   "/reference/device-os/firmware/#clear--1": "/reference/device-os/api/eeprom/clear/",

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### EEPROM and objects 2025-01-10
+
+There is additional information on using [EEPROM and objects](/device-os/api/eeprom/eeprom-and-objects/)
+
 ### Migration guides 2025-01-07
 
 Added power supply notes to all P2 and M-SoM migration guides.

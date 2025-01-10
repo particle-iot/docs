@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-01-02",
-            "hash": "e4661800e441d89a760f41e10689b958b550ef631aa6158950e14b30c594f9f2"
+            "date": "2025-01-10",
+            "hash": "62c9749610d6fc43ba3b6323d7e59d7d8ed46ba30e06c7a84e3455e762e54333"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5cd66e8bdbc37d4f7cae1fd2926495aa483e80982415882b70b8ff1fd73e06eb",
-            "date": "2025-01-07"
+            "hash": "b1fe9c245c0963c527811bb45cd26b5273f251532970d4af15e5b78fd741ad48",
+            "date": "2025-01-10"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9601,6 +9601,14 @@
         "reference/device-os/libraries/s/SparkFun_STHS34PF80_Arduino_Library.md": {
             "hash": "61900218271f7c74670fb9dd3756f57b7aecaa1da38219c396fba052fd12508d",
             "date": "2024-12-17"
+        },
+        "reference/device-os/api/eeprom/eeprom-and-objects.md": {
+            "hash": "8d7beefe9dee020048eeafc41a3d90e80dadfdc41ce22b0d5495b0704b63cfa8",
+            "date": "2025-01-10"
+        },
+        "reference/device-os/api/eeprom/eeprom-sample-code.md": {
+            "hash": "486f14647733e129d3fec4cc4de7f84110732dbd4f173a0be6ae1898bb954526",
+            "date": "2025-01-10"
         }
     }
 }

@@ -1404,6 +1404,14 @@
           "dir": "get"
         },
         {
+          "title": "EEPROM and objects - EEPROM",
+          "dir": "eeprom-and-objects"
+        },
+        {
+          "title": "EEPROM sample code - EEPROM",
+          "dir": "eeprom-sample-code"
+        },
+        {
           "title": "read() - EEPROM",
           "dir": "read"
         },
