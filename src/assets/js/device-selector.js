@@ -1,11 +1,24 @@
 $(document).ready(function() {
     const parser = new DOMParser();
 
+    // Include in content md:
+    // includeDefinitions: [api-helper, device-selector, showdown]
+
+
     let deviceSelector = {
+        context: {}, // Markdown context
     };
 
     $('.deviceSelector').each( function() {
         const thisPartial = $(this);
+
+        if (deviceSelector.elem) {
+            // Only one device selector allowed per page
+            return;
+        }
+
+        deviceSelector.showdown = new showdown.Converter();                
+        deviceSelector.showdown.setFlavor('github');
 
         const notesUrlBase = '/notes/';
 
@@ -49,6 +62,20 @@ $(document).ready(function() {
             else {
                 $(options.containerElem).append(noteElem);
             }
+        }
+
+        const renderMd = function(options) {            
+            // options
+            //  .md text to render (Markdown format)
+            //  .containerElem where to append the html div
+
+            const expandedMd =  Handlebars.compile(options.md)(deviceSelector.context);
+
+            const html = deviceSelector.showdown.makeHtml(expandedMd);
+
+            const noteElem = document.createElement('div');
+            $(noteElem).html(html);
+            $(options.containerElem).append(noteElem);
         }
 
         const checkSolution = function(solutionObj, options) {
@@ -122,6 +149,8 @@ $(document).ready(function() {
 
         const renderVariation = async function(solutionElem, variationObj, options) {
 
+            deviceSelector.context.variation = variationObj;
+
             let title;
             if (variationObj.variationTitle && options.isVariation) {
                 title = options.solutionObj.title + ' (' + variationObj.variationTitle + ')';
@@ -133,7 +162,10 @@ $(document).ready(function() {
             else {
                 title = variationObj.title;
             }
-
+ 
+            if (variationObj.textMd) {    
+                renderMd({md: variationObj.textMd, containerElem: solutionElem});
+            }
             if (variationObj.note) {
                 await renderNote({noteObj: variationObj.note, containerElem: solutionElem});
             }
@@ -281,6 +313,8 @@ $(document).ready(function() {
         const renderSolutions = async function() {
             $(deviceSelector.answerInnerElem).empty();
 
+            deviceSelector.context.settings = deviceSelector.settings;
+
             // Clear the show selection flag
             for(const solutionObj of deviceSelector.solutions) {
                 solutionObj.show = false;
@@ -330,6 +364,8 @@ $(document).ready(function() {
                     continue;
                 }
 
+                deviceSelector.context.solution = solutionObj;
+
                 console.log('render solution ' + solutionObj.title, solutionObj);
 
                 const solutionElem = document.createElement('div');
@@ -339,6 +375,10 @@ $(document).ready(function() {
                 $(solutionElem).append(headerElem);
 
                 // Note
+                if (solutionObj.textMd) {
+                    renderMd({md: solutionObj.textMd, containerElem: solutionElem});
+                }
+
                 if (solutionObj.note) {
                     await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
                 }
@@ -517,6 +557,10 @@ $(document).ready(function() {
                     }
                 }
                 
+
+                if (questionObj.textMd) {
+                    renderMd({md: solutionObj.textMd, containerElem: questionElem});
+                }
 
                 if (questionObj.note) {
                     await renderNote({noteObj: questionObj.note, containerElem: questionElem});
