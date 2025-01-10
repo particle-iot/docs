@@ -56,22 +56,6 @@
             "title": "Location",
             "id": "lo",
             "checkboxes": [
-                {
-                    "id": "lon",
-                    "title": "North America (United States, Canada, Mexico)"
-                },
-                {
-                    "id": "loe",
-                    "title": "Europe, Middle East, Africa, Asia"
-                },
-                {
-                    "id": "loo",
-                    "title": "Australia, New Zealand"
-                },
-                {
-                    "id": "loa",
-                    "title": "Central America, South America, Caribbean"
-                }
             ]
         },
         {

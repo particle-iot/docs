@@ -612,7 +612,19 @@ $(document).ready(function() {
             return newSolutionObj;
         }
 
-        const expandSolutionVariations = function() {
+        const processDeviceSelectorJson = function() {
+            // Fill in locations from carrier list
+            const regionConfig = deviceSelector.carriersJson.regionGroups.find(e => e.id == 'device-selector');
+            const locationObj = deviceSelector.config.questions.find(e => e.id == 'lo');
+            for(const r of regionConfig.regions) {
+                locationObj.checkboxes.push({
+                    id: r.id,
+                    title: r.name,
+                    regions: r.regions,
+                });
+            }
+
+            // Capture all of the question IDs
             deviceSelector.questionIds = [];
             for(const questionObj of deviceSelector.config.questions) {
                 deviceSelector.questionIds.push(questionObj.id);
@@ -783,7 +795,7 @@ $(document).ready(function() {
         
             await Promise.all(promises);
     
-            expandSolutionVariations();
+            processDeviceSelectorJson();
 
             console.log('deviceSelector', deviceSelector);
 
