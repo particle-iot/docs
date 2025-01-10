@@ -225,6 +225,29 @@
             ]
         },        
         {
+            "id": "Tracker-SoM Evaluation Kit",
+            "pt": ["ptd"],
+            "c": ["cc"],
+            "cp": ["cpl"],
+            "g": ["gh"],
+            "ex": false,
+            "ceOptional": true,
+            "title": "Tracker SoM",
+            "image": "",
+            "wifi": "2.4 GHz (only for geolocation)",
+            "variations": [
+                {
+                    "lo": ["lon"],
+                    "variationTitle": "404",
+                    "skus": ["T404MKIT"]
+                },
+                {
+                    "lo": ["loe", "loo"],
+                    "variationTitle": "524",
+                    "skus": ["T524MKIT"]
+                }
+            ]
+        },               {
             "id": "M-SoM",
             "pt": ["ptm"],
             "c": ["cc", "cw"],
