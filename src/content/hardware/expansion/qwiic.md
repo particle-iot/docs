@@ -34,16 +34,16 @@ These are some of the products and libraries available:
 | :------ | :------ |
 | [Qwiic Alphanumeric Display - Red](https://www.sparkfun.com/products/16427)| [SparkFun_Alphanumeric_Display_Arduino_Library](https://github.com/sparkfun/SparkFun_Alphanumeric_Display_Arduino_Library) |
 | [Qwiic Humidity AHT20](https://www.sparkfun.com/products/16618)| [SparkFun_Qwiic_Humidity_AHT20_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Humidity_AHT20_Arduino_Library) |
-| [Qwiic Pressure Sensor - LPS25HB](https://www.sparkfun.com/products/14767)| [SparkFun_LPS25HB_Arduino_Library](https://github.com/sparkfun/SparkFun_LPS25HB_Arduino_Library) |
+| Qwiic Pressure Sensor | [SparkFun_LPS25HB_Arduino_Library](https://github.com/sparkfun/SparkFun_LPS25HB_Arduino_Library) |
 | [Qwiic Pressure/Humidity/Temp (PHT) Sensor - MS8607](https://www.sparkfun.com/products/16298)| [SparkFun_PHT_MS8607_Arduino_Library](https://github.com/sparkfun/SparkFun_PHT_MS8607_Arduino_Library) |
-| [Qwiic Step](https://www.sparkfun.com/products/15951)| [SparkFun_Qwiic_Step_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Step_Arduino_Library) |
+| Qwiic Step | [SparkFun_Qwiic_Step_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Step_Arduino_Library) |
 | [SparkFun 9DoF IMU Breakout - ICM-20948 (Qwiic)](https://www.sparkfun.com/products/15335) | [SparkFun_ICM-20948_ArduinoLibrary](https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary) | 
 | [SparkFun Ambient Light Sensor - VEML6030 (Qwiic)](https://www.sparkfun.com/products/15436)| [SparkFun_Ambient_Light_Sensor_Arduino_Library](https://github.com/sparkfun/SparkFun_Ambient_Light_Sensor_Arduino_Library) |
 | [SparkFun Atmospheric Sensor Breakout - BME280 (Qwiic)](https://www.sparkfun.com/products/15440)| [SparkFun_BME280_Arduino_Library](https://github.com/sparkfun/SparkFun_BME280_Arduino_Library) |
-| [SparkFun Clock Generator Breakout - 5P49V60 (Qwiic)](https://www.sparkfun.com/products/15734)| [SparkFun_Clock_5P49V60_Arduino_Library](https://github.com/sparkfun/SparkFun_Clock_5P49V60_Arduino_Library) |
+| SparkFun Clock Generator Breakout - 5P49V60 (Qwiic) | [SparkFun_Clock_5P49V60_Arduino_Library](https://github.com/sparkfun/SparkFun_Clock_5P49V60_Arduino_Library) |
 | [SparkFun Digital Temperature Sensor - TMP102 (Qwiic)](https://www.sparkfun.com/products/16304)| [SparkFun_TMP102_Arduino_Library](https://github.com/sparkfun/SparkFun_TMP102_Arduino_Library) |
 | [SparkFun Distance Sensor Breakout - 4 Meter, VL53L1X (Qwiic)](https://www.sparkfun.com/products/14722)| [SparkFun_VL53L1X_Arduino_Library](https://github.com/sparkfun/SparkFun_VL53L1X_Arduino_Library) |
-| [SparkFun Environmental Combo Breakout - CCS811/BME280 (Qwiic)](https://www.sparkfun.com/products/14348)| [SparkFun_CCS811_Arduino_Library](https://github.com/sparkfun/SparkFun_CCS811_Arduino_Library) |
+| SparkFun Environmental Combo Breakout - CCS811/BME280 (Qwiic) | [SparkFun_CCS811_Arduino_Library](https://github.com/sparkfun/SparkFun_CCS811_Arduino_Library) |
 | [SparkFun Grid-EYE Infrared Array Breakout - AMG8833 (Qwiic)](https://www.sparkfun.com/products/14607)| [SparkFun_GridEYE_Arduino_Library](https://github.com/sparkfun/SparkFun_GridEYE_Arduino_Library) |
 | [SparkFun High Precision Temperature Sensor - TMP117 (Qwiic)](https://www.sparkfun.com/products/15805)| [SparkFun_TMP117_Arduino_Library](https://github.com/sparkfun/SparkFun_TMP117_Arduino_Library) |
 | [SparkFun Human Presence Sensor Breakout - AK9753 (Qwiic)](https://www.sparkfun.com/products/14349)| [SparkFun_AK975x_Arduino_Library](https://github.com/sparkfun/SparkFun_AK975x_Arduino_Library) |
@@ -55,7 +55,7 @@ These are some of the products and libraries available:
 | [SparkFun Qwiic GPIO TCA9534](https://www.sparkfun.com/products/17047) | [SparkFun_Qwiic_GPIO_Library](https://github.com/sparkfun/SparkFun_Qwiic_GPIO_Library) | 
 | [SparkFun Qwiic Joystick](https://www.sparkfun.com/products/15168)| [SparkFun_Qwiic_Joystick_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Joystick_Arduino_Library) |
 | [SparkFun Qwiic Keypad - 12 Button](https://www.sparkfun.com/products/15290)| [SparkFun_Qwiic_Keypad_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Keypad_Arduino_Library) |
-| [SparkFun Qwiic MP3 Trigger](https://www.sparkfun.com/products/15165)| [SparkFun_Qwiic_MP3_Trigger_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_MP3_Trigger_Arduino_Library) |
+| SparkFun Qwiic MP3 Trigger| [SparkFun_Qwiic_MP3_Trigger_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_MP3_Trigger_Arduino_Library) |
 | [SparkFun Qwiic Mux Breakout - 8 Channel (TCA9548A)](https://www.sparkfun.com/products/14685)| [SparkFun_I2C_Mux_Arduino_Library](https://github.com/sparkfun/SparkFun_I2C_Mux_Arduino_Library) |
 | [SparkFun Qwiic OpenLog](https://www.sparkfun.com/products/15164)| [SparkFun_Qwiic_OpenLog_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_OpenLog_Arduino_Library) |
 | [SparkFun Qwiic Scale - NAU7802](https://www.sparkfun.com/products/15242)| [SparkFun_Qwiic_Scale_NAU7802_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Scale_NAU7802_Arduino_Library) |
@@ -65,8 +65,8 @@ These are some of the products and libraries available:
 | [SparkFun Qwiic Twist - RGB Rotary Encoder Breakout](https://www.sparkfun.com/products/15083)| [SparkFun_Qwiic_Twist_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Twist_Arduino_Library) |
 | [SparkFun Triad Spectroscopy Sensor - AS7265x (Qwiic)](https://www.sparkfun.com/products/15050)| [SparkFun_AS7265x_Arduino_Library](https://github.com/sparkfun/SparkFun_AS7265x_Arduino_Library) |
 | [SparkFun Triad Spectroscopy Sensor - AS7265x (Qwiic)](https://www.sparkfun.com/products/15050)| [SparkFun_AS7265x_Arduino_Library](https://github.com/sparkfun/SparkFun_AS7265x_Arduino_Library) |
-| [SparkFun Triple Axis Accelerometer Breakout - MMA8452Q (Qwiic)](https://www.sparkfun.com/products/14587)| [SparkFun_MMA8452Q_Arduino_Library](https://github.com/sparkfun/SparkFun_MMA8452Q_Arduino_Library) |
-| [SparkFun UV Light Sensor Breakout - VEML6075 (Qwiic)](https://www.sparkfun.com/products/15089)| [SparkFun_VEML6075_Arduino_Library](https://github.com/sparkfun/SparkFun_VEML6075_Arduino_Library) |
+| SparkFun Triple Axis Accelerometer Breakout - MMA8452Q (Qwiic) | [SparkFun_MMA8452Q_Arduino_Library](https://github.com/sparkfun/SparkFun_MMA8452Q_Arduino_Library) |
+| SparkFun UV Light Sensor Breakout - VEML6075 (Qwiic) | [SparkFun_VEML6075_Arduino_Library](https://github.com/sparkfun/SparkFun_VEML6075_Arduino_Library) |
 | [SparkFun VR IMU Breakout - BNO080 (Qwiic)](https://www.sparkfun.com/products/14686)| [SparkFun_BNO080_Arduino_Library](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library) |
 
 
@@ -120,7 +120,7 @@ You can also solder female sockets on the top of the Qwiic Feather adapter and p
 
 ### Publish BME280
 
-This simple example reads temperature, pressure, and humidity sensors and publishes it to the cloud. It uses the [SparkFun Atmospheric Sensor Breakout - BME280 (Qwiic)](https://www.sparkfun.com/products/15440).
+This simple example reads temperature, pressure, and humidity sensors and publishes it to the cloud. It uses the [SparkFun Atmospheric Sensor Breakout - BME280 (Qwiic)](https://www.sparkfun.com/sparkfun-atmospheric-sensor-breakout-bme280-qwiic.html).
 
 If you are building a project from scratch using Particle Workbench:
 

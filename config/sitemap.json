@@ -987,8 +987,8 @@
             "hash": "f4b013329d7adcffd941e9e3def5f8f17bbd529e584aa3fe4ca1b5db670d2d00"
         },
         "hardware/expansion/qwiic.md": {
-            "date": "2024-02-27",
-            "hash": "e1e353090362610b1c69baac04e7a5685a98d800814c2f666ce059470b71eca9"
+            "date": "2025-01-10",
+            "hash": "97638934d1622cbc3b675ab87f502d99a28c0fc52b0eca7feb13b9c71bc72f34"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
             "date": "2025-01-07",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "b1fe9c245c0963c527811bb45cd26b5273f251532970d4af15e5b78fd741ad48",
+            "hash": "fb50ba6c4f528e5e35d1b9e42bf4f31b36582870ed7a504e55ebeeef3f84ed59",
             "date": "2025-01-10"
         },
         "getting-started/cloud/logic.md": {

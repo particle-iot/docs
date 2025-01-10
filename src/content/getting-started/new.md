@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### EEPROM and objects 2025-01-10
 
-There is additional information on using [EEPROM and objects](/device-os/api/eeprom/eeprom-and-objects/)
+Additional information on using [EEPROM and objects](/reference/device-os/api/eeprom/eeprom-and-objects/) is now available.
 
 ### Migration guides 2025-01-07
 
