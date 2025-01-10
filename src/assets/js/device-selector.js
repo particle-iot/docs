@@ -613,6 +613,11 @@ $(document).ready(function() {
         }
 
         const expandSolutionVariations = function() {
+            deviceSelector.questionIds = [];
+            for(const questionObj of deviceSelector.config.questions) {
+                deviceSelector.questionIds.push(questionObj.id);
+            }
+
             deviceSelector.solutions = [];
 
             // Duplicate so the copy can be modified
@@ -641,6 +646,37 @@ $(document).ready(function() {
                     }
                 }
             }
+
+            // Variation and regular fields (this must be done before expanding tags in variations)
+            for(const solutionObj of deviceSelector.solutions) {
+
+                const variationKeys = [];
+                if (solutionObj.variations) {
+                    for(const variationObj of solutionObj.variations) {
+                        for(const key in variationObj) {
+                            if (deviceSelector.questionIds.includes(key)) {
+                                if (!variationKeys.includes(key)) {
+                                    variationKeys.push(key);
+                                }    
+                            }
+                        }
+                    }
+                }
+
+                const keys = [];
+                for(const key in solutionObj) {
+                    if (solutionObj) {
+                        if (deviceSelector.questionIds.includes(key)) {
+                            if (!keys.includes(key) && !variationKeys.includes(key)) {
+                                keys.push(key);
+                            }
+                        }
+                    }
+                }
+
+                solutionObj.keys = keys;
+                solutionObj.variationKeys = variationKeys;
+            }            
 
             // Expand tags in variations
             for(const solutionObj of deviceSelector.solutions) {
@@ -704,8 +740,6 @@ $(document).ready(function() {
                     }
                 }
             }
-
-
 
             console.log('deviceSelector.solutions', deviceSelector.solutions);
 
