@@ -147,13 +147,13 @@ $(document).ready(function() {
             }
         }
 
-        const renderVariation = async function(solutionElem, variationObj, options) {
+        const renderVariation = async function(solutionElem, solutionObj, variationObj, options) {
 
             deviceSelector.context.variation = variationObj;
 
             let title;
             if (variationObj.variationTitle && options.isVariation) {
-                title = options.solutionObj.title + ' (' + variationObj.variationTitle + ')';
+                title = solutionObj.title + ' (' + variationObj.variationTitle + ')';
 
                 const headerElem = document.createElement('h4');
                 $(headerElem).text(title);
@@ -171,10 +171,6 @@ $(document).ready(function() {
             }
 
             // Render SKUs
-            let variationInfo = {
-                countries: [],
-                possibleCountries: 0,
-            };
 
             if (typeof variationObj.skus != 'undefined') {
                 const headerElem = document.createElement('h5');
@@ -224,9 +220,6 @@ $(document).ready(function() {
                     if (!skuObj) {
                         continue;
                     }
-                    if (typeof variationInfo.skuObj == 'undefined') {
-                        variationInfo.skuObj = skuObj;
-                    }
 
                     const trElem = document.createElement('tr');
 
@@ -247,26 +240,7 @@ $(document).ready(function() {
                 $(solutionElem).append(tableElem);
             }
 
-            if (typeof variationInfo.skuObj != 'undefined' && typeof variationInfo.skuObj.sim != 'undefined') {
-                // ;modem, .,sim, .simPlans[], 
-                variationInfo.modemObj = deviceSelector.carriersJson.modems.find(e => e.model == variationInfo.skuObj.modem);
-
-                for(const cmsObj of deviceSelector.carriersJson.countryModemSim) {
-                    if (cmsObj.modem == variationInfo.skuObj.modem && cmsObj.sim == variationInfo.skuObj.sim) {
-                        if (cmsObj.recommendation == 'YES') {
-                            variationInfo.countries.push(cmsObj.country);
-                        }
-                        else
-                        if (cmsObj.recommendation == 'POSS') {
-                            variationInfo.possibleCountries++;
-                        }
-                    }
-                }
-
-                console.log('renderVariation ' + variationObj.variationTitle || variationObj.title, variationInfo);
-            }
-
-            if (variationInfo.countries.length > 0) {
+            if (variationObj.countries.length > 0) {
                 const headerElem = document.createElement('h5');
                 $(headerElem).text('Supported countries (cellular) - ' + title);
                 $(solutionElem).append(headerElem);
@@ -282,14 +256,16 @@ $(document).ready(function() {
 
                 const tbodyElem = document.createElement('tbody');
 
-                for(const country of variationInfo.countries) {
+                for(const variationCountryObj of variationObj.countries) {
+                    // TODO: Filtering by selected locations
+                    
                     if (columnInfo.columnNum < 0) {
                         columnInfo.trElem = document.createElement('tr');
                         columnInfo.columnNum  = 0;
                     }
                     const tdElem = document.createElement('td'); 
                     $(tdElem).css('width', columnInfo.columnWidth);
-                    $(tdElem).text(country);
+                    $(tdElem).text(variationCountryObj.name);
 
                     $(columnInfo.trElem).append(tdElem);
 
@@ -328,33 +304,52 @@ $(document).ready(function() {
             }
 
             // Check and see if we are only showing gateways
-            let checkSolutionOptions = {
+            let options = {
                 onlyGateway: false,
             };
 
             if (deviceSelector.settings.ptg === '1') {
-                checkSolutionOptions.onlyGateway = true;
+                options.onlyGateway = true;
 
                 const questionObj = deviceSelector.config.questions.find(e => e.id == 'pt');
                 for(const optionsObj of questionObj.checkboxes) {
                     if (optionsObj.id != 'ptg' && deviceSelector.settings[optionsObj.id] === '1') {
-                        checkSolutionOptions.onlyGateway = false;
+                        options.onlyGateway = false;
                     }
                 }
             }
+
+            {
+                const questionObj = deviceSelector.config.questions.find(e => e.id == 'lo');
+                
+                let numChecked = 0;
+
+                for(const optionsObj of questionObj.checkboxes) {
+                    if (deviceSelector.settings[optionsObj.id] === '1') {
+                        numChecked++;
+                    }
+                }
+
+                options.filterLocation = (numChecked > 0) && (numChecked < questionObj.checkboxes.length);
+            }
+
+            deviceSelector.context.options = options;
             
+
+            console.log('context', deviceSelector.context);
+
             // If variation is shown, also propagate the show flag up into the solution
             for(const solutionObj of deviceSelector.solutions) {
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
-                        checkSolution(variationObj, checkSolutionOptions);
+                        checkSolution(variationObj, options);
                         if (variationObj.show) {
                             solutionObj.show = true;
                         }
                     }
                 }
                 else {
-                    checkSolution(solutionObj, checkSolutionOptions);
+                    checkSolution(solutionObj, options);
                 }
             }
 
@@ -390,21 +385,17 @@ $(document).ready(function() {
                 // Details (MCU, RAM, etc.)
 
                 // Variations and SKUs
-                let renderVariationOptions = {
-                    isVariation: !!solutionObj.variations,
-                    solutionObj,
-                };
-
+                options.isVariation = !!solutionObj.variations;
 
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
                         if (variationObj.show) {
-                            await renderVariation(solutionElem, variationObj, renderVariationOptions);
+                            await renderVariation(solutionElem, solutionObj, variationObj, options);
                         }
                     }
                 }
                 else {
-                    await renderVariation(solutionElem, solutionObj, renderVariationOptions);
+                    await renderVariation(solutionElem, solutionObj, solutionObj, options);
                 }
 
  
@@ -771,6 +762,9 @@ $(document).ready(function() {
                     // execute for location variations.
 
                     for(const variationObj of solutionObj.variations) {
+                        variationObj.countries = [];
+                        variationObj.possibleCountries = 0;
+
                         for(const skuName of variationObj.skus) {
                             const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
                             if (skuObj) {
@@ -786,7 +780,9 @@ $(document).ready(function() {
                                             // This variation is recommended in this country
 
                                             // countryObj.regions: array of regions for this country
+                                        
                                             
+
                                             for(const r1 of regionConfig.regions) {
                                                 for(const r2 of r1.regions) {
                                                     if (countryObj.regions.includes(r2)) {
@@ -796,6 +792,20 @@ $(document).ready(function() {
                                                                 solutionObj.variationKeys.push('lo');
                                                             }
                                                         }
+
+                                                        let variationCountryObj = variationObj.countries.find(e => e.name == cmsObj.country);
+                                                        if (!variationCountryObj) {
+                                                            variationCountryObj = {
+                                                                name: cmsObj.country,
+                                                                lo: [],
+                                                            }
+                                                            variationObj.countries.push(variationCountryObj);
+                                                        }
+                                                        if (!variationCountryObj.lo.includes(r1.id)) {
+                                                            variationCountryObj.lo.push(r1.id);
+                                                        }
+
+
                                                         if (!variationObj.lo.includes(r1.id)) {
                                                             variationObj.lo.push(r1.id);
                                                         }
@@ -807,6 +817,7 @@ $(document).ready(function() {
                                         }
                                         else
                                         if (cmsObj.recommendation == 'POSS') {
+                                            variationObj.possibleCountries++;
                                         }
                                     }
                                 }
@@ -814,7 +825,9 @@ $(document).ready(function() {
                             }
                         
                         }
-                    }                
+                        variationObj.countries.sort((a, b) => a.name.localeCompare(b.name));
+                    }   
+                    
                 }
             }
 
