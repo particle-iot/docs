@@ -137,14 +137,12 @@
             "title": "Tracker One",
             "image": "",
             "wifi": "2.4 GHz (only for geolocation)",
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404",
                     "skus": ["ONE404MEA", "ONE494MTY"]
                 },
                 {
-                    "lo": ["loe", "loo"],
                     "variationTitle": "524",
                     "skus": ["ONE524MEA", "ONE524MTY"]
                 }
@@ -159,14 +157,12 @@
             "title": "Monitor One",
             "image": "",
             "wifi": "2.4 GHz (only for geolocation)",
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404",
                     "skus": ["MON404E01C01KIT"]
                 },
                 {
-                    "lo": ["loe", "loo"],
                     "variationTitle": "524",
                     "skus": ["MON524E01C01KIT"]
                 }
@@ -183,28 +179,14 @@
             "title": "Tracker SoM",
             "image": "",
             "wifi": "2.4 GHz (only for geolocation)",
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404",
                     "skus": ["T404MEA", "T404MTX"]
                 },
                 {
-                    "lo": ["loe", "loo"],
                     "variationTitle": "524",
                     "skus": ["T524MEA", "T524MTY"]
-                },
-                {
-                    "lo": ["lon"],
-                    "pt": ["ptd"],
-                    "variationTitle": "Evaluation Kit 404",
-                    "skus": ["T404MKIT"]
-                },
-                {
-                    "lo": ["loe", "loo"],
-                    "pt": ["ptd"],
-                    "variationTitle": "Evaluation Kit 524",
-                    "skus": ["T524MKIT"]
                 }
             ]
         },        
@@ -219,14 +201,12 @@
             "title": "Tracker SoM",
             "image": "",
             "wifi": "2.4 GHz (only for geolocation)",
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404",
                     "skus": ["T404MKIT"]
                 },
                 {
-                    "lo": ["loe", "loo"],
                     "variationTitle": "524",
                     "skus": ["T524MKIT"]
                 }
@@ -235,7 +215,6 @@
             "id": "M-SoM",
             "pt": ["ptm"],
             "c": ["cc", "cw"],
-            "lo": ["lon", "loe", "loo"],
             "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
             "ex": false,
@@ -243,19 +222,16 @@
             "title": "M-SoM",
             "image": "",
             "wifi": "2.4 and 5 GHz",
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404",
                     "skus": ["M404MEA", "M404MTY"]
                 },
                 {
-                    "lo": ["loe", "loo"],
                     "variationTitle": "524",
                     "skus": ["M524MEA", "M524MTY"]
                 },
                 {
-                    "lo": ["lon", "loe", "loo"],
                     "c": ["cs"],
                     "variationTitle": "635",
                     "skus": ["M635MEA", "M635MTY"]
@@ -279,19 +255,16 @@
             "title": "Muon",
             "image": "",
             "wifi": "2.4 and 5 GHz",
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404",
                     "skus": ["MUON404", "MUON404EA"]
                 },
                 {
-                    "lo": ["loe", "loo"],
                     "variationTitle": "524",
                     "skus": ["MUON524", "MUON524EA"]
                 },
                 {
-                    "lo": ["lon", "loe", "loo"],
                     "c": ["cs"],
                     "variationTitle": "635",
                     "skus": ["MUON635"]
@@ -314,14 +287,12 @@
             "title": "B-SoM",
             "image": "",
             "wifi": false,
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404X",
                     "skus": ["B404XMEA", "B404XMTY"]
                 },
                 {
-                    "lo": ["loe", "loo"],
                     "variationTitle": "524",
                     "skus": ["B524MEA", "B524MTY"]
                 }
@@ -337,9 +308,8 @@
             "title": "Boron",
             "image": "",
             "wifi": false,
-            "variations": [
+            "locationVariations": [
                 {
-                    "lo": ["lon"],
                     "variationTitle": "404X",
                     "skus": ["BRN404X", "RN404XKIT", "BRN404XTRAY50"]
                 }
