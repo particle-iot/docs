@@ -659,17 +659,20 @@ $(document).ready(function() {
                 }
             }
 
+
             // Variation and regular fields (this must be done before expanding tags in variations)
             for(const solutionObj of deviceSelector.solutions) {
 
                 const variationKeys = [];
-                if (solutionObj.variations) {
-                    for(const variationObj of solutionObj.variations) {
-                        for(const key in variationObj) {
-                            if (deviceSelector.questionIds.includes(key)) {
-                                if (!variationKeys.includes(key)) {
-                                    variationKeys.push(key);
-                                }    
+                for(const array of [solutionObj.variations, solutionObj.locationVariations]) {
+                    if (typeof array != 'undefined') {
+                        for(const variationObj of array) {
+                            for(const key in variationObj) {
+                                if (deviceSelector.questionIds.includes(key)) {
+                                    if (!variationKeys.includes(key)) {
+                                        variationKeys.push(key);
+                                    }    
+                                }
                             }
                         }
                     }
@@ -693,14 +696,16 @@ $(document).ready(function() {
             // Expand tags in variations
             for(const solutionObj of deviceSelector.solutions) {
 
-                if (solutionObj.variations) {
-                    const noCopyKeys = ['id', 'variations'];
+                for(const array of [solutionObj.variations, solutionObj.locationVariations]) {
+                    if (typeof array != 'undefined') {
+                        const noCopyKeys = ['id', 'variations'];
 
-                    for(const variationObj of solutionObj.variations) {
-                        for(const key in solutionObj) {
-                            if (!noCopyKeys.includes(key)) {
-                                if (typeof variationObj[key] == 'undefined') {
-                                    variationObj[key] = solutionObj[key];
+                        for(const variationObj of array) {
+                            for(const key in solutionObj) {
+                                if (!noCopyKeys.includes(key)) {
+                                    if (typeof variationObj[key] == 'undefined') {
+                                        variationObj[key] = solutionObj[key];
+                                    }
                                 }
                             }
                         }
@@ -714,17 +719,18 @@ $(document).ready(function() {
 
                 const skuArrays = [];
 
-                if (solutionObj.variations) {
-                    for(const variationObj of solutionObj.variations) {
-                        if (variationObj.skus) {
-                            skuArrays.push(variationObj.skus);
-                        }    
-                    }                    
-                }
-                else {
-                    if (solutionObj.skus) {
-                        skuArrays.push(solutionObj.skus);
+                for(const array of [solutionObj.variations, solutionObj.locationVariations]) {
+                    if (typeof array != 'undefined') {
+                        for(const variationObj of array) {
+                            if (variationObj.skus) {
+                                skuArrays.push(variationObj.skus);
+                            }    
+                        }                    
                     }
+                }
+
+                if (solutionObj.skus) {
+                    skuArrays.push(solutionObj.skus);
                 }
 
                 for(const skuArray of skuArrays) {
@@ -750,6 +756,65 @@ $(document).ready(function() {
                             break;
                         }
                     }
+                }
+            }
+
+
+            // Calculate location variations based on SKUs
+            for(const solutionObj of deviceSelector.solutions) {
+                if (typeof solutionObj.locationVariations != 'undefined') {
+                    // Convert to regular variations
+                    solutionObj.variations = solutionObj.locationVariations;
+                    delete solutionObj.locationVariations;
+
+                    // Expand the lo key in variations. At this location, it will only
+                    // execute for location variations.
+
+                    for(const variationObj of solutionObj.variations) {
+                        for(const skuName of variationObj.skus) {
+                            const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
+                            if (skuObj) {
+                                // const modemObj = deviceSelector.carriersJson.modems.find(e => e.model == skuObj.modem);
+
+                                for(const cmsObj of deviceSelector.carriersJson.countryModemSim) {
+                                    if (cmsObj.modem == skuObj.modem && cmsObj.sim == skuObj.sim) {
+                                        // There is information about this country, mode, and sim
+                                        
+                                        const countryObj = deviceSelector.carriersJson.countries.find(e => e.name == cmsObj.country);
+
+                                        if (cmsObj.recommendation == 'YES') {
+                                            // This variation is recommended in this country
+
+                                            // countryObj.regions: array of regions for this country
+                                            
+                                            for(const r1 of regionConfig.regions) {
+                                                for(const r2 of r1.regions) {
+                                                    if (countryObj.regions.includes(r2)) {
+                                                        if (!variationObj.lo) {
+                                                            variationObj.lo = [];
+                                                            if (!solutionObj.variationKeys.includes('lo')) {
+                                                                solutionObj.variationKeys.push('lo');
+                                                            }
+                                                        }
+                                                        if (!variationObj.lo.includes(r1.id)) {
+                                                            variationObj.lo.push(r1.id);
+                                                        }
+                                                        break;
+                                                    }
+                                                } 
+                                            }
+                                            
+                                        }
+                                        else
+                                        if (cmsObj.recommendation == 'POSS') {
+                                        }
+                                    }
+                                }
+        
+                            }
+                        
+                        }
+                    }                
                 }
             }
 
