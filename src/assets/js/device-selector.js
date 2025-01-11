@@ -7,6 +7,7 @@ $(document).ready(function() {
 
     let deviceSelector = {
         context: {}, // Markdown context
+        calculatedSettings: {},
     };
 
     $('.deviceSelector').each( function() {
@@ -78,13 +79,13 @@ $(document).ready(function() {
             $(options.containerElem).append(noteElem);
         }
 
-        const checkSolution = function(solutionObj, options) {
-            solutionObj.show = true;
+        const checkSolution = function(solutionObj, variationObj, options = {}) {
+            variationObj.show = true;
 
             for(const questionObj of deviceSelector.config.questions) {
-                if (options.onlyGateway && !solutionObj.pt.includes('ptg')) {
-                    solutionObj.show = false;
-                    solutionObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
+                if (deviceSelector.calculatedSettings.onlyGateway && !variationObj.pt.includes('ptg')) {
+                    variationObj.show = false;
+                    variationObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
                 }
                 
                 if (questionObj.checkboxes) {
@@ -103,22 +104,22 @@ $(document).ready(function() {
 
                         for(const optionsObj of questionObj.checkboxes) {
                             if (deviceSelector.settings[optionsObj.id] === '1') {
-                                if (Array.isArray(solutionObj[questionObj.id]) && 
-                                    solutionObj[questionObj.id].includes(optionsObj.id)) {
+                                if (Array.isArray(variationObj[questionObj.id]) && 
+                                    variationObj[questionObj.id].includes(optionsObj.id)) {
                                     hasAny = true;
                                 }
                             }
                         }
                         if (questionObj.id == 'c' && deviceSelector.settings.ce === '1') {
                             // User has requested Ethernet
-                            if (solutionObj.ceOptional) {
+                            if (variationObj.ceOptional) {
                                 hasAny = true;
                             }
                         }
 
                         if (!hasAny) {
-                            solutionObj.show = false;
-                            solutionObj.reasons.push('not a solution for for ' + questionObj.id);
+                            variationObj.show = false;
+                            variationObj.reasons.push('not a solution for ' + questionObj.id);
                         }
                     }
                     else {
@@ -129,21 +130,21 @@ $(document).ready(function() {
                     // Radio buttons always have an answer
                     if (questionObj.id == 'g' && deviceSelector.settings.g == 'gl') {
                         // Geolocation not needed, allow any 
-                        solutionObj.reasons.push('geolocation not needed ' + questionObj.id);
+                        variationObj.reasons.push('geolocation not needed ' + questionObj.id);
                     }
                     else
-                    if (Array.isArray(solutionObj[questionObj.id]) && solutionObj[questionObj.id].includes(deviceSelector.settings[questionObj.id])) {
-                        solutionObj.reasons.push('radio question included' + questionObj.id);
+                    if (Array.isArray(variationObj[questionObj.id]) && variationObj[questionObj.id].includes(deviceSelector.settings[questionObj.id])) {
+                        variationObj.reasons.push('radio question included' + questionObj.id);
                     }
                     else {
-                        solutionObj.reasons.push('radio undefined for question=' + questionObj.id + ' value=' + deviceSelector.settings[questionObj.id]);
-                        solutionObj.show = false;
+                        variationObj.reasons.push('radio undefined for question=' + questionObj.id + ' value=' + deviceSelector.settings[questionObj.id]);
+                        variationObj.show = false;
                     }
                 }
             }
 
-            if (!solutionObj.show) {
-                // console.log('skipped solution', solutionObj);
+            if (!variationObj.show) {
+                console.log('skipped solution', variationObj);
             }
         }
 
@@ -152,7 +153,7 @@ $(document).ready(function() {
             deviceSelector.context.variation = variationObj;
 
             let title;
-            if (variationObj.variationTitle && options.isVariation) {
+            if (variationObj.variationTitle && !!solutionObj.variations) {
                 title = solutionObj.title + ' (' + variationObj.variationTitle + ')';
 
                 const headerElem = document.createElement('h4');
@@ -240,7 +241,7 @@ $(document).ready(function() {
                 $(solutionElem).append(tableElem);
             }
 
-            if (variationObj.countries.length > 0) {
+            if (Array.isArray(variationObj.countries) && variationObj.countries.length > 0) {
                 const headerElem = document.createElement('h5');
                 $(headerElem).text('Supported countries (cellular) - ' + title);
                 $(solutionElem).append(headerElem);
@@ -258,7 +259,7 @@ $(document).ready(function() {
 
                 for(const variationCountryObj of variationObj.countries) {
                     // TODO: Filtering by selected locations
-                    
+
                     if (columnInfo.columnNum < 0) {
                         columnInfo.trElem = document.createElement('tr');
                         columnInfo.columnNum  = 0;
@@ -290,6 +291,7 @@ $(document).ready(function() {
             $(deviceSelector.answerInnerElem).empty();
 
             deviceSelector.context.settings = deviceSelector.settings;
+            deviceSelector.context.calculatedSettings = deviceSelector.calculatedSettings;
 
             // Clear the show selection flag
             for(const solutionObj of deviceSelector.solutions) {
@@ -303,53 +305,20 @@ $(document).ready(function() {
                 }
             }
 
-            // Check and see if we are only showing gateways
-            let options = {
-                onlyGateway: false,
-            };
-
-            if (deviceSelector.settings.ptg === '1') {
-                options.onlyGateway = true;
-
-                const questionObj = deviceSelector.config.questions.find(e => e.id == 'pt');
-                for(const optionsObj of questionObj.checkboxes) {
-                    if (optionsObj.id != 'ptg' && deviceSelector.settings[optionsObj.id] === '1') {
-                        options.onlyGateway = false;
-                    }
-                }
-            }
-
-            {
-                const questionObj = deviceSelector.config.questions.find(e => e.id == 'lo');
-                
-                let numChecked = 0;
-
-                for(const optionsObj of questionObj.checkboxes) {
-                    if (deviceSelector.settings[optionsObj.id] === '1') {
-                        numChecked++;
-                    }
-                }
-
-                options.filterLocation = (numChecked > 0) && (numChecked < questionObj.checkboxes.length);
-            }
-
-            deviceSelector.context.options = options;
-            
-
             console.log('context', deviceSelector.context);
 
             // If variation is shown, also propagate the show flag up into the solution
             for(const solutionObj of deviceSelector.solutions) {
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
-                        checkSolution(variationObj, options);
+                        checkSolution(solutionObj, variationObj, {});
                         if (variationObj.show) {
                             solutionObj.show = true;
                         }
                     }
                 }
                 else {
-                    checkSolution(solutionObj, options);
+                    checkSolution(solutionObj, solutionObj, {});
                 }
             }
 
@@ -385,7 +354,7 @@ $(document).ready(function() {
                 // Details (MCU, RAM, etc.)
 
                 // Variations and SKUs
-                options.isVariation = !!solutionObj.variations;
+                const options = {};
 
                 if (solutionObj.variations) {
                     for(const variationObj of solutionObj.variations) {
@@ -400,6 +369,18 @@ $(document).ready(function() {
 
  
                 $(deviceSelector.answerInnerElem).append(solutionElem);
+            }
+        }
+
+        const showHideQuestionById = function(questionId, show) {
+            const questionObj = deviceSelector.config.questions.find(e => e.id == questionId);
+            if (questionObj) {
+                if (show) {
+                    $(questionObj.questionElem).show();
+                }
+                else {
+                    $(questionObj.questionElem).hide();
+                }
             }
         }
         
@@ -422,9 +403,49 @@ $(document).ready(function() {
                 history.pushState(null, '', query);
                 deviceSelector.lastQuery = query;
             }
+
+            // For all checkbox questions, determine if there is any filtering
+            deviceSelector.calculatedSettings.questionHasFilters = {};
+
+            for(const questionObj of deviceSelector.config.questions) {
+                if (Array.isArray(questionObj.checkboxes)) {
+                    let numChecked = 0;
+
+                    for(const optionsObj of questionObj.checkboxes) {
+                        if (deviceSelector.settings[optionsObj.id] === '1') {
+                            numChecked++;
+                        }
+                    }
+                    deviceSelector.calculatedSettings.questionHasFilters[questionObj.id] = (numChecked > 0) && (numChecked < questionObj.checkboxes.length);
+                }
+            }
+
+            // Calculated settings
+            deviceSelector.calculatedSettings.onlyGateway = false;
+
+            if (deviceSelector.settings.ptg === '1') {
+                deviceSelector.calculatedSettings.onlyGateway = true;
+
+                const questionObj = deviceSelector.config.questions.find(e => e.id == 'pt');
+                for(const optionsObj of questionObj.checkboxes) {
+                    if (optionsObj.id != 'ptg' && deviceSelector.settings[optionsObj.id] === '1') {
+                        deviceSelector.calculatedSettings.onlyGateway = false;
+                    }
+                }
+            }
+
+            deviceSelector.calculatedSettings.showCellularOptions = !deviceSelector.calculatedSettings.questionHasFilters.c || deviceSelector.settings.cc === '1';
+
+            deviceSelector.calculatedSettings.questionHidden = {};
+            for(const id of ['cd', 'lo']) {
+                showHideQuestionById(id, deviceSelector.calculatedSettings.showCellularOptions);
+                if (!deviceSelector.calculatedSettings.showCellularOptions) {
+                    deviceSelector.calculatedSettings.questionHidden[id] = true;
+                }
+            }
+
             await renderSolutions();
         }
-
 
         const renderQuestions = async function() {
             $(deviceSelector.elem).empty();
