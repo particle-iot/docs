@@ -83,6 +83,10 @@ $(document).ready(function() {
             variationObj.show = true;
 
             for(const questionObj of deviceSelector.config.questions) {
+                if (questionObj.notSolution) {
+                    continue;
+                }
+
                 if (deviceSelector.calculatedSettings.onlyGateway && !variationObj.pt.includes('ptg')) {
                     variationObj.show = false;
                     variationObj.reasons.push('onlyGateway and solution is not ptg for ' + questionObj.id);
@@ -284,75 +288,36 @@ $(document).ready(function() {
                     }
                 }
 
-                const renderShowCountries = function(locationCountries) {
-                    $(tbodyElem).empty();
+                const locationCountries = ((deviceSelector.settings.dc === '1') && filteredCountries) ? filteredCountries : variationObj.countries;
 
-                    for(const variationCountryObj of locationCountries) {
-                        // TODO: Filtering by selected locations
+                for(const variationCountryObj of locationCountries) {
+                    // TODO: Filtering by selected locations
     
-                        if (columnInfo.columnNum < 0) {
-                            columnInfo.trElem = document.createElement('tr');
-                            columnInfo.columnNum  = 0;
-                        }
-                        const tdElem = document.createElement('td'); 
-                        $(tdElem).css('width', columnInfo.columnWidth);
-                        $(tdElem).text(variationCountryObj.name);
-    
-                        $(columnInfo.trElem).append(tdElem);
-    
-                        if (++columnInfo.columnNum >= columnInfo.columns) {
-                            $(tbodyElem).append(columnInfo.trElem);
-                            columnInfo.trElem = null;
-                            columnInfo.columnNum = -1;
-                        }
+                    if (columnInfo.columnNum < 0) {
+                        columnInfo.trElem = document.createElement('tr');
+                        columnInfo.columnNum  = 0;
                     }
+                    const tdElem = document.createElement('td'); 
+                    $(tdElem).css('width', columnInfo.columnWidth);
+                    $(tdElem).text(variationCountryObj.name);
     
-                    if (columnInfo.trElem) {
+                    $(columnInfo.trElem).append(tdElem);
+    
+                    if (++columnInfo.columnNum >= columnInfo.columns) {
                         $(tbodyElem).append(columnInfo.trElem);
+                        columnInfo.trElem = null;
+                        columnInfo.columnNum = -1;
                     }
                 }
+    
+                if (columnInfo.trElem) {
+                    $(tbodyElem).append(columnInfo.trElem);
+                    columnInfo.trElem = null;
+                }
+    
 
                 $(tableElem).append(tbodyElem);
                 $(solutionElem).append(tableElem);
-
-                if (filteredCountries) {
-                    renderShowCountries(filteredCountries);
-
-                    const divElem = document.createElement('div');
-
-                    const labelElem = document.createElement('label');
-                    $(labelElem).addClass('filterCountriesLabel');
-
-                    const checkboxElem = document.createElement('input');
-                    $(checkboxElem).attr('type', 'checkbox');
-                    $(checkboxElem).attr('checked', 'checked');
-                    $(labelElem).append(checkboxElem);
-
-                    const textElem = document.createTextNode('Only show countries in selected locations');
-                    $(labelElem).append(textElem);
-
-                    $(labelElem).on('click', function() {
-                        const checked = $(this).find('input').prop('checked');
-                        if (checked) {
-                            renderShowCountries(filteredCountries);
-
-                            // $('.filterCountriesLabel:not(:checked)').trigger('click');
-                        }
-                        else {
-                            renderShowCountries(variationObj.countries);
-                            // $('.filterCountriesLabel:checked').trigger('click');
-                        }
-                    });
-
-                    $(divElem).append(labelElem);                    
-
-                    $(solutionElem).append(divElem);
-
-                }
-                else {
-                    renderShowCountries(variationObj.countries);
-                }
-
             }
 
         }
