@@ -141,6 +141,18 @@
                     "description": "I would like GNSS (GPS) with RTK and location fusion with Wi-Fi and cellular assist. Or my product is in a moving vehicle."
                 }
             ]
+        },
+        {
+            "title": "Display settings",
+            "id": "d",
+            "notSolution": true,
+            "checkboxes": [
+                {
+                    "id": "dc",
+                    "title": "Only show cellular countries for the locations you have selected",
+                    "checked": true
+                }
+            ]
         }
 
     ],
