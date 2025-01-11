@@ -53,6 +53,24 @@
             ]
         },
         {
+            "title": "Cellular data rate requirement",
+            "id": "cd",
+            "radio": [
+                {
+                    "id": "cdl",
+                    "title": "Normal",
+                    "description": "Typical IoT data rates for sensors, remote control, etc.",
+                    "checked": true                
+                },
+                {
+                    "id": "cdh",
+                    "title": "High",
+                    "description": "High data rate for camera image uploads, tethering, etc."
+                }
+            ]
+        },
+
+        {
             "title": "Location",
             "id": "lo",
             "checkboxes": [
@@ -131,6 +149,7 @@
         {
             "pt": ["ptg"],
             "c": ["cc"],
+            "cd": ["cdl"],
             "cp": ["cpl"],
             "g": ["gh"],
             "ex": ["m8"],
@@ -151,6 +170,7 @@
         {
             "pt": ["ptg"],
             "c": ["cc"],
+            "cd": ["cdl"],
             "cp": ["cpl"],
             "g": ["gh"],
             "ex": ["m1"],
@@ -172,6 +192,7 @@
             "id": "Tracker-SoM",
             "pt": ["ptm"],
             "c": ["cc"],
+            "cd": ["cdl"],
             "cp": ["cpl"],
             "g": ["gh"],
             "ex": false,
@@ -194,6 +215,7 @@
             "id": "Tracker-SoM Evaluation Kit",
             "pt": ["ptd"],
             "c": ["cc"],
+            "cd": ["cdl"],
             "cp": ["cpl"],
             "g": ["gh"],
             "ex": false,
@@ -215,6 +237,7 @@
             "id": "M-SoM",
             "pt": ["ptm"],
             "c": ["cc", "cw"],
+            "cd": ["cdl"],
             "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
             "ex": false,
@@ -249,6 +272,7 @@
             "id": "Muon",
             "pt": ["ptd"],
             "c": ["cc", "cw", "ce", "cl"],
+            "cd": ["cdl"],
             "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
             "ex": ["p"],
@@ -281,6 +305,7 @@
             "pt": ["ptm"],
             "c": ["cc"],
             "cp": ["cpl"],
+            "cd": ["cdl"],
             "g": false,
             "ex": false,
             "ceOptional": true,
@@ -295,12 +320,35 @@
                 {
                     "variationTitle": "524",
                     "skus": ["B524MEA", "B524MTY"]
+                },
+                {
+                    "variationTitle": "504",
+                    "skus": ["B504MEA", "B504MTY"]
                 }
             ]            
         },
         {
+            "pt": ["ptm"],
+            "c": ["cc"],
+            "cp": ["cpl"],
+            "cd": ["cdl","cdh"],
+            "g": false,
+            "ex": false,
+            "ceOptional": true,
+            "title": "B-SoM 5e",
+            "image": "",
+            "wifi": false,
+            "locationVariations": [
+                {
+                    "variationTitle": "504e",
+                    "skus": ["B504EMEA", "B504EMTY"]
+                }
+            ]
+        },
+        {
             "pt": ["ptd"],
             "c": ["cc"],
+            "cd": ["cdl"],
             "cp": ["cpl"],
             "g": false,
             "ex": ["f"],
@@ -317,6 +365,7 @@
         },        {
             "pt": ["ptm"],
             "c": ["cw"],
+            "cd": false,
             "cp": ["cpl", "cpm"],
             "g": false,
             "ex": false,
@@ -329,6 +378,7 @@
         {
             "pt": ["ptd"],
             "c": ["cw"],
+            "cd": false,
             "cp": ["cpl", "cpm"],
             "g": false,
             "ex": ["f"],
@@ -341,6 +391,7 @@
         {
             "pt": ["ptd"],
             "c": ["cc", "ce"],
+            "cd": ["cdl","cdh"],
             "cp": ["cpm","cph"],
             "g": ["gl", "gm"],
             "ex": ["p"],
