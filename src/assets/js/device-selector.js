@@ -257,32 +257,102 @@ $(document).ready(function() {
 
                 const tbodyElem = document.createElement('tbody');
 
-                for(const variationCountryObj of variationObj.countries) {
-                    // TODO: Filtering by selected locations
+                // Generate list of countries for selected locations (if applicable)
+                let filteredCountries;
 
-                    if (columnInfo.columnNum < 0) {
-                        columnInfo.trElem = document.createElement('tr');
-                        columnInfo.columnNum  = 0;
+                if (deviceSelector.calculatedSettings.questionHasFilters.lo) {
+                    filteredCountries = [];
+
+                    const questionObj = deviceSelector.config.questions.find(e => e.id == 'lo');
+                    for(const checkboxObj of questionObj.checkboxes) {
+                        if (deviceSelector.settings[checkboxObj.id] == '1') {
+                            // TODO: Fix this, it does not work
+                            for(const variationCountryObj of variationObj.countries) {
+                                if (variationCountryObj.lo.includes(checkboxObj.id)) {
+                                    if (!filteredCountries.includes(variationCountryObj.name)) {
+                                        filteredCountries.push(variationCountryObj);
+                                    }
+                                }
+                            }
+                        }
                     }
-                    const tdElem = document.createElement('td'); 
-                    $(tdElem).css('width', columnInfo.columnWidth);
-                    $(tdElem).text(variationCountryObj.name);
 
-                    $(columnInfo.trElem).append(tdElem);
+                    filteredCountries.sort((a, b) => a.name.localeCompare(b.name));
 
-                    if (++columnInfo.columnNum >= columnInfo.columns) {
-                        $(tbodyElem).append(columnInfo.trElem);
-                        columnInfo.trElem = null;
-                        columnInfo.columnNum = -1;
+                    if (filteredCountries.length == variationObj.countries.length) {
+                        filteredCountries = null;
                     }
                 }
 
-                if (columnInfo.trElem) {
-                    $(tbodyElem).append(columnInfo.trElem);
+                const renderShowCountries = function(locationCountries) {
+                    $(tbodyElem).empty();
+
+                    for(const variationCountryObj of locationCountries) {
+                        // TODO: Filtering by selected locations
+    
+                        if (columnInfo.columnNum < 0) {
+                            columnInfo.trElem = document.createElement('tr');
+                            columnInfo.columnNum  = 0;
+                        }
+                        const tdElem = document.createElement('td'); 
+                        $(tdElem).css('width', columnInfo.columnWidth);
+                        $(tdElem).text(variationCountryObj.name);
+    
+                        $(columnInfo.trElem).append(tdElem);
+    
+                        if (++columnInfo.columnNum >= columnInfo.columns) {
+                            $(tbodyElem).append(columnInfo.trElem);
+                            columnInfo.trElem = null;
+                            columnInfo.columnNum = -1;
+                        }
+                    }
+    
+                    if (columnInfo.trElem) {
+                        $(tbodyElem).append(columnInfo.trElem);
+                    }
                 }
 
                 $(tableElem).append(tbodyElem);
-                $(solutionElem).append(tableElem);                
+                $(solutionElem).append(tableElem);
+
+                if (filteredCountries) {
+                    renderShowCountries(filteredCountries);
+
+                    const divElem = document.createElement('div');
+
+                    const labelElem = document.createElement('label');
+                    $(labelElem).addClass('filterCountriesLabel');
+
+                    const checkboxElem = document.createElement('input');
+                    $(checkboxElem).attr('type', 'checkbox');
+                    $(checkboxElem).attr('checked', 'checked');
+                    $(labelElem).append(checkboxElem);
+
+                    const textElem = document.createTextNode('Only show countries in selected locations');
+                    $(labelElem).append(textElem);
+
+                    $(labelElem).on('click', function() {
+                        const checked = $(this).find('input').prop('checked');
+                        if (checked) {
+                            renderShowCountries(filteredCountries);
+
+                            // $('.filterCountriesLabel:not(:checked)').trigger('click');
+                        }
+                        else {
+                            renderShowCountries(variationObj.countries);
+                            // $('.filterCountriesLabel:checked').trigger('click');
+                        }
+                    });
+
+                    $(divElem).append(labelElem);                    
+
+                    $(solutionElem).append(divElem);
+
+                }
+                else {
+                    renderShowCountries(variationObj.countries);
+                }
+
             }
 
         }

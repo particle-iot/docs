@@ -127,7 +127,7 @@
                 {
                     "id": "gl",
                     "title": "Geolocation not needed",
-                    "description": "I do not need precise location from GNSS (GPS)",
+                    "description": "I do not need precise location from GNSS (GPS). Or I will be adding an external add-on GNSS receiver.",
                     "checked": true                
                 },
                 {
