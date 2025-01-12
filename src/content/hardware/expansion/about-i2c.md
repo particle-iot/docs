@@ -436,7 +436,7 @@ Important note: Even though there are two sets of pins, for all practical purpos
 
 ## Sparkfun Qwiic
 
-[Sparkfun](https://www.sparkfun.com/search/results?term=Qwiic) has created a whole line of accessories including:
+[Sparkfun](https://www.sparkfun.com/) has created a whole line of accessories including:
 
 - Environment sensors (pressure, temperature, humidity) like the BME280
 - Buttons and indicator buttons
@@ -454,6 +454,8 @@ Here's a BME280 temperature, humidity, and atmospheric pressure [sensor board](h
 ![BME280](/assets/images/qwiic/qwiic-bme280.jpg)
 
 You can find more on the [Qwiic community page](/hardware/expansion/qwiic/).
+
+[Adafruit](https://www.adafruit.com/) STEMMA QT (4-pin 1mm JST-SH connector, 3.3V I2C) boards are also compatible with Qwiic.
 
 ## NCD/Control Everything
 

@@ -9,7 +9,7 @@ columns: two
 
 One convenient way to connect sensors is using I2C, the Inter-Integrated Circuit bus also known as I<sup>2</sup>C, pronounced "eye squared see," or sometimes IIC. This bus uses two bi-directional data lines (SDA and SCL), and often includes power (either 3.3V or 5V) and ground.
 
-[Sparkfun](https://www.sparkfun.com/search/results?term=Qwiic) has created a whole line of accessories including:
+[Sparkfun](https://www.sparkfun.com/) has created a whole line of accessories including:
 
 - Environment sensors (pressure, temperature, humidity) like the BME280
 - Buttons and indicator buttons

@@ -955,8 +955,8 @@
             "hash": "bda3cfcb23acb1969764a28ffb2ce665993855f5b8b3f7a0fc222629207b6902"
         },
         "hardware/expansion/about-i2c.md": {
-            "date": "2024-02-27",
-            "hash": "f569a6931885b133528edc8191735f412b76bee4562b07242b9c107be58db796"
+            "date": "2025-01-12",
+            "hash": "7601e2dd0333f814a6153d324b4c3b780ef3a3010ba332c957846a94a2890f5f"
         },
         "hardware/expansion/about-serial.md": {
             "date": "2024-02-27",
@@ -987,8 +987,8 @@
             "hash": "f4b013329d7adcffd941e9e3def5f8f17bbd529e584aa3fe4ca1b5db670d2d00"
         },
         "hardware/expansion/qwiic.md": {
-            "date": "2025-01-10",
-            "hash": "97638934d1622cbc3b675ab87f502d99a28c0fc52b0eca7feb13b9c71bc72f34"
+            "date": "2025-01-12",
+            "hash": "1e03eab1ea7ffb7cbc42413f7367718e814c48bd1583b94f7fc9422c5ea5cd52"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
             "date": "2025-01-07",
