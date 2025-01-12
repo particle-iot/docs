@@ -57,7 +57,10 @@
         },
         {
             "title": "Cellular data rate requirement",
-            "solutionFitTitle": "Cellular data rate",
+            "solutionFit": {
+                "title": "Cellular data rate",
+                "onlyShowLast": true
+            },
             "id": "cd",
             "radio": [
                 {
@@ -76,14 +79,19 @@
 
         {
             "title": "Location",
-            "solutionFitTitle": "Cellular regions",
+            "solutionFit": {
+                "title": "Cellular regions"
+            },
             "id": "lo",
             "checkboxes": [
             ]
         },
         {
             "title": "Computing power required",
-            "solutionFitTitle": "Computing power",
+            "solutionFit": {
+                "title": "Computing power",
+                "onlyShowLast": true
+            },
             "id": "cp",
             "radio": [
                 {
@@ -106,7 +114,9 @@
         },
         {
             "title": "Expansion options (optional)",
-            "solutionFitTitle": "Expansion options",
+            "solutionFit": {
+                "title": "Expansion options"
+            },
             "id": "ex",
             "checkboxes": [
                 {
@@ -130,24 +140,34 @@
         {
             "title": "Geolocation",
             "id": "g",
+            "solutionFit": {
+                "title": "Geolocation support",
+                "onlyShowLast": true                
+            },
             "radio": [
                 {
                     "id": "gl",
                     "title": "Geolocation not needed",
-                    "solutionFitTitle": "No built-in GNSS",
+                    "solutionFit": {
+                        "title": "No built-in GNSS"
+                    },
                     "description": "I do not need precise location from GNSS (GPS). Or I will be adding an external add-on GNSS receiver.",
                     "checked": true                
                 },
                 {
                     "id": "gm",
                     "title": "Some geolocation desired",
-                    "solutionFitTitle": "GNSS available via the cellular modem",
+                    "solutionFit": {
+                        "title":"GNSS available via the cellular modem"
+                    },
                     "description": "I would like location, but it's not the primary focus of my product. Or the item does not move frequently."
                 },
                 {
                     "id": "gh",
                     "title": "Precise geolocation needed",
-                    "solutionFitTitle": "Includes precision GNSS module",
+                    "solutionFit": {
+                        "title": "Includes precision GNSS module"
+                    },
                     "description": "I would like GNSS (GPS) with RTK and location fusion with Wi-Fi and cellular assist. Or my product is in a moving vehicle."
                 }
             ]

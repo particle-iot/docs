@@ -187,7 +187,7 @@ $(document).ready(function() {
                     $(tdElem).css('width', deviceSelector.config.styles.solutionFitLeftWidth); // 200px
 
                     if (questionObj) {
-                        $(tdElem).text(questionObj.solutionFitTitle || questionObj.title);
+                        $(tdElem).text((questionObj.solutionFit && questionObj.solutionFit.title) || questionObj.title);
                     }
 
                     $(trElem).append(tdElem);    
@@ -204,19 +204,25 @@ $(document).ready(function() {
                             const availableOptions = [];
                             for(const optionsObj of questionObj.checkboxes) {
                                 if (Array.isArray(options.variationObj[questionObj.id]) && options.variationObj[questionObj.id].includes(optionsObj.id)) {
-                                    availableOptions.push(optionsObj.solutionFitTitle || optionsObj.title)
+                                    availableOptions.push((optionsObj.solutionFit && optionsObj.solutionFit.title) || optionsObj.title)
                                 }
                             }
                             $(tdElem).text(availableOptions.join(', '));
                         }    
                     }
                     if (questionObj.radio) {
-                        const availableOptions = [];
+                        let availableOptions = [];
                         for(const optionsObj of questionObj.radio) {
                             if (Array.isArray(options.variationObj[questionObj.id]) && options.variationObj[questionObj.id].includes(optionsObj.id)) {
-                                availableOptions.push(optionsObj.solutionFitTitle || optionsObj.title)
+                                availableOptions.push((optionsObj.solutionFit && optionsObj.solutionFit.title) || optionsObj.title)
                             }
                         }
+                        if (questionObj.solutionFit && questionObj.solutionFit.onlyShowLast) {
+                            if (availableOptions.length > 1) {
+                                availableOptions = [availableOptions[availableOptions.length - 1]];
+                            }
+                        }
+
                         $(tdElem).text(availableOptions.join(', '));
                     }
 
