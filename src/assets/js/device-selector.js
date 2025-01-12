@@ -148,8 +148,88 @@ $(document).ready(function() {
             }
 
             if (!variationObj.show) {
-                console.log('skipped solution', variationObj);
+                // console.log('skipped solution', variationObj);
             }
+        }
+
+        const renderSolutionFit = async function(options) {
+            const keys = [];
+
+            for(const key of options.keys) {
+                if (options.ignoreKeys) {
+                    if (options.ignoreKeys.includes(key)) {
+                        continue;
+                    }
+                }
+                keys.push(key);
+            }
+
+
+            if (keys.length == 0) {
+                return;
+            }
+
+            const tableElem = document.createElement('table');
+            $(tableElem).addClass('apiHelperTableNoMargin')
+
+            const tbodyElem = document.createElement('tbody');
+
+            for(const key of keys) {
+                const questionObj = deviceSelector.config.questions.find(e => e.id == key);
+                if (!questionObj) {
+                    continue;
+                }
+
+                const trElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td'); 
+                    $(tdElem).css('width', deviceSelector.config.styles.solutionFitLeftWidth); // 200px
+
+                    if (questionObj) {
+                        $(tdElem).text(questionObj.solutionFitTitle || questionObj.title);
+                    }
+
+                    $(trElem).append(tdElem);    
+                }
+                {
+                    const tdElem = document.createElement('td'); 
+
+                    if (questionObj.checkboxes) {
+                        if (deviceSelector.calculatedSettings.questionHasFilters[questionObj.id]) {
+                            // Show requested 
+                        }
+                        else {
+                            // Show all
+                            const availableOptions = [];
+                            for(const optionsObj of questionObj.checkboxes) {
+                                if (Array.isArray(options.variationObj[questionObj.id]) && options.variationObj[questionObj.id].includes(optionsObj.id)) {
+                                    availableOptions.push(optionsObj.solutionFitTitle || optionsObj.title)
+                                }
+                            }
+                            $(tdElem).text(availableOptions.join(', '));
+                        }    
+                    }
+                    if (questionObj.radio) {
+                        const availableOptions = [];
+                        for(const optionsObj of questionObj.radio) {
+                            if (Array.isArray(options.variationObj[questionObj.id]) && options.variationObj[questionObj.id].includes(optionsObj.id)) {
+                                availableOptions.push(optionsObj.solutionFitTitle || optionsObj.title)
+                            }
+                        }
+                        $(tdElem).text(availableOptions.join(', '));
+                    }
+
+                    $(trElem).append(tdElem);    
+                }
+
+                
+                $(tbodyElem).append(trElem);                
+            }
+
+            $(tableElem).append(tbodyElem);
+            
+            $(options.solutionElem).append(tableElem);            
         }
 
         const renderVariation = async function(solutionElem, solutionObj, variationObj, options) {
@@ -175,6 +255,18 @@ $(document).ready(function() {
                 await renderNote({noteObj: variationObj.note, containerElem: solutionElem});
             }
 
+            // Solution fit
+
+
+            await renderSolutionFit({
+                solutionElem,
+                solutionObj,
+                variationObj,
+                keys: solutionObj.variationKeys,
+                ignoreKeys: ['lo'],
+            });
+    
+    
             // Render SKUs
 
             if (typeof variationObj.skus != 'undefined') {
@@ -322,6 +414,7 @@ $(document).ready(function() {
 
         }
 
+
         const renderSolutions = async function() {
             $(deviceSelector.answerInnerElem).empty();
 
@@ -385,7 +478,14 @@ $(document).ready(function() {
                 // Image
 
                 // Solution fit
-
+                await renderSolutionFit({
+                    solutionElem,
+                    solutionObj,
+                    variationObj: solutionObj,
+                    keys: solutionObj.keys,
+                    ignoreKeys: ['lo'],
+                });
+                        
                 // Details (MCU, RAM, etc.)
 
                 // Variations and SKUs
