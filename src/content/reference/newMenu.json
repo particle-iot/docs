@@ -576,6 +576,11 @@
                 {
                     "dir": "tan014",
                     "title": "TAN014 - SARA-R510 band selection"
+                },
+                {
+                    "dir": "tan015",
+                    "title": "TAN015 - SARA-R510 reset procedure",
+                    "internal": true
                 }
             ]
         },
