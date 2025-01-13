@@ -262,6 +262,27 @@
                     "title": "Includes precision GNSS module"
                 }
             ]
+        },
+        {
+            "title": "CPU",
+            "solutionObj": "mcuObj.cpu"
+        },
+        {
+            "title": "Wi-Fi",
+            "solutionObj": "wifi",
+            "titleIfEmpty": "No built-in Wi-Fi"
+        },
+        {
+            "title": "User application size (flash)",
+            "solutionObj": "mcuObj.userAppSize"
+        },
+        {
+            "title": "User application available RAM",
+            "solutionObj": "mcuObj.userRam"
+        },
+        {
+            "title": "Flash file system",
+            "solutionObj": "mcuObj.flashFileSystem"
         }
     ],
     "mergeSolutionKeys": ["c"],
@@ -496,7 +517,7 @@
             "locationVariations": [
                 {
                     "variationTitle": "404X",
-                    "skus": ["BRN404X", "RN404XKIT", "BRN404XTRAY50"]
+                    "skus": ["BRN404X", "BRN404XKIT", "BRN404XTRAY50"]
                 }
             ]            
         },        {
@@ -536,7 +557,18 @@
             "ex": ["p"],
             "wifi": "Wi-Fi 6E",
             "title": "Tachyon",
-            "image": "/assets/images/device-selector/tachyon.png"
+            "image": "/assets/images/device-selector/tachyon.png",
+            "locationVariations": [
+                {
+                    "variationTitle": "North America",
+                    "skus": ["TACH4NA", "TACH8NA"]
+                },
+                {
+                    "variationTitle": "Rest of World",
+                    "skus": ["TACH4ROW", "TACH8ROW"]
+                }
+            ]            
         }
     ]
 }
+
