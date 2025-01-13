@@ -263,8 +263,11 @@ Here's a close-up of the connections
 - The long lead of the LED is on the left. The blue wire connects to this lead.
 - The short lead of the LED is on the right. This connects to ground with a 220 ohm resistor.
 
-Next, we're going to load code onto your device.
+You can use the same code as in the [previous example](#code), just update the declaration of `MY_LED` to be the pin that you used. For example:
 
+```cpp
+const pin_t MY_LED = D6;
+```
 
 
 ## Read your photo sensor: Function and Variable
