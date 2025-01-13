@@ -207,19 +207,16 @@ $(document).ready(function() {
                     const tdElem = document.createElement('td'); 
 
                     if (solutionFitObj.checkboxes) {
-                        if (deviceSelector.calculatedSettings.questionHasFilters[solutionFitObj.id]) {
-                            // Show requested 
-                        }
-                        else {
-                            // Show all
-                            const availableOptions = [];
-                            for(const optionsObj of solutionFitObj.checkboxes) {
-                                if (Array.isArray(options.variationObj[solutionFitObj.id]) && options.variationObj[solutionFitObj.id].includes(optionsObj.id)) {
-                                    availableOptions.push(optionsObj.title)
-                                }
+                        // if (deviceSelector.calculatedSettings.questionHasFilters[solutionFitObj.id]) {
+
+                        // Show all
+                        const availableOptions = [];
+                        for(const optionsObj of solutionFitObj.checkboxes) {
+                            if (Array.isArray(options.variationObj[solutionFitObj.id]) && options.variationObj[solutionFitObj.id].includes(optionsObj.id)) {
+                                availableOptions.push(optionsObj.title)
                             }
-                            $(tdElem).text(availableOptions.join(', '));
-                        }    
+                        }
+                        $(tdElem).text(availableOptions.join(', '));
                     }
                     if (solutionFitObj.radio) {
                         let availableOptions = [];
