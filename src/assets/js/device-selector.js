@@ -220,7 +220,12 @@ $(document).ready(function() {
                         if (questionObj.solutionFit && questionObj.solutionFit.onlyShowLast) {
                             if (availableOptions.length > 1) {
                                 availableOptions = [availableOptions[availableOptions.length - 1]];
-                            }
+                            }        
+                        }
+                        if (questionObj.solutionFit && questionObj.solutionFit.titleIfEmpty) {
+                            if (availableOptions.length == 0) {
+                                availableOptions = [questionObj.solutionFit.titleIfEmpty];
+                            }        
                         }
 
                         $(tdElem).text(availableOptions.join(', '));

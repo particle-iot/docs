@@ -142,7 +142,8 @@
             "id": "g",
             "solutionFit": {
                 "title": "Geolocation support",
-                "onlyShowLast": true                
+                "onlyShowLast": true,
+                "titleIfEmpty": "No built-in GNSS"
             },
             "radio": [
                 {
