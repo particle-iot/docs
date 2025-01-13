@@ -477,6 +477,20 @@ $(document).ready(function() {
                 $(headerElem).text(solutionObj.title);
                 $(solutionElem).append(headerElem);
 
+                // Image
+                if (solutionObj.image && solutionObj.image.length > 0) {
+                    const divElem = document.createElement('div');
+
+                    const imgElem = document.createElement('img');
+                    $(imgElem).attr('width', '300');
+                    $(imgElem).attr('height', '300');
+                    $(imgElem).attr('src', solutionObj.image);
+                    $(imgElem).css('object-fit', 'contain');
+                    $(divElem).append(imgElem);
+
+                    $(solutionElem).append(divElem);
+                }
+
                 // Note
                 if (solutionObj.textMd) {
                     renderMd({md: solutionObj.textMd, containerElem: solutionElem});

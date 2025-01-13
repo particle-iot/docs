@@ -197,7 +197,8 @@
             "g": ["gh"],
             "ex": ["m8"],
             "title": "Tracker One",
-            "image": "",
+            "image": "/assets/images/device-selector/tracker-one.jpg",
+            "datasheet": "/reference/datasheets/tracker/tracker-one/",
             "wifi": "2.4 GHz (only for geolocation)",
             "locationVariations": [
                 {
@@ -218,7 +219,8 @@
             "g": ["gh"],
             "ex": ["m1"],
             "title": "Monitor One",
-            "image": "",
+            "image": "/assets/images/device-selector/monitor-one.jpg",
+            "datasheet": "/reference/datasheets/tracker/monitor-one-datasheet/",
             "wifi": "2.4 GHz (only for geolocation)",
             "locationVariations": [
                 {
@@ -241,7 +243,8 @@
             "ex": false,
             "ceOptional": true,
             "title": "Tracker SoM",
-            "image": "",
+            "image": "/assets/images/device-selector/t523-som.svg",
+            "datasheet": "/reference/datasheets/tracker/tracker-som-datasheet/",
             "wifi": "2.4 GHz (only for geolocation)",
             "locationVariations": [
                 {
@@ -264,7 +267,8 @@
             "ex": false,
             "ceOptional": true,
             "title": "Tracker SoM",
-            "image": "",
+            "image": "/assets/images/device-selector/t523-som-eval.svg",
+            "datasheet": "/reference/datasheets/tracker/tracker-som-eval-board/",
             "wifi": "2.4 GHz (only for geolocation)",
             "locationVariations": [
                 {
@@ -286,7 +290,8 @@
             "ex": false,
             "ceOptional": true,
             "title": "M-SoM",
-            "image": "",
+            "image": "/assets/images/device-selector/m404-iso.jpg",
+            "datasheet": "/reference/datasheets/m-series/msom-datasheet/",
             "wifi": "2.4 and 5 GHz",
             "locationVariations": [
                 {
@@ -309,6 +314,8 @@
             "title": "M-SoM + M.2 Breakout Board",
             "skus": ["M2BREAKOUT"],
             "ceOptional": false,
+            "image": "/assets/images/device-selector/m2breakout_top.png",
+            "datasheet": "/reference/datasheets/m-series/m2-breakout-datasheet/",
             "derivedFrom": "M-SoM"
         },
         {
@@ -320,7 +327,8 @@
             "g": ["gl", "gm"],
             "ex": ["p"],
             "title": "Muon",
-            "image": "",
+            "image": "/assets/images/device-selector/muon-iso.png",
+            "datasheet": "/reference/datasheets/m-series/muon-datasheet/",
             "wifi": "2.4 and 5 GHz",
             "locationVariations": [
                 {
@@ -342,6 +350,8 @@
             "pt": ["ptg"],
             "title": "Muon + M1 Enclosure",
             "skus": ["M1ENCLEA"],
+            "image": "/assets/images/device-selector/m1-top-open.jpg",
+            "datasheet": "https://docs.particle.io/reference/datasheets/m-series/m1-enclosure-datasheet/",
             "derivedFrom": "Muon"
         },
         {
@@ -353,19 +363,22 @@
             "ex": false,
             "ceOptional": true,
             "title": "B-SoM",
-            "image": "",
+            "image": "/assets/images/device-selector/b404x-iso.png",
             "wifi": false,
             "locationVariations": [
                 {
                     "variationTitle": "404X",
+                    "datasheet": "/reference/datasheets/b-series/b404x-datasheet/",
                     "skus": ["B404XMEA", "B404XMTY"]
                 },
                 {
                     "variationTitle": "524",
+                    "datasheet": "/reference/datasheets/b-series/b524-b523-datasheet/",
                     "skus": ["B524MEA", "B524MTY"]
                 },
                 {
                     "variationTitle": "504",
+                    "datasheet": "/reference/datasheets/b-series/b504-datasheet/",
                     "skus": ["B504MEA", "B504MTY"]
                 }
             ]            
@@ -379,7 +392,8 @@
             "ex": false,
             "ceOptional": true,
             "title": "B-SoM 5e",
-            "image": "",
+            "image": "/assets/images/device-selector/b504-top.png",
+            "datasheet": "/reference/datasheets/b-series/b504-datasheet/",
             "wifi": false,
             "locationVariations": [
                 {
@@ -397,7 +411,8 @@
             "ex": ["f"],
             "ceOptional": true,
             "title": "Boron",
-            "image": "",
+            "image": "/assets/images/device-selector/boron-angle.jpg",
+            "datasheet": "/reference/datasheets/b-series/boron-datasheet/",
             "wifi": false,
             "locationVariations": [
                 {
@@ -414,7 +429,8 @@
             "ex": false,
             "ceOptional": true,
             "title": "P2",
-            "image": "",
+            "image": "/assets/images/device-selector/p2-iso.png",
+            "datasheet": "/reference/datasheets/wi-fi/p2-datasheet/",
             "wifi": "2.4 and 5 GHz",
             "skus": ["P2MOD10", "P2REEL"]
         },
@@ -427,7 +443,8 @@
             "ex": ["f"],
             "ceOptional": true,
             "title": "Photon 2",
-            "image": "",
+            "image": "/assets/images/device-selector/photon2-iso.jpg",
+            "datasheet": "/reference/datasheets/wi-fi/photon-2-datasheet/",
             "wifi": "2.4 and 5 GHz",
             "skus": ["PHN2MEA", "PHN2MTY"]
         },
@@ -435,12 +452,12 @@
             "pt": ["ptd"],
             "c": ["cc", "ce"],
             "cd": ["cdl","cdh"],
-            "cp": ["cpm","cph"],
+            "cp": ["cpl", "cpm","cph"],
             "g": ["gl", "gm"],
             "ex": ["p"],
             "wifi": "Wi-Fi 6E",
             "title": "Tachyon",
-            "image": ""
+            "image": "/assets/images/device-selector/tachyon.png"
         }
     ]
 }
