@@ -187,6 +187,83 @@
         }
 
     ],
+    "solutionFit": [
+        {
+            "title": "Project type",
+            "id": "pt",
+            "useQuestion": true
+        },
+        {
+            "title": "Connectivity",
+            "id": "c",
+            "useQuestion": true
+        },
+        {
+            "title": "Cellular data rate",
+            "id": "cd",
+            "onlyShowLast": true,
+            "radio": [
+                {
+                    "id": "cdl",
+                    "title": "Normal. Typical IoT data rates for sensors, remote control, etc."
+                },
+                {
+                    "id": "cdh",
+                    "title": "High. For camera image uploads, tethering, etc."
+                }
+            ]
+        },
+
+        {
+            "title": "Cellular regions",
+            "id": "lo",
+            "useQuestion": true
+        },
+        {
+            "title": "Computing power",
+            "id": "cp",
+            "onlyShowLast": true,
+            "radio": [
+                {   
+                    "id": "cpl",
+                    "title": "Low. Suitable for remote sensor monitoring."  
+                },
+                {
+                    "id": "cpm",
+                    "title": "Medium. Suitable for some local data analysis."
+                },
+                {
+                    "id": "cph",
+                    "title": "High. Can run large machine learning models, video or sound local processing."
+                }
+            ]
+        },
+        {
+            "title": "Expansion options",
+            "id": "ex",
+            "useQuestion": true
+        },
+        {
+            "title": "Geolocation support",
+            "id": "g",
+            "onlyShowLast": true,
+            "titleIfEmpty": "No built-in GNSS",
+            "radio": [
+                {
+                    "id": "gl",
+                    "title": "No built-in GNSS"
+                },
+                {
+                    "id": "gm",
+                    "title":"GNSS available via the cellular modem"
+                },
+                {
+                    "id": "gh",
+                    "title": "Includes precision GNSS module"
+                }
+            ]
+        }
+    ],
     "mergeSolutionKeys": ["c"],
     "solutions": [
         {
@@ -283,7 +360,6 @@
         },               {
             "id": "M-SoM",
             "pt": ["ptm"],
-            "c": ["cc", "cw"],
             "cd": ["cdl"],
             "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
@@ -295,15 +371,17 @@
             "wifi": "2.4 and 5 GHz",
             "locationVariations": [
                 {
+                    "c": ["cc", "cw"],
                     "variationTitle": "404",
                     "skus": ["M404MEA", "M404MTY"]
                 },
                 {
+                    "c": ["cc", "cw"],
                     "variationTitle": "524",
                     "skus": ["M524MEA", "M524MTY"]
                 },
                 {
-                    "c": ["cs"],
+                    "c": ["cc", "cw", "cs"],
                     "variationTitle": "635",
                     "skus": ["M635MEA", "M635MTY"]
                 }
@@ -321,7 +399,6 @@
         {
             "id": "Muon",
             "pt": ["ptd"],
-            "c": ["cc", "cw", "ce", "cl"],
             "cd": ["cdl"],
             "cp": ["cpl", "cpm"],
             "g": ["gl", "gm"],
@@ -332,15 +409,17 @@
             "wifi": "2.4 and 5 GHz",
             "locationVariations": [
                 {
+                    "c": ["cc", "cw", "ce", "cl"],
                     "variationTitle": "404",
                     "skus": ["MUON404", "MUON404EA"]
                 },
                 {
+                    "c": ["cc", "cw", "ce", "cl"],
                     "variationTitle": "524",
                     "skus": ["MUON524", "MUON524EA"]
                 },
                 {
-                    "c": ["cs"],
+                    "c": ["cc", "cw", "ce", "cl", "cs"],
                     "variationTitle": "635",
                     "skus": ["MUON635"]
                 }
