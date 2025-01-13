@@ -103,7 +103,7 @@ instead of using a battery pack temperature sensor.
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &nbsp; | 2-pin | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
@@ -141,7 +141,7 @@ instead of using a battery pack temperature sensor.
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | Deprecated |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
-| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | c | 3-pin | In development |
+| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | c | 3-pin | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | micro-b | 2-pin | GA |
 | MHAT | M-HAT | c | 3-pin | In development |
 | MHAT504e | M-HAT with LTE CAT1 for North America | c | 3-pin | In development |

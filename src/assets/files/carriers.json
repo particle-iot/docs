@@ -20835,7 +20835,7 @@
     {
       "name": "BRN310TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "singleSku": "BRN310KIT",
@@ -22065,7 +22065,7 @@
     {
       "name": "M2BREAKOUT",
       "desc": "Particle M.2 SoM Breakout Board [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
       "enterprise": false,
@@ -22254,7 +22254,7 @@
     },
     {
       "name": "M635EMEA",
-      "desc": "M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1]",
+      "desc": "M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1]",
       "lifecycle": "In development",
       "multiple": false,
       "enterprise": false,

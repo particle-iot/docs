@@ -101,7 +101,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA | P034 |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA | P034 |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated | B31K |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND | B31T |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Deprecated | B31T |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated | P027 |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND | P027 |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated | B40H |
@@ -143,7 +143,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA | P054 |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA | P055 |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA | P055 |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | In development | P068 |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P068 |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P055 |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA | P031 |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
@@ -208,7 +208,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ARNK | ARGNKIT | Argon, Starter Kit  [x1] | Deprecated |
 | ARNT | ARGNTRAY50 | Argon, Tray [x50] | Deprecated |
 | B31K | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated |
-| B31T | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND |
+| B31T | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Deprecated |
 | B40H | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated |
 | B40K | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Deprecated |
 | B40T | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
@@ -301,7 +301,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P055 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | In development |
 | P056 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | GA |
 | P056 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | GA |
-| P068 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | In development |
+| P068 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
 | P069 | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | In development |
 | P069 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | In development |
 | P0MD | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated |
