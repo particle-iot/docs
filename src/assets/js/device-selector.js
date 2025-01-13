@@ -175,9 +175,22 @@ $(document).ready(function() {
             const tbodyElem = document.createElement('tbody');
 
             for(const key of keys) {
-                const questionObj = deviceSelector.config.questions.find(e => e.id == key);
-                if (!questionObj) {
+            
+                const solutionFitOrig = deviceSelector.config.solutionFit.find(e => e.id == key);
+                if (!solutionFitOrig) {
                     continue;
+                }
+                const solutionFitObj = Object.assign({}, solutionFitOrig);
+
+                if (solutionFitOrig.useQuestion) {
+                    const questionObj = deviceSelector.config.questions.find(e => e.id == key);
+                    if (questionObj) {
+                        for(const questionKey of ['checkboxes', 'radio']) {
+                            if (questionObj[questionKey]) {
+                                solutionFitObj[questionKey] = questionObj[questionKey];
+                            }
+                        }
+                    }
                 }
 
                 const trElem = document.createElement('tr');
@@ -186,45 +199,43 @@ $(document).ready(function() {
                     const tdElem = document.createElement('td'); 
                     $(tdElem).css('width', deviceSelector.config.styles.solutionFitLeftWidth); // 200px
 
-                    if (questionObj) {
-                        $(tdElem).text((questionObj.solutionFit && questionObj.solutionFit.title) || questionObj.title);
-                    }
+                    $(tdElem).text(solutionFitObj.title);
 
                     $(trElem).append(tdElem);    
                 }
                 {
                     const tdElem = document.createElement('td'); 
 
-                    if (questionObj.checkboxes) {
-                        if (deviceSelector.calculatedSettings.questionHasFilters[questionObj.id]) {
+                    if (solutionFitObj.checkboxes) {
+                        if (deviceSelector.calculatedSettings.questionHasFilters[solutionFitObj.id]) {
                             // Show requested 
                         }
                         else {
                             // Show all
                             const availableOptions = [];
-                            for(const optionsObj of questionObj.checkboxes) {
-                                if (Array.isArray(options.variationObj[questionObj.id]) && options.variationObj[questionObj.id].includes(optionsObj.id)) {
-                                    availableOptions.push((optionsObj.solutionFit && optionsObj.solutionFit.title) || optionsObj.title)
+                            for(const optionsObj of solutionFitObj.checkboxes) {
+                                if (Array.isArray(options.variationObj[solutionFitObj.id]) && options.variationObj[solutionFitObj.id].includes(optionsObj.id)) {
+                                    availableOptions.push(optionsObj.title)
                                 }
                             }
                             $(tdElem).text(availableOptions.join(', '));
                         }    
                     }
-                    if (questionObj.radio) {
+                    if (solutionFitObj.radio) {
                         let availableOptions = [];
-                        for(const optionsObj of questionObj.radio) {
-                            if (Array.isArray(options.variationObj[questionObj.id]) && options.variationObj[questionObj.id].includes(optionsObj.id)) {
-                                availableOptions.push((optionsObj.solutionFit && optionsObj.solutionFit.title) || optionsObj.title)
+                        for(const optionsObj of solutionFitObj.radio) {
+                            if (Array.isArray(options.variationObj[solutionFitObj.id]) && options.variationObj[solutionFitObj.id].includes(optionsObj.id)) {
+                                availableOptions.push(optionsObj.title)
                             }
                         }
-                        if (questionObj.solutionFit && questionObj.solutionFit.onlyShowLast) {
+                        if (solutionFitObj.onlyShowLast) {
                             if (availableOptions.length > 1) {
                                 availableOptions = [availableOptions[availableOptions.length - 1]];
                             }        
                         }
-                        if (questionObj.solutionFit && questionObj.solutionFit.titleIfEmpty) {
+                        if (solutionFitObj.titleIfEmpty) {
                             if (availableOptions.length == 0) {
-                                availableOptions = [questionObj.solutionFit.titleIfEmpty];
+                                availableOptions = [solutionFitObj.titleIfEmpty];
                             }        
                         }
 
