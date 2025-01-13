@@ -41,8 +41,6 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | ASSET2GV2 | Asset Tracker 2G | Micro B |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Micro B |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Micro B |
-| B504EMEA | &nbsp; | &nbsp; |
-| B504EMTY | &nbsp; | &nbsp; |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Micro B |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Micro B |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Micro B |
@@ -121,6 +119,7 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; |
 | B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | &check; |
 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &check; |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &check; |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &check; |
@@ -148,6 +147,7 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | &nbsp; |
 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | &nbsp; |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &nbsp; |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | &nbsp; |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | &nbsp; |

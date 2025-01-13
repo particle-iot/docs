@@ -2103,6 +2103,8 @@ The following countries are not officially supported at this time, but may be co
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | &check; | GA | |
 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | &check; | GA | |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX |  | In development | |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX |  | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

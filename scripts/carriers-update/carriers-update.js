@@ -565,7 +565,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         for(const skuObj of updater.datastore.data.skus) {
-            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
             if (!skuObj.prefix) {
@@ -614,7 +614,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         for(const skuObj of updater.datastore.data.skus) {
-            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
             if (!skuObj.prefix) {
@@ -672,7 +672,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         for(const skuObj of updater.datastore.data.skus) {
-            if (skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden'|| !!skuObj.linux) {
                 continue;
             }
             if (options.filterFn && options.filterFn(skuObj)) {
@@ -719,7 +719,7 @@ const generatorConfig = require('./generator-config');
                 // Hide discontinued kits
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
                 // Hidden, whether a kit or not
                 return;
             }
@@ -1015,7 +1015,7 @@ const generatorConfig = require('./generator-config');
                 // No USB required
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
                 // Hidden SKU
                 return;
             }
@@ -1073,7 +1073,7 @@ const generatorConfig = require('./generator-config');
                 // Not a device
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
                 // Hidden SKU
                 return;
             }
@@ -1245,7 +1245,7 @@ const generatorConfig = require('./generator-config');
                 // Hide discontinued kits
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
                 // Hidden, whether a kit or not
                 return;
             }
@@ -1415,7 +1415,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.cellAnt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
                 return;
             }
 
@@ -1481,7 +1481,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.wifiAntInt && !skuObj.wifiAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
                 return;
             }
 
@@ -1535,7 +1535,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.bleAntInt && !skuObj.bleAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -1588,7 +1588,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.nfcAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -1643,7 +1643,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.gnssAntInt && !skuObj.gnssAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -1695,7 +1695,7 @@ const generatorConfig = require('./generator-config');
 
         // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -1845,7 +1845,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.cellAnt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -1916,7 +1916,7 @@ const generatorConfig = require('./generator-config');
                 // Hide discontinued kits
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
                 // Hidden, whether a kit or not
                 return;
             }
