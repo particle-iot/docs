@@ -246,6 +246,49 @@ $(document).ready(function() {
                 $(tbodyElem).append(trElem);                
             }
 
+            for(const solutionFitObj of deviceSelector.config.solutionFit) {
+                if (!solutionFitObj.solutionObj) {
+                    // This case was probably handled above
+                    continue;
+                }
+
+                let obj = options.solutionObj;
+                for(const key of solutionFitObj.solutionObj.split('.')) {
+                    obj = obj[key];
+                }
+                if (typeof obj != 'string') {
+                    continue;
+                }
+
+                if (obj.length == 0 && solutionFitObj.titleIfEmpty) {
+                    obj = solutionFitObj.titleIfEmpty;
+                }
+                
+
+                const trElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td'); 
+                    $(tdElem).css('width', deviceSelector.config.styles.solutionFitLeftWidth); // 200px
+
+                    $(tdElem).text(solutionFitObj.title);
+
+                    $(trElem).append(tdElem);    
+                }
+                {
+                    const tdElem = document.createElement('td'); 
+
+                    if (typeof obj == 'string') {
+                        $(tdElem).text(obj);
+                    }
+
+                    $(trElem).append(tdElem);    
+                }
+
+                $(tbodyElem).append(trElem);                
+            }
+
+
             $(tableElem).append(tbodyElem);
             
             $(options.solutionElem).append(tableElem);            
@@ -454,6 +497,11 @@ $(document).ready(function() {
 
             console.log('context', deviceSelector.context);
 
+            // Summary div including links to solutions (filled in later)
+            const summaryDivElem = document.createElement('div');
+            $(deviceSelector.answerInnerElem).append(summaryDivElem);
+
+
             // If variation is shown, also propagate the show flag up into the solution
             for(const solutionObj of deviceSelector.solutions) {
                 if (solutionObj.variations) {
@@ -469,17 +517,25 @@ $(document).ready(function() {
                 }
             }
 
+            let visibleSolutions = [];
+
             // Render solutions
             for(const solutionObj of deviceSelector.solutions) {
                 if (!solutionObj.show) {
                     continue;
                 }
 
+                visibleSolutions.push(solutionObj);
                 deviceSelector.context.solution = solutionObj;
 
                 console.log('render solution ' + solutionObj.title, solutionObj);
+                
+                solutionObj.anchor = solutionObj.title.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^\w]+/g, '-');
+                const sectionElem = document.createElement('section');
+                $(sectionElem).attr('id', solutionObj.anchor);
 
                 const solutionElem = document.createElement('div');
+
 
                 const headerElem = document.createElement('h3');
                 $(headerElem).text(solutionObj.title);
@@ -535,9 +591,32 @@ $(document).ready(function() {
                     await renderVariation(solutionElem, solutionObj, solutionObj, options);
                 }
 
- 
-                $(deviceSelector.answerInnerElem).append(solutionElem);
+                $(sectionElem).append(solutionElem);
+
+                $(deviceSelector.answerInnerElem).append(sectionElem);
             }
+
+            if (visibleSolutions.length > 1) {
+                const ulElem = document.createElement('ul');
+
+                for(const solutionObj of visibleSolutions) {
+                    const liElem = document.createElement('li');
+
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', '#' + solutionObj.anchor);
+                    $(aElem).text(solutionObj.title);
+
+                    $(liElem).append(aElem);
+                    $(ulElem).append(liElem);
+                }
+
+                $(summaryDivElem).append(ulElem);
+            }
+            else
+            if (visibleSolutions.length == 0) {
+                $(summaryDivElem).text('No solutions match the criteria you specified.');
+            }
+
         }
 
         const showHideQuestionById = function(questionId, show) {
