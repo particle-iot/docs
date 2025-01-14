@@ -1140,6 +1140,28 @@ Additionally, JSON (text/json) structured data is supported. This is encoded usi
 which is a `Variant`. The `Variant` can be created from a JSON text string, or built programmatically
 by adding fields.
 
+### Particle.publish - CloudEvent - Publish
+
+{{since when="6.3.0"}}
+
+Particle.publish publishes an event from a device. This can be received by zero or more subscribers, including:
+
+- External services using a [webhook](/reference/cloud-apis/webhooks/)
+- A [Logic block](/getting-started/logic-ledger/logic/) to perform operations in the cloud
+- Another device using `Particle.subscribe()`
+- The server-sent events (SSE) data stream
+
+```cpp
+// PROTOTYPE
+bool publish(particle::CloudEvent event);
+```
+
+This variation is available in Device OS 6.3.0 and later and is the recommended syntax. The `CloudEvent` class
+is both a container for the event name, event data, and content type, but also maintains the process in 
+publishing and any error that occurs while publishing.
+
+Note that this overload is always asynchronous and does not use a `Future` as the other overloads below.
+
 ### Particle.publish - Publish
 
 {{since when="6.2.0"}}
@@ -1439,6 +1461,201 @@ Previously, there were overloads with a `ttl` (time-to-live) value. These have b
 Even if you use `NO_ACK` mode and do not check the result code from `Particle.publish()` it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if you publish while in the process of attempting to reconnect to the network. At a minimum, you should make sure that `Particle.connected()` returns true before publishing. Doing [publish operations from a separate worker thread](https://github.com/rickkas7/BackgroundPublishRK) is another option. 
 
 
+
+## CloudEvent
+
+{{api name1="CloudEvent"}}
+
+{{since when="6.3.0"}}
+
+The `CloudEvent` class is available in Device OS 6.3.0 and later and is the recommended way to handle
+publish and subscribe. It is both a container for the event name, event data, and content type, but also maintains the process in 
+publishing and any error that occurs while publishing.
+
+### Getting and settings - CloudEvent
+
+#### name - CloudEvent
+
+Sets the event name. The name is copied by the setter.
+
+```cpp
+// PROTOTYPE - setter
+CloudEvent& name(const char* name)
+
+// PROTOTYPE - getter
+const char* name() const;
+```
+
+#### contentType - CloudEvent
+
+Set or get the content type for the event.
+
+```cpp
+// PROTOTYPE - setter
+CloudEvent& contentType(ContentType type)
+
+// PROTOTYPE - getter
+ContentType contentType() const
+```
+
+{{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
+| Content Type Constant | MIME Type |
+| :--- | :--- |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
+| `ContentType::JPEG`   | `image/jpeg` |
+| `ContentType::PNG`    | `image/png` |
+| `ContentType::BINARY` | `application/octet-stream` |
+{{!-- END shared-blurb --}}
+
+When publishing you typically set the value, but you can also get the value that was previously set.
+
+When subscribing to an event, you typically get the value to see what the publisher or the event has set.
+
+#### data - setters - CloudEvent
+
+There are numerous ways you can set the data in an event. 
+
+```cpp
+// From a c-string. The data array cannot contain a 0 value, except at the end.
+CloudEvent& data(const char* data)
+
+// From a pointer and length, useful if the value is not null terminated.
+CloudEvent& data(const char* data, size_t size);
+
+// From a pointer and length with a content type. Non-text content types can have 0 values in the data.
+CloudEvent& data(const char* data, size_t size, ContentType type)
+
+// From a `String` object
+CloudEvent& data(const String& data)
+
+// From a `Buffer` object
+CloudEvent& data(const Buffer& data)
+
+// From an `EventData` object (structured data)
+CloudEvent& data(const EventData& data)
+```
+
+
+
+#### data - getters - CloudEvent
+
+```cpp
+// Return a copy of the data in a `Buffer` object
+Buffer data() const;
+
+
+```
+
+### File read and write - CloudEvent
+
+#### loadData - CloudEvent
+
+#### saveData - CloudEvent
+
+### Utility methods - CloudEvent
+
+#### size - CloudEvent
+
+#### isEmpty - CloudEvent
+
+### Stream methids - CloudEvent
+
+#### seek - CloudEvent
+
+#### pos - CloudEvent
+
+#### write - CloudEvent
+#### read - CloudEvent
+
+#### peek - CloudEvent
+
+
+### Publish status - CloudEvent
+
+#### status - CloudEvent
+
+| Constant | Description | Accessibility |
+| :--- | :--- | :--- |
+| `Status::NEW` | Initial status of a newly created or received event | Reading and writing |
+| `Status::SENDING` | The event is being sent to the cloud | Reading |
+| `Status::SENT` | The event was successfully sent to the cloud | Reading and writing |
+| `Status::FAILED` | Recoverable error occurred while creating the event or sending it to the cloud | Reading and writing |
+| `Status::INVALID` | Irrecoverable error occurred while creating the event. | Not accessible |
+
+`Status::FAILED` indicates a recoverable error. The failed operation with the event can be retried when the condition that caused the error is resolved.
+
+For `Status::FAILED` and `Status::INVALID` the `error()` method can be used to find more information about the reason.
+
+#### isNew - CloudEvent
+
+Shorthand for `event.status() == CloudEvent::NEW`. This is the initial status of a newly created or received event
+
+```cpp
+// PROTOTYPE
+bool isNew() const
+```
+
+#### isSending - CloudEvent
+
+Shorthand for `event.status() == CloudEvent::SENDING`. The event is being sent to the cloud.
+
+```cpp
+// PROTOTYPE
+bool isSending() const
+```
+
+#### isSent - CloudEvent
+
+Shorthand for `event.status() == CloudEvent::SENT`. The event was successfully sent to the cloud.
+
+```cpp
+// PROTOTYPE
+bool isSent() const
+```
+
+
+#### isOk - CloudEvent
+
+Returns true if the event status is something other than `Status::FAILED` or `Status::INVALID`.
+
+```cpp
+// PROTOTYPE
+bool isOk() const
+```
+
+#### isValid - CloudEvent
+
+Returns true if the event status is not `Status::INVALID`. Note that this is different than `isOk()`.
+
+```cpp
+// PROTOTYPE
+bool isValid() const
+```
+
+
+#### error - CloudEvent
+    
+```cpp
+// PROTOTYPE
+int error() const;
+```
+
+Returns a 0 if the event is not in a failed or invalid state, otherwise a system error code defined `Error::Type`, which is a negative value. 
+    
+See xxx for the available error codes.
+
+#### cancel - CloudEvent
+
+
+#### resetStatus - CloudEvent
+#### clear - CloudEvent
+
+
+#### onStatusChange - CloudEvent
+
+#### canPublish - CloudEvent
+
+
 ## Subscribe
 
 {{api name1="Particle.subscribe"}}
@@ -1467,6 +1684,8 @@ Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler);
 
 ### Subscribe (with content type) - Subscribe
 
+{{since when="6.2.0"}}
+
 ```cpp
 // PROTOTYPES
 bool subscribe(const char* name, particle::EventHandlerWithContentType handler);
@@ -1485,8 +1704,50 @@ void myHandler(const char *event_name, const char *data)
 The new API passes both a `data` and a `size` allowing it to be used with data that contains null bytes,
 including binary data. The `ContentType` is also passed to the handler for the handler to use as desired.
 
+### Subscribe (CloudEvent) - Subscribe
+
+{{since when="6.3.0"}}
+
+```cpp
+// PROTOTYPES
+bool subscribe(const char* name, particle::EventHandlerWithCloudEvent* handler,
+        const particle::SubscribeOptions& opts = particle::SubscribeOptions());
+bool subscribe(const char* name, std::function<particle::EventHandlerWithCloudEvent> handler,
+        const particle::SubscribeOptions& opts = particle::SubscribeOptions());
+
+// EventHandlerWithCloudEvent 
+typedef void (EventHandlerWithCloudEvent)(CloudEvent event);        
+```
+
+In Device OS 6.3.0 and later you can 
+
+### SubscribeOptions - Subscribe
+
+{{since when="6.3.0"}}
+
+The `SubscribeOptions` class specifies options when subscribing to events using a `CloudEvent`.
+
+#### structured - SubscribeOptions - Subscribe
+
+Enable or disable encoding of event data in a structured data format.
+
+This option instructs the Cloud to encode all events sent to the device for this subscription in a compact structured data format.
+
+The exact format used is implementation-specific. The application is expected to parse the data in this format using the methods of the `CloudEvent` class, such as `dataStructured()`.
+
+By default, this option is disabled.
+
+```cpp
+// PROTOTYPE - setter
+SubscribeOptions& structured(bool enabled)
+
+// PROTOTYPE - getter
+bool structured() const;
+```
 
 ### Subscribe (with Variant) - Subscribe
+
+{{since when="6.2.0"}}
 
 If you are expecting structured data, use the subscribe overload that takes a handler with a Variant.
 
