@@ -33,7 +33,7 @@ These are some of the products and libraries available:
 | Product | Library |
 | :------ | :------ |
 | [Qwiic Alphanumeric Display - Red](https://www.sparkfun.com/products/16427)| [SparkFun_Alphanumeric_Display_Arduino_Library](https://github.com/sparkfun/SparkFun_Alphanumeric_Display_Arduino_Library) |
-| [Qwiic Humidity AHT20](https://www.sparkfun.com/products/16618)| [SparkFun_Qwiic_Humidity_AHT20_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Humidity_AHT20_Arduino_Library) |
+| Qwiic Humidity AHT20| [SparkFun_Qwiic_Humidity_AHT20_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Humidity_AHT20_Arduino_Library) |
 | Qwiic Pressure Sensor | [SparkFun_LPS25HB_Arduino_Library](https://github.com/sparkfun/SparkFun_LPS25HB_Arduino_Library) |
 | [Qwiic Pressure/Humidity/Temp (PHT) Sensor - MS8607](https://www.sparkfun.com/products/16298)| [SparkFun_PHT_MS8607_Arduino_Library](https://github.com/sparkfun/SparkFun_PHT_MS8607_Arduino_Library) |
 | Qwiic Step | [SparkFun_Qwiic_Step_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Step_Arduino_Library) |

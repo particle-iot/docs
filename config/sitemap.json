@@ -987,8 +987,8 @@
             "hash": "f4b013329d7adcffd941e9e3def5f8f17bbd529e584aa3fe4ca1b5db670d2d00"
         },
         "hardware/expansion/qwiic.md": {
-            "date": "2025-01-12",
-            "hash": "1e03eab1ea7ffb7cbc42413f7367718e814c48bd1583b94f7fc9422c5ea5cd52"
+            "date": "2025-01-14",
+            "hash": "b0438b76157a74c006236a8de92280c7a8d0516fcb1d07a012a7bf0221f959a4"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
             "date": "2025-01-13",
