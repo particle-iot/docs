@@ -162,7 +162,6 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTCW1TY | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635EMEA | &check; | PARANTCW1EA | &nbsp; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | M635EMEA | &check; | PARANTCW1EA | &nbsp; | In development|
 | M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &check; | PARANTCW1EA | &nbsp; | GA|
 | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTCW1TY | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | 1 | &nbsp; | GA|
@@ -303,7 +302,6 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635EMEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | M635EMEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | GA|
 | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
@@ -454,7 +452,6 @@ These devices include Bluetooth LE (BLE) capabilities.
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635EMEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | M635EMEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | GA|
 | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
@@ -662,7 +659,6 @@ The following devices have GNSS capabilities:
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635EMEA | &check; | &check; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | &check; | In development|
-| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | M635EMEA | &check; | &check; | In development|
 | M-Series LTE-M/2G (Global, EtherSIM), [x1] | M404MEA | &check; | &check; | GA|
 | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | M404MTY | &check; | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &check; | GA|

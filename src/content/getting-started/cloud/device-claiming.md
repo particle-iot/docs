@@ -414,7 +414,7 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | Fast<sup>1</sup> | In development | |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |

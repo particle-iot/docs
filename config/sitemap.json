@@ -647,11 +647,11 @@
             "hash": "bf4318f2fc3173b736c622f568d10f5a6f168851e4d50ea008e4f1cb1902e2c8"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2025-01-13",
+            "date": "2025-01-15",
             "hash": "108e6d550c53f93161bea5995e2f41e376bdf4e2439f2150ee09fb36411472cc"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2025-01-13",
+            "date": "2025-01-15",
             "hash": "de7bcc9debe866995f2cff0474bca1ee3be317e1325c85fb9ca81335c01a174b"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
@@ -695,7 +695,7 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2025-01-13",
+            "date": "2025-01-15",
             "hash": "421f141b0af1d2f765083b39496503cf975159d7c872a26b2f8f7cbb8875d7bb"
         },
         "getting-started/setup/setup-options.md": {
@@ -927,7 +927,7 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-01-13",
+            "date": "2025-01-15",
             "hash": "a3a01ff2d6de1c4a6079135bb5ef5b0ac22a7dba2619e765cdffa50afc53119a"
         },
         "hardware/certification/battery-certification.md": {
@@ -1131,8 +1131,8 @@
             "hash": "264776c70a5538439141848e0febae9ecf64814c88342a38137f5a27f6c676b7"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2024-12-20",
-            "hash": "494644f31e5ff865781da9a3b15a6df2ce58957a24daf0c3b9d9bd37f7320547"
+            "date": "2025-01-15",
+            "hash": "86d2d1b96a6021481999963031a1dd73a888ce08a856853d93c67a8a37aa0ae1"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2024-10-28",
@@ -1247,8 +1247,8 @@
             "hash": "c45f0908414aef05824e99d92fa31111fb0e263654f64f2f3afcb1805660e0dd"
         },
         "reference/tracker/location-fusion.md": {
-            "date": "2024-11-20",
-            "hash": "89bf1dfaaf56a4bfac1b32cc420d98d1211569ace031d5ec2197fa1235128053"
+            "date": "2025-01-15",
+            "hash": "ffab7a8a525327743bfe14d75fe804e37a7161de4cf45a6a693853a034e6158a"
         },
         "reference/tracker/tracker-configuration.md": {
             "date": "2024-11-14",
@@ -8164,7 +8164,7 @@
         },
         "hardware/best-practices/serial-number.md": {
             "hash": "463bd447f6710c9ae007804d557a3290bc2fb04a5fa611380a235c7851aac5cd",
-            "date": "2025-01-13"
+            "date": "2025-01-15"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "b9ef9a32d36ac3c5c7ba181bdb3cae0a06d6e30f66a188e21b85127980beb48d",
+            "hash": "b0d306e97a923337a6c762f116b84bfb37a17571673a5d87704584cb1bca5d7a",
             "date": "2025-01-15"
         },
         "getting-started/cloud/logic.md": {
@@ -8392,7 +8392,7 @@
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
             "hash": "54ce568778078441f57764a48708cb6dd632d15e1363dba02eee725cd90229de",
-            "date": "2025-01-13"
+            "date": "2025-01-15"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "01c9530d78d282baadaa1ae4e9c7ccd3577f7bbf4d1be1c9d914cb850776ec9e",
@@ -9116,7 +9116,7 @@
         },
         "hardware/som/som-guide.md": {
             "hash": "d32e7fa27361a9bb46f00dc2db7c403c0e7caf1a885ba5f54f9b01c43180c8ff",
-            "date": "2025-01-13"
+            "date": "2025-01-15"
         },
         "getting-started/getting-started.md": {
             "hash": "ae625053e81b7eb53c24ce1608fedeff29140eb0d8a9e60ca4c4f189b3023423",
@@ -9443,7 +9443,7 @@
             "date": "2024-10-28"
         },
         "reference/device-os/tethering.md": {
-            "hash": "e970d716b0fb76ecc245e4a2d41b47f77441416969536725ce48c478d88f5187",
+            "hash": "38c1090a31d344ea36f0eaa40c462d823dddadc3316849d9db0e6e3af77abd69",
             "date": "2025-01-15"
         },
         "reference/device-os/typed-publish.md": {
@@ -9609,6 +9609,18 @@
         "reference/device-os/api/eeprom/eeprom-sample-code.md": {
             "hash": "486f14647733e129d3fec4cc4de7f84110732dbd4f173a0be6ae1898bb954526",
             "date": "2025-01-10"
+        },
+        "scaling/enterprise-features/device-protection.md": {
+            "hash": "e9dbed543d2ac50c086729a1fc5df6a8629fae1097cb67aaa58482b2cc64d524",
+            "date": "2025-01-15"
+        },
+        "scaling/enterprise-features/location.md": {
+            "hash": "05b74f40c024011c33bf0166f3972e3f80b6c057e63fc1722056d422f395706b",
+            "date": "2025-01-15"
+        },
+        "getting-started/cloud/location.md": {
+            "hash": "9f5f31f94a7fc631013f4a8bcb0608ea21952aad01ab3394f8e2d51779d2e7fd",
+            "date": "2025-01-15"
         }
     }
 }

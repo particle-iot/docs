@@ -116,7 +116,7 @@ as a `loc` event and used with location fusion on some plans. Additional data op
 
 #### M-SoM
 
-{{!-- BEGIN do not edit content below, it is automatically generated c864a725-a712-44ad-b4e9-ccb882e860b7 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 800c1260-a4d4-4c9a-a41c-a6f2993218ce --}}
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
@@ -124,7 +124,7 @@ as a `loc` event and used with location fusion on some plans. Additional data op
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | GA |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | GA |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | Global | In development |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | In development |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | In development |
 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | In development |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | In development |

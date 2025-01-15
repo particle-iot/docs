@@ -1449,7 +1449,7 @@ Global, country list to be provided a later date.
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | GA | |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM+), [x1] | Global | BG95-S5 |  | In development | |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 |  | In development | |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
 
 

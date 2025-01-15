@@ -3508,7 +3508,7 @@ const schemaDocs = require('./schema-docs');
             },
         },
         {
-            guid:'c864a725-a712-44ad-b4e9-ccb882e860b7',
+            guid:'800c1260-a4d4-4c9a-a41c-a6f2993218ce',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
                     lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
