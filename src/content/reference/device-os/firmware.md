@@ -1511,63 +1511,191 @@ When publishing you typically set the value, but you can also get the value that
 
 When subscribing to an event, you typically get the value to see what the publisher or the event has set.
 
-#### data - setters - CloudEvent
+#### data - from c-string - CloudEvent
 
 There are numerous ways you can set the data in an event. 
 
 ```cpp
-// From a c-string. The data array cannot contain a 0 value, except at the end.
+// PROTOTYPE
 CloudEvent& data(const char* data)
+```
 
-// From a pointer and length, useful if the value is not null terminated.
+#### data - from pointer and length - CloudEvent
+
+
+```cpp
+// PROTOTYPE
 CloudEvent& data(const char* data, size_t size);
-
-// From a pointer and length with a content type. Non-text content types can have 0 values in the data.
-CloudEvent& data(const char* data, size_t size, ContentType type)
-
-// From a `String` object
-CloudEvent& data(const String& data)
-
-// From a `Buffer` object
-CloudEvent& data(const Buffer& data)
-
-// From an `EventData` object (structured data)
-CloudEvent& data(const EventData& data)
 ```
 
 
-
-#### data - getters - CloudEvent
+#### data - from pointer and length with content type - CloudEvent
 
 ```cpp
-// Return a copy of the data in a `Buffer` object
-Buffer data() const;
+// PROTOTYPE
+CloudEvent& data(const char* data, size_t size, ContentType type)
+```
 
+#### data - from String - CloudEvent
 
+```cpp
+// PROTOTYPE
+CloudEvent& data(const String& data)
+```
+
+#### data from Buffer - CloudEvent
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const Buffer& data)
+```
+
+#### data - from EventData - CloudEvent
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const EventData& data)
+```
+
+#### data - to Buffer - CloudEvent
+
+```cpp
+// PROTOTYPE
+Buffer data() const
+```
+
+#### data - to String - CloudEvent
+
+```cpp
+// PROTOTYPE
+String dataString() const
+```
+
+#### data - to EventData - CloudEvent
+
+```cpp
+// PROTOTYPE
+EventData dataStructured() const
 ```
 
 ### File read and write - CloudEvent
 
+Events can be saved to a file and restored from a file easily. This might be useful if you want to store events to the file system when offline and send then after connecting to the cloud. For more information about the file system, see [File system](/reference/device-os/file-system/) and [File system API](#file-system).
+
 #### loadData - CloudEvent
+
+```cpp
+// PROTOTYPE
+CloudEvent& loadData(const char* path)
+```
+
 
 #### saveData - CloudEvent
 
+```cpp
+// PROTOTYPE
+int saveData(const char* path)
+```
+
+Error::FILE, "File error", -225
+
+
 ### Utility methods - CloudEvent
+
+#### setSize - CloudEvent
+
+```cpp
+// PROTOTYPE
+int setSize(size_t size)
+```
 
 #### size - CloudEvent
 
+```cpp
+// PROTOTYPE
+size_t size() const
+```
+
+
+
 #### isEmpty - CloudEvent
 
-### Stream methids - CloudEvent
+```cpp
+// PROTOTYPE
+bool isEmpty() const
+```
+
+### Stream methods - CloudEvent
+
+The `CloudEvent` class implements the [`Stream`](#stream-class) interface which can be helpful if you want to 
+read or write the event data as a stream of bytes.
 
 #### seek - CloudEvent
 
+```cpp
+// PROTOTYPE
+int seek(size_t pos)
+```
+
+
 #### pos - CloudEvent
 
+```cpp
+// PROTOTYPE
+size_t pos() const
+```
+
 #### write - CloudEvent
+
+```cpp
+// PROTOTYPES
+size_t write(uint8_t b) override
+size_t write(const uint8_t* data, size_t size) override
+int write(const char* data)
+int write(const char* data, size_t size)
+```
+
 #### read - CloudEvent
 
+```cpp
+// PROTOTYPES
+int read() override
+int read(char* data, size_t size)
+```
+
+#### readBytes - CloudEvent
+
+```cpp
+// PROTOTYPE
+size_t readBytes(char* data, size_t size) override
+```
+
 #### peek - CloudEvent
+
+```cpp
+// PROTOTYPES
+int peek() override 
+int peek(char* data, size_t size)
+```
+
+#### available - CloudEvent
+
+Returns the number of bytes that are available to read. Returns 0 if there are no bytes available to read or
+the event is in an invalid state for reading.
+
+```cpp
+// PROTOTYPE
+int available() override 
+```
+
+#### flush - CloudEvent
+
+It is not necessary to call flush when you are finished writing, as the writes are never buffered. This method is a no-op.
+
+```cpp
+// PROTOTYPE
+void flush() override
+```
 
 
 ### Publish status - CloudEvent
@@ -1642,7 +1770,7 @@ int error() const;
 
 Returns a 0 if the event is not in a failed or invalid state, otherwise a system error code defined `Error::Type`, which is a negative value. 
     
-See xxx for the available error codes.
+See [system errors](#system-errors) for the available error codes.
 
 #### cancel - CloudEvent
 
