@@ -147,8 +147,8 @@
             "hash": "fce167426bbdc480db414a62eaa4c5a77d76b076709796df0a3689ca42c44f16"
         },
         "notes/data-operations.md": {
-            "date": "2024-10-22",
-            "hash": "9fa42de3a356ee166dfc6a41457556653bb91b14cc8c801269fa0ca8b66f45cc"
+            "date": "2025-01-15",
+            "hash": "bd0020bb4c30c31c2c3044153cda78e85f523c6e6fe35ce4d6c71bc3acad8148"
         },
         "notes/dev-deprecated.md": {
             "date": "2022-07-22",
@@ -563,12 +563,12 @@
             "hash": "75ab291e791df881a1866fa7ac43e232cdbfe873495836dbfb39b00d90e7da06"
         },
         "getting-started/billing/cellular-data.md": {
-            "date": "2024-10-28",
-            "hash": "b65226663508b563942f5e236c4c2e26d9e01bdaf7d62a1751caa5ef9cb5460b"
+            "date": "2025-01-15",
+            "hash": "ce829c35ace85fbc337ea2463b5aecff7f00ff3ec62aa1db89715c8b5eecd661"
         },
         "getting-started/billing/data-operations.md": {
-            "date": "2024-10-28",
-            "hash": "12e76c3c562b83ea9663ea74e03d7e43b1ce4ce33b0bd63e2c67242f39c0ade0"
+            "date": "2025-01-15",
+            "hash": "57df71eb3ef663fd8338762fb1363200f7816bf07b269a4585fdc6110dca9a95"
         },
         "getting-started/billing/migrating-to-growth.md": {
             "date": "2024-02-27",
@@ -583,8 +583,8 @@
             "hash": "4ac918686f80b4d7ca3452661877abc61cc5762974abf50664f5cff7880d8354"
         },
         "getting-started/cloud/introduction.md": {
-            "date": "2024-10-28",
-            "hash": "d9e77a7220c5626ecae3ebd6949afd03e0741ce9c3c4a459616d4dd436441e4b"
+            "date": "2025-01-15",
+            "hash": "ded82e02e1b0f2942b863854cb9efb96fb0f09ee094fab1232ad0ac11ccc1988"
         },
         "getting-started/cloud/ota-updates.md": {
             "date": "2024-11-13",
@@ -795,8 +795,8 @@
             "hash": "227f260583025d5f6d2fcf05f60ea0e6e6870c878fb5a3e0f7db549219236cb9"
         },
         "scaling/quick-start-guide/billing.md": {
-            "date": "2025-01-07",
-            "hash": "df834d963a4ecb5c477226cf8a650b3a75cb2750c7ffd2152b356642314ea9f9"
+            "date": "2025-01-15",
+            "hash": "3ab0e5de15d150f48e444a76f42ae04cad604a72db069d78314a663e4ff6f1f6"
         },
         "scaling/quick-start-guide/bulk-device-operations.md": {
             "date": "2024-03-13",
@@ -819,8 +819,8 @@
             "hash": "54a4633bc06696ac16d7158365c238272ee3c1f818cd364ac2af31b36d984f1a"
         },
         "scaling/quick-start-guide/organizations.md": {
-            "date": "2024-10-28",
-            "hash": "127bbb336d9dadca1f21319a30e6c5f26a14877a23c3c5092e91d84123a2946c"
+            "date": "2025-01-15",
+            "hash": "42f8f548321ad048335a09756bc2cc441438742641911301fb8c7842dde2af26"
         },
         "scaling/quick-start-guide/returns.md": {
             "date": "2023-02-24",
@@ -1143,8 +1143,8 @@
             "hash": "c9c0da0fa15aec20bd9c8bbdc12830b2a739320274732272f16956daa39e77b1"
         },
         "reference/cloud-apis/data-report-tutorial.md": {
-            "date": "2024-10-28",
-            "hash": "f998b77b51d9a121db7e614f2a666307e5878968f7b1e573769d2412a41f8239"
+            "date": "2025-01-15",
+            "hash": "a2dc293d88ca8de8ed1826ea803abcd9d39a05b39190e8b41b4428f8b05cb27d"
         },
         "reference/cloud-apis/javascript.md": {
             "date": "2024-12-17",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-01-10",
-            "hash": "62c9749610d6fc43ba3b6323d7e59d7d8ed46ba30e06c7a84e3455e762e54333"
+            "date": "2025-01-15",
+            "hash": "1b9c673b2ab5c234176096cd62a0c162a2e99b27bd605bb6a4a99877010509a6"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1711,8 +1711,8 @@
             "hash": "6de7b802e71b476e9049425a01072a7268a9594b752f196bc0a84494fb002ab6"
         },
         "reference/device-os/api/cloud-functions/overview-of-api-field-limits.md": {
-            "date": "2024-02-27",
-            "hash": "d6a3bde3412fbdd86a7e239d2f929361e3d651a1d1517dad27f88ef9f0a5bff9"
+            "date": "2025-01-15",
+            "hash": "326ce8f5a72b39fffa4c8ec8f9dbbec38d6964d398ad6ad24853a6e6f5bdd0fb"
         },
         "reference/device-os/api/cloud-functions/particle-variable.md": {
             "date": "2024-11-13",
@@ -8411,8 +8411,8 @@
             "date": "2024-03-13"
         },
         "getting-started/billing/migrating-to-basic.md": {
-            "hash": "1856d96ad7c0eff3907edd39fa2c4dc839e18a0bc45019850b3b33d2f3c11ba6",
-            "date": "2024-10-28"
+            "hash": "03bfd305af30a7d9962e8ac22bcf6f1fba4ac6c025856df20c49f967b71cd344",
+            "date": "2025-01-15"
         },
         "integrations/org-integrations.md": {
             "hash": "9d91388b1aaf2f693e355af935ab5d6c3d0c95ed696e714d9f3ad10fedfca43a",
@@ -9303,8 +9303,8 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/publish/limits-publish.md": {
-            "hash": "5178de93c4c0c5605d9d49e106ca42741a5afac365660e7c33bd0259bfd4a66e",
-            "date": "2024-10-04"
+            "hash": "b0ac7c3033ddc90fed7864406d56d471af1ec229a603c722e28775d1fc6f210b",
+            "date": "2025-01-15"
         },
         "reference/device-os/api/publish/typed-publish-publish.md": {
             "hash": "db86f295f1672747edd13abacc56f641ea85b3ed8ae0b38a3eac77803f46670f",
@@ -9335,8 +9335,8 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/publish/particle-publish-classic-api-publish.md": {
-            "hash": "ba95dc6306d516249a2bea69cd266acb89688ee0241d0f86e60d805358e25341",
-            "date": "2024-10-04"
+            "hash": "26cd6f4ff2da386a52bc9d1706bbd2989d5442a24cf51556e4342842009fa4ca",
+            "date": "2025-01-15"
         },
         "reference/device-os/api/subscribe/subscribe.md": {
             "hash": "64708ab47cc0195a9de85b766735ccd9609dace3165b3289cddc7ef4196786de",
@@ -9347,12 +9347,12 @@
             "date": "2024-10-15"
         },
         "reference/device-os/api/subscribe/subscribe-with-content-type-subscribe.md": {
-            "hash": "a4cd7d517fff6a32a242c3efd1ef4bb7b74b1c207692659fd8506b0139f3683f",
-            "date": "2024-10-11"
+            "hash": "bd194446ddfa71548dba356c25d6cd74ca0c148a74413c2467c04d97dae13269",
+            "date": "2025-01-15"
         },
         "reference/device-os/api/subscribe/subscribe-with-variant-subscribe.md": {
-            "hash": "6656b4c3fa3f27a04650a32f28a25e37d5e464a78f4660d02fff285cfe8a875c",
-            "date": "2024-10-15"
+            "hash": "57c4f33b1f3e7f744d2b784eab0db7d76ac154f084849349fbfb56a42cbc80c9",
+            "date": "2025-01-15"
         },
         "reference/device-os/api/future/future.md": {
             "hash": "827571bfa15419d56c9ce03f8ec4e8af11e2dadd289ef64e889ebf138d6d2fbc",
@@ -9609,6 +9609,42 @@
         "reference/device-os/api/eeprom/eeprom-sample-code.md": {
             "hash": "486f14647733e129d3fec4cc4de7f84110732dbd4f173a0be6ae1898bb954526",
             "date": "2025-01-10"
+        },
+        "reference/device-os/api/publish/particle-publish-cloudevent-publish.md": {
+            "hash": "2edffa09468293ae1d89a39720c24f6bddd45c3f1bed37e18861013f8485461e",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/cloudevent/cloudevent.md": {
+            "hash": "dc87c4a26353b3f1165fb91075684c34b82dde74e998008e6a5178984752d5d3",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/cloudevent/getting-and-settings-cloudevent.md": {
+            "hash": "31d41de27be76813364703a381270bf010c4356074ced3afc19233101de05ec7",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/cloudevent/file-read-and-write-cloudevent.md": {
+            "hash": "e7274419be4dede782cb49cd9a1007e79adf3ffae997b549518fa233056ae3dc",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/cloudevent/utility-methods-cloudevent.md": {
+            "hash": "a08c3ce29845b85aa470fc11fbb4f05dad5170715bf36f0e4ad6df57536317f4",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/cloudevent/stream-methods-cloudevent.md": {
+            "hash": "ca4cc1056e74ca15dfaf1a66ec32143f486e884f8c2055be60a184a8062f7b50",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/cloudevent/publish-status-cloudevent.md": {
+            "hash": "0d8c42d7f4166c86c62eae2718613e18ba90789f12c150cbead5ed31001123cf",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/subscribe/subscribe-cloudevent-subscribe.md": {
+            "hash": "720ad4ca7b7b6b7d88f6461f5f1e032322900f8ab289b5a71cefa0043c8fe2bc",
+            "date": "2025-01-15"
+        },
+        "reference/device-os/api/subscribe/subscribeoptions-subscribe.md": {
+            "hash": "35974c8b4ebb7c89f995a38848857e28d0c565eb31d5552b819daf0ba77325ed",
+            "date": "2025-01-15"
         }
     }
 }
