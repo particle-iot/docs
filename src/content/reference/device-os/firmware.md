@@ -49,18 +49,18 @@ It is also available [as a single large document](/reference/device-os/firmware/
 
 ### Overview of API field limits
 
-| API Field | < 0.8.0 | 0.8.0 - 2.x | ≥ 3.0.0 |
-|--:|:--:|:--:|:--:|
-| Variable Key | 12 | 64 | 64 |
-| Variable Data | 622 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> |
-| Function Key | 12 | 64 | 64 |
-| Function Argument | 63 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> |
-| Publish/Subscribe Event Name | 64 | 64 | 64 |
-| Publish/Subscribe Event Data | 255 | 622 |  864<sup>2</sup> / 1024<sup>3</sup> |
+| API Field | < 0.8.0 | 0.8.0 - 2.x | ≥ 3.0.0 | ≥ 6.3.0 |
+|--:|:--:|:--:|:--:|:--:|
+| Variable Key | 12 | 64 | 64 | 64 |
+| Variable Data | 622 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> | 1024 |
+| Function Key | 12 | 64 | 64 | 64 |
+| Function Argument | 63 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> | 1024 |
+| Publish/Subscribe Event Name | 64 | 64 | 64 | 64 | 
+| Publish/Subscribe Event Data | 255 | 622 |  864<sup>2</sup> / 1024<sup>3</sup> | 16384 |
 
 
-- Limits are in bytes of UTF-8 encoded characters.
-- <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E-Series), the limit is 864 characters,
+- Limits are in bytes of UTF-8 encoded characters, except in 6.2.0 and later, where the data can be binary.
+- <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E-Series), the limit is 864 characters.
 - <sup>3</sup>On the P2, Photon 2, and Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, and E404X) the limit is 1024 characters.
 - The 0.8.0 - 2.x column includes all 2.x LTS versions. Higher limits will not be back-ported to 2.x LTS.
 
@@ -1114,6 +1114,7 @@ The size and contents of the event data vary depending on the version of Device 
 
 | Device OS Version | Gen | Size Limit | Binary Data |
 | :--- | :--- | :--- | :---: |
+| > 6.3.0 | Gen 3 & 4 | 16384 bytes | Allowed |
 | > 6.2.0 | Gen 3 & 4 | 1024 bytes | Allowed |
 | 3.x - 6.1.x | Gen 3 & 4 | 1024 UTF-8 characters | |
 | 3.x | Gen 2 | 864 UTF-8 characters | |
@@ -1513,7 +1514,7 @@ When subscribing to an event, you typically get the value to see what the publis
 
 #### data - from c-string - CloudEvent
 
-There are numerous ways you can set the data in an event. 
+Copies data from a c-string (null terminated string) into the event data.
 
 ```cpp
 // PROTOTYPE
