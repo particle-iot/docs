@@ -10,7 +10,8 @@ description: Data operations
 {{!-- BEGIN shared-blurb a7c0e9bc-9ba8-11ec-b909-0242ac120002 --}}
 The central billing element for both cellular and Wi-Fi is the Data Operation:
 
-- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size
+- Each function or variable consumes one Data Operation
+- Each publish or subscribe consumes one Data Operation for each 1024 bytes of data payload<sup>2</sup>
 - The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/api/cloud-functions/overview-of-api-field-limits/)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
@@ -25,6 +26,8 @@ The following do **not** count against your Data Operations limit:
 
 <sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. 
 In the Free Plan you will have an opportunity to upgrade to the basic/plus plan. In the basic/plus plans, additional blocks can be added to allow for more data operations.
+
+<sup>2</sup>For example: If you publish 800 bytes of data, it will count as 1 data operation. If you publish 1300 bytes of data, it will count as two. At the maximum publish size of 16 Kbytes, it would count as 16 data operations.
 {{!-- END shared-blurb --}}
 
 {{> dataoperationscalc}}
