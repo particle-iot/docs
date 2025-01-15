@@ -12,7 +12,7 @@ description: Geolocation for Particle IoT devices
 
 Particle Location Services can use the following geolocation methods:
 
-{!-- BEGIN shared-blurb 47267ac9-0ada-4300-9c07-71b68e532609 --}}
+{{!-- BEGIN shared-blurb 47267ac9-0ada-4300-9c07-71b68e532609 --}}
 #### GNSS (GPS)
 - Primary Method for Tracker devices
 - High-precision (up to ~1.8 meters)

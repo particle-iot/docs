@@ -9443,7 +9443,7 @@
             "date": "2024-10-28"
         },
         "reference/device-os/tethering.md": {
-            "hash": "38c1090a31d344ea36f0eaa40c462d823dddadc3316849d9db0e6e3af77abd69",
+            "hash": "e970d716b0fb76ecc245e4a2d41b47f77441416969536725ce48c478d88f5187",
             "date": "2025-01-15"
         },
         "reference/device-os/typed-publish.md": {
@@ -9619,7 +9619,7 @@
             "date": "2025-01-15"
         },
         "getting-started/cloud/location.md": {
-            "hash": "9f5f31f94a7fc631013f4a8bcb0608ea21952aad01ab3394f8e2d51779d2e7fd",
+            "hash": "1488fb125600a7b0a5e60d5d934967b961b74c991a28c062a395a9f05439ab33",
             "date": "2025-01-15"
         }
     }
