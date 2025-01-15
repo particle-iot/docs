@@ -30,7 +30,7 @@ fi
 # Configure TTY for PPP udev 
 if grep -q '4-model' /proc/device-tree/compatible;  then
   echo "RPi model 4 detected"
-  TTY_DEVICE='ttyAMA0'
+  TTY_DEVICE='ttyS0'
   PI_PLATFORM=4
 elif grep -q '5-model' /proc/device-tree/compatible;  then
   echo "RPi model 5 detected"
@@ -44,10 +44,9 @@ fi
 add_line_if_not_exists $CONFIG_FILE "enable_uart=1"
 
 if [ $PI_PLATFORM == 4 ]; then
-  add_line_if_not_exists $CONFIG_FILE "dtoverlay=miniuart-bt"
-  add_line_if_not_exists $CONFIG_FILE "dtoverlay=uart0,14_15"
+  add_line_if_not_exists $CONFIG_FILE "dtoverlay=uart2,ctsrts"
 elif [ $PI_PLATFORM == 5 ]; then
-  add_line_if_not_exists $CONFIG_FILE "dtoverlay=uart0-pi5"
+  add_line_if_not_exists $CONFIG_FILE "dtoverlay=uart0-pi5,ctsrts"
 fi
 
 add_line_if_not_exists "/etc/network/interfaces" "auto ppp0"
@@ -72,18 +71,13 @@ fi
 add_line_if_not_exists /etc/ppp/options.$TTY_DEVICE "local"
 
 if [ $PI_PLATFORM == 4 ]; then
-  echo "Adding ttyAMA0 udev rules for RPi 4"
+  echo "Adding ttySO udev rules for RPi 4"
   add_line_if_not_exists "/etc/udev/rules.d/78-mm-user.rules" 'ACTION!="add|change|move", GOTO="mm_user_rules_end"'
-  add_line_if_not_exists "/etc/udev/rules.d/78-mm-user.rules" 'KERNEL=="'$TTY_DEVICE'", ENV{ID_MM_PLATFORM_DRIVER_PROBE}="1"'
+  add_line_if_not_exists "/etc/udev/rules.d/78-mm-user.rules" 'DEVPATH=="/sys/devices/platform/soc/fe215040.serial/tty/ttyS0", ENV{ID_MM_PLATFORM_DRIVER_PROBE}="1"'
   add_line_if_not_exists "/etc/udev/rules.d/78-mm-user.rules" 'LABEL="mm_user_rules_end"'
-elif [ $PI_PLATFORM == 5 ]; then
-  echo "Adding ttyAMA0 udev rules for RPi 5"
-  add_line_if_not_exists "/etc/udev/rules.d/78-mm-user.rules" 'ACTION!="add|change|move", GOTO="mm_user_rules_end"'
-  add_line_if_not_exists "/etc/udev/rules.d/78-mm-user.rules" 'KERNEL=="'$TTY_DEVICE'", ENV{ID_MM_PLATFORM_DRIVER_PROBE}="1"'
-  add_line_if_not_exists "/etc/udev/rules.d/78-mm-user.rules" 'LABEL="mm_user_rules_end"'
-fi  
+fi
 
-UDEV_RULES='ACTION=="add|change|move", KERNEL=="'$TTY_DEVICE'", ENV{ID_MM_TTY_BAUDRATE}="460800", ENV{ID_MM_CANDIDATE}="1", ENV{ID_MM_PLATFORM_DRIVER_PROBE}="1", ENV{ID_MM_DEVICE_PROCESS}="1"'
+UDEV_RULES='ACTION=="add|change|move", KERNEL=="'$TTY_DEVICE'", ENV{ID_MM_TTY_BAUDRATE}="921600", ENV{ID_MM_CANDIDATE}="1", ENV{ID_MM_PLATFORM_DRIVER_PROBE}="1", ENV{ID_MM_DEVICE_PROCESS}="1"'
 add_line_if_not_exists "/etc/udev/rules.d/78-mm-user1.rules" "$UDEV_RULES"
 
 # Scan for modem

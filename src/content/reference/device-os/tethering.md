@@ -26,6 +26,8 @@ This features requires a LTE Cat 1 cellular module, available on these SKUs.
 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | EG91-NAX | NORAM | 3 | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EG91-E | EMEAA | 3 | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-E | EMEAA | 3 | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | EG91-NAX | NORAM | 3 | In development |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | EG91-NAX | NORAM | 3 | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -100,17 +102,77 @@ If you are using your own custom board you will be using these pins on the B504 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 
-## Raspberry Pi
+## Raspberry Pi 
 
 If using a Raspberry Pi as the other device, you must configure it to establish a PPP connection
 over its serial port instead of Ethernet or Wi-Fi.
 
-- Be sure to cross TX &#x2194; RX and CTS &#x2194; RTS between the Pi and the B-SoM. For example, the Particle TX connects to the Pi RX.
+- Be sure to cross TX &#x2194; RX between the Pi and the B-SoM. For example, the Particle TX connects to the Pi RX.
 - Be sure the GND pin is connected between the Pi and the B-SoM.
 - Do not connect 3V3 or 5V between the Pi and B-SoM! 
 - You may connect the Pi 5V to Particle device VIN if you are powering the Particle device from the Pi hat connector.
 
-### Serial connections - Raspberry Pi 5
+This section is separated into two parts. The first is the easy method using 460 Kbaud without flow control on UART0, 
+which works on both the Pi 4 and Pi 5.
+
+If you are building your own board, you may want to use the second method, which uses 912 Kbaud with hardware flow
+control (RTS/CTS). See [Using flow control](#using-flow-control-raspberry-pi), below.
+
+### Serial connections - Raspberry Pi
+
+
+The setup script, below, uses UART0 without flow control for the tethering connection on the Raspberry Pi. It
+can be used on both the Pi 4 and Pi 5.
+
+{{imageOverlay src="/assets/images/pi/pi4-uart0.svg"}}
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated c864a725-a712-44ad-b4e9-ccb882e860b7 --}}
+
+| Pi Pin Num | Pi GPIO | Pi Function | ↔ | Particle Name | Particle Function |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 8 | GPIO14 | UART0_TX | &nbsp; | RX | Serial1 RX |
+| 10 | GPIO15 | UART0_RX | &nbsp; | TX | Serial1 TX |
+| 6 | GND | &nbsp; | &nbsp; | GND | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+### Setup script - Raspberry Pi
+
+The script below makes it easy if you are using Debian 12 "bookworm" for 32-bit or 64-bit ARM
+on a Raspberry Pi 4 or Raspberry Pi 5.
+
+{{> codebox content="/assets/files/enable-tethering.sh" format="sh" height="400" flash="false"}}
+
+Download and run this script on your Raspberry Pi:
+
+```
+bash enable-tethering.sh
+```
+
+This script:
+
+1. Disables the linux serial console on the USART needed for tethering
+2. Enables a USART with flow control on the USART pins
+3. Disable sany PPP options, create default options for the new tty PPP device
+4. Adds udev rules for the new PPP tty device
+5. Scans for the modem in modem manager
+6. Creates a connection to the modem using NetworkManager
+
+### Using flow control - Raspberry Pi
+
+Using flow control with a 912 Kbaud data rate provides the optimal performance and is recommended if you are designing
+your own board.
+
+One important caveat: On the Pi 4, UART0 does not support hardware flow control. Thus you need to use separate pins 
+for Pi 4 vs. Pi 5.
+
+Be sure to cross TX &#x2194; RX and CTS &#x2194; RTS between the Pi and the B-SoM. For example, the Particle CTS connects to the Pi RTS.
+
+
+### Serial with flow control - Raspberry Pi 5
 
 The setup script, below, uses UART0 for the tethering connection on the Raspberry Pi 5.
 
@@ -136,12 +198,11 @@ If you wish to use a different port, the following ports are available on the Ra
 {{imageOverlay src="/assets/images/pi/pi5-serial.svg"}}
 
 
-### Serial connections - Raspberry Pi 4
+### Serial with flow control - Raspberry Pi 4
+
+The setup script below uses UART2 on the Raspberry Pi 4 because UART0 does not support hardware flow control on the Pi 4.
 
 {{imageOverlay src="/assets/images/pi/pi4-uart2.svg"}}
-
-
-
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1b6753e8-fead-433a-8fa0-476c6a851e2e --}}
 
@@ -157,17 +218,17 @@ If you wish to use a different port, the following ports are available on the Ra
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 
-If you wish to use a different port, the following ports are available on the Raspberry Pi 4. Note that you should not use UART0 as it does not support flow control.
+If you wish to use a different port, the following ports are available on the Raspberry Pi 4.
 
 {{imageOverlay src="/assets/images/pi/pi4-serial.svg"}}
 
 
-### Setup script - Raspberry Pi
+### Setup script with flow control - Raspberry Pi
 
 The script below makes it easy if you are using Debian 12 "bookworm" for 32-bit or 64-bit ARM
 on a Raspberry Pi 4 or Raspberry Pi 5.
 
-{{> codebox content="/assets/files/enable-tethering.sh" format="sh" height="400" flash="false"}}
+{{> codebox content="/assets/files/enable-tethering-flow.sh" format="sh" height="400" flash="false"}}
 
 Download and run this script on your Raspberry Pi:
 

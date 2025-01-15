@@ -27,6 +27,10 @@ The header format must be exactly that because the search feature uses that to d
 [TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/) is now available.
 --}}
 
+### Updated tethering 2025-01-15
+
+Updated the [tethering reference](/reference/device-os/tethering/) with a new script and updated instructions.
+
 ### Boron 2G/3G deprecation 2025-01-13
 
 BRN310TRAY50, Boron 2G/3G (Global), Tray [x50], is no longer available. The BRN310KIT was previously deprecated so all BRN310 SKUs are now deprecated.

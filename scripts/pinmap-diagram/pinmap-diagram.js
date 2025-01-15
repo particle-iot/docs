@@ -2486,6 +2486,24 @@ const svg = require('./svg');
             },
         }, generateOptions), files);
 
+        await diagram.generatePi(Object.assign({
+            platformName: 'pi4',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['uart0'],
+                },
+            ],
+            outputPath: 'assets/images/pi/pi4-uart0.svg',
+        }, generateOptions), files);
 
         await diagram.generatePi(Object.assign({
             platformName: 'pi4',

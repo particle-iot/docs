@@ -4726,7 +4726,7 @@ const schemaDocs = require('./schema-docs');
                         }
 
                         // true to remove from list
-                        return skuObj.family != "b series" || skuObj.sim != 4 || !modemObj.technologies.includes('Cat1');
+                        return skuObj.family != "b series" || (skuObj.sim != 4 && skuObj.sim != 5) || !modemObj.technologies.includes('Cat1');
                     }        
                 }); 
             }           
@@ -4886,6 +4886,68 @@ const schemaDocs = require('./schema-docs');
                 }); 
             },
         },
+        {
+            guid:'c864a725-a712-44ad-b4e9-ccb882e860b7',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'connectionDiagram',
+                    platformOld: 'pi5', // from (left)
+                    platformNew: 'M.2 SoM breakout board header, B-SoM', // to (right)
+                    connections: [
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO14',
+                            fromLabel: 'UART0_TX',
+                            toKey: 'name',
+                            toValue: 'RX',
+                            toLabel: 'Serial1 RX'
+                        },
+                        {
+                            fromKey: 'name',
+                            fromValue: 'GPIO15',
+                            fromLabel: 'UART0_RX',
+                            toKey: 'name',
+                            toValue: 'TX',
+                            toLabel: 'Serial1 TX'
+                        },
+                        {
+                            fromKey: 'num',
+                            fromValue: 6,
+                            fromLabel: '',
+                            toKey: 'num',
+                            toValue: 1,
+                            toLabel: ''
+                        },
+                    ],
+                    columns: [
+                        {
+                            key: 'from.num',
+                            title: 'Pi Pin Num',
+                        },
+                        {
+                            key: 'from.name',
+                            title: 'Pi GPIO',
+                        },
+                        {
+                            key: 'fromLabel',
+                            title: 'Pi Function',
+                        },
+                        {
+                            isSeparator: true, // separator between from and to
+                        },
+                        {
+                            key: 'to.name',
+                            title: 'Particle Name',
+                        },
+                        {
+                            key: 'toLabel',
+                            title: 'Particle Function',
+                        },
+                    ],
+                }); 
+            },
+        },
+
         // M1 Enclosure
         {
             // SKU m1 enclosure
