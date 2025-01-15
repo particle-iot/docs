@@ -19,5 +19,6 @@
     "minimumDeviceProtectionVersion": "6.1.1",
     "maximumCompileTime": "120 seconds",
     "maximumCompilePayload": "50 MB",
-    "systemThreadRequired": "6.2.0"
+    "systemThreadRequired": "6.2.0",
+    "dataOperationsForLocation": 50
 }

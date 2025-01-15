@@ -185,6 +185,10 @@
                     "title": "Cloud API"
                 },
                 {
+                    "dir": "location",
+                    "title": "Location"
+                },
+                {
                     "dir": "device-claiming",
                     "title": "Device claiming"
                 }

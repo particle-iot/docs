@@ -544,6 +544,7 @@
   "/reference/webhooks": "/reference/cloud-apis/webhooks",
   "/reference/windows": "/reference/discontinued/software/windows",
   "/scaling": "/scaling/scaling",
+  "/scaling/best-practices/device-protection": "/scaling/enterprise-features/device-protection",
   "/scaling/manufacturing": "/scaling/manufacturing/manufacturing-cellular",
   "/setup": "/getting-started/setup/setup-options",
   "/shields": "/datasheets/kits-and-accessories/kits",

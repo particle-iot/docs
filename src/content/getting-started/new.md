@@ -27,6 +27,10 @@ The header format must be exactly that because the search feature uses that to d
 [TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/) is now available.
 --}}
 
+### Location updates 2025-01-15
+
+A new [getting started with location](/getting-started/cloud/location/) guide discusses additional options on non-Tracker devices.
+
 ### Updated tethering 2025-01-15
 
 Updated the [tethering reference](/reference/device-os/tethering/) with a new script and updated instructions.

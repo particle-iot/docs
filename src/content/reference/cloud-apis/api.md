@@ -822,6 +822,14 @@ A location event typically has JSON that looks like this:
 
 To estimate the data usage for location events, see [this page](/getting-started/console/console/#data-usage).
 
+#### On non-Tracker devices
+
+{{!-- BEGIN shared-blurb c4c1c0b6-028c-47fa-a13d-4b14452f096f --}}
+On some plans, it is possible to use the `loc` event on non-Tracker devices. See [getting started with location](/getting-started/cloud/location/).
+
+This might be done if you have a device with GNSS in the cellular modem (such as the M-SoM and B504), or if you have added an external hardware GNSS to your project.
+{{!-- END shared-blurb --}}
+
 #### cmd
 
 This currently always the string `loc`, indicating that the payload contains the `loc` object.
