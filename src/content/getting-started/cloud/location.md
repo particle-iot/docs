@@ -101,7 +101,7 @@ Devices typically upload [Device Vitals](/getting-started/console/device-vitals/
 Device Vitals can be used to generate an approximate location of the device and is available on cellular, Wi-Fi, and Ethernet devices. On non-cellular devices, Device Vitals geolocation uses
 IP-address geolocation, so the location will not be precise.
 
-On Sandbox and Basic plans, the Device Vitals location is updated one per week. On Enterprise plans, the location is updated on all Device Vitals updates.
+On Sandbox and Basic plans, the Device Vitals location is updated once per week. On Enterprise plans, the location is updated on all Device Vitals updates.
 
 ### loc events (other than Tracker)
 
