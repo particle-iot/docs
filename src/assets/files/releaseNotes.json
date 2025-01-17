@@ -42996,6 +42996,30 @@
             "state": "closed",
             "created_at": "2024-12-11T19:27:38Z",
             "detail": "- u-blox R510 modems have a reduced clock timing when in Power Saving mode, and if they should lock-up in that mode and require recovery intervention with the Emergency Hardware Shutdown (EHS) procedure, the standard documented timing will not recover them.  Instead, timings given by u-blox for a 1/4 clock rate shall be used."
+        },
+        "2851": {
+            "url": "https://github.com/particle-iot/device-os/pull/2851",
+            "number": 2851,
+            "title": "[Gen 3] stack size fixes, __cxa_acquire/release/atexit refactoring",
+            "state": "closed",
+            "created_at": "2024-12-30T19:36:34Z",
+            "detail": "Gen 3 platforms trigger a hardfault on boot with #2840 every other time."
+        },
+        "2852": {
+            "url": "https://github.com/particle-iot/device-os/pull/2852",
+            "number": 2852,
+            "title": "Fix section size calc for some filenames",
+            "state": "closed",
+            "created_at": "2025-01-06T18:25:28Z",
+            "detail": "Commit 38ced0de0a2f04bd2fae597338d0eb8583bbc1f1 introduced alignment into section size calculations, but failed on file paths that contain strings \"data\", \"bss\", etc."
+        },
+        "2853": {
+            "url": "https://github.com/particle-iot/device-os/pull/2853",
+            "number": 2853,
+            "title": "[Gen 4] wifi: prevent skbuf overflow in rtw_opt_skbuf",
+            "state": "open",
+            "created_at": "2025-01-17T16:44:21Z",
+            "detail": "Incorrect `MAX_SKB_BUF_SIZE` is defined in SDK `rtw_opt_skbuf.c` (an override source which allows us to increase the default number of packet buffers). The defined value is lower than what is expected by the rest of the closed-source `lib_wlan.a` and due to this an out of bounds access is very easily triggered with large enough network packets (slightly over 1000 bytes).\n\nThis usually causes one of these issues:\n1. WiFi connection drop\n2. Deadlock"
         }
     }
 }

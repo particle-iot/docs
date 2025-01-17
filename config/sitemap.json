@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "be69ab9453b51c1d7e924da5908236055441afdd37787a87dc7da1b91146f316",
+            "hash": "401006611982116cb66a3379665fdef453114c901fa63e32d166567f8b1c2ae6",
             "date": "2025-01-17"
         },
         "getting-started/cloud/logic.md": {
@@ -9621,6 +9621,10 @@
         "getting-started/cloud/location.md": {
             "hash": "bd19ca1cdba43de1a3b90039564f225de7688d3d52b2fe2a877839d2c4faa446",
             "date": "2025-01-16"
+        },
+        "reference/technical-advisory-notices/tan015.md": {
+            "hash": "198de88b8a154b2b6164093b19210baf6ddce1d8407858f1b49dbfee848d7072",
+            "date": "2025-01-17"
         }
     }
 }
