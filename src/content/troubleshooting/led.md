@@ -186,7 +186,7 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 <p class="caption"> <a target="_blank" href="/assets/images/bad-sim-socket.png">Click here</a> for a larger image.</p>
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the RESET button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a loose SIM card holder.
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the RESET button on the Electron. If you see the device begin to connect to the cellular network (blink green), you may have a loose SIM card holder.
 
 {{collapse op="end"}}
 
@@ -424,7 +424,7 @@ There are additional tips for a [missing openssl error on this page](https://git
 {{collapse op="end"}}
 
 
-## Red flash SOS
+## Red blink SOS
 
 {{device-animation device "sos" }}
 
@@ -436,6 +436,8 @@ A pattern of more than 10 red blinks is caused by the firmware crashing. The pat
 
 You can also reset your device to a known state by following [these instructions](/troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/).
 
+After an SOS, the device reboots, then you can use the [System.resetReason()](/reference/device-os/api/system-calls/reset-reason) call to find the panic code. This is also uploaded
+to the cloud using the [last_reset event](/reference/cloud-apis/api/#spark-device-last_reset) after reconnecting to the cloud.
 
 There are a number of other red blink codes that may be expressed after the SOS blinks:
 
@@ -453,8 +455,9 @@ There are a number of other red blink codes that may be expressed after the SOS 
 12. Pure virtual call
 13. Stack overflow
 14. Heap error
+15. Security error
 
-The two most common ones are:
+Common events include:
 
 **Hard Fault (1 blink between 2 SOS patterns)**
 

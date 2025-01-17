@@ -4706,7 +4706,24 @@
         },
         {
           "title": "Reset reason - System calls",
-          "dir": "reset-reason"
+          "dir": "reset-reason",
+          "subsections": [
+            {
+              "anchor": "resetreason-system",
+              "title": "resetReason() - System",
+              "isContent": true
+            },
+            {
+              "anchor": "resetreasondata-system",
+              "title": "resetReasonData() - System",
+              "isContent": true
+            },
+            {
+              "anchor": "reset-system",
+              "title": "reset() -  System",
+              "isContent": true
+            }
+          ]
         },
         {
           "title": "backupRamSync - System calls",

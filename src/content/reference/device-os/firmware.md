@@ -23895,29 +23895,59 @@ void setup() {
 
 **Note:** This functionality requires `FEATURE_RESET_INFO` flag to be enabled in order to work.
 
-`resetReason()`
+#### resetReason() - System 
+
+`System.resetReason()`
 
 Returns a code describing reason of the last device reset. The following codes are defined:
 
-- `RESET_REASON_NONE`: Information is not available (0)
-- `RESET_REASON_UNKNOWN`: Unspecified reset reason (10)
-- `RESET_REASON_PIN_RESET`: Reset button or reset pin (20)
-- `RESET_REASON_POWER_MANAGEMENT`: Low-power management reset (30)
-- `RESET_REASON_POWER_DOWN`: Power-down reset (40)
-- `RESET_REASON_POWER_BROWNOUT`: Brownout reset (50)
-- `RESET_REASON_WATCHDOG`: Hardware watchdog reset (60)
-- `RESET_REASON_UPDATE`: Successful firmware update (70)
-- `RESET_REASON_UPDATE_ERROR`: Firmware update error, deprecated (80)
-- `RESET_REASON_UPDATE_TIMEOUT`: Firmware update timeout (90)
-- `RESET_REASON_FACTORY_RESET`: Factory reset requested (100)
-- `RESET_REASON_SAFE_MODE`: Safe mode requested (110)
-- `RESET_REASON_DFU_MODE`: DFU mode requested (120)
-- `RESET_REASON_PANIC`: System panic (130)
-- `RESET_REASON_USER`: User-requested reset (140)
+| Constant | Numeric | Meaning | Data |
+| :--- | ---: | :--- | :--- |
+| `RESET_REASON_NONE` | 0 | Information is not available | 0 |
+| `RESET_REASON_UNKNOWN` | 10 | Unspecified reset reason | |
+| `RESET_REASON_PIN_RESET` | 20 | Reset button or reset pin | |
+| `RESET_REASON_POWER_MANAGEMENT` | 30 | Low-power management reset | |
+| `RESET_REASON_POWER_DOWN` | 40 | Power-down reset | |
+| `RESET_REASON_POWER_BROWNOUT` | 50 | Brownout reset | |
+| `RESET_REASON_WATCHDOG` | 60 | Hardware watchdog reset | |
+| `RESET_REASON_UPDATE` | 70 | Successful firmware update | |
+| `RESET_REASON_UPDATE_ERROR` | 80 | Firmware update error, deprecated | |
+| `RESET_REASON_UPDATE_TIMEOUT` | 90 | Firmware update timeout | |
+| `RESET_REASON_FACTORY_RESET` | 100 |  Factory reset requested | 0 |
+| `RESET_REASON_SAFE_MODE` | 110 | Safe mode requested | 0 |
+| `RESET_REASON_DFU_MODE` | 120 | DFU mode requested | 0 |
+| `RESET_REASON_PANIC` | 130 | System panic | Panic code |
+| `RESET_REASON_USER` | 140 | User-requested reset | User-defined |
 
-`resetReasonData()`
+This is also uploaded to the cloud using the [last_reset event](/reference/cloud-apis/api/#spark-device-last_reset) after reconnecting to the cloud.
 
-Returns a user-defined value that has been previously specified for the `System.reset()` call.
+#### resetReasonData() - System 
+
+`System.resetReasonData()`
+
+Returns a user-defined value that has been previously specified for the `System.reset()` call. 
+
+If the reason is `RESET_REASON_PANIC`, then the reasonReasonData() is the panic code. For more information on the meaning of these codes, see [red blink SOS](/troubleshooting/led/#red-blink-sos).
+
+| Numeric value | Constant |
+| ---: | :--- |
+|  1 | `HardFault` |
+|  2 | `NMIFault` |
+|  3 | `MemManage` |
+|  4 | `BusFault` |
+|  5 | `UsageFault` |
+|  6 | `InvalidLenth` |
+|  7 | `Exit`|
+|  8 | `OutOfHeap` |
+|  9 | `SPIOverRun` |
+| 10 | `AssertionFailure` |
+| 11 | `InvalidCase` |
+| 12 | `PureVirtualCall` |
+| 13 | `StackOverflow` |
+| 14 | `HeapError`|
+| 15 | `SecureFault` |
+
+#### reset() -  System
 
 `reset(uint32_t data)`
 

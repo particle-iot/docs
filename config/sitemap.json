@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-01-10",
-            "hash": "62c9749610d6fc43ba3b6323d7e59d7d8ed46ba30e06c7a84e3455e762e54333"
+            "date": "2025-01-17",
+            "hash": "de71815c3b8d2b898e35e8eccd1cff7ad529114eb33b5e638adfc3bb3ed73ce5"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3831,8 +3831,8 @@
             "hash": "30a0ea5aed90da92b19d707fcace366d4bf782180cd63c42aa63d807f400ea1f"
         },
         "reference/device-os/api/system-calls/reset-reason.md": {
-            "date": "2023-10-21",
-            "hash": "3fea340bdd84684076d16f3e748f051a1f492ddeee80b6d50c4450193525433e"
+            "date": "2025-01-17",
+            "hash": "0e4c5b9759d8a41e6d67982f5bfebebf36ceca99ab9c398312e92061a80de623"
         },
         "reference/device-os/api/system-calls/backupramsync.md": {
             "date": "2024-04-25",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "eddfd4140dd5a76bff77c2bdd47b808d06f14baec5f41ac10ef1f58d0a810bca",
+            "hash": "be69ab9453b51c1d7e924da5908236055441afdd37787a87dc7da1b91146f316",
             "date": "2025-01-17"
         },
         "getting-started/cloud/logic.md": {
@@ -8395,7 +8395,7 @@
             "date": "2025-01-15"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "14da06b90c66511741dbe061bae5f9ecc6a997c65e2fcfd3ea5384723af96998",
+            "hash": "9f9bd330fcdcd3883c5d1b163de69e473595bd13a7d97b06655579327f46e75d",
             "date": "2025-01-17"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
@@ -9451,8 +9451,8 @@
             "date": "2024-11-01"
         },
         "troubleshooting/led.md": {
-            "hash": "e589761f603f2097df63956e68747336dd7a97cff486fbf232e1cd0de19361fa",
-            "date": "2024-10-28"
+            "hash": "df60457eef43105be5df19b65e3f0e556ba9ccad05ad6bb979405f056d124ef7",
+            "date": "2025-01-17"
         },
         "troubleshooting/guides/device-troubleshooting/muon-usb-power.md": {
             "hash": "5e971b61c9fc895f846d18ef8e2537d5c692c172c27c5d921d5ab347fb77b0af",
