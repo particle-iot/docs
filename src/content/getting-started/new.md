@@ -27,6 +27,10 @@ The header format must be exactly that because the search feature uses that to d
 [TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/) is now available.
 --}}
 
+### Muon I2S clock 2025-01-187
+
+On the Muon, the `GPIO18` pin is also `PCM_CLK`.
+
 ### Location updates 2025-01-15
 
 A new [getting started with location](/getting-started/cloud/location/) guide discusses additional options on non-Tracker devices.
