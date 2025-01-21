@@ -663,15 +663,15 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
 
-{{!-- BEGIN do not edit content below, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated e39d39e4-5349-44b3-9aaa-989469037cd4 --}}
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
-| 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! | PA[4] |
+| 32 | MODE | MODE button. Pin number constant is BTN. External pull-up required! | PA[11] |
+| 34 | RST | Hardware reset, active low. External pull-up required. | CHIP_EN |
 
 
-{{!-- END do not edit content above, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
 
@@ -1482,3 +1482,4 @@ Global, country list to be provided a later date.
 | 010      | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
 | 011      | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
 | 012      | 2025-01-06 | RK | Added note explaining reserved SoM pins |
+| 013      | 2025-01-21 | RK | Incorrect RTL pin listed in SETUP and RESET button section. It was listed as PA[4] but is PA[11]. It was correct in the pin diagram. |
