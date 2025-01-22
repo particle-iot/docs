@@ -365,7 +365,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
                 lastItemAtLevel[level] = innerItemObj;
 
                 if (level < lastLevel) {
-                    lastItemAtLevel = lastItemAtLevel.slice(0, level);
+                    lastItemAtLevel = lastItemAtLevel.slice(0, level + 1);
                 }
                 lastLevel = level;
             });     

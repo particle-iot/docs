@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Left navigation fix 2025-01-22
+
+The left navigation for a number of pages had incorrect indentation, making it very hard to find sections, which has been fixed.
+
 ### TAN015 - SARA-R510 reset procedure 2025-01-18
 
 [TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/) is now available.
