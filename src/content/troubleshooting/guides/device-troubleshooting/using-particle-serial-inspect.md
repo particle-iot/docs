@@ -11,7 +11,7 @@ If your device is going into safe mode (breathing magenta) or is unexpectedly co
 2. Connect the device by USB to your computer.
 3. Enter the following command from a Command Prompt or Terminal window:
 
-``
+```
 particle serial inspect
 ```
 
