@@ -17,12 +17,13 @@ Enhancement in later versions of Device OS will allow for larger payloads, and l
 There are currently five data types, including the following:
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
-| Content Type Constant | MIME Type |
-| :--- | :--- |
-| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
-| `ContentType::JPEG`   | `image/jpeg` |
-| `ContentType::PNG`    | `image/png` |
-| `ContentType::BINARY` | `application/octet-stream` |
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
 {{!-- END shared-blurb --}}
 
 The `TEXT` format is what was used prior to Device OS 6.2.
@@ -168,10 +169,47 @@ obj.set("c", Variant(true));
 
 ## Publish
 
-See [Publish](/reference/device-os/api/publish/) in the Device OS firmware API.
+See [Publish](/reference/device-os/api/publish/) in the Device OS firmware API for additional information.
 
+### Legacy publish
+
+Using the legacy API for publish typically looks like this:
+
+{{> codebox content="/assets/files/extended-publish/LegacyPublish.cpp" format="cpp" height="400" flash="true"}}
+
+
+### Blocking publish
+
+{{> codebox content="/assets/files/extended-publish/SimplePublishBlocking.cpp" format="cpp" height="400" flash="true"}}
+
+### Non-blocking publish
+
+{{> codebox content="/assets/files/extended-publish/SimplePublishNonBlocking.cpp" format="cpp" height="400" flash="true"}}
+
+### Binary publish
+
+{{> codebox content="/assets/files/extended-publish/BinaryData.cpp" format="cpp" height="400" flash="true"}}
+
+### Binary with JSON publish
+
+{{> codebox content="/assets/files/extended-publish/BinaryWithJson.cpp" format="cpp" height="400" flash="true"}}
+
+### State machine publish
+
+{{> codebox content="/assets/files/extended-publish/StateMachine.cpp" format="cpp" height="400" flash="true"}}
+
+### State machine class publish
+
+{{> codebox content="/assets/files/extended-publish/StateMachineClass.cpp" format="cpp" height="400" flash="true"}}
 
 ## Subscribe
 
-See [Subscribe](/reference/device-os/api/subscribe/) in the Device OS firmware API.
+See [Subscribe](/reference/device-os/api/subscribe/) in the Device OS firmware API for additional information.
 
+### Simple subscription
+
+{{> codebox content="/assets/files/extended-publish/SimpleSubscription.cpp" format="cpp" height="400" flash="true"}}
+
+### Structured subscription
+
+{{> codebox content="/assets/files/extended-publish/StructuredSubscription.cpp" format="cpp" height="400" flash="true"}}

@@ -406,6 +406,7 @@
   "/reference/device-os/api/eeprom": "/reference/device-os/api/eeprom/eeprom",
   "/reference/device-os/api/enablefeature": "/reference/device-os/api/enablefeature/enablefeature",
   "/reference/device-os/api/ethernet": "/reference/device-os/api/ethernet/ethernet",
+  "/reference/device-os/api/eventdata": "/reference/device-os/api/eventdata/eventdata",
   "/reference/device-os/api/featureenabled": "/reference/device-os/api/featureenabled/featureenabled",
   "/reference/device-os/api/file-system": "/reference/device-os/api/file-system/file-system",
   "/reference/device-os/api/fuelgauge": "/reference/device-os/api/fuelgauge/fuelgauge",

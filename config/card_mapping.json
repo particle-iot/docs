@@ -661,6 +661,7 @@
   "/reference/device-os/firmware/#fromhex-string-static-buffer-class-": "/reference/device-os/api/buffer/fromhex-string-static-buffer-class/",
   "/reference/device-os/firmware/#fromhex-c-string-static-buffer-class-": "/reference/device-os/api/buffer/fromhex-c-string-static-buffer-class/",
   "/reference/device-os/firmware/#fromhex-pointer-size-static-buffer-class-": "/reference/device-os/api/buffer/fromhex-pointer-size-static-buffer-class/",
+  "/reference/device-os/firmware/#eventdata": "/reference/device-os/api/eventdata/eventdata/",
   "/reference/device-os/firmware/#variant": "/reference/device-os/api/variant/variant/",
   "/reference/device-os/firmware/#set-variant-class-": "/reference/device-os/api/variant/set-variant-class/",
   "/reference/device-os/firmware/#variant-type": "/reference/device-os/api/variant/variant-type/",
