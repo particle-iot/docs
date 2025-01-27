@@ -1,4 +1,4 @@
-// SimplePublishNonBlocking.cpp
+// SimplePublishCallback.cpp
 
 #include "Particle.h"
 
@@ -18,7 +18,11 @@ CloudEvent event;
 void readSensors(float &a, int &b);
 void publishSensors();
 
+void myStatusChangeHandler(CloudEvent event);
+
+
 void setup() {
+    event.onStatusChange(myStatusChangeHandler);
 }
 
 void loop() {
@@ -28,17 +32,7 @@ void loop() {
 
             publishSensors();
         }
-    }
-    
-    if (event.isSent()) {
-        Log.info("publish succeeded");
-        event.clear();
-    }
-    else 
-    if (!event.isOk()) {
-        Log.info("publish failed error=%d", event.error());
-        event.clear();
-    }
+    }    
 }
 
 
@@ -61,4 +55,16 @@ void publishSensors() {
     Particle.publish(event);
 
     Log.info("publishing %s", obj.toJSON().c_str());
+}
+
+void myStatusChangeHandler(CloudEvent event) {
+    if (event.isSent()) {
+        Log.info("publish succeeded");
+        event.clear();
+    }
+    else 
+    if (!event.isOk()) {
+        Log.info("publish failed error=%d", event.error());
+        event.clear();
+    }
 }

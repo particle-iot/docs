@@ -10,7 +10,26 @@ description: Typed publish for Particle IoT devices
 In Device OS 6.2.0, a number of enhancements were made to allow data types other than 
 plain text to be sent and allow for more efficient transmission of structured data.
 
-Enhancement in later versions of Device OS will allow for larger payloads, and limits exceeding 1 publish per second.
+## Extended publish 
+
+In Device OS 6.3.0 and later, extended publish builds upon typed publish and provides additional features:
+
+### Large events - Extended publish
+
+In Device OS 6.3.0 and later, events can be up to 16,384 in size. Previously, event payloads were limited to 1024 bytes or less.
+
+Large events count as 1 data operation for each 1024 bytes of data, rounded up. A publish of 1000 bytes count as a 1 data operation, but 1300 bytes counts as 2 data operations. A maximum event size of 16 Kbytes counts as 16 data operations.
+
+### Increased rate limits - Extended publish
+
+Prior to Device OS 6.3.0, there was a rate limit of approximately 1 publish for second, with greater bursts.
+
+With Device OS 6.3.0 and extended publish, there is a limit of approximately 16 Kbytes of data in transit at a time. This could be
+16 events of 1024 bytes, or a single event with 16,384 bytes of data.
+
+The [canPublish](/reference/device-os/api/cloudevent/publish-status-cloudevent/#canpublish-cloudevent) method can be used to check
+if a publish of a given size would be allowed at the current time. It it returns false, you should wait and check again later 
+after the queued data has been sent.
 
 ## Data types
 
@@ -177,28 +196,46 @@ Using the legacy API for publish typically looks like this:
 
 {{> codebox content="/assets/files/extended-publish/LegacyPublish.cpp" format="cpp" height="400" flash="true"}}
 
-
 ### Blocking publish
+
+This example shows how to do a blocking publish, similar to how the legacy publish worked.
 
 {{> codebox content="/assets/files/extended-publish/SimplePublishBlocking.cpp" format="cpp" height="400" flash="true"}}
 
 ### Non-blocking publish
 
+This example shows how to do a non-blocking publish.
+
 {{> codebox content="/assets/files/extended-publish/SimplePublishNonBlocking.cpp" format="cpp" height="400" flash="true"}}
 
 ### Binary publish
+
+This example sends binary data in a publish.
 
 {{> codebox content="/assets/files/extended-publish/BinaryData.cpp" format="cpp" height="400" flash="true"}}
 
 ### Binary with JSON publish
 
+This example includes JSON data that includes binary data.
+
 {{> codebox content="/assets/files/extended-publish/BinaryWithJson.cpp" format="cpp" height="400" flash="true"}}
 
+### Simple publish callback
+
+This example uses the [onStatusChange](/reference/device-os/api/cloudevent/publish-status-cloudevent/#onstatuschange-cloudevent) 
+method of `CloudEvent` to be notified when the publish status changes via a callback, instead of polling.
+
+{{> codebox content="/assets/files/extended-publish/SimplePublishCallback.cpp" format="cpp" height="400" flash="true"}}
+
 ### State machine publish
+
+This example uses a simple finite state machine to handle publishing.
 
 {{> codebox content="/assets/files/extended-publish/StateMachine.cpp" format="cpp" height="400" flash="true"}}
 
 ### State machine class publish
+
+This example uses a finite state machine implemented in a C++ class.
 
 {{> codebox content="/assets/files/extended-publish/StateMachineClass.cpp" format="cpp" height="400" flash="true"}}
 
@@ -208,8 +245,12 @@ See [Subscribe](/reference/device-os/api/subscribe/) in the Device OS firmware A
 
 ### Simple subscription
 
+This example uses the subscribe with cloud event API.
+
 {{> codebox content="/assets/files/extended-publish/SimpleSubscription.cpp" format="cpp" height="400" flash="true"}}
 
 ### Structured subscription
+
+This example shows how to subscribe to structured data. This is used if you want to subscribe to events containing JSON data.
 
 {{> codebox content="/assets/files/extended-publish/StructuredSubscription.cpp" format="cpp" height="400" flash="true"}}

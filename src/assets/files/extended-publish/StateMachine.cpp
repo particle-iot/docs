@@ -82,7 +82,7 @@ bool publishSensors() {
     int b;
     readSensors(a, b);
 
-    Variant obj;
+    particle::Variant obj;
     obj.set("a", a);
     obj.set("b", b);
     obj.set("c", Buffer(data, dataSize));

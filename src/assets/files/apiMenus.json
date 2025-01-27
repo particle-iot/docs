@@ -1344,13 +1344,13 @@
               "isContent": true
             },
             {
-              "anchor": "data-from-buffer-cloudevent",
-              "title": "data from Buffer - CloudEvent",
+              "anchor": "datastring-cloudevent",
+              "title": "dataString - CloudEvent",
               "isContent": true
             },
             {
-              "anchor": "data-from-eventdata-cloudevent",
-              "title": "data - from EventData - CloudEvent",
+              "anchor": "data-from-buffer-cloudevent",
+              "title": "data from Buffer - CloudEvent",
               "isContent": true
             },
             {
@@ -1359,8 +1359,8 @@
               "isContent": true
             },
             {
-              "anchor": "data-to-string-cloudevent",
-              "title": "data - to String - CloudEvent",
+              "anchor": "data-from-eventdata-cloudevent",
+              "title": "data - from EventData - CloudEvent",
               "isContent": true
             },
             {
