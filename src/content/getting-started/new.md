@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated logic APIs 2025-01-27
+
+Documentation for the [Logic geocoding API](/getting-started/logic-ledger/logic/#particle-geocoding-api) and [getDeviceLocation](/getting-started/logic-ledger/logic/#getdevicelocationoptions-core-api) is now available. 
+
 ### Left navigation fix 2025-01-22
 
 The left navigation for a number of pages had incorrect indentation, making it very hard to find sections, which has been fixed.

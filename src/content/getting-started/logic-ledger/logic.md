@@ -485,6 +485,30 @@ This calls [get last known device vitals](/reference/cloud-apis/api/#get-last-kn
 export function getLastDeviceVitals(deviceId: string): Promise<ParticleApiResponse>;
 ```
 
+#### GetDeviceLocationOptions - core API
+
+This object specifies options for `getDeviceLocation()`:
+
+- `dateRange` Start and end date in ISO-8601 format, separated by comma, to query. Omitting date_range will return last known location. (optional)
+- `rectBl` Bottom left of the rectangular bounding box to query. Latitude and longitude separated by comma. (optional) 
+- `rectTr` Top right of the rectangular bounding box to query. Latitude and longitude separated by comma. (optional)
+
+```js
+export interface GetDeviceLocationOptions {
+    dateRange?: string,
+    rectBl?: string,
+    rectTr?: string,
+}
+```
+
+#### getDeviceLocation - core API
+
+This calls [get location for device in a product](/reference/cloud-apis/api/#query-location-for-one-device-within-a-product).
+
+```js
+export function getDeviceLocation(productIdOrSlug: string | number, deviceId: string, options?: GetDeviceLocationOptions): Promise<ParticleApiResponse>;
+```
+
 #### listIntegrations - core API
 
 This calls [list integrations](/reference/cloud-apis/api/#list-integrations) from Logic.
@@ -934,3 +958,50 @@ export interface ScheduledInfo {
     endAt?: string;
 }
 ```
+
+### Particle geocoding API
+
+The Geocoding API (particle:geo). 
+
+#### Location - Logic geocoding
+
+A geocoding location specifies a place name. This is returned from reverseGeocode(), for example.
+
+- `distance` Distance from the named location (meters)
+- `lat`: Latitude 
+- `long`: Longitude
+- `cc`: ISO 2-character country code. For example United States is US and Canada is CA.
+- `admin1`: Represents the first administrative division above the place, often a state, province, region, or territory, depending on the country.
+	-	US: California (state)
+	-	UK: England (region)
+	-	Canada: Quebec (province)
+	-	India: Karnataka (state)
+- `admin2`: Represents the second administrative division above the place, often a county, district, or municipality, depending on the country.
+	-	US: Los Angeles County
+	-	UK: Cornwall
+	-	India: Bangalore Urban
+	-	Japan: Shinjuku City
+- `name`: Name of the location. This represents the most specific name of the location, such as a city, town, village, or other settlement name.
+
+```js
+// PROTOTYPE
+export interface Location {
+    distance: number,
+    lat: number,
+    long: number,
+    name: string,
+    admin1: string,
+    admin2: string,
+    cc: string
+}
+```
+
+#### reverseGeocode - Logic geocoding
+
+Converts a latitude and longitude into a place name ("reverse geocode"). 
+
+```js
+// PROTOTYPE
+export function reverseGeocode(lat: number, long: number): Location
+```
+
