@@ -972,7 +972,7 @@ A geocoding location specifies a place name. This is returned from reverseGeocod
 
 - `distance` Distance from the named location (meters)
 - `lat`: Latitude 
-- `long`: Longitude
+- `lon`: Longitude
 - `cc`: ISO 2-character country code. For example United States is US and Canada is CA.
 - `admin1`: Represents the first administrative division above the place, often a state, province, region, or territory, depending on the country.
 	-	US: California (state)
@@ -991,7 +991,7 @@ A geocoding location specifies a place name. This is returned from reverseGeocod
 export interface Location {
     distance: number,
     lat: number,
-    long: number,
+    lon: number,
     name: string,
     admin1: string,
     admin2: string,
@@ -1005,6 +1005,6 @@ Converts a latitude and longitude into a place name ("reverse geocode").
 
 ```js
 // PROTOTYPE
-export function reverseGeocode(lat: number, long: number): Location
+export function reverseGeocode(lat: number, lon: number): Location
 ```
 
