@@ -1129,12 +1129,13 @@ In Device OS 6.2 and later, typed publish is supported. This allows the Content-
 to be specified, and allows for binary data payloads. The following types are supported:
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
-| Content Type Constant | MIME Type |
-| :--- | :--- |
-| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
-| `ContentType::JPEG`   | `image/jpeg` |
-| `ContentType::PNG`    | `image/png` |
-| `ContentType::BINARY` | `application/octet-stream` |
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
 {{!-- END shared-blurb --}}
 
 Additionally, JSON (text/json) structured data is supported. This is encoded using an `EventData` object, 
@@ -1209,12 +1210,13 @@ encoded as CBOR over-the-air, and JSON in webhooks and other locations. It can o
 #### contentType
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
-| Content Type Constant | MIME Type |
-| :--- | :--- |
-| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
-| `ContentType::JPEG`   | `image/jpeg` |
-| `ContentType::PNG`    | `image/png` |
-| `ContentType::BINARY` | `application/octet-stream` |
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
 {{!-- END shared-blurb --}}
 
 The content type provides a hint to the receiver for what the data is. This includes the console, which can render 
@@ -1500,12 +1502,13 @@ ContentType contentType() const
 ```
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
-| Content Type Constant | MIME Type |
-| :--- | :--- |
-| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
-| `ContentType::JPEG`   | `image/jpeg` |
-| `ContentType::PNG`    | `image/png` |
-| `ContentType::BINARY` | `application/octet-stream` |
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
 {{!-- END shared-blurb --}}
 
 When publishing you typically set the value, but you can also get the value that was previously set.
@@ -1844,11 +1847,13 @@ bool subscribe(const char* name, particle::EventHandlerWithCloudEvent* handler,
 bool subscribe(const char* name, std::function<particle::EventHandlerWithCloudEvent> handler,
         const particle::SubscribeOptions& opts = particle::SubscribeOptions());
 
+// Cloud event subscription handler prototype
+void mySubscriptionHandler(CloudEvent event);        
+
 // EventHandlerWithCloudEvent 
 typedef void (EventHandlerWithCloudEvent)(CloudEvent event);        
 ```
 
-In Device OS 6.3.0 and later you can 
 
 ### SubscribeOptions - Subscribe
 
@@ -14990,6 +14995,16 @@ static Buffer fromHex(const char* str, size_t len)
 
 When specifing `str` and `len`, the string and length should specify the data
 only. A null terminator is not required and must not be included in `len`.
+
+## EventData 
+
+{{api name1="EventData"}}
+
+{{since when="6.3.0"}}
+
+The `EventData` class is used when subscribing to structured data with a [`CloudEvent`](#cloudevent).
+
+It is another name for [`Variant`](#variant) and you will use the methods of that class to extract data from the `EventData`.
 
 ## Variant
 

@@ -1780,6 +1780,17 @@
       ]
     },
     {
+      "title": "EventData",
+      "dir": "eventdata",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "EventData",
+          "dir": "eventdata"
+        }
+      ]
+    },
+    {
       "title": "File system",
       "dir": "file-system",
       "collapse": true,
