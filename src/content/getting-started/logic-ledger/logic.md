@@ -961,7 +961,10 @@ export interface ScheduledInfo {
 
 ### Particle geocoding API
 
-The Geocoding API (particle:geo). 
+The Geocoding API (particle:geo) provides a function to make coordinates to a place name.
+
+The data is provided by [GeoNames](https://www.geonames.org/) under the 
+[Creative Commons License by attribution](https://creativecommons.org/licenses/by/4.0/).
 
 #### Location - Logic geocoding
 
