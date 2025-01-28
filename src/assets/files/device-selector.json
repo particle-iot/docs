@@ -27,6 +27,7 @@
         {
             "title": "Connectivity",
             "id": "c",
+            "matchAllCheckboxes": true,
             "checkboxes": [
                 {
                     "id": "cc",

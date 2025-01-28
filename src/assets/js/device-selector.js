@@ -93,41 +93,56 @@ $(document).ready(function() {
                 }
                 
                 if (questionObj.checkboxes) {
-                    let hasCheckbox = false;
+                    let selectedCount = 0;
 
                     for(const optionsObj of questionObj.checkboxes) {
                         if (deviceSelector.settings[optionsObj.id] === '1') {
-                            hasCheckbox = true;
-                            break;
+                            selectedCount++;
                         }
                     }
                     
-                    if (hasCheckbox) {
-                        // User selected at least one option, so add rankings
-                        let hasAny = false;
+                    if (selectedCount > 0) {
+                        // User selected at least one option
+                        let matchCount = 0;
+                        
+                        // matchAllCheckboxes
 
                         for(const optionsObj of questionObj.checkboxes) {
                             if (deviceSelector.settings[optionsObj.id] === '1') {
                                 if (Array.isArray(variationObj[questionObj.id]) && 
                                     variationObj[questionObj.id].includes(optionsObj.id)) {
-                                    hasAny = true;
+                                    matchCount++;
+                                }
+                                else
+                                if (questionObj.id == 'c' && deviceSelector.settings.ce === '1') {
+                                    // User has requested Ethernet
+                                    if (variationObj.ceOptional) {
+                                        matchCount++;
+                                    }
                                 }
                             }
                         }
-                        if (questionObj.id == 'c' && deviceSelector.settings.ce === '1') {
-                            // User has requested Ethernet
-                            if (variationObj.ceOptional) {
-                                hasAny = true;
-                            }
+
+                        console.log('question ' + questionObj.id, {matchCount, selectedCount, questionObj});
+
+
+                        if (questionObj.matchAllCheckboxes) {
+                            if (matchCount != selectedCount) {
+                                variationObj.show = false;
+                                variationObj.reasons.push('question ' + questionObj.id + ' got ' + matchCount + ' but required ' + selectedCount);
+                            }    
+                        }
+                        else {
+                            if (matchCount == 0) {
+                                variationObj.show = false;
+                                variationObj.reasons.push('not a solution for ' + questionObj.id);
+                            }    
                         }
 
-                        if (!hasAny) {
-                            variationObj.show = false;
-                            variationObj.reasons.push('not a solution for ' + questionObj.id);
-                        }
                     }
                     else {
                         // No checkbox checked, allow any answer
+                        console.log('question ' + questionObj.id + ' no selected options');
                     }
                 }
                 if (questionObj.radio) {
