@@ -197,7 +197,7 @@ $(document).ready(function() {
                 }
                 const solutionFitObj = Object.assign({}, solutionFitOrig);
 
-                if (solutionFitOrig.useQuestion) {
+                if (solutionFitObj.useQuestion) {
                     const questionObj = deviceSelector.config.questions.find(e => e.id == key);
                     if (questionObj) {
                         for(const questionKey of ['checkboxes', 'radio']) {
@@ -293,6 +293,13 @@ $(document).ready(function() {
                 {
                     const tdElem = document.createElement('td'); 
 
+                    if (solutionFitObj.link) {
+                        const aElem = document.createElement('a');
+                        $(aElem).attr('href', obj);
+                        $(aElem).text(solutionFitObj.link);
+                        $(tdElem).append(aElem);
+                    }
+                    else
                     if (typeof obj == 'string') {
                         $(tdElem).text(obj);
                     }
@@ -612,29 +619,67 @@ $(document).ready(function() {
             }
 
             if (visibleSolutions.length > 1) {
-                for(const solutionObj of visibleSolutions) {
-                    const divElem = document.createElement('div');
+                const tableElem = document.createElement('table');
+                $(tableElem).addClass('apiHelperTableNoMargin')
                     
-                    const checkboxElem = document.createElement('input');
-                    $(checkboxElem).attr('type', 'checkbox');
-                    $(checkboxElem).attr('checked', 'checked');
-                    $(checkboxElem).on('click', function() {
-                        if ($(checkboxElem).prop('checked')) {
-                            $(solutionObj.sectionElem).show();
-                        }
-                        else {
-                            $(solutionObj.sectionElem).hide();
-                        }
-                    });
-                    $(divElem).append(checkboxElem);
-
-                    const aElem = document.createElement('a');
-                    $(aElem).attr('href', '#' + solutionObj.anchor);
-                    $(aElem).text(solutionObj.title);
-                    $(divElem).append(aElem);
-
-                    $(summaryDivElem).append(divElem);
+                const theadElem = document.createElement('thead');
+                {
+                    const trElem = document.createElement('tr');
+                    {
+                        const thElem = document.createElement('th');
+                        $(thElem).text('Show solution');
+                        $(trElem).append(thElem);
+                    }
+                    {
+                        const thElem = document.createElement('th');
+                        $(thElem).text('Device (click name to jump to it)');
+                        $(trElem).append(thElem);
+                    }
+                    
+                    $(theadElem).append(trElem);
                 }
+                $(tableElem).append(theadElem);
+
+                const tbodyElem = document.createElement('tbody');
+
+                for(const solutionObj of visibleSolutions) {
+                    const trElem = document.createElement('tr');
+                    
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).attr('style', 'text-align: center;');
+                        
+                        const checkboxElem = document.createElement('input');
+                        $(checkboxElem).attr('type', 'checkbox');
+                        $(checkboxElem).attr('checked', 'checked');
+                        $(checkboxElem).on('click', function() {
+                            if ($(checkboxElem).prop('checked')) {
+                                $(solutionObj.sectionElem).show();
+                            }
+                            else {
+                                $(solutionObj.sectionElem).hide();
+                            }
+                        });
+                        $(tdElem).append(checkboxElem);    
+                        $(trElem).append(tdElem);
+                    }
+
+                    {
+                        const tdElem = document.createElement('td');
+
+                        const aElem = document.createElement('a');
+                        $(aElem).attr('href', '#' + solutionObj.anchor);
+                        $(aElem).text(solutionObj.title);
+    
+                        $(tdElem).append(aElem);
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(tbodyElem).append(trElem);                    
+                }
+                $(tableElem).append(tbodyElem);
+
+                $(summaryDivElem).append(tableElem);
             }
             else
             if (visibleSolutions.length == 0) {

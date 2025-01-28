@@ -245,6 +245,11 @@
             "useQuestion": true
         },
         {
+            "title": "Datasheet",
+            "solutionObj": "datasheet",
+            "link": "Datasheet"
+        },
+        {
             "title": "Geolocation support",
             "id": "g",
             "onlyShowLast": true,
