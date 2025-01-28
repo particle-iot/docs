@@ -546,7 +546,7 @@ $(document).ready(function() {
                 console.log('render solution ' + solutionObj.title, solutionObj);
                 
                 solutionObj.anchor = solutionObj.title.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^\w]+/g, '-');
-                const sectionElem = document.createElement('section');
+                const sectionElem = solutionObj.sectionElem = document.createElement('section');
                 $(sectionElem).attr('id', solutionObj.anchor);
 
                 const solutionElem = document.createElement('div');
@@ -612,20 +612,29 @@ $(document).ready(function() {
             }
 
             if (visibleSolutions.length > 1) {
-                const ulElem = document.createElement('ul');
-
                 for(const solutionObj of visibleSolutions) {
-                    const liElem = document.createElement('li');
+                    const divElem = document.createElement('div');
+                    
+                    const checkboxElem = document.createElement('input');
+                    $(checkboxElem).attr('type', 'checkbox');
+                    $(checkboxElem).attr('checked', 'checked');
+                    $(checkboxElem).on('click', function() {
+                        if ($(checkboxElem).prop('checked')) {
+                            $(solutionObj.sectionElem).show();
+                        }
+                        else {
+                            $(solutionObj.sectionElem).hide();
+                        }
+                    });
+                    $(divElem).append(checkboxElem);
 
                     const aElem = document.createElement('a');
                     $(aElem).attr('href', '#' + solutionObj.anchor);
                     $(aElem).text(solutionObj.title);
+                    $(divElem).append(aElem);
 
-                    $(liElem).append(aElem);
-                    $(ulElem).append(liElem);
+                    $(summaryDivElem).append(divElem);
                 }
-
-                $(summaryDivElem).append(ulElem);
             }
             else
             if (visibleSolutions.length == 0) {
