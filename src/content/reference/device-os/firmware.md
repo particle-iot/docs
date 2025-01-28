@@ -1519,12 +1519,14 @@ When publishing you typically set the value, but you can also get the value that
 
 When subscribing to an event, you typically get the value to see what the publisher or the event has set.
 
+You don't typically sent the content type to `STRUCTURED`; when you set the data from a `Variant` this is handled automatically for you.
+
 #### data - from c-string - CloudEvent
 
 Copies data from a c-string (null terminated string) into the event data. 
 
-Typically used with the TEXT content type. The data cannot contain a null byte at a location other than the 
-end of a string so this is not suitable for many types of binary data.
+Typically used with the `TEXT` content type. The data cannot contain a null byte at a location other than the 
+end of a string so this is not suitable for binary data.
 
 ```cpp
 // PROTOTYPE
@@ -1548,6 +1550,8 @@ CloudEvent& data(const char* data, size_t size);
 
 Copies data from a buffer specified with pointer and length. This is typically used with binary data.
 
+See [Content-Type](#contenttype-cloudevent), above, for the valid values.
+
 ```cpp
 // PROTOTYPE
 CloudEvent& data(const char* data, size_t size, ContentType type)
@@ -1562,7 +1566,6 @@ Copies data from a `String` object.
 CloudEvent& data(const String& data)
 ```
 
-
 #### dataString - CloudEvent
 
 Returns a copy of the data in the `EventData` object as a `String`. This is typically used for text data.
@@ -1574,7 +1577,7 @@ String dataString() const
 
 #### data from Buffer - CloudEvent
 
-Copies binary data from a `Buffer object.
+Copies binary data from a `Buffer` object. This is an alternative to using a pointer and length.
 
 ```cpp
 // PROTOTYPE
@@ -1608,6 +1611,8 @@ Returns a copy of the structured data in the `CloudEvent` as an `EventData` obje
 EventData dataStructured() const
 ```
 
+For more information, see [structured subscription](/reference/device-os/typed-publish/#structured-subscription) in the typed and extended publish page.
+
 ### File read and write - CloudEvent
 
 Event data can be saved to a file and restored from a file easily. For more information about the file system, see [File system](/reference/device-os/file-system/) and [File system API](#file-system).
@@ -1634,12 +1639,11 @@ Returns 0 on success or a non-zero system error code.
 int saveData(const char* path)
 ```
 
-Error::FILE, "File error", -225
-
-
 ### Utility methods - CloudEvent
 
 #### setSize - CloudEvent
+
+Set the size of the data. This is rarely needed.
 
 ```cpp
 // PROTOTYPE
@@ -1648,14 +1652,19 @@ int setSize(size_t size)
 
 #### size - CloudEvent
 
+Get the size of the data. This is the encoded size so there is computation involved in getting this value. 
+
+You may want to use this with [canPublish](#canpublish-cloudevent) to see if the event can be published 
+based on the current rate limiting.
+
 ```cpp
 // PROTOTYPE
 size_t size() const
 ```
 
-
-
 #### isEmpty - CloudEvent
+
+Returns true if the event is empty  (no has data).
 
 ```cpp
 // PROTOTYPE
@@ -1669,13 +1678,16 @@ read or write the event data as a stream of bytes.
 
 #### seek - CloudEvent
 
+Seek to a position relative to the start of the data (0 = first byte).
+
 ```cpp
 // PROTOTYPE
 int seek(size_t pos)
 ```
 
-
 #### pos - CloudEvent
+
+Returns the current position in the data.
 
 ```cpp
 // PROTOTYPE
@@ -1683,6 +1695,8 @@ size_t pos() const
 ```
 
 #### write - CloudEvent
+
+Write a byte or bytes to the data at the current position.
 
 ```cpp
 // PROTOTYPES
@@ -1694,6 +1708,8 @@ int write(const char* data, size_t size)
 
 #### read - CloudEvent
 
+Read a byte or bytes from the data at the current position.
+
 ```cpp
 // PROTOTYPES
 int read() override
@@ -1702,12 +1718,17 @@ int read(char* data, size_t size)
 
 #### readBytes - CloudEvent
 
+Read a bytes from the data at the current position.
+
 ```cpp
 // PROTOTYPE
 size_t readBytes(char* data, size_t size) override
 ```
 
 #### peek - CloudEvent
+
+Read a byte or bytes from the data at the current position but do not move the current
+position so the next read will read the same bytes.
 
 ```cpp
 // PROTOTYPES
@@ -1799,13 +1820,13 @@ bool isValid() const
 
 
 #### error - CloudEvent
-    
+
+Returns a 0 if the event is not in a failed or invalid state, otherwise a system error code defined `Error::Type`, which is a negative value. 
+
 ```cpp
 // PROTOTYPE
 int error() const;
 ```
-
-Returns a 0 if the event is not in a failed or invalid state, otherwise a system error code defined `Error::Type`, which is a negative value. 
     
 See [system errors](#system-errors) for the available error codes.
 
@@ -1974,6 +1995,8 @@ SubscribeOptions& structured(bool enabled)
 // PROTOTYPE - getter
 bool structured() const;
 ```
+
+For more information, see [structured subscription](/reference/device-os/typed-publish/#structured-subscription) in the typed and extended publish page.
 
 ### Subscribe (with Variant) - Subscribe
 

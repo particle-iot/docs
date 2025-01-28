@@ -1,5 +1,5 @@
 ---
-title: Typed publish
+title: Typed and extended publish
 layout: commonTwo.hbs
 columns: two
 description: Typed publish for Particle IoT devices
@@ -16,7 +16,7 @@ In Device OS 6.3.0 and later, extended publish builds upon typed publish and pro
 
 ### Large events - Extended publish
 
-In Device OS 6.3.0 and later, events can be up to 16,384 in size. Previously, event payloads were limited to 1024 bytes or less.
+In Device OS 6.3.0 and later, events can be up to 16,384 bytes in size and can contain binary data. Previously, event payloads were limited to 1024 bytes or less.
 
 Large events count as 1 data operation for each 1024 bytes of data, rounded up. A publish of 1000 bytes count as a 1 data operation, but 1300 bytes counts as 2 data operations. A maximum event size of 16 Kbytes counts as 16 data operations.
 
@@ -62,14 +62,14 @@ size, however, and the size after Base 64 encoding can exceed 1024 bytes.
 
 Say you have this binary data that you publish from a device:
 
-```
+```html
 0000: a7 22 98 1c 40 1b 9b 80 bb 9d d9 c0 13 bb 4e d0   |  "  @         N 
 0010: a3 c0 ae 81 c5 93 91 2a 83 8e 69 27 b0 c6 17 26   |        *  i'   &
 0020: 85 93 b7 a6 f5 69 c0 4c 9e 3d 53 49 b5 47 f0 44   |      i L =SI G D
 0030: 26 9b 8a 1d e4 bc 73 f9 4d a4 e8 34 c2 56 17 c9   | &     s M  4 V  
 ```
 
-A webhook using \{{{PARTICLE_EVENT_VALUE}} will receive this payload:
+A webhook using \{{{PARTICLE_EVENT_VALUE}}} will receive this payload:
 
 ```
 data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
@@ -88,6 +88,9 @@ text and valid JSON, it is compatible with both the default webhook template, as
   "published_at": "\{{{PARTICLE_PUBLISHED_AT}}}"
 }
 ```
+
+If you are using Logic, there are [data URL decoding functions](/getting-started/logic-ledger/logic/#dataurldecode)
+included in Logic.
 
 ## Structured data
 
@@ -214,11 +217,11 @@ This example sends binary data in a publish.
 
 {{> codebox content="/assets/files/extended-publish/BinaryData.cpp" format="cpp" height="400" flash="true"}}
 
-### Binary with JSON publish
+### JSON with binary publish
 
 This example includes JSON data that includes binary data.
 
-{{> codebox content="/assets/files/extended-publish/BinaryWithJson.cpp" format="cpp" height="400" flash="true"}}
+{{> codebox content="/assets/files/extended-publish/JsonWithBinary.cpp" format="cpp" height="400" flash="true"}}
 
 ### Simple publish callback
 
