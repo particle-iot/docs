@@ -21,6 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Extended publish API 2025-02-03
+
+Documentation for features in Device OS 6.3.0 include: [Typed and extended publish](/reference/device-os/typed-publish/) (includes examples), 
+[CloudEvent](/reference/device-os/api/cloudevent/) (the most important class for this feature), and 
+[Particle.publish](/reference/device-os/api/publish/particle-publish-cloudevent-publish/).
+
 ### File to code tool 2025-02-03
 
 New [file to code](/tools/developer-tools/file-to-code/) tool that generates C++ or Javascript code snippets from binary data in a file, or from randomly generated data. This is mainly useful for test firmware.
