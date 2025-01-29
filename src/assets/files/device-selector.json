@@ -301,6 +301,7 @@
     "mergeSolutionKeys": ["c"],
     "solutions": [
         {
+            "id": "tracker-one",
             "pt": ["ptg"],
             "c": ["cc"],
             "cd": ["cdl"],
@@ -323,6 +324,7 @@
             ]
         },
         {
+            "id": "monitor-one",
             "pt": ["ptg"],
             "c": ["cc"],
             "cd": ["cdl"],
@@ -345,7 +347,7 @@
             ]
         },
         {
-            "id": "Tracker-SoM",
+            "id": "tracker-som",
             "pt": ["ptm"],
             "c": ["cc"],
             "cd": ["cdl"],
@@ -369,7 +371,7 @@
             ]
         },        
         {
-            "id": "Tracker-SoM Evaluation Kit",
+            "id": "tracker-som-eval",
             "pt": ["ptd"],
             "c": ["cc"],
             "cd": ["cdl"],
@@ -391,8 +393,9 @@
                     "skus": ["T524MKIT"]
                 }
             ]
-        },               {
-            "id": "M-SoM",
+        },               
+        {
+            "id": "m-som",
             "pt": ["ptm"],
             "cd": ["cdl"],
             "cp": ["cpl", "cpm"],
@@ -422,16 +425,17 @@
             ]
         },
         {
+            "id": "m2-breakout",
             "pt": ["ptd"],
             "title": "M-SoM + M.2 Breakout Board",
             "skus": ["M2BREAKOUT"],
             "ceOptional": false,
             "image": "/assets/images/device-selector/m2breakout_top.png",
             "datasheet": "/reference/datasheets/m-series/m2-breakout-datasheet/",
-            "derivedFrom": "M-SoM"
+            "derivedFrom": "m-som"
         },
         {
-            "id": "Muon",
+            "id": "muon",
             "pt": ["ptd"],
             "cd": ["cdl"],
             "cp": ["cpl", "cpm"],
@@ -460,14 +464,16 @@
             ]
         },
         {
+            "id": "muon-m1",
             "pt": ["ptg"],
             "title": "Muon + M1 Enclosure",
             "skus": ["M1ENCLEA"],
             "image": "/assets/images/device-selector/m1-top-open.jpg",
             "datasheet": "https://docs.particle.io/reference/datasheets/m-series/m1-enclosure-datasheet/",
-            "derivedFrom": "Muon"
+            "derivedFrom": "muon"
         },
         {
+            "id": "b-som",
             "pt": ["ptm"],
             "c": ["cc"],
             "cp": ["cpl"],
@@ -497,6 +503,7 @@
             ]            
         },
         {
+            "id": "b-som-5e",
             "pt": ["ptm"],
             "c": ["cc"],
             "cp": ["cpl"],
@@ -516,6 +523,7 @@
             ]
         },
         {
+            "id": "boron",
             "pt": ["ptd"],
             "c": ["cc"],
             "cd": ["cdl"],
@@ -533,7 +541,9 @@
                     "skus": ["BRN404X", "BRN404XKIT", "BRN404XTRAY50"]
                 }
             ]            
-        },        {
+        },        
+        {
+            "id": "p2",
             "pt": ["ptm"],
             "c": ["cw"],
             "cd": false,
@@ -548,6 +558,7 @@
             "skus": ["P2MOD10", "P2REEL"]
         },
         {
+            "id": "photon-2",
             "pt": ["ptd"],
             "c": ["cw"],
             "cd": false,
@@ -562,6 +573,7 @@
             "skus": ["PHN2MEA", "PHN2MTY"]
         },
         {
+            "id": "tachyon",
             "pt": ["ptd"],
             "c": ["cc", "ce"],
             "cd": ["cdl","cdh"],
