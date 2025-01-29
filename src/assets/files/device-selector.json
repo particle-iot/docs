@@ -80,18 +80,19 @@
                     "title": "High",
                     "description": "High data rate for camera image uploads, tethering, etc."
                 }
-            ]
+            ],
+            "showNoFilter": "If you are not using cellular you can ignore this question."
         },
 
         {
-            "title": "Location",
+            "title": "Cellular Location",
             "solutionFit": {
                 "title": "Cellular regions"
             },
             "id": "lo",
             "checkboxes": [
             ],
-            "showNoFilter": true
+            "showNoFilter": "If you will not be using cellular, are unsure, or do not want to filter by this question, leave all boxes unchecked."
         },
         {
             "title": "Computing power required",
@@ -117,7 +118,8 @@
                     "title": "High",
                     "description": "Large machine learning models, video or sound local processing."
                 }
-            ]
+            ],
+            "showNoFilter": "If you are unsure, select Low to show all solutions"
         },
         {
             "title": "Expansion options",
@@ -156,7 +158,7 @@
             "radio": [
                 {
                     "id": "gl",
-                    "title": "Geolocation not needed",
+                    "title": "Built-in geolocation not needed, or adding my own GNSS receiver",
                     "solutionFit": {
                         "title": "No built-in GNSS"
                     },

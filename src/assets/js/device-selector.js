@@ -513,7 +513,6 @@ $(document).ready(function() {
 
         }
 
-
         const renderSolutions = async function() {
             $(deviceSelector.answerInnerElem).empty();
 
@@ -795,9 +794,11 @@ $(document).ready(function() {
                 }
 
                 if (questionObj.showNoFilter) {
+                    const s = typeof questionObj.showNoFilter == 'string' ? questionObj.showNoFilter : deviceSelector.config.strings.noFilter;
+
                     const outerDivElem = document.createElement('div');
                     $(outerDivElem).addClass('device-selector-no-filter');
-                    $(outerDivElem).text(deviceSelector.config.strings.noFilter);
+                    $(outerDivElem).text(s);
                     $(questionElem).append(outerDivElem);
                 }
 
