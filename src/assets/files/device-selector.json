@@ -2,6 +2,9 @@
     "styles": {
         "solutionFitLeftWidth": "200px"
     },
+    "strings": {
+        "noFilter": "If you are unsure, or do not want to filter by this question, leave all boxes unchecked."
+    },
     "questions": [
         {
             "title": "Project type",
@@ -22,7 +25,8 @@
                     "title": "Module",
                     "description": "Production modules are designed for mass production. In many cases you will need to create your own circuit board to utilize the module."
                 }
-            ]
+            ],
+            "showNoFilter": true
         },
         {
             "title": "Connectivity",
@@ -54,7 +58,8 @@
                     "title": "LoRaWAN",
                     "description": "This option is helpful for low-data remote sensing applications in some locations with poor cellular connectivity."
                 }
-            ]
+            ],
+            "showNoFilter": true
         },
         {
             "title": "Cellular data rate requirement",
@@ -85,7 +90,8 @@
             },
             "id": "lo",
             "checkboxes": [
-            ]
+            ],
+            "showNoFilter": true
         },
         {
             "title": "Computing power required",
@@ -114,7 +120,7 @@
             ]
         },
         {
-            "title": "Expansion options (optional)",
+            "title": "Expansion options",
             "solutionFit": {
                 "title": "Expansion options"
             },
@@ -136,7 +142,8 @@
                     "id": "m1",
                     "title": "Monitor One expansion card"
                 }
-            ]
+            ],
+            "showNoFilter": true
         },
         {
             "title": "Geolocation",

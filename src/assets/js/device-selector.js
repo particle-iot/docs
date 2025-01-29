@@ -33,51 +33,69 @@ $(document).ready(function() {
         deviceSelector.lastQuery = '';
 
         const renderNote = async function(options) {
-            let detailsElem;
-            if (options.options.noteObj.details) {
-                detailsElem = containerElem = document.createElement('details');
-                $(detailsElem).addClass('device-selector-details');
-
-                const summaryElem = document.createElement('summary');
-                $(summaryElem).text(options.noteObj.summary ? options.noteObj.summary : 'Additional information');
-                $(detailsElem).append(summaryElem);    
-            }
-            
-            const url = notesUrlBase + options.noteObj.file.replace('.md', '/index.html');
-
-            const noteFetch = await fetch(url);
-            const noteText = await noteFetch.text();                
-
-            const noteDocument = parser.parseFromString(noteText, 'text/html');
-
-            const noteElem = document.createElement('div');
-            const contentElem = $(noteDocument).find('.content');
-            $(contentElem).removeClass('content');
-            $(contentElem).addClass('device-selector-note');
-            $(noteElem).html(contentElem);
-
-            if (detailsElem) {
-                $(detailsElem).append(noteElem);
-                $(options.containerElem).append(detailsElem);
-            }
-            else {
-                $(options.containerElem).append(noteElem);
-            }
-        }
-
-        const renderMd = function(options) {            
             // options
-            //  .md text to render (Markdown format)
-            //  .containerElem where to append the html div
+            //  .containerElem: where to append the html div
+            //  .outerCss: style to apply to outer div css
+            //  .config: configuration element (JSON object)
 
-            const expandedMd =  Handlebars.compile(options.md)(deviceSelector.context);
+            const outerDivElem = document.createElement('div');
+            if (options.outerCss) {
+                $(outerDivElem).addClass(options.outerCss);
+            }
 
-            const html = deviceSelector.showdown.makeHtml(expandedMd);
+            if (options.config.note) {
+                // options.config.note: object that specifies note configuration
+                //  .details: 
+                //  .file: the filename of the note (relative to the content notes directory)
+                let detailsElem;
+                if (options.config.note.details) {
+                    detailsElem = containerElem = document.createElement('details');
+                    $(detailsElem).addClass('device-selector-details');
 
-            const noteElem = document.createElement('div');
-            $(noteElem).html(html);
-            $(options.containerElem).append(noteElem);
+                    const summaryElem = document.createElement('summary');
+                    $(summaryElem).text(options.config.note.summary ? options.config.note.summary : 'Additional information');
+                    $(detailsElem).append(summaryElem);    
+                }
+                
+                const url = notesUrlBase + options.config.note.file.replace('.md', '/index.html');
+
+                const noteFetch = await fetch(url);
+                const noteText = await noteFetch.text();                
+
+                const noteDocument = parser.parseFromString(noteText, 'text/html');
+
+                const contentElem = $(noteDocument).find('.content');
+                $(contentElem).removeClass('content');
+                $(contentElem).addClass('device-selector-note');
+
+                const innerDivElem = document.createElement('div');
+                $(innerDivElem).html(contentElem);
+
+                if (detailsElem) {
+                    $(detailsElem).append(innerDivElem);
+                    $(options.containerElem).append(detailsElem);
+                }
+                else {
+                    $(options.containerElem).append(innerDivElem);
+                }
+            }
+
+            if (options.config.md) {
+                //  .md text to render (Markdown format)
+                const expandedMd =  Handlebars.compile(options.config.md)(deviceSelector.context);
+
+                const html = deviceSelector.showdown.makeHtml(expandedMd);    
+                $(outerDivElem).html(html);
+            }
+
+            if (options.config.text) {
+                // .text: plain text to render in outerDivElem
+                $(outerDivElem).text(options.config.text);
+            }
+
+            $(options.containerElem).append(outerDivElem);    
         }
+
 
         const checkSolution = function(solutionObj, variationObj, options = {}) {
             variationObj.show = true;
@@ -332,11 +350,8 @@ $(document).ready(function() {
                 title = variationObj.title;
             }
  
-            if (variationObj.textMd) {    
-                renderMd({md: variationObj.textMd, containerElem: solutionElem});
-            }
-            if (variationObj.note) {
-                await renderNote({noteObj: variationObj.note, containerElem: solutionElem});
+            if (variationObj.variationTop) {
+                await renderNote({config: variationObj.variationTop, containerElem: solutionElem});
             }
 
             // Solution fit
@@ -578,12 +593,8 @@ $(document).ready(function() {
                 }
 
                 // Note
-                if (solutionObj.textMd) {
-                    renderMd({md: solutionObj.textMd, containerElem: solutionElem});
-                }
-
-                if (solutionObj.note) {
-                    await renderNote({noteObj: solutionObj.note, containerElem: solutionElem});
+                if (solutionObj.solutionTop) {
+                    await renderNote({config: solutionObj.solutionTop, containerElem: solutionElem});
                 }
 
                 // Image
@@ -770,6 +781,7 @@ $(document).ready(function() {
             $(questionElem).text('Tell us about your project');
             $(deviceSelector.elem).append(questionElem);
 
+            deviceSelector.noFilterObjs = [];
 
             for(const questionObj of deviceSelector.config.questions) {
                 const questionElem = questionObj.questionElem = document.createElement('div');
@@ -777,6 +789,17 @@ $(document).ready(function() {
                 const headerElem = document.createElement('h3');
                 $(headerElem).text(questionObj.title);
                 $(questionElem).append(headerElem);
+
+                if (questionObj.questionTop) {
+                    await renderNote({config: questionObj.questionTop, containerElem: questionElem});
+                }
+
+                if (questionObj.showNoFilter) {
+                    const outerDivElem = document.createElement('div');
+                    $(outerDivElem).addClass('device-selector-no-filter');
+                    $(outerDivElem).text(deviceSelector.config.strings.noFilter);
+                    $(questionElem).append(outerDivElem);
+                }
 
                 if (questionObj.checkboxes) {
 
@@ -829,6 +852,7 @@ $(document).ready(function() {
                             
                         $(questionElem).append(outerDivElem);
                     }
+
                 }
                 
                 if (questionObj.radio) {
@@ -885,13 +909,8 @@ $(document).ready(function() {
                     }
                 }
                 
-
-                if (questionObj.textMd) {
-                    renderMd({md: solutionObj.textMd, containerElem: questionElem});
-                }
-
-                if (questionObj.note) {
-                    await renderNote({noteObj: questionObj.note, containerElem: questionElem});
+                if (questionObj.questionBottom) {
+                    await renderNote({config: questionObj.questionBottom, containerElem: questionElem});
                 }
 
                 $(deviceSelector.elem).append(questionElem);
