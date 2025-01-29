@@ -513,6 +513,32 @@ $(document).ready(function() {
 
         }
 
+        const renderLinksToSolutions = async function(options) {
+            // options
+            //  .containerElem Element to append the div into
+
+            const divElem = document.createElement('div');
+            if (options.cssClass) {
+                $(divElem).addClass(options.cssClass);
+            }
+            
+            $(divElem).append(document.createTextNode('Click to jump to a specific solution: '));
+
+            let index = 0;
+            for(const solutionObj of deviceSelector.visibleSolutions) {
+                if (index++ > 0) {
+                    $(divElem).append(document.createTextNode(', '));
+                }
+                const aElem = document.createElement('a');
+                $(aElem).attr('href', '#' + solutionObj.anchor);
+                $(aElem).text(solutionObj.title);
+                $(divElem).append(aElem);
+            }
+
+            $(options.containerElem).append(divElem);
+
+        }
+
         const renderSolutions = async function() {
             $(deviceSelector.answerInnerElem).empty();
 
@@ -533,11 +559,6 @@ $(document).ready(function() {
 
             console.log('context', deviceSelector.context);
 
-            // Summary div including links to solutions (filled in later)
-            const summaryDivElem = document.createElement('div');
-            $(deviceSelector.answerInnerElem).append(summaryDivElem);
-
-
             // If variation is shown, also propagate the show flag up into the solution
             for(const solutionObj of deviceSelector.solutions) {
                 if (solutionObj.variations) {
@@ -553,20 +574,36 @@ $(document).ready(function() {
                 }
             }
 
-            let visibleSolutions = [];
-
-            // Render solutions
+            // Note visible solution, generate anchors
+            deviceSelector.visibleSolutions = [];
             for(const solutionObj of deviceSelector.solutions) {
                 if (!solutionObj.show) {
                     continue;
                 }
 
-                visibleSolutions.push(solutionObj);
+                solutionObj.anchor = solutionObj.title.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^\w]+/g, '-');
+
+                deviceSelector.visibleSolutions.push(solutionObj);
+            }
+
+            // Summary div including links to solutions
+            const summaryDivElem = document.createElement('div');
+
+            if (deviceSelector.visibleSolutions.length > 1) {
+                await renderLinksToSolutions({containerElem: summaryDivElem, cssClass: 'device-selector-large-solution-links'});
+            }
+            else
+            if (deviceSelector.visibleSolutions.length == 0) {
+                $(summaryDivElem).text('No solutions match the criteria you specified.');
+            }
+            $(deviceSelector.answerInnerElem).append(summaryDivElem);
+
+            // Render solutions
+            for(const solutionObj of deviceSelector.visibleSolutions) {
                 deviceSelector.context.solution = solutionObj;
 
                 console.log('render solution ' + solutionObj.title, solutionObj);
                 
-                solutionObj.anchor = solutionObj.title.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^\w]+/g, '-');
                 const sectionElem = solutionObj.sectionElem = document.createElement('section');
                 $(sectionElem).attr('id', solutionObj.anchor);
 
@@ -625,31 +662,11 @@ $(document).ready(function() {
 
                 $(sectionElem).append(solutionElem);
 
+                await renderLinksToSolutions({containerElem: sectionElem, cssClass: 'device-selector-small-solution-links'});
+
                 $(deviceSelector.answerInnerElem).append(sectionElem);
             }
 
-            if (visibleSolutions.length > 1) {
-                const divElem = document.createElement('div');
-
-                $(divElem).append(document.createTextNode('Click to jump to a specific solution: '));
-
-                let index = 0;
-                for(const solutionObj of visibleSolutions) {
-                    if (index++ > 0) {
-                        $(divElem).append(document.createTextNode(', '));
-                    }
-                    const aElem = document.createElement('a');
-                    $(aElem).attr('href', '#' + solutionObj.anchor);
-                    $(aElem).text(solutionObj.title);
-                    $(divElem).append(aElem);
-                }
-
-                $(summaryDivElem).append(divElem);
-            }
-            else
-            if (visibleSolutions.length == 0) {
-                $(summaryDivElem).text('No solutions match the criteria you specified.');
-            }
 
         }
 
