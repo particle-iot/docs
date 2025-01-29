@@ -629,67 +629,22 @@ $(document).ready(function() {
             }
 
             if (visibleSolutions.length > 1) {
-                const tableElem = document.createElement('table');
-                $(tableElem).addClass('apiHelperTableNoMargin')
-                    
-                const theadElem = document.createElement('thead');
-                {
-                    const trElem = document.createElement('tr');
-                    {
-                        const thElem = document.createElement('th');
-                        $(thElem).text('Show solution');
-                        $(trElem).append(thElem);
-                    }
-                    {
-                        const thElem = document.createElement('th');
-                        $(thElem).text('Device (click name to jump to it)');
-                        $(trElem).append(thElem);
-                    }
-                    
-                    $(theadElem).append(trElem);
-                }
-                $(tableElem).append(theadElem);
+                const divElem = document.createElement('div');
 
-                const tbodyElem = document.createElement('tbody');
+                $(divElem).append(document.createTextNode('Click to jump to a specific solution: '));
 
+                let index = 0;
                 for(const solutionObj of visibleSolutions) {
-                    const trElem = document.createElement('tr');
-                    
-                    {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).attr('style', 'text-align: center;');
-                        
-                        const checkboxElem = document.createElement('input');
-                        $(checkboxElem).attr('type', 'checkbox');
-                        $(checkboxElem).attr('checked', 'checked');
-                        $(checkboxElem).on('click', function() {
-                            if ($(checkboxElem).prop('checked')) {
-                                $(solutionObj.sectionElem).show();
-                            }
-                            else {
-                                $(solutionObj.sectionElem).hide();
-                            }
-                        });
-                        $(tdElem).append(checkboxElem);    
-                        $(trElem).append(tdElem);
+                    if (index++ > 0) {
+                        $(divElem).append(document.createTextNode(', '));
                     }
-
-                    {
-                        const tdElem = document.createElement('td');
-
-                        const aElem = document.createElement('a');
-                        $(aElem).attr('href', '#' + solutionObj.anchor);
-                        $(aElem).text(solutionObj.title);
-    
-                        $(tdElem).append(aElem);
-                        $(trElem).append(tdElem);
-                    }
-
-                    $(tbodyElem).append(trElem);                    
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', '#' + solutionObj.anchor);
+                    $(aElem).text(solutionObj.title);
+                    $(divElem).append(aElem);
                 }
-                $(tableElem).append(tbodyElem);
 
-                $(summaryDivElem).append(tableElem);
+                $(summaryDivElem).append(divElem);
             }
             else
             if (visibleSolutions.length == 0) {

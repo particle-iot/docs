@@ -381,7 +381,7 @@
             "g": ["gh"],
             "ex": false,
             "ceOptional": true,
-            "title": "Tracker SoM",
+            "title": "Tracker SoM Eval Board",
             "image": "/assets/images/device-selector/t523-som-eval.svg",
             "datasheet": "/reference/datasheets/tracker/tracker-som-eval-board/",
             "wifi": "2.4 GHz (only for geolocation)",
