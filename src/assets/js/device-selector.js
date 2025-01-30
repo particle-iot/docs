@@ -1070,11 +1070,13 @@ $(document).ready(function() {
                 // MCU information
                 for(const skuName of solutionObj.nonAccessorySkus) {
                     const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
-                    if (skuObj && skuObj.mcu) {
-                        const mcuObj = deviceSelector.carriersJson.mcus.find(e => e.id == skuObj.mcu);
-                        if (mcuObj) {
-                            solutionObj.mcuObj = mcuObj;
-                            break;
+                    if (skuObj) {
+                        if (skuObj.mcu) {
+                            const mcuObj = deviceSelector.carriersJson.mcus.find(e => e.id == skuObj.mcu);
+                            if (mcuObj) {
+                                solutionObj.mcuObj = mcuObj;
+                                break;
+                            }    
                         }
                     }
                 }
@@ -1100,6 +1102,25 @@ $(document).ready(function() {
                             if (skuObj) {
                                 // const modemObj = deviceSelector.carriersJson.modems.find(e => e.model == skuObj.modem);
 
+                                if (skuObj.modem) {
+                                    const modemObj = deviceSelector.carriersJson.modems.find(e => e.model == skuObj.modem);
+                                    if (modemObj) {
+                                        variationObj.modemObj = modemObj;
+                                    }
+                                }
+                                if (skuObj.sim) {
+                                    const simObj = deviceSelector.carriersJson.sims.find(e => e.id == skuObj.sim);;
+                                    if (simObj) {
+                                        variationObj.simObj = simObj;
+                                        if (simObj.id >= 4) {
+                                            variationObj.simName = simObj.name;
+                                        }
+                                        else {
+                                            variationObj.simName = 'Particle SIM (legacy)';
+                                        }
+                                    }
+                                }
+        
                                 for(const cmsObj of deviceSelector.carriersJson.countryModemSim) {
                                     if (cmsObj.modem == skuObj.modem && cmsObj.sim == skuObj.sim) {
                                         // There is information about this country, mode, and sim
