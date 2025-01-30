@@ -662,8 +662,9 @@ $(document).ready(function() {
 
                 $(sectionElem).append(solutionElem);
 
-                await renderLinksToSolutions({containerElem: sectionElem, cssClass: 'device-selector-small-solution-links'});
-
+                if (deviceSelector.visibleSolutions.length > 1) {
+                    await renderLinksToSolutions({containerElem: sectionElem, cssClass: 'device-selector-small-solution-links'});
+                }
                 $(deviceSelector.answerInnerElem).append(sectionElem);
             }
 

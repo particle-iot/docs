@@ -148,17 +148,17 @@
             "showNoFilter": true
         },
         {
-            "title": "Geolocation",
+            "title": "Geolocation (GNSS/GPS)",
             "id": "g",
             "solutionFit": {
-                "title": "Geolocation support",
+                "title": "GNSS Geolocation",
                 "onlyShowLast": true,
                 "titleIfEmpty": "No built-in GNSS"
             },
             "radio": [
                 {
                     "id": "gl",
-                    "title": "Built-in geolocation not needed, or adding my own GNSS receiver",
+                    "title": "Built-in GNSS geolocation not needed, or adding my own GNSS receiver",
                     "solutionFit": {
                         "title": "No built-in GNSS"
                     },
@@ -167,7 +167,7 @@
                 },
                 {
                     "id": "gm",
-                    "title": "Some geolocation desired",
+                    "title": "Some GNSS geolocation desired",
                     "solutionFit": {
                         "title":"GNSS available via the cellular modem"
                     },
@@ -175,7 +175,7 @@
                 },
                 {
                     "id": "gh",
-                    "title": "Precise geolocation needed",
+                    "title": "Precise GNSS geolocation needed",
                     "solutionFit": {
                         "title": "Includes precision GNSS module"
                     },
@@ -495,11 +495,13 @@
                 {
                     "variationTitle": "524",
                     "datasheet": "/reference/datasheets/b-series/b524-b523-datasheet/",
+                    "g": ["gm"],
                     "skus": ["B524MEA", "B524MTY"]
                 },
                 {
                     "variationTitle": "504",
                     "datasheet": "/reference/datasheets/b-series/b504-datasheet/",
+                    "g": ["gm"],
                     "skus": ["B504MEA", "B504MTY"]
                 }
             ]            
@@ -510,7 +512,7 @@
             "c": ["cc"],
             "cp": ["cpl"],
             "cd": ["cdl","cdh"],
-            "g": false,
+            "g": ["gm"],
             "ex": false,
             "ceOptional": true,
             "title": "B-SoM 5e",
