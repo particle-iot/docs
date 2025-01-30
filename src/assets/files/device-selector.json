@@ -288,6 +288,10 @@
             "titleIfEmpty": "No built-in Wi-Fi"
         },
         {
+            "title": "Cellular modem",
+            "solutionObj": "modemObj.model"
+        },
+        {
             "title": "User application size (flash)",
             "solutionObj": "mcuObj.userAppSize"
         },

@@ -285,8 +285,11 @@ $(document).ready(function() {
                     continue;
                 }
 
-                let obj = options.solutionObj;
+                let obj = options.variationObj || options.solutionObj;
                 for(const key of solutionFitObj.solutionObj.split('.')) {
+                    if (typeof obj == 'undefined') {
+                        break;
+                    }
                     obj = obj[key];
                 }
                 if (typeof obj != 'string') {
