@@ -1138,12 +1138,12 @@ $(document).ready(function() {
                         for(const skuName of variationObj.skus) {
                             const skuObj = deviceSelector.carriersJson.skus.find(e => e.name == skuName);
                             if (skuObj) {
-                                // const modemObj = deviceSelector.carriersJson.modems.find(e => e.model == skuObj.modem);
-
                                 if (skuObj.modem) {
                                     const modemObj = deviceSelector.carriersJson.modems.find(e => e.model == skuObj.modem);
                                     if (modemObj) {
                                         variationObj.modemObj = modemObj;
+
+                                        variationObj.modemName = modemObj.model + ' (' +  modemObj.name + ')';
                                     }
                                 }
                                 if (skuObj.sim) {

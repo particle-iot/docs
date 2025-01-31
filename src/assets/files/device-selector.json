@@ -289,7 +289,11 @@
         },
         {
             "title": "Cellular modem",
-            "solutionObj": "modemObj.model"
+            "solutionObj": "modemName"
+        },
+        {
+            "title": "Cellular SIM",
+            "solutionObj": "simName"
         },
         {
             "title": "User application size (flash)",
