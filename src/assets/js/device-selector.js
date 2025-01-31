@@ -285,21 +285,56 @@ $(document).ready(function() {
                     continue;
                 }
 
-                let obj = options.variationObj || options.solutionObj;
+                let solutionValue = options.solutionObj;
                 for(const key of solutionFitObj.solutionObj.split('.')) {
-                    if (typeof obj == 'undefined') {
+                    if (typeof solutionValue == 'undefined') {
                         break;
                     }
-                    obj = obj[key];
+                    solutionValue = solutionValue[key];
                 }
-                if (typeof obj != 'string') {
-                    continue;
+                if (typeof solutionValue == 'string') {
+                    if (solutionValue.length == 0 && solutionFitObj.titleIfEmpty) {
+                        solutionValue = solutionFitObj.titleIfEmpty;
+                    }    
                 }
 
-                if (obj.length == 0 && solutionFitObj.titleIfEmpty) {
-                    obj = solutionFitObj.titleIfEmpty;
+                let variationValue = options.variationObj;
+                for(const key of solutionFitObj.solutionObj.split('.')) {
+                    if (typeof variationValue == 'undefined') {
+                        break;
+                    }
+                    variationValue = variationValue[key];
                 }
-                
+                if (typeof variationValue == 'string') {
+                    if (variationValue.length == 0 && solutionFitObj.titleIfEmpty) {
+                        variationValue = solutionFitObj.titleIfEmpty;
+                    }    
+                }
+                const isSolutionWithVariations = typeof options.solutionObj.variations != 'undefined' && options.solutionObj == options.variationObj;
+
+                if (isSolutionWithVariations) {
+                    // Rendering a solution
+                    if (variationValue && solutionValue != variationValue) {
+                        // Skip in the solution if it exists in the variation and it's different
+                        continue;
+                    }
+                }
+                else {
+                    // Rendering a variation
+                    if (!variationValue) {
+                        // Skip if not set in the variation
+                        continue;
+                    }                
+                    if (solutionValue == variationValue) {
+                        // Skip if the solution is the same value as the variation
+                        continue;
+                    }
+                }
+
+                const variationToSolutionValue = variationValue || solutionValue;
+                if (!variationToSolutionValue) {
+                    continue;
+                }
 
                 const trElem = document.createElement('tr');
 
@@ -316,13 +351,13 @@ $(document).ready(function() {
 
                     if (solutionFitObj.link) {
                         const aElem = document.createElement('a');
-                        $(aElem).attr('href', obj);
+                        $(aElem).attr('href', variationToSolutionValue);
                         $(aElem).text(solutionFitObj.link);
                         $(tdElem).append(aElem);
                     }
                     else
-                    if (typeof obj == 'string') {
-                        $(tdElem).text(obj);
+                    if (typeof variationToSolutionValue == 'string') {
+                        $(tdElem).text(variationToSolutionValue);
                     }
 
                     $(trElem).append(tdElem);    
