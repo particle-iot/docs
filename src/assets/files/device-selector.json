@@ -316,9 +316,12 @@
             "c": ["cc"],
             "cd": ["cdl"],
             "cp": ["cpl"],
-            "g": ["gh"],
+            "g": ["gm", "gh"],
             "ex": ["m8"],
             "title": "Tracker One",
+            "solutionTop": {
+                "md": "**The Tracker One Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "image": "/assets/images/device-selector/tracker-one.jpg",
             "datasheet": "/reference/datasheets/tracker/tracker-one/",
             "wifi": "2.4 GHz (only for geolocation)",
@@ -339,10 +342,13 @@
             "c": ["cc"],
             "cd": ["cdl"],
             "cp": ["cpl"],
-            "g": ["gh"],
+            "g": ["gm", "gh"],
             "ex": ["m1"],
             "title": "Monitor One",
             "image": "/assets/images/device-selector/monitor-one.jpg",
+            "solutionTop": {
+                "md": "**The Monitor One Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/tracker/monitor-one-datasheet/",
             "wifi": "2.4 GHz (only for geolocation)",
             "locationVariations": [
@@ -367,6 +373,9 @@
             "ceOptional": true,
             "title": "Tracker SoM",
             "image": "/assets/images/device-selector/t523-som.svg",
+            "solutionTop": {
+                "md": "**The Tracker SoM Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/tracker/tracker-som-datasheet/",
             "wifi": "2.4 GHz (only for geolocation)",
             "locationVariations": [
@@ -391,6 +400,9 @@
             "ceOptional": true,
             "title": "Tracker SoM Eval Board",
             "image": "/assets/images/device-selector/t523-som-eval.svg",
+            "solutionTop": {
+                "md": "**The Tracker SoM evaluation board Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/tracker/tracker-som-eval-board/",
             "wifi": "2.4 GHz (only for geolocation)",
             "locationVariations": [
@@ -414,6 +426,9 @@
             "ceOptional": true,
             "title": "M-SoM",
             "image": "/assets/images/device-selector/m404-iso.jpg",
+            "solutionTop": {
+                "md": "**The M-Series SoM (M-SoM) Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/m-series/msom-datasheet/",
             "wifi": "2.4 and 5 GHz",
             "locationVariations": [
@@ -438,6 +453,9 @@
             "id": "m2-breakout",
             "pt": ["ptd"],
             "title": "M-SoM + M.2 Breakout Board",
+            "solutionTop": {
+                "md": "**The M.2 breakout board Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "skus": ["M2BREAKOUT"],
             "ceOptional": false,
             "image": "/assets/images/device-selector/m2breakout_top.png",
@@ -477,6 +495,9 @@
             "id": "muon-m1",
             "pt": ["ptg"],
             "title": "Muon + M1 Enclosure",
+            "solutionTop": {
+                "md": "**The Muon with M1 Enclosure Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "skus": ["M1ENCLEA"],
             "image": "/assets/images/device-selector/m1-top-open.jpg",
             "datasheet": "https://docs.particle.io/reference/datasheets/m-series/m1-enclosure-datasheet/",
@@ -493,6 +514,9 @@
             "ceOptional": true,
             "title": "B-SoM",
             "image": "/assets/images/device-selector/b404x-iso.png",
+            "solutionTop": {
+                "md": "**The B-Series SoM (B-SoM) Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "wifi": false,
             "locationVariations": [
                 {
@@ -525,6 +549,9 @@
             "ceOptional": true,
             "title": "B-SoM 5e",
             "image": "/assets/images/device-selector/b504-top.png",
+            "solutionTop": {
+                "md": "**The B-Series SoM (B-SoM 5e) Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/b-series/b504-datasheet/",
             "wifi": false,
             "locationVariations": [
@@ -545,6 +572,9 @@
             "ceOptional": true,
             "title": "Boron",
             "image": "/assets/images/device-selector/boron-angle.jpg",
+            "solutionTop": {
+                "md": "**The Boron Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/b-series/boron-datasheet/",
             "wifi": false,
             "locationVariations": [
@@ -565,6 +595,9 @@
             "ceOptional": true,
             "title": "P2",
             "image": "/assets/images/device-selector/p2-iso.png",
+            "solutionTop": {
+                "md": "**The P2 Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/wi-fi/p2-datasheet/",
             "wifi": "2.4 and 5 GHz",
             "skus": ["P2MOD10", "P2REEL"]
@@ -580,6 +613,9 @@
             "ceOptional": true,
             "title": "Photon 2",
             "image": "/assets/images/device-selector/photon2-iso.jpg",
+            "solutionTop": {
+                "md": "**The Photon 2 Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "datasheet": "/reference/datasheets/wi-fi/photon-2-datasheet/",
             "wifi": "2.4 and 5 GHz",
             "skus": ["PHN2MEA", "PHN2MTY"]
@@ -595,6 +631,9 @@
             "wifi": "Wi-Fi 6E",
             "title": "Tachyon",
             "image": "/assets/images/device-selector/tachyon.png",
+            "solutionTop": {
+                "md": "**The Tachyon Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
             "locationVariations": [
                 {
                     "variationTitle": "North America",

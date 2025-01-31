@@ -93,6 +93,17 @@ $(document).ready(function() {
                 $(outerDivElem).text(options.config.text);
             }
 
+            if (options.config.string) {
+                const s = deviceSelector.config.strings[options.config.string];
+                $(outerDivElem).text(s);
+            }
+            if (options.config.stringMd) {
+                const s = deviceSelector.config.strings[options.config.stringMd];
+                const expandedMd =  Handlebars.compile(s)(deviceSelector.context);
+                const html = deviceSelector.showdown.makeHtml(expandedMd);    
+                $(outerDivElem).html(html);
+            }
+
             $(options.containerElem).append(outerDivElem);    
         }
 
@@ -381,6 +392,8 @@ $(document).ready(function() {
                 title = solutionObj.title + ' (' + variationObj.variationTitle + ')';
 
                 const headerElem = document.createElement('h4');
+                $(headerElem).addClass('device-selector-variation-header');
+
                 $(headerElem).text(title);
                 $(solutionElem).append(headerElem);
             }
@@ -649,6 +662,7 @@ $(document).ready(function() {
 
 
                 const headerElem = document.createElement('h3');
+                $(headerElem).addClass('device-selector-solution-header');
                 $(headerElem).text(solutionObj.title);
                 $(solutionElem).append(headerElem);
 
