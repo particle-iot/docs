@@ -1,0 +1,9 @@
+{
+    "dir": "test",
+    "items": [
+        {
+            "dir": "device-selector",
+            "title": "Device selector test"
+        }
+    ]
+}

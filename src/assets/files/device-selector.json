@@ -1,0 +1,650 @@
+{
+    "styles": {
+        "solutionFitLeftWidth": "200px"
+    },
+    "strings": {
+        "noFilter": "If you are unsure, or do not want to filter by this question, leave all boxes unchecked."
+    },
+    "questions": [
+        {
+            "title": "Project type",
+            "id": "pt",
+            "checkboxes": [
+                {
+                    "id": "ptg",
+                    "title": "Gateway (all-in-one)",
+                    "description": "Gateway devices are all-in-one, complete with an enclosure, ready to be deployed in your project for both prototyping and production."
+                },
+                {
+                    "id": "ptd",
+                    "title": "Development kit",
+                    "description": "Developer kits are designed for experimentation, hobbyists, and prototyping."
+                },
+                {
+                    "id": "ptm",
+                    "title": "Module",
+                    "description": "Production modules are designed for mass production. In many cases you will need to create your own circuit board to utilize the module."
+                }
+            ],
+            "showNoFilter": true
+        },
+        {
+            "title": "Connectivity",
+            "id": "c",
+            "matchAllCheckboxes": true,
+            "checkboxes": [
+                {
+                    "id": "cc",
+                    "title": "Cellular",
+                    "description": "Cellular is a popular option for products because it doesn't depend on your customer's Wi-Fi."                    
+                },
+                {
+                    "id": "cw",
+                    "title": "Wi-Fi",
+                    "description": "This is the least expensive option, and works globally."
+                },
+                {
+                    "id": "ce",
+                    "title": "Ethernet",
+                    "description": "This option is ideal for some industrial applications where there may not be cellular or Wi-Fi available."
+                },
+                {
+                    "id": "cs",
+                    "title": "Satellite (NTN)",
+                    "description": "This option is helpful for low-data remote sensing applications, or as an emergency backup tp cellular."
+                },
+                {
+                    "id": "cl",
+                    "title": "LoRaWAN",
+                    "description": "This option is helpful for low-data remote sensing applications in some locations with poor cellular connectivity."
+                }
+            ],
+            "showNoFilter": true
+        },
+        {
+            "title": "Cellular data rate requirement",
+            "solutionFit": {
+                "title": "Cellular data rate",
+                "onlyShowLast": true
+            },
+            "id": "cd",
+            "radio": [
+                {
+                    "id": "cdl",
+                    "title": "Normal",
+                    "description": "Typical IoT data rates for sensors, remote control, etc.",
+                    "checked": true                
+                },
+                {
+                    "id": "cdh",
+                    "title": "High",
+                    "description": "High data rate for camera image uploads, tethering, etc."
+                }
+            ],
+            "showNoFilter": "If you are not using cellular you can ignore this question."
+        },
+
+        {
+            "title": "Cellular Location",
+            "solutionFit": {
+                "title": "Cellular regions"
+            },
+            "id": "lo",
+            "checkboxes": [
+            ],
+            "showNoFilter": "If you will not be using cellular, are unsure, or do not want to filter by this question, leave all boxes unchecked."
+        },
+        {
+            "title": "Computing power required",
+            "solutionFit": {
+                "title": "Computing power",
+                "onlyShowLast": true
+            },
+            "id": "cp",
+            "radio": [
+                {
+                    "id": "cpl",
+                    "title": "Low",
+                    "description": "Remote sensor monitoring, for example.",
+                    "checked": true                
+                },
+                {
+                    "id": "cpm",
+                    "title": "Medium",
+                    "description": "Some local data analysis. Small machine learning models or classifiers."
+                },
+                {
+                    "id": "cph",
+                    "title": "High",
+                    "description": "Large machine learning models, video or sound local processing."
+                }
+            ],
+            "showNoFilter": "If you are unsure, select Low to show all solutions"
+        },
+        {
+            "title": "Expansion options",
+            "solutionFit": {
+                "title": "Expansion options"
+            },
+            "id": "ex",
+            "checkboxes": [
+                {
+                    "id": "f",
+                    "title": "Adafruit Feather"
+                },
+                {
+                    "id": "p",
+                    "title": "Raspberry Pi (40-pin)"
+                },
+                {
+                    "id": "m8",
+                    "title": "M8 8-pin connector"
+                },
+                {
+                    "id": "m1",
+                    "title": "Monitor One expansion card"
+                }
+            ],
+            "showNoFilter": true
+        },
+        {
+            "title": "Geolocation (GNSS/GPS)",
+            "id": "g",
+            "solutionFit": {
+                "title": "GNSS Geolocation",
+                "onlyShowLast": true,
+                "titleIfEmpty": "No built-in GNSS"
+            },
+            "radio": [
+                {
+                    "id": "gl",
+                    "title": "Built-in GNSS geolocation not needed, or adding my own GNSS receiver",
+                    "solutionFit": {
+                        "title": "No built-in GNSS"
+                    },
+                    "description": "I do not need precise location from GNSS (GPS). Or I will be adding an external add-on GNSS receiver.",
+                    "checked": true                
+                },
+                {
+                    "id": "gm",
+                    "title": "Some GNSS geolocation desired",
+                    "solutionFit": {
+                        "title":"GNSS available via the cellular modem"
+                    },
+                    "description": "I would like location, but it's not the primary focus of my product. Or the item does not move frequently."
+                },
+                {
+                    "id": "gh",
+                    "title": "Precise GNSS geolocation needed",
+                    "solutionFit": {
+                        "title": "Includes precision GNSS module"
+                    },
+                    "description": "I would like GNSS (GPS) with RTK and location fusion with Wi-Fi and cellular assist. Or my product is in a moving vehicle."
+                }
+            ]
+        },
+        {
+            "title": "Display settings",
+            "id": "d",
+            "notSolution": true,
+            "checkboxes": [
+                {
+                    "id": "dc",
+                    "title": "Only show cellular countries for the locations you have selected",
+                    "checked": true
+                }
+            ]
+        }
+
+    ],
+    "solutionFit": [
+        {
+            "title": "Project type",
+            "id": "pt",
+            "useQuestion": true
+        },
+        {
+            "title": "Connectivity",
+            "id": "c",
+            "useQuestion": true
+        },
+        {
+            "title": "Cellular data rate",
+            "id": "cd",
+            "onlyShowLast": true,
+            "radio": [
+                {
+                    "id": "cdl",
+                    "title": "Normal. Typical IoT data rates for sensors, remote control, etc."
+                },
+                {
+                    "id": "cdh",
+                    "title": "High. For camera image uploads, tethering, etc."
+                }
+            ]
+        },
+
+        {
+            "title": "Cellular regions",
+            "id": "lo",
+            "useQuestion": true
+        },
+        {
+            "title": "Computing power",
+            "id": "cp",
+            "onlyShowLast": true,
+            "radio": [
+                {   
+                    "id": "cpl",
+                    "title": "Low. Suitable for remote sensor monitoring."  
+                },
+                {
+                    "id": "cpm",
+                    "title": "Medium. Suitable for some local data analysis."
+                },
+                {
+                    "id": "cph",
+                    "title": "High. Can run large machine learning models, video or sound local processing."
+                }
+            ]
+        },
+        {
+            "title": "Expansion options",
+            "id": "ex",
+            "useQuestion": true
+        },
+        {
+            "title": "Datasheet",
+            "solutionObj": "datasheet",
+            "link": "Datasheet"
+        },
+        {
+            "title": "Geolocation support",
+            "id": "g",
+            "onlyShowLast": true,
+            "titleIfEmpty": "No built-in GNSS",
+            "radio": [
+                {
+                    "id": "gl",
+                    "title": "No built-in GNSS"
+                },
+                {
+                    "id": "gm",
+                    "title":"GNSS available via the cellular modem"
+                },
+                {
+                    "id": "gh",
+                    "title": "Includes precision GNSS module"
+                }
+            ]
+        },
+        {
+            "title": "CPU",
+            "solutionObj": "mcuObj.cpu"
+        },
+        {
+            "title": "Wi-Fi",
+            "solutionObj": "wifi",
+            "titleIfEmpty": "No built-in Wi-Fi"
+        },
+        {
+            "title": "Cellular modem",
+            "solutionObj": "modemName"
+        },
+        {
+            "title": "Cellular SIM",
+            "solutionObj": "simName"
+        },
+        {
+            "title": "User application size (flash)",
+            "solutionObj": "mcuObj.userAppSize"
+        },
+        {
+            "title": "User application available RAM",
+            "solutionObj": "mcuObj.userRam"
+        },
+        {
+            "title": "Flash file system",
+            "solutionObj": "mcuObj.flashFileSystem"
+        }
+    ],
+    "mergeSolutionKeys": ["c"],
+    "solutions": [
+        {
+            "id": "tracker-one",
+            "pt": ["ptg"],
+            "c": ["cc"],
+            "cd": ["cdl"],
+            "cp": ["cpl"],
+            "g": ["gm", "gh"],
+            "ex": ["m8"],
+            "title": "Tracker One",
+            "solutionTop": {
+                "md": "**The Tracker One Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "image": "/assets/images/device-selector/tracker-one.jpg",
+            "datasheet": "/reference/datasheets/tracker/tracker-one/",
+            "wifi": "2.4 GHz (only for geolocation)",
+            "locationVariations": [
+                {
+                    "variationTitle": "404",
+                    "skus": ["ONE404MEA", "ONE494MTY"]
+                },
+                {
+                    "variationTitle": "524",
+                    "skus": ["ONE524MEA", "ONE524MTY"]
+                }
+            ]
+        },
+        {
+            "id": "monitor-one",
+            "pt": ["ptg"],
+            "c": ["cc"],
+            "cd": ["cdl"],
+            "cp": ["cpl"],
+            "g": ["gm", "gh"],
+            "ex": ["m1"],
+            "title": "Monitor One",
+            "image": "/assets/images/device-selector/monitor-one.jpg",
+            "solutionTop": {
+                "md": "**The Monitor One Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/tracker/monitor-one-datasheet/",
+            "wifi": "2.4 GHz (only for geolocation)",
+            "locationVariations": [
+                {
+                    "variationTitle": "404",
+                    "skus": ["MON404E01C01KIT"]
+                },
+                {
+                    "variationTitle": "524",
+                    "skus": ["MON524E01C01KIT"]
+                }
+            ]
+        },
+        {
+            "id": "tracker-som",
+            "pt": ["ptm"],
+            "c": ["cc"],
+            "cd": ["cdl"],
+            "cp": ["cpl"],
+            "g": ["gh"],
+            "ex": false,
+            "ceOptional": true,
+            "title": "Tracker SoM",
+            "image": "/assets/images/device-selector/t523-som.svg",
+            "solutionTop": {
+                "md": "**The Tracker SoM Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/tracker/tracker-som-datasheet/",
+            "wifi": "2.4 GHz (only for geolocation)",
+            "locationVariations": [
+                {
+                    "variationTitle": "404",
+                    "skus": ["T404MEA", "T404MTX"]
+                },
+                {
+                    "variationTitle": "524",
+                    "skus": ["T524MEA", "T524MTY"]
+                }
+            ]
+        },        
+        {
+            "id": "tracker-som-eval",
+            "pt": ["ptd"],
+            "c": ["cc"],
+            "cd": ["cdl"],
+            "cp": ["cpl"],
+            "g": ["gh"],
+            "ex": false,
+            "ceOptional": true,
+            "title": "Tracker SoM Eval Board",
+            "image": "/assets/images/device-selector/t523-som-eval.svg",
+            "solutionTop": {
+                "md": "**The Tracker SoM evaluation board Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/tracker/tracker-som-eval-board/",
+            "wifi": "2.4 GHz (only for geolocation)",
+            "locationVariations": [
+                {
+                    "variationTitle": "404",
+                    "skus": ["T404MKIT"]
+                },
+                {
+                    "variationTitle": "524",
+                    "skus": ["T524MKIT"]
+                }
+            ]
+        },               
+        {
+            "id": "m-som",
+            "pt": ["ptm"],
+            "cd": ["cdl"],
+            "cp": ["cpl", "cpm"],
+            "g": ["gl", "gm"],
+            "ex": false,
+            "ceOptional": true,
+            "title": "M-SoM",
+            "image": "/assets/images/device-selector/m404-iso.jpg",
+            "solutionTop": {
+                "md": "**The M-Series SoM (M-SoM) Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/m-series/msom-datasheet/",
+            "wifi": "2.4 and 5 GHz",
+            "locationVariations": [
+                {
+                    "c": ["cc", "cw"],
+                    "variationTitle": "404",
+                    "skus": ["M404MEA", "M404MTY"]
+                },
+                {
+                    "c": ["cc", "cw"],
+                    "variationTitle": "524",
+                    "skus": ["M524MEA", "M524MTY"]
+                },
+                {
+                    "c": ["cc", "cw", "cs"],
+                    "variationTitle": "635",
+                    "skus": ["M635MEA", "M635MTY"]
+                }
+            ]
+        },
+        {
+            "id": "m2-breakout",
+            "pt": ["ptd"],
+            "title": "M-SoM + M.2 Breakout Board",
+            "solutionTop": {
+                "md": "**The M.2 breakout board Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "skus": ["M2BREAKOUT"],
+            "ceOptional": false,
+            "image": "/assets/images/device-selector/m2breakout_top.png",
+            "datasheet": "/reference/datasheets/m-series/m2-breakout-datasheet/",
+            "derivedFrom": "m-som"
+        },
+        {
+            "id": "muon",
+            "pt": ["ptd"],
+            "cd": ["cdl"],
+            "cp": ["cpl", "cpm"],
+            "g": ["gl", "gm"],
+            "ex": ["p"],
+            "title": "Muon",
+            "image": "/assets/images/device-selector/muon-iso.png",
+            "datasheet": "/reference/datasheets/m-series/muon-datasheet/",
+            "wifi": "2.4 and 5 GHz",
+            "locationVariations": [
+                {
+                    "c": ["cc", "cw", "ce", "cl"],
+                    "variationTitle": "404",
+                    "skus": ["MUON404", "MUON404EA"]
+                },
+                {
+                    "c": ["cc", "cw", "ce", "cl"],
+                    "variationTitle": "524",
+                    "skus": ["MUON524", "MUON524EA"]
+                },
+                {
+                    "c": ["cc", "cw", "ce", "cl", "cs"],
+                    "variationTitle": "635",
+                    "skus": ["MUON635"]
+                }
+            ]
+        },
+        {
+            "id": "muon-m1",
+            "pt": ["ptg"],
+            "title": "Muon + M1 Enclosure",
+            "solutionTop": {
+                "md": "**The Muon with M1 Enclosure Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "skus": ["M1ENCLEA"],
+            "image": "/assets/images/device-selector/m1-top-open.jpg",
+            "datasheet": "https://docs.particle.io/reference/datasheets/m-series/m1-enclosure-datasheet/",
+            "derivedFrom": "muon"
+        },
+        {
+            "id": "b-som",
+            "pt": ["ptm"],
+            "c": ["cc"],
+            "cp": ["cpl"],
+            "cd": ["cdl"],
+            "g": false,
+            "ex": false,
+            "ceOptional": true,
+            "title": "B-SoM",
+            "image": "/assets/images/device-selector/b404x-iso.png",
+            "solutionTop": {
+                "md": "**The B-Series SoM (B-SoM) Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "wifi": false,
+            "locationVariations": [
+                {
+                    "variationTitle": "404X",
+                    "datasheet": "/reference/datasheets/b-series/b404x-datasheet/",
+                    "skus": ["B404XMEA", "B404XMTY"]
+                },
+                {
+                    "variationTitle": "524",
+                    "datasheet": "/reference/datasheets/b-series/b524-b523-datasheet/",
+                    "g": ["gm"],
+                    "skus": ["B524MEA", "B524MTY"]
+                },
+                {
+                    "variationTitle": "504",
+                    "datasheet": "/reference/datasheets/b-series/b504-datasheet/",
+                    "g": ["gm"],
+                    "skus": ["B504MEA", "B504MTY"]
+                }
+            ]            
+        },
+        {
+            "id": "b-som-5e",
+            "pt": ["ptm"],
+            "c": ["cc"],
+            "cp": ["cpl"],
+            "cd": ["cdl","cdh"],
+            "g": ["gm"],
+            "ex": false,
+            "ceOptional": true,
+            "title": "B-SoM 5e",
+            "image": "/assets/images/device-selector/b504-top.png",
+            "solutionTop": {
+                "md": "**The B-Series SoM (B-SoM 5e) Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/b-series/b504-datasheet/",
+            "wifi": false,
+            "locationVariations": [
+                {
+                    "variationTitle": "504e",
+                    "skus": ["B504EMEA", "B504EMTY"]
+                }
+            ]
+        },
+        {
+            "id": "boron",
+            "pt": ["ptd"],
+            "c": ["cc"],
+            "cd": ["cdl"],
+            "cp": ["cpl"],
+            "g": false,
+            "ex": ["f"],
+            "ceOptional": true,
+            "title": "Boron",
+            "image": "/assets/images/device-selector/boron-angle.jpg",
+            "solutionTop": {
+                "md": "**The Boron Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/b-series/boron-datasheet/",
+            "wifi": false,
+            "locationVariations": [
+                {
+                    "variationTitle": "404X",
+                    "skus": ["BRN404X", "BRN404XKIT", "BRN404XTRAY50"]
+                }
+            ]            
+        },        
+        {
+            "id": "p2",
+            "pt": ["ptm"],
+            "c": ["cw"],
+            "cd": false,
+            "cp": ["cpl", "cpm"],
+            "g": false,
+            "ex": false,
+            "ceOptional": true,
+            "title": "P2",
+            "image": "/assets/images/device-selector/p2-iso.png",
+            "solutionTop": {
+                "md": "**The P2 Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/wi-fi/p2-datasheet/",
+            "wifi": "2.4 and 5 GHz",
+            "skus": ["P2MOD10", "P2REEL"]
+        },
+        {
+            "id": "photon-2",
+            "pt": ["ptd"],
+            "c": ["cw"],
+            "cd": false,
+            "cp": ["cpl", "cpm"],
+            "g": false,
+            "ex": ["f"],
+            "ceOptional": true,
+            "title": "Photon 2",
+            "image": "/assets/images/device-selector/photon2-iso.jpg",
+            "solutionTop": {
+                "md": "**The Photon 2 Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "datasheet": "/reference/datasheets/wi-fi/photon-2-datasheet/",
+            "wifi": "2.4 and 5 GHz",
+            "skus": ["PHN2MEA", "PHN2MTY"]
+        },
+        {
+            "id": "tachyon",
+            "pt": ["ptd"],
+            "c": ["cc", "ce"],
+            "cd": ["cdl","cdh"],
+            "cp": ["cpl", "cpm","cph"],
+            "g": ["gl", "gm"],
+            "ex": ["p"],
+            "wifi": "Wi-Fi 6E",
+            "title": "Tachyon",
+            "image": "/assets/images/device-selector/tachyon.png",
+            "solutionTop": {
+                "md": "**The Tachyon Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            "locationVariations": [
+                {
+                    "variationTitle": "North America",
+                    "skus": ["TACH4NA", "TACH8NA"]
+                },
+                {
+                    "variationTitle": "Rest of World",
+                    "skus": ["TACH4ROW", "TACH8ROW"]
+                }
+            ]            
+        }
+    ]
+}
+
