@@ -152,7 +152,7 @@ $(document).ready(function() {
                             }
                         }
 
-                        console.log('question ' + questionObj.id, {matchCount, selectedCount, questionObj});
+                        // console.log('question ' + questionObj.id, {matchCount, selectedCount, questionObj});
 
 
                         if (questionObj.matchAllCheckboxes) {
@@ -171,7 +171,7 @@ $(document).ready(function() {
                     }
                     else {
                         // No checkbox checked, allow any answer
-                        console.log('question ' + questionObj.id + ' no selected options');
+                        // console.log('question ' + questionObj.id + ' no selected options');
                     }
                 }
                 if (questionObj.radio) {
@@ -608,7 +608,7 @@ $(document).ready(function() {
                 }
             }
 
-            console.log('context', deviceSelector.context);
+            // console.log('context', deviceSelector.context);
 
             // If variation is shown, also propagate the show flag up into the solution
             for(const solutionObj of deviceSelector.solutions) {
@@ -653,7 +653,7 @@ $(document).ready(function() {
             for(const solutionObj of deviceSelector.visibleSolutions) {
                 deviceSelector.context.solution = solutionObj;
 
-                console.log('render solution ' + solutionObj.title, solutionObj);
+                // console.log('render solution ' + solutionObj.title, solutionObj);
                 
                 const sectionElem = solutionObj.sectionElem = document.createElement('section');
                 $(sectionElem).attr('id', solutionObj.anchor);
@@ -1278,7 +1278,7 @@ $(document).ready(function() {
     
             processDeviceSelectorJson();
 
-            console.log('deviceSelector', deviceSelector);
+            // console.log('deviceSelector', deviceSelector);
 
             await renderQuestions();
     
