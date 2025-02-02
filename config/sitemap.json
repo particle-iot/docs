@@ -9625,6 +9625,10 @@
         "reference/technical-advisory-notices/tan015.md": {
             "hash": "198de88b8a154b2b6164093b19210baf6ddce1d8407858f1b49dbfee848d7072",
             "date": "2025-01-17"
+        },
+        "tools/developer-tools/file-to-code.md": {
+            "hash": "9f0ef6f94233db29f6511b57eb26590d038d7abf36fdd85943860db7b673c681",
+            "date": "2025-02-02"
         }
     }
 }

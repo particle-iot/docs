@@ -1,0 +1,59 @@
+<div class="apiHelperFileToCode">
+    <div class="apiHelper">
+        <table class="apiHelperTableNoMargin">
+            <tbody>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Data source</td>
+                    <td>
+                        <select class="apiHelperSelect dataSource">
+                            <option value="file">File</option>
+                            <option value="random">Random data</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="sourcePanel" data-which="file" style="display:none;">
+                    <td>File</td>
+                    <td>
+                        <button class="apiHelperButton selectFileButton">Select File</button>
+                        <input type="file" class="selectFileInput" style="display:none" />
+                    </td>
+                </tr>
+                <tr class="sourcePanel" data-which="random" style="display:none;">
+                    <td>Random data</td>
+                    <td>
+                        <input type="text" size="8" value="256" class="randomDataSize"/> bytes
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Output format</td>
+                    <td>
+                        <select class="apiHelperSelect outputFormat">
+                            <option value="c">C++</option>
+                            <option value="js">Javascript</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Bytes per line</td>
+                    <td>
+                        <input type="text" size="8" value="20" class="bytesPerLine"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel" colspan="2">
+                        <button class="apiHelperButton generateCode">Generate code</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h3>Output</h3>
+        <div>
+            <button class="apiHelperButton buttonCopy">Copy</button>
+            <button class="apiHelperButton buttonDownload">Download</button>
+        </div>
+        <textarea style="margin-top: 10px;" class="outputTextArea apiHelperMonoSmall" rows="20" cols="130"></textarea>
+        <div class="statusMsg"></div>
+    </div>
+</div>

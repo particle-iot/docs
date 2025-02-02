@@ -3265,6 +3265,147 @@ $(document).ready(function() {
     });
 
 
+    $('.apiHelperFileToCode').each(function() {
+        const thisPartial = $(this);
+
+        console.log('apiHelperFileToCode');
+
+        let fileToCode = {
+        };
+
+        const showStatusMsg = function(s) {
+            $(thisPartial).find('.statusMsg').text(s);
+        }
+
+        const showPanels = function() {
+            const dataSource = $(thisPartial).find('.dataSource').val();
+            $(thisPartial).find('.sourcePanel').hide();
+
+            $(thisPartial).find('.sourcePanel[data-which="' + dataSource + '"').show();
+        }
+        $(thisPartial).find('.dataSource').on('change', function() {
+            showPanels();
+            enableButtons();
+        });
+
+        const updateParams = function() {
+            fileToCode.params = {
+                dataSource: $(thisPartial).find('.dataSource').val(),
+                outputFormat: $(thisPartial).find('.outputFormat').val(),
+                randomDataSize: parseInt($(thisPartial).find('.randomDataSize').val()),
+                bytesPerLine: parseInt($(thisPartial).find('.bytesPerLine').val()),
+            };
+
+        }
+
+        const enableButtons = function() {
+            updateParams();
+
+            let canGenerate = false;
+
+            if (fileToCode.params.dataSource == 'file') {
+                canGenerate = typeof fileToCode.data != 'undefined';
+            }
+            else
+            if (fileToCode.params.dataSource == 'random') {
+                canGenerate = fileToCode.params.randomDataSize > 0;
+            }
+
+            $(thisPartial).find('.generateCode').prop('disabled', !canGenerate);
+        }
+
+        showPanels();
+        enableButtons();
+
+        $(thisPartial).find('.generateCode').on('click', function() {
+            $(thisPartial).find('.generateCode').prop('disabled', true);
+
+            updateParams();
+
+            if (fileToCode.params.dataSource == 'random') {
+                fileToCode.data = new Uint8Array(fileToCode.params.randomDataSize);
+                for(let ii = 0; ii < fileToCode.params.randomDataSize; ii++) {
+                    fileToCode.data[ii] = Math.floor(Math.random() * 256);
+                }
+            }
+            else
+            if (fileToCode.params.dataSource == 'file') {
+            }
+
+            if (fileToCode.params.outputFormat == 'c') {
+                fileToCode.filename = 'code.cpp';
+                fileToCode.prefix = 'const uint8_t file[' + fileToCode.data.length + '] = {\n';
+                fileToCode.suffix = '}\n;';
+            }
+            else
+            if (fileToCode.params.outputFormat == 'js') {
+                fileToCode.filename = 'code.js';
+                fileToCode.prefix = 'const file = [\n';
+                fileToCode.suffix = ']\n;';
+            }
+
+
+            console.log('generateCode', fileToCode);
+
+            let lines = [];
+            let col = 0;
+            let line = '';
+
+            for(let ii = 0; ii < fileToCode.data.length; ii++) {
+                let hex = fileToCode.data[ii].toString(16);
+                if (hex.length == 1) {
+                    hex = '0' + hex;
+                }
+                line += '0x' + hex;
+
+                if ((ii + 1) < fileToCode.data.length) {
+                    line += ', ';
+                }
+
+                if (++col >= fileToCode.params.bytesPerLine) {
+                    lines.push(line);
+                    line = '';
+                    col = 0;
+                }
+            }
+            if (line.length) {
+                lines.push(lines);
+            }
+            fileToCode.code = fileToCode.prefix + lines.join('\n') + fileToCode.suffix;
+            $(thisPartial).find('.outputTextArea').val(fileToCode.code);
+
+            enableButtons();
+        });
+
+        $(thisPartial).find('.buttonCopy').on('click', function() {
+            const t = $(thisPartial).find('.outputTextArea')[0];
+            t.select();
+            document.execCommand("copy");
+        });
+
+        $(thisPartial).find('.buttonDownload').on('click', function() {
+            let blob = new Blob([fileToCode.code], {type:'text/plain'});
+            saveAs(blob, fileToCode.filename);
+        });
+        
+
+        $(thisPartial).find('.selectFileButton').on('click', function() {
+            $(thisPartial).find('.selectFileInput').trigger('click');
+        });
+
+        $(thisPartial).find('.selectFileInput').on('change', function() {
+            const files = this.files;
+
+            let fileReader = new FileReader();
+                fileReader.onload = async function() {                    
+                    fileToCode.data = new Uint8Array(fileReader.result);
+                    enableButtons();
+                };
+                fileReader.readAsArrayBuffer(files[0]);
+        });
+        $(thisPartial).find('.randomDataSize').on('input', enableButtons);
+    });
+
 
     apiHelper.flattenObject = function(objIn) {
         let objOut = {};
