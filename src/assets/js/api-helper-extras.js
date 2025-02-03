@@ -3268,8 +3268,6 @@ $(document).ready(function() {
     $('.apiHelperFileToCode').each(function() {
         const thisPartial = $(this);
 
-        console.log('apiHelperFileToCode');
-
         let fileToCode = {
             params: {},
         };
@@ -3284,9 +3282,13 @@ $(document).ready(function() {
 
             $(thisPartial).find('.sourcePanel[data-which="' + dataSource + '"').show();
         }
+
         $(thisPartial).find('[data-key="dataSource"]').on('change', function() {
+            fileToCode.data = null;
             showPanels();
             enableButtons();
+            $(thisPartial).find('.buttonDownloadBinary').prop('disabled', true);
+            $(thisPartial).find('.outputTextArea').val('');
         });
 
         const updateParams = function() {
@@ -3331,9 +3333,11 @@ $(document).ready(function() {
             updateParams();
 
             if (fileToCode.params.dataSource == 'random') {
-                fileToCode.data = new Uint8Array(fileToCode.params.randomDataSize);
-                for(let ii = 0; ii < fileToCode.params.randomDataSize; ii++) {
-                    fileToCode.data[ii] = Math.floor(Math.random() * 256);
+                if (!fileToCode.data || fileToCode.data.length != fileToCode.params.randomDataSize) {
+                    fileToCode.data = new Uint8Array(fileToCode.params.randomDataSize);
+                    for(let ii = 0; ii < fileToCode.params.randomDataSize; ii++) {
+                        fileToCode.data[ii] = Math.floor(Math.random() * 256);
+                    }    
                 }
             }
             else
@@ -3341,25 +3345,23 @@ $(document).ready(function() {
             }
 
             if (fileToCode.params.outputFormat == 'c') {
-                fileToCode.filename = 'code.cpp';
+                fileToCode.filename = fileToCode.params.variableName + '.cpp';
                 fileToCode.prefix = 'const uint8_t ' + fileToCode.params.variableName + '[' + fileToCode.data.length + '] = {\n';
                 fileToCode.suffix = '};\n';
 
                 fileToCode.hashPrefix = 'const char *' + fileToCode.params.variableName +  '_hash = "';
-                fileToCode.hashSuffix = '"\n';
+                fileToCode.hashSuffix = '";\n';
             }
             else
             if (fileToCode.params.outputFormat == 'js') {
-                fileToCode.filename = 'code.js';
+                fileToCode.filename = fileToCode.params.variableName + '.js';
                 fileToCode.prefix = 'const ' + fileToCode.params.variableName + ' = [\n';
                 fileToCode.suffix = '];\n';
 
                 fileToCode.hashPrefix = 'const ' + fileToCode.params.variableName +  '_hash = "';
-                fileToCode.hashSuffix = '"\n';
+                fileToCode.hashSuffix = '";\n';
             }
-
-
-            console.log('generateCode', fileToCode);
+            fileToCode.binaryFilename = fileToCode.params.variableName + '.bin';
 
             let lines = [];
             let col = 0;
@@ -3399,6 +3401,8 @@ $(document).ready(function() {
 
             $(thisPartial).find('.outputTextArea').val(fileToCode.code);
 
+            $(thisPartial).find('.buttonDownloadBinary').prop('disabled', fileToCode.params.dataSource != 'random');
+
             enableButtons();
         });
 
@@ -3413,7 +3417,12 @@ $(document).ready(function() {
             saveAs(blob, fileToCode.filename);
         });
         
+        $(thisPartial).find('.buttonDownloadBinary').on('click', function() {
+            let blob = new Blob([fileToCode.data], {type:'application/octet-stream'});
+            saveAs(blob, fileToCode.binaryFilename);
+        });
 
+        
         $(thisPartial).find('.selectFileButton').on('click', function() {
             $(thisPartial).find('.selectFileInput').trigger('click');
         });
@@ -3428,6 +3437,7 @@ $(document).ready(function() {
                 };
                 fileReader.readAsArrayBuffer(files[0]);
         });
+
 
         $(thisPartial).find('.paramValue').on('input', enableButtons);
     });
