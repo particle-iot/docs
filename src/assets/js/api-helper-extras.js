@@ -3271,6 +3271,7 @@ $(document).ready(function() {
         console.log('apiHelperFileToCode');
 
         let fileToCode = {
+            params: {},
         };
 
         const showStatusMsg = function(s) {
@@ -3278,24 +3279,26 @@ $(document).ready(function() {
         }
 
         const showPanels = function() {
-            const dataSource = $(thisPartial).find('.dataSource').val();
+            const dataSource = $(thisPartial).find('[data-key="dataSource"]').val();
             $(thisPartial).find('.sourcePanel').hide();
 
             $(thisPartial).find('.sourcePanel[data-which="' + dataSource + '"').show();
         }
-        $(thisPartial).find('.dataSource').on('change', function() {
+        $(thisPartial).find('[data-key="dataSource"]').on('change', function() {
             showPanels();
             enableButtons();
         });
 
         const updateParams = function() {
-            fileToCode.params = {
-                dataSource: $(thisPartial).find('.dataSource').val(),
-                outputFormat: $(thisPartial).find('.outputFormat').val(),
-                randomDataSize: parseInt($(thisPartial).find('.randomDataSize').val()),
-                bytesPerLine: parseInt($(thisPartial).find('.bytesPerLine').val()),
-            };
+            $(thisPartial).find('.paramValue').each(function() {
+                const key = $(this).data('key');
+                const format = $(this).data('format') || 'string';
 
+                fileToCode.params[key] = $(this).val();
+                if (format == 'int') {
+                    fileToCode.params[key] = parseInt(fileToCode.params[key]);
+                }    
+            });
         }
 
         const enableButtons = function() {
@@ -3311,13 +3314,18 @@ $(document).ready(function() {
                 canGenerate = fileToCode.params.randomDataSize > 0;
             }
 
+            const variableNameRE = /^[A-Za-z][_A-Za-z0-9]*$/;
+            if (!fileToCode.params.variableName.match(variableNameRE)) {
+                canGenerate = false;
+            }
+
             $(thisPartial).find('.generateCode').prop('disabled', !canGenerate);
         }
 
         showPanels();
         enableButtons();
 
-        $(thisPartial).find('.generateCode').on('click', function() {
+        $(thisPartial).find('.generateCode').on('click', async function() {
             $(thisPartial).find('.generateCode').prop('disabled', true);
 
             updateParams();
@@ -3334,14 +3342,20 @@ $(document).ready(function() {
 
             if (fileToCode.params.outputFormat == 'c') {
                 fileToCode.filename = 'code.cpp';
-                fileToCode.prefix = 'const uint8_t file[' + fileToCode.data.length + '] = {\n';
-                fileToCode.suffix = '}\n;';
+                fileToCode.prefix = 'const uint8_t ' + fileToCode.params.variableName + '[' + fileToCode.data.length + '] = {\n';
+                fileToCode.suffix = '};\n';
+
+                fileToCode.hashPrefix = 'const char *' + fileToCode.params.variableName +  '_hash = "';
+                fileToCode.hashSuffix = '"\n';
             }
             else
             if (fileToCode.params.outputFormat == 'js') {
                 fileToCode.filename = 'code.js';
-                fileToCode.prefix = 'const file = [\n';
-                fileToCode.suffix = ']\n;';
+                fileToCode.prefix = 'const ' + fileToCode.params.variableName + ' = [\n';
+                fileToCode.suffix = '];\n';
+
+                fileToCode.hashPrefix = 'const ' + fileToCode.params.variableName +  '_hash = "';
+                fileToCode.hashSuffix = '"\n';
             }
 
 
@@ -3369,9 +3383,20 @@ $(document).ready(function() {
                 }
             }
             if (line.length) {
-                lines.push(lines);
+                lines.push(line);
             }
-            fileToCode.code = fileToCode.prefix + lines.join('\n') + fileToCode.suffix;
+            fileToCode.code = fileToCode.prefix + lines.join('\n') + fileToCode.suffix + '\n';
+
+            if (fileToCode.params.includeHash != 'none') {
+                const hashBytes = await crypto.subtle.digest(fileToCode.params.includeHash, fileToCode.data);
+                const hashHex = Array.from(new Uint8Array(hashBytes))
+                  .map(v => v.toString(16).padStart(2, '0'))
+                  .join('');
+                
+                fileToCode.code += fileToCode.hashPrefix + hashHex + fileToCode.hashSuffix;
+            }
+
+
             $(thisPartial).find('.outputTextArea').val(fileToCode.code);
 
             enableButtons();
@@ -3403,7 +3428,8 @@ $(document).ready(function() {
                 };
                 fileReader.readAsArrayBuffer(files[0]);
         });
-        $(thisPartial).find('.randomDataSize').on('input', enableButtons);
+
+        $(thisPartial).find('.paramValue').on('input', enableButtons);
     });
 
 

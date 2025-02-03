@@ -5,38 +5,54 @@
                 <tr>
                     <td class="apiHelperProductSelectorLabel">Data source</td>
                     <td>
-                        <select class="apiHelperSelect dataSource">
+                        <select class="apiHelperSelect paramValue" data-key="dataSource">
                             <option value="file">File</option>
                             <option value="random">Random data</option>
                         </select>
                     </td>
                 </tr>
                 <tr class="sourcePanel" data-which="file" style="display:none;">
-                    <td>File</td>
+                    <td class="apiHelperProductSelectorLabel">File</td>
                     <td>
                         <button class="apiHelperButton selectFileButton">Select File</button>
                         <input type="file" class="selectFileInput" style="display:none" />
                     </td>
                 </tr>
                 <tr class="sourcePanel" data-which="random" style="display:none;">
-                    <td>Random data</td>
+                    <td class="apiHelperProductSelectorLabel">Random data</td>
                     <td>
-                        <input type="text" size="8" value="256" class="randomDataSize"/> bytes
+                        <input type="text" size="8" value="256" class="paramValue" data-key="randomDataSize" data-format="int"/> bytes
                     </td>
                 </tr>
                 <tr>
                     <td class="apiHelperProductSelectorLabel">Output format</td>
                     <td>
-                        <select class="apiHelperSelect outputFormat">
+                        <select class="apiHelperSelect paramValue" data-key="outputFormat">
                             <option value="c">C++</option>
                             <option value="js">Javascript</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
+                    <td class="apiHelperProductSelectorLabel">Variable name</td>
+                    <td>
+                        <input type="text" size="8" value="data" class="paramValue" data-key="variableName" /> bytes
+                    </td>
+                </tr>
+                <tr>
                     <td class="apiHelperProductSelectorLabel">Bytes per line</td>
                     <td>
-                        <input type="text" size="8" value="20" class="bytesPerLine"/>
+                        <input type="text" size="8" value="20" class="paramValue" data-key="bytesPerLine" data-format="int"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Include hash</td>
+                    <td>
+                        <select class="apiHelperSelect paramValue" data-key="includeHash">
+                            <option value="none">None</option>
+                            <option value="SHA-1">SHA-1</option>
+                            <option value="SHA-256">SHA-256</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
