@@ -223,6 +223,17 @@ This example includes JSON data that includes binary data.
 
 {{> codebox content="/assets/files/extended-publish/JsonWithBinary.cpp" format="cpp" height="400" flash="true"}}
 
+### Image publish
+
+This example publishes a small png image using typed publish.
+
+{{> codebox content="/assets/files/extended-publish/ImagePublish.cpp" format="cpp" height="400" flash="true"}}
+
+
+The event viewer in the console can display the image when you view its details.
+
+![](/assets/images/png-event.png)
+
 ### Simple publish callback
 
 This example uses the [onStatusChange](/reference/device-os/api/cloudevent/publish-status-cloudevent/#onstatuschange-cloudevent) 
