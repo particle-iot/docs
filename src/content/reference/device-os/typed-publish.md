@@ -24,12 +24,14 @@ Large events count as 1 data operation for each 1024 bytes of data, rounded up. 
 
 Prior to Device OS 6.3.0, there was a rate limit of approximately 1 publish for second, with greater bursts.
 
-With Device OS 6.3.0 and extended publish, there is a limit of approximately 16 Kbytes of data in transit at a time. This could be
-16 events of 1024 bytes, or a single event with 16,384 bytes of data.
+With Device OS 6.3.0 and extended publish, there is a limit of approximately 32 Kbytes of data in transit at a time. It is no longer necessary
+to wait a specific amount of time.
 
 The [canPublish](/reference/device-os/api/cloudevent/publish-status-cloudevent/#canpublish-cloudevent) method can be used to check
 if a publish of a given size would be allowed at the current time. It it returns false, you should wait and check again later 
 after the queued data has been sent.
+
+More specifically, the limit is 32 logical blocks of data, rounded up to 1024 bytes. An event without payload data takes 1 block, 1024 bytes of payload data is still 1 block, 1025 bytes is 2 blocks, and so on. If there are 32 logical data blocks in flight already, canPublish will return false or an attempt to publish without checking will fail.
 
 ## Data types
 
