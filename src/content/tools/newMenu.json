@@ -88,6 +88,10 @@
                     "dir": "ble-tdm",
                     "title": "BLE TDM calculator",
                     "internal": true
+                },
+                {
+                    "dir": "file-to-code",
+                    "title": "File to code generator"
                 }
             ]
         },

@@ -3265,6 +3265,183 @@ $(document).ready(function() {
     });
 
 
+    $('.apiHelperFileToCode').each(function() {
+        const thisPartial = $(this);
+
+        let fileToCode = {
+            params: {},
+        };
+
+        const showStatusMsg = function(s) {
+            $(thisPartial).find('.statusMsg').text(s);
+        }
+
+        const showPanels = function() {
+            const dataSource = $(thisPartial).find('[data-key="dataSource"]').val();
+            $(thisPartial).find('.sourcePanel').hide();
+
+            $(thisPartial).find('.sourcePanel[data-which="' + dataSource + '"').show();
+        }
+
+        $(thisPartial).find('[data-key="dataSource"]').on('change', function() {
+            fileToCode.data = null;
+            showPanels();
+            enableButtons();
+            $(thisPartial).find('.buttonDownloadBinary').prop('disabled', true);
+            $(thisPartial).find('.outputTextArea').val('');
+        });
+
+        const updateParams = function() {
+            $(thisPartial).find('.paramValue').each(function() {
+                const key = $(this).data('key');
+                const format = $(this).data('format') || 'string';
+
+                fileToCode.params[key] = $(this).val();
+                if (format == 'int') {
+                    fileToCode.params[key] = parseInt(fileToCode.params[key]);
+                }    
+            });
+        }
+
+        const enableButtons = function() {
+            updateParams();
+
+            let canGenerate = false;
+
+            if (fileToCode.params.dataSource == 'file') {
+                canGenerate = typeof fileToCode.data != 'undefined';
+            }
+            else
+            if (fileToCode.params.dataSource == 'random') {
+                canGenerate = fileToCode.params.randomDataSize > 0;
+            }
+
+            const variableNameRE = /^[A-Za-z][_A-Za-z0-9]*$/;
+            if (!fileToCode.params.variableName.match(variableNameRE)) {
+                canGenerate = false;
+            }
+
+            $(thisPartial).find('.generateCode').prop('disabled', !canGenerate);
+        }
+
+        showPanels();
+        enableButtons();
+
+        $(thisPartial).find('.generateCode').on('click', async function() {
+            $(thisPartial).find('.generateCode').prop('disabled', true);
+
+            updateParams();
+
+            if (fileToCode.params.dataSource == 'random') {
+                if (!fileToCode.data || fileToCode.data.length != fileToCode.params.randomDataSize) {
+                    fileToCode.data = new Uint8Array(fileToCode.params.randomDataSize);
+                    for(let ii = 0; ii < fileToCode.params.randomDataSize; ii++) {
+                        fileToCode.data[ii] = Math.floor(Math.random() * 256);
+                    }    
+                }
+            }
+            else
+            if (fileToCode.params.dataSource == 'file') {
+            }
+
+            if (fileToCode.params.outputFormat == 'c') {
+                fileToCode.filename = fileToCode.params.variableName + '.cpp';
+                fileToCode.prefix = 'const uint8_t ' + fileToCode.params.variableName + '[' + fileToCode.data.length + '] = {\n';
+                fileToCode.suffix = '};\n';
+
+                fileToCode.hashPrefix = 'const char *' + fileToCode.params.variableName +  '_hash = "';
+                fileToCode.hashSuffix = '";\n';
+            }
+            else
+            if (fileToCode.params.outputFormat == 'js') {
+                fileToCode.filename = fileToCode.params.variableName + '.js';
+                fileToCode.prefix = 'const ' + fileToCode.params.variableName + ' = [\n';
+                fileToCode.suffix = '];\n';
+
+                fileToCode.hashPrefix = 'const ' + fileToCode.params.variableName +  '_hash = "';
+                fileToCode.hashSuffix = '";\n';
+            }
+            fileToCode.binaryFilename = fileToCode.params.variableName + '.bin';
+
+            let lines = [];
+            let col = 0;
+            let line = '';
+
+            for(let ii = 0; ii < fileToCode.data.length; ii++) {
+                let hex = fileToCode.data[ii].toString(16);
+                if (hex.length == 1) {
+                    hex = '0' + hex;
+                }
+                line += '0x' + hex;
+
+                if ((ii + 1) < fileToCode.data.length) {
+                    line += ', ';
+                }
+
+                if (++col >= fileToCode.params.bytesPerLine) {
+                    lines.push(line);
+                    line = '';
+                    col = 0;
+                }
+            }
+            if (line.length) {
+                lines.push(line);
+            }
+            fileToCode.code = fileToCode.prefix + lines.join('\n') + fileToCode.suffix + '\n';
+
+            if (fileToCode.params.includeHash != 'none') {
+                const hashBytes = await crypto.subtle.digest(fileToCode.params.includeHash, fileToCode.data);
+                const hashHex = Array.from(new Uint8Array(hashBytes))
+                  .map(v => v.toString(16).padStart(2, '0'))
+                  .join('');
+                
+                fileToCode.code += fileToCode.hashPrefix + hashHex + fileToCode.hashSuffix;
+            }
+
+
+            $(thisPartial).find('.outputTextArea').val(fileToCode.code);
+
+            $(thisPartial).find('.buttonDownloadBinary').prop('disabled', fileToCode.params.dataSource != 'random');
+
+            enableButtons();
+        });
+
+        $(thisPartial).find('.buttonCopy').on('click', function() {
+            const t = $(thisPartial).find('.outputTextArea')[0];
+            t.select();
+            document.execCommand("copy");
+        });
+
+        $(thisPartial).find('.buttonDownload').on('click', function() {
+            let blob = new Blob([fileToCode.code], {type:'text/plain'});
+            saveAs(blob, fileToCode.filename);
+        });
+        
+        $(thisPartial).find('.buttonDownloadBinary').on('click', function() {
+            let blob = new Blob([fileToCode.data], {type:'application/octet-stream'});
+            saveAs(blob, fileToCode.binaryFilename);
+        });
+
+        
+        $(thisPartial).find('.selectFileButton').on('click', function() {
+            $(thisPartial).find('.selectFileInput').trigger('click');
+        });
+
+        $(thisPartial).find('.selectFileInput').on('change', function() {
+            const files = this.files;
+
+            let fileReader = new FileReader();
+                fileReader.onload = async function() {                    
+                    fileToCode.data = new Uint8Array(fileReader.result);
+                    enableButtons();
+                };
+                fileReader.readAsArrayBuffer(files[0]);
+        });
+
+
+        $(thisPartial).find('.paramValue').on('input', enableButtons);
+    });
+
 
     apiHelper.flattenObject = function(objIn) {
         let objOut = {};

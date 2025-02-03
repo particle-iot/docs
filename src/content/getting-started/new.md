@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### File to code tool 2025-02-03
+
+New [file to code](/tools/developer-tools/file-to-code/) tool that generates C++ or Javascript code snippets from binary data in a file, or from randomly generated data. This is mainly useful for test firmware.
+
 ### Updated logic APIs 2025-01-27
 
 Documentation for the [Logic geocoding API](/getting-started/logic-ledger/logic/#particle-geocoding-api) and [getDeviceLocation](/getting-started/logic-ledger/logic/#getdevicelocationoptions-core-api) is now available. 
