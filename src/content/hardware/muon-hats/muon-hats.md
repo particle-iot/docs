@@ -46,7 +46,7 @@ graph TD;
 
 You can include a video, but you must be able to implement your project without having to watch the video. You should externally host videos on YouTube or Vimeo on your channel. A video is optional.
 
-If you have device firmware, create a standard project with a [project.properties](http://project.properties) file, src directory, etc. and include it in a subdirectory. The project file browser and zip download of the source will be added when converted into docs format.
+If you have device firmware, create a standard project with a `project.properties` file, src directory, etc. and include it in a subdirectory. The project file browser and zip download of the source will be added when converted into docs format.
 
 {{> project-browser project="logic-cloud-alerts" default-file="src/logic-cloud-alerts.cpp" height="400"}}
 
