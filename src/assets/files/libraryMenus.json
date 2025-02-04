@@ -1842,6 +1842,10 @@
           "dir": "JA_PN532"
         },
         {
+          "title": "JAS-BLE-WiFi-Library",
+          "dir": "JAS-BLE-WiFi-Library"
+        },
+        {
           "title": "jsmn",
           "dir": "jsmn"
         },

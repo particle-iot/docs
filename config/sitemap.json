@@ -5139,8 +5139,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2024-12-17",
-            "hash": "702906a2cdb29dd5f23be28d8e671b4112e6527b2bd964d1c92b167a28f4cea4"
+            "date": "2025-02-04",
+            "hash": "ddda4f858150b19f29ab1a79644e81c716ac761c3491ca8d234025ccc717d43d"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -5663,8 +5663,8 @@
             "hash": "b6a551e6398c73a0773367c47b3ea8bbdeff0415f6040be516835a263f34fb3a"
         },
         "reference/device-os/libraries/e/EEPROM-Storage.md": {
-            "date": "2024-08-28",
-            "hash": "65964a1fc4b40023ab83d8f422c8a656eb9746e1e4d4801c5da08c453bae4834"
+            "date": "2025-02-04",
+            "hash": "449a8af46c40b7d0d8f2253b8b0016786ce3c5c7c1eec1aa988d07bfb24f6e9e"
         },
         "reference/device-os/libraries/e/EEPROMStorage.md": {
             "date": "2024-08-28",
@@ -9587,8 +9587,8 @@
             "date": "2024-12-16"
         },
         "reference/device-os/libraries/d/DeviceInfoLedger.md": {
-            "hash": "64aea793533f2fb031f6f8d774439a1409e426b73fb1c092e228d412ddacfe1e",
-            "date": "2024-12-17"
+            "hash": "db1c77981b40d44ecf4d6a97e5fed664456267a4a697567107f5578a8aab3567",
+            "date": "2025-02-04"
         },
         "reference/device-os/libraries/j/JA_PN532.md": {
             "hash": "50d33b45dc331a59e6831cb78cd559734af4c08c9072b325c966e3c09ee739d8",
@@ -9629,6 +9629,10 @@
         "tools/developer-tools/file-to-code.md": {
             "hash": "9f0ef6f94233db29f6511b57eb26590d038d7abf36fdd85943860db7b673c681",
             "date": "2025-02-02"
+        },
+        "reference/device-os/libraries/j/JAS-BLE-WiFi-Library.md": {
+            "hash": "d6e76b0eb42c28ba57eac5b0f9fd0e1f4f69b0aed587065b8a222c58bcb78e20",
+            "date": "2025-02-04"
         }
     }
 }

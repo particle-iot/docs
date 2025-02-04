@@ -1,0 +1,103 @@
+{
+  "type": "libraries",
+  "id": "JAS-BLE-WiFi-Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/JAS-BLE-WiFi-Library/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "JAS-BLE-WiFi-Library",
+    "version": "1.0.2",
+    "author": "Dillon Jensen",
+    "sentence": "JAS re-usable BLE & WiFi Library",
+    "paragraph": "for using BLE configuration in JAS WiFi products",
+    "url": "https://github.com/jensenappliedsciences/Particle-BLE-WiFi-Library",
+    "repository": "https://github.com/jensenappliedsciences/Particle-BLE-WiFi-Library.git",
+    "architectures": [
+      "particle-argon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "j",
+  "cardUrl": "/reference/device-os/libraries/j/JAS-BLE-WiFi-Library",
+  "versions": {
+    "1.0.2": {
+      "added": "2025-02-01T16:46:44.485Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          },
+          "msom": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "\nJAS BLE Library\n\nThis library contains common use cases for BLE & WiFi in JAS devices.\n\nCurrently the only supported use case is for WiFi config over BLE.",
+  "allVersions": [
+    "1.0.2"
+  ]
+}

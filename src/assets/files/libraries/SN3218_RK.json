@@ -16,7 +16,7 @@
       "*"
     ],
     "visibility": "public",
-    "mine": false
+    "mine": true
   },
   "kind": "community library",
   "letter": "s",
