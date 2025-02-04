@@ -1,0 +1,732 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="500" >
+  <rect x="0" y="0" width="1000" height="500" fill="white" >
+  </rect>
+  <g transform="translate(498,50) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+1    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+3V3    </text>
+  </g>
+  <g transform="translate(498,71) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+3    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO2    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_8    </text>
+  </g>
+  <g transform="translate(498,92) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+5    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO3    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_9    </text>
+  </g>
+  <g transform="translate(498,113) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+7    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO4    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_61    </text>
+  </g>
+  <g transform="translate(498,134) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+9    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(498,155) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+11    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO17    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_33    </text>
+  </g>
+  <g transform="translate(498,176) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+13    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO27    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_44    </text>
+  </g>
+  <g transform="translate(498,197) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+15    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO22    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_158    </text>
+  </g>
+  <g transform="translate(498,218) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+17    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+3V3    </text>
+  </g>
+  <g transform="translate(498,239) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+19    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO10    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_57    </text>
+  </g>
+  <g transform="translate(498,260) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+21    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO9    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_56    </text>
+  </g>
+  <g transform="translate(498,281) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+23    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO11    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_58    </text>
+  </g>
+  <g transform="translate(498,302) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+25    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(498,323) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+27    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO0    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_36    </text>
+  </g>
+  <g transform="translate(498,344) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+29    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO5    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_18    </text>
+  </g>
+  <g transform="translate(498,365) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+31    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO6    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_18    </text>
+  </g>
+  <g transform="translate(498,386) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+33    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO13    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_106    </text>
+  </g>
+  <g transform="translate(498,407) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+35    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO19    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_145    </text>
+  </g>
+  <g transform="translate(498,428) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+37    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO26    </text>
+    <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_6    </text>
+  </g>
+  <g transform="translate(498,449) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-20" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="-10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+39    </text>
+    <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(502,50) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+2    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+5V    </text>
+  </g>
+  <g transform="translate(502,71) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+4    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+5V    </text>
+  </g>
+  <g transform="translate(502,92) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+6    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(502,113) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+8    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO14    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_34    </text>
+  </g>
+  <g transform="translate(502,134) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+10    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO15    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_35    </text>
+  </g>
+  <g transform="translate(502,155) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+12    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO18    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_144    </text>
+  </g>
+  <g transform="translate(502,176) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+14    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(502,197) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+16    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO23    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_165    </text>
+  </g>
+  <g transform="translate(502,218) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+18    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO24    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_166    </text>
+  </g>
+  <g transform="translate(502,239) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+20    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(502,260) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+22    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO25    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_24    </text>
+  </g>
+  <g transform="translate(502,281) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+24    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO8    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_59    </text>
+  </g>
+  <g transform="translate(502,302) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+26    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO7    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_62    </text>
+  </g>
+  <g transform="translate(502,323) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+28    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO1    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_37    </text>
+  </g>
+  <g transform="translate(502,344) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+30    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(502,365) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+32    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO12    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_78    </text>
+  </g>
+  <g transform="translate(502,386) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+34    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GND    </text>
+  </g>
+  <g transform="translate(502,407) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+36    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO16    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_32    </text>
+  </g>
+  <g transform="translate(502,428) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+38    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO20    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_146    </text>
+  </g>
+  <g transform="translate(502,449) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="20" height="16" stroke="black" fill="#E6AB00" >
+    </rect>
+    <text x="10" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+40    </text>
+    <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+GPIO21    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    </rect>
+    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+GPIO_147    </text>
+  </g>
+</svg>
