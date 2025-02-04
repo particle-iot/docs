@@ -393,6 +393,7 @@ const svg = require('./svg');
             isPower: '#B80023', // Watermelon_900 old: red (except for GND, see isGND)
             isControl: '#FFE949', // State_Yellow_500 (old: yellow mode, reset, etc.)
             jtag: '#858A9B', // Gray_400 (old: blueish-gray same as swd)
+            linuxName: '#CD2355', // Raspberry Pi color 
             m2Pin: '#F5F6FA', // COLOR_Gray_100
             name: '#00E1FF', // ParticleBlue_500 (old: dark gray)
             num: '#E6AB00', // (old: gold color)
@@ -2546,6 +2547,29 @@ const svg = require('./svg');
                 serial: '#CD2355', // Raspberry Pi color 
             },
         }, generateOptions), files);
+
+        // Tachyon
+        await diagram.generatePi(Object.assign({
+            platformName: 'tachyon',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 50,
+                    keys: ['linuxName'],
+                },
+            ],
+            outputPath: 'assets/images/tachyon-gpio.svg',
+            featureColorsOverride: {
+            },
+        }, generateOptions), files);
+
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, B-SoM',
