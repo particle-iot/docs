@@ -10,9 +10,9 @@
 1    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 3V3    </text>
   </g>
   <g transform="translate(498,71) " >
@@ -24,15 +24,15 @@
 3    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO2    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_8    </text>
   </g>
   <g transform="translate(498,92) " >
@@ -44,15 +44,15 @@ GPIO_8    </text>
 5    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO3    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_9    </text>
   </g>
   <g transform="translate(498,113) " >
@@ -64,15 +64,15 @@ GPIO_9    </text>
 7    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO4    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_61    </text>
   </g>
   <g transform="translate(498,134) " >
@@ -84,9 +84,9 @@ GPIO_61    </text>
 9    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(498,155) " >
@@ -98,15 +98,15 @@ GND    </text>
 11    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO17    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_33    </text>
   </g>
   <g transform="translate(498,176) " >
@@ -118,15 +118,15 @@ GPIO_33    </text>
 13    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO27    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_44    </text>
   </g>
   <g transform="translate(498,197) " >
@@ -138,15 +138,15 @@ GPIO_44    </text>
 15    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO22    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_158    </text>
   </g>
   <g transform="translate(498,218) " >
@@ -158,9 +158,9 @@ GPIO_158    </text>
 17    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 3V3    </text>
   </g>
   <g transform="translate(498,239) " >
@@ -172,15 +172,15 @@ GPIO_158    </text>
 19    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO10    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_57    </text>
   </g>
   <g transform="translate(498,260) " >
@@ -192,15 +192,15 @@ GPIO_57    </text>
 21    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO9    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_56    </text>
   </g>
   <g transform="translate(498,281) " >
@@ -212,15 +212,15 @@ GPIO_56    </text>
 23    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO11    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_58    </text>
   </g>
   <g transform="translate(498,302) " >
@@ -232,9 +232,9 @@ GPIO_58    </text>
 25    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(498,323) " >
@@ -246,15 +246,15 @@ GND    </text>
 27    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO0    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_36    </text>
   </g>
   <g transform="translate(498,344) " >
@@ -266,15 +266,15 @@ GPIO_36    </text>
 29    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO5    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_18    </text>
   </g>
   <g transform="translate(498,365) " >
@@ -286,15 +286,15 @@ GPIO_18    </text>
 31    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO6    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_18    </text>
   </g>
   <g transform="translate(498,386) " >
@@ -306,15 +306,15 @@ GPIO_18    </text>
 33    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO13    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_106    </text>
   </g>
   <g transform="translate(498,407) " >
@@ -326,15 +326,15 @@ GPIO_106    </text>
 35    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO19    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_145    </text>
   </g>
   <g transform="translate(498,428) " >
@@ -346,15 +346,15 @@ GPIO_145    </text>
 37    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO26    </text>
     <line x1="-74" y1="0" x2="-78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-198" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="-128" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_6    </text>
   </g>
   <g transform="translate(498,449) " >
@@ -366,9 +366,9 @@ GPIO_6    </text>
 39    </text>
     <line x1="-20" y1="0" x2="-24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="-74" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(502,50) " >
@@ -380,9 +380,9 @@ GND    </text>
 2    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 5V    </text>
   </g>
   <g transform="translate(502,71) " >
@@ -394,9 +394,9 @@ GND    </text>
 4    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 5V    </text>
   </g>
   <g transform="translate(502,92) " >
@@ -408,9 +408,9 @@ GND    </text>
 6    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(502,113) " >
@@ -422,15 +422,15 @@ GND    </text>
 8    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO14    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_34    </text>
   </g>
   <g transform="translate(502,134) " >
@@ -442,15 +442,15 @@ GPIO_34    </text>
 10    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO15    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_35    </text>
   </g>
   <g transform="translate(502,155) " >
@@ -462,15 +462,15 @@ GPIO_35    </text>
 12    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO18    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_144    </text>
   </g>
   <g transform="translate(502,176) " >
@@ -482,9 +482,9 @@ GPIO_144    </text>
 14    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(502,197) " >
@@ -496,15 +496,15 @@ GND    </text>
 16    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO23    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_165    </text>
   </g>
   <g transform="translate(502,218) " >
@@ -516,15 +516,15 @@ GPIO_165    </text>
 18    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO24    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_166    </text>
   </g>
   <g transform="translate(502,239) " >
@@ -536,9 +536,9 @@ GPIO_166    </text>
 20    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(502,260) " >
@@ -550,15 +550,15 @@ GND    </text>
 22    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO25    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_24    </text>
   </g>
   <g transform="translate(502,281) " >
@@ -570,15 +570,15 @@ GPIO_24    </text>
 24    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO8    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_59    </text>
   </g>
   <g transform="translate(502,302) " >
@@ -590,15 +590,15 @@ GPIO_59    </text>
 26    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO7    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_62    </text>
   </g>
   <g transform="translate(502,323) " >
@@ -610,15 +610,15 @@ GPIO_62    </text>
 28    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO1    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_37    </text>
   </g>
   <g transform="translate(502,344) " >
@@ -630,9 +630,9 @@ GPIO_37    </text>
 30    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(502,365) " >
@@ -644,15 +644,15 @@ GND    </text>
 32    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO12    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_78    </text>
   </g>
   <g transform="translate(502,386) " >
@@ -664,9 +664,9 @@ GPIO_78    </text>
 34    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
   </g>
   <g transform="translate(502,407) " >
@@ -678,15 +678,15 @@ GND    </text>
 36    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO16    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_32    </text>
   </g>
   <g transform="translate(502,428) " >
@@ -698,15 +698,15 @@ GPIO_32    </text>
 38    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO20    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_146    </text>
   </g>
   <g transform="translate(502,449) " >
@@ -718,15 +718,15 @@ GPIO_146    </text>
 40    </text>
     <line x1="20" y1="0" x2="24" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
+    <rect x="24" y="-8" width="50" height="16" stroke="black" fill="#CD2355" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO21    </text>
     <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="78" y="-8" width="120" height="16" stroke="black" fill="#CD2355" >
+    <rect x="78" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="138" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_147    </text>
   </g>
 </svg>

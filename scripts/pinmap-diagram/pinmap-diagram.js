@@ -2565,8 +2565,10 @@ const svg = require('./svg');
                     keys: ['linuxName'],
                 },
             ],
-            outputPath: 'assets/images/tachyon-gpio.svg',
+            outputPath: 'assets/images/tachyon/tachyon-gpio.svg',
             featureColorsOverride: {
+                name: '#CD2355', // Raspberry Pi color 
+                linuxName: '#5CECFF', // Particle blue
             },
         }, generateOptions), files);
 
