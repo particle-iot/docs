@@ -29053,6 +29053,147 @@
                 2849,
                 2850
             ]
+        },
+        "v6.3.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.3.0",
+            "tag_name": "v6.3.0",
+            "name": "v6.3.0 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": false,
+            "created_at": "2025-02-05T23:13:02Z",
+            "published_at": "2025-02-06T21:44:51Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2840
+                    ],
+                    "section": "FEATURES",
+                    "text": "New cloud event API that supports sending and receiving up to 16K of data in an event"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2844
+                    ],
+                    "section": "FEATURES",
+                    "text": "Electron 2 platform support"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2856
+                    ],
+                    "section": "FEATURES",
+                    "text": "Enable `Cellular`/`WiFi`/`Ethernet` `.ping()` for Gen 3 and Gen 4 platforms"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2855
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Generate an error when using `EEPROM` with `String` objects as `String` contains dynamically allocated data on heap"
+                },
+                {
+                    "tags": [
+                        "network"
+                    ],
+                    "prs": [
+                        2848
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Postpone `Ethernet` interface initialization to allow STARTUP() call to override pin configuration without a reset"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2853
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Prevent low-level WiFI network buffer overflow"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2851
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Increase main stack size from 2K to 4K"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2851
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Thread-safe `__cxa_guard_acquire`/`__cxa_guard_release` implementation"
+                },
+                {
+                    "tags": [
+                        "build"
+                    ],
+                    "prs": [
+                        2852
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix section size calculations for paths containing section-like names"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2855
+                    ],
+                    "section": "INTERNAL",
+                    "text": "wiring/no_fixture_long_running: update network tests to stress test large packets up to MTU size once max MTU is figured out"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2854
+                    ],
+                    "section": "INTERNAL",
+                    "text": "communication/long_publish: adds a long running publish test"
+                },
+                {
+                    "tags": [
+                        "build"
+                    ],
+                    "prs": [
+                        2851
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add asserts to linker files to make sure that stack sizes match the expected values"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2851
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Stub `atexit` to free up flash space used by global object destructors"
+                }
+            ],
+            "prs": [
+                2840,
+                2844,
+                2848,
+                2851,
+                2852,
+                2853,
+                2854,
+                2855,
+                2856
+            ]
         }
     },
     "pulls": {
@@ -43020,6 +43161,82 @@
             "state": "open",
             "created_at": "2025-01-17T16:44:21Z",
             "detail": "Incorrect `MAX_SKB_BUF_SIZE` is defined in SDK `rtw_opt_skbuf.c` (an override source which allows us to increase the default number of packet buffers). The defined value is lower than what is expected by the rest of the closed-source `lib_wlan.a` and due to this an out of bounds access is very easily triggered with large enough network packets (slightly over 1000 bytes).\n\nThis usually causes one of these issues:\n1. WiFi connection drop\n2. Deadlock"
+        },
+        "2854": {
+            "url": "https://github.com/particle-iot/device-os/pull/2854",
+            "number": 2854,
+            "title": "Add a long running publish test",
+            "state": "closed",
+            "created_at": "2025-01-21T16:07:47Z",
+            "detail": "Add a test for catching network/protocol issues that may occur when sending data back and forth between the device and the cloud over a prolonged period of time."
+        },
+        "2855": {
+            "url": "https://github.com/particle-iot/device-os/pull/2855",
+            "number": 2855,
+            "title": "A couple of 6.3.0 fixes",
+            "state": "closed",
+            "created_at": "2025-01-21T18:41:51Z",
+            "detail": "1. Wiznet W5500 usual start up time is up to 250ms, so need to retry for longer. (this was broken in #2847 and was not in any public release)\n2. EEPROM.get/set cannot be used with `String` objects, generate assertion failure when doing so\n3. Update network tests to stress test large packets up to MTU size once max MTU is figured out"
+        },
+        "2856": {
+            "url": "https://github.com/particle-iot/device-os/pull/2856",
+            "number": 2856,
+            "title": "[wiring] implement WiFi/Cellular/Ethernet/Network.ping() for Gen 3 and Gen 4 platforms",
+            "state": "closed",
+            "created_at": "2025-01-23T11:21:13Z",
+            "detail": "`WiFi`/`Cellular`/`Ethernet`/`Network``.ping()` is not implement for Gen 3 and Gen 4 platforms."
+        },
+        "2857": {
+            "url": "https://github.com/particle-iot/device-os/pull/2857",
+            "number": 2857,
+            "title": "Fix retransmissions when blockwise transfer is used",
+            "state": "closed",
+            "created_at": "2025-01-23T16:48:26Z",
+            "detail": "There's a bug in https://github.com/particle-iot/device-os/pull/2840 that causes the new CoAP implementation to generate a new token when an individual block of a blockwise request is retransmitted."
+        },
+        "2858": {
+            "url": "https://github.com/particle-iot/device-os/pull/2858",
+            "number": 2858,
+            "title": "Test adjustments",
+            "state": "closed",
+            "created_at": "2025-01-24T15:21:13Z"
+        },
+        "2859": {
+            "url": "https://github.com/particle-iot/device-os/pull/2859",
+            "number": 2859,
+            "title": "[test] add support for test runner forcing usage of a specific network only",
+            "state": "closed",
+            "created_at": "2025-01-27T18:30:51Z"
+        },
+        "2860": {
+            "url": "https://github.com/particle-iot/device-os/pull/2860",
+            "number": 2860,
+            "title": "Test adjustments",
+            "state": "closed",
+            "created_at": "2025-01-28T15:45:49Z"
+        },
+        "2861": {
+            "url": "https://github.com/particle-iot/device-os/pull/2861",
+            "number": 2861,
+            "title": "Update CoAP diagnostics in the new API",
+            "state": "closed",
+            "created_at": "2025-01-28T17:48:10Z",
+            "detail": "The CoAP diagnostics are not updated when sending a message using a blockwise transfer."
+        },
+        "2862": {
+            "url": "https://github.com/particle-iot/device-os/pull/2862",
+            "number": 2862,
+            "title": "Test adjustments",
+            "state": "closed",
+            "created_at": "2025-01-29T17:32:54Z"
+        },
+        "2863": {
+            "url": "https://github.com/particle-iot/device-os/pull/2863",
+            "number": 2863,
+            "title": "Perform ACM-triggered cloud connection migration without a disconnect",
+            "state": "open",
+            "created_at": "2025-02-03T11:28:07Z",
+            "detail": "After performing an initial cloud connection, ACM will re-evaluate this decision (if there are multiple network interfaces available) and might decide to migrate the connection. This is currently performed by disconnect, session move and re-connect."
         }
     }
 }

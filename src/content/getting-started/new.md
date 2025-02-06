@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.3.0 2025-02-06
+
+Device OS 6.3.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.
+
 ### File to code tool 2025-02-03
 
 New [file to code](/tools/developer-tools/file-to-code/) tool that generates C++ or Javascript code snippets from binary data in a file, or from randomly generated data. This is mainly useful for test firmware.

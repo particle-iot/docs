@@ -55376,7 +55376,8 @@
         "cellular",
         "mesh",
         "udp",
-        "ble"
+        "ble",
+        "muonCompatible"
       ],
       "billingConnectivity": "cellular",
       "productEligible": true,
@@ -55519,7 +55520,8 @@
         "cellular",
         "mesh",
         "udp",
-        "ble"
+        "ble",
+        "muonCompatible"
       ],
       "billingConnectivity": "cellular",
       "productEligible": true,
@@ -55771,7 +55773,7 @@
       "id": 32,
       "name": "p2",
       "displayName": "Photon 2 / P2",
-      "generation": 3,
+      "generation": 4,
       "baseMcu": "rtl872x",
       "features": [
         "wifi",
@@ -55846,7 +55848,7 @@
       "id": 35,
       "name": "msom",
       "displayName": "M-SoM",
-      "generation": 3,
+      "generation": 4,
       "baseMcu": "rtl872x",
       "features": [
         "wifi",
@@ -55854,7 +55856,8 @@
         "udp",
         "ble",
         "gnss",
-        "trackerServices"
+        "trackerServices",
+        "muonCompatible"
       ],
       "aliases": [
         "muon"
@@ -55918,6 +55921,125 @@
         "assetPerBlockOverhead": 8,
         "assetOverhead": 0,
         "reservedBlocks": 10
+      }
+    },
+    "electron2": {
+      "id": 37,
+      "name": "electron2",
+      "displayName": "Electron 2",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "cellular",
+        "udp",
+        "ble"
+      ],
+      "aliases": [
+        "electron2"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash",
+          "maxSize": 262144
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "monoFirmware",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc025"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd025",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
+          }
+        }
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 512,
+        "maxSingleAssetSize": 1572864,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
+      }
+    },
+    "tachyon": {
+      "id": 42,
+      "name": "tachyon",
+      "displayName": "Tachyon",
+      "generation": -1,
+      "features": [
+        "linux"
+      ],
+      "productEligible": true,
+      "public": false,
+      "billingConnectivity": "cellular",
+      "baseMcu": "qcm6490",
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc02a"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "linux": {
+      "id": 43,
+      "name": "linux",
+      "displayName": "Linux",
+      "generation": -1,
+      "features": [
+        "linux"
+      ],
+      "productEligible": true,
+      "public": false,
+      "billingConnectivity": "wifi",
+      "baseMcu": "unknown",
+      "machineIdTypes": {
+        "BOOT": 1,
+        "DMI": 2,
+        "CPU": 3,
+        "DBUS": 4,
+        "SN": 5
       }
     },
     "oak": {
