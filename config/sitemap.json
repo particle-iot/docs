@@ -731,8 +731,8 @@
             "hash": "8249affd52ea0af6e6f70365309d9a5dc9aeac160a67c2bb9a3947ef006de0d4"
         },
         "integrations/community-integrations/about-community-integrations.md": {
-            "date": "2024-05-24",
-            "hash": "c7ecaa346d59eb9163cf94d30262740966eea6f81369f1b0c31ec16a86b4a7b4"
+            "date": "2025-02-07",
+            "hash": "2f982dbca670df88b8946c65b31f5f3238d1e11b0bf24e4d5ba3e20268cab491"
         },
         "integrations/community-integrations/azure-iot-hub.md": {
             "date": "2024-06-08",
@@ -1179,12 +1179,12 @@
             "hash": "7c807ac6a038c040396853c33a587655275c6710629d3664d135a86ebf6b6b0d"
         },
         "reference/mobile-sdks/android.md": {
-            "date": "2024-10-28",
-            "hash": "4ff6afcba46880ff794afa8dccb9dc1dccd785602aae0cfd1e5e8401e6888ccf"
+            "date": "2025-02-07",
+            "hash": "59e7f77fc9dafa77e890744699939644e55179fd24f66f186eb5be4040352b03"
         },
         "reference/mobile-sdks/ios.md": {
-            "date": "2023-03-22",
-            "hash": "c42be2c6d7035784f25c979cb2a88f03f51b02d4933144571a1317b894b2a02c"
+            "date": "2025-02-07",
+            "hash": "3aef36b18458804aed0bcf66cb107ada3819d1aa05b93e438c900338bd9e9937"
         },
         "reference/technical-advisory-notices/tan001-sara-r410m-124-day.md": {
             "date": "2024-02-27",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-02-03",
-            "hash": "02acdd658030634f5529ba19d3bc3251377f47f1c1de4d063c1b329d55877672"
+            "date": "2025-02-07",
+            "hash": "46decb52aa22b1b28352aeccde8bc302074848e41d81297619427508dd855673"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1475,8 +1475,8 @@
             "hash": "d0eac68d80d998efc3c9a18facd149628a3de746d137c6fb50df11937703ff23"
         },
         "reference/discontinued/software/windows.md": {
-            "date": "2023-03-17",
-            "hash": "ae5d90c08fc78d919ff281e0a848ae25957b6760123b18bdcb6b6c433d649629"
+            "date": "2025-02-07",
+            "hash": "6b895f2170609b10653f32984804008c433b6c38a802c9e75eac0a29a35f834b"
         },
         "reference/discontinued/cellular/gen2-cellular-deprecation.md": {
             "date": "2024-02-27",
@@ -3167,8 +3167,8 @@
             "hash": "e669bf1e59ac9b1556bc3b386bc473649dae063a8f56e2912dc0ec2a603b9be7"
         },
         "reference/device-os/api/servo/attach.md": {
-            "date": "2024-08-16",
-            "hash": "310a8a7a8c6cf73d969597514869cdb06fbf3abffa6bd27eca40d07a9db91a40"
+            "date": "2025-02-07",
+            "hash": "9aeb2f62d8cbc8aa3e59850bb579e5afa3d17e1bd9c3c38a3e1606404ee50ef2"
         },
         "reference/device-os/api/servo/write.md": {
             "date": "2023-09-20",
@@ -5139,8 +5139,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2024-12-17",
-            "hash": "702906a2cdb29dd5f23be28d8e671b4112e6527b2bd964d1c92b167a28f4cea4"
+            "date": "2025-02-07",
+            "hash": "ddda4f858150b19f29ab1a79644e81c716ac761c3491ca8d234025ccc717d43d"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -5663,8 +5663,8 @@
             "hash": "b6a551e6398c73a0773367c47b3ea8bbdeff0415f6040be516835a263f34fb3a"
         },
         "reference/device-os/libraries/e/EEPROM-Storage.md": {
-            "date": "2024-08-28",
-            "hash": "65964a1fc4b40023ab83d8f422c8a656eb9746e1e4d4801c5da08c453bae4834"
+            "date": "2025-02-07",
+            "hash": "449a8af46c40b7d0d8f2253b8b0016786ce3c5c7c1eec1aa988d07bfb24f6e9e"
         },
         "reference/device-os/libraries/e/EEPROMStorage.md": {
             "date": "2024-08-28",
@@ -8183,8 +8183,8 @@
             "date": "2023-10-06"
         },
         "reference/asset-ota/asset-ota-community/asset-ota-community.md": {
-            "hash": "3b3756c6936fc2be7c9cc8b2534fbc1fe5ec1e37fee250ddbb76e59d91e45b36",
-            "date": "2024-05-24"
+            "hash": "333444257cb71095c202673aa2552b1756cf71fe277a90793389a36dd5abe146",
+            "date": "2025-02-07"
         },
         "reference/asset-ota/asset-ota-community/sound-asset-ota.md": {
             "hash": "8948bb51f42ccad3d86304279f3e9b9b6ffb26249677d7d17b457746b0fc9d99",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "b93aeb195fa5ff669fb0b5db6eb3c7fd7ab6df1a1c62924c6aa836d392ed28f5",
-            "date": "2025-02-03"
+            "hash": "89b8b2f32ad0de932e5d152f02fb7ac959a921eaa1457c1948dd9e5a026d8387",
+            "date": "2025-02-07"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9055,8 +9055,8 @@
             "date": "2024-10-28"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
-            "hash": "8fe3dfe5bf049045235aaeb22cc4216b949808e392cd66c361f04ed47266b404",
-            "date": "2024-05-28"
+            "hash": "5e26330dd542d2246f3d5d65e74b80f5305f43168683c0d51dab32be107b0d46",
+            "date": "2025-02-07"
         },
         "getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started.md": {
             "hash": "3aa3b22bd9ed612779407e4d25e8739d930d1590dafe4195e54888c1a72ce490",
@@ -9075,8 +9075,8 @@
             "date": "2024-12-02"
         },
         "hardware/community/hardware-community.md": {
-            "hash": "63270446c4ec9e1212a38f2396d33e2f2803ecbd8359c0ab9661c7a22d1c0db5",
-            "date": "2024-05-31"
+            "hash": "c28c0aab3a9e20d3d9401c5c667c7f6894561200993fb0584d9aa975b771b118",
+            "date": "2025-02-07"
         },
         "reference/device-os/libraries/g/Grove_scd30_co2_sensor.md": {
             "hash": "df33994d6674f56c811dc44850af67bc39ad7aabdafb35e2ef8b8d87aedbd966",
@@ -9419,8 +9419,8 @@
             "date": "2024-10-28"
         },
         "hardware/muon-hats/muon-hats.md": {
-            "hash": "634176baf1987d706d839b3042f766b30b9e6ca39ff77c1bce8a4fd9fec03a55",
-            "date": "2024-10-28"
+            "hash": "1312e974bee3bc4a96828fe141acce83ad59b1f79f37575ee05f793c753cf57a",
+            "date": "2025-02-07"
         },
         "hardware/muon-hats/environmental-hats.md": {
             "hash": "ddfa969e1cfe9a673dcca3aca95cb00e0cd37e9adca35cf48e2ab399af74b24d",
@@ -9587,8 +9587,8 @@
             "date": "2024-12-16"
         },
         "reference/device-os/libraries/d/DeviceInfoLedger.md": {
-            "hash": "64aea793533f2fb031f6f8d774439a1409e426b73fb1c092e228d412ddacfe1e",
-            "date": "2024-12-17"
+            "hash": "db1c77981b40d44ecf4d6a97e5fed664456267a4a697567107f5578a8aab3567",
+            "date": "2025-02-07"
         },
         "reference/device-os/libraries/j/JA_PN532.md": {
             "hash": "50d33b45dc331a59e6831cb78cd559734af4c08c9072b325c966e3c09ee739d8",
@@ -9669,6 +9669,10 @@
         "reference/device-os/api/eventdata/eventdata.md": {
             "hash": "5d341114d1aa0cc1336253204c2c1901a256aed88561fa57f382d656a96095a4",
             "date": "2025-02-03"
+        },
+        "reference/device-os/libraries/j/JAS-BLE-WiFi-Library.md": {
+            "hash": "d6e76b0eb42c28ba57eac5b0f9fd0e1f4f69b0aed587065b8a222c58bcb78e20",
+            "date": "2025-02-07"
         }
     }
 }
