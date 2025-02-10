@@ -49,18 +49,18 @@ It is also available [as a single large document](/reference/device-os/firmware/
 
 ### Overview of API field limits
 
-| API Field | < 0.8.0 | 0.8.0 - 2.x | ≥ 3.0.0 |
-|--:|:--:|:--:|:--:|
-| Variable Key | 12 | 64 | 64 |
-| Variable Data | 622 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> |
-| Function Key | 12 | 64 | 64 |
-| Function Argument | 63 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> |
-| Publish/Subscribe Event Name | 64 | 64 | 64 |
-| Publish/Subscribe Event Data | 255 | 622 |  864<sup>2</sup> / 1024<sup>3</sup> |
+| API Field | < 0.8.0 | 0.8.0 - 2.x | ≥ 3.0.0 | ≥ 6.3.0 |
+|--:|:--:|:--:|:--:|:--:|
+| Variable Key | 12 | 64 | 64 | 64 |
+| Variable Data | 622 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> | 1024 |
+| Function Key | 12 | 64 | 64 | 64 |
+| Function Argument | 63 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> | 1024 |
+| Publish/Subscribe Event Name | 64 | 64 | 64 | 64 | 
+| Publish/Subscribe Event Data | 255 | 622 |  864<sup>2</sup> / 1024<sup>3</sup> | 16384 |
 
 
-- Limits are in bytes of UTF-8 encoded characters.
-- <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E-Series), the limit is 864 characters,
+- Limits are in bytes of UTF-8 encoded characters, except in 6.2.0 and later, where the data can be binary.
+- <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E-Series), the limit is 864 characters.
 - <sup>3</sup>On the P2, Photon 2, and Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, and E404X) the limit is 1024 characters.
 - The 0.8.0 - 2.x column includes all 2.x LTS versions. Higher limits will not be back-ported to 2.x LTS.
 
@@ -1114,6 +1114,7 @@ The size and contents of the event data vary depending on the version of Device 
 
 | Device OS Version | Gen | Size Limit | Binary Data |
 | :--- | :--- | :--- | :---: |
+| > 6.3.0 | Gen 3 & 4 | 16384 bytes | Allowed |
 | > 6.2.0 | Gen 3 & 4 | 1024 bytes | Allowed |
 | 3.x - 6.1.x | Gen 3 & 4 | 1024 UTF-8 characters | |
 | 3.x | Gen 2 | 864 UTF-8 characters | |
@@ -1128,17 +1129,42 @@ In Device OS 6.2 and later, typed publish is supported. This allows the Content-
 to be specified, and allows for binary data payloads. The following types are supported:
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
-| Content Type Constant | MIME Type |
-| :--- | :--- |
-| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
-| `ContentType::JPEG`   | `image/jpeg` |
-| `ContentType::PNG`    | `image/png` |
-| `ContentType::BINARY` | `application/octet-stream` |
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
 {{!-- END shared-blurb --}}
 
 Additionally, JSON (text/json) structured data is supported. This is encoded using an `EventData` object, 
 which is a `Variant`. The `Variant` can be created from a JSON text string, or built programmatically
 by adding fields.
+
+### Particle.publish - CloudEvent - Publish
+
+{{since when="6.3.0"}}
+
+Particle.publish publishes an event from a device. This can be received by zero or more subscribers, including:
+
+- External services using a [webhook](/reference/cloud-apis/webhooks/)
+- A [Logic block](/getting-started/logic-ledger/logic/) to perform operations in the cloud
+- Another device using `Particle.subscribe()`
+- The server-sent events (SSE) data stream
+
+```cpp
+// PROTOTYPE
+bool publish(particle::CloudEvent event);
+```
+
+This variation is available in Device OS 6.3.0 and later and is the recommended syntax. The `CloudEvent` class
+is both a container for the event name, event data, and content type, but also maintains the process in 
+publishing and any error that occurs while publishing.
+
+Note that this overload is always asynchronous and does not use a `Future` as the other overloads below.
+
+For more information and examples, see the [typed and extended publish page](/reference/device-os/typed-publish/).
 
 ### Particle.publish - Publish
 
@@ -1186,12 +1212,13 @@ encoded as CBOR over-the-air, and JSON in webhooks and other locations. It can o
 #### contentType
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
-| Content Type Constant | MIME Type |
-| :--- | :--- |
-| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
-| `ContentType::JPEG`   | `image/jpeg` |
-| `ContentType::PNG`    | `image/png` |
-| `ContentType::BINARY` | `application/octet-stream` |
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
 {{!-- END shared-blurb --}}
 
 The content type provides a hint to the receiver for what the data is. This includes the console, which can render 
@@ -1241,7 +1268,7 @@ If the cloud connection is turned on and trying to connect to the cloud unsucces
 
 String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
-**NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
+**NOTE 1:** In Device OS 6.2.x and earlier a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover. For rate limits in Device OS 6.3 and later, see [rate limits with extended publish](/reference/device-os/typed-publish/#increased-rate-limits-extended-publish).
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
@@ -1439,6 +1466,444 @@ Previously, there were overloads with a `ttl` (time-to-live) value. These have b
 Even if you use `NO_ACK` mode and do not check the result code from `Particle.publish()` it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if you publish while in the process of attempting to reconnect to the network. At a minimum, you should make sure that `Particle.connected()` returns true before publishing. Doing [publish operations from a separate worker thread](https://github.com/rickkas7/BackgroundPublishRK) is another option. 
 
 
+
+## CloudEvent
+
+{{api name1="CloudEvent"}}
+
+{{since when="6.3.0"}}
+
+The `CloudEvent` class is available in Device OS 6.3.0 and later and is the recommended way to handle
+publish and subscribe. It is both a container for the event name, event data, and content type, but also maintains the process in 
+publishing and any error that occurs while publishing.
+
+For more information and examples, see the [typed and extended publish page](/reference/device-os/typed-publish/).
+
+### Getting and settings - CloudEvent
+
+#### name - CloudEvent
+
+Sets the event name. The name is copied by the setter.
+
+```cpp
+// PROTOTYPE - setter
+CloudEvent& name(const char* name)
+
+// PROTOTYPE - getter
+const char* name() const;
+```
+
+#### contentType - CloudEvent
+
+Set or get the content type for the event.
+
+```cpp
+// PROTOTYPE - setter
+CloudEvent& contentType(ContentType type)
+
+// PROTOTYPE - getter
+ContentType contentType() const
+```
+
+{{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
+{{!-- END shared-blurb --}}
+
+When publishing you typically set the value, but you can also get the value that was previously set.
+
+When subscribing to an event, you typically get the value to see what the publisher of the event has set.
+
+You don't typically set the content type to `STRUCTURED`; when you set the data from a `Variant` this is handled automatically for you.
+
+#### data - from c-string - CloudEvent
+
+Copies data from a c-string (null terminated string) into the event data. 
+
+Typically used with the `TEXT` content type. The data cannot contain a null byte at a location other than the 
+end of a string so this is not suitable for binary data.
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const char* data)
+```
+
+#### data - from pointer and length - CloudEvent
+
+Copies data from a buffer specified with pointer and length. This is useful if the data source is not
+null-terminated.
+
+This can be used with binary data, though you will typically use the overload that also includes the
+ContentType instead.
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const char* data, size_t size);
+```
+
+#### data - from pointer and length with content type - CloudEvent
+
+Copies data from a buffer specified with pointer and length. This is typically used with binary data.
+
+See [Content-Type](#contenttype-cloudevent), above, for the valid values.
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const char* data, size_t size, ContentType type)
+```
+
+#### data - from String - CloudEvent
+
+Copies data from a `String` object.
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const String& data)
+```
+
+#### dataString - CloudEvent
+
+Returns a copy of the data as a `String`. This is typically used for text data.
+
+```cpp
+// PROTOTYPE
+String dataString() const
+```
+
+#### data from Buffer - CloudEvent
+
+Copies binary data from a `Buffer` object. This is an alternative to using a pointer and length.
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const Buffer& data)
+```
+
+#### data - to Buffer - CloudEvent
+
+Returns a copy of the data in the `CloudEvent` as a `Buffer` object. This is typically used for binary data.
+
+```cpp
+// PROTOTYPE
+Buffer data() const
+```
+
+#### data - from EventData - CloudEvent
+
+Copies data from an `EventData` object, which is a `Variant`. This is used for structured data.
+
+```cpp
+// PROTOTYPE
+CloudEvent& data(const EventData& data)
+```
+
+#### data - to EventData - CloudEvent
+
+Returns a copy of the structured data in the `CloudEvent` as an `EventData` object, which is a `Variant`.
+
+```cpp
+// PROTOTYPE
+EventData dataStructured() const
+```
+
+For more information, see [structured subscription](/reference/device-os/typed-publish/#structured-subscription) in the typed and extended publish page.
+
+### File read and write - CloudEvent
+
+Event data can be saved to a file and restored from a file easily. For more information about the file system, see [File system](/reference/device-os/file-system/) and [File system API](#file-system).
+
+#### loadData - CloudEvent
+
+Loads the data in a `CloudEvent` from a file. Note that this only loads the data, not the other parameters like name, content-type, etc.
+
+Returns 0 on success or a non-zero system error code.
+
+```cpp
+// PROTOTYPE
+CloudEvent& loadData(const char* path)
+```
+
+#### saveData - CloudEvent
+
+Saves the data in a `CloudEvent` to a file. Note that this only saves the data, not the other parameters like name, content-type, etc.
+
+Returns 0 on success or a non-zero system error code.
+
+```cpp
+// PROTOTYPE
+int saveData(const char* path)
+```
+
+### Utility methods - CloudEvent
+
+#### setSize - CloudEvent
+
+Set the size of the data. This is rarely needed.
+
+```cpp
+// PROTOTYPE
+int setSize(size_t size)
+```
+
+#### size - CloudEvent
+
+Get the size of the data. This is the encoded size is stored internally so this is efficient.
+
+You may want to use this with [canPublish](#canpublish-cloudevent) to see if the event can be published 
+based on the current rate limiting.
+
+```cpp
+// PROTOTYPE
+size_t size() const
+```
+
+#### isEmpty - CloudEvent
+
+Returns true if the event is empty (has no data).
+
+```cpp
+// PROTOTYPE
+bool isEmpty() const
+```
+
+### Stream methods - CloudEvent
+
+The `CloudEvent` class implements the [`Stream`](#stream-class) interface which can be helpful if you want to 
+read or write the event data as a stream of bytes.
+
+#### seek - CloudEvent
+
+Seek to a position relative to the start of the data (0 = first byte).
+
+```cpp
+// PROTOTYPE
+int seek(size_t pos)
+```
+
+#### pos - CloudEvent
+
+Returns the current position in the data.
+
+```cpp
+// PROTOTYPE
+size_t pos() const
+```
+
+#### write - CloudEvent
+
+Write a byte or bytes to the data at the current position.
+
+```cpp
+// PROTOTYPES
+size_t write(uint8_t b) override
+size_t write(const uint8_t* data, size_t size) override
+int write(const char* data)
+int write(const char* data, size_t size)
+```
+
+#### read - CloudEvent
+
+Read a byte or bytes from the data at the current position.
+
+```cpp
+// PROTOTYPES
+int read() override
+int read(char* data, size_t size)
+```
+
+#### readBytes - CloudEvent
+
+Read a bytes from the data at the current position.
+
+```cpp
+// PROTOTYPE
+size_t readBytes(char* data, size_t size) override
+```
+
+#### peek - CloudEvent
+
+Read a byte or bytes from the data at the current position but do not move the current
+position so the next read will read the same bytes.
+
+```cpp
+// PROTOTYPES
+int peek() override 
+int peek(char* data, size_t size)
+```
+
+#### available - CloudEvent
+
+Returns the number of bytes that are available to read. Returns 0 if there are no bytes available to read or
+the event is in an invalid state for reading.
+
+```cpp
+// PROTOTYPE
+int available() override 
+```
+
+#### flush - CloudEvent
+
+It is not necessary to call flush when you are finished writing, as the writes are never buffered. This method is a no-op.
+
+```cpp
+// PROTOTYPE
+void flush() override
+```
+
+
+### Publish status - CloudEvent
+
+#### status - CloudEvent
+
+| Constant | Description | Accessibility |
+| :--- | :--- | :--- |
+| `Status::NEW` | Initial status of a newly created or received event | Reading and writing |
+| `Status::SENDING` | The event is being sent to the cloud | Reading |
+| `Status::SENT` | The event was successfully sent to the cloud | Reading and writing |
+| `Status::FAILED` | Recoverable error occurred while creating the event or sending it to the cloud | Reading and writing |
+| `Status::INVALID` | Irrecoverable error occurred while creating the event. | Not accessible |
+
+`Status::FAILED` indicates a recoverable error. The failed operation with the event can be retried when the condition that caused the error is resolved.
+
+For `Status::FAILED` and `Status::INVALID` the `error()` method can be used to find more information about the reason.
+
+#### isNew - CloudEvent
+
+Shorthand for `event.status() == CloudEvent::NEW`. This is the initial status of a newly created or received event
+
+```cpp
+// PROTOTYPE
+bool isNew() const
+```
+
+#### isSending - CloudEvent
+
+Shorthand for `event.status() == CloudEvent::SENDING`. The event is being sent to the cloud.
+
+```cpp
+// PROTOTYPE
+bool isSending() const
+```
+
+#### isSent - CloudEvent
+
+Shorthand for `event.status() == CloudEvent::SENT`. The event was successfully sent to the cloud.
+
+```cpp
+// PROTOTYPE
+bool isSent() const
+```
+
+
+#### isOk - CloudEvent
+
+Returns true if the event status is something other than `Status::FAILED` or `Status::INVALID`.
+
+```cpp
+// PROTOTYPE
+bool isOk() const
+```
+
+#### isValid - CloudEvent
+
+Returns true if the event status is not `Status::INVALID`. Note that this is different than `isOk()`.
+
+```cpp
+// PROTOTYPE
+bool isValid() const
+```
+
+
+#### error - CloudEvent
+
+Returns a 0 if the event is not in a failed or invalid state, otherwise a system error code defined `Error::Type`, which is a negative value. 
+
+```cpp
+// PROTOTYPE
+int error() const;
+```
+    
+See [system errors](#system-errors) for the available error codes.
+
+#### cancel - CloudEvent
+
+Cancel sending the event.
+
+This method has no effect if the event is not currently being sent to the Cloud.
+
+A cancelled event is invalidated and cannot be published again.
+
+```cpp
+// PROTOTYPE
+void cancel();
+```
+
+#### resetStatus - CloudEvent
+
+Reset the status of the event.
+
+This method resets the status of the event back to `NEW` if the current status is `SENT` or `FAILED`. Otherwise, it has no effect.
+
+It is normally not necessary to call this method before publishing a failed event again.
+
+```cpp
+// PROTOTYPE
+void resetStatus();
+```
+
+#### clear - CloudEvent
+
+Clear and reinitialize the event instance.
+
+```cpp
+// PROTOTYPE
+void clear();
+
+// EXAMPLE
+// These two statements are equivalent
+event.clear();
+event = CloudEvent();
+```
+
+#### onStatusChange - CloudEvent
+
+Set a callback to be invoked when the status of the event changes.
+
+For an example, see [Simple publish callback](/reference/device-os/typed-publish/#simple-publish-callback).
+
+```cpp
+// PROTOTYPE
+CloudEvent& onStatusChange(std::function<OnStatusChange> callback);
+
+// Handler definition
+typedef void OnStatusChange(CloudEvent event);
+
+// Handler prototype
+void myStatusChangeHandler(CloudEvent event)
+```
+
+#### canPublish - CloudEvent
+
+Check if an event with a given size would be within the limit for the amount of event data in
+flight once it's attempted to be published.
+
+- size Size of the event data.
+- Returns `true` if the event can be published, otherwise `false`.
+
+For an example, see [State machine class publish](/reference/device-os/typed-publish/#state-machine-class-publish).
+
+```cpp
+// PROTOTYPE
+static bool canPublish(size_t size);
+
+```
+
+
 ## Subscribe
 
 {{api name1="Particle.subscribe"}}
@@ -1467,6 +1932,8 @@ Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler);
 
 ### Subscribe (with content type) - Subscribe
 
+{{since when="6.2.0"}}
+
 ```cpp
 // PROTOTYPES
 bool subscribe(const char* name, particle::EventHandlerWithContentType handler);
@@ -1485,8 +1952,55 @@ void myHandler(const char *event_name, const char *data)
 The new API passes both a `data` and a `size` allowing it to be used with data that contains null bytes,
 including binary data. The `ContentType` is also passed to the handler for the handler to use as desired.
 
+### Subscribe (CloudEvent) - Subscribe
+
+{{since when="6.3.0"}}
+
+```cpp
+// PROTOTYPES
+bool subscribe(const char* name, particle::EventHandlerWithCloudEvent* handler,
+        const particle::SubscribeOptions& opts = particle::SubscribeOptions());
+bool subscribe(const char* name, std::function<particle::EventHandlerWithCloudEvent> handler,
+        const particle::SubscribeOptions& opts = particle::SubscribeOptions());
+
+// Cloud event subscription handler prototype
+void mySubscriptionHandler(CloudEvent event);        
+
+// EventHandlerWithCloudEvent 
+typedef void (EventHandlerWithCloudEvent)(CloudEvent event);        
+```
+
+For more information and examples, see the [typed and extended publish page](/reference/device-os/typed-publish/).
+
+### SubscribeOptions - Subscribe
+
+{{since when="6.3.0"}}
+
+The `SubscribeOptions` class specifies options when subscribing to events using a `CloudEvent`.
+
+#### structured - SubscribeOptions - Subscribe
+
+Enable or disable encoding of event data in a structured data format.
+
+This option instructs the Cloud to encode all events sent to the device for this subscription in a compact structured data format.
+
+The exact format used is implementation-specific. The application is expected to parse the data in this format using the methods of the `CloudEvent` class, such as `dataStructured()`.
+
+By default, this option is disabled.
+
+```cpp
+// PROTOTYPE - setter
+SubscribeOptions& structured(bool enabled)
+
+// PROTOTYPE - getter
+bool structured() const;
+```
+
+For more information, see [structured subscription](/reference/device-os/typed-publish/#structured-subscription) in the typed and extended publish page.
 
 ### Subscribe (with Variant) - Subscribe
+
+{{since when="6.2.0"}}
 
 If you are expecting structured data, use the subscribe overload that takes a handler with a Variant.
 
@@ -14600,6 +15114,16 @@ static Buffer fromHex(const char* str, size_t len)
 
 When specifing `str` and `len`, the string and length should specify the data
 only. A null terminator is not required and must not be included in `len`.
+
+## EventData 
+
+{{api name1="EventData"}}
+
+{{since when="6.3.0"}}
+
+The `EventData` class is used when subscribing to structured data with a [`CloudEvent`](#cloudevent).
+
+It is another name for [`Variant`](#variant) and you will use the methods of that class to extract data from the `EventData`.
 
 ## Variant
 

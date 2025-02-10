@@ -1301,6 +1301,227 @@
       ]
     },
     {
+      "title": "CloudEvent",
+      "dir": "cloudevent",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "CloudEvent",
+          "dir": "cloudevent"
+        },
+        {
+          "title": "Getting and settings - CloudEvent - CloudEvent",
+          "dir": "getting-and-settings-cloudevent",
+          "subsections": [
+            {
+              "anchor": "name-cloudevent",
+              "title": "name - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "contenttype-cloudevent",
+              "title": "contentType - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-from-c-string-cloudevent",
+              "title": "data - from c-string - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-from-pointer-and-length-cloudevent",
+              "title": "data - from pointer and length - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-from-pointer-and-length-with-content-type-cloudevent",
+              "title": "data - from pointer and length with content type - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-from-string-cloudevent",
+              "title": "data - from String - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "datastring-cloudevent",
+              "title": "dataString - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-from-buffer-cloudevent",
+              "title": "data from Buffer - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-to-buffer-cloudevent",
+              "title": "data - to Buffer - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-from-eventdata-cloudevent",
+              "title": "data - from EventData - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "data-to-eventdata-cloudevent",
+              "title": "data - to EventData - CloudEvent",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "File read and write - CloudEvent - CloudEvent",
+          "dir": "file-read-and-write-cloudevent",
+          "subsections": [
+            {
+              "anchor": "loaddata-cloudevent",
+              "title": "loadData - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "savedata-cloudevent",
+              "title": "saveData - CloudEvent",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Utility methods - CloudEvent - CloudEvent",
+          "dir": "utility-methods-cloudevent",
+          "subsections": [
+            {
+              "anchor": "setsize-cloudevent",
+              "title": "setSize - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "size-cloudevent",
+              "title": "size - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "isempty-cloudevent",
+              "title": "isEmpty - CloudEvent",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Stream methods - CloudEvent - CloudEvent",
+          "dir": "stream-methods-cloudevent",
+          "subsections": [
+            {
+              "anchor": "seek-cloudevent",
+              "title": "seek - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "pos-cloudevent",
+              "title": "pos - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "write-cloudevent",
+              "title": "write - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "read-cloudevent",
+              "title": "read - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "readbytes-cloudevent",
+              "title": "readBytes - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "peek-cloudevent",
+              "title": "peek - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "available-cloudevent",
+              "title": "available - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "flush-cloudevent",
+              "title": "flush - CloudEvent",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Publish status - CloudEvent - CloudEvent",
+          "dir": "publish-status-cloudevent",
+          "subsections": [
+            {
+              "anchor": "status-cloudevent",
+              "title": "status - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "isnew-cloudevent",
+              "title": "isNew - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "issending-cloudevent",
+              "title": "isSending - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "issent-cloudevent",
+              "title": "isSent - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "isok-cloudevent",
+              "title": "isOk - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "isvalid-cloudevent",
+              "title": "isValid - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "error-cloudevent",
+              "title": "error - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "cancel-cloudevent",
+              "title": "cancel - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "resetstatus-cloudevent",
+              "title": "resetStatus - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "clear-cloudevent",
+              "title": "clear - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "onstatuschange-cloudevent",
+              "title": "onStatusChange - CloudEvent",
+              "isContent": true
+            },
+            {
+              "anchor": "canpublish-cloudevent",
+              "title": "canPublish - CloudEvent",
+              "isContent": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Debugging",
       "dir": "debugging",
       "collapse": true,
@@ -1555,6 +1776,17 @@
         {
           "title": "dhcpServerIP() - Ethernet - Ethernet",
           "dir": "dhcpserverip-ethernet"
+        }
+      ]
+    },
+    {
+      "title": "EventData",
+      "dir": "eventdata",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "EventData",
+          "dir": "eventdata"
         }
       ]
     },
@@ -3820,6 +4052,10 @@
           "dir": "typed-publish-publish"
         },
         {
+          "title": "Particle.publish - CloudEvent - Publish - Publish",
+          "dir": "particle-publish-cloudevent-publish"
+        },
+        {
           "title": "Particle.publish - Publish - Publish",
           "dir": "particle-publish-publish",
           "subsections": [
@@ -4591,6 +4827,21 @@
         {
           "title": "Subscribe (with content type) - Subscribe - Subscribe",
           "dir": "subscribe-with-content-type-subscribe"
+        },
+        {
+          "title": "Subscribe (CloudEvent) - Subscribe - Subscribe",
+          "dir": "subscribe-cloudevent-subscribe"
+        },
+        {
+          "title": "SubscribeOptions - Subscribe - Subscribe",
+          "dir": "subscribeoptions-subscribe",
+          "subsections": [
+            {
+              "anchor": "structured-subscribeoptions-subscribe",
+              "title": "structured - SubscribeOptions - Subscribe",
+              "isContent": true
+            }
+          ]
         },
         {
           "title": "Subscribe (with Variant) - Subscribe - Subscribe",

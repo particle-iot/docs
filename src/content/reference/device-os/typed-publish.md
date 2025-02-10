@@ -1,5 +1,5 @@
 ---
-title: Typed publish
+title: Typed and extended publish
 layout: commonTwo.hbs
 columns: two
 description: Typed publish for Particle IoT devices
@@ -10,19 +10,41 @@ description: Typed publish for Particle IoT devices
 In Device OS 6.2.0, a number of enhancements were made to allow data types other than 
 plain text to be sent and allow for more efficient transmission of structured data.
 
-Enhancement in later versions of Device OS will allow for larger payloads, and limits exceeding 1 publish per second.
+## Extended publish 
+
+In Device OS 6.3.0 and later, extended publish builds upon typed publish and provides additional features:
+
+### Large events - Extended publish
+
+In Device OS 6.3.0 and later, events can be up to 16,384 bytes in size and can contain binary data. Previously, event payloads were limited to 1024 bytes or less.
+
+Large events count as 1 data operation for each 1024 bytes of data, rounded up. A publish of 1000 bytes count as a 1 data operation, but 1300 bytes counts as 2 data operations. A maximum event size of 16 Kbytes counts as 16 data operations.
+
+### Increased rate limits - Extended publish
+
+Prior to Device OS 6.3.0, there was a rate limit of approximately 1 publish for second, with greater bursts.
+
+With Device OS 6.3.0 and extended publish, there is a limit of approximately 32 Kbytes of data in transit at a time. It is no longer necessary
+to wait a specific amount of time.
+
+The [canPublish](/reference/device-os/api/cloudevent/publish-status-cloudevent/#canpublish-cloudevent) method can be used to check
+if a publish of a given size would be allowed at the current time. It it returns false, you should wait and check again later 
+after the queued data has been sent.
+
+More specifically, the limit is 32 logical blocks of data, rounded up to 1024 bytes. An event without payload data takes 1 block, 1024 bytes of payload data is still 1 block, 1025 bytes is 2 blocks, and so on. If there are 32 logical data blocks in flight already, canPublish will return false or an attempt to publish without checking will fail.
 
 ## Data types
 
 There are currently five data types, including the following:
 
 {{!-- BEGIN shared-blurb 7cb44006-ca2e-4ab9-8bf3-6ee0f405a64f --}}
-| Content Type Constant | MIME Type |
-| :--- | :--- |
-| `ContentType::TEXT`   | `text/plain; charset=utf-8` |
-| `ContentType::JPEG`   | `image/jpeg` |
-| `ContentType::PNG`    | `image/png` |
-| `ContentType::BINARY` | `application/octet-stream` |
+| Content Type Constant | MIME Type | Value |
+| :--- | :--- | ---: |
+| `ContentType::TEXT`   | `text/plain; charset=utf-8` | 0 |
+| `ContentType::JPEG`   | `image/jpeg` | 22 |
+| `ContentType::PNG`    | `image/png` | 23 |
+| `ContentType::BINARY` | `application/octet-stream` | 42 |
+| `ContentType::STRUCTURED` | | 65001 |
 {{!-- END shared-blurb --}}
 
 The `TEXT` format is what was used prior to Device OS 6.2.
@@ -42,14 +64,14 @@ size, however, and the size after Base 64 encoding can exceed 1024 bytes.
 
 Say you have this binary data that you publish from a device:
 
-```
+```html
 0000: a7 22 98 1c 40 1b 9b 80 bb 9d d9 c0 13 bb 4e d0   |  "  @         N 
 0010: a3 c0 ae 81 c5 93 91 2a 83 8e 69 27 b0 c6 17 26   |        *  i'   &
 0020: 85 93 b7 a6 f5 69 c0 4c 9e 3d 53 49 b5 47 f0 44   |      i L =SI G D
 0030: 26 9b 8a 1d e4 bc 73 f9 4d a4 e8 34 c2 56 17 c9   | &     s M  4 V  
 ```
 
-A webhook using \{{{PARTICLE_EVENT_VALUE}} will receive this payload:
+A webhook using \{{{PARTICLE_EVENT_VALUE}}} will receive this payload:
 
 ```
 data:application/octet-stream;base64,pyKYHEAbm4C7ndnAE7tO0KPAroHFk5Eqg45pJ7DGFyaFk7em9WnATJ49U0m1R/BEJpuKHeS8c/lNpOg0wlYXyQ==
@@ -68,6 +90,9 @@ text and valid JSON, it is compatible with both the default webhook template, as
   "published_at": "\{{{PARTICLE_PUBLISHED_AT}}}"
 }
 ```
+
+If you are using Logic, there are [data URL decoding functions](/getting-started/logic-ledger/logic/#dataurldecode)
+included in Logic.
 
 ## Structured data
 
@@ -168,10 +193,80 @@ obj.set("c", Variant(true));
 
 ## Publish
 
-See [Publish](/reference/device-os/api/publish/) in the Device OS firmware API.
+See [Publish](/reference/device-os/api/publish/) in the Device OS firmware API for additional information.
 
+### Legacy publish
+
+Using the legacy API for publish typically looks like this:
+
+{{> codebox content="/assets/files/extended-publish/LegacyPublish.cpp" format="cpp" height="400" flash="true"}}
+
+### Blocking publish
+
+This example shows how to do a blocking publish, similar to how the legacy publish worked.
+
+{{> codebox content="/assets/files/extended-publish/SimplePublishBlocking.cpp" format="cpp" height="400" flash="true"}}
+
+### Non-blocking publish
+
+This example shows how to do a non-blocking publish.
+
+{{> codebox content="/assets/files/extended-publish/SimplePublishNonBlocking.cpp" format="cpp" height="400" flash="true"}}
+
+### Binary publish
+
+This example sends binary data in a publish.
+
+{{> codebox content="/assets/files/extended-publish/BinaryData.cpp" format="cpp" height="400" flash="true"}}
+
+### JSON with binary publish
+
+This example includes JSON data that includes binary data.
+
+{{> codebox content="/assets/files/extended-publish/JsonWithBinary.cpp" format="cpp" height="400" flash="true"}}
+
+### Image publish
+
+This example publishes a small png image using typed publish.
+
+{{> codebox content="/assets/files/extended-publish/ImagePublish.cpp" format="cpp" height="400" flash="true"}}
+
+
+The event viewer in the console can display the image when you view its details.
+
+![](/assets/images/png-event.png)
+
+### Simple publish callback
+
+This example uses the [onStatusChange](/reference/device-os/api/cloudevent/publish-status-cloudevent/#onstatuschange-cloudevent) 
+method of `CloudEvent` to be notified when the publish status changes via a callback, instead of polling.
+
+{{> codebox content="/assets/files/extended-publish/SimplePublishCallback.cpp" format="cpp" height="400" flash="true"}}
+
+### State machine publish
+
+This example uses a simple finite state machine to handle publishing.
+
+{{> codebox content="/assets/files/extended-publish/StateMachine.cpp" format="cpp" height="400" flash="true"}}
+
+### State machine class publish
+
+This example uses a finite state machine implemented in a C++ class.
+
+{{> codebox content="/assets/files/extended-publish/StateMachineClass.cpp" format="cpp" height="400" flash="true"}}
 
 ## Subscribe
 
-See [Subscribe](/reference/device-os/api/subscribe/) in the Device OS firmware API.
+See [Subscribe](/reference/device-os/api/subscribe/) in the Device OS firmware API for additional information.
 
+### Simple subscription
+
+This example uses the subscribe with cloud event API.
+
+{{> codebox content="/assets/files/extended-publish/SimpleSubscription.cpp" format="cpp" height="400" flash="true"}}
+
+### Structured subscription
+
+This example shows how to subscribe to structured data. This is used if you want to subscribe to events containing JSON data.
+
+{{> codebox content="/assets/files/extended-publish/StructuredSubscription.cpp" format="cpp" height="400" flash="true"}}
