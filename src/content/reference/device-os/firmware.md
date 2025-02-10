@@ -1517,9 +1517,9 @@ ContentType contentType() const
 
 When publishing you typically set the value, but you can also get the value that was previously set.
 
-When subscribing to an event, you typically get the value to see what the publisher or the event has set.
+When subscribing to an event, you typically get the value to see what the publisher of the event has set.
 
-You don't typically sent the content type to `STRUCTURED`; when you set the data from a `Variant` this is handled automatically for you.
+You don't typically set the content type to `STRUCTURED`; when you set the data from a `Variant` this is handled automatically for you.
 
 #### data - from c-string - CloudEvent
 
@@ -1568,7 +1568,7 @@ CloudEvent& data(const String& data)
 
 #### dataString - CloudEvent
 
-Returns a copy of the data in the `EventData` object as a `String`. This is typically used for text data.
+Returns a copy of the data as a `String`. This is typically used for text data.
 
 ```cpp
 // PROTOTYPE
@@ -1652,7 +1652,7 @@ int setSize(size_t size)
 
 #### size - CloudEvent
 
-Get the size of the data. This is the encoded size so there is computation involved in getting this value. 
+Get the size of the data. This is the encoded size is stored internally so this is efficient.
 
 You may want to use this with [canPublish](#canpublish-cloudevent) to see if the event can be published 
 based on the current rate limiting.
@@ -1664,7 +1664,7 @@ size_t size() const
 
 #### isEmpty - CloudEvent
 
-Returns true if the event is empty  (no has data).
+Returns true if the event is empty (has no data).
 
 ```cpp
 // PROTOTYPE
