@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-02-07",
-            "hash": "46decb52aa22b1b28352aeccde8bc302074848e41d81297619427508dd855673"
+            "date": "2025-02-10",
+            "hash": "75d652d2ad7a6f27900c11c0417e8b2becbb6474561b01571b777f9d5acda0a6"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -9639,16 +9639,16 @@
             "date": "2025-02-03"
         },
         "reference/device-os/api/cloudevent/getting-and-settings-cloudevent.md": {
-            "hash": "7e3d61b2ed6a0ffae0539692274428b440fddda5859a7e5a77a3b33f7bfe0101",
-            "date": "2025-02-03"
+            "hash": "0b45597844572f997180d6cf5405f710a639652b5468ba5bf3fae304c766c200",
+            "date": "2025-02-10"
         },
         "reference/device-os/api/cloudevent/file-read-and-write-cloudevent.md": {
             "hash": "541d1ad21e8ff53ef8101c06989b3d682979f2c1ada8d9e5f7d4a6609f0ab82a",
             "date": "2025-02-03"
         },
         "reference/device-os/api/cloudevent/utility-methods-cloudevent.md": {
-            "hash": "ba7e4216dd1bf310e29f5dc3fc1d80275863ed193a12c9fe90af6da35b5094ad",
-            "date": "2025-02-03"
+            "hash": "e6a3cd9a0e4942c0b1ecce5996645309b36f9a4293954248edbeedbec9f62a0d",
+            "date": "2025-02-10"
         },
         "reference/device-os/api/cloudevent/stream-methods-cloudevent.md": {
             "hash": "7fdeea711131393310a5c69933117481fba174a40e508ff07fbc2d2bd5752646",
