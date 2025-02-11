@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-02-10",
-            "hash": "75d652d2ad7a6f27900c11c0417e8b2becbb6474561b01571b777f9d5acda0a6"
+            "date": "2025-02-11",
+            "hash": "1ce60f5fa12a1a3ff3da2a4ed2d2d6a4117bb40c2d30a51ec8253bae74ac1c75"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1711,8 +1711,8 @@
             "hash": "6de7b802e71b476e9049425a01072a7268a9594b752f196bc0a84494fb002ab6"
         },
         "reference/device-os/api/cloud-functions/overview-of-api-field-limits.md": {
-            "date": "2025-02-03",
-            "hash": "326ce8f5a72b39fffa4c8ec8f9dbbec38d6964d398ad6ad24853a6e6f5bdd0fb"
+            "date": "2025-02-11",
+            "hash": "31f22a7f70c115f55147e4a41520ed5281a6955cb2d91903e416da5af994ad6a"
         },
         "reference/device-os/api/cloud-functions/particle-variable.md": {
             "date": "2024-11-13",
@@ -9303,16 +9303,16 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/publish/limits-publish.md": {
-            "hash": "b0ac7c3033ddc90fed7864406d56d471af1ec229a603c722e28775d1fc6f210b",
-            "date": "2025-02-03"
+            "hash": "289b0b2128ce0856cc34b0cf267de285bfe9d67ccd68aa7a5ad78c2f093789c8",
+            "date": "2025-02-11"
         },
         "reference/device-os/api/publish/typed-publish-publish.md": {
             "hash": "015bdbcf2aea677cf600b9796a1a0e3de399f1801699a46ca35b7e2ac8f7833f",
             "date": "2025-02-03"
         },
         "reference/device-os/api/publish/particle-publish-publish.md": {
-            "hash": "1c49fd867adfc3b7a4ebef8abe9307f206e66ecc53e48cb074aea16e8d76800a",
-            "date": "2025-02-03"
+            "hash": "d3f57ca144b5d3cac865b319b9c65ea1e6dc22eb414f6ccf5e2b523295b61050",
+            "date": "2025-02-11"
         },
         "reference/device-os/api/publish/name-particle-publish-publish.md": {
             "hash": "60ee919159fcc7297aa17e722177bff8f070680ac980604ef088f21bd7b6e39e",
@@ -9335,8 +9335,8 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/publish/particle-publish-classic-api-publish.md": {
-            "hash": "1fe9dd367aeb05ba11318e4a049cb410713ed075713c68fef8cac1b641e8f7e1",
-            "date": "2025-02-03"
+            "hash": "572059b0b623421434cdf4e48bb24894d99fea6301cc3dc30478c87116b1e49e",
+            "date": "2025-02-11"
         },
         "reference/device-os/api/subscribe/subscribe.md": {
             "hash": "64708ab47cc0195a9de85b766735ccd9609dace3165b3289cddc7ef4196786de",
@@ -9447,8 +9447,8 @@
             "date": "2025-01-15"
         },
         "reference/device-os/typed-publish.md": {
-            "hash": "6b9b0938647551d13cdb8293d30a17d42b23b12cfb767ce9e6b054ebb3a982aa",
-            "date": "2025-02-03"
+            "hash": "fdd38c54896094906a26faf902aaa81468441d5cb029a6d51bd05b7a9173653b",
+            "date": "2025-02-11"
         },
         "troubleshooting/led.md": {
             "hash": "df60457eef43105be5df19b65e3f0e556ba9ccad05ad6bb979405f056d124ef7",

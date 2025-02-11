@@ -12,7 +12,7 @@ plain text to be sent and allow for more efficient transmission of structured da
 
 ## Extended publish 
 
-In Device OS 6.3.0 and later, extended publish builds upon typed publish and provides additional features:
+In Device OS 6.3.0 and later, extended publish builds upon typed publish and provides additional features when using the [CloudEvent](/reference/device-os/api/cloudevent/) API.
 
 ### Large events - Extended publish
 

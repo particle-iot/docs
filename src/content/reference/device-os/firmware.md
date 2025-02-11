@@ -56,13 +56,16 @@ It is also available [as a single large document](/reference/device-os/firmware/
 | Function Key | 12 | 64 | 64 | 64 |
 | Function Argument | 63 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> | 1024 |
 | Publish/Subscribe Event Name | 64 | 64 | 64 | 64 | 
-| Publish/Subscribe Event Data | 255 | 622 |  864<sup>2</sup> / 1024<sup>3</sup> | 16384 |
+| Publish/Subscribe Event Data | 255 | 622 |  864<sup>2</sup> / 1024<sup>3</sup> | 16384<sup>4</sup> |
 
 
 - Limits are in bytes of UTF-8 encoded characters, except in 6.2.0 and later, where the data can be binary.
 - <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E-Series), the limit is 864 characters.
 - <sup>3</sup>On the P2, Photon 2, and Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, and E404X) the limit is 1024 characters.
 - The 0.8.0 - 2.x column includes all 2.x LTS versions. Higher limits will not be back-ported to 2.x LTS.
+- <sup>4</sup>Large events require Device OS 6.3.0 or later and using the [CloudEvent](/reference/device-os/api/cloudevent/) API.
+
+
 
 Instead of hardcoding these values, you should use these definitions:
 
@@ -1114,12 +1117,15 @@ The size and contents of the event data vary depending on the version of Device 
 
 | Device OS Version | Gen | Size Limit | Binary Data |
 | :--- | :--- | :--- | :---: |
-| > 6.3.0 | Gen 3 & 4 | 16384 bytes | Allowed |
+| > 6.3.0 | Gen 3 & 4 | 16384 bytes<sup>1</sup> | Allowed |
 | > 6.2.0 | Gen 3 & 4 | 1024 bytes | Allowed |
 | 3.x - 6.1.x | Gen 3 & 4 | 1024 UTF-8 characters | |
 | 3.x | Gen 2 | 864 UTF-8 characters | |
 | 0.8.0 - 2.x | Gen 2 & 3 | 622 UTF-8 characters | |
 | < 0.8.0 | All | 255 UTF-8 characters | |
+
+
+- <sup>1</sup> Large event data and high publishing rate require using the [CloudEvent](/reference/device-os/api/cloudevent/) API.
 
 ### Typed publish - Publish
 
@@ -1247,6 +1253,9 @@ by the cloud.
 In Example 3, you use the future which decouples the waiting and the getting results. This can be useful if you
 are using a finite state machine. See [Future](#future) for more information.
 
+Large event data and high publishing rate require using the [CloudEvent](/reference/device-os/api/cloudevent/) API, not the classic API.
+
+
 ### Particle.publish (classic API) - Publish
 
 Particle.publish pushes the value out of the device at a time controlled by the device firmware. Particle.variable allows the value to be pulled from the device when requested from the cloud side.
@@ -1299,6 +1308,8 @@ Each publish uses one Data Operation from your monthly or yearly quota. This is 
 - It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
 {{!-- END shared-blurb --}}
  
+Large event data and high publishing rate require using the [CloudEvent](/reference/device-os/api/cloudevent/) API, not the classic API.
+
 ---
 
 Publish an event with the given name and no data. 
