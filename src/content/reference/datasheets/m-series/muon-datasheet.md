@@ -11,10 +11,6 @@ description: Muon datasheet
 {{downloadButton url="/assets/pdfs/datasheets/muon-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and there may be changed before general availability.
-{{box op="end"}}
-
 ## Overview
 
 The Muon is a developer kit based on the M-SoM with additional peripherals for easy prototyping.
@@ -125,14 +121,6 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 |  20   | Expansion connector power jumper (J15) |
 |  21   | Power module (PM-BAT) |
 
-
-### Dimensions
-
-Overall dimensions are 56mm x 84.8mm (2.2" x 3.34").
-
-{{imageOverlay src="/assets/images/m-series/muon-dims.png" alt="Dimensions" class="full-width"}}
-
-<p class="attribution">Dimensions in millimeters (mm)</p>
 
 ### Expansion connector
 
@@ -1565,19 +1553,18 @@ This section is very long; you can [skip over it](#schematics) if desired.
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 
-{{!-- 
 ## Mechanical specifications
 
 ### Dimensions and Weight
 
-To be provided at a later date.
+Overall dimensions are 56mm x 84.8mm (2.2" x 3.34").
 
+{{imageOverlay src="/assets/images/m-series/muon-dims.png" alt="Dimensions" class="full-width"}}
 
-### Mechanical drawing
+<p class="attribution">Dimensions in millimeters (mm)</p>
 
-To be provided at a later date.
---}}
-
+- Weight: 50g (with SoM and thumbscrew)
+- Height: 20mm
 
 
 ## Schematics
@@ -1954,3 +1941,4 @@ Global, country list to be provided a later date.
 |   1      | 2024-10-08 | RK | Update for schematic v1.0 |
 |   2      | 2024-10-22 | RK | Public release|
 |   3      | 2025-01-02 | RK | Wrong pin listed for the power manager interrupt pin; it is A7, not A6 |
+|   4      | 2025-02-11 | RK | Added height and weight |
