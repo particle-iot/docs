@@ -18078,14 +18078,16 @@ servo.write(angle)
 
 {{api name1="Servo::writeMicroseconds"}}
 
-Writes a value in microseconds (uS) to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft. On standard servos a parameter value of 1000 is fully counter-clockwise, 2000 is fully clockwise, and 1500 is in the middle.
+Writes a value in microseconds (uS) to the servo, controlling the shaft accordingly. 
+
+The function write() call writeMicroseconds(), mapping the values of 0 to 180 degrees to a microsecond value of 544 to 2400.
 
 ```cpp
 // SYNTAX
 servo.writeMicroseconds(uS)
 ```
 
-Note that some manufactures do not follow this standard very closely so that servos often respond to values between 700 and 2300. Feel free to increase these endpoints until the servo no longer continues to increase its range. Note however that attempting to drive a servo past its endpoints (often indicated by a growling sound) is a high-current state, and should be avoided.
+On standard servos a parameter value of 1000 is fully counter-clockwise, 2000 is fully clockwise, and 1500 is in the middle. The default values of 544 to 2400 match Arduino devices. Note however that attempting to drive a servo past its endpoints (often indicated by a growling sound) is a high-current state, and should be avoided.
 
 Continuous-rotation servos will respond to the writeMicrosecond function in an analogous manner to the write function.
 

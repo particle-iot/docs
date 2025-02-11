@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Servo update 2025-02-11
+
+Updated the default microsecond mappings for [Servo](/reference/device-os/api/servo/writemicroseconds/) to match the code instead of the theoretical values.
+
 ### Extended publish API 2025-02-07
 
 Documentation for features in Device OS 6.3.0 include: [Typed and extended publish](/reference/device-os/typed-publish/) (includes examples), 
