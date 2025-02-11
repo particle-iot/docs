@@ -35,6 +35,13 @@ const { result } = require('lodash');
         }
 
         // Returns element so you can chain multiple drawing primitives inside a group or svg drawing
+        element.path = function(attr) {
+            const e = svg.element('path', attr);
+            element.children.push(e);
+            return element;
+        }
+        
+        // Returns element so you can chain multiple drawing primitives inside a group or svg drawing
         element.text = function(attr, t) {
             const e = svg.element('text', attr);
             e.data = t;

@@ -104,6 +104,10 @@ const svg = require('./svg');
             }
         }
 
+        if (options.preDraw) {
+            options.preDraw({options, draw, featureColors});
+        }
+
         for(const p of options.pins) {
             
             let x = p.x;
@@ -342,6 +346,10 @@ const svg = require('./svg');
                 }
                 num += p.numDelta;    
             }    
+        }
+
+        if (options.postDraw) {
+            options.postDraw({options, draw, featureColors});
         }
 
         const newContents = draw.render();
@@ -1913,6 +1921,75 @@ const svg = require('./svg');
         await diagram.generate(options, files);
     }
 
+    // Similar to generate pi, but rotated 90 CCW
+    diagram.generateTachyon = async function(generateOptions, files) {
+
+        let defaultOptions = {
+            // platformName: generateOptions.platformName,
+            // outputPath: generateOptions.outputPath,
+            width: 700,
+            height: 500,
+            background: 'white',
+            pins: [
+                {   // Bottom row
+                    num: 1,
+                    x: 60,
+                    y: 204,
+                    numDelta: 2,
+                    xDelta: 21,
+                    yDelta: 0,
+                    count: 20,
+                    xDir: 0,
+                    yDir: 1,
+                    columns: generateOptions.columns,
+                },
+                {   // Top row 
+                    num: 2,
+                    x: 60,
+                    y: 200,
+                    numDelta: 2,
+                    xDelta: 21,
+                    yDelta: 0,
+                    count: 20,
+                    xDir: 0,
+                    yDir: -1,
+                    columns: generateOptions.columns,
+                },
+            ],
+            preDraw: function(options) {
+                options.draw.circle({
+                    cx: 32,
+                    cy: 202,
+                    r: 12,
+                    fill: options.options.background,
+                    stroke: '#E6AB00', // gold
+                    'stroke-width': 3,
+                });    
+                options.draw.circle({
+                    cx: 485,
+                    cy: 202,
+                    r: 12,
+                    fill: options.options.background,
+                    stroke: '#E6AB00', // gold
+                    'stroke-width': 3,
+                });    
+
+                options.draw.path({
+                    d: 'M12 300 L12 192 A12 12 0 0 1 24 180 L550 180',
+                    fill: 'none',
+                    stroke: '#808080',
+                    'stroke-width': 1,
+                });
+                
+            },
+        }
+
+        let options = Object.assign({}, diagram.optionsCommon, defaultOptions, generateOptions);
+
+
+        await diagram.generate(options, files);
+    }
+
     diagram.generateTrackerMExpansion = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -2549,7 +2626,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         // Tachyon
-        await diagram.generatePi(Object.assign({
+        await diagram.generateTachyon(Object.assign({
             platformName: 'tachyon',
             columns: [
                 {
