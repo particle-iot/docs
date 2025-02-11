@@ -5,7 +5,7 @@
   </circle>
   <circle cx="485" cy="202" r="12" fill="white" stroke="#E6AB00" stroke-width="3" >
   </circle>
-  <path d="M12 300 L12 192 A12 12 0 0 1 24 180 L550 180" fill="none" stroke="#808080" stroke-width="1" >
+  <path d="M12 300 L12 182 A12 12 0 0 1 24 170 L550 170" fill="none" stroke="#808080" stroke-width="1" >
   </path>
   <g transform="translate(60,204) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
