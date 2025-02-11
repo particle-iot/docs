@@ -1975,7 +1975,7 @@ const svg = require('./svg');
                 });    
 
                 options.draw.path({
-                    d: 'M12 300 L12 192 A12 12 0 0 1 24 180 L550 180',
+                    d: 'M12 300 L12 182 A12 12 0 0 1 24 170 L550 170',
                     fill: 'none',
                     stroke: '#808080',
                     'stroke-width': 1,
