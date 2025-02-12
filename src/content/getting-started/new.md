@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cloud API docs updates 2025-02-12
+
+Corrected a typo in the service agreements endpoint and added missing documentation for ledger call for products in the cloud API reference.
+
 ### Servo update 2025-02-11
 
 Updated the default microsecond mappings for [Servo](/reference/device-os/api/servo/writemicroseconds/) to match the code instead of the theoretical values.

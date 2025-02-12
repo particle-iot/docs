@@ -20633,7 +20633,8 @@ Gets a cryptographic random number (32-bit) from the hardware random number gene
 
 Note: The hardware random number generator has a limit to the number of random values it can produce in a given timeframe. If there aren't enough random numbers available at this time, this function may be block until there are. If you need a large number of random values you can use this function to seed a pseudo-random number generator (PRNG).
 
-Note: Only available on Gen 2 (Photon, P1, Electron, E-Series), and Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM). Not available on the Spark Core.
+Note: This is not available on the Spark Core, but is available on all Gen 2, Gen 3, and Gen 4 devices.
+
 
 ## EEPROM
 

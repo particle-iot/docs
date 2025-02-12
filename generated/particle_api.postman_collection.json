@@ -10,90 +10,6 @@
       "name": "Authentication",
       "item": [
         {
-          "name": "List access tokens",
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{username}}",
-                  "type": "string"
-                },
-                {
-                  "key": "password",
-                  "value": "{{password}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "String",
-                "description": "Your Particle username and password"
-              }
-            ],
-            "body": null,
-            "url": {
-              "raw": "{{url}}/v1/access_tokens",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "v1",
-                "access_tokens"
-              ],
-              "query": [
-                {
-                  "key": "otp",
-                  "value": "string",
-                  "description": "Token given from your MFA device. Usually 6 digits long",
-                  "disabled": true
-                }
-              ],
-              "variables": []
-            },
-            "description": "Retrieve a list of all the issued access tokens for your account \n\nNote: Pass your Particle username and password using HTTP Basic Auth."
-          },
-          "response": [
-            {
-              "name": "Response",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": null,
-                "url": {
-                  "raw": "{{url}}/v1/access_tokens",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "access_tokens"
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": "200",
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "GET /v1/access_tokens\nHTTP/1.1 200 OK\n[\n  {\n      \"token\": \"b5b901e8760164e134199bc2c3dd1d228acf2d98\",\n      \"expires_at\": \"2014-04-27T02:20:36.177Z\",\n      \"client\": \"particle\"\n  },\n  {\n      \"token\": \"ba54b6bb71a43b7612bdc7c972914604a078892b\",\n      \"expires_at\": \"2014-04-27T06:31:08.991Z\",\n      \"client\": \"particle\"\n  }\n]"
-            }
-          ]
-        },
-        {
           "name": "Get the current access token information",
           "request": {
             "auth": null,
@@ -218,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-11-06T14:27:08.814Z",
+                  "value": "2025-02-12T17:27:39.259Z",
                   "disabled": true
                 }
               ]
@@ -283,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-11-06T14:27:08.817Z",
+                      "value": "2025-02-12T17:27:39.262Z",
                       "disabled": true
                     }
                   ]
@@ -339,7 +255,7 @@
                 }
               ]
             },
-            "description": "Delete your unused or lost tokens. \n\nDEPRECATED. Use the DELETE /v1/access_tokens/current endpoint instead."
+            "description": "Delete your unused or lost tokens."
           },
           "response": [
             {
@@ -1680,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2024-11-06T14:27:08.830Z",
+                  "value": "2025-02-12T17:27:39.276Z",
                   "disabled": true
                 },
                 {
@@ -1740,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2024-11-06T14:27:08.830Z",
+                      "value": "2025-02-12T17:27:39.276Z",
                       "disabled": true
                     },
                     {
@@ -3294,13 +3210,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-11-06T14:27:08.839Z",
+                  "value": "2025-02-12T17:27:39.284Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-11-06T14:27:08.839Z",
+                  "value": "2025-02-12T17:27:39.284Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4717,13 +4633,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-11-06T14:27:08.845Z",
+                  "value": "2025-02-12T17:27:39.292Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-11-06T14:27:08.845Z",
+                  "value": "2025-02-12T17:27:39.292Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4824,13 +4740,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-11-06T14:27:08.846Z",
+                  "value": "2025-02-12T17:27:39.293Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-11-06T14:27:08.847Z",
+                  "value": "2025-02-12T17:27:39.293Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4931,13 +4847,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-11-06T14:27:08.848Z",
+                  "value": "2025-02-12T17:27:39.294Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-11-06T14:27:08.848Z",
+                  "value": "2025-02-12T17:27:39.294Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5038,13 +4954,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-11-06T14:27:08.849Z",
+                  "value": "2025-02-12T17:27:39.296Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-11-06T14:27:08.849Z",
+                  "value": "2025-02-12T17:27:39.296Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5145,13 +5061,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2024-11-06T14:27:08.850Z",
+                  "value": "2025-02-12T17:27:39.297Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2024-11-06T14:27:08.850Z",
+                  "value": "2025-02-12T17:27:39.297Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },

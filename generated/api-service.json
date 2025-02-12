@@ -186,111 +186,6 @@
     "name": "PostOauthToken"
   },
   {
-    "type": "get",
-    "url": "/v1/access_tokens",
-    "title": "List access tokens",
-    "name": "ListAccessTokens",
-    "description": "<p>Retrieve a list of all the issued access tokens for your account</p> <p>Note: Pass your Particle username and password using HTTP Basic Auth.</p>",
-    "group": "Authentication.4",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "isArray": false,
-            "description": "<p>Your Particle username and password</p>"
-          }
-        ]
-      }
-    },
-    "query": [
-      {
-        "group": "Query",
-        "type": "String",
-        "optional": true,
-        "field": "otp",
-        "isArray": false,
-        "description": "<p>Token given from your MFA device. Usually 6 digits long</p>"
-      }
-    ],
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "-",
-            "isArray": true,
-            "description": "<p>List of access tokens</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "parentNode": {
-              "path": "-",
-              "field": "-",
-              "type": "Object[]",
-              "isArray": true
-            },
-            "field": "-.token",
-            "isArray": false,
-            "description": "<p>Access token</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "parentNode": {
-              "path": "-",
-              "field": "-",
-              "type": "Object[]",
-              "isArray": true
-            },
-            "field": "-.expires_at",
-            "isArray": false,
-            "description": "<p>Date the token expires and is no longer valid</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "parentNode": {
-              "path": "-",
-              "field": "-",
-              "type": "Object[]",
-              "isArray": true
-            },
-            "field": "-.client",
-            "isArray": false,
-            "description": "<p>Client program used to create the token</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "GET /v1/access_tokens",
-          "content": "GET /v1/access_tokens\nHTTP/1.1 200 OK\n[\n  {\n      \"token\": \"b5b901e8760164e134199bc2c3dd1d228acf2d98\",\n      \"expires_at\": \"2014-04-27T02:20:36.177Z\",\n      \"client\": \"particle\"\n  },\n  {\n      \"token\": \"ba54b6bb71a43b7612bdc7c972914604a078892b\",\n      \"expires_at\": \"2014-04-27T06:31:08.991Z\",\n      \"client\": \"particle\"\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "examples": [
-      {
-        "title": "$ curl https://api.particle.io/v1/access_tokens \\",
-        "content": "$ curl https://api.particle.io/v1/access_tokens \\\n       -u \"joe@example.com:SuperSecret\"",
-        "type": "bash"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "src/views/accessToken.js",
-    "groupTitle": "Authentication.4"
-  },
-  {
     "type": "delete",
     "url": "/v1/access_tokens/:token",
     "title": "Delete an access token",
@@ -308,7 +203,7 @@
         ]
       }
     },
-    "description": "<p>Delete your unused or lost tokens.</p> <p>DEPRECATED. Use the <code>DELETE /v1/access_tokens/current</code> endpoint instead.</p>",
+    "description": "<p>Delete your unused or lost tokens.</p>",
     "name": "DeleteAccessToken",
     "group": "Authentication.5",
     "success": {
@@ -10052,6 +9947,11 @@
         "type": "bash"
       },
       {
+        "title": "List ledger instance versions for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
         "title": "List ledger instance versions for an organization",
         "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
@@ -10129,6 +10029,11 @@
         "type": "bash"
       },
       {
+        "title": "List ledger definitions for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
         "title": "List ledger definitions for an organization",
         "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
@@ -10185,6 +10090,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName\" \\",
         "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Get ledger definition for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10246,6 +10156,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/ledgers\" \\",
         "content": "$ curl \"https://api.particle.io/v1/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
+        "type": "bash"
+      },
+      {
+        "title": "Create a new ledger definition for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
         "type": "bash"
       },
       {
@@ -10318,6 +10233,11 @@
         "type": "bash"
       },
       {
+        "title": "Update ledger definition for a product",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
+        "type": "bash"
+      },
+      {
         "title": "Update ledger definition for an organization",
         "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @definition.json",
         "type": "bash"
@@ -10374,6 +10294,11 @@
       {
         "title": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName\" \\",
         "content": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Archive a ledger definition for a product",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10454,6 +10379,11 @@
         "type": "bash"
       },
       {
+        "title": "List ledger instances for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName/instances\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
         "title": "List ledger instances for an organization",
         "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
@@ -10518,6 +10448,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\",
         "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Get ledger instance for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10593,6 +10528,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\",
         "content": "$ curl \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Get ledger instance version for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -10673,6 +10613,11 @@
         "type": "bash"
       },
       {
+        "title": "Set the ledger instance data for a product",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @data.json",
+        "type": "bash"
+      },
+      {
         "title": "Set the ledger instance data for an organization",
         "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       --data @data.json",
         "type": "bash"
@@ -10737,6 +10682,11 @@
       {
         "title": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\",
         "content": "$ curl -X DELETE \"https://api.particle.io/v1/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete ledger instance for a product",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/products/:productIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11083,6 +11033,11 @@
         "type": "bash"
       },
       {
+        "title": "Get logic function stats for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions/:logicFunctionId/stats\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
         "title": "Get logic function stats for an organization",
         "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
@@ -11245,6 +11200,11 @@
         "type": "bash"
       },
       {
+        "title": "Execute logic function for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logic/execute\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @debug_function.json",
+        "type": "bash"
+      },
+      {
         "title": "Execute logic function for an organization",
         "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/execute\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @debug_function.json",
         "type": "bash"
@@ -11303,6 +11263,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/logic/functions?today_stats=true\" \\",
         "content": "$ curl \"https://api.particle.io/v1/logic/functions?today_stats=true\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List logic functions for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions?today_stats=true\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11365,6 +11330,11 @@
         "type": "bash"
       },
       {
+        "title": "Get logic function for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
         "title": "Get logic function for an organization",
         "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
@@ -11423,6 +11393,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/logic/functions\" \\",
         "content": "$ curl \"https://api.particle.io/v1/logic/functions\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
+        "type": "bash"
+      },
+      {
+        "title": "Create a new logic function for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
         "type": "bash"
       },
       {
@@ -11495,6 +11470,11 @@
         "type": "bash"
       },
       {
+        "title": "Update logic function for a product",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
+        "type": "bash"
+      },
+      {
         "title": "Update logic function for an organization",
         "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       --data @logicFunction.json",
         "type": "bash"
@@ -11554,6 +11534,11 @@
         "type": "bash"
       },
       {
+        "title": "Delete logic function for a product",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
         "title": "Delete logic function for an organization",
         "content": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
@@ -11610,6 +11595,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs\" \\",
         "content": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List logic functions runs for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions/:logicFunctionId/runs\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -11680,6 +11670,11 @@
         "type": "bash"
       },
       {
+        "title": "Get logic function run for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
         "title": "Get logic function run for an organization",
         "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
@@ -11744,6 +11739,11 @@
       {
         "title": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\",
         "content": "$ curl \"https://api.particle.io/v1/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Get logic function run logs for a product",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/logs\" \\\n       -H \"Authorization: Bearer :access_token\"",
         "type": "bash"
       },
       {
@@ -13997,6 +13997,12 @@
     "permission": [
       {
         "name": "service_agreements:list"
+      },
+      {
+        "name": "service_agreements.usage_summary:get"
+      },
+      {
+        "name": "service_agreements.pricing_terms:get"
       }
     ],
     "success": {
@@ -14143,7 +14149,7 @@
             },
             "field": "attributes.current_usage_summary",
             "isArray": false,
-            "description": "<p>Usage summary for the period</p>"
+            "description": "<p>Usage summary for the period, requires service_agreement.usage_summary:get scope.</p>"
           },
           {
             "group": "Success 200",
@@ -14197,7 +14203,7 @@
             },
             "field": "attributes.pricing_terms",
             "isArray": false,
-            "description": "<p>All related with the selected pricing model</p>"
+            "description": "<p>All related with the selected pricing model, requires service_agreement.pricing_terms:get scope.</p>"
           },
           {
             "group": "Success 200",

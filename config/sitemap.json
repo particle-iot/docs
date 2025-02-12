@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-02-11",
-            "hash": "d3270e73e5d5c589c902eaf0db20a85d951cacc0d6a07b345e73e39fb0297b99"
+            "date": "2025-02-12",
+            "hash": "716a9b3609938f47b75d31a61e4f47ece12f512fd5bf6924379ae92e294af1f2"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3519,8 +3519,8 @@
             "hash": "aa00aa0a9728107b775e1e6f4e1cb69905e16bfb476037a0002a5b90744d115f"
         },
         "reference/device-os/api/random-numbers/hal_rng_getrandomnumber.md": {
-            "date": "2024-02-27",
-            "hash": "e1fe964869ebbb2f92ae298bdb12889e92368671500fc81c093845149d64744d"
+            "date": "2025-02-12",
+            "hash": "874bd77f2cac2f438b9caa872b48f9d10606bbd17c4e328c75b4f880e5c0c78a"
         },
         "reference/device-os/api/eeprom/eeprom.md": {
             "date": "2024-04-30",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a771bfbb80ec85f620af0eb6a16ac5642fc066daec2f2f52ec44b90e2b29f578",
-            "date": "2025-02-11"
+            "hash": "21117b498e142a9199e8d24226a102ce4890e4e1ea0ebc99a421bf96ee746435",
+            "date": "2025-02-12"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
