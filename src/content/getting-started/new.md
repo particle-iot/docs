@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Cloud API docs updates 2025-02-12
 
-Corrected a typo in the service agreements endpoint and added missing documentation for ledger calls for products in the cloud API reference.
+Added missing service agreement scopes and added missing documentation for ledger calls for products in the cloud API reference.
 
 ### Servo update 2025-02-11
 
