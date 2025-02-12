@@ -98,7 +98,7 @@ module.exports = function(context) {
         else
         if (context.hash.type.indexOf("gen2") >= 0) {
             message = 'Gen 2 Devices (STM32)';
-            deviceList = 'E-Series, Electron, Photon, and P2; does not include E404X';
+            deviceList = 'E-Series, Electron, Photon, and P1; does not include E404X';
             cssClass = 'note-gen2';
         }
         else
