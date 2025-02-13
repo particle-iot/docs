@@ -480,6 +480,8 @@ Returns the maximum size of the data payload for events. This is normally specif
 
 This value is only available when connected to the cloud. At other times, `SYSTEM_ERROR_INVALID_STATE` (-210) is returned.
 
+Devices with a maximum data size of less than 1024 bytes cannot use the [large publish feature](/reference/device-os/typed-publish/) in Device OS 6.3.0 and later.
+
 ### Particle.maxVariableValueSize()
 
 

@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-02-12",
-            "hash": "716a9b3609938f47b75d31a61e4f47ece12f512fd5bf6924379ae92e294af1f2"
+            "date": "2025-02-13",
+            "hash": "61e193c16b1202d76d6457fbf0b313eb4e9e3140a1361a3f53830087da68f9c9"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1471,7 +1471,7 @@
             "hash": "c2a21a44fa7c834e9ce7618f9b0141166434edcbd5a0dcf50b48adb5d396f88f"
         },
         "reference/discontinued/software/firmware-xenon.md": {
-            "date": "2024-10-28",
+            "date": "2025-02-13",
             "hash": "d0eac68d80d998efc3c9a18facd149628a3de746d137c6fb50df11937703ff23"
         },
         "reference/discontinued/software/windows.md": {
@@ -1739,8 +1739,8 @@
             "hash": "22b85a83a90ef647d93fc708278fa8618886e48c67a1a5603191f561fb1c6cc8"
         },
         "reference/device-os/api/cloud-functions/particle-maxeventdatasize.md": {
-            "date": "2024-02-27",
-            "hash": "f63e7f00f3309ee16d219f7c9bfda0d3fdb3b8c848fd138190adbab5fa8123de"
+            "date": "2025-02-13",
+            "hash": "9086049eaeec220cc7e7f14cc9430a17e74d0acf7300ab6ce512bbc7929ac4ac"
         },
         "reference/device-os/api/cloud-functions/particle-maxvariablevaluesize.md": {
             "date": "2024-02-27",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "333165b684bf32254947191ba772a64d1237e6f97868ed9bfb866614730f81d2",
-            "date": "2025-02-12"
+            "hash": "bf3c67db5c9a39c8575d4ff101816b0ba0860147a1a4a3c217df6d071b791dc2",
+            "date": "2025-02-13"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9447,8 +9447,8 @@
             "date": "2025-01-15"
         },
         "reference/device-os/typed-publish.md": {
-            "hash": "fdd38c54896094906a26faf902aaa81468441d5cb029a6d51bd05b7a9173653b",
-            "date": "2025-02-11"
+            "hash": "50edf5fe0c8842baa9d9090464ed2ba4cd0c27cd5e2579d3c536091ea5fd1c6c",
+            "date": "2025-02-13"
         },
         "troubleshooting/led.md": {
             "hash": "df60457eef43105be5df19b65e3f0e556ba9ccad05ad6bb979405f056d124ef7",

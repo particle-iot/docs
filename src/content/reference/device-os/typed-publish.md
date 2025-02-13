@@ -20,6 +20,8 @@ In Device OS 6.3.0 and later, events can be up to 16,384 bytes in size and can c
 
 Large events count as 1 data operation for each 1024 bytes of data, rounded up. A publish of 1000 bytes count as a 1 data operation, but 1300 bytes counts as 2 data operations. A maximum event size of 16 Kbytes counts as 16 data operations.
 
+Some Boron and B-Series SoM with an older version of the SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes. These devices cannot use the large publish feature as it requires being able to send 1024 byte events. See [Particle.maxEventDataSize()](/reference/device-os/api/cloud-functions/particle-maxeventdatasize/) for more information.
+
 ### Increased rate limits - Extended publish
 
 Prior to Device OS 6.3.0, there was a rate limit of approximately 1 publish for second, with greater bursts.

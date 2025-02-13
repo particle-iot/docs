@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Large publish on old R410 modems 2025-02-13
+
+Added a compatibility warning for [extended publish](/reference/device-os/typed-publish/) with some older R410M-02-B cellular modems
+that cannot transmit 1024 byte events.
+
 ### Cloud API docs updates 2025-02-12
 
 Added missing service agreement scopes and added missing documentation for ledger calls for products in the cloud API reference.
