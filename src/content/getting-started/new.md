@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### ICMP ping 2024-02-14
+
+ICMP ping is available on Gen 3 and Gen 4 devices in the [WiFi](/reference/device-os/api/wifi/ping/), [Cellular](/reference/device-os/api/cellular/), [Ethernet](/reference/device-os/api/ethernet/ping-ethernet/), and [Network](/reference/device-os/api/network/ping-network/) classes in 6.3.0 and later.
+
 ### Large publish on old R410 modems 2025-02-13
 
 Added a compatibility warning for [extended publish](/reference/device-os/typed-publish/) with some older R410M-02-B cellular modems

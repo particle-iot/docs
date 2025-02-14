@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-02-13",
-            "hash": "61e193c16b1202d76d6457fbf0b313eb4e9e3140a1361a3f53830087da68f9c9"
+            "date": "2025-02-14",
+            "hash": "dd31fe7d8b27149a09ba9ebf5f162be81888b0d3af162cec31f057aae9826972"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1987,8 +1987,8 @@
             "hash": "0aa13fb0b01cf4b9b78f0d720d75d05729d83832d0ec0f58330847f025b99a25"
         },
         "reference/device-os/api/wifi/ping.md": {
-            "date": "2023-09-20",
-            "hash": "04e6ae3df51364d987c68ee7ad09cc5aa21a9098de22260812e6550016b61105"
+            "date": "2025-02-14",
+            "hash": "a5dd436a7cd91e582f5b56732adb0c0b0d99602d0d92a3d343a27f46d43d4814"
         },
         "reference/device-os/api/wifi/scan.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "bf3c67db5c9a39c8575d4ff101816b0ba0860147a1a4a3c217df6d071b791dc2",
-            "date": "2025-02-13"
+            "hash": "77b63973844771c4289becf9e04c7c4570b674515f92a686ecb288d46b83d9dc",
+            "date": "2025-02-14"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8351,8 +8351,8 @@
             "date": "2024-01-30"
         },
         "reference/device-os/api/network/ispreferred-network.md": {
-            "hash": "ae0cf39652eadb2c072522186e2b9209480a6c022f207e476f4c222ef7645acf",
-            "date": "2024-01-30"
+            "hash": "ecb3dc48f1f60f89456c75ef2b7f26dba77116efb1b7e9e557dd4ad7176ec7b7",
+            "date": "2025-02-14"
         },
         "reference/device-os/api/cellular/prefer-cellular.md": {
             "hash": "a0e343d79e6e1a2c6d6ab50e99956fe021a01e8a088f021447165e85dc2447e0",
@@ -9673,6 +9673,18 @@
         "reference/device-os/libraries/j/JAS-BLE-WiFi-Library.md": {
             "hash": "d6e76b0eb42c28ba57eac5b0f9fd0e1f4f69b0aed587065b8a222c58bcb78e20",
             "date": "2025-02-07"
+        },
+        "reference/device-os/api/ethernet/ping-ethernet.md": {
+            "hash": "1f8148b7ac5b40282b396821a429305185966115858993a224868d28ccfb0e78",
+            "date": "2025-02-14"
+        },
+        "reference/device-os/api/network/ping-network.md": {
+            "hash": "b7b923146577a7b1fd118dcbaff1287fbc82e97835503f51c9fb750e1a751198",
+            "date": "2025-02-14"
+        },
+        "reference/device-os/api/cellular/ping-cellular.md": {
+            "hash": "40aaee3b00775369e77148a62fdebfa3b73c46c8656d591554458791049b657a",
+            "date": "2025-02-14"
         }
     }
 }

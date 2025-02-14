@@ -2681,6 +2681,31 @@ if (Ethernet.isPreferred()) {
 }
 ```
 
+### ping() - Ethernet
+
+{{api name1="Ethernet.ping"}}
+
+{{since when="6.3.0"}}
+
+`Ethernet.ping()` allows you to ping an IP address and returns the number of packets received as an `int` or a negative error code. 
+
+This is an ICMP ping, not the Particle cloud ping and does not use data operations.
+
+```cpp
+// PROTOTYPES
+int ping(IPAddress remoteIP, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(String hostname, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(IPAddress remoteIP, std::chrono::milliseconds timeout, unsigned nTries = 1);
+int ping(String hostname, std::chrono::milliseconds timeout, unsigned nTries = 1);
+```
+
+When using a hostname, a DNS lookup is done. If the hostname is not found, a negative result code (`SYSTEM_ERROR_NOT_FOUND`, -150) is returned.
+
+The `DEFAULT_PING_TIMEOUT` is 4000 milliseconds (4 seconds).
+
+These methods are only avaiable in Device OS 6.3.0 and later. They are available in the `WiFi`, `Cellular`, `Ethernet`, and `Network` classes.
+
+
 ### listen() - Ethernet
 
 {{api name1="Ethernet.listen"}}
@@ -3521,19 +3546,33 @@ Returns: `float`
 
 {{api name1="WiFi.ping"}}
 
-`WiFi.ping()` allows you to ping an IP address and returns the number of packets received as an `int`. It takes two forms:
+{{since when="6.3.0"}}
 
-`WiFi.ping(IPAddress remoteIP)` takes an `IPAddress` and pings that address.
+`WiFi.ping()` allows you to ping an IP address and returns the number of packets received as an `int` or a negative error code. 
 
-`WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
+This is an ICMP ping, not the Particle cloud ping and does not use data operations.
 
----
+```cpp
+// PROTOTYPES
+int ping(IPAddress remoteIP, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(String hostname, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(IPAddress remoteIP, std::chrono::milliseconds timeout, unsigned nTries = 1);
+int ping(String hostname, std::chrono::milliseconds timeout, unsigned nTries = 1);
+```
 
-{{note op="start" type="note"}}
-WiFi.ping() is only available on the Photon and P1. 
+When using a hostname, a DNS lookup is done. If the hostname is not found, a negative result code (`SYSTEM_ERROR_NOT_FOUND`, -150) is returned.
 
-It is not available on the P2, Photon 2, or Argon.
-{{note op="end"}}
+The `DEFAULT_PING_TIMEOUT` is 4000 milliseconds (4 seconds).
+
+These methods are only avaiable in Device OS 6.3.0 and later. They are available in the `WiFi`, `Cellular`, `Ethernet`, and `Network` classes.
+
+On the Photon 1 and P1, only these methods are available, and only in the `WiFi` class, but are available on most versions of Device OS for Gen 2.
+
+```cpp
+// PROTOTYPES - Photon 1 and P1 only
+int ping(IPAddress remoteIP);
+int ping(IPAddress remoteIP, unsigned nTries);
+```
 
 ---
 
@@ -4688,6 +4727,31 @@ if (Network.isPreferred()) {
 }
 ```
 
+### ping() [Network]
+
+{{api name1="Network.ping"}}
+
+{{since when="6.3.0"}}
+
+`Network.ping()` allows you to ping an IP address and returns the number of packets received as an `int` or a negative error code. 
+
+This is an ICMP ping, not the Particle cloud ping and does not use data operations. It uses the default network, which is typically
+WiFi, Cellular, or Ethernet. If the default network is cellular it will use cellular data, so it should not be used excessively.
+
+```cpp
+// PROTOTYPES
+int ping(IPAddress remoteIP, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(String hostname, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(IPAddress remoteIP, std::chrono::milliseconds timeout, unsigned nTries = 1);
+int ping(String hostname, std::chrono::milliseconds timeout, unsigned nTries = 1);
+```
+
+When using a hostname, a DNS lookup is done. If the hostname is not found, a negative result code (`SYSTEM_ERROR_NOT_FOUND`, -150) is returned.
+
+The `DEFAULT_PING_TIMEOUT` is 4000 milliseconds (4 seconds).
+
+These methods are only avaiable in Device OS 6.3.0 and later. They are available in the `WiFi`, `Cellular`, `Ethernet`, and `Network` classes.
+
 
 ### listen() [Network]
 
@@ -5192,6 +5256,31 @@ if (Cellular.isPreferred()) {
     // Do something here
 }
 ```
+
+### ping() [Cellular]
+
+{{api name1="Cellular.ping"}}
+
+{{since when="6.3.0"}}
+
+`Cellular.ping()` allows you to ping an IP address and returns the number of packets received as an `int` or a negative error code. 
+
+This is an ICMP ping, not the Particle cloud ping and does not use data operations, but it does use cellular data so you should
+not use it excessively.
+
+```cpp
+// PROTOTYPES
+int ping(IPAddress remoteIP, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(String hostname, unsigned nTries = 1, unsigned timeoutMs = DEFAULT_PING_TIMEOUT);
+int ping(IPAddress remoteIP, std::chrono::milliseconds timeout, unsigned nTries = 1);
+int ping(String hostname, std::chrono::milliseconds timeout, unsigned nTries = 1);
+```
+
+When using a hostname, a DNS lookup is done. If the hostname is not found, a negative result code (`SYSTEM_ERROR_NOT_FOUND`, -150) is returned.
+
+The `DEFAULT_PING_TIMEOUT` is 4000 milliseconds (4 seconds).
+
+These methods are only avaiable in Device OS 6.3.0 and later. They are available in the `WiFi`, `Cellular`, `Ethernet`, and `Network` classes.
 
 ### listen()
 

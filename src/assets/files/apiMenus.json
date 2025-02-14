@@ -1018,6 +1018,10 @@
           "dir": "ispreferred-cellular"
         },
         {
+          "title": "ping() [Cellular] - Cellular",
+          "dir": "ping-cellular"
+        },
+        {
           "title": "listen() - Cellular",
           "dir": "listen"
         },
@@ -1736,6 +1740,10 @@
         {
           "title": "isPreferred() - Ethernet - Ethernet",
           "dir": "ispreferred-ethernet"
+        },
+        {
+          "title": "ping() - Ethernet - Ethernet",
+          "dir": "ping-ethernet"
         },
         {
           "title": "listen() - Ethernet - Ethernet",
@@ -3457,6 +3465,10 @@
         {
           "title": "isPreferred() [Network] - Network",
           "dir": "ispreferred-network"
+        },
+        {
+          "title": "ping() [Network] - Network",
+          "dir": "ping-network"
         },
         {
           "title": "listen() [Network] - Network",
