@@ -9,6 +9,7 @@ jobs:
   build:  
     docker:
       - image: cimg/node:16.19
+    resource_class: medium+
     steps:
       - checkout
       - node/install-packages
@@ -92,12 +93,12 @@ workflows:
               
   cron:
     triggers:
-      - schedule:
-          cron: "0 6 * * *"
-          filters:
-            branches:
-              only:
-                - master
+      #- schedule:
+      #    cron: "0 6 * * *"
+      #    filters:
+      #     branches:
+      #        only:
+      #          - master
     jobs:
       - test:
           context:
