@@ -90,16 +90,3 @@ workflows:
               only: master
           context:
             - slack-secrets
-              
-  cron:
-    triggers:
-      #- schedule:
-      #    cron: "0 6 * * *"
-      #    filters:
-      #     branches:
-      #        only:
-      #          - master
-    jobs:
-      - test:
-          context:
-            - slack-secrets
