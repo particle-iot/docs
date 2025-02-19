@@ -4984,6 +4984,17 @@ const schemaDocs = require('./schema-docs');
                 }); 
             },
         },
+        {
+            
+            guid:'421a98df-e95f-4a4d-aa8b-3c690a6398d2', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('M2BREAKOUT')
+                    }        
+                }); 
+            }             
+        }, 
 
         // M1 Enclosure
         {

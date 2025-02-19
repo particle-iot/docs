@@ -896,6 +896,24 @@ Additional FCC Test Reports:
 {{!-- END shared-blurb --}}
 
 
+
+## M.2 Breakout Board
+
+{{!-- BEGIN do not edit content below, it is automatically generated 421a98df-e95f-4a4d-aa8b-3c690a6398d2 --}}
+
+| SKU | Description | Lifecycle |
+| :--- | :--- | :--- |
+| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | GA |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+### RoHS - M.2 Breakout Board
+
+- [RoHS 3.0 Test Report](/assets/pdfs/m2breakout-rohs.pdf)
+
+
+
 ## M524 M-SoM M-Series LTE Cat 1
 
 {{!-- BEGIN do not edit content below, it is automatically generated 3edc7960-f3e7-4034-a557-838ff3b7a480 --}}
@@ -1002,7 +1020,7 @@ Additional FCC Test Reports:
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 
-### RoHS - B523 B524 B-Series SoM
+### RoHS - Muon
 
 - [RoHS 3.0 Test Report](/assets/pdfs/muon-rohs.pdf)
 

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M.2 breakout board RoHS 2025-02-19
+
+The [M.2 breakout board RoHS certification document](/hardware/certification/certification-documents/#m-2-breakout-board) is now available.
+
 ### Muon RoHS 2025-02-19
 
 The [Muon RoHS certification document](/hardware/certification/certification-documents/#muon) is now available.

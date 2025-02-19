@@ -936,7 +936,7 @@
         },
         "hardware/certification/certification-documents.md": {
             "date": "2025-02-19",
-            "hash": "c21d271664e9065b99ea9b1c710e92b63419547f1deed577f9e015623dbfd2a9"
+            "hash": "952c7b9d05fc2f29b299b0bcc92f0503744974d119df86b4d1b6c9e0bd5b9aad"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c36dd06041f3287a7cb2781015cf66ceb0525a261d14edd516c8d13fca3d7e44",
+            "hash": "a74465c5a3779da30dcc56fbcea4b5094d8de9d5263d8d39df398a549ec7a5b2",
             "date": "2025-02-19"
         },
         "getting-started/cloud/logic.md": {
@@ -9051,8 +9051,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "adbcaf1b88e4a7cf752547db323b0323b05d9b8353bf6b5a1f9f66ba74fa2a30",
-            "date": "2024-10-28"
+            "hash": "79f4e326535f78906654ef3f03fb6396e800b46631ad83f7b50af77069a8e7ce",
+            "date": "2025-02-19"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "5e26330dd542d2246f3d5d65e74b80f5305f43168683c0d51dab32be107b0d46",

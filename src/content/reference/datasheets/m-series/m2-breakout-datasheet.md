@@ -1019,6 +1019,10 @@ To be provided at a later date.
 To be provided at a later date.
 
 
+## Certification documents
+
+- [RoHS 3.0 Test Report](/assets/pdfs/m2breakout-rohs.pdf)
+
 
 ## Revision history
 
