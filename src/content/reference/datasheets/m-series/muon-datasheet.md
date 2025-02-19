@@ -1727,6 +1727,9 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ---
 
+### RoHS
+
+- [RoHS 3.0 Test Report](/assets/pdfs/muon-rohs.pdf)
 
 
 ### MUON404 - Country compatibility

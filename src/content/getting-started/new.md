@@ -21,7 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### ICMP ping 2024-02-14
+### Muon RoHS 2025-02-19
+
+The [Muon RoHS certification document](/hardware/certification/certification-documents/#muon) is now available.
+
+### ICMP ping 2025-02-14
 
 ICMP ping is available on Gen 3 and Gen 4 devices in the [WiFi](/reference/device-os/api/wifi/ping/), [Cellular](/reference/device-os/api/cellular/), [Ethernet](/reference/device-os/api/ethernet/ping-ethernet/), and [Network](/reference/device-os/api/network/ping-network/) classes in 6.3.0 and later.
 
@@ -462,7 +466,7 @@ Added information on modifying a public library to the [library guide](/getting-
 
 ### Publish to Google sheets 2024-08-08
 
-Updated [Publish to Google sheets](/integrations/community-integrations/publish-to-google-sheets/) 
+Updated [Publish to Google sheets](/integrations/community-integrations/publish-to-google-sheets/) `
 community integration with the updated user interface for Apps Script.
 
 ### Device OS API collapse menu fix 2024-08-08
