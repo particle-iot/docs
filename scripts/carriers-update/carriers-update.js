@@ -3004,7 +3004,7 @@ const generatorConfig = require('./generator-config');
             'swd',
             'boot',
         ];
-
+        
         if (options.style == 'full-details') {
             if (options.showPinNum) {
                 comparisonTags.splice(0, 0, 'num');
@@ -3535,7 +3535,52 @@ const generatorConfig = require('./generator-config');
             md += updater.generateTable(tableOptions, tableData);
         }
 
-        
+        if (options.style == 'net-label') {
+            const pins = expandMorePins(platformInfoNew.pins);
+
+            let tableOptions = {
+                columns: [],
+            };
+
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }            
+            tableOptions.columns.push({
+                key: 'name',
+                title: 'Name',
+            });    
+            tableOptions.columns.push({
+                key: 'desc',
+                title: 'Description'
+            });
+            tableOptions.columns.push({
+                key: 'label',
+                title: 'Label',
+            });    
+            tableOptions.columns.push({
+                key: 'net',
+                title: 'Net',
+            });    
+
+            let tableData = [];
+            for(const pin of pins) {
+                if (options.onlyDifferences && pin.label == pin.net) {
+                    continue;
+                }
+
+                let rowData = Object.assign({}, pin);            
+                tableData.push(rowData);
+            }
+
+            md += updater.generateTable(tableOptions, tableData);
+        }
+
+
         if (options.style == 'piPins') {
 
             let pins = [];

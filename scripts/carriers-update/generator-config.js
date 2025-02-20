@@ -342,6 +342,23 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },                
+        {
+            guid: '029063e9-db97-4294-933c-3d4625abcfae', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'net-label',
+                    showPinNum: true,
+                    onlyDifferences: true,
+                    platformNew: 'M.2 SoM eval board header, B-SoM',
+                    showMorePins: [
+                        'label',
+                        'net',
+                    ]
+                }); 
+            } 
+        },                
+
+
         // datasheets/electron/e-series-eval-board.md
         {
             guid:'89806642-76cb-11eb-9439-0242ac130002',

@@ -5,9 +5,9 @@
         {
             "num": 1,
             "name": "GND",
-            "label": "GND",
             "desc": "Ground.",
             "isPower": true,
+            "label": "GND",
             "m2Pin": 1,
             "morePins": [
                 3,
@@ -19,84 +19,83 @@
                 42,
                 59
             ],
-            "somPin": "GND",
-            "net": "GND"
+            "net": "GND",
+            "somPin": "GND"
         },
         {
             "num": 2,
             "name": "VCC",
-            "label": "VCC",
             "desc": "Cellular modem power. Typically 3.9V, can be 3.6V to 4.2V",
             "isPower": true,
+            "label": "VCC",
             "m2Pin": 2,
             "morePins": [
                 4,
                 6
             ],
-            "somPin": "VCC",
-            "net": "VCC"
+            "net": "VCC",
+            "somPin": "VCC"
         },
         {
             "num": 8,
             "name": "3V3",
-            "label": "3V3",
             "desc": "3.3V used to power MCU",
             "isPower": true,
+            "label": "3V3",
             "m2Pin": 10,
-            "somPin": "3V3",
-            "net": "3V3"
+            "net": "3V3",
+            "somPin": "3V3"
         },
         {
             "num": 10,
             "name": "SOM10",
-            "label": "SOM0",
             "desc": "Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM0",
             "m2Pin": 14,
-            "somPin": "RESERVED",
-            "net": "SOM10"
+            "net": "SOM10",
+            "somPin": "RESERVED"
         },
         {
             "num": 11,
             "name": "SOM6",
             "altName": "NFC1",
-            "label": "NFC1",
             "desc": "NFC Antenna 1.",
             "hardwarePin": "P0.09",
             "is5VTolerant": false,
             "isNFC": true,
+            "label": "NFC1",
             "m2Pin": 17,
-            "somPin": "SOM3",
-            "net": "NFC1"
+            "net": "NFC1",
+            "somPin": "SOM3"
         },
         {
             "num": 12,
             "name": "SOM11",
-            "label": "SOM11",
             "desc": "Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM1",
             "m2Pin": 18,
-            "somPin": "RESERVED",
-            "net": "SOM11"
+            "net": "SOM11",
+            "somPin": "RESERVED"
         },
         {
             "num": 13,
             "name": "SOM7",
             "altName": "NFC2",
-            "label": "",
             "desc": "NFC Antenna 2. NFC2 is the center pin.",
             "hardwarePin": "P0.10",
             "is5VTolerant": false,
             "isNFC": true,
+            "label": "NFC2",
             "m2Pin": 19,
-            "somPin": "SOM4",
-            "net": "NFC2"
+            "net": "NFC2",
+            "somPin": "SOM4"
         },
         {
             "num": 14,
             "name": "D1",
             "altName": "D1",
-            "label": "",
             "desc": "I2C SCL. Cannot be used as GPIO.",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -109,16 +108,16 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "SCL",
             "m2Pin": 20,
+            "net": "SCL",
             "somPin": "SCL",
-            "tone": false,
-            "net": "SCL"
+            "tone": false
         },
         {
             "num": 15,
             "name": "A0",
             "altName": "D19",
-            "label": "",
             "desc": "A0 Analog in, GPIO, PWM",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -132,16 +131,16 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A0",
             "m2Pin": 23,
+            "net": "ADC0",
             "somPin": "ADC0",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "net": "ADC0"
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 16,
             "name": "D0",
             "altName": "D0",
-            "label": "",
             "desc": "I2C SDA. Cannot be used as GPIO.",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -154,16 +153,16 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "SDA",
             "m2Pin": 22,
+            "net": "SDA",
             "somPin": "SDA",
-            "tone": false,
-            "net": "SDA"
+            "tone": false
         },
         {
             "num": 17,
             "name": "A1",
             "altName": "D18",
-            "label": "",
             "desc": "A1 Analog in, GPIO, PWM",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -177,29 +176,29 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A1",
             "m2Pin": 33,
+            "net": "ADC1",
             "somPin": "ADC1",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "net": "ADC1"
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 18,
             "name": "MODE",
             "altName": "D20",
-            "label": "",
             "desc": "MODE button, has internal pull-up",
             "hardwarePin": "P0.11",
             "is5VTolerant": false,
             "isControl": true,
+            "label": "MODE",
             "m2Pin": 32,
-            "somPin": "MODE",
-            "net": "MODE"
+            "net": "MODE",
+            "somPin": "MODE"
         },
         {
             "num": 19,
             "name": "A2",
             "altName": "D17",
-            "label": "",
             "desc": "A2 Analog in, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -212,27 +211,27 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A2",
             "m2Pin": 35,
+            "net": "ADC2",
             "somPin": "ADC2",
-            "tone": false,
-            "net": "ADC2"
+            "tone": false
         },
         {
             "num": 20,
             "name": "RST",
-            "label": "",
             "desc": "Hardware reset, active low.",
             "is5VTolerant": false,
             "isControl": true,
+            "label": "/RESET",
             "m2Pin": 34,
-            "somPin": "RESET",
-            "net": "/RESET"
+            "net": "/RESET",
+            "somPin": "RESET"
         },
         {
             "num": 21,
             "name": "A3",
             "altName": "D16",
-            "label": "",
             "desc": "A3 Analog in, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -245,16 +244,16 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A3",
             "m2Pin": 37,
+            "net": "ADC3",
             "somPin": "ADC3",
-            "tone": false,
-            "net": "ADC3"
+            "tone": false
         },
         {
             "num": 22,
             "name": "TX",
             "altName": "D9",
-            "label": "",
             "desc": "Serial TX, GPIO",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -266,17 +265,17 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "TX",
             "m2Pin": 36,
+            "net": "TX",
             "serial": "Serial1 TX|TX. Use Serial1 object.",
             "somPin": "TX",
-            "tone": false,
-            "net": "TX"
+            "tone": false
         },
         {
             "num": 24,
             "name": "RX",
             "altName": "D10",
-            "label": "",
             "desc": "Serial RX, GPIO",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -288,17 +287,17 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "RX",
             "m2Pin": 38,
+            "net": "RX",
             "serial": "Serial1 RX|RX. Use Serial1 object.",
             "somPin": "RX",
-            "tone": false,
-            "net": "RX"
+            "tone": false
         },
         {
             "num": 25,
             "name": "A4",
             "altName": "D15",
-            "label": "",
             "desc": "A4 Analog in, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -311,16 +310,16 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A4",
             "m2Pin": 41,
+            "net": "ADC4",
             "somPin": "RESERVED",
-            "tone": false,
-            "net": "ADC4"
+            "tone": false
         },
         {
             "num": 26,
             "name": "D3",
             "altName": "CTS",
-            "label": "",
             "desc": "SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -333,18 +332,18 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "CTS",
             "m2Pin": 40,
+            "net": "CTS",
             "serial": "Serial1 CTS|CTS. Use Serial1 object.",
             "somPin": "RESERVED",
             "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
-            "tone": false,
-            "net": "CTS"
+            "tone": false
         },
         {
             "num": 27,
             "name": "A5",
             "altName": "D14",
-            "label": "",
             "desc": "A5 Analog in, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -357,16 +356,16 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A5",
             "m2Pin": 43,
+            "net": "ADC5",
             "somPin": "RESERVED",
-            "tone": false,
-            "net": "ADC5"
+            "tone": false
         },
         {
             "num": 28,
             "name": "D2",
             "altName": "RTS",
-            "label": "",
             "desc": "SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -379,18 +378,18 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "RTS",
             "m2Pin": 42,
+            "net": "RTS",
             "serial": "Serial1 RTS|RTS. Use Serial1 object.",
             "somPin": "RESERVED",
             "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
-            "tone": false,
-            "net": "RTS"
+            "tone": false
         },
         {
             "num": 29,
             "name": "A6",
             "altName": "D16",
-            "label": "",
             "desc": "A6 Analog in, PWM, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -404,28 +403,28 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A6",
             "m2Pin": 45,
+            "net": "ADC6",
             "somPin": "RESERVED",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "net": "ADC6"
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 30,
             "name": "SOM0",
             "altName": "CELL USBD+",
-            "label": "",
             "desc": "Cellular Modem USB Data+.",
             "is5VTolerant": true,
             "isUSB": true,
+            "label": "SOM2",
             "m2Pin": 44,
-            "somPin": "SOM0",
-            "net": "SOM0"
+            "net": "SOM0",
+            "somPin": "SOM0"
         },
         {
             "num": 31,
             "name": "A7",
             "altName": "D17",
-            "label": "",
             "desc": "A7 Analog in, GPIO",
             "analogRead": true,
             "analogWriteDAC": false,
@@ -439,28 +438,28 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "A7",
             "m2Pin": 47,
+            "net": "ADC7",
             "somPin": "RESERVED",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "net": "ADC7"            
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 32,
             "name": "SOM1",
             "altName": "CELL USBD-",
-            "label": "",
             "desc": "Cellular Modem USB Data-.",
             "is5VTolerant": true,
             "isUSB": true,
+            "label": "SOM3",
             "m2Pin": 46,
-            "somPin": "SOM1",
-            "net": "SOM1"
+            "net": "SOM1",
+            "somPin": "SOM1"
         },
         {
             "num": 34,
             "name": "D8",
             "altName": "CS",
-            "label": "",
             "desc": "GPIO, SPI SS",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -472,27 +471,27 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "CS",
             "m2Pin": 48,
+            "net": "CS",
             "somPin": "CS",
             "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
-            "tone": false,
-            "net": "CS"
+            "tone": false
         },
         {
             "num": 35,
             "name": "SOM14",
-            "label": "",
             "desc": "M.2 pin 51. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM14",
             "m2Pin": 51,
-            "somPin": "RESERVED",
-            "net": "SOM14"
+            "net": "SOM14",
+            "somPin": "RESERVED"
         },
         {
             "num": 36,
             "name": "MISO",
             "altName": "D11",
-            "label": "",
             "desc": "SPI MISO, GPIO",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -504,27 +503,27 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "MISO",
             "m2Pin": 50,
+            "net": "MIS0",
             "somPin": "MISO",
             "spi": "SPI (MISO)|MISO. Use SPI object.",
-            "tone": false,
-            "net": "MIS0"
+            "tone": false
         },
         {
             "num": 37,
             "name": "SOM15",
-            "label": "",
             "desc": "M.2 pin 53. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM15",
             "m2Pin": 53,
-            "somPin": "RESERVED",
-            "net": "SOM15"
+            "net": "SOM15",
+            "somPin": "RESERVED"
         },
         {
             "num": 38,
             "name": "MOSI",
             "altName": "D12",
-            "label": "",
             "desc": "SPI MOSI, GPIO",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -536,27 +535,27 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "MOSI",
             "m2Pin": 52,
+            "net": "MOSI",
             "somPin": "MOSI",
             "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-            "tone": false,
-            "net": "MOSI"
+            "tone": false
         },
         {
             "num": 39,
             "name": "SOM16",
-            "label": "",
             "desc": "M.2 pin 55. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM16",
             "m2Pin": 55,
-            "somPin": "RESERVED",
-            "net": "SOM16"
+            "net": "SOM16",
+            "somPin": "RESERVED"
         },
         {
             "num": 40,
             "name": "SCK",
             "altName": "D13",
-            "label": "",
             "desc": "SPI SCK, GPIO",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -568,83 +567,83 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "SCK",
             "m2Pin": 54,
+            "net": "SCK",
             "somPin": "SCK",
             "spi": "SPI (SCK)|SCK. Use SPI object.",
-            "tone": false,
-            "net": "SCK"
+            "tone": false
         },
         {
             "num": 41,
             "name": "SOM17",
-            "label": "",
             "desc": "M.2 pin 57. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM17",
             "m2Pin": 57,
-            "somPin": "RESERVED",
-            "net": "SOM17"
+            "net": "SOM17",
+            "somPin": "RESERVED"
         },
         {
             "num": 43,
             "name": "SOM18",
-            "label": "",
             "desc": "M.2 pin 59. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM18",
             "m2Pin": 59,
-            "somPin": "RESERVED",
-            "net": "SOM18"
+            "net": "SOM18",
+            "somPin": "RESERVED"
         },
         {
             "num": 44,
             "name": "SOM12",
-            "label": "",
             "desc": "M.2 pin 58. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM4",
             "m2Pin": 58,
-            "somPin": "RESERVED",
-            "net": "SOM12"
+            "net": "SOM12",
+            "somPin": "RESERVED"
         },
         {
             "num": 45,
             "name": "RGBR",
-            "label": "",
             "desc": "RGB LED Red",
             "hardwarePin": "P0.13",
             "hardwareTimer": "PWM0",
             "is5VTolerant": false,
             "isLED": true,
+            "label": "R",
             "m2Pin": 61,
-            "somPin": "RED",
-            "net": "RED"
+            "net": "RED",
+            "somPin": "RED"
         },
         {
             "num": 46,
             "name": "SOM13",
-            "label": "",
             "desc": "M.2 pin 60. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM5",
             "m2Pin": 60,
-            "somPin": "RESERVED",
-            "net": "SOM13"
+            "net": "SOM13",
+            "somPin": "RESERVED"
         },
         {
             "num": 47,
             "name": "RGBG",
-            "label": "",
             "desc": "RGB LED Green",
             "hardwarePin": "P0.14",
             "hardwareTimer": "PWM0",
             "is5VTolerant": false,
             "isLED": true,
+            "label": "G",
             "m2Pin": 63,
-            "somPin": "GREEN",
-            "net": "GREEN"
+            "net": "GREEN",
+            "somPin": "GREEN"
         },
         {
             "num": 48,
             "name": "D22",
             "altName": "GPIO0",
-            "label": "",
             "desc": "GPIO D22",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -656,29 +655,29 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "GPIO0",
             "m2Pin": 62,
+            "net": "GPIO0",
             "somPin": "GPIO0",
-            "tone": false,
-            "net": "GPIO0"
+            "tone": false
         },
         {
             "num": 49,
             "name": "RGBB",
             "desc": "RGB LED Blue",
-            "label": "",
             "hardwarePin": "P0.15",
             "hardwareTimer": "PWM0",
             "is5VTolerant": false,
             "isLED": true,
+            "label": "B",
             "m2Pin": 65,
-            "somPin": "BLUE",
-            "net": "BLUE"
+            "net": "BLUE",
+            "somPin": "BLUE"
         },
         {
             "num": 50,
             "name": "D23",
             "altName": "GPIO1",
-            "label": "",
             "desc": "GPIO D23",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -690,27 +689,27 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "GPIO1",
             "m2Pin": 64,
+            "net": "GPIO1",
             "somPin": "GPIO1",
-            "tone": false,
-            "net": "GPIO1"
+            "tone": false
         },
         {
             "num": 51,
             "name": "SOM5",
             "altName": "SIM_VCC",
-            "label": "",
             "desc": "Leave unconnected. External SIM support is not available on B-SoM.",
             "is5VTolerant": false,
+            "label": "SOM13",
             "m2Pin": 67,
-            "somPin": "SOM5",
-            "net": "SOM5"
+            "net": "SOM5",
+            "somPin": "SOM5"
         },
         {
             "num": 52,
             "name": "D4",
             "altName": "PWM0",
-            "label": "",
             "desc": "SPI1 MISO, PWM, GPIO D4",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -723,28 +722,28 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "PWM0",
             "m2Pin": 66,
+            "net": "PWM0",
             "somPin": "PWM0",
             "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
-            "tone": "D4, D5, and D6 must have the same frequency.",
-            "net": "PWM0"
+            "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
             "num": 53,
             "name": "SOM6",
             "altName": "SIM_RST",
-            "label": "",
             "desc": "Leave unconnected. External SIM support is not available on B-SoM.",
             "is5VTolerant": false,
+            "label": "SOM14",
             "m2Pin": 69,
-            "somPin": "SOM6",
-            "net": "SOM6"
+            "net": "SOM6",
+            "somPin": "SOM6"
         },
         {
             "num": 54,
             "name": "D5",
             "altName": "PWM1",
-            "label": "",
             "desc": "PWM, GPIO D5",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -757,27 +756,27 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "PWM1",
             "m2Pin": 68,
+            "net": "PWM1",
             "somPin": "PWM1",
-            "tone": "D4, D5, and D6 must have the same frequency.",
-            "net": "PWM1"
+            "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
             "num": 55,
             "name": "SOM7",
             "altName": "SIM_CLK",
-            "label": "",
             "desc": "Leave unconnected, 1.8V/3V SIM Clock Output from R410M.",
             "is5VTolerant": false,
+            "label": "SOM15",
             "m2Pin": 71,
-            "somPin": "SOM7",
-            "net": "SOM7"
+            "net": "SOM7",
+            "somPin": "SOM7"
         },
         {
             "num": 56,
             "name": "D6",
             "altName": "PWM2",
-            "label": "",
             "desc": "PWM, GPIO D6",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -790,27 +789,27 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "PWM2",
             "m2Pin": 70,
+            "net": "PWM2",
             "somPin": "PWM2",
-            "tone": "D4, D5, and D6 must have the same frequency.",
-            "net": "PWM2"
+            "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
             "num": 57,
             "name": "SOM8",
             "altName": "SIM_DATA",
-            "label": "",
             "desc": "Leave unconnected. External SIM support is not available on B-SoM.",
             "is5VTolerant": false,
+            "label": "SOM16",
             "m2Pin": 73,
-            "somPin": "SOM8",
-            "net": "SOM8"
+            "net": "SOM8",
+            "somPin": "SOM8"
         },
         {
             "num": 58,
             "name": "D7",
             "altName": "PWM3",
-            "label": "",
             "desc": "PWM, GPIO D7, Blue LED",
             "analogRead": false,
             "analogWriteDAC": false,
@@ -823,20 +822,21 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "label": "PWM3",
             "m2Pin": 72,
+            "net": "PWM3",
             "somPin": "PWM3",
-            "tone": false,
-            "net": "PWM3"
+            "tone": false
         },
         {
             "num": 60,
             "name": "SOM9",
-            "label": "",
             "desc": "M.2 pin 75. Not currently used, leave unconnected.",
             "isNC": true,
+            "label": "SOM17",
             "m2Pin": 75,
-            "somPin": "SOM9",
-            "net": "SOM9"
+            "net": "SOM9",
+            "somPin": "SOM9"
         }
     ],
     "diagram": {
