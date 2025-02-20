@@ -235,10 +235,55 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | SCL | P1.15 | D1 | 20 |
 
 
+
+
+
 ## Expansion header
 
 {{imageOverlay src="/assets/images/m2eval_nRF52.svg" alt="Expansion header" }}
 
+### Labels
+
+Note that some of the SOM labels on the M.2 eval board do not match the schematic net names. These are mostly NC pins
+or a trivial difference, so the difference should not be noticeable.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 029063e9-db97-4294-933c-3d4625abcfae --}}
+
+| Pin | Name | Description | Label | Net |
+| :---: | :--- | :--- | :--- | :--- |
+| 10 | SOM10 | Not currently used, leave unconnected. | SOM0 | SOM10 |
+| 12 | SOM11 | Not currently used, leave unconnected. | SOM1 | SOM11 |
+| 15 | A0 | A0 Analog in, GPIO, PWM | A0 | ADC0 |
+| 17 | A1 | A1 Analog in, GPIO, PWM | A1 | ADC1 |
+| 19 | A2 | A2 Analog in, GPIO | A2 | ADC2 |
+| 21 | A3 | A3 Analog in, GPIO | A3 | ADC3 |
+| 25 | A4 | A4 Analog in, GPIO | A4 | ADC4 |
+| 27 | A5 | A5 Analog in, GPIO | A5 | ADC5 |
+| 29 | A6 | A6 Analog in, PWM, GPIO | A6 | ADC6 |
+| 30 | SOM0 | Cellular Modem USB Data+. | SOM2 | SOM0 |
+| 31 | A7 | A7 Analog in, GPIO | A7 | ADC7 |
+| 32 | SOM1 | Cellular Modem USB Data-. | SOM3 | SOM1 |
+| 36 | MISO | SPI MISO, GPIO | MISO | MIS0 |
+| 44 | SOM12 | M.2 pin 58. Not currently used, leave unconnected. | SOM4 | SOM12 |
+| 45 | RGBR | RGB LED Red | R | RED |
+| 46 | SOM13 | M.2 pin 60. Not currently used, leave unconnected. | SOM5 | SOM13 |
+| 47 | RGBG | RGB LED Green | G | GREEN |
+| 49 | RGBB | RGB LED Blue | B | BLUE |
+| 51 | SOM5 | Leave unconnected. External SIM support is not available on B-SoM. | SOM13 | SOM5 |
+| 53 | SOM6 | Leave unconnected. External SIM support is not available on B-SoM. | SOM14 | SOM6 |
+| 55 | SOM7 | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | SOM15 | SOM7 |
+| 57 | SOM8 | Leave unconnected. External SIM support is not available on B-SoM. | SOM16 | SOM8 |
+| 60 | SOM9 | M.2 pin 75. Not currently used, leave unconnected. | SOM17 | SOM9 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- **Pin**: Pin number
+- **Name**: Short name, often the name used in Device OS for MCU GPIO pins
+- **Label**: The label on the M.2 eval board
+- **Net**: The net name on the schematic
+
+### Full details
 {{!-- BEGIN do not edit content below, it is automatically generated 3c7bdf46-c2a2-4b04-aeb1-222b761e036b --}}
 
 

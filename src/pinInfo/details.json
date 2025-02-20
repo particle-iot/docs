@@ -243,6 +243,22 @@
         "showInSearch": false
     },
     {
+        "tag": "label",
+        "label": "Board label",
+        "columnLabel": "Label",
+        "searchable": false,
+        "sortable": false,
+        "showInSearch": false
+    },
+    {
+        "tag": "net",
+        "label": "Schematic net name",
+        "columnLabel": "net",
+        "searchable": false,
+        "sortable": false,
+        "showInSearch": false
+    },
+    {
         "tag": "internalPull",
         "label": "Internal pull resistance",
         "searchable": false,

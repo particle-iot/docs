@@ -935,8 +935,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2025-02-19",
-            "hash": "952c7b9d05fc2f29b299b0bcc92f0503744974d119df86b4d1b6c9e0bd5b9aad"
+            "date": "2025-02-20",
+            "hash": "2782028029f07e4eec78566d0ae06df8c8c59039c80affb047410cbc6b5cd3ce"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1331,8 +1331,8 @@
             "hash": "c03df7baae427ae0dc83f723b8486ca45f648f24675afce565963b676163dcaa"
         },
         "reference/datasheets/b-series/b-series-eval-board.md": {
-            "date": "2024-04-02",
-            "hash": "c66f07ccdca62f04905f0e4f9401df81fc1e8c713bea6a1d2f4a41dea215dd4f"
+            "date": "2025-02-20",
+            "hash": "c56f41500ad04ffbbc6d259d5571d6183de9c6597ea4cd230025dafcef47c32b"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2025-01-06",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a74465c5a3779da30dcc56fbcea4b5094d8de9d5263d8d39df398a549ec7a5b2",
-            "date": "2025-02-19"
+            "hash": "fd215e9a95cf0f2b89fe4f8d0358af63c0ee7c011f0dbbaebed2ffae73887dcd",
+            "date": "2025-02-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

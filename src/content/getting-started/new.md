@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M.2 eval board labels 2025-02-20
+
+Added a table to highlight the differences in the [labels on the M.2 eval board vs. the schematic net names](/reference/datasheets/b-series/b-series-eval-board/#labels). This is the older eval board.
+
 ### M.2 breakout board RoHS 2025-02-19
 
 The [M.2 breakout board RoHS certification document](/hardware/certification/certification-documents/#m-2-breakout-board) is now available.
