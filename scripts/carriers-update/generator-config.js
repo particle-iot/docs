@@ -338,7 +338,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'full-details',
                     showPinNum: true,
-                    platformNew: 'M.2 SoM breakout board header, B-SoM'
+                    platformNew: 'M.2 SoM eval board header, B-SoM'
                 }); 
             } 
         },                
