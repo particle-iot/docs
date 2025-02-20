@@ -21,9 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Muon GA 2025-02-20
+### Muon GA 2024-02-20
 
 Muon 404 and 524, and power modules, are now generally available (GA).
+
+### Grove sensor kit deprecated 2024-02-20
+
+Grove Starter Kit (SNSR-GRVKIT) is now deprecated.
 
 ### M.2 eval board labels 2025-02-20
 
