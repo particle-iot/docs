@@ -22623,7 +22623,7 @@
     {
       "name": "MUON404",
       "desc": "Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -22662,7 +22662,7 @@
     {
       "name": "MUON404EA",
       "desc": "Muon LTE-M/2G Kit (Global, EtherSIM), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -22701,7 +22701,7 @@
     {
       "name": "MUON524",
       "desc": "Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -22739,7 +22739,7 @@
     {
       "name": "MUON524EA",
       "desc": "Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -22855,7 +22855,7 @@
     {
       "name": "MUONCB",
       "desc": "Muon Carrier Board (Dev Board only)",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
@@ -22881,7 +22881,7 @@
     {
       "name": "MUONCB-BETA",
       "desc": "Muon Carrier Board - Beta Sample",
-      "lifecycle": "In development",
+      "lifecycle": "Deprecated",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
@@ -22906,7 +22906,7 @@
     {
       "name": "MUONCBKIT",
       "desc": "Muon Carrier Board Kit",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
@@ -23709,7 +23709,7 @@
     {
       "name": "PMBATH1EA",
       "desc": "Particle Power Module, Battery, with Header [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
       "enterprise": false,
@@ -23736,7 +23736,7 @@
     {
       "name": "PMBATH1TY",
       "desc": "Particle Power Module, Battery, with Header [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "skuClass": "power",
       "singleSku": "PMBATH1EA",
       "accessory": true,
@@ -23765,7 +23765,7 @@
     {
       "name": "PMBATNH1TY",
       "desc": "Particle Power Module, Battery, without Header [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "skuClass": "power",
       "singleSku": "PMBATNH1EA",
       "accessory": true,
@@ -23780,7 +23780,7 @@
     {
       "name": "PMDCH1EA",
       "desc": "Particle Power Module, DC, with Header [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "skuClass": "power",
       "accessory": true,
       "multiple": false,
@@ -23794,7 +23794,7 @@
     {
       "name": "PMDCH1TY",
       "desc": "Particle Power Module, DC, with Header [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "skuClass": "power",
       "singleSku": "PMDCH1EA",
       "accessory": true,
@@ -23823,7 +23823,7 @@
     {
       "name": "PMDCNH1TY",
       "desc": "Particle Power Module, DC, without Header [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "skuClass": "power",
       "singleSku": "PMDCNH1EA",
       "accessory": true,

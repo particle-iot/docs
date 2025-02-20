@@ -146,15 +146,15 @@ instead of using a battery pack temperature sensor.
 | MHAT | M-HAT | c | 3-pin | In development |
 | MHAT504e | M-HAT with LTE CAT1 for North America | c | 3-pin | In development |
 | MHAT524e | M-HAT with LTE CAT1 for Rest of World | c | 3-pin | In development |
-| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | c | 3-pin | In development |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
-| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | c | 3-pin | In development |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | In development |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | c | 3-pin | GA |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | GA |
+| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | c | 3-pin | GA |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | GA |
 | MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | c | 3-pin | In development |
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
-| MUONCB | Muon Carrier Board (Dev Board only) | c | 3-pin | In development |
-| MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | In development |
-| MUONCBKIT | Muon Carrier Board Kit | c | 3-pin | In development |
+| MUONCB | Muon Carrier Board (Dev Board only) | c | 3-pin | GA |
+| MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | Deprecated |
+| MUONCBKIT | Muon Carrier Board Kit | c | 3-pin | GA |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
 | XENNTRAY50 | Xenon [x50] | micro-b | 2-pin | End of life |

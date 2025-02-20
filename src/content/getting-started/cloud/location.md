@@ -124,12 +124,12 @@ as a `loc` event and used with location fusion on some plans. Additional data op
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | GA |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | GA |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | GA |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | GA |
+| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Global | GA |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | GA |
 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | In development |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | In development |
-| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | In development |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | In development |
-| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Global | In development |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | In development |
 | MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | Global | In development |
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | In development |
 

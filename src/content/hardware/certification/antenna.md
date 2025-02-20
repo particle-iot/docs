@@ -167,15 +167,15 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | 1 | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | 1 | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | 1 | &nbsp; | GA|
-| Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTCW1EA | &nbsp; | In development|
-| Muon Carrier Board (Dev Board only) | MUONCB | &nbsp; | PARANTCW1EA | &nbsp; | In development|
-| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTCW1EA | &nbsp; | In development|
-| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &check; | PARANTCW1EA | &nbsp; | In development|
-| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | PARANTCW1EA | &nbsp; | In development|
+| Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTCW1EA | &nbsp; | Deprecated|
+| Muon Carrier Board (Dev Board only) | MUONCB | &nbsp; | PARANTCW1EA | &nbsp; | GA|
+| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTCW1EA | &nbsp; | GA|
+| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &check; | PARANTCW1EA | &nbsp; | GA|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | PARANTCW1EA | &nbsp; | GA|
 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | MUON635 | &check; | PARANTCW1EA | &nbsp; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635EA | &check; | PARANTCW1EA | &nbsp; | In development|
-| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &check; | PARANTCW1EA | &nbsp; | In development|
-| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | PARANTCW1EA | &nbsp; | In development|
+| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &check; | PARANTCW1EA | &nbsp; | GA|
+| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | PARANTCW1EA | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | 1 | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | 1 | &nbsp; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | 1 | &nbsp; | GA|
@@ -307,15 +307,15 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | 1 | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
-| Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon Carrier Board (Dev Board only) | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &nbsp; | PARANTWM1EA | &check; | In development|
-| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTWM1EA | &nbsp; | Deprecated|
+| Muon Carrier Board (Dev Board only) | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | GA|
+| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | GA|
+| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &nbsp; | PARANTWM1EA | &check; | GA|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | GA|
 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | MUON635 | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635EA | &nbsp; | PARANTWM1EA | &check; | In development|
-| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &nbsp; | PARANTWM1EA | &check; | In development|
-| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &nbsp; | PARANTWM1EA | &check; | GA|
+| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | GA|
 | P0 Wi-Fi Module, Cut tape [x10] | P0MOD10 | &nbsp; | true | &nbsp; | Deprecated|
 | P0 Wi-Fi Module, Reel [x2000] | P0REEL | &nbsp; | true | &nbsp; | Deprecated|
 | P1 Wi-Fi Module, Cut tape [x10] | P1MOD10 | trace | 3 | &nbsp; | Deprecated|
@@ -457,15 +457,15 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
-| Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon Carrier Board (Dev Board only) | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &nbsp; | PARANTWM1EA | &check; | In development|
-| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon Carrier Board - Beta Sample | MUONCB-BETA | &nbsp; | PARANTWM1EA | &nbsp; | Deprecated|
+| Muon Carrier Board (Dev Board only) | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | GA|
+| Muon Carrier Board Kit | MUONCBKIT | &nbsp; | PARANTWM1EA | &nbsp; | GA|
+| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &nbsp; | PARANTWM1EA | &check; | GA|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | GA|
 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | MUON635 | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635EA | &nbsp; | PARANTWM1EA | &check; | In development|
-| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &nbsp; | PARANTWM1EA | &check; | In development|
-| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &nbsp; | PARANTWM1EA | &check; | GA|
+| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | GA|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
 | Photon 2 [x1] | PHN2MEA | &check; | 4 | &nbsp; | GA|
@@ -664,15 +664,15 @@ The following devices have GNSS capabilities:
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &check; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &check; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &check; | GA|
-| Muon Carrier Board - Beta Sample | MUONCB-BETA | &check; | &nbsp; | In development|
-| Muon Carrier Board (Dev Board only) | MUONCB | &check; | &nbsp; | In development|
-| Muon Carrier Board Kit | MUONCBKIT | &check; | &nbsp; | In development|
-| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &check; | &check; | In development|
-| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | &check; | In development|
+| Muon Carrier Board - Beta Sample | MUONCB-BETA | &check; | &nbsp; | Deprecated|
+| Muon Carrier Board (Dev Board only) | MUONCB | &check; | &nbsp; | GA|
+| Muon Carrier Board Kit | MUONCBKIT | &check; | &nbsp; | GA|
+| Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | MUON524 | &check; | &check; | GA|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | &check; | GA|
 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | MUON635 | &check; | &check; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635EA | &check; | &check; | In development|
-| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &check; | &check; | In development|
-| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | &check; | In development|
+| Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | MUON404 | &check; | &check; | GA|
+| Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | &check; | GA|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &check; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &check; | GA|

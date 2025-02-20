@@ -422,15 +422,15 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
-| MUONCBKIT | Muon Carrier Board Kit | Fast<sup>1</sup> | In development | |
-| MUONCB-BETA | Muon Carrier Board - Beta Sample | Fast<sup>1</sup> | In development | |
-| MUONCB | Muon Carrier Board (Dev Board only) | Fast<sup>1</sup> | In development | |
+| MUONCBKIT | Muon Carrier Board Kit | Fast<sup>1</sup> | GA | |
+| MUONCB-BETA | Muon Carrier Board - Beta Sample | Fast<sup>1</sup> | Deprecated | |
+| MUONCB | Muon Carrier Board (Dev Board only) | Fast<sup>1</sup> | GA | |
 | MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
+| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MTY|
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
