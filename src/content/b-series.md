@@ -15,6 +15,7 @@ The B-Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 {{box op="start" cssClass="boxedSideBySide"}}
   **Resources:**
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
+- [B504 datasheet](/reference/datasheets/b-series/b504-datasheet/)
 - [B524/B523 Datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [Evaluation Board](/reference/datasheets/b-series/b-series-eval-board/)
 - [Certification](/hardware/certification/certification/)
@@ -32,6 +33,7 @@ The B-Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 | B404X | u-blox SARA R510S-01B | LTE Cat M1 | United States, Canada, Mexico | 
 | B404  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
 | B402  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
+| B504  | Quectel EG91-NAX      | LTE Cat 1 with 3G fallback | Americas |
 | B524  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | EMEAA&dagger; |
 | B523  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | Europe |
 
