@@ -739,8 +739,8 @@
             "hash": "2ecdca02489d2d385b6cec2eae17bc442a1b28fda47bdbe8cc39ea826a528755"
         },
         "integrations/community-integrations/blynk.md": {
-            "date": "2024-11-13",
-            "hash": "32147c795717557bb29e26ebdad10911e5aff6cc37c7e55ae7fad82e899ae9d6"
+            "date": "2025-02-23",
+            "hash": "951ac42a51b50fa04bd5189cfa89cc322a402bea1e1876b1d4db22997ada4caa"
         },
         "integrations/community-integrations/ifttt.md": {
             "date": "2023-08-03",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-02-14",
-            "hash": "dd31fe7d8b27149a09ba9ebf5f162be81888b0d3af162cec31f057aae9826972"
+            "date": "2025-02-23",
+            "hash": "2bc2ebdaa2dbe7765f3d09859e61d2c667b3bf4a95bf6aa179c66834c57b2272"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1723,8 +1723,8 @@
             "hash": "0ee29cf7bda4a9c6b91ea077fc5acf9a7249500c421d56fd033d4964e64b1165"
         },
         "reference/device-os/api/cloud-functions/particle-function.md": {
-            "date": "2024-11-13",
-            "hash": "6769d6d69a4ae263419ac6ee134e7952130195c331cc00ecc13ad6e14aadd33f"
+            "date": "2025-02-23",
+            "hash": "eb70eefb81a6a119bea3316b94f9658723ef487c1b5d696d40d437db6816b7a2"
         },
         "reference/device-os/api/cloud-functions/particle-publish.md": {
             "date": "2024-10-04",

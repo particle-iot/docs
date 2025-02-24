@@ -402,7 +402,7 @@ POST /v1/devices/{DEVICE_ID}/{FUNCTION}
 # EXAMPLE REQUEST
 curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -H "Authorization: Bearer f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0" \
-     -d "args=coffee"
+     -d "arg=coffee"
 ```
 
 Replace the access token with a valid access token, such as from `particle token create`.
