@@ -1796,10 +1796,10 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Cabo Verde | M524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
 | Cambodia | M524 | 2G, 3G | Metfone |
 | Chad | M524 | 2G, 3G, Cat1 | Airtel |
-| Chile | M524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Chile | M524 | 3G, Cat1 | Claro, Entel, Movistar |
 | Congo (Brazzaville) | M524 | 2G, 3G, Cat1 | Airtel |
 | Congo (Kinshasa) | M524 | 2G, 3G, Cat1 | Airtel |
-| Côte d'Ivoire | M524 | 2G, 3G, Cat1 | MTN |
+| Côte d'Ivoire | M524 | 2G, 3G | MTN |
 | Croatia | M524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | M524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | M524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
@@ -1845,7 +1845,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Montenegro | M524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Morocco | M524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
 | Mozambique | M524 | 2G, 3G, Cat1 | Vodacom |
-| Myanmar | M524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Myanmar | M524 | 2G, 3G | MPT, Telenor |
 | Namibia | M524 | 2G, 3G, Cat1 | Telecom Namibia |
 | Netherlands | M524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | M524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
@@ -1858,15 +1858,15 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Portugal | M524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | M524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | M524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
-| Rwanda | M524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Rwanda | M524 | 2G, 3G | Airtel, MTN |
 | Serbia | M524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | M524 | 2G, 3G, Cat1 | Airtel |
-| Sint Maarten | M524 | 2G, 3G, Cat1 | TelCell |
+| Sint Maarten | M524 | 2G, 3G | TelCell |
 | Slovakia | M524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | M524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | M524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | M524 | 3G, Cat1 | KT, LG U+, SK Telecom |
-| South Sudan | M524 | 2G, 3G, Cat1 | MTN |
+| South Sudan | M524 | 2G, 3G | MTN |
 | Spain | M524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | M524 | 2G, 3G, Cat1 | Dialog, Mobitel |
 | Suriname | M524 | 2G, 3G | Telesur |
@@ -1878,7 +1878,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Tunisia | M524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | M524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | M524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| Vietnam | M524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Vietnam | M524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Zambia | M524 | 2G, 3G, Cat1 | Airtel |
 
 

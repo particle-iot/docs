@@ -95,10 +95,10 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Cabo Verde | B524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
 | Cambodia | B524 | 2G, 3G | Metfone |
 | Chad | B524 | 2G, 3G, Cat1 | Airtel |
-| Chile | B524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Chile | B524 | 3G, Cat1 | Claro, Entel, Movistar |
 | Congo (Brazzaville) | B524 | 2G, 3G, Cat1 | Airtel |
 | Congo (Kinshasa) | B524 | 2G, 3G, Cat1 | Airtel |
-| Côte d'Ivoire | B524 | 2G, 3G, Cat1 | MTN |
+| Côte d'Ivoire | B524 | 2G, 3G | MTN |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | B524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | B524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
@@ -146,7 +146,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Montenegro | B524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Morocco | B524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
 | Mozambique | B524 | 2G, 3G, Cat1 | Vodacom |
-| Myanmar | B524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Myanmar | B524 | 2G, 3G | MPT, Telenor |
 | Namibia | B524 | 2G, 3G, Cat1 | Telecom Namibia |
 | Netherlands | B524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | B524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
@@ -159,15 +159,15 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Portugal | B524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | B524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | B524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
-| Rwanda | B524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Rwanda | B524 | 2G, 3G | Airtel, MTN |
 | Serbia | B524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | B524 | 2G, 3G, Cat1 | Airtel |
-| Sint Maarten | B524 | 2G, 3G, Cat1 | TelCell |
+| Sint Maarten | B524 | 2G, 3G | TelCell |
 | Slovakia | B524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | B524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | B524 | 3G, Cat1 | KT, LG U+, SK Telecom |
-| South Sudan | B524 | 2G, 3G, Cat1 | MTN |
+| South Sudan | B524 | 2G, 3G | MTN |
 | Spain | B524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | B524 | 2G, 3G, Cat1 | Dialog, Mobitel |
 | Suriname | B524 | 2G, 3G | Telesur |
@@ -179,7 +179,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Tunisia | B524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | B524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| Vietnam | B524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Vietnam | B524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Zambia | B524 | 2G, 3G, Cat1 | Airtel |
 
 

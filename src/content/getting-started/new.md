@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Datasheet carrier fix 2025-02-24
+
+In the lists of supported countries and technologies (2G, 3G, Cat1, M1) in the datasheets, corrected a problem where technologies 
+that are supported by the SIM but not present in the country, or did not have a band match for the modem, were listed.
+
 ### Muon GA 2025-02-20
 
 Muon 404 and 524, and power modules, are now generally available (GA).

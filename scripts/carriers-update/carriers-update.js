@@ -406,6 +406,12 @@ const generatorConfig = require('./generator-config');
                 if (!ccObj.supersim || ccObj.supersim.prohibited) {
                     return;
                 }   
+
+                let carrier = ccObj.carrier;
+                if (!cmsObj.supported[carrier]) {
+                    return;
+                }
+
                 let hasTech = false;
 
                 technologies.forEach(function(tech) {
@@ -424,6 +430,9 @@ const generatorConfig = require('./generator-config');
                         // Verizon on Electron LTE and E404 is not supported
                         return;
                     }
+                    if (!cmsObj.technologies.includes(tech)) {
+                        return;
+                    }
 
                     if (!showTechnologies.includes(tech)) {
                         showTechnologies.push(tech);
@@ -434,14 +443,13 @@ const generatorConfig = require('./generator-config');
                     return;
                 }
 
-                let carrier = ccObj.carrier;
                 if (hasTech !== true) {
                     carrier += '<sup>' + hasTech + '</sup>';
                 }
 
                 carriers.push(carrier);
             });
-
+            
             if (carriers.length == 0) {
                 return; 
             }

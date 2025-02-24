@@ -1222,10 +1222,10 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Cambodia | T524 | 2G, 3G | Metfone |
 | Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Chad | T524 | 2G, 3G, Cat1 | Airtel |
-| Chile | T524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Chile | T524 | 3G, Cat1 | Claro, Entel, Movistar |
 | Congo (Brazzaville) | T524 | 2G, 3G, Cat1 | Airtel |
 | Congo (Kinshasa) | T524 | 2G, 3G, Cat1 | Airtel |
-| Côte d'Ivoire | T524 | 2G, 3G, Cat1 | MTN |
+| Côte d'Ivoire | T524 | 2G, 3G | MTN |
 | Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | T524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | T524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
@@ -1272,7 +1272,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Montenegro | T524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Morocco | T524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
 | Mozambique | T524 | 2G, 3G, Cat1 | Vodacom |
-| Myanmar | T524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Myanmar | T524 | 2G, 3G | MPT, Telenor |
 | Namibia | T524 | 2G, 3G, Cat1 | Telecom Namibia |
 | Netherlands | T524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | T524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
@@ -1285,15 +1285,15 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Portugal | T524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | T524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | T524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
-| Rwanda | T524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Rwanda | T524 | 2G, 3G | Airtel, MTN |
 | Serbia | T524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | T524 | 2G, 3G, Cat1 | Airtel |
-| Sint Maarten | T524 | 2G, 3G, Cat1 | TelCell |
+| Sint Maarten | T524 | 2G, 3G | TelCell |
 | Slovakia | T524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | T524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | T524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | T524 | 3G, Cat1 | KT, LG U+, SK Telecom |
-| South Sudan | T524 | 2G, 3G, Cat1 | MTN |
+| South Sudan | T524 | 2G, 3G | MTN |
 | Spain | T524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | T524 | 2G, 3G, Cat1 | Dialog, Mobitel |
 | Suriname | T524 | 2G, 3G | Telesur |
@@ -1306,7 +1306,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Uganda | T524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | T404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-| Vietnam | T524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Vietnam | T524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Zambia | T524 | 2G, 3G, Cat1 | Airtel |
 
 

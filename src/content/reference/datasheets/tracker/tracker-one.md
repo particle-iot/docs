@@ -440,10 +440,10 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Cambodia | ONE524 | 2G, 3G | Metfone |
 | Canada | ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Chad | ONE524 | 2G, 3G, Cat1 | Airtel |
-| Chile | ONE524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Chile | ONE524 | 3G, Cat1 | Claro, Entel, Movistar |
 | Congo (Brazzaville) | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Congo (Kinshasa) | ONE524 | 2G, 3G, Cat1 | Airtel |
-| Côte d'Ivoire | ONE524 | 2G, 3G, Cat1 | MTN |
+| Côte d'Ivoire | ONE524 | 2G, 3G | MTN |
 | Croatia | ONE524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | ONE524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | ONE524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
@@ -490,7 +490,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Montenegro | ONE524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Morocco | ONE524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
 | Mozambique | ONE524 | 2G, 3G, Cat1 | Vodacom |
-| Myanmar | ONE524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Myanmar | ONE524 | 2G, 3G | MPT, Telenor |
 | Namibia | ONE524 | 2G, 3G, Cat1 | Telecom Namibia |
 | Netherlands | ONE524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | ONE524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
@@ -503,15 +503,15 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Portugal | ONE524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | ONE524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | ONE524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
-| Rwanda | ONE524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Rwanda | ONE524 | 2G, 3G | Airtel, MTN |
 | Serbia | ONE524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | ONE524 | 2G, 3G, Cat1 | Airtel |
-| Sint Maarten | ONE524 | 2G, 3G, Cat1 | TelCell |
+| Sint Maarten | ONE524 | 2G, 3G | TelCell |
 | Slovakia | ONE524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | ONE524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | ONE524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | ONE524 | 3G, Cat1 | KT, LG U+, SK Telecom |
-| South Sudan | ONE524 | 2G, 3G, Cat1 | MTN |
+| South Sudan | ONE524 | 2G, 3G | MTN |
 | Spain | ONE524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | ONE524 | 2G, 3G, Cat1 | Dialog, Mobitel |
 | Suriname | ONE524 | 2G, 3G | Telesur |
@@ -524,7 +524,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Uganda | ONE524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | ONE524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ONE404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-| Vietnam | ONE524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Vietnam | ONE524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Zambia | ONE524 | 2G, 3G, Cat1 | Airtel |
 
 
