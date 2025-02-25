@@ -1928,13 +1928,13 @@ const svg = require('./svg');
             // platformName: generateOptions.platformName,
             // outputPath: generateOptions.outputPath,
             width: 700,
-            height: 500,
+            height: 700,
             background: 'white',
             pins: [
                 {   // Bottom row
                     num: 1,
                     x: 60,
-                    y: 204,
+                    y: 304,
                     numDelta: 2,
                     xDelta: 21,
                     yDelta: 0,
@@ -1946,7 +1946,7 @@ const svg = require('./svg');
                 {   // Top row 
                     num: 2,
                     x: 60,
-                    y: 200,
+                    y: 300,
                     numDelta: 2,
                     xDelta: 21,
                     yDelta: 0,
@@ -1959,7 +1959,7 @@ const svg = require('./svg');
             preDraw: function(options) {
                 options.draw.circle({
                     cx: 32,
-                    cy: 202,
+                    cy: 302,
                     r: 12,
                     fill: options.options.background,
                     stroke: '#E6AB00', // gold
@@ -1967,7 +1967,7 @@ const svg = require('./svg');
                 });    
                 options.draw.circle({
                     cx: 485,
-                    cy: 202,
+                    cy: 302,
                     r: 12,
                     fill: options.options.background,
                     stroke: '#E6AB00', // gold
@@ -1975,7 +1975,7 @@ const svg = require('./svg');
                 });    
 
                 options.draw.path({
-                    d: 'M12 300 L12 182 A12 12 0 0 1 24 170 L550 170',
+                    d: 'M12 600 L12 282 A12 12 0 0 1 24 270 L550 270',
                     fill: 'none',
                     stroke: '#808080',
                     'stroke-width': 1,
@@ -2626,6 +2626,55 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         // Tachyon
+        const tachyonDiagrams = [
+            {
+                suffix: 'gpio',
+                keys: ['i2c', 'spi', 'i2s', 'serial'],
+            },
+            {
+                suffix: 'i2c',
+                keys: ['i2c'],
+            },
+            {
+                suffix: 'spi',
+                keys: ['spi'],
+            },
+            {
+                suffix: 'serial',
+                keys: ['serial'],
+            },
+        ];
+        for(const d of tachyonDiagrams) {
+            await diagram.generateTachyon(Object.assign({
+                platformName: 'tachyon',
+                columns: [
+                    {
+                        width: 20,
+                        keys: ['num'],
+                    },
+                    {
+                        width: 50,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 50,
+                        keys: ['linuxName'],
+                    },
+                    {
+                        width: 50,
+                        keys: d.keys,
+                    },
+                ],
+                outputPath: 'assets/images/tachyon/tachyon-' + d.suffix + '.svg',
+                featureColorsOverride: {
+                    name: '#CD2355', // Raspberry Pi color 
+                    linuxName: '#5CECFF', // Particle blue
+                },
+            }, generateOptions), files);
+    
+        }
+
+
         await diagram.generateTachyon(Object.assign({
             platformName: 'tachyon',
             columns: [
@@ -2641,8 +2690,12 @@ const svg = require('./svg');
                     width: 50,
                     keys: ['linuxName'],
                 },
+                {
+                    width: 50,
+                    keys: ['i2c'],
+                },
             ],
-            outputPath: 'assets/images/tachyon/tachyon-gpio.svg',
+            outputPath: 'assets/images/tachyon/tachyon-i2c.svg',
             featureColorsOverride: {
                 name: '#CD2355', // Raspberry Pi color 
                 linuxName: '#5CECFF', // Particle blue
