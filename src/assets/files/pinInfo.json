@@ -6566,7 +6566,7 @@
           "num": 3,
           "name": "GPIO2",
           "desc": "GPIO2, SDA",
-          "i2c": "I2C_SDA",
+          "i2c": "I2C SDA",
           "isIO": true,
           "linuxName": "GPIO_8",
           "mcuGPIO": 8,
@@ -6577,7 +6577,7 @@
           "num": 5,
           "name": "GPIO3",
           "desc": "GPIO3, SCL",
-          "i2c": "I2C_SCL",
+          "i2c": "I2C SCL",
           "isIO": true,
           "linuxName": "GPIO_9",
           "mcuGPIO": 9,
@@ -6602,7 +6602,7 @@
         {
           "num": 7,
           "name": "GPIO4",
-          "desc": "GPIO4, GPCKL0",
+          "desc": "GPIO4",
           "isIO": true,
           "linuxName": "GPIO_61",
           "mcuGPIO": 61,
@@ -6612,27 +6612,29 @@
         {
           "num": 8,
           "name": "GPIO14",
-          "desc": "GPIO14, TXD0",
+          "desc": "GPIO14, UART TX",
           "isIO": true,
           "linuxName": "GPIO_34",
           "mcuGPIO": 34,
           "net": "GPIO_34/3.9B",
-          "rpiGPIO": 14
+          "rpiGPIO": 14,
+          "serial": "UART TX"
         },
         {
           "num": 10,
           "name": "GPIO15",
-          "desc": "GPIO15, RXD0",
+          "desc": "GPIO15, UART RX",
           "isIO": true,
           "linuxName": "GPIO_35",
           "mcuGPIO": 35,
           "net": "GPIO_35/3.9B",
-          "rpiGPIO": 15
+          "rpiGPIO": 15,
+          "serial": "UART RX"
         },
         {
           "num": 11,
           "name": "GPIO17",
-          "desc": "GPIO17",
+          "desc": "GPIO17, UART RTS",
           "isIO": true,
           "linuxName": "GPIO_33",
           "mcuGPIO": 33,
@@ -6642,7 +6644,8 @@
         {
           "num": 12,
           "name": "GPIO18",
-          "desc": "GPIO18",
+          "desc": "GPIO18, PCM_CLK",
+          "i2s": "I2S CLK",
           "isIO": true,
           "linuxName": "GPIO_144",
           "mcuGPIO": 144,
@@ -6698,7 +6701,8 @@
           "linuxName": "GPIO_57",
           "mcuGPIO": 57,
           "net": "GPIO_57/3.2J",
-          "rpiGPIO": 10
+          "rpiGPIO": 10,
+          "spi": "SPI MOSI"
         },
         {
           "num": 21,
@@ -6709,7 +6713,7 @@
           "mcuGPIO": 56,
           "net": "GPIO_56/3.2J",
           "rpiGPIO": 9,
-          "spi": "MISO"
+          "spi": "SPI MISO"
         },
         {
           "num": 22,
@@ -6730,7 +6734,7 @@
           "mcuGPIO": 58,
           "net": "GPIO_58/3.2J",
           "rpiGPIO": 11,
-          "spi": "SCLK"
+          "spi": "SPI SCLK"
         },
         {
           "num": 24,
@@ -6741,7 +6745,7 @@
           "mcuGPIO": 59,
           "net": "GPIO_59/3.2J",
           "rpiGPIO": 8,
-          "spi": "CE0"
+          "spi": "SPI CE0"
         },
         {
           "num": 26,
@@ -6752,13 +6756,12 @@
           "mcuGPIO": 62,
           "net": "GPIO_62/3.9C",
           "rpiGPIO": 7,
-          "spi": "CE1"
+          "spi": "SPI CE1"
         },
         {
           "num": 27,
           "name": "GPIO0",
           "desc": "GPIO0, ID_SD",
-          "i2c": "I2S1_SDA",
           "isIO": true,
           "linuxName": "GPIO_36",
           "mcuGPIO": 36,
@@ -6769,7 +6772,6 @@
           "num": 28,
           "name": "GPIO1",
           "desc": "GPIO1 (ID_SC)",
-          "i2c": "I2S1_SCL",
           "isIO": true,
           "linuxName": "GPIO_37",
           "mcuGPIO": 37,
@@ -6833,7 +6835,7 @@
         {
           "num": 36,
           "name": "GPIO16",
-          "desc": "GPIO16",
+          "desc": "GPIO16, UART CTS",
           "isIO": true,
           "linuxName": "GPIO_32",
           "mcuGPIO": 32,
@@ -6854,17 +6856,18 @@
           "num": 38,
           "name": "GPIO20",
           "desc": "GPIO20, PCM_DIN",
+          "i2s": "I2S DIN",
           "isIO": true,
           "linuxName": "GPIO_146",
           "mcuGPIO": 146,
           "net": "GPIO_146/3.5G",
-          "pcm": "PCM_DIN",
           "rpiGPIO": 20
         },
         {
           "num": 40,
           "name": "GPIO21",
           "desc": "GPIO21, PCM_DOUT",
+          "i2s": "I2S DOUT",
           "isIO": true,
           "linuxName": "GPIO_147",
           "mcuGPIO": 147,

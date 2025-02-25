@@ -200,12 +200,6 @@ GPIO10    </text>
     </rect>
     <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_57    </text>
-    <line x1="128" y1="0" x2="132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="132" y="-8" width="50" height="16" stroke="black" fill="#36CE7E" >
-    </rect>
-    <text x="157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SPI MOSI    </text>
   </g>
   <g transform="translate(270,304) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -226,12 +220,6 @@ GPIO9    </text>
     </rect>
     <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_56    </text>
-    <line x1="128" y1="0" x2="132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="132" y="-8" width="50" height="16" stroke="black" fill="#36CE7E" >
-    </rect>
-    <text x="157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SPI MISO    </text>
   </g>
   <g transform="translate(291,304) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -252,12 +240,6 @@ GPIO11    </text>
     </rect>
     <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_58    </text>
-    <line x1="128" y1="0" x2="132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="132" y="-8" width="50" height="16" stroke="black" fill="#36CE7E" >
-    </rect>
-    <text x="157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SPI SCLK    </text>
   </g>
   <g transform="translate(312,304) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -372,12 +354,6 @@ GPIO19    </text>
     </rect>
     <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_145    </text>
-    <line x1="128" y1="0" x2="132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="132" y="-8" width="50" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-I2S WS    </text>
   </g>
   <g transform="translate(438,304) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -474,12 +450,6 @@ GPIO14    </text>
     </rect>
     <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_34    </text>
-    <line x1="-128" y1="0" x2="-132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-182" y="-8" width="50" height="16" stroke="black" fill="#AFE4EE" >
-    </rect>
-    <text x="-157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-UART TX    </text>
   </g>
   <g transform="translate(144,300) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -500,12 +470,6 @@ GPIO15    </text>
     </rect>
     <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_35    </text>
-    <line x1="-128" y1="0" x2="-132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-182" y="-8" width="50" height="16" stroke="black" fill="#AFE4EE" >
-    </rect>
-    <text x="-157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-UART RX    </text>
   </g>
   <g transform="translate(165,300) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -526,12 +490,6 @@ GPIO18    </text>
     </rect>
     <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_144    </text>
-    <line x1="-128" y1="0" x2="-132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-182" y="-8" width="50" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-I2S CLK    </text>
   </g>
   <g transform="translate(186,300) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -640,12 +598,6 @@ GPIO8    </text>
     </rect>
     <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_59    </text>
-    <line x1="-128" y1="0" x2="-132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-182" y="-8" width="50" height="16" stroke="black" fill="#36CE7E" >
-    </rect>
-    <text x="-157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SPI CE0    </text>
   </g>
   <g transform="translate(312,300) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -666,12 +618,6 @@ GPIO7    </text>
     </rect>
     <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_62    </text>
-    <line x1="-128" y1="0" x2="-132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-182" y="-8" width="50" height="16" stroke="black" fill="#36CE7E" >
-    </rect>
-    <text x="-157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SPI CE1    </text>
   </g>
   <g transform="translate(333,300) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -780,12 +726,6 @@ GPIO20    </text>
     </rect>
     <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_146    </text>
-    <line x1="-128" y1="0" x2="-132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-182" y="-8" width="50" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-I2S DIN    </text>
   </g>
   <g transform="translate(459,300) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -806,11 +746,5 @@ GPIO21    </text>
     </rect>
     <text x="-103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO_147    </text>
-    <line x1="-128" y1="0" x2="-132" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-182" y="-8" width="50" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-157" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-I2S DOUT    </text>
   </g>
 </svg>
