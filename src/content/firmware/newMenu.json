@@ -70,6 +70,10 @@
                     "title": "Code size tips"
                 },
                 {
+                    "dir": "thread-interrupt-safety",
+                    "title": "Thread & interrupt safety"
+                },
+                {
                     "dir": "scheduling",
                     "title": "Scheduling"
                 },
