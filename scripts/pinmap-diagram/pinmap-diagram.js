@@ -2629,7 +2629,7 @@ const svg = require('./svg');
         const tachyonDiagrams = [
             {
                 suffix: 'gpio',
-                keys: ['i2c', 'spi', 'i2s', 'serial'],
+                keys: ['i2c', 'spi', 'serial'],
             },
             {
                 suffix: 'i2c',
