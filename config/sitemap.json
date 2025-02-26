@@ -9687,8 +9687,8 @@
             "date": "2025-02-14"
         },
         "firmware/best-practices/thread-interrupt-safety.md": {
-            "hash": "90e11df187a352cc21f1e4af6a1044bc81307d7e9925c027273ec6839b914048",
-            "date": "2025-02-25"
+            "hash": "28a157f8aa75d5b81d9918919f53f60d9ada2931dabb6bb8bc57ce3787beac9d",
+            "date": "2025-02-26"
         }
     }
 }
