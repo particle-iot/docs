@@ -109,6 +109,107 @@ you could clear it after read, which causes the clear to be lost. Additional, pa
 to read a half-written value updated in an ISR, so the bytes are invalid.
 
 
+
+### Atomic example
+
+```cpp
+#include "Particle.h"
+
+#include <atomic>
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+SerialLogHandler logHandler;
+
+void isrD2();
+void isrD3();
+
+std::atomic<uint32_t> counterD2;
+std::atomic<uint32_t> counterD3;
+
+void setup() {
+    Particle.connect();
+
+    counterD2.store(0, std::memory_order_relaxed);
+    pinMode(D2, INPUT_PULLUP);
+    attachInterrupt(D2, isrD2, FALLING);
+
+    counterD3.store(0, std::memory_order_relaxed);
+    pinMode(D3, INPUT_PULLUP);
+    attachInterrupt(D3, isrD3, FALLING);
+}
+
+void loop() {
+    static unsigned long lastCheck = 0;
+    if (millis() - lastCheck >= 1000) {
+        lastCheck = millis();
+
+        uint32_t tempD2 = counterD2.fetch_and(0, std::memory_order_relaxed);
+        uint32_t tempD3 = counterD3.fetch_and(0, std::memory_order_relaxed);
+
+        Log.info("D2=%lu D3=%lu", tempD2, tempD3);
+    }
+}
+
+void isrD2() {
+    // This increments the value atomically. Even if the ISR triggers
+    // while we're resetting the value from loop, the count will
+    // not be lost.
+    counterD2.fetch_add(1, std::memory_order_relaxed);
+}
+
+void isrD3() {
+    counterD3.fetch_add(1, std::memory_order_relaxed);
+}
+```
+
+And this is the USB serial output:
+
+```
+0000027084 [app] INFO: D2=1000 D3=1000
+0000028084 [app] INFO: D2=1000 D3=1000
+0000029084 [app] INFO: D2=1000 D3=1000
+0000030084 [app] INFO: D2=1000 D3=1000
+0000031084 [app] INFO: D2=1000 D3=1000
+0000032084 [app] INFO: D2=1000 D3=1000
+0000033084 [app] INFO: D2=1000 D3=1000
+0000034084 [app] INFO: D2=1000 D3=1000
+0000035084 [app] INFO: D2=1000 D3=1000
+0000036084 [app] INFO: D2=1000 D3=1000
+0000037084 [app] INFO: D2=1000 D3=1000
+0000038084 [app] INFO: D2=1000 D3=1000
+0000039084 [app] INFO: D2=999 D3=999
+0000040084 [app] INFO: D2=1000 D3=1000
+0000041084 [app] INFO: D2=1000 D3=1000
+0000042084 [app] INFO: D2=1000 D3=1000
+0000043084 [app] INFO: D2=1000 D3=1000
+0000044084 [app] INFO: D2=1000 D3=1000
+0000045084 [app] INFO: D2=1000 D3=1000
+0000046084 [app] INFO: D2=1000 D3=1000
+0000047084 [app] INFO: D2=1000 D3=1000
+0000048084 [app] INFO: D2=1000 D3=1000
+0000049084 [app] INFO: D2=1000 D3=1000
+0000050084 [app] INFO: D2=1000 D3=1000
+0000051084 [app] INFO: D2=1000 D3=1000
+0000052084 [app] INFO: D2=999 D3=999
+0000053084 [app] INFO: D2=1000 D3=1000
+0000054084 [app] INFO: D2=1001 D3=1001
+0000055084 [app] INFO: D2=999 D3=999
+0000056084 [app] INFO: D2=1000 D3=1000
+0000057084 [app] INFO: D2=1000 D3=1000
+0000058084 [app] INFO: D2=1000 D3=1000
+0000059084 [app] INFO: D2=1000 D3=1000
+0000060084 [app] INFO: D2=1000 D3=1000
+0000061084 [app] INFO: D2=1000 D3=1000
+```
+
+It’s not exactly 1000 on all logs because the logging is done out of the loop thread with the cloud connection active, so it can be off by a little bit, but the counts seem to be equal.
+
+It’s actually possible for the counts to differ if something else disables interrupts, or there’s a thread swap in between the two fetch_and calls.
+
+That’s also a good way to structure counters in an ISR that are interrupt safe without having to disable interrupts.
+
 ## os\_queue
 
 The [os\_queue functions](/firmware/software-design/threading-explainer/#queue-functions) implement a fixed-length FIFO queue that is thread safe. 
