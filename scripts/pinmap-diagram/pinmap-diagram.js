@@ -2628,56 +2628,33 @@ const svg = require('./svg');
         // Tachyon
         const tachyonDiagrams = [
             {
-                suffix: 'gpio',
+                suffix: 'all',
+                showLinuxName: true,
                 keys: ['i2c', 'spi', 'serial'],
             },
             {
+                suffix: 'gpio',
+                showLinuxName: false,
+                keys: ['gpio'],
+            },
+            {
                 suffix: 'i2c',
+                showLinuxName: false,
                 keys: ['i2c'],
             },
             {
                 suffix: 'spi',
+                showLinuxName: false,
                 keys: ['spi'],
             },
             {
                 suffix: 'serial',
+                showLinuxName: false,
                 keys: ['serial'],
             },
         ];
         for(const d of tachyonDiagrams) {
-            await diagram.generateTachyon(Object.assign({
-                platformName: 'tachyon',
-                columns: [
-                    {
-                        width: 20,
-                        keys: ['num'],
-                    },
-                    {
-                        width: 50,
-                        keys: ['name'],
-                    },
-                    {
-                        width: 50,
-                        keys: ['linuxName'],
-                    },
-                    {
-                        width: 50,
-                        keys: d.keys,
-                    },
-                ],
-                outputPath: 'assets/images/tachyon/tachyon-' + d.suffix + '.svg',
-                featureColorsOverride: {
-                    name: '#CD2355', // Raspberry Pi color 
-                    linuxName: '#5CECFF', // Particle blue
-                },
-            }, generateOptions), files);
-    
-        }
-
-
-        await diagram.generateTachyon(Object.assign({
-            platformName: 'tachyon',
-            columns: [
+            let columns = [
                 {
                     width: 20,
                     keys: ['num'],
@@ -2686,21 +2663,30 @@ const svg = require('./svg');
                     width: 50,
                     keys: ['name'],
                 },
-                {
+            ];
+            if (d.showLinuxName) {
+                columns.push({
                     width: 50,
                     keys: ['linuxName'],
+                });
+            }
+            columns.push({
+                width: 50,
+                keys: d.keys,
+            });
+
+            await diagram.generateTachyon(Object.assign({
+                platformName: 'tachyon',
+                columns,
+                outputPath: 'assets/images/tachyon/tachyon-' + d.suffix + '.svg',
+                featureColorsOverride: {
+                    name: '#CD2355', // Raspberry Pi color 
+                    linuxName: '#5CECFF', // Particle blue
+                    gpio: '#5CECFF', // Particle blue
                 },
-                {
-                    width: 50,
-                    keys: ['i2c'],
-                },
-            ],
-            outputPath: 'assets/images/tachyon/tachyon-i2c.svg',
-            featureColorsOverride: {
-                name: '#CD2355', // Raspberry Pi color 
-                linuxName: '#5CECFF', // Particle blue
-            },
-        }, generateOptions), files);
+            }, generateOptions), files);
+    
+        }
 
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
