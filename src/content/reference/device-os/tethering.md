@@ -156,7 +156,7 @@ This script:
 
 1. Disables the linux serial console on the USART needed for tethering
 2. Enables a USART with flow control on the USART pins
-3. Disable sany PPP options, create default options for the new tty PPP device
+3. Disables any PPP options, create default options for the new tty PPP device
 4. Adds udev rules for the new PPP tty device
 5. Scans for the modem in modem manager
 6. Creates a connection to the modem using NetworkManager
