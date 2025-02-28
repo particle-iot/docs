@@ -580,7 +580,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Austria | E314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | E314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | E314 | 2G, 3G | Aliv, BTC Bahamas |
-| Bahrain | E314 | 2G, 3G | Zain |
+| Bahrain | E314 | 2G | Zain |
 | Bangladesh | E314 | 2G, 3G | Bangalink, GrameenPhone |
 | Barbados | E314 | 2G, 3G | Flow |
 | Belarus | E314 | 2G, 3G | A1 |
@@ -631,7 +631,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Guyana | E314 | 2G | Digicel |
 | Haiti | E314 | 2G, 3G | Digicel |
 | Honduras | E314 | 2G, 3G | Claro, Tigo |
-| Hong Kong | E314 | 2G, 3G | CMHK, CSL, SmarTone |
+| Hong Kong | E314 | 2G, 3G | CSL, SmarTone |
 | Hungary | E314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | E314 | 2G, 3G | Nova, Siminn, Vodafone |
 | Indonesia | E314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
@@ -672,7 +672,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Philippines | E314 | 2G, 3G | Globe, Smart |
 | Poland | E314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
 | Portugal | E314 | 2G, 3G | NOS, TMN, Vodafone |
-| Puerto Rico | E314 | 2G, 3G | Claro |
 | Qatar | E314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | E314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | E314 | 2G, 3G | Airtel, MTN |

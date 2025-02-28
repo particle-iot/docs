@@ -427,7 +427,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Aruba | ONE524 | 2G, 3G, Cat1 | Setar |
 | Australia | ONE524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Bahrain | ONE524 | 2G, 3G, Cat1 | Zain |
+| Bahrain | ONE524 | 2G, Cat1 | Zain |
 | Bangladesh | ONE524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
 | Belarus | ONE524 | 2G, 3G, Cat1 | A1 |
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
@@ -479,7 +479,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Liechtenstein | ONE524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | ONE524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | ONE524 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Macao | ONE524 | 2G, 3G, Cat1 | CTM |
+| Macao | ONE524 | 3G, Cat1 | CTM |
 | Madagascar | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Malawi | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | ONE524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
@@ -524,7 +524,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Uganda | ONE524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | ONE524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ONE404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-| Vietnam | ONE524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
+| Vietnam | ONE524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | ONE524 | 2G, 3G, Cat1 | Airtel |
 
 

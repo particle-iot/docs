@@ -2043,7 +2043,6 @@ The OEM integrator has to be aware not to provide information to the end user re
 | :--- | :--- | :--- |
 | Canada | 3G, Cat1 | Bell Mobility, Rogers Wireless, Telus, Videotron |
 | Mexico | 3G, Cat1 | AT&T, Telcel |
-| Puerto Rico | 3G | Claro |
 | United States | 3G, Cat1 | Alaska Wireless, AT&T, T-Mobile (USA), Union Telephone, Verizon<sup>7</sup> |
 
 

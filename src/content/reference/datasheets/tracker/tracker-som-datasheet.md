@@ -1209,7 +1209,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Aruba | T524 | 2G, 3G, Cat1 | Setar |
 | Australia | T524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Bahrain | T524 | 2G, 3G, Cat1 | Zain |
+| Bahrain | T524 | 2G, Cat1 | Zain |
 | Bangladesh | T524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
 | Belarus | T524 | 2G, 3G, Cat1 | A1 |
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
@@ -1261,7 +1261,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Liechtenstein | T524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | T524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | T524 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Macao | T524 | 2G, 3G, Cat1 | CTM |
+| Macao | T524 | 3G, Cat1 | CTM |
 | Madagascar | T524 | 2G, 3G, Cat1 | Airtel |
 | Malawi | T524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | T524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
@@ -1306,7 +1306,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Uganda | T524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | T404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-| Vietnam | T524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
+| Vietnam | T524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | T524 | 2G, 3G, Cat1 | Airtel |
 
 

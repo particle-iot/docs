@@ -744,7 +744,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Haiti | Digicel | &check; | &check; | &check; | &nbsp; |
 | Honduras | Claro | &check; | &check; | &nbsp; | &nbsp; |
 | Honduras | Tigo | &check; | &check; | &nbsp; | &nbsp; |
-| Hong Kong | CMHK | &check; | &check; | &check; | &nbsp; |
+| Hong Kong | CMHK | &check; | &nbsp; | &check; | &nbsp; |
 | Hong Kong | CSL | &nbsp; | &check; | &check; | &nbsp; |
 | Hong Kong | SmarTone | &check; | &check; | &check; | &nbsp; |
 | Hungary | Magyar Telekom | &check; | &check; | &check; | &nbsp; |
@@ -862,7 +862,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Portugal | NOS | &check; | &check; | &check; | &nbsp; |
 | Portugal | TMN | &check; | &check; | &check; | &nbsp; |
 | Portugal | Vodafone | &check; | &check; | &check; | &nbsp; |
-| Puerto Rico | Claro | &check; | &check; | &nbsp; | &nbsp; |
+| Puerto Rico | Claro | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Qatar | Ooredoo | &check; | &check; | &check; | &nbsp; |
 | Qatar | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Réunion | SFR | &check; | &nbsp; | &nbsp; | &nbsp; |
