@@ -687,6 +687,8 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
         }
 
+
+
         // Skip parts that are up-to-date 
         for(let ii = 0; ii < dfuParts.length; ii++) {
             let obj = dfuParts[ii];
@@ -713,7 +715,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                 }
             }
 
-            if (dfuParts[ii].name == 'bootloader' && options.platformVersionInfo.isRTL872x) {
+            if (dfuParts[ii].name == 'bootloader' && options.bootloaderByControlRequest) {
                 // Bootloader on RTL872x is updated using control requests, not DFU
                 dfuParts.splice(ii, 1);
                 ii--; // Is incremented in for loop
@@ -730,7 +732,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         for(let ii = 0; ii < dfuParts.length; ii++) {
             let obj = dfuParts[ii];
 
-            if (obj.name == 'bootloader' && !options.platformVersionInfo.isRTL872x) {
+            if (obj.name == 'bootloader') {
                 // Bootloader requires OTA trick except on P2
                 setOTAFlag = true;
             }

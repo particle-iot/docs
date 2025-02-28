@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device Restore DFU fix 2025-02-29
+
+On Gen 3 devices, Device Restore DFU would sometimes not restore the bootloader when the target Device OS version was 5.3.0 or later.
+
 ### Datasheet carrier fix 2025-02-24
 
 In the lists of supported countries and technologies (2G, 3G, Cat1, M1) in the datasheets, corrected a problem where technologies 

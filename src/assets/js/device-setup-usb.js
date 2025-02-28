@@ -2372,6 +2372,7 @@ $(document).ready(function() {
             
         };
 
+        let bootloaderByControlRequest = true; // options.platformVersionInfo.isRTL872x
 
         const flashDeviceInternal = async function() {
             try {
@@ -2410,7 +2411,8 @@ $(document).ready(function() {
                     platformVersionInfo: deviceInfo.platformVersionInfo,
                     userFirmwareBinary,
                     setStatus,
-                    version: deviceInfo.targetVersion, 
+                    version: deviceInfo.targetVersion,
+                    bootloaderByControlRequest, 
                     deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo),
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
@@ -2589,6 +2591,9 @@ $(document).ready(function() {
                 analytics.track('Exception', {category:gaCategory, label:'get restore zip'});
                 // TODO: Do something here
             }    
+            
+            // This is used in flashDeviceInternal and also below
+            bootloaderByControlRequest = true; // options.platformVersionInfo.isRTL872x
 
         
             // Flash Device OS
@@ -2596,7 +2601,7 @@ $(document).ready(function() {
             analytics.track('Flash Device', {category:gaCategory});
             
     
-            if (deviceInfo.platformVersionInfo.isRTL872x) {          
+            if (bootloaderByControlRequest) {          
                 const controlRequestParts = [
                     {
                         moduleInfoName: 'prebootloader-part1',  
@@ -2629,7 +2634,7 @@ $(document).ready(function() {
                 
 
                 for(const controlRequestPart of controlRequestParts) {
-                    if (deviceModuleInfo) {
+                    if (deviceModuleInfo && flashDeviceOptions.moduleInfo[controlRequestPart.moduleInfoName]) {
                         // When upgrading from 5.3.0 to 5.5.0 and possibly other situations, the bootloader
                         // does not upgrade using the OTA trick. 
                         const desiredVersion = flashDeviceOptions.moduleInfo[controlRequestPart.moduleInfoName].prefixInfo.moduleVersion;
