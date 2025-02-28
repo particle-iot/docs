@@ -1137,7 +1137,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | :--- | :--- | :--- | :--- |
 | Canada | M404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Mexico | M404 | 2G, M1 | AT&T, Telcel |
-| United States | M404 | 2G, M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| United States | M404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -1258,7 +1258,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Serbia | M524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | M524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | M524 | 2G, 3G | TelCell |
-| Slovakia | M524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | M524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | M524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | M524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | M524 | 3G, Cat1 | KT, LG U+, SK Telecom |

@@ -1,74 +1,177 @@
 $(document).ready(function() {
     const eventCategory = 'sunset-tool';
 
+    let sunsetTool = {
+        options: {},
+        countryCarrier: [],
+    };
+
+    sunsetTool.dateParse = function(s) {
+        let result = {
+            year: 2023,
+            month: 1,
+        };
+
+        let parts = s.split('-');
+        if (parts.length >= 1) {
+            result.year = parseInt(parts.shift());
+        }
+        if (parts.length >= 1) {
+            result.month = parseInt(parts.shift());
+        }
+        if (parts.length >= 1) {
+            result.day = parseInt(parts.shift());
+        }
+
+        result.toString = function() {
+            if (result.month < 10) {
+                return result.year + '-0' + result.month;
+            }
+            else {
+                return result.year + '-' + result.month;
+            }
+        }
+        result.dateAdd = function(monthIncrement) {
+            result.month += monthIncrement;
+            while(result.month > 12) {
+                result.month -= 12;
+                result.year++;
+            }
+        }
+        result.clone = function() {
+            return sunsetTool.dateParse(result.toString());
+        }
+
+        result.months = function() {
+            return result.year * 12 + result.month;
+        }
+            
+        return result;
+    };
+
+    sunsetTool.dateCompare = function(yearMonth1, yearMonth2) {
+        const m1 = yearMonth1.months();
+        const m2 = yearMonth2.months();
+        
+        if (m1 < m2) {
+            return -1;
+        }
+        else
+        if (m1 > m2) {
+            return +1;
+        }
+        else {
+            return 0;
+        }
+    }
+
 
     datastore.init({path:'/assets/files/carriers.json'}, function() {
+
+        $('.sunsetList').each(function() {
+            const thisPartial = $(this);
+
+            const columns = [
+                {
+                    key: 'date',
+                },
+                {
+                    key: 'country',
+                },
+                {
+                    fn: function(sunsetObj, tdElem) {
+                        for(let ii = 0; ii < sunsetObj.items.length; ii++) {
+                            const itemObj = sunsetObj.items[ii];
+
+                            $(tdElem).append(document.createTextNode(itemObj.carrier));
+
+                            const supElem = document.createElement('sup');
+                            $(supElem).text(itemObj.rat.substring(0,1));
+                            $(tdElem).append(supElem);
+
+                            if ((ii + 1) < sunsetObj.items.length) {
+                                $(tdElem).append(document.createTextNode(', '));
+                            }
+
+                        }                        
+                    },
+                },
+                {
+                    fn: function(sunsetObj, tdElem) {
+                        let carriers = {};
+
+                        for(const rat of ['2G', '3G']) {
+                            for(const c of sunsetObj[rat]) {
+                                if (!carriers[c]) {
+                                    carriers[c] = [];
+                                }
+                                carriers[c].push(rat);
+                            }
+                        }
+
+                        let carrierNames = Object.keys(carriers);
+                        carrierNames.sort();
+
+
+                        for(let ii = 0; ii < carrierNames.length; ii++) {
+                            const carrierName = carrierNames[ii];
+
+                            $(tdElem).append(document.createTextNode(carrierName));
+
+                            for(const rat of carriers[carrierName]) {
+                                const supElem = document.createElement('sup');
+                                $(supElem).text(rat.substring(0,1));
+                                $(tdElem).append(supElem);
+                            }
+
+                            if ((ii + 1) < carrierNames.length) {
+                                $(tdElem).append(document.createTextNode(', '));
+                            }
+
+                        }
+
+                        if (carrierNames.length == 0) {
+                            $(tdElem).text('None');
+                            $(tdElem).css('background-color', '#FFE949'); // COLOR_State_Yellow_500
+                            // $(tdElem).css('background-color', '#FFADBD'); // COLOR_Watermelon_400
+                            // $(tdElem).css('background-color', '#FFBC80'); // COLOR_State_Orange_500
+                        }
+        
+                        // $(tdElem).text(carrierNames.join(', '));
+                    },
+                },
+            ];
+
+            const tableElem = $(thisPartial).find('.sunsetListTable');
+
+            const tbodyElem = $(tableElem).find('tbody');
+
+            for(const sunsetObj of datastore.data.sunset) {
+                const trElem = document.createElement('tr');
+
+                for(const col of columns) {
+                    
+                    const tdElem = document.createElement('td');
+                    if (col.fn) {
+                        col.fn(sunsetObj, tdElem);
+                    }
+                    else {
+                        $(tdElem).text(sunsetObj[col.key]);
+                    }
+
+                    $(trElem).append(tdElem);                        
+                }
+            
+                $(tbodyElem).append(trElem);
+            }
+
+                
+        
+        });
 
         $('.sunsetTool').each(function() {
             const thisPartial = $(this);
     
-            let sunsetTool = {
-                options: {},
-                countryCarrier: [],
-            };
-    
-            sunsetTool.dateParse = function(s) {
-                let result = {
-                    year: 2023,
-                    month: 1,
-                };
-
-                let parts = s.split('-');
-                if (parts.length >= 1) {
-                    result.year = parseInt(parts.shift());
-                }
-                if (parts.length >= 1) {
-                    result.month = parseInt(parts.shift());
-                }
-                if (parts.length >= 1) {
-                    result.day = parseInt(parts.shift());
-                }
-
-                result.toString = function() {
-                    if (result.month < 10) {
-                        return result.year + '-0' + result.month;
-                    }
-                    else {
-                        return result.year + '-' + result.month;
-                    }
-                }
-                result.dateAdd = function(monthIncrement) {
-                    result.month += monthIncrement;
-                    while(result.month > 12) {
-                        result.month -= 12;
-                        result.year++;
-                    }
-                }
-                result.clone = function() {
-                    return sunsetTool.dateParse(result.toString());
-                }
-
-                result.months = function() {
-                    return result.year * 12 + result.month;
-                }
-                    
-                return result;
-            };
-            sunsetTool.dateCompare = function(yearMonth1, yearMonth2) {
-                const m1 = yearMonth1.months();
-                const m2 = yearMonth2.months();
-                
-                if (m1 < m2) {
-                    return -1;
-                }
-                else
-                if (m1 > m2) {
-                    return +1;
-                }
-                else {
-                    return 0;
-                }
-            }
     
             for(const pair of $(thisPartial).data('options').split(',')) {
                 const parts = pair.split('=', 2);

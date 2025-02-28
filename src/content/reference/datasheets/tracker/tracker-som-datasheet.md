@@ -1289,7 +1289,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Serbia | T524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | T524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | T524 | 2G, 3G | TelCell |
-| Slovakia | T524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | T524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | T524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | T524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | T524 | 3G, Cat1 | KT, LG U+, SK Telecom |

@@ -663,7 +663,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Colombia | ELC314 | 2G, 3G | Movistar, Tigo |
 | Congo (Brazzaville) | ELC314 | 2G, 3G | Airtel |
 | Congo (Kinshasa) | ELC314 | 2G, 3G | Airtel |
-| Costa Rica | ELC314 | 2G, 3G | Movistar |
+| Costa Rica | ELC314 | 3G | Movistar |
 | Côte d'Ivoire | ELC314 | 2G, 3G | MTN |
 | Croatia | ELC314 | 2G, 3G | Hrvatski Telekom, Tele2 |
 | Cyprus | ELC314 | 2G, 3G | Cytamobile-Vodafone, MTN |
@@ -699,7 +699,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Hungary | ELC314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | ELC314 | 2G, 3G | Nova, Siminn, Vodafone |
 | Indonesia | ELC314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
-| Ireland | ELC314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
+| Ireland | ELC314 | 2G, 3G | Meteor, O2, Vodafone |
 | Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | ELC314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | ELC314 | 2G, 3G | Digicel, Flow |
@@ -741,10 +741,10 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Rwanda | ELC314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |
-| Saint Vincent and the Grenadines | ELC314 | 2G, 3G | Flow |
+| Saint Vincent and the Grenadines | ELC314 | 3G | Flow |
 | Serbia | ELC314 | 2G, 3G | Telenor, VIP |
 | Sint Maarten | ELC314 | 2G, 3G | TelCell |
-| Slovakia | ELC314 | 2G, 3G | O2, Orange, Telekom |
+| Slovakia | ELC314 | 2G | O2, Orange, Telekom |
 | Slovenia | ELC314 | 2G, 3G | A1, Mobitel |
 | South Africa | ELC314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | ELC314 | 3G | KT, SK Telecom |

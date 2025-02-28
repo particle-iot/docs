@@ -616,6 +616,10 @@
                     "isSection": true,
                     "subsections": [
                         {
+                            "dir": "2g-3g-sunset",
+                            "title": "2G/3G Sunset"
+                        },
+                        {
                             "dir": "us-2g-3g-sunset",
                             "title": "US 2G/3G Sunset"
                         },

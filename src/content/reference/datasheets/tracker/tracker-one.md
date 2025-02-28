@@ -507,7 +507,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Serbia | ONE524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | ONE524 | 2G, 3G | TelCell |
-| Slovakia | ONE524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | ONE524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | ONE524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | ONE524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | ONE524 | 3G, Cat1 | KT, LG U+, SK Telecom |
