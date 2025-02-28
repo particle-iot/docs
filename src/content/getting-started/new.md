@@ -21,11 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### 2G/3G sunset update 2025-03-03
+
+Countries with upcoming 2G/3G sunsets have been updated.
+
 ### Library updates 2025-03-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
 
-### Device Restore DFU fix 2025-02-29
+### Device Restore DFU fix 2025-02-28
 
 On Gen 3 devices, Device Restore DFU would sometimes not restore the bootloader when the target Device OS version was 5.3.0 or later.
 

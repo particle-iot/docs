@@ -4386,12 +4386,14 @@
         "rank": "Primary"
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "3G-5"
       ],
       "noBands": [
         "LTE"
+      ],
+      "bandsDisabled": [
+        "2G-1900"
       ]
     },
     {
@@ -4466,11 +4468,13 @@
         "rank": "Primary"
       },
       "bands": [
-        "2G-900",
         "3G-1",
         "LTE-17"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "bandsDisabled": [
+        "2G-900"
+      ]
     },
     {
       "country": "Antigua and Barbuda",
@@ -4608,13 +4612,15 @@
       },
       "bands": [
         "2G-1900",
-        "3G-2",
-        "3G-5",
         "LTE-4",
         "LTE-7",
         "LTE-28"
       ],
-      "checked": "2024-02-12"
+      "checked": "2024-02-12",
+      "bandsDisabled": [
+        "3G-5",
+        "3G-2"
+      ]
     },
     {
       "country": "Armenia",
@@ -5247,8 +5253,10 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "bandsDisabled": [
+        "3G-1"
       ]
     },
     {
@@ -5338,10 +5346,12 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-8"
+      ],
+      "bandsDisabled": [
+        "3G-1"
       ]
     },
     {
@@ -5360,12 +5370,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-8"
+      ],
+      "bandsDisabled": [
+        "2G-1800",
+        "2G-900"
       ]
     },
     {
@@ -5784,11 +5796,13 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-5",
         "LTE-12"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "bandsDisabled": [
+        "2G-1900"
+      ]
     },
     {
       "country": "Bermuda",
@@ -5801,12 +5815,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "3G-5",
         "LTE-13"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "bandsDisabled": [
+        "2G-1900"
+      ]
     },
     {
       "country": "Bolivia",
@@ -6054,10 +6070,6 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
-        "2G-900",
-        "2G-1800",
-        "2G-1900",
         "3G-1",
         "3G-5",
         "LTE-3",
@@ -6070,7 +6082,13 @@
         "allowLTE": true,
         "rank": "Backup"
       },
-      "checked": "2024-02-12"
+      "checked": "2024-02-12",
+      "bandsDisabled": [
+        "2G-1900",
+        "2G-1800",
+        "2G-900",
+        "2G-850"
+      ]
     },
     {
       "country": "Brunei",
@@ -6912,12 +6930,14 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-34",
-        "3G-39",
         "LTE-38",
         "LTE-39",
         "LTE-40",
         "LTE-41"
+      ],
+      "bandsDisabled": [
+        "3G-39",
+        "3G-34"
       ]
     },
     {
@@ -6969,12 +6989,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
-        "2G-1900",
         "3G-2",
         "LTE-7"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "bandsDisabled": [
+        "2G-1900",
+        "2G-850"
+      ]
     },
     {
       "country": "Colombia",
@@ -7033,13 +7055,15 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
-        "2G-1900",
         "3G-2",
         "LTE-4",
         "LTE-7"
       ],
-      "checked": "2024-02-12"
+      "checked": "2024-02-12",
+      "bandsDisabled": [
+        "2G-1900",
+        "2G-850"
+      ]
     },
     {
       "country": "Congo (Brazzaville)",
@@ -7178,12 +7202,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-1800",
         "3G-1",
         "LTE-3"
       ],
       "noBands": [
         "2G"
+      ],
+      "bandsDisabled": [
+        "2G-1800"
       ]
     },
     {
@@ -7236,10 +7262,12 @@
         "rank": "Primary"
       },
       "bands": [
-        "2G-1800",
         "3G-1",
         "3G-5",
         "LTE-3"
+      ],
+      "bandsDisabled": [
+        "2G-1800"
       ]
     },
     {
@@ -9144,12 +9172,13 @@
       "carrier": "Globacom",
       "sunset2G": "2022-12-31",
       "sunset3G": "2022-12-31",
-      "bands": [
-        "2G-900",
-        "3G-1"
-      ],
+      "bands": [],
       "noBands": [
         "LTE"
+      ],
+      "bandsDisabled": [
+        "2G-900",
+        "3G-1"
       ]
     },
     {
@@ -9408,12 +9437,14 @@
         "rank": "Primary"
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1"
       ],
       "noBands": [
         "LTE"
+      ],
+      "bandsDisabled": [
+        "2G-1800",
+        "2G-900"
       ]
     },
     {
@@ -9552,10 +9583,12 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
-        "2G-1900",
         "3G-5",
         "LTE-4"
+      ],
+      "bandsDisabled": [
+        "2G-1900",
+        "2G-850"
       ]
     },
     {
@@ -10444,13 +10477,14 @@
       "carrier": "Reliance",
       "sunset2G": "2017-11-30",
       "sunset3G": "2017-11-30",
-      "bands": [
-        "2G-900",
-        "2G-1800",
-        "3G-1"
-      ],
+      "bands": [],
       "noBands": [
         "LTE"
+      ],
+      "bandsDisabled": [
+        "2G-1800",
+        "2G-900",
+        "3G-1"
       ]
     },
     {
@@ -10501,13 +10535,15 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "LTE-3",
         "LTE-8"
       ],
       "noBands": [
         "3G"
+      ],
+      "bandsDisabled": [
+        "2G-1800",
+        "2G-900"
       ]
     },
     {
@@ -10642,12 +10678,14 @@
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
         "LTE-3",
         "LTE-20"
       ],
       "noBands": [
         "2G"
+      ],
+      "bandsDisabled": [
+        "3G-1"
       ]
     },
     {
@@ -12064,8 +12102,10 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "bandsDisabled": [
+        "3G-1"
       ]
     },
     {
@@ -13162,9 +13202,11 @@
       "carrier": "Nepal Telecom",
       "sunset2G": "2023-12-31",
       "bands": [
-        "2G-900",
         "3G-1",
         "3G-8"
+      ],
+      "bandsDisabled": [
+        "2G-900"
       ]
     },
     {
@@ -14844,11 +14886,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "bandsDisabled": [
+        "3G-8",
+        "3G-1"
       ]
     },
     {
@@ -15134,8 +15178,10 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "bandsDisabled": [
+        "3G-1"
       ]
     },
     {
@@ -15173,13 +15219,15 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-20",
         "NB1-20"
       ],
-      "checked": "2024-02-06"
+      "checked": "2024-02-06",
+      "bandsDisabled": [
+        "3G-8",
+        "3G-1"
+      ]
     },
     {
       "country": "Russia",
@@ -15719,7 +15767,6 @@
         "rank": "Secondary"
       },
       "bands": [
-        "2G-850",
         "3G-5",
         "LTE-5"
       ],
@@ -15727,7 +15774,10 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "bandsDisabled": [
+        "2G-850"
+      ]
     },
     {
       "country": "Samoa",
@@ -15795,10 +15845,12 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-20"
+      ],
+      "bandsDisabled": [
+        "3G-8",
+        "3G-1"
       ]
     },
     {
@@ -16234,7 +16286,6 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-20"
       ],
@@ -16243,7 +16294,10 @@
         "allow3G": true,
         "allowLTE": true,
         "rank": "Secondary"
-      }
+      },
+      "bandsDisabled": [
+        "3G-1"
+      ]
     },
     {
       "country": "Slovakia",
@@ -16277,7 +16331,6 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-7",
         "LTE-20"
       ],
@@ -16285,7 +16338,10 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "bandsDisabled": [
+        "3G-1"
+      ]
     },
     {
       "country": "Slovakia",
@@ -16425,11 +16481,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "bandsDisabled": [
+        "3G-8",
+        "3G-1"
       ]
     },
     {
@@ -16866,11 +16924,13 @@
       },
       "bands": [
         "2G-900",
-        "2G-1800",
-        "3G-1"
+        "2G-1800"
       ],
       "noBands": [
         "LTE"
+      ],
+      "bandsDisabled": [
+        "3G-1"
       ]
     },
     {
@@ -18308,7 +18368,8 @@
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "hideFromSunset": true
       },
       "bands": [
         "2G-900",
@@ -18457,7 +18518,8 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "hideFromSunset": true
       },
       "koreAllNet": {
         "allow3G": true,
@@ -18661,7 +18723,6 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "LTE-2",
         "LTE-4",
         "LTE-5",
@@ -18693,7 +18754,10 @@
             "note": "3G service ended June 2022"
           }
         ]
-      }
+      },
+      "bandsDisabled": [
+        "2G-1900"
+      ]
     },
     {
       "country": "United States",
@@ -18713,11 +18777,12 @@
         "allowCat1": true,
         "rank": "Backup"
       },
-      "bands": [
-        "3G-2"
-      ],
+      "bands": [],
       "noBands": [
         "2G"
+      ],
+      "bandsDisabled": [
+        "3G-2"
       ]
     },
     {
@@ -18828,11 +18893,13 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "LTE-4"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "bandsDisabled": [
+        "2G-1900"
+      ]
     },
     {
       "country": "Uruguay",
@@ -18863,13 +18930,15 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
-        "2G-1900",
         "3G-2",
         "3G-5",
         "LTE-2"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "bandsDisabled": [
+        "2G-1900",
+        "2G-850"
+      ]
     },
     {
       "country": "Uzbekistan",
@@ -28553,8 +28622,6 @@
           "M1"
         ],
         "Personal": [
-          "3G-2",
-          "3G-5",
           "Cat1-4",
           "Cat1-7",
           "Cat1-28"
@@ -28610,8 +28677,6 @@
           "M1"
         ],
         "Personal": [
-          "3G-2",
-          "3G-5",
           "Cat1-4",
           "Cat1-7",
           "Cat1-28"
@@ -28680,8 +28745,6 @@
         ],
         "Personal": [
           "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-4",
           "Cat1-7",
           "Cat1-28"
@@ -28757,8 +28820,6 @@
         ],
         "Personal": [
           "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-4"
         ]
       }
@@ -28840,8 +28901,6 @@
         ],
         "Personal": [
           "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-4"
         ]
       }
@@ -28872,8 +28931,6 @@
           "Cat1-4"
         ],
         "Personal": [
-          "3G-2",
-          "3G-5",
           "Cat1-4"
         ]
       },
@@ -29001,8 +29058,6 @@
         ],
         "Personal": [
           "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-4",
           "Cat1-7",
           "Cat1-28"
@@ -29053,8 +29108,6 @@
         ],
         "Personal": [
           "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-4",
           "Cat1-7",
           "Cat1-28"
@@ -29151,9 +29204,7 @@
           "3G-5"
         ],
         "Personal": [
-          "2G-1900",
-          "3G-2",
-          "3G-5"
+          "2G-1900"
         ]
       },
       "notSupported": {
@@ -33525,22 +33576,17 @@
       "sim": 2,
       "recommendation": "POSS",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-1",
           "Cat1-3",
           "Cat1-8"
         ],
         "Robi": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-1",
           "Cat1-3",
@@ -33604,22 +33650,17 @@
       "sim": 2,
       "recommendation": "POSS",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-1",
           "Cat1-3",
           "Cat1-8"
         ],
         "Robi": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-1",
           "Cat1-3",
@@ -33875,18 +33916,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Robi": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -36621,12 +36657,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1900",
           "3G-5",
           "Cat1-12"
         ],
         "CellOne": [
-          "2G-1900",
           "3G-5",
           "Cat1-12"
         ]
@@ -36660,12 +36694,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1900",
           "3G-5",
           "Cat1-12"
         ],
         "CellOne": [
-          "2G-1900",
           "3G-5",
           "Cat1-12"
         ]
@@ -36705,17 +36737,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "CellOne": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-5",
@@ -36763,16 +36786,13 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1900",
           "3G-5"
         ],
         "CellOne": [
-          "2G-1900",
           "3G-5"
         ]
       },
@@ -36791,16 +36811,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1900",
           "3G-5"
         ],
         "CellOne": [
-          "2G-1900",
           "3G-5"
         ]
       },
@@ -36829,16 +36846,13 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1900",
           "3G-5"
         ],
         "CellOne": [
-          "2G-1900",
           "3G-5"
         ]
       },
@@ -36861,12 +36875,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1900",
           "3G-5",
           "Cat1-12"
         ],
         "CellOne": [
-          "2G-1900",
           "3G-5",
           "Cat1-12"
         ]
@@ -38324,9 +38336,7 @@
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "2G-850",
-          "2G-1900"
+          "2G-1800"
         ],
         "Claro": [
           "2G-900",
@@ -38334,12 +38344,6 @@
         ],
         "TIM": [
           "2G-1800"
-        ],
-        "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900"
         ]
       },
       "notSupported": {
@@ -38388,9 +38392,7 @@
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "2G-850",
-          "2G-1900"
+          "2G-1800"
         ],
         "Claro": [
           "2G-900",
@@ -38398,12 +38400,6 @@
         ],
         "TIM": [
           "2G-1800"
-        ],
-        "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900"
         ]
       },
       "notSupported": {
@@ -38476,9 +38472,7 @@
           "3G-8",
           "Cat1-3",
           "Cat1-28",
-          "NB1-28",
-          "2G-850",
-          "2G-1900"
+          "NB1-28"
         ],
         "Claro": [
           "2G-900",
@@ -38498,10 +38492,6 @@
           "NB1-28"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900",
           "3G-1",
           "3G-5",
           "Cat1-3",
@@ -38580,8 +38570,6 @@
           "Cat1-28"
         ],
         "Vivo": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -38591,9 +38579,7 @@
       "notSupported": {
         "*": [
           "3G-5",
-          "NB1-28",
-          "2G-850",
-          "2G-1900"
+          "NB1-28"
         ],
         "Claro": [
           "3G-5"
@@ -38603,8 +38589,6 @@
           "NB1-28"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ]
       }
@@ -38687,8 +38671,6 @@
           "Cat1-28"
         ],
         "Vivo": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -38698,9 +38680,7 @@
       "notSupported": {
         "*": [
           "3G-5",
-          "NB1-28",
-          "2G-850",
-          "2G-1900"
+          "NB1-28"
         ],
         "Claro": [
           "3G-5"
@@ -38710,8 +38690,6 @@
           "NB1-28"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ]
       }
@@ -38749,9 +38727,7 @@
           "3G-8",
           "Cat1-3",
           "Cat1-28",
-          "NB1-28",
-          "2G-850",
-          "2G-1900"
+          "NB1-28"
         ],
         "Claro": [
           "2G-900",
@@ -38769,10 +38745,6 @@
           "NB1-28"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -38794,23 +38766,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900"
-        ],
-        "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
@@ -38857,9 +38814,7 @@
           "3G-8",
           "Cat1-3",
           "Cat1-28",
-          "NB1-28",
-          "2G-850",
-          "2G-1900"
+          "NB1-28"
         ],
         "Claro": [
           "2G-900",
@@ -38879,10 +38834,6 @@
           "NB1-28"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900",
           "3G-1",
           "3G-5",
           "Cat1-3",
@@ -38910,9 +38861,7 @@
           "3G-8",
           "Cat1-3",
           "Cat1-28",
-          "NB1-28",
-          "2G-850",
-          "2G-1900"
+          "NB1-28"
         ],
         "Claro": [
           "2G-900",
@@ -38932,10 +38881,6 @@
           "NB1-28"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900",
           "3G-1",
           "3G-5",
           "Cat1-3",
@@ -38950,23 +38895,14 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900",
           "3G-1",
           "3G-5"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900",
           "3G-1",
           "3G-5"
         ]
@@ -39035,9 +38971,7 @@
           "2G-1800",
           "3G-1",
           "3G-5",
-          "3G-8",
-          "2G-850",
-          "2G-1900"
+          "3G-8"
         ],
         "Claro": [
           "2G-900",
@@ -39052,10 +38986,6 @@
           "3G-8"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-900",
-          "2G-1800",
-          "2G-1900",
           "3G-1",
           "3G-5"
         ]
@@ -39089,33 +39019,24 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
           "Cat1-28"
         ],
         "Vivo": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -39130,33 +39051,24 @@
       "recommendation": "NR",
       "reason": "bands not supported by modem",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Vivo": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-3",
           "Cat1-7",
           "Cat1-28"
         ],
         "Vivo": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-3",
           "Cat1-7",
@@ -45035,8 +44947,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45045,8 +44955,6 @@
           "Cat1-3"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45081,8 +44989,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45091,8 +44997,6 @@
           "Cat1-3"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45136,8 +45040,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45148,8 +45050,6 @@
         "China Mobile": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45221,16 +45121,12 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
           "Cat1-41"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45308,16 +45204,12 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
           "Cat1-41"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45340,8 +45232,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45352,8 +45242,6 @@
         "China Mobile": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45395,8 +45283,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45405,8 +45291,6 @@
           "Cat1-3"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45442,8 +45326,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45454,8 +45336,6 @@
         "China Mobile": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45481,8 +45361,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45493,8 +45371,6 @@
         "China Mobile": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45532,8 +45408,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45541,8 +45415,6 @@
           "Cat1-3"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45608,8 +45480,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45617,8 +45487,6 @@
           "Cat1-3"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45642,8 +45510,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45654,8 +45520,6 @@
         "China Mobile": [
           "2G-900",
           "2G-1800",
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45693,8 +45557,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45702,8 +45564,6 @@
           "Cat1-3"
         ],
         "China Mobile": [
-          "3G-34",
-          "3G-39",
           "Cat1-38",
           "Cat1-39",
           "Cat1-40",
@@ -45730,10 +45590,6 @@
           "2G-1900"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Tigo": [
           "2G-850",
           "2G-1900"
         ]
@@ -45771,10 +45627,6 @@
           "2G-1900"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Tigo": [
           "2G-850",
           "2G-1900"
         ]
@@ -45839,8 +45691,6 @@
           "Cat1-4"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "Cat1-4",
           "Cat1-7"
@@ -45866,13 +45716,9 @@
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-2"
         ]
       }
@@ -45909,8 +45755,6 @@
           "Cat1-4"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "Cat1-4"
         ]
@@ -45943,13 +45787,9 @@
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-2"
         ]
       }
@@ -45986,8 +45826,6 @@
           "Cat1-4"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "Cat1-4"
         ]
@@ -46029,8 +45867,6 @@
           "2G-1900"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "Cat1-7"
         ]
       }
@@ -46107,8 +45943,6 @@
           "Cat1-4"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "Cat1-4",
           "Cat1-7"
@@ -46139,8 +45973,6 @@
           "Cat1-4"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "Cat1-4",
           "Cat1-7"
@@ -46183,18 +46015,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-2"
         ]
       },
@@ -46229,8 +46056,6 @@
           "3G-5"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "3G-2"
         ]
       },
@@ -47127,17 +46952,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1800"
-        ],
-        "Movistar": [
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
@@ -47157,17 +46973,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1800"
-        ],
-        "Movistar": [
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
@@ -47209,13 +47016,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "3G-5",
           "Cat1-3"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "3G-5",
           "Cat1-3"
@@ -47229,18 +47034,15 @@
       "recommendation": "POSS",
       "reason": "May work on Claro",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "Claro": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -47254,18 +47056,15 @@
       "recommendation": "POSS",
       "reason": "May work with partial band support",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -47294,18 +47093,15 @@
       "recommendation": "POSS",
       "reason": "May work on Claro",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "Claro": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -47319,18 +47115,15 @@
       "recommendation": "POSS",
       "reason": "May work with partial band support",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -47363,12 +47156,10 @@
       },
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -47388,17 +47179,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1800"
-        ],
-        "Movistar": [
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
@@ -47432,13 +47214,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "3G-5",
           "Cat1-3"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "3G-5",
           "Cat1-3"
@@ -47455,13 +47235,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "3G-5",
           "Cat1-3"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "3G-5",
           "Cat1-3"
@@ -47474,17 +47252,14 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "3G-5"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "3G-5"
         ]
@@ -47504,16 +47279,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1"
         ],
         "Claro": [
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -47532,17 +47304,14 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "3G-5"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "3G-5"
         ]
@@ -47574,12 +47343,10 @@
       },
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -47592,16 +47359,13 @@
       "recommendation": "NR",
       "reason": "bands not supported by modem",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1"
         ],
         "Movistar": [
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -64338,14 +64102,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
         "mPulse": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ]
@@ -64378,14 +64138,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
         "mPulse": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ]
@@ -64474,18 +64230,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ],
         "mPulse": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ]
       },
@@ -71399,14 +71150,13 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
+          "3G-1",
           "3G-8",
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71452,14 +71202,13 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
+          "3G-1",
           "3G-8",
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71508,16 +71257,15 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "2G-900",
           "2G-1800",
+          "3G-1",
           "3G-8",
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71580,21 +71328,20 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "3G",
         "Cat1",
-        "2G"
+        "2G",
+        "3G"
       ],
       "supported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "2G-900",
           "2G-1800",
+          "3G-1",
           "3G-8"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71672,21 +71419,20 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "3G",
         "Cat1",
-        "2G"
+        "2G",
+        "3G"
       ],
       "supported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "2G-900",
           "2G-1800",
+          "3G-1",
           "3G-8"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71727,16 +71473,15 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "2G-900",
           "2G-1800",
+          "3G-1",
           "3G-8",
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71790,13 +71535,11 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71827,16 +71570,15 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "2G-900",
           "2G-1800",
+          "3G-1",
           "3G-8",
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71871,16 +71613,15 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "2G-900",
           "2G-1800",
+          "3G-1",
           "3G-8",
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -71911,17 +71652,12 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "3G",
         "2G"
       ],
       "supported": {
         "*": [
-          "3G-1",
           "2G-900",
           "2G-1800"
-        ],
-        "3 (Tre)": [
-          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
@@ -71982,18 +71718,15 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "3G",
-        "2G"
+        "2G",
+        "3G"
       ],
       "supported": {
         "*": [
-          "3G-1",
           "2G-900",
           "2G-1800",
+          "3G-1",
           "3G-8"
-        ],
-        "3 (Tre)": [
-          "3G-1"
         ],
         "Meteor": [
           "2G-900",
@@ -72043,7 +71776,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "2G-900",
@@ -72051,7 +71783,6 @@
           "NB1-20"
         ],
         "3 (Tre)": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
@@ -72070,17 +71801,12 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "3G",
         "2G"
       ],
       "supported": {
         "*": [
-          "3G-1",
           "2G-900",
           "2G-1800"
-        ],
-        "3 (Tre)": [
-          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
@@ -81554,7 +81280,6 @@
           "M1"
         ],
         "Tango": [
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -81603,7 +81328,6 @@
           "M1"
         ],
         "Tango": [
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -81665,7 +81389,6 @@
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -81677,20 +81400,17 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       },
@@ -81726,7 +81446,6 @@
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       },
@@ -81756,20 +81475,17 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       },
@@ -81805,7 +81521,6 @@
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       },
@@ -81851,7 +81566,6 @@
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -81907,7 +81621,6 @@
           "M1-3"
         ],
         "Tango": [
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -81961,7 +81674,6 @@
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -82005,7 +81717,6 @@
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -82035,8 +81746,7 @@
         ],
         "Tango": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -82064,19 +81774,16 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Tango": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -82113,8 +81820,7 @@
         ],
         "Tango": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -82168,7 +81874,6 @@
         "Tango": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -82198,8 +81903,7 @@
         ],
         "Tango": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -101327,8 +101031,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "3G-1",
@@ -101337,8 +101040,6 @@
           "Cat1-20"
         ],
         "TMN": [
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101382,8 +101083,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "3G-1",
@@ -101392,8 +101092,6 @@
           "Cat1-20"
         ],
         "TMN": [
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101438,8 +101136,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "2G-900",
@@ -101452,8 +101149,6 @@
         "TMN": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101511,8 +101206,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "2G-900",
@@ -101525,8 +101219,6 @@
         "TMN": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101593,8 +101285,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "2G-900",
@@ -101607,8 +101298,6 @@
         "TMN": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101637,8 +101326,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "2G-900",
@@ -101651,8 +101339,6 @@
         "TMN": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101706,8 +101392,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "3G-1",
@@ -101716,8 +101401,6 @@
           "Cat1-20"
         ],
         "TMN": [
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101754,8 +101437,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "2G-900",
@@ -101768,8 +101450,6 @@
         "TMN": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101798,8 +101478,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "2G-900",
@@ -101812,8 +101491,6 @@
         "TMN": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -101840,8 +101517,7 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8"
+          "3G-1"
         ],
         "NOS": [
           "2G-900",
@@ -101850,9 +101526,7 @@
         ],
         "TMN": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "Vodafone": [
           "2G-900",
@@ -101926,8 +101600,7 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8"
+          "3G-1"
         ],
         "NOS": [
           "2G-900",
@@ -101936,9 +101609,7 @@
         ],
         "TMN": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "Vodafone": [
           "2G-900",
@@ -101983,8 +101654,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "NOS": [
           "2G-900",
@@ -101997,8 +101667,6 @@
         "TMN": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -102025,8 +101693,7 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8"
+          "3G-1"
         ],
         "NOS": [
           "2G-900",
@@ -102035,9 +101702,7 @@
         ],
         "TMN": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "Vodafone": [
           "2G-900",
@@ -103404,12 +103069,9 @@
           "M1-7"
         ],
         "Telekom Romania": [
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -103466,12 +103128,9 @@
           "M1-7"
         ],
         "Telekom Romania": [
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -103539,14 +103198,11 @@
         "Telekom Romania": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -103560,23 +103216,18 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ]
@@ -103621,14 +103272,11 @@
         "Telekom Romania": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ]
@@ -103665,23 +103313,18 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ]
@@ -103726,14 +103369,11 @@
         "Telekom Romania": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ]
@@ -103790,14 +103430,11 @@
         "Telekom Romania": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -103857,8 +103494,6 @@
           "M1-7"
         ],
         "Vodafone": [
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -103918,14 +103553,11 @@
         "Telekom Romania": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -103975,14 +103607,11 @@
         "Telekom Romania": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -104013,9 +103642,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -104048,21 +103675,16 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "Vodafone": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -104102,14 +103724,11 @@
         ],
         "Telekom Romania": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Vodafone": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -104175,8 +103794,6 @@
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20",
           "NB1-20"
@@ -104207,9 +103824,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -106958,17 +106573,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-5",
@@ -106986,17 +106592,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-5",
@@ -107036,12 +106633,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107057,12 +106652,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107078,12 +106671,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107107,12 +106698,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107128,12 +106717,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107159,14 +106746,7 @@
           "Cat1-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -107182,17 +106762,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-5",
@@ -107224,12 +106795,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107245,12 +106814,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107262,16 +106829,13 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
           "3G-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5"
         ]
       },
@@ -107290,16 +106854,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
           "3G-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5"
         ]
       },
@@ -107318,16 +106879,13 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
           "3G-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5"
         ]
       },
@@ -107346,16 +106904,13 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
           "3G-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5"
         ]
       },
@@ -107378,12 +106933,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "Cat1-5"
         ]
@@ -107647,23 +107200,18 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ]
@@ -107695,23 +107243,18 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-20"
         ]
@@ -107801,21 +107344,16 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "Vodafone": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -110895,18 +110433,15 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
         ],
         "O2": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -110946,18 +110481,15 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
         ],
         "O2": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -110998,7 +110530,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
@@ -111006,14 +110537,12 @@
         "O2": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111032,19 +110561,16 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -111065,14 +110591,12 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
@@ -111080,14 +110604,12 @@
         "O2": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111115,19 +110637,16 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -111148,14 +110667,12 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
@@ -111163,14 +110680,12 @@
         "O2": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111195,7 +110710,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
@@ -111203,14 +110717,12 @@
         "O2": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111260,18 +110772,15 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
         ],
         "O2": [
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111304,7 +110813,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
@@ -111312,14 +110820,12 @@
         "O2": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111344,7 +110850,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
@@ -111352,14 +110857,12 @@
         "O2": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111378,24 +110881,20 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "O2": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "T-Mobile": [
           "2G-900",
@@ -111429,19 +110928,16 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -111461,24 +110957,20 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "O2": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Telekom": [
           "2G-900",
@@ -111518,7 +111010,6 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
@@ -111526,14 +111017,12 @@
         "O2": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Orange": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-7",
           "Cat1-20"
         ],
@@ -111552,24 +111041,20 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "O2": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "T-Mobile": [
           "2G-900",
@@ -111745,15 +111230,12 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -111761,8 +111243,6 @@
         "SI Mobil": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -111823,15 +111303,12 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -111839,8 +111316,6 @@
         "SI Mobil": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -111956,8 +111431,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "Mobitel": [
           "3G-1",
@@ -111966,8 +111440,6 @@
           "Cat1-20"
         ],
         "SI Mobil": [
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -112067,8 +111539,7 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8"
+          "3G-1"
         ],
         "Mobitel": [
           "2G-900",
@@ -112077,9 +111548,7 @@
         ],
         "SI Mobil": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -112106,21 +111575,16 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "SI Mobil": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -112195,8 +111659,7 @@
           "3G-1",
           "Cat1-3",
           "Cat1-7",
-          "Cat1-20",
-          "3G-8"
+          "Cat1-20"
         ],
         "Mobitel": [
           "2G-900",
@@ -112209,8 +111672,6 @@
         "SI Mobil": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -112230,8 +111691,7 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8"
+          "3G-1"
         ],
         "Mobitel": [
           "2G-900",
@@ -112240,9 +111700,7 @@
         ],
         "SI Mobil": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -127682,15 +127140,13 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "M1",
-        "2G"
+        "M1"
       ],
       "supported": {
         "*": [
           "M1-2",
           "M1-4",
           "M1-12",
-          "2G-1900",
           "M1-5",
           "M1-66",
           "M1-13"
@@ -127701,7 +127157,6 @@
           "M1-12"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "M1-2",
           "M1-4",
           "M1-5",
@@ -127763,9 +127218,6 @@
           "NB1-12",
           "M1",
           "M1-71"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ],
         "Verizon": [
           "Cat1-2",
@@ -127784,15 +127236,13 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "M1",
-        "2G"
+        "M1"
       ],
       "supported": {
         "*": [
           "M1-2",
           "M1-4",
           "M1-12",
-          "2G-1900",
           "M1-5",
           "M1-66",
           "M1-13"
@@ -127803,7 +127253,6 @@
           "M1-12"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "M1-2",
           "M1-4",
           "M1-5",
@@ -127865,9 +127314,6 @@
           "NB1-12",
           "M1",
           "M1-71"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ],
         "Verizon": [
           "Cat1-2",
@@ -127977,7 +127423,6 @@
           "Cat1-29",
           "Cat1-30",
           "Cat1-66",
-          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128006,7 +127451,6 @@
           "Cat1-66"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128019,9 +127463,6 @@
           "M1",
           "M1-66",
           "M1-71"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ],
         "Verizon": [
           "Cat1-2",
@@ -128044,7 +127485,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128063,7 +127503,6 @@
           "M1-71"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128107,7 +127546,6 @@
           "M1-2",
           "M1-4",
           "M1-12",
-          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128141,7 +127579,6 @@
           "M1-12"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128158,9 +127595,6 @@
           "M1-12",
           "M1-66",
           "M1-71"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ],
         "Verizon": [
           "Cat1-2",
@@ -128192,7 +127626,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128211,7 +127644,6 @@
           "M1-71"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128255,7 +127687,6 @@
           "M1-2",
           "M1-4",
           "M1-12",
-          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128289,7 +127720,6 @@
           "M1-12"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128306,9 +127736,6 @@
           "M1-12",
           "M1-66",
           "M1-71"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ],
         "Verizon": [
           "Cat1-2",
@@ -128359,9 +127786,6 @@
           "Cat1-5",
           "Cat1-12"
         ],
-        "Union Telephone": [
-          "3G-2"
-        ],
         "Verizon": [
           "Cat1-2",
           "Cat1-4",
@@ -128379,7 +127803,6 @@
           "M1-2",
           "M1-4",
           "M1-12",
-          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128402,7 +127825,6 @@
           "M1-12"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-66",
           "Cat1-71",
           "NB1-2",
@@ -128437,17 +127859,8 @@
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "T-Mobile (USA)": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-2",
@@ -128594,7 +128007,6 @@
           "Cat1-29",
           "Cat1-30",
           "Cat1-66",
-          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128623,7 +128035,6 @@
           "Cat1-66"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128636,9 +128047,6 @@
           "M1",
           "M1-66",
           "M1-71"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ],
         "Verizon": [
           "Cat1-2",
@@ -128695,7 +128103,6 @@
           "Cat1-29",
           "Cat1-30",
           "Cat1-66",
-          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128724,7 +128131,6 @@
           "Cat1-66"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -128737,9 +128143,6 @@
           "M1",
           "M1-66",
           "M1-71"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ],
         "Verizon": [
           "Cat1-2",
@@ -128758,17 +128161,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G/3G sunset in NorAm coming soon",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "T-Mobile (USA)": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-2",
@@ -128832,17 +128226,8 @@
       "sim": 2,
       "recommendation": "NRND",
       "reason": "2G/3G sunset in NorAm coming soon",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "T-Mobile (USA)": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-2",
@@ -128889,24 +128274,16 @@
       "recommendation": "NRND",
       "reason": "2G/3G sunset in NorAm coming soon",
       "technologies": [
-        "3G",
-        "2G"
+        "3G"
       ],
       "supported": {
         "*": [
           "3G-2",
-          "3G-5",
-          "2G-1900"
+          "3G-5"
         ],
         "Alaska Wireless": [
           "3G-2",
           "3G-5"
-        ],
-        "T-Mobile (USA)": [
-          "2G-1900"
-        ],
-        "Union Telephone": [
-          "3G-2"
         ]
       },
       "notSupported": {
@@ -128988,17 +128365,8 @@
       "modem": "U260",
       "sim": 1,
       "recommendation": "NRND",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "T-Mobile (USA)": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-2",
@@ -129078,7 +128446,6 @@
           "M1-2",
           "M1-4",
           "M1-12",
-          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -129103,7 +128470,6 @@
           "M1-12"
         ],
         "T-Mobile (USA)": [
-          "2G-1900",
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
@@ -129134,19 +128500,10 @@
       ],
       "supported": {
         "*": [
-          "2G-1800",
-          "2G-1900",
-          "2G-850"
+          "2G-1800"
         ],
         "Antel": [
           "2G-1800"
-        ],
-        "Claro": [
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-850",
-          "2G-1900"
         ]
       },
       "notSupported": {
@@ -129183,19 +128540,10 @@
       ],
       "supported": {
         "*": [
-          "2G-1800",
-          "2G-1900",
-          "2G-850"
+          "2G-1800"
         ],
         "Antel": [
           "2G-1800"
-        ],
-        "Claro": [
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-850",
-          "2G-1900"
         ]
       },
       "notSupported": {
@@ -129252,9 +128600,7 @@
           "2G-1800",
           "3G-1",
           "Cat1-4",
-          "2G-1900",
           "3G-2",
-          "2G-850",
           "3G-5",
           "Cat1-2"
         ],
@@ -129264,13 +128610,10 @@
           "Cat1-4"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2",
           "Cat1-4"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
@@ -129329,9 +128672,7 @@
       "notSupported": {
         "*": [
           "Cat1-4",
-          "2G-1900",
           "3G-2",
-          "2G-850",
           "3G-5",
           "Cat1-2"
         ],
@@ -129339,13 +128680,10 @@
           "Cat1-4"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2",
           "Cat1-4"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
@@ -129412,9 +128750,7 @@
       "notSupported": {
         "*": [
           "Cat1-4",
-          "2G-1900",
           "3G-2",
-          "2G-850",
           "3G-5",
           "Cat1-2"
         ],
@@ -129422,13 +128758,10 @@
           "Cat1-4"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2",
           "Cat1-4"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
@@ -129468,20 +128801,11 @@
       "notSupported": {
         "*": [
           "2G-1800",
-          "3G-1",
-          "2G-1900",
-          "2G-850"
+          "3G-1"
         ],
         "Antel": [
           "2G-1800",
           "3G-1"
-        ],
-        "Claro": [
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-850",
-          "2G-1900"
         ]
       }
     },
@@ -129499,19 +128823,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-2",
@@ -129548,9 +128861,7 @@
           "2G-1800",
           "3G-1",
           "Cat1-4",
-          "2G-1900",
           "3G-2",
-          "2G-850",
           "3G-5",
           "Cat1-2"
         ],
@@ -129560,13 +128871,10 @@
           "Cat1-4"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2",
           "Cat1-4"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
@@ -129586,9 +128894,7 @@
           "2G-1800",
           "3G-1",
           "Cat1-4",
-          "2G-1900",
           "3G-2",
-          "2G-850",
           "3G-5",
           "Cat1-2"
         ],
@@ -129598,13 +128904,10 @@
           "Cat1-4"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2",
           "Cat1-4"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
@@ -129617,19 +128920,14 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5"
         ]
@@ -129684,9 +128982,7 @@
         "*": [
           "2G-1800",
           "3G-1",
-          "2G-1900",
           "3G-2",
-          "2G-850",
           "3G-5"
         ],
         "Antel": [
@@ -129694,12 +128990,9 @@
           "3G-1"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5"
         ]
@@ -129726,19 +129019,14 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5"
         ]
@@ -129762,15 +129050,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
@@ -133121,6 +132405,3426 @@
       "flashFileSystem": true,
       "nfcTag": false,
       "wifi": "6e"
+    }
+  ],
+  "sunset": [
+    {
+      "date": "2030-12-31",
+      "country": "Belgium",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2030-12-31",
+      "country": "Luxembourg",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Tango"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2030-12-31",
+      "country": "Poland",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        },
+        {
+          "carrier": "T-Mobile",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Play",
+        "Plus"
+      ],
+      "3G": [
+        "Play",
+        "Plus"
+      ]
+    },
+    {
+      "date": "2030-12-31",
+      "country": "Romania",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2030-12-31",
+      "country": "Slovakia",
+      "items": [
+        {
+          "carrier": "O2",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Telekom"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2030-12-31",
+      "country": "Spain",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Telefonica",
+        "Yoigo"
+      ],
+      "3G": [
+        "Yoigo"
+      ]
+    },
+    {
+      "date": "2030-12-31",
+      "country": "United Kingdom",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Sure"
+      ],
+      "3G": [
+        "Sure"
+      ]
+    },
+    {
+      "date": "2030-03-31",
+      "country": "Guyana",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2030-03-31",
+      "country": "Haiti",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Albania",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "ALBtelecom",
+        "Telekom"
+      ],
+      "3G": [
+        "ALBtelecom",
+        "Telekom"
+      ]
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Czechia",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Germany",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "O2",
+        "Telekom"
+      ],
+      "3G": [
+        "O2"
+      ]
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Ghana",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "AirtelTigo",
+        "MTN"
+      ],
+      "3G": [
+        "AirtelTigo",
+        "MTN",
+        "Vodafone"
+      ]
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Greece",
+      "items": [
+        {
+          "carrier": "Cosmote",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Wind"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Ireland",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Meteor",
+        "O2"
+      ]
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Italy",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Wind"
+      ],
+      "3G": [
+        "Wind"
+      ]
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Netherlands",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Portugal",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "NOS",
+        "TMN"
+      ],
+      "3G": [
+        "NOS"
+      ]
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Romania",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Orange"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Spain",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Telefonica",
+        "Yoigo"
+      ],
+      "3G": [
+        "Yoigo"
+      ]
+    },
+    {
+      "date": "2030-01-01",
+      "country": "Turkey",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Türk Telekom",
+        "Turkcell"
+      ],
+      "3G": [
+        "Türk Telekom",
+        "Turkcell",
+        "Vodafone"
+      ]
+    },
+    {
+      "date": "2029-12-31",
+      "country": "Finland",
+      "items": [
+        {
+          "carrier": "Elisa",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2029-12-31",
+      "country": "France",
+      "items": [
+        {
+          "carrier": "Bouygues",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Free Mobile"
+      ],
+      "3G": [
+        "Free Mobile"
+      ]
+    },
+    {
+      "date": "2029-12-31",
+      "country": "Italy",
+      "items": [
+        {
+          "carrier": "TIM",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Vodafone",
+        "Wind"
+      ],
+      "3G": [
+        "Wind"
+      ]
+    },
+    {
+      "date": "2029-12-31",
+      "country": "Romania",
+      "items": [
+        {
+          "carrier": "Telekom Romania",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Vodafone"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2029-12-31",
+      "country": "United Kingdom",
+      "items": [
+        {
+          "carrier": "EE",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Sure",
+        "Vodafone"
+      ],
+      "3G": [
+        "Sure"
+      ]
+    },
+    {
+      "date": "2029-03-31",
+      "country": "Trinidad and Tobago",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "TSTT"
+      ],
+      "3G": [
+        "TSTT"
+      ]
+    },
+    {
+      "date": "2028-12-31",
+      "country": "France",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        },
+        {
+          "carrier": "SFR",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Free Mobile"
+      ],
+      "3G": [
+        "Bouygues",
+        "Free Mobile"
+      ]
+    },
+    {
+      "date": "2028-12-31",
+      "country": "Lithuania",
+      "items": [
+        {
+          "carrier": "Bite",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Omnitel",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Tele2",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2028-09-30",
+      "country": "Vietnam",
+      "items": [
+        {
+          "carrier": "MobiFone",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Vinaphone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2028-01-01",
+      "country": "Czechia",
+      "items": [
+        {
+          "carrier": "T-Mobile",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2027-12-31",
+      "country": "Belgium",
+      "items": [
+        {
+          "carrier": "Base",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Proximus",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Orange"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2027-12-31",
+      "country": "South Africa",
+      "items": [
+        {
+          "carrier": "Cell C",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Cell C",
+          "rat": "3G"
+        },
+        {
+          "carrier": "MTN",
+          "rat": "2G"
+        },
+        {
+          "carrier": "MTN",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Vodacom",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Vodacom",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2027-12-31",
+      "country": "Sweden",
+      "items": [
+        {
+          "carrier": "Telia",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "3 (Tre)"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2027-12-31",
+      "country": "Thailand",
+      "items": [
+        {
+          "carrier": "AIS",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "DTAC"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2027-03-31",
+      "country": "Guyana",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2027-03-31",
+      "country": "Haiti",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Digicel"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2026-12-31",
+      "country": "Bangladesh",
+      "items": [
+        {
+          "carrier": "GrameenPhone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Bangalink"
+      ],
+      "3G": [
+        "Bangalink"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "country": "El Salvador",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Telefonica"
+      ],
+      "3G": [
+        "Telefonica"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "country": "France",
+      "items": [
+        {
+          "carrier": "Bouygues",
+          "rat": "2G"
+        },
+        {
+          "carrier": "SFR",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Free Mobile"
+      ],
+      "3G": [
+        "Bouygues",
+        "Free Mobile",
+        "Orange",
+        "SFR"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "country": "Guatemala",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Movistar"
+      ],
+      "3G": [
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "country": "Luxembourg",
+      "items": [
+        {
+          "carrier": "POST",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Tango"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2026-12-31",
+      "country": "Paraguay",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Personal",
+        "Tigo",
+        "Vox"
+      ],
+      "3G": [
+        "Personal",
+        "Tigo",
+        "Vox"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "country": "Peru",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Bitel",
+        "Entel",
+        "Movistar"
+      ],
+      "3G": [
+        "Bitel",
+        "Entel",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "country": "Spain",
+      "items": [
+        {
+          "carrier": "Telefonica",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Telefonica",
+        "Vodafone",
+        "Yoigo"
+      ],
+      "3G": [
+        "Yoigo"
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "country": "Netherlands",
+      "items": [
+        {
+          "carrier": "T-Mobile",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2026-03-31",
+      "country": "Japan",
+      "items": [
+        {
+          "carrier": "NTT DoCoMo",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Argentina",
+      "items": [
+        {
+          "carrier": "Movistar",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Claro",
+        "Movistar",
+        "Personal"
+      ],
+      "3G": [
+        "Claro"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Austria",
+      "items": [
+        {
+          "carrier": "A1",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "3 (Drei)",
+        "A1",
+        "T-Mobile"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Bangladesh",
+      "items": [
+        {
+          "carrier": "GrameenPhone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Bangalink"
+      ],
+      "3G": [
+        "Bangalink",
+        "GrameenPhone"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Belgium",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Base",
+        "Orange",
+        "Proximus"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Bulgaria",
+      "items": [
+        {
+          "carrier": "A1",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "A1",
+        "Telenor",
+        "Vivacom"
+      ],
+      "3G": [
+        "Telenor",
+        "Vivacom"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Canada",
+      "items": [
+        {
+          "carrier": "Bell Mobility",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Telus",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Sasktel",
+        "Videotron"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "China",
+      "items": [
+        {
+          "carrier": "China Mobile",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Cyprus",
+      "items": [
+        {
+          "carrier": "Cytamobile-Vodafone",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Cytamobile-Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "MTN"
+      ],
+      "3G": [
+        "MTN"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Czechia",
+      "items": [
+        {
+          "carrier": "O2",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "T-Mobile",
+        "Vodafone"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Denmark",
+      "items": [
+        {
+          "carrier": "3 (Tre)",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "TDC",
+        "Telenor",
+        "Telia"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Dominican Republic",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Altice Dominicana",
+        "Viva"
+      ],
+      "3G": [
+        "Altice Dominicana",
+        "Viva"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Estonia",
+      "items": [
+        {
+          "carrier": "Tele2",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Elisa",
+        "Tele2",
+        "Telia"
+      ],
+      "3G": [
+        "Elisa"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Finland",
+      "items": [
+        {
+          "carrier": "DNA",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Telia",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Elisa"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "France",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Bouygues",
+        "Free Mobile",
+        "SFR"
+      ],
+      "3G": [
+        "Bouygues",
+        "Free Mobile",
+        "Orange",
+        "SFR"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Greece",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Cosmote",
+        "Wind"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Hungary",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Magyar Telekom",
+        "Telenor"
+      ],
+      "3G": [
+        "Telenor"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Iceland",
+      "items": [
+        {
+          "carrier": "Nova",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Siminn",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "India",
+      "items": [
+        {
+          "carrier": "BSNL",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Airtel",
+        "BSNL",
+        "Idea"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Ireland",
+      "items": [
+        {
+          "carrier": "Meteor",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": [
+        "Meteor",
+        "O2"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Israel",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Pelephone",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Pelephone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Hot Mobile"
+      ],
+      "3G": [
+        "Hot Mobile"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Latvia",
+      "items": [
+        {
+          "carrier": "Bite",
+          "rat": "3G"
+        },
+        {
+          "carrier": "LMT",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Tele2",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Bite",
+        "LMT",
+        "Tele2"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Lithuania",
+      "items": [
+        {
+          "carrier": "Bite",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Omnitel",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Tele2",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Bite",
+        "Omnitel",
+        "Tele2"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Luxembourg",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "POST",
+        "Tango"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Malta",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Go Mobile"
+      ],
+      "3G": [
+        "Go Mobile",
+        "Vodafone"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Moldova",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Moldcell",
+        "Orange"
+      ],
+      "3G": [
+        "Moldcell"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Myanmar",
+      "items": [
+        {
+          "carrier": "Telenor",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "MPT"
+      ],
+      "3G": [
+        "MPT"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "New Zealand",
+      "items": [
+        {
+          "carrier": "2degrees",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Spark",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Nigeria",
+      "items": [
+        {
+          "carrier": "MTN",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "9mobile",
+        "Airtel",
+        "Glo"
+      ],
+      "3G": [
+        "9mobile",
+        "Airtel",
+        "Glo",
+        "MTN"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Norway",
+      "items": [
+        {
+          "carrier": "Telenor",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Telia",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "TDC"
+      ],
+      "3G": [
+        "TDC"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Oman",
+      "items": [
+        {
+          "carrier": "Omantel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Omantel",
+        "Ooredoo"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Pakistan",
+      "items": [
+        {
+          "carrier": "Telenor",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Telenor",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Mobilink",
+        "Ufone",
+        "Warid"
+      ],
+      "3G": [
+        "Mobilink",
+        "Ufone",
+        "Warid"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Poland",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Play",
+        "Plus",
+        "T-Mobile"
+      ],
+      "3G": [
+        "Play",
+        "Plus"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Qatar",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Ooredoo",
+        "Vodafone"
+      ],
+      "3G": [
+        "Ooredoo"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Romania",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Telekom Romania",
+        "Vodafone"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Russia",
+      "items": [
+        {
+          "carrier": "Megafon",
+          "rat": "3G"
+        },
+        {
+          "carrier": "MTS",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Tele2",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Beeline",
+        "Megafon",
+        "MTS",
+        "Tele2"
+      ],
+      "3G": [
+        "Beeline"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Saudi Arabia",
+      "items": [
+        {
+          "carrier": "STC",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Mobily",
+        "Zain"
+      ],
+      "3G": [
+        "Mobily",
+        "Zain"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Serbia",
+      "items": [
+        {
+          "carrier": "VIP",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Telenor",
+        "VIP"
+      ],
+      "3G": [
+        "Telenor"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Spain",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Telefonica",
+        "Vodafone",
+        "Yoigo"
+      ],
+      "3G": [
+        "Telefonica",
+        "Yoigo"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Sweden",
+      "items": [
+        {
+          "carrier": "3 (Tre)",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Tele2",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Tele2",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Telenor",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Telenor",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Telia",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "3 (Tre)",
+        "Telia"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Switzerland",
+      "items": [
+        {
+          "carrier": "Swisscom",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Salt"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Thailand",
+      "items": [
+        {
+          "carrier": "DTAC",
+          "rat": "3G"
+        },
+        {
+          "carrier": "True Move",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "DTAC"
+      ],
+      "3G": [
+        "AIS"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Uruguay",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Antel"
+      ],
+      "3G": [
+        "Antel",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "country": "Venezuela",
+      "items": [
+        {
+          "carrier": "Movistar",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2025-12-01",
+      "country": "Netherlands",
+      "items": [
+        {
+          "carrier": "KPN",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": [
+        "T-Mobile"
+      ]
+    },
+    {
+      "date": "2025-09-30",
+      "country": "United Kingdom",
+      "items": [
+        {
+          "carrier": "O2",
+          "rat": "2G"
+        },
+        {
+          "carrier": "O2",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "EE",
+        "Sure",
+        "Vodafone"
+      ],
+      "3G": [
+        "Sure"
+      ]
+    },
+    {
+      "date": "2025-07-31",
+      "country": "Canada",
+      "items": [
+        {
+          "carrier": "Rogers Wireless",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Bell Mobility",
+        "Sasktel",
+        "Telus",
+        "Videotron"
+      ]
+    },
+    {
+      "date": "2025-06-30",
+      "country": "Switzerland",
+      "items": [
+        {
+          "carrier": "Sunrise",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Salt",
+        "Swisscom"
+      ]
+    },
+    {
+      "date": "2025-06-30",
+      "country": "Taiwan",
+      "items": [
+        {
+          "carrier": "Chunghwa",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "T Star"
+      ]
+    },
+    {
+      "date": "2025-06-01",
+      "country": "Bosnia and Herzegovina",
+      "items": [
+        {
+          "carrier": "BH Telecom",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "HT Eronet"
+      ],
+      "3G": [
+        "HT Eronet"
+      ]
+    },
+    {
+      "date": "2025-03-31",
+      "country": "Austria",
+      "items": [
+        {
+          "carrier": "3 (Drei)",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "3 (Drei)",
+        "A1",
+        "T-Mobile"
+      ],
+      "3G": [
+        "A1"
+      ]
+    },
+    {
+      "date": "2025-03-31",
+      "country": "Trinidad and Tobago",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "TSTT"
+      ],
+      "3G": [
+        "Digicel",
+        "TSTT"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "country": "Montenegro",
+      "items": [
+        {
+          "carrier": "Mtel",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Mtel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "T-Mobile",
+        "Telenor"
+      ],
+      "3G": [
+        "T-Mobile",
+        "Telenor"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Austria",
+      "items": [
+        {
+          "carrier": "T-Mobile",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "3 (Drei)",
+        "A1",
+        "T-Mobile"
+      ],
+      "3G": [
+        "3 (Drei)",
+        "A1"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Belgium",
+      "items": [
+        {
+          "carrier": "Proximus",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Base",
+        "Orange",
+        "Proximus"
+      ],
+      "3G": [
+        "Orange"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "China",
+      "items": [
+        {
+          "carrier": "China Unicom",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "China Mobile"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2024-12-31",
+      "country": "El Salvador",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Telefonica"
+      ],
+      "3G": [
+        "Claro",
+        "Telefonica"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Finland",
+      "items": [
+        {
+          "carrier": "DNA",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "DNA",
+        "Elisa",
+        "Telia"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Guatemala",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Movistar"
+      ],
+      "3G": [
+        "Claro",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Iceland",
+      "items": [
+        {
+          "carrier": "Siminn",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Nova",
+        "Siminn",
+        "Vodafone"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "India",
+      "items": [
+        {
+          "carrier": "Idea",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Airtel",
+        "BSNL",
+        "Idea"
+      ],
+      "3G": [
+        "BSNL"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Kyrgyzstan",
+      "items": [
+        {
+          "carrier": "Beeline",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Beeline"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Mexico",
+      "items": [
+        {
+          "carrier": "Telcel",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "AT&T",
+        "Movistar",
+        "Telcel"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Myanmar",
+      "items": [
+        {
+          "carrier": "Telenor",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "MPT"
+      ],
+      "3G": [
+        "MPT",
+        "Telenor"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "New Zealand",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": [
+        "2degrees",
+        "Spark"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Oman",
+      "items": [
+        {
+          "carrier": "Ooredoo",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Omantel",
+        "Ooredoo"
+      ],
+      "3G": [
+        "Omantel"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "Peru",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Bitel",
+        "Entel",
+        "Movistar"
+      ],
+      "3G": [
+        "Bitel",
+        "Claro",
+        "Entel",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "country": "United Kingdom",
+      "items": [
+        {
+          "carrier": "3",
+          "rat": "3G"
+        },
+        {
+          "carrier": "EE",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "EE",
+        "O2",
+        "Sure",
+        "Vodafone"
+      ],
+      "3G": [
+        "O2",
+        "Sure"
+      ]
+    },
+    {
+      "date": "2024-12-13",
+      "country": "Paraguay",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Personal",
+        "Tigo",
+        "Vox"
+      ],
+      "3G": [
+        "Claro",
+        "Personal",
+        "Tigo",
+        "Vox"
+      ]
+    },
+    {
+      "date": "2024-11-30",
+      "country": "Chile",
+      "items": [
+        {
+          "carrier": "Entel",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Claro"
+      ],
+      "3G": [
+        "Claro",
+        "Entel",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2024-11-30",
+      "country": "Singapore",
+      "items": [
+        {
+          "carrier": "SingTel",
+          "rat": "3G"
+        },
+        {
+          "carrier": "StarHub",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2024-11-08",
+      "country": "Hong Kong",
+      "items": [
+        {
+          "carrier": "CSL",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "CSL",
+        "SmarTone"
+      ]
+    },
+    {
+      "date": "2024-10-30",
+      "country": "Ireland",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Meteor",
+        "Vodafone"
+      ],
+      "3G": [
+        "Meteor",
+        "O2"
+      ]
+    },
+    {
+      "date": "2024-10-28",
+      "country": "Australia",
+      "items": [
+        {
+          "carrier": "Optus",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Telstra",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2024-09-30",
+      "country": "Belgium",
+      "items": [
+        {
+          "carrier": "Base",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Base",
+        "Orange",
+        "Proximus"
+      ],
+      "3G": [
+        "Orange",
+        "Proximus"
+      ]
+    },
+    {
+      "date": "2024-09-30",
+      "country": "Vietnam",
+      "items": [
+        {
+          "carrier": "Viettel",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Vinaphone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "MobiFone",
+        "Vinaphone"
+      ]
+    },
+    {
+      "date": "2024-06-30",
+      "country": "Hungary",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Magyar Telekom",
+        "Telenor",
+        "Vodafone"
+      ],
+      "3G": [
+        "Telenor"
+      ]
+    },
+    {
+      "date": "2024-06-30",
+      "country": "Jamaica",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Flow"
+      ]
+    },
+    {
+      "date": "2024-06-30",
+      "country": "Taiwan",
+      "items": [
+        {
+          "carrier": "Taiwan Mobile",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Chunghwa",
+        "T Star"
+      ]
+    },
+    {
+      "date": "2024-05-03",
+      "country": "Argentina",
+      "items": [
+        {
+          "carrier": "Personal",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Claro",
+        "Movistar",
+        "Personal"
+      ],
+      "3G": [
+        "Claro",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2024-04-15",
+      "country": "Japan",
+      "items": [
+        {
+          "carrier": "Softbank",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "NTT DoCoMo"
+      ]
+    },
+    {
+      "date": "2024-04-02",
+      "country": "United States",
+      "items": [
+        {
+          "carrier": "T-Mobile (USA)",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2024-01-31",
+      "country": "Portugal",
+      "items": [
+        {
+          "carrier": "TMN",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "NOS",
+        "TMN",
+        "Vodafone"
+      ],
+      "3G": [
+        "NOS"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "country": "Luxembourg",
+      "items": [
+        {
+          "carrier": "Tango",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "POST",
+        "Tango"
+      ],
+      "3G": [
+        "Orange"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "country": "Slovakia",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "O2",
+        "Orange",
+        "Telekom"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Chile",
+      "items": [
+        {
+          "carrier": "Movistar",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Claro",
+        "Entel"
+      ],
+      "3G": [
+        "Claro",
+        "Entel",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "China",
+      "items": [
+        {
+          "carrier": "China Mobile",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "China Mobile"
+      ],
+      "3G": [
+        "China Unicom"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Costa Rica",
+      "items": [
+        {
+          "carrier": "Movistar",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Estonia",
+      "items": [
+        {
+          "carrier": "Telia",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Elisa",
+        "Tele2",
+        "Telia"
+      ],
+      "3G": [
+        "Elisa",
+        "Tele2"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Finland",
+      "items": [
+        {
+          "carrier": "Elisa",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Telia",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "DNA",
+        "Elisa",
+        "Telia"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Greenland",
+      "items": [
+        {
+          "carrier": "Tele",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Tele"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Ireland",
+      "items": [
+        {
+          "carrier": "3 (Tre)",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Meteor",
+        "Vodafone"
+      ],
+      "3G": [
+        "Meteor",
+        "O2"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Jamaica",
+      "items": [
+        {
+          "carrier": "Digicel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Digicel"
+      ],
+      "3G": [
+        "Flow"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Nepal",
+      "items": [
+        {
+          "carrier": "Nepal Telecom",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Nepal Telecom"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Philippines",
+      "items": [
+        {
+          "carrier": "Smart",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Globe",
+        "Smart"
+      ],
+      "3G": [
+        "Globe"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Poland",
+      "items": [
+        {
+          "carrier": "T-Mobile",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Play",
+        "Plus",
+        "T-Mobile"
+      ],
+      "3G": [
+        "Orange",
+        "Play",
+        "Plus"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Portugal",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "NOS",
+        "TMN",
+        "Vodafone"
+      ],
+      "3G": [
+        "NOS"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Puerto Rico",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Romania",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Telekom Romania",
+        "Vodafone"
+      ],
+      "3G": [
+        "Orange"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Saint Vincent and the Grenadines",
+      "items": [
+        {
+          "carrier": "Flow",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Flow"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Slovakia",
+      "items": [
+        {
+          "carrier": "O2",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Telekom",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "O2",
+        "Orange",
+        "Telekom"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Sri Lanka",
+      "items": [
+        {
+          "carrier": "Mobitel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Dialog",
+        "Mobitel"
+      ],
+      "3G": [
+        "Dialog"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "United Arab Emirates",
+      "items": [
+        {
+          "carrier": "du",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Etisalat",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "du",
+        "Etisalat"
+      ]
+    },
+    {
+      "date": "2023-12-31",
+      "country": "Uruguay",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Movistar",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Antel"
+      ],
+      "3G": [
+        "Antel",
+        "Claro",
+        "Movistar"
+      ]
+    },
+    {
+      "date": "2023-12-15",
+      "country": "Australia",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2023-09-30",
+      "country": "United States",
+      "items": [
+        {
+          "carrier": "Union Telephone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2023-01-01",
+      "country": "Netherlands",
+      "items": [
+        {
+          "carrier": "T-Mobile",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "KPN",
+        "Vodafone"
+      ],
+      "3G": [
+        "T-Mobile"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Albania",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "ALBtelecom",
+        "Telekom",
+        "Vodafone"
+      ],
+      "3G": [
+        "ALBtelecom",
+        "Telekom"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Brazil",
+      "items": [
+        {
+          "carrier": "Vivo",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Claro",
+        "TIM"
+      ],
+      "3G": [
+        "Claro",
+        "TIM",
+        "Vivo"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Colombia",
+      "items": [
+        {
+          "carrier": "Tigo",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Movistar"
+      ],
+      "3G": [
+        "Movistar",
+        "Tigo"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Italy",
+      "items": [
+        {
+          "carrier": "TIM",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "TIM",
+        "Vodafone",
+        "Wind"
+      ],
+      "3G": [
+        "Wind"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Jamaica",
+      "items": [
+        {
+          "carrier": "Flow",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Digicel"
+      ],
+      "3G": [
+        "Flow"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Luxembourg",
+      "items": [
+        {
+          "carrier": "POST",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "POST",
+        "Tango"
+      ],
+      "3G": [
+        "Orange"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Puerto Rico",
+      "items": [
+        {
+          "carrier": "Claro",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Romania",
+      "items": [
+        {
+          "carrier": "Telekom Romania",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Orange",
+        "Telekom Romania",
+        "Vodafone"
+      ],
+      "3G": [
+        "Orange"
+      ]
+    },
+    {
+      "date": "2022-12-31",
+      "country": "Saudi Arabia",
+      "items": [
+        {
+          "carrier": "STC",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Mobily",
+        "STC",
+        "Zain"
+      ],
+      "3G": [
+        "Mobily",
+        "Zain"
+      ]
+    },
+    {
+      "date": "2022-09-30",
+      "country": "Vietnam",
+      "items": [
+        {
+          "carrier": "Viettel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Viettel",
+        "Vinaphone"
+      ],
+      "3G": [
+        "MobiFone",
+        "Vinaphone"
+      ]
+    },
+    {
+      "date": "2022-06-30",
+      "country": "United States",
+      "items": [
+        {
+          "carrier": "T-Mobile (USA)",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2022-01-01",
+      "country": "Netherlands",
+      "items": [
+        {
+          "carrier": "KPN",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "KPN",
+        "Vodafone"
+      ],
+      "3G": [
+        "T-Mobile"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Canada",
+      "items": [
+        {
+          "carrier": "Rogers Wireless",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Bell Mobility",
+        "Rogers Wireless",
+        "Sasktel",
+        "Telus",
+        "Videotron"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Czechia",
+      "items": [
+        {
+          "carrier": "O2",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "O2",
+        "T-Mobile",
+        "Vodafone"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Denmark",
+      "items": [
+        {
+          "carrier": "Telenor",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "TDC",
+        "Telenor",
+        "Telia"
+      ],
+      "3G": [
+        "3 (Tre)"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Germany",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "O2",
+        "Telekom",
+        "Vodafone"
+      ],
+      "3G": [
+        "O2"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Greece",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Cosmote",
+        "Vodafone",
+        "Wind"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Italy",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "TIM",
+        "Vodafone",
+        "Wind"
+      ],
+      "3G": [
+        "Wind"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Netherlands",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "KPN",
+        "Vodafone"
+      ],
+      "3G": [
+        "T-Mobile"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "Switzerland",
+      "items": [
+        {
+          "carrier": "Sunrise",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Swisscom",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Salt",
+        "Sunrise",
+        "Swisscom"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "United Kingdom",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "EE",
+        "O2",
+        "Sure",
+        "Vodafone"
+      ],
+      "3G": [
+        "3",
+        "EE",
+        "O2",
+        "Sure"
+      ]
+    },
+    {
+      "date": "2021-12-31",
+      "country": "United States",
+      "items": [
+        {
+          "carrier": "AT&T",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2020-12-31",
+      "country": "Switzerland",
+      "items": [
+        {
+          "carrier": "Salt",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Salt",
+        "Sunrise",
+        "Swisscom"
+      ]
+    },
+    {
+      "date": "2020-03-31",
+      "country": "India",
+      "items": [
+        {
+          "carrier": "Airtel",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Airtel",
+        "BSNL",
+        "Idea"
+      ],
+      "3G": [
+        "BSNL",
+        "Idea"
+      ]
+    },
+    {
+      "date": "2020-01-01",
+      "country": "China",
+      "items": [
+        {
+          "carrier": "China Unicom",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "China Mobile"
+      ],
+      "3G": [
+        "China Unicom"
+      ]
+    },
+    {
+      "date": "2019-12-31",
+      "country": "United States",
+      "items": [
+        {
+          "carrier": "Union Telephone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2019-03-31",
+      "country": "Mexico",
+      "items": [
+        {
+          "carrier": "AT&T",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Telcel"
+      ],
+      "3G": [
+        "AT&T",
+        "Movistar",
+        "Telcel"
+      ]
+    },
+    {
+      "date": "2019-01-01",
+      "country": "Norway",
+      "items": [
+        {
+          "carrier": "Telenor",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Telia",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "TDC",
+        "Telenor",
+        "Telia"
+      ],
+      "3G": [
+        "TDC"
+      ]
+    },
+    {
+      "date": "2018-12-31",
+      "country": "Jersey",
+      "items": [
+        {
+          "carrier": "Airtel-Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Jersey Telecom"
+      ],
+      "3G": [
+        "Airtel-Vodafone",
+        "Jersey Telecom"
+      ]
+    },
+    {
+      "date": "2018-03-31",
+      "country": "New Zealand",
+      "items": [
+        {
+          "carrier": "2degrees",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": [
+        "2degrees",
+        "Spark",
+        "Vodafone"
+      ]
+    },
+    {
+      "date": "2018-01-06",
+      "country": "Canada",
+      "items": [
+        {
+          "carrier": "Bell Mobility",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Bell Mobility",
+        "Rogers Wireless",
+        "Sasktel",
+        "Telus",
+        "Videotron"
+      ]
+    },
+    {
+      "date": "2017-09-30",
+      "country": "Australia",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2017-07-31",
+      "country": "Canada",
+      "items": [
+        {
+          "carrier": "Sasktel",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Bell Mobility",
+        "Rogers Wireless",
+        "Sasktel",
+        "Telus",
+        "Videotron"
+      ]
+    },
+    {
+      "date": "2017-06-30",
+      "country": "Taiwan",
+      "items": [
+        {
+          "carrier": "Chunghwa",
+          "rat": "2G"
+        },
+        {
+          "carrier": "FarEasTone",
+          "rat": "2G"
+        },
+        {
+          "carrier": "T Star",
+          "rat": "2G"
+        },
+        {
+          "carrier": "Taiwan Mobile",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Chunghwa",
+        "T Star",
+        "Taiwan Mobile"
+      ]
+    },
+    {
+      "date": "2017-05-31",
+      "country": "Canada",
+      "items": [
+        {
+          "carrier": "Telus",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "Bell Mobility",
+        "Rogers Wireless",
+        "Sasktel",
+        "Telus",
+        "Videotron"
+      ]
+    },
+    {
+      "date": "2017-04-01",
+      "country": "Singapore",
+      "items": [
+        {
+          "carrier": "SingTel",
+          "rat": "2G"
+        },
+        {
+          "carrier": "StarHub",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "SingTel",
+        "StarHub"
+      ]
+    },
+    {
+      "date": "2017-01-04",
+      "country": "Australia",
+      "items": [
+        {
+          "carrier": "Optus",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2016-12-31",
+      "country": "Australia",
+      "items": [
+        {
+          "carrier": "Telstra",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2016-12-31",
+      "country": "United States",
+      "items": [
+        {
+          "carrier": "AT&T",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2016-01-01",
+      "country": "Thailand",
+      "items": [
+        {
+          "carrier": "AIS",
+          "rat": "2G"
+        },
+        {
+          "carrier": "True Move",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "DTAC"
+      ],
+      "3G": [
+        "AIS",
+        "DTAC",
+        "True Move"
+      ]
+    },
+    {
+      "date": "2012-07-31",
+      "country": "New Zealand",
+      "items": [
+        {
+          "carrier": "Spark",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": [
+        "2degrees",
+        "Spark",
+        "Vodafone"
+      ]
+    },
+    {
+      "date": "2012-03-19",
+      "country": "South Korea",
+      "items": [
+        {
+          "carrier": "KT",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "KT",
+        "SK Telecom"
+      ]
+    },
+    {
+      "date": "2012-01-03",
+      "country": "Japan",
+      "items": [
+        {
+          "carrier": "NTT DoCoMo",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "NTT DoCoMo"
+      ]
+    },
+    {
+      "date": "2011-12-08",
+      "country": "South Korea",
+      "items": [
+        {
+          "carrier": "SK Telecom",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "KT",
+        "SK Telecom"
+      ]
+    },
+    {
+      "date": "2010-03-31",
+      "country": "Japan",
+      "items": [
+        {
+          "carrier": "Softbank",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "NTT DoCoMo"
+      ]
     }
   ],
   "deviceConstants": {

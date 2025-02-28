@@ -948,7 +948,7 @@ To be provided at a later date.
 | Serbia | MON524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | MON524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | MON524 | 2G, 3G | TelCell |
-| Slovakia | MON524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | MON524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | MON524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | MON524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | MON524 | 3G, Cat1 | KT, LG U+, SK Telecom |

@@ -163,7 +163,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Serbia | B524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | B524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | B524 | 2G, 3G | TelCell |
-| Slovakia | B524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | B524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | B524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | B524 | 3G, Cat1 | KT, LG U+, SK Telecom |
