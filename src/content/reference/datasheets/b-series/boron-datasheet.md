@@ -541,7 +541,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | BRN314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | BRN314 | 2G, 3G | Aliv, BTC Bahamas |
-| Bahrain | BRN314 | 2G, 3G | Zain |
+| Bahrain | BRN314 | 2G | Zain |
 | Bangladesh | BRN314 | 2G, 3G | Bangalink, GrameenPhone |
 | Barbados | BRN314 | 2G, 3G | Flow |
 | Belarus | BRN314 | 2G, 3G | A1 |
@@ -593,7 +593,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Guyana | BRN314 | 2G | Digicel |
 | Haiti | BRN314 | 2G, 3G | Digicel |
 | Honduras | BRN314 | 2G, 3G | Claro, Tigo |
-| Hong Kong | BRN314 | 2G, 3G | CMHK, CSL, SmarTone |
+| Hong Kong | BRN314 | 2G, 3G | CSL, SmarTone |
 | Hungary | BRN314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | BRN314 | 2G, 3G | Nova, Siminn, Vodafone |
 | Indonesia | BRN314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
@@ -635,7 +635,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Philippines | BRN314 | 2G, 3G | Globe, Smart |
 | Poland | BRN314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
 | Portugal | BRN314 | 2G, 3G | NOS, TMN, Vodafone |
-| Puerto Rico | BRN314 | 2G, 3G | Claro |
 | Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | BRN314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | BRN314 | 2G, 3G | Airtel, MTN |

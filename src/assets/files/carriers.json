@@ -4275,8 +4275,8 @@
     {
       "country": "Albania",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "2022",
+      "sunset2G": "2030-01-01",
+      "sunset3G": "2022-12-31",
       "supersim": {
         "allow2G": true,
         "allowCat1": true,
@@ -4378,8 +4378,8 @@
     {
       "country": "Anguilla",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-03-31",
+      "sunset3G": "2029-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -4457,8 +4457,8 @@
     {
       "country": "Antigua and Barbuda",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-03-31",
+      "sunset3G": "2027-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -4552,7 +4552,7 @@
       "country": "Argentina",
       "carrier": "Movistar",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -4593,7 +4593,7 @@
       "country": "Argentina",
       "carrier": "Personal",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2024-05-03",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -4709,8 +4709,8 @@
     {
       "country": "Aruba",
       "carrier": "Digicel",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2024-06-30",
+      "sunset3G": "2028-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -4936,6 +4936,7 @@
         "Hutchison",
         "H3G"
       ],
+      "sunset3G": "2025-03-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5201,7 +5202,7 @@
     {
       "country": "Bahrain",
       "carrier": "Batelco",
-      "sunset2G": "No Plan",
+      "sunset2G": "2024-06-30",
       "sunset3G": "No Plan",
       "telefonicaBundle2018": {
         "partnerZone": 5,
@@ -5236,7 +5237,7 @@
       "country": "Bahrain",
       "carrier": "VIVA",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -5254,7 +5255,6 @@
       "country": "Bahrain",
       "carrier": "Zain",
       "sunset2G": "?",
-      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5270,8 +5270,10 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "3G-1"
       ]
     },
     {
@@ -5296,7 +5298,7 @@
       "country": "Bangladesh",
       "carrier": "GrameenPhone",
       "sunset2G": "2025-12-31",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2026-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5332,7 +5334,7 @@
       "country": "Bangladesh",
       "carrier": "Orsacom",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2022-12-31",
       "bands": [
         "2G-900",
         "2G-1800",
@@ -5345,7 +5347,7 @@
     {
       "country": "Bangladesh",
       "carrier": "Robi",
-      "sunset2G": "?",
+      "sunset2G": "2022-12-31",
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
@@ -5386,7 +5388,7 @@
     {
       "country": "Barbados",
       "carrier": "Digicel",
-      "sunset2G": "?",
+      "sunset2G": "2024-06-30",
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
@@ -5527,8 +5529,8 @@
     {
       "country": "Belgium",
       "carrier": "Base",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2027-12-31",
+      "sunset3G": "2024-09-30",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5563,8 +5565,8 @@
     {
       "country": "Belgium",
       "carrier": "Mobistar",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2024-09-30",
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
@@ -5623,7 +5625,7 @@
     {
       "country": "Belgium",
       "carrier": "Proximus",
-      "sunset2G": "?",
+      "sunset2G": "2027-12-31",
       "sunset3G": "2024-12-31",
       "supersim": {
         "allow2G": true,
@@ -5764,7 +5766,7 @@
       "aliases": [
         "Bermuda Digital Communications"
       ],
-      "sunset2G": "2017-05",
+      "sunset2G": "2017-05-31",
       "sunset3G": "?",
       "telefonicaPPU2020": {
         "partnerZone": 4,
@@ -5791,8 +5793,8 @@
     {
       "country": "Bermuda",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "NA",
+      "sunset2G": "2024-01-31",
+      "sunset3G": "2027-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -6031,6 +6033,7 @@
     {
       "country": "Brazil",
       "carrier": "Vivo",
+      "sunset2G": "2022-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6501,7 +6504,7 @@
     {
       "country": "Canada",
       "carrier": "Rogers Wireless",
-      "sunset2G": "",
+      "sunset2G": "2021-12-31",
       "sunset3G": "2025-07-31",
       "lteM1": true,
       "supersim": {
@@ -6803,8 +6806,8 @@
     {
       "country": "Chile",
       "carrier": "Entel",
-      "sunset2G": "No Plan",
-      "sunset3G": "2024-11-30",
+      "sunset2G": "2024-11-30",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6880,8 +6883,8 @@
     {
       "country": "China",
       "carrier": "China Mobile",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6953,7 +6956,7 @@
     {
       "country": "Colombia",
       "carrier": "Claro",
-      "sunset2G": "?",
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
@@ -7016,7 +7019,7 @@
     {
       "country": "Colombia",
       "carrier": "Tigo",
-      "sunset2G": "?",
+      "sunset2G": "2022-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -7186,7 +7189,7 @@
     {
       "country": "Costa Rica",
       "carrier": "ICE",
-      "sunset2G": "?",
+      "sunset2G": "2024-07-01",
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
@@ -7206,7 +7209,7 @@
       "aliases": [
         "Telefonica Costa Rica"
       ],
-      "sunset2G": "?",
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -7267,7 +7270,7 @@
       "country": "Croatia",
       "carrier": "Croatian Telecom",
       "sunset2G": "No Plan",
-      "sunset3G": "2024",
+      "sunset3G": "2025-01-15",
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
@@ -7568,7 +7571,7 @@
     {
       "country": "Czechia",
       "carrier": "T-Mobile",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2028-01-01",
       "supersim": {
         "allow2G": true,
         "allowCat1": true,
@@ -7605,7 +7608,7 @@
     {
       "country": "Czechia",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-01-01",
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
@@ -7788,8 +7791,8 @@
     {
       "country": "Dominica",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2027-03-31",
+      "sunset3G": "2031-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -7889,7 +7892,7 @@
         "CODETEL"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -7913,10 +7916,12 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
-        "2G-1900",
         "3G-5",
         "LTE-4"
+      ],
+      "noBands": [
+        "2G-850",
+        "2G-1900"
       ]
     },
     {
@@ -8108,8 +8113,8 @@
     {
       "country": "El Salvador",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2026-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8136,8 +8141,8 @@
     {
       "country": "El Salvador",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-03-31",
+      "sunset3G": "2030-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true
@@ -8239,7 +8244,7 @@
       "country": "Estonia",
       "carrier": "Tele2",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8284,7 +8289,7 @@
     {
       "country": "Estonia",
       "carrier": "Telia",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2023-12-31",
       "aliases": [
         "AS EMT",
         "EMT",
@@ -8506,8 +8511,8 @@
     {
       "country": "Finland",
       "carrier": "Elisa",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2029-12-31",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
         "allowCat1": true,
@@ -9008,10 +9013,12 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G-1"
       ]
     },
     {
@@ -9067,7 +9074,7 @@
     {
       "country": "Germany",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-01-01",
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
@@ -9135,8 +9142,8 @@
     {
       "country": "Ghana",
       "carrier": "Globacom",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2022-12-31",
+      "sunset3G": "2022-12-31",
       "bands": [
         "2G-900",
         "3G-1"
@@ -9176,7 +9183,7 @@
       "aliases": [
         "ONEtouch"
       ],
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-01-01",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -9249,7 +9256,7 @@
     {
       "country": "Greece",
       "carrier": "Cosmote",
-      "sunset2G": "?",
+      "sunset2G": "2030-01-01",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -9372,6 +9379,7 @@
       "aliases": [
         "TeleGreenland"
       ],
+      "sunset3G": "2023-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow2G": true
@@ -9392,8 +9400,8 @@
     {
       "country": "Grenada",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-03-31",
+      "sunset3G": "2031-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -9531,7 +9539,7 @@
     {
       "country": "Guam",
       "carrier": "mPulse",
-      "sunset2G": "2018-01",
+      "sunset2G": "2018-01-01",
       "sunset3G": "No Plan",
       "koreAllNet": {
         "allow2G": true,
@@ -9556,8 +9564,8 @@
       "aliases": [
         "Telgua"
       ],
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2026-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -9752,8 +9760,8 @@
     {
       "country": "Guyana",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "NA",
+      "sunset2G": "2027-03-31",
+      "sunset3G": "2030-03-31",
       "supersim": {
         "allow2G": true,
         "paygRate": 0.25
@@ -9781,8 +9789,8 @@
       "country": "Haiti",
       "carrier": "Digicel",
       "note": "Comcel Haiti, Voilà, assets sold to Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2030-03-31",
+      "sunset3G": "2027-03-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -9961,32 +9969,29 @@
         "Peoples"
       ],
       "supersim": {
-        "allow2G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
-        "partnerZone": 2,
-        "allow2G": true
+        "partnerZone": 2
       },
       "koreAllNet": {
-        "allow2G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1800",
         "LTE-3",
         "LTE-7",
         "LTE-40"
       ],
       "noBands": [
+        "2G",
         "3G"
       ]
     },
     {
       "country": "Hong Kong",
       "carrier": "CSL",
-      "sunset2G": "?",
+      "sunset2G": "2024-11-08",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -10110,16 +10115,17 @@
       "sunset3G": "NA",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -10166,7 +10172,7 @@
       "country": "Hungary",
       "carrier": "Vodafone",
       "sunset2G": "2025-12-31",
-      "sunset3G": "2023-11-30",
+      "sunset3G": "2024-06-30",
       "supersim": {
         "allow2G": true,
         "allowCat1": true,
@@ -10209,7 +10215,7 @@
       "country": "Iceland",
       "carrier": "Nova",
       "sunset2G": "NA",
-      "sunset3G": "No Plan",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -10279,8 +10285,8 @@
     {
       "country": "Iceland",
       "carrier": "Vodafone",
-      "sunset2G": "No Plan",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10359,7 +10365,7 @@
       "country": "India",
       "carrier": "BSNL",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "bands": [
         "2G-900",
         "2G-1800",
@@ -10372,8 +10378,11 @@
     {
       "country": "India",
       "carrier": "Idea",
+      "aliases": [
+        "Vodafone Idea"
+      ],
       "sunset2G": "?",
-      "sunset3G": "NA",
+      "sunset3G": "2024-12-31",
       "bands": [
         "2G-900",
         "2G-1800",
@@ -10485,19 +10494,20 @@
     {
       "country": "Indonesia",
       "carrier": "Excelcom",
-      "sunset2G": "?",
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-8"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -10585,7 +10595,7 @@
     {
       "country": "Iran",
       "carrier": "Rightel",
-      "sunset2G": "2015",
+      "sunset2G": "2015-12-31",
       "sunset3G": "No Plan",
       "bands": [
         "3G-1",
@@ -10687,8 +10697,8 @@
     {
       "country": "Ireland",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "2024-01-31",
+      "sunset2G": "2030-01-01",
+      "sunset3G": "2024-10-30",
       "supersim": {
         "allow2G": true,
         "allowCat1": true,
@@ -10767,8 +10777,8 @@
     {
       "country": "Israel",
       "carrier": "Cellcom",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
@@ -10820,8 +10830,8 @@
     {
       "country": "Israel",
       "carrier": "Orange",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10900,7 +10910,7 @@
       "aliases": [
         "Telecom Italia Mobile"
       ],
-      "sunset2G": "?",
+      "sunset2G": "2029-12-31",
       "sunset3G": "2022-12-31",
       "supersim": {
         "allow2G": true,
@@ -10939,7 +10949,7 @@
     {
       "country": "Italy",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-01-01",
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
@@ -11017,37 +11027,35 @@
     {
       "country": "Jamaica",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-06-30",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-5"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-13"
     },
@@ -11059,7 +11067,7 @@
         "Cable & Wireless"
       ],
       "note": "Lime is now Flow, owned by Cable & Wireless",
-      "sunset2G": "?",
+      "sunset2G": "2022-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow3G": true,
@@ -11122,7 +11130,7 @@
       "country": "Japan",
       "carrier": "NTT DoCoMo",
       "sunset2G": "2012-01-03",
-      "sunset3G": "Late 2020s",
+      "sunset3G": "2026-03-31",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -11168,7 +11176,7 @@
       "country": "Japan",
       "carrier": "Softbank",
       "sunset2G": "2010-03-31",
-      "sunset3G": "?",
+      "sunset3G": "2024-04-15",
       "lteM1": true,
       "supersim": {
         "allowCat1": true,
@@ -11201,7 +11209,7 @@
     {
       "country": "Jersey",
       "carrier": "Airtel-Vodafone",
-      "sunset2G": "2018",
+      "sunset2G": "2018-12-31",
       "sunset3G": "?",
       "telefonicaPPU2020": {
         "partnerZone": 2,
@@ -11605,6 +11613,7 @@
     {
       "country": "Kyrgyzstan",
       "carrier": "Beeline",
+      "sunset3G": "2024-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -11621,7 +11630,7 @@
       "country": "Latvia",
       "carrier": "Bite",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "preferredRate": true,
         "allow2G": true,
@@ -11649,7 +11658,7 @@
       "country": "Latvia",
       "carrier": "LMT",
       "sunset2G": "?",
-      "sunset3G": "2022-12-31",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -11678,8 +11687,8 @@
     {
       "country": "Latvia",
       "carrier": "Tele2",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "2022-12-31",
+      "sunset2G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allowCat1": true,
@@ -11817,8 +11826,8 @@
     {
       "country": "Liechtenstein",
       "carrier": "Swisscom",
-      "sunset2G": "2021",
-      "sunset3G": "?",
+      "sunset2G": "2021-12-31",
+      "sunset3G": "2025-12-31",
       "koreAllNet": {
         "allow3G": true,
         "allowCat1": true
@@ -11871,8 +11880,8 @@
     {
       "country": "Lithuania",
       "carrier": "Omnitel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2028-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -11902,7 +11911,7 @@
         "USB Tele2"
       ],
       "sunset2G": "2028-12-31",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -11985,7 +11994,7 @@
         "LUXGSM"
       ],
       "sunset2G": "2026-12-31",
-      "sunset3G": "2020",
+      "sunset3G": "2022-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -12022,7 +12031,7 @@
       "country": "Luxembourg",
       "carrier": "Tango",
       "sunset2G": "?",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2024-01-01",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12065,7 +12074,6 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
@@ -12073,20 +12081,19 @@
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "LTE-3",
         "LTE-40"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -12229,8 +12236,8 @@
     {
       "country": "Malaysia",
       "carrier": "DiGi",
-      "sunset2G": "After 2020",
-      "sunset3G": "After 2020",
+      "sunset2G": "?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12314,8 +12321,10 @@
       "carrier": "Malitel",
       "bands": [
         "2G-900",
-        "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -12599,25 +12608,24 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "3G-5",
         "LTE-2"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -12626,7 +12634,7 @@
       "aliases": [
         "TelCel"
       ],
-      "sunset2G": "?",
+      "sunset2G": "2024-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -12819,23 +12827,27 @@
       "telefonicaPPU2020": {
         "partnerZone": 2,
         "allow3G": true,
-        "allow2G": true
+        "allow2G": true,
+        "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3",
+        "LTE-8",
+        "LTE-20"
       ],
-      "noBands": [
-        "LTE"
-      ],
+      "noBands": [],
       "supersim": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       }
     },
     {
@@ -13148,6 +13160,7 @@
     {
       "country": "Nepal",
       "carrier": "Nepal Telecom",
+      "sunset2G": "2023-12-31",
       "bands": [
         "2G-900",
         "3G-1",
@@ -13166,6 +13179,7 @@
     {
       "country": "Netherlands",
       "carrier": "KPN",
+      "sunset2G": "2025-12-01",
       "sunset3G": "2022-01-01",
       "lteM1": true,
       "supersim": {
@@ -13202,8 +13216,8 @@
     {
       "country": "Netherlands",
       "carrier": "T-Mobile",
-      "sunset2G": "2020-01-01",
-      "sunset3G": "?",
+      "sunset2G": "2023-01-01",
+      "sunset3G": "2026-08-01",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -13239,7 +13253,7 @@
     {
       "country": "Netherlands",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-01-01",
       "sunset3G": "2021-12-31",
       "lteM1": true,
       "supersim": {
@@ -13460,8 +13474,8 @@
     {
       "country": "Nicaragua",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2026-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -13697,8 +13711,8 @@
     {
       "country": "Nigeria",
       "carrier": "MTN",
-      "sunset2G": "?",
-      "sunset3G": "2025-12-31",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -13927,6 +13941,7 @@
     {
       "country": "Oman",
       "carrier": "Omantel",
+      "sunset3G": "2025-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -13956,6 +13971,7 @@
         "Nawras",
         "Narwas"
       ],
+      "sunset3G": "2024-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -14008,6 +14024,8 @@
     {
       "country": "Pakistan",
       "carrier": "Telenor",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14018,6 +14036,7 @@
         "2G-900",
         "2G-1800",
         "3G-1",
+        "LTE-3",
         "LTE-5"
       ],
       "koreAllNet": {
@@ -14290,8 +14309,8 @@
     {
       "country": "Paraguay",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-13",
+      "sunset3G": "2026-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14391,8 +14410,8 @@
     {
       "country": "Peru",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2026-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14587,25 +14606,24 @@
     {
       "country": "Poland",
       "carrier": "Era",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2023-12-31",
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -14797,7 +14815,7 @@
       "country": "Portugal",
       "carrier": "TMN",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2024-01-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14836,7 +14854,7 @@
     {
       "country": "Portugal",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-01-01",
       "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
@@ -14876,45 +14894,39 @@
     {
       "country": "Puerto Rico",
       "carrier": "AT&T",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2017-12-31",
+      "sunset3G": "2022-12-31",
       "bands": [
-        "2G-850",
-        "2G-1900",
-        "3G-2",
-        "3G-5",
         "LTE-4",
         "LTE-17"
+      ],
+      "noBands": [
+        "2G",
+        "3G"
       ]
     },
     {
       "country": "Puerto Rico",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2022-12-31",
+      "sunset3G": "2023-12-31",
       "supersim": {
-        "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
-        "2G-1900",
-        "3G-2",
-        "3G-5",
         "LTE-17"
+      ],
+      "noBands": [
+        "2G",
+        "3G"
       ]
     },
     {
@@ -14966,8 +14978,8 @@
     {
       "country": "Qatar",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "?",
+      "sunset2G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15100,6 +15112,7 @@
         "Cosmote"
       ],
       "sunset2G": "2029-12-31",
+      "sunset3G": "2022-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15128,8 +15141,8 @@
     {
       "country": "Romania",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "?",
+      "sunset2G": "2030-01-01",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15205,7 +15218,7 @@
       "country": "Russia",
       "carrier": "Megafon",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 3,
         "allow2G": true,
@@ -15253,7 +15266,7 @@
         "Mobile TeleSystems"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15296,7 +15309,7 @@
       "country": "Russia",
       "carrier": "NCC",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15312,7 +15325,7 @@
       "country": "Russia",
       "carrier": "Rostelecom",
       "sunset2G": "NA",
-      "sunset3G": "NA",
+      "sunset3G": "2025-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15330,6 +15343,7 @@
     {
       "country": "Russia",
       "carrier": "Tele2",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15480,8 +15494,8 @@
     {
       "country": "Saint Kitts and Nevis",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2027-03-31",
+      "sunset3G": "2031-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15556,8 +15570,8 @@
     {
       "country": "Saint Lucia",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2027-03-31",
+      "sunset3G": "2031-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15655,8 +15669,8 @@
     {
       "country": "Saint Vincent and the Grenadines",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2027-03-31",
+      "sunset3G": "2031-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15679,7 +15693,7 @@
         "Cable & Wireless"
       ],
       "note": "Lime is now Flow, owned by Cable & Wireless",
-      "sunset2G": "?",
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -15766,8 +15780,8 @@
     {
       "country": "San Marino",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "?",
+      "sunset2G": "2030-01-01",
+      "sunset3G": "2021-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15829,6 +15843,7 @@
       "country": "Saudi Arabia",
       "carrier": "STC",
       "sunset2G": "2025-12-31",
+      "sunset3G": "2022-12-31",
       "bands": [
         "2G-900",
         "2G-1800",
@@ -16080,7 +16095,7 @@
       "country": "Singapore",
       "carrier": "M1",
       "sunset2G": "2017-04-01",
-      "sunset3G": "?",
+      "sunset3G": "2024-07-31",
       "koreAllNet": {
         "allow3G": true,
         "allowCat1": true
@@ -16101,7 +16116,7 @@
         "Singapore Telecom"
       ],
       "sunset2G": "2017-04-01",
-      "sunset3G": "2024-07-31",
+      "sunset3G": "2024-11-30",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -16142,7 +16157,7 @@
       "country": "Singapore",
       "carrier": "StarHub",
       "sunset2G": "2017-04-01",
-      "sunset3G": "2024-07-31",
+      "sunset3G": "2024-11-30",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -16195,6 +16210,8 @@
       "aliases": [
         "Telefonica O2"
       ],
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16278,27 +16295,26 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -16382,8 +16398,8 @@
     {
       "country": "Slovenia",
       "carrier": "SI Mobil",
-      "sunset2G": "?",
-      "sunset3G": "2025-12-31",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2023-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
@@ -16484,8 +16500,8 @@
     {
       "country": "South Africa",
       "carrier": "Cell C",
-      "sunset2G": "2024-06-30",
-      "sunset3G": "2025-12-31",
+      "sunset2G": "2027-12-31",
+      "sunset3G": "2027-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16509,8 +16525,8 @@
     {
       "country": "South Africa",
       "carrier": "MTN",
-      "sunset2G": "2024-06-30",
-      "sunset3G": "2025-12-31",
+      "sunset2G": "2027-12-31",
+      "sunset3G": "2027-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16538,8 +16554,8 @@
     {
       "country": "South Africa",
       "carrier": "Vodacom",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2027-12-31",
+      "sunset3G": "2027-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16742,7 +16758,7 @@
       "country": "Spain",
       "carrier": "Telefonica",
       "sunset2G": "No Plan",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2026-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -16790,8 +16806,8 @@
     {
       "country": "Spain",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "?",
+      "sunset2G": "2030-01-01",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16843,7 +16859,7 @@
       "country": "Sri Lanka",
       "carrier": "Airtel",
       "sunset2G": "NA",
-      "sunset3G": "?",
+      "sunset3G": "2022-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true
@@ -16914,7 +16930,7 @@
       "country": "Sri Lanka",
       "carrier": "Mobitel",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
@@ -16945,8 +16961,8 @@
     {
       "country": "Suriname",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-03-31",
+      "sunset3G": "2029-03-31",
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -17022,6 +17038,7 @@
         "Hutchison 3G"
       ],
       "sunset2G": "No Plan",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -17055,7 +17072,7 @@
       "country": "Sweden",
       "carrier": "Tele2",
       "sunset2G": "2025-12-31",
-      "sunset3G": "2024-12-31",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -17145,8 +17162,8 @@
     {
       "country": "Sweden",
       "carrier": "Telia",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "2023-12-31",
+      "sunset2G": "2027-12-31",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -17221,7 +17238,7 @@
       "country": "Switzerland",
       "carrier": "Sunrise",
       "sunset2G": "2021-12-31",
-      "sunset3G": "2024-12-31",
+      "sunset3G": "2025-06-30",
       "telefonicaBundle2018": {
         "partnerZone": 3,
         "allow3G": true,
@@ -17322,8 +17339,8 @@
     {
       "country": "Taiwan",
       "carrier": "FarEasTone",
-      "sunset2G": "2017-06",
-      "sunset3G": "2023-12-31",
+      "sunset2G": "2017-06-30",
+      "sunset3G": "?",
       "supersim": {
         "allowCat1": true,
         "paygRate": 0.1
@@ -17547,7 +17564,7 @@
       "country": "Thailand",
       "carrier": "AIS",
       "sunset2G": "2016-01-01",
-      "sunset3G": "?",
+      "sunset3G": "2027-12-31",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -17603,16 +17620,16 @@
     {
       "country": "Thailand",
       "carrier": "Real Future",
-      "sunset2G": "2016",
+      "sunset2G": "2016-12-31",
       "sunset3G": "?",
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "LTE-1"
       ],
+      "noBands": [
+        "2G"
+      ],
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowLTE": true,
         "rank": "Primary"
@@ -17627,7 +17644,7 @@
       "country": "Thailand",
       "carrier": "True Move",
       "sunset2G": "2016-01-01",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -17711,8 +17728,8 @@
     {
       "country": "Trinidad and Tobago",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "NA",
+      "sunset2G": "2025-03-31",
+      "sunset3G": "2029-03-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -17877,7 +17894,7 @@
     {
       "country": "Turkey",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-01-01",
       "sunset3G": "?",
       "koreOneNet": {
         "allow2G": true,
@@ -17898,8 +17915,8 @@
     {
       "country": "Turks and Caicos Islands",
       "carrier": "Digicel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-06-30",
+      "sunset3G": "2029-03-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -18172,8 +18189,8 @@
     {
       "country": "United Arab Emirates",
       "carrier": "du",
+      "sunset2G": "2023-12-31",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.3,
@@ -18181,28 +18198,27 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 6,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "LTE-3",
         "LTE-20"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
       "country": "United Arab Emirates",
       "carrier": "Etisalat",
+      "sunset2G": "2023-12-31",
       "lteM1": true,
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.25,
@@ -18212,23 +18228,22 @@
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 6,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "LTE-3",
         "LTE-7",
         "M1-3",
         "M1-7"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -18309,8 +18324,8 @@
       "aliases": [
         "Telefonica O2"
       ],
-      "sunset2G": "2033-12-31",
-      "sunset3G": "2033-12-31",
+      "sunset2G": "2025-09-30",
+      "sunset3G": "2025-09-30",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -18390,7 +18405,7 @@
     {
       "country": "United Kingdom",
       "carrier": "Vodafone",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2030-12-31",
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
@@ -18437,27 +18452,26 @@
     {
       "country": "United States",
       "carrier": "Alaska Wireless",
-      "sunset2G": "?",
+      "sunset2G": "2017-12-31",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
-        "2G-850",
-        "2G-1900",
         "3G-2",
         "3G-5",
         "LTE-4",
         "LTE-12"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -18614,7 +18628,7 @@
         "T-Mobile"
       ],
       "sunset2G": "2024-04-02",
-      "sunset3G": "?",
+      "sunset3G": "2022-06-30",
       "supersim": {
         "allow2G": true,
         "allow3G": false,
@@ -18687,7 +18701,7 @@
       "aliases": [
         "Union Telecom"
       ],
-      "sunset2G": "?",
+      "sunset2G": "2019-12-31",
       "sunset3G": "2023-09-30",
       "supersim": {
         "allow3G": true,
@@ -18755,8 +18769,8 @@
     {
       "country": "United States",
       "carrier": "Viaero",
-      "sunset2G": "2018-12",
-      "sunset3G": "?",
+      "sunset2G": "2018-12-31",
+      "sunset3G": "2025-12-31",
       "koreAllNet": {
         "allow3G": true,
         "allowCat1": true,
@@ -18800,8 +18814,8 @@
     {
       "country": "Uruguay",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2023-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -18823,7 +18837,7 @@
     {
       "country": "Uruguay",
       "carrier": "Movistar",
-      "sunset2G": "?",
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -18917,7 +18931,7 @@
     {
       "country": "Venezuela",
       "carrier": "Movilnet",
-      "sunset2G": "?",
+      "sunset2G": "2025-12-31",
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
@@ -18975,25 +18989,27 @@
     {
       "country": "Vietnam",
       "carrier": "MobiFone",
+      "sunset3G": "2028-09-30",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "paygRate": 0.2
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1"
       ],
       "noBands": [
+        "2G",
         "LTE"
       ]
     },
     {
       "country": "Vietnam",
       "carrier": "Viettel",
+      "sunset2G": "2024-09-30",
+      "sunset3G": "2022-09-30",
       "supersim": {
         "allow2G": true,
+        "allowCat1": true,
         "paygRate": 0.2
       },
       "telefonicaBundle2018": {
@@ -19006,16 +19022,18 @@
       },
       "bands": [
         "2G-900",
-        "2G-1800"
+        "2G-1800",
+        "LTE-3"
       ],
       "noBands": [
-        "LTE",
         "3G"
       ]
     },
     {
       "country": "Vietnam",
       "carrier": "Vinaphone",
+      "sunset2G": "2024-09-30",
+      "sunset3G": "2028-09-30",
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -32936,11 +32954,9 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -32966,11 +32982,9 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -33005,13 +33019,11 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -33048,20 +33060,17 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       },
@@ -33107,20 +33116,17 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       },
@@ -33137,13 +33143,11 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -33206,13 +33210,11 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -33229,13 +33231,11 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ],
         "Zain": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3"
         ]
       }
@@ -33302,19 +33302,16 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Zain": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -52021,15 +52018,10 @@
       "supported": {
         "*": [
           "2G-1800",
-          "2G-1900",
-          "2G-850"
+          "2G-1900"
         ],
         "Altice Dominicana": [
           "2G-1800",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-850",
           "2G-1900"
         ],
         "Viva": [
@@ -52071,15 +52063,10 @@
       "supported": {
         "*": [
           "2G-1800",
-          "2G-1900",
-          "2G-850"
+          "2G-1900"
         ],
         "Altice Dominicana": [
           "2G-1800",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-850",
           "2G-1900"
         ],
         "Viva": [
@@ -52143,7 +52130,6 @@
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
-          "2G-850",
           "3G-5"
         ],
         "Altice Dominicana": [
@@ -52155,8 +52141,6 @@
           "Cat1-5"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
@@ -52176,14 +52160,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ]
@@ -52218,7 +52198,6 @@
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
-          "2G-850",
           "3G-5"
         ],
         "Altice Dominicana": [
@@ -52228,8 +52207,6 @@
           "Cat1-5"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
@@ -52256,14 +52233,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ]
@@ -52298,7 +52271,6 @@
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
-          "2G-850",
           "3G-5"
         ],
         "Altice Dominicana": [
@@ -52308,8 +52280,6 @@
           "Cat1-5"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
@@ -52349,17 +52319,12 @@
         "*": [
           "2G-1800",
           "2G-1900",
-          "3G-8",
-          "2G-850"
+          "3G-8"
         ],
         "Altice Dominicana": [
           "2G-1800",
           "2G-1900",
           "3G-8"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900"
         ],
         "Viva": [
           "2G-1900",
@@ -52386,11 +52351,6 @@
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-850",
           "2G-1900"
         ],
         "Viva": [
@@ -52438,7 +52398,6 @@
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
-          "2G-850",
           "3G-5"
         ],
         "Altice Dominicana": [
@@ -52450,8 +52409,6 @@
           "Cat1-5"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
@@ -52477,7 +52434,6 @@
           "Cat1-2",
           "Cat1-4",
           "Cat1-5",
-          "2G-850",
           "3G-5"
         ],
         "Altice Dominicana": [
@@ -52489,8 +52445,6 @@
           "Cat1-5"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
@@ -52506,19 +52460,16 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "3G",
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
+          "2G-1900",
           "3G-8"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ],
         "Viva": [
@@ -52541,18 +52492,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ]
       },
@@ -52579,7 +52525,6 @@
           "2G-1800",
           "2G-1900",
           "3G-8",
-          "2G-850",
           "3G-5"
         ],
         "Altice Dominicana": [
@@ -52588,8 +52533,6 @@
           "3G-8"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ],
         "Viva": [
@@ -52619,18 +52562,15 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
-        "3G"
+        "3G",
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-5"
+          "3G-5",
+          "2G-1900"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5"
         ],
         "Viva": [
@@ -52669,14 +52609,11 @@
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
-          "Cat1-4"
+          "Cat1-4",
+          "2G-1900"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "Cat1-4"
         ],
@@ -67698,10 +67635,7 @@
       ],
       "supported": {
         "*": [
-          "2G-1800",
-          "2G-900"
-        ],
-        "CMHK": [
+          "2G-900",
           "2G-1800"
         ],
         "CSL": [
@@ -67748,10 +67682,7 @@
       ],
       "supported": {
         "*": [
-          "2G-1800",
-          "2G-900"
-        ],
-        "CMHK": [
+          "2G-900",
           "2G-1800"
         ],
         "CSL": [
@@ -67815,17 +67746,16 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40",
           "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "Cat1-8"
         ],
         "CMHK": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40"
@@ -67863,22 +67793,21 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "2G",
         "Cat1",
+        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "Cat1-8"
         ],
         "CMHK": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7"
         ],
@@ -67931,22 +67860,21 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "2G",
         "Cat1",
+        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "Cat1-8"
         ],
         "CMHK": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7"
         ],
@@ -67983,17 +67911,16 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40",
           "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "Cat1-8"
         ],
         "CMHK": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40"
@@ -68028,17 +67955,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1800"
-        ],
-        "CMHK": [
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-3",
@@ -68081,17 +67999,16 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40",
           "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "Cat1-8"
         ],
         "CMHK": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40"
@@ -68122,17 +68039,16 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40",
           "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "Cat1-8"
         ],
         "CMHK": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40"
@@ -68159,17 +68075,12 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "3G-8"
-        ],
-        "CMHK": [
-          "2G-1800"
         ],
         "SmarTone": [
           "3G-1",
@@ -68215,13 +68126,10 @@
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8"
-        ],
-        "CMHK": [
-          "2G-1800"
         ],
         "CSL": [
           "2G-900",
@@ -68266,7 +68174,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40",
@@ -68275,7 +68182,6 @@
           "Cat1-8"
         ],
         "CMHK": [
-          "2G-1800",
           "Cat1-3",
           "Cat1-7",
           "Cat1-40"
@@ -68294,17 +68200,12 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "3G-8"
-        ],
-        "CMHK": [
-          "2G-1800"
         ],
         "SmarTone": [
           "3G-1",
@@ -74100,12 +74001,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-5",
           "3G-2"
         ],
         "Digicel": [
-          "3G-1",
           "Cat1-5"
         ],
         "Flow": [
@@ -74135,12 +74034,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-5",
           "3G-2"
         ],
         "Digicel": [
-          "3G-1",
           "Cat1-5"
         ],
         "Flow": [
@@ -74179,14 +74076,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5",
           "3G-2"
         ],
         "Digicel": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5"
         ],
         "Flow": [
@@ -74221,19 +74116,16 @@
       "recommendation": "POSS",
       "reason": "May work on Digicel",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -74284,19 +74176,16 @@
       "recommendation": "POSS",
       "reason": "May work on Digicel",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -74339,13 +74228,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       }
     },
@@ -74378,12 +74265,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "Cat1-5",
           "3G-2"
         ],
         "Digicel": [
-          "3G-1",
           "Cat1-5"
         ],
         "Flow": [
@@ -74414,14 +74299,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5",
           "3G-2"
         ],
         "Digicel": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5"
         ],
         "Flow": [
@@ -74442,14 +74325,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5",
           "3G-2"
         ],
         "Digicel": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5"
         ],
         "Flow": [
@@ -74471,13 +74352,11 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "3G-2"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Flow": [
           "3G-2"
@@ -74533,13 +74412,11 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "3G-2"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Flow": [
           "3G-2"
@@ -74577,13 +74454,11 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5"
         ],
         "Digicel": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-5"
         ],
         "Flow": [
@@ -74598,19 +74473,16 @@
       "recommendation": "NR",
       "reason": "bands not supported by modem",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -82355,19 +82227,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "CTM": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
@@ -82387,19 +82248,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "CTM": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
@@ -82441,15 +82291,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
         ],
         "CTM": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
@@ -82473,20 +82319,15 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "CTM": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -82525,20 +82366,15 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ],
         "CTM": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3"
         ]
@@ -82561,15 +82397,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
         ],
         "CTM": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
@@ -82614,15 +82446,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
         ],
         "CTM": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
@@ -82639,15 +82467,11 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
         ],
         "CTM": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-40"
@@ -82680,18 +82504,13 @@
       "sim": 4,
       "recommendation": "POSS",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "CTM": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -86318,17 +86137,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-2",
@@ -86473,21 +86283,18 @@
       "recommendation": "NRND",
       "reason": "2G/3G sunset in NorAm coming soon",
       "technologies": [
-        "3G",
-        "2G"
+        "3G"
       ],
       "supported": {
         "*": [
           "3G-2",
-          "3G-5",
-          "2G-1900"
+          "3G-5"
         ],
         "AT&T": [
           "3G-2",
           "3G-5"
         ],
         "Movistar": [
-          "2G-1900",
           "3G-2",
           "3G-5"
         ]
@@ -86595,21 +86402,18 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "3G",
-        "2G"
+        "3G"
       ],
       "supported": {
         "*": [
           "3G-2",
-          "3G-5",
-          "2G-1900"
+          "3G-5"
         ],
         "AT&T": [
           "3G-2",
           "3G-5"
         ],
         "Movistar": [
-          "2G-1900",
           "3G-2",
           "3G-5"
         ]
@@ -86641,8 +86445,7 @@
           "3G-2",
           "3G-5",
           "Cat1-2",
-          "M1-4",
-          "2G-1900"
+          "M1-4"
         ],
         "AT&T": [
           "3G-2",
@@ -86651,7 +86454,6 @@
           "M1-4"
         ],
         "Movistar": [
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-2"
@@ -87848,10 +87650,15 @@
         "*": [
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "3G-1",
@@ -87895,10 +87702,15 @@
         "*": [
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "3G-1",
@@ -87943,12 +87755,17 @@
           "2G-1800",
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "2G-900",
@@ -88011,12 +87828,17 @@
           "2G-1800",
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "2G-900",
@@ -88088,12 +87910,17 @@
           "2G-1800",
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "2G-900",
@@ -88124,12 +87951,17 @@
           "2G-1800",
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "2G-900",
@@ -88181,10 +88013,15 @@
         "*": [
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "3G-1",
@@ -88217,12 +88054,17 @@
           "2G-1800",
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "2G-900",
@@ -88253,12 +88095,17 @@
           "2G-1800",
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "2G-900",
@@ -88304,7 +88151,14 @@
       "notSupported": {
         "*": [
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
+        ],
+        "Mtel": [
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "Cat1-3",
@@ -88376,7 +88230,14 @@
       "notSupported": {
         "*": [
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
+        ],
+        "Mtel": [
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "Cat1-3",
@@ -88401,12 +88262,17 @@
           "2G-1800",
           "3G-1",
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
         ],
         "Mtel": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "2G-900",
@@ -88446,7 +88312,14 @@
       "notSupported": {
         "*": [
           "Cat1-3",
+          "Cat1-8",
+          "Cat1-20",
           "Cat1-7"
+        ],
+        "Mtel": [
+          "Cat1-3",
+          "Cat1-8",
+          "Cat1-20"
         ],
         "T-Mobile": [
           "Cat1-3",
@@ -96807,14 +96680,15 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "Cat1-5",
-          "Cat1-3"
+          "Cat1-3",
+          "Cat1-5"
         ],
         "Mobilink": [
           "3G-1"
         ],
         "Telenor": [
           "3G-1",
+          "Cat1-3",
           "Cat1-5"
         ],
         "Ufone": [
@@ -96860,14 +96734,15 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "Cat1-5",
-          "Cat1-3"
+          "Cat1-3",
+          "Cat1-5"
         ],
         "Mobilink": [
           "3G-1"
         ],
         "Telenor": [
           "3G-1",
+          "Cat1-3",
           "Cat1-5"
         ],
         "Ufone": [
@@ -96910,8 +96785,8 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "Cat1-5",
-          "Cat1-3"
+          "Cat1-3",
+          "Cat1-5"
         ],
         "Mobilink": [
           "2G-900",
@@ -96922,6 +96797,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
+          "Cat1-3",
           "Cat1-5"
         ],
         "Ufone": [
@@ -96960,9 +96836,11 @@
       },
       "notSupported": {
         "*": [
+          "Cat1-3",
           "Cat1-5"
         ],
         "Telenor": [
+          "Cat1-3",
           "Cat1-5"
         ]
       }
@@ -96993,7 +96871,8 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3"
         ],
         "Ufone": [
           "2G-900",
@@ -97047,9 +96926,11 @@
       },
       "notSupported": {
         "*": [
+          "Cat1-3",
           "Cat1-5"
         ],
         "Telenor": [
+          "Cat1-3",
           "Cat1-5"
         ]
       }
@@ -97080,7 +96961,8 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3"
         ],
         "Ufone": [
           "2G-900",
@@ -97134,7 +97016,8 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "Cat1-3"
         ],
         "Ufone": [
           "2G-900",
@@ -97208,8 +97091,8 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "Cat1-5",
-          "Cat1-3"
+          "Cat1-3",
+          "Cat1-5"
         ],
         "Mobilink": [
           "2G-900",
@@ -97220,6 +97103,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
+          "Cat1-3",
           "Cat1-5"
         ],
         "Ufone": [
@@ -97248,8 +97132,8 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "Cat1-5",
-          "Cat1-3"
+          "Cat1-3",
+          "Cat1-5"
         ],
         "Mobilink": [
           "2G-900",
@@ -97260,6 +97144,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
+          "Cat1-3",
           "Cat1-5"
         ],
         "Ufone": [
@@ -97321,9 +97206,11 @@
       },
       "notSupported": {
         "*": [
+          "Cat1-3",
           "Cat1-5"
         ],
         "Telenor": [
+          "Cat1-3",
           "Cat1-5"
         ]
       }
@@ -97366,10 +97253,11 @@
       },
       "notSupported": {
         "*": [
-          "Cat1-5",
-          "Cat1-3"
+          "Cat1-3",
+          "Cat1-5"
         ],
         "Telenor": [
+          "Cat1-3",
           "Cat1-5"
         ],
         "Warid": [
@@ -100991,16 +100879,14 @@
       },
       "notSupported": {
         "*": [
+          "Cat1-3",
           "3G-1",
           "3G-8",
-          "Cat1-3",
           "M1",
           "M1-3",
           "Cat1-1"
         ],
         "Era": [
-          "3G-1",
-          "3G-8",
           "Cat1-3"
         ],
         "Orange": [
@@ -101174,9 +101060,7 @@
         ],
         "Era": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
@@ -101326,9 +101210,9 @@
         "*": [
           "2G-900",
           "2G-1800",
+          "Cat1-3",
           "3G-1",
           "3G-8",
-          "Cat1-3",
           "M1",
           "M1-3",
           "Cat1-1"
@@ -101336,8 +101220,6 @@
         "Era": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "Cat1-3"
         ],
         "Orange": [
@@ -101377,9 +101259,7 @@
         ],
         "Era": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8"
+          "2G-1800"
         ],
         "Orange": [
           "2G-900",
@@ -102193,28 +102073,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102225,28 +102090,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102279,17 +102129,9 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102314,17 +102156,9 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102357,17 +102191,9 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102377,28 +102203,13 @@
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "YES",
-      "technologies": [
-        "3G"
-      ],
-      "supported": {
-        "*": [
-          "3G-2",
-          "3G-5"
-        ],
-        "Claro": [
-          "3G-2",
-          "3G-5"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "Cat1-17"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "Cat1-17"
         ]
       }
@@ -102417,28 +102228,13 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102463,17 +102259,9 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102488,17 +102276,9 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -102508,24 +102288,8 @@
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES",
-      "technologies": [
-        "2G",
-        "3G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-17"
@@ -102550,24 +102314,8 @@
       "modem": "U201",
       "sim": 4,
       "recommendation": "YES",
-      "technologies": [
-        "2G",
-        "3G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-17"
@@ -102582,24 +102330,8 @@
       "modem": "U260",
       "sim": 1,
       "recommendation": "NRND",
-      "technologies": [
-        "2G",
-        "3G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "Cat1-17"
@@ -102619,17 +102351,9 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
-          "3G-2",
-          "3G-5",
           "Cat1-17"
         ]
       }
@@ -111552,7 +111276,6 @@
           "Cat1-20"
         ],
         "T-Mobile": [
-          "3G-1",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -111676,8 +111399,7 @@
         ],
         "T-Mobile": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -111818,7 +111540,6 @@
         "T-Mobile": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "Cat1-3",
           "Cat1-7",
           "Cat1-20"
@@ -111852,8 +111573,7 @@
         ],
         "T-Mobile": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -121401,18 +121121,13 @@
       "sim": 2,
       "recommendation": "POSS",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Real Future": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -121502,18 +121217,13 @@
       "sim": 2,
       "recommendation": "POSS",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Real Future": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -121865,18 +121575,13 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Real Future": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -126036,22 +125741,13 @@
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3"
         ],
-        "du": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "M1-3"
         ]
       },
@@ -126086,22 +125782,13 @@
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3"
         ],
-        "du": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "M1-3"
         ]
       },
@@ -126166,8 +125853,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20",
@@ -126176,15 +125861,11 @@
           "M1-7"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -126211,29 +125892,22 @@
       "reason": "roaming restrictions",
       "roamingRestrictions": "warn",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7"
@@ -126278,29 +125952,22 @@
       "reason": "roaming restrictions",
       "roamingRestrictions": "warn",
       "technologies": [
-        "2G",
         "3G",
         "Cat1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20",
           "Cat1-7"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7"
@@ -126329,8 +125996,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20",
@@ -126340,15 +126005,11 @@
           "M1-7"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -126372,23 +126033,8 @@
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "du": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Etisalat": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
@@ -126444,8 +126090,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20",
@@ -126454,15 +126098,11 @@
           "M1-7"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -126491,8 +126131,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20",
@@ -126501,15 +126139,11 @@
           "M1-7"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -126524,23 +126158,16 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -126584,23 +126211,16 @@
       "reason": "roaming restrictions",
       "roamingRestrictions": "warn",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -126636,8 +126256,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20",
@@ -126647,15 +126265,11 @@
           "M1-7"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-20"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "Cat1-3",
           "Cat1-7",
@@ -126671,23 +126285,16 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
         "3G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "du": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
       },
@@ -128075,23 +127682,18 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "M1"
+        "M1",
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "M1-2",
           "M1-4",
           "M1-12",
+          "2G-1900",
           "M1-5",
           "M1-66",
           "M1-13"
-        ],
-        "Alaska Wireless": [
-          "2G-850",
-          "2G-1900"
         ],
         "AT&T": [
           "M1-2",
@@ -128182,23 +127784,18 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "M1"
+        "M1",
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "M1-2",
           "M1-4",
           "M1-12",
+          "2G-1900",
           "M1-5",
           "M1-66",
           "M1-13"
-        ],
-        "Alaska Wireless": [
-          "2G-850",
-          "2G-1900"
         ],
         "AT&T": [
           "M1-2",
@@ -128369,8 +127966,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -128382,6 +127977,7 @@
           "Cat1-29",
           "Cat1-30",
           "Cat1-66",
+          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128393,8 +127989,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -128499,8 +128093,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -128515,6 +128107,7 @@
           "M1-2",
           "M1-4",
           "M1-12",
+          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128528,8 +128121,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -128650,8 +128241,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -128666,6 +128255,7 @@
           "M1-2",
           "M1-4",
           "M1-12",
+          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128679,8 +128269,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -128783,8 +128371,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "Cat1-14",
           "Cat1-17",
           "Cat1-29",
@@ -128793,6 +128379,7 @@
           "M1-2",
           "M1-4",
           "M1-12",
+          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -128803,10 +128390,6 @@
           "M1-71",
           "M1-13",
           "NB1-13"
-        ],
-        "Alaska Wireless": [
-          "2G-850",
-          "2G-1900"
         ],
         "AT&T": [
           "Cat1-14",
@@ -129000,8 +128583,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -129013,6 +128594,7 @@
           "Cat1-29",
           "Cat1-30",
           "Cat1-66",
+          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -129024,8 +128606,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -129104,8 +128684,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -129117,6 +128695,7 @@
           "Cat1-29",
           "Cat1-30",
           "Cat1-66",
+          "2G-1900",
           "Cat1-71",
           "NB1-2",
           "NB1-4",
@@ -129128,8 +128707,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "Cat1-4",
@@ -129312,19 +128889,16 @@
       "recommendation": "NRND",
       "reason": "2G/3G sunset in NorAm coming soon",
       "technologies": [
-        "2G",
-        "3G"
+        "3G",
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
-          "3G-5"
+          "3G-5",
+          "2G-1900"
         ],
         "Alaska Wireless": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5"
         ],
@@ -131268,10 +130842,6 @@
           "2G-900",
           "2G-1800"
         ],
-        "MobiFone": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Viettel": [
           "2G-900",
           "2G-1800"
@@ -131283,10 +130853,14 @@
       },
       "notSupported": {
         "*": [
-          "3G-1"
+          "3G-1",
+          "Cat1-3"
         ],
         "MobiFone": [
           "3G-1"
+        ],
+        "Viettel": [
+          "Cat1-3"
         ],
         "Vinaphone": [
           "3G-1"
@@ -131307,10 +130881,6 @@
           "2G-900",
           "2G-1800"
         ],
-        "MobiFone": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Viettel": [
           "2G-900",
           "2G-1800"
@@ -131322,10 +130892,14 @@
       },
       "notSupported": {
         "*": [
-          "3G-1"
+          "3G-1",
+          "Cat1-3"
         ],
         "MobiFone": [
           "3G-1"
+        ],
+        "Viettel": [
+          "Cat1-3"
         ],
         "Vinaphone": [
           "3G-1"
@@ -131360,18 +130934,18 @@
       "supported": {},
       "notSupported": {
         "*": [
+          "3G-1",
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "Cat1-3"
         ],
         "MobiFone": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Viettel": [
           "2G-900",
-          "2G-1800"
+          "2G-1800",
+          "Cat1-3"
         ],
         "Vinaphone": [
           "2G-900",
@@ -131397,23 +130971,24 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
+        "3G",
         "2G",
-        "3G"
+        "Cat1"
       ],
       "supported": {
         "*": [
+          "3G-1",
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "Cat1-3"
         ],
         "MobiFone": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Viettel": [
           "2G-900",
-          "2G-1800"
+          "2G-1800",
+          "Cat1-3"
         ],
         "Vinaphone": [
           "2G-900",
@@ -131448,23 +131023,24 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
+        "3G",
         "2G",
-        "3G"
+        "Cat1"
       ],
       "supported": {
         "*": [
+          "3G-1",
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "Cat1-3"
         ],
         "MobiFone": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Viettel": [
           "2G-900",
-          "2G-1800"
+          "2G-1800",
+          "Cat1-3"
         ],
         "Vinaphone": [
           "2G-900",
@@ -131483,18 +131059,18 @@
       "supported": {},
       "notSupported": {
         "*": [
+          "3G-1",
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "Cat1-3"
         ],
         "MobiFone": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Viettel": [
           "2G-900",
-          "2G-1800"
+          "2G-1800",
+          "Cat1-3"
         ],
         "Vinaphone": [
           "2G-900",
@@ -131536,7 +131112,11 @@
       },
       "notSupported": {
         "*": [
+          "Cat1-3",
           "3G-1"
+        ],
+        "Viettel": [
+          "Cat1-3"
         ],
         "Vinaphone": [
           "3G-1"
@@ -131563,18 +131143,18 @@
       "supported": {},
       "notSupported": {
         "*": [
+          "3G-1",
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "Cat1-3"
         ],
         "MobiFone": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Viettel": [
           "2G-900",
-          "2G-1800"
+          "2G-1800",
+          "Cat1-3"
         ],
         "Vinaphone": [
           "2G-900",
@@ -131593,18 +131173,18 @@
       "supported": {},
       "notSupported": {
         "*": [
+          "3G-1",
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "Cat1-3"
         ],
         "MobiFone": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Viettel": [
           "2G-900",
-          "2G-1800"
+          "2G-1800",
+          "Cat1-3"
         ],
         "Vinaphone": [
           "2G-900",
@@ -131638,7 +131218,14 @@
           "3G-1"
         ]
       },
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "Cat1-3"
+        ],
+        "Viettel": [
+          "Cat1-3"
+        ]
+      }
     },
     {
       "country": "Vietnam",
@@ -131656,18 +131243,16 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "3G",
+        "2G"
       ],
       "supported": {
         "*": [
+          "3G-1",
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "MobiFone": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Viettel": [
@@ -131680,7 +131265,14 @@
           "3G-1"
         ]
       },
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "Cat1-3"
+        ],
+        "Viettel": [
+          "Cat1-3"
+        ]
+      }
     },
     {
       "country": "Vietnam",
@@ -131694,11 +131286,13 @@
         "*": [
           "2G-900",
           "2G-1800",
+          "Cat1-3",
           "3G-1"
         ],
         "Viettel": [
           "2G-900",
-          "2G-1800"
+          "2G-1800",
+          "Cat1-3"
         ],
         "Vinaphone": [
           "2G-900",
@@ -131732,7 +131326,14 @@
           "3G-1"
         ]
       },
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "Cat1-3"
+        ],
+        "Viettel": [
+          "Cat1-3"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (British)",
