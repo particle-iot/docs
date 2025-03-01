@@ -1,0 +1,101 @@
+{
+  "type": "libraries",
+  "id": "tmc2209",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/tmc2209/archive/8.0.8.tar.gz"
+  },
+  "attributes": {
+    "name": "tmc2209",
+    "version": "8.0.8",
+    "author": "Peter Polidoro",
+    "url": "https://www.arduino.cc/reference/en/libraries/tmc2209/",
+    "repository": "https://github.com/bryanchug/TMC2209",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/reference/device-os/libraries/t/tmc2209",
+  "versions": {
+    "8.0.8": {
+      "added": "2025-03-01T11:12:31.450Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          },
+          "msom": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# tmc2209\n\nA Particle library for tmc2209\n\n## Welcome to your library!\n\nTo get started, modify the sources in src. Rename the example folder inside examples to a more meaningful name and add additional examples in separate folders.\n\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\n\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\n\n_TODO: update this README_\n\n## Usage\n\nConnect XYZ hardware, add the tmc2209 library to your project and follow this simple example:\n\n```\n#include \"tmc2209.h\"\nTmc2209 tmc2209;\n\nvoid setup() {\n  tmc2209.begin();\n}\n\nvoid loop() {\n  tmc2209.process();\n}\n```\n\nSee the examples folder for more details.\n\n## Documentation\n\nTODO: Describe `Tmc2209`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add tmc2209_myname` to add the library to a project on your machine or add the tmc2209_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2022 Peter Polidoro\n\nLicensed under the <insert your choice of license here> license\n",
+  "allVersions": [
+    "8.0.8",
+    "8.0.7",
+    "8.0.6"
+  ]
+}

@@ -5139,8 +5139,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2025-02-07",
-            "hash": "ddda4f858150b19f29ab1a79644e81c716ac761c3491ca8d234025ccc717d43d"
+            "date": "2025-03-01",
+            "hash": "e226507c6bf9c1a8262620ed814ed48fec045ac8f274cface4c340696da282c8"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -5663,8 +5663,8 @@
             "hash": "b6a551e6398c73a0773367c47b3ea8bbdeff0415f6040be516835a263f34fb3a"
         },
         "reference/device-os/libraries/e/EEPROM-Storage.md": {
-            "date": "2025-02-07",
-            "hash": "449a8af46c40b7d0d8f2253b8b0016786ce3c5c7c1eec1aa988d07bfb24f6e9e"
+            "date": "2025-03-01",
+            "hash": "050e1881e8b1d1fb77e2a772f828695b54bb90c8f7ae5fbda6e66557559279f1"
         },
         "reference/device-os/libraries/e/EEPROMStorage.md": {
             "date": "2024-08-28",
@@ -7111,8 +7111,8 @@
             "hash": "485cee53f9445cdddfe8690ac3ede9404e448400eb9b1213e9d8bbd98df216fe"
         },
         "reference/device-os/libraries/s/SC16IS740RK.md": {
-            "date": "2024-08-28",
-            "hash": "d1de1ff944d1bc82b4d841f711417e6433941cca58d85405d364fe4a53784d0d"
+            "date": "2025-03-01",
+            "hash": "782f091d5345f4f0dd387874817d2c05d7c610b8d44363b5651c84cedd628c49"
         },
         "reference/device-os/libraries/s/SC16IS7xxRK.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "9f0e6aafe93c1590bcbd451325c38f17184a7574f212daa9c31b3b98d11ee60c",
-            "date": "2025-02-28"
+            "hash": "111f8ed220c07f0fb14c89bd54d99d30804231b3cb7f42c74a8cdbbf38f6178a",
+            "date": "2025-03-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9685,6 +9685,14 @@
         "reference/device-os/api/cellular/ping-cellular.md": {
             "hash": "40aaee3b00775369e77148a62fdebfa3b73c46c8656d591554458791049b657a",
             "date": "2025-02-14"
+        },
+        "reference/device-os/libraries/p/PublishQueueExtRK.md": {
+            "hash": "5d90d47fb6681458577582aa678a1e8a090e8a75ed43aa049c5e5836136b42ee",
+            "date": "2025-03-01"
+        },
+        "reference/device-os/libraries/t/tmc2209.md": {
+            "hash": "9aaa9e1642eabd6d9b693e8543f181a412f091c34eb5e701223b9f31c5577998",
+            "date": "2025-03-01"
         }
     }
 }
