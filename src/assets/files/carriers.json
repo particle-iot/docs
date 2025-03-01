@@ -132986,7 +132986,9 @@
         }
       ],
       "2G": [],
-      "3G": []
+      "3G": [
+        "Digicel"
+      ]
     },
     {
       "date": "2027-03-31",
@@ -134076,6 +134078,7 @@
         }
       ],
       "2G": [
+        "BH Telecom",
         "HT Eronet"
       ],
       "3G": [
@@ -134776,7 +134779,9 @@
         "Elisa",
         "Telia"
       ],
-      "3G": []
+      "3G": [
+        "DNA"
+      ]
     },
     {
       "date": "2023-12-31",
@@ -134807,7 +134812,8 @@
       ],
       "3G": [
         "Meteor",
-        "O2"
+        "O2",
+        "Vodafone"
       ]
     },
     {
@@ -134893,7 +134899,8 @@
         "Vodafone"
       ],
       "3G": [
-        "NOS"
+        "NOS",
+        "TMN"
       ]
     },
     {
@@ -134958,7 +134965,9 @@
         "Orange",
         "Telekom"
       ],
-      "3G": []
+      "3G": [
+        "Orange"
+      ]
     },
     {
       "date": "2023-12-31",
@@ -135028,7 +135037,10 @@
         }
       ],
       "2G": [],
-      "3G": []
+      "3G": [
+        "Optus",
+        "Telstra"
+      ]
     },
     {
       "date": "2023-09-30",
@@ -135039,7 +135051,9 @@
           "rat": "3G"
         }
       ],
-      "2G": [],
+      "2G": [
+        "T-Mobile (USA)"
+      ],
       "3G": []
     },
     {
@@ -135145,6 +135159,7 @@
         "Digicel"
       ],
       "3G": [
+        "Digicel",
         "Flow"
       ]
     },
@@ -135163,7 +135178,8 @@
         "Tango"
       ],
       "3G": [
-        "Orange"
+        "Orange",
+        "Tango"
       ]
     },
     {
@@ -135176,7 +135192,9 @@
         }
       ],
       "2G": [],
-      "3G": []
+      "3G": [
+        "Claro"
+      ]
     },
     {
       "date": "2022-12-31",
@@ -135193,7 +135211,8 @@
         "Vodafone"
       ],
       "3G": [
-        "Orange"
+        "Orange",
+        "Vodafone"
       ]
     },
     {
@@ -135242,8 +135261,12 @@
           "rat": "3G"
         }
       ],
-      "2G": [],
-      "3G": []
+      "2G": [
+        "T-Mobile (USA)"
+      ],
+      "3G": [
+        "Union Telephone"
+      ]
     },
     {
       "date": "2022-01-01",
@@ -135256,6 +135279,7 @@
       ],
       "2G": [
         "KPN",
+        "T-Mobile",
         "Vodafone"
       ],
       "3G": [
@@ -135367,6 +135391,7 @@
         "Wind"
       ],
       "3G": [
+        "TIM",
         "Wind"
       ]
     },
@@ -135381,9 +135406,11 @@
       ],
       "2G": [
         "KPN",
+        "T-Mobile",
         "Vodafone"
       ],
       "3G": [
+        "KPN",
         "T-Mobile"
       ]
     },
@@ -135438,8 +135465,13 @@
           "rat": "3G"
         }
       ],
-      "2G": [],
-      "3G": []
+      "2G": [
+        "T-Mobile (USA)"
+      ],
+      "3G": [
+        "T-Mobile (USA)",
+        "Union Telephone"
+      ]
     },
     {
       "date": "2020-12-31",
@@ -135450,7 +135482,10 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
+      "2G": [
+        "Sunrise",
+        "Swisscom"
+      ],
       "3G": [
         "Salt",
         "Sunrise",
@@ -135489,6 +135524,7 @@
         "China Mobile"
       ],
       "3G": [
+        "China Mobile",
         "China Unicom"
       ]
     },
@@ -135501,8 +135537,14 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
-      "3G": []
+      "2G": [
+        "T-Mobile (USA)"
+      ],
+      "3G": [
+        "AT&T",
+        "T-Mobile (USA)",
+        "Union Telephone"
+      ]
     },
     {
       "date": "2019-03-31",
@@ -135588,7 +135630,9 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
+      "2G": [
+        "Rogers Wireless"
+      ],
       "3G": [
         "Bell Mobility",
         "Rogers Wireless",
@@ -135607,7 +135651,11 @@
         }
       ],
       "2G": [],
-      "3G": []
+      "3G": [
+        "Optus",
+        "Telstra",
+        "Vodafone"
+      ]
     },
     {
       "date": "2017-07-31",
@@ -135618,7 +135666,10 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
+      "2G": [
+        "Bell Mobility",
+        "Rogers Wireless"
+      ],
       "3G": [
         "Bell Mobility",
         "Rogers Wireless",
@@ -135664,7 +135715,11 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
+      "2G": [
+        "Bell Mobility",
+        "Rogers Wireless",
+        "Sasktel"
+      ],
       "3G": [
         "Bell Mobility",
         "Rogers Wireless",
@@ -135701,8 +135756,14 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
-      "3G": []
+      "2G": [
+        "Vodafone"
+      ],
+      "3G": [
+        "Optus",
+        "Telstra",
+        "Vodafone"
+      ]
     },
     {
       "date": "2016-12-31",
@@ -135713,8 +135774,15 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
-      "3G": []
+      "2G": [
+        "Optus",
+        "Vodafone"
+      ],
+      "3G": [
+        "Optus",
+        "Telstra",
+        "Vodafone"
+      ]
     },
     {
       "date": "2016-12-31",
@@ -135725,8 +135793,15 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
-      "3G": []
+      "2G": [
+        "T-Mobile (USA)",
+        "Union Telephone"
+      ],
+      "3G": [
+        "AT&T",
+        "T-Mobile (USA)",
+        "Union Telephone"
+      ]
     },
     {
       "date": "2016-01-01",
@@ -135760,6 +135835,7 @@
         }
       ],
       "2G": [
+        "2degrees",
         "Vodafone"
       ],
       "3G": [
@@ -135794,7 +135870,8 @@
       ],
       "2G": [],
       "3G": [
-        "NTT DoCoMo"
+        "NTT DoCoMo",
+        "Softbank"
       ]
     },
     {
@@ -135806,7 +135883,9 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
+      "2G": [
+        "KT"
+      ],
       "3G": [
         "KT",
         "SK Telecom"
@@ -135821,9 +135900,12 @@
           "rat": "2G"
         }
       ],
-      "2G": [],
-      "3G": [
+      "2G": [
         "NTT DoCoMo"
+      ],
+      "3G": [
+        "NTT DoCoMo",
+        "Softbank"
       ]
     }
   ],

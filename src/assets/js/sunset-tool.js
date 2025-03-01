@@ -79,63 +79,15 @@ $(document).ready(function() {
                     key: 'country',
                 },
                 {
+                    // carrier sunset
                     fn: function(sunsetObj, tdElem) {
-                        for(let ii = 0; ii < sunsetObj.items.length; ii++) {
-                            const itemObj = sunsetObj.items[ii];
-
-                            $(tdElem).append(document.createTextNode(itemObj.carrier));
-
-                            const supElem = document.createElement('sup');
-                            $(supElem).text(itemObj.rat.substring(0,1));
-                            $(tdElem).append(supElem);
-
-                            if ((ii + 1) < sunsetObj.items.length) {
-                                $(tdElem).append(document.createTextNode(', '));
-                            }
-
-                        }                        
+                  
                     },
                 },
                 {
+                    // remaining carriers
                     fn: function(sunsetObj, tdElem) {
-                        let carriers = {};
-
-                        for(const rat of ['2G', '3G']) {
-                            for(const c of sunsetObj[rat]) {
-                                if (!carriers[c]) {
-                                    carriers[c] = [];
-                                }
-                                carriers[c].push(rat);
-                            }
-                        }
-
-                        let carrierNames = Object.keys(carriers);
-                        carrierNames.sort();
-
-
-                        for(let ii = 0; ii < carrierNames.length; ii++) {
-                            const carrierName = carrierNames[ii];
-
-                            $(tdElem).append(document.createTextNode(carrierName));
-
-                            for(const rat of carriers[carrierName]) {
-                                const supElem = document.createElement('sup');
-                                $(supElem).text(rat.substring(0,1));
-                                $(tdElem).append(supElem);
-                            }
-
-                            if ((ii + 1) < carrierNames.length) {
-                                $(tdElem).append(document.createTextNode(', '));
-                            }
-
-                        }
-
-                        if (carrierNames.length == 0) {
-                            $(tdElem).text('None');
-                            $(tdElem).css('background-color', '#FFE949'); // COLOR_State_Yellow_500
-                            // $(tdElem).css('background-color', '#FFADBD'); // COLOR_Watermelon_400
-                            // $(tdElem).css('background-color', '#FFBC80'); // COLOR_State_Orange_500
-                        }
+                        
         
                         // $(tdElem).text(carrierNames.join(', '));
                     },
@@ -148,19 +100,104 @@ $(document).ready(function() {
 
             for(const sunsetObj of datastore.data.sunset) {
                 const trElem = document.createElement('tr');
+                
+                const markerElem = document.createElement('td');
+                $(markerElem).css('width', '3px');
+                $(trElem).append(markerElem);      
 
-                for(const col of columns) {
-                    
+                {
+                    // Date
                     const tdElem = document.createElement('td');
-                    if (col.fn) {
-                        col.fn(sunsetObj, tdElem);
+                    $(tdElem).text(sunsetObj.date);
+                    $(trElem).append(tdElem);                        
+                }
+
+                {
+                    // Country
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(sunsetObj.country);
+                    $(trElem).append(tdElem);                        
+                }
+
+                {
+                    const tdElem = document.createElement('td');
+
+                    let carriers = {};
+
+                    for(let ii = 0; ii < sunsetObj.items.length; ii++) {
+                        const itemObj = sunsetObj.items[ii];
+                        if (!carriers[itemObj.carrier]) {
+                            carriers[itemObj.carrier] = [];
+                        }
+                        carriers[itemObj.carrier].push(itemObj.rat);
                     }
-                    else {
-                        $(tdElem).text(sunsetObj[col.key]);
-                    }
+                    const carrierNames = Object.keys(carriers);
+
+                    for(let ii = 0; ii < carrierNames.length; ii++) {                            
+                        const rats = carriers[carrierNames[ii]];
+                        $(tdElem).append(document.createTextNode(carrierNames[ii]));
+
+                        const supElem = document.createElement('sup');
+                        let s = '';
+                        for(const r of rats) {
+                            s += r.substring(0, 1);
+                        }
+                        $(supElem).text(s);
+                        $(tdElem).append(supElem);
+
+                        if ((ii + 1) < sunsetObj.items.length) {
+                            $(tdElem).append(document.createTextNode(', '));
+                        }
+                    }    
 
                     $(trElem).append(tdElem);                        
                 }
+
+                {
+                    const tdElem = document.createElement('td');
+
+                    let carriers = {};
+
+                    for(const rat of ['2G', '3G']) {
+                        for(const c of sunsetObj[rat]) {
+                            if (!carriers[c]) {
+                                carriers[c] = [];
+                            }
+                            carriers[c].push(rat);
+                        }
+                    }
+
+                    let carrierNames = Object.keys(carriers);
+                    carrierNames.sort();
+
+
+                    for(let ii = 0; ii < carrierNames.length; ii++) {
+                        const carrierName = carrierNames[ii];
+
+                        $(tdElem).append(document.createTextNode(carrierName));
+
+                        for(const rat of carriers[carrierName]) {
+                            const supElem = document.createElement('sup');
+                            $(supElem).text(rat.substring(0,1));
+                            $(tdElem).append(supElem);
+                        }
+
+                        if ((ii + 1) < carrierNames.length) {
+                            $(tdElem).append(document.createTextNode(', '));
+                        }
+
+                    }
+
+                    if (carrierNames.length == 0) {
+                        $(tdElem).text('None');
+                        $(markerElem).css('background-color', '#FFE949'); // COLOR_State_Yellow_500
+                        // $(tdElem).css('background-color', '#FFADBD'); // COLOR_Watermelon_400
+                        // $(tdElem).css('background-color', '#FFBC80'); // COLOR_State_Orange_500
+                    }
+                    
+                    $(trElem).append(tdElem);                        
+                }
+
             
                 $(tbodyElem).append(trElem);
             }
