@@ -94,116 +94,167 @@ $(document).ready(function() {
                 },
             ];
 
-            const tableElem = $(thisPartial).find('.sunsetListTable');
+            const sunsetList = {
+                thisPartial, 
+                options: {},               
+            };
+            $(thisPartial).data('sunsetList', sunsetList);
 
-            const tbodyElem = $(tableElem).find('tbody');
-
-            for(const sunsetObj of datastore.data.sunset) {
-                const trElem = document.createElement('tr');
-                
-                const markerElem = document.createElement('td');
-                $(markerElem).css('width', '3px');
-                $(trElem).append(markerElem);      
-
-                {
-                    // Date
-                    const tdElem = document.createElement('td');
-                    $(tdElem).text(sunsetObj.date);
-                    $(trElem).append(tdElem);                        
-                }
-
-                {
-                    // Country
-                    const tdElem = document.createElement('td');
-                    $(tdElem).text(sunsetObj.country);
-                    $(trElem).append(tdElem);                        
-                }
-
-                {
-                    const tdElem = document.createElement('td');
-
-                    let carriers = {};
-
-                    for(let ii = 0; ii < sunsetObj.items.length; ii++) {
-                        const itemObj = sunsetObj.items[ii];
-                        if (!carriers[itemObj.carrier]) {
-                            carriers[itemObj.carrier] = [];
-                        }
-                        carriers[itemObj.carrier].push(itemObj.rat);
+            for(const pair of $(thisPartial).data('options').split(',')) {
+                const parts = pair.split('=', 2);
+                if (parts.length >= 1) {
+                    if (parts.length == 1) {
+                        sunsetList.options[parts[0].trim()] = true;
                     }
-                    const carrierNames = Object.keys(carriers);
-
-                    for(let ii = 0; ii < carrierNames.length; ii++) {                            
-                        const rats = carriers[carrierNames[ii]];
-                        $(tdElem).append(document.createTextNode(carrierNames[ii]));
-
-                        const supElem = document.createElement('sup');
-                        let s = '';
-                        for(const r of rats) {
-                            s += r.substring(0, 1);
-                        }
-                        $(supElem).text(s);
-                        $(tdElem).append(supElem);
-
-                        if ((ii + 1) < sunsetObj.items.length) {
-                            $(tdElem).append(document.createTextNode(', '));
-                        }
-                    }    
-
-                    $(trElem).append(tdElem);                        
+                    else {
+                        sunsetList.options[parts[0].trim()] = parts[1].trim();
+                    }
                 }
-
-                {
-                    const tdElem = document.createElement('td');
-
-                    let carriers = {};
-
-                    for(const rat of ['2G', '3G']) {
-                        for(const c of sunsetObj[rat]) {
-                            if (!carriers[c]) {
-                                carriers[c] = [];
-                            }
-                            carriers[c].push(rat);
-                        }
-                    }
-
-                    let carrierNames = Object.keys(carriers);
-                    carrierNames.sort();
-
-
-                    for(let ii = 0; ii < carrierNames.length; ii++) {
-                        const carrierName = carrierNames[ii];
-
-                        $(tdElem).append(document.createTextNode(carrierName));
-
-                        for(const rat of carriers[carrierName]) {
-                            const supElem = document.createElement('sup');
-                            $(supElem).text(rat.substring(0,1));
-                            $(tdElem).append(supElem);
-                        }
-
-                        if ((ii + 1) < carrierNames.length) {
-                            $(tdElem).append(document.createTextNode(', '));
-                        }
-
-                    }
-
-                    if (carrierNames.length == 0) {
-                        $(tdElem).text('None');
-                        $(markerElem).css('background-color', '#FFE949'); // COLOR_State_Yellow_500
-                        // $(tdElem).css('background-color', '#FFADBD'); // COLOR_Watermelon_400
-                        // $(tdElem).css('background-color', '#FFBC80'); // COLOR_State_Orange_500
-                    }
-                    
-                    $(trElem).append(tdElem);                        
-                }
-
+            }  
             
-                $(tbodyElem).append(trElem);
+
+
+            sunsetList.updateTable = function(options = {}) {
+                // options
+                //  .includeCountries (array): array of countries to display
+
+                const tableElem = $(thisPartial).find('.sunsetListTable');
+                const tbodyElem = $(tableElem).find('tbody');
+    
+                $(tbodyElem).empty();
+    
+                let numAdded = 0;
+
+                for(const sunsetObj of datastore.data.sunset) {
+                    if (options.includeCountries) {
+                        if (!options.includeCountries.includes(sunsetObj.country)) {
+                            continue;
+                        }
+                    }
+
+                    numAdded++;
+                    const trElem = document.createElement('tr');
+                    
+                    const markerElem = document.createElement('td');
+                    $(markerElem).css('width', '3px');
+                    $(trElem).append(markerElem);      
+    
+                    {
+                        // Date
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(sunsetObj.date);
+                        $(trElem).append(tdElem);                        
+                    }
+    
+                    {
+                        // Country
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(sunsetObj.country);
+                        $(trElem).append(tdElem);                        
+                    }
+    
+                    {
+                        // Sunset carriers
+                        const tdElem = document.createElement('td');
+    
+                        let carriers = {};
+    
+                        for(let ii = 0; ii < sunsetObj.items.length; ii++) {
+                            const itemObj = sunsetObj.items[ii];
+                            if (!carriers[itemObj.carrier]) {
+                                carriers[itemObj.carrier] = [];
+                            }
+                            carriers[itemObj.carrier].push(itemObj.rat);
+                        }
+                        const carrierNames = Object.keys(carriers);
+    
+                        for(let ii = 0; ii < carrierNames.length; ii++) {                            
+                            const rats = carriers[carrierNames[ii]];
+                            $(tdElem).append(document.createTextNode(carrierNames[ii]));
+    
+                            const supElem = document.createElement('sup');
+                            let s = '';
+                            for(const r of rats) {
+                                s += r.substring(0, 1);
+                            }
+                            $(supElem).text(s);
+                            $(tdElem).append(supElem);
+    
+                            if ((ii + 1) < sunsetObj.items.length) {
+                                $(tdElem).append(document.createTextNode(', '));
+                            }
+                        }    
+    
+                        $(trElem).append(tdElem);                        
+                    }
+    
+                    {
+                        // Remaining carriers
+                        const tdElem = document.createElement('td');
+    
+                        let carriers = {};
+    
+                        for(const rat of ['2G', '3G']) {
+                            for(const c of sunsetObj[rat]) {
+                                if (!carriers[c]) {
+                                    carriers[c] = [];
+                                }
+                                carriers[c].push(rat);
+                            }
+                        }
+    
+                        let carrierNames = Object.keys(carriers);
+                        carrierNames.sort();
+    
+    
+                        for(let ii = 0; ii < carrierNames.length; ii++) {
+                            const carrierName = carrierNames[ii];
+    
+                            $(tdElem).append(document.createTextNode(carrierName));
+    
+                            for(const rat of carriers[carrierName]) {
+                                const supElem = document.createElement('sup');
+                                $(supElem).text(rat.substring(0,1));
+                                $(tdElem).append(supElem);
+                            }
+    
+                            if ((ii + 1) < carrierNames.length) {
+                                $(tdElem).append(document.createTextNode(', '));
+                            }
+    
+                        }
+    
+                        if (carrierNames.length == 0) {
+                            const iElem = document.createElement('i');
+                            $(iElem).text('None');
+                            $(tdElem).append(iElem);
+                            $(markerElem).css('background-color', '#FFE949'); // COLOR_State_Yellow_500
+                            // $(tdElem).css('background-color', '#FFADBD'); // COLOR_Watermelon_400
+                            // $(tdElem).css('background-color', '#FFBC80'); // COLOR_State_Orange_500
+                        }
+                        
+                        $(trElem).append(tdElem);                        
+                    }
+    
+                
+                    $(tbodyElem).append(trElem);
+                }
+
+                if (sunsetList.options.showNonEmpty && !options.isPageLoad) {
+                    if (numAdded) {
+                        $(thisPartial).show();
+                    }
+                    else {
+                        $(thisPartial).hide();
+                    }
+                }
+
+                if (!sunsetList.options.hidden) {
+                    $(thisPartial).show();
+                }
             }
 
-                
-        
+            sunsetList.updateTable({isPageLoad: true});
         });
 
         $('.sunsetTool').each(function() {

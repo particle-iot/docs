@@ -3,7 +3,7 @@ title: Australia and New Zealand 2G/3G Sunset
 columns: two
 layout: commonTwo.hbs
 description: Australia and New Zealand 2G/3G Sunset
-includeDefinitions: [api-helper, sunset-tool]
+includeDefinitions: [api-helper, datastore, sunset-tool]
 ---
 
 # {{title}}

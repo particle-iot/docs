@@ -1052,6 +1052,17 @@ countryDetails.generateTable = function(options) {
         }
             
         $(options.resultDiv).append(divElem);
+
+        // Sunset information
+        const sunsetList = $('.sunsetList').data('sunsetList');
+        if (sunsetList) {
+            sunsetList.updateTable({
+                includeCountries: [options.country],
+            });
+        }
+    }
+    else {
+        $('.sunsetList').hide();
     }
     
     // Carrier band table
