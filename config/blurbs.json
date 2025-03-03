@@ -1,0 +1,59 @@
+{
+    "primary-led": {
+        "hash": "eb0ef0eba9746b38a8ece4c0ea5bc48d2991d233"
+    },
+    "primary-usb": {
+        "hash": "d47f337c34134a699ad04dbd64ae2b24adf7b895"
+    },
+    "audio-connector": {
+        "hash": "7cda755af29f5df7838aa10fe45e1b519e63ca04"
+    },
+    "hat-power-connector": {
+        "hash": "e9faed02831a6162ea887b55855d101f2e74ef8c"
+    },
+    "hat": {
+        "hash": "60d018e044f8fc1c246b8e410e18bfd7e0ee33e7"
+    },
+    "debug-connector": {
+        "hash": "9ccbf9a823a19baaf20eccdf61cb10c70fe131c9"
+    },
+    "sd": {
+        "hash": "c5f6ef08a2051892cef9a719211b79a8993610c1"
+    },
+    "qwiic": {
+        "hash": "4659f957fce19f64a4bcdef15ecfb6b522215e3c"
+    },
+    "secondary-usb": {
+        "hash": "10932e82994690a9396c04c125a5c0baa00094c9"
+    },
+    "activity-led": {
+        "hash": "08ba621f0770e14d0a1e8eb92511574a444bd661"
+    },
+    "external-button": {
+        "hash": "1045cdafe4795930fecdfb1e7505dbbc46981ccd"
+    },
+    "rtc-battery": {
+        "hash": "8269fe8038e3428398bee5c177b2bcb9f56d3920"
+    },
+    "antennas": {
+        "hash": "ae34a154ded590e086d5efe7effa7aa89e8920be"
+    },
+    "gmss-ufl": {
+        "hash": "27d61775245b27f4d7c4edaa4884d823227b8a11"
+    },
+    "csi": {
+        "hash": "946166f949119683349ef2e72816bf9f2bce2a87"
+    },
+    "dsi-csi": {
+        "hash": "18026d8aa4ee4b902034e3b8bfea288270ac471d"
+    },
+    "lipo": {
+        "hash": "22a783b6ef214f7ab7b5315af497d84da822966f"
+    },
+    "hat-connector": {
+        "hash": "77a46323832314741b2b6cc3bed16270e579ef74"
+    },
+    "button": {
+        "hash": "b4e30ba84daab4329c33cd2dd1635b5fc0b329da"
+    }
+}

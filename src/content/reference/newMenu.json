@@ -457,6 +457,16 @@
                     ]
                 },
                 {
+                    "dir": "tachyon",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "tachyon-datasheet",
+                            "title": "Tachyon datasheet"
+                        }
+                    ]
+                },
+                {
                     "dir": "accessories",
                     "isSection": true,
                     "subsections": [
