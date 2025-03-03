@@ -19739,6 +19739,8 @@ performing transfers, such as I2C, Serial, TCP should not be done as part of the
 interrupt handler. Rather, the interrupt handler can set a variable which instructs
 the main loop that the event has occurred.
 
+See also [thread and interrupt safety](/firmware/best-practices/thread-interrupt-safety/).
+
 ### attachInterrupt()
 
 {{api name1="attachInterrupt"}}
@@ -23815,7 +23817,12 @@ Returns true if this thread is running (has started and has not exited yet).
 Mutex()
 ```
 
-Construct a new Mutex object. You will often include a `Mutex` either as a member of your class, or you can make `Mutex` a public superclass of your class, which will make the lock, try_lock, and unlock methods automatically available to your class. 
+Construct a new Mutex object. You will typically include a `Mutex` either as a member of your class.
+
+In theory, it would be handy to make `Mutex` a superclass of your class. Having the `lock()` and `unlock()` methods would make it work with `WITH_LOCK()`. However, you must not do this if your class will ever be instantiated as a global variable. The reason is that the Mutex constructor calls `os_mutex_create`, and this is not safe during global object construction. If you use a singleton that's only instantiated during setup or later, that would be safe.
+
+Mutex functions cannot be called from an ISR.
+
 
 #### Mutex::lock - Threading
 
@@ -23865,7 +23872,11 @@ A `Mutex` can only be locked once, even from the same thread. `RecursiveMutex`, 
 RecursiveMutex()
 ```
 
-Construct a new RecursiveMutex object. You will often include a `RecursiveMutex` either as a member of your class, or you can make `RecursiveMutex` a public superclass of your class, which will make the lock, try_lock, and unlock methods automatically available to your class. 
+Construct a new recursive mutex object. You will typically include a `RecursiveMutex` either as a member of your class.
+
+In theory, it would be handy to make `RecursiveMutex` a superclass of your class. Having the `lock()` and `unlock()` methods would make it work with `WITH_LOCK()`. However, you must not do this if your class will ever be instantiated as a global variable. The reason is that the Mutex constructor calls `os_mutex_create`, and this is not safe during global object construction. If you use a singleton that's only instantiated during setup or later, that would be safe.
+
+RecursiveMutex functions cannot be called from an ISR.
 
 #### RecursiveMutex::lock - Threading
 

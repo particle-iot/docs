@@ -6,8 +6,6 @@ columns: two
 
 # {{title}}
 
-Some care must be taken for thread safety
-
 ## Thread safety
 
 When there are multiple threads of execution, such as from the system thread, user application loop thread, timers, and
@@ -27,13 +25,15 @@ There is no need to synchronize operations with your own loop code, but it does 
 
 - Things used from the system thread (such as SPI)
 - Things used from `Timer` which runs in a separate thread
-- Things used from your own worker thread
+- Things used from your own worker threads
 
 ### Disabling interrupts
 
 In general, you should avoid disabling interrupts. Doing so can affect the performance of the system
 and there are better techniques such as using mutex locks and atomic operations.
 
+Never make calls to cloud calls like `Particle.publish` with interrupts disabled. Do not attempt to obtain
+a mutex with interrupts disabled, as the system will deadlock if the mutex is obtained by another thread.
 
 ## Interrupt safety
 
@@ -67,6 +67,8 @@ The two behave differently in one important case: If you have already obtained t
 
 With a standard mutex, the second lock from the same thread will block forever. This is rarely the desired behavior. A standard mutex is slightly lower in overhead, and if you're only locking around very small sections of code that's a single layer deep, it may be sufficient.
 
+Never attempt to obtain a mutex lock with interrupts disabled or in `SINGLE_THREADED_BLOCK` as the system will deadlock if the mutex is not available.
+
 ### SPI transactions
 
 One important place for thread safety is SPI. This is because in certain cases SPI can be accessed from the system thread,
@@ -84,18 +86,21 @@ read, and the mutex prevents another thread from accessing the SPI bus in betwee
 
 ### Wire locks
 
-If you are using I2C (Wire), it's highly recommended that you surround your I2C operations with a lock() and
+If you are using I2C (Wire), it's highly recommended that you surround your I2C operations with a [lock()](/reference/device-os/api/wire-i2c/lock/) and
 unlock(). This will prevent another thread from accessing the I2C bus in the middle of your transaction.
 
 This is less likely than with SPI, but is still a good practice.
 
 ### Serial lock
 
-There is a lock available in the Serial (USB), Serial1 (UART), and additional UART classes. However the SerialLogHandler
+There is a [lock()](/reference/device-os/api/serial/lock/) available in the Serial (USB), Serial1 (UART), and additional UART classes. However the SerialLogHandler
 does not use the lock, so it's of limited use. If you are only using serial for logging, you should always use
-the log handler and never write directly to the serial port.
+the [log handler](/reference/device-os/api/logging/) and never write directly to the serial port.
 
-### lock, unlock, trylock
+### lock, unlock, trylock, WITH_LOCK
+
+These utility methods can simplify using locks. See [/reference/device-os/api/threading/locking-threading/] in the 
+Device OS API reference for more information.
 
 
 ## Atomic operations
@@ -108,6 +113,20 @@ Even with integral types like `uint32_t`, incrementing requires a read, incremen
 you could clear it after read, which causes the clear to be lost. Additional, particularly on Gen 4 (RTL872x), it's possible
 to read a half-written value updated in an ISR, so the bytes are invalid.
 
+There are methods such as:
+
+- `store` safely set a value
+- `fetch_add` add to a value
+- `fetch_subtract` to subtract from a value
+- `fetch_and` can be used to get the current value and set it to 0
+
+In the example below, `std::memory_order_relaxed` is used. As Particle devices have only a single processor this is
+generally sufficient but there are many other options available.
+
+You can find more information at [std::atomic](https://en.cppreference.com/w/cpp/atomic/atomic) at cppreference.com.
+
+In some Arduino example code, you may see `volatile` used. This prevents caching of values in registers by the C/C++
+compiler, but does not prevent issues with concurrent access from an ISR.
 
 
 ### Atomic example
