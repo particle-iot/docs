@@ -287,6 +287,16 @@
             "isSection": true,
             "subsections": [
                 {
+                    "dir": "tachyon",
+                    "isSection": true,
+                    "subsections": [
+                        {
+                            "dir": "tachyon-datasheet",
+                            "title": "Tachyon datasheet"
+                        }
+                    ]
+                },
+                {
                     "dir": "tracker",
                     "isSection": true,
                     "subsections": [
@@ -453,16 +463,6 @@
                         {
                             "dir": "p1-datasheet",
                             "title": "P1 datasheet"
-                        }
-                    ]
-                },
-                {
-                    "dir": "tachyon",
-                    "isSection": true,
-                    "subsections": [
-                        {
-                            "dir": "tachyon-datasheet",
-                            "title": "Tachyon datasheet"
                         }
                     ]
                 },

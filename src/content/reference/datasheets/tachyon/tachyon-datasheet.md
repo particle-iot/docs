@@ -82,10 +82,18 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 </tbody>
 </table>
 
+#### Radio 
+
+- 3GPP Rel-15 specification, and supports both 5G NSA and SA modes with 4G/ 3G fallback
+- 5G & LTE Multiple-Input Multiple-Output (MIMO) technology
+- Wi-Fi 6E & DBS, IEEE 802.11a/ b/ g/ n/ ac/ ax, Wi-Fi 2 × 2 MU-MIMO
+- Bluetooth 5.2
+
 
 ### Block diagram
 
-![block diagram](/assets/images/tachyon/block-diagram.svg)
+{{imageOverlay src="/assets/images/tachyon/block-diagram.svg" alt="Block diagram"}}
+
 
 ### Power
 
@@ -174,11 +182,16 @@ The Tachyon uses a 3.7V LiPo battery with a 3-pin JST-PH connector. The pack con
 - This MIPI connection port supports either a camera or display
 - Aligns with Raspberry Pi implementations for MIPI camera/display adapters.
 - You can either use two cameras or one camera and one display using the two MIPI ports
+- Based on 4-lane MIPI DSI, supports up to 2.5 Gbps/ lane, (1200 × 2520) @ 144 fps
+- Supports DisplayPort 1.4, up to 4K (3840 × 2160) @ 60 fps
+- Supports Wi-Fi Miracast 4K @ 60 fps
 
 ### <!-- shared-diagram-label top-diagram csi title-label-paren -->CSI connector - CAM2 (camera only) (7)<!-- end -->
 
 - This MIPI connection port supports a camera
 - Aligns with Raspberry Pi implementations for MIPI camera/display adapters.
+- 4 × 4-lane MIPI CSI, up to 2.5 Gbps/ lane
+- 3 × ISP, up to 3 × 27 MP @ 24 fps or 3 × 22 MP @ 30 fps; 36 MP + 27 MP @ 24 fps or 36 MP + 22 MP @ 30 fps; 36 MP @ 30 fps
 
 ### <!-- shared-diagram-label top-diagram gnss-ufl title-label-paren -->GNSS antenna (8)<!-- end -->
 
@@ -205,7 +218,7 @@ There is additional information on the Qwiic ecosystem in the [Qwiic page in the
 
 - Plug in any standard SD card into this slot.
 - Optional for user data storage; operating system is stored on internal flash memory.
-
+- SD 3.0, supports 4-bit SDIO
 
 ### <!-- shared-diagram-label top-diagram debug-connector title-label-paren -->Debug connector (optional) (12)<!-- end -->
 
@@ -253,7 +266,7 @@ Alpha versions of the Tachyon have a U.FL connector marked **Wi-Fi/BLE**. This c
 
 - PCIe 3.0 x1 slot
 - Matches the Raspberry Pi PCIe implementation.
-- For the alpha release, this requires an external PCIe adapter board
+- 2-lane PCIe Gen 3, supports NVMe
 
 ### <!-- shared-diagram-label top-diagram device-info title-label-paren -->Device info (serial number data matrix code)  (17)<!-- end -->
 
@@ -307,13 +320,161 @@ The LED indicates:
 
 
 ### Power consumption
+--}}
 
 
 ### Radio specifications
 
 
+#### Frequency bands
+
+<table>
+<thead>
+<tr><td style="width: 100px;">Frequency Bands</td><td style="width: 350px;">North America (TACH8NA)</td><td style="width: 350px;">Rest of World (TACH8ROW)</td></tr>
+</thead>
+<tbody>
+<tr>
+    <td style="width: 100px;">5G SA/NSA</td>
+    <td style="width: 350px;">n2/ 5/ 7/ 12/ 13/ 14/ 25/ 26/ 29/ 30/ 38/ 41/ 48/ 66/ 70/ 71/ 77/ 78</td>
+    <td style="width: 350px;">n1/ 3/ 5/ 7/ 8/ 20/ 28/ 38/ 40/ 41/ 77/ 78/ 79 </td>
+</tr>
+<tr>
+    <td>5G MIMO </td>
+    <td>4 × 4 MIMO (DL): n1/ 3/ 7/ 38/ 40/ 41/ 77/ 78/ 79<br/>2 × 2 MIMO (UL): n38/ 40/ 41/ 77/ 78/ 79</td>
+    <td>4 × 4 MIMO (DL): n2/ 7/ 25/ 30/ 38/ 41/ 48/ 66/ 70/ 77/ 78<br/>2 × 2 MIMO (UL): n38/ 41/ 48/ 77/ 78</td>
+</tr>
+<tr>
+    <td>LTE</td>
+    <td>B2/ 4/ 5/ 7/ 12/ 13/ 14/ 17/ 25/ 26/ 29/ 30/ 38/ 41/ 42/ 43/ 46/ 48/ 66/ 71</td>
+    <td>B1/ 2/ 3/ 4/ 5/ 7/ 8/ 12/ 17/ 18/ 19/ 20/ 26/ 28/ 32/ 34/ 38/ 39/ 40/ 41/ 42</td>
+</tr>
+<tr>
+    <td>LTE MIMO</td>
+    <td>4 × 4 MIMO (DL): B2/ 4/ 7/ 25/ 30/ 38/ 41/ 42/ 43/ 48/ 66</td>
+    <td>4 × 4 MIMO (DL): B1/ 3/ 7/ 38/ 40/ 41/ 42</td>
+</tr>
+<tr>
+    <td>WCDMA</td>
+    <td>-</td>
+    <td>B1/ 2/ 4/ 5/ 6/ 8/ 19 </td>
+</tr>
+<tr>
+    <td>GSM/EDGE</td>
+    <td>-</td>
+    <td>B2/ 3/ 5/ 8 </td>
+</tr>
+<tr>
+    <td>WLAN</td>
+    <td>2.4 & 5 & 6 GHz<br/>802.11a/ b/ g/ n/ ac/ ax,<br/>Supports DBS, 2 × 2 MU-MIMO</td>
+    <td>2.4 & 5 & 6 GHz<br/>802.11a/ b/ g/ n/ ac/ ax,<br/>Supports DBS, 2 × 2 MU-MIMO</td>
+</tr>
+<tr>
+    <td>Bluetooth</td>
+    <td>Bluetooth 5.2</td>
+    <td>Bluetooth 5.2</td>
+</tr>
+<tr>
+    <td>GNSS</td>
+    <td>GPS/ GLONASS/ BDS/ NavIC/ Galileo/ QZSS/ SBAS;<br/>L1 + L5</td>
+    <td>GPS/ GLONASS/ BDS/ NavIC/ Galileo/ QZSS/ SBAS;<br/>L1 + L5</td>
+</tr>
+</tbody>
+</table>
+
+#### Data rate
+<table>
+<thead>
+<tr><td style="width: 100px;">Data rate</td><td style="width: 350px;">North America (TACH8NA)</td><td style="width: 350px;">Rest of World (TACH8ROW)</td></tr>
+</thead>
+<tbody>
+<tr>
+    <td style="width: 100px;">5G SA</td>
+    <td style="width: 350px;">2.1 Gbps (DL)/ 900 Mbps (UL) </td>
+    <td style="width: 350px;">2.1 Gbps (DL)/ 900 Mbps (UL) 9 </td>
+</tr>
+<tr>
+    <td>5G NSA </td>
+    <td>2.5 Gbps (DL)/ 550 Mbps (UL) </td>
+    <td>2.5 Gbps (DL)/ 550 Mbps (UL) </td>
+</tr>
+<tr>
+    <td>LTE</td>
+    <td>1.2 Gbps (DL)/ 200 Mbps (UL) </td>
+    <td>1.2 Gbps (DL)/ 200 Mbps (UL) </td>
+</tr>
+<tr>
+    <td>DC-HSPA+ </td>
+    <td>42 Mbps (DL)/ 5.76 Mbps (UL) </td>
+    <td>42 Mbps (DL)/ 5.76 Mbps (UL) 2</td>
+</tr>
+<tr>
+    <td>WCDMA</td>
+    <td>-</td>
+    <td>384 kbps (DL)/ 384 kbps (UL)</td>
+</tr>
+<tr>
+    <td>EDGE</td>
+    <td>-</td>
+    <td>296 kbps (DL)/ 236.8 kbps (UL) </td>
+</tr>
+<tr>
+    <td>GSM</td>
+    <td>-</td>
+    <td>107 kbps (DL)/ 85.6 kbps (UL) </td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- 
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+-->
+ 
+### Schematics
+
+
+#### Top diagram - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p2.png" alt="Schematics" class="full-width"}}
+
+#### SG500D interface - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p3.png" alt="Schematics" class="full-width"}}
+
+#### 40-pin header & PCIe - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p4.png" alt="Schematics" class="full-width"}}
+
+#### DSI/CSI - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p5.png" alt="Schematics" class="full-width"}}
+
+#### CSI - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p6.png" alt="Schematics" class="full-width"}}
+
+#### USB - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p7.png" alt="Schematics" class="full-width"}}
+
+#### Audio - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p8.png" alt="Schematics" class="full-width"}}
+
+#### eSIM & SD - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p9.png" alt="Schematics" class="full-width"}}
+
+#### Coprocessor - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p10.png" alt="Schematics" class="full-width"}}
+
+#### Antennas - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p11.png" alt="Schematics" class="full-width"}}
+
+#### Power block diagram - Schematic
+{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p12.png" alt="Schematics" class="full-width"}}
+
+
+There is no page 1 or page 13.
+
+
 ## Mechanical specifications
---}}
 
 ### Dimensions and Weight
 
