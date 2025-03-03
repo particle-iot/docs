@@ -1,9 +1,3 @@
----
-title: Tachyon Datasheet 
-columns: two
-layout: commonTwo.hbs
-description: Tachyon Datasheet 
----
 
 # M1 Enclosure datasheet
 
@@ -51,17 +45,17 @@ Power can be supplied by:
 <!-- shared-diagram-table start top-diagram -->
 | Label | Description |
 | ---: | :--- |
-| 1 | Primary USB |
-| 2 | Secondary USB |
+| 1 | Primary USB (USB1) |
+| 2 | Secondary USB (USB2) |
 | 4 | Activity LED |
 | 5 | LiPo battery connector |
-| 6 | DSI/CSI connector (display or camera) |
-| 7 | CSI connector (camera only) |
+| 6 | DSI/CSI connector - DISP_CAM1 (display or camera) |
+| 7 | CSI connector - CAM2 (camera only) |
 | 8 | GNSS antenna |
 | 9 | Built-in cellular antenna |
 | 10 | QWIIC connector (3.3V I2C)  |
 | 11 | SD card (optional) |
-| 12 | Debug connector  |
+| 12 | Debug connector (optional) |
 | 13 | Raspberry Pi 40-pin expansion HAT connector |
 | 14 | HAT 5V power direction jumper |
 | 15 | Wi-Fi chip antenna |
@@ -75,7 +69,7 @@ Power can be supplied by:
 <!-- shared-diagram-table end top-diagram -->
 
 
-### <!-- shared-diagram-label top-diagram primary-usb title-label-paren -->Primary USB (1)<!-- end -->
+### <!-- shared-diagram-label top-diagram primary-usb title-label-paren -->Primary USB (USB1) (1)<!-- end -->
 
 <!-- shared-blurb start primary-usb -->
 - Supports USB 3.1 (Key Port)
@@ -89,7 +83,7 @@ Power can be supplied by:
 <!-- shared-blurb end primary-usb -->
 
 
-### <!-- shared-diagram-label top-diagram secondary-usb title-label-paren -->Secondary USB (2)<!-- end -->
+### <!-- shared-diagram-label top-diagram secondary-usb title-label-paren -->Secondary USB (USB2) (2)<!-- end -->
 
 <!-- shared-blurb start secondary-usb -->
 
@@ -133,7 +127,7 @@ with a 3-pin battery connector to get it above the minimum voltage and then it w
 <!-- shared-blurb end lipo -->
 
 
-### <!-- shared-diagram-label top-diagram dsi-csi title-label-paren -->DSI/CSI connector (display or camera) (6)<!-- end -->
+### <!-- shared-diagram-label top-diagram dsi-csi title-label-paren -->DSI/CSI connector - DISP_CAM1 (display or camera) (6)<!-- end -->
 
 <!-- shared-blurb start dsi-csi -->
 - This MIPI connection port supports either a camera or display
@@ -141,7 +135,7 @@ with a 3-pin battery connector to get it above the minimum voltage and then it w
 - You can either use two cameras or one camera and one display using the two MIPI ports
 <!-- shared-blurb end dsi-csi -->
 
-### <!-- shared-diagram-label top-diagram csi title-label-paren -->CSI connector (camera only) (7)<!-- end -->
+### <!-- shared-diagram-label top-diagram csi title-label-paren -->CSI connector - CAM2 (camera only) (7)<!-- end -->
 
 <!-- shared-blurb start csi -->
 - This MIPI connection port supports a camera
@@ -183,7 +177,7 @@ There is additional information on the Qwiic ecosystem in the [Qwiic page in the
 <!-- shared-blurb end sd -->
 
 
-### <!-- shared-diagram-label top-diagram debug-connector title-label-paren -->Debug connector  (12)<!-- end -->
+### <!-- shared-diagram-label top-diagram debug-connector title-label-paren -->Debug connector (optional) (12)<!-- end -->
 
 <!-- shared-blurb start debug-connector -->
 - Provides UART access for system debugging and interaction.

@@ -8,7 +8,7 @@ const updater = {};
 
 
 async function run(files, metalsmith) {
-    console.log('update-shared');
+    // console.log('update-shared');
 
     // Read blurb configuration file
     updater.origBlurbsString = fs.readFileSync(updater.blurbsConfigPath, 'utf8');
@@ -186,10 +186,17 @@ async function run(files, metalsmith) {
         var file = files[fileName];
         
         const f = {
-            name: de.name,
             relativePath: fileName,
             fsPath: path.join(updater.docsPath, fileName), 
         };
+
+        const lastSlashIndex = fileName.lastIndexOf('/');
+        if (lastSlashIndex > 0) {
+            f.name = fileName.substring(lastSlashIndex + 1);            
+        }
+        else {
+            f.name = fileName;
+        }
 
         f.content = file.contents.toString('utf8');
         
@@ -393,7 +400,6 @@ async function run(files, metalsmith) {
         }
     }    
     
-    /* TEMPORARILY DISABLE
     // Perform updates
     for(const f of updater.files) {
         for(const m of f.markers) {
@@ -417,6 +423,7 @@ async function run(files, metalsmith) {
         }
         if (f.newContent && f.content != f.newContent) {
             console.log('update file', f.relativePath);
+            files[f.relativePath].content = Buffer.from(f.newContent, 'utf8');
             fs.writeFileSync(f.fsPath, f.newContent);
         }
     }
@@ -431,7 +438,6 @@ async function run(files, metalsmith) {
         console.log('updating blurbs file ' + updater.blurbsConfigPath);
         fs.writeFileSync(updater.blurbsConfigPath, newBlurbsString);
     }    
-        */
     
 }
 
@@ -450,8 +456,6 @@ module.exports = function(options) {
 
         updater.diagramsPath = path.join(updater.configPath, 'diagrams');
   
-        console.log('updater', updater);
-
         await run(files, metalsmith);
         done();
     }

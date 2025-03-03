@@ -1,6 +1,6 @@
 {
     "primary-led": {
-        "hash": "eb0ef0eba9746b38a8ece4c0ea5bc48d2991d233"
+        "hash": "e4a04e3e3433805abd92f89099f01e4120a858d1"
     },
     "primary-usb": {
         "hash": "d47f337c34134a699ad04dbd64ae2b24adf7b895"
@@ -48,10 +48,10 @@
         "hash": "18026d8aa4ee4b902034e3b8bfea288270ac471d"
     },
     "lipo": {
-        "hash": "22a783b6ef214f7ab7b5315af497d84da822966f"
+        "hash": "d306d6706b9c5df6e67a82c1888bd43ce761f21d"
     },
     "hat-connector": {
-        "hash": "77a46323832314741b2b6cc3bed16270e579ef74"
+        "hash": "4973e2401c1106bdeb55936d5f114b25cf526762"
     },
     "button": {
         "hash": "b4e30ba84daab4329c33cd2dd1635b5fc0b329da"
