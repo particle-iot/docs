@@ -868,7 +868,7 @@ To be provided at a later date.
 | Aruba | MON524 | 2G, 3G, Cat1 | Setar |
 | Australia | MON524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | MON524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Bahrain | MON524 | 2G, 3G, Cat1 | Zain |
+| Bahrain | MON524 | 2G, Cat1 | Zain |
 | Bangladesh | MON524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
 | Belarus | MON524 | 2G, 3G, Cat1 | A1 |
 | Belgium | MON524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
@@ -920,7 +920,7 @@ To be provided at a later date.
 | Liechtenstein | MON524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | MON524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | MON524 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Macao | MON524 | 2G, 3G, Cat1 | CTM |
+| Macao | MON524 | 3G, Cat1 | CTM |
 | Madagascar | MON524 | 2G, 3G, Cat1 | Airtel |
 | Malawi | MON524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | MON524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
@@ -948,7 +948,7 @@ To be provided at a later date.
 | Serbia | MON524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | MON524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | MON524 | 2G, 3G | TelCell |
-| Slovakia | MON524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | MON524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | MON524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | MON524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | MON524 | 3G, Cat1 | KT, LG U+, SK Telecom |
@@ -965,7 +965,7 @@ To be provided at a later date.
 | Uganda | MON524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | MON524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | MON404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-| Vietnam | MON524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
+| Vietnam | MON524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | MON524 | 2G, 3G, Cat1 | Airtel |
 
 

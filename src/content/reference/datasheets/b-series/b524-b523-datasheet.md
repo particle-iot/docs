@@ -1743,7 +1743,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Aruba | B524 | 2G, 3G, Cat1 | Setar |
 | Australia | B524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Bahrain | B524 | 2G, 3G, Cat1 | Zain |
+| Bahrain | B524 | 2G, Cat1 | Zain |
 | Bangladesh | B524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
 | Belarus | B524 | 2G, 3G, Cat1 | A1 |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
@@ -1796,7 +1796,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Liechtenstein | B524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | B524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | B524 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Macao | B524 | 2G, 3G, Cat1 | CTM |
+| Macao | B524 | 3G, Cat1 | CTM |
 | Madagascar | B524 | 2G, 3G, Cat1 | Airtel |
 | Malawi | B524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | B524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
@@ -1823,7 +1823,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Serbia | B524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | B524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | B524 | 2G, 3G | TelCell |
-| Slovakia | B524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | B524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | B524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | B524 | 3G, Cat1 | KT, LG U+, SK Telecom |
@@ -1839,7 +1839,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Tunisia | B524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | B524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| Vietnam | B524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
+| Vietnam | B524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | B524 | 2G, 3G, Cat1 | Airtel |
 
 

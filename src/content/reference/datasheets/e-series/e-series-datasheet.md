@@ -580,7 +580,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Austria | E314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | E314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | E314 | 2G, 3G | Aliv, BTC Bahamas |
-| Bahrain | E314 | 2G, 3G | Zain |
+| Bahrain | E314 | 2G | Zain |
 | Bangladesh | E314 | 2G, 3G | Bangalink, GrameenPhone |
 | Barbados | E314 | 2G, 3G | Flow |
 | Belarus | E314 | 2G, 3G | A1 |
@@ -599,7 +599,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Colombia | E314 | 2G, 3G | Movistar, Tigo |
 | Congo (Brazzaville) | E314 | 2G, 3G | Airtel |
 | Congo (Kinshasa) | E314 | 2G, 3G | Airtel |
-| Costa Rica | E314 | 2G, 3G | Movistar |
+| Costa Rica | E314 | 3G | Movistar |
 | Côte d'Ivoire | E314 | 2G, 3G | MTN |
 | Croatia | E314 | 2G, 3G | Hrvatski Telekom, Tele2 |
 | Cyprus | E314 | 2G, 3G | Cytamobile-Vodafone, MTN |
@@ -631,11 +631,11 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Guyana | E314 | 2G | Digicel |
 | Haiti | E314 | 2G, 3G | Digicel |
 | Honduras | E314 | 2G, 3G | Claro, Tigo |
-| Hong Kong | E314 | 2G, 3G | CMHK, CSL, SmarTone |
+| Hong Kong | E314 | 2G, 3G | CSL, SmarTone |
 | Hungary | E314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | E314 | 2G, 3G | Nova, Siminn, Vodafone |
 | Indonesia | E314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
-| Ireland | E314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
+| Ireland | E314 | 2G, 3G | Meteor, O2, Vodafone |
 | Israel | E314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | E314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | E314 | 2G, 3G | Digicel, Flow |
@@ -672,16 +672,15 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Philippines | E314 | 2G, 3G | Globe, Smart |
 | Poland | E314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
 | Portugal | E314 | 2G, 3G | NOS, TMN, Vodafone |
-| Puerto Rico | E314 | 2G, 3G | Claro |
 | Qatar | E314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | E314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | E314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | E314 | 2G, 3G | Flow |
 | Saint Lucia | E314 | 2G, 3G | Flow |
-| Saint Vincent and the Grenadines | E314 | 2G, 3G | Flow |
+| Saint Vincent and the Grenadines | E314 | 3G | Flow |
 | Serbia | E314 | 2G, 3G | Telenor, VIP |
 | Sint Maarten | E314 | 2G, 3G | TelCell |
-| Slovakia | E314 | 2G, 3G | O2, Orange, Telekom |
+| Slovakia | E314 | 2G | O2, Orange, Telekom |
 | Slovenia | E314 | 2G, 3G | A1, Mobitel |
 | South Africa | E314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | E314 | 3G | KT, SK Telecom |

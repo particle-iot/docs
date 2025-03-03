@@ -1273,7 +1273,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | :--- | :--- | :--- | :--- |
 | Canada | M404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Mexico | M404 | 2G, M1 | AT&T, Telcel |
-| United States | M404 | 2G, M1 | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| United States | M404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -1316,7 +1316,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Aruba | M524 | 2G, 3G, Cat1 | Setar |
 | Australia | M524 | Cat1 | Optus, Telstra, Vodafone |
 | Austria | M524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Bahrain | M524 | 2G, 3G, Cat1 | Zain |
+| Bahrain | M524 | 2G, Cat1 | Zain |
 | Bangladesh | M524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
 | Belarus | M524 | 2G, 3G, Cat1 | A1 |
 | Belgium | M524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
@@ -1367,7 +1367,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Liechtenstein | M524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | M524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | M524 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Macao | M524 | 2G, 3G, Cat1 | CTM |
+| Macao | M524 | 3G, Cat1 | CTM |
 | Madagascar | M524 | 2G, 3G, Cat1 | Airtel |
 | Malawi | M524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | M524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
@@ -1394,7 +1394,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Serbia | M524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | M524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | M524 | 2G, 3G | TelCell |
-| Slovakia | M524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovakia | M524 | 2G, Cat1 | O2, Orange, Telekom |
 | Slovenia | M524 | 2G, 3G, Cat1 | A1, Mobitel |
 | South Africa | M524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
 | South Korea | M524 | 3G, Cat1 | KT, LG U+, SK Telecom |
@@ -1410,7 +1410,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Tunisia | M524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | M524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | M524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| Vietnam | M524 | 2G, 3G | MobiFone, Viettel, Vinaphone |
+| Vietnam | M524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | M524 | 2G, 3G, Cat1 | Airtel |
 
 
