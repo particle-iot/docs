@@ -9701,6 +9701,10 @@
         "firmware/best-practices/thread-interrupt-safety.md": {
             "hash": "458f491b698aab5cbc01cc0724168ce5ec629c722efe69121f887040778e3dfa",
             "date": "2025-03-03"
+        },
+        "reference/datasheets/tachyon/tachyon-datasheet.md": {
+            "hash": "ccfeddbfdc4dcf29a7b4b76a69fe81c73c8858910d63b14beeac01ac663f22d3",
+            "date": "2025-03-03"
         }
     }
 }
