@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Thread and interrupt safety 2025-03-03
+
+New page with tips for [thread and interrupt safety](/firmware/best-practices/thread-interrupt-safety/).
+
 ### 2G/3G sunset update 2025-03-03
 
 Countries with upcoming 2G/3G sunsets have been updated. There is a new [2G/3G sunset page](/reference/discontinued/cellular/2g-3g-sunset/) with a timeline for all countries.
