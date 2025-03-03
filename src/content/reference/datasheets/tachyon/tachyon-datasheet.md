@@ -267,7 +267,6 @@ The Tachyon board has a single button (<!-- shared-diagram-label top-diagram but
 ### <!-- shared-diagram-label top-diagram primary-led title-label-paren -->Primary LED (19)<!-- end -->
 
 
-<!-- shared-blurb start primary-led -->
 The primary LED (19) on the Tachyon board provides critical information about the device’s current mode and status. 
 
 The LED indicates:
