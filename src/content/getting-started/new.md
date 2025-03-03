@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### 2G/3G sunset update 2025-03-03
 
-Countries with upcoming 2G/3G sunsets have been updated.
+Countries with upcoming 2G/3G sunsets have been updated. There is a new [2G/3G sunset page](/reference/discontinued/cellular/2g-3g-sunset/) with a timeline for all countries.
 
 ### Library updates 2025-03-01
 
