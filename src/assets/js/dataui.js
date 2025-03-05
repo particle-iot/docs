@@ -1129,7 +1129,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
     // and also supports our desired plan
     let countryCarrierFiltered = [];
     datastore.data.countryCarrier.forEach(function(obj) {
-        if (countryInCountryList[obj.country] && obj[planKey]) {
+        if (countryInCountryList[obj.country] && obj[planKey] && obj.bands.length > 0) {
             countryCarrierFiltered.push(obj);
         }
     });
