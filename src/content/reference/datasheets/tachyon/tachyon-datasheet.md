@@ -660,8 +660,8 @@ SE, SI, SK, TR, UA, UK(NI).
 
 #### TACH8ROW - Additional countries
 
-The following countries are not officially supported by the TACH8ROWat this time, but may be compatible. In 
-some cases, the device may only be compatible with some carriers, or some bands.
+The following countries are not officially supported by the TACH8ROW at this time, but may be compatible. In 
+some cases, the device may only be compatible with some carriers, or some bands. 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 99a15043-5618-49a0-84b4-4f1ef9c1fa3e --}}
 

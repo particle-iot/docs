@@ -6704,7 +6704,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -7906,7 +7907,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -13273,7 +13275,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -19981,7 +19984,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -20026,7 +20030,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -20726,14 +20731,6 @@
           "mnc": "01",
           "tadig": "SAUAJ"
         }
-      },
-      "kddi": {
-        "imsi": "EU4",
-        "allow5G": true,
-        "allow4G": true,
-        "allow3G": true,
-        "allow2G": true,
-        "profile": "g"
       }
     },
     {
@@ -20813,14 +20810,6 @@
           "mnc": "04",
           "tadig": "SAUZN"
         }
-      },
-      "kddi": {
-        "imsi": "EU4",
-        "allow5G": true,
-        "allow4G": true,
-        "allow3G": true,
-        "allow2G": true,
-        "profile": "g"
       }
     },
     {
@@ -21195,7 +21184,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -23621,14 +23611,6 @@
           "mnc": "04",
           "tadig": "TURAC"
         }
-      },
-      "kddi": {
-        "imsi": "EU4",
-        "allow5G": true,
-        "allow4G": true,
-        "allow3G": true,
-        "allow2G": true,
-        "profile": "g"
       }
     },
     {
@@ -23679,14 +23661,6 @@
           "mnc": "02",
           "tadig": "TURTS"
         }
-      },
-      "kddi": {
-        "imsi": "EU2",
-        "allow5G": true,
-        "allow4G": true,
-        "allow3G": true,
-        "allow2G": true,
-        "profile": "g"
       }
     },
     {
@@ -24152,7 +24126,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -46710,7 +46685,8 @@
       "technologies": [
         "3G",
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -46742,7 +46718,8 @@
       },
       "technologies": [
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -54157,7 +54134,8 @@
       "technologies": [
         "3G",
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -54185,7 +54163,8 @@
       },
       "technologies": [
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -80687,7 +80666,8 @@
       "recommendation": "YES",
       "supported": {},
       "notSupported": {},
-      "technologies": []
+      "technologies": [],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -80697,7 +80677,8 @@
       "reason": "bands not supported by modem",
       "supported": {},
       "notSupported": {},
-      "technologies": []
+      "technologies": [],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -119594,7 +119575,8 @@
         "2G",
         "3G",
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -119640,7 +119622,8 @@
       },
       "technologies": [
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -123318,7 +123301,8 @@
         "4G",
         "5G",
         "3G"
-      ]
+      ],
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Saudi Arabia",
@@ -123389,7 +123373,8 @@
       "technologies": [
         "5G",
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Saudi Arabia",
@@ -125556,7 +125541,8 @@
         "3G",
         "4G",
         "5G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -125611,7 +125597,8 @@
       "technologies": [
         "4G",
         "5G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -141009,7 +140996,8 @@
         "2G",
         "3G",
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
@@ -141050,7 +141038,8 @@
       },
       "technologies": [
         "4G"
-      ]
+      ],
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
@@ -143356,7 +143345,8 @@
         "3G",
         "4G",
         "5G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",
@@ -143389,7 +143379,8 @@
       "technologies": [
         "4G",
         "5G"
-      ]
+      ],
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",
