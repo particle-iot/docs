@@ -407,7 +407,7 @@ const generatorConfig = require('./generator-config');
                 if (ccObj.country != cmsObj.country) {
                     return;
                 }
-                if (!ccObj[simObj.simPlanKey] || ccObj[simObj.simPlanKey].prohibited) {
+                if (!ccObj[simObj.simPlanKey] || ccObj[simObj.simPlanKey].prohibited || ccObj[simObj.simPlanKey].roamingRestrictions == 'hide') {
                     return;
                 }   
 

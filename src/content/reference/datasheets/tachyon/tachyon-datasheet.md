@@ -658,31 +658,15 @@ SE, SI, SK, TR, UA, UK(NI).
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+
+{{!-- 
 #### TACH8ROW - Additional countries
 
 The following countries are not officially supported by the TACH8ROW at this time, but may be compatible. In 
 some cases, the device may only be compatible with some carriers, or some bands. 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 99a15043-5618-49a0-84b4-4f1ef9c1fa3e --}}
-
-| Country | Model | Technologies | Carriers |
-| :--- | :--- | :--- | :--- |
-| Armenia | &nbsp; | 2G, 3G, 4G | Beeline, Ucom, VivaCell |
-| Brazil | &nbsp; | 3G, 4G | Vivo |
-| Croatia | &nbsp; | 2G, 3G, 4G, 5G | Hrvatski Telekom, Tele2 |
-| Latvia | &nbsp; | 2G, 4G, 5G | LMT, Tele2 |
-| Malaysia | &nbsp; | 2G, 4G, 5G | Maxis, U-Mobile |
-| Philippines | &nbsp; | 2G, 3G, 4G | Globe |
-| Qatar | &nbsp; | 2G, 3G, 4G | Ooredoo |
-| Russia | &nbsp; | 2G, 3G, 4G | Beeline, Megafon |
-| Saudi Arabia | &nbsp; | 2G, 3G, 4G, 5G | Al Jawal, Zain |
-| Singapore | &nbsp; | 3G, 4G, 5G | SingTel, StarHub |
-| Taiwan | &nbsp; | 3G, 4G, 5G | Taiwan Mobile |
-| Thailand | &nbsp; | 2G, 3G, 4G, 5G | AIS, DTAC |
-| Turkey | &nbsp; | 2G, 3G, 4G | Türk Telekom, Vodafone |
-
-
-{{!-- END do not edit content above, it is automatically generated --}}
+99a15043-5618-49a0-84b4-4f1ef9c1fa3e
+--}}
 
 
 ## Ordering information
