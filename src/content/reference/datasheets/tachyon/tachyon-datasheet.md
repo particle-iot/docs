@@ -1,8 +1,8 @@
 ---
-title: Tachyon Datasheet 
+title: Tachyon Datasheet
 columns: two
 layout: commonTwo.hbs
-description: Tachyon Datasheet 
+description: Tachyon Datasheet
 ---
 
 # Tachyon Datasheet
@@ -602,6 +602,87 @@ SE, SI, SK, TR, UA, UK(NI).
 
 
 ## Country compatibility
+
+### TACH8NA - Country compatibility
+{{!-- BEGIN do not edit content below, it is automatically generated ae3c46e6-c970-4ceb-8e55-2adde82efb79 --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Canada | 4G, 5G | Telus |
+| Mexico | 4G, 5G | Movistar |
+| United States | 4G, 5G | AT&T, US Cellular |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### TACH8ROW - Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated d37da224-3ea6-4b28-823c-8b322ab3b7c6 --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Australia | 4G, 5G | Optus |
+| Austria | 2G, 3G, 4G, 5G | 3 (Drei) |
+| Belgium | 2G, 3G, 4G, 5G | Base, Orange, Proximus |
+| Bulgaria | 2G, 3G | A1, Telenor, Vivacom |
+| Cyprus | 2G, 3G | Cytamobile-Vodafone |
+| Czechia | 2G, 4G, 5G | O2, T-Mobile, Vodafone |
+| Denmark | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
+| Estonia | 2G, 3G, 4G | Elisa, Tele2, Telia |
+| Finland | 2G, 4G | DNA, Elisa, Telia |
+| France | 2G, 3G, 4G, 5G | Bouygues, Free Mobile, Orange, SFR |
+| Germany | 2G, 3G, 4G, 5G | O2, Telekom, Vodafone |
+| Greece | 2G, 4G, 5G | Cosmote, Vodafone, Wind |
+| Hungary | 2G, 3G, 4G, 5G | T-Mobile, Telenor, Vodafone |
+| Iceland | 2G, 3G, 4G | Nova, Siminn |
+| Ireland | 2G, 4G, 5G | 3 (Tre), Vodafone |
+| Italy | 2G, 3G, 4G, 5G | TIM, Vodafone, Wind |
+| Japan | 4G, 5G | KDDI |
+| Lithuania | 2G, 3G, 4G, 5G | Bite |
+| Luxembourg | 2G, 3G, 4G | Orange, POST, Tango |
+| Netherlands | 2G, 3G, 4G, 5G | KPN, T-Mobile, Vodafone |
+| New Zealand | 3G, 4G, 5G | Spark |
+| Norway | 2G, 4G | Telenor, Telia |
+| Poland | 2G, 3G, 4G, 5G | Orange, Play, Plus, T-Mobile |
+| Portugal | 2G, 3G, 4G, 5G | MEO, NOS, Vodafone |
+| Romania | 2G, 3G, 4G, 5G | Orange, Telekom Romania, Vodafone |
+| Slovakia | 2G, 4G | O2, Orange, Telekom |
+| Slovenia | 2G, 3G, 4G, 5G | A1, Mobitel |
+| South Africa | 2G, 3G, 4G, 5G | MTN |
+| South Korea | 4G, 5G | LG U+ |
+| Spain | 2G, 3G, 4G, 5G | Orange, Telefonica, Vodafone, Yoigo |
+| Sweden | 2G, 3G, 4G, 5G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | 3G, 4G, 5G | Sunrise, Swisscom |
+| United Kingdom | 2G, 3G, 4G, 5G | 3, O2, Vodafone |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+#### TACH8ROW - Additional countries
+
+The following countries are not officially supported by the TACH8ROWat this time, but may be compatible. In 
+some cases, the device may only be compatible with some carriers, or some bands.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 99a15043-5618-49a0-84b4-4f1ef9c1fa3e --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Armenia | &nbsp; | 2G, 3G, 4G | Beeline, Ucom, VivaCell |
+| Brazil | &nbsp; | 3G, 4G | Vivo |
+| Croatia | &nbsp; | 2G, 3G, 4G, 5G | Hrvatski Telekom, Tele2 |
+| Latvia | &nbsp; | 2G, 4G, 5G | LMT, Tele2 |
+| Malaysia | &nbsp; | 2G, 4G, 5G | Maxis, U-Mobile |
+| Philippines | &nbsp; | 2G, 3G, 4G | Globe |
+| Qatar | &nbsp; | 2G, 3G, 4G | Ooredoo |
+| Russia | &nbsp; | 2G, 3G, 4G | Beeline, Megafon |
+| Saudi Arabia | &nbsp; | 2G, 3G, 4G, 5G | Al Jawal, Zain |
+| Singapore | &nbsp; | 3G, 4G, 5G | SingTel, StarHub |
+| Taiwan | &nbsp; | 3G, 4G, 5G | Taiwan Mobile |
+| Thailand | &nbsp; | 2G, 3G, 4G, 5G | AIS, DTAC |
+| Turkey | &nbsp; | 2G, 3G, 4G | Türk Telekom, Vodafone |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ## Ordering information

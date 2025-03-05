@@ -1256,8 +1256,6 @@ bandFit.renderCountries = function(countries) {
             for(const ccObj of carriersInCountry) {                    
 
                 for(let b of ccObj.bands) {
-                    b = b.replace('LTE', 'Cat1');
-
                     let hasTech = false;
                     for(const t of testObj.modemObj.technologies) {
                         if (b.startsWith(t)) {
@@ -1403,7 +1401,7 @@ bandFit.renderCountries = function(countries) {
 
                 for(const b of testObj.bands) {
                     const modemSupportsBand = testObj.modemObj.bands.includes(b);
-                    const carrierSupportsBand = ccObj.bands.find(b1 => b1.replace('LTE', 'Cat1') == b);
+                    const carrierSupportsBand = ccObj.bands.find(b1 => b1 == b);
                     const bandEnabled = !testObj.modemObj.bandsEnabled || testObj.modemObj.bandsEnabled.includes(b);
 
                     let value = '';

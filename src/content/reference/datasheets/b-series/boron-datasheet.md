@@ -531,7 +531,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Afghanistan | BRN314 | 2G, 3G | MTN |
-| Albania | BRN314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
+| Albania | BRN314 | 2G, 3G | Eagle, Telekom, Vodafone |
 | Algeria | BRN314 | 2G, 3G | Mobilis, Ooredoo |
 | Anguilla | BRN314 | 2G, 3G | Flow |
 | Antigua and Barbuda | BRN314 | 2G, 3G | Flow |
@@ -547,7 +547,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Belarus | BRN314 | 2G, 3G | A1 |
 | Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
 | Belize | BRN314 | 3G | Smart |
-| Bolivia | BRN314 | 2G, 3G | NuevaTel |
+| Bolivia | BRN314 | 2G, 3G | Viva |
 | Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brunei | BRN314 | 3G | DST |
 | Bulgaria | BRN314 | 2G, 3G | A1, Telenor, Vivacom |

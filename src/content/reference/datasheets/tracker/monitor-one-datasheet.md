@@ -863,110 +863,110 @@ To be provided at a later date.
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
-| Albania | MON524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
-| Algeria | MON524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
-| Aruba | MON524 | 2G, 3G, Cat1 | Setar |
-| Australia | MON524 | Cat1 | Optus, Telstra, Vodafone |
-| Austria | MON524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Bahrain | MON524 | 2G, Cat1 | Zain |
-| Bangladesh | MON524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
-| Belarus | MON524 | 2G, 3G, Cat1 | A1 |
-| Belgium | MON524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Albania | MON524 | 2G, 3G, 4G | Eagle, Telekom, Vodafone |
+| Algeria | MON524 | 2G, 3G, 4G | Mobilis, Ooredoo |
+| Aruba | MON524 | 2G, 3G, 4G | Setar |
+| Australia | MON524 | 4G | Optus, Telstra, Vodafone |
+| Austria | MON524 | 2G, 3G, 4G | 3 (Drei), A1, T-Mobile |
+| Bahrain | MON524 | 2G, 4G | Zain |
+| Bangladesh | MON524 | 2G, 3G, 4G | Bangalink, GrameenPhone |
+| Belarus | MON524 | 2G, 3G, 4G | A1 |
+| Belgium | MON524 | 2G, 3G, 4G | Base, Orange, Proximus |
 | Bosnia and Herzegovina | MON524 | 2G, 3G | BH Telecom, HT Eronet |
-| Botswana | MON524 | 2G, 3G, Cat1 | BeMobile |
-| Brunei | MON524 | 3G, Cat1 | DST |
+| Botswana | MON524 | 2G, 3G, 4G | BeMobile |
+| Brunei | MON524 | 3G, 4G | DST |
 | Bulgaria | MON524 | 2G, 3G | A1, Telenor, Vivacom |
-| Burkina Faso | MON524 | 2G, 3G, Cat1 | Orange |
-| Cabo Verde | MON524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Burkina Faso | MON524 | 2G, 3G, 4G | Orange |
+| Cabo Verde | MON524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
 | Cambodia | MON524 | 2G, 3G | Metfone |
 | Canada | MON404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Chad | MON524 | 2G, 3G, Cat1 | Airtel |
-| Chile | MON524 | 3G, Cat1 | Claro, Entel, Movistar |
-| Congo (Brazzaville) | MON524 | 2G, 3G, Cat1 | Airtel |
-| Congo (Kinshasa) | MON524 | 2G, 3G, Cat1 | Airtel |
+| Chad | MON524 | 2G, 3G, 4G | Airtel |
+| Chile | MON524 | 3G, 4G | Claro, Entel, Movistar |
+| Congo (Brazzaville) | MON524 | 2G, 3G, 4G | Airtel |
+| Congo (Kinshasa) | MON524 | 2G, 3G, 4G | Airtel |
 | Côte d'Ivoire | MON524 | 2G, 3G | MTN |
-| Croatia | MON524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
-| Cyprus | MON524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | MON524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
-| Denmark | MON524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
-| Egypt | MON524 | 2G, 3G, Cat1 | Etisalat, Orange |
-| Estonia | MON524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| eSwatini | MON524 | 2G, 3G, Cat1 | MTN |
-| Ethiopia | MON524 | 2G, 3G, Cat1 | Ethio Telecom |
+| Croatia | MON524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
+| Cyprus | MON524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | MON524 | 2G, 4G | O2, T-Mobile, Vodafone |
+| Denmark | MON524 | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | MON524 | 2G, 3G, 4G | Etisalat, Orange |
+| Estonia | MON524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
+| eSwatini | MON524 | 2G, 3G, 4G | MTN |
+| Ethiopia | MON524 | 2G, 3G, 4G | Ethio Telecom |
 | Faroe Islands | MON524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | MON524 | 2G, Cat1 | DNA, Elisa, Telia |
-| France | MON524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| Finland | MON524 | 2G, 4G | DNA, Elisa, Telia |
+| France | MON524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | MON524 | 2G, 3G | Digicel |
-| Gabon | MON524 | 2G, 3G, Cat1 | Airtel |
-| Germany | MON524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
-| Ghana | MON524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
-| Gibraltar | MON524 | 2G, 3G, Cat1 | Gibtel |
-| Greece | MON524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
-| Guinea | MON524 | 2G, 3G, Cat1 | MTN |
-| Guinea-Bissau | MON524 | 2G, 3G, Cat1 | MTN |
+| Gabon | MON524 | 2G, 3G, 4G | Airtel |
+| Germany | MON524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Ghana | MON524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
+| Gibraltar | MON524 | 2G, 3G, 4G | Gibtel |
+| Greece | MON524 | 2G, 4G | Cosmote, Vodafone, Wind |
+| Guinea | MON524 | 2G, 3G, 4G | MTN |
+| Guinea-Bissau | MON524 | 2G, 3G, 4G | MTN |
 | Guyana | MON524 | 2G | Digicel |
-| Hong Kong | MON524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
-| Hungary | MON524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
-| Iceland | MON524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
-| Indonesia | MON524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
-| Ireland | MON524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | MON524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
-| Italy | MON524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Jordan | MON524 | 2G, 3G, Cat1 | Zain |
-| Kazakhstan | MON524 | 2G, 3G, Cat1 | Beeline, K-Cell |
-| Kenya | MON524 | 2G, 3G, Cat1 | Airtel |
-| Kuwait | MON524 | 2G, 3G, Cat1 | Viva, Zain |
-| Latvia | MON524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
-| Liechtenstein | MON524 | 2G, 3G, Cat1 | Mobilkom, Orange |
-| Lithuania | MON524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
-| Luxembourg | MON524 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Macao | MON524 | 3G, Cat1 | CTM |
-| Madagascar | MON524 | 2G, 3G, Cat1 | Airtel |
-| Malawi | MON524 | 2G, 3G, Cat1 | Airtel |
-| Malaysia | MON524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
-| Malta | MON524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Hong Kong | MON524 | 2G, 3G, 4G | CMHK, CSL, SmarTone |
+| Hungary | MON524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
+| Iceland | MON524 | 2G, 3G, 4G | Nova, Siminn, Vodafone |
+| Indonesia | MON524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
+| Ireland | MON524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | MON524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
+| Italy | MON524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
+| Jordan | MON524 | 2G, 3G, 4G | Zain |
+| Kazakhstan | MON524 | 2G, 3G, 4G | Beeline, K-Cell |
+| Kenya | MON524 | 2G, 3G, 4G | Airtel |
+| Kuwait | MON524 | 2G, 3G, 4G | Viva, Zain |
+| Latvia | MON524 | 2G, 3G, 4G | Bite, LMT, Tele2 |
+| Liechtenstein | MON524 | 2G, 3G, 4G | Mobilkom, Orange |
+| Lithuania | MON524 | 2G, 3G, 4G | Bite, Omnitel, Tele2 |
+| Luxembourg | MON524 | 2G, 3G, 4G | Orange, POST, Tango |
+| Macao | MON524 | 3G, 4G | CTM |
+| Madagascar | MON524 | 2G, 3G, 4G | Airtel |
+| Malawi | MON524 | 2G, 3G, 4G | Airtel |
+| Malaysia | MON524 | 2G, 3G, 4G | Celcom, DiGi, Maxis |
+| Malta | MON524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Mexico | MON404 | M1 | AT&T, Telcel |
-| Moldova | MON524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Moldova | MON524 | 2G, 3G, 4G | Moldcell, Orange |
 | Mongolia | MON524 | 2G, 3G | Mobicom, Unitel |
-| Montenegro | MON524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
-| Morocco | MON524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
-| Mozambique | MON524 | 2G, 3G, Cat1 | Vodacom |
+| Montenegro | MON524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
+| Morocco | MON524 | 2G, 3G, 4G | Inwi, Medi Telecom |
+| Mozambique | MON524 | 2G, 3G, 4G | Vodacom |
 | Myanmar | MON524 | 2G, 3G | MPT, Telenor |
-| Namibia | MON524 | 2G, 3G, Cat1 | Telecom Namibia |
-| Netherlands | MON524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
-| New Zealand | MON524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
-| Nigeria | MON524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
-| Norway | MON524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Pakistan | MON524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Namibia | MON524 | 2G, 3G, 4G | Telecom Namibia |
+| Netherlands | MON524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
+| New Zealand | MON524 | 2G, 3G, 4G | 2degrees, Spark, Vodafone |
+| Nigeria | MON524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
+| Norway | MON524 | 2G, 3G, 4G | TDC, Telenor, Telia |
+| Pakistan | MON524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | MON524 | 2G, 3G | Jawwal |
 | Papua New Guinea | MON524 | 2G, 3G | bmobile |
-| Poland | MON524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
-| Portugal | MON524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
-| Qatar | MON524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
-| Romania | MON524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
+| Poland | MON524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
+| Portugal | MON524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
+| Qatar | MON524 | 2G, 3G, 4G | Ooredoo, Vodafone |
+| Romania | MON524 | 2G, 3G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | MON524 | 2G, 3G | Airtel, MTN |
-| Serbia | MON524 | 2G, 3G, Cat1 | Telenor, VIP |
-| Seychelles | MON524 | 2G, 3G, Cat1 | Airtel |
+| Serbia | MON524 | 2G, 3G, 4G | Telenor, VIP |
+| Seychelles | MON524 | 2G, 3G, 4G | Airtel |
 | Sint Maarten | MON524 | 2G, 3G | TelCell |
-| Slovakia | MON524 | 2G, Cat1 | O2, Orange, Telekom |
-| Slovenia | MON524 | 2G, 3G, Cat1 | A1, Mobitel |
-| South Africa | MON524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
-| South Korea | MON524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| Slovakia | MON524 | 2G, 4G | O2, Orange, Telekom |
+| Slovenia | MON524 | 2G, 3G, 4G | A1, Mobitel |
+| South Africa | MON524 | 2G, 3G, 4G | Cell C, MTN, Vodacom |
+| South Korea | MON524 | 3G, 4G | KT, LG U+, SK Telecom |
 | South Sudan | MON524 | 2G, 3G | MTN |
-| Spain | MON524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | MON524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Spain | MON524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | MON524 | 2G, 3G, 4G | Dialog, Mobitel |
 | Suriname | MON524 | 2G, 3G | Telesur |
-| Sweden | MON524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | MON524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
-| Taiwan | MON524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
-| Tanzania | MON524 | 2G, 3G, Cat1 | Airtel |
-| Thailand | MON524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
-| Tunisia | MON524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
-| Uganda | MON524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
-| United Kingdom | MON524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| Sweden | MON524 | 2G, 3G, 4G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | MON524 | 3G, 4G | Salt, Sunrise, Swisscom |
+| Taiwan | MON524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | MON524 | 2G, 3G, 4G | Airtel |
+| Thailand | MON524 | 2G, 3G, 4G | AIS, DTAC, True Move |
+| Tunisia | MON524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
+| Uganda | MON524 | 2G, 3G, 4G | Africell, Airtel, MTN |
+| United Kingdom | MON524 | 2G, 3G, 4G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | MON404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-| Vietnam | MON524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
-| Zambia | MON524 | 2G, 3G, Cat1 | Airtel |
+| Vietnam | MON524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
+| Zambia | MON524 | 2G, 3G, 4G | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

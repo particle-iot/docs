@@ -1779,107 +1779,107 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
-| Albania | M524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
-| Algeria | M524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
-| Aruba | M524 | 2G, 3G, Cat1 | Setar |
-| Australia | M524 | Cat1 | Optus, Telstra, Vodafone |
-| Austria | M524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Bahrain | M524 | 2G, Cat1 | Zain |
-| Bangladesh | M524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
-| Belarus | M524 | 2G, 3G, Cat1 | A1 |
-| Belgium | M524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Albania | M524 | 2G, 3G, 4G | Eagle, Telekom, Vodafone |
+| Algeria | M524 | 2G, 3G, 4G | Mobilis, Ooredoo |
+| Aruba | M524 | 2G, 3G, 4G | Setar |
+| Australia | M524 | 4G | Optus, Telstra, Vodafone |
+| Austria | M524 | 2G, 3G, 4G | 3 (Drei), A1, T-Mobile |
+| Bahrain | M524 | 2G, 4G | Zain |
+| Bangladesh | M524 | 2G, 3G, 4G | Bangalink, GrameenPhone |
+| Belarus | M524 | 2G, 3G, 4G | A1 |
+| Belgium | M524 | 2G, 3G, 4G | Base, Orange, Proximus |
 | Bosnia and Herzegovina | M524 | 2G, 3G | BH Telecom, HT Eronet |
-| Botswana | M524 | 2G, 3G, Cat1 | BeMobile |
-| Brunei | M524 | 3G, Cat1 | DST |
+| Botswana | M524 | 2G, 3G, 4G | BeMobile |
+| Brunei | M524 | 3G, 4G | DST |
 | Bulgaria | M524 | 2G, 3G | A1, Telenor, Vivacom |
-| Burkina Faso | M524 | 2G, 3G, Cat1 | Orange |
-| Cabo Verde | M524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Burkina Faso | M524 | 2G, 3G, 4G | Orange |
+| Cabo Verde | M524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
 | Cambodia | M524 | 2G, 3G | Metfone |
-| Chad | M524 | 2G, 3G, Cat1 | Airtel |
-| Chile | M524 | 3G, Cat1 | Claro, Entel, Movistar |
-| Congo (Brazzaville) | M524 | 2G, 3G, Cat1 | Airtel |
-| Congo (Kinshasa) | M524 | 2G, 3G, Cat1 | Airtel |
+| Chad | M524 | 2G, 3G, 4G | Airtel |
+| Chile | M524 | 3G, 4G | Claro, Entel, Movistar |
+| Congo (Brazzaville) | M524 | 2G, 3G, 4G | Airtel |
+| Congo (Kinshasa) | M524 | 2G, 3G, 4G | Airtel |
 | Côte d'Ivoire | M524 | 2G, 3G | MTN |
-| Croatia | M524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
-| Cyprus | M524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | M524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
-| Denmark | M524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
-| Egypt | M524 | 2G, 3G, Cat1 | Etisalat, Orange |
-| Estonia | M524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| eSwatini | M524 | 2G, 3G, Cat1 | MTN |
-| Ethiopia | M524 | 2G, 3G, Cat1 | Ethio Telecom |
+| Croatia | M524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
+| Cyprus | M524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | M524 | 2G, 4G | O2, T-Mobile, Vodafone |
+| Denmark | M524 | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | M524 | 2G, 3G, 4G | Etisalat, Orange |
+| Estonia | M524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
+| eSwatini | M524 | 2G, 3G, 4G | MTN |
+| Ethiopia | M524 | 2G, 3G, 4G | Ethio Telecom |
 | Faroe Islands | M524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | M524 | 2G, Cat1 | DNA, Elisa, Telia |
-| France | M524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| Finland | M524 | 2G, 4G | DNA, Elisa, Telia |
+| France | M524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | M524 | 2G, 3G | Digicel |
-| Gabon | M524 | 2G, 3G, Cat1 | Airtel |
-| Germany | M524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
-| Ghana | M524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
-| Gibraltar | M524 | 2G, 3G, Cat1 | Gibtel |
-| Greece | M524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
-| Guinea | M524 | 2G, 3G, Cat1 | MTN |
-| Guinea-Bissau | M524 | 2G, 3G, Cat1 | MTN |
+| Gabon | M524 | 2G, 3G, 4G | Airtel |
+| Germany | M524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Ghana | M524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
+| Gibraltar | M524 | 2G, 3G, 4G | Gibtel |
+| Greece | M524 | 2G, 4G | Cosmote, Vodafone, Wind |
+| Guinea | M524 | 2G, 3G, 4G | MTN |
+| Guinea-Bissau | M524 | 2G, 3G, 4G | MTN |
 | Guyana | M524 | 2G | Digicel |
-| Hong Kong | M524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
-| Hungary | M524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
-| Iceland | M524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
-| Indonesia | M524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
-| Ireland | M524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | M524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
-| Italy | M524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Jordan | M524 | 2G, 3G, Cat1 | Zain |
-| Kazakhstan | M524 | 2G, 3G, Cat1 | Beeline, K-Cell |
-| Kenya | M524 | 2G, 3G, Cat1 | Airtel |
-| Kuwait | M524 | 2G, 3G, Cat1 | Viva, Zain |
-| Latvia | M524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
-| Liechtenstein | M524 | 2G, 3G, Cat1 | Mobilkom, Orange |
-| Lithuania | M524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
-| Luxembourg | M524 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Macao | M524 | 3G, Cat1 | CTM |
-| Madagascar | M524 | 2G, 3G, Cat1 | Airtel |
-| Malawi | M524 | 2G, 3G, Cat1 | Airtel |
-| Malaysia | M524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
-| Malta | M524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
-| Moldova | M524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Hong Kong | M524 | 2G, 3G, 4G | CMHK, CSL, SmarTone |
+| Hungary | M524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
+| Iceland | M524 | 2G, 3G, 4G | Nova, Siminn, Vodafone |
+| Indonesia | M524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
+| Ireland | M524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | M524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
+| Italy | M524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
+| Jordan | M524 | 2G, 3G, 4G | Zain |
+| Kazakhstan | M524 | 2G, 3G, 4G | Beeline, K-Cell |
+| Kenya | M524 | 2G, 3G, 4G | Airtel |
+| Kuwait | M524 | 2G, 3G, 4G | Viva, Zain |
+| Latvia | M524 | 2G, 3G, 4G | Bite, LMT, Tele2 |
+| Liechtenstein | M524 | 2G, 3G, 4G | Mobilkom, Orange |
+| Lithuania | M524 | 2G, 3G, 4G | Bite, Omnitel, Tele2 |
+| Luxembourg | M524 | 2G, 3G, 4G | Orange, POST, Tango |
+| Macao | M524 | 3G, 4G | CTM |
+| Madagascar | M524 | 2G, 3G, 4G | Airtel |
+| Malawi | M524 | 2G, 3G, 4G | Airtel |
+| Malaysia | M524 | 2G, 3G, 4G | Celcom, DiGi, Maxis |
+| Malta | M524 | 2G, 3G, 4G | Go Mobile, Vodafone |
+| Moldova | M524 | 2G, 3G, 4G | Moldcell, Orange |
 | Mongolia | M524 | 2G, 3G | Mobicom, Unitel |
-| Montenegro | M524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
-| Morocco | M524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
-| Mozambique | M524 | 2G, 3G, Cat1 | Vodacom |
+| Montenegro | M524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
+| Morocco | M524 | 2G, 3G, 4G | Inwi, Medi Telecom |
+| Mozambique | M524 | 2G, 3G, 4G | Vodacom |
 | Myanmar | M524 | 2G, 3G | MPT, Telenor |
-| Namibia | M524 | 2G, 3G, Cat1 | Telecom Namibia |
-| Netherlands | M524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
-| New Zealand | M524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
-| Nigeria | M524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
-| Norway | M524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Pakistan | M524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Namibia | M524 | 2G, 3G, 4G | Telecom Namibia |
+| Netherlands | M524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
+| New Zealand | M524 | 2G, 3G, 4G | 2degrees, Spark, Vodafone |
+| Nigeria | M524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
+| Norway | M524 | 2G, 3G, 4G | TDC, Telenor, Telia |
+| Pakistan | M524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | M524 | 2G, 3G | Jawwal |
 | Papua New Guinea | M524 | 2G, 3G | bmobile |
-| Poland | M524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
-| Portugal | M524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
-| Qatar | M524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
-| Romania | M524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
+| Poland | M524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
+| Portugal | M524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
+| Qatar | M524 | 2G, 3G, 4G | Ooredoo, Vodafone |
+| Romania | M524 | 2G, 3G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | M524 | 2G, 3G | Airtel, MTN |
-| Serbia | M524 | 2G, 3G, Cat1 | Telenor, VIP |
-| Seychelles | M524 | 2G, 3G, Cat1 | Airtel |
+| Serbia | M524 | 2G, 3G, 4G | Telenor, VIP |
+| Seychelles | M524 | 2G, 3G, 4G | Airtel |
 | Sint Maarten | M524 | 2G, 3G | TelCell |
-| Slovakia | M524 | 2G, Cat1 | O2, Orange, Telekom |
-| Slovenia | M524 | 2G, 3G, Cat1 | A1, Mobitel |
-| South Africa | M524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
-| South Korea | M524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| Slovakia | M524 | 2G, 4G | O2, Orange, Telekom |
+| Slovenia | M524 | 2G, 3G, 4G | A1, Mobitel |
+| South Africa | M524 | 2G, 3G, 4G | Cell C, MTN, Vodacom |
+| South Korea | M524 | 3G, 4G | KT, LG U+, SK Telecom |
 | South Sudan | M524 | 2G, 3G | MTN |
-| Spain | M524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | M524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Spain | M524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | M524 | 2G, 3G, 4G | Dialog, Mobitel |
 | Suriname | M524 | 2G, 3G | Telesur |
-| Sweden | M524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | M524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
-| Taiwan | M524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
-| Tanzania | M524 | 2G, 3G, Cat1 | Airtel |
-| Thailand | M524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
-| Tunisia | M524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
-| Uganda | M524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
-| United Kingdom | M524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| Vietnam | M524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
-| Zambia | M524 | 2G, 3G, Cat1 | Airtel |
+| Sweden | M524 | 2G, 3G, 4G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | M524 | 3G, 4G | Salt, Sunrise, Swisscom |
+| Taiwan | M524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | M524 | 2G, 3G, 4G | Airtel |
+| Thailand | M524 | 2G, 3G, 4G | AIS, DTAC, True Move |
+| Tunisia | M524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
+| Uganda | M524 | 2G, 3G, 4G | Africell, Airtel, MTN |
+| United Kingdom | M524 | 2G, 3G, 4G | 3, EE, Manx, O2, Sure, Vodafone |
+| Vietnam | M524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
+| Zambia | M524 | 2G, 3G, 4G | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

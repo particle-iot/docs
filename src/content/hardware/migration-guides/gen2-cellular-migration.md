@@ -608,7 +608,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | Afghanistan | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Afghanistan | Roshan | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Albania | ALBtelecom | &nbsp; | &check; | &check; | &nbsp; |
+| Albania | Eagle | &nbsp; | &check; | &check; | &nbsp; |
 | Albania | Telekom | &nbsp; | &check; | &check; | &nbsp; |
 | Albania | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
 | Algeria | Mobilis | &check; | &check; | &check; | &nbsp; |
@@ -621,9 +621,6 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Armenia | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Armenia | Ucom | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Aruba | Setar | &check; | &check; | &check; | &nbsp; |
-| Australia | Optus | &nbsp; | &nbsp; | &check; | &nbsp; |
-| Australia | Telstra | &nbsp; | &nbsp; | &check; | &nbsp; |
-| Australia | Vodafone | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Austria | 3 (Drei) | &check; | &check; | &check; | &nbsp; |
 | Austria | A1 | &check; | &check; | &check; | &nbsp; |
 | Austria | T-Mobile | &check; | &check; | &check; | &nbsp; |
@@ -645,8 +642,8 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Belgium | Proximus | &check; | &check; | &check; | &nbsp; |
 | Belize | Smart | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Bermuda | CellOne | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Bolivia | NuevaTel | &check; | &check; | &nbsp; | &nbsp; |
 | Bolivia | Tigo | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Bolivia | Viva | &check; | &check; | &nbsp; | &nbsp; |
 | Bosnia and Herzegovina | BH Telecom | &check; | &check; | &check; | &nbsp; |
 | Bosnia and Herzegovina | HT Eronet | &nbsp; | &check; | &check; | &nbsp; |
 | Botswana | BeMobile | &check; | &nbsp; | &check; | &nbsp; |
@@ -686,7 +683,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Curaçao | UTS | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Cyprus | Cytamobile-Vodafone | &check; | &check; | &check; | &nbsp; |
 | Cyprus | MTN | &nbsp; | &check; | &check; | &nbsp; |
-| Cyprus | PrimeTel | &check; | &nbsp; | &check; | &nbsp; |
+| Cyprus | PrimeTel | &check; | &check; | &check; | &nbsp; |
 | Czechia | O2 | &check; | &check; | &check; | &nbsp; |
 | Czechia | T-Mobile | &check; | &check; | &check; | &nbsp; |
 | Czechia | Vodafone | &check; | &check; | &check; | &nbsp; |
@@ -744,7 +741,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Haiti | Digicel | &check; | &check; | &check; | &nbsp; |
 | Honduras | Claro | &check; | &check; | &nbsp; | &nbsp; |
 | Honduras | Tigo | &check; | &check; | &nbsp; | &nbsp; |
-| Hong Kong | CMHK | &check; | &nbsp; | &check; | &nbsp; |
+| Hong Kong | CMHK | &check; | &check; | &check; | &nbsp; |
 | Hong Kong | CSL | &nbsp; | &check; | &check; | &nbsp; |
 | Hong Kong | SmarTone | &check; | &check; | &check; | &nbsp; |
 | Hungary | Magyar Telekom | &check; | &check; | &check; | &nbsp; |
@@ -771,6 +768,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Jamaica | Digicel | &check; | &check; | &nbsp; | &nbsp; |
 | Jamaica | Flow | &check; | &check; | &nbsp; | &nbsp; |
 | Japan | NTT DoCoMo | &check; | &check; | &nbsp; | &nbsp; |
+| Japan | Softbank | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Jersey | Airtel-Vodafone | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Jersey | Jersey Telecom | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Jordan | Zain | &nbsp; | &check; | &check; | &nbsp; |
@@ -862,7 +860,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Portugal | NOS | &check; | &check; | &check; | &nbsp; |
 | Portugal | TMN | &check; | &check; | &check; | &nbsp; |
 | Portugal | Vodafone | &check; | &check; | &check; | &nbsp; |
-| Puerto Rico | Claro | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Puerto Rico | Claro | &check; | &check; | &nbsp; | &nbsp; |
 | Qatar | Ooredoo | &check; | &check; | &check; | &nbsp; |
 | Qatar | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Réunion | SFR | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -893,7 +891,6 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | South Africa | MTN | &check; | &check; | &check; | &nbsp; |
 | South Africa | Vodacom | &check; | &check; | &check; | &nbsp; |
 | South Korea | KT | &check; | &check; | &check; | &nbsp; |
-| South Korea | LG U+ | &nbsp; | &nbsp; | &check; | &nbsp; |
 | South Korea | SK Telecom | &check; | &check; | &check; | &nbsp; |
 | South Sudan | MTN | &nbsp; | &check; | &check; | &nbsp; |
 | Spain | Orange | &nbsp; | &check; | &check; | &nbsp; |
@@ -912,7 +909,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Switzerland | Sunrise | &check; | &check; | &check; | &nbsp; |
 | Switzerland | Swisscom | &nbsp; | &check; | &check; | &nbsp; |
 | Taiwan | Chunghwa | &nbsp; | &check; | &check; | &nbsp; |
-| Taiwan | FarEasTone | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Taiwan | FarEasTone | &nbsp; | &check; | &check; | &nbsp; |
 | Taiwan | T Star | &check; | &check; | &check; | &nbsp; |
 | Taiwan | Taiwan Mobile | &check; | &check; | &check; | &nbsp; |
 | Tajikistan | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |

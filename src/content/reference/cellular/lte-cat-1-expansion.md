@@ -42,7 +42,7 @@ This document describes the expansion of available countries for LTE Cat 1, made
 
 | Country | Carrier | Expansion |
 | :--- | :--- | :---: |
-| Albania | ALBtelecom | &nbsp; |
+| Albania | Eagle | &nbsp; |
 | Albania | Telekom | &nbsp; |
 | Albania | Vodafone | &nbsp; |
 | Algeria | Mobilis | &check; |
