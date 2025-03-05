@@ -1819,7 +1819,25 @@ bandFit.init = function(callback) {
                     backgroundColor: '#89E2B3', // COLOR_Mint_600
                 },
             ],
-        },        
+        },       
+        'tachyon': {
+            title: 'Tachyon (TACH8NA vs. TACH8ROW)',
+            tests: [
+                {
+                    title: 'TACH8NA',
+                    modemObj: datastore.data.modems.find(e => e.model == 'SG560D-NA'),
+                    sim: 5, // KDDI
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'TACH8ROW',
+                    modemObj: datastore.data.modems.find(e => e.model == 'SG560D-EM'),
+                    sim: 5, // KDDI
+                    borderRight: false,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+            ],        } 
     };
 
     bandFit.updateTestMenu();

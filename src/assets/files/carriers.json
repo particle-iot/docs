@@ -26489,6 +26489,15 @@
       "description": "Twilio SuperSIM",
       "countryInfoLabel": "SuperSIM",
       "countryCarrierKey": "supersim"
+    },
+    {
+      "id": 50,
+      "sims": [
+        5
+      ],
+      "description": "KDDI",
+      "countryInfoLabel": "KDDI",
+      "countryCarrierKey": "kddi"
     }
   ],
   "regions": [
@@ -31593,6 +31602,36 @@
           "sim": 2,
           "simPlan": 20,
           "modem": "U201",
+          "mapColor": 1
+        }
+      ]
+    },
+    {
+      "family": "tachyon",
+      "name": "Tachyon",
+      "group": [
+        {
+          "name": "Tachyon TACH8NA (NorAm)",
+          "short": [
+            "TACH8NA"
+          ],
+          "region": "noram",
+          "lifecycle": "In development",
+          "sim": 5,
+          "simPlan": 50,
+          "modem": "SG560D-NA",
+          "mapColor": 0
+        },
+        {
+          "name": "Tachyon TACH8ROW (Rest of World)",
+          "short": [
+            "TACH8ROW"
+          ],
+          "region": "emeaa",
+          "lifecycle": "In development",
+          "sim": 5,
+          "simPlan": 50,
+          "modem": "SG560D-EM",
           "mapColor": 1
         }
       ]

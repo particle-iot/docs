@@ -1251,7 +1251,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                 }
                 else {
                     // Not allowed by plan
-                    if (obj.bands.includes(lteTagBand)) {
+                    if (obj.bands.includes(tagBand)) {
                         // This carrier uses the tag (2G, 3G, LTE) and band, show red X
                         if (modem.bands.includes(tagBand)) {
                             cellContents = '\u274C'; // Red X
