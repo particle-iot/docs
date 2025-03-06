@@ -90,10 +90,11 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 - Bluetooth 5.2
 
 
+{{!-- 
 ### Block diagram
 
-{{imageOverlay src="/assets/images/tachyon/block-diagram.svg" alt="Block diagram"}}
-
+imageOverlay src="/assets/images/tachyon/block-diagram.svg" alt="Block diagram"
+--}}
 
 ### Power
 
@@ -643,46 +644,10 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
     <td></td>
 </tr>
 -->
- 
+
+{{!--  
 ### Schematics
-
-
-#### Top diagram - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p2.png" alt="Schematics" class="full-width"}}
-
-#### SG500D interface - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p3.png" alt="Schematics" class="full-width"}}
-
-#### 40-pin header & PCIe - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p4.png" alt="Schematics" class="full-width"}}
-
-#### DSI/CSI - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p5.png" alt="Schematics" class="full-width"}}
-
-#### CSI - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p6.png" alt="Schematics" class="full-width"}}
-
-#### USB - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p7.png" alt="Schematics" class="full-width"}}
-
-#### Audio - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p8.png" alt="Schematics" class="full-width"}}
-
-#### eSIM & SD - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p9.png" alt="Schematics" class="full-width"}}
-
-#### Coprocessor - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p10.png" alt="Schematics" class="full-width"}}
-
-#### Antennas - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p11.png" alt="Schematics" class="full-width"}}
-
-#### Power block diagram - Schematic
-{{imageOverlay src="/assets/images/tachyon/tachyon-v1.0_p12.png" alt="Schematics" class="full-width"}}
-
-
-There is no page 1 or page 13.
-
+--}}
 
 ## Mechanical specifications
 
