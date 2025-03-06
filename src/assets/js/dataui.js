@@ -1036,6 +1036,7 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
     bandsUsed.bands2G = [];
     bandsUsed.bands3G = [];
     bandsUsed.bands4G = [];
+    bandsUsed.bands5G = [];
     bandsUsed.bandsM1 = [];
     bandsUsed.bandsAll = [];
 
@@ -1065,6 +1066,14 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
                     }                        
                 }
             }
+            if (tag == '5G') {
+                if (!technologies || technologies.includes(tag)) {
+                    if (!bandsUsed.bands5G.includes(band)) {
+                        bandsUsed.bands5G.push(band);
+                        bandsUsed.bandsAll.push(tagBand);                
+                    }                        
+                }
+            }
             if (tag == 'M1') {
                 if (!technologies || technologies.includes(tag)) {
                     if (!bandsUsed.bandsM1.includes(band)) {
@@ -1080,6 +1089,7 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
     bandsUsed.bands2G.sort(dataui.sortCompareNumeric);
     bandsUsed.bands3G.sort(dataui.sortCompareNumeric);
     bandsUsed.bands4G.sort(dataui.sortCompareNumeric);
+    bandsUsed.bands5G.sort(dataui.sortCompareNumeric);
     bandsUsed.bandsM1.sort(dataui.sortCompareNumeric);
     bandsUsed.bandsAll.sort(dataui.sortCompareTagBand);
 
@@ -1198,6 +1208,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                 if ((tag == '2G' && obj[planKey].allow2G) ||
                     (tag == '3G' && obj[planKey].allow3G) ||
                     (tag == '4G' && obj[planKey].allow4G) ||
+                    (tag == '5G' && obj[planKey].allow5G) ||
                     (tag == 'M1' && obj[planKey].allowM1)) {
                     // Allowed by plan
 

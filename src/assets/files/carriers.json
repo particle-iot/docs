@@ -13232,7 +13232,18 @@
       "aliases": [
         "Vodafone India"
       ],
-      "bands": [],
+      "bands": [
+        "2G-900",
+        "2G-1800",
+        "3G-1",
+        "4G-1",
+        "4G-3",
+        "4G-8",
+        "4G-40",
+        "4G-41",
+        "5G-78",
+        "5G-258"
+      ],
       "mnc": {
         "40405": {
           "mcc": "404",
@@ -13275,8 +13286,7 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g",
-        "roamingRestrictions": "warn"
+        "profile": "g"
       }
     },
     {
@@ -80824,9 +80834,43 @@
       "modem": "SG560D-EM",
       "sim": 5,
       "recommendation": "YES",
-      "supported": {},
-      "notSupported": {},
-      "technologies": [],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-40",
+          "4G-41"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-40",
+          "4G-41"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "5G-78",
+          "5G-258"
+        ],
+        "Vodafone": [
+          "5G-78",
+          "5G-258"
+        ]
+      },
+      "technologies": [
+        "2G",
+        "3G",
+        "4G"
+      ],
       "roamingRestrictions": "warn"
     },
     {
@@ -80835,9 +80879,41 @@
       "sim": 5,
       "recommendation": "NR",
       "reason": "bands not supported by modem",
-      "supported": {},
-      "notSupported": {},
-      "technologies": [],
+      "supported": {
+        "*": [
+          "4G-41"
+        ],
+        "Vodafone": [
+          "4G-41"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-40",
+          "5G-78",
+          "5G-258"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-40",
+          "5G-78",
+          "5G-258"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "warn"
     },
     {

@@ -810,6 +810,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | Greece | 2G, 4G, 5G | Cosmote, Vodafone, Wind |
 | Hungary | 2G, 3G, 4G, 5G | T-Mobile, Telenor, Vodafone |
 | Iceland | 2G, 3G, 4G | Nova, Siminn |
+| India | 2G, 3G, 4G | Vodafone |
 | Ireland | 2G, 4G, 5G | 3 (Tre), Vodafone |
 | Italy | 2G, 3G, 4G, 5G | TIM, Vodafone, Wind |
 | Japan | 4G, 5G | KDDI |
