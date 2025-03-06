@@ -315,9 +315,219 @@ The LED indicates:
 
 ### Wi-Fi Specifications
 
+--}}
 
 ### I/O Characteristics
 
+The CPU runs at 1.8V, but I/O on the expansion HAT connector is is 3.3V. Levels are translated using TI TXS0108E bidirectional level translators.
+
+
+- Maximum data rates:
+  - 110Mbps (push-pull)
+  - 1.2Mbps (open-drain)
+- 1.65V to 5.5V on B port
+- ESD protection exceeds JESD 22 (A port, CPU-side):
+  - 2000 V Human Body Model (A114-B)
+  - 150 V Machine Model (A115-A)
+  - 1000 V Charged-Device Model (C101)
+- IEC 61000-4-2 ESD (B port, expansion connector side):
+  - ± 8kV Contact Discharge
+  - ± 6kV Air Discharge
+
+
+### Absolute maximum ratings
+
+These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
+
+| Parameter | Min | Max | Unit |
+| :--- | :--- | :--- | :--- |
+| Input voltage | -0.5 | 6.5 | V |
+| Voltage applies to any output in high or low state | -0.5 | 3.8 | V |
+| Input clamp current I<sub>K</sub> | | -50 | mA |
+| Output clamp current I<sub>OK</sub> | | -50 | mA |
+| Continuous output current I<sub>O</sub> | -50| 50 | mA |
+| Continuous output current I<sub>O</sub> | -50| 50 | mA |
+
+### Recommended operating conditions
+
+| Parameter | Min | Max | Unit |
+| :--- | :--- | :--- | :--- |
+| High-level input voltage V<sub>IH</sub> | 2.9| 3.3 | V |
+| Low-level input voltage V<sub>IL</sub> | 0 | 0.15 | V |
+| Input transition rise or fall rate Δt/Δv | | 10 | ns/V |
+
+
+#### Timing requirements
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Parameter</th>
+            <th>Test Conditions</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Unit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2"></td>
+            <td rowspan="2">Data rate</td>
+            <td>Push-pull driving</td>
+            <td></td>
+            <td>60</td>
+            <td rowspan="2">Mbps</td>
+        </tr>
+        <tr>
+            <td>Open-drain driving</td>
+            <td></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td rowspan="2">t<sub>W</sub></td>
+            <td rowspan="2">Pulse duration, Data inputs</td>
+            <td>Push-pull driving</td>
+            <td>16.7</td>
+            <td></td>
+            <td rowspan="2">ns</td>
+        </tr>
+        <tr>
+            <td>Open-drain driving</td>
+            <td></td>
+            <td>1000</td>
+        </tr>    
+    </tbody>
+</table>
+
+
+### Switching characteristics
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Parameter</th>
+            <th colspan="2">Test Conditions</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Unit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2">t<sub>PHL</sub></td>
+            <td>Propagation delay time</td>
+            <td rowspan="2">Output</td>
+            <td>Push-pull driving</td>
+            <td></td>
+            <td>5.7</td>
+            <td rowspan="2">ns</td>
+        </tr>
+        <tr>
+            <td>(high-to-low output)</td>
+            <td>Open-drain driving</td>
+            <td>3.1</td>
+            <td>9.3</td>
+        </tr>
+        <tr>
+            <td rowspan="2">t<sub>PLH</sub></td>
+            <td>Propagation delay time</td>
+            <td rowspan="2">Output</td>
+            <td>Push-pull driving</td>
+            <td></td>
+            <td>6.5</td>
+            <td rowspan="2">ns</td>
+        </tr>
+        <tr>
+            <td>(low-to-high output)</td>
+            <td>Open-drain driving</td>
+            <td>126</td>
+            <td>486</td>
+        </tr>
+        <tr>
+            <td rowspan="2">t<sub>PHL</sub></td>
+            <td>Propagation delay time</td>
+            <td rowspan="2">Input</td>
+            <td>Push-pull driving</td>
+            <td></td>
+            <td>7.4</td>
+            <td rowspan="2">ns</td>
+        </tr>
+        <tr>
+            <td>(high-to-low output)</td>
+            <td>Open-drain driving</td>
+            <td>2.5</td>
+            <td>7.3</td>
+        </tr>
+        <tr>
+            <td rowspan="2">t<sub>PLH</sub></td>
+            <td>Propagation delay time</td>
+            <td rowspan="2">Input</td>
+            <td>Push-pull driving</td>
+            <td></td>
+            <td>5.8</td>
+            <td rowspan="2">ns</td>
+        </tr>
+        <tr>
+            <td>(low-to-high output)</td>
+            <td>Open-drain driving</td>
+            <td>129</td>
+            <td>459</td>
+        </tr>
+        <tr>
+            <td rowspan="2">t<sub>rB</sub></td>
+            <td rowspan="2">Input rise time</td>
+            <td rowspan="2">B-port rise time</td>
+            <td>Push-pull driving</td>
+            <td>1.2</td>
+            <td>5.2</td>
+            <td rowspan="2">ns</td>
+        </tr>
+        <tr>
+            <td>Open-drain driving</td>
+            <td>73</td>
+            <td>546</td>
+        </tr>
+        <tr>
+            <td rowspan="2">t<sub>fB</sub></td>
+            <td rowspan="2">Input fall time</td>
+            <td rowspan="2">B-port fall time</td>
+            <td>Push-pull driving</td>
+            <td>0.9</td>
+            <td>3.9</td>
+            <td rowspan="2">ns</td>
+        </tr>
+        <tr>
+            <td>Open-drain driving</td>
+            <td>1</td>
+            <td>9.6</td>
+        </tr>
+        <tr>
+            <td>t<sub>SK(O)</sub></td>
+            <td>Skew (time), output</td>
+            <td>Channel-to-channel</td>
+            <td>Push-pull driving</td>
+            <td></td>
+            <td>1</td>
+            <td>ns</td>
+        </tr>
+        <tr>
+            <td rowspan="2"></td>
+            <td rowspan="2">Maximum date rate</td>
+            <td rowspan="2">A or B</td>
+            <td>Push-pull driving</td>
+            <td>60</td>
+            <td></td>
+            <td rowspan="2">Mps</td>
+        </tr>
+        <tr>
+            <td>Open-drain driving</td>
+            <td>0.8</td>
+            <td></td>
+        </tr>    
+    </tbody>
+</table>
+
+{{!-- 
 
 ### Power consumption
 --}}
