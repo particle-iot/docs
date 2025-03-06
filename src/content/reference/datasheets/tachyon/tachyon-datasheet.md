@@ -375,26 +375,26 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
             <td rowspan="2">Data rate</td>
             <td>Push-pull driving</td>
             <td></td>
-            <td>60</td>
+            <td>70</td>
             <td rowspan="2">Mbps</td>
         </tr>
         <tr>
             <td>Open-drain driving</td>
             <td></td>
-            <td>1</td>
+            <td>0.8</td>
         </tr>
         <tr>
             <td rowspan="2">t<sub>W</sub></td>
-            <td rowspan="2">Pulse duration, Data inputs</td>
+            <td rowspan="2">Pulse duration, data inputs</td>
             <td>Push-pull driving</td>
-            <td>16.7</td>
+            <td>15.3</td>
             <td></td>
             <td rowspan="2">ns</td>
         </tr>
         <tr>
             <td>Open-drain driving</td>
             <td></td>
-            <td>1000</td>
+            <td>1250</td>
         </tr>    
     </tbody>
 </table>
