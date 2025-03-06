@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon datasheet 2025-03-06
+
+A preliminary [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/) is now available. Carrier information for Tachyon is now included in the [carrier list](/reference/cellular/cellular-carriers/).
+
 ### Thread and interrupt safety 2025-03-03
 
 New page with tips for [thread and interrupt safety](/firmware/best-practices/thread-interrupt-safety/).

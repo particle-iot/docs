@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "61d375671bb7ed2c75ad0c88a00c4d04975277dbdb1ff1d11cfe3bb35554e1cd",
-            "date": "2025-03-03"
+            "hash": "5361187fbad7ff122ebb672eb67a95c02d74c7c9d6c2c660c3a031c650b58629",
+            "date": "2025-03-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9703,7 +9703,7 @@
             "date": "2025-03-03"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "791b7e0230ffde565a22da89f63acf155e2d16414dc29dfc332b6559e741be4c",
+            "hash": "c171df98a2b559148f75d34fa0b8e558ef48f1dccc1bbdcf273dfb9d45e61b67",
             "date": "2025-03-06"
         }
     }
