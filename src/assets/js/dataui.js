@@ -882,7 +882,7 @@ dataui.selectSkus = function(config) {
             // Only LTE and LTE-M1 devices
             const modem = datastore.findModemByModel(obj.modem);
             if (modem) {
-                if (!modem.bandsM1 && !modem.bandsCat1) {
+                if (!modem.bandsM1 && !modem.bands4G) {
                     return;
                 }
             }
@@ -1035,7 +1035,8 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
 
     bandsUsed.bands2G = [];
     bandsUsed.bands3G = [];
-    bandsUsed.bandsCat1 = [];
+    bandsUsed.bands4G = [];
+    bandsUsed.bands5G = [];
     bandsUsed.bandsM1 = [];
     bandsUsed.bandsAll = [];
 
@@ -1057,11 +1058,19 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
                     bandsUsed.bandsAll.push(tagBand);                
                 }
             }
-            if (tag == 'LTE') {
+            if (tag == '4G') {
                 if (!technologies || technologies.includes(tag)) {
-                    if (!bandsUsed.bandsCat1.includes(band)) {
-                        bandsUsed.bandsCat1.push(band);
-                        bandsUsed.bandsAll.push(tagBand.replace('LTE', 'Cat1'));                
+                    if (!bandsUsed.bands4G.includes(band)) {
+                        bandsUsed.bands4G.push(band);
+                        bandsUsed.bandsAll.push(tagBand);                
+                    }                        
+                }
+            }
+            if (tag == '5G') {
+                if (!technologies || technologies.includes(tag)) {
+                    if (!bandsUsed.bands5G.includes(band)) {
+                        bandsUsed.bands5G.push(band);
+                        bandsUsed.bandsAll.push(tagBand);                
                     }                        
                 }
             }
@@ -1079,7 +1088,8 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
     // Sort band lists
     bandsUsed.bands2G.sort(dataui.sortCompareNumeric);
     bandsUsed.bands3G.sort(dataui.sortCompareNumeric);
-    bandsUsed.bandsCat1.sort(dataui.sortCompareNumeric);
+    bandsUsed.bands4G.sort(dataui.sortCompareNumeric);
+    bandsUsed.bands5G.sort(dataui.sortCompareNumeric);
     bandsUsed.bandsM1.sort(dataui.sortCompareNumeric);
     bandsUsed.bandsAll.sort(dataui.sortCompareTagBand);
 
@@ -1129,7 +1139,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
     // and also supports our desired plan
     let countryCarrierFiltered = [];
     datastore.data.countryCarrier.forEach(function(obj) {
-        if (countryInCountryList[obj.country] && obj[planKey]) {
+        if (countryInCountryList[obj.country] && obj[planKey] && obj.bands.length > 0) {
             countryCarrierFiltered.push(obj);
         }
     });
@@ -1192,19 +1202,18 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                 const tag = dataui.bandGetTag(tagBand);
                 const band = dataui.bandGetBand(tagBand);
 
-                let lteTagBand = tagBand.replace('Cat1', 'LTE').replace('M1', 'LTE');
-
                 let cellContents = '&nbsp;';
                 let tooltip = '';
 
                 if ((tag == '2G' && obj[planKey].allow2G) ||
                     (tag == '3G' && obj[planKey].allow3G) ||
-                    (tag == 'Cat1' && obj[planKey].allowCat1) ||
+                    (tag == '4G' && obj[planKey].allow4G) ||
+                    (tag == '5G' && obj[planKey].allow5G) ||
                     (tag == 'M1' && obj[planKey].allowM1)) {
                     // Allowed by plan
 
-                    if (obj.bands.includes(lteTagBand)) {
-                        // This carrier uses the tag (2G, 3G, LTE) and band, and is allowed by plan
+                    if (obj.bands.includes(tagBand)) {
+                        // This carrier uses the tag (2G, 3G, 4G) and band, and is allowed by plan
 
                         if (modem.bands.includes(tagBand)) {
                             if (tag == 'M1') {
@@ -1253,7 +1262,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                 }
                 else {
                     // Not allowed by plan
-                    if (obj.bands.includes(lteTagBand)) {
+                    if (obj.bands.includes(tagBand)) {
                         // This carrier uses the tag (2G, 3G, LTE) and band, show red X
                         if (modem.bands.includes(tagBand)) {
                             cellContents = '\u274C'; // Red X

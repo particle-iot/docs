@@ -573,7 +573,7 @@ $(document).ready(function() {
             
             let excludeModems = [];
             for(const modemObj of datastore.data.modems) {
-                if (!modemObj.technologies.includes('Cat1')) {
+                if (!modemObj.technologies.includes('4G')) {
                     excludeModems.push(modemObj.model);
                 }
             }

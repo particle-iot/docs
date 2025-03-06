@@ -6542,6 +6542,386 @@
     },
     {
       "id": 0,
+      "name": "tachyon",
+      "pins": [
+        {
+          "num": 1,
+          "name": "3V3",
+          "desc": "3.3V power",
+          "isPower": true,
+          "morePins": [
+            17
+          ]
+        },
+        {
+          "num": 2,
+          "name": "5V",
+          "desc": "5V power",
+          "isPower": true,
+          "morePins": [
+            4
+          ]
+        },
+        {
+          "num": 3,
+          "name": "GPIO2",
+          "desc": "SDA",
+          "i2c": "I2C SDA",
+          "isIO": true,
+          "linuxName": "GPIO_8",
+          "mcuGPIO": 8,
+          "net": "GPIO_8/3.9A",
+          "rpiGPIO": 2
+        },
+        {
+          "num": 5,
+          "name": "GPIO3",
+          "desc": "SCL",
+          "i2c": "I2C SCL",
+          "isIO": true,
+          "linuxName": "GPIO_9",
+          "mcuGPIO": 9,
+          "net": "GPIO_9/3.9D",
+          "rpiGPIO": 3
+        },
+        {
+          "num": 6,
+          "name": "GND",
+          "desc": "Ground",
+          "isPower": true,
+          "morePins": [
+            9,
+            14,
+            20,
+            25,
+            30,
+            34,
+            39
+          ]
+        },
+        {
+          "num": 7,
+          "name": "GPIO4",
+          "desc": "GPIO4",
+          "gpio": "GPIO_61",
+          "isIO": true,
+          "linuxName": "GPIO_61",
+          "mcuGPIO": 61,
+          "net": "GPIO_61/3.9B",
+          "rpiGPIO": 4
+        },
+        {
+          "num": 8,
+          "name": "GPIO14",
+          "desc": "UART TX",
+          "isIO": true,
+          "linuxName": "GPIO_34",
+          "mcuGPIO": 34,
+          "net": "GPIO_34/3.9B",
+          "rpiGPIO": 14,
+          "serial": "UART TX"
+        },
+        {
+          "num": 10,
+          "name": "GPIO15",
+          "desc": "UART RX",
+          "isIO": true,
+          "linuxName": "GPIO_35",
+          "mcuGPIO": 35,
+          "net": "GPIO_35/3.9B",
+          "rpiGPIO": 15,
+          "serial": "UART RX"
+        },
+        {
+          "num": 11,
+          "name": "GPIO17",
+          "desc": "GPIO17, UART RTS",
+          "gpio": "GPIO_33",
+          "isIO": true,
+          "linuxName": "GPIO_33",
+          "mcuGPIO": 33,
+          "net": "GPIO_33/3.9C",
+          "rpiGPIO": 17
+        },
+        {
+          "num": 12,
+          "name": "GPIO18",
+          "desc": "GPIO18, PCM_CLK",
+          "gpio": "GPIO_144",
+          "i2s": "I2S CLK",
+          "isIO": true,
+          "linuxName": "GPIO_144",
+          "mcuGPIO": 144,
+          "net": "GPIO_144/3.5F",
+          "rpiGPIO": 18
+        },
+        {
+          "num": 13,
+          "name": "GPIO27",
+          "altName": "GPIO27",
+          "gpio": "GPIO_44",
+          "isIO": true,
+          "linuxName": "GPIO_44",
+          "mcuGPIO": 44,
+          "net": "GPIO_44/3.9A",
+          "rpiGPIO": 27,
+          "rpiPWM": "PWM1"
+        },
+        {
+          "num": 15,
+          "name": "GPIO22",
+          "desc": "GPIO22",
+          "gpio": "GPIO_158",
+          "isIO": true,
+          "linuxName": "GPIO_158",
+          "mcuGPIO": 158,
+          "net": "GPIO_158/3.9E",
+          "rpiGPIO": 22
+        },
+        {
+          "num": 16,
+          "name": "GPIO23",
+          "desc": "GPIO23",
+          "gpio": "GPIO_165",
+          "isIO": true,
+          "linuxName": "GPIO_165",
+          "mcuGPIO": 165,
+          "net": "GPIO_165/3.2J",
+          "rpiGPIO": 23
+        },
+        {
+          "num": 18,
+          "name": "GPIO24",
+          "desc": "GPIO24",
+          "gpio": "GPIO_166",
+          "isIO": true,
+          "linuxName": "GPIO_166",
+          "mcuGPIO": 166,
+          "net": "GPIO_166/3.2J",
+          "rpiGPIO": 24
+        },
+        {
+          "num": 19,
+          "name": "GPIO10",
+          "desc": "MOSI",
+          "isIO": true,
+          "linuxName": "GPIO_57",
+          "mcuGPIO": 57,
+          "net": "GPIO_57/3.2J",
+          "rpiGPIO": 10,
+          "spi": "SPI MOSI"
+        },
+        {
+          "num": 21,
+          "name": "GPIO9",
+          "desc": "MISO",
+          "isIO": true,
+          "linuxName": "GPIO_56",
+          "mcuGPIO": 56,
+          "net": "GPIO_56/3.2J",
+          "rpiGPIO": 9,
+          "spi": "SPI MISO"
+        },
+        {
+          "num": 22,
+          "name": "GPIO25",
+          "desc": "GPIO25",
+          "gpio": "GPIO_24",
+          "isIO": true,
+          "linuxName": "GPIO_24",
+          "mcuGPIO": 24,
+          "net": "GPIO_24/3.9A",
+          "rpiGPIO": 25
+        },
+        {
+          "num": 23,
+          "name": "GPIO11",
+          "desc": "SCLK",
+          "isIO": true,
+          "linuxName": "GPIO_58",
+          "mcuGPIO": 58,
+          "net": "GPIO_58/3.2J",
+          "rpiGPIO": 11,
+          "spi": "SPI SCLK"
+        },
+        {
+          "num": 24,
+          "name": "GPIO8",
+          "desc": "GPIO8, SPI CE0",
+          "gpio": "GPIO_59",
+          "isIO": true,
+          "linuxName": "GPIO_59",
+          "mcuGPIO": 59,
+          "net": "GPIO_59/3.2J",
+          "rpiGPIO": 8,
+          "spi": "SPI CE0"
+        },
+        {
+          "num": 26,
+          "name": "GPIO7",
+          "desc": "GPIO7, SPI CE1",
+          "gpio": "GPIO_62",
+          "isIO": true,
+          "linuxName": "GPIO_62",
+          "mcuGPIO": 62,
+          "net": "GPIO_62/3.9C",
+          "rpiGPIO": 7,
+          "spi": "SPI CE1"
+        },
+        {
+          "num": 27,
+          "name": "GPIO0",
+          "desc": "GPIO0, ID_SD",
+          "gpio": "GPIO_36",
+          "isIO": true,
+          "linuxName": "GPIO_36",
+          "mcuGPIO": 36,
+          "net": "GPIO_36/3.2D",
+          "rpiGPIO": 0
+        },
+        {
+          "num": 28,
+          "name": "GPIO1",
+          "desc": "GPIO1 (ID_SC)",
+          "gpio": "GPIO_37",
+          "isIO": true,
+          "linuxName": "GPIO_37",
+          "mcuGPIO": 37,
+          "net": "GPIO_37/3.9D",
+          "rpiGPIO": 1
+        },
+        {
+          "num": 29,
+          "name": "GPIO5",
+          "desc": "GPIO5",
+          "gpio": "GPIO_18",
+          "isIO": true,
+          "linuxName": "GPIO_18",
+          "mcuGPIO": 18,
+          "net": "GPIO_18/3.9D",
+          "rpiGPIO": 5
+        },
+        {
+          "num": 31,
+          "name": "GPIO6",
+          "desc": "GPIO6",
+          "gpio": "GPIO_19",
+          "isIO": true,
+          "linuxName": "GPIO_19",
+          "mcuGPIO": 19,
+          "net": "GPIO_19/3.9C",
+          "rpiGPIO": 6
+        },
+        {
+          "num": 32,
+          "name": "GPIO12",
+          "desc": "GPIO12, PWM0",
+          "gpio": "GPIO_78",
+          "isIO": true,
+          "linuxName": "GPIO_78",
+          "mcuGPIO": 78,
+          "net": "PWM2_GPIO78/3.5K",
+          "pwm": "PWM0",
+          "rpiGPIO": 12
+        },
+        {
+          "num": 33,
+          "name": "GPIO13",
+          "desc": "GPIO13, PWM1",
+          "gpio": "GPIO_106",
+          "isIO": true,
+          "linuxName": "GPIO_106",
+          "mcuGPIO": 106,
+          "net": "GPIO_106/3.9D",
+          "pwm": "PWM1",
+          "rpiGPIO": 13
+        },
+        {
+          "num": 35,
+          "name": "GPIO19",
+          "desc": "GPIO19, PCM_FS",
+          "gpio": "GPIO_145",
+          "i2s": "I2S WS",
+          "isIO": true,
+          "linuxName": "GPIO_145",
+          "mcuGPIO": 145,
+          "net": "GPIO_145/3.5F",
+          "rpiGPIO": 19,
+          "rpiPCM": "PCM_FS"
+        },
+        {
+          "num": 36,
+          "name": "GPIO16",
+          "desc": "GPIO16, UART CTS",
+          "gpio": "GPIO_32",
+          "isIO": true,
+          "linuxName": "GPIO_32",
+          "mcuGPIO": 32,
+          "net": "GPIO_32/3.9B",
+          "rpiGPIO": 16
+        },
+        {
+          "num": 37,
+          "name": "GPIO26",
+          "desc": "GPIO26",
+          "gpio": "GPIO_6",
+          "isIO": true,
+          "linuxName": "GPIO_6",
+          "mcuGPIO": 6,
+          "net": "GPIO_6/3.9B",
+          "rpiGPIO": 26
+        },
+        {
+          "num": 38,
+          "name": "GPIO20",
+          "desc": "GPIO20, PCM_DIN",
+          "gpio": "GPIO_146",
+          "i2s": "I2S DIN",
+          "isIO": true,
+          "linuxName": "GPIO_146",
+          "mcuGPIO": 146,
+          "net": "GPIO_146/3.5G",
+          "rpiGPIO": 20
+        },
+        {
+          "num": 40,
+          "name": "GPIO21",
+          "desc": "GPIO21, PCM_DOUT",
+          "gpio": "GPIO_147",
+          "i2s": "I2S DOUT",
+          "isIO": true,
+          "linuxName": "GPIO_147",
+          "mcuGPIO": 147,
+          "net": "GPIO_147/3.5G",
+          "rpiGPIO": 21
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      }
+    },
+    {
+      "id": 0,
       "name": "Tracker M Expansion",
       "pins": [
         {

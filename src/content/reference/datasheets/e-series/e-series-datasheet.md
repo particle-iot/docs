@@ -570,7 +570,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Afghanistan | E314 | 2G, 3G | MTN |
-| Albania | E314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
+| Albania | E314 | 2G, 3G | Eagle, Telekom, Vodafone |
 | Algeria | E314 | 2G, 3G | Mobilis, Ooredoo |
 | Anguilla | E314 | 2G, 3G | Flow |
 | Antigua and Barbuda | E314 | 2G, 3G | Flow |
@@ -586,7 +586,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Belarus | E314 | 2G, 3G | A1 |
 | Belgium | E314 | 2G, 3G | Base, Orange, Proximus |
 | Belize | E314 | 3G | Smart |
-| Bolivia | E314 | 2G, 3G | NuevaTel |
+| Bolivia | E314 | 2G, 3G | Viva |
 | Bosnia and Herzegovina | E314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brunei | E314 | 3G | DST |
 | Bulgaria | E314 | 2G, 3G | A1, Telenor, Vivacom |

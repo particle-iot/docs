@@ -1229,23 +1229,36 @@ bandFit.renderCountries = function(countries) {
     for(const country of countries) {
         const countryObj = datastore.data.countries.find(e => e.name == country);
 
+        let carriersInCountry = [];
+
+        const simObj = datastore.data.sims.find(e => e.id == bandFit.tests[test].sim);
+
+        for(const ccObj of datastore.data.countryCarrier) {
+            if (ccObj.country != country) {
+                continue;
+            }
+
+            if (!ccObj[simObj.simPlanKey]) {
+                continue;
+            }
+            if (ccObj.bands.length == 0) {
+                // Ignore carriers with no bands listed
+                continue;
+            }
+
+            carriersInCountry.push(ccObj);
+        }
+
+        if (carriersInCountry.length == 0) {
+            continue;
+        }
+
         {
             const headerElem = document.createElement('h3');
             $(headerElem).text(country);
             $(bandFit.bandFitResultsElem).append(headerElem);    
         }
-
-        let carriersInCountry = [];
-            
-        for(const ccObj of datastore.data.countryCarrier) {
-            if (ccObj.country == country) {
-                if (!ccObj.supersim) {
-                    continue;
-                }
-                carriersInCountry.push(ccObj);
-            }
-        }
-
+           
         for(const testObj of bandFit.tests[test].tests) {
             testObj.bands = [];
             testObj.counts = {
@@ -1253,11 +1266,9 @@ bandFit.renderCountries = function(countries) {
                 redX: 0,
             }
 
-            for(const ccObj of carriersInCountry) {                    
+            for(const ccObj of carriersInCountry) {
 
                 for(let b of ccObj.bands) {
-                    b = b.replace('LTE', 'Cat1');
-
                     let hasTech = false;
                     for(const t of testObj.modemObj.technologies) {
                         if (b.startsWith(t)) {
@@ -1273,6 +1284,7 @@ bandFit.renderCountries = function(countries) {
                     }
                     
                 }
+
             }
             testObj.bands.sort(datastore.sortCompareTagBand);
         }
@@ -1393,17 +1405,17 @@ bandFit.renderCountries = function(countries) {
                 $(trElem).append(tdElem);
             }
 
-            if (ccObj.supersim.roamingRestrictions) {
-                roamingRestrictions = true;
-            }
             const sunset2G = datastore.dateParse(ccObj.sunset2G);
             const sunset3G = datastore.dateParse(ccObj.sunset3G);
 
             for(const testObj of bandFit.tests[test].tests) {
-
+                if (ccObj[simObj.simPlanKey].roamingRestrictions) {
+                    roamingRestrictions = true;
+                }
+    
                 for(const b of testObj.bands) {
                     const modemSupportsBand = testObj.modemObj.bands.includes(b);
-                    const carrierSupportsBand = ccObj.bands.find(b1 => b1.replace('LTE', 'Cat1') == b);
+                    const carrierSupportsBand = ccObj.bands.find(b1 => b1 == b);
                     const bandEnabled = !testObj.modemObj.bandsEnabled || testObj.modemObj.bandsEnabled.includes(b);
 
                     let value = '';
@@ -1737,19 +1749,18 @@ bandFit.init = function(callback) {
     bandFit.tests = {
         'msom': {
             title: 'M-Series (M404/M635 vs. M524)',
+            sim: 4, // EtherSIM
             tests: [
                 {
                     title: 'M404',
                     moreTitles: ['M635'],
                     modemObj: datastore.data.modems.find(e => e.model == 'BG95-M5'),
-                    sim: 4, // EtherSIM
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
                 },
                 {
                     title: 'M524',
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
-                    sim: 4, // EtherSIM
                     borderRight: false,
                     backgroundColor: '#89E2B3', // COLOR_Mint_600
                 },
@@ -1757,18 +1768,17 @@ bandFit.init = function(callback) {
         },
         'b-series': {
             title: 'B-Series (B404X vs. B524)',
+            sim: 4, // EtherSIM
             tests: [
                 {
                     title: 'B404X',
                     modemObj: datastore.data.modems.find(e => e.model == 'R510'),
-                    sim: 4, // EtherSIM
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
                 },
                 {
                     title: 'B524',
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-E'),
-                    sim: 4, // EtherSIM
                     borderRight: false,
                     backgroundColor: '#89E2B3', // COLOR_Mint_600
                 },
@@ -1777,25 +1787,23 @@ bandFit.init = function(callback) {
         'b504': {
             title: 'B504 comparison (B504 vs. B404X vs. B524)',
             internal: true,
+            sim: 4, // EtherSIM
             tests: [
                 {
                     title: 'B504',
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-NAX'),
-                    sim: 4, // EtherSIM
                     borderRight: true,
                     backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
                 },
                 {
                     title: 'B404X',
                     modemObj: datastore.data.modems.find(e => e.model == 'R510'),
-                    sim: 4, // EtherSIM
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
                 },
                 {
                     title: 'B524',
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-E'),
-                    sim: 4, // EtherSIM
                     borderRight: false,
                     backgroundColor: '#89E2B3', // COLOR_Mint_600
                 },
@@ -1803,12 +1811,12 @@ bandFit.init = function(callback) {
         },
         'tracker': {
             title: 'Tracker One, Monitor One, Tracker SoM (ONE404 vs. ONE524)',
+            sim: 4, // EtherSIM
             tests: [
                 {
                     title: 'ONE404',
                     moreTitles: ['MON404', 'T404'],
                     modemObj: datastore.data.modems.find(e => e.model == 'BG96-MC'),
-                    sim: 4, // EtherSIM
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
                 },
@@ -1816,12 +1824,29 @@ bandFit.init = function(callback) {
                     title: 'ONE524',
                     moreTitles: ['MON524', 'T524'],
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
-                    sim: 4, // EtherSIM
                     borderRight: false,
                     backgroundColor: '#89E2B3', // COLOR_Mint_600
                 },
             ],
-        },        
+        },       
+        'tachyon': {
+            title: 'Tachyon (TACH8NA vs. TACH8ROW)',
+            sim: 5, // KDDI
+            tests: [
+                {
+                    title: 'TACH8NA',
+                    modemObj: datastore.data.modems.find(e => e.model == 'SG560D-NA'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'TACH8ROW',
+                    modemObj: datastore.data.modems.find(e => e.model == 'SG560D-EM'),
+                    borderRight: false,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+            ],        
+        } 
     };
 
     bandFit.updateTestMenu();

@@ -798,6 +798,39 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },        
+        // Tachyon
+        {
+            guid:'ae3c46e6-c970-4ceb-8e55-2adde82efb79',
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['SG560D-NA'],
+                    sim: 5,
+                    noModel: true,
+                }); 
+            } 
+        },
+        {
+            guid:'d37da224-3ea6-4b28-823c-8b322ab3b7c6',
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['SG560D-EM'],
+                    sim: 5,
+                    noModel: true,
+                }); 
+            } 
+        },
+        {
+            guid:'99a15043-5618-49a0-84b4-4f1ef9c1fa3e',
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['SG560D-EM'],
+                    simPlanKey: 'kddi',
+                    sim: 5,
+                    possibleSkusOnly: true,
+                }); 
+            } 
+        },
+
         // SoM guide
         {
             guid:'9e1f59dd-fe76-4361-85a0-daaed2736a85', 
@@ -3430,7 +3463,7 @@ const schemaDocs = require('./schema-docs');
                         if (!modemObj) {
                             return true;
                         }
-                        return !modemObj.technologies.includes('Cat1');
+                        return !modemObj.technologies.includes('4G');
                     },
                 }); 
             }                 
@@ -4780,7 +4813,7 @@ const schemaDocs = require('./schema-docs');
                         }
 
                         // true to remove from list
-                        return skuObj.family != "b series" || (skuObj.sim != 4 && skuObj.sim != 5) || !modemObj.technologies.includes('Cat1');
+                        return skuObj.family != "b series" || (skuObj.sim != 4 && skuObj.sim != 5) || !modemObj.technologies.includes('4G');
                     }        
                 }); 
             }           

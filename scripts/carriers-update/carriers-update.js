@@ -297,6 +297,10 @@ const generatorConfig = require('./generator-config');
         if (!options) {
             options = {};
         }
+        if (!options.sim) {
+            options.sim = 4; // supersim
+        }
+        const simObj = updater.datastore.data.sims.find(e => e.id == options.sim);
 
         let modems = [];
         let shortModelForModem = {};
@@ -307,7 +311,7 @@ const generatorConfig = require('./generator-config');
                     return;
                 }
                 skuFamilyObj.group.forEach(function(groupObj) {
-                    if (groupObj.sim != 4) {
+                    if (groupObj.sim != options.sim) {
                         return;
                     }
                     if (options.groupFn && options.groupFn(groupObj)) {
@@ -342,13 +346,13 @@ const generatorConfig = require('./generator-config');
 
         updater.datastore.data.countryModemSim.forEach(function(cmsObj) {
             if (options.possibleSkusOnly) {
-                if (cmsObj.sim != 4 || cmsObj.recommendation != 'POSS') {
+                if (cmsObj.sim != options.sim || cmsObj.recommendation != 'POSS') {
                     // Wrong SIM or not recommended, skip
                     return;
                 }    
             }
             else {
-                if (cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
+                if (cmsObj.sim != options.sim || cmsObj.recommendation != 'YES') {
                     // Wrong SIM or not recommended, skip
                     return;
                 }    
@@ -391,7 +395,7 @@ const generatorConfig = require('./generator-config');
 
         let tableData = [];
 
-        technologies = ['2G', '3G', 'Cat1', 'M1'];
+        const technologies = ['2G', '3G', '4G', '5G', 'M1'];
 
         countryModemSimFiltered.forEach(function(cmsObj) {
             let showTechnologies = [];
@@ -403,7 +407,7 @@ const generatorConfig = require('./generator-config');
                 if (ccObj.country != cmsObj.country) {
                     return;
                 }
-                if (!ccObj.supersim || ccObj.supersim.prohibited) {
+                if (!ccObj[simObj.simPlanKey] || ccObj[simObj.simPlanKey].prohibited || ccObj[simObj.simPlanKey].roamingRestrictions == 'hide') {
                     return;
                 }   
 
@@ -414,14 +418,16 @@ const generatorConfig = require('./generator-config');
 
                 let hasTech = false;
 
-                technologies.forEach(function(tech) {
+                technologies.forEach(function(tech) {                    
                     if (!modemObj.technologies.includes(tech)) {
                         return;
                     }
-                    const allowFlag = ccObj.supersim['allow' + tech]; 
+
+                    const allowFlag = ccObj[simObj.simPlanKey]['allow' + tech];
                     if (!allowFlag) {
                         return;
                     }
+
                     if (tech == 'M1' && allowFlag == 5) {
                         // T-Mobile unofficial support (no longer hiding)
                         // return;

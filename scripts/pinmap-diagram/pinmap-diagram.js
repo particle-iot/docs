@@ -104,6 +104,10 @@ const svg = require('./svg');
             }
         }
 
+        if (options.preDraw) {
+            options.preDraw({options, draw, featureColors});
+        }
+
         for(const p of options.pins) {
             
             let x = p.x;
@@ -344,6 +348,10 @@ const svg = require('./svg');
             }    
         }
 
+        if (options.postDraw) {
+            options.postDraw({options, draw, featureColors});
+        }
+
         const newContents = draw.render();
         let saveFile = false;
 
@@ -393,6 +401,7 @@ const svg = require('./svg');
             isPower: '#B80023', // Watermelon_900 old: red (except for GND, see isGND)
             isControl: '#FFE949', // State_Yellow_500 (old: yellow mode, reset, etc.)
             jtag: '#858A9B', // Gray_400 (old: blueish-gray same as swd)
+            linuxName: '#CD2355', // Raspberry Pi color 
             m2Pin: '#F5F6FA', // COLOR_Gray_100
             name: '#00E1FF', // ParticleBlue_500 (old: dark gray)
             num: '#E6AB00', // (old: gold color)
@@ -1912,6 +1921,75 @@ const svg = require('./svg');
         await diagram.generate(options, files);
     }
 
+    // Similar to generate pi, but rotated 90 CCW
+    diagram.generateTachyon = async function(generateOptions, files) {
+
+        let defaultOptions = {
+            // platformName: generateOptions.platformName,
+            // outputPath: generateOptions.outputPath,
+            width: 700,
+            height: 700,
+            background: 'white',
+            pins: [
+                {   // Bottom row
+                    num: 1,
+                    x: 60,
+                    y: 304,
+                    numDelta: 2,
+                    xDelta: 21,
+                    yDelta: 0,
+                    count: 20,
+                    xDir: 0,
+                    yDir: 1,
+                    columns: generateOptions.columns,
+                },
+                {   // Top row 
+                    num: 2,
+                    x: 60,
+                    y: 300,
+                    numDelta: 2,
+                    xDelta: 21,
+                    yDelta: 0,
+                    count: 20,
+                    xDir: 0,
+                    yDir: -1,
+                    columns: generateOptions.columns,
+                },
+            ],
+            preDraw: function(options) {
+                options.draw.circle({
+                    cx: 32,
+                    cy: 302,
+                    r: 12,
+                    fill: options.options.background,
+                    stroke: '#E6AB00', // gold
+                    'stroke-width': 3,
+                });    
+                options.draw.circle({
+                    cx: 485,
+                    cy: 302,
+                    r: 12,
+                    fill: options.options.background,
+                    stroke: '#E6AB00', // gold
+                    'stroke-width': 3,
+                });    
+
+                options.draw.path({
+                    d: 'M12 600 L12 282 A12 12 0 0 1 24 270 L550 270',
+                    fill: 'none',
+                    stroke: '#808080',
+                    'stroke-width': 1,
+                });
+                
+            },
+        }
+
+        let options = Object.assign({}, diagram.optionsCommon, defaultOptions, generateOptions);
+
+
+        await diagram.generate(options, files);
+    }
+
     diagram.generateTrackerMExpansion = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -2546,6 +2624,70 @@ const svg = require('./svg');
                 serial: '#CD2355', // Raspberry Pi color 
             },
         }, generateOptions), files);
+
+        // Tachyon
+        const tachyonDiagrams = [
+            {
+                suffix: 'all',
+                showLinuxName: true,
+                keys: ['i2c', 'spi', 'serial'],
+            },
+            {
+                suffix: 'gpio',
+                showLinuxName: false,
+                keys: ['gpio'],
+            },
+            {
+                suffix: 'i2c',
+                showLinuxName: false,
+                keys: ['i2c'],
+            },
+            {
+                suffix: 'spi',
+                showLinuxName: false,
+                keys: ['spi'],
+            },
+            {
+                suffix: 'serial',
+                showLinuxName: false,
+                keys: ['serial'],
+            },
+        ];
+        for(const d of tachyonDiagrams) {
+            let columns = [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+            ];
+            if (d.showLinuxName) {
+                columns.push({
+                    width: 50,
+                    keys: ['linuxName'],
+                });
+            }
+            columns.push({
+                width: 50,
+                keys: d.keys,
+            });
+
+            await diagram.generateTachyon(Object.assign({
+                platformName: 'tachyon',
+                columns,
+                outputPath: 'assets/images/tachyon/tachyon-' + d.suffix + '.svg',
+                featureColorsOverride: {
+                    name: '#CD2355', // Raspberry Pi color 
+                    linuxName: '#5CECFF', // Particle blue
+                    gpio: '#5CECFF', // Particle blue
+                },
+            }, generateOptions), files);
+    
+        }
+
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, B-SoM',

@@ -634,7 +634,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Afghanistan | ELC314 | 2G, 3G | MTN |
-| Albania | ELC314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
+| Albania | ELC314 | 2G, 3G | Eagle, Telekom, Vodafone |
 | Algeria | ELC314 | 2G, 3G | Mobilis, Ooredoo |
 | Anguilla | ELC314 | 2G, 3G | Flow |
 | Antigua and Barbuda | ELC314 | 2G, 3G | Flow |
@@ -650,7 +650,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Belarus | ELC314 | 2G, 3G | A1 |
 | Belgium | ELC314 | 2G, 3G | Base, Orange, Proximus |
 | Belize | ELC314 | 3G | Smart |
-| Bolivia | ELC314 | 2G, 3G | NuevaTel |
+| Bolivia | ELC314 | 2G, 3G | Viva |
 | Bosnia and Herzegovina | ELC314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brunei | ELC314 | 3G | DST |
 | Bulgaria | ELC314 | 2G, 3G | A1, Telenor, Vivacom |

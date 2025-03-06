@@ -60,6 +60,7 @@ const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 const pinInfoGenerator = require('./pininfo-generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
+const updateShared = require('./update-shared.js');
 const setupFirmware = require('./setup-firmware.js');
 const troubleshooting = require('./troubleshooting.js').metalsmith;
 const autoInclude = require('./auto-include.js').metalsmith;
@@ -270,6 +271,10 @@ exports.metalsmith = function () {
     .use(sharedBlurb({
       contentDir: '../src/content',
       config: '../config/sharedBlurbs.json'
+    }))
+    .use(updateShared({
+      contentDir: '../src/content',
+      config: '../config'
     }))
     .use(setupFirmware({
       contentDir: '../src/content',

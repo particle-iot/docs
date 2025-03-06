@@ -2041,9 +2041,9 @@ The OEM integrator has to be aware not to provide information to the end user re
 
 | Country | Technologies | Carriers |
 | :--- | :--- | :--- |
-| Canada | 3G, Cat1 | Bell Mobility, Rogers Wireless, Telus, Videotron |
-| Mexico | 3G, Cat1 | AT&T, Telcel |
-| United States | 3G, Cat1 | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| Canada | 3G, 4G | Bell Mobility, Rogers Wireless, Telus, Videotron |
+| Mexico | 3G, 4G | AT&T, Telcel |
+| United States | 3G, 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -2056,36 +2056,36 @@ The following countries are not officially supported at this time, but may be co
 
 | Country | Technologies | Carriers |
 | :--- | :--- | :--- |
-| Anguilla | 3G, Cat1 | Flow |
-| Antigua and Barbuda | Cat1 | Flow |
-| Argentina | 3G, Cat1 | Claro, Movistar, Personal |
-| Bahamas | 3G, Cat1 | Aliv, BTC Bahamas |
-| Barbados | Cat1 | Flow |
-| Belize | 3G, Cat1 | Smart |
-| Bolivia | 3G, Cat1 | NuevaTel |
+| Anguilla | 3G, 4G | Flow |
+| Antigua and Barbuda | 4G | Flow |
+| Argentina | 3G, 4G | Claro, Movistar, Personal |
+| Bahamas | 3G, 4G | Aliv, BTC Bahamas |
+| Barbados | 4G | Flow |
+| Belize | 3G, 4G | Smart |
+| Bolivia | 3G, 4G | Viva |
 | Cayman Islands | 3G | Flow |
 | Chile | 3G | Claro, Entel, Movistar |
-| Colombia | 3G, Cat1 | Movistar, Tigo |
+| Colombia | 3G, 4G | Movistar, Tigo |
 | Costa Rica | 3G | Movistar |
-| Dominica | Cat1 | Flow |
-| Dominican Republic | 3G, Cat1 | Altice Dominicana, Claro |
-| Ecuador | 3G, Cat1 | Claro, Movistar |
-| El Salvador | 3G, Cat1 | Claro, Telefonica |
-| Guatemala | 3G, Cat1 | Claro, Movistar |
-| Honduras | 3G, Cat1 | Claro, Tigo |
-| Jamaica | 3G, Cat1 | Digicel, Flow |
+| Dominica | 4G | Flow |
+| Dominican Republic | 3G, 4G | Altice Dominicana, Claro |
+| Ecuador | 3G, 4G | Claro, Movistar |
+| El Salvador | 3G, 4G | Claro, Telefonica |
+| Guatemala | 3G, 4G | Claro, Movistar |
+| Honduras | 3G, 4G | Claro, Tigo |
+| Jamaica | 3G, 4G | Digicel, Flow |
 | Nicaragua | 3G | Movistar |
 | Panama | 3G | Digicel, Movistar |
-| Paraguay | 3G, Cat1 | Claro, Personal, Tigo, Vox |
-| Peru | 3G, Cat1 | Claro, Entel, Movistar |
+| Paraguay | 3G, 4G | Claro, Personal, Tigo, Vox |
+| Peru | 3G, 4G | Claro, Entel, Movistar |
 | Saint Kitts and Nevis | 3G | Flow |
 | Saint Lucia | 3G | Flow |
-| Saint Vincent and the Grenadines | 3G, Cat1 | Flow |
+| Saint Vincent and the Grenadines | 3G, 4G | Flow |
 | Trinidad and Tobago | 3G | Digicel, TSTT |
 | Turks and Caicos Islands | 3G | Flow |
-| Uruguay | 3G, Cat1 | Antel, Claro, Movistar |
-| Venezuela | 3G, Cat1 | Movistar |
-| Virgin Islands (British) | Cat1 | Flow |
+| Uruguay | 3G, 4G | Antel, Claro, Movistar |
+| Venezuela | 3G, 4G | Movistar |
+| Virgin Islands (British) | 4G | Flow |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
