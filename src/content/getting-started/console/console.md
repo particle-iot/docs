@@ -26,6 +26,15 @@ many helpful features to make prototyping a breeze. See the last time a
 device connected, debug a firmware issue by observing event logs,
 set up a webhook to send data to an external service, and more.
 
+### Search
+
+The console makes it easy to search for a device from its Device ID (24-character hex code), serial number, name, or ICCID. You can also search for a product by name.
+
+This can be done at the top level of your sandbox to search your sandbox and all organizations you have access to. There is also a search at the top level of each organization to search only that organization.
+
+![Console search](/assets/images/console/console-search.png)
+
+
 ### Devices
 
 The Devices page allows you to see a list of the devices associated with

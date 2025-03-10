@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Console device search 2025-03-10
+
+The console now has a [device and product search](/getting-started/console/console/#search) feature.
+
 ### Tachyon datasheet 2025-03-06
 
 A preliminary [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/) is now available. Carrier information for Tachyon is now included in the [carrier list](/reference/cellular/cellular-carriers/).
