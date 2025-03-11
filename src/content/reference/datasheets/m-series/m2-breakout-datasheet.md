@@ -1003,7 +1003,22 @@ See the [Adafruit tutorial](https://learn.adafruit.com/adafruit-adalogger-feathe
 
 ## Schematics
 
-To be provided at a later date.
+The Eagle CAD design files can be downloaded as a [zip file here](/assets/files/projects/m2-breakout.zip). The files include:
+
+- .sch Schematic
+- .brd Board layout
+- .lbr Library containing the components used in the design
+
+Schematic page 1 is just a coversheet and is not included below.
+
+### Page 2 - Schematics
+
+{{imageOverlay src="/assets/images/m-series/m2-breakout-schematic-p2.png" alt="Schematics Page 2" class="full-width"}}
+
+### Page 3 - Schematics
+
+{{imageOverlay src="/assets/images/m-series/m2-breakout-schematic-p3.png" alt="Schematics Page 2" class="full-width"}}
+
 
 ---
 
@@ -1016,7 +1031,12 @@ To be provided at a later date.
 
 ### Dimensions and weight
 
-To be provided at a later date.
+| Parameter | Value | Unit
+| :--- | :--- | :--- | 
+| Dimensions | 140 &times; 122 | millimeters (mm) |
+| Weight | 125 | grams (g) |
+
+- Weight includes an M-SoM and PM-BAT power module
 
 
 ## Certification documents
@@ -1035,3 +1055,4 @@ To be provided at a later date.
 |        2 | 2024-05-29 | RK     | Descriptions for labels 1 and 3 were reversed |
 |        3 | 2024-08-08 | RK     | Input voltage is 5 - 12 VDC, not 24 |
 |        4 | 2024-09-18 | RK     | Add firmware settings |
+|        5 | 2025-03-11 | RK     | Add schematics and design files |

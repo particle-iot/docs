@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-SoM schematics
+
+The schematics and design files are now included in the [M-SoM datasheet](/reference/datasheets/m-series/m2-breakout-datasheet/#schematics).
+
 ### Console device search 2025-03-10
 
 The console now has a [device and product search](/getting-started/console/console/#search) feature.
