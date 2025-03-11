@@ -35,8 +35,8 @@ The following cellular antennas are available:
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
+| Monitor One Cellular Antenna | | KIT-PD-MonitorOne-4G-V03 | [Datasheet](/assets/pdfs/PD-MonitorOne-4G-V03.pdf) |
 | Tracker One Cellular Antenna | | Tracker One | [Datasheet](/assets/pdfs/tracker-one-ant-cellular.pdf) |
-
 
 ### Cellular antenna substitution
 

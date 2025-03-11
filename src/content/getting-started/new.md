@@ -21,7 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### M.2 breakout board schematics
+### Monitor One cellular antenna 2025-03-11
+
+The Monitor One cellular antenna datasheet is now included in the [antenna guide](/hardware/certification/antenna/#cellular).
+
+### M.2 breakout board schematics 2025-03-11
 
 The schematics and design files are now included in the [M.2 breakout board datasheet](/reference/datasheets/m-series/m2-breakout-datasheet/#schematics).
 

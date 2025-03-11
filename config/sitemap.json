@@ -927,8 +927,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-02-20",
-            "hash": "61e25f073427f49abb091e66352fb9c44d914bf82aa9db2c4dcf62646dedad5d"
+            "date": "2025-03-11",
+            "hash": "30b6336bc302383ca68cd16623086f2b199c03348f8463ba080be8fee30f591d"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "50ecb46cbcda939aec6b64f09f079c9667c9a54a0448c7d7bf4ed9d8c4769ce6",
+            "hash": "48cc8f64079480286210eb0c9616df32bb9496c8c44baa0fb97c656103c9c409",
             "date": "2025-03-11"
         },
         "getting-started/cloud/logic.md": {
