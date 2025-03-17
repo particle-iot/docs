@@ -142,6 +142,13 @@ $(document).ready(function() {
                     $(divElem).addClass('originalContent');
                     $('div.content').append(divElem);
 
+                    if (options.anchor) {
+                        const elem = document.getElementById(options.anchor);
+                        if (elem) {
+                            elem.scrollIntoView();
+                        }
+                    }
+
                     firmwareReference.syncNavigationToPage(options.link);
                 }
                 else {
@@ -271,8 +278,17 @@ $(document).ready(function() {
         firmwareReference.lastScrollDir = null;
 
         if (typeof options.index != 'undefined') {
+            const anchor = navMenu.navigationItems[options.index].anchor;
 
-            firmwareReference.queuePage({replacePage: true, skipIndex: false, index: options.index, count: 3, toEnd: true, fillScreen: true, });
+            let index = options.index;
+            while(index >= 0) {
+                if (!navMenu.navigationItems[index].anchor) {
+                    break;
+                }
+                index--;
+            }
+
+            firmwareReference.queuePage({replacePage: true, skipIndex: false, index, count: 3, toEnd: true, fillScreen: true, anchor, });
 
             firmwareReference.lastItemIndex = options.index;
         }

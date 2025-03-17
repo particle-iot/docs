@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Firmware reference navigation 2025-03-17
+
+Fixed a bug in the Device OS firmware reference left navigation where clicking on a header that's an anchor within a page opened the next page instead.
+
 ### Monitor One cellular antenna 2025-03-11
 
 The Monitor One cellular antenna datasheet is now included in the [antenna guide](/hardware/certification/antenna/#cellular).

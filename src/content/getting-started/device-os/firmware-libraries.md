@@ -366,6 +366,18 @@ will need to add those manually to the Particle library.properties dependencies 
 
 - Beware of libraries with LGPL licensing. Due to the way the Particle libraries system works, statically linking the library to the application, the library exception in LGPL licensing does not apply! This means that LGPL (or GPL) licensed libraries cannot be used in closed-source commercial projects.
 
+- If a library compile files with `'HAL_Pin_Mode' was not declared in this scope` in Device OS 6.0.0 or later, change `HAL_Pin_Mode` to just `pinMode`; this is also backward compatible to older versions of Device OS.
+
+- If a library compile fails with `error: 'HAL_Pin_Map' was not declared in this scope;` in Device OS 5.0.0 and later, you can fix it like this; the function and structure names changed in later version.
+
+```cpp
+#if defined (SYSTEM_VERSION_v500)
+    hal_pin_info_t *pinMap = hal_pin_map();
+#else
+    Hal_Pin_Info *pinMap = HAL_Pin_Map();
+#endif
+```
+
 If you're having additional issues with library migration or contribution, please feel free to post a message in the 
 [community forums](https://community.particle.io).
 
