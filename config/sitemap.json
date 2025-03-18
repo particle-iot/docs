@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-03-03",
-            "hash": "c6fef9d2d814a6d1c76ee257e0242e5f1808b71245402918f45f95e58dd52c0e"
+            "date": "2025-03-18",
+            "hash": "ad91d254cef331250921ea84f058f6df149f9d87d71f790e46bc131c7fca9a46"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2803,8 +2803,8 @@
             "hash": "dc31975754856979540c69eef58b2c6b9b3436261d5cc87636c2a190a67b4585"
         },
         "reference/device-os/api/wire-i2c/endtransmission.md": {
-            "date": "2023-09-20",
-            "hash": "33ebc88534d5fa7e5bcee8d5081a16b65d67038ff979ec2d58219e27d5ad60e7"
+            "date": "2025-03-18",
+            "hash": "1748d82ee53c9f10e9e7730613c0de2f23a9cb30cebe2ffe2a6d47d273881d79"
         },
         "reference/device-os/api/wire-i2c/write.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8748809f6d564b5e46763767668bfb09a9372bc8585ef3ee1f3365abc3597c11",
-            "date": "2025-03-17"
+            "hash": "59f8ea51224d65b826b3952435745a1cb5203e9f18637d380716457fd797ce91",
+            "date": "2025-03-18"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

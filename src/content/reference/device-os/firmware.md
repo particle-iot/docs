@@ -11021,13 +11021,21 @@ Parameters: `stop` : boolean.
 
 Returns: `byte`, which indicates the status of the transmission:
 
-- 0: success
-- 1: busy timeout upon entering endTransmission()
-- 2: START bit generation timeout
-- 3: end of address transmission timeout
-- 4: data byte transfer timeout
-- 5: data byte transfer succeeded, busy timeout immediately after
-- 6: timeout waiting for peripheral to clear stop bit
+| Value | System error | description | 
+| :---- | :--- | :--- |
+| 0 | `SYSTEM_ERROR_NONE` | success |
+| 1 | `SYSTEM_ERROR_I2C_BUS_BUSY` | busy timeout upon entering endTransmission() |
+| 2 | `SYSTEM_ERROR_I2C_ARBITRATION_FAILED` | START bit generation timeout |
+| 3 | `SYSTEM_ERROR_I2C_TX_ADDR_TIMEOUT` | end of address transmission timeout |
+| 4 | `SYSTEM_ERROR_I2C_FILL_DATA_TIMEOUT` | data byte transfer timeout|
+| 5 | `SYSTEM_ERROR_I2C_TX_DATA_TIMEOUT` | data byte transfer succeeded, busy timeout immediately after |
+| 6 | `SYSTEM_ERROR_I2C_STOP_TIMEOUT` | timeout waiting for peripheral to clear stop bit |
+| 7 | `SYSTEM_ERROR_INVALID_STATE` | Using endTransmission in slave mode, or I2C not enabled |
+| 7 | `SYSTEM_ERROR_NOT_ENOUGH_DATA` | Incorrect number of bytes returned (can be returned for incorrect addresss) |
+| 7 | `SYSTEM_ERROR_CANCELLED` | Transaction aborted |
+| 7 | `SYSTEM_ERROR_INTERNAL` | Internal error |
+| 7 | | Any other non-zero system error code | 
+
 
 ### write()
 

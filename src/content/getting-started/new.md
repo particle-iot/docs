@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### I2C endTransmission errors 2025-03-18
+
+Added information about return code 7 for I2C [endTransmission](/reference/device-os/api/wire-i2c/endtransmission/).
+
 ### Firmware reference navigation 2025-03-17
 
 Fixed a bug in the Device OS firmware reference left navigation where clicking on a header that's an anchor within a page opened the next page instead.
