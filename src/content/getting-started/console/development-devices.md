@@ -12,7 +12,7 @@ you can rapidly iterate on new device firmware, while still simulating
 the behaviors of production devices deployed in the
 field. Development devices allow you to do just this.
 
-**Development devices** ( <i class="im-development-device-icon"></i> )
+**Development devices**
 are special kinds of product devices marked specifically
 for internal testing, separate from the production fleet.
 Development devices are prevented from receiving any
@@ -32,7 +32,7 @@ still simulating behaviors of deployed devices in the production fleet.
 
 You can mark a device as a development device from the <a
 href="https://console.particle.io" target="_blank">Console</a>. When
-viewing your product's Devices view ( <i class="im-devices-icon"></i> ),
+viewing your product's Devices view,
 mark a development device by clicking the `...` icon and finding the
 "Mark development device" link as shown below:
 
@@ -41,7 +41,7 @@ src="/assets/images/development-devices/mark-development-device.png"
 alt="Mark development device" class="small"/>
 
 Once you mark a device as a development device, you will see it marked
-with the <i class="im-development-device-icon"></i> icon in the
+with the device icon in the
 "Firmware" column:
 
 <img

@@ -462,7 +462,7 @@ device. You can lock a device to a new version of product
 firmware to test it before releasing the firmware to the fleet.
 
 To lock a device to a firmware, find the device on your product's
-devices view <i class="im-devices-icon"></i>. Click on the device, which
+devices view. Click on the device, which
 will take you to the device details view. Click on the **Edit** button:
 
 <img class="full-width" alt="Edit device" src="/assets/images/edit-device.png" />

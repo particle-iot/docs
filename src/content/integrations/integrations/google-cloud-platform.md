@@ -108,7 +108,7 @@ Once created, check the checkbox next to your topic name, and click on the "Perm
 
 ### Particle Console
 
-Start by going to the integrations by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>) in the Particle console in your developer sandbox or in a product.
+Start by going to the integrations by clicking on the integrations icon in the sidebar in the Particle console in your developer sandbox or in a product.
 
 If you already have integrations configured, click the New Integration button to open the integration gallery. If this is your first integration, you will open to the integration gallery automatically. Select **Google Cloud Platform**.
 

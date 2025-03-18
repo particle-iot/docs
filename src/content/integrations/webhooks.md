@@ -290,7 +290,7 @@ As devices in your product's fleet will be running the same firmware, product we
 
 ### Create a product webhook
 
-Start by going to the integrations by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>) in the Particle console within your product.
+Start by going to the integrations by clicking on the integrations icon in the sidebar in the Particle console within your product.
 
 If you already have integrations configured, click the New Integration button to open the integration gallery. If this is your first integration, you will open to the integration gallery automatically. Select **Custom webhook**.
 

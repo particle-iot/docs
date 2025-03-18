@@ -33,7 +33,7 @@ A group is scoped to a Particle product, and can be applied to any number of dev
 fleet. A group can be created using the
 <a href="https://console.particle.io"
 target="_blank">Particle Console</a>. Visit your product's devices view
-(<i class="im-devices-icon"></i>) and click the "New Group" button:
+and click the "New Group" button:
 
 ![New group button](/assets/images/device-groups/new-group-btn.png)
 
@@ -72,7 +72,7 @@ groups**, as you will likely need to segment your fleet
 along many different axes.
 
 To assign a single device to a group, click on it from your product's
-devices view (<i class="im-devices-icon"></i>). Then, click the **+ Add
+devices view. Then, click the **+ Add
 groups** button as shown in the device header:
 
 <img class="full-width" alt="Assign group to device" src="/assets/images/device-groups/assign-group-to-device.png"/>

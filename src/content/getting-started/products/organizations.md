@@ -70,8 +70,7 @@ switcher](/assets/images/organizations/space-switcher-open.png)
 ## Organization owned products
 Clicking on the name of an Organization will expose the space for that
 org. You will be directed to the list of Products that belong to the
-Organization. You can also click on the **Products** icon (<i
-class="im-product-icon"></i>) in the sidebar to reveal this list at any time.
+Organization. You can also click on the **Products** icon in the sidebar to reveal this list at any time.
 
 <img src="/assets/images/organizations/organization-product-list.png"
 alt="Org product list" class="full-width" />
@@ -134,9 +133,7 @@ context. Or, you may have departments with team members who only
 need access to a subset of the projects associated with your Organization.
 
 To see the full list of who has access to a given Product, click on it from
-the list on the Products view (<i
-class="im-product-icon"></i>), then click on the Product's **Team** icon (<i
-class="ion-person-stalker"></i>) in the sidebar. This will show you both
+the list on the Products view, then click on the Product's **Team** icon in the sidebar. This will show you both
 the Product team as well as the users who have inherited access to this
 Product based on the Organization that it belongs to:
 

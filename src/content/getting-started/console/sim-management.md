@@ -16,8 +16,7 @@ managing a fleet of Particle SIM cards at all stages of the SIM life cycle.
 The SIMs view in the console is available for all cellular-based products, including those based on 
 the E-Series, Electron, B-Series SoM, Boron, and Tracker. 
 It appears as a SIM card icon in the Console side bar when
-looking at your product. To access this view and start exploring, click on the SIM card icon ( <i
-class="im-sim-vertical-detailed"></i> ).
+looking at your product. To access this view and start exploring, click on the SIM card icon.
 
 Much like devices, SIM cards can be associated with a Particle
 product instead of an individual developer account (sandbox). 

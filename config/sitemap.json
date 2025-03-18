@@ -587,32 +587,32 @@
             "hash": "ded82e02e1b0f2942b863854cb9efb96fb0f09ee094fab1232ad0ac11ccc1988"
         },
         "getting-started/cloud/ota-updates.md": {
-            "date": "2024-11-13",
-            "hash": "ef16101f9812f71ff5f3869bc4ea9d9a651d39550942ad603a7247f236ac9817"
+            "date": "2025-03-18",
+            "hash": "4d73d04de352d7f30f2336f9a5b70d22d6c86235a66dca75f90d7fa2d39b4636"
         },
         "getting-started/console/console.md": {
-            "date": "2025-03-10",
-            "hash": "2ba51ad0026383848c42fb599badc5f3107a1188989bffdbd880ef65445c5e16"
+            "date": "2025-03-18",
+            "hash": "f239ece4c50185bf215e81190257de380bb95fba0c76fe06081dd0ac1fa74842"
         },
         "getting-started/console/development-devices.md": {
-            "date": "2022-05-18",
-            "hash": "1e6063dd5390a328f24367fe727df6c3b83af2ddf8ea5bef8315ca765338e3d2"
+            "date": "2025-03-18",
+            "hash": "f695ed67c4bb90d190ae05aa0ab4bd77deb0c16b8e181e5b973b968e825d54b7"
         },
         "getting-started/console/device-vitals.md": {
             "date": "2024-07-23",
             "hash": "8c917406bfdbdae39d2f4fa10d11bc6dcc77ff2a66187d78fa52b7d239218514"
         },
         "getting-started/console/device-groups.md": {
-            "date": "2024-05-15",
-            "hash": "fdccdc51d500a11471e0d6a394d28de5b7ffad03708be6e072ee9d0ef53b3832"
+            "date": "2025-03-18",
+            "hash": "8d519fcda1a69213cbb2027988c27da67250f1fc8374c280d23e8007b7614fc1"
         },
         "getting-started/console/fleet-health.md": {
             "date": "2023-03-17",
             "hash": "22ead753b703f5bcf933802d04a473e92503c339ec3eb0b7010f48795fff1549"
         },
         "getting-started/console/sim-management.md": {
-            "date": "2024-03-13",
-            "hash": "fa6bfa7b87ca5bb03b00506a246a9b0bb8f9a61913d4649dd353d83922a50a2d"
+            "date": "2025-03-18",
+            "hash": "0bdd41b5c0ea57e91c50ea03ef254787ba258d7303531ba2a018141a737e1213"
         },
         "getting-started/console/team-access-controls.md": {
             "date": "2023-11-28",
@@ -683,12 +683,12 @@
             "hash": "ec5b413eb07bc39177a3a00a8925024ef1328eec1200e166c656b684cf4ada86"
         },
         "getting-started/products/organizations.md": {
-            "date": "2024-03-13",
-            "hash": "6130fae5ce29b2ff24371df86d93b85c400720cf263f4dd24836e2bce19bf839"
+            "date": "2025-03-18",
+            "hash": "4e3c6d9af915e34d43c2fd50e60b2aa1227a31759b99fb1b80068e74d1f7062f"
         },
         "getting-started/products/security.md": {
-            "date": "2024-02-27",
-            "hash": "a647df0ddd38519b0f8d3f6a0f8adb386e7c8328073f286c4e3347d6c15e48e1"
+            "date": "2025-03-18",
+            "hash": "a15e92f967419f34ba3e1693a3449ccd3fd8e7e5f56ba9691b4731fadd78a79a"
         },
         "getting-started/setup/accounts.md": {
             "date": "2024-03-13",
@@ -727,8 +727,8 @@
             "hash": "79544fe82b6ff8f4ce196599abb70c06ddff51b40697654c4a192c14c028c5d8"
         },
         "integrations/webhooks.md": {
-            "date": "2024-10-28",
-            "hash": "8249affd52ea0af6e6f70365309d9a5dc9aeac160a67c2bb9a3947ef006de0d4"
+            "date": "2025-03-18",
+            "hash": "1bcc83e81f4bb098cd6eeef1b07e70aac539f3048aff3256666e52c69f5625b1"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2025-02-07",
@@ -747,8 +747,8 @@
             "hash": "11a2ab6e64a92e4423c88330b23d43adb5f984f0a647820582e49edc5089939d"
         },
         "integrations/community-integrations/influxdata.md": {
-            "date": "2024-04-13",
-            "hash": "a12d7b239c6d6c4caca294b6409876cfa28723a3d6c7224b32ee473d04ad2134"
+            "date": "2025-03-18",
+            "hash": "e5795e2fe89972ff85ebf268d41ff53291e6042d8c8347258912d84e8341dc2f"
         },
         "integrations/community-integrations/memfault.md": {
             "date": "2024-02-27",
@@ -1135,8 +1135,8 @@
             "hash": "86d2d1b96a6021481999963031a1dd73a888ce08a856853d93c67a8a37aa0ae1"
         },
         "reference/cloud-apis/authentication.md": {
-            "date": "2024-10-28",
-            "hash": "4bf7516916d7edbeb57dbee581f84e9f3f301ffef1c36c3d224d44ba3094393f"
+            "date": "2025-03-18",
+            "hash": "3c45086bd056826e4d9d4f10c1fdd0cf6f983ede0e45b116e6ae4f671e3c08f6"
         },
         "reference/cloud-apis/calling-api-from-web-page.md": {
             "date": "2023-03-17",
@@ -8483,12 +8483,12 @@
             "date": "2024-04-25"
         },
         "integrations/integrations/google-cloud-platform.md": {
-            "hash": "24f7fe1f2139f9ceed5a844e604142f786ef20d17c5d06e903e4919d9894059a",
-            "date": "2024-05-30"
+            "hash": "2cfa2272800b3647a4c39dc475002483d88dc81d7655ebc58fbf21e7c5abb1f1",
+            "date": "2025-03-18"
         },
         "integrations/integrations/google-maps.md": {
-            "hash": "f63a055968a9a9f25be44739c92b577d8f19396cad8a9e0ff593992b32ad3299",
-            "date": "2024-04-25"
+            "hash": "97565ccc265359050ccbc018d30285ec9ba45366c085c174af42cc2e7c6ac8e8",
+            "date": "2025-03-18"
         },
         "reference/device-os/api/threading/threading.md": {
             "hash": "0f0d3bc64a89d779218906196f804548fbe909142a0a7f5d7768e4dcff99f49a",
@@ -9483,8 +9483,8 @@
             "date": "2024-11-19"
         },
         "integrations/integrations/azure-iot-hub.md": {
-            "hash": "2ecdca02489d2d385b6cec2eae17bc442a1b28fda47bdbe8cc39ea826a528755",
-            "date": "2024-11-06"
+            "hash": "a6116fb303d7cce4e963bfffe0aaf4edf97939d4952e234f383cd476d3dc16f0",
+            "date": "2025-03-18"
         },
         "reference/device-os/api/cellular/cellular-global-identity.md": {
             "hash": "06c7f053805296b195685adfb24cdb68fceea2a8492a36cf5610007ef0e153a8",

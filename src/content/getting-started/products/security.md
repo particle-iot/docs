@@ -59,9 +59,9 @@ may be helpful to memorize your Product ID if possible.
 
 There are **2** places where a Product ID is defined for a given device.
 
-- <i class="ion-cloud"></i> **Cloud**: The Particle cloud keeps a record
+- **Cloud**: The Particle cloud keeps a record
   of devices and their associated Product IDs
-- <i class="im-devices-icon"></i> **Device**: The device itself will
+- **Device**: The device itself will
   report a Product ID when coming online based on the firmware running on the device,
   but only with Device OS 3.x and earlier.
 
@@ -76,7 +76,7 @@ cloud and the device. In any case when the Product ID of the device does not
 match the Product ID saved in the cloud, you should expect limited product
 functionality.
 
-| <i class="ion-cloud"></i> Cloud | <i class="im-devices-icon"></i> Device | Status                                                  |
+| Cloud | Device | Status                                                  |
 |---------------------------------|----------------------------------------|---------------------------------------------------------|
 | 1                               | 1                                      | <i class="ion-checkmark"></i> OK                        |
 | 1                               | 2                                      | <i class="ion-alert-circled"></i> Limited Privileges    |

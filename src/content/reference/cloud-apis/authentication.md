@@ -115,7 +115,7 @@ scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
 
 You can use the [Particle Console](https://console.particle.io) to
 create and manage your OAuth clients. To get started, click on the
-Authentication icon <i class="im-fingerprint-icon"></i> in your
+Authentication icon in your
 sidebar.
 
 You can create OAuth clients on behalf of your Particle user (to
