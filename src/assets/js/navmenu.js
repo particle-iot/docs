@@ -926,7 +926,12 @@ navMenu.navigate = function(dir) {
 
         case 'Home':
         case 'End':
+            break;
+
         case 'PageUp':
+            $(scrollableContent)[0].scrollBy(0, -($(scrollableContent).height() - 20));
+            break;
+
         case 'PageDown':
             $(scrollableContent)[0].scrollBy(0, $(scrollableContent).height() - 20);
             break;
