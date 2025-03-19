@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B504E 2025-03-19
+
+The B504EMEA and B504EMTY are now GA.
+
 ### I2C endTransmission errors 2025-03-18
 
 Added information about return code 7 for I2C [endTransmission](/reference/device-os/api/wire-i2c/endtransmission/).

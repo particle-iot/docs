@@ -27198,7 +27198,7 @@
     {
       "name": "B504EMEA",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
@@ -27235,13 +27235,13 @@
     {
       "name": "B504EMTY",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
       "multiple": true,
       "modem": "EG91-NAX",
-      "singleSku": "B504MEA",
+      "singleSku": "B504EMEA",
       "sim": 5,
       "simPlans": [
         40
@@ -27273,7 +27273,8 @@
     {
       "name": "B504MEA",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
+      "replacement": "B504EMEA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -27310,7 +27311,8 @@
     {
       "name": "B504MTY",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
+      "replacement": "B504EMTY",
       "multiple": true,
       "enterprise": false,
       "wholesale": false,

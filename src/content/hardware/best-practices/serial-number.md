@@ -92,10 +92,10 @@ Some older devices do not have the serial number stored on the device (E260, for
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND | P033 |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA | P042 |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA | P042 |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | In development | P069 |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | In development | P069 |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | GA | P056 |
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | GA | P056 |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA | P069 |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA | P069 |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | Deprecated | P056 |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | Deprecated | P056 |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | Deprecated | P019 |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND | P020 |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA | P034 |
@@ -299,11 +299,11 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P055 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
 | P055 | MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | GA |
 | P055 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | GA |
-| P056 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | GA |
-| P056 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | GA |
+| P056 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | Deprecated |
+| P056 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | Deprecated |
 | P068 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| P069 | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | In development |
-| P069 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | In development |
+| P069 | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA |
+| P069 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
 | P0MD | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated |
 | P1MD | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Deprecated |
 | PHHK | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Deprecated |

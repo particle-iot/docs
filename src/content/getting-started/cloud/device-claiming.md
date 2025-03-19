@@ -363,10 +363,10 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | Fast<sup>1</sup> | GA | |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B524MTY|
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | Deprecated | B524MEA|
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | Fast<sup>1</sup> | GA | |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | Fast<sup>1</sup> | In development | |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Fast<sup>1</sup> | In development | |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | Fast<sup>1</sup> | Deprecated | B504EMTY|
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | Deprecated | B504EMEA|
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | Fast<sup>1</sup> | GA | |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Fast<sup>1</sup> | GA | |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | NRND | B404XMTY|

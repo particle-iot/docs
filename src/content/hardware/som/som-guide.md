@@ -126,10 +126,10 @@ The following are M.2 SoM device SKUs:
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | In development |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | In development |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | GA |
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | Deprecated |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | Deprecated |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | Deprecated |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |

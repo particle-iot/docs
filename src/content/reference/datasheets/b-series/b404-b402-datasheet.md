@@ -69,7 +69,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 ### Model comparison
 
 {{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
-| | B404X | B404 | B402 | B524 | B523 | B504 |
+| | B404X | B404 | B402 | B524 | B523 | B504E |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Region | NorAm | NorAm | NorAm | EMEAA | Europe | Americas |
 | EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; | &check; |

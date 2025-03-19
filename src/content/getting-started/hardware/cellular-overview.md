@@ -101,17 +101,17 @@ The available models include:
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | &check; | GA | |
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | &check; | GA | |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX |  | GA | |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX |  | GA | |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX |  | In development | |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX |  | In development | |
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | NRND | B524MTY|
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404XMTY|
 | B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | Deprecated | B404XMEA|
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | &check; | Deprecated | B504EMEA|
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | &check; | Deprecated | B504EMTY|
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | Deprecated | B524MEA|
 
 
@@ -333,10 +333,10 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 3 | NRND | B404XMTY |
 | NORAM | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | R510 | &check; | 3 | GA | &nbsp; |
 | NORAM | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | R510 | &check; | 3 | GA | &nbsp; |
-| NORAM | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | EG91-NAX | &nbsp; | 3 | In development | &nbsp; |
-| NORAM | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | EG91-NAX | &nbsp; | 3 | In development | &nbsp; |
-| NORAM | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | EG91-NAX | &check; | 3 | GA | &nbsp; |
-| NORAM | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | EG91-NAX | &check; | 3 | GA | &nbsp; |
+| NORAM | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | EG91-NAX | &nbsp; | 3 | GA | &nbsp; |
+| NORAM | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | EG91-NAX | &nbsp; | 3 | GA | &nbsp; |
+| NORAM | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | EG91-NAX | &check; | 3 | Deprecated | B504EMEA |
+| NORAM | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | EG91-NAX | &check; | 3 | Deprecated | B504EMTY |
 | NORAM | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 3 | Deprecated | BRN404X |
 | NORAM | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | R410 | &nbsp; | 3 | Deprecated | &nbsp; |
 | NORAM | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | R410 | &nbsp; | 3 | Deprecated | BRN404XKIT |
@@ -424,10 +424,10 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | EG91-EX | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
 | EG91-EX | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
 | EG91-EX | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | 3 | GA | &nbsp; |
-| EG91-NAX | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | &nbsp; | 3 | In development | &nbsp; |
-| EG91-NAX | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | &nbsp; | 3 | In development | &nbsp; |
-| EG91-NAX | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
-| EG91-NAX | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | &check; | 3 | GA | &nbsp; |
+| EG91-NAX | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | &nbsp; | 3 | GA | &nbsp; |
+| EG91-NAX | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | &nbsp; | 3 | GA | &nbsp; |
+| EG91-NAX | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | Deprecated | B504EMEA |
+| EG91-NAX | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | &check; | 3 | Deprecated | B504EMTY |
 | G350 | ASSET2GV2 | Asset Tracker 2G | Global | &nbsp; | 2 | Deprecated | &nbsp; |
 | G350 | E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | 2 | Deprecated | B524MEA |
 | G350 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | 2 | Deprecated | B524MTY |
@@ -500,8 +500,8 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 3 | NRND | B404XMTY |
 | EtherSIM | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
-| EtherSIM | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | 3 | GA | &nbsp; |
-| EtherSIM | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | 3 | GA | &nbsp; |
+| EtherSIM | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | 3 | Deprecated | B504EMEA |
+| EtherSIM | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | 3 | Deprecated | B504EMTY |
 | EtherSIM | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | 3 | GA | &nbsp; |
 | EtherSIM | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | 3 | GA | &nbsp; |
 | EtherSIM | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | 3 | Deprecated | &nbsp; |
@@ -545,8 +545,8 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
 | EtherSIM | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
 | EtherSIM | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
-| EtherSIM+ | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX | 3 | In development | &nbsp; |
-| EtherSIM+ | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX | 3 | In development | &nbsp; |
+| EtherSIM+ | B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX | 3 | GA | &nbsp; |
+| EtherSIM+ | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX | 3 | GA | &nbsp; |
 | EtherSIM+ | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | 4 | In development | &nbsp; |
 | Type KA | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | Deprecated | B404XMEA |
 | Type KA | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | Deprecated | B404XMTY |
@@ -919,8 +919,8 @@ The following SKU have LTE Cat 1 cellular modems:
 
 | SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | &check; | EG91-NAX | 3 | GA | &nbsp; |
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | &check; | EG91-NAX | 3 | GA | &nbsp; |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | &nbsp; | EG91-NAX | 3 | GA | &nbsp; |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | &nbsp; | EG91-NAX | 3 | GA | &nbsp; |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | &check; | EG91-E | 3 | GA | &nbsp; |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-E | 3 | GA | &nbsp; |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 4 | GA | &nbsp; |
@@ -935,10 +935,10 @@ The following SKU have LTE Cat 1 cellular modems:
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | &nbsp; | EG91-NAX | 3 | In development | &nbsp; |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | &nbsp; | EG91-NAX | 3 | In development | &nbsp; |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-E | 3 | NRND | B524MTY |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | T524MKIT |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | &check; | EG91-NAX | 3 | Deprecated | B504EMEA |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | &check; | EG91-NAX | 3 | Deprecated | B504EMTY |
 | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | EG91-E | 3 | Deprecated | B524MEA |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | EG91-EX | 3 | Deprecated | T524MEA |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-EX | 3 | Deprecated | T524MTY |

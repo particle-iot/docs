@@ -43,6 +43,7 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | 3 | NRND | T404MTY | &nbsp; |
 | ARGNTRAY50 | Argon, Tray [x50] | 3 | Deprecated | &nbsp; | 2025-03-31 |
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | 3 | Deprecated | B404XMTY | 2025-03-31 |
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | 3 | Deprecated | B504EMTY | &nbsp; |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | Deprecated | &nbsp; | 2025-03-31 |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | Deprecated | BRN404XTRAY50 | &nbsp; |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | 2 | Deprecated | BRN404XTRAY50 | &nbsp; |
