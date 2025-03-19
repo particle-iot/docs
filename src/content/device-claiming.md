@@ -19,6 +19,8 @@ the status LED blinks dark blue.
 
 {{> device-lookup hidden="true"}}
 
+This method is not recommended for the Photon 2, P2, or M-SoM. Support for this method will be
+removed in an upcoming Device OS 6.x version for Argon, as well.
 
 ## Marking setup done
 

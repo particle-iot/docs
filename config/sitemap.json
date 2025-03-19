@@ -648,7 +648,7 @@
         },
         "getting-started/hardware/cellular-overview.md": {
             "date": "2025-03-19",
-            "hash": "87d75f53de72ae6885570465f67c114fedc9a186c799f980462537417675ac25"
+            "hash": "86315c096bdc47b3e1ef0f764ffa8c5f6508fe5e18b26146df69bd9fbabcdc2b"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2025-03-19",
@@ -1008,7 +1008,7 @@
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
             "date": "2025-03-19",
-            "hash": "e0c0ab16989e6c7643d51035fcfd05f32624570ef6279ce28635522182d4d772"
+            "hash": "cdbf0139187120e0266b34bcca69153c21b3a4a032dd345bbca6deff5a8c19c0"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -1316,7 +1316,7 @@
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
             "date": "2025-03-19",
-            "hash": "f3241900f2abbec2f89dc9e9cdf7728f3a873d08dd27dc56df0acea6d3bd4e9e"
+            "hash": "7e616532e23edd08e799f92bcf3c7418994fcde1977fc1bf9b5a4216a0712dc3"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -9083,7 +9083,7 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "e6d649ad0b321ff4a7a95b4244e9bbc54450188e03db79bd26867b990a686d55",
+            "hash": "e36959d54b98daab14f93aa65c76177094fb1155f24bcc9829e747abed2f6144",
             "date": "2025-03-19"
         },
         "hardware/m.2-som/basic-som-design.md": {
