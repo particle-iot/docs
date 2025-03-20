@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### CloudEvent 2025-03-20
+
+Added a note about [CloudEvent](/reference/device-os/api/cloudevent/) object lifetime requirements; it generally should not be stack allocated.
+
 ### B504E 2025-03-19
 
 The B504EMEA and B504EMTY are now GA.

@@ -197,6 +197,14 @@ obj.set("c", Variant(true));
 
 See [Publish](/reference/device-os/api/publish/) in the Device OS firmware API for additional information.
 
+{{!-- BEGIN shared-blurb a4ba4dbe-045f-41b7-8314-5a46809fc859 --}}
+You typically store a `CloudEvent` object as a global variable or class member variable. You should not allocate a
+`CloudEvent` as a non-static local variable within a function because it not only holds the data, but it is also
+used to convey whether the publish succeeded or not. The `Particle.publish()` overload that takes a `CloudEvent` is asynchronous 
+and returns before the publish has completed. The `CloudEvent` must remain allocated until the publish is actually complete, 
+by success or failure. 
+{{!-- END shared-blurb --}}
+
 ### Legacy publish
 
 Using the legacy API for publish typically looks like this:

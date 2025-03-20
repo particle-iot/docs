@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-03-18",
-            "hash": "ad91d254cef331250921ea84f058f6df149f9d87d71f790e46bc131c7fca9a46"
+            "date": "2025-03-20",
+            "hash": "4576f566450b4ea0e9ae2fa43b3106ac1c259cea3ce3c16052ec238b70e67bda"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "851b5046af6d11ee38808a2b2363fe3082fd522c1daa1122ca6aef4e3f4a2e46",
-            "date": "2025-03-19"
+            "hash": "65d6a48059ea613f05f14b9ebe7b23f494f40c5471984d7c18c3cc4859d631dc",
+            "date": "2025-03-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9447,8 +9447,8 @@
             "date": "2025-03-19"
         },
         "reference/device-os/typed-publish.md": {
-            "hash": "50edf5fe0c8842baa9d9090464ed2ba4cd0c27cd5e2579d3c536091ea5fd1c6c",
-            "date": "2025-02-13"
+            "hash": "68a74368af32aca69fb9a2b6715fd18744774c65ec6418cb275fd378dbb2ff86",
+            "date": "2025-03-20"
         },
         "troubleshooting/led.md": {
             "hash": "df60457eef43105be5df19b65e3f0e556ba9ccad05ad6bb979405f056d124ef7",
@@ -9635,8 +9635,8 @@
             "date": "2025-02-03"
         },
         "reference/device-os/api/cloudevent/cloudevent.md": {
-            "hash": "5ba06d54134d7417c4b0eb35c3b8d40270ecf18a25688096d8f0edce62aba50c",
-            "date": "2025-02-03"
+            "hash": "e68b1c4381b1dc6cab688062e09006ebfbf8cb1b50fd8ccd9dcc8e9847556247",
+            "date": "2025-03-20"
         },
         "reference/device-os/api/cloudevent/getting-and-settings-cloudevent.md": {
             "hash": "0b45597844572f997180d6cf5405f710a639652b5468ba5bf3fae304c766c200",
