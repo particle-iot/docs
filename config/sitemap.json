@@ -9083,8 +9083,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "e36959d54b98daab14f93aa65c76177094fb1155f24bcc9829e747abed2f6144",
-            "date": "2025-03-19"
+            "hash": "dfa0b00955ac7aeb255bfe7db886e959c35e3babad810fdf1463b391f29d9261",
+            "date": "2025-03-20"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9705,6 +9705,10 @@
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
             "hash": "c171df98a2b559148f75d34fa0b8e558ef48f1dccc1bbdcf273dfb9d45e61b67",
             "date": "2025-03-06"
+        },
+        "hardware/migration-guides/b404-b504-migration-guide.md": {
+            "hash": "dd4ac153a89e505bc925f790698145fc04ec7b39d31203a60d18b02ec8ada5c8",
+            "date": "2025-03-20"
         }
     }
 }

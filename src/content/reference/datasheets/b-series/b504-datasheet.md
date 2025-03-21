@@ -1791,7 +1791,6 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 Values are from B523 using the EG91-E cellular modem. Actual operating current with cellular using the EG91-NAX modem may vary slightly but should be similar.
 
-**These values are preliminary and subject to change**
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -1821,6 +1820,9 @@ Values are from B523 using the EG91-E cellular modem. Actual operating current w
 <sup>1</sup>The min, and particularly peak, values may consist of very short transients.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+The values above are for connecting to cellular using LTE Cat 1 on the EG91-E (not 2G or 3G). Thus the values should be 
+comparable for the EG91-NAX (B504E) which only uses LTE Cat 1.
 
 ---
 
