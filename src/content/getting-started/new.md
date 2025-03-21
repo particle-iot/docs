@@ -21,11 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B504e migration guide 2025-03-21
+
+[B504e from B404X/B404/B402 migration guide](/hardware/migration-guides/b404-b504-migration-guide/) is now available.
+
 ### CloudEvent 2025-03-20
 
 Added a note about [CloudEvent](/reference/device-os/api/cloudevent/) object lifetime requirements; it generally should not be stack allocated.
 
-### B504E 2025-03-19
+### B504e 2025-03-19
 
 The B504EMEA and B504EMTY are now GA.
 

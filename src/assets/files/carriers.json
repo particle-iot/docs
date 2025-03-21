@@ -32319,6 +32319,13 @@
       "lifecycle": "GA"
     },
     {
+      "sim": 5,
+      "simPlan": 40,
+      "modem": "EG91-NAX",
+      "desc": "B-Series B504e LTE Cat1/3G NorAm EtherSIM+",
+      "lifecycle": "GA"
+    },
+    {
       "sim": 4,
       "simPlan": 40,
       "modem": "EG91-NAX",
@@ -32394,13 +32401,6 @@
       "simPlan": 40,
       "modem": "EG91-E",
       "desc": "B-Series B524E LTE Cat1/3G/2G EMEAA EtherSIM+",
-      "lifecycle": "In development"
-    },
-    {
-      "sim": 5,
-      "simPlan": 40,
-      "modem": "EG91-NAX",
-      "desc": "B-Series B504E LTE Cat1/3G NorAm EtherSIM+",
       "lifecycle": "In development"
     },
     {

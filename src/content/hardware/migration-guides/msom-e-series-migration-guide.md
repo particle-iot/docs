@@ -1,8 +1,8 @@
 ---
-title: M-SoM from E-Series Migration Guide
+title: M-SoM from E-Series migration guide
 columns: two
 layout: commonTwo.hbs
-description: M-SoM from E-Series Migration Guide
+description: M-SoM from E-Series migration guide
 ---
 
 # {{title}}
