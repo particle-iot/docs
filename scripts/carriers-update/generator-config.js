@@ -794,7 +794,8 @@ const schemaDocs = require('./schema-docs');
                 return updater.generateFamilySkus('b series', {
                     filterFn:function(skuObj) {
                         return skuObj.modem != 'EG91-NAX';
-                    }        
+                    },
+                    noEtherSimColumn: true,
                 }); 
             } 
         },        
@@ -4601,7 +4602,7 @@ const schemaDocs = require('./schema-docs');
             },
         },
         
-        // Muon <- Argon/Boron Migration Guide
+        // Muon <- Argon/Boron migration guide
         {
             guid:'18b9d26a-9a58-48ee-98e5-c375ee7f15a5', 
             generatorFn:function(updater){

@@ -782,7 +782,7 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 
 {{!-- BEGIN do not edit content below, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |

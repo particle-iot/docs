@@ -69,7 +69,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 ### Model comparison
 
 {{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
-| | B404X | B404 | B402 | B524 | B523 | B504E |
+| | B404X | B404 | B402 | B524 | B523 | B504e |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Region | NorAm | NorAm | NorAm | EMEAA | Europe | Americas |
 | EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; | &check; |
@@ -663,7 +663,7 @@ The bootloader allows you to easily update the user application via several diff
 
 {{!-- BEGIN do not edit content below, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
 | B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|

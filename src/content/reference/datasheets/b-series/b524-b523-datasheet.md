@@ -65,7 +65,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 ### Model comparison
 
 {{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
-| | B404X | B404 | B402 | B524 | B523 | B504E |
+| | B404X | B404 | B402 | B524 | B523 | B504e |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Region | NorAm | NorAm | NorAm | EMEAA | Europe | Americas |
 | EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; | &check; |
@@ -1851,7 +1851,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 
 {{!-- BEGIN do not edit content below, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | &check; | GA | |

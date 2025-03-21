@@ -59,7 +59,7 @@ The Monitor One has the same cellular and processor module (Tracker SoM), but is
 
 {{!-- BEGIN do not edit content below, it is automatically generated df800960-c749-4b1d-9c69-ae4372e86ab7 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | GA | |
@@ -101,7 +101,7 @@ For prototyping with the M-SoM module, see [Muon](#muon), below.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5c48836c-dced-4420-be6f-15916d265a5e --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | GA | |
@@ -222,7 +222,7 @@ The Muon can be used in a number of ways:
 
 {{!-- BEGIN do not edit content below, it is automatically generated f4a91103-4428-4732-a1bc-83784f9bf207 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |

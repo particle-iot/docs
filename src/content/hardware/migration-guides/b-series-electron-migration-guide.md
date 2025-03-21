@@ -1,8 +1,8 @@
 ---
-title: B-Series from Electron Migration Guide
+title: B-Series from Electron migration guide
 columns: two
 layout: commonTwo.hbs
-description: B-Series from Electron Migration Guide
+description: B-Series from Electron migration guide
 ---
 
 # {{title}}

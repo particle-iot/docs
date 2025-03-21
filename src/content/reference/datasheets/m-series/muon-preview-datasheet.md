@@ -1309,7 +1309,7 @@ Global, country list to be provided a later date.
 
 {{!-- BEGIN do not edit content below, it is automatically generated f4a91103-4428-4732-a1bc-83784f9bf207 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
@@ -1342,7 +1342,7 @@ Global, country list to be provided a later date.
 
 {{!-- BEGIN do not edit content below, it is automatically generated f4a91103-4428-4732-a1bc-83784f9bf207 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |

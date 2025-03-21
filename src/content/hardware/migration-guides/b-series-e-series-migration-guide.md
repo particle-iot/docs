@@ -1,8 +1,8 @@
 ---
-title: B-Series from E-Series Migration Guide
+title: B-Series from E-Series migration guide
 columns: two
 layout: commonTwo.hbs
-description: B-Series from E-Series Migration Guide
+description: B-Series from E-Series migration guide
 ---
 
 # {{title}}

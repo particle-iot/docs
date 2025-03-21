@@ -1,5 +1,5 @@
 ---
-title: B-Series from Boron Migration Guide
+title: B-Series from Boron migration guide
 columns: two
 layout: commonTwo.hbs
 description: Learn about migrating from the Boron to the B-Series

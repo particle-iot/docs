@@ -767,7 +767,10 @@ const generatorConfig = require('./generator-config');
 
         md += '| SKU | Description | Region ';
         if (!skuFamilyObj.wifi) {
-            md += ' | Modem | EtherSIM';
+            md += ' | Modem ';
+            if (!options.noEtherSimColumn) {
+                md += '| EtherSIM ';
+            }
         }
         md += '| Lifecycle | Replacement |\n';
 
@@ -783,7 +786,9 @@ const generatorConfig = require('./generator-config');
 
             if (!skuFamilyObj.wifi) {
                 md += ' | ' + skuObj.modem;
-                md += ' | ' + ((skuObj.sim == 4) ? '&check;' : '');
+                if (!options.noEtherSimColumn) {
+                    md += ' | ' + ((skuObj.sim == 4) ? '&check;' : '');
+                }
             }
 
             md += ' | ' + skuObj.lifecycle + ' | ' + (skuObj.replacement ? skuObj.replacement : '') + '|\n'; 

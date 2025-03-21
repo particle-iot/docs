@@ -1,11 +1,11 @@
 ---
-title: B-Series B504E datasheet
+title: B-Series B504e datasheet
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle B-Series B504E SoM, Gen 3 cellular LTE Cat 1 Americas
+description: Datasheet for the Particle B-Series B504e SoM, Gen 3 cellular LTE Cat 1 Americas
 ---
 
-# B504E Datasheet
+# B504e Datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b504-datasheet.pdf"}}
@@ -53,7 +53,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 ### Model comparison
 
 {{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
-| | B404X | B404 | B402 | B524 | B523 | B504E |
+| | B404X | B404 | B402 | B524 | B523 | B504e |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Region | NorAm | NorAm | NorAm | EMEAA | Europe | Americas |
 | EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; | &check; |
@@ -76,34 +76,34 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 
 {{!-- END shared-blurb --}}
 
-### B504E vs. B504
+### B504e vs. B504
 
-The B504E (B504MEA and B504MTY) is the same as the B504 (B504MEA and B504MTY), except it has a programmable
+The B504e (B504MEA and B504MTY) is the same as the B504 (B504MEA and B504MTY), except it has a programmable
 e-sim in place of the MFF2 SMD Particle EtherSIM. The e-sim is not user-programmable, and is programmed at the factory
 with the same SIM and carriers as the B504.
 
-No user firmware or Device OS changes are required between the B504 and B504E. This change is generally a permissive certification
+No user firmware or Device OS changes are required between the B504 and B504e. This change is generally a permissive certification
 change and will not require full recertification of products using it.
 
 ### Device OS support
 
-The B504E requires Device OS 5.0 or later. Using the most recent version 5.x or 6.x version is recommended.
+The B504e requires Device OS 5.0 or later. Using the most recent version 5.x or 6.x version is recommended.
 
-The B504E is platform `b5som`, not `bsom` used by the B404X. While source code is compatible across both B-Series SoM 
+The B504e is platform `b5som`, not `bsom` used by the B404X. While source code is compatible across both B-Series SoM 
 models, binaries must be compiled separately for each. 
 
-Additionally, products can only contain one platform. Thus if you have both B404X and B504E, they must be in separate
-products. You can, however, put the B504E and B524/B523 devices in the same product.
+Additionally, products can only contain one platform. Thus if you have both B404X and B504e, they must be in separate
+products. You can, however, put the B504e and B524/B523 devices in the same product.
 
 For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
 ## Migration information
 
-The B504E is similar to the B524, except for the cellular bands supported. The B504E contains a Quectel EG91-NAX cellular modem and the B524 contains a Quectel EG91-E cellular modem. They are the same physical size and software compatible.
+The B504e is similar to the B524, except for the cellular bands supported. The B504e contains a Quectel EG91-NAX cellular modem and the B524 contains a Quectel EG91-E cellular modem. They are the same physical size and software compatible.
 
 | Migrating from | Information |
 | :--- | :--- |
-| B404X, B404, B402 | Recompile source for b5som platform, see below |
+| B404X, B404, B402 | [B504e from B404X/B404/B402 migration guide](/hardware/migration-guides/b404-b504-migration-guide/) |
 | B524, B523 | Upgrade Device OS version if necessary |
 | Boron | [B-Series from Boron or Argon migration guide](/hardware/migration-guides/b-series-boron-migration-guide/) |
 | E-Series | [B-Series from E-Series migration Guide](/hardware/migration-guides/b-series-e-series-migration-guide/) |
@@ -113,8 +113,8 @@ The B504E is similar to the B524, except for the cellular bands supported. The B
 
 - Recompile source for `b5som` platform.
 - Upgrade Device OS to 5.x or later if necessary.
-- Verify that power requirements for VCC are met, as the B504E requires more power than the B404X/B404/B402.
-- Use the antenna the B504E was certified with, not previous antennas.
+- Verify that power requirements for VCC are met, as the B504e requires more power than the B404X/B404/B402.
+- Use the antenna the B504e was certified with, not previous antennas.
 
 ### B524, B523 migration
 
@@ -135,7 +135,7 @@ VCC is used to supply power to the Quectel EG91-NAX cellular module. The recomme
 
 If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting. If your board contains a bq24195 PMIC, see [PMIC notes](#pmic-notes), below, for additional information.
 
-Note that the B504E requires 2000 mA on VCC, unlike the B404X which only 600 mA.
+Note that the B504e requires 2000 mA on VCC, unlike the B404X which only 600 mA.
 
 #### 3V3
 
@@ -162,7 +162,7 @@ VBus is connected to the USB detect pin of nRF52840 to enables the USB interface
 
 ### Antenna
 
-There are four radios on the B504E module:
+There are four radios on the B504e module:
 
 - BLE radio (part of nRF52840 MCU) 
 - NFC tag receiver (part of nRF52840 MCU)
@@ -171,7 +171,7 @@ There are four radios on the B504E module:
 
 We have provided three u.FL connectors to plug in the cellular, BLE antenna, and GNSS antennas.
 
-![B504E Connectors](/assets/images/b-series/b523-connectors.png)
+![B504e Connectors](/assets/images/b-series/b523-connectors.png)
 
 | Number | Label   | Purpose | 
 | :----: | :-----: | :--- |
@@ -185,12 +185,12 @@ If you are not using BLE, NFC, or GNSS, you can omit those antennas.
 
 #### Certified cellular antenna
 
-The B504E is certified with the following cellular antenna:
+The B504e is certified with the following cellular antenna:
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
-| Wide band LTE cell antenna [x1] | PARANTCW1EA | B504E and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
-| Wide band LTE cell antenna [x50] | PARANTCW1TY | B504E and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
 Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M-SoM do not include antennas.
 
@@ -291,7 +291,7 @@ Environmental:
 
 Single quantity B-SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the B-SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
-- GNSS support will be added in a future version of Device OS.
+- GNSS support requires a [firmware library](https://github.com/particle-iot/particle-som-gnss).
 - Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
 
 
@@ -315,7 +315,7 @@ Single quantity B-SoM units and developer kits include a PARANTGN1EA antenna. Tr
 | PWM  | 8 (max) | O |
 | NFC  | 1 | O |
 
-There are some optional B504E module specific I/O:
+There are some optional B504e module specific I/O:
 
 - Quectel USB and VBUS (for modem firmware upgrades)
 - Quectel Ring Indicator (RI) output 
@@ -324,7 +324,7 @@ There are some optional B504E module specific I/O:
 
 ### JTAG and SWD 
 
-The B504E module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your B504E bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The B504e module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your B504e bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
 {{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
@@ -412,7 +412,7 @@ The nRF52840 B-SoM has some differences from the RTL8722 M-SoM. Future modules w
 
 ### ADC (analog to digital converter)
 
-The B504E supports 8 ADC inputs.
+The B504e supports 8 ADC inputs.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4f2addb7-dc0c-4a01-915a-e47b4cbea4f5 --}}
 
@@ -435,7 +435,7 @@ The B504E supports 8 ADC inputs.
 
 ### UART serial
 
-The B504E supports one UART serial interfaces. 
+The B504e supports one UART serial interfaces. 
 
 {{!-- BEGIN do not edit content below, it is automatically generated f054fe69-870e-43d3-bd07-4d3168908a2b --}}
 
@@ -456,7 +456,7 @@ The B504E supports one UART serial interfaces.
 
 ### SPI
 
-The B504E supports two SPI (serial peripheral interconnect) ports.
+The B504e supports two SPI (serial peripheral interconnect) ports.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 7fe583f7-da0e-4353-aba3-57085789528f --}}
 
@@ -482,7 +482,7 @@ The B504E supports two SPI (serial peripheral interconnect) ports.
 
 ### I2C
 
-The B504E supports two I2C (two-wire serial interface) ports.
+The B504e supports two I2C (two-wire serial interface) ports.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5736a439-4588-407f-a2bd-3a9f32920646 --}}
 
@@ -504,7 +504,7 @@ The B504E supports two I2C (two-wire serial interface) ports.
 
 ### PWM
 
-The B504E supports PWM (pulse-width modulation) on the following pins:
+The B504e supports PWM (pulse-width modulation) on the following pins:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 32c36a5a-08d1-4cd0-bb65-a9d05e085a3d --}}
 
@@ -527,7 +527,7 @@ The B504E supports PWM (pulse-width modulation) on the following pins:
 
 ### USB
 
-The B504E supports a USB interface for programming the device and for USB serial (CDC) communications. The module itself does not contain a USB connector; you typically add a micro USB or USB C connector on your base board. It is optional but recommended.
+The B504e supports a USB interface for programming the device and for USB serial (CDC) communications. The module itself does not contain a USB connector; you typically add a micro USB or USB C connector on your base board. It is optional but recommended.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9a03f9ac-6d5e-4d9c-8962-4856d9029c30 --}}
 
@@ -547,7 +547,7 @@ The B504E supports a USB interface for programming the device and for USB serial
 
 ### RGB LED
 
-The B504E supports an external common anode RGB LED. 
+The B504e supports an external common anode RGB LED. 
 
 One common LED that meets the requirements is the 
 [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
@@ -667,9 +667,9 @@ The RST pin does have an internal weak pull-up, but you may want to add external
 
 <sup>3</sup>SoM-specific and Reserved pins will vary depending on module. They are able to be used on the B523, but their function may be be different on future modules.
 
-<sup>4</sup>RI is available on the B504E (Quectel) but not on the B402 (u-blox LTE M1)
+<sup>4</sup>RI is available on the B504e (Quectel) but not on the B402 (u-blox LTE M1)
 
-<sup>5</sup>The VCC maximum is 4.3V on the B504E (Quectel) but is 4.2V on the B402 (u-blox LTE M1). For compatibility across modules, limit this to 4.2V.
+<sup>5</sup>The VCC maximum is 4.3V on the B504e (Quectel) but is 4.2V on the B402 (u-blox LTE M1). For compatibility across modules, limit this to 4.2V.
 
 By default, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
 
@@ -1706,7 +1706,7 @@ breakout board, which has the cellular modem USB connector.
 
 #### System RGB LED
 
-Unlike the Boron, the B504E module does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
+Unlike the Boron, the B504e module does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
 
 A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
@@ -1791,7 +1791,6 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 Values are from B523 using the EG91-E cellular modem. Actual operating current with cellular using the EG91-NAX modem may vary slightly but should be similar.
 
-**These values are preliminary and subject to change**
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -1821,6 +1820,9 @@ Values are from B523 using the EG91-E cellular modem. Actual operating current w
 <sup>1</sup>The min, and particularly peak, values may consist of very short transients.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+The values above are for connecting to cellular using LTE Cat 1 on the EG91-E (not 2G or 3G). Thus the values should be 
+comparable for the EG91-NAX (B504e) which only uses LTE Cat 1.
 
 ---
 
@@ -1925,7 +1927,7 @@ These specifications are based on the nRF52840 datasheet.
 
 3D models of the B-Series SoM module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/B-Series/B402) in formats including step, iges, stl, and f3d.
 
-The 3D models are the same for the B504E and B523 as the cellular modem module is the same size.
+The 3D models are the same for the B504e and B523 as the cellular modem module is the same size.
 
 ### Mechanical drawing
 
@@ -2032,7 +2034,7 @@ The OEM integrator has to be aware not to provide information to the end user re
 
 {{!-- BEGIN shared-blurb bc4dc783-cdaa-4684-b87e-3aa6ff5f404d --}}
 
-### FCC (United States) - B504E B-Series SoM 
+### FCC (United States) - B504e B-Series SoM 
 
 - FCC ID: 2AEMI-B504
 - [Grant of equipment authorization (DTS)](/assets/pdfs/b504-fcc-dts.pdf)
@@ -2042,7 +2044,7 @@ The OEM integrator has to be aware not to provide information to the end user re
 
 {{!-- END shared-blurb --}}
 
-The certification for the B504 applies to the B504E as changing only the SIM is a permissive change that does not require full recertification.
+The certification for the B504 applies to the B504e as changing only the SIM is a permissive change that does not require full recertification.
 
 ---
 
@@ -2107,12 +2109,12 @@ The following countries are not officially supported at this time, but may be co
 
 {{!-- BEGIN do not edit content below, it is automatically generated 86efb1c7-a248-4821-8403-6f949b5b0285 --}}
 
-| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX |  | GA | |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX |  | GA | |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | &check; | Deprecated | B504EMEA|
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | &check; | Deprecated | B504EMTY|
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX | GA | |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX | GA | |
+| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | Deprecated | B504EMEA|
+| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | Deprecated | B504EMTY|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
