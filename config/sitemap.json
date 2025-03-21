@@ -9083,7 +9083,7 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "7caf998da1a64d4ddb7f1e8fd922020fcae5ba747c4624fa765f52493989afe0",
+            "hash": "84cb1fe8ee62140c7311d4aeb7c18535a65ded3b202476482cbbb596fe888516",
             "date": "2025-03-21"
         },
         "hardware/m.2-som/basic-som-design.md": {
@@ -9707,7 +9707,7 @@
             "date": "2025-03-06"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
-            "hash": "2175eac3c9f2b0924005581c4cb4875552b0b27736fa0e3e1ca55e8b03420747",
+            "hash": "dda506d99c2774436af317479a836568358e3a6348c520cc27d9aa542ef5a00b",
             "date": "2025-03-21"
         }
     }

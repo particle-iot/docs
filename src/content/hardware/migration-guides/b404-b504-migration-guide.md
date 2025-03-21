@@ -25,6 +25,13 @@ LTE Cat 1 offers better cellular coverage than LTE Cat M1 in some areas, and is 
 
 These steps are explained in more detail, below.
 
+### Certification
+
+Changing the cellular module will require unintentional radiator testing of your completed assembly. This is the least expensive 
+and least complicated of the certification tests.
+
+You do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+
 ### Power
 
 The B504e requires more power than the B404X/B404/B402 for the cellular modem (VCC/3V7 rail). 
