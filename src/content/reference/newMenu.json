@@ -435,6 +435,11 @@
                             "title": "E-Series System Integration Manual"
                         },
                         {
+                            "dir": "electron-2-datasheet",
+                            "title": "Electron 2 datasheet",
+                            "internal": true
+                        },
+                        {
                             "dir": "electron-datasheet",
                             "title": "Electron datasheet"
                         }

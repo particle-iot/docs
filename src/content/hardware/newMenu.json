@@ -199,6 +199,10 @@
                     "title": "B-Series from Electron migration guide"
                 },
                 {
+                    "dir": "electron-2-boron-migration-guide",
+                    "title": "Electron 2 from Boron migration guide"
+                },
+                {
                     "dir": "e404x-migration-guide",
                     "title": "E404X migration guide"
                 },

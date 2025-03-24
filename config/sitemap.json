@@ -9709,6 +9709,10 @@
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "dda506d99c2774436af317479a836568358e3a6348c520cc27d9aa542ef5a00b",
             "date": "2025-03-21"
+        },
+        "hardware/migration-guides/electron-2-boron-migration-guide.md": {
+            "hash": "f28c76aa2635cf9f14e7b88064208c3f200b708648e741829313feae88ff7dea",
+            "date": "2025-03-24"
         }
     }
 }
