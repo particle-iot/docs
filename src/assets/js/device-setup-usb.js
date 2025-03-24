@@ -29,7 +29,7 @@ $(document).ready(function() {
     $('.apiHelper').on('selectedOrgUpdated', updateSupportAvailable);
     updateSupportAvailable();
 
-    $('.apiHelperDeviceSetupUsb').each(function() {
+    $('.apiHelperDeviceSetupUsb').each(async function() {
 
         const thisElem = $(this);
 
@@ -77,6 +77,16 @@ $(document).ready(function() {
         let flashDeviceOptions = {};
         let userInfo;
         let productData; // Used in product mode
+
+        const deviceConstants = await apiHelper.getDeviceConstants();
+        const usbFilters = [];
+        for(const platformName in deviceConstants) {
+            const dcObj = deviceConstants[platformName];
+            if (dcObj.id >= 0 && dcObj.generation >= 2 && dcObj.generation <= 4) {
+                usbFilters.push({vendorId: 0x2b04, productId: (0xc000 | dcObj.id)});
+            }
+        }
+
 
         let ticketOptions = {
             subject: 'Request from Device Doctor',
@@ -1281,6 +1291,7 @@ $(document).ready(function() {
                     case 25: // b5som
                     case 26: // tracker
                     case 28: // trackerm
+                    case 35: // electron2
                         deviceInfo.hasPMIC = true;
                         break;
                 }
@@ -2325,15 +2336,12 @@ $(document).ready(function() {
                 
 
                 await new Promise(function(resolve, reject) {
-                    const filters = [
-                        {vendorId: 0x2b04}
-                    ];
 
                     $(thisElem).find('.reconnectUsb').on('click', async function() {
 
                         $(thisElem).find('.reconnectUsb').prop('disabled', true);
 
-                        nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
+                        nativeUsbDevice = await navigator.usb.requestDevice({ filters: usbFilters })
                 
                         $(thisElem).find('.reconnectUsb').prop('disabled', false);
 
@@ -2430,7 +2438,7 @@ $(document).ready(function() {
                                 $(thisElem).find('.reconnectUsb').prop('disabled', true);
         
                                 try {
-                                    nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters });
+                                    nativeUsbDevice = await navigator.usb.requestDevice({ filters: usbFilters });
                         
                                     showStep('setupStepFlashDeviceConnectDFU');
                                     $(thisElem).find('.reconnectUsb').prop('disabled', false);
@@ -4512,9 +4520,6 @@ $(document).ready(function() {
         };
 
         const selectDevice = async function() {
-            const filters = [
-                {vendorId: 0x2b04}
-            ];
         
 
             try {
@@ -4526,7 +4531,7 @@ $(document).ready(function() {
                     usbDevice = null;
                 }
 
-                const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
+                const nativeUsbDevice = await navigator.usb.requestDevice({ filters: usbFilters })
         
                 usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
 
