@@ -187,12 +187,13 @@ If you are not using BLE, NFC, or GNSS, you can omit those antennas.
 
 The B504e is certified with the following cellular antenna:
 
+{{!-- BEGIN shared-blurb c04616f7-eede-439f-9dee-d5c9aa1bf53f --}}
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
 | Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M-SoM do not include antennas.
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
 
 | Dimension | Value | Unit |
 | :--- | ---: | :---: |
@@ -206,6 +207,7 @@ Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tr
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | Peak gain | | | | | | | |
 | PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
+{{!-- END shared-blurb --}}
 
 
 #### Certified BLE antenna 

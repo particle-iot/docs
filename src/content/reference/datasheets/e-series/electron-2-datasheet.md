@@ -30,7 +30,6 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
  * Support for United States, Canada, and Mexico (North America, NorAm)
  * LTE Cat 1 bands: 2, 4, 5, 12, 13, 66
  * Embedded Particle EtherSIM e-sim
- * Requires Device OS 6.3.0 (or later) 
 
 #### Features - ELC524EM (Europe)
 
@@ -39,7 +38,6 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
  * Support for selected countries in Europe, Middle East, Africa, Asia, Oceania (EMEAA)
  * LTE Cat 1 bands: 1, 3, 5, 7, 8, 20, 28
  * Embedded Particle EtherSIM e-sim
- * Requires Device OS 6.3.0 (or later)
 
 
 #### Features - all models
@@ -63,6 +61,7 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
  * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
  * RoHS compliant (lead-free)
+ * Requires Device OS 6.3.0 (or later)
 
 
 ## Migration information
@@ -86,7 +85,6 @@ The minimum supported version is 6.3.0.
 {{imageOverlay src="/assets/images/electron-2/electron-2-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 
-
 ### Power
 
 #### USB-C PORT
@@ -95,29 +93,46 @@ The USB port is the easiest way to power up the Electron 2. The Electron 2 inclu
 Note that the Electron 2 does not use USB-C PD mode to change the port voltage like the Muon and Tachyon; the USB-C port
 is used at the default of 5V.
 
+The Electron 2 is compatible with most USB-C chargers for tablets and the Raspberry Pi 4 and 5.
+
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
 
 #### LiPo
-If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Electron 2 has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
 
-{{box op="start" cssClass="boxed warningBox"}}
-**NOTE:**
-Please pay attention to the polarity of the LiPo connector. Not all LiPo batteries follow the same polarity convention!
-{{box op="end"}}
+The Electron 2 has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One, Muon, and Tachyon for connection to a 3.7V LiPo battery pack 
+with an integrated temperature sensor (10K NTC thermistor).
 
-TODO: 3-pin description and picture
+Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
 
-<div align=center><img src="/assets/images/lipo-polarity.png" ></div>
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+
+<p class="attribution">Facing the plug on the battery side</p>
+
+
+If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
 
 #### Li+ pin
-This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Electron 2. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
+This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Electron 2.
+
+If supplying external voltage in the range of 3.6 to 4.2 VDC, charging will automatically be disabled.
+
+If you are connecting an external battery and want to use the internal charger, you must disable the temperature sensor
+so charging will always be enabled. This can be done using a solder jumper on the bottom of the Electron 2. It consists
+of two half-moon shaped pads that must be soldered closed and will disable the temperature sensor.
+You must disable the temperature sensor when using the Li+ with an external battery.
+
+{{imageOverlay src="/assets/images/electron-2/ts-pad.png" alt="ts solder jumper" class="full-width"}}
+
+<p class="attribution">Facing bottom side of the Electron 2 with the battery connector on the left</p>
+
 
 #### 3V3 PIN
 
-TODO: Check regulator capacity
+This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 1500mA maximum, however you must also budget 
+for the power used by the MCU and the cellular modem.
 
-This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Electron 2 first. Unlike the Photon, this pin _CANNOT_ be used to power the Electron 2.
+Unlike the Photon, this pin _CANNOT_ be used to power the Electron 2.
 
 #### EN pin
 
@@ -129,16 +144,13 @@ If using the EN pin to deeply reset the device, you must be careful not to allow
 
 However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a nRF52 GPIO high when EN is low can provide enough current to keep the nRF52 from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the nRF52 when 3V3 is de-powered.
 
-[See the power supply schematic](#power-1), below, for more information.
-
----
-
 ### Antenna
 
-
-There are two radios on the Electron 2. A BLE radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provided a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
+There are three radios on the Electron 2. A BLE radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provided a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
 
 There are two options for the BLE antenna on the Electron 2. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
+
+There is also an NFC tag receiver. This requires an external NFC antenna.
 
 ### Approved antennas
 
@@ -147,53 +159,26 @@ There are two options for the BLE antenna on the Electron 2. It comes with an on
 
 The following antenna is included in single-unit packages that include an antenna.
 
-{{!-- BEGIN shared-blurb 4118f060-06af-4943-b51a-a2961f9d1e88 --}}
+{{!-- BEGIN shared-blurb c04616f7-eede-439f-9dee-d5c9aa1bf53f --}}
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
-| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
-| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-General antenna parameters:
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
 
-| Parameter | Value | Unit |
-| :--- | :--- | :--- |
-| Antenna Type | Dipole | |
-| Radiation Properties | Omnidirectional | |
-| Maximum Input Power | 5 | watts |
-| Polarization | Linear | |
-| Impedance | 50 | ohms |
+| Dimension | Value | Unit |
+| :--- | ---: | :---: |
+| Length | 116.0 | mm |
+| Width | 27.0 | mm |
+| Thickness | 0.2 | mm |
+| Cable Length | 189.5 | mm |
 
-Antenna parameters in frequency ranges:
 
-| Parameter | 698 MHz - 894 MHz | 1700 MHz - 2690 MHz | Unit |
-| :--- | :---: | :---: | :--- |
-| Peak Gain | 2.46 | 3.86 | dBi |
-| Efficiency | 65.46 | 54.95 | % |
-| Average Gain | 1 | 0.98 | |
-
-Antenna parameters in specific frequency bands:
-
-| Parameter | 698 MHz | 894 MHz | 1700 MHz | 2170 MHz | 2690 MHz | Unit |
+| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| Max VSWR | 1.6 | 1.8 | 1.7 | 2.8 | 2.5 | |
-| Max Return Loss | -12 | -10 | -11 | -6 | -7 | dB |
-
-Mechanical:
-
-| Parameter | Value | Unit |
-| :--- | :--- | :--- |
-| Dimensions | 122.1 x 12.8 x 0.2 | mm |
-| Material | Flexible polymer | |
-| Connector and cable | U.FL and 1.13mm mini coax | |
-| Cable length | 183 | mm |
-
-Environmental:
-
-| Parameter | Value |
-| :--- | :---: |
-| Operating temperature | -40°C to 85°C |
-| Storage temperature | -40°C to 85°C |
-| ROHS Compliant | &check; |
+| Peak gain | | | | | | | |
+| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
 {{!-- END shared-blurb --}}
 
 {{box op="start" cssClass="boxed warningBox"}}
@@ -1343,4 +1328,3 @@ To be provided at a later date.
 | Revision | Date       | Author | Comments |
 |:---------|:-----------|:-------|:---------|
 | pre      | 2025-03-25 | RK     | Preliminary version |
-
