@@ -27,10 +27,13 @@ These steps are explained in more detail, below.
 
 ### Certification
 
-Changing the cellular module will require unintentional radiator testing of your completed assembly. This is the least expensive 
+{{!-- BEGIN shared-blurb 2d22b4d0-8047-4513-a095-81ba5b289ff3 --}}
+Changing the Particle module will require unintentional radiator testing of your completed assembly. This is the least expensive 
 and least complicated of the certification tests.
 
-You do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+You generally do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+{{!-- END shared-blurb --}}
+
 
 ### Power
 
