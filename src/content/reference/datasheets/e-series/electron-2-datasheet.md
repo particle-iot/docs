@@ -70,6 +70,15 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
 | :--- | :--- |
 | Boron | [Electron 2 from Boron migration guide](/hardware/migration-guides/electron-2-boron-migration-guide/) |
 
+### Certification
+
+{{!-- BEGIN shared-blurb 2d22b4d0-8047-4513-a095-81ba5b289ff3 --}}
+Changing the Particle module will require unintentional radiator testing of your completed assembly. This is the least expensive 
+and least complicated of the certification tests.
+
+You generally do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+{{!-- END shared-blurb --}}
+
 
 ### Device OS support
 
@@ -103,7 +112,7 @@ The pin is internally connected to the VBUS of the USB port. The nominal output 
 The Electron 2 has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One, Muon, and Tachyon for connection to a 3.7V LiPo battery pack 
 with an integrated temperature sensor (10K NTC thermistor).
 
-Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
+Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Electron 2. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
 
 <div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
 
@@ -117,10 +126,12 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 
 If supplying external voltage in the range of 3.6 to 4.2 VDC, charging will automatically be disabled.
 
-If you are connecting an external battery and want to use the internal charger, you must disable the temperature sensor
-so charging will always be enabled. This can be done using a solder jumper on the bottom of the Electron 2. It consists
-of two half-moon shaped pads that must be soldered closed and will disable the temperature sensor.
-You must disable the temperature sensor when using the Li+ with an external battery.
+If you are connecting an external battery and want to use the internal charger, you must simulate having a temperature
+sensor in the valid charging range to enable charging.
+
+This can be done using a solder jumper on the bottom of the Electron 2. It consists
+of two half-moon shaped pads that must be soldered closed and will allow charging at
+any temperature with battery packs or external supplies that do not have a temperature sensor.
 
 {{imageOverlay src="/assets/images/electron-2/ts-pad.png" alt="ts solder jumper" class="full-width"}}
 
@@ -136,7 +147,7 @@ Unlike the Photon, this pin _CANNOT_ be used to power the Electron 2.
 
 #### EN pin
 
-The **EN** pin is not a power pin, per se, but it controls the 3V3 and cellular modem power via a load switch (XC8107, U2). The EN pin is pulled high by a 100K resistor to PMIC_SYS (3.8V), which is powered by VUSB, the micro USB connector, or the LiPo battery. Because the pull-up can result in voltages above 3.3V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
+The **EN** pin is not a power pin, per se, but it controls the 3V3 and cellular modem power. The EN pin is pulled high by a 100K resistor to VSYS (3.8V), which is powered by VUSB, the USB-C connector, or the LiPo battery. Because the pull-up can result in voltages above 3.3V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
 
 The EN pin can force the device into a deep power-down state where it uses very little power. It also can used to assure that the device is completely reset, similar to unplugging it, with one caveat:
 
@@ -306,9 +317,7 @@ The Electron 2 has a dedicated 10 pin debug connector that exposes the SWD inter
 ### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application
-   - 256KB @ 0xB4000 (Device OS 3.1 and later)
-   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
+ - User Application (256KB @ 0xB4000)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -1004,7 +1013,8 @@ The Electron 2 supports PWM (pulse-width modulation) on the following pins:
 ### LED status
 
 #### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/troubleshooting/led/)
+
+For a detailed explanation of different color codes of the RGB system LED, please see the [status LED guide](/troubleshooting/led/).
 
 #### Charge status LED
 
@@ -1013,13 +1023,14 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 |ON | Charging in progress |
 |OFF | Charging complete |
 |Blink at 1Hz| Fault condition<sup>[1]</sup> |
-|Rapid blinking | Battery disconnected<sup>[2]</sup> |
+|Flickering | Battery disconnected<sup>[2]</sup> |
 
 **Notes:**
 
 <sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
 
-<sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling charging using firmware command: `PMIC().disableCharging();`.
+<sup>[2]</sup> Once the device is in normal operating mode it will eventually detect the battery is disconnected and stop flickering. It will continue to flicker
+if in DFU mode (blinking yellow) as battery detection is not done when in the bootloader or DFU mode.
 
 ## Technical specifications
 
@@ -1050,43 +1061,6 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ---
 
-### Power consumption (Electron 2 LTE)
-
-Values are from BRN404/BRN402. Actual operating current with cellular using the R510 modem may vary but should be similar.
-
-| Parameter | Symbol | Min | Typ | Peak | Unit |
-| :---|:---|:---:|:---:|:---:|:---:
-| Peak Current | I<sub>Li+ pk</sub> | 120 |  | 490 | mA |
-| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.89 | 3.90 | 3.92 | mA |
-| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | | 5.78 | 16.9 | mA |
-| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 14.7 | 58.9 | 178 | mA |
-| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 14.6 | 53.4 | 207 | mA |
-| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | | 17.9 | 108 | mA |
-| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | | 63.9 | 184 | mA |
-| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 565 | 575 | 590 | uA |
-| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 565 | 577 | 593 | uA |
-| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 568 | 584 | 602 | uA |
-| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | 91.6 | 885 | 2210 | uA |
-| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 486 | 866 | 1440 | uA |
-| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 569 | 587 | 612 | uA |
-| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | | 12.2 | 104 | mA |
-| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | | 127 | 137 | uA |
-| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | | 130 | 141 | uA |
-| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> |  | 128 | 138 | uA |
-| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> | | 442 | 2120 | uA |
-| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> |  | 438 | 1050 | uA |
-| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 568 | 584 | 601 | uA |
-| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> |  | 14.2 | 112 | mA |
-| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 98.7 | 106 | 118 | uA |
-| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 99.4 | 106 | 120 | uA |
-| Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
-
-<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
-The typical (typ) values are the best indicator of overall power consumption over time. The 
-peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
-
----
-
 ### Radio specifications
 
 Electron 2 has two radio modules, the nRF52 MCU BLE radio, and a cellular module, depending on the model.
@@ -1113,41 +1087,6 @@ Electron 2 has two radio modules, the nRF52 MCU BLE radio, and a cellular module
 {{!-- END shared-blurb --}}
 
 
-#### u-blox SARA-R510S-01B
-
-{{!-- BEGIN shared-blurb 2f821871-252e-4acd-8002-11854b95faa6 --}}
-| Parameter | Value | FCC Certified | 
-| --- | --- | :---: | 
-| Protocol stack | 3GPP Release 13 LTE Cat M1 | |
-| | 3GPP Release 14 LTE Cat M1<sup>1</sup> | |
-| RAT | LTE Cat M1 Half-Duplex | |
-| LTE FDD Bands | Band 71 (600 MHz) | &nbsp; |
-| | Band 12 (700 MHz) | &check; |
-| | Band 28 (700 MHz)  | &nbsp; |
-| | Band 85 (700 MHz)  | &nbsp; |
-| | Band 13 (750 MHz)  | &check; |
-| | Band 20 (800 MHz)  | &nbsp; |
-| | Band 5 (850 MHz) | &check; |
-| | Band 18 (850 MHz) | &nbsp; |
-| | Band 19 (850 MHz) | &nbsp; |
-| | Band 26 (850 MHz)  | &nbsp; |
-| | Band 8 (900 MHz)  | &nbsp; |
-| | Band 4 (1700 MHz) | &nbsp; |
-| | Band 3 (1800 MHz)  | &nbsp; |
-| | Band 2 (1900 MHz) | &check; |
-| | Band 25 (1900 MHz)  | &nbsp; |
-| | Band 1 (2100 MHz)  | &nbsp; |
-| Power class | Class 3 (23 dBm) | &nbsp; |
-| Cellular data rate | up to 1200 kbit/s UL | |
-| | up to 375 kbit/s DL | |
-  
-- LTE Cat M1 for United States, Canada, and Mexico.
-- FCC Certification in the United States only tests bands in use in the United States.
-- Bands not listed as certified are disabled in the Device OS operating system and cannot be enabled from user firmware.
-- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
-- <sup>1</sup>3GPP Release 14 LTE Cat M1: Coverage Enhancement Mode B, Uplink TBS of 2984b 
-{{!-- END shared-blurb --}}
-
 
 ### I/O characteristics 
 
@@ -1170,7 +1109,7 @@ GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA)
 
 ### Dimensions and weight
 
-<div align=center><img src="/assets/images/boron/boron-dimensions.png" ></div>
+<div align="center"><img src="/assets/images/boron/boron-dimensions.png" ></div>
  
  * Weight = 10 grams
 
@@ -1194,7 +1133,7 @@ The Electron 2 uses two single row 0.1" pitch male header pins. One of them is 1
 
 The Electron 2 can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
 
-<div align=center><img src="/assets/images/boron/boron-landing-pattern.png" ></div>
+<div align="center"><img src="/assets/images/boron/boron-landing-pattern.png" ></div>
 
 This landing pattern is the same as the Boron and Argon.
 
@@ -1301,7 +1240,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
- * Contains transmitter module ISED: 20127-BRN404X
+ * Contains transmitter module ISED: (To be provided at a later date)
  
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.

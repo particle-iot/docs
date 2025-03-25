@@ -9707,11 +9707,11 @@
             "date": "2025-03-06"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
-            "hash": "de34324ca755d0f6b21c2b663f46bd51b81227ee46d067f4e5d52eaadccbebc0",
+            "hash": "df4835307472340d2e1760f2f0b83d3ef15be9426e0e6a3d250b78516f0ff6c4",
             "date": "2025-03-25"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
-            "hash": "75cbcd29ac3f30772df4374bc1d0624191a2ef8d1ae936f9c868ab86dd1a2bf2",
+            "hash": "7123f8769b9adbe8cf39f50f73c01785e50c7a5d2323af4e0195afc1a0abf827",
             "date": "2025-03-25"
         }
     }

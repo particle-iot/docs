@@ -24,14 +24,29 @@ These steps are explained in more detail, below.
 
 ### Certification
 
+{{!-- BEGIN shared-blurb 2d22b4d0-8047-4513-a095-81ba5b289ff3 --}}
 Changing the Particle module will require unintentional radiator testing of your completed assembly. This is the least expensive 
 and least complicated of the certification tests.
 
-You do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+You generally do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+{{!-- END shared-blurb --}}
+
+### USB connector
+
+The Electron 2 has a USB-C connector and the Boron has a USB Micro-B connector.
+
+### LiPo connector
+
+The Electron 2 has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One, Muon, and Tachyon for connection to a 3.7V LiPo battery pack 
+with an integrated temperature sensor (10K NTC thermistor).
+
+The Boron and many other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Electron 2. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
+
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+
+<p class="attribution">Facing the plug on the battery side</p>
 
 ### Power
-
-If you are powering by USB, the Electron 2 has a USB-C connector and the Boron has a USB Micro-B connector.
 
 The Electron 2 requires slightly more power than the Boron LTE (LTE Cat M1), and may exceed the limits of a 500 mA USB
 port. This can be solved by powering by a 1A or larger USB-C charger, or including a battery.
@@ -39,6 +54,10 @@ port. This can be solved by powering by a 1A or larger USB-C charger, or includi
 If your power supply is sufficient for a Boron 2G/3G, it will work with the Electron 2.
 
 The Nordic nRF52840 MCU consumption is the same across all Boron, B-SoM, and Electron 2 modules.
+
+
+### Li+ Power
+
 
 
 ### Platform
