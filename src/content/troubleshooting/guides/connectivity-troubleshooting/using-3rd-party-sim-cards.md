@@ -95,10 +95,6 @@ Some carriers may also require a username and password. Note those, if they are 
 
 The instructions vary between the Boron and Electron. Select the device you want to configure here:
 
-{{collapse op="cellularDevice"}}
-
-
-{{collapse op="start" cellularDevice="Boron"}}
 
 ## Boron - Setting up a 3rd-party SIM card
 
@@ -239,9 +235,6 @@ The embedded MFF2 Particle SIM card on the Boron LTE is only supported in the Un
 - Update manual band selection (AT+UBANDSEL) for the bands required in your location.
 - Since you need to update cellular modem settings before connecting you will need to use `SYSTEM_THREAD(ENABLED)`.
 
-{{collapse op="end"}}
-
-{{collapse op="start" cellularDevice="Electron"}}
 
 ## Electron - Setting up a 3rd-party SIM card
 
@@ -537,8 +530,6 @@ The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G 
 
 The 2G Electron (G350) supports 850, 900, 1800 and 1900 MHz (GPRS/EDGE).
 
-
-{{collapse op="end"}}
 
 ## Claiming a Boron or an Electron manually
 

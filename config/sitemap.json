@@ -1535,8 +1535,8 @@
             "hash": "0f9596b49fc12d3869bc93b8347d5e91922eb2efb60c158a04e46c8ef7706946"
         },
         "troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards.md": {
-            "date": "2024-10-28",
-            "hash": "648668f373bba055b04e9f5e8d1a290757a31f3e22fe067bc7f0e453b59ab9b2"
+            "date": "2025-03-25",
+            "hash": "f8f189ad2ef78acebcf2f0c4f5b6a2e4b9224ebd53c5542c64f404e9f9a24056"
         },
         "troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide.md": {
             "date": "2023-03-17",
@@ -8392,11 +8392,11 @@
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
             "hash": "80508f1c79a37ad161c0ba93473e162b9437fdced26f462a9eeb2fa403eb235b",
-            "date": "2025-03-21"
+            "date": "2025-03-25"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "f15ce58806c9ffba852375bb2d4946a01d8f8c4c639a43ddb3a585c198b5a0c2",
-            "date": "2025-03-21"
+            "date": "2025-03-25"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9084,7 +9084,7 @@
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
             "hash": "84cb1fe8ee62140c7311d4aeb7c18535a65ded3b202476482cbbb596fe888516",
-            "date": "2025-03-21"
+            "date": "2025-03-25"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9460,7 +9460,7 @@
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
             "hash": "c5dec429f23c1801e8abcaa902a462eebc9f40d29ef3c34e577706362044f2b2",
-            "date": "2025-01-06"
+            "date": "2025-03-25"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -9708,7 +9708,11 @@
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "dda506d99c2774436af317479a836568358e3a6348c520cc27d9aa542ef5a00b",
-            "date": "2025-03-21"
+            "date": "2025-03-25"
+        },
+        "hardware/migration-guides/electron-2-boron-migration-guide.md": {
+            "hash": "7123f8769b9adbe8cf39f50f73c01785e50c7a5d2323af4e0195afc1a0abf827",
+            "date": "2025-03-25"
         }
     }
 }
