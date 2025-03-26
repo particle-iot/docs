@@ -1809,6 +1809,42 @@ bandFit.init = function(callback) {
                 },
             ],
         },
+        'electron-2': {
+            title: 'Electron 2 (ELC504EM vs. ELC524EM)',
+            sim: 4, // EtherSIM
+            tests: [
+                {
+                    title: 'ELC504EM',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-NA'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'ELC524EM',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
+                    borderRight: false,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+            ],
+        },
+        'electron-2-b524': {
+            title: 'Electron 2 (ELC524EM) vs. B-SoM (B524)',
+            sim: 4, // EtherSIM
+            tests: [
+                {
+                    title: 'ELC524EM',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'B524',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG91-E'),
+                    borderRight: false,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+            ],
+        },
         'tracker': {
             title: 'Tracker One, Monitor One, Tracker SoM (ONE404 vs. ONE524)',
             sim: 4, // EtherSIM

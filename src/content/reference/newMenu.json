@@ -419,6 +419,10 @@
                     "isSection": true,
                     "subsections": [
                         {
+                            "dir": "electron-2-datasheet",
+                            "title": "Electron 2 datasheet"
+                        },
+                        {
                             "dir": "e404x-datasheet",
                             "title": "E404X datasheet"
                         },
@@ -433,11 +437,6 @@
                         {
                             "dir": "e-series-system-integration-manual",
                             "title": "E-Series System Integration Manual"
-                        },
-                        {
-                            "dir": "electron-2-datasheet",
-                            "title": "Electron 2 datasheet",
-                            "internal": true
                         },
                         {
                             "dir": "electron-datasheet",
