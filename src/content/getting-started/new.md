@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Band fit fix 2025-03-26
+
+Fixed a bug in the Band Fit section of the [carrier list](/reference/cellular/cellular-carriers/). Countries were listed as
+not officially supported instead of supported in some cases.
+
 ### B504e migration guide 2025-03-21
 
 [B504e from B404X/B404/B402 migration guide](/hardware/migration-guides/b404-b504-migration-guide/) is now available.
