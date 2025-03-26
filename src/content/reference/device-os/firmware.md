@@ -18154,7 +18154,7 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 | :--- | :--- |
 | M-SoM | A0, A1, A5, A5, A6, D4, D5, D6, D7, MISO, MOSI, RX, TX |
 | Photon 2 / P2 | A2, A5, D1, S0, S1 |
-| Argon, Boron, Xenon | A0, A1, A2, A3, A4, A5, D2, D3, D4, D5, D6, D7, D8 |
+| Argon, Boron, Electron 2, Xenon | A0, A1, A2, A3, A4, A5, D2, D3, D4, D5, D6, D7, D8 |
 | Asset Tracker / Monitor One | A0, A1, A2, A3, A4, A5, A6, A7, RX, TX |
 | B-SoM, B5-SoM | A0, A1, A6, A7, D4, D5, D6, D7 |
 | E-SoM-X | A3, A4, A5, A6, B2, B3, C0, C4, C5, D0, D1, D2, RX, TX |

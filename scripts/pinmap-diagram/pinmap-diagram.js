@@ -1335,6 +1335,98 @@ const svg = require('./svg');
     }
 
 
+
+
+    diagram.generateElectron2 = async function(generateOptions, files) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Electron 2',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
+            outputPath: 'assets/images/electron-2/electron-2-pinout.svg',
+            // scale to make height 500px width 221
+            deviceImageTransform: 'scale(1.04) translate(-33,-27)',
+            width: 1000,
+            height: 510,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 370,
+                    y: 70,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 15,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 16,
+                    x: 598,
+                    y: 439,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 12,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+            ],
+        });
+
+        await diagram.generate(options, files);
+    }
+
     diagram.generateFeatherAdapter = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -2220,6 +2312,8 @@ const svg = require('./svg');
         }, generateOptions), files);
         
         await diagram.generatePhoton2(generateOptions, files);
+
+        await diagram.generateElectron2(generateOptions, files);
 
         await diagram.generateFeatherAdapter(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'Photon 2',
