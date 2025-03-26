@@ -11,6 +11,10 @@ description: Learn about migrating from the Boron to the Electron 2
 This is a preliminary guide and is subject to change.
 {{box op="end"}}
 
+{{!-- Image size: 271x610 --}}
+{{migration-guide leftImg="/assets/images/boron/boron-top.png" leftStyle="transform: matrix(0.92, 0, 0, 0.92, 0, 7);" rightImg="/assets/images/electron-2/electron-2-rendering.png"}}
+
+
 This guide discusses the minor changes required when moving from the Boron to Electron 2 (LTE Cat 1).
 
 ## Migration
