@@ -1549,7 +1549,7 @@ bandFit.renderCountries = function(countries) {
             const tbodyElem = document.createElement('tbody');
 
             for(const testObj of bandFit.tests[test].tests) {
-                const cmsObj = datastore.data.countryModemSim.find(e => e.country == country && e.modem == testObj.modemObj.model && e.sim == testObj.sim);
+                const cmsObj = datastore.data.countryModemSim.find(e => e.country == country && e.modem == testObj.modemObj.model && e.sim == bandFit.tests[test].sim);
     
                 const trElem = document.createElement('tr');
 
