@@ -339,10 +339,7 @@ The Electron 2 has a dedicated 10 pin debug connector that exposes the SWD inter
 
 ### Pinout diagram
 
-
-{{imageOverlay src="/assets/images/boron/boron-pinout.png" alt="Pinout" class="full-width"}}
-
-You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
+{{imageOverlay src="/assets/images/electron-2/electron-2-pinout.png" alt="Pinout" class="full-width"}}
 
 
 ### Pin description
@@ -369,7 +366,7 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 
 ### GPIO and port listing
 
-{{!-- BEGIN do not edit content below, it is automatically generated ac335968-6a40-4e3a-9493-46510917cf20 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated e3a16918-77ca-4439-9020-220282c681ee --}}
 
 | Pin Name |   |   |   |   | PWM | MCU |
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- |
@@ -401,7 +398,7 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 
 The Electron 2 supports 6 ADC inputs.
 
-{{!-- BEGIN do not edit content below, it is automatically generated bf872784-b042-45b5-980a-ff7abdec8a1b --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 6d2f42d4-109a-43d6-9375-4bcd750f1225 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -423,7 +420,7 @@ The Electron 2 supports 6 ADC inputs.
 
 The Electron 2 supports one UART serial interface. 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 6169d4a3-4938-4c53-9830-849f29c0ffe7 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 4dccb92d-ca6c-491a-8aab-2f5a1d259809 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -444,19 +441,7 @@ The Electron 2 supports one UART serial interface.
 
 The Electron 2 supports two SPI (serial peripheral interconnect) ports.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5578133c-be91-431a-bec6-c903d70e87dd --}}
-
-| Pin Name | Description | Interface | MCU |
-| :--- | :--- | :--- | :--- |
-| A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | SPI (SS) | P0.31 |
-| D2 | SPI1 SCK, Serial1 RTS, GPIO, PWM | SPI1 (SCK) | P1.01 |
-| D3 | SPI1 MOSI, Serial1 CTS, PWM, GPIO | SPI1 (MOSI) | P1.02 |
-| D4 | SPI1 MISO, PWM, GPIO | SPI1 (MISO) | P1.08 |
-| MISO / D11 | SPI MISO, GPIO | SPI (MISO) | P1.14 |
-| MOSI / D12 | SPI MOSI, GPIO | SPI (MOSI) | P1.13 |
-| SCK / D13 | SPI SCK, GPIO | SPI (SCK) | P1.15 |
-
-
+{{!-- BEGIN do not edit content below, it is automatically generated dcad2250-0112-4901-ae15-f18d3b8fd771 --}}
 {{!-- END do not edit content above, it is automatically generated --}}
 
 - The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
@@ -470,7 +455,7 @@ The Electron 2 supports two SPI (serial peripheral interconnect) ports.
 
 The Electron 2 supports one I2C (two-wire serial interface) port.
 
-{{!-- BEGIN do not edit content below, it is automatically generated b959c6b0-5b22-4e0d-9bbc-ce9989d7e16c --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 5f81e7fc-53ae-46e5-9976-9a71f2d94bb2 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -489,7 +474,7 @@ The Electron 2 supports one I2C (two-wire serial interface) port.
 
 The Electron 2 supports PWM (pulse-width modulation) on the following pins:
 
-{{!-- BEGIN do not edit content below, it is automatically generated 2ee22e01-a29b-46db-9e33-cd9f93223537 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated cdac1a36-7742-47d6-b1cd-c8ecced4974d --}}
 
 | Pin Name | Description | Timer | MCU |
 | :--- | :--- | :--- | :--- |
@@ -519,7 +504,7 @@ The Electron 2 supports PWM (pulse-width modulation) on the following pins:
 
 ### Complete module pin details
 
-{{!-- BEGIN do not edit content below, it is automatically generated 4b3e02b9-2be9-40ff-8486-90fa48a9e518 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 22694b55-ad2c-4e61-a33f-71994b569ba3 --}}
 
 
 #### 1 RST

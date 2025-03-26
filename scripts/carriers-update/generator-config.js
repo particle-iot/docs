@@ -843,6 +843,84 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },        
+        // Electron 2
+        {
+            guid:'22694b55-ad2c-4e61-a33f-71994b569ba3', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'Electron 2'
+                }); 
+            } 
+        },                
+        {
+            guid: 'e3a16918-77ca-4439-9020-220282c681ee',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Electron 2',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'4dccb92d-ca6c-491a-8aab-2f5a1d259809',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'dcad2250-0112-4901-ae15-f18d3b8fd771',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'BoronElectron 2',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'5f81e7fc-53ae-46e5-9976-9a71f2d94bb2',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6d2f42d4-109a-43d6-9375-4bcd750f1225',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'cdac1a36-7742-47d6-b1cd-c8ecced4974d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: true,
+                    noPinNumbers: true,
+                }); 
+            } 
+        },        
         // BRN404X
         {
             guid:'4b3e02b9-2be9-40ff-8486-90fa48a9e518', 
