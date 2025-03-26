@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2025-03-26",
-            "hash": "e3f8da1c35bf0178b9fdeb42e3ea527d7a73f48d70ad6a2c7b62e75f8d6d0c1a"
+            "hash": "3151531126a79f2988cbce25f9f90f40478b067116635f12b5a312d15f773816"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -9711,8 +9711,8 @@
             "date": "2025-03-25"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
-            "hash": "7123f8769b9adbe8cf39f50f73c01785e50c7a5d2323af4e0195afc1a0abf827",
-            "date": "2025-03-25"
+            "hash": "a38400793837bdc8dceafd3aad7bea347825b49bcfd756b933a529a66a0e1461",
+            "date": "2025-03-26"
         }
     }
 }

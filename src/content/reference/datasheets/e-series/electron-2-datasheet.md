@@ -11,6 +11,7 @@ description: Datasheet for the Particle Electron 2, Gen 3 cellular development k
 This is a preliminary datasheet and is subject to change.
 {{box op="end"}}
 
+![Electron 2 Rendering](/assets/images/electron-2/electron-2-rendering.png)
 
 ## Functional description
 
