@@ -1387,8 +1387,8 @@
             "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2025-03-21",
-            "hash": "0d2c5f0310fefd2f1d5fc5f6a26789d6651eff5122777961d9ae8b60f9b08909"
+            "date": "2025-03-26",
+            "hash": "9bf8bd502e29e8273cc0de776e3894872b558c59efdd1e41154c16483b5dfc2b"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-03-21",
@@ -9712,6 +9712,10 @@
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
             "hash": "a38400793837bdc8dceafd3aad7bea347825b49bcfd756b933a529a66a0e1461",
+            "date": "2025-03-26"
+        },
+        "reference/datasheets/e-series/electron-2-datasheet.md": {
+            "hash": "9b551cca59a44aabc3b5a2335cf59b3d37e2c6c9011d76867a900c3b0bb1dd61",
             "date": "2025-03-26"
         }
     }

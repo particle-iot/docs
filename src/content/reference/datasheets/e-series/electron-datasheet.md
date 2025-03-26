@@ -634,6 +634,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Afghanistan | ELC314 | 2G, 3G | MTN |
+| Albania | ELC524EM | 4G | Eagle, Telekom, Vodafone |
 | Albania | ELC314 | 2G, 3G | Eagle, Telekom, Vodafone |
 | Algeria | ELC314 | 2G, 3G | Mobilis, Ooredoo |
 | Anguilla | ELC314 | 2G, 3G | Flow |
@@ -641,6 +642,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Argentina | ELC314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | ELC314 | 2G, 3G | Beeline, Ucom |
 | Aruba | ELC314 | 2G, 3G | Setar |
+| Austria | ELC524EM | 4G | 3 (Drei), A1, T-Mobile |
 | Austria | ELC314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | ELC314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | ELC314 | 2G, 3G | Aliv, BTC Bahamas |
@@ -648,6 +650,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Bangladesh | ELC314 | 2G, 3G | Bangalink, GrameenPhone |
 | Barbados | ELC314 | 2G, 3G | Flow |
 | Belarus | ELC314 | 2G, 3G | A1 |
+| Belgium | ELC524EM | 4G | Base, Orange, Proximus |
 | Belgium | ELC314 | 2G, 3G | Base, Orange, Proximus |
 | Belize | ELC314 | 3G | Smart |
 | Bolivia | ELC314 | 2G, 3G | Viva |
@@ -656,6 +659,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Bulgaria | ELC314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | ELC314 | 2G, 3G | Orange |
 | Cambodia | ELC314 | 2G, 3G | Metfone |
+| Canada | ELC504EM | 4G | Bell Mobility, Rogers Wireless, Telus, Videotron |
 | Canada | ELC404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | ELC314 | 2G, 3G | Flow |
 | Chad | ELC314 | 2G, 3G | Airtel |
@@ -665,27 +669,36 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Congo (Kinshasa) | ELC314 | 2G, 3G | Airtel |
 | Costa Rica | ELC314 | 3G | Movistar |
 | Côte d'Ivoire | ELC314 | 2G, 3G | MTN |
+| Croatia | ELC524EM | 4G | Hrvatski Telekom, Tele2 |
 | Croatia | ELC314 | 2G, 3G | Hrvatski Telekom, Tele2 |
 | Cyprus | ELC314 | 2G, 3G | Cytamobile-Vodafone, MTN |
+| Czechia | ELC524EM | 4G | O2, T-Mobile, Vodafone |
 | Czechia | ELC314 | 2G | O2, T-Mobile, Vodafone |
+| Denmark | ELC524EM | 4G | 3 (Tre), TDC, Telenor, Telia |
 | Denmark | ELC314 | 2G, 3G | 3 (Tre), TDC, Telenor, Telia |
 | Dominica | ELC314 | 2G, 3G | Flow |
 | Dominican Republic | ELC314 | 2G, 3G | Altice Dominicana, Claro, Viva |
 | Ecuador | ELC314 | 2G, 3G | Claro, Movistar |
 | Egypt | ELC314 | 2G, 3G | Etisalat, Orange |
 | El Salvador | ELC314 | 2G, 3G | Claro, Telefonica |
+| Estonia | ELC524EM | 4G | Elisa, Tele2, Telia |
 | Estonia | ELC314 | 2G, 3G | Elisa, Tele2, Telia |
 | eSwatini | ELC314 | 2G, 3G | MTN |
 | Ethiopia | ELC314 | 2G, 3G | Ethio Telecom |
 | Faroe Islands | ELC314 | 2G, 3G | Faroese Telecom, Vodafone |
+| Finland | ELC524EM | 4G | DNA, Elisa, Telia |
 | Finland | ELC314 | 2G | DNA, Elisa, Telia |
+| France | ELC524EM | 4G | Bouygues, Free Mobile, Orange, SFR |
 | France | ELC314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | ELC314 | 2G, 3G | Digicel |
 | Gabon | ELC314 | 2G, 3G | Airtel |
 | Georgia | ELC314 | 2G, 3G | Beeline, Geocell |
+| Germany | ELC524EM | 4G | O2, Telekom, Vodafone |
 | Germany | ELC314 | 2G, 3G | O2, Telekom, Vodafone |
 | Ghana | ELC314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
+| Gibraltar | ELC524EM | 4G | Gibtel |
 | Gibraltar | ELC314 | 2G, 3G | Gibtel |
+| Greece | ELC524EM | 4G | Cosmote, Vodafone, Wind |
 | Greece | ELC314 | 2G | Cosmote, Vodafone, Wind |
 | Grenada | ELC314 | 2G | Flow |
 | Guadeloupe | ELC314 | 2G, 3G | Orange |
@@ -696,36 +709,51 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Haiti | ELC314 | 2G, 3G | Digicel |
 | Honduras | ELC314 | 2G, 3G | Claro, Tigo |
 | Hong Kong | ELC314 | 2G, 3G | CSL, SmarTone |
+| Hungary | ELC524EM | 4G | Magyar Telekom, Telenor, Vodafone |
 | Hungary | ELC314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
+| Iceland | ELC524EM | 4G | Nova, Siminn, Vodafone |
 | Iceland | ELC314 | 2G, 3G | Nova, Siminn, Vodafone |
 | Indonesia | ELC314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
+| Ireland | ELC524EM | 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Ireland | ELC314 | 2G, 3G | Meteor, O2, Vodafone |
 | Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
+| Italy | ELC524EM | 4G | TIM, Vodafone, Wind |
 | Italy | ELC314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | ELC314 | 2G, 3G | Digicel, Flow |
 | Japan | ELC314 | 3G | NTT DoCoMo |
+| Jersey | ELC524EM | 4G | Jersey Telecom |
 | Jordan | ELC314 | 2G, 3G | Zain |
 | Kazakhstan | ELC314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | ELC314 | 2G, 3G | Airtel |
 | Kuwait | ELC314 | 2G, 3G | Viva, Zain |
 | Kyrgyzstan | ELC314 | 2G, 3G | Beeline |
+| Latvia | ELC524EM | 4G | Bite, LMT, Tele2 |
 | Latvia | ELC314 | 2G, 3G | Bite, LMT, Tele2 |
+| Liechtenstein | ELC524EM | 4G | Mobilkom, Orange |
 | Liechtenstein | ELC314 | 2G, 3G | Mobilkom, Orange |
+| Lithuania | ELC524EM | 4G | Bite, Omnitel, Tele2 |
 | Lithuania | ELC314 | 2G, 3G | Bite, Omnitel, Tele2 |
+| Luxembourg | ELC524EM | 4G | Orange, POST, Tango |
 | Luxembourg | ELC314 | 2G, 3G | Orange, POST, Tango |
 | Malawi | ELC314 | 2G, 3G | Airtel |
 | Malaysia | ELC314 | 2G, 3G | Celcom, DiGi, Maxis |
+| Malta | ELC524EM | 4G | Go Mobile, Vodafone |
 | Malta | ELC314 | 2G, 3G | Go Mobile, Vodafone |
+| Mexico | ELC504EM | 4G | AT&T, Telcel |
 | Mexico | ELC404 | M1 | AT&T, Telcel |
 | Moldova | ELC314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | ELC314 | 2G, 3G | Mobicom, Unitel |
+| Montenegro | ELC524EM | 4G | Mtel, T-Mobile, Telenor |
 | Montenegro | ELC314 | 2G, 3G | Mtel, T-Mobile, Telenor |
 | Mozambique | ELC314 | 2G, 3G | Vodacom |
 | Myanmar | ELC314 | 2G, 3G | MPT, Telenor |
 | Namibia | ELC314 | 2G, 3G | Telecom Namibia |
+| Netherlands | ELC524EM | 4G | KPN, T-Mobile, Vodafone |
 | Netherlands | ELC314 | 2G, 3G | KPN, T-Mobile, Vodafone |
 | Nicaragua | ELC314 | 2G, 3G | Movistar |
 | Nigeria | ELC314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
+| North Macedonia | ELC524EM | 4G | Vip operator |
+| Norway | ELC524EM | 4G | TDC, Telenor, Telia |
 | Norway | ELC314 | 2G, 3G | TDC, Telenor, Telia |
 | Pakistan | ELC314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | ELC314 | 2G, 3G | Jawwal |
@@ -734,25 +762,34 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Paraguay | ELC314 | 2G, 3G | Claro, Personal, Tigo, Vox |
 | Peru | ELC314 | 2G, 3G | Claro, Entel, Movistar |
 | Philippines | ELC314 | 2G, 3G | Globe, Smart |
+| Poland | ELC524EM | 4G | Orange, Play, Plus, T-Mobile |
 | Poland | ELC314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
+| Portugal | ELC524EM | 4G | NOS, TMN, Vodafone |
 | Portugal | ELC314 | 2G, 3G | NOS, TMN, Vodafone |
 | Qatar | ELC314 | 2G, 3G | Ooredoo, Vodafone |
+| Romania | ELC524EM | 4G | Orange, Telekom Romania, Vodafone |
 | Romania | ELC314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | ELC314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | ELC314 | 3G | Flow |
+| Serbia | ELC524EM | 4G | Telenor, VIP |
 | Serbia | ELC314 | 2G, 3G | Telenor, VIP |
 | Sint Maarten | ELC314 | 2G, 3G | TelCell |
+| Slovakia | ELC524EM | 4G | O2, Orange, Telekom |
 | Slovakia | ELC314 | 2G | O2, Orange, Telekom |
+| Slovenia | ELC524EM | 4G | A1, Mobitel |
 | Slovenia | ELC314 | 2G, 3G | A1, Mobitel |
 | South Africa | ELC314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | ELC314 | 3G | KT, SK Telecom |
 | South Sudan | ELC314 | 2G, 3G | MTN |
+| Spain | ELC524EM | 4G | Orange, Telefonica, Vodafone, Yoigo |
 | Spain | ELC314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | ELC314 | 2G, 3G | Dialog, Mobitel |
 | Suriname | ELC314 | 2G, 3G | Telesur |
+| Sweden | ELC524EM | 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Sweden | ELC314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | ELC524EM | 4G | Salt, Sunrise, Swisscom |
 | Switzerland | ELC314 | 3G | Salt, Sunrise, Swisscom |
 | Taiwan | ELC314 | 3G | Chunghwa, T Star, Taiwan Mobile |
 | Tajikistan | ELC314 | 2G, 3G | Beeline, Tcell |
@@ -763,7 +800,9 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Turks and Caicos Islands | ELC314 | 2G, 3G | Flow |
 | Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | ELC314 | 2G, 3G | Kyivstar, Life, MTS |
+| United Kingdom | ELC524EM | 4G | 3, EE, Manx, O2, Vodafone |
 | United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
+| United States | ELC504EM | 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | United States | ELC404 | M1 | AT&T, T-Mobile (USA) |
 | Uruguay | ELC314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | ELC314 | 2G, 3G | Beeline |
