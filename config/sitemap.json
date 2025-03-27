@@ -1279,7 +1279,7 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-03-26",
+            "date": "2025-03-27",
             "hash": "3151531126a79f2988cbce25f9f90f40478b067116635f12b5a312d15f773816"
         },
         "reference/device-os/pin-info.md": {
@@ -1388,7 +1388,7 @@
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
             "date": "2025-03-27",
-            "hash": "3f7ad5b351c35ec84e6053bc02885bc6fc0b7e11fc47afeae65728e6cec1052a"
+            "hash": "4b682a1ad69e3931ee95f18b26193666abeca248e3dc003ca1bad162c9d0520e"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-03-21",
@@ -1535,7 +1535,7 @@
             "hash": "0f9596b49fc12d3869bc93b8347d5e91922eb2efb60c158a04e46c8ef7706946"
         },
         "troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards.md": {
-            "date": "2024-10-28",
+            "date": "2025-03-27",
             "hash": "648668f373bba055b04e9f5e8d1a290757a31f3e22fe067bc7f0e453b59ab9b2"
         },
         "troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide.md": {
@@ -3167,7 +3167,7 @@
             "hash": "e669bf1e59ac9b1556bc3b386bc473649dae063a8f56e2912dc0ec2a603b9be7"
         },
         "reference/device-os/api/servo/attach.md": {
-            "date": "2025-03-26",
+            "date": "2025-03-27",
             "hash": "8b4120c8557a583ebe46069ba1ce72d4cfa08a53895f45a7a43590cf49b246b4"
         },
         "reference/device-os/api/servo/write.md": {
@@ -8224,7 +8224,7 @@
         },
         "getting-started/new.md": {
             "hash": "7959d14baf945bdbe5fd452cb25d7dc5bba53327ac4e3548888eee1a790cc8cb",
-            "date": "2025-03-21"
+            "date": "2025-03-27"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8392,11 +8392,11 @@
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
             "hash": "2ec6a47e2ea3affe8f190e16f840f7afb3c403a3911d0dd8fce843e46f8feed8",
-            "date": "2025-03-25"
+            "date": "2025-03-27"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "477dd2eedeae8a00c63501c912da3a82804e52f95004a2879bdc45b345d30029",
-            "date": "2025-03-25"
+            "date": "2025-03-27"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9084,7 +9084,7 @@
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
             "hash": "6025514cbfba1721d40bbe46feb8e49149d34adf3f7cf03f71ff3ccd351fee6e",
-            "date": "2025-03-25"
+            "date": "2025-03-27"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9460,7 +9460,7 @@
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
             "hash": "55bd1c2cb4b7379251deb05c78ed7a08c0873a6129078cd39587475fff8ccef6",
-            "date": "2025-03-25"
+            "date": "2025-03-27"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -9708,14 +9708,14 @@
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "df4835307472340d2e1760f2f0b83d3ef15be9426e0e6a3d250b78516f0ff6c4",
-            "date": "2025-03-25"
+            "date": "2025-03-27"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
             "hash": "da62ed30085cd5db0fcab898450cd3722d55548d0de0db7cd37f5aac2bb5b4d8",
             "date": "2025-03-27"
         },
         "reference/datasheets/e-series/electron-2-datasheet.md": {
-            "hash": "8f9dfab494bee0bd78941db03c2ec4a9054f68e455a15b5e2baabcb0c490baad",
+            "hash": "f819908f68fd038034ee38e154413b830006dd9ae8144c29d51ca0669448b522",
             "date": "2025-03-27"
         }
     }
