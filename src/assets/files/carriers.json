@@ -32615,7 +32615,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Afghanistan",
@@ -33659,7 +33659,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Algeria",
@@ -35324,7 +35324,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Antigua and Barbuda",
@@ -35941,7 +35941,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Argentina",
@@ -38067,7 +38067,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "POSS"
+      "recommendation": "YES"
     },
     {
       "country": "Australia",
@@ -38139,7 +38139,8 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "NR",
+      "reason": "Poor band fit"
     },
     {
       "country": "Australia",
@@ -42963,7 +42964,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Barbados",
@@ -43535,7 +43536,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Belarus",
@@ -46197,7 +46198,7 @@
       "country": "Bermuda",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -47305,7 +47306,7 @@
       "country": "Bosnia and Herzegovina",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -47618,7 +47619,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Botswana",
@@ -48168,7 +48169,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "roamingRestrictions": "warn"
     },
     {
@@ -48465,7 +48466,7 @@
       "country": "Brazil",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -49372,7 +49373,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "YES"
+      "recommendation": "NR"
     },
     {
       "country": "Bulgaria",
@@ -50015,7 +50016,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Burkina Faso",
@@ -50638,7 +50639,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Cabo Verde",
@@ -51127,7 +51128,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Cambodia",
@@ -53158,7 +53159,7 @@
       "country": "Canada",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -54613,7 +54614,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Cayman Islands",
@@ -54635,13 +54636,13 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Cayman Islands",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -54687,7 +54688,7 @@
       "country": "Cayman Islands",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -55875,7 +55876,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Chile",
@@ -56080,7 +56081,7 @@
       "country": "Chile",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -57280,7 +57281,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Colombia",
@@ -58830,7 +58831,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Costa Rica",
@@ -58966,7 +58967,7 @@
       "country": "Costa Rica",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -64837,7 +64838,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Dominican Republic",
@@ -66093,7 +66094,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Egypt",
@@ -66233,7 +66234,7 @@
       "country": "Egypt",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -68487,7 +68488,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "eSwatini",
@@ -68926,7 +68927,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Ethiopia",
@@ -69313,7 +69314,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "YES"
+      "recommendation": "NR"
     },
     {
       "country": "Faroe Islands",
@@ -72619,7 +72620,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "French Guiana",
@@ -78805,7 +78806,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Grenada",
@@ -78821,14 +78822,13 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Grenada",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -78861,8 +78861,7 @@
       "country": "Grenada",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -78895,8 +78894,7 @@
       "country": "Grenada",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "Not officially supported, may work but is untested",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -79242,7 +79240,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Guadeloupe",
@@ -79358,7 +79356,7 @@
       "country": "Guadeloupe",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "Not officially supported, may work but is untested",
       "technologies": [],
       "supported": {},
@@ -79653,7 +79651,7 @@
       "country": "Guam",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -80798,7 +80796,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Guinea",
@@ -81194,7 +81192,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Guinea-Bissau",
@@ -81622,7 +81620,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Guyana",
@@ -81873,7 +81871,7 @@
       "country": "Guyana",
       "modem": "U260",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -82009,7 +82007,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Haiti",
@@ -82029,7 +82027,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Haiti",
@@ -82127,7 +82125,7 @@
       "country": "Haiti",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "Not officially supported, may work but is untested",
       "technologies": [],
       "supported": {},
@@ -82315,7 +82313,7 @@
       "country": "Haiti",
       "modem": "U260",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -83405,7 +83403,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Hong Kong",
@@ -83607,7 +83605,7 @@
       "country": "Hong Kong",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -91624,7 +91622,7 @@
       "country": "Jamaica",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -91676,7 +91674,7 @@
       "country": "Jamaica",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -92484,7 +92482,8 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "NR",
+      "reason": "Not certified for use in Japan."
     },
     {
       "country": "Japan",
@@ -92583,7 +92582,8 @@
         ]
       },
       "technologies": [],
-      "recommendation": "NR"
+      "recommendation": "NR",
+      "reason": "No supported bands. Not certified for use in Japan."
     },
     {
       "country": "Japan",
@@ -93466,7 +93466,7 @@
       "country": "Japan",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -94902,7 +94902,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Kazakhstan",
@@ -101885,7 +101885,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Macao",
@@ -106339,7 +106339,8 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "NR",
+      "reason": "Poor band fit"
     },
     {
       "country": "Mexico",
@@ -106676,7 +106677,7 @@
       "country": "Mexico",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -107352,7 +107353,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Moldova",
@@ -108113,7 +108114,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Mongolia",
@@ -109717,7 +109718,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Morocco",
@@ -111239,7 +111240,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Namibia",
@@ -114200,7 +114201,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "POSS"
+      "recommendation": "YES"
     },
     {
       "country": "New Zealand",
@@ -114589,7 +114590,7 @@
       "country": "New Zealand",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued, upcoming 2G/3G shutdown",
       "technologies": [],
       "supported": {},
@@ -115380,7 +115381,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Nicaragua",
@@ -119520,7 +119521,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Pakistan",
@@ -120533,7 +120534,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Panama",
@@ -120558,7 +120559,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Panama",
@@ -126476,7 +126477,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "YES"
+      "recommendation": "NR"
     },
     {
       "country": "Puerto Rico",
@@ -126548,7 +126549,7 @@
       "country": "Puerto Rico",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -126570,7 +126571,7 @@
       "country": "Puerto Rico",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -126711,7 +126712,7 @@
       "country": "Puerto Rico",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -126743,7 +126744,7 @@
       "country": "Puerto Rico",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -126765,7 +126766,7 @@
       "country": "Puerto Rico",
       "modem": "U260",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -130409,7 +130410,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Rwanda",
@@ -131218,13 +131219,13 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Saint Kitts and Nevis",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -131281,7 +131282,7 @@
       "country": "Saint Kitts and Nevis",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -131728,7 +131729,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Saint Lucia",
@@ -131746,13 +131747,13 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Saint Lucia",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -131790,7 +131791,7 @@
       "country": "Saint Lucia",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -132428,7 +132429,7 @@
       "country": "Saint Vincent and the Grenadines",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -132466,7 +132467,7 @@
       "country": "Saint Vincent and the Grenadines",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -132526,7 +132527,7 @@
       "country": "Saint Vincent and the Grenadines",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -135534,7 +135535,7 @@
       "country": "Seychelles",
       "modem": "R410",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -141620,7 +141621,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "South Sudan",
@@ -144663,7 +144664,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Suriname",
@@ -147658,7 +147659,7 @@
       "country": "Switzerland",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -148604,7 +148605,7 @@
       "country": "Taiwan",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -148706,7 +148707,7 @@
       "country": "Taiwan",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -149175,7 +149176,7 @@
       "country": "Taiwan",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -149497,7 +149498,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Tajikistan",
@@ -150959,7 +150960,7 @@
       "country": "Thailand",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -152109,7 +152110,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Trinidad and Tobago",
@@ -152139,7 +152140,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Trinidad and Tobago",
@@ -152776,7 +152777,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Tunisia",
@@ -154336,7 +154337,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -154356,13 +154357,13 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Turks and Caicos Islands",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -154404,7 +154405,7 @@
       "country": "Turks and Caicos Islands",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "May work on Digicel",
       "technologies": [],
       "supported": {},
@@ -156213,7 +156214,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "roamingRestrictions": "warn"
     },
     {
@@ -156406,7 +156407,7 @@
       "country": "United Arab Emirates",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -160676,7 +160677,7 @@
       "country": "United States",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G/3G sunset in NorAm coming soon",
       "technologies": [],
       "supported": {},
@@ -160763,7 +160764,7 @@
       "country": "United States",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G/3G sunset in NorAm coming soon",
       "technologies": [],
       "supported": {},
@@ -160941,7 +160942,7 @@
       "country": "United States",
       "modem": "U260",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -161263,7 +161264,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Uruguay",
@@ -161493,7 +161494,7 @@
       "country": "Uruguay",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G-only model discontinued",
       "technologies": [],
       "supported": {},
@@ -163060,7 +163061,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR"
+      "recommendation": "POSS"
     },
     {
       "country": "Vietnam",
@@ -163645,7 +163646,7 @@
         ]
       },
       "technologies": [],
-      "recommendation": "POSS"
+      "recommendation": "NR"
     },
     {
       "country": "Virgin Islands (British)",

@@ -860,7 +860,6 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Portugal | NOS | &check; | &check; | &check; | &nbsp; |
 | Portugal | TMN | &check; | &check; | &check; | &nbsp; |
 | Portugal | Vodafone | &check; | &check; | &check; | &nbsp; |
-| Puerto Rico | Claro | &check; | &check; | &nbsp; | &nbsp; |
 | Qatar | Ooredoo | &check; | &check; | &check; | &nbsp; |
 | Qatar | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Réunion | SFR | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -939,8 +938,8 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | United Kingdom | Sure | &nbsp; | &check; | &check; | &nbsp; |
 | United Kingdom | Vodafone | &check; | &check; | &check; | &nbsp; |
 | United States | Alaska Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
-| United States | AT&T | &check; | &nbsp; | &nbsp; | &check; |
-| United States | T-Mobile (USA) | &check; | <sup>NRND</sup> | &nbsp; | &check; |
+| United States | AT&T | &nbsp; | &nbsp; | &nbsp; | &check; |
+| United States | T-Mobile (USA) | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
 | United States | Union Telephone | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Uruguay | Antel | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Uruguay | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |

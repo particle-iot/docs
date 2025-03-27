@@ -62,6 +62,37 @@ The Nordic nRF52840 MCU consumption is the same across all Boron, B-SoM, and Ele
 
 ### Li+ Power
 
+There are changes between the Boron and Electron 2 with regards to Li+.
+
+#### Li+ with external battery
+
+If you are using an external LiPo battery and wish to use the built-in charger on the Electron 2,
+changes will be necessary from the Boron as you must simulate having a temperature
+sensor in the valid charging range to enable charging.
+
+This can be done using a solder jumper on the bottom of the Electron 2. It consists
+of two half-moon shaped pads that must be soldered closed and will allow charging at
+any temperature with battery packs or external supplies that do not have a temperature sensor.
+
+{{imageOverlay src="/assets/images/electron-2/ts-pad.png" alt="ts solder jumper" class="full-width"}}
+
+<p class="attribution">Facing bottom side of the Electron 2 with the battery connector on the left</p>
+
+#### Li+ as power input
+
+When used as a power input (3.6 to 4.2 VDC), on the Boron it was necessary to disable charging in software 
+through the PMIC settings. This is not necessary with the Electron 2 as charging will automatically be
+disabled in hardware because the battery temperature sensor will be missing and will signal out of valid
+temperature range in this case, disabling charging.
+
+
+### SIM card
+
+The Electron 2 does not have a 4FF plastic SIM card socket for use with an external SIM card. 
+
+The Electron 2 has a programmable e-sim in place of the MFF2 SMD Particle EtherSIM. The e-sim is not user-programmable.
+
+The carriers programmed into the e-sim on the Electron 2 are identical to the BRN404X, BRN404, and BRN314, however.
 
 
 ### Platform
@@ -112,13 +143,4 @@ design specification.
 
 There are no changes the Feather pins for ports and GPIO.
 
-
-### Cellular providers
-
-The Electron 2 has a programmable e-sim in place of the MFF2 SMD Particle EtherSIM. The e-sim is not user-programmable.
-
-The carriers programmed into the e-sim on the Electron 2 are identical to the BRN404X, BRN404, and BRN314, however.
-
-The Electron 2 does not have a 4FF plastic SIM card socket for use with an external SIM card. It can only be used 
-with the built-in EtherSIM.
 

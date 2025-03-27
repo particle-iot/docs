@@ -642,6 +642,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Argentina | ELC314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | ELC314 | 2G, 3G | Beeline, Ucom |
 | Aruba | ELC314 | 2G, 3G | Setar |
+| Australia | ELC524EM | 4G | Optus, Telstra, Vodafone |
 | Austria | ELC524EM | 4G | 3 (Drei), A1, T-Mobile |
 | Austria | ELC314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | ELC314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
@@ -750,6 +751,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Namibia | ELC314 | 2G, 3G | Telecom Namibia |
 | Netherlands | ELC524EM | 4G | KPN, T-Mobile, Vodafone |
 | Netherlands | ELC314 | 2G, 3G | KPN, T-Mobile, Vodafone |
+| New Zealand | ELC524EM | 4G | 2degrees, Spark, Vodafone |
 | Nicaragua | ELC314 | 2G, 3G | Movistar |
 | Nigeria | ELC314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | North Macedonia | ELC524EM | 4G | Vip operator |

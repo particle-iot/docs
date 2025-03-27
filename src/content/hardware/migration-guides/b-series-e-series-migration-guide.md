@@ -1513,7 +1513,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Israel | &check; | &check; | &nbsp; | &check; |
 | Italy | &check; | &check; | &nbsp; | &check; |
 | Jamaica | &check; | &check; | &nbsp; | &nbsp; |
-| Japan | &check; | &check; | &nbsp; | &nbsp; |
+| Japan | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Jersey | &check; | &check; | &nbsp; | &nbsp; |
 | Jordan | &nbsp; | &check; | &nbsp; | &check; |
 | Kazakhstan | &check; | &nbsp; | &nbsp; | &check; |
@@ -1556,7 +1556,6 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Philippines | &check; | &check; | &nbsp; | &nbsp; |
 | Poland | &check; | &check; | &nbsp; | &check; |
 | Portugal | &check; | &check; | &nbsp; | &check; |
-| Puerto Rico | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Qatar | &check; | &check; | &nbsp; | &check; |
 | Réunion | &check; | &check; | &nbsp; | &nbsp; |
 | Romania | &check; | &check; | &nbsp; | &check; |
@@ -1584,7 +1583,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Svalbard and Jan Mayen | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Sweden | &check; | &check; | &nbsp; | &check; |
 | Switzerland | &check; | &check; | &nbsp; | &check; |
-| Taiwan | &check; | &check; | &nbsp; | &check; |
+| Taiwan | &check; | &nbsp; | &nbsp; | &check; |
 | Tanzania | &check; | &check; | &nbsp; | &check; |
 | Thailand | &check; | &check; | &nbsp; | &check; |
 | Togo | &nbsp; | &check; | &nbsp; | &nbsp; |
@@ -1595,7 +1594,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Ukraine | &check; | &check; | &nbsp; | &nbsp; |
 | United Arab Emirates | &check; | &nbsp; | &nbsp; | &nbsp; |
 | United Kingdom | &check; | &check; | &nbsp; | &check; |
-| United States | NRND | NRND | &check; | &nbsp; |
+| United States | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Uruguay | &check; | &check; | &nbsp; | &nbsp; |
 | Uzbekistan | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Venezuela | &check; | &check; | &nbsp; | &nbsp; |
