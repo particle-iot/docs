@@ -552,6 +552,20 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);        
     }
 
+    updater.resolveNestedKey = function(key, obj) {
+
+        for(const keyPart of key.split('.')) {
+            if (typeof obj == 'undefined') {
+                break;
+            }
+
+            obj = obj[keyPart];
+        }
+
+        return obj;
+    }
+
+
     updater.generateGroupTable = function(options, tableData) {
         // options.
         //  .leftColumns array of column objects
@@ -560,47 +574,158 @@ const generatorConfig = require('./generator-config');
         // column object:
         //  .title key for column header
         //  .key key for data in tableData
-
-        // group object: 
-        //  .title name of group
         //  .backgroundColor background color of group bar header
         //  .textColor text color of group bar header
-        //  .key key for this group in tableData
-        //  .columns column objects within this group (keys are relative to this group)        
+
+        // group objects:
+        //  .title key for column header
+        //  .key key for data in tableData
+        //  .backgroundColor background color of group bar header
+        //  .textColor text color of group bar header
+        //  .columns column object for each column
+
+
+        console.log('generateGroupTable', options);
 
         let html = '';
+
+        html += '<table>\n';
+
+        html += '<thead>\n';
+
+        {
+            // Top header row, containing the group titles
+            html += '<tr>';
+
+            for(const colObj of options.leftColumns) {
+                html += '<th>&nbsp;</th>';
+            }
+            for(const groupObj of options.groups) {
+                html += '<th colspan="' + groupObj.columns.length + '">' + groupObj.title + '</th>';
+            }
+
+            html += '</tr>\n';    
+        }
+        {
+            // Bottom row, containing the individual fields
+            html += '<tr>';
+
+            for(const colObj of options.leftColumns) {
+                html += '<th>' + colObj.title + '</th>';
+            }
+            for(const groupObj of options.groups) {
+                for(const colObj of groupObj.columns) {
+                    html += '<th>&nbsp;</th>';
+                }                    
+            }
+
+            html += '</tr>\n';    
+        }
+
+
+        html += '</thead>\n';
+
+        html += '<tbody>\n';
+
+        for(let rowNum = 0; rowNum < tableData.length; rowNum++) {
+            const rowObj = tableData[rowNum];
+
+            html += '<tr>\n';
+
+            for(const colObj of options.leftColumns) {
+                html += '<td>' + rowObj[colObj.key] + '</td>';
+            }
+            for(const groupObj of options.groups) {
+                for(const colObj of groupObj.columns) {
+                    let s = updater.resolveNestedKey(colObj.key, rowObj);
+                    if (typeof s == 'undefined') {
+                        s = '&nbsp;';
+                    }
+                    html += '<td>' + s + '</td>';
+                }                    
+            }
+
+            
+        
+            html += '</tr>\n';
+        }
+
+        html += '</tbody>\n';
+
+
+        html += '</table>\n';
 
         return html;
     }
 
     updater.generateCountryModelComparison = function(optionsIn) {
         // optionsIn.
-        //  .models array of model objects (modem and sim)
+        //  .groups array of model objects (modem and sim)
 
-        // model objects:
+        // model/group objects:
         //  .modem Moden name (from the modems table, like "R510")
         //  .sim sim ID (numeric, like 4 = EtherSIM)
+        //  .title key for group column header
+        //  .backgroundColor background color of group bar header
+        //  .textColor text color of group bar header
+        //  .columns column object for each column
         const options = Object.assign({}, optionsIn);
 
         const countryData = {};
 
-        for(const modelObj of optionsIn.models) {
+        const getModelKey = function(modelObj) {
+            return (typeof modelObj.key != 'undefined') ? modelObj.key : (modelObj.modem + modelObj.sim);
+        }
+
+        for(const modelObj of options.groups) {
             for(const cmsObj of updater.datastore.data.countryModemSim) {
                 if (cmsObj.modem != modelObj.modem || cmsObj.sim != modelObj.sim) {
                     continue;
                 }
+                if (cmsObj.roamingRestrictions == 'hide') {
+                    continue;
+                }
+                let recommendation;
+
                 switch(cmsObj.recommendation) {
                     case 'YES':
+                        recommendation = '\u2705'; // Green Check
                         break;
-                        
+
                     case 'NS':
                     case 'POSS':
+                        recommendation = '\u2753'; // Red question mark
                         break;
                     
                     default:
                         // Omit
                         break;
                 }
+
+                if (!recommendation) {
+                    continue;
+                }
+                let carriers = [];
+                for(const carrier in cmsObj.supported) {
+                    if (carrier != '*') {
+                        carriers.push(carrier);
+                    }
+                }
+                // TODO: possibly also add bands in supported['*']
+                carriers.sort();
+
+                if (!countryData[cmsObj.country]) {
+                    countryData[cmsObj.country] = {
+                        country: cmsObj.country,
+                    };
+                }
+                countryData[cmsObj.country][getModelKey(modelObj)] = {
+                    recommendation,
+                    reason: cmsObj.reason,
+                    roamingRestrictions: cmsObj.roamingRestrictions,
+                    technologies: cmsObj.technologies.join(', '),                    
+                    carriers: carriers.join(', '),
+                };
             }                
         }
 
@@ -608,6 +733,13 @@ const generatorConfig = require('./generator-config');
         // Sort table data
         let tableData = [];
 
+        const countries = Object.keys(countryData);
+        countries.sort();
+        for(const country of countries) {
+            tableData.push(countryData[country]);
+        }
+
+        // console.log('generateCountryModelComparison', tableData);
 
         return updater.generateGroupTable(options, tableData);
     }

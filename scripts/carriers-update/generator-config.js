@@ -770,6 +770,62 @@ const schemaDocs = require('./schema-docs');
         },
         // Electron 2
         {
+            guid:'c13cd883-4df5-4de7-868e-5999c8650ce4',
+            generatorFn:function(updater) {
+                return updater.generateCountryModelComparison({
+                    leftColumns: [
+                        {
+                            title: 'Country',
+                            key: 'country',    
+                        },
+                    ],
+                    groups: [
+                        {
+                            key: 'na',
+                            modem: 'EG800Q-NA',
+                            sim: 4,
+                            backgroundColor: '#AFE4EE', // COLOR_Sky_600
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'na.recommendation',
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'na.technologies',
+                                },
+                                {
+                                    title: 'Carriers',
+                                    key: 'na.carriers',
+                                },
+                            ],
+                        },
+                        {
+                            key: 'eu',
+                            modem: 'EG800Q-EU',
+                            sim: 4,
+                            backgroundColor: '#89E2B3', // COLOR_Mint_600
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'eu.recommendation',
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'eu.technologies',
+                                },
+                                {
+                                    title: 'Carriers',
+                                    key: 'eu.carriers',
+                                },
+                            ],
+                        }
+                    ],
+                }); 
+            } 
+        },
+        // These are temporary:
+        {
             guid:'ea0684ac-2a13-4c12-bf54-bcb194a3e311',
             generatorFn:function(updater) {
                 return updater.generateCountryList(null, {
