@@ -775,6 +775,9 @@ const schemaDocs = require('./schema-docs');
                 return updater.generateCountryModelComparison({
                     leftColumns: [
                         {
+                            rowFlag: true,
+                        },
+                        {
                             title: 'Country',
                             key: 'country',    
                         },
@@ -782,18 +785,21 @@ const schemaDocs = require('./schema-docs');
                     groups: [
                         {
                             key: 'na',
+                            title: 'ELC504EM (NorAm)',
                             modem: 'EG800Q-NA',
                             sim: 4,
                             backgroundColor: '#AFE4EE', // COLOR_Sky_600
+                            textColor: '#001928', // Midnight_700
                             columns: [
                                 {
                                     title: 'Rec',
                                     key: 'na.recommendation',
+                                    roamingRestrictionsKey: 'na.roamingRestrictions',  
                                 },
-                                {
+                                /*{
                                     title: 'Technologies',
                                     key: 'na.technologies',
-                                },
+                                },*/
                                 {
                                     title: 'Carriers',
                                     key: 'na.carriers',
@@ -801,19 +807,25 @@ const schemaDocs = require('./schema-docs');
                             ],
                         },
                         {
+                            separator: '6px',
+                        },
+                        {
                             key: 'eu',
+                            title: 'ELC524EM (Europe)',
                             modem: 'EG800Q-EU',
                             sim: 4,
                             backgroundColor: '#89E2B3', // COLOR_Mint_600
+                            textColor: '#001928', // Midnight_700
                             columns: [
                                 {
                                     title: 'Rec',
                                     key: 'eu.recommendation',
+                                    roamingRestrictionsKey: 'eu.roamingRestrictions',  
                                 },
-                                {
+                                /*{
                                     title: 'Technologies',
-                                    key: 'eu.technologies',
-                                },
+                                    key: 'na.technologies',
+                                },*/
                                 {
                                     title: 'Carriers',
                                     key: 'eu.carriers',

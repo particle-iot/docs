@@ -553,6 +553,9 @@ const generatorConfig = require('./generator-config');
     }
 
     updater.resolveNestedKey = function(key, obj) {
+        if (typeof key != 'string') {
+            return undefined;
+        }
 
         for(const keyPart of key.split('.')) {
             if (typeof obj == 'undefined') {
@@ -563,6 +566,56 @@ const generatorConfig = require('./generator-config');
         }
 
         return obj;
+    }
+
+    updater.escapeHtml = function(str) {
+        // https://www.30secondsofcode.org/js/s/escape-unescape-html/
+        return str.replace(
+            /[&<>'"]/g,
+            tag =>
+            ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag)
+        );
+    }
+
+    updater.renderTagWithStyle = function(options) {
+        // options
+        //  .tag HTML tag, such as td or th
+        //  .styleObj Column or group object with styles (like backgroundColor and textColor)
+        //  .contents The contents of the tag
+
+        let html = '';
+
+        html += '<' + options.tag + ' ';
+
+        if (options.attributes) {
+            html += options.attributes + ' ';
+        }
+
+        if (options.styleObj) {
+            html += 'style="';
+            if (options.styleObj.backgroundColor) {
+                html += 'background-color: ' + options.styleObj.backgroundColor + '; ';
+            }
+            if (options.styleObj.textColor) {
+                html += 'color: ' + options.styleObj.textColor + '; ';
+            }
+            html += '" ';
+        }
+        html += '>';
+
+        if (options.contents) {
+            html += updater.escapeHtml(options.contents);
+        }
+
+        html += '</' + options.tag + '>';
+
+        return html;
     }
 
 
@@ -584,9 +637,6 @@ const generatorConfig = require('./generator-config');
         //  .textColor text color of group bar header
         //  .columns column object for each column
 
-
-        console.log('generateGroupTable', options);
-
         let html = '';
 
         html += '<table>\n';
@@ -598,10 +648,20 @@ const generatorConfig = require('./generator-config');
             html += '<tr>';
 
             for(const colObj of options.leftColumns) {
-                html += '<th>&nbsp;</th>';
+                html += '<td>&nbsp;</td>';
             }
             for(const groupObj of options.groups) {
-                html += '<th colspan="' + groupObj.columns.length + '">' + groupObj.title + '</th>';
+                if (groupObj.separator) {
+                    html += '<td width="' + groupObj.separator + ';">&nbsp;</td>';
+                }
+                else {
+                    html += updater.renderTagWithStyle({
+                        tag: 'td',
+                        styleObj: groupObj,
+                        attributes: 'colspan="' + groupObj.columns.length + '"',
+                        contents: groupObj.title,
+                    });
+                }
             }
 
             html += '</tr>\n';    
@@ -611,12 +671,18 @@ const generatorConfig = require('./generator-config');
             html += '<tr>';
 
             for(const colObj of options.leftColumns) {
-                html += '<th>' + colObj.title + '</th>';
+                const title = (typeof colObj.title != 'undefined') ? colObj.title : '&nbsp;';
+                html += '<th>' +  title + '</th>';
             }
             for(const groupObj of options.groups) {
-                for(const colObj of groupObj.columns) {
+                if (groupObj.separator) {
                     html += '<th>&nbsp;</th>';
-                }                    
+                }
+                else {
+                    for(const colObj of groupObj.columns) {
+                        html += '<th>' + updater.escapeHtml(colObj.title) + '</th>';
+                    }                        
+                }
             }
 
             html += '</tr>\n';    
@@ -627,22 +693,45 @@ const generatorConfig = require('./generator-config');
 
         html += '<tbody>\n';
 
+        const footnotesInUse = {};
+
         for(let rowNum = 0; rowNum < tableData.length; rowNum++) {
             const rowObj = tableData[rowNum];
 
-            html += '<tr>\n';
+            html += '<tr>';
 
             for(const colObj of options.leftColumns) {
-                html += '<td>' + rowObj[colObj.key] + '</td>';
+                if (colObj.rowFlag) {
+                    html += '<td width="3px" ';
+                    if (rowObj.rowFlag) {
+                        html += 'style="background-color: ' + rowObj.rowFlag + ';" ';
+                    }
+                    html += '>&nbsp;</td>';
+                }
+                else {
+                    html += '<td>' + rowObj[colObj.key] + '</td>';
+                }
             }
             for(const groupObj of options.groups) {
-                for(const colObj of groupObj.columns) {
-                    let s = updater.resolveNestedKey(colObj.key, rowObj);
-                    if (typeof s == 'undefined') {
-                        s = '&nbsp;';
-                    }
-                    html += '<td>' + s + '</td>';
-                }                    
+                if (groupObj.separator) {
+                    html += '<td>&nbsp;</td>';
+                }
+                else {
+                    for(const colObj of groupObj.columns) {
+                        let s = updater.resolveNestedKey(colObj.key, rowObj);
+                        footnotesInUse[s] = true;                    
+                        if (typeof s == 'undefined') {
+                            s = '&nbsp;';
+                        }
+                        let roamingRestrictions = updater.resolveNestedKey(colObj.roamingRestrictionsKey, rowObj);
+                        if (roamingRestrictions) {
+                            const s2 = '<sup>1</sup>';
+                            footnotesInUse[s2] = true;
+                            s += s2;
+                        }
+                        html += '<td>' + s + '</td>';
+                    }                        
+                }
             }
 
             
@@ -655,6 +744,17 @@ const generatorConfig = require('./generator-config');
 
         html += '</table>\n';
 
+        html += '<table><tbody>';
+        for(const footnoteObj of options.footnotes) {
+            if (footnotesInUse[footnoteObj.key]) {
+                html += '<tr><td style="text-align: center;">' + footnoteObj.key + '</td><td>' + footnoteObj.title + '</td></tr>';
+            }
+        }
+        html += '</tbody></table>\n'
+
+        // html += '<div>\u2705 Recommended and supported<br/>\u2753 Not officially supported, but is likely to work</div>\n';
+
+        
         return html;
     }
 
@@ -670,6 +770,21 @@ const generatorConfig = require('./generator-config');
         //  .textColor text color of group bar header
         //  .columns column object for each column
         const options = Object.assign({}, optionsIn);
+
+        options.footnotes = [
+            {
+                key: '\u2705',
+                title: 'Recommended and supported',
+            },
+            {
+                key: '\u2753',
+                title: 'Not officially supported, but is likely to work',
+            },
+            {
+                key: '<sup>1</sup>',
+                title: 'Permanent roaming restrictions may apply',
+            },
+        ];
 
         const countryData = {};
 
@@ -726,6 +841,9 @@ const generatorConfig = require('./generator-config');
                     technologies: cmsObj.technologies.join(', '),                    
                     carriers: carriers.join(', '),
                 };
+                if (cmsObj.recommendation == 'YES') {
+                    countryData[cmsObj.country].rowFlag = modelObj.backgroundColor;
+                }
             }                
         }
 
@@ -734,7 +852,8 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         const countries = Object.keys(countryData);
-        countries.sort();
+        countries.sort((a,b) => a.localeCompare(b));
+
         for(const country of countries) {
             tableData.push(countryData[country]);
         }
