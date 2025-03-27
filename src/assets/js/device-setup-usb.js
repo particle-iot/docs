@@ -84,6 +84,7 @@ $(document).ready(function() {
             const dcObj = deviceConstants[platformName];
             if (dcObj.id >= 0 && dcObj.generation >= 2 && dcObj.generation <= 4) {
                 usbFilters.push({vendorId: 0x2b04, productId: (0xc000 | dcObj.id)});
+                usbFilters.push({vendorId: 0x2b04, productId: (0xd000 | dcObj.id)});
             }
         }
 

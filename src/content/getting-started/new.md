@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device restore DFU fix 2025-03-27
+
+Fixed a recently introduced bug where you could not reconnect in DFU mode for Device Restore DFU, Web Device Doctor,
+and Product Device Flash Tool because no devices were displayed in the browser device selector.
+
 ### Band fit fix 2025-03-26
 
 Fixed a bug in the Band Fit section of the [carrier list](/reference/cellular/cellular-carriers/). Countries were listed as
