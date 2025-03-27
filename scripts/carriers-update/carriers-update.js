@@ -552,6 +552,67 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);        
     }
 
+    updater.generateGroupTable = function(options, tableData) {
+        // options.
+        //  .leftColumns array of column objects
+        //  .groups array of group objects
+
+        // column object:
+        //  .title key for column header
+        //  .key key for data in tableData
+
+        // group object: 
+        //  .title name of group
+        //  .backgroundColor background color of group bar header
+        //  .textColor text color of group bar header
+        //  .key key for this group in tableData
+        //  .columns column objects within this group (keys are relative to this group)        
+
+        let html = '';
+
+        return html;
+    }
+
+    updater.generateCountryModelComparison = function(optionsIn) {
+        // optionsIn.
+        //  .models array of model objects (modem and sim)
+
+        // model objects:
+        //  .modem Moden name (from the modems table, like "R510")
+        //  .sim sim ID (numeric, like 4 = EtherSIM)
+        const options = Object.assign({}, optionsIn);
+
+        const countryData = {};
+
+        for(const modelObj of optionsIn.models) {
+            for(const cmsObj of updater.datastore.data.countryModemSim) {
+                if (cmsObj.modem != modelObj.modem || cmsObj.sim != modelObj.sim) {
+                    continue;
+                }
+                switch(cmsObj.recommendation) {
+                    case 'YES':
+                        break;
+                        
+                    case 'NS':
+                    case 'POSS':
+                        break;
+                    
+                    default:
+                        // Omit
+                        break;
+                }
+            }                
+        }
+
+
+        // Sort table data
+        let tableData = [];
+
+
+        return updater.generateGroupTable(options, tableData);
+    }
+
+
     updater.generateSkuToPrefix = function(options = {}) {
         let skus = [];
 

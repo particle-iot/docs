@@ -125,9 +125,10 @@ If purchasing a battery from a 3rd-party supplier, verify the polarity as the po
 #### Li+ pin
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Electron 2.
 
-If supplying external voltage in the range of 3.6 to 4.2 VDC, charging will automatically be disabled.
+**Li+ with external battery**
 
-If you are connecting an external battery and want to use the internal charger, you must simulate having a temperature
+If you are using an external LiPo battery and wish to use the built-in charger on the Electron 2,
+changes will be necessary from the Boron as you must simulate having a temperature
 sensor in the valid charging range to enable charging.
 
 This can be done using a solder jumper on the bottom of the Electron 2. It consists
@@ -138,6 +139,12 @@ any temperature with battery packs or external supplies that do not have a tempe
 
 <p class="attribution">Facing bottom side of the Electron 2 with the battery connector on the left</p>
 
+**Li+ as power input**
+
+When used as a power input (3.6 to 4.2 VDC), on the Boron it was necessary to disable charging in software 
+through the PMIC settings. This is not necessary with the Electron 2 as charging will automatically be
+disabled in hardware because the battery temperature sensor will be missing and will signal out of valid
+temperature range in this case, disabling charging.
 
 #### 3V3 PIN
 
@@ -1236,6 +1243,198 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 ## Certification documents
 
 To be provided at a later date.
+
+
+
+## Country compatibility 
+
+### Country compatibility - ELC504EM (NorAm)
+
+{{!-- BEGIN do not edit content below, it is automatically generated ea0684ac-2a13-4c12-bf54-bcb194a3e311 --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Canada | 4G | Bell Mobility, Rogers Wireless, Telus, Videotron |
+| Mexico | 4G | AT&T, Telcel |
+| United States | 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### Additional countries - ELC504EM (NorAm)
+
+The following countries are not officially supported at this time, but may be compatible. Countries in this list can be used for prototyping and development work, but contact Particle prior to fleet deployment in these additional countries.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 33961b0e-bc4c-4390-936a-ea2846b54a61 --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Anguilla | 4G | Flow |
+| Antigua and Barbuda | 4G | Flow |
+| Argentina | 4G | Movistar, Personal |
+| Bahamas | 4G | Aliv |
+| Barbados | 4G | Flow |
+| Belize | 4G | Smart |
+| Bolivia | 4G | Viva |
+| Colombia | 4G | Movistar, Tigo |
+| Dominica | 4G | Flow |
+| Dominican Republic | 4G | Altice Dominicana, Claro |
+| Ecuador | 4G | Claro, Movistar |
+| El Salvador | 4G | Telefonica |
+| Guatemala | 4G | Claro, Movistar |
+| Honduras | 4G | Claro, Tigo |
+| Jamaica | 4G | Digicel, Flow |
+| Pakistan | 4G | Telenor |
+| Paraguay | 4G | Personal, Vox |
+| Peru | 4G | Claro, Entel, Movistar |
+| Saint Vincent and the Grenadines | 4G | Flow |
+| Uruguay | 4G | Antel, Claro, Movistar |
+| Venezuela | 4G | Movistar |
+| Virgin Islands (British) | 4G | Flow |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### Country compatibility - ELC524EM (Europe)
+
+{{!-- BEGIN do not edit content below, it is automatically generated ab73c727-57d2-488f-94d4-572933f90363 --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Albania | 4G | Eagle, Telekom, Vodafone |
+| Australia | 4G | Optus, Telstra, Vodafone |
+| Austria | 4G | 3 (Drei), A1, T-Mobile |
+| Belgium | 4G | Base, Orange, Proximus |
+| Croatia | 4G | Hrvatski Telekom, Tele2 |
+| Czechia | 4G | O2, T-Mobile, Vodafone |
+| Denmark | 4G | 3 (Tre), TDC, Telenor, Telia |
+| Estonia | 4G | Elisa, Tele2, Telia |
+| Finland | 4G | DNA, Elisa, Telia |
+| France | 4G | Bouygues, Free Mobile, Orange, SFR |
+| Germany | 4G | O2, Telekom, Vodafone |
+| Gibraltar | 4G | Gibtel |
+| Greece | 4G | Cosmote, Vodafone, Wind |
+| Hungary | 4G | Magyar Telekom, Telenor, Vodafone |
+| Iceland | 4G | Nova, Siminn, Vodafone |
+| Ireland | 4G | 3 (Tre), Meteor, O2, Vodafone |
+| Italy | 4G | TIM, Vodafone, Wind |
+| Jersey | 4G | Jersey Telecom |
+| Latvia | 4G | Bite, LMT, Tele2 |
+| Liechtenstein | 4G | Mobilkom, Orange |
+| Lithuania | 4G | Bite, Omnitel, Tele2 |
+| Luxembourg | 4G | Orange, POST, Tango |
+| Malta | 4G | Go Mobile, Vodafone |
+| Montenegro | 4G | Mtel, T-Mobile, Telenor |
+| Netherlands | 4G | KPN, T-Mobile, Vodafone |
+| New Zealand | 4G | 2degrees, Spark, Vodafone |
+| North Macedonia | 4G | Vip operator |
+| Norway | 4G | TDC, Telenor, Telia |
+| Poland | 4G | Orange, Play, Plus, T-Mobile |
+| Portugal | 4G | NOS, TMN, Vodafone |
+| Romania | 4G | Orange, Telekom Romania, Vodafone |
+| Serbia | 4G | Telenor, VIP |
+| Slovakia | 4G | O2, Orange, Telekom |
+| Slovenia | 4G | A1, Mobitel |
+| Spain | 4G | Orange, Telefonica, Vodafone, Yoigo |
+| Sweden | 4G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | 4G | Salt, Sunrise, Swisscom |
+| United Kingdom | 4G | 3, EE, Manx, O2, Vodafone |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+### Additional countries - ELC524EM (Europe)
+
+The following countries are not officially supported at this time, but may be compatible. Countries in this list can be used for prototyping and development work, but contact Particle prior to fleet deployment in these additional countries.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 98f97efb-47be-47fd-8414-c77a3db0d7d0 --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Algeria | 4G | Mobilis, Ooredoo |
+| Argentina | 4G | Personal |
+| Armenia | 4G | Ucom |
+| Aruba | 4G | Setar |
+| Azerbaijan | 4G | Azercell, Bakcell, NAR Mobile |
+| Bahrain | 4G | Zain |
+| Bangladesh | 4G | Bangalink, GrameenPhone |
+| Belarus | 4G | A1 |
+| Botswana | 4G | BeMobile |
+| Brazil | 4G | Claro, TIM, Vivo |
+| Brunei | 4G | DST |
+| Burkina Faso | 4G | Orange |
+| Cabo Verde | 4G | CVMóvel |
+| Chad | 4G | Airtel |
+| Chile | 4G | Claro, Entel, Movistar |
+| Colombia | 4G | Tigo |
+| Congo (Brazzaville) | 4G | Airtel |
+| Congo (Kinshasa) | 4G | Airtel |
+| Costa Rica | 4G | Movistar |
+| Cyprus | 4G | MTN, PrimeTel |
+| Dominican Republic | 4G | Altice Dominicana |
+| Egypt | 4G | Etisalat, Orange |
+| eSwatini | 4G | MTN |
+| Ethiopia | 4G | Ethio Telecom |
+| Gabon | 4G | Airtel |
+| Georgia | 4G | Beeline, Geocell |
+| Ghana | 4G | MTN, Vodafone |
+| Guadeloupe | 4G | Orange |
+| Guinea | 4G | MTN |
+| Guinea-Bissau | 4G | MTN |
+| Hong Kong | 4G | CMHK, CSL, SmarTone |
+| India | 4G | Jio |
+| Indonesia | 4G | Indosat, Telkomsel, XL Axiata |
+| Israel | 4G | Hot Mobile, Orange, Pelephone |
+| Jamaica | 4G | Digicel, Flow |
+| Jordan | 4G | Zain |
+| Kazakhstan | 4G | Beeline, K-Cell |
+| Kenya | 4G | Airtel |
+| Kuwait | 4G | Viva, Zain |
+| Macao | 4G | CTM |
+| Madagascar | 4G | Airtel |
+| Malawi | 4G | Airtel |
+| Malaysia | 4G | Celcom, DiGi, Maxis |
+| Moldova | 4G | Orange |
+| Morocco | 4G | Inwi, Medi Telecom |
+| Mozambique | 4G | Vodacom |
+| Namibia | 4G | Telecom Namibia |
+| Nigeria | 4G | 9mobile, Airtel, Glo, MTN |
+| Pakistan | 4G | Telenor, Warid |
+| Panama | 4G | Movistar |
+| Philippines | 4G | Globe, Smart |
+| Qatar | 4G | Ooredoo, Vodafone |
+| Russia | 4G | Beeline, Megafon, MTS, Tele2 |
+| Saint Kitts and Nevis | 4G | Flow |
+| Saint Vincent and the Grenadines | 4G | Flow |
+| Seychelles | 4G | Airtel |
+| Singapore | 4G | SingTel, StarHub |
+| South Africa | 4G | Cell C, MTN, Vodacom |
+| South Korea | 4G | KT, LG U+, SK Telecom |
+| Sri Lanka | 4G | Dialog, Mobitel |
+| Taiwan | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tajikistan | 4G | Tcell |
+| Tanzania | 4G | Airtel |
+| Thailand | 4G | AIS, DTAC, True Move |
+| Trinidad and Tobago | 4G | TSTT |
+| Tunisia | 4G | Orange Tunisie, Tunisie Telecom |
+| Uganda | 4G | Africell, MTN |
+| Ukraine | 4G | Kyivstar, Life, MTS |
+| United Arab Emirates | 4G | du, Etisalat |
+| Uzbekistan | 4G | Beeline |
+| Vietnam | 4G | Viettel |
+| Zambia | 4G | Airtel |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+
+
+
+
+
+
 
 
 ## Ordering information

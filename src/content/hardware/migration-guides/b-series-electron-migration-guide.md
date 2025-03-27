@@ -1460,8 +1460,8 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Guatemala | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Guinea | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Guinea-Bissau | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Guyana | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
-| Haiti | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
+| Guyana | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
+| Haiti | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Honduras | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Hong Kong | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Hungary | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1511,7 +1511,6 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Philippines | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Poland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Portugal | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Puerto Rico | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Qatar | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Réunion | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Romania | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1543,7 +1542,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Ukraine | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | United Arab Emirates | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | United Kingdom | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| United States | &check; | &nbsp; | &check; | &check; | &nbsp; |
+| United States | &nbsp; | &nbsp; | &check; | &check; | &nbsp; |
 | Uruguay | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Venezuela | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Vietnam | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |

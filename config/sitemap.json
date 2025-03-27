@@ -995,20 +995,20 @@
             "hash": "6b43ddae5920d40cfa66d13c4ae27a9e1723ffa32740274c407448aca993123c"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2025-03-19",
-            "hash": "a00b349f0d866de9bebd8364a8ef809d3d739d47416dee77f12bb0f2d017bba3"
+            "date": "2025-03-27",
+            "hash": "2c2c4d2ffe397c83a747fcd8ebc97798c08cdca13b2495614c3eb11d9678afde"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2025-03-19",
-            "hash": "568eef554e14e143c4adaf73b42bb7b961f03e14c2441981be792bd82a7922af"
+            "date": "2025-03-27",
+            "hash": "2b19aacbe0e8a76ade036eff00882aca30cbe4653497971720c8a4c4c4008cfa"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2025-03-21",
-            "hash": "ec58fb5438f6b0d52f04bbff73390fd469726c40d57db90cee220daf558cbc83"
+            "date": "2025-03-27",
+            "hash": "4bb5e07765f6aab4cd0d1e179abf52de41cc592fac9448a09fe62727360ca3c2"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -1387,8 +1387,8 @@
             "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2025-03-26",
-            "hash": "9bf8bd502e29e8273cc0de776e3894872b558c59efdd1e41154c16483b5dfc2b"
+            "date": "2025-03-27",
+            "hash": "3f7ad5b351c35ec84e6053bc02885bc6fc0b7e11fc47afeae65728e6cec1052a"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-03-21",
@@ -9711,12 +9711,12 @@
             "date": "2025-03-25"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
-            "hash": "a38400793837bdc8dceafd3aad7bea347825b49bcfd756b933a529a66a0e1461",
-            "date": "2025-03-26"
+            "hash": "da62ed30085cd5db0fcab898450cd3722d55548d0de0db7cd37f5aac2bb5b4d8",
+            "date": "2025-03-27"
         },
         "reference/datasheets/e-series/electron-2-datasheet.md": {
-            "hash": "9b551cca59a44aabc3b5a2335cf59b3d37e2c6c9011d76867a900c3b0bb1dd61",
-            "date": "2025-03-26"
+            "hash": "8f9dfab494bee0bd78941db03c2ec4a9054f68e455a15b5e2baabcb0c490baad",
+            "date": "2025-03-27"
         }
     }
 }
