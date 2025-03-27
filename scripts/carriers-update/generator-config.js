@@ -835,45 +835,7 @@ const schemaDocs = require('./schema-docs');
                     ],
                 }); 
             } 
-        },
-        // These are temporary:
-        {
-            guid:'ea0684ac-2a13-4c12-bf54-bcb194a3e311',
-            generatorFn:function(updater) {
-                return updater.generateCountryList(null, {
-                    modems: ['EG800Q-NA'],
-                    noModel: true,
-                }); 
-            } 
-        },
-        {
-            guid:'33961b0e-bc4c-4390-936a-ea2846b54a61',
-            generatorFn:function(updater) {
-                return updater.generateCountryList(null, {
-                    modems: ['EG800Q-NA'],
-                    noModel: true,
-                    possibleSkusOnly: true,
-                }); 
-            } 
-        },        {
-            guid:'ab73c727-57d2-488f-94d4-572933f90363',
-            generatorFn:function(updater) {
-                return updater.generateCountryList(null, {
-                    modems: ['EG800Q-EU'],
-                    noModel: true,
-                }); 
-            } 
-        },
-        {
-            guid:'98f97efb-47be-47fd-8414-c77a3db0d7d0',
-            generatorFn:function(updater) {
-                return updater.generateCountryList(null, {
-                    modems: ['EG800Q-EU'],
-                    noModel: true,
-                    possibleSkusOnly: true,
-                }); 
-            } 
-        },        
+        },      
         // B504
         {
             guid:'716800d6-7c3f-45f7-8cc4-91af58795240',

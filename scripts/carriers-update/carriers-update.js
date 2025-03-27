@@ -648,7 +648,7 @@ const generatorConfig = require('./generator-config');
             html += '<tr>';
 
             for(const colObj of options.leftColumns) {
-                html += '<td>&nbsp;</td>';
+                html += '<td></td>';
             }
             for(const groupObj of options.groups) {
                 if (groupObj.separator) {
@@ -671,7 +671,7 @@ const generatorConfig = require('./generator-config');
             html += '<tr>';
 
             for(const colObj of options.leftColumns) {
-                const title = (typeof colObj.title != 'undefined') ? colObj.title : '&nbsp;';
+                const title = (typeof colObj.title != 'undefined') ? colObj.title : '';
                 html += '<th>' +  title + '</th>';
             }
             for(const groupObj of options.groups) {
@@ -702,11 +702,11 @@ const generatorConfig = require('./generator-config');
 
             for(const colObj of options.leftColumns) {
                 if (colObj.rowFlag) {
-                    html += '<td width="3px" ';
+                    html += '<td style="width: 2px; ';
                     if (rowObj.rowFlag) {
-                        html += 'style="background-color: ' + rowObj.rowFlag + ';" ';
+                        html += 'background-color: ' + rowObj.rowFlag + '; ';
                     }
-                    html += '>&nbsp;</td>';
+                    html += '"></td>';
                 }
                 else {
                     html += '<td>' + rowObj[colObj.key] + '</td>';
