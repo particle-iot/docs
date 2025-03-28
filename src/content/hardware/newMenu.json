@@ -200,7 +200,8 @@
                 },
                 {
                     "dir": "electron-2-boron-migration-guide",
-                    "title": "Electron 2 from Boron migration guide"
+                    "title": "Electron 2 from Boron migration guide",
+                    "internal": true
                 },
                 {
                     "dir": "e404x-migration-guide",

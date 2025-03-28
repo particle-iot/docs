@@ -30,9 +30,8 @@ $(document).ready(function() {
         localStorage.removeItem('savedSearch');
         localStorage.removeItem('docsGeneral');
         
-        if (typeof apiHelper != 'undefined') {
-            apiHelperAuth.isInternal = false;
-        }
+
+        apiHelperAuth.isInternal = false;
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
             analytics.track('Logged Out Local', {category:eventCategory});
@@ -169,7 +168,6 @@ $(document).ready(function() {
         
             if (auth.username.endsWith('particle.io')) {
                 $('.internalMenuItem').show();
-                internalMenuItem = true;
                 apiHelperAuth.isInternal = true;
             }
             else {
@@ -200,6 +198,8 @@ $(document).ready(function() {
             $('#userMenuConsole').hide();
             $('#userMenuEditAccount').hide();
             $('#userMenuLogout').hide();
+
+            apiHelperAuth.isInternal = false;
         };
     
         if (auth || localAuth) {
@@ -208,10 +208,12 @@ $(document).ready(function() {
         else {
             showNotLoggedIn();
         }
+
+        /*
         if (window.location.href.startsWith('http://localhost')) {
             $('.internalMenuItem').show();
-            internalMenuItem = true;
         }
+        */
 
         if (typeof apiHelper != 'undefined') {
             if (auth) {
