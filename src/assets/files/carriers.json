@@ -31698,7 +31698,8 @@
           "lifecycle": "In development",
           "sim": 4,
           "simPlan": 40,
-          "modem": "EG800Q-NA"
+          "modem": "EG800Q-NA",
+          "showInternalUsers": true
         },
         {
           "name": "Electron 2 ELC524EM LTE 1 bis (Europe) EtherSIM",
@@ -31709,7 +31710,8 @@
           "lifecycle": "In development",
           "sim": 4,
           "simPlan": 40,
-          "modem": "EG800Q-EU"
+          "modem": "EG800Q-EU",
+          "showInternalUsers": true
         },
         {
           "name": "Electron ELC404 LTE M1 (NorAm) EtherSIM",
