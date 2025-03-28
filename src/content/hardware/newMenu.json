@@ -159,6 +159,18 @@
             ]
         },
         {
+            "dir": "decision-guides",
+            "isSection": true,
+            "internal": true,
+            "subsections": [
+                {
+                    "dir": "electron-2-vs-som-decision-guide",
+                    "title": "Electron 2 vs. SoM decision guide",
+                    "internal": true
+                }
+            ]
+        },        
+        {
             "dir": "migration-guides",
             "isSection": true,
             "subsections": [
