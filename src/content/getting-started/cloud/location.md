@@ -142,7 +142,7 @@ as a `loc` event and used with location fusion on some plans. Additional data op
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | GA |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | GA |
 
 

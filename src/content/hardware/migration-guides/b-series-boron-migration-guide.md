@@ -194,7 +194,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | :--- | :--- | :--- | :--- |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | GA |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | GA |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |

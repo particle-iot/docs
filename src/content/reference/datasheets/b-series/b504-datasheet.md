@@ -2113,7 +2113,7 @@ The following countries are not officially supported at this time, but may be co
 
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX | GA | |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | EG91-NAX | GA | |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX | GA | |
 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | Deprecated | B504EMEA|
 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | Deprecated | B504EMTY|
