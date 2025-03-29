@@ -887,13 +887,6 @@ const schemaDocs = require('./schema-docs');
             guid:'bfde3ce5-1f90-40fe-9bba-481cdc5b89bd', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
-                    addMiddle: [
-                        {
-                            key: 'skuRegion',
-                            title: 'Region',
-                            align: 'center',
-                        },
-                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'noram' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
                     }        
@@ -905,13 +898,6 @@ const schemaDocs = require('./schema-docs');
             guid:'6a8ccfd8-0058-481f-bcd3-2a78b88a3e82', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
-                    addMiddle: [
-                        {
-                            key: 'skuRegion',
-                            title: 'Region',
-                            align: 'center',
-                        },
-                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'emeaa' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
                     }        
@@ -923,13 +909,6 @@ const schemaDocs = require('./schema-docs');
             guid:'be8173dc-011c-4719-ae3e-9bba199849a8', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
-                    addMiddle: [
-                        {
-                            key: 'skuRegion',
-                            title: 'Region',
-                            align: 'center',
-                        },
-                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'americas' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
                     }        
