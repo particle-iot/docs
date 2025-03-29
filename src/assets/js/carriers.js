@@ -379,7 +379,12 @@ rec2.selectMenu = function() {
                 if (skuFamilyObj.wifi || skuFamilyObj.cellular === false) {
                     return;
                 }
-
+                if (skuFamilyObj.showInternalUsers) {
+                    if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                        return;
+                    }            
+                }
+    
                 datastore.data.skus.forEach(function(skuObj) {
                     if (skuObj.family == skuFamilyObj.family && 
                         skuObj.modem == cmsObj.modem &&
@@ -592,6 +597,12 @@ rec2.selectMenu = function() {
         if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
             return;
         }
+        if (skuFamilyObj.showInternalUsers) {
+            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                return;
+            }            
+        }
+
         if (!recs.YES || !recs.YES.skuFamily[skuFamilyObj.family]) {
             return;
         }
@@ -612,6 +623,11 @@ rec2.selectMenu = function() {
             if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
                 return;
             }
+            if (skuFamilyObj.showInternalUsers) {
+                if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                    return;
+                }            
+            }
             if (!recs.NRND || !recs.NRND.skuFamily[skuFamilyObj.family]) {
                 return;
             }
@@ -631,6 +647,12 @@ rec2.selectMenu = function() {
         if (!recs.NR || !recs.NR.skuFamily[skuFamilyObj.family]) {
             return;
         }
+        if (skuFamilyObj.showInternalUsers) {
+            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                return;
+            }            
+        }
+
         html += '<h3>' + skuFamilyObj.name + ' (Not recommended SKUs)</h3>';
 
         generateSkuTables('Not recommended EtherSIM SKUs in', recs.NR.skuFamily[skuFamilyObj.family], false);
