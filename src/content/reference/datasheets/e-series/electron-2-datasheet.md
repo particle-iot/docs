@@ -26,7 +26,7 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
 
 #### Features - ELC504EM (NorAm)
 
- * Quectel EG800G-NA cellular modem
+ * Quectel EG800Q-NA cellular modem
  * LTE Cat 1 bis (4G)
  * Support for United States, Canada, and Mexico (North America, NorAm)
  * LTE Cat 1 bands: 2, 4, 5, 12, 13, 66
@@ -34,7 +34,7 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
 
 #### Features - ELC524EM (Europe)
 
- * Quectel EG800G-EU cellular modem
+ * Quectel EG800Q-EU cellular modem
  * LTE Cat 1 bis (4G)
  * Support for selected countries in Europe, Middle East, Africa, Asia, Oceania (EMEAA)
  * LTE Cat 1 bands: 1, 3, 5, 7, 8, 20, 28

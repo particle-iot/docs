@@ -357,6 +357,10 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | Deprecated | BRN404XKIT |
 | NORAM | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | Deprecated | BRN404XTRAY50 |
 | NORAM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 2 | Deprecated | &nbsp; |
+| NORAM | ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | EG800Q-NA | &check; | 3 | In development | &nbsp; |
+| NORAM | ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | EG800Q-NA | &check; | 3 | In development | &nbsp; |
+| NORAM | ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | EG800Q-EU | &check; | 3 | In development | &nbsp; |
+| NORAM | ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | EG800Q-EU | &check; | 3 | In development | &nbsp; |
 | NORAM | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
 | NORAM | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
 | NORAM | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | BG96-MC | &nbsp; | 3 | Deprecated | ONE404MEA |
@@ -405,6 +409,10 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | BG96-MC | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | BG96-MC | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | BG96-MC | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
+| EG800Q-EU | ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
+| EG800Q-EU | ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | NORAM | &check; | 3 | In development | &nbsp; |
+| EG800Q-NA | ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
+| EG800Q-NA | ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | NORAM | &check; | 3 | In development | &nbsp; |
 | EG91-E | B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | 3 | Deprecated | B524MEA |
 | EG91-E | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | 3 | NRND | B524MTY |
 | EG91-E | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
@@ -521,6 +529,10 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | 2 | NRND | &nbsp; |
 | EtherSIM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | &nbsp; |
+| EtherSIM | ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | NORAM | EG800Q-NA | 3 | In development | &nbsp; |
+| EtherSIM | ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | NORAM | EG800Q-NA | 3 | In development | &nbsp; |
+| EtherSIM | ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | NORAM | EG800Q-EU | 3 | In development | &nbsp; |
+| EtherSIM | ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | NORAM | EG800Q-EU | 3 | In development | &nbsp; |
 | EtherSIM | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | 4 | GA | &nbsp; |
 | EtherSIM | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | 4 | GA | &nbsp; |
 | EtherSIM | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 4 | GA | &nbsp; |
@@ -935,6 +947,10 @@ The following SKU have LTE Cat 1 cellular modems:
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | NORAM | &check; | EG800Q-NA | 3 | In development | &nbsp; |
+| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | NORAM | &check; | EG800Q-NA | 3 | In development | &nbsp; |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | NORAM | &check; | EG800Q-EU | 3 | In development | &nbsp; |
+| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | NORAM | &check; | EG800Q-EU | 3 | In development | &nbsp; |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-E | 3 | NRND | B524MTY |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | T524MKIT |
 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | &check; | EG91-NAX | 3 | Deprecated | B504EMEA |

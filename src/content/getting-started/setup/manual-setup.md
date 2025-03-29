@@ -58,6 +58,8 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Micro B |
 | E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Micro B |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | USB-C |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | USB-C |
 | M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | USB-C |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Micro B |
 | MHAT | M-HAT | USB-C |
@@ -145,6 +147,8 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | &nbsp; |
 | E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | &nbsp; |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | &nbsp; |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | &nbsp; |
 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | &nbsp; |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &nbsp; |
 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | &nbsp; |

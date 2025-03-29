@@ -411,6 +411,10 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404XKIT|
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | BRN404XTRAY50|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | Fast<sup>1</sup> | In development | |
+| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | Fast<sup>1</sup> | In development | |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | Fast<sup>1</sup> | In development | |
+| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | Fast<sup>1</sup> | In development | |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |

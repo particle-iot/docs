@@ -171,6 +171,9 @@ eliminating the need for a custom-designed board in some cases.
 
 {{imageOverlay src="/assets/images/boron/boron-dimensions.png" alt="Feather dimensions"}}
 
+The [Feather page](/hardware/expansion/feather/) includes examples of Feather accessories.
+
+![Feather](/assets/images/gps-display-featherwing.jpg)
 
 ### M.2 SoM
 
@@ -179,6 +182,18 @@ generally vibration-resistant.
 
 {{imageOverlay src="/assets/images/b-series/b-series-mechanical.png" alt="M.2 dimensions"}}
 
+The SoM does not include features like USB, RGB LED, buttons, and a power supply on the module itself;
+you are expected to include this on the base board, which is required.
+
+The Particle M.2 module is not compatible with computer-based M.2 sockets that are used for
+NVMe, PCI Express (PCIe), etc. and requires a base board specifically designed for Particle M.2.
+
+While a custom board is generally required, there are some off-the-shelf options such as:
+
+| Board | B-SoM compatible | M-SoM compatible |
+| :--- | :---: | :---: |
+| [Particle M.2 breakout board](/reference/datasheets/m-series/m2-breakout-datasheet/) | &check; | &check; |
+| [Mikroe Gen 3 SoM shield](/hardware/expansion/mikroe/#gen-3-som-shield) | &check; | |
 
 ## MCU differences
 
@@ -187,13 +202,19 @@ platform, each platform has differences in amount of available RAM and maximum a
 
 ### nRF52840 (Gen 3)
 
-- Best for low-power applications.
-- Limited RAM and flash size.
+- Best for low-power applications
+- Limited RAM and flash size
+- ARM Cortex M4F CPU, 64 MHz
+- 80 KB RAM available to user applications
+- 256 KB maximum application size
 
 ### RTL8721DM/RTL8722DM (Gen 4)
 
-- Best for computation, such as machine learning applications such as inferencing.
-- Larger RAM and flash size.
+- Best for computation, such as machine learning applications such as inferencing
+- Larger RAM and flash size
+- ARM Cortex M33 CPU, 200 MHz
+- 3072 KB RAM available to user applications
+- 2048 KB maximum application size
 
 ### Electron 2 and Photon 2 interoperability
 

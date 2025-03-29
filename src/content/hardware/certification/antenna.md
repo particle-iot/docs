@@ -146,6 +146,10 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU-50 | ANTCW2TY<sup>2</sup> | NRND|
 | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 | E-Series LTE-M (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| Electron 2 LTE CAT-1 bis (Europe), [x1] | ELC524EMEA | &check; | PARANTCW1EA | ANT-FLXU<sup>3</sup> | In development|
+| Electron 2 LTE CAT-1 bis (Europe), [x50] | ELC524EMTY | &check; | PARANTCW1TY | ANT-FLXU-50<sup>3</sup> | In development|
+| Electron 2 LTE CAT-1 bis (NorAm), [x1] | ELC504EMEA | &check; | PARANTCW1EA | ANT-FLXU<sup>3</sup> | In development|
+| Electron 2 LTE CAT-1 bis (NorAm), [x50] | ELC504EMTY | &check; | PARANTCW1TY | ANT-FLXU-50<sup>3</sup> | In development|
 | Electron 2G (Global), Tray [x50] | E350TRAY50 | &nbsp; | ANTELEC50 | &nbsp; | Deprecated|
 | Electron 2G Kit (Global) | E350KIT | &check; | ANTELEC | &nbsp; | Deprecated|
 | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | &check; | ANTELEC | &nbsp; | Deprecated|
@@ -379,6 +383,7 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 | B-Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B404XMEA, B404XMTY, B504EMEA, B504EMTY, B504MEA, B504MTY, B523MEA, B523MTY, B524MEA, B524MTY|
 | Boron | BRN310KIT, BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402-AQKT, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50, BRN404X, BRN404XKIT, BRN404XTRAY50|
 | E-Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
+| Electron 2 | ELC504EMEA, ELC504EMTY, ELC524EMEA, ELC524EMTY|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 
 
@@ -448,6 +453,10 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | GA|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | &check; | 4 | &nbsp; | Deprecated|
+| Electron 2 LTE CAT-1 bis (Europe), [x1] | ELC524EMEA | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Electron 2 LTE CAT-1 bis (Europe), [x50] | ELC524EMTY | &check; | ANT-FLXV2-50 | &nbsp; | In development|
+| Electron 2 LTE CAT-1 bis (NorAm), [x1] | ELC504EMEA | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Electron 2 LTE CAT-1 bis (NorAm), [x50] | ELC504EMTY | &check; | ANT-FLXV2-50 | &nbsp; | In development|
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | GA|
 | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1TY | &nbsp; | GA|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635EMEA | &nbsp; | PARANTWM1EA | &check; | In development|
@@ -574,6 +583,10 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | &nbsp; | GA|
+| Electron 2 LTE CAT-1 bis (Europe), [x1] | ELC524EMEA | &check; | &nbsp; | In development|
+| Electron 2 LTE CAT-1 bis (Europe), [x50] | ELC524EMTY | &check; | &nbsp; | In development|
+| Electron 2 LTE CAT-1 bis (NorAm), [x1] | ELC504EMEA | &check; | &nbsp; | In development|
+| Electron 2 LTE CAT-1 bis (NorAm), [x50] | ELC504EMTY | &check; | &nbsp; | In development|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &check; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &check; | GA|

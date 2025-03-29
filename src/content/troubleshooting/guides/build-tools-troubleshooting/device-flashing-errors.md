@@ -46,6 +46,8 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Micro B |
 | E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Micro B |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | USB-C |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | USB-C |
 | M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | USB-C |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Micro B |
 | MHAT | M-HAT | USB-C |

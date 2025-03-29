@@ -894,7 +894,7 @@ const generatorConfig = require('./generator-config');
             if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
-            if (!skuObj.prefix) {
+            if (!skuObj.prefix || skuObj.prefix == 'P000') {
                 continue;
             }
             tableData.push({
@@ -943,7 +943,7 @@ const generatorConfig = require('./generator-config');
             if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
-            if (!skuObj.prefix) {
+            if (!skuObj.prefix || skuObj.prefix == 'P000') {
                 continue;
             }
             tableData.push({
