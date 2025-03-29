@@ -726,6 +726,20 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }             
         }, 
+        // electron 2 
+        {
+            guid:'128e6580-8ddd-45bc-882f-71785ae12855', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron-2', {
+                    filterFn:function(skuObj) {
+                        return false;
+                    }        
+                }); 
+            } 
+        },
+
+
+
         // datasheets/boron/b404-b402-datasheet.md
         {
             guid:'91d8b83c-76ce-11eb-9439-0242ac130002', 
