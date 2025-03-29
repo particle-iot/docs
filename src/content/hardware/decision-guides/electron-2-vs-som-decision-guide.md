@@ -88,15 +88,15 @@ In most cases, these are LTE Cat M1 devices, and are only officially supported i
 {{collapse op="start" label="Show NorAm SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated bfde3ce5-1f90-40fe-9bba-481cdc5b89bd --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
-| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
-| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | GA |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | NRND |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | noram | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | noram | GA |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -113,11 +113,11 @@ The complication is in South America, where a number of countries use EMEAA freq
 {{collapse op="start" label="Show Americas SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated be8173dc-011c-4719-ae3e-9bba199849a8 --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA |
-| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | In development |
-| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | In development |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | americas | GA |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | americas | In development |
+| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | americas | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -136,15 +136,15 @@ in some countries, particularly in Africa, that have not fully deployed 4G/LTE.
 {{collapse op="start" label="Show EMEAA SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 6a8ccfd8-0058-481f-bcd3-2a78b88a3e82 --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
-| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
-| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | In development |
-| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | In development |
-| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | emeaa | NRND |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | emeaa | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | emeaa | In development |
+| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | emeaa | In development |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -163,26 +163,26 @@ most of the world.
 {{collapse op="start" label="Show LTE Cat 1 SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 4cffddb7-1c7e-4ddb-a8a9-098c947fe543 --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
-| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
-| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
-| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA |
-| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | GA |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | GA |
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | GA |
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | GA |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | GA |
-| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | NRND |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | GA |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | americas | GA |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | noram | GA |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | emeaa | NRND |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | emeaa | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | emeaa | GA |
+| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | global | GA |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | global | GA |
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | emeaa | GA |
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | emeaa | GA |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | emeaa | GA |
+| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | emeaa | NRND |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | emeaa | GA |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -201,12 +201,12 @@ same maximum data rate as LTE Cat 1.
 {{collapse op="start" label="Show LTE Cat 1 bis SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated e31c7f1f-7d9a-4fac-8490-e3256845d215 --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | In development |
-| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | In development |
-| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | In development |
-| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | In development |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | americas | In development |
+| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | americas | In development |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | emeaa | In development |
+| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | emeaa | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -224,36 +224,36 @@ of LTE Cat M1 are less likely with the adoption of LTE Cat 1 bis instead.
 {{collapse op="start" label="Show LTE Cat M1 SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 521a2be9-7d36-4cf9-9996-1b59720d07b8 --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
-| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
-| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | GA |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | GA |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
-| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NRND |
-| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NRND |
-| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | NRND |
-| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NRND |
-| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA |
-| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development |
-| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | GA |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | GA |
-| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | In development |
-| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | GA |
-| ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | GA |
-| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NRND |
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | GA |
-| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | GA |
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | GA |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | NRND |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | noram | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | noram | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
+| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | noram | NRND |
+| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
+| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | noram | NRND |
+| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | noram | NRND |
+| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | global | GA |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | global | GA |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | noram | GA |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | noram | In development |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | global | GA |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | global | GA |
+| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | global | In development |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
+| ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | noram | GA |
+| ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | noram | GA |
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | noram | NRND |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | noram | GA |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | noram | GA |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | noram | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -321,19 +321,19 @@ The [Feather page](/hardware/expansion/feather/) includes examples of Feather ac
 {{collapse op="start" label="Show Feather SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated c7f6eddb-bbdf-41c9-99e3-69a9f90a834a --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | GA |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
-| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | In development |
-| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | In development |
-| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | In development |
-| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | In development |
-| PHN2KIT | Photon 2, Kit [x1] | GA |
-| PHN2MEA | Photon 2 [x1] | GA |
-| PHN2MTY | Photon 2, Tray [x50] | GA |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | global | NRND |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | americas | In development |
+| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | americas | In development |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | emeaa | In development |
+| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | emeaa | In development |
+| PHN2KIT | Photon 2, Kit [x1] | global | GA |
+| PHN2MEA | Photon 2 [x1] | global | GA |
+| PHN2MTY | Photon 2, Tray [x50] | global | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -364,22 +364,22 @@ While a custom board is generally required, there are some off-the-shelf options
 {{collapse op="start" label="Show M.2 SoM SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated f13e8e51-ccb7-4e3c-bac1-4a7d4457b55b --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
-| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
-| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
-| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
-| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
-| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA |
-| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | NRND |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | noram | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | americas | GA |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | noram | GA |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | emeaa | NRND |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | emeaa | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | global | GA |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | global | GA |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -402,48 +402,48 @@ platform, each platform has differences in amount of available RAM and maximum a
 {{collapse op="start" label="Show nRF52840 SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated a4b614a6-b9c8-44c3-921e-548c45280ab7 --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
-| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
-| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
-| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
-| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
-| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | GA |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | GA |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
-| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
-| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | In development |
-| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | In development |
-| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | In development |
-| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | In development |
-| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA |
-| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development |
-| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA |
-| ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | GA |
-| ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | GA |
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | GA |
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | GA |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | GA |
-| P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | GA |
-| P2REEL | P2 Wi-Fi Module, Reel [x600] | GA |
-| PHN2KIT | Photon 2, Kit [x1] | GA |
-| PHN2MEA | Photon 2 [x1] | GA |
-| PHN2MTY | Photon 2, Tray [x50] | GA |
-| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NRND |
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | GA |
-| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | GA |
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | GA |
-| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | NRND |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | GA |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | NRND |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | noram | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | americas | GA |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | noram | GA |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | emeaa | NRND |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | emeaa | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | global | NRND |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | noram | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
+| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | americas | In development |
+| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | americas | In development |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | emeaa | In development |
+| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | emeaa | In development |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | noram | GA |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | noram | In development |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | emeaa | GA |
+| ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | noram | GA |
+| ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | noram | GA |
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | emeaa | GA |
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | emeaa | GA |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | emeaa | GA |
+| P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | global | GA |
+| P2REEL | P2 Wi-Fi Module, Reel [x600] | global | GA |
+| PHN2KIT | Photon 2, Kit [x1] | global | GA |
+| PHN2MEA | Photon 2 [x1] | global | GA |
+| PHN2MTY | Photon 2, Tray [x50] | global | GA |
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | noram | NRND |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | noram | GA |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | noram | GA |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | emeaa | NRND |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | emeaa | GA |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -461,20 +461,20 @@ platform, each platform has differences in amount of available RAM and maximum a
 {{collapse op="start" label="Show RTL872x SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 280bbf98-939d-41db-b3b8-a64042687b30 --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA |
-| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | GA |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | GA |
-| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | GA |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | GA |
-| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | In development |
-| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | global | GA |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | global | GA |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
+| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | global | GA |
+| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | global | GA |
+| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | global | GA |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | global | GA |
+| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | global | In development |
+| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -509,22 +509,22 @@ an external module connected by serial, I2C, or SPI.
 {{collapse op="start" label="Show cellular modem GNSS SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated f13e8e51-ccb7-4e3c-bac1-4a7d4457b55b --}}
 
-| SKU | Description | Lifecycle |
-| :--- | :--- | :--- |
-| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
-| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
-| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | GA |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
-| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
-| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
-| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA |
-| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
-| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :---: | :--- |
+| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | NRND |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | noram | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | americas | GA |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | noram | GA |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | emeaa | NRND |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | emeaa | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | global | GA |
+| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | global | GA |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | emeaa | GA |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
+| M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | global | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

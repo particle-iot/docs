@@ -742,6 +742,13 @@ const schemaDocs = require('./schema-docs');
             guid:'c7f6eddb-bbdf-41c9-99e3-69a9f90a834a', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return !skuObj.feather || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
                     }        
@@ -753,6 +760,13 @@ const schemaDocs = require('./schema-docs');
             guid:'f13e8e51-ccb7-4e3c-bac1-4a7d4457b55b', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return !skuObj.m2som || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
                     }        
@@ -764,6 +778,13 @@ const schemaDocs = require('./schema-docs');
             guid:'f13e8e51-ccb7-4e3c-bac1-4a7d4457b55b', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.gnss != 'string' || skuObj.gnss == 'cellular-modem' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
                     }        
@@ -775,6 +796,13 @@ const schemaDocs = require('./schema-docs');
             guid:'a4b614a6-b9c8-44c3-921e-548c45280ab7', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.mcu != 'string' || skuObj.mcu != 'nrf52840' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
                     }        
@@ -786,6 +814,13 @@ const schemaDocs = require('./schema-docs');
             guid:'280bbf98-939d-41db-b3b8-a64042687b30', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.mcu != 'string' || skuObj.mcu != 'rtl872x' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
                     }        
@@ -797,6 +832,13 @@ const schemaDocs = require('./schema-docs');
             guid:'4cffddb7-1c7e-4ddb-a8a9-098c947fe543', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.modem != 'string' || !skuObj.modem.startsWith('EG91') || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
                     }        
@@ -808,6 +850,13 @@ const schemaDocs = require('./schema-docs');
             guid:'e31c7f1f-7d9a-4fac-8490-e3256845d215', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.modem != 'string' || !skuObj.modem.startsWith('EG800Q') || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
                     }        
@@ -819,6 +868,13 @@ const schemaDocs = require('./schema-docs');
             guid:'521a2be9-7d36-4cf9-9996-1b59720d07b8', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.modem != 'string' || skuObj.lifecycle == 'Deprecated' ||
                         (!skuObj.modem.startsWith('BG9') && !skuObj.modem.startsWith('R4') && !skuObj.modem.startsWith('R5')) || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
@@ -831,6 +887,13 @@ const schemaDocs = require('./schema-docs');
             guid:'bfde3ce5-1f90-40fe-9bba-481cdc5b89bd', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'noram' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
                     }        
@@ -842,6 +905,13 @@ const schemaDocs = require('./schema-docs');
             guid:'6a8ccfd8-0058-481f-bcd3-2a78b88a3e82', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'emeaa' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
                     }        
@@ -853,6 +923,13 @@ const schemaDocs = require('./schema-docs');
             guid:'be8173dc-011c-4719-ae3e-9bba199849a8', 
             generatorFn:function(updater) {
                 return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
                     filterFn:function(skuObj) {
                         return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'americas' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
                     }        
