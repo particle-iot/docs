@@ -678,6 +678,7 @@ Retained memory is 3068 bytes.
 
 ### Complete module pin details
 
+{{collapse op="start" label="Show pin details"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 2b457422-47aa-43ed-9fe6-a47d952fcd4b --}}
 
 
@@ -1769,7 +1770,7 @@ Retained memory is 3068 bytes.
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
-
+{{collapse op="end"}}
 
 
 ## Technical specification

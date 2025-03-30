@@ -553,6 +553,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 
 ### Complete module pin details
 
+{{collapse op="start" label="Show pin details"}}
 {{!-- BEGIN do not edit content below, it is automatically generated d4d39408-f360-442f-b5ad-2b240da5d14c --}}
 
 
@@ -1014,6 +1015,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+{{collapse op="end"}}
 
 ## Technical specification
 

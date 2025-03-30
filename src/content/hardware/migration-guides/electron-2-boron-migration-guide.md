@@ -138,6 +138,8 @@ The BLE and NFC antennas are the same. If you are not using these features, you 
 The Electron 2 is the same form-factor as the Boron (and Argon), and follows the Adafruit Feather
 design specification.
 
+{{imageOverlay src="/assets/images/electron-2/electron-2-dimensions.png" alt="Dimensions" class="full-width"}}
+
 ### GPIO and ports
 
 There are no changes the Feather pins for ports and GPIO.

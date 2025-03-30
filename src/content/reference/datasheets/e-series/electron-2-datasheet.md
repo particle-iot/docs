@@ -511,6 +511,8 @@ The Electron 2 supports PWM (pulse-width modulation) on the following pins:
 
 ### Complete module pin details
 
+{{collapse op="start" label="Show pin details"}}
+
 {{!-- BEGIN do not edit content below, it is automatically generated 22694b55-ad2c-4e61-a33f-71994b569ba3 --}}
 
 
@@ -1000,6 +1002,8 @@ The Electron 2 supports PWM (pulse-width modulation) on the following pins:
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+{{collapse op="end"}}
+
 
 ---
 
@@ -1102,7 +1106,7 @@ GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA)
 
 ### Dimensions and weight
 
-<div align="center"><img src="/assets/images/boron/boron-dimensions.png" ></div>
+{{imageOverlay src="/assets/images/electron-2/electron-2-dimensions.png" alt="Dimensions" class="full-width"}}
  
  * Weight = 10 grams
 

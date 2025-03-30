@@ -312,7 +312,7 @@ All Feather devices have pins on the bottom that plug into a breadboard or baseb
 of available base boards off-the-shelf that implement features such as sensors, displays, relays, etc., 
 eliminating the need for a custom-designed board in some cases.
 
-{{imageOverlay src="/assets/images/boron/boron-dimensions.png" alt="Feather dimensions"}}
+{{imageOverlay src="/assets/images/electron-2/electron-2-dimensions.png" alt="Feather dimensions"}}
 
 The [Feather page](/hardware/expansion/feather/) includes examples of Feather accessories.
 

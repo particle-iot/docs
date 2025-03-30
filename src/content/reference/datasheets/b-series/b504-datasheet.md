@@ -717,7 +717,7 @@ breakout board, which has the cellular modem USB connector.
 
 ### Complete module pin details
 
-[Click this link to skip over this section](#led-status)
+{{collapse op="start" label="Show pin details"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated 88cf3396-ffa7-4f4c-b2ef-deead0b0315d --}}
 
@@ -1701,6 +1701,8 @@ breakout board, which has the cellular modem USB connector.
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+{{collapse op="end"}}
 
 
 
