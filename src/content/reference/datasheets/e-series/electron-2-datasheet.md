@@ -95,6 +95,11 @@ It is recommended that you use the latest version in the 6.x or later release li
 
 The minimum supported version is 6.3.0.
 
+The Electron 2 is the `electron2` platform (37). 
+
+Products can only contain a single platform, so you will need separate products for Electron 2 and other devices such as the 
+Boron, B-SoM, M-SoM, or Photon 2.
+
 
 ## Interfaces
 
@@ -111,7 +116,8 @@ The USB port is the easiest way to power up the Electron 2. The Electron 2 inclu
 Note that the Electron 2 does not use USB-C PD mode to change the port voltage like the Muon and Tachyon; the USB-C port
 is used at the default of 5V.
 
-The Electron 2 is compatible with most USB-C chargers for tablets and the Raspberry Pi 4 and 5.
+The Electron 2 is compatible with most USB-C chargers for tablets. Power adapters for the Raspberry Pi 4 and 5 are generally
+compatible as well.
 
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
@@ -129,6 +135,7 @@ Some other Particle devices have a 3.7V LiPo battery without a temperature senso
 
 
 If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
+See the [battery guide](/hardware/power/batteries/) for additional information.
 
 #### Li+ pin
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Electron 2.
@@ -143,7 +150,7 @@ This can be done using a solder jumper on the bottom of the Electron 2. It consi
 of two half-moon shaped pads that must be soldered closed and will allow charging at
 any temperature with battery packs or external supplies that do not have a temperature sensor.
 
-{{imageOverlay src="/assets/images/electron-2/ts-pad.png" alt="ts solder jumper" class="full-width"}}
+{{imageOverlay src="/assets/images/electron-2/ts-pad.png" alt="ts solder jumper"}}
 
 <p class="attribution">Facing bottom side of the Electron 2 with the battery connector on the left</p>
 

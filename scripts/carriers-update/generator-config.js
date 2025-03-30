@@ -1140,7 +1140,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'BoronElectron 2',
+                    platformNew: 'Electron 2',
                     interface: 'spi',
                     noPinNumbers: true,
                 }); 
