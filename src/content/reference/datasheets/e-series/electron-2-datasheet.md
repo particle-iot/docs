@@ -65,6 +65,14 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
  * Requires Device OS 6.3.0 (or later)
 
 
+## Decision guides
+
+If you are unsure of whether to use the Electron 2 or another device, you can consult the decision guides.
+
+| Deciding between | Information |
+| :--- | :--- |
+| M.2 SoM | [Electron 2 vs SoM decision guide](/hardware/decision-guides/electron-2-vs-som-decision-guide/) |
+
 ## Migration information
 
 | Migrating from | Information |

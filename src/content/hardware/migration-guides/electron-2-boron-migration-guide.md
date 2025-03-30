@@ -145,3 +145,7 @@ design specification.
 There are no changes the Feather pins for ports and GPIO.
 
 
+## Additional information
+
+- [Electron 2 datasheet](/reference/datasheets/e-series/electron-2-datasheet/)
+- [Cellular carrier list](/reference/cellular/carrier-list/)
