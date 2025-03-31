@@ -24497,10 +24497,12 @@
         "rank": "Backup"
       },
       "bands": [
-        "3G-2",
-        "3G-5",
         "4G-4",
         "4G-12"
+      ],
+      "bandsDisabled": [
+        "3G-2",
+        "3G-5"
       ],
       "mnc": {
         "311370": {
@@ -26014,13 +26016,9 @@
     {
       "model": "BG95-M5",
       "manufacturer": "quectel",
-      "name": "LTE Cat M1/2G",
+      "name": "LTE Cat M1",
       "globalM1": true,
       "bands": [
-        "2G-850",
-        "2G-900",
-        "2G-1800",
-        "2G-1900",
         "M1-1",
         "M1-2",
         "M1-3",
@@ -26041,6 +26039,12 @@
         "M1-72",
         "M1-73",
         "M1-85"
+      ],
+      "bandsDisabled": [
+        "2G-850",
+        "2G-900",
+        "2G-1800",
+        "2G-1900"
       ],
       "technologies": [
         "2G",
@@ -32799,24 +32803,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -33213,42 +33210,31 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Eagle": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telekom": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7"
         ],
         "Eagle": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Telekom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-7"
         ]
       }
@@ -33798,33 +33784,24 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Mobilis": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Ooredoo": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Mobilis": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Ooredoo": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -34775,24 +34752,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-13"
         ],
         "Flow": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-13"
@@ -35508,23 +35478,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-1",
           "4G-4"
         ],
         "Flow": [
+          "2G-850",
           "3G-1",
           "4G-4"
         ]
@@ -36022,30 +35985,20 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "M1-4"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "M1-4"
-        ],
-        "Personal": [
-          "2G-1900"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-4",
@@ -36053,15 +36006,20 @@
           "4G-28"
         ],
         "Claro": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5"
         ],
         "Movistar": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-4"
         ],
         "Personal": [
+          "2G-1900",
           "4G-4",
           "4G-7",
           "4G-28"
@@ -36856,25 +36814,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Beeline": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Ucom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -36882,9 +36827,13 @@
           "4G-20"
         ],
         "Beeline": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Ucom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -37504,25 +37453,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1900"
-        ],
-        "Setar": [
-          "2G-900",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1900",
           "3G-1",
           "4G-3"
         ],
         "Setar": [
+          "2G-900",
+          "2G-1900",
           "3G-1",
           "4G-3"
         ]
@@ -39270,29 +39212,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "3 (Drei)": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "A1": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "T-Mobile": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -39309,6 +39234,8 @@
           "NB1-8"
         ],
         "3 (Drei)": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -39321,6 +39248,8 @@
           "5G-78"
         ],
         "A1": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -39333,6 +39262,8 @@
           "5G-78"
         ],
         "T-Mobile": [
+          "2G-900",
+          "2G-1800",
           "3G-8",
           "4G-1",
           "4G-3",
@@ -40703,38 +40634,27 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Azercell": [
-          "2G-900"
-        ],
-        "Bakcell": [
-          "2G-900"
-        ],
-        "NAR Mobile": [
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
-          "4G-3"
+          "4G-3",
+          "2G-1800"
         ],
         "Azercell": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Bakcell": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "NAR Mobile": [
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -41335,36 +41255,27 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Aliv": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "BTC Bahamas": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-4",
           "4G-13",
           "4G-17"
         ],
         "Aliv": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-4",
           "4G-13"
         ],
         "BTC Bahamas": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-17"
         ]
@@ -41954,24 +41865,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Zain": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3"
         ],
         "Zain": [
+          "2G-900",
+          "2G-1800",
           "4G-3"
         ]
       }
@@ -42436,25 +42340,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Bangalink": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "GrameenPhone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -42462,12 +42353,16 @@
           "3G-8"
         ],
         "Bangalink": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-8"
         ],
         "GrameenPhone": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -43140,24 +43035,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "Flow": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1900",
           "3G-1",
           "4G-2",
           "4G-17"
         ],
         "Flow": [
+          "2G-1900",
           "3G-1",
           "4G-2",
           "4G-17"
@@ -43689,27 +43577,20 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "A1": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "NB1-8"
         ],
         "A1": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -44314,35 +44195,24 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-20"
-        ],
-        "Base": [
-          "2G-900",
-          "2G-1800"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-20"
-        ],
-        "Proximus": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -44356,6 +44226,8 @@
           "LoRa"
         ],
         "Base": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -44365,6 +44237,8 @@
           "5G-1"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -44375,6 +44249,8 @@
           "5G-78"
         ],
         "Proximus": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -46656,23 +46532,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "Viva": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1900",
           "3G-5",
           "4G-4"
         ],
         "Viva": [
+          "2G-1900",
           "3G-5",
           "4G-4"
         ]
@@ -47348,17 +47217,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "HT Eronet": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -47369,6 +47229,7 @@
           "3G-1"
         ],
         "HT Eronet": [
+          "2G-900",
           "3G-1"
         ]
       }
@@ -47796,23 +47657,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "BeMobile": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "BeMobile": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -48236,24 +48090,12 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Claro": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "TIM": [
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-5",
           "4G-7",
@@ -48263,11 +48105,14 @@
           "NB1-28"
         ],
         "Claro": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-5",
           "4G-7"
         ],
         "TIM": [
+          "2G-1800",
           "3G-1",
           "3G-5",
           "3G-8",
@@ -49501,39 +49346,28 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "A1": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telenor": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vivacom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8"
         ],
         "A1": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Vivacom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8"
         ]
@@ -50193,23 +50027,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Orange": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Orange": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -50784,33 +50611,24 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "CVMóvel": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Unitel T+": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "CVMóvel": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "Unitel T+": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -51312,24 +51130,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Metfone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Metfone": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -54790,25 +54601,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Flow": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-17"
         ],
         "Flow": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-17"
         ]
@@ -55540,23 +55344,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -55960,32 +55757,23 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-1900"
-        ],
-        "Entel": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1900",
           "3G-2",
           "4G-7",
           "3G-8",
           "3G-5"
         ],
         "Claro": [
+          "2G-1900",
           "3G-2",
           "4G-7"
         ],
         "Entel": [
+          "2G-1900",
           "3G-2",
           "3G-8",
           "4G-7"
@@ -56668,21 +56456,12 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
@@ -56691,6 +56470,8 @@
           "4G-3"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
@@ -57422,27 +57203,20 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-4",
           "3G-2",
           "4G-7"
         ],
         "Movistar": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-4"
         ],
@@ -58096,23 +57870,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-7"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-7"
         ]
@@ -58568,23 +58335,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -59504,22 +59264,15 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "MTN": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1"
         ],
         "MTN": [
+          "2G-900",
           "3G-1"
         ]
       }
@@ -59889,24 +59642,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Hrvatski Telekom": [
-          "2G-900"
-        ],
-        "Tele2": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -59915,9 +59655,11 @@
           "5G-1",
           "5G-28",
           "5G-77",
-          "5G-78"
+          "5G-78",
+          "2G-1800"
         ],
         "Hrvatski Telekom": [
+          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -59929,6 +59671,8 @@
           "5G-78"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3"
@@ -61393,32 +61137,23 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Cytamobile-Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Cytamobile-Vodafone": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
@@ -62021,29 +61756,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "O2": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "T-Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -62056,6 +61774,8 @@
           "5G-78"
         ],
         "O2": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -62064,6 +61784,8 @@
           "5G-77"
         ],
         "T-Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -62073,6 +61795,8 @@
           "5G-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -63261,27 +62985,16 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-20"
         ],
-        "TDC": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Telenor": [
-          "2G-900",
-          "2G-1800",
           "M1-20"
         ],
         "Telia": [
-          "2G-900",
-          "2G-1800",
           "M1-20"
         ]
       },
@@ -63291,6 +63004,8 @@
           "3G-8",
           "4G-3",
           "4G-7",
+          "2G-900",
+          "2G-1800",
           "4G-20",
           "NB1-20"
         ],
@@ -63301,18 +63016,24 @@
           "4G-7"
         ],
         "TDC": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "NB1-20"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "NB1-20"
         ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
@@ -64402,25 +64123,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Flow": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "3G-1",
           "4G-4"
         ],
         "Flow": [
+          "2G-850",
+          "2G-1900",
           "3G-1",
           "4G-4"
         ]
@@ -64951,24 +64665,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1800",
-          "2G-1900"
-        ],
-        "Altice Dominicana": [
-          "2G-1800",
-          "2G-1900"
-        ],
-        "Viva": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1800",
+          "2G-1900",
           "3G-8",
           "4G-2",
           "4G-4",
@@ -64976,6 +64678,8 @@
           "3G-5"
         ],
         "Altice Dominicana": [
+          "2G-1800",
+          "2G-1900",
           "3G-8",
           "4G-2",
           "4G-4",
@@ -64986,6 +64690,7 @@
           "4G-4"
         ],
         "Viva": [
+          "2G-1900",
           "3G-8"
         ]
       }
@@ -65649,33 +65354,24 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Claro": [
-          "2G-850"
-        ],
-        "Movistar": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-4",
           "4G-2"
         ],
         "Claro": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-4"
         ],
         "Movistar": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-2"
@@ -66245,25 +65941,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Etisalat": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Etisalat": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
@@ -66737,30 +66426,21 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Claro": [
-          "2G-850"
-        ],
-        "Telefonica": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-2"
         ],
         "Claro": [
+          "2G-850",
           "3G-2"
         ],
         "Telefonica": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-2"
@@ -67504,33 +67184,22 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Elisa": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
-        ],
-        "Tele2": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telia": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -67542,6 +67211,8 @@
           "NB1-20"
         ],
         "Elisa": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -67550,6 +67221,8 @@
           "M1-7"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -67558,6 +67231,8 @@
           "NB1-1"
         ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -68665,23 +68340,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "MTN": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "MTN": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -69104,23 +68772,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Ethio Telecom": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Ethio Telecom": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -69478,30 +69139,21 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Faroese Telecom": [
-          "2G-900"
-        ],
-        "Vodafone": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "3G-8"
         ],
         "Faroese Telecom": [
+          "2G-900",
           "3G-1",
           "3G-8"
         ],
         "Vodafone": [
+          "2G-900",
           "3G-1"
         ]
       }
@@ -70160,35 +69812,26 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "DNA": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
         ],
-        "Elisa": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Telia": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -70196,17 +69839,23 @@
           "NB1-20"
         ],
         "DNA": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "M1-7"
         ],
         "Elisa": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -71219,34 +70868,19 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-20"
-        ],
-        "Bouygues": [
-          "2G-900"
-        ],
-        "Free Mobile": [
-          "2G-900",
-          "2G-1800"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "M1-20"
-        ],
-        "SFR": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -71256,9 +70890,11 @@
           "4G-28",
           "5G-1",
           "5G-78",
+          "2G-1800",
           "5G-27"
         ],
         "Bouygues": [
+          "2G-900",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -71270,6 +70906,8 @@
           "5G-78"
         ],
         "Free Mobile": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -71281,6 +70919,8 @@
           "5G-78"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -71292,6 +70932,8 @@
           "5G-78"
         ],
         "SFR": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -72804,24 +72446,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Digicel": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Digicel": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -73205,23 +72840,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-1"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-1"
         ]
@@ -73907,34 +73535,25 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Beeline": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Geocell": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20",
           "4G-3"
         ],
         "Beeline": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "Geocell": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -74546,37 +74165,28 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-1800",
           "M1-20",
-          "2G-900",
           "M1-3",
           "M1-8",
           "M1-28"
         ],
         "O2": [
-          "2G-1800",
           "M1-20"
         ],
         "Telekom": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-8",
           "M1-20",
           "M1-28"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -74589,6 +74199,7 @@
           "NB1-20",
           "5G-1",
           "5G-78",
+          "2G-900",
           "4G-32",
           "NB1-8",
           "M1-7",
@@ -74596,6 +74207,7 @@
           "5G-28"
         ],
         "O2": [
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -74610,6 +74222,8 @@
           "5G-78"
         ],
         "Telekom": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-8",
@@ -74621,6 +74235,8 @@
           "M1-7"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76334,42 +75950,31 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "AirtelTigo": [
-          "2G-900"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
+          "2G-1800",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "AirtelTigo": [
+          "2G-900",
           "3G-1"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "Vodafone": [
+          "2G-900",
           "3G-1",
           "4G-20"
         ]
@@ -76996,26 +76601,19 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Gibtel": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7",
           "4G-20"
         ],
         "Gibtel": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7",
           "4G-20"
@@ -77551,29 +77149,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Cosmote": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Wind": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -77585,6 +77166,8 @@
           "5G-1"
         ],
         "Cosmote": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -77592,6 +77175,8 @@
           "5G-78"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -77602,6 +77187,8 @@
           "5G-78"
         ],
         "Wind": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -79016,18 +78603,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-850"
         ],
         "Flow": [
           "2G-850"
         ]
-      },
-      "notSupported": {}
+      }
     },
     {
       "country": "Grenada",
@@ -79367,19 +78952,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Orange": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -79387,6 +78964,7 @@
           "4G-20"
         ],
         "Orange": [
+          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -80098,32 +79676,23 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-900",
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1900",
           "3G-2",
           "4G-2"
         ],
         "Claro": [
+          "2G-900",
+          "2G-1900",
           "3G-2",
           "4G-2"
         ],
         "Movistar": [
+          "2G-1900",
           "3G-2",
           "4G-2"
         ]
@@ -80965,25 +80534,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -81361,25 +80923,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -81830,18 +81385,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-900"
         ],
         "Digicel": [
           "2G-900"
         ]
-      },
-      "notSupported": {}
+      }
     },
     {
       "country": "Guyana",
@@ -82191,24 +81744,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Digicel": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Digicel": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -82899,32 +82445,23 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900",
-          "2G-850"
-        ],
-        "Claro": [
-          "2G-1900"
-        ],
-        "Tigo": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1900",
           "3G-2",
           "4G-4",
+          "2G-850",
           "3G-5"
         ],
         "Claro": [
+          "2G-1900",
           "3G-2",
           "4G-4"
         ],
         "Tigo": [
+          "2G-850",
           "3G-5",
           "4G-4"
         ]
@@ -83500,24 +83037,15 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "CSL": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "4G-3",
           "4G-7",
           "4G-40",
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-8"
@@ -83528,6 +83056,8 @@
           "4G-40"
         ],
         "CSL": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -84191,29 +83721,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Magyar Telekom": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telenor": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -84226,11 +83739,15 @@
           "5G-78"
         ],
         "Magyar Telekom": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -84238,6 +83755,8 @@
           "4G-20"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -85348,29 +84867,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Siminn": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-20",
+          "2G-900",
+          "2G-1800",
           "3G-8",
           "4G-7",
           "NB1"
@@ -85382,12 +84888,16 @@
           "4G-20"
         ],
         "Siminn": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "4G-7"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -86339,26 +85849,19 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Airtel": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-40",
           "4G-3",
           "4G-5"
         ],
         "Airtel": [
+          "2G-900",
+          "2G-1800",
           "4G-40"
         ],
         "Jio": [
@@ -86932,45 +86435,34 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Indosat": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telkomsel": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "XL Axiata": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "4G-8"
         ],
         "Indosat": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "4G-8"
         ],
         "Telkomsel": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-8"
         ],
         "XL Axiata": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-8"
         ]
@@ -88132,23 +87624,8 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Meteor": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "4G-1",
@@ -88158,6 +87635,8 @@
           "4G-28",
           "5G-3",
           "5G-78",
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "NB1-20"
@@ -88172,6 +87651,8 @@
           "5G-78"
         ],
         "Meteor": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -88182,6 +87663,8 @@
           "4G-3"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-20",
           "NB1-20",
@@ -89453,36 +88936,27 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Hot Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Orange": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "3G-5"
         ],
         "Hot Mobile": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3"
@@ -90290,29 +89764,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "TIM": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Wind": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -90328,6 +89785,8 @@
           "4G-38"
         ],
         "TIM": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -90340,6 +89799,8 @@
           "5G-258"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -90351,6 +89812,8 @@
           "5G-258"
         ],
         "Wind": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -91737,25 +91200,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Digicel": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-5",
           "3G-2"
         ],
         "Digicel": [
+          "2G-900",
+          "2G-1800",
           "4G-5"
         ],
         "Flow": [
@@ -94009,22 +93465,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Jersey Telecom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
@@ -94033,6 +93480,8 @@
           "3G-1"
         ],
         "Jersey Telecom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -94605,23 +94054,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Zain": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Zain": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -95033,34 +94475,25 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Beeline": [
-          "2G-900"
-        ],
-        "K-Cell": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-20"
         ],
         "Beeline": [
+          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-20"
         ],
         "K-Cell": [
+          "2G-900",
           "3G-1",
           "4G-3",
           "4G-20"
@@ -95606,23 +95039,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-20"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-20"
         ]
@@ -96537,33 +95963,24 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Viva": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Zain": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Viva": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Zain": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -97212,24 +96629,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Beeline": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Beeline": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -97790,33 +97200,22 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
-        ],
-        "Bite": [
-          "2G-900",
-          "2G-1800"
         ],
         "LMT": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
-        ],
-        "Tele2": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -97825,6 +97224,8 @@
           "M1-7"
         ],
         "Bite": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -97832,6 +97233,8 @@
           "5G-78"
         ],
         "LMT": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -97839,6 +97242,8 @@
           "5G-78"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -99345,34 +98750,25 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Mobilkom": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Orange": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7",
           "4G-3"
         ],
         "Mobilkom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7"
@@ -99989,29 +99385,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Bite": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Omnitel": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Tele2": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -100029,6 +99408,8 @@
           "5G-78"
         ],
         "Bite": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -100044,12 +99425,16 @@
           "5G-40"
         ],
         "Omnitel": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -101285,41 +100670,36 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-1800",
-          "2G-900",
           "M1-3"
-        ],
-        "Orange": [
-          "2G-1800"
         ],
         "POST": [
-          "2G-900",
-          "2G-1800",
           "M1-3"
-        ],
-        "Tango": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-1800",
           "3G-1",
-          "4G-3"
+          "4G-3",
+          "2G-900"
         ],
         "Orange": [
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "POST": [
+          "2G-900",
+          "2G-1800",
           "4G-3"
         ],
         "Tango": [
+          "2G-900",
+          "2G-1800",
           "4G-3"
         ]
       }
@@ -102443,23 +101823,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -102928,23 +102301,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -103348,29 +102714,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Celcom": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "DiGi": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Maxis": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "3G-1",
@@ -103380,14 +102729,20 @@
           "5G-257"
         ],
         "Celcom": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7"
         ],
         "DiGi": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Maxis": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -104680,35 +104035,26 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1800",
-          "2G-900"
-        ],
-        "Go Mobile": [
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20",
-          "5G-78"
+          "5G-78",
+          "2G-900"
         ],
         "Go Mobile": [
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20",
           "5G-78"
         ],
         "Vodafone": [
+          "2G-900",
           "3G-1",
           "4G-3"
         ]
@@ -106349,22 +105695,17 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "M1",
-        "2G"
+        "M1"
       ],
       "supported": {
         "*": [
           "M1-4",
-          "2G-850",
-          "2G-1900",
           "M1-66"
         ],
         "AT&T": [
           "M1-4"
         ],
         "Telcel": [
-          "2G-850",
-          "2G-1900",
           "M1-4",
           "M1-66"
         ]
@@ -106379,6 +105720,8 @@
           "4G-38",
           "5G-38",
           "5G-78",
+          "2G-850",
+          "2G-1900",
           "4G-66",
           "M1-7",
           "5G-5"
@@ -106394,6 +105737,8 @@
           "5G-78"
         ],
         "Telcel": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-4",
@@ -107486,33 +106831,24 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Moldcell": [
-          "2G-900"
-        ],
-        "Orange": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Moldcell": [
+          "2G-900",
           "3G-1"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -108278,30 +107614,21 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Mobicom": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Unitel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Mobicom": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Unitel": [
+          "2G-900",
           "3G-1"
         ]
       }
@@ -108766,29 +108093,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Mtel": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "T-Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telenor": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-8",
@@ -108796,17 +108106,23 @@
           "4G-7"
         ],
         "Mtel": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-8",
           "4G-20"
         ],
         "T-Mobile": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -109833,37 +109149,28 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Inwi": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Medi Telecom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Inwi": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Medi Telecom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -110458,26 +109765,19 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodacom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "Vodacom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
@@ -111015,28 +110315,19 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "MPT": [
-          "2G-900"
-        ],
-        "Telenor": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1"
         ],
         "MPT": [
+          "2G-900",
           "3G-1"
         ],
         "Telenor": [
+          "2G-900",
           "3G-1"
         ]
       }
@@ -111401,26 +110692,19 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telecom Namibia": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-38"
         ],
         "Telecom Namibia": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-38"
@@ -112289,13 +111573,10 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20",
           "M1-28",
@@ -112303,8 +111584,6 @@
           "M1-8"
         ],
         "KPN": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20",
           "M1-28"
@@ -112316,14 +111595,14 @@
           "M1-20"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -112340,6 +111619,8 @@
           "5G-3"
         ],
         "KPN": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -112363,6 +111644,8 @@
           "5G-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -114180,16 +113463,13 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "M1",
-        "2G"
+        "M1"
       ],
       "supported": {
         "*": [
           "M1-1",
           "M1-3",
-          "M1-28",
-          "2G-900",
-          "2G-1800"
+          "M1-28"
         ],
         "Spark": [
           "M1-1",
@@ -114197,8 +113477,6 @@
           "M1-28"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-28"
         ]
@@ -114216,6 +113494,8 @@
           "4G-7",
           "4G-40",
           "5G-40",
+          "2G-900",
+          "2G-1800",
           "NB1-28"
         ],
         "2degrees": [
@@ -114239,6 +113519,8 @@
           "5G-40"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -115545,23 +114827,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Movistar": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-2",
           "3G-5"
         ],
         "Movistar": [
+          "2G-850",
           "3G-2",
           "3G-5"
         ]
@@ -116282,33 +115557,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "9mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Airtel": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Glo": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-28",
@@ -116316,18 +115570,26 @@
           "4G-20"
         ],
         "9mobile": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Glo": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-28"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7",
           "4G-20"
@@ -117135,27 +116397,20 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vip operator": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-2",
           "4G-3",
           "4G-20"
         ],
         "Vip operator": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-2",
           "4G-3",
@@ -117801,30 +117056,19 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20",
           "M1-1"
         ],
-        "TDC": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Telenor": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Telia": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-20"
@@ -117832,6 +117076,8 @@
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -117841,12 +117087,16 @@
           "4G-1"
         ],
         "TDC": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -117854,6 +117104,8 @@
           "M1-7"
         ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -119032,24 +118284,17 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "roamingRestrictions": "warn",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Ooredoo": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3"
         ],
         "Ooredoo": [
+          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3"
@@ -119557,49 +118802,36 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Mobilink": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telenor": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Ufone": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-5"
         ],
         "Mobilink": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-5"
         ],
         "Ufone": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Warid": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -120353,22 +119585,15 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Jawwal": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1"
         ],
         "Jawwal": [
+          "2G-900",
           "3G-1"
         ]
       }
@@ -120691,20 +119916,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Movistar": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-2",
+          "2G-850",
           "3G-5",
           "4G-28"
         ],
@@ -120712,6 +119929,7 @@
           "3G-2"
         ],
         "Movistar": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-28"
@@ -121273,22 +120491,15 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "bmobile": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-8"
         ],
         "bmobile": [
+          "2G-900",
           "3G-8"
         ]
       }
@@ -121611,49 +120822,36 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1900",
-          "2G-850"
-        ],
-        "Claro": [
-          "2G-1900"
-        ],
-        "Personal": [
-          "2G-850"
-        ],
-        "Tigo": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Vox": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1900",
           "3G-2",
+          "2G-850",
           "3G-5",
           "4G-2",
           "3G-8",
           "4G-4"
         ],
         "Claro": [
+          "2G-1900",
           "3G-2"
         ],
         "Personal": [
+          "2G-850",
           "3G-2",
           "3G-5",
           "4G-2"
         ],
         "Tigo": [
+          "2G-850",
+          "2G-1900",
           "3G-5"
         ],
         "Vox": [
+          "2G-850",
+          "2G-1900",
           "3G-8",
           "4G-4"
         ]
@@ -122271,44 +121469,33 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Claro": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Entel": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Movistar": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-2",
           "4G-4"
         ],
         "Claro": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-2"
         ],
         "Entel": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "4G-4"
         ],
         "Movistar": [
+          "2G-850",
+          "2G-1900",
           "3G-5",
           "4G-4"
         ]
@@ -122972,25 +122159,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Globe": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Smart": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -123000,6 +122174,8 @@
           "4G-5"
         ],
         "Globe": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -123007,6 +122183,8 @@
           "4G-41"
         ],
         "Smart": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-5"
@@ -123819,39 +122997,24 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-20"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-20"
-        ],
-        "Play": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Plus": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "T-Mobile": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -123867,6 +123030,8 @@
           "NB1-20"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -123878,6 +123043,8 @@
           "5G-78"
         ],
         "Play": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -123888,6 +123055,8 @@
           "5G-78"
         ],
         "Plus": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -123898,6 +123067,8 @@
           "5G-38"
         ],
         "T-Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -125441,29 +124612,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "NOS": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "TMN": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -125475,6 +124629,8 @@
           "4G-38"
         ],
         "NOS": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -125485,11 +124641,15 @@
           "5G-78"
         ],
         "TMN": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -127096,37 +126256,28 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Ooredoo": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Ooredoo": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -128226,33 +127377,22 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20"
-        ],
-        "Telekom Romania": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -128268,6 +127408,8 @@
           "NB1-20"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -128280,6 +127422,8 @@
           "5G-78"
         ],
         "Telekom Romania": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "5G-1",
           "5G-3",
@@ -128287,6 +127431,8 @@
           "5G-77"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-20",
           "4G-38",
@@ -129539,33 +128685,12 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Beeline": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Megafon": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTS": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Tele2": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -129573,6 +128698,8 @@
           "4G-20"
         ],
         "Beeline": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -129580,18 +128707,24 @@
           "4G-20"
         ],
         "Megafon": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "MTS": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -130570,31 +129703,22 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Airtel": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Airtel": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -131356,26 +130480,19 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "Flow": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-28"
         ],
         "Flow": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-28"
@@ -131921,22 +131038,15 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-5"
         ],
         "Flow": [
+          "2G-850",
           "3G-5"
         ]
       }
@@ -133503,29 +132613,12 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "roamingRestrictions": "hide",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Al Jawal": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Mobily": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Zain": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-40",
@@ -133545,6 +132638,8 @@
           "5G-41"
         ],
         "Al Jawal": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-40",
@@ -133557,6 +132652,8 @@
           "5G-78"
         ],
         "Mobily": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20",
@@ -133569,6 +132666,8 @@
           "5G-78"
         ],
         "Zain": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -134865,33 +133964,24 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telenor": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "VIP": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "VIP": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3"
         ]
@@ -135530,23 +134620,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-20"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-20"
         ]
@@ -137225,24 +136308,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "TelCell": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "TelCell": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -137585,42 +136661,31 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "O2": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Orange": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telekom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-20",
           "4G-7"
         ],
         "O2": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-20"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "4G-7",
           "4G-20"
         ],
         "Telekom": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
@@ -138407,25 +137472,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "A1": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Mobitel": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -138434,12 +137486,16 @@
           "5G-78"
         ],
         "A1": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Mobitel": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -139735,29 +138791,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Cell C": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTN": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodacom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -139767,18 +138806,24 @@
           "4G-46"
         ],
         "Cell C": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
           "4G-3"
         ],
         "MTN": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-8",
           "5G-78"
         ],
         "Vodacom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -141813,22 +140858,15 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "MTN": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1"
         ],
         "MTN": [
+          "2G-900",
           "3G-1"
         ]
       }
@@ -142198,13 +141236,10 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
@@ -142212,8 +141247,6 @@
           "M1-28"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
@@ -142221,24 +141254,17 @@
           "M1-28"
         ],
         "Telefonica": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
           "M1-20",
           "M1-28"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Yoigo": [
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -142257,6 +141283,8 @@
           "NB1-20"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -142271,6 +141299,8 @@
           "5G-78"
         ],
         "Telefonica": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -142287,6 +141317,8 @@
           "5G-258"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -142303,6 +141335,7 @@
           "5G-78"
         ],
         "Yoigo": [
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -144181,37 +143214,34 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-3"
         ],
         "Dialog": [
-          "2G-900",
-          "2G-1800",
           "M1-3"
-        ],
-        "Mobitel": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-40"
         ],
         "Dialog": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-40"
         ],
         "Mobitel": [
+          "2G-900",
+          "2G-1800",
           "4G-3"
         ]
       }
@@ -144848,24 +143878,17 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Telesur": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Telesur": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -145581,39 +144604,24 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
           "M1-20",
           "M1-28"
-        ],
-        "3 (Tre)": [
-          "2G-900",
-          "2G-1800"
         ],
         "Tele2": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
           "M1-20",
           "M1-28"
         ],
-        "Telenor": [
-          "2G-900",
-          "2G-1800"
-        ],
         "Telia": [
-          "2G-900",
-          "2G-1800",
           "M1-3",
           "M1-20",
           "M1-28"
@@ -145621,6 +144629,8 @@
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -145636,6 +144646,8 @@
           "5G-28"
         ],
         "3 (Tre)": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -145647,6 +144659,8 @@
           "5G-78"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -145656,6 +144670,8 @@
           "5G-78"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -145665,6 +144681,8 @@
           "5G-78"
         ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -149643,32 +148661,23 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Beeline": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Tcell": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "Beeline": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Tcell": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20"
         ]
@@ -150098,25 +149107,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Airtel": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-28"
         ],
         "Airtel": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-28"
         ]
@@ -150654,25 +149656,18 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "M1",
-        "2G"
+        "M1"
       ],
       "supported": {
         "*": [
           "M1-1",
           "M1-3",
-          "M1-8",
-          "2G-900",
-          "2G-1800"
+          "M1-8"
         ],
         "AIS": [
           "M1-1",
           "M1-3",
           "M1-8"
-        ],
-        "DTAC": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
@@ -150684,6 +149679,8 @@
           "4G-8",
           "4G-41",
           "5G-41",
+          "2G-900",
+          "2G-1800",
           "3G-5",
           "4G-40",
           "NB1-8"
@@ -150698,6 +149695,8 @@
           "5G-41"
         ],
         "DTAC": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-5",
           "4G-1",
@@ -152243,34 +151242,25 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-850",
           "2G-1900",
-          "2G-1800"
-        ],
-        "Digicel": [
-          "2G-850",
-          "2G-1900"
-        ],
-        "TSTT": [
-          "2G-1800"
-        ]
-      },
-      "notSupported": {
-        "*": [
           "3G-2",
           "3G-5",
+          "2G-1800",
           "4G-7"
         ],
         "Digicel": [
+          "2G-850",
+          "2G-1900",
           "3G-2",
           "3G-5"
         ],
         "TSTT": [
+          "2G-1800",
           "3G-2",
           "3G-5",
           "4G-7"
@@ -152904,35 +151894,26 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Orange Tunisie": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Tunisie Telecom": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "Orange Tunisie": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "Tunisie Telecom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
@@ -153490,31 +152471,20 @@
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "hide",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "M1-20"
-        ],
-        "Türk Telekom": [
-          "2G-900",
-          "2G-1800"
         ],
         "Turkcell": [
-          "2G-900",
-          "2G-1800",
           "M1-20"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -153525,6 +152495,8 @@
           "NB1-20"
         ],
         "Türk Telekom": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -153532,6 +152504,8 @@
           "4G-38"
         ],
         "Turkcell": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -153541,6 +152515,8 @@
           "NB1-20"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -154521,23 +153497,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Flow": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-5",
           "4G-17"
         ],
         "Flow": [
+          "2G-850",
           "3G-5",
           "4G-17"
         ]
@@ -154928,40 +153897,29 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Africell": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Airtel": [
-          "2G-900"
-        ],
-        "MTN": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20",
           "4G-7",
           "4G-38"
         ],
         "Africell": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1"
         ],
         "MTN": [
+          "2G-900",
           "3G-1",
           "4G-7",
           "4G-38"
@@ -155611,41 +154569,30 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Kyivstar": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Life": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "MTS": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Kyivstar": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Life": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "MTS": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ]
@@ -156497,7 +155444,7 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "roamingRestrictions": "warn"
     },
     {
@@ -157076,41 +156023,22 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "2G",
         "M1"
       ],
       "supported": {
         "*": [
-          "2G-1800",
-          "2G-900",
           "M1-1",
           "M1-3",
           "M1-8",
           "M1-20",
           "M1-28"
-        ],
-        "EE": [
-          "2G-1800"
-        ],
-        "Manx": [
-          "2G-900"
         ],
         "O2": [
-          "2G-900",
-          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
           "M1-20",
           "M1-28"
-        ],
-        "Sure": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
@@ -157137,9 +156065,11 @@
           "5G-28",
           "5G-77",
           "5G-78",
+          "2G-1800",
           "4G-7",
           "5G-3",
           "5G-7",
+          "2G-900",
           "3G-8",
           "4G-8",
           "4G-40",
@@ -157150,6 +156080,7 @@
           "NB1-20"
         ],
         "EE": [
+          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -157162,11 +156093,14 @@
           "5G-78"
         ],
         "Manx": [
+          "2G-900",
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "O2": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -157182,9 +156116,13 @@
           "5G-78"
         ],
         "Sure": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -159234,8 +158172,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -159265,8 +158201,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -159360,8 +158294,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -159391,8 +158323,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -159545,8 +158475,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -159577,8 +158505,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -159658,8 +158584,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -159694,8 +158618,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -159805,8 +158727,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-14",
           "4G-17",
           "4G-29",
@@ -159834,10 +158754,6 @@
           "5G-258",
           "M1-13",
           "NB1-13"
-        ],
-        "Alaska Wireless": [
-          "3G-2",
-          "3G-5"
         ],
         "AT&T": [
           "4G-14",
@@ -159957,8 +158873,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -159994,8 +158908,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -160128,8 +159040,6 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -160165,8 +159075,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -160240,13 +159148,10 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "3G",
         "4G"
       ],
       "supported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -160254,8 +159159,6 @@
           "4G-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -160541,8 +159444,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -160573,8 +159474,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -160667,8 +159566,6 @@
       },
       "notSupported": {
         "*": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12",
           "4G-2",
@@ -160699,8 +159596,6 @@
           "NB1-13"
         ],
         "Alaska Wireless": [
-          "3G-2",
-          "3G-5",
           "4G-4",
           "4G-12"
         ],
@@ -161102,21 +159997,10 @@
       "country": "United States",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NRND",
+      "recommendation": "NR",
       "reason": "2G/3G sunset in NorAm coming soon",
-      "technologies": [
-        "3G"
-      ],
-      "supported": {
-        "*": [
-          "3G-2",
-          "3G-5"
-        ],
-        "Alaska Wireless": [
-          "3G-2",
-          "3G-5"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "4G-4",
@@ -161400,19 +160284,11 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-1800"
-        ],
-        "Antel": [
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-1800",
           "3G-1",
           "4G-4",
           "3G-2",
@@ -161420,6 +160296,7 @@
           "4G-2"
         ],
         "Antel": [
+          "2G-1800",
           "3G-1",
           "4G-4"
         ],
@@ -162043,25 +160920,18 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Beeline": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Beeline": [
+          "2G-900",
+          "2G-1800",
           "3G-1",
           "4G-7"
         ]
@@ -162718,23 +161588,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-850"
-        ],
-        "Movistar": [
-          "2G-850"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-850",
           "3G-2",
           "4G-4"
         ],
         "Movistar": [
+          "2G-850",
           "3G-2",
           "4G-4"
         ]
@@ -163198,35 +162061,26 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Viettel": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vinaphone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "3G-1",
+          "2G-900",
+          "2G-1800",
           "4G-3"
         ],
         "MobiFone": [
           "3G-1"
         ],
         "Viettel": [
+          "2G-900",
+          "2G-1800",
           "4G-3"
         ],
         "Vinaphone": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ]
       }
@@ -163782,35 +162636,26 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "2G-850",
-          "2G-1900"
-        ],
-        "CCT": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Flow": [
-          "2G-850",
-          "2G-1900"
-        ]
-      },
-      "notSupported": {
-        "*": [
           "3G-1",
+          "2G-850",
+          "2G-1900",
           "4G-2",
           "4G-12"
         ],
         "CCT": [
+          "2G-900",
+          "2G-1800",
           "3G-1"
         ],
         "Flow": [
+          "2G-850",
+          "2G-1900",
           "3G-1",
           "4G-2",
           "4G-12"
@@ -164917,23 +163762,16 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900"
-        ],
-        "Airtel": [
-          "2G-900"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
           "3G-1",
           "4G-8"
         ],
         "Airtel": [
+          "2G-900",
           "3G-1",
           "4G-8"
         ]

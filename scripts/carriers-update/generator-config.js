@@ -1028,6 +1028,119 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },      
+        {
+            guid:'936be9f3-0894-4b5f-88cd-3b22ebf42fc0',
+            generatorFn:function(updater) {
+                return updater.generateCountryModelComparison({
+                    leftColumns: [
+                        {
+                            title: 'Country',
+                            key: 'country',    
+                        },
+                    ],
+                    groups: [
+                        {
+                            key: 'elc504',
+                            title: 'ELC504EM (NorAm)',
+                            modem: 'EG800Q-NA',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'elc504.recommendation',
+                                    roamingRestrictionsKey: 'elc504.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'elc504.technologies',
+                                }
+                            ],
+                        },
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'elc524',
+                            title: 'ELC524EM (Europe)',
+                            modem: 'EG800Q-EU',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'elc524.recommendation',
+                                    roamingRestrictionsKey: 'elc524.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'elc524.technologies',
+                                },
+                            ],
+                        },
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'b504',
+                            title: 'B504e (Americas)',
+                            modem: 'EG91-NAX',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'b504.recommendation',
+                                    roamingRestrictionsKey: 'b504.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'b504.technologies',
+                                },
+                            ],
+                        },                        
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'm404',
+                            title: 'M404 (NorAm)',
+                            modem: 'BG95-M5',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'm404.recommendation',
+                                    roamingRestrictionsKey: 'm404.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'm404.technologies',
+                                },
+                            ],
+                        },
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'm524',
+                            title: 'M534 (EMEAA)',
+                            modem: 'EG91-EX',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'm524.recommendation',
+                                    roamingRestrictionsKey: 'm524.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'm524.technologies',
+                                },
+                            ],
+                        },
+                    ],
+                }); 
+            } 
+        },      
+
         // B504
         {
             guid:'716800d6-7c3f-45f7-8cc4-91af58795240',

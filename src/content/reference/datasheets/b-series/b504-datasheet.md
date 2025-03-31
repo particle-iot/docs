@@ -2060,7 +2060,7 @@ The certification for the B504 applies to the B504e as changing only the SIM is 
 | :--- | :--- | :--- |
 | Canada | 3G, 4G | Bell Mobility, Rogers Wireless, Telus, Videotron |
 | Mexico | 3G, 4G | AT&T, Telcel |
-| United States | 3G, 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| United States | 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

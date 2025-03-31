@@ -1741,7 +1741,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Canada | M404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | M404 | 2G, M1 | AT&T, Telcel |
+| Mexico | M404 | M1 | AT&T, Telcel |
 | United States | M404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
