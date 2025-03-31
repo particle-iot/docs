@@ -353,12 +353,6 @@ The Electron 2 has a dedicated 10 pin debug connector that exposes the SWD inter
 
 ## Pins and button definitions
 
-### Pin markings
-
-<div align="center"><img src="/assets/images/boron/boron-pin-markings.png" ></div>
-
-<div align="center"><img src="/assets/images/boron/boron-bottom-pin-markings.png" ></div>
-
 ### Pinout diagram
 
 {{imageOverlay src="/assets/images/electron-2/electron-2-pinout.svg" alt="Pinout" class="full-width"}}

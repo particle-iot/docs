@@ -556,6 +556,14 @@ an external module connected by serial, I2C, or SPI.
 {{!-- END do not edit content above, it is automatically generated --}}
 {{collapse op="end"}}
 
+## e-sim
+
+The Electron 2 and B504e have a Particle e-sim. Other devices have a Particle MFF2 EtherSIM.
+
+At this time, the carriers installed on the e-sim are the same as the Particle MFF2 (SMD) EtherSIM, and the e-sim is not user programmable.
+
+The e-sim provides a path to future updates to the SIM without having to modify the hardware, however.
+
 
 ## Certification
 
@@ -565,3 +573,14 @@ radiator testing, which is the most complicated and most common certification te
 You will, however, have to do unintentional radiator testing, and it must be repeated for
 all modules if you swap between different modules based on region or required connectivity. 
 This is the least expensive and easiest certification, however.
+
+
+## Additional information
+
+- [Electron 2 datasheet](/reference/datasheets/e-series/electron-2-datasheet/)
+- [Electron 2 from Boron migration guide](/hardware/migration-guides/electron-2-boron-migration-guide/) 
+- [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
+- [B504 datasheet](/reference/datasheets/b-series/b504-datasheet/)
+- [B524/B523 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [Cellular carrier list](/reference/cellular/carrier-list/)

@@ -73,7 +73,7 @@ This can be done using a solder jumper on the bottom of the Electron 2. It consi
 of two half-moon shaped pads that must be soldered closed and will allow charging at
 any temperature with battery packs or external supplies that do not have a temperature sensor.
 
-{{imageOverlay src="/assets/images/electron-2/ts-pad.png" alt="ts solder jumper" class="full-width"}}
+{{imageOverlay src="/assets/images/electron-2/ts-pad.png" alt="ts solder jumper"}}
 
 <p class="attribution">Facing bottom side of the Electron 2 with the battery connector on the left</p>
 
@@ -166,4 +166,6 @@ There are no changes the Feather pins for ports and GPIO between the Boron and E
 ## Additional information
 
 - [Electron 2 datasheet](/reference/datasheets/e-series/electron-2-datasheet/)
+- [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
+- [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
 - [Cellular carrier list](/reference/cellular/carrier-list/)
