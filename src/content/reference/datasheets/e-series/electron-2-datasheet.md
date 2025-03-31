@@ -464,6 +464,18 @@ The Electron 2 supports one UART serial interface.
 The Electron 2 supports two SPI (serial peripheral interconnect) ports.
 
 {{!-- BEGIN do not edit content below, it is automatically generated dcad2250-0112-4901-ae15-f18d3b8fd771 --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | SPI (SS) | P0.31 |
+| D2 | SPI1 SCK, Serial1 RTS, GPIO, PWM | SPI1 (SCK) | P1.01 |
+| D3 | SPI1 MOSI, Serial1 CTS, PWM, GPIO | SPI1 (MOSI) | P1.02 |
+| D4 | SPI1 MISO, PWM, GPIO | SPI1 (MISO) | P1.08 |
+| MISO / D11 | SPI MISO, GPIO | SPI (MISO) | P1.14 |
+| MOSI / D12 | SPI MOSI, GPIO | SPI (MOSI) | P1.13 |
+| SCK / D13 | SPI SCK, GPIO | SPI (SCK) | P1.15 |
+
+
 {{!-- END do not edit content above, it is automatically generated --}}
 
 - The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
@@ -1123,7 +1135,19 @@ GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA)
 
 {{imageOverlay src="/assets/images/electron-2/electron-2-dimensions.png" alt="Dimensions" class="full-width"}}
  
- * Weight = 10 grams
+{{!-- BEGIN shared-blurb 6e4375b2-8981-4e75-8572-82a138fc2a46 --}}
+| Dimension | mm | inches |
+| :--- | ---: | ---: |
+| Width | 22.86 | 0.9 |
+| Length | 50.80 | 2.0 |
+| Spacing between rows of pins | 20.32 | 0.8 |
+| Spacing between pins | 2.54 | 0.1 | 
+| Width between holes | 17.78 | 0.7 |
+| Length between holes | 45.72 | 1.8 | 
+{{!-- END shared-blurb --}}
+
+
+- Weight = 10 grams
 
 ### 3D models
 

@@ -970,6 +970,7 @@ const generatorConfig = require('./generator-config');
                 {
                     key: 'name',
                     title: 'SKU',
+                    linkKey: 'datasheet',
                 },
                 {
                     key: 'desc',
@@ -1157,33 +1158,47 @@ const generatorConfig = require('./generator-config');
         for(const d of data) {
             line = '';
             for(const c of options.columns) {
+                let s = '&nbsp;'
+
                 if (c.onlyCheckmark && d[c.key]) {
-                    line += '| &check; ';
+                    s = '&check;';
                 }
                 else
                 if (c.checkmark && d[c.key] === true ) {
-                    line += '| &check; ';
+                    s = '&check;';
                 }
                 else
                 if (d[c.key]) {
                     if (c.map && c.map[d[c.key]]) {
-                        line += '| ' + c.map[d[c.key]] + ' ';
-                        continue;
-                    }
-                    if (c.useShortName) {
-                        line += '| ' + updater.getShortName(d[c.key]) + ' ';
-                    }
-                    else
-                    if (c.capitalizeValue) {
-                        line += '| ' + d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1) + ' ';
+                        s = c.map[d[c.key]];
                     }
                     else {
-                        line += '| ' + d[c.key] + ' ';
+                        if (c.useShortName) {
+                            s = updater.getShortName(d[c.key]);
+                        }
+                        else
+                        if (c.capitalizeValue) {
+                            s = d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1);
+                        }
+                        else {
+                            s = d[c.key];
+                        }
+    
                     }
                 }
-                else {
-                    line += '| &nbsp; ';
+                if (c.linkKey && d[c.linkKey]) {
+                    const text = s;
+                    let link = d[c.linkKey];
+
+                    let linkPrefix = 'https://docs.particle.io';
+                    if (link.startsWith(linkPrefix)) {
+                        link = link.substring(linkPrefix.length);
+                    }
+                    s = '[' + text + '](' + link + ')';
                 }
+
+                line += '| ' + s + ' ';
+
             }
             md += line + '|\n';             
         }

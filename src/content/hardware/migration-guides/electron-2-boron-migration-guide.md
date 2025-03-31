@@ -131,7 +131,23 @@ Single quantity units and developer kits include a PARANTCW1EA antenna. Tray qua
 {{!-- END shared-blurb --}}
 
 
-The BLE and NFC antennas are the same. If you are not using these features, you can omit the antennas.
+Both the Boron and Electron 2 use the same on-board BLE chip antenna, and the same external BLE antenna. The external
+BLE antenna is optional on both devices.
+
+Both the Boron and Electron 2 use the same external NFC antenna. The NFC antenna can be omitted if the NFC tag
+feature is not needed.
+
+ 
+{{!-- BEGIN shared-blurb 6e4375b2-8981-4e75-8572-82a138fc2a46 --}}
+| Dimension | mm | inches |
+| :--- | ---: | ---: |
+| Width | 22.86 | 0.9 |
+| Length | 50.80 | 2.0 |
+| Spacing between rows of pins | 20.32 | 0.8 |
+| Spacing between pins | 2.54 | 0.1 | 
+| Width between holes | 17.78 | 0.7 |
+| Length between holes | 45.72 | 1.8 | 
+{{!-- END shared-blurb --}}
 
 ### Size
 
@@ -142,7 +158,9 @@ design specification.
 
 ### GPIO and ports
 
-There are no changes the Feather pins for ports and GPIO.
+There are no changes the Feather pins for ports and GPIO between the Boron and Electron 2.
+
+{{imageOverlay src="/assets/images/electron-2/electron-2-pinout.svg" alt="Electron 2 Pinout" class="full-width"}}
 
 
 ## Additional information

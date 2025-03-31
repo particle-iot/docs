@@ -26832,7 +26832,8 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
     },
     {
       "name": "ARGNKIT",
@@ -26862,7 +26863,8 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
     },
     {
       "name": "ARGNTRAY50",
@@ -26895,7 +26897,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
     },
     {
       "name": "ASSET2GV2",
@@ -27011,7 +27014,8 @@
       "usb": false,
       "batteryRequired": false,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
     },
     {
       "name": "B402MTY",
@@ -27048,7 +27052,8 @@
       "retail": false,
       "endOfSupport": "2025-03-31",
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
     },
     {
       "name": "B404MEA",
@@ -27084,7 +27089,8 @@
       "batteryRequired": false,
       "verizon": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
     },
     {
       "name": "B404MTY",
@@ -27122,7 +27128,8 @@
       "retail": false,
       "endOfSupport": "2025-03-31",
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
     },
     {
       "name": "B404XMEA",
@@ -27158,7 +27165,8 @@
       "batteryRequired": false,
       "verizon": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404x-datasheet/"
     },
     {
       "name": "B404XMTY",
@@ -27195,7 +27203,8 @@
       "batteryRequired": false,
       "verizon": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404x-datasheet/"
     },
     {
       "name": "B504EMEA",
@@ -27232,7 +27241,8 @@
       "usb": false,
       "batteryRequired": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
     },
     {
       "name": "B504EMTY",
@@ -27270,7 +27280,8 @@
       "usb": false,
       "batteryRequired": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
     },
     {
       "name": "B504MEA",
@@ -27308,7 +27319,8 @@
       "usb": false,
       "batteryRequired": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
     },
     {
       "name": "B504MTY",
@@ -27347,7 +27359,8 @@
       "usb": false,
       "batteryRequired": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
     },
     {
       "name": "B523MEA",
@@ -27383,7 +27396,8 @@
       "usb": false,
       "batteryRequired": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/"
     },
     {
       "name": "B523MTY",
@@ -27421,7 +27435,8 @@
       "retail": false,
       "endOfSupport": "2025-03-31",
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/"
     },
     {
       "name": "B524MEA",
@@ -27455,7 +27470,8 @@
       "usb": false,
       "batteryRequired": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/"
     },
     {
       "name": "B524MTY",
@@ -27490,7 +27506,8 @@
       "usb": false,
       "batteryRequired": true,
       "m2som": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/"
     },
     {
       "name": "BAT1800",
@@ -27548,7 +27565,8 @@
       "retail": true,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN310TRAY50",
@@ -27586,7 +27604,8 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN314KIT",
@@ -27621,7 +27640,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN314TRAY50",
@@ -27658,7 +27678,8 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN402",
@@ -27691,7 +27712,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN402-AQKT",
@@ -27754,7 +27776,8 @@
       "platformId": 13,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN402TRAY50",
@@ -27792,7 +27815,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN404",
@@ -27826,7 +27850,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN404KIT",
@@ -27859,7 +27884,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN404TRAY50",
@@ -27894,7 +27920,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/"
     },
     {
       "name": "BRN404X",
@@ -27931,7 +27958,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/"
     },
     {
       "name": "BRN404XKIT",
@@ -27967,7 +27995,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/"
     },
     {
       "name": "BRN404XTRAY50",
@@ -28005,7 +28034,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/"
     },
     {
       "name": "E260KIT",
@@ -28031,7 +28061,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "E260TRAY50",
@@ -28057,7 +28088,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "E270KIT",
@@ -28083,7 +28115,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "E270TRAY50",
@@ -28113,7 +28146,8 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "E310KIT",
@@ -28143,7 +28177,8 @@
       "retail": true,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/"
     },
     {
       "name": "E310MOD1",
@@ -28168,7 +28203,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E310TRAY50",
@@ -28197,7 +28233,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E313EA",
@@ -28222,7 +28259,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E313TRAY50",
@@ -28248,7 +28286,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E314KIT",
@@ -28277,7 +28316,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/"
     },
     {
       "name": "E314MOD1",
@@ -28302,7 +28342,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E314TRAY50",
@@ -28332,7 +28373,8 @@
       "usb": false,
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E350KIT",
@@ -28357,7 +28399,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "E350TRAY50",
@@ -28383,7 +28426,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "E402KIT",
@@ -28412,7 +28456,8 @@
       "retail": true,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/"
     },
     {
       "name": "E402MOD1",
@@ -28437,7 +28482,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E402TRAY50",
@@ -28468,7 +28514,8 @@
       "usb": false,
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E404KIT",
@@ -28497,7 +28544,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/"
     },
     {
       "name": "E404MOD1",
@@ -28525,7 +28573,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E404TRAY50",
@@ -28552,7 +28601,8 @@
       "platformId": 10,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/"
     },
     {
       "name": "E404XTRAY50",
@@ -28582,7 +28632,8 @@
       "usb": false,
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e404x-datasheet/"
     },
     {
       "name": "EDGEAISNSRKIT",
@@ -28623,7 +28674,8 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "ELC402EA",
@@ -28649,7 +28701,8 @@
       "platformId": 10,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "ELC402TY",
@@ -28680,7 +28733,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "ELC404TY",
@@ -28707,7 +28761,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/"
     },
     {
       "name": "ELC504EMEA",
@@ -28744,7 +28799,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-2-datasheet/"
     },
     {
       "name": "ELC504EMTY",
@@ -28782,7 +28838,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-2-datasheet/"
     },
     {
       "name": "ELC524EMEA",
@@ -28819,7 +28876,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-2-datasheet/"
     },
     {
       "name": "ELC524EMTY",
@@ -28857,7 +28915,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-2-datasheet/"
     },
     {
       "name": "FWNG-ETH",
@@ -28936,7 +28995,8 @@
       "retail": false,
       "skuRegion": "global",
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/m1-enclosure-datasheet/"
     },
     {
       "name": "M2BREAKOUT",
@@ -28951,7 +29011,8 @@
       "prefix": "P008",
       "usb": "c",
       "batteryConn": "jst-ph-3",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/m2-breakout-datasheet/"
     },
     {
       "name": "M2EVAL",
@@ -28966,7 +29027,8 @@
       "prefix": "P008",
       "usb": "micro-b",
       "batteryConn": "jst-ph-2",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b-series-eval-board/"
     },
     {
       "name": "M404MEA",
@@ -29006,7 +29068,8 @@
       "batteryRequired": false,
       "verizon": true,
       "m2som": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
     },
     {
       "name": "M404MTY",
@@ -29047,7 +29110,8 @@
       "batteryRequired": false,
       "verizon": true,
       "m2som": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
     },
     {
       "name": "M524MEA",
@@ -29086,7 +29150,8 @@
       "usb": false,
       "batteryRequired": false,
       "m2som": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
     },
     {
       "name": "M524MTY",
@@ -29126,7 +29191,8 @@
       "usb": false,
       "batteryRequired": false,
       "m2som": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
     },
     {
       "name": "M635EMEA",
@@ -29165,7 +29231,8 @@
       "usb": false,
       "batteryRequired": false,
       "m2som": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
     },
     {
       "name": "M635MEA",
@@ -29204,7 +29271,8 @@
       "usb": false,
       "batteryRequired": false,
       "m2som": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
     },
     {
       "name": "M8CAB3VEA",
@@ -29414,7 +29482,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/"
     },
     {
       "name": "MON404E02C01KIT",
@@ -29454,7 +29523,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/"
     },
     {
       "name": "MON524E01C01KIT",
@@ -29494,7 +29564,8 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/"
     },
     {
       "name": "MUON404",
@@ -29533,7 +29604,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/"
     },
     {
       "name": "MUON404EA",
@@ -29572,7 +29644,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/"
     },
     {
       "name": "MUON524",
@@ -29610,7 +29683,8 @@
       "batteryConn": "jst-ph-3",
       "usb": "c",
       "batteryRequired": false,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/"
     },
     {
       "name": "MUON524EA",
@@ -29648,7 +29722,8 @@
       "batteryConn": "jst-ph-3",
       "usb": "c",
       "batteryRequired": false,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/"
     },
     {
       "name": "MUON635",
@@ -29687,7 +29762,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/"
     },
     {
       "name": "MUON635EA",
@@ -29726,7 +29802,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "rtl872x"
+      "mcu": "rtl872x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/"
     },
     {
       "name": "MUONCB",
@@ -29839,7 +29916,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "ONE402MTY",
@@ -29877,7 +29955,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "ONE404MEA",
@@ -29917,7 +29996,8 @@
       "usb": "c",
       "batteryRequired": false,
       "verizon": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "ONE404MTY",
@@ -29959,7 +30039,8 @@
       "batteryRequired": false,
       "verizon": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "ONE523MEA",
@@ -30000,7 +30081,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "ONE523MTY",
@@ -30043,7 +30125,8 @@
       "usb": "c",
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "ONE524MEA",
@@ -30082,7 +30165,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "ONE524MTY",
@@ -30123,7 +30207,8 @@
       "usb": "c",
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/"
     },
     {
       "name": "P0MOD10",
@@ -30189,7 +30274,8 @@
       "platformId": 8,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/"
     },
     {
       "name": "P1REEL",
@@ -30214,7 +30300,8 @@
       "usb": false,
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/"
     },
     {
       "name": "P2MOD10",
@@ -30242,7 +30329,8 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/"
     },
     {
       "name": "P2REEL",
@@ -30270,7 +30358,8 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/"
     },
     {
       "name": "PARANTC41EA",
@@ -30416,7 +30505,8 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/"
     },
     {
       "name": "PHN2MEA",
@@ -30444,7 +30534,8 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/"
     },
     {
       "name": "PHN2MTY",
@@ -30473,7 +30564,8 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/"
     },
     {
       "name": "PHNTRAYH",
@@ -30543,7 +30635,8 @@
       "platformId": 6,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
     },
     {
       "name": "PHOTONKIT",
@@ -30563,7 +30656,8 @@
       "platformId": 6,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
     },
     {
       "name": "PHOTONNOH",
@@ -30583,7 +30677,8 @@
       "platformId": 6,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
     },
     {
       "name": "PMBATH1EA",
@@ -30916,7 +31011,8 @@
       "platformId": 26,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "T402MKIT",
@@ -30954,7 +31050,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/"
     },
     {
       "name": "T402MTY",
@@ -30997,7 +31094,8 @@
       "usb": false,
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "T404MEA",
@@ -31038,7 +31136,8 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "T404MKIT",
@@ -31079,7 +31178,8 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/"
     },
     {
       "name": "T404MTY",
@@ -31122,7 +31222,8 @@
       "batteryRequired": false,
       "verizon": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "T523MEA",
@@ -31161,7 +31262,8 @@
       "platformId": 26,
       "usb": false,
       "batteryRequired": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "T523MKIT",
@@ -31203,7 +31305,8 @@
       "platformId": 26,
       "usb": "micro-b",
       "batteryRequired": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/"
     },
     {
       "name": "T523MTY",
@@ -31243,7 +31346,8 @@
       "platformId": 26,
       "usb": false,
       "batteryRequired": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "T524MEA",
@@ -31283,7 +31387,8 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "T524MKIT",
@@ -31323,7 +31428,8 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/"
     },
     {
       "name": "T524MTY",
@@ -31365,7 +31471,8 @@
       "usb": false,
       "batteryRequired": true,
       "endOfSupport": "2025-03-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/"
     },
     {
       "name": "TACH4NA",
@@ -31387,7 +31494,8 @@
       "wifiAntInt": true,
       "wifiAntIntInc": true,
       "wifiAntExt": false,
-      "linux": true
+      "linux": true,
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
     },
     {
       "name": "TACH4ROW",
@@ -31406,7 +31514,8 @@
       "wifiAntInt": true,
       "wifiAntIntInc": true,
       "wifiAntExt": false,
-      "linux": true
+      "linux": true,
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
     },
     {
       "name": "TACH8NA",
@@ -31425,7 +31534,8 @@
       "wifiAntInt": true,
       "wifiAntIntInc": true,
       "wifiAntExt": false,
-      "linux": true
+      "linux": true,
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
     },
     {
       "name": "TACH8ROW",
@@ -31444,7 +31554,8 @@
       "wifiAntInt": true,
       "wifiAntIntInc": true,
       "wifiAntExt": false,
-      "linux": true
+      "linux": true,
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
     },
     {
       "name": "XENNTRAY50",

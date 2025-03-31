@@ -82,80 +82,80 @@ instead of using a battery pack temperature sensor.
 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARG-LDKT | Argon Leak Detection Kit [x1] | micro-b | 2-pin | Deprecated |
 | ARG-STRTKT | Argon Starter Kit [x1] | micro-b | 2-pin | Deprecated |
-| ARGN-H | Argon [x1] | micro-b | 2-pin | Deprecated |
-| ARGNKIT | Argon, Starter Kit  [x1] | micro-b | 2-pin | Deprecated |
-| ARGNTRAY50 | Argon, Tray [x50] | micro-b | 2-pin | Deprecated |
+| [ARGN-H](/reference/datasheets/wi-fi/argon-datasheet/) | Argon [x1] | micro-b | 2-pin | Deprecated |
+| [ARGNKIT](/reference/datasheets/wi-fi/argon-datasheet/) | Argon, Starter Kit  [x1] | micro-b | 2-pin | Deprecated |
+| [ARGNTRAY50](/reference/datasheets/wi-fi/argon-datasheet/) | Argon, Tray [x50] | micro-b | 2-pin | Deprecated |
 | ASSET2GV2 | Asset Tracker 2G | micro-b | 2-pin | Deprecated |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | micro-b | 2-pin | Deprecated |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | micro-b | 2-pin | Deprecated |
-| B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
-| B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | Deprecated |
-| B404MEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | Deprecated |
-| B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | NRND |
-| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | GA |
-| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | &nbsp; | 2-pin | GA |
-| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | &nbsp; | 2-pin | GA |
-| B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | Deprecated |
-| B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | &nbsp; | 2-pin | Deprecated |
-| B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &nbsp; | 2-pin | Deprecated |
-| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | &nbsp; | 2-pin | NRND |
-| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &nbsp; | 2-pin | GA |
-| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| [B402MEA](/reference/datasheets/b-series/b404-b402-datasheet/) | B-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
+| [B402MTY](/reference/datasheets/b-series/b404-b402-datasheet/) | B-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| [B404MEA](/reference/datasheets/b-series/b404-b402-datasheet/) | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | Deprecated |
+| [B404MTY](/reference/datasheets/b-series/b404-b402-datasheet/) | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | NRND |
+| [B404XMEA](/reference/datasheets/b-series/b404x-datasheet/) | B-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | GA |
+| [B404XMTY](/reference/datasheets/b-series/b404x-datasheet/) | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| [B504EMEA](/reference/datasheets/b-series/b504-datasheet/) | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | &nbsp; | 2-pin | GA |
+| [B504EMTY](/reference/datasheets/b-series/b504-datasheet/) | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | &nbsp; | 2-pin | GA |
+| [B504MEA](/reference/datasheets/b-series/b504-datasheet/) | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | Deprecated |
+| [B504MTY](/reference/datasheets/b-series/b504-datasheet/) | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | &nbsp; | 2-pin | Deprecated |
+| [B523MEA](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe) [x1] | &nbsp; | 2-pin | Deprecated |
+| [B523MTY](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | &nbsp; | 2-pin | NRND |
+| [B524MEA](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | &nbsp; | 2-pin | GA |
+| [B524MTY](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| [BRN310KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| [BRN310TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
+| [BRN314KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| [BRN314TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
+| [BRN402](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | micro-b | 2-pin | Deprecated |
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | NRND |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | GA |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | GA |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | GA |
-| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | micro-b | 2-pin | Deprecated |
-| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | micro-b | 2-pin | NRND |
-| E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
-| E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | &nbsp; | 2-pin | Deprecated |
-| E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | &nbsp; | 2-pin | Deprecated |
-| E313EA | E-Series 2G/3G (Global - E313), [x1] | &nbsp; | 2-pin | Deprecated |
-| E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | &nbsp; | 2-pin | End of life |
-| E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
-| E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | &nbsp; | 2-pin | Deprecated |
-| E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | &nbsp; | 2-pin | NRND |
-| E350KIT | Electron 2G Kit (Global) | micro-b | 2-pin | Deprecated |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
-| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
-| E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
-| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | NRND |
-| E404KIT | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
-| E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | NRND |
-| E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | Deprecated |
-| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | micro-b | 2-pin | NRND |
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | Deprecated |
-| ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
-| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | c | 3-pin | In development |
-| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | c | 3-pin | In development |
-| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | c | 3-pin | In development |
-| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | c | 3-pin | In development |
-| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | c | 3-pin | GA |
-| M2EVAL | Particle M.2 SoM Evaluation Board [x1] | micro-b | 2-pin | GA |
+| [BRN402KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
+| [BRN402TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | NRND |
+| [BRN404](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| [BRN404KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
+| [BRN404TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
+| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | GA |
+| [BRN404XKIT](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | GA |
+| [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | GA |
+| [E260KIT](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| [E260TRAY50](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Americas/Aus), Tray [x50] | micro-b | 2-pin | Deprecated |
+| [E270KIT](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (EMEA) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
+| [E270TRAY50](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (EMEA), Tray [x50] | micro-b | 2-pin | NRND |
+| [E310KIT](/reference/datasheets/e-series/e-series-eval-board/) | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| [E310MOD1](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E310), [x1] | &nbsp; | 2-pin | Deprecated |
+| [E310TRAY50](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E310), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| [E313EA](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E313), [x1] | &nbsp; | 2-pin | Deprecated |
+| [E313TRAY50](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E313), Tray [x50] | &nbsp; | 2-pin | End of life |
+| [E314KIT](/reference/datasheets/e-series/e-series-eval-board/) | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| [E314MOD1](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E314), [x1] | &nbsp; | 2-pin | Deprecated |
+| [E314TRAY50](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E314), Tray [x50] | &nbsp; | 2-pin | NRND |
+| [E350KIT](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G Kit (Global) | micro-b | 2-pin | Deprecated |
+| [E350TRAY50](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
+| [E402KIT](/reference/datasheets/e-series/e-series-eval-board/) | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| [E402MOD1](/reference/datasheets/e-series/e-series-datasheet/) | E-Series LTE CAT-M1 (NorAm), [x1] | &nbsp; | 2-pin | Deprecated |
+| [E402TRAY50](/reference/datasheets/e-series/e-series-datasheet/) | E-Series LTE CAT-M1 (NorAm), Tray [x50] | &nbsp; | 2-pin | NRND |
+| [E404KIT](/reference/datasheets/e-series/e-series-eval-board/) | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
+| [E404MOD1](/reference/datasheets/e-series/e-series-datasheet/) | E-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | NRND |
+| [E404TRAY50](/reference/datasheets/e-series/e-series-datasheet/) | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | Deprecated |
+| [E404XTRAY50](/reference/datasheets/e-series/e404x-datasheet/) | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
+| [ELC314TY](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Global - U201) , Tray [x50] | micro-b | 2-pin | NRND |
+| [ELC402EA](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
+| [ELC402TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | Deprecated |
+| [ELC404TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
+| [ELC504EMEA](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x1] | c | 3-pin | In development |
+| [ELC504EMTY](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x50] | c | 3-pin | In development |
+| [ELC524EMEA](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (Europe), [x1] | c | 3-pin | In development |
+| [ELC524EMTY](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (Europe), [x50] | c | 3-pin | In development |
+| [M2BREAKOUT](/reference/datasheets/m-series/m2-breakout-datasheet/) | Particle M.2 SoM Breakout Board [x1] | c | 3-pin | GA |
+| [M2EVAL](/reference/datasheets/b-series/b-series-eval-board/) | Particle M.2 SoM Evaluation Board [x1] | micro-b | 2-pin | GA |
 | MHAT | M-HAT | c | 3-pin | In development |
 | MHAT504e | M-HAT with LTE CAT1 for North America | c | 3-pin | In development |
 | MHAT524e | M-HAT with LTE CAT1 for Rest of World | c | 3-pin | In development |
-| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | c | 3-pin | GA |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | GA |
-| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | c | 3-pin | GA |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | GA |
-| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | c | 3-pin | In development |
-| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| [MUON404](/reference/datasheets/m-series/muon-datasheet/) | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | c | 3-pin | GA |
+| [MUON404EA](/reference/datasheets/m-series/muon-datasheet/) | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | c | 3-pin | GA |
+| [MUON524](/reference/datasheets/m-series/muon-datasheet/) | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | c | 3-pin | GA |
+| [MUON524EA](/reference/datasheets/m-series/muon-datasheet/) | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | c | 3-pin | GA |
+| [MUON635](/reference/datasheets/m-series/muon-datasheet/) | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | c | 3-pin | In development |
+| [MUON635EA](/reference/datasheets/m-series/muon-datasheet/) | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | c | 3-pin | In development |
 | MUONCB | Muon Carrier Board (Dev Board only) | c | 3-pin | GA |
 | MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | Deprecated |
 | MUONCBKIT | Muon Carrier Board Kit | c | 3-pin | GA |
