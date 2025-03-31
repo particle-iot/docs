@@ -107,6 +107,23 @@ Boron, B-SoM, M-SoM, or Photon 2.
  
 {{imageOverlay src="/assets/images/electron-2/electron-2-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
+### Labeled diagram
+
+{{imageOverlay src="/assets/images/electron-2/electron-2-labeled.png" alt="Labeled diagram" class="full-width"}}
+
+| Label | Description | Location |
+| ---: | :--- | :--- |
+|  1 | USB-C connector | Top |
+|  2 | Battery Charge LED (Oranbge) | Top |
+|  3 | User LED D6 (Blue) | Top |
+|  4 | LiPo battery connector | Top |
+|  5 | SWD debug connector | Top |
+|  6 | MODE button | Top |
+|  7 | RGB LED | Top |
+|  8 | RESET button | Top |
+|  9 | External BLE antenna U.FL connector | Top |
+| 10 | Internal BLE antenna | Bottom |
+| 11 | NFC U.FL connector | Bottom |
 
 ### Power
 
