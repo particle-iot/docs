@@ -1176,13 +1176,13 @@ The Electron 2 uses two single row 0.1" pitch male header pins. One of them is 1
 |12-pin 0.1" (2.54mm) Female Header|TE|6-534237-0|
 
 
-## Recommended PCB land pattern
+## Land pattern
 
 The Electron 2 can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
 
-<div align="center"><img src="/assets/images/boron/boron-landing-pattern.png" ></div>
+{{imageOverlay src="/assets/images/boron/boron-landing-pattern.png" alt="Land pattern"}}
 
-This landing pattern is the same as the Boron and Argon.
+This land pattern is the same as the Boron and Argon.
 
 ## Schematic
 
@@ -1208,9 +1208,6 @@ Electron 2 modules should not use a conformal coating to protect the module from
 Furthermore, the buttons cannot be protected by using a coating. Using an enclosure that protects both your base board and the Electron 2 module as a single waterproof assembly is recommended instead.
 
 
-## Country compatibility
-
-TODO: Add this section
 
 ## Qualification and approvals
 
