@@ -1570,7 +1570,6 @@ bandFit.renderCountries = function(countries) {
             $(ulElem).append(liElem);
         }
 
-
         if (footnotes) {
             for(let ii = 0; ii < footnotes.length; ii++) {
                 const liElem = document.createElement('li');
@@ -1588,6 +1587,11 @@ bandFit.renderCountries = function(countries) {
         if (roamingRestrictions) {
             const liElem = document.createElement('li');
             $(liElem).text('Permanent roaming restrictions may apply in this country.');
+            $(ulElem).append(liElem);
+        }
+        if ($(tableElem).width() > 900) {
+            const liElem = document.createElement('li');
+            $(liElem).text('Scroll horizontally to see all columns');
             $(ulElem).append(liElem);
         }
 

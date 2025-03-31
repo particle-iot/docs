@@ -53,7 +53,7 @@ description: Deciding between the Electron 2 and B-SoM or M-SoM devices
 | Cellular modem | EG800Q-NA | EG800Q-EU | EG91-NAX | R510 | EG91-E | BG95-M5 | EG91-EX | |
 | Cellular manufacturer | Quectel | Quectel | Quectel | u-blox | Quectel | Quectel | Quectel | |
 | [MCU](#mcu-differences) | nRF52840 | nRF52840 | nRF52840 | nRF52840 | nRF52840 | RTL8722DM | RTL8722DM | RTL8721DM |
-| Power consumption | Low | Low | Low | Lowest | Low | High | Highest | Medium |
+| Power consumption | Low | Low | Low | Low | Low | High | Highest | Medium |
 
 ## Cellular bands and regions
 
@@ -215,10 +215,13 @@ same maximum data rate as LTE Cat 1.
 ### LTE Cat M1
 
 LTE Cat M1 is subset of 4G/LTE intended for low-power and low-cost IoT devices. It's widely deployed in the United States,
-Canada, and Mexico (NorAm). There is limited coverage in Europe, though it is available in the United Kingdom and Australia.
+Canada, and Mexico (NorAm). There is limited coverage in Europe, though it is available in the United Kingdom and Australia
+on a subset of the available carriers.
 
-If you are deploying a low-power device in the United States, this can be a good choice. Additional large-scale deployments
-of LTE Cat M1 are less likely with the adoption of LTE Cat 1 bis instead.
+If you are deploying a low-power device in the United States, this can be a good choice, however the difference in power
+consumption between LTE Cat M1 and LTE Cat 1 bis is not very large.
+
+Additional large-scale deployments of LTE Cat M1 in other countries are less likely with the adoption of LTE Cat 1 bis instead.
 
 {{collapse op="start" label="Show LTE Cat M1 SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 521a2be9-7d36-4cf9-9996-1b59720d07b8 --}}
@@ -275,6 +278,8 @@ In many other areas, 2G was or will be phased out first, leaving 3G.
 Particle devices with cellular modems with only 2G and 3G have already been deprecated. The [LTE Cat 1](#lte-cat-1)
 devices above can also 2G/3G fallback.
 
+For additional information, see the [2G/3G sunset](/reference/discontinued/cellular/2g-3g-sunset/) page.
+
 ### Other technologies
 
 #### 5G
@@ -290,7 +295,7 @@ For IoT use-cases, 5G generally unnecessary as 4G/LTE data rates are sufficient,
 The Tachyon supports up to LTE Cat 14, which is much faster than LTE Cat 1. Not all towers support the highest Cat speeds,
 but all are backward compatible to LTE Cat 1.
 
-This is different than LTE Cat M1 or LTE Cat NB1 which requires specific support for those technologies.
+This is different than LTE Cat M1 or LTE Cat NB1 which requires specific support for those technologies by the carrier.
 
 #### LTE Cat NB1
 
