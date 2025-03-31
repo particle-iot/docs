@@ -309,10 +309,9 @@ LTE Cat 1 bis instead.
 
 ### Feather
 
-The Electron 2, Boron, and Photon 2 comply with the  
-[Adafruit Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification).
+The Electron 2, Boron, and Photon 2 comply with the [Adafruit Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification).
  
-All Feather devices have pins on the bottom that plug into a breadboard or baseboard. There are a large number 
+All Feather devices have pins on the bottom that plug into a breadboard, baseboard, doubler, or tripler. There are a large number 
 of available base boards off-the-shelf that implement features such as sensors, displays, relays, etc., 
 eliminating the need for a custom-designed board in some cases.
 
