@@ -15,7 +15,7 @@ description: Deciding between the Electron 2 and B-SoM or M-SoM devices
 
 |      | Electron 2 | B-SoM | M-SoM | Photon 2 |
 | :--- | :---: | :---: | :---: | :---: |
-| [Form factor](#form-factor) | [Feather](#feather) | [M.2 SoM](#m2-som) | M.2 SoM | Feather |
+| [Form factor](#form-factor) | [Feather](#feather) | [M.2 SoM](#m-2-som) | M.2 SoM | Feather |
 | Cellular | &check; | &check; | &check; | |
 | Wi-Fi | | | &check; | &check; |
 | Breadboard compatible | &check; | | | &check; |
@@ -43,7 +43,7 @@ description: Deciding between the Electron 2 and B-SoM or M-SoM devices
 |      | ELC504EM | ELC524EM | B504 | B404X | B524 | M404 | M524 | PHN2 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Line | Electron 2 | Electron 2 | B-SoM | B-SoM | B-SoM | M-SoM | M-SoM | P2 |
-| Form-factor | [Feather](#feather) | Feather | [M.2 SoM](#m2-som) | M.2 SoM | M.2 SoM | M.2 SoM | M.2 SoM | Feather | 
+| Form-factor | [Feather](#feather) | Feather | [M.2 SoM](#m-2-som) | M.2 SoM | M.2 SoM | M.2 SoM | M.2 SoM | Feather | 
 | [Region](#cellular-bands-and-regions) | [Americas](#americas) | [EMEAA](#emeaa) | [NorAm](#noram) | Americas |  EMEAA | NorAm | EMEAA | All |
 | [LTE](#cellular-technologies) | Cat 1 bis | Cat 1 bis | Cat 1 | Cat M1 | Cat 1 | Cat M1 | Cat 1 | |
 | 3G | | | &check; | | &check; | | &check; | |
@@ -195,8 +195,6 @@ for low-power devices, and the simplifications make the radio less expensive. It
 and does not require any tower-side changes, making it available anywhere LTE Cat 1 (4G) is available. It also has the
 same maximum data rate as LTE Cat 1.
 
-
-
 {{collapse op="start" label="Show LTE Cat 1 bis SKUs"}}
 {{!-- BEGIN do not edit content below, it is automatically generated e31c7f1f-7d9a-4fac-8490-e3256845d215 --}}
 
@@ -211,6 +209,8 @@ same maximum data rate as LTE Cat 1.
 {{!-- END do not edit content above, it is automatically generated --}}
 {{collapse op="end"}}
 
+The Particle devices with LTE Cat 1 bis cellular modems do not support 2G/3G fallback. For a comparison of cellular technologies 
+used by country, see [Country compatibility](#country-compatibility), below.
 
 ### LTE Cat M1
 
@@ -757,4 +757,4 @@ This is the least expensive and easiest certification, however.
 - [B504 datasheet](/reference/datasheets/b-series/b504-datasheet/)
 - [B524/B523 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
-- [Cellular carrier list](/reference/cellular/carrier-list/)
+- [Cellular carrier list](/reference/cellular/cellular-carriers/)

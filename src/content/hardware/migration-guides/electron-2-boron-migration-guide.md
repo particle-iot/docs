@@ -168,4 +168,4 @@ There are no changes the Feather pins for ports and GPIO between the Boron and E
 - [Electron 2 datasheet](/reference/datasheets/e-series/electron-2-datasheet/)
 - [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
 - [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
-- [Cellular carrier list](/reference/cellular/carrier-list/)
+- [Cellular carrier list](/reference/cellular/cellular-carriers/)
