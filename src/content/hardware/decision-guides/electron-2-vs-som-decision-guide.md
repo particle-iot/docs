@@ -29,14 +29,15 @@ description: Deciding between the Electron 2 and B-SoM or M-SoM devices
 | Li-Po battery connector | On module | On base board<sup>2</sup> | On base board<sup>2</sup> | On module |
 | PMIC | On module | On base board<sup>2</sup> | On base board<sup>2</sup> | |
 | Fuel gauge | On module | On base board<sup>2</sup> | On base board<sup>2</sup> | |
-| Cellular antenna | External (U.FL) | External (U.FL) | External (U.FL) | | |
-| Wi-Fi antenna | | | Chip or External (U.FL) | Chip or External (U.FL) |
-| BLE antenna | Chip or External (U.FL) | External (U.FL) or <sup>2</sup> | External (U.FL) | Chip or External (U.FL) |
-| NFC antenna | External (U.FL) | On base board<sup>2</sup> | | |
+| Cellular antenna | External<sup>3</sup> | External<sup>3</sup> | External<sup>3</sup> | | |
+| Wi-Fi antenna | | | Internal or External<sup>3</sup> | Internal or External<sup>3</sup> |
+| BLE antenna | Internal or External<sup>3</sup> | External<sup>3</sup> or <sup>2</sup> | External<sup>3</sup> | Internal or External<sup>3</sup> |
+| NFC antenna | External<sup>3</sup> | On base board<sup>2</sup> | | |
 | SWD debug connector | On module | On base board<sup>2</sup> | On base board<sup>2</sup> | On module |
 
 - <sup>1</sup> Optional but recommended on base board
 - <sup>2</sup> Optional on base board, can be omitted if not needed
+- <sup>3</sup> External antenna connection via U.FL connector
 
 ## Connectivity differences
 
