@@ -218,7 +218,7 @@ sure this can occur.
 scheme were you at least do this periodically, say once every several hours, to be sure it will be done
 eventually. This will also assure that the 5 minute IMSI cycling time requirement is met.
 - The 11 minute shutdown of the cellular modem consists of sending it command to full reset, and also removing
-the power to the modem. This is more through than entering sleep mode, or using the reset button on the device.
+the power to the modem. This is more thorough than entering sleep mode, or using the reset button on the device.
 {{!-- END shared-blurb --}}
 
 ```

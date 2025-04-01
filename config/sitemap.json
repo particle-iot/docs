@@ -528,7 +528,7 @@
         },
         "firmware/low-power/wake-publish-sleep-cellular.md": {
             "date": "2025-04-01",
-            "hash": "c4c56652246ea332e2cfa9559b1370995a37016bda3fd78523a4ada669cac157"
+            "hash": "ecf8a90b1425e62e5dfdb42772db25d2f49aee83a32fa54942f9d29aa7a8c3ba"
         },
         "firmware/software-design/finite-state-machines.md": {
             "date": "2022-06-29",
@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2025-04-01",
-            "hash": "bd4cbd2b9965273a28b8c43f2f144347570f325584801832b042eb45e15d74e3"
+            "hash": "5ae5a8efaa23f69bbd42ec61bf83755cc51e4e0a490dcd610f074bf4381d9f76"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
