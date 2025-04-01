@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-04-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+
 ### Cellular connect timing 2025-04-01
 
 Added a warning about allowing for sufficient [cellular connection time](/reference/device-os/api/system-modes/semi-automatic-mode/#semi-automatic-mode) in several locations.

@@ -1756,7 +1756,7 @@
         },
         "reference/device-os/api/cloud-functions/particle-connect.md": {
             "date": "2025-04-01",
-            "hash": "9962ec7194df9719dd377db4c6f7937ecca2aa0a711c4f88dc0b350af9243eb2"
+            "hash": "513f70fc21eb60f9ba09add2d19f6a424fed42440ebc05c20083c98529ba70c9"
         },
         "reference/device-os/api/cloud-functions/particle-disconnect.md": {
             "date": "2024-01-30",
@@ -2168,7 +2168,7 @@
         },
         "reference/device-os/api/cellular/connect.md": {
             "date": "2025-04-01",
-            "hash": "eeb972b31cdf28c1c8c1c145c1521fee8611c2ba6877095f15ffa46d78919e9e"
+            "hash": "10ea7b1f4595361580ba11bea9105e92a336e818176cfe209f359b40a6b42d52"
         },
         "reference/device-os/api/cellular/disconnect.md": {
             "date": "2023-09-20",
@@ -3712,7 +3712,7 @@
         },
         "reference/device-os/api/system-modes/semi-automatic-mode.md": {
             "date": "2025-04-01",
-            "hash": "85ad2e680577a3928eadebfd7469cba76c046db1091ff92e448a9583f3a81a40"
+            "hash": "69bd66a1f3a5ce0d694452c787ee3bbe748ca0ccea03c6cef8ab2c1807a80015"
         },
         "reference/device-os/api/system-modes/manual-mode.md": {
             "date": "2025-01-02",
@@ -5511,8 +5511,8 @@
             "hash": "bf8d256124d25082a701c0f368164d1c03e4d8de9eb66979fde2ad5611c338df"
         },
         "reference/device-os/libraries/d/DeviceNotesHelperRK.md": {
-            "date": "2024-08-28",
-            "hash": "6ba087f3414f48c0626c51a0d831926b32afefa72bb5d66ccf2518857d006919"
+            "date": "2025-04-01",
+            "hash": "a57c32f7d5a617ef12a2eb0af2495007134f732a29712f5b6319872411e5f07c"
         },
         "reference/device-os/libraries/d/DFPlay.md": {
             "date": "2024-08-28",
@@ -6111,8 +6111,8 @@
             "hash": "a9dd4f56134557ceed2a4f46e0d13505f5448d0abe9543250c8dd0e03ca222ae"
         },
         "reference/device-os/libraries/j/JSN-SR04_Gen3_RK.md": {
-            "date": "2024-08-28",
-            "hash": "a5a7d3b605becf9d4d42b1e49094dd123b2987d08a76231a96a58999b6db176d"
+            "date": "2025-04-01",
+            "hash": "086673d441fc911aac6eaea3e3bec2a3ad3ba014424fbe9ca5ac0fde2efaa63a"
         },
         "reference/device-os/libraries/j/JsonParserGeneratorRK.md": {
             "date": "2024-08-28",
@@ -7115,8 +7115,8 @@
             "hash": "782f091d5345f4f0dd387874817d2c05d7c610b8d44363b5651c84cedd628c49"
         },
         "reference/device-os/libraries/s/SC16IS7xxRK.md": {
-            "date": "2024-08-28",
-            "hash": "e46f4854b86249acf510f1160e8d64bcd6bc308ceec18761f4198ea1b5f724fb"
+            "date": "2025-04-01",
+            "hash": "f8229bcd8b65064e64882c4ca1e90312f18f6e34c9194048e3be3f4e506b9193"
         },
         "reference/device-os/libraries/s/sd-card-library.md": {
             "date": "2024-08-28",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "7c6ca8872492248af589a1335e34300f622bdbabe47474f05df92525c27f01b1",
+            "hash": "23e218785fc94fff88a6abbc371c55f76d3d82c9dcbc6069a19f32561d87595a",
             "date": "2025-04-01"
         },
         "getting-started/cloud/logic.md": {
@@ -9587,8 +9587,8 @@
             "date": "2024-12-16"
         },
         "reference/device-os/libraries/d/DeviceInfoLedger.md": {
-            "hash": "db1c77981b40d44ecf4d6a97e5fed664456267a4a697567107f5578a8aab3567",
-            "date": "2025-02-07"
+            "hash": "52defca294e9cca29d3717377a2ccffd6cc2a97c0c5fb02c3787d3e97b22dc98",
+            "date": "2025-04-01"
         },
         "reference/device-os/libraries/j/JA_PN532.md": {
             "hash": "50d33b45dc331a59e6831cb78cd559734af4c08c9072b325c966e3c09ee739d8",
@@ -9687,8 +9687,8 @@
             "date": "2025-02-14"
         },
         "reference/device-os/libraries/p/PublishQueueExtRK.md": {
-            "hash": "5d90d47fb6681458577582aa678a1e8a090e8a75ed43aa049c5e5836136b42ee",
-            "date": "2025-03-01"
+            "hash": "6e2b2d5bd7b9519c0f7f06962d8a2e295d2bd6080d178271df13c7b17f3e7430",
+            "date": "2025-04-01"
         },
         "reference/device-os/libraries/t/tmc2209.md": {
             "hash": "9aaa9e1642eabd6d9b693e8543f181a412f091c34eb5e701223b9f31c5577998",
