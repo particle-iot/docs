@@ -644,9 +644,7 @@ void loop() {
 }
 ```
 
-After you call `Particle.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
-
-In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect-) or when you change the [system mode](#system-modes).
+In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device boots. Typically you only need to call `Particle.connect()` when you change the [system mode](#system-modes) to SEMI_AUTOMATIC (or MANUAL).
 
 Connecting to the cloud does not use Data Operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
