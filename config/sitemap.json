@@ -527,8 +527,8 @@
             "hash": "db4bc1baf2a58d618e7bde2782c3b192532da0e8527d4351b29120191f0a1b5d"
         },
         "firmware/low-power/wake-publish-sleep-cellular.md": {
-            "date": "2024-12-20",
-            "hash": "c8fed9e21410e48dfa2b03f697bb844cc18e907f944bd85cfcb211879a9dcfab"
+            "date": "2025-04-01",
+            "hash": "c4c56652246ea332e2cfa9559b1370995a37016bda3fd78523a4ada669cac157"
         },
         "firmware/software-design/finite-state-machines.md": {
             "date": "2022-06-29",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-03-26",
-            "hash": "3151531126a79f2988cbce25f9f90f40478b067116635f12b5a312d15f773816"
+            "date": "2025-04-01",
+            "hash": "bd4cbd2b9965273a28b8c43f2f144347570f325584801832b042eb45e15d74e3"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1755,8 +1755,8 @@
             "hash": "936a3cc1be02321b1322e853d7b55f561f5994c05c8b9671b717ab3137416e24"
         },
         "reference/device-os/api/cloud-functions/particle-connect.md": {
-            "date": "2024-07-12",
-            "hash": "0cd53bf2b5bc9b2db71a6a20e74dfe326835d1f84e7e4752fbe91c392dac8295"
+            "date": "2025-04-01",
+            "hash": "9962ec7194df9719dd377db4c6f7937ecca2aa0a711c4f88dc0b350af9243eb2"
         },
         "reference/device-os/api/cloud-functions/particle-disconnect.md": {
             "date": "2024-01-30",
@@ -2167,8 +2167,8 @@
             "hash": "2bb9582fc12240bee56fe00f5cfba814a5bb4fc15e8f334f75180854a48c41e2"
         },
         "reference/device-os/api/cellular/connect.md": {
-            "date": "2024-02-27",
-            "hash": "66ec123c634a4d523e1ab8496855c38efdf1bc89b8ad06ed7689278297761028"
+            "date": "2025-04-01",
+            "hash": "eeb972b31cdf28c1c8c1c145c1521fee8611c2ba6877095f15ffa46d78919e9e"
         },
         "reference/device-os/api/cellular/disconnect.md": {
             "date": "2023-09-20",
@@ -3711,8 +3711,8 @@
             "hash": "951de325e73146f627e68a6039ad2c2154aa1eaace42f51a8ea6228b26748443"
         },
         "reference/device-os/api/system-modes/semi-automatic-mode.md": {
-            "date": "2024-02-27",
-            "hash": "39eb4c54367546352b5e64746ae1131c0c0b95fff480ba0b538fe2e450ba492f"
+            "date": "2025-04-01",
+            "hash": "85ad2e680577a3928eadebfd7469cba76c046db1091ff92e448a9583f3a81a40"
         },
         "reference/device-os/api/system-modes/manual-mode.md": {
             "date": "2025-01-02",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "88cc1892b1fbf970d54fa885640da3991d95a6e63c06eb51705c2c678d67871b",
-            "date": "2025-03-27"
+            "hash": "7c6ca8872492248af589a1335e34300f622bdbabe47474f05df92525c27f01b1",
+            "date": "2025-04-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

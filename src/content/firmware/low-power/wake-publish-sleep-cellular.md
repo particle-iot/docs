@@ -199,6 +199,28 @@ The first state after `setup()` is `STATE_WAIT_CONNECTED`. This waits until the 
 
 If a timeout occurs, connecting takes longer than `connectMaxTime` then it transitions into `STATE_SLEEP`.
 
+
+{{!-- BEGIN shared-blurb 2f1882b9-de7d-41ed-ae9e-14b6f77d2882 --}}
+Normally, Device OS automatically handles connecting to the network and cloud and retrying as necessary.
+
+If you manually add a timeout, for example to put the device to sleep to conserve battery when it cannot 
+connect to cellular, you should do so with care.
+
+- Even though a cellular connection can occur in as little as 10 seconds with LTE Cat 1, it can take
+significantly longer, especially with 3G and 2G. A minimum of 120 seconds is recommended for this reason.
+- You must also stay awake trying to connect for at least 5 minutes periodically. The SIM may switch between
+IMSI when failing to connect, and if you do not try for long enough, it may not cycle through them properly,
+causing the device to stay stuck on one that can't be used in your location.
+- After 10 minutes of failing to connect, Device OS will do a full shutdown of the cellular modem and 
+restart it. This can help clear issues in some cases. It is recommended that you wait at least 11 minutes to be
+sure this can occur.
+- If you do not want to wait 11 minutes for battery life reasons, you should implement a variable backoff
+scheme were you at least do this periodically, say once every several hours, to be sure it will be done
+eventually. This will also assure that the 5 minute IMSI cycling time requirement is met.
+- The 11 minute shutdown of the cellular modem consists of sending it command to full reset, and also removing
+the power to the modem. This is more through than entering sleep mode, or using the reset button on the device.
+{{!-- END shared-blurb --}}
+
 ```
 void loop() {
     switch(state) {

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cellular connect timing 2025-04-01
+
+Added a warning about allowing for sufficient [cellular connection time](/reference/device-os/api/system-modes/semi-automatic-mode/#semi-automatic-mode) in several locations.
+
 ### Device restore DFU fix 2025-03-27
 
 Fixed a recently introduced bug where you could not reconnect in DFU mode for Device Restore DFU, Web Device Doctor,
