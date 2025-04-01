@@ -903,7 +903,7 @@ Additional FCC Test Reports:
 
 | SKU | Description | Lifecycle |
 | :--- | :--- | :--- |
-| M2BREAKOUT | Particle M.2 SoM Breakout Board [x1] | GA |
+| [M2BREAKOUT](/reference/datasheets/m-series/m2-breakout-datasheet/) | Particle M.2 SoM Breakout Board [x1] | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

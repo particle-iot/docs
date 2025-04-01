@@ -159,6 +159,18 @@
             ]
         },
         {
+            "dir": "decision-guides",
+            "isSection": true,
+            "internal": true,
+            "subsections": [
+                {
+                    "dir": "electron-2-vs-som-decision-guide",
+                    "title": "Electron 2 vs. SoM decision guide",
+                    "internal": true
+                }
+            ]
+        },        
+        {
             "dir": "migration-guides",
             "isSection": true,
             "subsections": [
@@ -197,6 +209,11 @@
                 {
                     "dir": "b-series-electron-migration-guide",
                     "title": "B-Series from Electron migration guide"
+                },
+                {
+                    "dir": "electron-2-boron-migration-guide",
+                    "title": "Electron 2 from Boron migration guide",
+                    "internal": true
                 },
                 {
                     "dir": "e404x-migration-guide",

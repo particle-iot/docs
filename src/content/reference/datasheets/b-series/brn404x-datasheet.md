@@ -573,6 +573,7 @@ The Boron supports PWM (pulse-width modulation) on the following pins:
 
 ### Complete module pin details
 
+{{collapse op="start" label="Show pin details"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 4b3e02b9-2be9-40ff-8486-90fa48a9e518 --}}
 
 
@@ -1061,6 +1062,8 @@ The Boron supports PWM (pulse-width modulation) on the following pins:
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+{{collapse op="end"}}
 
 
 ---

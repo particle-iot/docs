@@ -552,6 +552,318 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);        
     }
 
+    updater.resolveNestedKey = function(key, obj) {
+        if (typeof key != 'string') {
+            return undefined;
+        }
+
+        for(const keyPart of key.split('.')) {
+            if (typeof obj == 'undefined') {
+                break;
+            }
+
+            obj = obj[keyPart];
+        }
+
+        return obj;
+    }
+
+    updater.escapeHtml = function(str) {
+        // https://www.30secondsofcode.org/js/s/escape-unescape-html/
+        return str.replace(
+            /[&<>'"]/g,
+            tag =>
+            ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag)
+        );
+    }
+
+    updater.renderTagWithStyle = function(options) {
+        // options
+        //  .tag HTML tag, such as td or th
+        //  .styleObj Column or group object with styles (like backgroundColor and textColor)
+        //  .contents The contents of the tag
+
+        let html = '';
+
+        html += '<' + options.tag + ' ';
+
+        if (options.attributes) {
+            html += options.attributes + ' ';
+        }
+
+        if (options.styleObj) {
+            html += 'style="';
+            if (options.styleObj.backgroundColor) {
+                html += 'background-color: ' + options.styleObj.backgroundColor + '; ';
+            }
+            if (options.styleObj.textColor) {
+                html += 'color: ' + options.styleObj.textColor + '; ';
+            }
+            html += '" ';
+        }
+        html += '>';
+
+        if (options.contents) {
+            html += updater.escapeHtml(options.contents);
+        }
+
+        html += '</' + options.tag + '>';
+
+        return html;
+    }
+
+
+    updater.generateGroupTable = function(options, tableData) {
+        // options.
+        //  .leftColumns array of column objects
+        //  .groups array of group objects
+
+        // column object:
+        //  .title key for column header
+        //  .key key for data in tableData
+        //  .backgroundColor background color of group bar header
+        //  .textColor text color of group bar header
+
+        // group objects:
+        //  .title key for column header
+        //  .key key for data in tableData
+        //  .backgroundColor background color of group bar header
+        //  .textColor text color of group bar header
+        //  .columns column object for each column
+
+        let html = '';
+
+        html += '<table>\n';
+
+        html += '<thead>\n';
+
+        {
+            // Top header row, containing the group titles
+            html += '<tr>';
+
+            for(const colObj of options.leftColumns) {
+                html += '<td></td>';
+            }
+            for(const groupObj of options.groups) {
+                if (groupObj.separator) {
+                    html += '<td width="' + groupObj.separator + ';">&nbsp;</td>';
+                }
+                else {
+                    html += updater.renderTagWithStyle({
+                        tag: 'td',
+                        styleObj: groupObj,
+                        attributes: 'colspan="' + groupObj.columns.length + '"',
+                        contents: groupObj.title,
+                    });
+                }
+            }
+
+            html += '</tr>\n';    
+        }
+        {
+            // Bottom row, containing the individual fields
+            html += '<tr>';
+
+            for(const colObj of options.leftColumns) {
+                const title = (typeof colObj.title != 'undefined') ? colObj.title : '';
+                html += '<th>' +  title + '</th>';
+            }
+            for(const groupObj of options.groups) {
+                if (groupObj.separator) {
+                    html += '<th>&nbsp;</th>';
+                }
+                else {
+                    for(const colObj of groupObj.columns) {
+                        html += '<th>' + updater.escapeHtml(colObj.title) + '</th>';
+                    }                        
+                }
+            }
+
+            html += '</tr>\n';    
+        }
+
+
+        html += '</thead>\n';
+
+        html += '<tbody>\n';
+
+        const footnotesInUse = {};
+
+        for(let rowNum = 0; rowNum < tableData.length; rowNum++) {
+            const rowObj = tableData[rowNum];
+
+            html += '<tr>';
+
+            for(const colObj of options.leftColumns) {
+                if (colObj.rowFlag) {
+                    html += '<td style="width: 2px; ';
+                    if (rowObj.rowFlag) {
+                        html += 'background-color: ' + rowObj.rowFlag + '; ';
+                    }
+                    html += '"></td>';
+                }
+                else {
+                    html += '<td>' + rowObj[colObj.key] + '</td>';
+                }
+            }
+            for(const groupObj of options.groups) {
+                if (groupObj.separator) {
+                    html += '<td>&nbsp;</td>';
+                }
+                else {
+                    for(const colObj of groupObj.columns) {
+                        let s = updater.resolveNestedKey(colObj.key, rowObj);
+                        footnotesInUse[s] = true;                    
+                        if (typeof s == 'undefined') {
+                            s = '&nbsp;';
+                        }
+                        let roamingRestrictions = updater.resolveNestedKey(colObj.roamingRestrictionsKey, rowObj);
+                        if (roamingRestrictions) {
+                            const s2 = '<sup>1</sup>';
+                            footnotesInUse[s2] = true;
+                            s += s2;
+                        }
+                        html += '<td>' + s + '</td>';
+                    }                        
+                }
+            }
+
+            
+        
+            html += '</tr>\n';
+        }
+
+        html += '</tbody>\n';
+
+
+        html += '</table>\n';
+
+        html += '<table><tbody>';
+        for(const footnoteObj of options.footnotes) {
+            if (footnotesInUse[footnoteObj.key]) {
+                html += '<tr><td style="text-align: center;">' + footnoteObj.key + '</td><td>' + footnoteObj.title + '</td></tr>';
+            }
+        }
+        html += '</tbody></table>\n'
+
+        // html += '<div>\u2705 Recommended and supported<br/>\u2753 Not officially supported, but is likely to work</div>\n';
+
+        
+        return html;
+    }
+
+    updater.generateCountryModelComparison = function(optionsIn) {
+        // optionsIn.
+        //  .groups array of model objects (modem and sim)
+
+        // model/group objects:
+        //  .modem Moden name (from the modems table, like "R510")
+        //  .sim sim ID (numeric, like 4 = EtherSIM)
+        //  .title key for group column header
+        //  .backgroundColor background color of group bar header
+        //  .textColor text color of group bar header
+        //  .columns column object for each column
+        const options = Object.assign({}, optionsIn);
+
+        options.footnotes = [
+            {
+                key: '\u2705',
+                title: 'Recommended and supported',
+            },
+            {
+                key: '\u2753',
+                title: 'Not officially supported, but is likely to work',
+            },
+            {
+                key: '<sup>1</sup>',
+                title: 'Permanent roaming restrictions may apply',
+            },
+        ];
+
+        const countryData = {};
+
+        const getModelKey = function(modelObj) {
+            return (typeof modelObj.key != 'undefined') ? modelObj.key : (modelObj.modem + modelObj.sim);
+        }
+
+        for(const modelObj of options.groups) {
+            for(const cmsObj of updater.datastore.data.countryModemSim) {
+                if (cmsObj.modem != modelObj.modem || cmsObj.sim != modelObj.sim) {
+                    continue;
+                }
+                if (cmsObj.roamingRestrictions == 'hide') {
+                    continue;
+                }
+                let recommendation;
+
+                switch(cmsObj.recommendation) {
+                    case 'YES':
+                        recommendation = '\u2705'; // Green Check
+                        break;
+
+                    case 'NS':
+                    case 'POSS':
+                        recommendation = '\u2753'; // Red question mark
+                        break;
+                    
+                    default:
+                        // Omit
+                        break;
+                }
+
+                if (!recommendation) {
+                    continue;
+                }
+                let carriers = [];
+                for(const carrier in cmsObj.supported) {
+                    if (carrier != '*') {
+                        carriers.push(carrier);
+                    }
+                }
+                // TODO: possibly also add bands in supported['*']
+                carriers.sort();
+
+                if (!countryData[cmsObj.country]) {
+                    countryData[cmsObj.country] = {
+                        country: cmsObj.country,
+                    };
+                }
+                countryData[cmsObj.country][getModelKey(modelObj)] = {
+                    recommendation,
+                    reason: cmsObj.reason,
+                    roamingRestrictions: cmsObj.roamingRestrictions,
+                    technologies: cmsObj.technologies.join(', '),                    
+                    carriers: carriers.join(', '),
+                };
+                if (cmsObj.recommendation == 'YES') {
+                    countryData[cmsObj.country].rowFlag = modelObj.backgroundColor;
+                }
+            }                
+        }
+
+
+        // Sort table data
+        let tableData = [];
+
+        const countries = Object.keys(countryData);
+        countries.sort((a,b) => a.localeCompare(b));
+
+        for(const country of countries) {
+            tableData.push(countryData[country]);
+        }
+
+        // console.log('generateCountryModelComparison', tableData);
+
+        return updater.generateGroupTable(options, tableData);
+    }
+
+
     updater.generateSkuToPrefix = function(options = {}) {
         let skus = [];
 
@@ -582,7 +894,7 @@ const generatorConfig = require('./generator-config');
             if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
-            if (!skuObj.prefix) {
+            if (!skuObj.prefix || skuObj.prefix == 'P000') {
                 continue;
             }
             tableData.push({
@@ -631,7 +943,7 @@ const generatorConfig = require('./generator-config');
             if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
-            if (!skuObj.prefix) {
+            if (!skuObj.prefix || skuObj.prefix == 'P000') {
                 continue;
             }
             tableData.push({
@@ -658,6 +970,7 @@ const generatorConfig = require('./generator-config');
                 {
                     key: 'name',
                     title: 'SKU',
+                    linkKey: 'datasheet',
                 },
                 {
                     key: 'desc',
@@ -845,33 +1158,47 @@ const generatorConfig = require('./generator-config');
         for(const d of data) {
             line = '';
             for(const c of options.columns) {
+                let s = '&nbsp;'
+
                 if (c.onlyCheckmark && d[c.key]) {
-                    line += '| &check; ';
+                    s = '&check;';
                 }
                 else
                 if (c.checkmark && d[c.key] === true ) {
-                    line += '| &check; ';
+                    s = '&check;';
                 }
                 else
                 if (d[c.key]) {
                     if (c.map && c.map[d[c.key]]) {
-                        line += '| ' + c.map[d[c.key]] + ' ';
-                        continue;
-                    }
-                    if (c.useShortName) {
-                        line += '| ' + updater.getShortName(d[c.key]) + ' ';
-                    }
-                    else
-                    if (c.capitalizeValue) {
-                        line += '| ' + d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1) + ' ';
+                        s = c.map[d[c.key]];
                     }
                     else {
-                        line += '| ' + d[c.key] + ' ';
+                        if (c.useShortName) {
+                            s = updater.getShortName(d[c.key]);
+                        }
+                        else
+                        if (c.capitalizeValue) {
+                            s = d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1);
+                        }
+                        else {
+                            s = d[c.key];
+                        }
+    
                     }
                 }
-                else {
-                    line += '| &nbsp; ';
+                if (c.linkKey && d[c.linkKey]) {
+                    const text = s;
+                    let link = d[c.linkKey];
+
+                    let linkPrefix = 'https://docs.particle.io';
+                    if (link.startsWith(linkPrefix)) {
+                        link = link.substring(linkPrefix.length);
+                    }
+                    s = '[' + text + '](' + link + ')';
                 }
+
+                line += '| ' + s + ' ';
+
             }
             md += line + '|\n';             
         }

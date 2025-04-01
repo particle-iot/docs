@@ -22,7 +22,7 @@ This features requires a LTE Cat 1 cellular module, available on these SKUs.
 
 | SKU | Description | Modem | Region | Gen | Lifecycle |
 | :--- | :--- | :--- | :--- | :---: | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | EG91-NAX | NORAM | 3 | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | EG91-NAX | Americas | 3 | GA |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | EG91-NAX | NORAM | 3 | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EG91-E | EMEAA | 3 | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-E | EMEAA | 3 | GA |

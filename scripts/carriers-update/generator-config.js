@@ -726,6 +726,198 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }             
         }, 
+        // electron 2 
+        {
+            guid:'128e6580-8ddd-45bc-882f-71785ae12855', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron-2', {
+                    filterFn:function(skuObj) {
+                        return false;
+                    }        
+                }); 
+            } 
+        },
+        {
+            
+            guid:'c7f6eddb-bbdf-41c9-99e3-69a9f90a834a', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return !skuObj.feather || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'f13e8e51-ccb7-4e3c-bac1-4a7d4457b55b', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return !skuObj.m2som || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'f13e8e51-ccb7-4e3c-bac1-4a7d4457b55b', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.gnss != 'string' || skuObj.gnss == 'cellular-modem' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'a4b614a6-b9c8-44c3-921e-548c45280ab7', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.mcu != 'string' || skuObj.mcu != 'nrf52840' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'280bbf98-939d-41db-b3b8-a64042687b30', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.mcu != 'string' || skuObj.mcu != 'rtl872x' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'4cffddb7-1c7e-4ddb-a8a9-098c947fe543', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.modem != 'string' || !skuObj.modem.startsWith('EG91') || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'e31c7f1f-7d9a-4fac-8490-e3256845d215', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.modem != 'string' || !skuObj.modem.startsWith('EG800Q') || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'521a2be9-7d36-4cf9-9996-1b59720d07b8', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                        {
+                            key: 'skuRegion',
+                            title: 'Region',
+                            align: 'center',
+                        },
+                    ],
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.modem != 'string' || skuObj.lifecycle == 'Deprecated' ||
+                        (!skuObj.modem.startsWith('BG9') && !skuObj.modem.startsWith('R4') && !skuObj.modem.startsWith('R5')) || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden';
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'bfde3ce5-1f90-40fe-9bba-481cdc5b89bd', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'noram' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'6a8ccfd8-0058-481f-bcd3-2a78b88a3e82', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'emeaa' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
+                    }        
+                }); 
+            }             
+        }, 
+        {
+            
+            guid:'be8173dc-011c-4719-ae3e-9bba199849a8', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.skuRegion != 'string' || skuObj.skuRegion != 'americas' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life' || skuObj.lifecycle == 'Hidden' || (!skuObj.m2som && !skuObj.feather);
+                    }        
+                }); 
+            }             
+        }, 
+
+
+
         // datasheets/boron/b404-b402-datasheet.md
         {
             guid:'91d8b83c-76ce-11eb-9439-0242ac130002', 
@@ -768,6 +960,187 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        // Electron 2
+        {
+            guid:'c13cd883-4df5-4de7-868e-5999c8650ce4',
+            generatorFn:function(updater) {
+                return updater.generateCountryModelComparison({
+                    leftColumns: [
+                        {
+                            rowFlag: true,
+                        },
+                        {
+                            title: 'Country',
+                            key: 'country',    
+                        },
+                    ],
+                    groups: [
+                        {
+                            key: 'na',
+                            title: 'ELC504EM (NorAm)',
+                            modem: 'EG800Q-NA',
+                            sim: 4,
+                            backgroundColor: '#AFE4EE', // COLOR_Sky_600
+                            textColor: '#001928', // Midnight_700
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'na.recommendation',
+                                    roamingRestrictionsKey: 'na.roamingRestrictions',  
+                                },
+                                /*{
+                                    title: 'Technologies',
+                                    key: 'na.technologies',
+                                },*/
+                                {
+                                    title: 'Carriers',
+                                    key: 'na.carriers',
+                                },
+                            ],
+                        },
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'eu',
+                            title: 'ELC524EM (Europe)',
+                            modem: 'EG800Q-EU',
+                            sim: 4,
+                            backgroundColor: '#89E2B3', // COLOR_Mint_600
+                            textColor: '#001928', // Midnight_700
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'eu.recommendation',
+                                    roamingRestrictionsKey: 'eu.roamingRestrictions',  
+                                },
+                                /*{
+                                    title: 'Technologies',
+                                    key: 'na.technologies',
+                                },*/
+                                {
+                                    title: 'Carriers',
+                                    key: 'eu.carriers',
+                                },
+                            ],
+                        }
+                    ],
+                }); 
+            } 
+        },      
+        {
+            guid:'936be9f3-0894-4b5f-88cd-3b22ebf42fc0',
+            generatorFn:function(updater) {
+                return updater.generateCountryModelComparison({
+                    leftColumns: [
+                        {
+                            title: 'Country',
+                            key: 'country',    
+                        },
+                    ],
+                    groups: [
+                        {
+                            key: 'elc504',
+                            title: 'ELC504EM (NorAm)',
+                            modem: 'EG800Q-NA',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'elc504.recommendation',
+                                    roamingRestrictionsKey: 'elc504.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'elc504.technologies',
+                                }
+                            ],
+                        },
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'elc524',
+                            title: 'ELC524EM (Europe)',
+                            modem: 'EG800Q-EU',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'elc524.recommendation',
+                                    roamingRestrictionsKey: 'elc524.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'elc524.technologies',
+                                },
+                            ],
+                        },
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'b504',
+                            title: 'B504e (Americas)',
+                            modem: 'EG91-NAX',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'b504.recommendation',
+                                    roamingRestrictionsKey: 'b504.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'b504.technologies',
+                                },
+                            ],
+                        },                        
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'm404',
+                            title: 'M404 (NorAm)',
+                            modem: 'BG95-M5',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'm404.recommendation',
+                                    roamingRestrictionsKey: 'm404.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'm404.technologies',
+                                },
+                            ],
+                        },
+                        {
+                            separator: '6px',
+                        },
+                        {
+                            key: 'm524',
+                            title: 'M534 (EMEAA)',
+                            modem: 'EG91-EX',
+                            sim: 4,
+                            columns: [
+                                {
+                                    title: 'Rec',
+                                    key: 'm524.recommendation',
+                                    roamingRestrictionsKey: 'm524.roamingRestrictions',  
+                                },
+                                {
+                                    title: 'Technologies',
+                                    key: 'm524.technologies',
+                                },
+                            ],
+                        },
+                    ],
+                }); 
+            } 
+        },      
+
         // B504
         {
             guid:'716800d6-7c3f-45f7-8cc4-91af58795240',
@@ -840,6 +1213,84 @@ const schemaDocs = require('./schema-docs');
                     filterFn:function(skuObj) {
                         return !skuObj.m2som
                     }        
+                }); 
+            } 
+        },        
+        // Electron 2
+        {
+            guid:'22694b55-ad2c-4e61-a33f-71994b569ba3', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'Electron 2'
+                }); 
+            } 
+        },                
+        {
+            guid: 'e3a16918-77ca-4439-9020-220282c681ee',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Electron 2',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'4dccb92d-ca6c-491a-8aab-2f5a1d259809',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'dcad2250-0112-4901-ae15-f18d3b8fd771',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'5f81e7fc-53ae-46e5-9976-9a71f2d94bb2',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6d2f42d4-109a-43d6-9375-4bcd750f1225',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'cdac1a36-7742-47d6-b1cd-c8ecced4974d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Electron 2',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: true,
+                    noPinNumbers: true,
                 }); 
             } 
         },        

@@ -1460,8 +1460,8 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Guatemala | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Guinea | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Guinea-Bissau | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Guyana | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
-| Haiti | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
+| Guyana | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
+| Haiti | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Honduras | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Hong Kong | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Hungary | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1511,7 +1511,6 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Philippines | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Poland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Portugal | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Puerto Rico | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Qatar | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Réunion | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Romania | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1543,7 +1542,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Ukraine | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | United Arab Emirates | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | United Kingdom | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| United States | &check; | &nbsp; | &check; | &check; | &nbsp; |
+| United States | &nbsp; | &nbsp; | &check; | &check; | &nbsp; |
 | Uruguay | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Venezuela | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Vietnam | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1588,7 +1587,7 @@ Most common third-party libraries work on both devices. The exceptions are libra
 | :--- | :--- | :--- | :--- |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | GA |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | GA |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |

@@ -305,6 +305,11 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
     // navIndent2, navIndent3, navIndent4, navIndent5
     // navContent3, navContent4, navContent5
 
+    if (submenuObj.internal) {
+        if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+            return;
+        }
+    }
 
     for(const itemObj of submenuObj) {
         // title, dir

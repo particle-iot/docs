@@ -27,10 +27,13 @@ These steps are explained in more detail, below.
 
 ### Certification
 
-Changing the cellular module will require unintentional radiator testing of your completed assembly. This is the least expensive 
+{{!-- BEGIN shared-blurb 2d22b4d0-8047-4513-a095-81ba5b289ff3 --}}
+Changing the Particle module will require unintentional radiator testing of your completed assembly. This is the least expensive 
 and least complicated of the certification tests.
 
-You do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+You generally do not need to perform intentional radiator testing if using the antennas used for the Particle certification.
+{{!-- END shared-blurb --}}
+
 
 ### Power
 
@@ -81,12 +84,13 @@ The B504e uses the same antenna as the M-SoM.
 
 The B504e is certified with the following cellular antenna:
 
+{{!-- BEGIN shared-blurb c04616f7-eede-439f-9dee-d5c9aa1bf53f --}}
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
 | Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M-SoM do not include antennas.
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
 
 | Dimension | Value | Unit |
 | :--- | ---: | :---: |
@@ -100,6 +104,7 @@ Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tr
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | Peak gain | | | | | | | |
 | PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
+{{!-- END shared-blurb --}}
 
 
 The BLE and NFC antennas are the same. If you are not using these features, you can omit the antennas.
@@ -149,7 +154,7 @@ The carriers programmed into the e-sim on the B504e are identical to the B404X a
 
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX | GA | |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | EG91-NAX | GA | |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX | GA | |
 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | Deprecated | B504EMEA|
 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | Deprecated | B504EMTY|

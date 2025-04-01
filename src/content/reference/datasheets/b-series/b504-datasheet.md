@@ -187,12 +187,13 @@ If you are not using BLE, NFC, or GNSS, you can omit those antennas.
 
 The B504e is certified with the following cellular antenna:
 
+{{!-- BEGIN shared-blurb c04616f7-eede-439f-9dee-d5c9aa1bf53f --}}
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
 | Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M-SoM do not include antennas.
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
 
 | Dimension | Value | Unit |
 | :--- | ---: | :---: |
@@ -206,6 +207,7 @@ Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tr
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | Peak gain | | | | | | | |
 | PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
+{{!-- END shared-blurb --}}
 
 
 #### Certified BLE antenna 
@@ -715,7 +717,7 @@ breakout board, which has the cellular modem USB connector.
 
 ### Complete module pin details
 
-[Click this link to skip over this section](#led-status)
+{{collapse op="start" label="Show pin details"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated 88cf3396-ffa7-4f4c-b2ef-deead0b0315d --}}
 
@@ -1700,6 +1702,8 @@ breakout board, which has the cellular modem USB connector.
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+{{collapse op="end"}}
+
 
 
 ### LED status
@@ -2056,7 +2060,7 @@ The certification for the B504 applies to the B504e as changing only the SIM is 
 | :--- | :--- | :--- |
 | Canada | 3G, 4G | Bell Mobility, Rogers Wireless, Telus, Videotron |
 | Mexico | 3G, 4G | AT&T, Telcel |
-| United States | 3G, 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| United States | 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -2111,7 +2115,7 @@ The following countries are not officially supported at this time, but may be co
 
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX | GA | |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | EG91-NAX | GA | |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX | GA | |
 | B504MEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x1] | NORAM | EG91-NAX | Deprecated | B504EMEA|
 | B504MTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM), [x50] | NORAM | EG91-NAX | Deprecated | B504EMTY|

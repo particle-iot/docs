@@ -98,6 +98,10 @@ If you are using a different antenna, and had previously undergone intentional r
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | PARANTC41EA | ANT-FLXU |
 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | PARANTC41EA |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | ANTCW2EA |
+| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | PARANTCW1EA | ANT-FLXU |
+| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | PARANTCW1EA | ANT-FLXU |
+| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | PARANTCW1EA | ANT-FLXU |
+| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | PARANTCW1EA | ANT-FLXU |
 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | PARANTCW1EA | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |

@@ -193,7 +193,7 @@ Even though the B-Series SoM is more difficult to prototype with than the Boron,
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
-| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | NORAM | EG91-NAX |  | GA | |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | EG91-NAX |  | GA | |
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | EG91-NAX |  | GA | |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
@@ -860,7 +860,6 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Portugal | NOS | &check; | &check; | &check; | &nbsp; |
 | Portugal | TMN | &check; | &check; | &check; | &nbsp; |
 | Portugal | Vodafone | &check; | &check; | &check; | &nbsp; |
-| Puerto Rico | Claro | &check; | &check; | &nbsp; | &nbsp; |
 | Qatar | Ooredoo | &check; | &check; | &check; | &nbsp; |
 | Qatar | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Réunion | SFR | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -938,10 +937,8 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | United Kingdom | O2 | &check; | &check; | &check; | &nbsp; |
 | United Kingdom | Sure | &nbsp; | &check; | &check; | &nbsp; |
 | United Kingdom | Vodafone | &check; | &check; | &check; | &nbsp; |
-| United States | Alaska Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
-| United States | AT&T | &check; | &nbsp; | &nbsp; | &check; |
-| United States | T-Mobile (USA) | &check; | <sup>NRND</sup> | &nbsp; | &check; |
-| United States | Union Telephone | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| United States | AT&T | &nbsp; | &nbsp; | &nbsp; | &check; |
+| United States | T-Mobile (USA) | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Uruguay | Antel | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Uruguay | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Uruguay | Movistar | &check; | &check; | &nbsp; | &nbsp; |

@@ -41,11 +41,21 @@ carriers2.buildMenu = function() {
             if (obj.wifi || obj.cellular === false || !obj.group) {
                 return;
             }
+            if (obj.showInternalUsers) {
+                if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                    return;
+                }            
+            }
+    
             html += '<optgroup label="' + obj.name + '">';
 
             obj.group.forEach(function(obj2, index2) {
+                if (obj2.showInternalUsers) {
+                    if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                        return;
+                    }            
+                }
                 const value = index1 + ',' + index2;
-
                 html += '<option value="' + value + '">' + obj2.name + '</option>';
             });
 
@@ -369,7 +379,12 @@ rec2.selectMenu = function() {
                 if (skuFamilyObj.wifi || skuFamilyObj.cellular === false) {
                     return;
                 }
-
+                if (skuFamilyObj.showInternalUsers) {
+                    if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                        return;
+                    }            
+                }
+    
                 datastore.data.skus.forEach(function(skuObj) {
                     if (skuObj.family == skuFamilyObj.family && 
                         skuObj.modem == cmsObj.modem &&
@@ -582,6 +597,12 @@ rec2.selectMenu = function() {
         if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
             return;
         }
+        if (skuFamilyObj.showInternalUsers) {
+            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                return;
+            }            
+        }
+
         if (!recs.YES || !recs.YES.skuFamily[skuFamilyObj.family]) {
             return;
         }
@@ -602,6 +623,11 @@ rec2.selectMenu = function() {
             if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
                 return;
             }
+            if (skuFamilyObj.showInternalUsers) {
+                if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                    return;
+                }            
+            }
             if (!recs.NRND || !recs.NRND.skuFamily[skuFamilyObj.family]) {
                 return;
             }
@@ -621,6 +647,12 @@ rec2.selectMenu = function() {
         if (!recs.NR || !recs.NR.skuFamily[skuFamilyObj.family]) {
             return;
         }
+        if (skuFamilyObj.showInternalUsers) {
+            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                return;
+            }            
+        }
+
         html += '<h3>' + skuFamilyObj.name + ' (Not recommended SKUs)</h3>';
 
         generateSkuTables('Not recommended EtherSIM SKUs in', recs.NR.skuFamily[skuFamilyObj.family], false);
@@ -932,9 +964,21 @@ countryDetails.buildMenu = function() {
         if (obj.wifi || obj.cellular === false) {
             return;
         }
+        if (obj.showInternalUsers) {
+            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                return;
+            }            
+        }
+
         html += '<optgroup label="' + obj.name + '">';
 
         obj.group.forEach(function(obj2, index2) {
+            if (obj2.showInternalUsers) {
+                if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
+                    return;
+                }            
+            }
+
             const value = index1 + ',' + index2;
 
             html += '<option value="' + value + '">' + obj2.name + '</option>';
@@ -988,6 +1032,10 @@ countryDetails.generateTable = function(options) {
         html += '<div style="border-top-style: solid; border-width: 2px;"></div>';
     }
 
+    if (options.titles) {
+        html += '<h3 style="line-height: 30px;">' + options.titles.join('<br/>') + '</h3>\n';
+    }
+
     if (options.showSkus) {
         let skusArray = [];
         for(let skuObj of datastore.data.skus) {
@@ -1016,7 +1064,8 @@ countryDetails.generateTable = function(options) {
     }
 
     // Recommendation
-    html += '<span style="font-size: large;">' + recommendationObj.desc + '</span>\n';
+    // html += '<span style="font-size: large;">' + recommendationObj.desc + '</span>\n';
+    html += '<strong>' + recommendationObj.desc + '</strong>\n';
     if (recommendation.reason) {
         let s = recommendation.reason;
         s = s.substr(0, 1).toUpperCase() + s.substr(1);
@@ -1131,10 +1180,12 @@ countryDetails.onCountrySelected = function(country) {
                             mspObj.sim == skuFamilyGroupObj.sim &&
                             mspObj.simPlan == skuFamilyGroupObj.simPlan) {
                             exists = true;
+                            mspObj.titles.push(skuFamilyGroupObj.name)
                         }
                     }
                     if (!exists) {
                         modemSimSimPlan.push({
+                            titles: [skuFamilyGroupObj.name],
                             modem: skuFamilyGroupObj.modem,
                             sim: skuFamilyGroupObj.sim,
                             simPlan: skuFamilyGroupObj.simPlan,
@@ -1148,6 +1199,7 @@ countryDetails.onCountrySelected = function(country) {
         for(const mspObj of modemSimSimPlan) {
             countryDetails.generateTable({
                 country,
+                titles: mspObj.titles,
                 modem: mspObj.modem,
                 sim: mspObj.sim,
                 simPlan: mspObj.simPlan,
@@ -1518,7 +1570,6 @@ bandFit.renderCountries = function(countries) {
             $(ulElem).append(liElem);
         }
 
-
         if (footnotes) {
             for(let ii = 0; ii < footnotes.length; ii++) {
                 const liElem = document.createElement('li');
@@ -1536,6 +1587,11 @@ bandFit.renderCountries = function(countries) {
         if (roamingRestrictions) {
             const liElem = document.createElement('li');
             $(liElem).text('Permanent roaming restrictions may apply in this country.');
+            $(ulElem).append(liElem);
+        }
+        if ($(tableElem).width() > 900) {
+            const liElem = document.createElement('li');
+            $(liElem).text('Scroll horizontally to see all columns');
             $(ulElem).append(liElem);
         }
 
@@ -1719,7 +1775,7 @@ bandFit.updateTestMenu = function() {
     for(const testKey in bandFit.tests) {
         const testObj = bandFit.tests[testKey];
         
-        if (testObj.internal) {
+        if (testObj.showInternalUsers) {
             if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
                 continue;
             }            
@@ -1786,7 +1842,7 @@ bandFit.init = function(callback) {
         },
         'b504': {
             title: 'B504 comparison (B504 vs. B404X vs. B524)',
-            internal: true,
+            showInternalUsers: true,
             sim: 4, // EtherSIM
             tests: [
                 {
@@ -1798,6 +1854,44 @@ bandFit.init = function(callback) {
                 {
                     title: 'B404X',
                     modemObj: datastore.data.modems.find(e => e.model == 'R510'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'B524',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG91-E'),
+                    borderRight: false,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+            ],
+        },
+        'electron-2': {
+            title: 'Electron 2 (ELC504EM vs. ELC524EM)',
+            showInternalUsers: true,
+            sim: 4, // EtherSIM
+            tests: [
+                {
+                    title: 'ELC504EM',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-NA'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'ELC524EM',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
+                    borderRight: false,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+            ],
+        },
+        'electron-2-b524': {
+            title: 'Electron 2 (ELC524EM) vs. B-SoM (B524)',
+            showInternalUsers: true,
+            sim: 4, // EtherSIM
+            tests: [
+                {
+                    title: 'ELC524EM',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
                 },

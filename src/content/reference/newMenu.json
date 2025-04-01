@@ -419,6 +419,11 @@
                     "isSection": true,
                     "subsections": [
                         {
+                            "dir": "electron-2-datasheet",
+                            "title": "Electron 2 datasheet",
+                            "internal": true
+                        },
+                        {
                             "dir": "e404x-datasheet",
                             "title": "E404X datasheet"
                         },
