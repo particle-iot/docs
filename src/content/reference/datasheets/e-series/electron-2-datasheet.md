@@ -58,8 +58,8 @@ as a drop-in replacement for Boron devices including the BRN404X, BRN404, BRN402
  * RGB status LED
  * Reset and Mode buttons
  * Built-in Particle EtherSIM e-sim
- * On-board PCB antenna
- * U.FL connector for external antenna
+ * On-board PCB antenna for BLE
+ * U.FL connectors for external antennas for cellular, BLE, and NFC
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
  * RoHS compliant (lead-free)
  * Requires Device OS 6.3.0 (or later)
@@ -197,7 +197,7 @@ However, if you have circuitry that is powered by a separate, external power sup
 
 ### Antenna
 
-There are three radios on the Electron 2. A BLE radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provided a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
+There are three radios on the Electron 2. A BLE radio (nRF52840) and a cellular radio. For the cellular radio, we have provided a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
 
 There are two options for the BLE antenna on the Electron 2. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
