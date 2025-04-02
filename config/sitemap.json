@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2025-04-02",
-            "hash": "47b0bbedbc56c7ad721d24e28c96ed422bd35e7e0e58634a4ebaa5cf012ca9bf"
+            "hash": "6faab27d499a94cb96884a418c5ebb11e9dfd9cffbfb6f5b257baa2517f152b0"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -9311,8 +9311,8 @@
             "date": "2025-02-03"
         },
         "reference/device-os/api/publish/particle-publish-publish.md": {
-            "hash": "d3f57ca144b5d3cac865b319b9c65ea1e6dc22eb414f6ccf5e2b523295b61050",
-            "date": "2025-02-11"
+            "hash": "a980dde869a351ce91d367010574cf98e12e638011ddc27b695fecb09e603746",
+            "date": "2025-04-02"
         },
         "reference/device-os/api/publish/name-particle-publish-publish.md": {
             "hash": "60ee919159fcc7297aa17e722177bff8f070680ac980604ef088f21bd7b6e39e",

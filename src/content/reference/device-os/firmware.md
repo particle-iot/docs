@@ -1217,7 +1217,9 @@ particle::Future<bool> publish(const char* name, const particle::EventData& data
 
 #### name - Particle.publish - Publish
 
-This is the name of the event, which can be 1 - 64 ASCII characters.
+The name consist 1–64 ASCII characters. Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+
+A device may not publish events beginning with a case-insensitive match for "particle" or "spark". Such events are reserved for officially curated data originating from the Cloud.
 
 #### data (string) - Particle.publish - Publish
 
