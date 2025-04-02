@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Carrier list on mobile 2025-04-02
+
+Fixed a bug in the [carrier list](/reference/cellular/cellular-carriers/) where clicking on one of the tabs at at the top (By Device, Country Details, etc.) would instead open a different page (possibly the Verizon FAQ).
+
 ### Location clarifications 2025-04-02
 
 Clarifications about using Location Fusion on non-Tracker devices added to the [Location](/getting-started/cloud/location/) page.

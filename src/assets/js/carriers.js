@@ -2021,8 +2021,10 @@ function carrierLoadQuery(urlParams) {
 
 $(document).ready(function() {
     Object.keys(carrierSelectTabs).forEach(function(tab) {
-        $('#carrierTab' + tab).on('click', function() {
+        $('#carrierTab' + tab).on('click touchend', function(ev) {
             carrierSelectTab(tab);
+            ev.stopPropagation();
+            ev.preventDefault();
         });
     });
 
