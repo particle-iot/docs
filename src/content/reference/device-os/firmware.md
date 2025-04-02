@@ -1290,7 +1290,7 @@ Cloud events have the following properties:
 
 * optional data. The data has a maximum size of 255 to 1024 bytes of UTF-8 characters; see [API Field Limits](#overview-of-api-field-limits) as the limit varies depending on Device OS version and sometimes the device.
 
-A device may not publish events beginning with a case-insensitive match for "spark".
+A device may not publish events beginning with a case-insensitive match for "particle" or "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
 Calling `Particle.publish()` when the cloud connection has been turned off will not publish an event. This is indicated by the return success code of `false`. 
@@ -1533,6 +1533,11 @@ CloudEvent& name(const char* name)
 // PROTOTYPE - getter
 const char* name() const;
 ```
+
+The name consist 1–64 ASCII characters. Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+
+A device may not publish events beginning with a case-insensitive match for "particle" or "spark". Such events are reserved for officially curated data originating from the Cloud.
+
 
 #### contentType - CloudEvent
 
