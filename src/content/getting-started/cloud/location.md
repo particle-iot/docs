@@ -92,16 +92,19 @@ events are processed by the Particle cloud and stored in the historical location
 
 ### Other devices
 
-Non-tracker devices support geolocation in two different ways:
+Non-Tracker devices support geolocation in two different ways:
 
 ### Device vitals location (other than Tracker)
 
 Devices typically upload [Device Vitals](/getting-started/console/device-vitals/) that includes information including the connected cellular tower information.
 
-Device Vitals can be used to generate an approximate location of the device and is available on cellular, Wi-Fi, and Ethernet devices. On non-cellular devices, Device Vitals geolocation uses
-IP-address geolocation, so the location will not be precise.
+Device Vitals can be used to generate an approximate location of the device and is available on cellular, Wi-Fi, and Ethernet devices. On non-cellular devices, Device Vitals geolocation uses IP-address geolocation, so the location will not be precise.
 
 On Sandbox and Basic plans, the Device Vitals location is updated once per week. On Enterprise plans, the location is updated on all Device Vitals updates.
+
+When calculating location from Device Vitals, `loc-enhanced` events are never sent. However, once you've enabled location storage in the console
+you can use the [query location API](/reference/cloud-apis/api/#query-location-for-one-device-within-a-product) to find a device's location. For the 
+free plan, there is no location history; it will only show the most recent location.
 
 ### loc events (other than Tracker)
 
@@ -110,7 +113,12 @@ On some plans, non-Tracker devices can upload `loc` events by using a software l
 
 For example, on M-SoM and B504 devices, the cellular modem also supports GNSS geolocation with an external antenna. 
 On the M-SoM, Wi-Fi geolocation is also possible since it supports both cellular and Wi-Fi. This data can be formatted
-as a `loc` event and used with location fusion on some plans. Additional data operations charges may apply.
+as a `loc` event and used with location fusion on some plans.
+
+If you send a `loc` event that contains coordinates (`lat`, `lon`) and a GNSS lock (`lck` is 1) on a non-Tracker device,
+Location Fusion will not be done. If you do not have valid coordinates, but do have additional information, such as 
+cell tower information or Wi-Fi access points, Location Fusion will be done, at a cost of {{dataOperationsForLocation}} data operations.
+If location can be determined by Location Fusion, a `loc-enhanced` event will be generated.
 
 ### Non-Tracker devices with GNSS capabilities
 
@@ -188,7 +196,10 @@ your own `loc` events based on the hardware and library that you selected.
 
 ## Location storage
 
-Historical location data is stored for Tracker device on all plans. You must opt into location storage from the product settings page in the console.
+Historical location data is stored for Tracker device on all plans. You must opt into location storage from the product settings page in the console
+in the product settings panel.
+
+On the free plan, you must enable location storage to be able to query the current location from the Particle cloud API, however the history will only ever contain one location; historical data is not saved on the free plan.
 
 On enterprise plans, you can opt into location storage for non-Tracker devices, as well.
 

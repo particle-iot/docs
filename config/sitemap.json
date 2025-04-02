@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-04-01",
-            "hash": "5ae5a8efaa23f69bbd42ec61bf83755cc51e4e0a490dcd610f074bf4381d9f76"
+            "date": "2025-04-02",
+            "hash": "7733cc058d4d924adb693a707e31add4dc0fd64a0eaefe46cbecc8592a7129c9"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1755,8 +1755,8 @@
             "hash": "936a3cc1be02321b1322e853d7b55f561f5994c05c8b9671b717ab3137416e24"
         },
         "reference/device-os/api/cloud-functions/particle-connect.md": {
-            "date": "2025-04-01",
-            "hash": "513f70fc21eb60f9ba09add2d19f6a424fed42440ebc05c20083c98529ba70c9"
+            "date": "2025-04-02",
+            "hash": "3e109646e1102ae5882adcaf9d91f8119c032a7f2aa288ef7897e9a9fc07521e"
         },
         "reference/device-os/api/cloud-functions/particle-disconnect.md": {
             "date": "2024-01-30",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "23e218785fc94fff88a6abbc371c55f76d3d82c9dcbc6069a19f32561d87595a",
-            "date": "2025-04-01"
+            "hash": "9a128ee247ada01c2d5bc596620a5214e002a57e706aa22aa20305900473fa39",
+            "date": "2025-04-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9619,8 +9619,8 @@
             "date": "2025-01-15"
         },
         "getting-started/cloud/location.md": {
-            "hash": "a4962a512e9cd08a515158ef9303d57b430b681e7617e576bd3bbe5a79a309d3",
-            "date": "2025-04-01"
+            "hash": "d3840fee9e8afb21b2604dfaa88e7d031effe9802d8511e2c52de4d187fa3f40",
+            "date": "2025-04-02"
         },
         "reference/technical-advisory-notices/tan015.md": {
             "hash": "198de88b8a154b2b6164093b19210baf6ddce1d8407858f1b49dbfee848d7072",

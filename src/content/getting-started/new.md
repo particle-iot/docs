@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Location clarifications 2025-04-02
+
+Clarifications about using Location Fusion on non-Tracker devices added to the [Location](/getting-started/cloud/location/) page.
+
 ### Library updates 2025-04-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
