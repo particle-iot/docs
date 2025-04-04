@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Monitor Edge v2 configuration schema 2025-04-02
+
+Fixed a problem in the Monitor Edge v2 schema. There was an incorrect integer value encoded as a string for Modbus Inter Message Delay.
+
 ### Carrier list on mobile 2025-04-02
 
 Fixed a bug in the [carrier list](/reference/cellular/cellular-carriers/) where clicking on one of the tabs at at the top (By Device, Country Details, etc.) would instead open a different page (possibly the Verizon FAQ).
