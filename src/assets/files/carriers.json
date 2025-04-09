@@ -24932,7 +24932,7 @@
       "aliases": [
         "T-Mobile"
       ],
-      "sunset2G": "2024-04-02",
+      "sunset2G": "2025-04-02",
       "sunset3G": "2022-06-30",
       "supersim": {
         "allow2G": true,
@@ -166231,6 +166231,18 @@
       ]
     },
     {
+      "date": "2025-04-02",
+      "country": "United States",
+      "items": [
+        {
+          "carrier": "T-Mobile (USA)",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
       "date": "2025-03-31",
       "country": "Austria",
       "items": [
@@ -166773,18 +166785,6 @@
       "3G": [
         "NTT DoCoMo"
       ]
-    },
-    {
-      "date": "2024-04-02",
-      "country": "United States",
-      "items": [
-        {
-          "carrier": "T-Mobile (USA)",
-          "rat": "2G"
-        }
-      ],
-      "2G": [],
-      "3G": []
     },
     {
       "date": "2024-01-31",

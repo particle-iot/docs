@@ -18,7 +18,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 ### T-Mobile
 
-- T-Mobile 2G will shut down by April 2, 2024. This deadline is not expected to be extended again.
+- T-Mobile 2G will have reduced capacity and coverage starting April 2, 2025. Any time after this date 2G coverage could disappear permanently at any location without warning.
 - T-Mobile 3G shutdown started in January 2021 and is substantially complete as of June 2022.
 
 
@@ -31,7 +31,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 | E310, E260 | AT&T (3G), T-Mobile (2G/3G) | AT&T (3G), T-Mobile (2G)<sup>1</sup> | T-Mobile (2G)<sup>1</sup> |
 | E350 | T-Mobile (2G) | T-Mobile (2G)<sup>1</sup> | T-Mobile (2G)<sup>1</sup> |
 
-**These devices will lose all connectivity in the United States in April 2024**
+**These devices could lose all connectivity in the United States starting in April 2025**
 
 <sup>1</sup> After the T-Mobile 3G shutdown in October 2021, there may be reduced T-Mobile coverage in some areas.
 

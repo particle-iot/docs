@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### T-Mobile US 2G sunset 2025-04-09
+
+Updated information about the [T-Mobile US 2G sunset](/reference/discontinued/cellular/us-2g-3g-sunset/).
+
 ### Monitor Edge v2 configuration schema 2025-04-02
 
 Fixed a problem in the Monitor Edge v2 schema. There was an incorrect integer value encoded as a string for Modbus Inter Message Delay.
