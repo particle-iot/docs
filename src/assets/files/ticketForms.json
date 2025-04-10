@@ -6345,6 +6345,13 @@
             "title": "Basic plan cancellation date",
             "description": "Optionally specify the date you want the cancellation to be effective. Leave blank for as soon as possible.",
             "required": false
+        },
+        {
+            "id": 35857529914907,
+            "type": "integer",
+            "title": "Number of Blocks Requested",
+            "description": "Please enter the number of blocks you wish to add to your Basic Plan (see https://www.particle.io/pricing/ for more information).",
+            "required": true
         }
     ],
     "ticketForms": [
@@ -7601,13 +7608,7 @@
                     "id": 1260816805710
                 },
                 {
-                    "id": 1260816805810
-                },
-                {
-                    "id": 1260816805830
-                },
-                {
-                    "id": 1260816805790
+                    "id": 35857529914907
                 },
                 {
                     "id": 22020244
