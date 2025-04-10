@@ -1007,6 +1007,8 @@ One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product
 
 {{imageOverlay src="/assets/images/b-series/b-series-connector.png" alt="M.2 Connector" class="full-width"}}
 
+A device, footprint, and symbol for EagleCAD are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries).
+
 ---
 
 ### Screw Assembly
@@ -1026,6 +1028,10 @@ The screw should be connected to the ground plane on your base board.
 We strongly recommend against placing components under the SOM board because there is not enough height.
 
 {{imageOverlay src="/assets/images/b-series/b-series-keep-out.png" alt="Keep-Out Area"}}
+
+### Reference design
+
+The [M.2 breakout board design](https://github.com/particle-iot/m2-breakout-board/) design files for EagleCAD are available as a reference design.
 
 ## Product Handling
 
@@ -1484,3 +1490,4 @@ Global, country list to be provided a later date.
 | 011      | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
 | 012      | 2025-01-06 | RK | Added note explaining reserved SoM pins |
 | 013      | 2025-01-21 | RK | Incorrect RTL pin listed in SETUP and RESET button section. It was listed as PA[4] but is PA[11]. It was correct in the pin diagram. |
+| 014      | 2025-04-10 | RK | Added links to hardware-libraries and M.2 breakout board designs |
