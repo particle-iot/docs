@@ -24,12 +24,13 @@ Thus even if you are using unclaimed product devices, with a free product owned 
 
 Another important difference is that when you hit the data operation or cellular data limit in a free account, all data operations will be paused until the next billing cycle. This applies to both developer devices claimed to the user, as well as all product devices for products owned by that user.
 
-#### Growth products
+#### Basic products
 
-Growth products have no limits, however as you use larger number of devices, data operations, or cellular data, the cost will increase because of the additional blocks:
+Basic products have no limits, however as you use larger number of devices, data operations, or cellular data, the cost will increase because of the additional blocks:
 
 - A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month and up to {{basicTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
 - Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- This was formerly known as a Growth product
 

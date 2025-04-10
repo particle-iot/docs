@@ -184,6 +184,7 @@ async function run() {
                 360001073373, // Help with my order
                 360001730794, // Managing billing & subscriptions
                 1260809279669, // Upgrading my account to the growth plan
+                35853786106395, // Cancel basic plan
                 360000327294, // Another non-technical issue
                 360005653294, // Can't set up a new device
                 1500000002882, // Console ticket

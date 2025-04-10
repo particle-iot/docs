@@ -5571,7 +5571,7 @@
             "id": 1260816805710,
             "type": "textarea",
             "title": "Product IDs",
-            "description": "Please add the Product IDs of the Products you wish to transfer out of your Sandbox into your Growth Plan. You can find more information about Products here: https://docs.particle.io/tutorials/product-tools/introduction/#products.",
+            "description": "Please add the Product IDs of the Products you wish to transfer out of your Sandbox into your Basic Plan. You can find more information about Products here: https://docs.particle.io/tutorials/product-tools/introduction/#products.",
             "required": false
         },
         {
@@ -5585,21 +5585,21 @@
             "id": 1260816805790,
             "type": "integer",
             "title": "Number of WiFi Blocks Requested",
-            "description": "Please enter the number of WiFi blocks you wish to add to your Growth Plan (see https://www.particle.io/pricing/ for more information).",
+            "description": "Please enter the number of WiFi blocks you wish to add to your Basic Plan (see https://www.particle.io/pricing/ for more information).",
             "required": true
         },
         {
             "id": 1260816805810,
             "type": "integer",
             "title": "Number of Cellular Blocks",
-            "description": "Please enter the number of Cellular blocks you wish to add to your Growth Plan (see https://www.particle.io/pricing/ for more information).",
+            "description": "Please enter the number of Cellular blocks you wish to add to your Basic Plan (see https://www.particle.io/pricing/ for more information).",
             "required": true
         },
         {
             "id": 1260816805830,
             "type": "integer",
             "title": "Number of Tracker Blocks",
-            "description": "Please enter the number of Tracker blocks you wish to add to your Growth Plan (see https://www.particle.io/pricing/ for more information).",
+            "description": "Please enter the number of Tracker blocks you wish to add to your Basic Plan (see https://www.particle.io/pricing/ for more information).",
             "required": true
         },
         {
@@ -6331,6 +6331,20 @@
             "title": "Kickstarter Email",
             "description": "Email address used for your Kickstarter pledge",
             "required": true
+        },
+        {
+            "id": 35853606540187,
+            "type": "checkbox",
+            "title": "I confirm that I would like to cancel my basic plan",
+            "description": "It may take up to one business day for our team to respond to your cancellation request, but we will action this based on the date you request the cancellation. Additionally, with the conclusion of your final date of service on the basic plan, you will no longer be eligible to order bulk product SKU’s from the Particle store.”",
+            "required": true
+        },
+        {
+            "id": 35853686140699,
+            "type": "text",
+            "title": "Basic plan cancellation date",
+            "description": "Optionally specify the date you want the cancellation to be effective. Leave blank for as soon as possible.",
+            "required": false
         }
     ],
     "ticketForms": [
@@ -7594,6 +7608,28 @@
                 },
                 {
                     "id": 1260816805790
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "id": 35853786106395,
+            "title": "Cancel my basic plan",
+            "fields": [
+                {
+                    "id": 1260816805770
+                },
+                {
+                    "id": 35853606540187
+                },
+                {
+                    "id": 35853686140699
                 },
                 {
                     "id": 22020244
