@@ -383,7 +383,7 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404XKIT|
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404X|
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Fast<sup>1</sup> | NRND | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | Deprecated | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | Deprecated | |

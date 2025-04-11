@@ -255,10 +255,10 @@ The Boron 2G/3G is not recommended for new designs and will be deprecated with t
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | NRND | |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | Deprecated | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | Deprecated | |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | Deprecated | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

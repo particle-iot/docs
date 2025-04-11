@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BRN314TRAY50 deprecation 2025-04-11
+
+The BRN314TRAY50 (Boron 2G/3G (Global), Tray [x50]) is now deprecated and will no longer be available. The u-blox SARA-U201 cellular modem on that device is no longer manufactured.
+
 ### T-Mobile US 2G sunset 2025-04-09
 
 Updated information about the [T-Mobile US 2G sunset](/reference/discontinued/cellular/us-2g-3g-sunset/).

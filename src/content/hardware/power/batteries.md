@@ -105,7 +105,7 @@ instead of using a battery pack temperature sensor.
 | [BRN310KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
 | [BRN310TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
 | [BRN314KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
-| [BRN314TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | NRND |
+| [BRN314TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global), Tray [x50] | micro-b | 2-pin | Deprecated |
 | [BRN402](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | micro-b | 2-pin | Deprecated |
 | [BRN402KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | micro-b | 2-pin | Deprecated |

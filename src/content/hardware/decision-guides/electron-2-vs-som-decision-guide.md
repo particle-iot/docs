@@ -339,7 +339,6 @@ The [Feather page](/hardware/expansion/feather/) includes examples of Feather ac
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :---: | :--- |
-| [BRN314TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global), Tray [x50] | global | NRND |
 | [BRN402TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
 | [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
 | [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
@@ -428,7 +427,6 @@ platform, each platform has differences in amount of available RAM and maximum a
 | [B523MTY](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | emeaa | NRND |
 | [B524MEA](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | emeaa | GA |
 | [B524MTY](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
-| [BRN314TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron 2G/3G (Global), Tray [x50] | global | NRND |
 | [BRN402TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
 | [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
 | [BRN404XKIT](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | noram | GA |

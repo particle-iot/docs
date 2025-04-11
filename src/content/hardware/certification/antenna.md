@@ -120,7 +120,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &nbsp; | ANT-FLXU-50 | &nbsp; | Deprecated|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU-50 | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU-50 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404XKIT | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | BRN404TRAY50 | &nbsp; | ANT-FLXU-50 | &nbsp; | Deprecated|
@@ -441,7 +441,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | Deprecated|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404XKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | BRN404TRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | Deprecated|
@@ -572,7 +572,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | &nbsp; | Deprecated|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404KIT | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404XKIT | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | BRN404TRAY50 | &check; | &nbsp; | Deprecated|

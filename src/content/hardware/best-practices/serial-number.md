@@ -103,7 +103,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated | B31K |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Deprecated | B31T |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated | P027 |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND | P027 |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Deprecated | P027 |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated | B40H |
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | Deprecated | P012 |
 | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Deprecated | B40K |
@@ -247,7 +247,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P025 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | NRND |
 | P025 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Deprecated |
 | P027 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated |
-| P027 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND |
+| P027 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Deprecated |
 | P028 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated |
 | P028 | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Deprecated |
 | P028 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated |

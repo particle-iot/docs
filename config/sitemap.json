@@ -647,8 +647,8 @@
             "hash": "4f6c0d93a3dd402078eaff079dbf2262adf03f1ca6a62e2696cc5757ba6b8924"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2025-04-01",
-            "hash": "68db97e61415e939202e12b3ae9e22308a1e986f3cbdb24138b435ce18acb928"
+            "date": "2025-04-11",
+            "hash": "29d79ce0f024cad1058dfc87894a9b9c9e8e7688da85edd12a33e707f09fba9d"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2025-04-01",
@@ -927,16 +927,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-04-01",
-            "hash": "5c1cfbd5631e5a1859553c04fc81dcc872531c7444af3f50c067cc38f68becbf"
+            "date": "2025-04-11",
+            "hash": "4eb36f6b72aea9af46f131aecdc36ab80250da45cfef1c307b30d0f2cbc43f29"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2025-04-01",
-            "hash": "ae58d99a07805ea601c7cb844ceb6666578171e75d10557fd3594c43538a4139"
+            "date": "2025-04-11",
+            "hash": "87ffc023721b02a85c79c478d7978479884ce438b6d4b6eee1b70af2b7238db4"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1007,8 +1007,8 @@
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2025-04-01",
-            "hash": "baed0c3385baa530e8d4a77b6d658fca394409d05cef884b7c128851d2ccb605"
+            "date": "2025-04-11",
+            "hash": "ee382f8f63c069e1bb05d07f13ff0146f879e820201918b2b6f150761064bc50"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -1031,12 +1031,12 @@
             "hash": "04d24ddae20c5b300736c1d7f37668afdeb7fc80c3e8db85410b336bb269f9a3"
         },
         "hardware/power/batteries.md": {
-            "date": "2025-04-01",
-            "hash": "af5841f1fb66668724aa511bd05c4a9077ff8363071e3f3af252f86bb25196ab"
+            "date": "2025-04-11",
+            "hash": "f844496fbebbb8735d7ddb0344d5a9d93b687b6f5ef1795ac42ea92fd956d5bd"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2025-04-01",
-            "hash": "7fcb76a3842fd596038eee7dce15610b0c5b5e5178e5dca9963b041051212141"
+            "date": "2025-04-11",
+            "hash": "9e64d62b64608cc97d22f7506ef6b37f3b6f3d47a02e753027d5abaf8802259c"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1315,8 +1315,8 @@
             "hash": "8ec1d044f01f999adecac71c84569f85ddc65a79a945931264287d49eae28e81"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2025-03-19",
-            "hash": "7e616532e23edd08e799f92bcf3c7418994fcde1977fc1bf9b5a4216a0712dc3"
+            "date": "2025-04-11",
+            "hash": "6a339f0123e9ef6239f69aa1398ebadcb3003c999c203c05ceb55b84aebc7b30"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1347,8 +1347,8 @@
             "hash": "84b39c3ac5eb7075ca955b5bb7eac6f4db2476df839c9dd838f24677e5601663"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2025-03-21",
-            "hash": "8fe4018d81eb7ae721a3ff929582ff910dc211d96320acaa67eecc4d2917ee73"
+            "date": "2025-04-11",
+            "hash": "707a569909e5b871d1a4489fc77d11e8b27deea9312de5c1e268d0437338290f"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2025-04-01",
@@ -8163,8 +8163,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "617980540dec8c247c12bb8585a45475b4427712ccfca4f77b71293eab1f06ac",
-            "date": "2025-03-19"
+            "hash": "76e15c8704d4f137ad260ad08d18208227fdd5e90bed71bfd5f6ebc5f4acb28f",
+            "date": "2025-04-11"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8b5955be0b942db5f5911697262a6fddbf560fe6f418075ab7518293f72d900e",
-            "date": "2025-04-09"
+            "hash": "1f9e09d610dc12d7d2f7fce636dc1d5349e3190047aff6e0cf15e6e2fa270ecc",
+            "date": "2025-04-11"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
