@@ -1149,6 +1149,31 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
         (options.showAllTechnologies ? null : modem.technologies),
         options);
 
+    if (bandsUsed.bandsAll.length > 20) {
+    // If there are too many bands, trim the list (US and Canada)
+    if (bandsUsed.bandsM1.length > 0) {
+            // If using M1, remove 5G
+            bandsUsed.bands5G = [];
+            for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
+                if (bandsUsed.bandsAll[ii].startsWith('5G')) {
+                    bandsUsed.bandsAll.splice(ii, 1);
+                }
+            }
+            if (bandsUsed.bandsAll.length > 20) {
+                // If still too long (Canada)
+                bandsUsed.bands3G = [];
+                bandsUsed.bands4G = [];
+                for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
+                    if (bandsUsed.bandsAll[ii].startsWith('3G') || 
+                        bandsUsed.bandsAll[ii].startsWith('4G')) {
+                        bandsUsed.bandsAll.splice(ii, 1);
+                    }
+                }
+    
+            }            
+        }
+    }
+
     // Generate the HTML
     {
         // Table head

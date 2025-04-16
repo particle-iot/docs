@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Carrier list 2025-04-16
+
+When viewing the [Carrier list](/reference/cellular/cellular-carriers/), Country Details view, for a LTE Cat M1 device, if the number of bands is so large that it can't be viewed without scrolling, the unsupported 5G, and sometimes 4G and 3G, will be removed from the table. This only affects the United States and Canada. 
+
 ### BRN314TRAY50 deprecation 2025-04-11
 
 The BRN314TRAY50 (Boron 2G/3G (Global), Tray [x50]) is now deprecated and will no longer be available. The u-blox SARA-U201 cellular modem on that device is no longer manufactured.
