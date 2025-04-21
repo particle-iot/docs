@@ -29502,7 +29502,8 @@
       "retail": false,
       "usb": "c",
       "batteryConn": "jst-ph-3",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "skuRegion": "noram"
     },
     {
       "name": "MHAT524e",
@@ -29513,7 +29514,8 @@
       "retail": false,
       "usb": "c",
       "batteryConn": "jst-ph-3",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "skuRegion": "emeaa"
     },
     {
       "name": "MON404E01C01KIT",

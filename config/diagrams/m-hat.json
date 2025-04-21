@@ -1,0 +1,130 @@
+{
+    "id": "m-hat",
+    "labels": [
+        {
+            "id": "usb",
+            "label": "1",
+            "title": "USB-C",
+            "x": 276,
+            "y": 1011
+        },
+        {
+            "id": "pd-led",
+            "label": "2",
+            "title": "USB-C PD LED",
+            "x": 396,
+            "y": 1011
+        },
+        {
+            "id": "dc-in",
+            "label": "3",
+            "title": "DC IN",
+            "x": 506,
+            "y": 1011
+        },
+        {
+            "id": "chg-led",
+            "label": "4",
+            "title": "Charge LED",
+            "x": 601,
+            "y": 1011
+        },
+        {
+            "id": "bat-conn",
+            "label": "5",
+            "title": "LiPo Battery",
+            "x": 712,
+            "y": 1011
+        },
+        {
+            "id": "ioex-conn",
+            "label": "6",
+            "title": "I/O Expansion",
+            "x": 935,
+            "y": 1011
+        },
+        {
+            "id": "rtc-conn",
+            "label": "7",
+            "title": "RTC Battery",
+            "x": 1177,
+            "y": 1011
+        },
+        {
+            "id": "grove-conn",
+            "label": "8",
+            "title": "Grove connector",
+            "x": 1382,
+            "y": 861
+        },
+        {
+            "id": "qwiic-conn",
+            "label": "9",
+            "title": "QWIIC connector",
+            "x": 932,
+            "y": 845
+        },
+        {
+            "id": "sma1",
+            "label": "10",
+            "title": "SMA connector",
+            "x": 1538,
+            "y": 671
+        },
+        {
+            "id": "sma2",
+            "label": "11",
+            "title": "SMA connector",
+            "x": 1538,
+            "y": 453
+        },
+        {
+            "id": "sma3",
+            "label": "12",
+            "title": "SMA connector",
+            "x": 1538,
+            "y": 228
+        },
+        {
+            "id": "reset-button",
+            "label": "13",
+            "title": "Reset button",
+            "x": 1173,
+            "y": 89
+        },
+        {
+            "id": "hat",
+            "label": "14",
+            "title": "Raspberry Pi HAT 40-pin connector",
+            "x": 604,
+            "y": 172
+        },
+        {
+            "id": "m2-som",
+            "label": "15",
+            "title": "Particle M.2 SoM",
+            "x": 624,
+            "y": 500
+        },
+        {
+            "id": "mode-button",
+            "label": "16",
+            "title": "Particle MODE button",
+            "x": 60,
+            "y": 709
+        },
+        {
+            "id": "rgb-led",
+            "label": "17",
+            "title": "Particle RGB LED",
+            "x": 60,
+            "y": 788
+        }
+    ],
+    "labelSets": [],
+    "config": {
+        "height": 1045,
+        "width": 1600,
+        "labelDiameter": 60
+    }
+}

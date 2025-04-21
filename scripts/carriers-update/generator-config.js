@@ -5275,6 +5275,20 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        // M-HAT
+        {
+            // SKU list MHAT
+            guid:'47e37393-b9c0-4b04-9da6-e54cb2227cd1', 
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    columns: ['name', 'desc', 'region', 'lifecycle'],
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MHAT');
+                    }        
+                }); 
+            } 
+        },
+
         // Tethering
         {
             guid:'7dc335b7-4ddc-464d-ae96-6231944ccc76', 

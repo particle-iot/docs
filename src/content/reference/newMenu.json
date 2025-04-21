@@ -390,16 +390,6 @@
                             "title": "M-SoM datasheet"
                         },
                         {
-                            "dir": "muon-preview-datasheet",
-                            "title": "Muon datasheet (preview)",
-                            "internal": true
-                        },
-                        {
-                            "dir": "muon-samples",
-                            "title": "Muon engineering samples",
-                            "internal": true
-                        },
-                        {
                             "dir": "muon-datasheet",
                             "title": "Muon datasheet"
                         },
@@ -410,6 +400,21 @@
                         {
                             "dir": "m1-enclosure-datasheet",
                             "title": "M1 Enclosure datasheet"
+                        },
+                        {
+                            "dir": "m-hat-datasheet",
+                            "title": "M-HAT datasheet (preview)",
+                            "internal": true
+                        },
+                        {
+                            "dir": "muon-preview-datasheet",
+                            "title": "Muon datasheet (preview)",
+                            "internal": true
+                        },
+                        {
+                            "dir": "muon-samples",
+                            "title": "Muon engineering samples",
+                            "internal": true
                         }
                     ]
                 },
