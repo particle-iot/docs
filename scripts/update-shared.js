@@ -388,7 +388,7 @@ async function run(files, metalsmith) {
                             continue;
                         }
 
-                        newContent += '| ' + labelObj.label + ' | ' + labelObj.title + ' |\n';                        
+                        newContent += '| ' + labelObj.label + ' | ' + labelObj.title + ' | <!-- ' + labelObj.id + ' -->\n';                        
                     }
 
                     m.newContent = newContent;

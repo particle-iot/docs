@@ -13,6 +13,9 @@ This is a preliminary datasheet and there may be changes before release
 
 ![](/assets/images/m-hat/m-hat.png)
 
+<p class="attribution">Rendering is of an older version of the M-HAT</p>
+
+
 ## Overview
 
 The M-HAT is pass-through HAT (hardware attached on top) for the Raspberry Pi to provide cellular connectivity and power.
@@ -34,28 +37,119 @@ It provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow 
 <!-- shared-diagram-table start m-hat -->
 | Label | Description |
 | ---: | :--- |
-| 1 | USB-C |
-| 2 | USB-C PD LED |
-| 3 | DC IN |
-| 4 | Charge LED |
-| 5 | LiPo Battery |
-| 6 | I/O Expansion |
-| 7 | RTC Battery |
-| 8 | Grove connector |
-| 9 | QWIIC connector |
-| 10 | SMA connector |
-| 11 | SMA connector |
-| 12 | SMA connector |
-| 13 | Reset button |
-| 14 | Raspberry Pi HAT 40-pin connector |
-| 15 | Particle M.2 SoM |
-| 16 | Particle MODE button |
-| 17 | Particle RGB LED |
+| 1 | USB-C | <!-- usb -->
+| 2 | USB-C PD LED | <!-- pd-led -->
+| 3 | DC IN | <!-- dc-in -->
+| 4 | Charge LED | <!-- chg-led -->
+| 5 | LiPo Battery | <!-- bat-conn -->
+| 6 | I/O Expansion | <!-- ioex-conn -->
+| 7 | RTC Battery | <!-- rtc-conn -->
+| 8 | Grove connector | <!-- grove-conn -->
+| 9 | QWIIC connector | <!-- qwiic-conn -->
+| 10 | SMA connector | <!-- sma1 -->
+| 11 | SMA connector | <!-- sma2 -->
+| 12 | SMA connector | <!-- sma3 -->
+| 13 | Reset button | <!-- reset-button -->
+| 14 | Raspberry Pi HAT 40-pin connector | <!-- hat -->
+| 15 | Particle M.2 SoM | <!-- m2-som -->
+| 16 | Particle MODE button | <!-- mode-button -->
+| 17 | Particle RGB LED | <!-- rgb-led -->
 <!-- shared-diagram-table end m-hat -->
 
 #### <!-- shared-diagram-label m-hat usb title-label-paren -->USB-C (1)<!-- end -->
 
+USB-C can be used for powering the M-HAT and the Raspberry Pi. It is recommended that you use this
+USB-C connector instead of the one on the Pi, as the Pi may not provide sufficient power for the
+cellular modem unless also used with a battery.
 
+This USB-C connector also provides USB access to the M.2 SoM for programming over USB or accessing
+the Particle USB serial debug.
+
+See also [Power](#power), below.
+
+#### <!-- shared-diagram-label m-hat pd-led title-label-paren -->USB-C PD LED (2)<!-- end -->
+
+
+#### <!-- shared-diagram-label m-hat dc-in title-label-paren -->DC IN (3)<!-- end -->
+
+Optional 6V - 12V DC power input. 
+
+See also [Power](#power), below.
+
+#### <!-- shared-diagram-label m-hat chg-led title-label-paren -->Charge LED (4)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat bat-conn title-label-paren -->LiPo Battery (5)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat ioex-conn title-label-paren -->I/O Expansion (6)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat rtc-conn title-label-paren -->RTC Battery (7)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat grove-conn title-label-paren -->Grove connector (8)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat qwiic-conn title-label-paren -->QWIIC connector (9)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat sma1 title-label-paren -->SMA connector (10)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat reset-button title-label-paren -->Reset button (13)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat hat title-label-paren -->Raspberry Pi HAT 40-pin connector (14)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat m2-som title-label-paren -->Particle M.2 SoM (15)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat mode-button title-label-paren -->Particle MODE button (16)<!-- end -->
+
+#### <!-- shared-diagram-label m-hat rgb-led title-label-paren -->Particle RGB LED (17)<!-- end -->
+
+
+## Power
+
+Power can be supplied to M-HAT by:
+
+- USB-C
+- VIN (6 - 12 VDC, via screw terminals)
+- LiPo battery (via 3-pin JST battery connector)
+- Expansion card (HAT)
+
+#### USB-C cable warning
+
+You must use an actual USB-C port or USB-C power adapter to power the M-HAT by USB.
+
+**A USB-A to USB-C cable will not power the M-HAT or charge the battery**
+
+The reason is that the M-HAT uses USB-C PD to change the USB port voltage to 9V and request enough
+current to power the M-HAT. 
+
+When using a USB-2 or USB-3 port with USB-A to USB-C adapter cable, the USB port voltage cannot
+be changed and the port will not be able to power the M-HAT.
+
+Also beware of some wall adapters that have a USB-C cable, but do not support USB-C PD. Some
+of these are advertised as Raspberry Pi power adapters, which only support 5V and cannot be used
+to power the M-HAT.
+
+See [Muon USB Power](/troubleshooting/guides/device-troubleshooting/muon-usb-power/) for more information.
+
+#### Expansion and peripheral power
+
+The onboard peripherals including Ethernet, the LoRa radio, QWIIC, and the expansion HAT connector are powered by the
+3V3_AUX power supply.
+
+If you use [setup.particle.io](https://setup.particle.io/) to set up your M-HAT, 3V3_AUX will be set up
+automatically. 
+
+If you want to do it manually, the see the section [Firmware settings](#firmware-settings), below, 
+for the sample code and the technical reasons why it is necessary.
+
+
+#### Expansion card power
+
+A jumper located on the bottom side of the M-HAT selects the direction of expansion card (HAT) 5V power (label 20, above).
+
+- Connecting `5V_IN` and center pin: Expansion card powers the M-HAT (typically from PoE) 
+- Connecting `5V_OUT` and center pin: The M-HAT powers expansion card (from USB-C, USB, or LiPo)
+
+{{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper" class="full-width"}}
+
+<p class="attribution">This picture is of the Muon; the appearance of the M-HAT may differ</p>
 
 
 ## Schematics
@@ -135,23 +229,23 @@ It provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow 
 <!-- shared-diagram-table start m-hat -->
 | Label | Description |
 | ---: | :--- |
-| 1 | USB-C |
-| 2 | USB-C PD LED |
-| 3 | DC IN |
-| 4 | Charge LED |
-| 5 | LiPo Battery |
-| 6 | I/O Expansion |
-| 7 | RTC Battery |
-| 8 | Grove connector |
-| 9 | QWIIC connector |
-| 10 | SMA connector |
-| 11 | SMA connector |
-| 12 | SMA connector |
-| 13 | Reset button |
-| 14 | Raspberry Pi HAT 40-pin connector |
-| 15 | Particle M.2 SoM |
-| 16 | Particle MODE button |
-| 17 | Particle RGB LED |
+| 1 | USB-C | <!-- usb -->
+| 2 | USB-C PD LED | <!-- pd-led -->
+| 3 | DC IN | <!-- dc-in -->
+| 4 | Charge LED | <!-- chg-led -->
+| 5 | LiPo Battery | <!-- bat-conn -->
+| 6 | I/O Expansion | <!-- ioex-conn -->
+| 7 | RTC Battery | <!-- rtc-conn -->
+| 8 | Grove connector | <!-- grove-conn -->
+| 9 | QWIIC connector | <!-- qwiic-conn -->
+| 10 | SMA connector | <!-- sma1 -->
+| 11 | SMA connector | <!-- sma2 -->
+| 12 | SMA connector | <!-- sma3 -->
+| 13 | Reset button | <!-- reset-button -->
+| 14 | Raspberry Pi HAT 40-pin connector | <!-- hat -->
+| 15 | Particle M.2 SoM | <!-- m2-som -->
+| 16 | Particle MODE button | <!-- mode-button -->
+| 17 | Particle RGB LED | <!-- rgb-led -->
 <!-- shared-diagram-table end m-hat -->
 
 ## Schematics
