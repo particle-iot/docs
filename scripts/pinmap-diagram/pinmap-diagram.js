@@ -2782,6 +2782,35 @@ const svg = require('./svg');
     
         }
 
+        // M-HAT
+        await diagram.generateTachyon(Object.assign({
+            platformName: 'm-hat',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 20,
+                    keys: ['m2Pin'],
+                },
+                {
+                    width: 50,
+                    keys: ['m2Name'],
+                },
+            ],
+            outputPath: 'assets/images/m-hat/m-hat-pins.svg',
+            featureColorsOverride: {
+                name: '#CD2355', // Raspberry Pi color 
+                m2Pin: '#5CECFF', // Particle blue
+                m2Name: '#5CECFF', // Particle blue
+            },
+        }, generateOptions), files);
+
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, B-SoM',
