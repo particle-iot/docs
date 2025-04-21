@@ -11,7 +11,7 @@ description: Datasheet for the Particle B-Series B504e SoM, Gen 3 cellular LTE C
 {{downloadButton url="/assets/pdfs/datasheets/b504-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-<div align=center><img src="/assets/images/b-series/b504-top.png" ></div>
+<div align=center><img src="/assets/images/b-series/b504e-top.png" ></div>
 
 ## Functional description
 
@@ -47,7 +47,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
  * On-module MFF2 Particle SIM 
  * Three on-module U.FL connectors for external antennas
  * Connects to your base board or eval board that has a Particle M.2 connector
- * FCC (United States) certified
+ * FCC (United States) and ISED (Canada) certified
  * RoHS compliant (lead-free)
 
 ### Model comparison
@@ -2046,7 +2046,12 @@ The OEM integrator has to be aware not to provide information to the end user re
 - [Grant of equipment authorization - Part 15B Communication Receiver](/assets/pdfs/b504-fcc-cxx.pdf)
 - [Grant of equipment authorization - Part 15B Computing Device](/assets/pdfs/b504-fcc-jbp.pdf)
 
+### ISED (Canada) -  B504e B-Series SoM 
+
+- ISED ID: 2017-B504
+
 {{!-- END shared-blurb --}}
+
 
 The certification for the B504 applies to the B504e as changing only the SIM is a permissive change that does not require full recertification.
 
@@ -2137,3 +2142,4 @@ The following countries are not officially supported at this time, but may be co
 | 002      | 2024-08-13 | RK | Added links to certification documents |
 | 003      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
 | 004      | 2024-09-24 | RK | Removed concurrent GNSS warning |
+| 005      | 2025-04-21 | RK | Added ISED certification |

@@ -7,7 +7,7 @@ description: Learn about migrating to the B504e
 
 # {{title}}
 
-{{migration-guide leftImg="/assets/images/b-series/b402-top.jpg" rightImg="/assets/images/b-series/b504-top.png"}}
+{{migration-guide leftImg="/assets/images/b-series/b402-top.jpg" rightImg="/assets/images/b-series/b504e-top.png"}}
 
 This guide discusses the minor changes required when moving from the B404X/B404/B402 (LTE Cat M1) to B504e (LTE Cat 1) 
 in the United States, Canada, and Mexico.

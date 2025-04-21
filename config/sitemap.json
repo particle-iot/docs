@@ -935,8 +935,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2025-04-16",
-            "hash": "da860630c5b0eab2504585989e6fc3f88b323bfcb3784da5b50e0c2f92bdaffd"
+            "date": "2025-04-21",
+            "hash": "e0592bd7f9e23e71a4335e6d5c99c59937dc5b4f9ad5fb481f2baee4e812180d"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -9083,8 +9083,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "0f0075f54bee27ccf9e78789197e6026b6a0632302c87ad5ec9473c3198fc0f1",
-            "date": "2025-04-01"
+            "hash": "28f50de1ac63c20a0acb45aa33174657efc83598ac179a0888e747e4369e05a8",
+            "date": "2025-04-21"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9707,8 +9707,8 @@
             "date": "2025-03-06"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
-            "hash": "db5251b51bb7b94585fbe345417a21ad0eb79513786360a7c25b4c0df05d81d9",
-            "date": "2025-04-01"
+            "hash": "7e2540bf721eee32ac6be96598bb76a4f162b6f8c52984d817ccfd28e729b7ad",
+            "date": "2025-04-21"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
             "hash": "da62ed30085cd5db0fcab898450cd3722d55548d0de0db7cd37f5aac2bb5b4d8",
