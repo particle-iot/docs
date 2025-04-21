@@ -56,6 +56,8 @@
             "name": "GPIO4",
             "desc": "GPIO4, GPCKL0",
             "isIO": true,
+            "m2Name": "CS",
+            "m2Pin": 48,
             "net": "WAKE_RPI_ON/OFF",
             "rpiGPIO": 4
         },

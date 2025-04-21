@@ -152,11 +152,92 @@ A jumper located on the bottom side of the M-HAT selects the direction of expans
 <p class="attribution">This picture is of the Muon; the appearance of the M-HAT may differ</p>
 
 
+## HAT connector
+
+The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and additional HATs, however the following connections are included:
+
+{{imageOverlay src="/assets/images/m-hat/m-hat-pins.svg" alt="Pin Diagram"}}
+
+| Raspberry Pi | Particle M.2 SoM | Description |
+| :---: | :---: | :--- |
+| GPIO4 | CS | Used for Pi on/off control |
+| TXD | RXD | Serial data for tethering |
+| RXD | TXD | Serial data for tethering |
+| CTS | RTS | Serial flow control for tethering |
+| RTS | CTS | Serial flow control for tethering |
+
+### GPIO4
+
+GPIO4 on the Pi is used for on/off control. While the Pi does not have a true sleep mode like Particle devices, it does use 
+less power in HALT mode and this pin can optionally be used for power control.
+
+The GPIO4 pin has a 10K hardware pull-up resistor to the Pi 3V3. 
+
+From the Particle SoM, settings `CS` pin, also known as `D8`, to `OUTPUT` and using `digitalWrite(D8, LOW)` will set GPIO4 low.
+
+### UART serial
+
+The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with hardware flow control. As is typically the case:
+
+- RXD &harr; TXD
+- CTS &harr; RTS
+
+## Internal peripherals
+
+| M.2 Pin | Name | Description | Schematic Net |
+| ---: | :--- | :--- | :--- |
+| 17 | D21 | USB PD chip reset | PD_RST |
+| 19 | D20 | USB PD chip alert | RD_ALERT |
+| 23 | A0 | | SEL |
+| 20 | SCL | I2C SCL | M2_SCL |
+| 22 | SDA | I2C SDA | M2_SDA |
+| 33 | A1 | Grove A1 | M2_A2/MISO |
+| 35 | A2 | Grove A2 | M2_A2/SCK |
+| 37 | A3 | | EN1_CTR |
+| 41 | A4 | | EN2_CTR |
+| 47 | A7 | | M2_A7/PMIC_INT |
+| 48 | CS | | WAKE_RPI_CTR |
+| 59 | D26 | | PD_ATTACH |
+| 62 | D22 | | 3V3_DETECTION |
+| 66 | D5 | | TEMP_ALERT |
+| 68 | D5 | | RTC_INT |
+| 72 | D7 | 3V3_AUX power control | A7/AUX_PWR_EN |
+
+#### EN1_CTR
+
+#### EN2_CTR
+
+This controls the EN pin of the MP28167 
+
+#### TEMP_ALERT
+
+This is the ALERT output from the TMP112A temperature sensor. 
+
+By default, this output is not enabled but can be enabled to interrupt or wake the Particle SoM based on temperature.
+
+#### RTC_INT
+
+This is the FOUT/IRQ output from the AM1805 RTC/Watchdog chip. By default, this output is not enabled.
+
+By default, this output is not enabled but can be enabled to interrupt or wake the Particle SoM based RTC time.
+
+#### A7/AUX_PWR_EN
+
+This output controls the 3V3_AUX power, which also powers:
+
+- Qwiic connector
+- Grove connector
+
+
 ## Schematics
 
 {{box op="start" cssClass="boxed warningBox"}}
 These are preliminary (v0.2) schematics and are subject to change.
 {{box op="end"}}
+
+#### Schematics - Page 1
+
+{{imageOverlay src="/assets/images/m-hat/m-hat-sch-1.png" alt="Schematic page 1"}}
 
 #### Schematics - Page 2
 
@@ -173,8 +254,6 @@ These are preliminary (v0.2) schematics and are subject to change.
 #### Schematics - Page 5
 
 {{imageOverlay src="/assets/images/m-hat/m-hat-sch-5.png" alt="Schematic page 5"}}
-
-There is no page 1; it is a cover sheet.
 
 ---
 ## Ordering information

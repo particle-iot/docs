@@ -62,6 +62,18 @@ GPIO3    </text>
     </rect>
     <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GPIO4    </text>
+    <line x1="74" y1="0" x2="78" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="78" y="-8" width="20" height="16" stroke="black" fill="#5CECFF" >
+    </rect>
+    <text x="88" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+48    </text>
+    <line x1="98" y1="0" x2="102" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="102" y="-8" width="50" height="16" stroke="black" fill="#5CECFF" >
+    </rect>
+    <text x="127" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+CS    </text>
   </g>
   <g transform="translate(144,304) rotate(90) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
