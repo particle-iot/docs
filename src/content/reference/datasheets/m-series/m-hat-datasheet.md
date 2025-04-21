@@ -184,24 +184,40 @@ The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with
 
 ## Internal peripherals
 
-| M.2 Pin | Name | Description | Schematic Net |
-| ---: | :--- | :--- | :--- |
-| 17 | D21 | USB PD chip reset | PD_RST |
-| 19 | D20 | USB PD chip alert | RD_ALERT |
-| 23 | A0 | | SEL |
-| 20 | SCL | I2C SCL | M2_SCL |
-| 22 | SDA | I2C SDA | M2_SDA |
-| 33 | A1 | Grove A1 | M2_A2/MISO |
-| 35 | A2 | Grove A2 | M2_A2/SCK |
-| 37 | A3 | | EN1_CTR |
-| 41 | A4 | | EN2_CTR |
-| 47 | A7 | | M2_A7/PMIC_INT |
-| 48 | CS | | WAKE_RPI_CTR |
-| 59 | D26 | | PD_ATTACH |
-| 62 | D22 | | 3V3_DETECTION |
-| 66 | D5 | | TEMP_ALERT |
-| 68 | D5 | | RTC_INT |
-| 72 | D7 | 3V3_AUX power control | A7/AUX_PWR_EN |
+
+| M.2 Pin | Name | Schematic Net | MCU direction | Connected To | Description |
+| ---: | :--- | :--- | :--- | :--- | :--- |
+| 17 | D21 | PD_RST | Out | STUSB4500 | USB PD controller reset |
+| 19 | D20 | RD_ALERT | In | STUSB4500 | USB PD controller alert interrupt |
+| 23 | A0 | SEL | Out | FSA2567 | HIGH to disconnect UART |
+| 20 | SCL | M2_SCL | I/O | Multiple | I2C SCL |
+| 22 | SDA | M2_SDA | I/O | Multiple | I2C SDA |
+| 33 | A1 | M2_A2/MISO | I/O, ADC | Grove | Grove A2 (inner) |
+| 35 | A2 | M2_A2/SCK | I/O, ADC | Grove | Grove A1 (outer) |
+| 37 | A3 | EN1_CTR | Out | LiPo 5V | HIGH turns off LiPo to 5V boost converter |
+| 41 | A4 | EN2_CTR | Out | DCIN 5V | HIGH turns off MP28167 5V_DCIN buck-boost converter |
+| 47 | A7 | M2_A7/PMIC_INT | In | PM-BAT | PMIC and fuel gauge interrupt from power module |
+| 48 | CS | WAKE_RPI_CTR | Out | HAT | Pi power control via GPIO4 |
+| 59 | D26 | PD_ATTACH | In | STUSB4500 | USB PD controller attachment interrupt |
+| 62 | D22 | 3V3_DETECTION | In | HAT Conn | HIGH when Pi is supplying 3V3 |
+| 66 | D5 | TEMP_ALERT | In | TMP112A | Temperature alert output |
+| 68 | D5 | RTC_INT | In | AB1805 | RTC/Watchog FOUT/IRQ output |
+| 72 | D7 | A7/AUX_PWR_EN | Out | PM-BAT | 3V3_AUX power control |
+
+
+#### PD_RST
+
+This is the PD_RST line to reset the STUSB4500 USB PD controller. You normally will not need to use this.
+
+There is a 10K hardware pull-down resistor on this pin. If you set the pin to OUTPUT and HIGH, it will reset the chip.
+
+#### PD_ALERT
+
+This is the PD_ALERT output from the STUSB4500 USB PD controller. 
+
+#### PD_ATTACH
+
+This is the PD_ATTACH output from the STUSB4500 USB PD controller. 
 
 #### EN1_CTR
 

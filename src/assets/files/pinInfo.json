@@ -589,6 +589,154 @@
     },
     {
       "id": 0,
+      "name": "m-hat-ioex",
+      "pins": [
+        {
+          "num": 1,
+          "name": "3V3",
+          "desc": "3.3V power",
+          "isPower": true,
+          "net": "3V3"
+        },
+        {
+          "num": 2,
+          "name": "GND",
+          "desc": "Ground",
+          "isPower": true,
+          "net": "GND"
+        },
+        {
+          "num": 3,
+          "name": "A5",
+          "altName": "D14",
+          "desc": "A5 Analog in, GPIO",
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwareADC": "ADC7",
+          "hardwarePin": "P0.31",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_A5",
+          "somPin": "RESERVED",
+          "tone": false
+        },
+        {
+          "num": 4,
+          "name": "D23",
+          "desc": "GPIO",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwarePin": "P1.03",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_D23",
+          "somPin": "GPIO1",
+          "tone": false
+        },
+        {
+          "num": 5,
+          "name": "A6",
+          "desc": "A6 Analog in, PWM, GPIO",
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwareADC": "ADC3",
+          "hardwarePin": "P0.05",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_A6",
+          "somPin": "RESERVED",
+          "tone": "A0, A1, A6, and A7 must have the same frequency."
+        },
+        {
+          "num": 6,
+          "name": "D24",
+          "desc": "D24 on M-SoM, NC on B-SoM",
+          "isIO": true,
+          "net": "M2_D24"
+        },
+        {
+          "num": 7,
+          "name": "SOM14",
+          "desc": "SOM14 (M.2 Pin 51), NC",
+          "isIO": true,
+          "net": "SOM14"
+        },
+        {
+          "num": 8,
+          "name": "D25",
+          "desc": "D25 on M-SoM, NC on B-SoM",
+          "isIO": true,
+          "net": "M2_D25"
+        },
+        {
+          "num": 9,
+          "name": "SOM17",
+          "desc": "SOM 17 (M.2 Pin 57), NC",
+          "isIO": true,
+          "net": "SOM17"
+        },
+        {
+          "num": 10,
+          "name": "D6",
+          "desc": "PWM, GPIO",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwarePin": "P1.04",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_D6",
+          "somPin": "PWM2",
+          "tone": "D4, D5, and D6 must have the same frequency."
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      }
+    },
+    {
+      "id": 0,
       "name": "M.2 SoM breakout board Feather, B-SoM",
       "pins": [
         {

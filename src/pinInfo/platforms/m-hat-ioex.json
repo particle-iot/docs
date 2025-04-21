@@ -32,9 +32,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "net": "M2_A5",
             "somPin": "RESERVED",
-            "tone": false,            
-            "net": "M2_A5"
+            "tone": false
         },
         {
             "num": 4,
@@ -50,9 +50,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "net": "M2_D23",
             "somPin": "GPIO1",
-            "tone": false,
-            "net": "M2_D23"
+            "tone": false
         },
         {
             "num": 5,
@@ -70,9 +70,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "net": "M2_A6",
             "somPin": "RESERVED",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "net": "M2_A6"
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 6,
@@ -117,9 +117,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "net": "M2_D6",
             "somPin": "PWM2",
-            "tone": "D4, D5, and D6 must have the same frequency.",
-            "net": "M2_D6"
+            "tone": "D4, D5, and D6 must have the same frequency."
         }
     ],
     "diagram": {
