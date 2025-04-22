@@ -5288,6 +5288,22 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid: '5c7622c6-ae73-4a5b-88b6-e761ee69fa3f',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    rightColumns: [
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },        
+
 
         // Tethering
         {

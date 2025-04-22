@@ -1969,6 +1969,66 @@ const svg = require('./svg');
         await diagram.generate(options, files);
     }
 
+    // Generate image of 10-pin debug connector (also used for M-HAT IOEX)
+    diagram.generateDebug10 = async function(generateOptions, files) {
+
+        let defaultOptions = {
+            // platformName: generateOptions.platformName,
+            // outputPath: generateOptions.outputPath,
+            width: 1000,
+            height: 200,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 498,
+                    y: 50,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 5,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side 
+                    num: 2,
+                    x: 502,
+                    y: 50,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 5,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+            ],
+            preDraw: function(options) {
+                options.draw.circle({
+                    cx: 485,
+                    cy: 26,
+                    r: 5,
+                    fill: '#E6AB00', // gold
+                    stroke: '#E6AB00', // gold
+                    'stroke-width': 1,
+                });
+
+                options.draw.path({
+                    d: 'M467 40 L467 35 L534 35 L534 147 L467 147 L467 100 M467 82 L467 40',
+                    fill: 'none',
+                    stroke: '#808080',
+                    'stroke-width': 2,
+                });
+
+            },
+        }
+
+        let options = Object.assign({}, diagram.optionsCommon, defaultOptions, generateOptions);
+
+
+        await diagram.generate(options, files);
+    }
 
 
     diagram.generatePi = async function(generateOptions, files) {
@@ -2012,6 +2072,7 @@ const svg = require('./svg');
 
         await diagram.generate(options, files);
     }
+
 
     // Similar to generate pi, but rotated 90 CCW
     diagram.generateTachyon = async function(generateOptions, files) {
@@ -2811,6 +2872,31 @@ const svg = require('./svg');
             },
         }, generateOptions), files);
 
+        await diagram.generateDebug10(Object.assign({
+            platformName: 'm-hat-ioex',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 10,
+                    keys: [], // Filler to leave space for connector boundary
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 50,
+                    keys: ['net'],
+                },
+            ],
+            outputPath: 'assets/images/m-hat/m-hat-ioex.svg',
+            featureColorsOverride: {
+                name: '#5CECFF', // Particle blue
+            },
+        }, generateOptions), files);
 
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, B-SoM',

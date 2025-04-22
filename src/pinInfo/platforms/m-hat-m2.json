@@ -1,0 +1,320 @@
+{
+    "id": 0,
+    "name": "m-hat-m2",
+    "pins": [
+        {
+            "num": 17,
+            "name": "D21",
+            "desc": "USB PD controller reset, pin is NFC1 on B-SoM",
+            "connectedTo": "STUSB4500",
+            "direction": "O",
+            "isIO": true,
+            "net": "PD_RST"
+        },
+        {
+            "num": 19,
+            "name": "D20",
+            "desc": "USB PD controller alert, pin is NFC2 on B-SoM",
+            "connectedTo": "STUSB4500",
+            "direction": "I",
+            "isIO": true,
+            "net": "PD_ALERT"
+        },
+        {
+            "num": 20,
+            "name": "SCL",
+            "desc": "I2C SCL",
+            "connectedTo": "Multiple",
+            "direction": "IO",
+            "net": "M2_SCL"
+        },
+        {
+            "num": 22,
+            "name": "SDA",
+            "desc": "I2C SDA",
+            "connectedTo": "Multiple",
+            "direction": "IO",
+            "net": "M2_SDA"
+        },
+        {
+            "num": 23,
+            "name": "A0",
+            "desc": "HIGH to disconnect UART",
+            "connectedTo": "FSA2567",
+            "digitalWrite": true,
+            "direction": "O",
+            "isIO": true,
+            "net": "SEL"
+        },
+        {
+            "num": 32,
+            "name": "MODE",
+            "desc": "MODE button for Particle SoM",
+            "connectedTo": "MODE button",
+            "direction": "I",
+            "net": "M2/MODE"
+        },
+        {
+            "num": 33,
+            "name": "A1",
+            "desc": "Grove A1, Input, Output, ADC, PWM",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "Grove A1",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "direction": "IO",
+            "hardwareADC": "ADC2",
+            "hardwarePin": "P0.04",
+            "hardwareTimer": "PWM2",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "net": "M2_A1/MISO",
+            "somPin": "ADC1",
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
+        },
+        {
+            "num": 34,
+            "name": "RESET",
+            "desc": "RESET button for Particle SoM",
+            "connectedTo": "RESET button",
+            "direction": "I",
+            "net": "M2/RESET"
+        },
+        {
+            "num": 35,
+            "name": "A2",
+            "desc": "Grove A2, Input, Output, ADC",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "Grove A2",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "direction": "IO",
+            "hardwareADC": "ADC4",
+            "hardwarePin": "P0.28",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "net": "M2_A2/SCK",
+            "somPin": "ADC2",
+            "tone": false
+        },
+        {
+            "num": 36,
+            "name": "TXD",
+            "desc": "UART serial TXD, connects to Pi UART0 RXD",
+            "connectedTo": "HAT",
+            "direction": "O",
+            "isIO": true,
+            "net": "M2_TXD",
+            "serial": "Serial1 TX|TX. Use Serial1 object.",
+            "somPin": "TX"
+        },
+        {
+            "num": 37,
+            "name": "A3",
+            "desc": "LiPo to 5V boost converter (HIGH to turn off, default on)",
+            "connectedTo": "DML3006",
+            "digitalWrite": true,
+            "direction": "O",
+            "isIO": true,
+            "net": "EN1_CTR"
+        },
+        {
+            "num": 38,
+            "name": "RXD",
+            "desc": "UART serial RXD, connects to Pi UART0 TXD",
+            "connectedTo": "HAT",
+            "direction": "I",
+            "isIO": true,
+            "net": "M2_RXD",
+            "serial": "Serial1 RX|RX. Use Serial1 object.",
+            "somPin": "RX"
+        },
+        {
+            "num": 40,
+            "name": "CTS",
+            "desc": "UART serial CTS, connects to Pi UART0 RTS",
+            "connectedTo": "HAT",
+            "direction": "I",
+            "isIO": true,
+            "net": "M2_D3/CTS",
+            "serial": "Serial1 CTS|CTS. Use Serial1 object.",
+            "somPin": "RESERVED"
+        },
+        {
+            "num": 41,
+            "name": "A4",
+            "desc": "5V_DCIN boost-buck converter (HIGH to turn off, default on)",
+            "connectedTo": "MP28167",
+            "digitalWrite": true,
+            "direction": "O",
+            "isIO": true,
+            "net": "EN2_CTR"
+        },
+        {
+            "num": 42,
+            "name": "RTS",
+            "desc": "UART serial RTS, connects to Pi UART0 CTS",
+            "connectedTo": "HAT",
+            "direction": "O",
+            "isIO": true,
+            "net": "M2_D2/RTS",
+            "serial": "Serial1 RTS|RTS. Use Serial1 object.",
+            "somPin": "RESERVED"
+        },
+        {
+            "num": 47,
+            "name": "A7",
+            "desc": "PMIC and fuel gauge interrupt output",
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "PM_BAT",
+            "digitalRead": true,
+            "direction": "I",
+            "isIO": true,
+            "net": "M2_A7/PMIC_INT"
+        },
+        {
+            "num": 48,
+            "name": "CS",
+            "desc": "Pi power control by GPIO4",
+            "connectedTo": "HAT",
+            "digitalWrite": true,
+            "isIO": true,
+            "net": "WAKE_RPI_CTR"
+        },
+        {
+            "num": 51,
+            "name": "SOM14",
+            "desc": "NC on B-SoM",
+            "connectedTo": "IOEX connector",
+            "direction": "IO",
+            "net": "SOM14"
+        },
+        {
+            "num": 57,
+            "name": "SOM17",
+            "desc": "NC on B-SoM",
+            "connectedTo": "IOEX connector",
+            "direction": "IO",
+            "net": "SOM17"
+        },
+        {
+            "num": 58,
+            "name": "D24",
+            "desc": "On IOEX connector, NC on B-SoM",
+            "connectedTo": "IOEX connector",
+            "direction": "IO",
+            "net": "M2_D24"
+        },
+        {
+            "num": 59,
+            "name": "D26",
+            "desc": "USB PD controller attach interrupt, NC on B-SoM",
+            "connectedTo": "STUSB4500",
+            "direction": "I",
+            "net": "PD_ATTACH"
+        },
+        {
+            "num": 60,
+            "name": "D25",
+            "desc": "On IOEX connector, NC on B-SoM",
+            "connectedTo": "IOEX connector",
+            "direction": "IO",
+            "net": "M2_D25"
+        },
+        {
+            "num": 62,
+            "name": "D22",
+            "desc": "HIGH when Pi is supplying 3V3 to the HAT connector",
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "HAT connector",
+            "digitalRead": true,
+            "direction": "I",
+            "isIO": true,
+            "net": "3V3_DETECTION"
+        },
+        {
+            "num": 64,
+            "name": "D23",
+            "desc": "GPIO on IOEX connector",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "IOEX connector",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "direction": "IO",
+            "hardwarePin": "P1.03",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "net": "M2_D23",
+            "somPin": "GPIO1",
+            "tone": false
+        },
+        {
+            "num": 66,
+            "name": "D4",
+            "desc": "Temperature sensor ALERT output",
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "TMP112A",
+            "digitalRead": true,
+            "direction": "I",
+            "isIO": true,
+            "net": "TEMP_ALERT"
+        },
+        {
+            "num": 68,
+            "name": "D5",
+            "desc": "RTC/Watchdog FOUT/IRQ output",
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "AB1805",
+            "digitalRead": true,
+            "direction": "I",
+            "isIO": true,
+            "net": "RTC_INT"
+        },
+        {
+            "num": 70,
+            "name": "D6",
+            "desc": "PWM, GPIO on IOEX connector",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "connectedTo": "IOEX connector",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "direction": "IO",
+            "hardwarePin": "P1.04",
+            "hardwareTimer": "PWM1",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "net": "M2_D6",
+            "somPin": "PWM2",
+            "tone": "D4, D5, and D6 must have the same frequency."
+        },
+        {
+            "num": 72,
+            "name": "D7",
+            "desc": "3V3_AUX power control (HIGH to turn on)",
+            "connectedTo": "PM-BAT",
+            "digitalWrite": true,
+            "direction": "O",
+            "isIO": true,
+            "net": "D7/AUX_POWER_EN"
+        }
+    ],
+    "diagram": {
+        "columns": []
+    }
+}

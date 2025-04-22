@@ -80,7 +80,26 @@ See also [Power](#power), below.
 
 #### <!-- shared-diagram-label m-hat bat-conn title-label-paren -->LiPo Battery (5)<!-- end -->
 
+The M-HAT has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One, Muon, and Tachyon for connection to a 3.7V LiPo battery pack 
+with an integrated temperature sensor (10K NTC thermistor).
+
+Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
+
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+
+<p class="attribution">Facing the plug on the battery side</p>
+
+If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
+
+
 #### <!-- shared-diagram-label m-hat ioex-conn title-label-paren -->I/O Expansion (6)<!-- end -->
+
+The IOEX connector provides a way to access some of the unused GPIO on the Particle SoM.
+
+It is a 2x5 1.27mm IDC socket that connects using the same ribbon cable that is used for SWD/JTAG debugging on many Particle devices.
+
+{{imageOverlay src="/assets/images/m-hat/m-hat-ioex.svg" alt="IOEX connector"}}
+
 
 #### <!-- shared-diagram-label m-hat rtc-conn title-label-paren -->RTC Battery (7)<!-- end -->
 
@@ -166,7 +185,7 @@ The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and ad
 | CTS | RTS | Serial flow control for tethering |
 | RTS | CTS | Serial flow control for tethering |
 
-### GPIO4
+### GPIO4 - HAT connector
 
 GPIO4 on the Pi is used for on/off control. While the Pi does not have a true sleep mode like Particle devices, it does use 
 less power in HALT mode and this pin can optionally be used for power control.
@@ -175,7 +194,7 @@ The GPIO4 pin has a 10K hardware pull-up resistor to the Pi 3V3.
 
 From the Particle SoM, settings `CS` pin, also known as `D8`, to `OUTPUT` and using `digitalWrite(D8, LOW)` will set GPIO4 low.
 
-### UART serial
+### UART serial - HAT connector
 
 The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with hardware flow control. As is typically the case:
 
@@ -183,6 +202,56 @@ The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with
 - CTS &harr; RTS
 
 ## Internal peripherals
+
+### Components - Internal peripherals
+
+#### STUSB4500
+
+#### PSA2567
+
+#### TMP112A
+
+#### AB1805
+
+#### PM-BAT
+
+### GPIO - Internal peripherals
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5c7622c6-ae73-4a5b-88b6-e761ee69fa3f --}}
+
+| Module Pin | Pin Name | PWM | MCU |
+| :---: | :--- | :---: | :--- |
+| 17 | D21 | &nbsp; | &nbsp; |
+| 19 | D20 | &nbsp; | &nbsp; |
+| 20 | SCL | &nbsp; | &nbsp; |
+| 22 | SDA | &nbsp; | &nbsp; |
+| 23 | A0 | &nbsp; | &nbsp; |
+| 32 | MODE | &nbsp; | &nbsp; |
+| 33 | A1 | &check; | P0.04 |
+| 34 | RESET | &nbsp; | &nbsp; |
+| 35 | A2 | &nbsp; | P0.28 |
+| 36 | TXD | &nbsp; | &nbsp; |
+| 37 | A3 | &nbsp; | &nbsp; |
+| 38 | RXD | &nbsp; | &nbsp; |
+| 40 | CTS | &nbsp; | &nbsp; |
+| 41 | A4 | &nbsp; | &nbsp; |
+| 42 | RTS | &nbsp; | &nbsp; |
+| 47 | A7 | &nbsp; | &nbsp; |
+| 48 | CS | &nbsp; | &nbsp; |
+| 51 | SOM14 | &nbsp; | &nbsp; |
+| 57 | SOM17 | &nbsp; | &nbsp; |
+| 58 | D24 | &nbsp; | &nbsp; |
+| 59 | D26 | &nbsp; | &nbsp; |
+| 60 | D25 | &nbsp; | &nbsp; |
+| 62 | D22 | &nbsp; | &nbsp; |
+| 64 | D23 | &nbsp; | P1.03 |
+| 66 | D4 | &nbsp; | &nbsp; |
+| 68 | D5 | &nbsp; | &nbsp; |
+| 70 | D6 | &check; | P1.04 |
+| 72 | D7 | &nbsp; | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
 
 
 | M.2 Pin | Name | Schematic Net | MCU direction | Connected To | Description |
@@ -213,7 +282,9 @@ There is a 10K hardware pull-down resistor on this pin. If you set the pin to OU
 
 #### PD_ALERT
 
-This is the PD_ALERT output from the STUSB4500 USB PD controller. 
+This is the PD_ALERT output from the STUSB4500 USB PD controller. It is not enabled by default.
+
+This is connected to M.2 Pin 19. 
 
 #### PD_ATTACH
 
@@ -244,6 +315,21 @@ This output controls the 3V3_AUX power, which also powers:
 - Qwiic connector
 - Grove connector
 
+## Other
+
+### NFC
+
+The M-HAT does not support NFC tag. NFC tag is not supported on the M-SoM, and there is no connector for use with the B-SoM.
+
+If using the B-SoM, it is recommended that you disable NFC in the UICR bytes of the nRF52840. This will allow the MCU to 
+use the NFC pins (NFC1 and NFC2) as GPIO, which will allow you to access the PD_RST and PD_ATTACH pins.
+
+### SWD/JTAG
+
+The 10-pin SWD/JTAG debugging connector is not populated on the M-HAT. 
+
+Additionally, the Particle M.2 SoM SWD pogo pins are not available on the M-HAT, so SWD would only work
+on M-SoM, not B-SoM, even if populated.
 
 ## Schematics
 
