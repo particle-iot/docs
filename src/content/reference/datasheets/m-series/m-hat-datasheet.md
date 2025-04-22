@@ -194,13 +194,13 @@ The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and ad
 
 {{!-- BEGIN do not edit content below, it is automatically generated 04c52083-eb85-46a7-b2a7-c366be119571 --}}
 
-| Module Pin | Pin Name | Schematic net | MCU direction | Description | Pi HAT Pin |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 36 | TXD | M2_TXD | O | UART serial TXD, connects to Pi UART0 RXD | GPIO15/UART0_RX |
-| 38 | RXD | M2_RXD | I | UART serial RXD, connects to Pi UART0 TXD | GPIO14/UART0_TX |
-| 40 | CTS | M2_D3/CTS | I | UART serial CTS, connects to Pi UART0 RTS | GPIO17/UART0_RTS |
-| 42 | RTS | M2_D2/RTS | O | UART serial RTS, connects to Pi UART0 CTS | GPIO16/UART0_CTS |
-| 48 | CS | WAKE_RPI_CTR | O | Pi power control by GPIO4 | &nbsp; |
+| Pin Name | Schematic net | MCU direction | Description | Pi Pin | Pi Function |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| TXD | M2_TXD | O | UART serial TXD, connects to Pi UART0 RXD | GPIO15 | UART0_RX |
+| RXD | M2_RXD | I | UART serial RXD, connects to Pi UART0 TXD | GPIO14 | UART0_TX |
+| CTS | M2_D3/CTS | I | UART serial CTS, connects to Pi UART0 RTS | GPIO17 | UART0_RTS |
+| RTS | M2_D2/RTS | O | UART serial RTS, connects to Pi UART0 CTS | GPIO16 | UART0_CTS |
+| CS | WAKE_RPI_CTR | O | Pi power control by GPIO4 | GPIO4 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
