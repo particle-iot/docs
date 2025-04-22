@@ -100,6 +100,20 @@ It is a 2x5 1.27mm IDC socket that connects using the same ribbon cable that is 
 
 {{imageOverlay src="/assets/images/m-hat/m-hat-ioex.svg" alt="IOEX connector"}}
 
+{{!-- BEGIN do not edit content below, it is automatically generated bf89b87e-f66f-4de9-9a5e-fc88a792cf7b --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 51 | SOM14 | SOM14 | I/O | NC on B-SoM |
+| 57 | SOM17 | SOM17 | I/O | NC on B-SoM |
+| 58 | D24 | M2_D24 | I/O | On IOEX connector, NC on B-SoM |
+| 60 | D25 | M2_D25 | I/O | On IOEX connector, NC on B-SoM |
+| 64 | D23 | M2_D23 | I/O | GPIO on IOEX connector |
+| 70 | D6 | M2_D6 | I/O | PWM, GPIO on IOEX connector |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 #### <!-- shared-diagram-label m-hat rtc-conn title-label-paren -->RTC Battery (7)<!-- end -->
 
@@ -177,13 +191,20 @@ The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and ad
 
 {{imageOverlay src="/assets/images/m-hat/m-hat-pins.svg" alt="Pin Diagram"}}
 
-| Raspberry Pi | Particle M.2 SoM | Description |
-| :---: | :---: | :--- |
-| GPIO4 | CS | Used for Pi on/off control |
-| TXD | RXD | Serial data for tethering |
-| RXD | TXD | Serial data for tethering |
-| CTS | RTS | Serial flow control for tethering |
-| RTS | CTS | Serial flow control for tethering |
+
+{{!-- BEGIN do not edit content below, it is automatically generated 04c52083-eb85-46a7-b2a7-c366be119571 --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description | Pi HAT Pin |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| 36 | TXD | M2_TXD | O | UART serial TXD, connects to Pi UART0 RXD | GPIO15/UART0_RX |
+| 38 | RXD | M2_RXD | I | UART serial RXD, connects to Pi UART0 TXD | GPIO14/UART0_TX |
+| 40 | CTS | M2_D3/CTS | I | UART serial CTS, connects to Pi UART0 RTS | GPIO17/UART0_RTS |
+| 42 | RTS | M2_D2/RTS | O | UART serial RTS, connects to Pi UART0 CTS | GPIO16/UART0_CTS |
+| 48 | CS | WAKE_RPI_CTR | O | Pi power control by GPIO4 | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 ### GPIO4 - HAT connector
 
@@ -219,59 +240,39 @@ The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5c7622c6-ae73-4a5b-88b6-e761ee69fa3f --}}
 
-| Module Pin | Pin Name | PWM | MCU |
-| :---: | :--- | :---: | :--- |
-| 17 | D21 | &nbsp; | &nbsp; |
-| 19 | D20 | &nbsp; | &nbsp; |
-| 20 | SCL | &nbsp; | &nbsp; |
-| 22 | SDA | &nbsp; | &nbsp; |
-| 23 | A0 | &nbsp; | &nbsp; |
-| 32 | MODE | &nbsp; | &nbsp; |
-| 33 | A1 | &check; | P0.04 |
-| 34 | RESET | &nbsp; | &nbsp; |
-| 35 | A2 | &nbsp; | P0.28 |
-| 36 | TXD | &nbsp; | &nbsp; |
-| 37 | A3 | &nbsp; | &nbsp; |
-| 38 | RXD | &nbsp; | &nbsp; |
-| 40 | CTS | &nbsp; | &nbsp; |
-| 41 | A4 | &nbsp; | &nbsp; |
-| 42 | RTS | &nbsp; | &nbsp; |
-| 47 | A7 | &nbsp; | &nbsp; |
-| 48 | CS | &nbsp; | &nbsp; |
-| 51 | SOM14 | &nbsp; | &nbsp; |
-| 57 | SOM17 | &nbsp; | &nbsp; |
-| 58 | D24 | &nbsp; | &nbsp; |
-| 59 | D26 | &nbsp; | &nbsp; |
-| 60 | D25 | &nbsp; | &nbsp; |
-| 62 | D22 | &nbsp; | &nbsp; |
-| 64 | D23 | &nbsp; | P1.03 |
-| 66 | D4 | &nbsp; | &nbsp; |
-| 68 | D5 | &nbsp; | &nbsp; |
-| 70 | D6 | &check; | P1.04 |
-| 72 | D7 | &nbsp; | &nbsp; |
+| Module Pin | Pin Name | Schematic net | MCU direction | Connected to | Description |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| 17 | D21 | PD_RST | O | STUSB4500 | USB PD controller reset, pin is NFC1 on B-SoM |
+| 19 | D20 | PD_ALERT | I | STUSB4500 | USB PD controller alert, pin is NFC2 on B-SoM |
+| 20 | SCL | M2_SCL | I/O | Multiple | I2C SCL |
+| 22 | SDA | M2_SDA | I/O | Multiple | I2C SDA |
+| 23 | A0 | SEL | O | FSA2567 | HIGH to disconnect UART |
+| 32 | MODE | M2/MODE | I | MODE button | MODE button for Particle SoM |
+| 33 | A1 | M2_A1/MISO | I/O | Grove A1 | Grove A1, Input, Output, ADC, PWM |
+| 34 | RESET | M2/RESET | I | RESET button | RESET button for Particle SoM |
+| 35 | A2 | M2_A2/SCK | I/O | Grove A2 | Grove A2, Input, Output, ADC |
+| 36 | TXD | M2_TXD | O | HAT | UART serial TXD, connects to Pi UART0 RXD |
+| 37 | A3 | EN1_CTR | O | DML3006 | LiPo to 5V boost converter (HIGH to turn off, default on) |
+| 38 | RXD | M2_RXD | I | HAT | UART serial RXD, connects to Pi UART0 TXD |
+| 40 | CTS | M2_D3/CTS | I | HAT | UART serial CTS, connects to Pi UART0 RTS |
+| 41 | A4 | EN2_CTR | O | MP28167 | 5V_DCIN boost-buck converter (HIGH to turn off, default on) |
+| 42 | RTS | M2_D2/RTS | O | HAT | UART serial RTS, connects to Pi UART0 CTS |
+| 47 | A7 | M2_A7/PMIC_INT | I | PM_BAT | PMIC and fuel gauge interrupt output |
+| 48 | CS | WAKE_RPI_CTR | O | HAT | Pi power control by GPIO4 |
+| 51 | SOM14 | SOM14 | I/O | IOEX connector | NC on B-SoM |
+| 57 | SOM17 | SOM17 | I/O | IOEX connector | NC on B-SoM |
+| 58 | D24 | M2_D24 | I/O | IOEX connector | On IOEX connector, NC on B-SoM |
+| 59 | D26 | PD_ATTACH | I | STUSB4500 | USB PD controller attach interrupt, NC on B-SoM |
+| 60 | D25 | M2_D25 | I/O | IOEX connector | On IOEX connector, NC on B-SoM |
+| 62 | D22 | 3V3_DETECTION | I | HAT connector | HIGH when Pi is supplying 3V3 to the HAT connector |
+| 64 | D23 | M2_D23 | I/O | IOEX connector | GPIO on IOEX connector |
+| 66 | D4 | TEMP_ALERT | I | TMP112A | Temperature sensor ALERT output |
+| 68 | D5 | RTC_INT | I | AB1805 | RTC/Watchdog FOUT/IRQ output |
+| 70 | D6 | M2_D6 | I/O | IOEX connector | PWM, GPIO on IOEX connector |
+| 72 | D7 | D7/AUX_POWER_EN | O | PM-BAT | 3V3_AUX power control (HIGH to turn on) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
-
-
-| M.2 Pin | Name | Schematic Net | MCU direction | Connected To | Description |
-| ---: | :--- | :--- | :--- | :--- | :--- |
-| 17 | D21 | PD_RST | Out | STUSB4500 | USB PD controller reset |
-| 19 | D20 | RD_ALERT | In | STUSB4500 | USB PD controller alert interrupt |
-| 23 | A0 | SEL | Out | FSA2567 | HIGH to disconnect UART |
-| 20 | SCL | M2_SCL | I/O | Multiple | I2C SCL |
-| 22 | SDA | M2_SDA | I/O | Multiple | I2C SDA |
-| 33 | A1 | M2_A2/MISO | I/O, ADC | Grove | Grove A2 (inner) |
-| 35 | A2 | M2_A2/SCK | I/O, ADC | Grove | Grove A1 (outer) |
-| 37 | A3 | EN1_CTR | Out | LiPo 5V | HIGH turns off LiPo to 5V boost converter |
-| 41 | A4 | EN2_CTR | Out | DCIN 5V | HIGH turns off MP28167 5V_DCIN buck-boost converter |
-| 47 | A7 | M2_A7/PMIC_INT | In | PM-BAT | PMIC and fuel gauge interrupt from power module |
-| 48 | CS | WAKE_RPI_CTR | Out | HAT | Pi power control via GPIO4 |
-| 59 | D26 | PD_ATTACH | In | STUSB4500 | USB PD controller attachment interrupt |
-| 62 | D22 | 3V3_DETECTION | In | HAT Conn | HIGH when Pi is supplying 3V3 |
-| 66 | D5 | TEMP_ALERT | In | TMP112A | Temperature alert output |
-| 68 | D5 | RTC_INT | In | AB1805 | RTC/Watchog FOUT/IRQ output |
-| 72 | D7 | A7/AUX_PWR_EN | Out | PM-BAT | 3V3_AUX power control |
 
 
 #### PD_RST

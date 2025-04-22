@@ -5297,13 +5297,99 @@ const schemaDocs = require('./schema-docs');
                     noPinNumbers: false,
                     sortByNum: true,
                     includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    // pinFilterFn return true to hide pin
                     rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'connectedTo',
+                            title: 'Connected to'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
                     ],
                     functionCols: [],
                 }); 
             } 
         },        
-
+        {
+            guid: 'bf89b87e-f66f-4de9-9a5e-fc88a792cf7b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'IOEX connector';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },    
+        {
+            guid: '04c52083-eb85-46a7-b2a7-c366be119571',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'HAT';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                        {
+                            key: 'rpi',
+                            title: 'Pi HAT Pin',
+                        }
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },    
 
         // Tethering
         {

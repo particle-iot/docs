@@ -762,7 +762,7 @@
           "name": "SCL",
           "desc": "I2C SCL",
           "connectedTo": "Multiple",
-          "direction": "IO",
+          "direction": "I/O",
           "net": "M2_SCL"
         },
         {
@@ -770,7 +770,7 @@
           "name": "SDA",
           "desc": "I2C SDA",
           "connectedTo": "Multiple",
-          "direction": "IO",
+          "direction": "I/O",
           "net": "M2_SDA"
         },
         {
@@ -802,7 +802,7 @@
           "connectedTo": "Grove A1",
           "digitalRead": true,
           "digitalWrite": true,
-          "direction": "IO",
+          "direction": "I/O",
           "hardwareADC": "ADC2",
           "hardwarePin": "P0.04",
           "hardwareTimer": "PWM2",
@@ -832,7 +832,7 @@
           "connectedTo": "Grove A2",
           "digitalRead": true,
           "digitalWrite": true,
-          "direction": "IO",
+          "direction": "I/O",
           "hardwareADC": "ADC4",
           "hardwarePin": "P0.28",
           "internalPull": "13K",
@@ -850,6 +850,7 @@
           "direction": "O",
           "isIO": true,
           "net": "M2_TXD",
+          "rpi": "GPIO15/UART0_RX",
           "serial": "Serial1 TX|TX. Use Serial1 object.",
           "somPin": "TX"
         },
@@ -871,6 +872,7 @@
           "direction": "I",
           "isIO": true,
           "net": "M2_RXD",
+          "rpi": "GPIO14/UART0_TX",
           "serial": "Serial1 RX|RX. Use Serial1 object.",
           "somPin": "RX"
         },
@@ -882,6 +884,7 @@
           "direction": "I",
           "isIO": true,
           "net": "M2_D3/CTS",
+          "rpi": "GPIO17/UART0_RTS",
           "serial": "Serial1 CTS|CTS. Use Serial1 object.",
           "somPin": "RESERVED"
         },
@@ -903,6 +906,7 @@
           "direction": "O",
           "isIO": true,
           "net": "M2_D2/RTS",
+          "rpi": "GPIO16/UART0_CTS",
           "serial": "Serial1 RTS|RTS. Use Serial1 object.",
           "somPin": "RESERVED"
         },
@@ -923,15 +927,17 @@
           "desc": "Pi power control by GPIO4",
           "connectedTo": "HAT",
           "digitalWrite": true,
+          "direction": "O",
           "isIO": true,
-          "net": "WAKE_RPI_CTR"
+          "net": "WAKE_RPI_CTR",
+          "pi": "GPIO4"
         },
         {
           "num": 51,
           "name": "SOM14",
           "desc": "NC on B-SoM",
           "connectedTo": "IOEX connector",
-          "direction": "IO",
+          "direction": "I/O",
           "net": "SOM14"
         },
         {
@@ -939,7 +945,7 @@
           "name": "SOM17",
           "desc": "NC on B-SoM",
           "connectedTo": "IOEX connector",
-          "direction": "IO",
+          "direction": "I/O",
           "net": "SOM17"
         },
         {
@@ -947,7 +953,7 @@
           "name": "D24",
           "desc": "On IOEX connector, NC on B-SoM",
           "connectedTo": "IOEX connector",
-          "direction": "IO",
+          "direction": "I/O",
           "net": "M2_D24"
         },
         {
@@ -963,7 +969,7 @@
           "name": "D25",
           "desc": "On IOEX connector, NC on B-SoM",
           "connectedTo": "IOEX connector",
-          "direction": "IO",
+          "direction": "I/O",
           "net": "M2_D25"
         },
         {
@@ -988,7 +994,7 @@
           "connectedTo": "IOEX connector",
           "digitalRead": true,
           "digitalWrite": true,
-          "direction": "IO",
+          "direction": "I/O",
           "hardwarePin": "P1.03",
           "internalPull": "13K",
           "is5VTolerant": false,
@@ -1030,7 +1036,7 @@
           "connectedTo": "IOEX connector",
           "digitalRead": true,
           "digitalWrite": true,
-          "direction": "IO",
+          "direction": "I/O",
           "hardwarePin": "P1.04",
           "hardwareTimer": "PWM1",
           "internalPull": "13K",
