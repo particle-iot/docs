@@ -776,7 +776,7 @@
         {
           "num": 23,
           "name": "A0",
-          "desc": "HIGH to disconnect UART",
+          "desc": "HIGH to enable SoM to Pi UART",
           "connectedTo": "FSA2567",
           "digitalWrite": true,
           "direction": "O",
@@ -915,7 +915,7 @@
           "name": "A7",
           "desc": "PMIC and fuel gauge interrupt output",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "connectedTo": "PM_BAT",
+          "connectedTo": "PM-BAT",
           "digitalRead": true,
           "direction": "I",
           "isIO": true,

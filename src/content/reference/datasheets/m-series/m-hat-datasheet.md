@@ -222,19 +222,112 @@ The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with
 - RXD &harr; TXD
 - CTS &harr; RTS
 
+By default, this mapping is isolated. By the `SEL` pin, see [FSA2567](#fsa2567), below, you can enable the UART connection, which is needed for tethering.
+
 ## Internal peripherals
 
 ### Components - Internal peripherals
 
 #### STUSB4500
 
-#### PSA2567
+The STUSB4500 USB PD controller has three connections, however they are not frequently needed and are hard to access on the B-SoM.
+
+Two of the pins are NFC pins on the B-SoM. They can be converted from NFC Tag to GPIO, but doing so requires changing the UICR bytes in the nRF52840 configuration flash and rebooting the MCU. After that, the pins will remain as GPIO.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3f9e11ff-5582-435d-af08-5e087b63414b --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | PD_RST | O | USB PD controller reset, pin is NFC1 on B-SoM |
+| 19 | D20 | PD_ALERT | I | USB PD controller alert, pin is NFC2 on B-SoM |
+| 59 | D26 | PD_ATTACH | I | USB PD controller attach interrupt, NC on B-SoM |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+#### FSA2567
+
+This chip isolates the UART pins (RX, TX, CTS, RTS) between the Particle M.2 SoM and the Pi. 
+
+If the A0 pin is set HIGH, then the UART is connected:
+
+- RXD &harr; TXD
+- CTS &harr; RTS
+
+{{!-- BEGIN do not edit content below, it is automatically generated 7f56ea43-30ef-4cb1-988a-3d7e31247bc9 --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 23 | A0 | SEL | O | HIGH to enable SoM to Pi UART |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+To enable the UART connection, you would typically use code like this in your firmware that enabled tethering:
+
+```cpp
+pinMode(A0, OUTPUT);
+digitalWrite(A0, HIGH); // enable UART connection
+```
+
+#### DML3006
+
+There are two separate ways 5V on the HAT connector can be generated when powering from
+
+{{!-- BEGIN do not edit content below, it is automatically generated f90b1182-87f3-4aa6-8599-01504bfdff97 --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 37 | A3 | EN1_CTR | O | LiPo to 5V boost converter (HIGH to turn off, default on) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 #### TMP112A
 
+This is the temperature sensor on the M-HAT, which is connected by I2C. There is an optional alert output that can be enabled
+on the sensor. It is an open-collector output and is connected to D4. If you are using this feature, be sure to set 
+`pinMode(D4, INPUT_PULLUP)` so the input does not float.
+
+{{!-- BEGIN do not edit content below, it is automatically generated f6622f00-cc13-43e4-99d4-c955ed253710 --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 66 | D4 | TEMP_ALERT | I | Temperature sensor ALERT output |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 #### AB1805
 
+The AB1805 RTC/Watchdog provides additional RTC and hardware watchdog options. This is push-pull driven from the AB1805
+and defaults to HIGH in the chip, so you can't reuse this pin for other purposes, though you can ignore it.
+
+{{!-- BEGIN do not edit content below, it is automatically generated e37904f1-301c-4f2b-97a9-3bab92a6acd3 --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 68 | D5 | RTC_INT | I | RTC/Watchdog FOUT/IRQ output |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 #### PM-BAT
+
+[PM-BAT](/hardware/power/pm-bat-datasheet/) power module includes an open-collector output for interrupts from the bq24195 PMIC
+and the MAX17043 fuel gauge. If using this feature, be sure to set `pinMode(A7, INPUT_PULLUP)` so the input does not float.
+
+{{!-- BEGIN do not edit content below, it is automatically generated cc5c6247-5bdb-43bd-8b18-24954f4adea4 --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 47 | A7 | M2_A7/PMIC_INT | I | PMIC and fuel gauge interrupt output |
+| 72 | D7 | D7/AUX_POWER_EN | O | 3V3_AUX power control (HIGH to turn on) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 ### GPIO - Internal peripherals
 
@@ -246,7 +339,7 @@ The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with
 | 19 | D20 | PD_ALERT | I | STUSB4500 | USB PD controller alert, pin is NFC2 on B-SoM |
 | 20 | SCL | M2_SCL | I/O | Multiple | I2C SCL |
 | 22 | SDA | M2_SDA | I/O | Multiple | I2C SDA |
-| 23 | A0 | SEL | O | FSA2567 | HIGH to disconnect UART |
+| 23 | A0 | SEL | O | FSA2567 | HIGH to enable SoM to Pi UART |
 | 32 | MODE | M2/MODE | I | MODE button | MODE button for Particle SoM |
 | 33 | A1 | M2_A1/MISO | I/O | Grove A1 | Grove A1, Input, Output, ADC, PWM |
 | 34 | RESET | M2/RESET | I | RESET button | RESET button for Particle SoM |
@@ -257,7 +350,7 @@ The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with
 | 40 | CTS | M2_D3/CTS | I | HAT | UART serial CTS, connects to Pi UART0 RTS |
 | 41 | A4 | EN2_CTR | O | MP28167 | 5V_DCIN boost-buck converter (HIGH to turn off, default on) |
 | 42 | RTS | M2_D2/RTS | O | HAT | UART serial RTS, connects to Pi UART0 CTS |
-| 47 | A7 | M2_A7/PMIC_INT | I | PM_BAT | PMIC and fuel gauge interrupt output |
+| 47 | A7 | M2_A7/PMIC_INT | I | PM-BAT | PMIC and fuel gauge interrupt output |
 | 48 | CS | WAKE_RPI_CTR | O | HAT | Pi power control by GPIO4 |
 | 51 | SOM14 | SOM14 | I/O | IOEX connector | NC on B-SoM |
 | 57 | SOM17 | SOM17 | I/O | IOEX connector | NC on B-SoM |
