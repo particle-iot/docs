@@ -202,7 +202,7 @@ A jumper located on the bottom side of the Muon selects the direction of expansi
 - Connecting `5V_IN` and center pin: Expansion card powers the Muon (typically from PoE) 
 - Connecting `5V_OUT` and center pin: The Muon powers expansion card (from USB-C, USB, or LiPo)
 
-{{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper"}}
 
 
 ## Schematic

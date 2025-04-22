@@ -180,7 +180,7 @@ A jumper located on the bottom side of the M-HAT selects the direction of expans
 - Connecting `5V_IN` and center pin: Expansion card powers the M-HAT (typically from PoE) 
 - Connecting `5V_OUT` and center pin: The M-HAT powers expansion card (from USB-C, USB, or LiPo)
 
-{{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper"}}
 
 <p class="attribution">This picture is of the Muon; the appearance of the M-HAT may differ</p>
 
@@ -433,23 +433,23 @@ These are preliminary (v0.2) schematics and are subject to change.
 
 #### Schematics - Page 1
 
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-1.png" alt="Schematic page 1"}}
+{{imageOverlay src="/assets/images/m-hat/m-hat-sch-1.png" alt="Schematic page 1" class="full-width"}}
 
 #### Schematics - Page 2
 
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-2.png" alt="Schematic page 2"}}
+{{imageOverlay src="/assets/images/m-hat/m-hat-sch-2.png" alt="Schematic page 2" class="full-width"}}
 
 #### Schematics - Page 3
 
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-3.png" alt="Schematic page 3"}}
+{{imageOverlay src="/assets/images/m-hat/m-hat-sch-3.png" alt="Schematic page 3" class="full-width"}}
 
 #### Schematics - Page 4
 
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-4.png" alt="Schematic page 4"}}
+{{imageOverlay src="/assets/images/m-hat/m-hat-sch-4.png" alt="Schematic page 4" class="full-width"}}
 
 #### Schematics - Page 5
 
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-5.png" alt="Schematic page 5"}}
+{{imageOverlay src="/assets/images/m-hat/m-hat-sch-5.png" alt="Schematic page 5" class="full-width"}}
 
 ---
 ## Ordering information
