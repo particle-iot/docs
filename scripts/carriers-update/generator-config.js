@@ -5294,8 +5294,8 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'pinFunction',
                     platformNew: 'm-hat-m2',
-                    noPinNumbers: false,
-                    sortByNum: true,
+                    noPinNumbers: true, 
+                    sortByNum: false,
                     includeDesc: false,
                     noPWM: true,
                     noHardwarePin: true,
@@ -5316,6 +5316,10 @@ const schemaDocs = require('./schema-docs');
                         {
                             key: 'desc',
                             title: 'Description'
+                        },
+                        {
+                            key: 'num',
+                            title: 'M.2 pin'
                         },
                     ],
                     functionCols: [],
@@ -5526,7 +5530,8 @@ const schemaDocs = require('./schema-docs');
                     noPWM: true,
                     noHardwarePin: true,
                     pinFilterFn: function(pinObj) {
-                        return pinObj.connectedTo != 'DML3006';
+                        // return pinObj.connectedTo != 'DML3006';
+                        return !pinObj.net.match(/EN[0-9]_CTR/);
                     },
                     rightColumns: [
                         {
