@@ -56,7 +56,7 @@ It provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow 
 | 17 | Particle RGB LED | <!-- rgb-led -->
 <!-- shared-diagram-table end m-hat -->
 
-#### <!-- shared-diagram-label m-hat usb title-label-paren -->USB-C (1)<!-- end -->
+### <!-- shared-diagram-label m-hat usb title-label-paren -->USB-C (1)<!-- end -->
 
 USB-C can be used for powering the M-HAT and the Raspberry Pi. It is recommended that you use this
 USB-C connector instead of the one on the Pi, as the Pi may not provide sufficient power for the
@@ -67,18 +67,18 @@ the Particle USB serial debug.
 
 See also [Power](#power), below.
 
-#### <!-- shared-diagram-label m-hat pd-led title-label-paren -->USB-C PD LED (2)<!-- end -->
+### <!-- shared-diagram-label m-hat pd-led title-label-paren -->USB-C PD LED (2)<!-- end -->
 
 
-#### <!-- shared-diagram-label m-hat dc-in title-label-paren -->DC IN (3)<!-- end -->
+### <!-- shared-diagram-label m-hat dc-in title-label-paren -->DC IN (3)<!-- end -->
 
 Optional 6V - 12V DC power input. 
 
 See also [Power](#power), below.
 
-#### <!-- shared-diagram-label m-hat chg-led title-label-paren -->Charge LED (4)<!-- end -->
+### <!-- shared-diagram-label m-hat chg-led title-label-paren -->Charge LED (4)<!-- end -->
 
-#### <!-- shared-diagram-label m-hat bat-conn title-label-paren -->LiPo Battery (5)<!-- end -->
+### <!-- shared-diagram-label m-hat bat-conn title-label-paren -->LiPo Battery (5)<!-- end -->
 
 The M-HAT has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One, Muon, and Tachyon for connection to a 3.7V LiPo battery pack 
 with an integrated temperature sensor (10K NTC thermistor).
@@ -99,7 +99,7 @@ If you wish to use a battery without a 10K NTC temperature sensor, you must cut 
 If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
 
 
-#### <!-- shared-diagram-label m-hat ioex-conn title-label-paren -->I/O Expansion (6)<!-- end -->
+### <!-- shared-diagram-label m-hat ioex-conn title-label-paren -->I/O Expansion (6)<!-- end -->
 
 The IOEX connector provides a way to access some of the unused GPIO on the Particle SoM.
 
@@ -122,41 +122,82 @@ It is a 2x5 1.27mm IDC socket that connects using the same ribbon cable that is 
 {{!-- END do not edit content above, it is automatically generated--}}
 
 
-#### <!-- shared-diagram-label m-hat rtc-conn title-label-paren -->RTC Battery (7)<!-- end -->
+### <!-- shared-diagram-label m-hat rtc-conn title-label-paren -->RTC Battery (7)<!-- end -->
 
 This connector can power the RTC (AB1805) to maintain the real-time clock if all other power sources (USB, DC IN, LiPo) are removed.
 
 The connector is designed to work with a standard RTC module for the Raspberry Pi that typically contain a Lithium coin cell battery.
 
-#### <!-- shared-diagram-label m-hat grove-conn title-label-paren -->Grove connector (8)<!-- end -->
+### <!-- shared-diagram-label m-hat grove-conn title-label-paren -->Grove connector (8)<!-- end -->
 
 The Grove connector allows [Grove accessories](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins D0 and D1 are present on the connector. This allows the use of Grove I2C sensors.
 
 
-#### <!-- shared-diagram-label m-hat qwiic-conn title-label-paren -->Qwiic connector (9)<!-- end -->
+### <!-- shared-diagram-label m-hat qwiic-conn title-label-paren -->Qwiic connector (9)<!-- end -->
 
 [Qwiic](/hardware/expansion/qwiic/) is a 3.3V I2C standard developed by SparkFun and adopted by other manufacturers. It's also compatible with Adafruit Stemma Qt expansion devices. You can use this to add displays, sensors, etc. and multiple devices can be connected to a single Qwiic port, as accessory boards have two connectors for chaining multiple sensors.
 
-#### <!-- shared-diagram-label m-hat sma1 title-label-paren -->SMA connector (10)<!-- end -->
+### <!-- shared-diagram-label m-hat sma1 title-label-paren -->SMA connector (10)<!-- end -->
 
 The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that connects to the Particle SoM module such as the B-SoM.
 
 In many cases, you will connect the antenna directly to the SoM instead of using the SMA connector. The certified antennas for cellular and BLE are designed to connect directly to the SoM using the U.FL connector.
 
-#### <!-- shared-diagram-label m-hat reset-button title-label-paren -->Particle RESET button (13)<!-- end -->
+### <!-- shared-diagram-label m-hat reset-button title-label-paren -->Particle RESET button (13)<!-- end -->
 
 The RESET button resets the Particle SoM module. It does not reset the Raspberry Pi.
 
-#### <!-- shared-diagram-label m-hat hat title-label-paren -->Raspberry Pi HAT 40-pin connector (14)<!-- end -->
+### <!-- shared-diagram-label m-hat hat title-label-paren -->Raspberry Pi HAT 40-pin connector (14)<!-- end -->
 
-#### <!-- shared-diagram-label m-hat m2-som title-label-paren -->Particle M.2 SoM (15)<!-- end -->
+Allows connection of Raspberry Pi HATs on top of the M-HAT.
 
-#### <!-- shared-diagram-label m-hat mode-button title-label-paren -->Particle MODE button (16)<!-- end -->
+The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and additional HATs, however the following connections are included:
+
+{{imageOverlay src="/assets/images/m-hat/m-hat-pins.svg" alt="Pin Diagram"}}
+
+{{!-- BEGIN do not edit content below, it is automatically generated 04c52083-eb85-46a7-b2a7-c366be119571 --}}
+
+| Pin Name | Schematic net | MCU direction | Description | Pi Pin | Pi Function |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| TXD | M2_TXD | O | UART serial TXD, connects to Pi UART0 RXD | GPIO15 | UART0_RX |
+| RXD | M2_RXD | I | UART serial RXD, connects to Pi UART0 TXD | GPIO14 | UART0_TX |
+| CTS | M2_D3/CTS | I | UART serial CTS, connects to Pi UART0 RTS | GPIO17 | UART0_RTS |
+| RTS | M2_D2/RTS | O | UART serial RTS, connects to Pi UART0 CTS | GPIO16 | UART0_CTS |
+| CS | WAKE_RPI_CTR | O | Pi power control by GPIO4 | GPIO4 | GPIO4 |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+#### GPIO4 - HAT connector
+
+GPIO4 on the Pi is used for on/off control. While the Pi does not have a true sleep mode like Particle devices, it does use 
+less power in HALT mode and this pin can optionally be used for power control.
+
+The GPIO4 pin has a 10K hardware pull-up resistor to the Pi 3V3. 
+
+From the Particle SoM, settings `CS` pin, also known as `D8`, to `OUTPUT` and using `digitalWrite(D8, LOW)` will set GPIO4 low.
+
+#### UART serial - HAT connector
+
+The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with hardware flow control. As is typically the case:
+
+- RXD &harr; TXD
+- CTS &harr; RTS
+
+By default, this mapping is isolated. By the `SEL` pin, see [FSA2567](#fsa2567), below, you can enable the UART connection, which is needed for tethering.
+
+
+### <!-- shared-diagram-label m-hat m2-som title-label-paren -->Particle M.2 SoM (15)<!-- end -->
+
+The M-HAT is typically use with a Particle B-SoM B504e or B524 module.
+
+### <!-- shared-diagram-label m-hat mode-button title-label-paren -->Particle MODE button (16)<!-- end -->
 
 The RESET button resets the Particle SoM module. It does not reset the Raspberry Pi.
 
-#### <!-- shared-diagram-label m-hat rgb-led title-label-paren -->Particle RGB LED (17)<!-- end -->
+### <!-- shared-diagram-label m-hat rgb-led title-label-paren -->Particle RGB LED (17)<!-- end -->
 
+This is a standard Particle RGB status LED. It is unaffected by the Raspberry Pi.
 
 ## Power
 
@@ -206,46 +247,6 @@ A jumper located on the bottom side of the M-HAT selects the direction of expans
 {{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper"}}
 
 <p class="attribution">This picture is of the Muon; the appearance of the M-HAT may differ</p>
-
-
-## HAT connector
-
-The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and additional HATs, however the following connections are included:
-
-{{imageOverlay src="/assets/images/m-hat/m-hat-pins.svg" alt="Pin Diagram"}}
-
-
-{{!-- BEGIN do not edit content below, it is automatically generated 04c52083-eb85-46a7-b2a7-c366be119571 --}}
-
-| Pin Name | Schematic net | MCU direction | Description | Pi Pin | Pi Function |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| TXD | M2_TXD | O | UART serial TXD, connects to Pi UART0 RXD | GPIO15 | UART0_RX |
-| RXD | M2_RXD | I | UART serial RXD, connects to Pi UART0 TXD | GPIO14 | UART0_TX |
-| CTS | M2_D3/CTS | I | UART serial CTS, connects to Pi UART0 RTS | GPIO17 | UART0_RTS |
-| RTS | M2_D2/RTS | O | UART serial RTS, connects to Pi UART0 CTS | GPIO16 | UART0_CTS |
-| CS | WAKE_RPI_CTR | O | Pi power control by GPIO4 | GPIO4 | GPIO4 |
-
-
-{{!-- END do not edit content above, it is automatically generated--}}
-
-
-### GPIO4 - HAT connector
-
-GPIO4 on the Pi is used for on/off control. While the Pi does not have a true sleep mode like Particle devices, it does use 
-less power in HALT mode and this pin can optionally be used for power control.
-
-The GPIO4 pin has a 10K hardware pull-up resistor to the Pi 3V3. 
-
-From the Particle SoM, settings `CS` pin, also known as `D8`, to `OUTPUT` and using `digitalWrite(D8, LOW)` will set GPIO4 low.
-
-### UART serial - HAT connector
-
-The Raspberry Pi UART0 is connected to the Particle M.2 SoM `Serial1` UART, with hardware flow control. As is typically the case:
-
-- RXD &harr; TXD
-- CTS &harr; RTS
-
-By default, this mapping is isolated. By the `SEL` pin, see [FSA2567](#fsa2567), below, you can enable the UART connection, which is needed for tethering.
 
 ## Internal peripherals
 
