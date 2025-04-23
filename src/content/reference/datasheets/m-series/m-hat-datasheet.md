@@ -163,8 +163,7 @@ See [Muon USB Power](/troubleshooting/guides/device-troubleshooting/muon-usb-pow
 
 #### Expansion and peripheral power
 
-The onboard peripherals including Ethernet, the LoRa radio, QWIIC, and the expansion HAT connector are powered by the
-3V3_AUX power supply.
+The onboard peripherals including QWIIC and Grove connector are powered by the 3V3_AUX power supply.
 
 If you use [setup.particle.io](https://setup.particle.io/) to set up your M-HAT, 3V3_AUX will be set up
 automatically. 
@@ -348,7 +347,7 @@ and the MAX17043 fuel gauge. If using this feature, be sure to set `pinMode(A7, 
 | 37 | A3 | EN1_CTR | O | DML3006 | LiPo to 5V boost converter (HIGH to turn off, default on) |
 | 38 | RXD | M2_RXD | I | HAT | UART serial RXD, connects to Pi UART0 TXD |
 | 40 | CTS | M2_D3/CTS | I | HAT | UART serial CTS, connects to Pi UART0 RTS |
-| 41 | A4 | EN2_CTR | O | MP28167 | 5V_DCIN boost-buck converter (HIGH to turn off, default on) |
+| 41 | A4 | EN2_CTR | O | MP28167 | DCIN or USB boost-buck converter (HIGH to turn off, default on) |
 | 42 | RTS | M2_D2/RTS | O | HAT | UART serial RTS, connects to Pi UART0 CTS |
 | 47 | A7 | M2_A7/PMIC_INT | I | PM-BAT | PMIC and fuel gauge interrupt output |
 | 48 | CS | WAKE_RPI_CTR | O | HAT | Pi power control by GPIO4 |
@@ -424,6 +423,52 @@ The 10-pin SWD/JTAG debugging connector is not populated on the M-HAT.
 
 Additionally, the Particle M.2 SoM SWD pogo pins are not available on the M-HAT, so SWD would only work
 on M-SoM, not B-SoM, even if populated.
+
+
+## Firmware settings
+
+Devices using the [Particle Power Module](/hardware/power/pm-bat-datasheet/) include a `3V3_AUX` power output
+that can be controlled by a GPIO. On the M-HAT, it controls the Qwiic and Grove connectors. 
+On the M.2 SoM breakout board, this powers the Feather connector. On the Muon,
+it powers the Ethernet port, LoRaWAN module, 40-pin expansion HAT connector, and QWIIC connector.
+
+The main reason for this is that until the PMIC is configured, the input current with no battery
+connected is limited to 100 mA. This is insufficient for the M-SoM to boot when 
+using a peripheral that requires a lot of current, like the WIZnet W5500 Ethernet module. The 
+system power manager prevents turning on `3V3_AUX` until after the PMIC is configured
+and the PMIC has negotiated a higher current from the USB host (if powered by USB).
+
+This setting is persistent and only needs to be set once. In fact, the PMIC initialization
+normally occurs before user firmware is run. This is also necessary because if you are using Ethernet
+and enter safe mode (breathing magenta), it's necessary to enable `3V3_AUX` so if you are using
+Ethernet, you can still get OTA updates while in safe mode.
+
+After changing the auxiliary power configuration you must reset the device.
+
+The following code can be used to enable Ethernet on the M-HAT. This only needs to be done
+once and the device must be reset after configuration for the changes to take effect.  It requires Device OS 5.9.0 or later.
+
+```cpp
+// Enable 3V3_AUX
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A7);
+System.setPowerConfiguration(powerConfig);
+```
+
+If you wish to manage the 3V3_AUX power manually from your firmware,
+you can set the `auxiliaryPowerControlPin` to `PIN_INVALID` and reset the device. It will then no longer
+turn on at boot.
+
+```cpp
+// Manual management of 3V3_AUX
+SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
+powerConfig.auxiliaryPowerControlPin(PIN_INVALID).interruptPin(A7);
+System.setPowerConfiguration(powerConfig);
+```
+
+To control `3V3_AUX` manually from your firmware, use `pinMode(D7, OUTPUT)` in `setup()`. Use
+`digitalWrite(D7, 1)` to turn `3V3_AUX` on and `digitalWrite(D7, 0)` to turn it off.
+
 
 ## Schematics
 

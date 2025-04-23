@@ -157,7 +157,7 @@
         {
             "num": 41,
             "name": "A4",
-            "desc": "5V_DCIN boost-buck converter (HIGH to turn off, default on)",
+            "desc": "DCIN or USB boost-buck converter (HIGH to turn off, default on)",
             "connectedTo": "MP28167",
             "digitalWrite": true,
             "direction": "O",
