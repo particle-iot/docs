@@ -60,7 +60,7 @@
         {
             "id": "qwiic-conn",
             "label": "9",
-            "title": "QWIIC connector",
+            "title": "Qwiic connector",
             "x": 932,
             "y": 845
         },
@@ -88,7 +88,7 @@
         {
             "id": "reset-button",
             "label": "13",
-            "title": "Reset button",
+            "title": "Particle RESET button",
             "x": 1173,
             "y": 89
         },

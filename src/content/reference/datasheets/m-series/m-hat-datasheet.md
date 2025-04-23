@@ -45,11 +45,11 @@ It provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow 
 | 6 | I/O Expansion | <!-- ioex-conn -->
 | 7 | RTC Battery | <!-- rtc-conn -->
 | 8 | Grove connector | <!-- grove-conn -->
-| 9 | QWIIC connector | <!-- qwiic-conn -->
+| 9 | Qwiic connector | <!-- qwiic-conn -->
 | 10 | SMA connector | <!-- sma1 -->
 | 11 | SMA connector | <!-- sma2 -->
 | 12 | SMA connector | <!-- sma3 -->
-| 13 | Reset button | <!-- reset-button -->
+| 13 | Particle RESET button | <!-- reset-button -->
 | 14 | Raspberry Pi HAT 40-pin connector | <!-- hat -->
 | 15 | Particle M.2 SoM | <!-- m2-som -->
 | 16 | Particle MODE button | <!-- mode-button -->
@@ -89,6 +89,13 @@ Some other Particle devices have a 3.7V LiPo battery without a temperature senso
 
 <p class="attribution">Facing the plug on the battery side</p>
 
+If you wish to use a battery without a 10K NTC temperature sensor, you must cut the normally closed trace jumper indicated, otherwise charging will never enable. It is located to the left of the power module (on the bottom side of the board), with the HAT connector on the side away from you.
+
+{{imageOverlay src="/assets/images/m-hat/ts-jumper.png" alt="TS jumper"}}
+
+<p class="attribution">Facing the bottom of the M-HAT</p>
+
+
 If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
 
 
@@ -117,19 +124,36 @@ It is a 2x5 1.27mm IDC socket that connects using the same ribbon cable that is 
 
 #### <!-- shared-diagram-label m-hat rtc-conn title-label-paren -->RTC Battery (7)<!-- end -->
 
+This connector can power the RTC (AB1805) to maintain the real-time clock if all other power sources (USB, DC IN, LiPo) are removed.
+
+The connector is designed to work with a standard RTC module for the Raspberry Pi that typically contain a Lithium coin cell battery.
+
 #### <!-- shared-diagram-label m-hat grove-conn title-label-paren -->Grove connector (8)<!-- end -->
 
-#### <!-- shared-diagram-label m-hat qwiic-conn title-label-paren -->QWIIC connector (9)<!-- end -->
+The Grove connector allows [Grove accessories](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins D0 and D1 are present on the connector. This allows the use of Grove I2C sensors.
+
+
+#### <!-- shared-diagram-label m-hat qwiic-conn title-label-paren -->Qwiic connector (9)<!-- end -->
+
+[Qwiic](/hardware/expansion/qwiic/) is a 3.3V I2C standard developed by SparkFun and adopted by other manufacturers. It's also compatible with Adafruit Stemma Qt expansion devices. You can use this to add displays, sensors, etc. and multiple devices can be connected to a single Qwiic port, as accessory boards have two connectors for chaining multiple sensors.
 
 #### <!-- shared-diagram-label m-hat sma1 title-label-paren -->SMA connector (10)<!-- end -->
 
-#### <!-- shared-diagram-label m-hat reset-button title-label-paren -->Reset button (13)<!-- end -->
+The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that connects to the Particle SoM module such as the B-SoM.
+
+In many cases, you will connect the antenna directly to the SoM instead of using the SMA connector. The certified antennas for cellular and BLE are designed to connect directly to the SoM using the U.FL connector.
+
+#### <!-- shared-diagram-label m-hat reset-button title-label-paren -->Particle RESET button (13)<!-- end -->
+
+The RESET button resets the Particle SoM module. It does not reset the Raspberry Pi.
 
 #### <!-- shared-diagram-label m-hat hat title-label-paren -->Raspberry Pi HAT 40-pin connector (14)<!-- end -->
 
 #### <!-- shared-diagram-label m-hat m2-som title-label-paren -->Particle M.2 SoM (15)<!-- end -->
 
 #### <!-- shared-diagram-label m-hat mode-button title-label-paren -->Particle MODE button (16)<!-- end -->
+
+The RESET button resets the Particle SoM module. It does not reset the Raspberry Pi.
 
 #### <!-- shared-diagram-label m-hat rgb-led title-label-paren -->Particle RGB LED (17)<!-- end -->
 
@@ -330,6 +354,8 @@ and the MAX17043 fuel gauge. If using this feature, be sure to set `pinMode(A7, 
 
 ### GPIO - Internal peripherals
 
+{{imageOverlay src="/assets/images/m-hat/m-hat-m2.svg" alt="Pin Diagram"}}
+
 {{!-- BEGIN do not edit content below, it is automatically generated 5c7622c6-ae73-4a5b-88b6-e761ee69fa3f --}}
 
 | Module Pin | Pin Name | Schematic net | MCU direction | Connected to | Description |
@@ -407,6 +433,8 @@ This output controls the 3V3_AUX power, which also powers:
 
 - Qwiic connector
 - Grove connector
+
+Unlike the Muon, AUX_PWR_EN does not control 3.3V and 5V power to the HAT connector.
 
 ## Other
 
