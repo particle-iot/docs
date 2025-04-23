@@ -69,6 +69,9 @@ const svg = require('./svg');
                 diagram.expandMorePins(diagram.morePlatforms[key].pins);
             }
         }
+        if (options.mergePlatforms) {
+            options.mergePlatforms(diagram, options);
+        }
 
         if (options.comparePlatform) {
             diagram.comparePlatformInfo = diagram.pinInfo.platforms.find(e => e.name == options.comparePlatform);            
@@ -2878,7 +2881,7 @@ const svg = require('./svg');
                 },
                 {
                     width: 50,
-                    keys: ['name'],
+                    keys: ['name', 'baseName'],
                 },
                 {
                     width: 80,
@@ -2891,6 +2894,26 @@ const svg = require('./svg');
             ],
             featureColorsOverride: {
                 rpiFunction: '#CD2355', // Raspberry Pi color 
+                baseName: '#D9F2F7', // @COLOR_Sky_500
+            },
+            mergePlatforms: function(diagram, options) {
+                basePinInfo = diagram.pinInfo.platforms.find(e => e.name == 'B5xx SoM');       
+                diagram.expandMorePins(basePinInfo.pins);
+
+                // console.log('mergePlatforms', {diagram, options, basePinInfo});
+                for(const basePin of basePinInfo.pins) {
+                    if (!diagram.platformInfo.pins.find(e => e.num == basePin.num)) {
+                        diagram.platformInfo.pins.push({
+                            num: basePin.num,
+                            baseName: basePin.name,
+                        });
+                    }
+                }
+                diagram.platformInfo.pins.sort(function(a, b) {
+                    return a.num - b.num;
+                });
+
+                // console.log('pins after', diagram.platformInfo.pins);
             },
     }), files);
 
