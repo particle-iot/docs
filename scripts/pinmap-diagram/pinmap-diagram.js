@@ -979,7 +979,41 @@ const svg = require('./svg');
         await diagram.generate(options, files);
     };
 
-    diagram.generateM2SoM = async function(generateOptions, files) {        
+    diagram.generateM2SoM = async function(generateOptions, files) {   
+        let defaultColumns = [
+            {
+                width: 30,
+                keys: ['num'],
+            },
+            {
+                width: 60,
+                keys: ['somPin'],
+            },
+            {
+                width: 60,
+                keys: ['name'],
+            },
+            {
+                width: 30,
+                keys: ['altName'],
+            },
+            {
+                keys: ['isPower', 'isControl', 'i2c', 'swd'],
+            },
+            {
+                keys: ['serial'],
+            },
+            {
+                keys: ['spi', 'hardwareADC'],
+            },
+            {
+                keys: ['analogWritePWM'],
+            },
+            {
+                keys: ['hardwarePin'],
+            },
+        ];
+        
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: generateOptions.platformName,
             // deviceImage: 
@@ -998,39 +1032,7 @@ const svg = require('./svg');
                     count: 75,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['num'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['somPin'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns: generateOptions.columns || defaultColumns,
                 },
                 {   // Right side
                     num: 1,
@@ -1042,39 +1044,7 @@ const svg = require('./svg');
                     count: 75,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['num'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['somPin'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns: generateOptions.columns || defaultColumns,
                 },
             ],
             incrementFn: function(num) {
@@ -2898,6 +2868,36 @@ const svg = require('./svg');
             },
         }, generateOptions), files);
 
+        await diagram.generateM2SoM(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'm-hat-m2',
+            outputPath: 'assets/images/m-hat/m-hat-m2.svg',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 80,
+                    keys: ['connectedTo'],
+                },
+                {
+                    width: 50,
+                    keys: ['rpiFunction'],
+                },
+            ],
+            featureColorsOverride: {
+                rpiFunction: '#CD2355', // Raspberry Pi color 
+            },
+    }), files);
+
+
+        // 
+        // M2 eval
+        //
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, B-SoM',
             outputPath: 'assets/images/pi/eval-serial.svg',

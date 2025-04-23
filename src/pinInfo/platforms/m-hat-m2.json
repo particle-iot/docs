@@ -197,7 +197,7 @@
             "direction": "O",
             "isIO": true,
             "net": "WAKE_RPI_CTR",
-            "rpiFunction": "",
+            "rpiFunction": "GPIO4",
             "rpiGPIO": "GPIO4"
         },
         {

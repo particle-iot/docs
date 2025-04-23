@@ -199,7 +199,7 @@ The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and ad
 | RXD | M2_RXD | I | UART serial RXD, connects to Pi UART0 TXD | GPIO14 | UART0_TX |
 | CTS | M2_D3/CTS | I | UART serial CTS, connects to Pi UART0 RTS | GPIO17 | UART0_RTS |
 | RTS | M2_D2/RTS | O | UART serial RTS, connects to Pi UART0 CTS | GPIO16 | UART0_CTS |
-| CS | WAKE_RPI_CTR | O | Pi power control by GPIO4 | GPIO4 | &nbsp; |
+| CS | WAKE_RPI_CTR | O | Pi power control by GPIO4 | GPIO4 | GPIO4 |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
