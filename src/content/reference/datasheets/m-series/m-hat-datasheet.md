@@ -24,11 +24,17 @@ It contains the power circuitry from the Muon, including the ability to power bo
 
 It is intended for use with the B504e (LTE Cat 1 NorAm) and B524 (LTE Cat 1 EMEAA) to provide network connectivity to the Raspberry Pi using [tethering](reference/device-os/tethering/).
 
-It provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow use with additional HATs.
+The M-HAT provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow use with additional HATs.
 
 - [B504e datasheet](/reference/datasheets/b-series/b504-datasheet/)
 - [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/)
+
+If you are using additional Raspberry Pi HATs, you will typically stack them on top of the M-HAT.
+
+If you are using a PoE (Power over Ethernet) HAT, it must go directly against the Raspberry Pi, underneath the M-HAT. This is because PoE has a separate 4-pin connector that directly plugs into to a header next to the Ethernet jack in addition to accessing the 40-pin HAT connector. 
+
+Other pass-through HATs could be used below the M-HAT, if they fit and have appropriate stand-offs so the M-HAT remains secure, as well.
 
 ## Diagram
 
@@ -46,9 +52,9 @@ It provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow 
 | 7 | RTC Battery | <!-- rtc-conn -->
 | 8 | Grove connector | <!-- grove-conn -->
 | 9 | Qwiic connector | <!-- qwiic-conn -->
-| 10 | SMA connector | <!-- sma1 -->
-| 11 | SMA connector | <!-- sma2 -->
-| 12 | SMA connector | <!-- sma3 -->
+| 10 | SMA connector (GNSS) | <!-- sma-gnss -->
+| 11 | SMA connector (BLE) | <!-- sma-ble -->
+| 12 | SMA connector (cellular) | <!-- sma-cellular -->
 | 13 | Particle RESET button | <!-- reset-button -->
 | 14 | Raspberry Pi HAT 40-pin connector | <!-- hat -->
 | 15 | Particle M.2 SoM | <!-- m2-som -->
@@ -58,22 +64,24 @@ It provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow 
 
 ### <!-- shared-diagram-label m-hat usb title-label-paren -->USB-C (1)<!-- end -->
 
-USB-C can be used for powering the M-HAT and the Raspberry Pi. It is recommended that you use this
-USB-C connector instead of the one on the Pi, as the Pi may not provide sufficient power for the
-cellular modem unless also used with a battery.
+USB-C can be used for powering the M-HAT and the Raspberry Pi. 
 
 This USB-C connector also provides USB access to the M.2 SoM for programming over USB or accessing
 the Particle USB serial debug.
+
+It is recommended that you use this USB-C connector instead of the one on the Pi, as the Pi may not provide 
+sufficient power for the cellular modem unless also used with a battery. You should not connect both 
+USB-C cables at the same time.
 
 See also [Power](#power), below.
 
 ### <!-- shared-diagram-label m-hat pd-led title-label-paren -->USB-C PD LED (2)<!-- end -->
 
-This LED will turn on when USB-C PD has been negotiated. 
+This LED will turn on when USB-C PD (power delivery) has been negotiated with the charger or host.
 
 ### <!-- shared-diagram-label m-hat dc-in title-label-paren -->DC IN (3)<!-- end -->
 
-Optional 5V - 12V DC power input (fscrew terminals).
+Optional 5V - 12V DC power input (screw terminals).
 
 See also [Power](#power), below.
 
@@ -145,11 +153,31 @@ The Grove connector allows [Grove accessories](/reference/datasheets/accessories
 
 [Qwiic](/hardware/expansion/qwiic/) is a 3.3V I2C standard developed by SparkFun and adopted by other manufacturers. It's also compatible with Adafruit Stemma Qt expansion devices. You can use this to add displays, sensors, etc. and multiple devices can be connected to a single Qwiic port, as accessory boards have two connectors for chaining multiple sensors.
 
-### <!-- shared-diagram-label m-hat sma1 title-label-paren -->SMA connector (10)<!-- end -->
+### <!-- shared-diagram-label m-hat sma-gnss title-label-paren -->SMA connector (GNSS) (10)<!-- end -->
 
-The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that connects to the Particle SoM module such as the B-SoM.
+The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that typically connects to the Particle SoM module such as the B-SoM. 
 
-In many cases, you will connect the antenna directly to the SoM instead of using the SMA connector. The certified antennas for cellular and BLE are designed to connect directly to the SoM using the U.FL connector.
+The GNSS antenna is only required if you are using GNSS. 
+
+Many off-the-shelf GNSS antennas include a SMA connector, so the built-in adapter can be useful in this case. Since GNSS does not transmit, using an alternative GNSS antenna does not require intentional radiator certification.
+
+### <!-- shared-diagram-label m-hat sma-ble title-label-paren -->SMA connector (BLE) (11)<!-- end -->
+
+The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that typically connects to the Particle SoM module such as the B-SoM. 
+
+The BLE antenna is only required if you are using the BLE feature. The B-SoM does not have a built-in BLE chip antenna like the Boron, but BLE is not required for setup.
+
+Often you will attach the Particle 2.4 GHz BLE/Wi-Fi antenna directly to the B-SoM instead of using the SMA connector.
+
+Using an alternative BLE antenna with a SMA connector will require intentional radiator certification. 
+
+### <!-- shared-diagram-label m-hat sma-cellular title-label-paren -->SMA connector (cellular) (12)<!-- end -->
+
+The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that typically connects to the Particle SoM module such as the B-SoM. 
+
+The cellular antenna is required on the B-SoM. Often you will attach the Particle cellular antenna directly to the B-SoM instead of using the SMA connector.
+
+Using an alternative cellular antenna with a SMA connector will require intentional radiator certification. 
 
 ### <!-- shared-diagram-label m-hat reset-button title-label-paren -->Particle RESET button (13)<!-- end -->
 
@@ -245,19 +273,20 @@ If you want to do it manually, the see the section [Firmware settings](#firmware
 for the sample code and the technical reasons why it is necessary.
 
 
-#### Expansion card power
+#### HAT power direction jumper
 
 A jumper located on the bottom side of the M-HAT selects the direction of expansion card (HAT) 5V power (label 20, above).
 
-- Connecting `5V_IN` and center pin: Expansion card powers the M-HAT (typically from PoE) 
+- Connecting `5V_IN` and center pin: Expansion header powers the M-HAT (typically from a PoE HAT)
 - Connecting `5V_OUT` and center pin: The M-HAT powers expansion card (from USB-C, USB, or LiPo)
 
 {{imageOverlay src="/assets/images/m-series/muon-5v-jumper.jpg" alt="5V Jumper"}}
 
 <p class="attribution">This picture is of the Muon; the appearance of the M-HAT may differ</p>
 
-
-When the jumper is set to 5V_IN, the M-HAT powers the Raspberry Pi HAT connector, which is turn powers the Raspberry Pi itself.
+When the jumper is set to 5V_IN, the M-HAT powers the Raspberry Pi HAT connector 5V pin, which is turn powers the Raspberry Pi itself. When using 5V_IN
+mode you must not power both the M-HAT USB-C and the Pi USB-C at the same time, as both will attempt to power the HAT 5V pin, which could damage
+either or both devices.
 
 There are two separate ways 5V on the HAT connector can be generated when powering from M-HAT:
 - LiPo boost converter
@@ -287,8 +316,6 @@ The EN2_CTR control line connects to the MP28167 boost-buck converter EN pin via
 
 The STUSB4500 USB PD controller has three connections, however they are not frequently needed and are hard to access on the B-SoM.
 
-Two of the pins are NFC pins on the B-SoM. They can be converted from NFC Tag to GPIO, but doing so requires changing the UICR bytes in the nRF52840 configuration flash and rebooting the MCU. After that, the pins will remain as GPIO.
-
 {{!-- BEGIN do not edit content below, it is automatically generated 3f9e11ff-5582-435d-af08-5e087b63414b --}}
 
 | Module Pin | Pin Name | Schematic net | MCU direction | Description |
@@ -304,18 +331,22 @@ Two of the pins are NFC pins on the B-SoM. They can be converted from NFC Tag to
 
 This is the PD_RST line to reset the STUSB4500 USB PD controller. You normally will not need to use this.
 
+This is the NFC1 pin on the B-SoM. The NFC pins can be converted from NFC Tag to GPIO, but doing so requires changing the UICR bytes in the nRF52840 configuration flash and rebooting the MCU. After that, the pins will remain as GPIO.
+
 There is a 10K hardware pull-down resistor on this pin. If you set the pin to OUTPUT and HIGH, it will reset the chip.
 
 #### PD_ALERT
 
 This is the PD_ALERT output from the STUSB4500 USB PD controller. It is not enabled by default.
 
-This is connected to M.2 Pin 19. 
+This is the NFC2 pin on the B-SoM. The NFC pins can be converted from NFC Tag to GPIO, but doing so requires changing the UICR bytes in the nRF52840 configuration flash and rebooting the MCU. After that, the pins will remain as GPIO.
+
 
 #### PD_ATTACH
 
 This is the PD_ATTACH output from the STUSB4500 USB PD controller. 
 
+This pin is not available on the B-SoM.
 
 ### FSA2567 - Internal peripherals
 
@@ -368,11 +399,10 @@ The AB1805 RTC/Watchdog provides additional RTC and hardware watchdog options. I
 - HAT connector (when the jumper is selected to power from HAT)
 - LiPo battery
 
-Note that the LiPo battery will power the chip 
+Note that the LiPo battery will power the chip even when the PMIC BATFET is disabled.
 
 The FOUT/IRQ output from the AB1805 is an open-collector output and defaults to Hi-Z in the chip. If you are using this feature, be sure to set 
 `pinMode(D5, INPUT_PULLUP)` so the input does not float. There is no hardware pull-up on tbe M-HAT on this line.
-
 
 {{!-- BEGIN do not edit content below, it is automatically generated e37904f1-301c-4f2b-97a9-3bab92a6acd3 --}}
 
@@ -382,6 +412,9 @@ The FOUT/IRQ output from the AB1805 is an open-collector output and defaults to 
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
+
+Additionally, the <!-- shared-diagram-label m-hat rtc-conn title-label-paren -->RTC Battery (7)<!-- end --> connector is connected to 
+the VBAT in of the AB1805. This allows the RTC to maintain time when all other sources of power are removed. This feature is optional.
 
 ### PM-BAT - Internal peripherals
 

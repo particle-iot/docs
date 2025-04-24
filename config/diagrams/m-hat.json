@@ -65,23 +65,23 @@
             "y": 845
         },
         {
-            "id": "sma1",
+            "id": "sma-gnss",
             "label": "10",
-            "title": "SMA connector",
+            "title": "SMA connector (GNSS)",
             "x": 1538,
             "y": 671
         },
         {
-            "id": "sma2",
+            "id": "sma-ble",
             "label": "11",
-            "title": "SMA connector",
+            "title": "SMA connector (BLE)",
             "x": 1538,
             "y": 453
         },
         {
-            "id": "sma3",
+            "id": "sma-cellular",
             "label": "12",
-            "title": "SMA connector",
+            "title": "SMA connector (cellular)",
             "x": 1538,
             "y": 228
         },
