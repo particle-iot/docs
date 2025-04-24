@@ -5423,6 +5423,38 @@ const schemaDocs = require('./schema-docs');
             } 
         },  
         {
+            guid: 'f77388d6-01aa-4a52-afa9-8d05985c5907',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return !pinObj.connectedTo.startsWith('Grove');
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },  
+        {
             guid: 'e37904f1-301c-4f2b-97a9-3bab92a6acd3',
             generatorFn:function(updater){
                 return updater.generatePinInfo({

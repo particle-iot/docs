@@ -20,7 +20,7 @@ This is a preliminary datasheet and there may be changes before release
 
 The M-HAT is pass-through HAT (hardware attached on top) for the Raspberry Pi to provide cellular connectivity and power.
 
-It contains the power circuitry from the Muon, including the ability to power both the cellular modem and Raspberry Pi using USB-C PD, external DC power, or LiPo battery.
+It contains the power circuitry similar to the Muon, including the ability to power both the cellular modem and Raspberry Pi using USB-C PD, external DC power, or LiPo battery.
 
 It is intended for use with the B504e (LTE Cat 1 NorAm) and B524 (LTE Cat 1 EMEAA) to provide network connectivity to the Raspberry Pi using [tethering](reference/device-os/tethering/).
 
@@ -66,8 +66,8 @@ Other pass-through HATs could be used below the M-HAT, if they fit and have appr
 
 USB-C can be used for powering the M-HAT and the Raspberry Pi. 
 
-This USB-C connector also provides USB access to the M.2 SoM for programming over USB or accessing
-the Particle USB serial debug.
+This USB-C connector also provides USB access to the Particle M.2 SoM for programming over USB or accessing
+ USB serial debug.
 
 It is recommended that you use this USB-C connector instead of the one on the Pi, as the Pi may not provide 
 sufficient power for the cellular modem unless also used with a battery. You should not connect both 
@@ -99,7 +99,7 @@ If you do not have a battery connected, the charge LED may flicker at boot and i
 The M-HAT has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One, Muon, and Tachyon for connection to a 3.7V LiPo battery pack 
 with an integrated temperature sensor (10K NTC thermistor).
 
-Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
+Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. 
 
 <div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
 
@@ -110,7 +110,6 @@ If you wish to use a battery without a 10K NTC temperature sensor, you must cut 
 {{imageOverlay src="/assets/images/m-hat/ts-jumper.png" alt="TS jumper"}}
 
 <p class="attribution">Facing the bottom of the M-HAT</p>
-
 
 If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
 
@@ -142,11 +141,22 @@ It is a 2x5 1.27mm IDC socket that connects using the same ribbon cable that is 
 
 This connector can power the RTC (AB1805) to maintain the real-time clock if all other power sources (USB, DC IN, LiPo) are removed.
 
-The connector is designed to work with a standard RTC module for the Raspberry Pi that typically contain a Lithium coin cell battery.
+This 2-pin 1mm-pitch connector is designed to work with a standard RTC battery module for the Raspberry Pi 5 that typically contains a Lithium coin cell battery.
 
 ### <!-- shared-diagram-label m-hat grove-conn title-label-paren -->Grove connector (8)<!-- end -->
 
-The Grove connector allows [Grove accessories](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins D0 and D1 are present on the connector. This allows the use of Grove I2C sensors.
+The Grove connector allows [Grove accessories](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins A1 and A2 are present on the connector. This allows the use of Grove I2C sensors.
+
+{{!-- BEGIN do not edit content below, it is automatically generated f77388d6-01aa-4a52-afa9-8d05985c5907 --}}
+
+| Module Pin | Pin Name | Schematic net | MCU direction | Description |
+| :---: | :--- | :--- | :--- | :--- |
+| 33 | A1 | M2_A1/MISO | I/O | Grove A1, Input, Output, ADC, PWM |
+| 35 | A2 | M2_A2/SCK | I/O | Grove A2, Input, Output, ADC |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 
 ### <!-- shared-diagram-label m-hat qwiic-conn title-label-paren -->Qwiic connector (9)<!-- end -->
@@ -185,7 +195,9 @@ The RESET button resets the Particle SoM module. It does not reset the Raspberry
 
 ### <!-- shared-diagram-label m-hat hat title-label-paren -->Raspberry Pi HAT 40-pin connector (14)<!-- end -->
 
-Allows connection of Raspberry Pi HATs on top of the M-HAT.
+This is a two-sided pass-through 40-pin Raspberry Pi HAT connector.
+
+It is designed to sit on top of a Raspberry Pi, and allows additional HATs to sit on top of the M-HAT.
 
 The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and additional HATs, however the following connections are included:
 
