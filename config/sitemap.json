@@ -1035,8 +1035,8 @@
             "hash": "3e6ce8eb03ea31fad3f13b560ebe2cbb817341b521d26ba392d0a970632fa5e1"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2025-04-16",
-            "hash": "5906561274ddf95cf17af830a64cfad1d499698633e9db04b361468d74bcea55"
+            "date": "2025-04-24",
+            "hash": "914d7a328be671726978ec45b7c11f45b7d87c10f61ee87e744e207f138612cb"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "83b3819b239feba57716ae4b459688d6b1f8648eb83ab16aa01abfabf5c5df02",
-            "date": "2025-04-16"
+            "hash": "f36d1fcc3d3968eb32a15f10665329f51db05b893af61398697e95ecd8ef9da5",
+            "date": "2025-04-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

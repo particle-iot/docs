@@ -74,7 +74,6 @@ instead of using a battery pack temperature sensor.
 
 <p class="attribution">Facing the plug on the battery side</p>
 
-
 {{!-- BEGIN do not edit content below, it is automatically generated 993e47b6-c085-45bf-908b-238bb6c323b8 --}}
 
 | SKU | Description | USB connector | Battery Connector | Lifecycle |
@@ -256,7 +255,98 @@ Shipping mode allows the battery to be disconnected electronically so the discha
 
 Only the Tracker One has built-in support for shipping mode, but all bq24195 devices can use this technique by disabling the BATFET. 
 
+{{!-- sku list will go here c9f92c9a-3485-4faa-a30d-9b49fcb0a76e --}}
+
 An important consideration is that the only way to exit shipping mode is to supply external power, either by USB or VIN. It's not possible to exit shipping mode by time, button press, etc..
+
+This is code, slightly modified from Tracker Edge so you can perform a similar function on other devices. 
+
+You could leave out the RGB LED code if you do not need or want it.
+
+```cpp
+#define SHIPPING_MODE_LED_CYCLE_PERIOD_MS       (250)
+#define SHIPPING_MODE_LED_CYCLE_DURATION_MS     (5000)
+#define SHIPPING_MODE_DEFER_DURATION_MS         (5000) // 5 seconds
+#define SHIPPING_MODE_SAMPLE_MS                 (1000) // 1 second
+#define SHIPPING_MODE_TIMEOUT                   (60) // SHIPPING_MODE_SAMPLE_MS intervals
+
+void enterShippingMode()
+{
+  // blink RGB to signal entering shipping mode 
+  RGB.control(true);
+  RGB.brightness(255);
+  for(int i=0;
+      i < (SHIPPING_MODE_LED_CYCLE_DURATION_MS / SHIPPING_MODE_LED_CYCLE_PERIOD_MS);
+      i++)
+  {
+      // cycle between primary colors
+      RGB.color(((uint32_t) 0xFF) << ((i % 3) * 8));
+      delay(SHIPPING_MODE_LED_CYCLE_PERIOD_MS);
+  }
+
+  // The PMIC will be locked from this point forward with no further changes allowed
+  PMIC pmic(true);
+
+  // Disable charging will ensure there are no asynchronous events that may interrupt
+  // entering of shipping mode
+  pmic.disableCharging();
+
+  // Clear all faults
+  (void)pmic.getFault();
+  (void)pmic.getFault();
+
+  pmic.disableWatchdog();
+
+  pmic.disableBATFET();
+  
+  // If the device was only powered by battery, it will be turned off now, and the rest 
+  // of the code will not be executed.
+
+  // Wait for the PMIC to exit DPDM detection before shutting down
+  int timeout = SHIPPING_MODE_TIMEOUT;
+  while (pmic.isInDPDM() && (timeout-- > 0))
+  {
+      delay(SHIPPING_MODE_SAMPLE_MS);
+  }
+
+  // Clear all faults
+  (void)pmic.getFault();
+  (void)pmic.getFault();
+
+  RGB.brightness(0);
+
+  // Enter sleep with lower level sleep API so power management doesn't override PMIC settings
+  // This is only necessary when powered by USB as well as battery, so device will go to sleep
+  // until USB power is removed, at which point the device will really be in shipping mode.
+  SystemSleepConfiguration config;
+  config.mode(SystemSleepMode::HIBERNATE)
+        .gpio(PMIC_INT, FALLING);
+  hal_sleep_enter(config.halConfig(), nullptr, nullptr);
+
+  // shouldn't hit these lines as never coming back from sleep but out of an
+  // abundance of paranoia force a reset so we don't get stuck in some weird
+  // pseudo-shutdown state
+  System.reset();
+}
+```
+
+If you are going to trigger this from a `Particle.function()` you should set a global variable flag from the function and return from
+the function handler. Then, from `loop()`, do something like this:
+
+```cpp
+bool enterShippingModeFlag = false;
+
+void loop()
+{
+  if (enterShippingModeFlag) {
+    // Allow the function call handler response to be sent to the cloud
+    delay(500);
+    enterShippingMode();
+    // This will never be reached
+  }
+}
+```
+
 
 ### External power detection mode
 

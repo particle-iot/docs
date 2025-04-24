@@ -703,6 +703,32 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }             
         }, 
+        {
+            
+            guid:'c9f92c9a-3485-4faa-a30d-9b49fcb0a76e', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    addMiddle: [
+                    ],
+                    filterFn:function(skuObj) {
+                        if (!skuObj.platformId) {
+                            return true;
+                        }
+
+                        // TODO: Implement this!
+                        
+                        for(const key in updater.datastore.data.deviceConstants) {
+                            if (updater.datastore.data.deviceConstants[key].id == skuObj.platformId) {
+                                const deviceConstantObj = updater.datastore.data.deviceConstants[key];
+                                // console.log('deviceConstantObj', deviceConstantObj);
+                            }
+                        }
+
+                        return true;
+                    }        
+                }); 
+            }             
+        }, 
         // power modules
         {
             

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Shipping mode 2025-04-24
+
+Added instructions for how to implement [shipping mode on non-Tracker devices](/hardware/power/power-supply-guide/#shipping-mode).
+
 ### Carrier list 2025-04-16
 
 When viewing the [Carrier list](/reference/cellular/cellular-carriers/), Country Details view, for a LTE Cat M1 device, if the number of bands is so large that it can't be viewed without scrolling, the unsupported 5G, and sometimes 4G and 3G, will be removed from the table. This only affects the United States and Canada. 
