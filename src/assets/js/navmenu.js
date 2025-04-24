@@ -377,7 +377,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             
         }
 
-        if (itemObj.internal) {
+        if (itemObj.internal && !itemObj.isActivePage) {
             if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
                 continue;
             }
