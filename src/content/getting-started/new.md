@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### T-Mobile US Virgin Islands 2025-04-25
+
+T-Mobile is now included as a "Not officially supported, may work but is untested" carrier in the US Virgin Islands for the B504e and Electron 2.
+
 ### Shipping mode 2025-04-24
 
 Added instructions for how to implement [shipping mode on non-Tracker devices](/hardware/power/power-supply-guide/#shipping-mode).
