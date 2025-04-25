@@ -2108,6 +2108,7 @@ The following countries are not officially supported at this time, but may be co
 | Uruguay | 3G, 4G | Antel, Claro, Movistar |
 | Venezuela | 3G, 4G | Movistar |
 | Virgin Islands (British) | 4G | Flow |
+| Virgin Islands (U.S.) | 4G | T-Mobile (USA) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

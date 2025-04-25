@@ -1434,6 +1434,7 @@ To be provided at a later date.
 <tr><td style="width: 2px; "></td><td>Venezuela</td><td>❓</td><td>Movistar</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Vietnam</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Viettel</td></tr>
 <tr><td style="width: 2px; "></td><td>Virgin Islands (British)</td><td>❓</td><td>Flow</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td style="width: 2px; "></td><td>Virgin Islands (U.S.)</td><td>❓</td><td>T-Mobile (USA)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Zambia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Airtel</td></tr>
 </tbody>
 </table>

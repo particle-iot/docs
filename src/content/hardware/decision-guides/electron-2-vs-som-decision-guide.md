@@ -727,6 +727,7 @@ The e-sim provides a path to future updates to the SIM without having to modify 
 <tr><td>Venezuela</td><td>❓</td><td>4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>3G, 4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td>Vietnam</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>3G, 2G, 4G</td></tr>
 <tr><td>Virgin Islands (British)</td><td>❓</td><td>4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>2G, 3G</td></tr>
+<tr><td>Virgin Islands (U.S.)</td><td>❓</td><td>4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td>Zambia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>4G</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>2G, 3G, 4G</td></tr>
 </tbody>
 </table>

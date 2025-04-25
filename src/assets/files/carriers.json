@@ -25704,6 +25704,27 @@
       ]
     },
     {
+      "country": "Virgin Islands (U.S.)",
+      "carrier": "T-Mobile (USA)",
+      "sunset2G": "?",
+      "sunset3G": "?",
+      "bands": [
+        "4G-4",
+        "4G-5",
+        "4G-12",
+        "4G-66",
+        "4G-71"
+      ],
+      "supersim": {
+        "allow2G": false,
+        "allow3G": false,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
+    },
+    {
       "country": "Yemen",
       "carrier": "MTN Yemen",
       "aliases": [
@@ -163388,7 +163409,22 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -163398,7 +163434,22 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -163418,25 +163469,84 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {},
-      "notSupported": {},
-      "technologies": [],
+      "supported": {
+        "*": [
+          "4G-5"
+        ],
+        "T-Mobile (USA)": [
+          "4G-5"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "recommendation": "NR"
     },
     {
       "country": "Virgin Islands (U.S.)",
       "modem": "EG800Q-NA",
       "sim": 4,
-      "supported": {},
-      "notSupported": {},
-      "technologies": [],
-      "recommendation": "NR"
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-71"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
+      "recommendation": "POSS"
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -163456,7 +163566,22 @@
       "reason": "bands not supported by modem",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -163476,17 +163601,53 @@
       "reason": "bands not supported by modem",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
       "modem": "EG91-NAX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {}
+      "recommendation": "POSS",
+      "technologies": [
+        "4G"
+      ],
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -163516,7 +163677,22 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -163526,7 +163702,22 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -163576,7 +163767,22 @@
       "reason": "country not supported by SIM",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      }
     },
     {
       "country": "Virgin Islands (U.S.)",
