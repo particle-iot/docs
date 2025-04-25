@@ -8,7 +8,7 @@ description: M-HAT Datasheet
 # M-HAT datasheet (preview)
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and there may be changes before release
+This is a pre-review, preliminary datasheet, for internal use only. Changes are likely before release.
 {{box op="end"}}
 
 ![](/assets/images/m-hat/m-hat.png)
@@ -22,7 +22,7 @@ The M-HAT is pass-through HAT (hardware attached on top) for the Raspberry Pi to
 
 It contains the power circuitry similar to the Muon, including the ability to power both the cellular modem and Raspberry Pi using USB-C PD, external DC power, or LiPo battery.
 
-It is intended for use with the B504e (LTE Cat 1 NorAm) and B524 (LTE Cat 1 EMEAA) to provide network connectivity to the Raspberry Pi using [tethering](reference/device-os/tethering/).
+It is intended for use with the B504e (LTE Cat 1 NorAm) and B524 (LTE Cat 1 EMEAA) to provide network connectivity to the Raspberry Pi using [tethering](reference/device-os/tethering/). 
 
 The M-HAT provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow use with additional HATs.
 
@@ -35,6 +35,8 @@ If you are using additional Raspberry Pi HATs, you will typically stack them on 
 If you are using a PoE (Power over Ethernet) HAT, it must go directly against the Raspberry Pi, underneath the M-HAT. This is because PoE has a separate 4-pin connector that directly plugs into to a header next to the Ethernet jack in addition to accessing the 40-pin HAT connector. 
 
 Other pass-through HATs could be used below the M-HAT, if they fit and have appropriate stand-offs so the M-HAT remains secure, as well.
+
+Note that the M-SoM does not support tethering and cannot be used to supply a cellular network connection to a Raspberry Pi with the M-HAT.
 
 ## Diagram
 
@@ -199,7 +201,7 @@ This is a two-sided pass-through 40-pin Raspberry Pi HAT connector.
 
 It is designed to sit on top of a Raspberry Pi, and allows additional HATs to sit on top of the M-HAT.
 
-The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and additional HATs, however the following connections are included:
+The 40-pin Raspberry Pi HAT connector is primarily left for use by the Pi and additional HATs, however the following connections are included between the Particle M.2 SoM and the Pi.
 
 {{imageOverlay src="/assets/images/m-hat/m-hat-pins.svg" alt="Pin Diagram"}}
 
@@ -246,6 +248,8 @@ The RESET button resets the Particle SoM module. It does not reset the Raspberry
 ### <!-- shared-diagram-label m-hat rgb-led title-label-paren -->Particle RGB LED (17)<!-- end -->
 
 This is a standard Particle RGB status LED. It is unaffected by the Raspberry Pi.
+
+See the [Status LED and device modes page](/troubleshooting/led/) for an explanation of colors and patterns.
 
 ## Power
 
@@ -531,6 +535,18 @@ Ethernet, you can still get OTA updates while in safe mode.
 
 After changing the auxiliary power configuration you must reset the device.
 
+### Tethering code - Firmware settings
+
+The following code can be added to your application to enable the UART interface connection and enable
+tethering so the Raspberry Pi can use the B-SoM cellular connection.
+
+{{> codebox content="/assets/files/tether-mhat.cpp" format="cpp" height="400" flash="true"}}
+
+For information about the `Tether` class, see the [Device OS API reference](/reference/device-os/api/tether/).
+
+Note that the M-SoM does not support tethering and cannot be used to supply a cellular network connection to a Raspberry Pi with the M-HAT.
+
+### One-time configuration - Firmware settings
 The following code can be used to enable Ethernet on the M-HAT. This only needs to be done
 once and the device must be reset after configuration for the changes to take effect.  It requires Device OS 5.9.0 or later.
 
@@ -540,6 +556,8 @@ SystemPowerConfiguration powerConfig = System.getPowerConfiguration();
 powerConfig.auxiliaryPowerControlPin(D7).interruptPin(A7);
 System.setPowerConfiguration(powerConfig);
 ```
+
+### Manual configuration - Firmware settings
 
 If you wish to manage the 3V3_AUX power manually from your firmware,
 you can set the `auxiliaryPowerControlPin` to `PIN_INVALID` and reset the device. It will then no longer
@@ -558,29 +576,7 @@ To control `3V3_AUX` manually from your firmware, use `pinMode(D7, OUTPUT)` in `
 
 ## Schematics
 
-{{box op="start" cssClass="boxed warningBox"}}
-These are preliminary (v0.2) schematics and are subject to change.
-{{box op="end"}}
-
-#### Schematics - Page 1
-
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-1.png" alt="Schematic page 1" class="full-width"}}
-
-#### Schematics - Page 2
-
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-2.png" alt="Schematic page 2" class="full-width"}}
-
-#### Schematics - Page 3
-
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-3.png" alt="Schematic page 3" class="full-width"}}
-
-#### Schematics - Page 4
-
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-4.png" alt="Schematic page 4" class="full-width"}}
-
-#### Schematics - Page 5
-
-{{imageOverlay src="/assets/images/m-hat/m-hat-sch-5.png" alt="Schematic page 5" class="full-width"}}
+To be provided at a later date.
 
 ---
 ## Ordering information
