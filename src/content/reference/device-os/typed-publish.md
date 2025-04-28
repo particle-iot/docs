@@ -283,15 +283,24 @@ This example shows how to subscribe to structured data. This is used if you want
 
 ## Community projects
 
-### File upload example
+### File upload example (1)
 
-Github: [file-upload-example](https://github.com/rickkas7/file-upload-example)
+Github: [file-upload-example](https://github.com/rickkas7/file-upload-example) (rickkas7)
 
 This is an example of using large events in Device OS 6.3.0 and later for uploading files to the cloud and processing them using Logic. It's not a standalone library because there are some limitations of this method that make it a little less useful than you'd think, but you may want to use some of the techniques in this example in your code.
 
+### File upload example (2)
+
+Github: [file-upload-example](https://github.com/epietrowicz/file-upload-example) (epietrowicz)
+
+This project shows how to use Particle's extended publish feature (available in 6.3.0+) to upload a number of files from the device's file system.
+
+On boot, a specific number of files will be generated and filled with random values via generateTestFiles. These files serve as an example and would likely be the result of some other process. The files are then queued in `std::vector<FileEntry>` files and serviced in the main loop by the non-blocking uploadNextFile function. The files are deleted upon successful upload via processCompletedUploads.
+
+
 ### PublishQueueExtRK
 
-Github: [PublishQueueExtRK](https://github.com/rickkas7/PublishQueueExtRK)
+Github: [PublishQueueExtRK](https://github.com/rickkas7/PublishQueueExtRK) (rickkas7)
 
 Queued publish for Particle devices using typed and extended publish
 
