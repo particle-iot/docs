@@ -388,7 +388,7 @@ async function run(files, metalsmith) {
                             continue;
                         }
 
-                        newContent += '| ' + labelObj.label + ' | ' + labelObj.title + ' |\n';                        
+                        newContent += '| ' + labelObj.label + ' | ' + labelObj.title + ' | <!-- ' + labelObj.id + ' -->\n';                        
                     }
 
                     m.newContent = newContent;
@@ -422,9 +422,26 @@ async function run(files, metalsmith) {
             }
         }
         if (f.newContent && f.content != f.newContent) {
+            const oldFileContents = fs.readFileSync(f.fsPath, 'utf8');
+
+            let separatorCount = 0;
+            let frontMatter = '';
+            for(const line of oldFileContents.split(/\n/)) {
+                frontMatter += line + '\n';
+
+                if (line == '---') {
+                    separatorCount++;
+
+                    if (separatorCount == 2) {
+                        break;
+                    }
+                }
+            }
+
             console.log('update file', f.relativePath);
             files[f.relativePath].content = Buffer.from(f.newContent, 'utf8');
-            fs.writeFileSync(f.fsPath, f.newContent);
+
+            fs.writeFileSync(f.fsPath, frontMatter + f.newContent);
         }
     }
     // console.log('blurbs', updater.blurbs);

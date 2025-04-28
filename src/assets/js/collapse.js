@@ -370,7 +370,7 @@ imageOverlay.draw = function() {
 	if (info.scaleX > 1 && info.scaleY > 1) {
 		// Canvas is larger than the image in both dimensions (scale up)
 		// The largest value indicates the minimum scaling so the image will fit entirely, possibly with empty space
-		info.scale = Math.max(info.scaleX, info.scaleY);
+		info.scale = Math.min(info.scaleX, info.scaleY);
 	}
 	else
 	if (info.scaleX < 1 && info.scaleY >= 1) {
@@ -401,7 +401,7 @@ imageOverlay.draw = function() {
 	info.dx += Math.floor(imageOverlay.panX  * imageOverlay.zoom);
 	info.dy += Math.floor(imageOverlay.panY  * imageOverlay.zoom);
 
-	// console.log('info', info);
+	// console.log('imageOverlay', {imageOverlay, info});
 
 	// drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
 	ctx.drawImage(imageOverlay.image, 0, 0, imageOverlay.imageWidth, imageOverlay.imageHeight, info.dx, info.dy, info.dWidth, info.dHeight);

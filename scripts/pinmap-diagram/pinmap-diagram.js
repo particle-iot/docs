@@ -69,6 +69,9 @@ const svg = require('./svg');
                 diagram.expandMorePins(diagram.morePlatforms[key].pins);
             }
         }
+        if (options.mergePlatforms) {
+            options.mergePlatforms(diagram, options);
+        }
 
         if (options.comparePlatform) {
             diagram.comparePlatformInfo = diagram.pinInfo.platforms.find(e => e.name == options.comparePlatform);            
@@ -979,7 +982,41 @@ const svg = require('./svg');
         await diagram.generate(options, files);
     };
 
-    diagram.generateM2SoM = async function(generateOptions, files) {        
+    diagram.generateM2SoM = async function(generateOptions, files) {   
+        let defaultColumns = [
+            {
+                width: 30,
+                keys: ['num'],
+            },
+            {
+                width: 60,
+                keys: ['somPin'],
+            },
+            {
+                width: 60,
+                keys: ['name'],
+            },
+            {
+                width: 30,
+                keys: ['altName'],
+            },
+            {
+                keys: ['isPower', 'isControl', 'i2c', 'swd'],
+            },
+            {
+                keys: ['serial'],
+            },
+            {
+                keys: ['spi', 'hardwareADC'],
+            },
+            {
+                keys: ['analogWritePWM'],
+            },
+            {
+                keys: ['hardwarePin'],
+            },
+        ];
+        
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: generateOptions.platformName,
             // deviceImage: 
@@ -998,39 +1035,7 @@ const svg = require('./svg');
                     count: 75,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['num'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['somPin'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns: generateOptions.columns || defaultColumns,
                 },
                 {   // Right side
                     num: 1,
@@ -1042,39 +1047,7 @@ const svg = require('./svg');
                     count: 75,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['num'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['somPin'],
-                        },
-                        {
-                            width: 60,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns: generateOptions.columns || defaultColumns,
                 },
             ],
             incrementFn: function(num) {
@@ -1969,6 +1942,66 @@ const svg = require('./svg');
         await diagram.generate(options, files);
     }
 
+    // Generate image of 10-pin debug connector (also used for M-HAT IOEX)
+    diagram.generateDebug10 = async function(generateOptions, files) {
+
+        let defaultOptions = {
+            // platformName: generateOptions.platformName,
+            // outputPath: generateOptions.outputPath,
+            width: 1000,
+            height: 200,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 498,
+                    y: 50,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 5,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side 
+                    num: 2,
+                    x: 502,
+                    y: 50,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 5,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+            ],
+            preDraw: function(options) {
+                options.draw.circle({
+                    cx: 485,
+                    cy: 26,
+                    r: 5,
+                    fill: '#E6AB00', // gold
+                    stroke: '#E6AB00', // gold
+                    'stroke-width': 1,
+                });
+
+                options.draw.path({
+                    d: 'M467 40 L467 35 L534 35 L534 147 L467 147 L467 100 M467 82 L467 40',
+                    fill: 'none',
+                    stroke: '#808080',
+                    'stroke-width': 2,
+                });
+
+            },
+        }
+
+        let options = Object.assign({}, diagram.optionsCommon, defaultOptions, generateOptions);
+
+
+        await diagram.generate(options, files);
+    }
 
 
     diagram.generatePi = async function(generateOptions, files) {
@@ -2012,6 +2045,7 @@ const svg = require('./svg');
 
         await diagram.generate(options, files);
     }
+
 
     // Similar to generate pi, but rotated 90 CCW
     diagram.generateTachyon = async function(generateOptions, files) {
@@ -2782,7 +2816,111 @@ const svg = require('./svg');
     
         }
 
+        // M-HAT
+        await diagram.generateTachyon(Object.assign({
+            platformName: 'm-hat',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 20,
+                    keys: ['m2Pin'],
+                },
+                {
+                    width: 50,
+                    keys: ['m2Name'],
+                },
+            ],
+            outputPath: 'assets/images/m-hat/m-hat-pins.svg',
+            featureColorsOverride: {
+                name: '#CD2355', // Raspberry Pi color 
+                m2Pin: '#5CECFF', // Particle blue
+                m2Name: '#5CECFF', // Particle blue
+            },
+        }, generateOptions), files);
 
+        await diagram.generateDebug10(Object.assign({
+            platformName: 'm-hat-ioex',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 10,
+                    keys: [], // Filler to leave space for connector boundary
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 50,
+                    keys: ['net'],
+                },
+            ],
+            outputPath: 'assets/images/m-hat/m-hat-ioex.svg',
+            featureColorsOverride: {
+                name: '#5CECFF', // Particle blue
+            },
+        }, generateOptions), files);
+
+        await diagram.generateM2SoM(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'm-hat-m2',
+            outputPath: 'assets/images/m-hat/m-hat-m2.svg',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name', 'baseName'],
+                },
+                {
+                    width: 80,
+                    keys: ['connectedTo'],
+                },
+                {
+                    width: 50,
+                    keys: ['rpiFunction'],
+                },
+            ],
+            featureColorsOverride: {
+                rpiFunction: '#CD2355', // Raspberry Pi color 
+                baseName: '#D9F2F7', // @COLOR_Sky_500
+            },
+            mergePlatforms: function(diagram, options) {
+                basePinInfo = diagram.pinInfo.platforms.find(e => e.name == 'B5xx SoM');       
+                diagram.expandMorePins(basePinInfo.pins);
+
+                // console.log('mergePlatforms', {diagram, options, basePinInfo});
+                for(const basePin of basePinInfo.pins) {
+                    if (!diagram.platformInfo.pins.find(e => e.num == basePin.num)) {
+                        diagram.platformInfo.pins.push({
+                            num: basePin.num,
+                            baseName: basePin.name,
+                        });
+                    }
+                }
+                diagram.platformInfo.pins.sort(function(a, b) {
+                    return a.num - b.num;
+                });
+
+                // console.log('pins after', diagram.platformInfo.pins);
+            },
+    }), files);
+
+
+        // 
+        // M2 eval
+        //
         await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'M.2 SoM breakout board header, B-SoM',
             outputPath: 'assets/images/pi/eval-serial.svg',

@@ -2814,16 +2814,20 @@ const generatorConfig = require('./generator-config');
                     title: ' ',
                 });    
             }
-            tableOptions.columns.push({
-                key: 'analogWritePWM',
-                title: 'PWM',
-                align: 'center',
-                onlyCheckmark: true,
-            });
-            tableOptions.columns.push({
-                key: 'hardwarePin',
-                title: 'MCU'
-            });
+            if (!options.noPWM) {
+                tableOptions.columns.push({
+                    key: 'analogWritePWM',
+                    title: 'PWM',
+                    align: 'center',
+                    onlyCheckmark: true,
+                });    
+            }
+            if (!options.noHardwarePin) {
+                tableOptions.columns.push({
+                    key: 'hardwarePin',
+                    title: 'MCU'
+                });    
+            }
             if (options.includeDesc) {
                 tableOptions.columns.push({
                     key: 'desc',

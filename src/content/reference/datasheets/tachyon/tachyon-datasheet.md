@@ -127,27 +127,27 @@ Power can be supplied by:
 <!-- shared-diagram-table start top-diagram -->
 | Label | Description |
 | ---: | :--- |
-| 1 | Primary USB (USB1) |
-| 2 | Secondary USB (USB2) |
-| 4 | Activity LED |
-| 5 | LiPo battery connector |
-| 6 | DSI/CSI connector - DISP_CAM1 (display or camera) |
-| 7 | CSI connector - CAM2 (camera only) |
-| 8 | GNSS antenna |
-| 9 | Built-in cellular antenna |
-| 10 | QWIIC connector (3.3V I2C)  |
-| 11 | SD card (optional) |
-| 12 | Debug connector (optional) |
-| 13 | Raspberry Pi 40-pin expansion HAT connector |
-| 14 | HAT 5V power direction jumper |
-| 15 | Wi-Fi chip antenna |
-| 16 | PCIe expansion connector |
-| 17 | Device info (serial number data matrix code)  |
-| 18 | Button (power and mode) |
-| 19 | Primary LED |
-| 20 | Audio card connector  |
-| 21 | RTC battery connector (optional) |
-| 22 | Connection for external button (optional) |
+| 1 | Primary USB (USB1) | <!-- primary-usb -->
+| 2 | Secondary USB (USB2) | <!-- secondary-usb -->
+| 4 | Activity LED | <!-- activity-led -->
+| 5 | LiPo battery connector | <!-- lipo -->
+| 6 | DSI/CSI connector - DISP_CAM1 (display or camera) | <!-- dsi-csi -->
+| 7 | CSI connector - CAM2 (camera only) | <!-- csi -->
+| 8 | GNSS antenna | <!-- gnss-ufl -->
+| 9 | Built-in cellular antenna | <!-- antennas -->
+| 10 | QWIIC connector (3.3V I2C)  | <!-- qwiic -->
+| 11 | SD card (optional) | <!-- sd -->
+| 12 | Debug connector (optional) | <!-- debug-connector -->
+| 13 | Raspberry Pi 40-pin expansion HAT connector | <!-- hat -->
+| 14 | HAT 5V power direction jumper | <!-- hat-power-jumper -->
+| 15 | Wi-Fi chip antenna | <!-- wifi-antenna -->
+| 16 | PCIe expansion connector | <!-- pcie -->
+| 17 | Device info (serial number data matrix code)  | <!-- device-info -->
+| 18 | Button (power and mode) | <!-- button -->
+| 19 | Primary LED | <!-- primary-led -->
+| 20 | Audio card connector  | <!-- audio-connector -->
+| 21 | RTC battery connector (optional) | <!-- rtc-battery -->
+| 22 | Connection for external button (optional) | <!-- external-button -->
 <!-- shared-diagram-table end top-diagram -->
 
 

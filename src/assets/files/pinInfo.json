@@ -301,6 +301,773 @@
   "platforms": [
     {
       "id": 0,
+      "name": "m-hat",
+      "pins": [
+        {
+          "num": 1,
+          "name": "3V3",
+          "desc": "3.3V power",
+          "isPower": true,
+          "morePins": [
+            17
+          ],
+          "net": "3V3_RPI"
+        },
+        {
+          "num": 2,
+          "name": "5V",
+          "desc": "5V power",
+          "isPower": true,
+          "morePins": [
+            4
+          ]
+        },
+        {
+          "num": 3,
+          "name": "GPIO2",
+          "desc": "GPIO2, SDA",
+          "isIO": true,
+          "rpiGPIO": 2
+        },
+        {
+          "num": 5,
+          "name": "GPIO3",
+          "desc": "GPIO3, SCL",
+          "isIO": true,
+          "rpiGPIO": 3
+        },
+        {
+          "num": 6,
+          "name": "GND",
+          "desc": "Ground",
+          "isPower": true,
+          "morePins": [
+            9,
+            14,
+            20,
+            25,
+            30,
+            34,
+            39
+          ],
+          "net": "GND"
+        },
+        {
+          "num": 7,
+          "name": "GPIO4",
+          "desc": "GPIO4, GPCKL0",
+          "isIO": true,
+          "m2Name": "CS",
+          "m2Pin": 48,
+          "net": "WAKE_RPI_ON/OFF",
+          "rpiGPIO": 4
+        },
+        {
+          "num": 8,
+          "name": "GPIO14",
+          "desc": "GPIO14, TXD0",
+          "isIO": true,
+          "m2Name": "RXD",
+          "m2Pin": 38,
+          "net": "M2_RXD_E",
+          "rpiGPIO": 14,
+          "serial": "UART0_TX",
+          "uart0": "UART0_TX"
+        },
+        {
+          "num": 10,
+          "name": "GPIO15",
+          "desc": "GPIO15, RXD0",
+          "isIO": true,
+          "m2Name": "TXD",
+          "m2Pin": 36,
+          "net": "M2_TXD_E",
+          "rpiGPIO": 15,
+          "serial": "UART0_RX",
+          "uart0": "UART0_RX"
+        },
+        {
+          "num": 11,
+          "name": "GPIO17",
+          "desc": "GPIO17",
+          "isIO": true,
+          "m2Name": "CTS",
+          "m2Pin": 40,
+          "net": "M2_D3/CTS_E",
+          "rpiGPIO": 17,
+          "serial": "UART0_RTS",
+          "uart0": "UART0_RTS"
+        },
+        {
+          "num": 12,
+          "name": "GPIO18",
+          "desc": "GPIO18",
+          "isIO": true,
+          "rpiGPIO": 18
+        },
+        {
+          "num": 13,
+          "name": "GPIO27",
+          "altName": "GPIO27",
+          "isIO": true,
+          "rpiGPIO": 27
+        },
+        {
+          "num": 15,
+          "name": "GPIO22",
+          "desc": "GPIO22",
+          "isIO": true,
+          "rpiGPIO": 22
+        },
+        {
+          "num": 16,
+          "name": "GPIO23",
+          "desc": "GPIO23",
+          "isIO": true,
+          "rpiGPIO": 23
+        },
+        {
+          "num": 18,
+          "name": "GPIO24",
+          "desc": "GPIO24",
+          "isIO": true,
+          "rpiGPIO": 24
+        },
+        {
+          "num": 19,
+          "name": "GPIO10",
+          "desc": "GPIO10, MOSI",
+          "isIO": true,
+          "rpiGPIO": 10
+        },
+        {
+          "num": 21,
+          "name": "GPIO9",
+          "desc": "GPIO9, MISO",
+          "isIO": true,
+          "rpiGPIO": 9
+        },
+        {
+          "num": 22,
+          "name": "GPIO25",
+          "desc": "GPIO25",
+          "isIO": true,
+          "rpiGPIO": 25
+        },
+        {
+          "num": 23,
+          "name": "GPIO11",
+          "desc": "GPIO11, SCLK",
+          "isIO": true,
+          "rpiGPIO": 11
+        },
+        {
+          "num": 24,
+          "name": "GPIO8",
+          "desc": "GPIO8, SPI CE0",
+          "isIO": true,
+          "rpiGPIO": 8
+        },
+        {
+          "num": 26,
+          "name": "GPIO7",
+          "desc": "GPIO7, SPI CE1",
+          "isIO": true,
+          "rpiGPIO": 7
+        },
+        {
+          "num": 27,
+          "name": "GPIO0",
+          "desc": "GPIO0, ID_SD",
+          "i2c": "I2S0_SDA",
+          "isIO": true,
+          "rpiGPIO": 0
+        },
+        {
+          "num": 28,
+          "name": "GPIO1",
+          "desc": "GPIO1 (ID_SC)",
+          "i2c": "I2S0_SCL",
+          "isIO": true,
+          "rpiGPIO": 1
+        },
+        {
+          "num": 29,
+          "name": "GPIO5",
+          "desc": "GPIO5",
+          "isIO": true,
+          "rpiGPIO": 5
+        },
+        {
+          "num": 31,
+          "name": "GPIO6",
+          "desc": "GPIO6",
+          "isIO": true,
+          "rpiGPIO": 6
+        },
+        {
+          "num": 32,
+          "name": "GPIO12",
+          "desc": "GPIO12, PWM0",
+          "isIO": true,
+          "pwm": "PWM0",
+          "rpiGPIO": 12
+        },
+        {
+          "num": 33,
+          "name": "GPIO13",
+          "desc": "GPIO13, PWM1",
+          "isIO": true,
+          "pwm": "PWM1",
+          "rpiGPIO": 13
+        },
+        {
+          "num": 35,
+          "name": "GPIO19",
+          "desc": "GPIO19, PCM_FS",
+          "i2s": "I2S WS",
+          "isIO": true,
+          "rpiGPIO": 19
+        },
+        {
+          "num": 36,
+          "name": "GPIO16",
+          "desc": "GPIO16",
+          "isIO": true,
+          "m2Name": "RTS",
+          "m2Pin": 42,
+          "net": "M2_D2/RTS_E",
+          "rpiGPIO": 16,
+          "serial": "UART0_CTS",
+          "uart0": "UART0_CTS"
+        },
+        {
+          "num": 37,
+          "name": "GPIO26",
+          "desc": "GPIO26",
+          "isIO": true,
+          "rpiGPIO": 26
+        },
+        {
+          "num": 38,
+          "name": "GPIO20",
+          "desc": "GPIO20, PCM_DIN",
+          "isIO": true,
+          "rpiGPIO": 20
+        },
+        {
+          "num": 40,
+          "name": "GPIO21",
+          "desc": "GPIO21, PCM_DOUT",
+          "isIO": true,
+          "rpiGPIO": 21
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      }
+    },
+    {
+      "id": 0,
+      "name": "m-hat-ioex",
+      "pins": [
+        {
+          "num": 1,
+          "name": "3V3",
+          "desc": "3.3V power",
+          "isPower": true,
+          "net": "3V3"
+        },
+        {
+          "num": 2,
+          "name": "GND",
+          "desc": "Ground",
+          "isPower": true,
+          "net": "GND"
+        },
+        {
+          "num": 3,
+          "name": "A5",
+          "altName": "D14",
+          "desc": "A5 Analog in, GPIO",
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwareADC": "ADC7",
+          "hardwarePin": "P0.31",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_A5",
+          "somPin": "RESERVED",
+          "tone": false
+        },
+        {
+          "num": 4,
+          "name": "D23",
+          "desc": "GPIO",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwarePin": "P1.03",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_D23",
+          "somPin": "GPIO1",
+          "tone": false
+        },
+        {
+          "num": 5,
+          "name": "A6",
+          "desc": "A6 Analog in, PWM, GPIO",
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwareADC": "ADC3",
+          "hardwarePin": "P0.05",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_A6",
+          "somPin": "RESERVED",
+          "tone": "A0, A1, A6, and A7 must have the same frequency."
+        },
+        {
+          "num": 6,
+          "name": "D24",
+          "desc": "D24 on M-SoM, NC on B-SoM",
+          "isIO": true,
+          "net": "M2_D24"
+        },
+        {
+          "num": 7,
+          "name": "SOM14",
+          "desc": "SOM14 (M.2 Pin 51), NC",
+          "isIO": true,
+          "net": "SOM14"
+        },
+        {
+          "num": 8,
+          "name": "D25",
+          "desc": "D25 on M-SoM, NC on B-SoM",
+          "isIO": true,
+          "net": "M2_D25"
+        },
+        {
+          "num": 9,
+          "name": "SOM17",
+          "desc": "SOM 17 (M.2 Pin 57), NC",
+          "isIO": true,
+          "net": "SOM17"
+        },
+        {
+          "num": 10,
+          "name": "D6",
+          "desc": "PWM, GPIO",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "hardwarePin": "P1.04",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_D6",
+          "somPin": "PWM2",
+          "tone": "D4, D5, and D6 must have the same frequency."
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      }
+    },
+    {
+      "id": 0,
+      "name": "m-hat-m2",
+      "pins": [
+        {
+          "num": 17,
+          "name": "D21",
+          "desc": "USB PD controller reset, pin is NFC1 on B-SoM",
+          "connectedTo": "STUSB4500",
+          "direction": "O",
+          "isIO": true,
+          "net": "PD_RST"
+        },
+        {
+          "num": 19,
+          "name": "D20",
+          "desc": "USB PD controller alert, pin is NFC2 on B-SoM",
+          "connectedTo": "STUSB4500",
+          "direction": "I",
+          "isIO": true,
+          "net": "PD_ALERT"
+        },
+        {
+          "num": 20,
+          "name": "SCL",
+          "desc": "I2C SCL",
+          "connectedTo": "Multiple",
+          "direction": "I/O",
+          "net": "M2_SCL"
+        },
+        {
+          "num": 22,
+          "name": "SDA",
+          "desc": "I2C SDA",
+          "connectedTo": "Multiple",
+          "direction": "I/O",
+          "net": "M2_SDA"
+        },
+        {
+          "num": 23,
+          "name": "A0",
+          "desc": "HIGH to enable SoM to Pi UART",
+          "connectedTo": "FSA2567",
+          "digitalWrite": true,
+          "direction": "O",
+          "isIO": true,
+          "net": "SEL"
+        },
+        {
+          "num": 32,
+          "name": "MODE",
+          "desc": "MODE button for Particle SoM",
+          "connectedTo": "MODE button",
+          "direction": "I",
+          "net": "M2/MODE"
+        },
+        {
+          "num": 33,
+          "name": "A1",
+          "desc": "Grove A1, Input, Output, ADC, PWM",
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "Grove A1",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "direction": "I/O",
+          "hardwareADC": "ADC2",
+          "hardwarePin": "P0.04",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_A1/MISO",
+          "somPin": "ADC1",
+          "tone": "A0, A1, A6, and A7 must have the same frequency."
+        },
+        {
+          "num": 34,
+          "name": "RESET",
+          "desc": "RESET button for Particle SoM",
+          "connectedTo": "RESET button",
+          "direction": "I",
+          "net": "M2/RESET"
+        },
+        {
+          "num": 35,
+          "name": "A2",
+          "desc": "Grove A2, Input, Output, ADC",
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "Grove A2",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "direction": "I/O",
+          "hardwareADC": "ADC4",
+          "hardwarePin": "P0.28",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_A2/SCK",
+          "somPin": "ADC2",
+          "tone": false
+        },
+        {
+          "num": 36,
+          "name": "TXD",
+          "desc": "UART serial TXD, connects to Pi UART0 RXD",
+          "connectedTo": "HAT",
+          "direction": "O",
+          "isIO": true,
+          "net": "M2_TXD",
+          "rpiFunction": "UART0_RX",
+          "rpiGPIO": "GPIO15",
+          "serial": "Serial1 TX|TX. Use Serial1 object.",
+          "somPin": "TX"
+        },
+        {
+          "num": 37,
+          "name": "A3",
+          "desc": "LiPo to 5V boost converter (HIGH to turn off, default on)",
+          "connectedTo": "DML3006",
+          "digitalWrite": true,
+          "direction": "O",
+          "isIO": true,
+          "net": "EN1_CTR"
+        },
+        {
+          "num": 38,
+          "name": "RXD",
+          "desc": "UART serial RXD, connects to Pi UART0 TXD",
+          "connectedTo": "HAT",
+          "direction": "I",
+          "isIO": true,
+          "net": "M2_RXD",
+          "rpiFunction": "UART0_TX",
+          "rpiGPIO": "GPIO14",
+          "serial": "Serial1 RX|RX. Use Serial1 object.",
+          "somPin": "RX"
+        },
+        {
+          "num": 40,
+          "name": "CTS",
+          "desc": "UART serial CTS, connects to Pi UART0 RTS",
+          "connectedTo": "HAT",
+          "direction": "I",
+          "isIO": true,
+          "net": "M2_D3/CTS",
+          "rpiFunction": "UART0_RTS",
+          "rpiGPIO": "GPIO17",
+          "serial": "Serial1 CTS|CTS. Use Serial1 object.",
+          "somPin": "RESERVED"
+        },
+        {
+          "num": 41,
+          "name": "A4",
+          "desc": "DCIN or USB boost-buck converter (HIGH to turn off, default on)",
+          "connectedTo": "MP28167",
+          "digitalWrite": true,
+          "direction": "O",
+          "isIO": true,
+          "net": "EN2_CTR"
+        },
+        {
+          "num": 42,
+          "name": "RTS",
+          "desc": "UART serial RTS, connects to Pi UART0 CTS",
+          "connectedTo": "HAT",
+          "direction": "O",
+          "isIO": true,
+          "net": "M2_D2/RTS",
+          "rpiFunction": "UART0_CTS",
+          "rpiGPIO": "GPIO16",
+          "serial": "Serial1 RTS|RTS. Use Serial1 object.",
+          "somPin": "RESERVED"
+        },
+        {
+          "num": 47,
+          "name": "A7",
+          "desc": "PMIC and fuel gauge interrupt output",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "PM-BAT",
+          "digitalRead": true,
+          "direction": "I",
+          "isIO": true,
+          "net": "M2_A7/PMIC_INT"
+        },
+        {
+          "num": 48,
+          "name": "CS",
+          "desc": "Pi power control by GPIO4",
+          "connectedTo": "HAT",
+          "digitalWrite": true,
+          "direction": "O",
+          "isIO": true,
+          "net": "WAKE_RPI_CTR",
+          "rpiFunction": "GPIO4",
+          "rpiGPIO": "GPIO4"
+        },
+        {
+          "num": 51,
+          "name": "SOM14",
+          "desc": "NC on B-SoM",
+          "connectedTo": "IOEX connector",
+          "direction": "I/O",
+          "net": "SOM14"
+        },
+        {
+          "num": 57,
+          "name": "SOM17",
+          "desc": "NC on B-SoM",
+          "connectedTo": "IOEX connector",
+          "direction": "I/O",
+          "net": "SOM17"
+        },
+        {
+          "num": 58,
+          "name": "D24",
+          "desc": "On IOEX connector, NC on B-SoM",
+          "connectedTo": "IOEX connector",
+          "direction": "I/O",
+          "net": "M2_D24"
+        },
+        {
+          "num": 59,
+          "name": "D26",
+          "desc": "USB PD controller attach interrupt, NC on B-SoM",
+          "connectedTo": "STUSB4500",
+          "direction": "I",
+          "net": "PD_ATTACH"
+        },
+        {
+          "num": 60,
+          "name": "D25",
+          "desc": "On IOEX connector, NC on B-SoM",
+          "connectedTo": "IOEX connector",
+          "direction": "I/O",
+          "net": "M2_D25"
+        },
+        {
+          "num": 62,
+          "name": "D22",
+          "desc": "HIGH when Pi is supplying 3V3 to the HAT connector",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "HAT connector",
+          "digitalRead": true,
+          "direction": "I",
+          "isIO": true,
+          "net": "3V3_DETECTION"
+        },
+        {
+          "num": 64,
+          "name": "D23",
+          "desc": "GPIO on IOEX connector",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "IOEX connector",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "direction": "I/O",
+          "hardwarePin": "P1.03",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_D23",
+          "somPin": "GPIO1",
+          "tone": false
+        },
+        {
+          "num": 66,
+          "name": "D4",
+          "desc": "Temperature sensor ALERT output",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "TMP112A",
+          "digitalRead": true,
+          "direction": "I",
+          "isIO": true,
+          "net": "TEMP_ALERT"
+        },
+        {
+          "num": 68,
+          "name": "D5",
+          "desc": "RTC/Watchdog FOUT/IRQ output",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "AB1805",
+          "digitalRead": true,
+          "direction": "I",
+          "isIO": true,
+          "net": "RTC_INT"
+        },
+        {
+          "num": 70,
+          "name": "D6",
+          "desc": "PWM, GPIO on IOEX connector",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "connectedTo": "IOEX connector",
+          "digitalRead": true,
+          "digitalWrite": true,
+          "direction": "I/O",
+          "hardwarePin": "P1.04",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "is5VTolerant": false,
+          "isIO": true,
+          "net": "M2_D6",
+          "somPin": "PWM2",
+          "tone": "D4, D5, and D6 must have the same frequency."
+        },
+        {
+          "num": 72,
+          "name": "D7",
+          "desc": "3V3_AUX power control (HIGH to turn on)",
+          "connectedTo": "PM-BAT",
+          "digitalWrite": true,
+          "direction": "O",
+          "isIO": true,
+          "net": "D7/AUX_POWER_EN"
+        }
+      ],
+      "diagram": {
+        "columns": []
+      }
+    },
+    {
+      "id": 0,
       "name": "M.2 SoM breakout board Feather, B-SoM",
       "pins": [
         {

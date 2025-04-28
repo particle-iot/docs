@@ -1,0 +1,288 @@
+{
+    "id": 0,
+    "name": "m-hat",
+    "pins": [
+        {
+            "num": 1,
+            "name": "3V3",
+            "desc": "3.3V power",
+            "isPower": true,
+            "morePins": [
+                17
+            ],
+            "net": "3V3_RPI"
+        },
+        {
+            "num": 2,
+            "name": "5V",
+            "desc": "5V power",
+            "isPower": true,
+            "morePins": [
+                4
+            ]
+        },
+        {
+            "num": 3,
+            "name": "GPIO2",
+            "desc": "GPIO2, SDA",
+            "isIO": true,
+            "rpiGPIO": 2
+        },
+        {
+            "num": 5,
+            "name": "GPIO3",
+            "desc": "GPIO3, SCL",
+            "isIO": true,
+            "rpiGPIO": 3
+        },
+        {
+            "num": 6,
+            "name": "GND",
+            "desc": "Ground",
+            "isPower": true,
+            "morePins": [
+                9,
+                14,
+                20,
+                25,
+                30,
+                34,
+                39
+            ],
+            "net": "GND"
+        },
+        {
+            "num": 7,
+            "name": "GPIO4",
+            "desc": "GPIO4, GPCKL0",
+            "isIO": true,
+            "m2Name": "CS",
+            "m2Pin": 48,
+            "net": "WAKE_RPI_ON/OFF",
+            "rpiGPIO": 4
+        },
+        {
+            "num": 8,
+            "name": "GPIO14",
+            "desc": "GPIO14, TXD0",
+            "isIO": true,
+            "m2Name": "RXD",
+            "m2Pin": 38,
+            "net": "M2_RXD_E",
+            "rpiGPIO": 14,
+            "serial": "UART0_TX",
+            "uart0": "UART0_TX"
+        },
+        {
+            "num": 10,
+            "name": "GPIO15",
+            "desc": "GPIO15, RXD0",
+            "isIO": true,
+            "m2Name": "TXD",
+            "m2Pin": 36,
+            "net": "M2_TXD_E",
+            "rpiGPIO": 15,
+            "serial": "UART0_RX",
+            "uart0": "UART0_RX"
+        },
+        {
+            "num": 11,
+            "name": "GPIO17",
+            "desc": "GPIO17",
+            "isIO": true,
+            "m2Name": "CTS",
+            "m2Pin": 40,
+            "net": "M2_D3/CTS_E",
+            "rpiGPIO": 17,
+            "serial": "UART0_RTS",
+            "uart0": "UART0_RTS"
+        },
+        {
+            "num": 12,
+            "name": "GPIO18",
+            "desc": "GPIO18",
+            "isIO": true,
+            "rpiGPIO": 18
+        },
+        {
+            "num": 13,
+            "name": "GPIO27",
+            "altName": "GPIO27",
+            "isIO": true,
+            "rpiGPIO": 27
+        },
+        {
+            "num": 15,
+            "name": "GPIO22",
+            "desc": "GPIO22",
+            "isIO": true,
+            "rpiGPIO": 22
+        },
+        {
+            "num": 16,
+            "name": "GPIO23",
+            "desc": "GPIO23",
+            "isIO": true,
+            "rpiGPIO": 23
+        },
+        {
+            "num": 18,
+            "name": "GPIO24",
+            "desc": "GPIO24",
+            "isIO": true,
+            "rpiGPIO": 24
+        },
+        {
+            "num": 19,
+            "name": "GPIO10",
+            "desc": "GPIO10, MOSI",
+            "isIO": true,
+            "rpiGPIO": 10
+        },
+        {
+            "num": 21,
+            "name": "GPIO9",
+            "desc": "GPIO9, MISO",
+            "isIO": true,
+            "rpiGPIO": 9
+        },
+        {
+            "num": 22,
+            "name": "GPIO25",
+            "desc": "GPIO25",
+            "isIO": true,
+            "rpiGPIO": 25
+        },
+        {
+            "num": 23,
+            "name": "GPIO11",
+            "desc": "GPIO11, SCLK",
+            "isIO": true,
+            "rpiGPIO": 11
+        },
+        {
+            "num": 24,
+            "name": "GPIO8",
+            "desc": "GPIO8, SPI CE0",
+            "isIO": true,
+            "rpiGPIO": 8
+        },
+        {
+            "num": 26,
+            "name": "GPIO7",
+            "desc": "GPIO7, SPI CE1",
+            "isIO": true,
+            "rpiGPIO": 7
+        },
+        {
+            "num": 27,
+            "name": "GPIO0",
+            "desc": "GPIO0, ID_SD",
+            "i2c": "I2S0_SDA",
+            "isIO": true,
+            "rpiGPIO": 0
+        },
+        {
+            "num": 28,
+            "name": "GPIO1",
+            "desc": "GPIO1 (ID_SC)",
+            "i2c": "I2S0_SCL",
+            "isIO": true,
+            "rpiGPIO": 1
+        },
+        {
+            "num": 29,
+            "name": "GPIO5",
+            "desc": "GPIO5",
+            "isIO": true,
+            "rpiGPIO": 5
+        },
+        {
+            "num": 31,
+            "name": "GPIO6",
+            "desc": "GPIO6",
+            "isIO": true,
+            "rpiGPIO": 6
+        },
+        {
+            "num": 32,
+            "name": "GPIO12",
+            "desc": "GPIO12, PWM0",
+            "isIO": true,
+            "pwm": "PWM0",
+            "rpiGPIO": 12
+        },
+        {
+            "num": 33,
+            "name": "GPIO13",
+            "desc": "GPIO13, PWM1",
+            "isIO": true,
+            "pwm": "PWM1",
+            "rpiGPIO": 13
+        },
+        {
+            "num": 35,
+            "name": "GPIO19",
+            "desc": "GPIO19, PCM_FS",
+            "i2s": "I2S WS",
+            "isIO": true,
+            "rpiGPIO": 19
+        },
+        {
+            "num": 36,
+            "name": "GPIO16",
+            "desc": "GPIO16",
+            "isIO": true,
+            "m2Name": "RTS",
+            "m2Pin": 42,
+            "net": "M2_D2/RTS_E",
+            "rpiGPIO": 16,
+            "serial": "UART0_CTS",
+            "uart0": "UART0_CTS"
+        },
+        {
+            "num": 37,
+            "name": "GPIO26",
+            "desc": "GPIO26",
+            "isIO": true,
+            "rpiGPIO": 26
+        },
+        {
+            "num": 38,
+            "name": "GPIO20",
+            "desc": "GPIO20, PCM_DIN",
+            "isIO": true,
+            "rpiGPIO": 20
+        },
+        {
+            "num": 40,
+            "name": "GPIO21",
+            "desc": "GPIO21, PCM_DOUT",
+            "isIO": true,
+            "rpiGPIO": 21
+        }
+    ],
+    "diagram": {
+        "columns": [
+            "num",
+            "name",
+            [
+                "isPower",
+                "hardwareADC",
+                "i2c"
+            ],
+            [
+                "spi",
+                "swd"
+            ],
+            [],
+            [
+                "hardwareTimer"
+            ],
+            [
+                "serial"
+            ],
+            "hardwarePin"
+        ]
+    }
+}

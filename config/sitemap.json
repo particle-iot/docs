@@ -927,8 +927,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-04-16",
-            "hash": "db9fd042b223436aa14252853d491bcefdc5e0721ecd36075c1d0298b2da8606"
+            "date": "2025-04-28",
+            "hash": "5fa71c3e185df05260f9890fd7295445289e5c0e7050b185d72e1f6dae86909b"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -8395,8 +8395,8 @@
             "date": "2025-04-10"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "c9bacf81a2b2c52062c56322c9b889415104c597ceb51e1c2f2b67184d41ef49",
-            "date": "2025-04-01"
+            "hash": "b4240e4ef581bfe7b075e664af76e5a33cbdc7dc115b8e1f11dd86a6df786bb4",
+            "date": "2025-04-22"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "55bd1c2cb4b7379251deb05c78ed7a08c0873a6129078cd39587475fff8ccef6",
-            "date": "2025-04-01"
+            "hash": "58101fc62021a5d29cd6cb2619f091635d9a3b0455b92476904c91f6f73e42a8",
+            "date": "2025-04-22"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -9703,8 +9703,8 @@
             "date": "2025-03-03"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "c171df98a2b559148f75d34fa0b8e558ef48f1dccc1bbdcf273dfb9d45e61b67",
-            "date": "2025-03-06"
+            "hash": "bcf1d246a004039597a7f5c711bf30a368502de5cbb6f3a5134205d99fe2f43f",
+            "date": "2025-04-21"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "7e2540bf721eee32ac6be96598bb76a4f162b6f8c52984d817ccfd28e729b7ad",

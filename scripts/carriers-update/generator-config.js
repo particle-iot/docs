@@ -5275,6 +5275,355 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        // M-HAT
+        {
+            // SKU list MHAT
+            guid:'47e37393-b9c0-4b04-9da6-e54cb2227cd1', 
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    columns: ['name', 'desc', 'region', 'lifecycle'],
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MHAT');
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid: '5c7622c6-ae73-4a5b-88b6-e761ee69fa3f',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: true, 
+                    sortByNum: false,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    // pinFilterFn return true to hide pin
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'connectedTo',
+                            title: 'Connected to'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                        {
+                            key: 'num',
+                            title: 'M.2 pin'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },        
+        {
+            guid: 'bf89b87e-f66f-4de9-9a5e-fc88a792cf7b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'IOEX connector';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },    
+        {
+            guid: '3f9e11ff-5582-435d-af08-5e087b63414b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'STUSB4500';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },    
+        {
+            guid: 'f6622f00-cc13-43e4-99d4-c955ed253710',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'TMP112A';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },  
+        {
+            guid: 'f77388d6-01aa-4a52-afa9-8d05985c5907',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return !pinObj.connectedTo.startsWith('Grove');
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },  
+        {
+            guid: 'e37904f1-301c-4f2b-97a9-3bab92a6acd3',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'AB1805';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },  
+        {
+            guid: 'cc5c6247-5bdb-43bd-8b18-24954f4adea4',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'PM-BAT';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },      
+        {
+            guid: '7f56ea43-30ef-4cb1-988a-3d7e31247bc9',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'FSA2567';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },  
+        {
+            guid: 'f90b1182-87f3-4aa6-8599-01504bfdff97',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        // return pinObj.connectedTo != 'DML3006';
+                        return !pinObj.net.match(/EN[0-9]_CTR/);
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },          
+        {
+            guid: '04c52083-eb85-46a7-b2a7-c366be119571',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'm-hat-m2',
+                    noPinNumbers: true, // num is M.2 pin number, which doesn't make sense
+                    sortByNum: true,
+                    includeDesc: false,
+                    noPWM: true,
+                    noHardwarePin: true,
+                    pinFilterFn: function(pinObj) {
+                        return pinObj.connectedTo != 'HAT';
+                    },
+                    rightColumns: [
+                        {
+                            key: 'net',
+                            title: 'Schematic net'
+                        },
+                        {
+                            key: 'direction',
+                            title: 'MCU direction'
+                        },
+                        {
+                            key: 'desc',
+                            title: 'Description'
+                        },
+                        {
+                            key: 'rpiGPIO',
+                            title: 'Pi Pin',
+                        },
+                        {
+                            key: 'rpiFunction',
+                            title: 'Pi Function',
+                        }
+                    ],
+                    functionCols: [],
+                }); 
+            } 
+        },    
+
         // Tethering
         {
             guid:'7dc335b7-4ddc-464d-ae96-6231944ccc76', 

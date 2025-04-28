@@ -258,7 +258,7 @@ For prototyping and personal use you may be able to use different cellular anten
 
 All Particle cellular devices have a U.FL antenna connector. Most cellular antennas have a SMA connector, so you'll need an adapter. At Adafruit, you can get [this adapter](https://www.adafruit.com/product/851). At SparkFun [this adapter](https://www.sparkfun.com/products/9145). At Amazon [this adapter](https://www.amazon.com/gp/product/B01AJQ33Y4/ref=ppx_yo_dt_b_search_asin_title).
 
-[This antenna from Amazon](https://www.amazon.com/Eightwood-Antenna-Magnetic-Connector-2100Mhz/dp/B010EU5C1W/ref=pd_ybh_a_77) is about 4" long, has a magnetic mount, and a 3 meter cable. It is helpful in improving reception in fringe areas. Or for more gain, a [12" antenna](https://www.wilsonamplifiers.com/12-inch-magnet-mount-antenna-12ft-sma-male-311125/).
+One common option is a 4" magnetic mount whip antenna with a long cable and SMA connector. They are commonly used in automotive applications so the antenna can be mounted outside of the vehicle.
 
 ### Cellular boosters and micro cells
 
