@@ -54,9 +54,9 @@ Note that the M-SoM does not support tethering and cannot be used to supply a ce
 | 7 | RTC Battery | <!-- rtc-conn -->
 | 8 | Grove connector | <!-- grove-conn -->
 | 9 | Qwiic connector | <!-- qwiic-conn -->
-| 10 | SMA connector (GNSS) | <!-- sma-gnss -->
-| 11 | SMA connector (BLE) | <!-- sma-ble -->
-| 12 | SMA connector (cellular) | <!-- sma-cellular -->
+| 10 | SMA connector - GNSS | <!-- sma-gnss -->
+| 11 | SMA connector - BLE | <!-- sma-ble -->
+| 12 | SMA connector - Cellular | <!-- sma-cellular -->
 | 13 | Particle RESET button | <!-- reset-button -->
 | 14 | Raspberry Pi HAT 40-pin connector | <!-- hat -->
 | 15 | Particle M.2 SoM | <!-- m2-som -->
@@ -147,7 +147,7 @@ This 2-pin 1mm-pitch connector is designed to work with a standard RTC battery m
 
 ### <!-- shared-diagram-label m-hat grove-conn title-label-paren -->Grove connector (8)<!-- end -->
 
-The Grove connector allows [Grove accessories](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins A1 and A2 are present on the connector. This allows the use of Grove I2C sensors.
+The Grove connector allows [Grove accessories](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins A1 and A2 are present on the connector. This allows the use of Grove analog and digital sensors.
 
 {{!-- BEGIN do not edit content below, it is automatically generated f77388d6-01aa-4a52-afa9-8d05985c5907 --}}
 
@@ -165,7 +165,7 @@ The Grove connector allows [Grove accessories](/reference/datasheets/accessories
 
 [Qwiic](/hardware/expansion/qwiic/) is a 3.3V I2C standard developed by SparkFun and adopted by other manufacturers. It's also compatible with Adafruit Stemma Qt expansion devices. You can use this to add displays, sensors, etc. and multiple devices can be connected to a single Qwiic port, as accessory boards have two connectors for chaining multiple sensors.
 
-### <!-- shared-diagram-label m-hat sma-gnss title-label-paren -->SMA connector (GNSS) (10)<!-- end -->
+### <!-- shared-diagram-label m-hat sma-gnss title-label-paren -->SMA connector - GNSS (10)<!-- end -->
 
 The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that typically connects to the Particle SoM module such as the B-SoM. 
 
@@ -173,7 +173,7 @@ The GNSS antenna is only required if you are using GNSS.
 
 Many off-the-shelf GNSS antennas include a SMA connector, so the built-in adapter can be useful in this case. Since GNSS does not transmit, using an alternative GNSS antenna does not require intentional radiator certification.
 
-### <!-- shared-diagram-label m-hat sma-ble title-label-paren -->SMA connector (BLE) (11)<!-- end -->
+### <!-- shared-diagram-label m-hat sma-ble title-label-paren -->SMA connector - BLE (11)<!-- end -->
 
 The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that typically connects to the Particle SoM module such as the B-SoM. 
 
@@ -183,7 +183,7 @@ Often you will attach the Particle 2.4 GHz BLE/Wi-Fi antenna directly to the B-S
 
 Using an alternative BLE antenna with a SMA connector will require intentional radiator certification. 
 
-### <!-- shared-diagram-label m-hat sma-cellular title-label-paren -->SMA connector (cellular) (12)<!-- end -->
+### <!-- shared-diagram-label m-hat sma-cellular title-label-paren -->SMA connector - Cellular (12)<!-- end -->
 
 The SMA connectors provide an alternative antenna connection. Each is connected to a U.FL pigtail that typically connects to the Particle SoM module such as the B-SoM. 
 
@@ -343,6 +343,11 @@ The STUSB4500 USB PD controller has three connections, however they are not freq
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+If using the B-SoM, it is recommended that you disable NFC in the UICR bytes of the nRF52840. This will allow the MCU to 
+use the NFC pins (NFC1 and NFC2) as GPIO, which will allow you to access the PD_RST and PD_ATTACH pins.
+
+A [library and instructions]((https://github.com/rickkas7/NFC_UICR_RK/) are available for doing so.
+
 #### PD_RST
 
 This is the PD_RST line to reset the STUSB4500 USB PD controller. You normally will not need to use this.
@@ -494,15 +499,24 @@ Unlike the Muon, AUX_PWR_EN does not control 3.3V and 5V power to the HAT connec
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+### I2C
+
+The I2C bus is not shared between the Raspberry Pi and the Particle M.2 SoM. The following internal peripherals are present on the Particle M.2 SoM primary I2C bus (`Wire`):
+
+| I2C Address | Peripheral |
+| :--- | :--- |
+| 0x28 | STUSB4500 USB-C power controller |
+| 0x36 | MAX17043 Fuel Gauge |
+| 0x48 | TMP112A temperature sensor |
+| 0x69 | AM1805 RTC/Watchdog |
+| 0x6B | bq24195 PMIC |
+
 
 ## Other
 
 ### NFC
 
 The M-HAT does not support NFC tag. NFC tag is not supported on the M-SoM, and there is no connector for use with the B-SoM.
-
-If using the B-SoM, it is recommended that you disable NFC in the UICR bytes of the nRF52840. This will allow the MCU to 
-use the NFC pins (NFC1 and NFC2) as GPIO, which will allow you to access the PD_RST and PD_ATTACH pins.
 
 ### SWD/JTAG
 
@@ -542,7 +556,8 @@ tethering so the Raspberry Pi can use the B-SoM cellular connection.
 
 {{> codebox content="/assets/files/tether-mhat.cpp" format="cpp" height="400" flash="true"}}
 
-For information about the `Tether` class, see the [Device OS API reference](/reference/device-os/api/tether/).
+- For general information, see [Tethering](reference/device-os/tethering/).
+- For information about the `Tether` class, see the [Device OS API reference](/reference/device-os/api/tether/).
 
 Note that the M-SoM does not support tethering and cannot be used to supply a cellular network connection to a Raspberry Pi with the M-HAT.
 
@@ -577,6 +592,25 @@ To control `3V3_AUX` manually from your firmware, use `pinMode(D7, OUTPUT)` in `
 ## Schematics
 
 To be provided at a later date.
+
+## Certification
+
+The cellular (intentional radiator) certification depends on the cellular module you have selected.
+
+- [B504e certification documents](/hardware/certification/certification-documents/#b504-b-series-som)
+- [B524 certification documents](/hardware/certification/certification-documents/#b523-b524-b-series-som)
+
+If you are building a product with the M-HAT and are using the Particle certified cellular antenna you may not need to complete intentional radiator testing.
+
+You will likely need to perform unintentional radiator testing with your compete module, however. Fortunately this is generally the least expensive and least complicated test.
+
+
+## Cellular carriers
+
+The carriers are dependent on the Particle M.2 SoM you have selected for your M-HAT.
+
+- [B504e carriers](/reference/cellular/cellular-carriers/?tab=ByDevice&device=B-Series%20B504%20LTE%20CAT1%2F3G%20(NorAm)%20EtherSIM&region=All)
+- [B524 carriers](/reference/cellular/cellular-carriers/?tab=ByDevice&device=B-Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(EMEAA)%20EtherSIM&region=All)
 
 ---
 ## Ordering information
