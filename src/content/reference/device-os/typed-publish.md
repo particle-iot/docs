@@ -280,3 +280,24 @@ This example uses the subscribe with cloud event API.
 This example shows how to subscribe to structured data. This is used if you want to subscribe to events containing JSON data.
 
 {{> codebox content="/assets/files/extended-publish/StructuredSubscription.cpp" format="cpp" height="400" flash="true"}}
+
+## Community projects
+
+### File upload example
+
+Github: [file-upload-example](https://github.com/rickkas7/file-upload-example)
+
+This is an example of using large events in Device OS 6.3.0 and later for uploading files to the cloud and processing them using Logic. It's not a standalone library because there are some limitations of this method that make it a little less useful than you'd think, but you may want to use some of the techniques in this example in your code.
+
+### PublishQueueExtRK
+
+Github: [PublishQueueExtRK](https://github.com/rickkas7/PublishQueueExtRK)
+
+Queued publish for Particle devices using typed and extended publish
+
+- Fire and forget publishing, with automatic queue to the flash file system when disconnected from the cloud
+- Increased publish rate limit, no longer limited to 1 publish per second
+- Increased event data size, up to 16384 bytes
+- Binary and structured values in event data
+
+

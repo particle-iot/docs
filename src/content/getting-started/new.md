@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Extended publish examples 2025-04-28
+
+Added a [Typed and extended publish community projects](/reference/device-os/typed-publish/#community-projects) section.
+
 ### T-Mobile US Virgin Islands 2025-04-25
 
 T-Mobile is now included as a "Not officially supported, may work but is untested" carrier in the US Virgin Islands for the B504e and Electron 2.
