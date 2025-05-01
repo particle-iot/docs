@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "SequentialFileRK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/SequentialFileRK/archive/0.0.2.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/SequentialFileRK/archive/0.0.3.tar.gz"
   },
   "attributes": {
     "name": "SequentialFileRK",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Library for managing sequentially numbered files on the flash file system on Particle Gen 3 devices",
@@ -210,10 +210,104 @@
         }
       },
       "added": "2022-06-17T10:16:53.830Z"
+    },
+    "0.0.3": {
+      "added": "2025-05-01T11:05:32.045Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": false,
+            "2-test-suite": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-test-suite": false
+          }
+        }
+      }
     }
   },
-  "readme": "# SequentialFileRK\n\nLibrary for managing sequentially numbered files on the flash file system on Particle Gen 3 devices\n\n\n# class SequentialFile \n\nClass for maintaining a directory of files as a queue with unique filenames.\n\nYou select a directory on the Gen 3 flash file system for use as the queue directory. This directory is filled with numbered files, for example: 00000001.jpg. It's possible to store meta information in additional files. For example, 00000001.sha1 to hold a SHA-1 hash of the file. The file are numbered sequentially.\n\nYou typically instantiate this class as a global variable.\n\nIn global setup(), configure it using the withXXX() methods, then call the scanDir() method to read the queue from disk. In particular, you must use withDirPath() to set the queue directory!\n\nFiles left on disk are added to the queue during scanDir() and an in-memory queue is initialized with the files to process.\n\nCode can reserve a space in the queue using reserveFile(). This returns the next available file number but does not create the file.\n\nOnce you have fully written the file, call addFileToQueue().\n\nThe code that processes files in the queue calls getFileFromQueue().\n\n## Members\n\n---\n\n###  SequentialFile::SequentialFile() \n\nDefault constructor.\n\n```\nSequentialFile()\n```\n\nThis object is often created as a global variable.\n\nIn global setup(), configure it using the withXXX() methods, then call the scanDir() method to read the queue from disk.\n\n---\n\n###  SequentialFile::~SequentialFile() \n\nDestructor.\n\n```\nvirtual  ~SequentialFile()\n```\n\nThis object is often created as a global variables and never deleted.\n\n---\n\n### SequentialFile & SequentialFile::withDirPath(const char * dirPath) \n\nSets the directory to use as the queue directory. This is required!\n\n```\nSequentialFile & withDirPath(const char * dirPath)\n```\n\n#### Parameters\n* `dirPath` the pathname, Unix-style with / as the directory separator.\n\nTypically you create your queue either at the top level (\"/myqueue\") or in /usr (\"/usr/myqueue\"). The directory will be created if necessary, however only one level of directory will be created. The parent must already exist.\n\nThe dirPath can end with a slash or not, but if you include it, it will be removed.\n\nYou must call this as you cannot use the root directory as a queue!\n\n---\n\n### const char * SequentialFile::getDirPath() const \n\nGets the directory path set using withDirPath()\n\n```\nconst char * getDirPath() const\n```\n\nThe returned path will not end with a slash.\n\n---\n\n### SequentialFile & SequentialFile::withPattern(const char * pattern) \n\nSets the filename pattern. Default is %08d (8-digit decimal number with leading zeros)\n\n```\nSequentialFile & withPattern(const char * pattern)\n```\n\n#### Parameters\n* `pattern` The sprintf/sscanf pattern to use\n\nThis string is used when scanning the queue directory to find files. Do not include the filename extension in this pattern!\n\n---\n\n### const char * SequentialFile::getPattern() const \n\nGets the filename pattern.\n\n```\nconst char * getPattern() const\n```\n\n---\n\n### SequentialFile & SequentialFile::withFilenameExtension(const char * ext) \n\nFilename extension for queue files. (Default: no extension)\n\n```\nSequentialFile & withFilenameExtension(const char * ext)\n```\n\n#### Parameters\n* `ext` The filename extension (just the extension, no preceding dot)\n\nFor example, for JPEG files it might be \"jpg\".\n\n---\n\n### const char * SequentialFile::getFilenameExtension() const \n\nGets the filename extension.\n\n```\nconst char * getFilenameExtension() const\n```\n\nReturned string does not contain the dot. For example, for JPEG files it might be \"jpg\".\n\n---\n\n### bool SequentialFile::scanDir(void) \n\nScans the queue directory for files. Typically called during setup().\n\n```\nbool scanDir(void)\n```\n\n---\n\n### int SequentialFile::reserveFile(void) \n\nReserve a file number you will use to write data to.\n\n```\nint reserveFile(void)\n```\n\nUse getPathForFileNum() to get the pathname to the file. Reservations are in-RAM only so if the device reboots before you write the file, the reservation will be lost.\n\n---\n\n### void SequentialFile::addFileToQueue(int fileNum) \n\nAdds a previously reserved file to the queue.\n\n```\nvoid addFileToQueue(int fileNum)\n```\n\nUse reserveFile() to get the next file number, addFileToQueue() to add it to the queue and getFileFromQueue() to get an item from the queue.\n\nIt's safe to call reserveFile(), addFileToQueue(), and getFileFromQueue() from different threads. Locking is handled internally.\n\n---\n\n### int SequentialFile::getFileFromQueue(bool remove) \n\nGets a file from the queue.\n\n```\nint getFileFromQueue(bool remove)\n```\n\n#### Parameters\n* `remove` (optional, default true). If true, removes the file from the queue in RAM. If false, calling getFileFromQueue() again will retrieve the same fileNum.\n\n#### Returns\n0 if there are no items in the queue, or a fileNum for an item in the queue.\n\nUse getPathForFileNum() to convert the number into a pathname for use with open().\n\nThe queue is stored in RAM, so if the device reboots before you delete the file it will reappear in the queue when scanDir is called. This method does not need to access the filesystem. You can call getFileFromQueue() on every loop if you want to to check if there are files to process without affecting performance.\n\nIt's safe to call reserveFile(), addFileToQueue(), and getFileFromQueue() from different threads. Locking is handled internally.\n\n---\n\n### String SequentialFile::getNameForFileNum(int fileNum, const char * overrideExt) \n\nUses pattern to create a filename given a fileNum.\n\n```\nString getNameForFileNum(int fileNum, const char * overrideExt)\n```\n\n#### Parameters\n* `fileNum` A file number, typically from reserveFile() or getFileFromQueue()\n\n* `overrideExt` If non-null, use this extension instead of the configured filename extension.\n\nThe overrideExt is used when you create multiple files per queue entry fileNum, for example a data file and a .sha1 hash for the file. Or other metadata.\n\n---\n\n### String SequentialFile::getPathForFileNum(int fileNum, const char * overrideExt) \n\nGets a full pathname based on dirName and getNameForFileNum.\n\n```\nString getPathForFileNum(int fileNum, const char * overrideExt)\n```\n\n#### Parameters\n* `fileNum` A file number, typically from reserveFile() or getFileFromQueue()\n\n* `overrideExt` If non-null, use this extension instead of the configured filename extension.\n\nThe overrideExt is used when you create multiple files per queue entry fileNum, for example a data file and a .sha1 hash for the file. Or other metadata.\n\n---\n\n### void SequentialFile::removeFileNum(int fileNum, bool allExtensions) \n\nRemove fileNum from the flash file system.\n\n```\nvoid removeFileNum(int fileNum, bool allExtensions)\n```\n\n#### Parameters\n* `fileNum` A file number, typically from reserveFile() or getFileFromQueue()\n\n* `allExtensions` If true, all files with that number regardless of extension are removed.\n\n---\n\n### void SequentialFile::removeAll(bool removeDir) \n\nRemoves all of the files in the queue directory.\n\n```\nvoid removeAll(bool removeDir)\n```\n\nremoveDir true to remove the queue directory itself, false to just remove the contents.\n\nNote this is all files, not just the filenames with the matching extension.\n\n---\n\n### int SequentialFile::getQueueLen() const \n\nGets the length of the queue.\n\n```\nint getQueueLen() const\n```\n\n---\n\n###  SequentialFile::SequentialFile(const SequentialFile &) \n\nThis class is not copyable.\n\n```\n SequentialFile(const SequentialFile &) = delete\n```\n\n---\n\n### SequentialFile & SequentialFile::operator=(const SequentialFile &) \n\nThis class is not copyable.\n\n```\nSequentialFile & operator=(const SequentialFile &) = delete\n```\n\n## Version History\n\n### 0.0.2 (2021-04-17)\n\n- Added option to getFileFromQueue without removing it\n\n### 0.0.1 (2021-04-04)\n\n- Initial version\n",
+  "readme": "# SequentialFileRK\n\nLibrary for managing sequentially numbered files on the flash file system on Particle Gen 3 devices\n\n\n# class SequentialFile \n\nClass for maintaining a directory of files as a queue with unique filenames.\n\nYou select a directory on the Gen 3 flash file system for use as the queue directory. This directory is filled with numbered files, for example: 00000001.jpg. It's possible to store meta information in additional files. For example, 00000001.sha1 to hold a SHA-1 hash of the file. The file are numbered sequentially.\n\nYou typically instantiate this class as a global variable.\n\nIn global setup(), configure it using the withXXX() methods, then call the scanDir() method to read the queue from disk. In particular, you must use withDirPath() to set the queue directory!\n\nFiles left on disk are added to the queue during scanDir() and an in-memory queue is initialized with the files to process.\n\nCode can reserve a space in the queue using reserveFile(). This returns the next available file number but does not create the file.\n\nOnce you have fully written the file, call addFileToQueue().\n\nThe code that processes files in the queue calls getFileFromQueue().\n\n## Members\n\n---\n\n###  SequentialFile::SequentialFile() \n\nDefault constructor.\n\n```\nSequentialFile()\n```\n\nThis object is often created as a global variable.\n\nIn global setup(), configure it using the withXXX() methods, then call the scanDir() method to read the queue from disk.\n\n---\n\n###  SequentialFile::~SequentialFile() \n\nDestructor.\n\n```\nvirtual  ~SequentialFile()\n```\n\nThis object is often created as a global variables and never deleted.\n\n---\n\n### SequentialFile & SequentialFile::withDirPath(const char * dirPath) \n\nSets the directory to use as the queue directory. This is required!\n\n```\nSequentialFile & withDirPath(const char * dirPath)\n```\n\n#### Parameters\n* `dirPath` the pathname, Unix-style with / as the directory separator.\n\nTypically you create your queue either at the top level (\"/myqueue\") or in /usr (\"/usr/myqueue\"). The directory will be created if necessary, however only one level of directory will be created. The parent must already exist.\n\nThe dirPath can end with a slash or not, but if you include it, it will be removed.\n\nYou must call this as you cannot use the root directory as a queue!\n\n---\n\n### const char * SequentialFile::getDirPath() const \n\nGets the directory path set using withDirPath()\n\n```\nconst char * getDirPath() const\n```\n\nThe returned path will not end with a slash.\n\n---\n\n### SequentialFile & SequentialFile::withPattern(const char * pattern) \n\nSets the filename pattern. Default is %08d (8-digit decimal number with leading zeros)\n\n```\nSequentialFile & withPattern(const char * pattern)\n```\n\n#### Parameters\n* `pattern` The sprintf/sscanf pattern to use\n\nThis string is used when scanning the queue directory to find files. Do not include the filename extension in this pattern!\n\n---\n\n### const char * SequentialFile::getPattern() const \n\nGets the filename pattern.\n\n```\nconst char * getPattern() const\n```\n\n---\n\n### SequentialFile & SequentialFile::withFilenameExtension(const char * ext) \n\nFilename extension for queue files. (Default: no extension)\n\n```\nSequentialFile & withFilenameExtension(const char * ext)\n```\n\n#### Parameters\n* `ext` The filename extension (just the extension, no preceding dot)\n\nFor example, for JPEG files it might be \"jpg\".\n\n---\n\n### const char * SequentialFile::getFilenameExtension() const \n\nGets the filename extension.\n\n```\nconst char * getFilenameExtension() const\n```\n\nReturned string does not contain the dot. For example, for JPEG files it might be \"jpg\".\n\n---\n\n### bool SequentialFile::scanDir(void) \n\nScans the queue directory for files. Typically called during setup().\n\n```\nbool scanDir(void)\n```\n\n---\n\n### int SequentialFile::reserveFile(void) \n\nReserve a file number you will use to write data to.\n\n```\nint reserveFile(void)\n```\n\nUse getPathForFileNum() to get the pathname to the file. Reservations are in-RAM only so if the device reboots before you write the file, the reservation will be lost.\n\n---\n\n### void SequentialFile::addFileToQueue(int fileNum) \n\nAdds a previously reserved file to the queue.\n\n```\nvoid addFileToQueue(int fileNum)\n```\n\nUse reserveFile() to get the next file number, addFileToQueue() to add it to the queue and getFileFromQueue() to get an item from the queue.\n\nIt's safe to call reserveFile(), addFileToQueue(), and getFileFromQueue() from different threads. Locking is handled internally.\n\n---\n\n### int SequentialFile::getFileFromQueue(bool remove) \n\nGets a file from the queue.\n\n```\nint getFileFromQueue(bool remove)\n```\n\n#### Parameters\n* `remove` (optional, default true). If true, removes the file from the queue in RAM. If false, calling getFileFromQueue() again will retrieve the same fileNum.\n\n#### Returns\n0 if there are no items in the queue, or a fileNum for an item in the queue.\n\nUse getPathForFileNum() to convert the number into a pathname for use with open().\n\nThe queue is stored in RAM, so if the device reboots before you delete the file it will reappear in the queue when scanDir is called. This method does not need to access the filesystem. You can call getFileFromQueue() on every loop if you want to to check if there are files to process without affecting performance.\n\nIt's safe to call reserveFile(), addFileToQueue(), and getFileFromQueue() from different threads. Locking is handled internally.\n\n\n---\n\n### int SequentialFile::removeSecondFileInQueue();\n\nGet the fileNum of the second file in the queue\n\n```\nint SequentialFile::removeSecondFileInQueue();\n```\n\n#### Returns\n\n0 if there are no items in the queue, or a fileNum for an item in the queue.\n\nUse getPathForFileNum() to convert the number into a pathname for use with open().\n\n---\n\n### String SequentialFile::getNameForFileNum(int fileNum, const char * overrideExt) \n\nUses pattern to create a filename given a fileNum.\n\n```\nString getNameForFileNum(int fileNum, const char * overrideExt)\n```\n\n#### Parameters\n* `fileNum` A file number, typically from reserveFile() or getFileFromQueue()\n\n* `overrideExt` If non-null, use this extension instead of the configured filename extension.\n\nThe overrideExt is used when you create multiple files per queue entry fileNum, for example a data file and a .sha1 hash for the file. Or other metadata.\n\n---\n\n### String SequentialFile::getPathForFileNum(int fileNum, const char * overrideExt) \n\nGets a full pathname based on dirName and getNameForFileNum.\n\n```\nString getPathForFileNum(int fileNum, const char * overrideExt)\n```\n\n#### Parameters\n* `fileNum` A file number, typically from reserveFile() or getFileFromQueue()\n\n* `overrideExt` If non-null, use this extension instead of the configured filename extension.\n\nThe overrideExt is used when you create multiple files per queue entry fileNum, for example a data file and a .sha1 hash for the file. Or other metadata.\n\n---\n\n### void SequentialFile::removeFileNum(int fileNum, bool allExtensions) \n\nRemove fileNum from the flash file system.\n\n```\nvoid removeFileNum(int fileNum, bool allExtensions)\n```\n\n#### Parameters\n* `fileNum` A file number, typically from reserveFile() or getFileFromQueue()\n\n* `allExtensions` If true, all files with that number regardless of extension are removed.\n\n---\n\n### void SequentialFile::removeAll(bool removeDir) \n\nRemoves all of the files in the queue directory.\n\n```\nvoid removeAll(bool removeDir)\n```\n\nremoveDir true to remove the queue directory itself, false to just remove the contents.\n\nNote this is all files, not just the filenames with the matching extension.\n\n---\n\n### int SequentialFile::getQueueLen() const \n\nGets the length of the queue.\n\n```\nint getQueueLen() const\n```\n\n---\n\n###  SequentialFile::SequentialFile(const SequentialFile &) \n\nThis class is not copyable.\n\n```\n SequentialFile(const SequentialFile &) = delete\n```\n\n---\n\n### SequentialFile & SequentialFile::operator=(const SequentialFile &) \n\nThis class is not copyable.\n\n```\nSequentialFile & operator=(const SequentialFile &) = delete\n```\n\n## Version History\n\n### 0.0.3 (2025-04-08)\n\n- Added removeSecondFileInQueue\n- Added particle.ignore\n\n### 0.0.2 (2021-04-17)\n\n- Added option to getFileFromQueue without removing it\n\n### 0.0.1 (2021-04-04)\n\n- Initial version\n",
   "allVersions": [
+    "0.0.3",
     "0.0.2"
   ]
 }

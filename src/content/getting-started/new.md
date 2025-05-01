@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-05-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+
 ### Extended publish examples 2025-04-28
 
 Added a [Typed and extended publish community projects](/reference/device-os/typed-publish/#community-projects) section.

@@ -5139,8 +5139,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2025-03-01",
-            "hash": "e226507c6bf9c1a8262620ed814ed48fec045ac8f274cface4c340696da282c8"
+            "date": "2025-05-01",
+            "hash": "7a875a27f5bc236744b60d1292da2f346d09755a1c7332257b4a4ab81ef04ff4"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -7183,8 +7183,8 @@
             "hash": "d3c832ffed6c851a5abd335fe448b9f989c53615288370e48a6fb4a9e494d76a"
         },
         "reference/device-os/libraries/s/SequentialFileRK.md": {
-            "date": "2024-08-28",
-            "hash": "cff5440f75627b7d203d91ccca56356a6768ec17ac6375218e79dcd9bc6baa05"
+            "date": "2025-05-01",
+            "hash": "939c96bc80e236ece7e7261e7a081bc3f429c0e130ed91a4fcca3fcb75dfceb8"
         },
         "reference/device-os/libraries/s/Serial_Controlled_Motor_Driver.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "90be47807a5bd0060b7e0c7084fb07f9d4fcad09cd705f6ee1f70f1268478617",
-            "date": "2025-04-28"
+            "hash": "646cdf62ca3ae34e59c263741aae53dce9d4ffee58fbc90ce0c7991de0c1f73a",
+            "date": "2025-05-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9587,8 +9587,8 @@
             "date": "2024-12-16"
         },
         "reference/device-os/libraries/d/DeviceInfoLedger.md": {
-            "hash": "52defca294e9cca29d3717377a2ccffd6cc2a97c0c5fb02c3787d3e97b22dc98",
-            "date": "2025-04-01"
+            "hash": "d92b9d33ddfdbe83085a8ec9752295aa099e83ca5f48249ca86d6df0a7d37d6e",
+            "date": "2025-05-01"
         },
         "reference/device-os/libraries/j/JA_PN532.md": {
             "hash": "50d33b45dc331a59e6831cb78cd559734af4c08c9072b325c966e3c09ee739d8",
@@ -9687,8 +9687,8 @@
             "date": "2025-02-14"
         },
         "reference/device-os/libraries/p/PublishQueueExtRK.md": {
-            "hash": "6e2b2d5bd7b9519c0f7f06962d8a2e295d2bd6080d178271df13c7b17f3e7430",
-            "date": "2025-04-01"
+            "hash": "2145da8556e17dd5dd15f6834d0cddd484baef44d2af05576744d82027ed35f5",
+            "date": "2025-05-01"
         },
         "reference/device-os/libraries/t/tmc2209.md": {
             "hash": "9aaa9e1642eabd6d9b693e8543f181a412f091c34eb5e701223b9f31c5577998",
@@ -9717,6 +9717,10 @@
         "reference/datasheets/e-series/electron-2-datasheet.md": {
             "hash": "8f9dfab494bee0bd78941db03c2ec4a9054f68e455a15b5e2baabcb0c490baad",
             "date": "2025-03-27"
+        },
+        "reference/device-os/libraries/n/NFC_UICR_RK.md": {
+            "hash": "36a001fb0db71f23921ab242277114b287234eb8d1f7a0387fd91f6a8890e6c8",
+            "date": "2025-05-01"
         }
     }
 }

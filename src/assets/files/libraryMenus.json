@@ -2378,6 +2378,10 @@
           "dir": "NextionWrapper"
         },
         {
+          "title": "NFC_UICR_RK",
+          "dir": "NFC_UICR_RK"
+        },
+        {
           "title": "NimbleParticleHeatblanketLibrary",
           "dir": "NimbleParticleHeatblanketLibrary"
         },

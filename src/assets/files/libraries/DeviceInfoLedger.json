@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "DeviceInfoLedger",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/DeviceInfoLedger/archive/0.0.3.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/DeviceInfoLedger/archive/0.0.4.tar.gz"
   },
   "attributes": {
     "name": "DeviceInfoLedger",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "license": "MIT",
     "author": "Particle <libraries@particle.io>",
     "sentence": "Library for storing device information in Particle Ledger",
@@ -300,10 +300,124 @@
           }
         }
       }
+    },
+    "0.0.4": {
+      "added": "2025-05-01T11:10:53.140Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "bsom": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "b5som": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "tracker": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "p2": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "msom": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "boron": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "bsom": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "b5som": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "tracker": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "p2": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "boron": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "bsom": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "b5som": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "tracker": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          },
+          "esomx": {
+            "1-cloud-config-logs": true,
+            "2-local-config-logs": true,
+            "3-tester": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-cloud-config-logs": false,
+            "2-local-config-logs": false,
+            "3-tester": false
+          },
+          "electron": {
+            "1-cloud-config-logs": false,
+            "2-local-config-logs": false,
+            "3-tester": false
+          }
+        }
+      }
     }
   },
-  "readme": "# DeviceInfoLedger\n\nThis library perform two separate but related things using two separate classes:\n\n- Store cloud-based configuration for devices (DeviceConfigLedger)\n- Store Particle device log data and device information in Ledger (DeviceInfoLedger)\n\nYou can use the cloud-based configuration without using the DeviceInfoLedger, if desired. \nYou can also use the DeviceInfoLedger with a local configuration, not using the remote configuration option.\n\n## Configuration\n\nThis library supports three levels of configuration, all of which are optional:\n\n- Local (on-device) configuration\n- Product, owner, or organization cloud-to-device ledger\n- Device-specific cloud-to-device ledger\n\nUsing Ledger, this library supports a default configuration using a cloud-to-device ledger (scoped to a product, owner, or organization). This is good for making settings cloud-based instead of on-device, so you can change fleet settings without having to update code.\n\nIt also supports an optional per-device configuration using a cloud-to-device device ledger (scoped to a device). The per-device configuration overrides specific values, making it easy to just change one setting and leave the others as the default values.\n\nConfiguration support key (string) and value pairs, using types that can be represented in JSON and `Variant` including:\n\n- boolean values (`bool` in C++)\n- integer number values (`int`, `unsigned`, `int64_t`, `uint64_t`)\n- floating point number values (`double`)\n- string values (`String`)\n\nFor example say this is the product default configuration:\n\n```json\n{\n    \"a\": 123,\n    \"b\": false,\n    \"c\": \"test\"\n}\n```\n\nIf you set the device configuration to, the value of `b` will be overridden but the values of `a` and `c` will remain the product default.\n\n```json\n{\n    \"b\": true\n}\n```\n\n\nAdditionally, the top level can also include one-level deep of object and array types.\n\nWhen an object is contained in the configuration, all values for the same key are merged so you can easily override\nspecific sub-keys. With this product/owner/organization setting:\n\n```json\n{\n    \"x\": {\n        \"a\": 123,\n        \"b\": false,\n        \"c\": \"test\"\n    }\n}\n```\n\nAnd this per-device setting:\n\n```json\n{\n    \"x\": {\n        \"a\": 456,\n        \"d\": 789\n    }\n}\n```\n\nThe configuration will act as follows:\n\n```json\n{\n    \"x\": {\n        \"a\": 456,\n        \"b\": false,\n        \"c\": \"test\",\n        \"d\": 789\n    }\n}\n```\n\nWhen an array is contained in the configuration, all array values for the key are appended. For example:\n\n```json\n{\n    \"a\": [1, 2]\n}\n```\n\nWith a device-specific override:\n\n```json\n{\n    \"a\": [2, 3]\n}\n```\n\nThe values are all appended in the order local, product/owner/organization, device. Duplicates are not removed!\n\n```json\n{\n    \"a\": [1, 2, 2, 3]\n}\n```\n\nNote that only one level of nested object or array is supported! If you nest two objects, the inner objects are not merged and will simply be replaced like a primitive value.\n\nUsing cloud-based configuration is optional if you only want to use device log data and device information. These settings can be \nconfigured locally on device, if desired. However, you may want to use both so you can control the log settings remotely from\nthe cloud-side.\n\nThe [full DeviceInfoLedger API documentation](https://particle-iot.github.io/DeviceInfoLedger/class_device_config_ledger.html)\ncan be found at the link, or in the docs directory of this repository.\n\n\n## Device information ledger\n\nThe following JSON structure is used for default cloud configuration, and device-specific overrides, if those features are enabled.\n\n```json\n{\n    \"lastRunLog\": 1024,\n    \"connectionLog\": 2048,\n    \"logAllConnections\": false,\n    \"includeGeneral\": true,\n    \"includeDiag\": true,\n    \"includeTower\": true,\n    \"logLevel\": \"INFO\",\n    \"logFilters\": [],\n}\n```\n\nCloud-based device overrides can specify only the fields that need to be changed from the default configuration.\n\nYou can also set the settings locally, as a default, or in lieu of the cloud configuration. Local settings for \ndevice information ledger can be done using JSON, or by calling individual methods like `withLastRunLog()`.\n\nThe [full DeviceInfoLedger API documentation](https://particle-iot.github.io/DeviceInfoLedger/class_device_config_ledger.html)\ncan be found at the link, or in the docs directory of this repository.\n\n### Detailed description of fields\n\n#### lastRunLog (int)\n\nThe last run log is the latest log messages prior to the most recent reboot. This can be useful for troubleshooting device resets.\n\nValue is the size of the text to include in the ledger. Must fit within the available space in the ledger, which is up to 16K but\ncan be lower on some platforms.\n\nThe last run log is stored in retained memory. This is specified in the application source because it's allocated by the compiler,\nso the actual run log will be the lesser of lastRunLog and the value stored in the source.\n\nOn RTL872x devices (P2, Photon 2, M-SoM), the most recent log entries may not be available if a system panic has occurred.\n\n#### connectionLog (int)\n\nThe connection log is the most recent messages from boot until successfully cloud connected on the first connection after\nreboot (default) or after every cloud disconnect (if logAllConnections is true). Note that logging every disconnection\nmay result in a large number of ledger synchronization is the device is frequently disconnecting from the cloud.\n\n#### logAllConnections (bool)\n\n#### includeGeneral (bool)\n\nInclude general information. Default: false.\n\nThis currently only includes `sysver`, the Device OS version.\n\n#### includeDiag (bool)\n\nInclude the device vitals information in ledger. Default: false\n\n#### includeTower (bool)\n\nIncludes cellular tower information for the connected tower. Default: false\n\nThis is stored in the `tower` key as an object with the following values:\n\n| Field | Description |\n| :---- | :--- |\n| `mcc` | Mobile country code |\n| `mnc` | Mobile network code |\n| `cid` | Cell identifier |\n| `lac` | Location area code |\n\n\n#### logLevel (string)\n\n| Constant           | Configuration String |\n| :----------------- | :------- |\n| `LOG_LEVEL_ALL`    | `ALL`    |\n| `LOG_LEVEL_TRACE`  | `TRACE`  | \n| `LOG_LEVEL_INFO`   | `INFO`   |\n| `LOG_LEVEL_WARN`   | `WARN`   | \n| `LOG_LEVEL_ERROR`  | `ERROR`  |\n| `LOG_LEVEL_PANIC`  | `PANIC`  |\n| `LOG_LEVEL_NONE`   | `NONE`   |\n\n\n#### logFilters (object)\n\nThis is a JSON representation of a logging configuration for `LogCategoryFilter`. It is an object whose\nkey is the category and value is the logging level.\n\nFor example, given this code:\n\n```cpp\nSerialLogHandler logHandler(LOG_LEVEL_WARN, { // Logging level for non-application messages\n    { \"app\", LOG_LEVEL_INFO }, // Default logging level for all application messages\n    { \"app.network\", LOG_LEVEL_TRACE } // Logging level for networking messages\n});\n```\n\nAn equivalent JSON configuration would be:\n\n```json\n{\n    \"logLevel\": \"LOG_LEVEL_WARN\",\n    \"logFilters\": {\n        \"app\": \"INFO\",\n        \"app.network\": \"TRACE\"\n    }\n}\n```\n\nYou can also configure log filters locally using the same style as Device OS log handlers:\n\n```cpp\nDeviceInfoLedger::instance().withLocalConfigLogLevel(LOG_LEVEL_INFO, {\n    { \"app.devinfo\", LOG_LEVEL_TRACE }\n});\n```\n\n## Version history\n\n### 0.0.3 (2025-03-10)\n\n- Added a `saveDeviceInfo(bool includeConnLog = true)` method that can be used force an upload at a time other than on cloud connection. You might do this from a Particle.function for example, to allow the logs be uploaded on demand.\n\n### 0.0.2 (2025-01-06)\n\n- Fixed a bug where the log handler would not be initialized if the ledger was already cached locally when using a cloud configuration ledger.\n",
+  "readme": "# DeviceInfoLedger\n\nThis library perform two separate but related things using two separate classes:\n\n- Store cloud-based configuration for devices (DeviceConfigLedger)\n- Store Particle device log data and device information in Ledger (DeviceInfoLedger)\n\nYou can use the cloud-based configuration without using the DeviceInfoLedger, if desired. \nYou can also use the DeviceInfoLedger with a local configuration, not using the remote configuration option.\n\n## Configuration\n\nThis library supports three levels of configuration, all of which are optional:\n\n- Local (on-device) configuration\n- Product, owner, or organization cloud-to-device ledger\n- Device-specific cloud-to-device ledger\n\nUsing Ledger, this library supports a default configuration using a cloud-to-device ledger (scoped to a product, owner, or organization). This is good for making settings cloud-based instead of on-device, so you can change fleet settings without having to update code.\n\nIt also supports an optional per-device configuration using a cloud-to-device device ledger (scoped to a device). The per-device configuration overrides specific values, making it easy to just change one setting and leave the others as the default values.\n\nConfiguration support key (string) and value pairs, using types that can be represented in JSON and `Variant` including:\n\n- boolean values (`bool` in C++)\n- integer number values (`int`, `unsigned`, `int64_t`, `uint64_t`)\n- floating point number values (`double`)\n- string values (`String`)\n\nFor example say this is the product default configuration:\n\n```json\n{\n    \"a\": 123,\n    \"b\": false,\n    \"c\": \"test\"\n}\n```\n\nIf you set the device configuration to, the value of `b` will be overridden but the values of `a` and `c` will remain the product default.\n\n```json\n{\n    \"b\": true\n}\n```\n\n\nAdditionally, the top level can also include one-level deep of object and array types.\n\nWhen an object is contained in the configuration, all values for the same key are merged so you can easily override\nspecific sub-keys. With this product/owner/organization setting:\n\n```json\n{\n    \"x\": {\n        \"a\": 123,\n        \"b\": false,\n        \"c\": \"test\"\n    }\n}\n```\n\nAnd this per-device setting:\n\n```json\n{\n    \"x\": {\n        \"a\": 456,\n        \"d\": 789\n    }\n}\n```\n\nThe configuration will act as follows:\n\n```json\n{\n    \"x\": {\n        \"a\": 456,\n        \"b\": false,\n        \"c\": \"test\",\n        \"d\": 789\n    }\n}\n```\n\nWhen an array is contained in the configuration, all array values for the key are appended. For example:\n\n```json\n{\n    \"a\": [1, 2]\n}\n```\n\nWith a device-specific override:\n\n```json\n{\n    \"a\": [2, 3]\n}\n```\n\nThe values are all appended in the order local, product/owner/organization, device. Duplicates are not removed!\n\n```json\n{\n    \"a\": [1, 2, 2, 3]\n}\n```\n\nNote that only one level of nested object or array is supported! If you nest two objects, the inner objects are not merged and will simply be replaced like a primitive value.\n\nUsing cloud-based configuration is optional if you only want to use device log data and device information. These settings can be \nconfigured locally on device, if desired. However, you may want to use both so you can control the log settings remotely from\nthe cloud-side.\n\nThe [full DeviceInfoLedger API documentation](https://particle-iot.github.io/DeviceInfoLedger/class_device_config_ledger.html)\ncan be found at the link, or in the docs directory of this repository.\n\n\n## Device information ledger\n\nThe following JSON structure is used for default cloud configuration, and device-specific overrides, if those features are enabled.\n\n```json\n{\n    \"lastRunLog\": 1024,\n    \"connectionLog\": 2048,\n    \"logAllConnections\": false,\n    \"includeGeneral\": true,\n    \"includeDiag\": true,\n    \"includeTower\": true,\n    \"logLevel\": \"INFO\",\n    \"logFilters\": [],\n}\n```\n\nCloud-based device overrides can specify only the fields that need to be changed from the default configuration.\n\nYou can also set the settings locally, as a default, or in lieu of the cloud configuration. Local settings for \ndevice information ledger can be done using JSON, or by calling individual methods like `withLastRunLog()`.\n\nThe [full DeviceInfoLedger API documentation](https://particle-iot.github.io/DeviceInfoLedger/class_device_config_ledger.html)\ncan be found at the link, or in the docs directory of this repository.\n\n### Detailed description of fields\n\n#### lastRunLog (int)\n\nThe last run log is the latest log messages prior to the most recent reboot. This can be useful for troubleshooting device resets.\n\nValue is the size of the text to include in the ledger. Must fit within the available space in the ledger, which is up to 16K but\ncan be lower on some platforms.\n\nThe last run log is stored in retained memory. This is specified in the application source because it's allocated by the compiler,\nso the actual run log will be the lesser of lastRunLog and the value stored in the source.\n\nOn RTL872x devices (P2, Photon 2, M-SoM), the most recent log entries may not be available if a system panic has occurred.\n\n#### connectionLog (int)\n\nThe connection log is the most recent messages from boot until successfully cloud connected on the first connection after\nreboot (default) or after every cloud disconnect (if logAllConnections is true). Note that logging every disconnection\nmay result in a large number of ledger synchronization is the device is frequently disconnecting from the cloud.\n\n#### logAllConnections (bool)\n\n#### includeGeneral (bool)\n\nInclude general information. Default: false.\n\nThis currently only includes `sysver`, the Device OS version.\n\n#### includeDiag (bool)\n\nInclude the device vitals information in ledger. Default: false\n\n#### includeTower (bool)\n\nIncludes cellular tower information for the connected tower. Default: false\n\nThis is stored in the `tower` key as an object with the following values:\n\n| Field | Description |\n| :---- | :--- |\n| `mcc` | Mobile country code |\n| `mnc` | Mobile network code |\n| `cid` | Cell identifier |\n| `lac` | Location area code |\n\n\n#### logLevel (string)\n\n| Constant           | Configuration String |\n| :----------------- | :------- |\n| `LOG_LEVEL_ALL`    | `ALL`    |\n| `LOG_LEVEL_TRACE`  | `TRACE`  | \n| `LOG_LEVEL_INFO`   | `INFO`   |\n| `LOG_LEVEL_WARN`   | `WARN`   | \n| `LOG_LEVEL_ERROR`  | `ERROR`  |\n| `LOG_LEVEL_PANIC`  | `PANIC`  |\n| `LOG_LEVEL_NONE`   | `NONE`   |\n\n\n#### logFilters (object)\n\nThis is a JSON representation of a logging configuration for `LogCategoryFilter`. It is an object whose\nkey is the category and value is the logging level.\n\nFor example, given this code:\n\n```cpp\nSerialLogHandler logHandler(LOG_LEVEL_WARN, { // Logging level for non-application messages\n    { \"app\", LOG_LEVEL_INFO }, // Default logging level for all application messages\n    { \"app.network\", LOG_LEVEL_TRACE } // Logging level for networking messages\n});\n```\n\nAn equivalent JSON configuration would be:\n\n```json\n{\n    \"logLevel\": \"LOG_LEVEL_WARN\",\n    \"logFilters\": {\n        \"app\": \"INFO\",\n        \"app.network\": \"TRACE\"\n    }\n}\n```\n\nYou can also configure log filters locally using the same style as Device OS log handlers:\n\n```cpp\nDeviceInfoLedger::instance().withLocalConfigLogLevel(LOG_LEVEL_INFO, {\n    { \"app.devinfo\", LOG_LEVEL_TRACE }\n});\n```\n\n## Version history\n\n### 0.0.4 (2025-06-01)\n\n- Added an example 3-tester to test sending logs after waking up from sleep\n\n### 0.0.3 (2025-03-10)\n\n- Added a `saveDeviceInfo(bool includeConnLog = true)` method that can be used force an upload at a time other than on cloud connection. You might do this from a Particle.function for example, to allow the logs be uploaded on demand.\n\n### 0.0.2 (2025-01-06)\n\n- Fixed a bug where the log handler would not be initialized if the ledger was already cached locally when using a cloud configuration ledger.\n",
   "allVersions": [
+    "0.0.4",
     "0.0.3",
     "0.0.2",
     "0.0.1"
