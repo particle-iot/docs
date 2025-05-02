@@ -24628,25 +24628,50 @@ void setup() {
 
 Returns a code describing reason of the last device reset. The following codes are defined:
 
-| Constant | Numeric | Meaning | Data |
-| :--- | ---: | :--- | :--- |
-| `RESET_REASON_NONE` | 0 | Information is not available | 0 |
-| `RESET_REASON_UNKNOWN` | 10 | Unspecified reset reason | |
-| `RESET_REASON_PIN_RESET` | 20 | Reset button or reset pin | |
-| `RESET_REASON_POWER_MANAGEMENT` | 30 | Low-power management reset | |
-| `RESET_REASON_POWER_DOWN` | 40 | Power-down reset | |
-| `RESET_REASON_POWER_BROWNOUT` | 50 | Brownout reset | |
-| `RESET_REASON_WATCHDOG` | 60 | Hardware watchdog reset | |
-| `RESET_REASON_UPDATE` | 70 | Successful firmware update | |
-| `RESET_REASON_UPDATE_ERROR` | 80 | Firmware update error, deprecated | |
-| `RESET_REASON_UPDATE_TIMEOUT` | 90 | Firmware update timeout | |
-| `RESET_REASON_FACTORY_RESET` | 100 |  Factory reset requested | 0 |
-| `RESET_REASON_SAFE_MODE` | 110 | Safe mode requested | 0 |
-| `RESET_REASON_DFU_MODE` | 120 | DFU mode requested | 0 |
-| `RESET_REASON_PANIC` | 130 | System panic | Panic code |
-| `RESET_REASON_USER` | 140 | User-requested reset | User-defined |
+| Constant                        | Num  | Gen 3   | Gen 4   | Meaning | Data |
+| :------------------------------ | ---: | :-----: | :-----: | :--- | :--- |
+| `RESET_REASON_NONE`             |    0 | &check; | &check; | Information is not available | 0 |
+| `RESET_REASON_UNKNOWN`          |   10 | &check; | &check; | Unspecified reset reason | |
+| `RESET_REASON_PIN_RESET`        |   20 | &check; |         | Reset button or reset pin | |
+| `RESET_REASON_POWER_MANAGEMENT` |   30 | &check; | &check; | Low-power management reset | |
+| `RESET_REASON_POWER_DOWN`       |   40 | &check; | &check; | Power-down reset | |
+| `RESET_REASON_POWER_BROWNOUT`   |   50 |         | &check; | Brownout reset | |
+| `RESET_REASON_WATCHDOG`         |   60 | &check; | &check; | Hardware watchdog reset | |
+| `RESET_REASON_UPDATE`           |   70 | &check; | &check; | Successful firmware update | |
+| `RESET_REASON_UPDATE_ERROR`     |   80 |         |         | Firmware update error, deprecated | |
+| `RESET_REASON_UPDATE_TIMEOUT`   |   90 | &check; | &check; | Firmware update timeout | |
+| `RESET_REASON_FACTORY_RESET`    |  100 | &check; | &check; | Factory reset requested | 0 |
+| `RESET_REASON_SAFE_MODE`        |  110 | &check; | &check; | Safe mode requested | 0 |
+| `RESET_REASON_DFU_MODE`         |  120 | &check; | &check; | DFU mode requested | 0 |
+| `RESET_REASON_PANIC`            |  130 | &check; | &check; | System panic | Panic code |
+| `RESET_REASON_USER`             |  140 | &check; | &check; | User-requested reset | User-defined |
 
 This is also uploaded to the cloud using the [last_reset event](/reference/cloud-apis/api/#spark-device-last_reset) after reconnecting to the cloud.
+
+On devices with an external hardware watchdog, including the Tracker One, Monitor One, Tracker SoM, and Muon, the 
+`RESET_REASON_WATCHDOG` is not used. The reset reason will either be `RESET_REASON_PIN_RESET` or `RESET_REASON_POWER_MANAGEMENT`.
+
+Not all reset reasons are supported on all MCUs.
+
+---
+
+{{note op="start" type="gen3"}}
+Gen 3 devices cannot differentiate between `RESET_REASON_POWER_DOWN` and `RESET_REASON_POWER_BROWNOUT` and return `RESET_REASON_POWER_DOWN`
+in both cases.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen4"}}
+Some reset reasons stored in retained memory (backup RAM, SRAM). On the RTL872x platform, this is cleared on system reset, but in some cases 
+the contents will be saved to flash before reset. In some situations it is not safe or not possible to save the reset reason before reboot, so
+on the M-SoM, P2, and Photon 2 the reset reason will often default to none.
+
+Gen 4 devices cannot differtiate between `RESET_REASON_PIN_RESET` or `RESET_REASON_POWER_MANAGEMENT` and returns `RESET_REASON_POWER_MANAGEMENT` in 
+both cases.
+{{note op="end"}}
+
+---
 
 #### resetReasonData() - System 
 

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### System reset reasons 2025-05-02
+
+Added additional documentation for [reset reason](/reference/device-os/api/system-calls/reset-reason/) including MCU-specific differences.
+
 ### Library updates 2025-05-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
