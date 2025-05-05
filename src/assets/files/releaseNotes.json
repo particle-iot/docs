@@ -29194,6 +29194,103 @@
                 2855,
                 2856
             ]
+        },
+        "v6.3.2": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.3.2",
+            "tag_name": "v6.3.2",
+            "name": "v6.3.2 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2025-04-29T22:24:51Z",
+            "published_at": "2025-05-05T17:45:25Z",
+            "entries": [
+                {
+                    "tags": [
+                        "network"
+                    ],
+                    "prs": [
+                        2864
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "interface-aware DNS lookups"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2871
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "core: fix PSRAM heap size while in safe mode"
+                },
+                {
+                    "tags": [
+                        "hal"
+                    ],
+                    "prs": [
+                        2865
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "SPI: fixes threading safety issue"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2867
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: get rid of unnecessary constant delay(1) in HAL_USB_USART_Send_Data()"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2869
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Work around a race condition in the new event API"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2868
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix MBR flash_copy due to incorrect status register WIP bit detection"
+                },
+                {
+                    "tags": [
+                        "msom"
+                    ],
+                    "prs": [
+                        2866
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Ignore CIMI errors on bg95s5 with no esim profile loaded"
+                },
+                {
+                    "tags": [
+                        "cellular"
+                    ],
+                    "prs": [],
+                    "section": "INTERNAL",
+                    "text": "Support new Twilio Super SIM ICCID prefix 8910392"
+                }
+            ],
+            "prs": [
+                2864,
+                2865,
+                2866,
+                2867,
+                2868,
+                2869,
+                2871
+            ]
         }
     },
     "pulls": {
@@ -43237,6 +43334,62 @@
             "state": "open",
             "created_at": "2025-02-03T11:28:07Z",
             "detail": "After performing an initial cloud connection, ACM will re-evaluate this decision (if there are multiple network interfaces available) and might decide to migrate the connection. This is currently performed by disconnect, session move and re-connect."
+        },
+        "2864": {
+            "url": "https://github.com/particle-iot/device-os/pull/2864",
+            "number": 2864,
+            "title": "[network] interface-aware DNS lookups",
+            "state": "closed",
+            "created_at": "2025-02-18T13:16:47Z",
+            "detail": "Despite the fact that we store all interface-specific DNS servers (statically configured or over DHCP/PPP etc) the resolver only uses the first and then on failure subsequent servers in this table. There is no API to tell the resolver to use only interface X.\n\nThis may have undesired effect even on cloud connectivity. For example, in case of M SoM with eth, wifi and cellular available, but eth and wifi providing bogus DNS responses (app firewall or other reasons), while the connection can still be performed over cellular, it might fail because we are unable to correctly resolve cloud server address."
+        },
+        "2865": {
+            "url": "https://github.com/particle-iot/device-os/pull/2865",
+            "number": 2865,
+            "title": "[hal] SPI: fixes threading safty issue",
+            "state": "closed",
+            "created_at": "2025-02-19T08:11:43Z",
+            "detail": "`hal_spi_acquire()` may fail to acquire mutex and when the caller doesn't check the result, it may corrupt stack."
+        },
+        "2866": {
+            "url": "https://github.com/particle-iot/device-os/pull/2866",
+            "number": 2866,
+            "title": "[msom] Ignore CIMI errors on bg95s5 with no esim profile loaded",
+            "state": "closed",
+            "created_at": "2025-02-19T18:06:28Z",
+            "detail": "`QuectelNcpClient::connect()` for bg95-s5 fails when no esim profile is loaded due to IMSI AT command failing.\nDVOS will reset the modem continually each time `connect()` fails. This is causing problems at the factory as they require a stable modem USB connection for testing."
+        },
+        "2867": {
+            "url": "https://github.com/particle-iot/device-os/pull/2867",
+            "number": 2867,
+            "title": "[gen4] hal: get rid of unnecessary constant delay(1) in HAL_USB_USART_Send_Data()",
+            "state": "closed",
+            "created_at": "2025-02-20T16:56:14Z",
+            "detail": "We are always unnecessarily delaying 1ms on each byte sent over USB serial.\n\nMoreover this happens even if there is no host connected, as `_blocking = true` by default and `Serial::write()` is implemented as following and always goes down to `HAL_USB_USART_Send_Data()`:\n\n```c++\nsize_t USBSerial::write(uint8_t byte)\n{\n  if (HAL_USB_USART_Available_Data_For_Write(_serial) > 0 || _blocking) {\n    return std::max(0, (int)HAL_USB_USART_Send_Data(_serial, byte));\n  }\n  return 0;\n}\n```"
+        },
+        "2868": {
+            "url": "https://github.com/particle-iot/device-os/pull/2868",
+            "number": 2868,
+            "title": "Fix MBR flash_copy due to incorrect status register WIP bit detection",
+            "state": "closed",
+            "created_at": "2025-03-20T03:39:13Z",
+            "detail": "After manual provisioning of MSOM devices using MBR from `develop`, I discovered that prebootloader-mbr failed to copy prebootloader-part1 images from pending update section into the bootable slot. This rendered the device unbootable.\n\nThe issue is that the read / write / verify step of the flash copy was failing. Data written was not read back correctly. \nUpon examination of the bus, I could see that the driver was polling the Status Register (05) between Page Program (02) commands and in some cases the Write In Progress(WIP) bit was set. However, the driver was not waiting to poll again until that bit was cleared. New Page Program commands were issued while WIP bit is set. \nThis resulted in unreliable data being written to flash, and the subsequent validation failures.\n\nI looked into the driver to determine why the status register was being incorrectly read. I logged all of the values that were recorded during a `prebootloader-part1` update, and could see the status register returning unexpected values, some of which dont make sense\n```\n(gdb) p /x g_StatusRegisterValuesMBR\n$2 = {0xf9, 0x0, 0x1, 0x0, 0xa, 0x0, 0x9c}\n      ^ sum where status = 0         ^ status = 6\n```\n\nWIP and WEL bits are 0 and 1, so values up to `4` are valid combinations.\nValues over `4` dont make sense in the MBR driver. We are not using the block protect bits 2 and above.\nI can see the most common value, is `6`, which appears to be `4` left shifted 1 bit."
+        },
+        "2869": {
+            "url": "https://github.com/particle-iot/device-os/pull/2869",
+            "number": 2869,
+            "title": "Work around a race condition in the new event API",
+            "state": "closed",
+            "created_at": "2025-04-09T13:44:48Z",
+            "detail": "There's a race condition in the new event API that may prevent the publish rate limiter from being updated when events are being cancelled from a non-app thread."
+        },
+        "2871": {
+            "url": "https://github.com/particle-iot/device-os/pull/2871",
+            "number": 2871,
+            "title": "[gen4] core: fix PSRAM heap size while in safe mode",
+            "state": "closed",
+            "created_at": "2025-04-21T15:51:24Z",
+            "detail": "While in safe mode Gen 4 devices only use 32KB of PSRAM for heap. This is not enough."
         }
     }
 }

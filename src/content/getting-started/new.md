@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.3.2 2025-05-05
+
+Device OS 6.3.2 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.
+
 ### System reset reasons 2025-05-02
 
 Added additional documentation for [reset reason](/reference/device-os/api/system-calls/reset-reason/) including MCU-specific differences.

@@ -1,5 +1,23 @@
 [
   {
+    "version": "6.3.2",
+    "internal_version": 6303,
+    "release_state": "preview",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v6.3.2",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2025-05-05T17:45:25Z"
+  },
+  {
     "version": "6.3.0",
     "internal_version": 6302,
     "release_state": "preview",

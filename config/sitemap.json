@@ -591,7 +591,7 @@
             "hash": "4d73d04de352d7f30f2336f9a5b70d22d6c86235a66dca75f90d7fa2d39b4636"
         },
         "getting-started/console/console.md": {
-            "date": "2025-04-09",
+            "date": "2025-05-05",
             "hash": "67fd608e137338748db922bd5b00a380e663f8aaedd506188f492e06365ecc71"
         },
         "getting-started/console/development-devices.md": {
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-05-02",
-            "hash": "75fc90cba7e103319fdeed6f99622ffdc57736b2086fc9142fa778285ec9c2ac"
+            "date": "2025-05-05",
+            "hash": "56c3da366a5e0d4fa8cbb0b80b0917ef41098e66a0dd069180f4f2a5aedbf707"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "012e3c98d7ad3c7ca921e94459f3a431f2f739e7d88aac3b50ba91e7d7c7a130",
-            "date": "2025-05-02"
+            "hash": "0fd551bbf6c36df7eec3ba1d5acbb925d7bb84bfae43fe1b5a0cc01f67aaf6e0",
+            "date": "2025-05-05"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
