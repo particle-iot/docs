@@ -414,6 +414,10 @@
                 {
                     "dir": "monitor-one-modbus",
                     "title": "Monitor One getting started with Modbus"
+                },
+                {
+                    "dir": "input-protection",
+                    "title": "Input protection"
                 }
             ]
         }
