@@ -13080,6 +13080,12 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.id",
             "isArray": false,
             "description": "<p>Product Unique ID</p>"
@@ -13088,6 +13094,12 @@
             "group": "Success 200",
             "type": "Number",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.product_id",
             "isArray": false,
             "description": "<p>Product Firmware ID</p>"
@@ -13096,6 +13108,12 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.name",
             "isArray": false,
             "description": "<p>Product Name</p>"
@@ -13104,6 +13122,12 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.slug",
             "isArray": false,
             "description": "<p>URL compatible version of name</p>"
@@ -13112,6 +13136,12 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.description",
             "isArray": false,
             "description": ""
@@ -13120,6 +13150,12 @@
             "group": "Success 200",
             "type": "Number",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.platform_id",
             "isArray": false,
             "description": "<p>Product Platform ID</p>"
@@ -13128,6 +13164,12 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.organization",
             "isArray": false,
             "description": "<p>Organization Unique ID</p>"
@@ -13136,6 +13178,12 @@
             "group": "Success 200",
             "type": "Boolean",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.requires_activation_codes",
             "isArray": false,
             "description": ""
@@ -13144,6 +13192,12 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "parentNode": {
+              "path": "product",
+              "field": "product",
+              "type": "Object",
+              "isArray": false
+            },
             "field": "product.device_protection",
             "isArray": false,
             "description": "<p>The set device protection status of the devices in this product</p>"

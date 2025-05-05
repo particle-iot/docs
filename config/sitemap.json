@@ -9721,6 +9721,10 @@
         "reference/device-os/libraries/n/NFC_UICR_RK.md": {
             "hash": "36a001fb0db71f23921ab242277114b287234eb8d1f7a0387fd91f6a8890e6c8",
             "date": "2025-05-01"
+        },
+        "hardware/community/input-protection.md": {
+            "hash": "40af93904cce7e7bc72b6fd9cea81e870f6c50a015cf0949912b1c188d6dd987",
+            "date": "2025-05-05"
         }
     }
 }
