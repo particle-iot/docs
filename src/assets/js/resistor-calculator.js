@@ -99,7 +99,7 @@ $(document).ready(function () {
             const groupName = $(this).data('group');
 
             calculator.parameters[groupName] = {
-                inputElem: $(this).find('input'),
+                inputElem: $(this).find('input[type="text"]'),
                 unitElem: $(this).find('.resistorUnit'),
                 groupName,
             };
@@ -118,7 +118,7 @@ $(document).ready(function () {
             else {
                 $(thisPartial).find('.autoRow').hide();
                 $(thisPartial).find('.manualRow').show();
-                p.solveFor = $(thisPartial).find('input[name="solveFor"]:checked').val();
+                p.solveFor = $(thisPartial).find('input[type="radio"][name="solveFor"]:checked').val();
                 p.solveForElem = calculator.parameters[p.solveFor].inputElem;
             }
 
@@ -147,7 +147,6 @@ $(document).ready(function () {
                         result = (p.vin * p.r2) / (p.r1 + p.r2);
                         break;
                 }
-
                 $(p.solveForElem).val(result);
             }
 
