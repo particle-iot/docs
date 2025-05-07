@@ -139,8 +139,15 @@ $(document).ready(function () {
 
                 switch(p.solveFor) {
                     case 'vin':
+                        result = (p.vout * (p.r1 + p.r2)) / p.r2;
+                        break;
+
                     case 'r1':
+                        result = p.r2 * ((p.vin / p.vout) - 1);
+                        break;
+
                     case 'r2':
+                        result = p.r1 * 1 / ((p.vin / p.vout) - 1);
                         break;
 
                     case 'vout': 
