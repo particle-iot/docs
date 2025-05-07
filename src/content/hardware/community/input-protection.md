@@ -52,7 +52,7 @@ In the simplest case, a 3.3V analog or digital signal, you can use it like this:
 ![IN4](/assets/images/hardware-community/input-protection/in4.png)
 
 - The input signal is `IN4` in this example.
-- It connects to `A0` though and analog or digital input can be used.
+- It connects to `A0` though any analog or digital input can be used.
 - The 100&ohm; resistor protects against excessive current through the diode.
 - If the input voltage is negative, the diode shunts it to ground, protecting the MCU.
 - If the input signal is slightly more than 3.3V, the diode shunts it to 3V3, protecting the MCU.
@@ -67,17 +67,44 @@ You can also attach a voltage divider to the input of the TVS:
 - The voltage divider works the same as [Voltage divider (5V)](#voltage-divider-5v-), above.
 - Instead of the 100&ohm; R20 in [3.3V TVS](#3-3v-tvs), above, the high side of the voltage divider (R19) limits the input current.
 
-### Input block
+### Input design block
 
 One technique that I like is to use this universal input block on my circuits. If I might want to change the voltage or other characteristics
 of the input in the future, I can just rework the board to change the resistors and not have to spin a new board.
 
-#### 3.3V Input block
+#### 3.3V input block
 
-This circuit is electrically the same as [3.3V TVS](#3-3v-tvs).
+This circuit is electrically the same as [3.3V TVS](#3-3v-tvs). The DNP, Do Not Populate, resistors are left off when assembling the board.
 
 ![IN1](/assets/images/hardware-community/input-protection/in1.png)
 
 The layout on a circuit board looks like this:
 
 ![IN1](/assets/images/hardware-community/input-protection/in1-board.png)
+
+#### 3.3V with pull-up input block
+
+By adding R5, a 10K&ohm; resistor, the input now has a pull-up. If you are using an open-collector input (only pulls to ground), or you
+want the value to not float when disconnected, you can use a circuit like this.
+
+![IN0](/assets/images/hardware-community/input-protection/in0.png)
+
+#### 5V input block
+
+This is the same design as [Voltage divider (5V)](#voltage-divider-15-) with a 10K high-side and 20K low-side resistor.
+
+![IN2](/assets/images/hardware-community/input-protection/in2.png)
+
+I used this input circuit with a tank level sensor, and it successfully protected my device. This magneto-resistive sensor is powered at 12V but supplies
+an analog output 0-5 VDC depending on level. While a voltage divider alone would be sufficient for this voltage, it also has the odd characteristics that if
+you have a loose ground wire, the output is around 8V! That would have been sufficient to damage the device if not for the protection diodes.
+
+
+
+
+#### 12V input block
+
+This is the same design as [Voltage divider (12V)](#voltage-divider-12v-) with a 27K high-side and 10K low-side resistor.
+
+![IN3](/assets/images/hardware-community/input-protection/in3.png)
+
