@@ -1,0 +1,59 @@
+<!-- api-helper, api-helper-extras, resistor-calculator -->
+<div class="resistorCalculator" style="margin-top: 10px; margin-bottom: 10px;">
+    <div>
+        <table class="apiHelperTableNoMargin">
+            <tbody>
+                <tr>
+                    <td colspan="4">
+                        <label><input type="radio" name="style" value="manual" checked>Manually enter resistance</label>
+                        <label><input type="radio" name="style" value="auto">Automatically calculate resistance</label>
+                    </td>
+                </tr>
+                <tr data-group="vin">
+                    <td class="apiHelperProductSelectorLabel">V<sub>IN</sub></td>
+                    <td><input type="text" size="10" value="3.3" name="vin" class="inputText"></td>
+                    <td>volts</td>
+                    <td class="manualRow" ><label><input type="radio" name="solveFor" value="vin">Solve for V<sub>IN</sub></label></td>
+                </tr>
+                <tr class="manualRow" data-group="r1">
+                    <td class="apiHelperProductSelectorLabel">R<sub>1</sub></td>
+                    <td><input type="text" size="10" value="10000" name="r1" class="inputText"></td>
+                    <td><select class="apiHelperSelect resistorUnit"></select></td>
+                    <td><label><input type="radio" name="solveFor" value="r1">Solve for R1</label></td>
+                </tr>
+                <tr class="manualRow" data-group="r2">
+                    <td class="apiHelperProductSelectorLabel">R<sub>2</sub></td>
+                    <td><input type="text" size="10" value="10000" name="r2" class="inputText"></td>
+                    <td><select class="apiHelperSelect resistorUnit"></select></td>
+                    <td><label><input type="radio" name="solveFor" value="r2">Solve for R2</label></td>
+                </tr>
+                <tr data-group="vout">
+                    <td class="apiHelperProductSelectorLabel">V<sub>OUT</sub></td>
+                    <td><input type="text" size="10" value="" name="vout" class="inputText"></td>
+                    <td>volts</td>
+                    <td class="manualRow"><label><input type="radio" name="solveFor" value="vout" checked>Solve for V<sub>OUT</sub></label></td>
+                </tr>
+                <tr class="autoRow" data-group="rmin" style="display:none;">
+                    <td class="apiHelperProductSelectorLabel">R<sub>MIN</sub></td>
+                    <td><input type="text" size="10" value="10" name="rmin" class="inputText"></td>
+                    <td>K ohm</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="autoRow" data-group="rmax" style="display:none;">
+                    <td class="apiHelperProductSelectorLabel">R<sub>MAX</sub></td>
+                    <td><input type="text" size="10" value="1000" name="rmax" class="inputText"></td>
+                    <td>K ohm</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="autoRow" style="display:none;">
+                    <td>Use</td>
+                    <td colspan="3">
+                        <label><input type="radio" name="use" value="10" checked>10%</label> &nbsp;
+                        <label><input type="radio" name="use" value="5">5%</label> &nbsp;
+                        standard resistor values
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
