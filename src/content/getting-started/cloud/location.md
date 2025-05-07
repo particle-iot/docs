@@ -100,7 +100,11 @@ Devices typically upload [Device Vitals](/getting-started/console/device-vitals/
 
 Device Vitals can be used to generate an approximate location of the device and is available on cellular, Wi-Fi, and Ethernet devices. On non-cellular devices, Device Vitals geolocation uses IP-address geolocation, so the location will not be precise.
 
-On Sandbox and Basic plans, the Device Vitals location is updated once per week. On Enterprise plans, the location is updated on all Device Vitals updates.
+On Sandbox and Basic plans, the Device Vitals location is updated once per week. 
+
+On Enterprise plans, the location is updated when Device Vitals are updated and:
+- The network identity has changed (new IP address or cell tower)
+- Or at least one hour has passed since the last update
 
 When calculating location from Device Vitals, `loc-enhanced` events are never sent. However, once you've enabled location storage in the console
 you can use the [query location API](/reference/cloud-apis/api/#query-location-for-one-device-within-a-product) to find a device's location. For the 
