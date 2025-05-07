@@ -9725,6 +9725,10 @@
         "hardware/community/input-protection.md": {
             "hash": "895099e39f7c44e519579c88747556b5ecc618a2a29e4be23cff7978fa418e71",
             "date": "2025-05-07"
+        },
+        "tools/developer-tools/resistor-calculator.md": {
+            "hash": "852628ba3ebeadd5041bf16fee33d953fe67c72b461451a89705870761331e7e",
+            "date": "2025-05-07"
         }
     }
 }
