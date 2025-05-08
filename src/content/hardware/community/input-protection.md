@@ -99,6 +99,7 @@ I used this input circuit with a tank level sensor, and it successfully protecte
 an analog output 0-5 VDC depending on level. While a voltage divider alone would be sufficient for this voltage, it also has the odd characteristics that if
 you have a loose ground wire, the output is around 8V! That would have been sufficient to damage the device if not for the protection diodes.
 
+![Float sensor](/assets/images/hardware-community/input-protection/float-sensor.png)
 
 
 
