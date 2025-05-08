@@ -47,7 +47,7 @@ $(document).ready(function () {
                 valueStr = value.toString();
             }
 
-            return valueStr + unit;
+            return valueStr + unit + '&ohm;';
         }
 
         // Common resistor values for 10% and 5%
@@ -293,22 +293,22 @@ $(document).ready(function () {
 
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text(calculator.resistorWithUnits(result.r1, {truncate:1}));
+                        $(tdElem).html(calculator.resistorWithUnits(result.r1, {truncate:1}));
                         $(trElem).append(tdElem);
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text(calculator.resistorWithUnits(result.r2, {truncate:1}));
+                        $(tdElem).html(calculator.resistorWithUnits(result.r2, {truncate:1}));
                         $(trElem).append(tdElem);
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text(calculator.decimalStringTruncate(result.result, 3));
+                        $(tdElem).text(calculator.decimalStringTruncate(result.result, 3) + 'V');
                         $(trElem).append(tdElem);
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text(calculator.decimalStringTruncate(result.delta, 3));
+                        $(tdElem).text(calculator.decimalStringTruncate(result.delta, 3) + 'V');
                         $(trElem).append(tdElem);
                     }
                     {
