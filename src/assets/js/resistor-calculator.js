@@ -7,6 +7,49 @@ $(document).ready(function () {
 
         calculator.partial = thisPartial;
 
+        calculator.decimalStringTruncate = function(value, decimalPlaces) {
+            let s = value.toString();
+
+            let dotIndex = s.indexOf('.');
+            if (dotIndex > 0) {
+                if (decimalPlaces > 0) {
+                    s = s.substring(0, dotIndex + decimalPlaces);
+                }
+                else {
+                    s = s.substring(0, dotIndex);
+                }
+            }
+
+            return s;
+        }
+
+        calculator.resistorWithUnits = function(value, options = {}) {
+            let unit = '';
+
+            if (value < 1000) {
+            }
+            else
+            if (value < 1000000) {
+                value /= 1000;
+                unit = 'K';
+            }
+            else {
+                value /= 1000000;
+                unit = 'M';
+            }
+            
+            let valueStr = '';
+
+            if (typeof options.truncate != 'undefined') {
+                valueStr = calculator.decimalStringTruncate(value, options.truncate);
+            }
+            else {
+                valueStr = value.toString();
+            }
+
+            return valueStr + unit;
+        }
+
         // Common resistor values for 10% and 5%
         calculator.tenPct = [];
         {
@@ -113,14 +156,14 @@ $(document).ready(function () {
             if (p.style == 'auto') {
                 $(thisPartial).find('.autoRow').show();
                 $(thisPartial).find('.manualRow').hide();
-                p.solveFor = p.solveForElem = null;
+                $(thisPartial).find('input[type="radio"][name="solveFor"][value="vout"]').prop('checked', true);
             }
             else {
                 $(thisPartial).find('.autoRow').hide();
                 $(thisPartial).find('.manualRow').show();
-                p.solveFor = $(thisPartial).find('input[type="radio"][name="solveFor"]:checked').val();
-                p.solveForElem = calculator.parameters[p.solveFor].inputElem;
             }
+            p.solveFor = $(thisPartial).find('input[type="radio"][name="solveFor"]:checked').val();
+            p.solveForElem = calculator.parameters[p.solveFor].inputElem;
 
             for(const groupName in calculator.parameters) {
                 p[groupName] = parseFloat($(calculator.parameters[groupName].inputElem).val());
@@ -132,35 +175,177 @@ $(document).ready(function () {
 
             if (p.style == 'auto') {
                 // Auto
+                p.useKey = $(thisPartial).find('input[name="use"]:checked').val();
+                p.rmin *= 1000; 
+                p.rmax *= 1000;
+
+                // nearest, above, below
+                p.show = $(thisPartial).find('input[name="show"]:checked').val();
+
+                p.resToTry = [];
+                for(const r of calculator[p.useKey]) {
+                    if (r >= p.rmin && r <= p.rmax) {
+                        p.resToTry.push(r);
+                    }
+                }
+
+                $(thisPartial).find('.autoResults > tbody').empty();
+
+
+                p.results = [];
+
+                for(const r1 of p.resToTry) {
+                    const resultR1 = {
+                        r1,
+                    };
+
+                    for(const r2 of p.resToTry) {
+                        let result;
+                        let delta;
+
+                        switch(p.solveFor) {
+                            case 'vin':
+                                result = (p.vout * (r1 + r2)) / r2;
+                                delta = result - p.vin;
+                                break;
+                
+                            case 'vout': 
+                                result = (p.vin * r2) / (r1 + r2);
+                                delta = result - p.vout;
+                                break;
+                        }
+
+                        switch(p.show) {
+                            case 'above':
+                                if (delta >= 0) {
+                                    if (typeof resultR1.delta == 'undefined' || delta < resultR1.delta) {
+                                        resultR1.r2 = r2;
+                                        resultR1.result = result;
+                                        resultR1.delta = delta;
+                                    }
+                                }
+                                break;
+
+                            case 'below':
+                                if (delta <= 0) {
+                                    if (typeof resultR1.delta == 'undefined' || -delta < -resultR1.delta) {
+                                        resultR1.r2 = r2;
+                                        resultR1.result = result;
+                                        resultR1.delta = delta;
+                                    }                                    
+                                }
+                                break;
+
+                            case 'nearest':
+                                if (typeof resultR1.delta == 'undefined' || Math.abs(delta) < Math.abs(resultR1.delta)) {
+                                    resultR1.r2 = r2;
+                                    resultR1.result = result;
+                                    resultR1.delta = delta;
+                                }
+                                break;        
+                        }
+                    }
+                    if (typeof resultR1.delta != 'undefined') {
+                        switch(p.solveFor) {
+                            case 'vin':
+                                resultR1.deltaPct = resultR1.delta * 100 / p.vin;
+                                break;
+                
+                            case 'vout': 
+                                resultR1.deltaPct = resultR1.delta * 100 / p.vout;                                
+                                break;
+                        }
+
+                        if (Math.abs(resultR1.deltaPct) < 10) {
+                            p.results.push(resultR1);
+                        }
+                    }                    
+                }
+                p.results.sort(function(a, b) {
+                    // Sort by descending abs(delta)
+                    let cmp = Math.floor(b.delta) - Math.floor(a.delta);
+                    if (cmp != 0) {
+                        return cmp;
+                    }
+                    // Then ascending R1
+                    cmp = a.r1 - b.r1;
+
+                    return cmp;
+                });
+
+                for(const result of p.results) {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(calculator.resistorWithUnits(result.r1, {truncate:1}));
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(calculator.resistorWithUnits(result.r2, {truncate:1}));
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(calculator.decimalStringTruncate(result.result, 3));
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(calculator.decimalStringTruncate(result.delta, 3));
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(calculator.decimalStringTruncate(result.deltaPct, 2) + ' %');
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(thisPartial).find('.autoResults > tbody').append(trElem);
+                }
+
+                $(thisPartial).find('.autoResults').show();
             }
             else {
                 // Manual
                 let result;
+                let decimalPlaces = 0;
 
                 switch(p.solveFor) {
                     case 'vin':
                         result = (p.vout * (p.r1 + p.r2)) / p.r2;
+                        decimalPlaces = 3;
                         break;
 
                     case 'r1':
                         result = p.r2 * ((p.vin / p.vout) - 1);
+                        decimalPlaces = 1;
                         break;
 
                     case 'r2':
                         result = p.r1 * 1 / ((p.vin / p.vout) - 1);
+                        decimalPlaces = 1;
                         break;
 
                     case 'vout': 
                         result = (p.vin * p.r2) / (p.r1 + p.r2);
+                        decimalPlaces = 3;
                         break;
                 }
+                result = calculator.decimalStringTruncate(result, decimalPlaces);
+
                 $(p.solveForElem).val(result);
+
+                $(thisPartial).find('.autoResults').hide();
             }
 
             console.log('solve', p);
         };
 
         $(thisPartial).find('input[name="style"]').on('click', calculator.solve);
+        $(thisPartial).find('input[name="use"]').on('click', calculator.solve);
+        $(thisPartial).find('input[name="show"]').on('click', calculator.solve);
 
 
         $(thisPartial).find('.inputText').on('input blur', calculator.solve);
