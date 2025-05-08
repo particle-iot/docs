@@ -13,7 +13,7 @@ $(document).ready(function () {
             let dotIndex = s.indexOf('.');
             if (dotIndex > 0) {
                 if (decimalPlaces > 0) {
-                    s = s.substring(0, dotIndex + decimalPlaces);
+                    s = s.substring(0, dotIndex + decimalPlaces + 1);
                 }
                 else {
                     s = s.substring(0, dotIndex);
@@ -152,11 +152,15 @@ $(document).ready(function () {
             const p = {};
 
             // Hide rows
+            p.solveFor = $(thisPartial).find('input[type="radio"][name="solveFor"]:checked').val();
             p.style = $(thisPartial).find('input[name="style"]:checked').val();
             if (p.style == 'auto') {
                 $(thisPartial).find('.autoRow').show();
                 $(thisPartial).find('.manualRow').hide();
-                $(thisPartial).find('input[type="radio"][name="solveFor"][value="vout"]').prop('checked', true);
+                
+                if (p.solveFor == 'r1' || p.solveFor == 'r2') {
+                    $(thisPartial).find('input[type="radio"][name="solveFor"][value="vout"]').prop('checked', true);
+                }
             }
             else {
                 $(thisPartial).find('.autoRow').hide();
@@ -262,8 +266,8 @@ $(document).ready(function () {
                     }                    
                 }
                 p.results.sort(function(a, b) {
-                    // Sort by descending abs(delta)
-                    let cmp = Math.floor(b.delta) - Math.floor(a.delta);
+                    // Sort by ascending abs(delta)
+                    let cmp = Math.abs(a.delta) - Math.abs(b.delta);
                     if (cmp != 0) {
                         return cmp;
                     }
@@ -272,6 +276,17 @@ $(document).ready(function () {
 
                     return cmp;
                 });
+
+
+                switch(p.solveFor) {
+                    case 'vin':
+                        $(thisPartial).find('th.autoV').html('V<sub>in</sub>');
+                        break;
+        
+                    case 'vout': 
+                        $(thisPartial).find('th.autoV').html('V<sub>out</sub>');
+                        break;
+                }
 
                 for(const result of p.results) {
                     const trElem = document.createElement('tr');
@@ -304,6 +319,7 @@ $(document).ready(function () {
 
                     $(thisPartial).find('.autoResults > tbody').append(trElem);
                 }
+
 
                 $(thisPartial).find('.autoResults').show();
             }
