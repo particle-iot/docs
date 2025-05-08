@@ -13,7 +13,7 @@
                     <td class="apiHelperProductSelectorLabel">V<sub>IN</sub></td>
                     <td><input type="text" size="10" value="3.3" name="vin" class="inputText"></td>
                     <td>volts</td>
-                    <td class="manualRow" ><label><input type="radio" name="solveFor" value="vin">Solve for V<sub>IN</sub></label></td>
+                    <td><label><input type="radio" name="solveFor" value="vin">Solve for V<sub>IN</sub></label></td>
                 </tr>
                 <tr class="manualRow" data-group="r1">
                     <td class="apiHelperProductSelectorLabel">R<sub>1</sub></td>
@@ -31,7 +31,7 @@
                     <td class="apiHelperProductSelectorLabel">V<sub>OUT</sub></td>
                     <td><input type="text" size="10" value="" name="vout" class="inputText"></td>
                     <td>volts</td>
-                    <td class="manualRow"><label><input type="radio" name="solveFor" value="vout" checked>Solve for V<sub>OUT</sub></label></td>
+                    <td><label><input type="radio" name="solveFor" value="vout" checked>Solve for V<sub>OUT</sub></label></td>
                 </tr>
                 <tr class="autoRow" data-group="rmin" style="display:none;">
                     <td class="apiHelperProductSelectorLabel">R<sub>MIN</sub></td>
@@ -41,18 +41,39 @@
                 </tr>
                 <tr class="autoRow" data-group="rmax" style="display:none;">
                     <td class="apiHelperProductSelectorLabel">R<sub>MAX</sub></td>
-                    <td><input type="text" size="10" value="1000" name="rmax" class="inputText"></td>
+                    <td><input type="text" size="10" value="100" name="rmax" class="inputText"></td>
                     <td>K ohm</td>
                     <td></td>
                 </tr>
                 <tr class="autoRow" style="display:none;">
-                    <td>Use</td>
-                    <td colspan="2">
-                        <label><input type="radio" name="use" value="10" checked>10%</label> &nbsp;
-                        <label><input type="radio" name="use" value="5">5%</label> &nbsp;
+                    <td class="apiHelperProductSelectorLabel">Use</td>
+                    <td colspan="3">
+                        <label><input type="radio" name="use" value="tenPct" checked>10%</label> &nbsp;
+                        <label><input type="radio" name="use" value="onePct">5%</label> &nbsp;
                         standard resistor values
                     </td>
                 </tr>
+                <tr class="autoRow" style="display:none;">
+                    <td class="apiHelperProductSelectorLabel">Show</td>
+                    <td colspan="3">
+                        <label><input type="radio" name="show" value="nearest" checked>Nearest</label> &nbsp;
+                        <label><input type="radio" name="show" value="below">Nearest below voltage</label> &nbsp;
+                        <label><input type="radio" name="show" value="above">Nearest above voltage</label> &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="apiHelperTableNoMargin autoResults" style="display:none">
+            <thead>
+                <tr>
+                    <th>R<sub>1</sub></th>
+                    <th>R<sub>2</sub></th>
+                    <th>V</th>
+                    <th>Delta</th>
+                    <th>Percent</th>
+                </tr>
+            </thead>
+            <tbody>
             </tbody>
         </table>
     </div>
