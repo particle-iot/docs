@@ -259,6 +259,13 @@ $(document).ready(function () {
                                 resultR1.deltaPct = resultR1.delta * 100 / p.vout;                                
                                 break;
                         }
+                        // V = IR 
+                        // I = V/R
+                        resultR1.ir1 = (p.vin - p.vout) / p.r1;
+                        resultR1.wr1 = (p.vin - p.vout) * resultR1.ir1;
+
+                        resultR1.ir2 = p.vout / p.r2;
+                        resultR1.wr2 = p.vout * resultR1.ir2;
 
                         if (Math.abs(resultR1.deltaPct) < 10) {
                             p.results.push(resultR1);
@@ -316,6 +323,18 @@ $(document).ready(function () {
                         $(tdElem).text(calculator.decimalStringTruncate(result.deltaPct, 2) + ' %');
                         $(trElem).append(tdElem);
                     }
+                    /*
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(calculator.decimalStringTruncate(result.ir1, 3) + 'A (' + calculator.decimalStringTruncate(result.wr1, 3) + 'W)');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(calculator.decimalStringTruncate(result.ir2, 3) + 'A (' + calculator.decimalStringTruncate(result.wr2, 3) + 'W)');
+                        $(trElem).append(tdElem);
+                    }
+                    */
 
                     $(thisPartial).find('.autoResults > tbody').append(trElem);
                 }
