@@ -12,7 +12,35 @@ Most Particle devices have a 3.3V limit on digital and analog inputs. When conne
 - The voltage is in the required range
 - The Particle device is protected against transient voltages
 
-One common solution is to use a rail-to-rail TVS (transient voltage suppressor) with Zener diode.
+
+### Resistor voltage divider
+
+If you have a need to slightly decrease voltage, such as from 5V to 3.3V, especially for analog signals, a resistor voltage divider is an effective
+and inexpensive option.
+
+<img src="/assets/images/hardware-community/input-protection/resistor-divider.png" style="background: white" />
+
+<p class="attribution">Credit: [Wikipedia](https://commons.wikimedia.org/wiki/File:Resistive_divider2.svg)</p>
+
+You can use the [resistor divider calculator](/tools/developer-tools/resistor-calculator/) to find the appropriate values for other voltages.
+
+You should not use a voltage divider for high voltage differences as the current through the resistor can be excessive. You should also never connect 
+the output of a voltage divider to yet another voltage divider.
+
+### Level shifter
+
+A level shifter can be used to:
+
+- Decrease voltage, such as 5V logic to 3.3V logic
+- Increase voltage, such as 3.3V logic on the Particle device to a 5V sensor
+- Bidirectional voltage translation, such as 3.3V I2C to 5V I2C
+- Automatic direction sensing level sensing
+
+Additional information will be provided in the future on options for level shifters.
+
+### TVS input protection
+
+One common solution is to use a rail-to-rail TVS (transient voltage suppressor) with Zener diode to protect the input.
 
 The examples here use a Diodes Inc. [D1213A-02SOL-7](https://www.digikey.com/en/products/detail/diodes-incorporated/D1213A-02SOL-7/3340437) 
 (TVS DIODE 3.3VWM 10VC SOT233). They're US$ 0.20 in single quantities and significantly less expensive in larger quantities. This version is in the SOT-23-3 package 
@@ -21,6 +49,7 @@ but there are variations in several common surface mount packages.
 This chip isn't available in PTH packages for breadboards, but if you want to prototype a design in a breadboard, you can 
 easily search for "SOT-23-3 breakout" and find items such as this one [from Amazon](https://www.amazon.com/Chironal-Double-Side-SOT23-3-Adapter-Converter/dp/B07MQBF2DD/ref=sr_1_3) which is 50 pieces for US$ 9.49. The SOT-23-3 is intended to be reflow soldered, but the pins are far enough apart that you can
 solder it by hand with a soldering iron fairly easily.
+
 
 ## Example circuits
 
@@ -88,6 +117,8 @@ By adding R5, a 10K&ohm; resistor, the input now has a pull-up. If you are using
 want the value to not float when disconnected, you can use a circuit like this.
 
 ![IN0](/assets/images/hardware-community/input-protection/in0.png)
+
+Of course you could make a pull-down by populating R6 instead of R5.
 
 #### 5V input block
 
