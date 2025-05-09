@@ -201,9 +201,11 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 - [Grant of equipment authorization - Part 15B Communication Receiver](/assets/pdfs/b504-fcc-cxx.pdf)
 - [Grant of equipment authorization - Part 15B Computing Device](/assets/pdfs/b504-fcc-jbp.pdf)
 
+The certification for the B504 applies to the B504e as changing only the SIM is a permissive change that does not require full recertification.
+
 ### ISED (Canada) -  B504e B-Series SoM 
 
-- ISED ID: 2017-B504
+- ISED ID: 20127-B504
 
 {{!-- END shared-blurb --}}
 

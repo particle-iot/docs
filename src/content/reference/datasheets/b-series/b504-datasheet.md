@@ -2046,14 +2046,41 @@ The OEM integrator has to be aware not to provide information to the end user re
 - [Grant of equipment authorization - Part 15B Communication Receiver](/assets/pdfs/b504-fcc-cxx.pdf)
 - [Grant of equipment authorization - Part 15B Computing Device](/assets/pdfs/b504-fcc-jbp.pdf)
 
+The certification for the B504 applies to the B504e as changing only the SIM is a permissive change that does not require full recertification.
+
 ### ISED (Canada) -  B504e B-Series SoM 
 
-- ISED ID: 2017-B504
+- ISED ID: 20127-B504
 
 {{!-- END shared-blurb --}}
 
+**Indiustry Canada Statement**
+This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
 
-The certification for the B504 applies to the B504e as changing only the SIM is a permissive change that does not require full recertification.
+1. This device may not cause interference; and
+2. This device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
+
+**L’exploitation est autorisée aux deux conditions suivantes:**
+
+1. l’appareil ne doit pas produire de brouillage;
+2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**Caution Exposure:**
+This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
+Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
+
+**The final end product must be labelled in a visible area with the following:**
+The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
+
+ * Contains transmitter module ISED: 20127-B504
+ 
+This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
+
+> The end user manual shall include all required regulatory information/warning as shown in this manual.
+
 
 ---
 
@@ -2144,3 +2171,4 @@ The following countries are not officially supported at this time, but may be co
 | 003      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
 | 004      | 2024-09-24 | RK | Removed concurrent GNSS warning |
 | 005      | 2025-04-21 | RK | Added ISED certification |
+| 006      | 2025-05-09 | RK | Added Industry Canada statement |
