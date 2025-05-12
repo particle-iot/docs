@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Input protection page 2025-05-12
+
+New community hardware page for [input protection](/hardware/community/input-protection/) for digital and analog inputs using rail-to-rail TVS diodes.
+
+### Resistor divider calculator 2025-05-12
+
+New [resistor divider calculator](/tools/developer-tools/resistor-calculator/) which has the typical calculation features and also can choose the resistors from standard 10% or 5% resistors and shows a sorted list.
+
 ### acquireWireBuffer example 2025-05-12
 
 The example code for acquireWireBuffer used a deprecated type, should use hal_i2c_config_t.
