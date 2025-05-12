@@ -375,7 +375,7 @@ $(document).ready(function () {
                 $(thisPartial).find('.autoResults').hide();
             }
 
-            console.log('solve', p);
+            // console.log('solve', p);
         };
 
         $(thisPartial).find('input[name="style"]').on('click', calculator.solve);
@@ -415,6 +415,6 @@ $(document).ready(function () {
         });
         calculator.solve();
 
-        console.log('calculator', calculator);
+        // console.log('calculator', calculator);
     });
 });
