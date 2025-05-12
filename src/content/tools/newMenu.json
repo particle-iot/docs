@@ -73,6 +73,10 @@
                     "title": "Battery calculator"
                 },
                 {
+                    "dir": "resistor-calculator",
+                    "title": "Resistor divider calculator"
+                },
+                {
                     "dir": "configure-wi-fi",
                     "title": "Configure Wi-Fi"
                 },

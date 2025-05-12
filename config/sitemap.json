@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "aefc497912a9ddec48834ece2811d83bdc27dd40b94c401e4e9459388fe8987b",
+            "hash": "da4fb336553bde479b238c0a00abbba9730f99d501fb45e34825f41bd0c3b122",
             "date": "2025-05-12"
         },
         "getting-started/cloud/logic.md": {
@@ -9721,6 +9721,14 @@
         "reference/device-os/libraries/n/NFC_UICR_RK.md": {
             "hash": "36a001fb0db71f23921ab242277114b287234eb8d1f7a0387fd91f6a8890e6c8",
             "date": "2025-05-01"
+        },
+        "hardware/community/input-protection.md": {
+            "hash": "49db577fc0db8736f15794a804af667f63bdf94934d8a2b6af843795a8585520",
+            "date": "2025-05-09"
+        },
+        "tools/developer-tools/resistor-calculator.md": {
+            "hash": "35bb4e830b64f265674ad1499923905054b7fd8ef7d1a87d231779638024c5bb",
+            "date": "2025-05-09"
         }
     }
 }
