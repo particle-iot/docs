@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-05-05",
-            "hash": "56c3da366a5e0d4fa8cbb0b80b0917ef41098e66a0dd069180f4f2a5aedbf707"
+            "date": "2025-05-12",
+            "hash": "0e770b89844a7a99d5874b31b6a506638fb9fde4bd99d73da3296f458eb141e6"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2839,8 +2839,8 @@
             "hash": "152cbba18971126945f8830441f405f3e3c81c843582dcf72c4d1024ca87f862"
         },
         "reference/device-os/api/wire-i2c/acquirewirebuffer.md": {
-            "date": "2024-02-27",
-            "hash": "9884420d79ee4ba40e41f2c2d103a5b5b88eccb518880b3fb9c5d7645c9a1bc1"
+            "date": "2025-05-12",
+            "hash": "2d0468f33a411d592a1b677b73d628c0a2a477c9faaf0f820d31ea0c3b1803e5"
         },
         "reference/device-os/api/can-canbus/can-canbus.md": {
             "date": "2024-02-27",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ff9c979d5aaab50b10454e2541f56e75419a0986e626f5a9c597b534a960f4b1",
-            "date": "2025-05-07"
+            "hash": "aefc497912a9ddec48834ece2811d83bdc27dd40b94c401e4e9459388fe8987b",
+            "date": "2025-05-12"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

@@ -11311,6 +11311,19 @@ This example sets a 512 byte buffer size instead of the default 32 byte size.
 ```
 constexpr size_t I2C_BUFFER_SIZE = 512;
 
+hal_i2c_config_t acquireWireBuffer() {
+    hal_i2c_config_t config = {
+        .size = sizeof(hal_i2c_config_t),
+        .version = HAL_I2C_CONFIG_VERSION_1,
+        .rx_buffer = new (std::nothrow) uint8_t[I2C_BUFFER_SIZE],
+        .rx_buffer_size = I2C_BUFFER_SIZE,
+        .tx_buffer = new (std::nothrow) uint8_t[I2C_BUFFER_SIZE],
+        .tx_buffer_size = I2C_BUFFER_SIZE
+    };
+    return config;
+}
+
+// Use HAL_I2C_Config instead of hal_i2c_config_t for Device OS prior to version 2.0.0
 HAL_I2C_Config acquireWireBuffer() {
     HAL_I2C_Config config = {
         .size = sizeof(HAL_I2C_Config),

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### acquireWireBuffer example 2025-05-12
+
+The example code for acquireWireBuffer used a deprecated type, should use hal_i2c_config_t.
+
 ### Location updates 2025-05-08
 
 There is now a maximum frequency of updates for [location updates](/getting-started/cloud/location/) based on device vitals.
