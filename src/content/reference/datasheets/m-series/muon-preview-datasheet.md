@@ -1273,7 +1273,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Thailand | M524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | M524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
 | Uganda | M524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | M524 | 2G, 3G, 4G | 3, EE, Manx, O2, Sure, Vodafone |
+| United Kingdom | M524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
 | Vietnam | M524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | M524 | 2G, 3G, 4G | Airtel |
 

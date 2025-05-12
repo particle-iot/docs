@@ -699,7 +699,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Turks and Caicos Islands | E314 | 2G, 3G | Flow |
 | Uganda | E314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | E314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Kingdom | E314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
+| United Kingdom | E314 | 2G, 3G | 3, EE, O2, Vodafone |
 | United States | E404 | M1 | AT&T, T-Mobile (USA) |
 | Uruguay | E314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | E314 | 2G, 3G | Beeline |

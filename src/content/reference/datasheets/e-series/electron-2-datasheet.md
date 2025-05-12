@@ -1427,7 +1427,7 @@ To be provided at a later date.
 <tr><td style="width: 2px; "></td><td>Tunisia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Orange Tunisie, Tunisie Telecom</td></tr>
 <tr><td style="width: 2px; "></td><td>Uganda</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Africell, MTN</td></tr>
 <tr><td style="width: 2px; "></td><td>Ukraine</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Kyivstar, Life, MTS</td></tr>
-<tr><td style="width: 2px; background-color: #89E2B3; "></td><td>United Kingdom</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>3, EE, Manx, O2, Vodafone</td></tr>
+<tr><td style="width: 2px; background-color: #89E2B3; "></td><td>United Kingdom</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>3, EE, O2, Vodafone</td></tr>
 <tr><td style="width: 2px; background-color: #AFE4EE; "></td><td>United States</td><td>✅</td><td>AT&T, Alaska Wireless, T-Mobile (USA), Verizon</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Uruguay</td><td>❓</td><td>Antel, Claro, Movistar</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Uzbekistan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Beeline</td></tr>

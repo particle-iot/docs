@@ -763,7 +763,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Turks and Caicos Islands | ELC314 | 2G, 3G | Flow |
 | Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | ELC314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
+| United Kingdom | ELC314 | 2G, 3G | 3, EE, O2, Vodafone |
 | United States | ELC404 | M1 | AT&T, T-Mobile (USA) |
 | Uruguay | ELC314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | ELC314 | 2G, 3G | Beeline |

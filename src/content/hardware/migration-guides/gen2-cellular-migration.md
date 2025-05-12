@@ -933,9 +933,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | United Arab Emirates | Etisalat | &check; | &nbsp; | &nbsp; | &nbsp; |
 | United Kingdom | 3 | &check; | &check; | &check; | &nbsp; |
 | United Kingdom | EE | &nbsp; | &check; | &check; | &nbsp; |
-| United Kingdom | Manx | &nbsp; | &check; | &check; | &nbsp; |
 | United Kingdom | O2 | &check; | &check; | &check; | &nbsp; |
-| United Kingdom | Sure | &nbsp; | &check; | &check; | &nbsp; |
 | United Kingdom | Vodafone | &check; | &check; | &check; | &nbsp; |
 | United States | AT&T | &nbsp; | &nbsp; | &nbsp; | &check; |
 | United States | T-Mobile (USA) | &nbsp; | &nbsp; | &nbsp; | &check; |

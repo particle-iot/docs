@@ -262,9 +262,7 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Uganda | MTN | &check; |
 | United Kingdom | 3 | &nbsp; |
 | United Kingdom | EE | &nbsp; |
-| United Kingdom | Manx | &nbsp; |
 | United Kingdom | O2 | &nbsp; |
-| United Kingdom | Sure | &nbsp; |
 | United Kingdom | Vodafone | &nbsp; |
 | Vietnam | MobiFone | &check; |
 | Vietnam | Viettel | &check; |

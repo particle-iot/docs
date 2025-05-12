@@ -1304,7 +1304,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Thailand | T524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | T524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
 | Uganda | T524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | T524 | 2G, 3G, 4G | 3, EE, Manx, O2, Sure, Vodafone |
+| United Kingdom | T524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
 | United States | T404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Vietnam | T524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | T524 | 2G, 3G, 4G | Airtel |

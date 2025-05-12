@@ -963,7 +963,7 @@ To be provided at a later date.
 | Thailand | MON524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | MON524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
 | Uganda | MON524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | MON524 | 2G, 3G, 4G | 3, EE, Manx, O2, Sure, Vodafone |
+| United Kingdom | MON524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
 | United States | MON404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Vietnam | MON524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | MON524 | 2G, 3G, 4G | Airtel |

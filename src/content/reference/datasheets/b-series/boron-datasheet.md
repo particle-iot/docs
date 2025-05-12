@@ -662,7 +662,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Turks and Caicos Islands | BRN314 | 2G, 3G | Flow |
 | Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
+| United Kingdom | BRN314 | 2G, 3G | 3, EE, O2, Vodafone |
 | United States | BRN404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | United States | BRN404X | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |

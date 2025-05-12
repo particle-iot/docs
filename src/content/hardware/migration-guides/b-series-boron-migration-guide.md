@@ -178,7 +178,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Thailand | B524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | B524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
 | Uganda | B524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | B524 | 2G, 3G, 4G | 3, EE, Manx, O2, Sure, Vodafone |
+| United Kingdom | B524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
 | Vietnam | B524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | B524 | 2G, 3G, 4G | Airtel |
 
