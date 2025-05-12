@@ -2189,11 +2189,8 @@ On a successful cmd request, the result is 0. A result of -22 indicates the JSON
 
 Tracker One and Monitor One devices share the same platform ID, and by default new products default to being Tracker One products.
 
-To enable the Monitor One features, use this control to change the product schema to Monitor One and add the additional tabs shown below.
-
-{{> sso}}
-
-{{> config-schema options="monitor" }}
+To enable the Monitor One features, use this control to change the product schema to Monitor One and add the additional tabs shown below,
+use the [configuration schema tool](/tools/cloud-tools/configuration-schema/).
 
 ### Settings shared with the tracker
 

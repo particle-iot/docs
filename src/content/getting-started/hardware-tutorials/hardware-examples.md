@@ -168,7 +168,6 @@ In the code above, if the command is "on" we turn the LED on, and if it's "off" 
 
 If you've logged in, you can interact with your devices here:
 
-{{> sso }}
 {{> led-function-test }}
 
 You can also test your new function is from [the console](https://console.particle.io). In the devices tab, click on the row for the device you just flashed your code to.
