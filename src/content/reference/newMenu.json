@@ -640,6 +640,10 @@
                             "title": "2G/3G Sunset"
                         },
                         {
+                            "dir": "uk-sunset",
+                            "title": "United Kingdom 2G/3G Sunset"
+                        },
+                        {
                             "dir": "us-2g-3g-sunset",
                             "title": "US 2G/3G Sunset"
                         },

@@ -11629,14 +11629,21 @@
     {
       "country": "Guernsey",
       "carrier": "Sure",
+      "aliases": [
+        "C+W Sure"
+      ],
+      "sunset2G": "?",
+      "sunset3G": "?",
       "bands": [
+        "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
-        "4G-3",
-        "4G-7",
-        "4G-20"
-      ]
+        "3G-1"
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      }
     },
     {
       "country": "Guinea",
@@ -13756,6 +13763,25 @@
       }
     },
     {
+      "country": "Isle of Man",
+      "carrier": "Sure",
+      "aliases": [
+        "C+W Sure"
+      ],
+      "sunset2G": "?",
+      "sunset3G": "?",
+      "bands": [
+        "2G-900",
+        "2G-1800",
+        "3G-1"
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      }
+    },
+    {
       "country": "Israel",
       "carrier": "Cellcom",
       "sunset2G": "2025-12-31",
@@ -14492,6 +14518,25 @@
           "mnc": "50",
           "tadig": "GBRJT"
         }
+      }
+    },
+    {
+      "country": "Jersey",
+      "carrier": "Sure",
+      "aliases": [
+        "C+W Sure"
+      ],
+      "sunset2G": "?",
+      "sunset3G": "?",
+      "bands": [
+        "2G-900",
+        "2G-1800",
+        "3G-1"
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -24148,6 +24193,15 @@
       ],
       "sunset2G": "?",
       "sunset3G": "2024-12-31",
+      "timeline": {
+        "3G": [
+          {
+            "state": "active",
+            "end": "2024-12-31",
+            "note": "3G service ended 2024-12"
+          }
+        ]
+      },
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -24198,6 +24252,22 @@
       "carrier": "EE",
       "sunset2G": "2029-12-31",
       "sunset3G": "2024-12-31",
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2029-12-31",
+            "note": "2G service ending 2029"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2024-12-31",
+            "note": "3G service ended 2024"
+          }
+        ]
+      },
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -24258,6 +24328,22 @@
       ],
       "sunset2G": "2025-09-30",
       "sunset3G": "2025-09-30",
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2025-09-30",
+            "note": "2G service ending 2024-09-30"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2025-09-30",
+            "note": "3G service ending 2024-09-30"
+          }
+        ]
+      },
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -24353,25 +24439,6 @@
     },
     {
       "country": "United Kingdom",
-      "carrier": "Sure",
-      "aliases": [
-        "C+W Sure"
-      ],
-      "sunset2G": "?",
-      "sunset3G": "?",
-      "bands": [
-        "2G-900",
-        "2G-1800",
-        "3G-1"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allow4G": true
-      }
-    },
-    {
-      "country": "United Kingdom",
       "carrier": "T-Mobile",
       "sunset2G": "?",
       "sunset3G": "?",
@@ -24414,6 +24481,22 @@
       ],
       "sunset2G": "2025-12-31",
       "sunset3G": "2021-12-31",
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2025-12-31",
+            "note": "2G service ending 2024-12-31"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2021-12-31",
+            "note": "3G service ended 2021"
+          }
+        ]
+      },
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -80399,7 +80482,18 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Guernsey",
@@ -80407,9 +80501,27 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {}
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Sure": [
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Guernsey",
@@ -80429,14 +80541,36 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Guernsey",
       "modem": "EG800Q-EU",
       "sim": 4,
       "supported": {},
-      "notSupported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
@@ -80446,7 +80580,18 @@
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
-      "notSupported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "technologies": [],
       "recommendation": "NR"
     },
@@ -80477,8 +80622,22 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "notSupported": {}
     },
     {
@@ -80508,8 +80667,22 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "notSupported": {}
     },
     {
@@ -80519,7 +80692,18 @@
       "recommendation": "NR",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Guernsey",
@@ -80549,7 +80733,18 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Guernsey",
@@ -80559,7 +80754,18 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Guernsey",
@@ -80618,8 +80824,22 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "notSupported": {}
     },
     {
@@ -88782,7 +89002,18 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Isle of Man",
@@ -88790,9 +89021,27 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {}
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Sure": [
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Isle of Man",
@@ -88812,14 +89061,36 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Isle of Man",
       "modem": "EG800Q-EU",
       "sim": 4,
       "supported": {},
-      "notSupported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
@@ -88829,7 +89100,18 @@
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
-      "notSupported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "technologies": [],
       "recommendation": "NR"
     },
@@ -88865,8 +89147,22 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "notSupported": {}
     },
     {
@@ -88901,8 +89197,22 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "notSupported": {}
     },
     {
@@ -88912,7 +89222,18 @@
       "recommendation": "NR",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Isle of Man",
@@ -88942,7 +89263,18 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Isle of Man",
@@ -88952,7 +89284,18 @@
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      }
     },
     {
       "country": "Isle of Man",
@@ -89020,8 +89363,22 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
       "notSupported": {}
     },
     {
@@ -93600,6 +93957,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       }
     },
@@ -93620,6 +93982,10 @@
         "Jersey Telecom": [
           "2G-900",
           "2G-1800"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -93637,6 +94003,9 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "3G-1"
         ]
       }
     },
@@ -93677,6 +94046,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       }
     },
@@ -93706,6 +94080,11 @@
           "3G-1"
         ],
         "Jersey Telecom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
           "2G-900",
           "2G-1800",
           "3G-1"
@@ -93740,6 +94119,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -93792,6 +94176,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -93843,6 +94232,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -93873,6 +94267,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       }
     },
@@ -93950,6 +94349,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       }
     },
@@ -93980,6 +94384,11 @@
           "4G-3",
           "4G-7",
           "4G-20"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
         ]
       }
     },
@@ -94077,6 +94486,11 @@
           "3G-1"
         ],
         "Jersey Telecom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Sure": [
           "2G-900",
           "2G-1800",
           "3G-1"
@@ -156229,11 +156643,6 @@
           "5G-28",
           "5G-78"
         ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
-        ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
@@ -156286,10 +156695,6 @@
           "M1-8",
           "M1-20",
           "M1-28"
-        ],
-        "Sure": [
-          "2G-900",
-          "2G-1800"
         ],
         "Vodafone": [
           "2G-900",
@@ -156363,9 +156768,6 @@
           "5G-8",
           "5G-28",
           "5G-78"
-        ],
-        "Sure": [
-          "3G-1"
         ],
         "Vodafone": [
           "4G-1",
@@ -156492,11 +156894,6 @@
           "5G-28",
           "5G-78"
         ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
-        ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
@@ -156622,11 +157019,6 @@
           "5G-28",
           "5G-78"
         ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
-        ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
@@ -156732,11 +157124,6 @@
           "5G-8",
           "5G-28",
           "5G-78"
-        ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
@@ -156863,11 +157250,6 @@
           "4G-20",
           "4G-28"
         ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
-        ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
@@ -157041,11 +157423,6 @@
           "4G-8",
           "4G-20",
           "4G-28"
-        ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
@@ -157206,11 +157583,6 @@
           "5G-8",
           "5G-28",
           "5G-78"
-        ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
@@ -157437,11 +157809,6 @@
           "5G-28",
           "5G-78"
         ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
-        ],
         "Vodafone": [
           "2G-900",
           "2G-1800",
@@ -157558,11 +157925,6 @@
           "5G-8",
           "5G-28",
           "5G-78"
-        ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
@@ -157964,11 +158326,6 @@
           "2G-1800",
           "3G-1",
           "3G-8"
-        ],
-        "Sure": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
@@ -165231,12 +165588,8 @@
           "rat": "2G"
         }
       ],
-      "2G": [
-        "Sure"
-      ],
-      "3G": [
-        "Sure"
-      ]
+      "2G": [],
+      "3G": []
     },
     {
       "date": "2029-03-31",
@@ -166390,12 +166743,9 @@
         }
       ],
       "2G": [
-        "EE",
-        "Sure"
+        "EE"
       ],
-      "3G": [
-        "Sure"
-      ]
+      "3G": []
     },
     {
       "date": "2025-12-31",
@@ -166459,12 +166809,9 @@
       ],
       "2G": [
         "EE",
-        "Sure",
         "Vodafone"
       ],
-      "3G": [
-        "Sure"
-      ]
+      "3G": []
     },
     {
       "date": "2025-07-31",
@@ -166855,12 +167202,10 @@
       "2G": [
         "EE",
         "O2",
-        "Sure",
         "Vodafone"
       ],
       "3G": [
-        "O2",
-        "Sure"
+        "O2"
       ]
     },
     {
@@ -167890,14 +168235,12 @@
       "2G": [
         "EE",
         "O2",
-        "Sure",
         "Vodafone"
       ],
       "3G": [
         "3",
         "EE",
-        "O2",
-        "Sure"
+        "O2"
       ]
     },
     {
@@ -168040,11 +168383,13 @@
         }
       ],
       "2G": [
-        "Jersey Telecom"
+        "Jersey Telecom",
+        "Sure"
       ],
       "3G": [
         "Airtel-Vodafone",
-        "Jersey Telecom"
+        "Jersey Telecom",
+        "Sure"
       ]
     },
     {

@@ -254,7 +254,15 @@ $(document).ready(function() {
                 }
             }
 
-            sunsetList.updateTable({isPageLoad: true});
+            let updateTableOptions = {
+                isPageLoad: true,
+            };
+
+            if (sunsetList.options.country) {
+                updateTableOptions.includeCountries = [sunsetList.options.country];
+            }
+
+            sunsetList.updateTable(updateTableOptions);
         });
 
         $('.sunsetTool').each(function() {
@@ -440,6 +448,10 @@ $(document).ready(function() {
                     for(let ii = 0; ii < sunsetTool.countryCarrier.length; ii++) {
                         const ccObj = sunsetTool.countryCarrier[ii];
                         
+                        if (typeof ccObj.timeline[rat.key] == 'undefined') {
+                            continue;
+                        }
+
                         let date = sunsetTool.timelineStart.clone();
                         for(const item of ccObj.timeline[rat.key]) {
                             let endDate;
@@ -571,12 +583,14 @@ $(document).ready(function() {
                 $(thisPartial).find('.sunsetDeviceSupportTable > tbody').append(trElem);
             }
             
-            let excludeModems = [];
+            // This is temporary to exclude these models for UK and AU/NZ. Make this generic in the future.
+            let excludeModems = ['EG91-NAX', 'EG800Q-NA'];
             for(const modemObj of datastore.data.modems) {
                 if (!modemObj.technologies.includes('4G')) {
                     excludeModems.push(modemObj.model);
                 }
             }
+            console.log('excludeModems', excludeModems);
 
             // 
             for(const skuObj of datastore.data.skus) {

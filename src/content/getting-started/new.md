@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### UK 2G/3G sunset 2025-05-12
+
+Added a new page to consolidate information about [2G/3G sunset in the United Kingdom](/reference/discontinued/cellular/uk-sunset/).
+
 ### Input protection page 2025-05-12
 
 New community hardware page for [input protection](/hardware/community/input-protection/) for digital and analog inputs using rail-to-rail TVS diodes.
