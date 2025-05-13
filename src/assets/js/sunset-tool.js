@@ -125,7 +125,74 @@ $(document).ready(function() {
     
                 let numAdded = 0;
 
-                for(const sunsetObj of datastore.data.sunset) {
+                let columns = [];
+                columns.push({
+                    title: '',
+                    special: 'marker',
+                });
+
+                // datastore.data.sunset is sorted by date descending
+                let sunsetArray;
+                if (options.byCountry) {
+                    // Shallow copy array
+                    sunsetArray = [];
+                    for(const sunsetObj of datastore.data.sunset) {
+                        sunsetArray.push(sunsetObj);
+                    }
+                    // Sort by country
+                    sunsetArray.sort(function(a, b) {
+                        let cmp = a.country.localeCompare(b.country);
+                        if (cmp) {
+                            return cmp;
+                        }
+                        cmp = a.date.localeCompare(b.date);
+                        return -cmp;
+                    });
+
+                    columns.push({
+                        title: 'Country',
+                        key: 'country',
+                    });
+                    columns.push({
+                        title: 'Date',
+                        key: 'date',
+                    });
+                }
+                else {
+                    sunsetArray = datastore.data.sunset; 
+
+                    columns.push({
+                        title: 'Date',
+                        key: 'date',
+                    });
+                    columns.push({
+                        title: 'Country',
+                        key: 'country',
+                    });
+
+                }
+
+                columns.push({
+                    title: 'Carrier Sunset',
+                    special: 'sunset',
+                });
+                columns.push({
+                    title: 'Remaining 2G/3G Carriers',
+                    special: 'carriersLeft',
+                });
+
+                const headerRowElem = $(sunsetList.thisPartial).find('.sunsetListTable > table > thead > tr');
+                $(headerRowElem).empty();
+                for(const columnObj of columns) {
+                    const thElem = document.createElement('th');
+                    if (columnObj.title) {
+                        $(thElem).text(columnObj.title);
+                    }
+                    $(headerRowElem).append(thElem);
+                }
+
+
+                for(const sunsetObj of sunsetArray) {
                     if (options.includeCountries) {
                         if (!options.includeCountries.includes(sunsetObj.country)) {
                             continue;
@@ -134,108 +201,101 @@ $(document).ready(function() {
 
                     numAdded++;
                     const trElem = document.createElement('tr');
-                    
-                    const markerElem = document.createElement('td');
-                    $(markerElem).css('width', '3px');
-                    $(trElem).append(markerElem);      
     
-                    {
-                        // Date
+                    let markerElem;
+
+                    for(const columnObj of columns) {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text(sunsetObj.date);
-                        $(trElem).append(tdElem);                        
-                    }
-    
-                    {
-                        // Country
-                        const tdElem = document.createElement('td');
-                        $(tdElem).text(sunsetObj.country);
-                        $(trElem).append(tdElem);                        
-                    }
-    
-                    {
-                        // Sunset carriers
-                        const tdElem = document.createElement('td');
-    
-                        let carriers = {};
-    
-                        for(let ii = 0; ii < sunsetObj.items.length; ii++) {
-                            const itemObj = sunsetObj.items[ii];
-                            if (!carriers[itemObj.carrier]) {
-                                carriers[itemObj.carrier] = [];
-                            }
-                            carriers[itemObj.carrier].push(itemObj.rat);
+
+                        if (columnObj.key) {
+                            $(tdElem).text(sunsetObj[columnObj.key]);
                         }
-                        const carrierNames = Object.keys(carriers);
-    
-                        for(let ii = 0; ii < carrierNames.length; ii++) {                            
-                            const rats = carriers[carrierNames[ii]];
-                            $(tdElem).append(document.createTextNode(carrierNames[ii]));
-    
-                            const supElem = document.createElement('sup');
-                            let s = '';
-                            for(const r of rats) {
-                                s += r.substring(0, 1);
+                        else 
+                        if (columnObj.special) {
+                            if (columnObj.special == 'marker') {
+                                markerElem = tdElem;
+                                $(markerElem).css('width', '3px');
                             }
-                            $(supElem).text(s);
-                            $(tdElem).append(supElem);
-    
-                            if ((ii + 1) < sunsetObj.items.length) {
-                                $(tdElem).append(document.createTextNode(', '));
-                            }
-                        }    
-    
-                        $(trElem).append(tdElem);                        
-                    }
-    
-                    {
-                        // Remaining carriers
-                        const tdElem = document.createElement('td');
-    
-                        let carriers = {};
-    
-                        for(const rat of ['2G', '3G']) {
-                            for(const c of sunsetObj[rat]) {
-                                if (!carriers[c]) {
-                                    carriers[c] = [];
+                            else
+                            if (columnObj.special == 'sunset') {
+                                // Sunset carriers
+                                let carriers = {};
+            
+                                for(let ii = 0; ii < sunsetObj.items.length; ii++) {
+                                    const itemObj = sunsetObj.items[ii];
+                                    if (!carriers[itemObj.carrier]) {
+                                        carriers[itemObj.carrier] = [];
+                                    }
+                                    carriers[itemObj.carrier].push(itemObj.rat);
                                 }
-                                carriers[c].push(rat);
+                                const carrierNames = Object.keys(carriers);
+            
+                                for(let ii = 0; ii < carrierNames.length; ii++) {                            
+                                    const rats = carriers[carrierNames[ii]];
+                                    $(tdElem).append(document.createTextNode(carrierNames[ii]));
+            
+                                    const supElem = document.createElement('sup');
+                                    let s = '';
+                                    for(const r of rats) {
+                                        s += r.substring(0, 1);
+                                    }
+                                    $(supElem).text(s);
+                                    $(tdElem).append(supElem);
+            
+                                    if ((ii + 1) < sunsetObj.items.length) {
+                                        $(tdElem).append(document.createTextNode(', '));
+                                    }
+                                }    
+                            }
+                            else
+                            if (columnObj.special == 'carriersLeft') {
+                                // Remaining carriers            
+                                let carriers = {};
+            
+                                for(const rat of ['2G', '3G']) {
+                                    for(const c of sunsetObj[rat]) {
+                                        if (!carriers[c]) {
+                                            carriers[c] = [];
+                                        }
+                                        carriers[c].push(rat);
+                                    }
+                                }
+            
+                                let carrierNames = Object.keys(carriers);
+                                carrierNames.sort();
+            
+            
+                                for(let ii = 0; ii < carrierNames.length; ii++) {
+                                    const carrierName = carrierNames[ii];
+            
+                                    $(tdElem).append(document.createTextNode(carrierName));
+            
+                                    for(const rat of carriers[carrierName]) {
+                                        const supElem = document.createElement('sup');
+                                        $(supElem).text(rat.substring(0,1));
+                                        $(tdElem).append(supElem);
+                                    }
+            
+                                    if ((ii + 1) < carrierNames.length) {
+                                        $(tdElem).append(document.createTextNode(', '));
+                                    }
+            
+                                }
+            
+                                if (carrierNames.length == 0) {
+                                    const iElem = document.createElement('i');
+                                    $(iElem).text('None');
+                                    $(tdElem).append(iElem);
+                                    $(markerElem).css('background-color', '#FFE949'); // COLOR_State_Yellow_500
+                                    // $(tdElem).css('background-color', '#FFADBD'); // COLOR_Watermelon_400
+                                    // $(tdElem).css('background-color', '#FFBC80'); // COLOR_State_Orange_500
+                                }
                             }
                         }
-    
-                        let carrierNames = Object.keys(carriers);
-                        carrierNames.sort();
-    
-    
-                        for(let ii = 0; ii < carrierNames.length; ii++) {
-                            const carrierName = carrierNames[ii];
-    
-                            $(tdElem).append(document.createTextNode(carrierName));
-    
-                            for(const rat of carriers[carrierName]) {
-                                const supElem = document.createElement('sup');
-                                $(supElem).text(rat.substring(0,1));
-                                $(tdElem).append(supElem);
-                            }
-    
-                            if ((ii + 1) < carrierNames.length) {
-                                $(tdElem).append(document.createTextNode(', '));
-                            }
-    
-                        }
-    
-                        if (carrierNames.length == 0) {
-                            const iElem = document.createElement('i');
-                            $(iElem).text('None');
-                            $(tdElem).append(iElem);
-                            $(markerElem).css('background-color', '#FFE949'); // COLOR_State_Yellow_500
-                            // $(tdElem).css('background-color', '#FFADBD'); // COLOR_Watermelon_400
-                            // $(tdElem).css('background-color', '#FFBC80'); // COLOR_State_Orange_500
-                        }
-                        
+
                         $(trElem).append(tdElem);                        
                     }
-    
+        
                 
                     $(tbodyElem).append(trElem);
                 }
@@ -260,6 +320,9 @@ $(document).ready(function() {
 
             if (sunsetList.options.country) {
                 updateTableOptions.includeCountries = [sunsetList.options.country];
+            }
+            if (sunsetList.options.byCountry) {
+                updateTableOptions.byCountry = true;
             }
 
             sunsetList.updateTable(updateTableOptions);

@@ -7489,7 +7489,8 @@
         "allow3G": true,
         "allow4G": true,
         "preferredRate": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "hideFromSunset": true
       },
       "bands": [
         "3G-4",
@@ -25111,7 +25112,8 @@
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
-        "paygRate": 0.35
+        "paygRate": 0.35,
+        "hideFromSunset": true
       },
       "koreAllNet": {
         "allow2G": true,
@@ -166076,10 +166078,7 @@
         }
       ],
       "2G": [],
-      "3G": [
-        "Sasktel",
-        "Videotron"
-      ]
+      "3G": []
     },
     {
       "date": "2025-12-31",
@@ -166846,9 +166845,7 @@
       "2G": [],
       "3G": [
         "Bell Mobility",
-        "Sasktel",
-        "Telus",
-        "Videotron"
+        "Telus"
       ]
     },
     {
@@ -167853,20 +167850,6 @@
       ]
     },
     {
-      "date": "2023-09-30",
-      "country": "United States",
-      "items": [
-        {
-          "carrier": "Union Telephone",
-          "rat": "3G"
-        }
-      ],
-      "2G": [
-        "T-Mobile (USA)"
-      ],
-      "3G": []
-    },
-    {
       "date": "2023-01-01",
       "country": "Netherlands",
       "items": [
@@ -168074,9 +168057,7 @@
       "2G": [
         "T-Mobile (USA)"
       ],
-      "3G": [
-        "Union Telephone"
-      ]
+      "3G": []
     },
     {
       "date": "2022-01-01",
@@ -168109,9 +168090,7 @@
       "3G": [
         "Bell Mobility",
         "Rogers Wireless",
-        "Sasktel",
-        "Telus",
-        "Videotron"
+        "Telus"
       ]
     },
     {
@@ -168277,8 +168256,7 @@
         "T-Mobile (USA)"
       ],
       "3G": [
-        "T-Mobile (USA)",
-        "Union Telephone"
+        "T-Mobile (USA)"
       ]
     },
     {
@@ -168334,24 +168312,6 @@
       "3G": [
         "China Mobile",
         "China Unicom"
-      ]
-    },
-    {
-      "date": "2019-12-31",
-      "country": "United States",
-      "items": [
-        {
-          "carrier": "Union Telephone",
-          "rat": "2G"
-        }
-      ],
-      "2G": [
-        "T-Mobile (USA)"
-      ],
-      "3G": [
-        "AT&T",
-        "T-Mobile (USA)",
-        "Union Telephone"
       ]
     },
     {
@@ -168446,9 +168406,7 @@
       "3G": [
         "Bell Mobility",
         "Rogers Wireless",
-        "Sasktel",
-        "Telus",
-        "Videotron"
+        "Telus"
       ]
     },
     {
@@ -168465,27 +168423,6 @@
         "Optus",
         "Telstra",
         "Vodafone"
-      ]
-    },
-    {
-      "date": "2017-07-31",
-      "country": "Canada",
-      "items": [
-        {
-          "carrier": "Sasktel",
-          "rat": "2G"
-        }
-      ],
-      "2G": [
-        "Bell Mobility",
-        "Rogers Wireless"
-      ],
-      "3G": [
-        "Bell Mobility",
-        "Rogers Wireless",
-        "Sasktel",
-        "Telus",
-        "Videotron"
       ]
     },
     {
@@ -168527,15 +168464,12 @@
       ],
       "2G": [
         "Bell Mobility",
-        "Rogers Wireless",
-        "Sasktel"
+        "Rogers Wireless"
       ],
       "3G": [
         "Bell Mobility",
         "Rogers Wireless",
-        "Sasktel",
-        "Telus",
-        "Videotron"
+        "Telus"
       ]
     },
     {
@@ -168604,13 +168538,11 @@
         }
       ],
       "2G": [
-        "T-Mobile (USA)",
-        "Union Telephone"
+        "T-Mobile (USA)"
       ],
       "3G": [
         "AT&T",
-        "T-Mobile (USA)",
-        "Union Telephone"
+        "T-Mobile (USA)"
       ]
     },
     {

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### 2G/3G sunset 2025-05-13
+
+The [2G/3G sunset page](/reference/discontinued/cellular/2g-3g-sunset/) now includes a second table sorted by country in addition to the table sorted by date.
+
 ### UK 2G/3G sunset 2025-05-12
 
 Added a new page to consolidate information about [2G/3G sunset in the United Kingdom](/reference/discontinued/cellular/uk-sunset/).

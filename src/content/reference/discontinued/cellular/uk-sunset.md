@@ -26,6 +26,6 @@ The UK government is requiring all 2G and 3G services end by 2033-12-31, though 
 {{> sunset-tool options="country=United Kingdom"}}
 
 
-## List
+## 2G/3G sunset dates
 
 {{> sunset-list options="country=United Kingdom"}}

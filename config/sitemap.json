@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2bcbc7690b8f11208c6f9d2ece95a9f2fa8e35cfadfa6f6ab85c679ad391e4e9",
-            "date": "2025-05-12"
+            "hash": "44457bbdb279f6ffb5b1a7b306b0b75620739f6046c3c46c9068b70e3bd8df92",
+            "date": "2025-05-13"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9695,8 +9695,8 @@
             "date": "2025-03-01"
         },
         "reference/discontinued/cellular/2g-3g-sunset.md": {
-            "hash": "719a1b4f0709d73164e7fb36c9305f933dad5349df4d3ab597d0b675220a0d3e",
-            "date": "2025-03-03"
+            "hash": "6d0e64ed20876debc037f94dd9fdd687f5a92cd53ecf199237887cb44f9b22d2",
+            "date": "2025-05-13"
         },
         "firmware/best-practices/thread-interrupt-safety.md": {
             "hash": "458f491b698aab5cbc01cc0724168ce5ec629c722efe69121f887040778e3dfa",
@@ -9731,8 +9731,8 @@
             "date": "2025-05-09"
         },
         "reference/discontinued/cellular/uk-sunset.md": {
-            "hash": "83ead150cfa6e8adde3a816bc9b7adcd05c21d5f860715f20464d7d8a5e647f6",
-            "date": "2025-05-12"
+            "hash": "b049b2b232485fd6035bc44d199497af517412cfeb8b4067dac0fb96c6c321e7",
+            "date": "2025-05-13"
         }
     }
 }
