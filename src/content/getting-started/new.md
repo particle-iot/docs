@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### B504e ISED certification 2025-05-15
 
-ISED (Canada) certification odcuments for the B504e are now available.
+[ISED (Canada) certification documents for the B504e](/hardware/certification/certification-documents/#ised-canada-b504e-b-series-som) are now available.
 
 ### 2G/3G sunset 2025-05-13
 
