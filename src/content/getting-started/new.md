@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B504e ISED certification 2025-05-15
+
+ISED (Canada) certification odcuments for the B504e are now available.
+
 ### 2G/3G sunset 2025-05-13
 
 The [2G/3G sunset page](/reference/discontinued/cellular/2g-3g-sunset/) now includes a second table sorted by country in addition to the table sorted by date.

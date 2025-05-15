@@ -2051,6 +2051,13 @@ The certification for the B504 applies to the B504e as changing only the SIM is 
 ### ISED (Canada) -  B504e B-Series SoM 
 
 - ISED ID: 20127-B504
+- [Certificate of Conformity](/assets/pdfs/b504-ised.pdf)
+- [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/b504-ised-rss247-2.pdf)
+- [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/b504-ised-rs132.pdf)
+- [Test Report RSS-130 Issue 2](/assets/pdfs/b504-ised-rs130.pdf)
+- [Test Report RSS-132 Issue 4](/assets/pdfs/b504-ised-rs132.pdf)
+- [Test Report RSS-133 Issue 7](/assets/pdfs/b504-ised-rs133.pdf)
+- [Test Report RSS-139 Issue 4](/assets/pdfs/b504-ised-rs139.pdf)
 
 {{!-- END shared-blurb --}}
 

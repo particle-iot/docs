@@ -51,6 +51,7 @@ var ignoreHosts = [
   'www.mathworks.com', // 403
   'memfault.com', // 403
   'www.ptcrb.com', // 403
+  'www.fairchildsemi.com', // 403
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';
