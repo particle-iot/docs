@@ -144,6 +144,33 @@ Tracker Edge v18 and earlier are not compatible Device OS 5.x. If you wish to ta
 instructions below and use the **develop** branch of tracker-edge.
 {{note op="end"}}
 
+### Tracker Edge with bare Tracker SoM
+
+If you are using the Tracker SoM directly, not as part of the Tracker One (or Monitor One), you will need to make some minor modifications to
+Tracker.cpp to correspond to the hardware you have on your carrier board.
+
+In particular, in `Tracker::init()` in src/Tracker.cpp, you will at minimum want to add a `default:` case to the switch statement:
+
+```cpp
+EdgePlatform::instance().init(_model, _variant);
+switch (EdgePlatform::instance().getModel()) {
+    case EdgePlatform::TrackerModel::eTRACKER_ONE:
+        _platformConfig = new TrackerOneConfiguration();
+        _commonCfgData = _platformConfig->get_common_config_data();
+        break;
+    default: // <-- add this line
+    case EdgePlatform::TrackerModel::eEVAL:
+        _platformConfig = new TrackerEvalConfiguration();
+        _commonCfgData = _platformConfig->get_common_config_data();
+        break;
+}
+```
+
+The reason is that the model will be `eBARE_SOM` for a bare Tracker SoM, leaving `_platformConfig` and `_commonCfgData` uninitialized,
+which will cause the software to crash at boot.
+
+This will allow you to boot, however, you should search all of the locations where `TRACKER_MODEL_TRACKERONE` is referenced and make sure you don't have similar changes you want to make for your custom board. This is how differences for the status LED, buttons, and other peripherals like the thermistor, are handled for the Tracker One.
+
 ### Tracker Edge v19
 
 At this time, Tracker Edge v19 does not compile on Device OS 6.2.0 due a missing `HAL_Validate_Pin_Function()` function. Using 6.1.1

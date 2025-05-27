@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker bare SoM 2025-05-27
+
+Added instructions for changes that must be made to Tracker Edge when using the [bare Tracker SoM](/firmware/tracker-edge/tracker-edge-firmware/#tracker-edge-with-bare-tracker-som).
+
 ### B504e ISED certification 2025-05-15
 
 [ISED (Canada) certification documents for the B504e](/hardware/certification/certification-documents/#ised-canada-b504e-b-series-som) are now available.
