@@ -811,8 +811,8 @@
             "hash": "0ebbd43ef670568211dee5f29614f550d34be307daa609270fdbf731ada1378a"
         },
         "scaling/quick-start-guide/enterprise-sso.md": {
-            "date": "2025-06-04",
-            "hash": "b92562bc475c36e33dbe1ee34e645e39bd2bd0744ade7059cfb4936d9a1aacdc"
+            "date": "2023-09-25",
+            "hash": "8cdd3d45c4fbfa6a083d2438d64be10784ef6730678417a32589bebd91c5c75a"
         },
         "scaling/quick-start-guide/introduction-to-products.md": {
             "date": "2024-03-13",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "1404578e9ca0954faa7a04030cd555d7c52cdb3b16be18c62edec94379f8e3d1",
-            "date": "2025-06-04"
+            "hash": "5943b9311bf21283f57245218546addfcd26d0eb66503d2bf486cdaab0e42e6e",
+            "date": "2025-06-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8279,8 +8279,8 @@
             "date": "2024-09-04"
         },
         "getting-started/logic-ledger/logic.md": {
-            "hash": "5ad68b89436ac542faf5c6b974c1a43b089e4c97e3fd0264207e33d1f300a043",
-            "date": "2025-01-27"
+            "hash": "45e3e32591d8444f33de50419f310c450c1e444f3736a8acd27ce26087f856cb",
+            "date": "2025-06-02"
         },
         "getting-started/logic-ledger/data-transformation.md": {
             "hash": "95468cd5b3e47cd95d8b3a0eca2c8648f5cb3736c0ff81b151b0abf9fb4fdf4a",
@@ -8475,8 +8475,8 @@
             "date": "2024-06-25"
         },
         "integrations/introduction.md": {
-            "hash": "b45b9c824f4ee707b7d3834e10f6eb03e7648e7b5b033380fd3f662de9e69c24",
-            "date": "2024-06-11"
+            "hash": "7b0127d8cf3d20b0a462f1df41a046e907fa61c35fabf15eeb7239c52acd55f9",
+            "date": "2025-06-02"
         },
         "integrations/webhooks-vs-sse.md": {
             "hash": "79544fe82b6ff8f4ce196599abb70c06ddff51b40697654c4a192c14c028c5d8",
@@ -9733,6 +9733,10 @@
         "reference/discontinued/cellular/uk-sunset.md": {
             "hash": "b049b2b232485fd6035bc44d199497af517412cfeb8b4067dac0fb96c6c321e7",
             "date": "2025-05-13"
+        },
+        "getting-started/cloud/secrets.md": {
+            "hash": "75a83e565ddcf7f9b96d1e15bddf28c27cbf5b0c22d0f45e03143f5aa59257b7",
+            "date": "2025-06-02"
         }
     }
 }
