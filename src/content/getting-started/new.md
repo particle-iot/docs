@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### TAN release dates 2025-06-02
+
+[TAN](/reference/technical-advisory-notices/technical-advisory-notices/) (technical advisory notices) now have release date information (starting with TAN009 in 2022).
+
 ### Tracker bare SoM 2025-05-27
 
 Added instructions for changes that must be made to Tracker Edge when using the [bare Tracker SoM](/firmware/tracker-edge/tracker-edge-firmware/#tracker-edge-with-bare-tracker-som).

@@ -1215,28 +1215,28 @@
             "hash": "53589486781c46311892270be1d0d631c78931f3b088078df2a6ced3ea7aa178"
         },
         "reference/technical-advisory-notices/tan009.md": {
-            "date": "2024-02-27",
-            "hash": "b3262ea2cb077ef91da1ab29994952150cfb4091e3570a4d2d60adc4785db217"
+            "date": "2025-06-02",
+            "hash": "47c1efc82706063d0dd7178192dd299b3f7bfac071bf50404d28eb3a5faae33c"
         },
         "reference/technical-advisory-notices/tan010.md": {
-            "date": "2024-02-27",
-            "hash": "2dc8318177811caacd6d57d3a6a6b3d92a9d58ec24cabc7994c93162f03453fa"
+            "date": "2025-06-02",
+            "hash": "59f96fc1812df189bb53bd6099d468866f9b8be378a3fd728ebe1362e2826b66"
         },
         "reference/technical-advisory-notices/tan011.md": {
-            "date": "2023-01-04",
-            "hash": "9dee911fe70523b4b6ef57a2deb7b1f0c83ddb05427d625c2b2b6c0fe41afdec"
+            "date": "2025-06-02",
+            "hash": "76bbca919672bc03f3dde157823a305820594a0e38cf80897ea3848b07283340"
         },
         "reference/technical-advisory-notices/tan012.md": {
-            "date": "2024-02-27",
-            "hash": "4d62b69271ede08370125d625ff8624bbcd4d8c669a136fb0f700a22cd0e0f15"
+            "date": "2025-06-02",
+            "hash": "38585ab74d083d60cb3bb6de3ba312a9b79d4bbb2dcc0f82f5c08b4536833471"
         },
         "reference/technical-advisory-notices/tan013.md": {
-            "date": "2023-04-20",
-            "hash": "a5916fb0c1757475863446bf66951fa48678ce162089cd7797efc14ec13736c2"
+            "date": "2025-06-02",
+            "hash": "be7a4a2db2f1c35f11d97bd1f89ca91dcc473492539866f41b1f902e9e5a90a2"
         },
         "reference/technical-advisory-notices/technical-advisory-notices.md": {
-            "date": "2024-02-27",
-            "hash": "3d6ad4af42280fbbd632408d3bd212732533eb5691d646325db0636e2d0c22e0"
+            "date": "2025-06-02",
+            "hash": "3a1a5c44a1ba0ee2c095db909e48aa18df7ebccadef7dbe61b025f27732f0e14"
         },
         "reference/tracker/can-bus.md": {
             "date": "2023-03-17",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "354b5d592437e71e85cb6b39ec55d5744ee6b2016daa42c5cf02989bedf1f672",
-            "date": "2025-05-27"
+            "hash": "a085e45c6b548e25713e54f0ca2982c8151b142e7dc235d27924d3c921d11578",
+            "date": "2025-06-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9583,8 +9583,8 @@
             "date": "2024-12-12"
         },
         "reference/technical-advisory-notices/tan014.md": {
-            "hash": "9c2511d83b33a1ad8c4457e7a0f37ab79f7d55d9e0e2ccb82611349431b6de6d",
-            "date": "2024-12-16"
+            "hash": "e506ffcaed20a4217a7f8e132004fd4497c02184defa6cf8bb57c546a45a64c8",
+            "date": "2025-06-02"
         },
         "reference/device-os/libraries/d/DeviceInfoLedger.md": {
             "hash": "d92b9d33ddfdbe83085a8ec9752295aa099e83ca5f48249ca86d6df0a7d37d6e",
@@ -9623,8 +9623,8 @@
             "date": "2025-05-07"
         },
         "reference/technical-advisory-notices/tan015.md": {
-            "hash": "198de88b8a154b2b6164093b19210baf6ddce1d8407858f1b49dbfee848d7072",
-            "date": "2025-01-17"
+            "hash": "dd8860c4fc975fa1161d286a6aa3a8b6d5b295b002f176f0b299694daa1eec04",
+            "date": "2025-06-02"
         },
         "tools/developer-tools/file-to-code.md": {
             "hash": "9f0ef6f94233db29f6511b57eb26590d038d7abf36fdd85943860db7b673c681",

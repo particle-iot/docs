@@ -32,6 +32,8 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN009 - SARA-R410 Intermittent Increased Connection Time](/reference/technical-advisory-notices/tan009/)
 - [TAN010 - SARA-R410 SIM Initialization](/reference/technical-advisory-notices/tan010/)
 - [TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X](/reference/technical-advisory-notices/tan012/)
+- [TAN014 - SARA-R510 band selection](/reference/technical-advisory-notices/tan014/)
+- [TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/)
 
 ### Electron/E-Series
 
@@ -59,4 +61,6 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN011 - Tracker SoM default application firmware issue](/reference/technical-advisory-notices/tan011/)
 - [TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X](/reference/technical-advisory-notices/tan012/)
 - [TAN013 - Tracker Manufacturing Firmware 3.3.0](/reference/technical-advisory-notices/tan013/)
+- [TAN014 - SARA-R510 band selection](/reference/technical-advisory-notices/tan014/)
+- [TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/)
 
