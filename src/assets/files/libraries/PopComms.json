@@ -7,7 +7,6 @@
   "attributes": {
     "name": "PopComms",
     "version": "0.0.1",
-    "installs": 160,
     "author": "Michael Scroggin",
     "architectures": [],
     "dependencies": {
@@ -49,11 +48,72 @@
           "boron": {
             "usage": false
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          },
+          "msom": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2025-06-02T09:32:45.224Z"
     }
   },
-  "readme": "# PopComms\n\nA Particle library for PopComms\n\n## Welcome to your library!\n\nTo get started, modify the sources in [src](src). Rename the example folder inside [examples](examples) to a more meaningful name and add additional examples in separate folders.\n\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\n\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\n\n_TODO: update this README_\n\n## Usage\n\nConnect XYZ hardware, add the PopComms library to your project and follow this simple example:\n\n```\n#include \"PopComms.h\"\nPopComms PopComms;\n\nvoid setup() {\n  PopComms.begin();\n}\n\nvoid loop() {\n  PopComms.process();\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nTODO: Describe `PopComms`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add PopComms_myname` to add the library to a project on your machine or add the PopComms_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2020 Michael Scroggin\n\nLicensed under the <insert your choice of license here> license\n",
+  "readme": "# PopComms\n\nA Particle library for PopComms\n\n## Welcome to your library!\n\nTo get started, modify the sources in src. Rename the example folder inside examples to a more meaningful name and add additional examples in separate folders.\n\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\n\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\n\n_TODO: update this README_\n\n## Usage\n\nConnect XYZ hardware, add the PopComms library to your project and follow this simple example:\n\n```\n#include \"PopComms.h\"\nPopComms PopComms;\n\nvoid setup() {\n  PopComms.begin();\n}\n\nvoid loop() {\n  PopComms.process();\n}\n```\n\nSee the examples folder for more details.\n\n## Documentation\n\nTODO: Describe `PopComms`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add PopComms_myname` to add the library to a project on your machine or add the PopComms_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2020 Michael Scroggin\n\nLicensed under the <insert your choice of license here> license\n",
   "allVersions": [
     "0.0.1"
   ]

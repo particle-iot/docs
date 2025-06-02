@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "StatusLedRK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/StatusLedRK/archive/0.0.3.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/StatusLedRK/archive/0.0.7.tar.gz"
   },
   "attributes": {
     "name": "StatusLedRK",
-    "version": "0.0.3",
+    "version": "0.0.7",
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "External status LED controller library for Particle devices",
@@ -114,10 +114,107 @@
           }
         }
       }
+    },
+    "0.0.7": {
+      "added": "2025-06-02T09:42:10.788Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "esomx": {
+            "1-simple": false,
+            "2-test-suite": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        }
+      }
     }
   },
-  "readme": "# StatusLedRK\nExternal status LED controller library for Particle devices\n\n\n## Revision history\n\n### 0.0.3 (2024-07-28)\n\n- Add Neopixel support\n\n### 0.0.2 (2024-07-28)\n\n- Initial version\n",
+  "readme": "# StatusLedRK\nExternal status LED controller library for Particle devices\n\n\n## Revision history\n\n### 0.0.7 (2025-05-18)\n\n- Add PCA9531 support\n\n### 0.0.3 (2024-07-28)\n\n- Add Neopixel support\n\n### 0.0.2 (2024-07-28)\n\n- Initial version\n",
   "allVersions": [
+    "0.0.7",
+    "0.0.6",
+    "0.0.5",
+    "0.0.4",
     "0.0.3",
     "0.0.2",
     "0.0.1"

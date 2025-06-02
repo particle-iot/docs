@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-06-02
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+
 ### TAN release dates 2025-06-02
 
 [TAN](/reference/technical-advisory-notices/technical-advisory-notices/) (technical advisory notices) now have release date information (starting with TAN009 in 2022).

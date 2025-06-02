@@ -6883,8 +6883,8 @@
             "hash": "fe633fcd5cbc399962349429438df7b40915ff2a3b0fbe4aa4e9ee8f11eae83a"
         },
         "reference/device-os/libraries/p/PopComms.md": {
-            "date": "2024-08-28",
-            "hash": "a2dd0bcbadbae1e9cd7c816c2edf5d385abb35a94ff621a08c5118f2c99ecdc3"
+            "date": "2025-06-02",
+            "hash": "e70fe9e3b7b6bbf07ac6d298f896a6d4653c0ab6df1fd050aa9e17954a6ed030"
         },
         "reference/device-os/libraries/p/PopTestResult.md": {
             "date": "2024-08-28",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a085e45c6b548e25713e54f0ca2982c8151b142e7dc235d27924d3c921d11578",
+            "hash": "59da20f52358ec187f432e3ad932c1e91459ab96ee42079da46502c0d640f592",
             "date": "2025-06-02"
         },
         "getting-started/cloud/logic.md": {
@@ -9167,8 +9167,8 @@
             "date": "2024-08-28"
         },
         "reference/device-os/libraries/s/StatusLedRK.md": {
-            "hash": "f7667d97e4e3044b5efc5146244357e929ee62ff46646b3efb303eaae85f6be6",
-            "date": "2024-08-28"
+            "hash": "f8054e3ec84f9c42a1846cf3b07d18ca8c93a81f64aab5effbc5a5fcdc90f378",
+            "date": "2025-06-02"
         },
         "reference/device-os/libraries/p/particle-som-gnss.md": {
             "hash": "98e8018db29dda5a4a37de959d227706479b658ee3957f0f4f19dbbb2fd5cad7",
@@ -9179,8 +9179,8 @@
             "date": "2024-08-28"
         },
         "reference/device-os/libraries/f/FileHelperRK.md": {
-            "hash": "29ba84bc1bedc45b519d81c5beaf073dd0459005e47c214d484816743ab2e8a9",
-            "date": "2024-09-18"
+            "hash": "46207077fa643154d87185465a2fb0a82c8ab18336dc73a038ff771aa6d4e03e",
+            "date": "2025-06-02"
         },
         "quickstart/monitor-one.md": {
             "hash": "c16737091356a8b71635aef02b1dfb20deb06afb44be86c3f03c69348309dab5",
@@ -9687,8 +9687,8 @@
             "date": "2025-02-14"
         },
         "reference/device-os/libraries/p/PublishQueueExtRK.md": {
-            "hash": "2145da8556e17dd5dd15f6834d0cddd484baef44d2af05576744d82027ed35f5",
-            "date": "2025-05-01"
+            "hash": "81c4f18f23b9628694129b75f3e7a7750f8a2861d193ff0575382c6b1b4f7335",
+            "date": "2025-06-02"
         },
         "reference/device-os/libraries/t/tmc2209.md": {
             "hash": "9aaa9e1642eabd6d9b693e8543f181a412f091c34eb5e701223b9f31c5577998",
