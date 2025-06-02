@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cloud secrets 2025-06-06
+
+Documentation for [cloud secrets](/getting-started/cloud/secrets/) is now available.
+
 ### Enterprise SSO 2025-06-04
 
 Clarification of [step 3](/scaling/quick-start-guide/enterprise-sso/#step-3-complete-application-setup) for Enterprise SSO setup.
