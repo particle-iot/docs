@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-02-12T17:27:39.259Z",
+                  "value": "2025-06-02T14:32:41.736Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-02-12T17:27:39.262Z",
+                      "value": "2025-06-02T14:32:41.740Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-02-12T17:27:39.276Z",
+                  "value": "2025-06-02T14:32:41.756Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-02-12T17:27:39.276Z",
+                      "value": "2025-06-02T14:32:41.756Z",
                       "disabled": true
                     },
                     {
@@ -3210,13 +3210,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-02-12T17:27:39.284Z",
+                  "value": "2025-06-02T14:32:41.767Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-02-12T17:27:39.284Z",
+                  "value": "2025-06-02T14:32:41.767Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -3832,7 +3832,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"string\",\n  \"data\": \"string\",\n  \"ttl\": 0\n}"
+              "raw": "{\n  \"name\": \"string\",\n  \"data\": \"string\",\n  \"ttl\": 0,\n  \"as_device_id\": \"string\"\n}"
             },
             "url": {
               "raw": "{{url}}/v1/products/:productIdOrSlug/events",
@@ -3870,7 +3870,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"string\",\n  \"data\": \"string\",\n  \"ttl\": 0\n}"
+                  "raw": "{\n  \"name\": \"string\",\n  \"data\": \"string\",\n  \"ttl\": 0,\n  \"as_device_id\": \"string\"\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/products/:productIdOrSlug/events",
@@ -4633,13 +4633,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-02-12T17:27:39.292Z",
+                  "value": "2025-06-02T14:32:41.775Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-02-12T17:27:39.292Z",
+                  "value": "2025-06-02T14:32:41.775Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4740,13 +4740,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-02-12T17:27:39.293Z",
+                  "value": "2025-06-02T14:32:41.776Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-02-12T17:27:39.293Z",
+                  "value": "2025-06-02T14:32:41.777Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4847,13 +4847,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-02-12T17:27:39.294Z",
+                  "value": "2025-06-02T14:32:41.778Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-02-12T17:27:39.294Z",
+                  "value": "2025-06-02T14:32:41.778Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4954,13 +4954,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-02-12T17:27:39.296Z",
+                  "value": "2025-06-02T14:32:41.779Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-02-12T17:27:39.296Z",
+                  "value": "2025-06-02T14:32:41.780Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5061,13 +5061,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-02-12T17:27:39.297Z",
+                  "value": "2025-06-02T14:32:41.781Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-02-12T17:27:39.297Z",
+                  "value": "2025-06-02T14:32:41.781Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
