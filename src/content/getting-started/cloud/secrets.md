@@ -24,7 +24,7 @@ Cloud secrets are available both in the sandbox level for individual accounts an
 
 ### Creating a cloud secret
 
-To create a cloud secret you need to give it a name. The name can consist only of uppercase letters, numbers, and underscore. It cannot begin with a number.
+To create a cloud secret you first give it a name. The name can consist only of uppercase letters, numbers, and underscore. It cannot begin with a number.
 
 The value is the secret value, such as the password, API key, or authorization token. 
 
@@ -78,7 +78,7 @@ You can select zero or more secrets to be made available to your webhook integra
 
 {{imageOverlay src="/assets/images/secrets/webhook-enable-auth-key.png" class="no-darken"}}
 
-If you select **AUTH_KEY**, it will be available as the Mustache variable `\{\{{AUTH_KEY}}` in your integration. You can use this in any of the configurable fields. One common use is added an Authorization header:
+If you select **AUTH_KEY**, it will be available as the Mustache variable `\{{{AUTH_KEY}}}` in your integration. You can use this in any of the configurable fields. One common use is added an Authorization header:
 
 {{imageOverlay src="/assets/images/secrets/webhook-authorization.png" class="no-darken"}}
 
