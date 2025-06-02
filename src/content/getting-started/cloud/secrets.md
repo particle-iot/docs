@@ -106,6 +106,14 @@ If you select **TEST_1**, it will be available as the Javascript variable `secre
 
 {{imageOverlay src="/assets/images/secrets/logic-test.png" class="no-darken"}}
 
+Make sure to include the `secrets` argument to your Logic Function.
+
+```
+export default function process({ event, secrets }) {
+  // use secrets.TEST_1 here
+}
+```
+
 The same secret can be shared by multiple logic blocks and integrations. Editing the secret value will cause the new value to be used in all locations. Since cloud secrets are scoped to your sandbox or organization, they can be shared across multiple product integrations as well.
 
 Cloud secrets used from logic blocks will be hidden from the logs. For example, if you use `console.log` to attempt to print the secret, the log will instead contain `[[SENSITIVE]]`.
