@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Enterprise SSO 2025-06-04
+
+Clarification of [step 3](/scaling/quick-start-guide/enterprise-sso/#step-3-complete-application-setup) for Enterprise SSO setup.
+
 ### Library updates 2025-06-02
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.

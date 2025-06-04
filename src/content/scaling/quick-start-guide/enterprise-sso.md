@@ -46,14 +46,24 @@ Once SSO is configured for your organization, your users will be able to login i
 
 ### Step 3: Complete application setup
 
-1. In your identity provider, either upload the metadata XML file (if supported) or enter the ACS URL and SAML metadata.
-2. Ensure that the following attributes are mapped:
-  * Primary email: `email`
-  * First name: `firstName`
-  * Last name: `lastName`
-3. Enable the application and assign to users.
+In your identity provider (IdP), either upload the provided metadata XML file (if supported), or manually configure the integration using the ACS URL and entity ID.
 
-These steps will allow users who currently have a Particle account and that are a member of your organization to get logged in through SSO.
+To ensure proper provisioning and authentication, map the following attributes in your IdP to match the expected attribute names:
+
+| Expected Attribute | Description |
+| --- | --- |
+| `email` | Primary email address of user |
+| `firstName` | User’s first (given) name |
+| `lastName` | User’s last (surname) name |
+
+
+{{note op="start" type="note"}}
+These exact attribute names (`email`, `firstName`, and `lastName`) must appear in the SAML assertion. Map them to the appropriate fields in your directory (e.g., email, givenName, surname) depending on your IdP.
+{{note op="end"}}
+
+Once configured, enable the application and assign it to users.
+
+These steps allow users with an existing Particle account, and who belong to your organization, to sign in using SSO.
 
 ## Configuring user provisioning with SCIM on the Particle Cloud
 
