@@ -585,6 +585,11 @@ Because of the simultaneous connection limit, if you want to subscribe to multip
 
 ## Integrations [Webhooks]
 {{> api group=apiGroups.Integrations}}
+
+## Cloud secrets
+
+{{> api group=apiGroups.Secrets}}
+
 ## Special events
 
 If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The

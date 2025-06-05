@@ -84,6 +84,46 @@ The description is for your use to help remember how you are using the Logic Fun
 
 {{imageOverlay src="/assets/images/subspace/logic-define.png" class="no-darken"}}
 
+#### Cloud secrets
+
+{{!-- BEGIN shared-blurb c2b1a838-446a-4cf6-8692-d1cfb424035a --}}
+The cloud secrets feature allows you to:
+
+- Securely store secret data like passwords, API keys, and authorization tokens for external services.
+- Share secrets across [integrations](/integrations/introduction/) and [Logic](/getting-started/logic-ledger/logic/).
+- Prevent even authorized users from viewing the secrets once created.
+- Updating a secret immediately takes effect in all things that use it.
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb e47a842c-7161-4e9b-9d1f-0953da11af88 --}}
+{{imageOverlay src="/assets/images/secrets/logic-secrets.png" class="no-darken"}}
+
+Clicking **click here to create a new secret** will open a new browser tab to allow you to create a new cloud secret. Once you've created it, 
+you can switch back to the Logic tab and it will be immediately available to use.
+
+
+You can select zero or more secrets to be made available to your logic block.
+
+{{imageOverlay src="/assets/images/secrets/logic-secret-list.png" class="no-darken"}}
+
+If you select **TEST_1**, it will be available as the Javascript variable `secrets.TEST_1` in your logic block.
+
+{{imageOverlay src="/assets/images/secrets/logic-test.png" class="no-darken"}}
+
+Make sure to include the `secrets` argument to your Logic Function.
+
+```
+export default function process({ event, secrets }) {
+  // use secrets.TEST_1 here
+}
+```
+
+The same secret can be shared by multiple logic blocks and integrations. Editing the secret value will cause the new value to be used in all locations. Since cloud secrets are scoped to your sandbox or organization, they can be shared across multiple product integrations as well.
+
+Cloud secrets used from logic blocks will be hidden from the logs. For example, if you use `console.log` to attempt to print the secret, the log will instead contain `[[SENSITIVE]]`.
+{{!-- END shared-blurb --}}
+
+For more information, see [cloud secrets](/getting-started/cloud/secrets/).
 
 #### Execute Logic Function
 

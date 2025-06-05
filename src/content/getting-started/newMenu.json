@@ -185,6 +185,10 @@
                     "title": "Cloud API"
                 },
                 {
+                    "dir": "secrets",
+                    "title": "Cloud secrets"
+                },
+                {
                     "dir": "location",
                     "title": "Location"
                 },
