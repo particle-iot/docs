@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-06-02T14:32:41.736Z",
+                  "value": "2025-06-05T09:36:59.001Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-06-02T14:32:41.740Z",
+                      "value": "2025-06-05T09:36:59.003Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-06-02T14:32:41.756Z",
+                  "value": "2025-06-05T09:36:59.018Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-06-02T14:32:41.756Z",
+                      "value": "2025-06-05T09:36:59.019Z",
                       "disabled": true
                     },
                     {
@@ -3210,13 +3210,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-02T14:32:41.767Z",
+                  "value": "2025-06-05T09:36:59.026Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-02T14:32:41.767Z",
+                  "value": "2025-06-05T09:36:59.027Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4633,13 +4633,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-02T14:32:41.775Z",
+                  "value": "2025-06-05T09:36:59.033Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-02T14:32:41.775Z",
+                  "value": "2025-06-05T09:36:59.033Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4740,13 +4740,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-02T14:32:41.776Z",
+                  "value": "2025-06-05T09:36:59.034Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-02T14:32:41.777Z",
+                  "value": "2025-06-05T09:36:59.035Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4847,13 +4847,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-02T14:32:41.778Z",
+                  "value": "2025-06-05T09:36:59.036Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-02T14:32:41.778Z",
+                  "value": "2025-06-05T09:36:59.036Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4954,13 +4954,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-02T14:32:41.779Z",
+                  "value": "2025-06-05T09:36:59.037Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-02T14:32:41.780Z",
+                  "value": "2025-06-05T09:36:59.037Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5061,13 +5061,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-02T14:32:41.781Z",
+                  "value": "2025-06-05T09:36:59.039Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-02T14:32:41.781Z",
+                  "value": "2025-06-05T09:36:59.040Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -6013,7 +6013,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\"\n}"
+              "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"parameters\": [\n    0,\n    1\n  ],\n  \"secrets\": [\n    0,\n    1\n  ]\n}"
             },
             "url": {
               "raw": "{{url}}/v1/integrations",
@@ -6049,7 +6049,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\"\n}"
+                  "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"parameters\": [\n    0,\n    1\n  ],\n  \"secrets\": [\n    0,\n    1\n  ]\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/integrations",
@@ -10452,6 +10452,343 @@
                 }
               ],
               "body": "DELETE /v1/products/photon/devices/123abc\n{ deny: true }\nHTTP/1.1 204 NO CONTENT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Secrets",
+      "item": [
+        {
+          "name": "List cloud secrets",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/secrets",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "secrets"
+              ],
+              "query": [],
+              "variables": []
+            },
+            "description": "List cloud secrets in the Sandbox or organization"
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/secrets",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "secrets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/secrets\nHTTP/1.1 200 OK\n{\n  \"secrets\": [{\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get cloud secret by name",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/secrets/:secretName",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "secrets",
+                ":secretName"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "secretName",
+                  "value": "string",
+                  "description": "Name of the secret to query",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get details of a cloud secret in the Sandbox or organization"
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/secrets/:secretName",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "secrets",
+                    ":secretName"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create a cloud secret",
+          "request": {
+            "auth": null,
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"string\",\n  \"value\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{url}}/v1/secrets",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "secrets"
+              ],
+              "query": [],
+              "variables": []
+            },
+            "description": "Create a cloud secret in the Sandbox or organization. \n\nThe name of the secret must be unique within the Sandbox or organization."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"value\": \"string\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/v1/secrets",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "secrets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "POST /v1/secrets\nHTTP/1.1 201 Created\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [],\n    \"logic_functions\": []\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update the value of a cloud secret",
+          "request": {
+            "auth": null,
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{url}}/v1/secrets/:secretName",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "secrets",
+                ":secretName"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "secretName",
+                  "value": "string",
+                  "description": "Name of the secret to update",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Update the value of a cloud secret in the Sandbox or organization."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"string\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/v1/secrets/:secretName",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "secrets",
+                    ":secretName"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "PUT /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [],\n    \"logic_functions\": []\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete a cloud secret",
+          "request": {
+            "auth": null,
+            "method": "DELETE",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/secrets/:secretName",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "secrets",
+                ":secretName"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "secretName",
+                  "value": "string",
+                  "description": "Name of the secret to delete",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Delete a cloud secret in the Sandbox or organization. \n\nThe secret must not be used by any integrations or Logic Functions. Remove the secret from all integrations and Logic Functions before deleting it."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/secrets/:secretName",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "secrets",
+                    ":secretName"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "DELETE /v1/secrets/MY_API_KEY\nHTTP/1.1 204 No Content"
             }
           ]
         }

@@ -8637,6 +8637,22 @@
         "field": "template",
         "isArray": false,
         "description": "<p>The template that was used to create this webhook</p>"
+      },
+      {
+        "group": "Body",
+        "type": "Array",
+        "optional": true,
+        "field": "parameters",
+        "isArray": false,
+        "description": "<p>An array of key values for the template. Each element needs a <code>template_name</code> and <code>value</code> property. Insert the value into the webhook using <code>{{{PARAMETER_NAME}}}</code> where PARAMETER_NAME is the <code>template_name</code>.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "Array",
+        "optional": true,
+        "field": "secrets",
+        "isArray": false,
+        "description": "<p>An array of Cloud secrets to use with the webhook. Each element needs a <code>name</code> property and can have an optional <code>template_name</code> property. Insert the value into the webhook using <code>{{{SECRET_NAME}}}</code> where SECRET_NAME is the <code>template_name</code> or <code>name</code> if <code>template_name</code> is omitted.</p>"
       }
     ],
     "examples": [
@@ -13686,6 +13702,477 @@
     "version": "0.0.0",
     "filename": "src/views/product.js",
     "groupTitle": "Quarantine.2"
+  },
+  {
+    "type": "get",
+    "url": "/v1/secrets",
+    "title": "List cloud secrets",
+    "name": "listSecrets",
+    "description": "<p>List cloud secrets in the Sandbox or organization</p>",
+    "group": "Secrets.1",
+    "permission": [
+      {
+        "name": "secrets:list"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/secrets \\",
+        "content": "$ curl https://api.particle.io/v1/secrets \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List organization cloud secrets",
+        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "secrets",
+            "isArray": true,
+            "description": "<p>List of cloud secrets</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.name",
+            "isArray": false,
+            "description": "<p>Name of the secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.created_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.updated_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last updated</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.last_accessed_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last used by an integration or Logic Function</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.integrations",
+            "isArray": true,
+            "description": "<p>List of integrations that use this secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.logic_functions",
+            "isArray": true,
+            "description": "<p>List of Logic Functions that use this secret</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/secrets",
+          "content": "GET /v1/secrets\nHTTP/1.1 200 OK\n{\n  \"secrets\": [{\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/secrets/:secretName",
+    "title": "Get cloud secret by name",
+    "name": "getSecrets",
+    "description": "<p>Get details of a cloud secret in the Sandbox or organization</p>",
+    "group": "Secrets.2",
+    "permission": [
+      {
+        "name": "secrets:get"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/secrets/MY_API_KEY \\",
+        "content": "$ curl https://api.particle.io/v1/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Get an organization cloud secret",
+        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "secretName",
+            "isArray": false,
+            "description": "<p>Name of the secret to query</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "secret",
+            "isArray": false,
+            "description": "<p>Cloud secret details</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.name",
+            "isArray": false,
+            "description": "<p>Name of the secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.created_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.updated_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last updated</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.last_accessed_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last used by an integration or Logic Function</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.integrations",
+            "isArray": true,
+            "description": "<p>List of integrations that use this secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.logic_functions",
+            "isArray": true,
+            "description": "<p>List of Logic Functions that use this secret</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/secrets/MY_API_KEY",
+          "content": "GET /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.2"
+  },
+  {
+    "type": "post",
+    "url": "/v1/secrets",
+    "title": "Create a cloud secret",
+    "name": "createSecret",
+    "description": "<p>Create a cloud secret in the Sandbox or organization.</p> <p>The name of the secret must be unique within the Sandbox or organization.</p>",
+    "group": "Secrets.3",
+    "permission": [
+      {
+        "name": "secrets:create"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/secrets \\",
+        "content": "$ curl https://api.particle.io/v1/secrets \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"name\": \"MY_API_KEY\", \"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      },
+      {
+        "title": "Create an organization cloud secret",
+        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"name\": \"MY_API_KEY\", \"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      }
+    ],
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "name",
+        "isArray": false,
+        "description": "<p>Name of the secret. The name must contain only uppercase letters, numbers, and underscores, and must be unique within the Sandbox or organization.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "value",
+        "isArray": false,
+        "description": "<p>Value of the secret. The value will not be returned in the response for security reasons.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "secret",
+            "isArray": false,
+            "description": "<p>Details of the created cloud secret.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "POST /v1/secrets",
+          "content": "POST /v1/secrets\nHTTP/1.1 201 Created\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [],\n    \"logic_functions\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.3"
+  },
+  {
+    "type": "put",
+    "url": "/v1/secrets/:secretName",
+    "title": "Update the value of a cloud secret",
+    "name": "updateSecret",
+    "description": "<p>Update the value of a cloud secret in the Sandbox or organization.</p>",
+    "group": "Secrets.4",
+    "permission": [
+      {
+        "name": "secrets:update"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl -X PUT https://api.particle.io/v1/secrets/MY_API_KEY \\",
+        "content": "$ curl -X PUT https://api.particle.io/v1/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      },
+      {
+        "title": "Update an organization cloud secret",
+        "content": "$ curl -X PUT https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "secretName",
+            "isArray": false,
+            "description": "<p>Name of the secret to update</p>"
+          }
+        ]
+      }
+    },
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "value",
+        "isArray": false,
+        "description": "<p>Value of the secret. The value will not be returned in the response for security reasons.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "secret",
+            "isArray": false,
+            "description": "<p>Details of the updated cloud secret.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "PUT /v1/secrets/MY_API_KEY",
+          "content": "PUT /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [],\n    \"logic_functions\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.4"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/secrets/:secretName",
+    "title": "Delete a cloud secret",
+    "name": "deleteSecret",
+    "description": "<p>Delete a cloud secret in the Sandbox or organization.</p> <p>The secret must not be used by any integrations or Logic Functions. Remove the secret from all integrations and Logic Functions before deleting it.</p>",
+    "group": "Secrets.5",
+    "permission": [
+      {
+        "name": "secrets:delete"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl -X DELETE https://api.particle.io/v1/secrets/MY_API_KEY \\",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete an organization cloud secret",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "secretName",
+            "isArray": false,
+            "description": "<p>Name of the secret to delete</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/secrets/MY_API_KEY",
+          "content": "DELETE /v1/secrets/MY_API_KEY\nHTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.5"
   },
   {
     "type": "get",
