@@ -36448,8 +36448,8 @@
       "country": "Argentina",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem",
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested",
       "technologies": [
         "4G"
       ],
@@ -36519,8 +36519,8 @@
       "country": "Argentina",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem",
+      "recommendation": "POSS",
+      "reason": "Not officially supported, may work but is untested",
       "technologies": [
         "4G"
       ],
