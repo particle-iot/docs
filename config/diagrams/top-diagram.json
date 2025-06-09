@@ -5,148 +5,153 @@
             "id": "primary-usb",
             "label": "1",
             "title": "Primary USB (USB1)",
-            "x": 342,
-            "y": 940
+            "x": 250,
+            "y": 1134,
+            "index": 0
         },
         {
             "id": "secondary-usb",
             "label": "2",
             "title": "Secondary USB (USB2)",
-            "x": 554,
-            "y": 940
+            "x": 512,
+            "y": 1134,
+            "index": 1
         },
         {
             "id": "activity-led",
             "label": "4",
             "title": "Activity LED",
-            "x": 632,
-            "y": 940
+            "x": 621,
+            "y": 1134,
+            "index": 2
         },
         {
             "id": "lipo",
             "label": "5",
             "title": "LiPo battery connector",
-            "x": 718,
-            "y": 940
+            "x": 720,
+            "y": 1134,
+            "index": 3
         },
         {
             "id": "dsi-csi",
             "label": "6",
             "title": "DSI/CSI connector - DISP_CAM1 (display or camera)",
-            "x": 844,
-            "y": 940
+            "x": 888,
+            "y": 943,
+            "index": 4
         },
         {
             "id": "csi",
             "label": "7",
             "title": "CSI connector - CAM2 (camera only)",
-            "x": 928,
-            "y": 940
+            "x": 1005,
+            "y": 943,
+            "index": 5
         },
         {
             "id": "gnss-ufl",
             "label": "8",
             "title": "GNSS antenna",
-            "x": 1007,
-            "y": 783
+            "x": 1247,
+            "y": 943,
+            "index": 6
         },
         {
             "id": "antennas",
             "label": "9",
             "title": "Built-in cellular antenna",
-            "x": 1222,
-            "y": 506
+            "x": 1393,
+            "y": 622,
+            "index": 7
         },
         {
             "id": "qwiic",
             "label": "10",
             "title": "QWIIC connector (3.3V I2C) ",
-            "x": 1080,
-            "y": 382
+            "x": 1182,
+            "y": 826,
+            "index": 8
         },
         {
             "id": "sd",
             "label": "11",
             "title": "SD card (optional)",
-            "x": 871,
-            "y": 478
+            "x": 940,
+            "y": 558,
+            "index": 9
         },
         {
             "id": "debug-connector",
             "label": "12",
             "title": "Debug connector (optional)",
-            "x": 895,
-            "y": 275
+            "x": 1061,
+            "y": 345,
+            "index": 10
         },
         {
             "id": "hat",
             "label": "13",
             "title": "Raspberry Pi 40-pin expansion HAT connector",
-            "x": 630,
-            "y": 187
-        },
-        {
-            "id": "hat-power-jumper",
-            "label": "14",
-            "title": "HAT 5V power direction jumper",
-            "x": 414,
-            "y": 352
+            "x": 662,
+            "y": 167,
+            "index": 11
         },
         {
             "id": "wifi-antenna",
             "label": "15",
             "title": "Wi-Fi chip antenna",
-            "x": 162,
-            "y": 291
+            "x": 33,
+            "y": 298,
+            "index": 13
         },
         {
             "id": "pcie",
             "label": "16",
             "title": "PCIe expansion connector",
-            "x": 162,
-            "y": 498
-        },
-        {
-            "id": "device-info",
-            "label": "17",
-            "title": "Device info (serial number data matrix code) ",
-            "x": 367,
-            "y": 574
+            "x": 33,
+            "y": 560,
+            "index": 14
         },
         {
             "id": "button",
             "label": "18",
             "title": "Button (power and mode)",
-            "x": 162,
-            "y": 644
+            "x": 33,
+            "y": 760,
+            "index": 16
         },
         {
             "id": "primary-led",
             "label": "19",
             "title": "Primary LED",
-            "x": 162,
-            "y": 715
+            "x": 33,
+            "y": 845,
+            "index": 17
         },
         {
             "id": "audio-connector",
             "label": "20",
             "title": "Audio card connector ",
-            "x": 162,
-            "y": 779
+            "x": 33,
+            "y": 924,
+            "index": 18
         },
         {
             "id": "rtc-battery",
             "label": "21",
             "title": "RTC battery connector (optional)",
-            "x": 519,
-            "y": 814
+            "x": 450,
+            "y": 1001,
+            "index": 19
         },
         {
             "id": "external-button",
             "label": "22",
             "title": "Connection for external button (optional)",
-            "x": 519,
-            "y": 877
+            "x": 450,
+            "y": 1064,
+            "index": 20
         }
     ],
     "labelSets": [
@@ -169,7 +174,7 @@
         }
     ],
     "config": {
-        "height": 1067,
+        "height": 1200,
         "width": 1600,
         "labelDiameter": 60
     }

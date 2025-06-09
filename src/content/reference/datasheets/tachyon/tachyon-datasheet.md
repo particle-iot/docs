@@ -4,12 +4,21 @@ columns: two
 layout: commonTwo.hbs
 description: Tachyon Datasheet
 ---
+---
+title: Tachyon Datasheet
+columns: two
+layout: commonTwo.hbs
+description: Tachyon Datasheet
+---
 
 # Tachyon Datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet and is subject to change.
 {{box op="end"}}
+
+{{imageOverlay src="/assets/images/tachyon/tachyon-iso.jpg" alt="Tachyon Photo"}}
+
 
 ## Overview
 
@@ -139,10 +148,8 @@ Power can be supplied by:
 | 11 | SD card (optional) | <!-- sd -->
 | 12 | Debug connector (optional) | <!-- debug-connector -->
 | 13 | Raspberry Pi 40-pin expansion HAT connector | <!-- hat -->
-| 14 | HAT 5V power direction jumper | <!-- hat-power-jumper -->
 | 15 | Wi-Fi chip antenna | <!-- wifi-antenna -->
 | 16 | PCIe expansion connector | <!-- pcie -->
-| 17 | Device info (serial number data matrix code)  | <!-- device-info -->
 | 18 | Button (power and mode) | <!-- button -->
 | 19 | Primary LED | <!-- primary-led -->
 | 20 | Audio card connector  | <!-- audio-connector -->
@@ -244,22 +251,6 @@ This connectors attaches to the debug adapter using a 10-pin (2x5) ribbon cable.
 - UART serial
 - All GPIO are 3.3V only (not 5V tolerant outside of the 5V power pin)
 
-### <!-- shared-diagram-label top-diagram hat-power-jumper title-label-paren -->HAT 5V power direction jumper (14)<!-- end -->
-
-Use the jumper to connect either `IN` or `OUT` to the center `5V` pin.
-
-- `IN` means 5V is into the HAT, from the Tachyon.
-- `OUT` means the HAT outputs power to power the Tachyon.
-
-When in `IN` mode:
-
-- 5V is not powered when in standby mode.
-- 5V can be used even when powered only by LiPo battery.
-
-When in `OUT` mode:
-
-- Supply 5V at 2A to power the Tachyon to the 5V and GND pins on the 40-pin HAT connector.
-
 ### <!-- shared-diagram-label top-diagram wifi-antenna title-label-paren -->Wi-Fi chip antenna (15)<!-- end -->
 
 - Dual-band Wi-Fi and BLE chip antenna.
@@ -272,11 +263,6 @@ Alpha versions of the Tachyon have a U.FL connector marked **Wi-Fi/BLE**. This c
 - PCIe 3.0 x1 slot
 - Matches the Raspberry Pi PCIe implementation.
 - 2-lane PCIe Gen 3, supports NVMe
-
-### <!-- shared-diagram-label top-diagram device-info title-label-paren -->Device info (serial number data matrix code)  (17)<!-- end -->
-
-- This data matrix code contains the serial number
-- The serial number is also printed as numbers and letters on the bottom side label.
 
 ### <!-- shared-diagram-label top-diagram button title-label-paren -->Button (power and mode) (18)<!-- end -->
 
@@ -863,3 +849,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2025-03-03 | RK | Initial version |
+|          | 2025-06-09 | RK | Updated photo |
