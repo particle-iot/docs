@@ -13705,6 +13705,276 @@
   },
   {
     "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/search",
+    "title": "Search your organization",
+    "name": "searchOrg",
+    "description": "<p>Search your organization for devices, products, and SIMs.</p> <p>Returns at most 10 results per type.</p>",
+    "group": "Search.1",
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": false,
+        "field": "text",
+        "isArray": false,
+        "description": "<p>The search text.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "type",
+        "isArray": false,
+        "description": "<p>The type of search. Accepted values are: device, product, and sim.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "results",
+            "isArray": true,
+            "description": "<p>The search results.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.type",
+            "isArray": false,
+            "description": "<p>The type of the result. Can be one of: device, product, or sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.org",
+            "isArray": false,
+            "description": "<p>The slug of the organization the result belongs to.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.orgName",
+            "isArray": false,
+            "description": "<p>The name of the organization the result belongs to.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.device",
+            "isArray": false,
+            "description": "<p>The device object, if the result is a device.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.product",
+            "isArray": false,
+            "description": "<p>The product object, if the result is a product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.sim",
+            "isArray": false,
+            "description": "<p>The sim object, if the result is a sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "hasMore",
+            "isArray": false,
+            "description": "<p>Indicates if there are more results available than returned.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/orgs/particle/search?text=alpha",
+          "content": "GET /v1/orgs/particle/search?text=alpha\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"results\": [\n    {\n      \"type\": \"device\",\n      \"org\": \"particle\",\n      \"orgName\": \"Particle\",\n      \"device\": {\n        \"id\": \"1234567890abcdef\",\n        \"name\": \"Alpha Device\",\n        \"product_id\": \"prod123\",\n        \"product_name\": \"Alpha Product\"\n      }\n    }\n  ],\n  \"hasMore\": false\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "curl \"https://api.particle.io/v1/orgs/particle/search?text=alpha\" \\",
+        "content": "curl \"https://api.particle.io/v1/orgs/particle/search?text=alpha\" \\\n     -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/search.js",
+    "groupTitle": "Search.1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/user/search",
+    "title": "Search your Sandbox",
+    "name": "searchSandbox",
+    "description": "<p>Search your Sandbox for devices, products, and SIMs.</p> <p>Returns at most 10 results per type.</p>",
+    "group": "Search.1",
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": false,
+        "field": "text",
+        "isArray": false,
+        "description": "<p>The search text.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "type",
+        "isArray": false,
+        "description": "<p>The type of search. Accepted values are: device, product, and sim.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "results",
+            "isArray": true,
+            "description": "<p>The search results.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.type",
+            "isArray": false,
+            "description": "<p>The type of the result. Can be one of: device, product, or sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.device",
+            "isArray": false,
+            "description": "<p>The device object, if the result is a device.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.product",
+            "isArray": false,
+            "description": "<p>The product object, if the result is a product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.sim",
+            "isArray": false,
+            "description": "<p>The sim object, if the result is a sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "hasMore",
+            "isArray": false,
+            "description": "<p>Indicates if there are more results available than returned.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/user/search?text=alpha",
+          "content": "GET /v1/user/search?text=alpha\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"results\": [\n    {\n      \"type\": \"device\",\n      \"device\": {\n        \"id\": \"1234567890abcdef\",\n        \"name\": \"Alpha Device\",\n        \"product_id\": \"prod123\",\n        \"product_name\": \"Alpha Product\"\n      }\n    }\n  ],\n  \"hasMore\": false\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "curl \"https://api.particle.io/v1/user/search?text=alpha\" \\",
+        "content": "curl \"https://api.particle.io/v1/user/search?text=alpha\" \\\n     -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/search.js",
+    "groupTitle": "Search.1"
+  },
+  {
+    "type": "get",
     "url": "/v1/secrets",
     "title": "List cloud secrets",
     "name": "listSecrets",
@@ -17448,7 +17718,7 @@
   },
   {
     "type": "get",
-    "url": "/user",
+    "url": "/v1/user",
     "title": "Get user",
     "name": "GetUser",
     "description": "<p>Return the user resource for the currently authenticated user.</p>",
@@ -17527,7 +17797,7 @@
   },
   {
     "type": "put",
-    "url": "/user",
+    "url": "/v1/user",
     "title": "Update user",
     "name": "UpdateUser",
     "group": "User.2",
@@ -17607,7 +17877,7 @@
   },
   {
     "type": "put",
-    "url": "/user",
+    "url": "/v1/user",
     "title": "Delete user",
     "name": "deleteUser",
     "group": "User.2",
@@ -17649,7 +17919,7 @@
   },
   {
     "type": "post",
-    "url": "/user/password-reset",
+    "url": "/v1/user/password-reset",
     "title": "Forgot password",
     "name": "UserPasswordForgot",
     "description": "<p>Create a new password reset token and send the user an email with the token. This endpoint is rate-limited to prevent abuse.</p> <p>Note: This endpoint does not require an access token.</p>",

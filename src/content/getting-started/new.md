@@ -21,7 +21,7 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Cloud secrets 2025-06-06
+### Cloud secrets 2025-06-09
 
 Documentation for [cloud secrets](/getting-started/cloud/secrets/) is now available.
 

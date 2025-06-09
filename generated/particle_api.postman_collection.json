@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-06-05T09:36:59.001Z",
+                  "value": "2025-06-09T15:33:24.041Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-06-05T09:36:59.003Z",
+                      "value": "2025-06-09T15:33:24.043Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-06-05T09:36:59.018Z",
+                  "value": "2025-06-09T15:33:24.057Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-06-05T09:36:59.019Z",
+                      "value": "2025-06-09T15:33:24.057Z",
                       "disabled": true
                     },
                     {
@@ -3210,13 +3210,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-05T09:36:59.026Z",
+                  "value": "2025-06-09T15:33:24.067Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-05T09:36:59.027Z",
+                  "value": "2025-06-09T15:33:24.067Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4633,13 +4633,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-05T09:36:59.033Z",
+                  "value": "2025-06-09T15:33:24.074Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-05T09:36:59.033Z",
+                  "value": "2025-06-09T15:33:24.074Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4740,13 +4740,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-05T09:36:59.034Z",
+                  "value": "2025-06-09T15:33:24.075Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-05T09:36:59.035Z",
+                  "value": "2025-06-09T15:33:24.075Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4847,13 +4847,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-05T09:36:59.036Z",
+                  "value": "2025-06-09T15:33:24.077Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-05T09:36:59.036Z",
+                  "value": "2025-06-09T15:33:24.077Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4954,13 +4954,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-05T09:36:59.037Z",
+                  "value": "2025-06-09T15:33:24.081Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-05T09:36:59.037Z",
+                  "value": "2025-06-09T15:33:24.081Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5061,13 +5061,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-05T09:36:59.039Z",
+                  "value": "2025-06-09T15:33:24.082Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-05T09:36:59.040Z",
+                  "value": "2025-06-09T15:33:24.082Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -10458,6 +10458,157 @@
       ]
     },
     {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Search your organization",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/orgs/:orgIdOrSlug/search",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "orgs",
+                ":orgIdOrSlug",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "text",
+                  "value": "string",
+                  "description": "The search text.",
+                  "disabled": false
+                },
+                {
+                  "key": "type",
+                  "value": "string",
+                  "description": "The type of search. Accepted values are: device, product, and sim.",
+                  "disabled": true
+                }
+              ],
+              "variables": []
+            },
+            "description": "Search your organization for devices, products, and SIMs. \n\nReturns at most 10 results per type."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/orgs/:orgIdOrSlug/search",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "orgs",
+                    ":orgIdOrSlug",
+                    "search"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/orgs/particle/search?text=alpha\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"results\": [\n    {\n      \"type\": \"device\",\n      \"org\": \"particle\",\n      \"orgName\": \"Particle\",\n      \"device\": {\n        \"id\": \"1234567890abcdef\",\n        \"name\": \"Alpha Device\",\n        \"product_id\": \"prod123\",\n        \"product_name\": \"Alpha Product\"\n      }\n    }\n  ],\n  \"hasMore\": false\n}"
+            }
+          ]
+        },
+        {
+          "name": "Search your Sandbox",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/user/search",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "user",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "text",
+                  "value": "string",
+                  "description": "The search text.",
+                  "disabled": false
+                },
+                {
+                  "key": "type",
+                  "value": "string",
+                  "description": "The type of search. Accepted values are: device, product, and sim.",
+                  "disabled": true
+                }
+              ],
+              "variables": []
+            },
+            "description": "Search your Sandbox for devices, products, and SIMs. \n\nReturns at most 10 results per type."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/user/search",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "user",
+                    "search"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/user/search?text=alpha\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"results\": [\n    {\n      \"type\": \"device\",\n      \"device\": {\n        \"id\": \"1234567890abcdef\",\n        \"name\": \"Alpha Device\",\n        \"product_id\": \"prod123\",\n        \"product_name\": \"Alpha Product\"\n      }\n    }\n  ],\n  \"hasMore\": false\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Secrets",
       "item": [
         {
@@ -12053,11 +12204,12 @@
             "header": [],
             "body": null,
             "url": {
-              "raw": "{{url}}/user",
+              "raw": "{{url}}/v1/user",
               "host": [
                 "{{url}}"
               ],
               "path": [
+                "v1",
                 "user"
               ],
               "query": [],
@@ -12078,11 +12230,12 @@
                 ],
                 "body": null,
                 "url": {
-                  "raw": "{{url}}/user",
+                  "raw": "{{url}}/v1/user",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
+                    "v1",
                     "user"
                   ]
                 }
@@ -12118,11 +12271,12 @@
               "raw": "{\n  \"username\": \"string\"\n}"
             },
             "url": {
-              "raw": "{{url}}/user/password-reset",
+              "raw": "{{url}}/v1/user/password-reset",
               "host": [
                 "{{url}}"
               ],
               "path": [
+                "v1",
                 "user",
                 "password-reset"
               ],
@@ -12147,11 +12301,12 @@
                   "raw": "{\n  \"username\": \"string\"\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/user/password-reset",
+                  "raw": "{{url}}/v1/user/password-reset",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
+                    "v1",
                     "user",
                     "password-reset"
                   ]
@@ -12184,11 +12339,12 @@
               "raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"account_info\": {\n    \"key\": \"value\"\n  },\n  \"current_password\": \"string\",\n  \"invalidate_tokens\": false\n}"
             },
             "url": {
-              "raw": "{{url}}/user",
+              "raw": "{{url}}/v1/user",
               "host": [
                 "{{url}}"
               ],
               "path": [
+                "v1",
                 "user"
               ],
               "query": [],
@@ -12212,11 +12368,12 @@
                   "raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"account_info\": {\n    \"key\": \"value\"\n  },\n  \"current_password\": \"string\",\n  \"invalidate_tokens\": false\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/user",
+                  "raw": "{{url}}/v1/user",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
+                    "v1",
                     "user"
                   ]
                 }
@@ -12248,11 +12405,12 @@
               "raw": "{\n  \"password\": \"string\"\n}"
             },
             "url": {
-              "raw": "{{url}}/user",
+              "raw": "{{url}}/v1/user",
               "host": [
                 "{{url}}"
               ],
               "path": [
+                "v1",
                 "user"
               ],
               "query": [],
@@ -12276,11 +12434,12 @@
                   "raw": "{\n  \"password\": \"string\"\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/user",
+                  "raw": "{{url}}/v1/user",
                   "host": [
                     "{{url}}"
                   ],
                   "path": [
+                    "v1",
                     "user"
                   ]
                 }
