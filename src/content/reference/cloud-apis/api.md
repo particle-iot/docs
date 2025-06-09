@@ -527,6 +527,12 @@ we'll give you lots of notice and a clear upgrade path.
 Note: Cellular devices may indicate that the device is online for up to 46 minutes after the device has gone offline because it went out of range or was powered off. Wi-Fi devices will generally be accurate to within a few minutes. Online indications are should occur immediately if the device was previously offline for both cellular and Wi-Fi.
 
 {{> api group=apiGroups.Devices}}
+
+## Device search
+
+{{> api group=apiGroups.Search}}
+
+
 ## Remote diagnostics
 {{> api group=apiGroups.Diagnostics}}
 ## User
@@ -585,6 +591,11 @@ Because of the simultaneous connection limit, if you want to subscribe to multip
 
 ## Integrations [Webhooks]
 {{> api group=apiGroups.Integrations}}
+
+## Cloud secrets
+
+{{> api group=apiGroups.Secrets}}
+
 ## Special events
 
 If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The

@@ -6010,6 +6010,14 @@
         "field": "ttl",
         "isArray": false,
         "description": "<p>How long the event should persist</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": true,
+        "field": "as_device_id",
+        "isArray": false,
+        "description": "<p>The device ID to send the event as. The device must belong to the product.</p>"
       }
     ],
     "permission": [
@@ -8629,6 +8637,22 @@
         "field": "template",
         "isArray": false,
         "description": "<p>The template that was used to create this webhook</p>"
+      },
+      {
+        "group": "Body",
+        "type": "Array",
+        "optional": true,
+        "field": "parameters",
+        "isArray": false,
+        "description": "<p>An array of key values for the template. Each element needs a <code>template_name</code> and <code>value</code> property. Insert the value into the webhook using <code>{{{PARAMETER_NAME}}}</code> where PARAMETER_NAME is the <code>template_name</code>.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "Array",
+        "optional": true,
+        "field": "secrets",
+        "isArray": false,
+        "description": "<p>An array of Cloud secrets to use with the webhook. Each element needs a <code>name</code> property and can have an optional <code>template_name</code> property. Insert the value into the webhook using <code>{{{SECRET_NAME}}}</code> where SECRET_NAME is the <code>template_name</code> or <code>name</code> if <code>template_name</code> is omitted.</p>"
       }
     ],
     "examples": [
@@ -13681,6 +13705,747 @@
   },
   {
     "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/search",
+    "title": "Search your organization",
+    "name": "searchOrg",
+    "description": "<p>Search your organization for devices, products, and SIMs.</p> <p>Returns at most 10 results per type.</p>",
+    "group": "Search.1",
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": false,
+        "field": "text",
+        "isArray": false,
+        "description": "<p>The search text.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "type",
+        "isArray": false,
+        "description": "<p>The type of search. Accepted values are: device, product, and sim.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "results",
+            "isArray": true,
+            "description": "<p>The search results.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.type",
+            "isArray": false,
+            "description": "<p>The type of the result. Can be one of: device, product, or sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.org",
+            "isArray": false,
+            "description": "<p>The slug of the organization the result belongs to.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.orgName",
+            "isArray": false,
+            "description": "<p>The name of the organization the result belongs to.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.device",
+            "isArray": false,
+            "description": "<p>The device object, if the result is a device.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.product",
+            "isArray": false,
+            "description": "<p>The product object, if the result is a product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.sim",
+            "isArray": false,
+            "description": "<p>The sim object, if the result is a sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "hasMore",
+            "isArray": false,
+            "description": "<p>Indicates if there are more results available than returned.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/orgs/particle/search?text=alpha",
+          "content": "GET /v1/orgs/particle/search?text=alpha\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"results\": [\n    {\n      \"type\": \"device\",\n      \"org\": \"particle\",\n      \"orgName\": \"Particle\",\n      \"device\": {\n        \"id\": \"1234567890abcdef\",\n        \"name\": \"Alpha Device\",\n        \"product_id\": \"prod123\",\n        \"product_name\": \"Alpha Product\"\n      }\n    }\n  ],\n  \"hasMore\": false\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "curl \"https://api.particle.io/v1/orgs/particle/search?text=alpha\" \\",
+        "content": "curl \"https://api.particle.io/v1/orgs/particle/search?text=alpha\" \\\n     -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/search.js",
+    "groupTitle": "Search.1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/user/search",
+    "title": "Search your Sandbox",
+    "name": "searchSandbox",
+    "description": "<p>Search your Sandbox for devices, products, and SIMs.</p> <p>Returns at most 10 results per type.</p>",
+    "group": "Search.1",
+    "query": [
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": false,
+        "field": "text",
+        "isArray": false,
+        "description": "<p>The search text.</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "type",
+        "isArray": false,
+        "description": "<p>The type of search. Accepted values are: device, product, and sim.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "results",
+            "isArray": true,
+            "description": "<p>The search results.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.type",
+            "isArray": false,
+            "description": "<p>The type of the result. Can be one of: device, product, or sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.device",
+            "isArray": false,
+            "description": "<p>The device object, if the result is a device.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.product",
+            "isArray": false,
+            "description": "<p>The product object, if the result is a product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "results",
+              "field": "results",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "results.sim",
+            "isArray": false,
+            "description": "<p>The sim object, if the result is a sim.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "hasMore",
+            "isArray": false,
+            "description": "<p>Indicates if there are more results available than returned.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/user/search?text=alpha",
+          "content": "GET /v1/user/search?text=alpha\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"results\": [\n    {\n      \"type\": \"device\",\n      \"device\": {\n        \"id\": \"1234567890abcdef\",\n        \"name\": \"Alpha Device\",\n        \"product_id\": \"prod123\",\n        \"product_name\": \"Alpha Product\"\n      }\n    }\n  ],\n  \"hasMore\": false\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "curl \"https://api.particle.io/v1/user/search?text=alpha\" \\",
+        "content": "curl \"https://api.particle.io/v1/user/search?text=alpha\" \\\n     -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/search.js",
+    "groupTitle": "Search.1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/secrets",
+    "title": "List cloud secrets",
+    "name": "listSecrets",
+    "description": "<p>List cloud secrets in the Sandbox or organization</p>",
+    "group": "Secrets.1",
+    "permission": [
+      {
+        "name": "secrets:list"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/secrets \\",
+        "content": "$ curl https://api.particle.io/v1/secrets \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List organization cloud secrets",
+        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "secrets",
+            "isArray": true,
+            "description": "<p>List of cloud secrets</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.name",
+            "isArray": false,
+            "description": "<p>Name of the secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.created_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.updated_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last updated</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.last_accessed_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last used by an integration or Logic Function</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.integrations",
+            "isArray": true,
+            "description": "<p>List of integrations that use this secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets",
+              "field": "secrets",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.logic_functions",
+            "isArray": true,
+            "description": "<p>List of Logic Functions that use this secret</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/secrets",
+          "content": "GET /v1/secrets\nHTTP/1.1 200 OK\n{\n  \"secrets\": [{\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/secrets/:secretName",
+    "title": "Get cloud secret by name",
+    "name": "getSecrets",
+    "description": "<p>Get details of a cloud secret in the Sandbox or organization</p>",
+    "group": "Secrets.2",
+    "permission": [
+      {
+        "name": "secrets:get"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/secrets/MY_API_KEY \\",
+        "content": "$ curl https://api.particle.io/v1/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Get an organization cloud secret",
+        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "secretName",
+            "isArray": false,
+            "description": "<p>Name of the secret to query</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "secret",
+            "isArray": false,
+            "description": "<p>Cloud secret details</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.name",
+            "isArray": false,
+            "description": "<p>Name of the secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.created_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.updated_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last updated</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.last_accessed_at",
+            "isArray": false,
+            "description": "<p>Timestamp when the secret was last used by an integration or Logic Function</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.integrations",
+            "isArray": true,
+            "description": "<p>List of integrations that use this secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "secret",
+              "field": "secret",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "secret.logic_functions",
+            "isArray": true,
+            "description": "<p>List of Logic Functions that use this secret</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/secrets/MY_API_KEY",
+          "content": "GET /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.2"
+  },
+  {
+    "type": "post",
+    "url": "/v1/secrets",
+    "title": "Create a cloud secret",
+    "name": "createSecret",
+    "description": "<p>Create a cloud secret in the Sandbox or organization.</p> <p>The name of the secret must be unique within the Sandbox or organization.</p>",
+    "group": "Secrets.3",
+    "permission": [
+      {
+        "name": "secrets:create"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/secrets \\",
+        "content": "$ curl https://api.particle.io/v1/secrets \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"name\": \"MY_API_KEY\", \"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      },
+      {
+        "title": "Create an organization cloud secret",
+        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"name\": \"MY_API_KEY\", \"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      }
+    ],
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "name",
+        "isArray": false,
+        "description": "<p>Name of the secret. The name must contain only uppercase letters, numbers, and underscores, and must be unique within the Sandbox or organization.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "value",
+        "isArray": false,
+        "description": "<p>Value of the secret. The value will not be returned in the response for security reasons.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "secret",
+            "isArray": false,
+            "description": "<p>Details of the created cloud secret.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "POST /v1/secrets",
+          "content": "POST /v1/secrets\nHTTP/1.1 201 Created\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [],\n    \"logic_functions\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.3"
+  },
+  {
+    "type": "put",
+    "url": "/v1/secrets/:secretName",
+    "title": "Update the value of a cloud secret",
+    "name": "updateSecret",
+    "description": "<p>Update the value of a cloud secret in the Sandbox or organization.</p>",
+    "group": "Secrets.4",
+    "permission": [
+      {
+        "name": "secrets:update"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl -X PUT https://api.particle.io/v1/secrets/MY_API_KEY \\",
+        "content": "$ curl -X PUT https://api.particle.io/v1/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      },
+      {
+        "title": "Update an organization cloud secret",
+        "content": "$ curl -X PUT https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"value\": \"my_secret_value\"}'",
+        "type": "bash"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "secretName",
+            "isArray": false,
+            "description": "<p>Name of the secret to update</p>"
+          }
+        ]
+      }
+    },
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "value",
+        "isArray": false,
+        "description": "<p>Value of the secret. The value will not be returned in the response for security reasons.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "secret",
+            "isArray": false,
+            "description": "<p>Details of the updated cloud secret.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "PUT /v1/secrets/MY_API_KEY",
+          "content": "PUT /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [],\n    \"logic_functions\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.4"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/secrets/:secretName",
+    "title": "Delete a cloud secret",
+    "name": "deleteSecret",
+    "description": "<p>Delete a cloud secret in the Sandbox or organization.</p> <p>The secret must not be used by any integrations or Logic Functions. Remove the secret from all integrations and Logic Functions before deleting it.</p>",
+    "group": "Secrets.5",
+    "permission": [
+      {
+        "name": "secrets:delete"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl -X DELETE https://api.particle.io/v1/secrets/MY_API_KEY \\",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete an organization cloud secret",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "secretName",
+            "isArray": false,
+            "description": "<p>Name of the secret to delete</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/secrets/MY_API_KEY",
+          "content": "DELETE /v1/secrets/MY_API_KEY\nHTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/vault.js",
+    "groupTitle": "Secrets.5"
+  },
+  {
+    "type": "get",
     "url": "/v1/user/service_agreements",
     "title": "Get user service agreements",
     "name": "getServiceAgreements",
@@ -14149,7 +14914,7 @@
             },
             "field": "attributes.current_usage_summary",
             "isArray": false,
-            "description": "<p>Usage summary for the period, requires service_agreement.usage_summary:get scope.</p>"
+            "description": "<p>Usage summary for the period, requires service_agreements.usage_summary:get scope.</p>"
           },
           {
             "group": "Success 200",
@@ -14203,7 +14968,7 @@
             },
             "field": "attributes.pricing_terms",
             "isArray": false,
-            "description": "<p>All related with the selected pricing model, requires service_agreement.pricing_terms:get scope.</p>"
+            "description": "<p>All related with the selected pricing model, requires service_agreements.pricing_terms:get scope.</p>"
           },
           {
             "group": "Success 200",
@@ -16953,7 +17718,7 @@
   },
   {
     "type": "get",
-    "url": "/user",
+    "url": "/v1/user",
     "title": "Get user",
     "name": "GetUser",
     "description": "<p>Return the user resource for the currently authenticated user.</p>",
@@ -17032,7 +17797,7 @@
   },
   {
     "type": "put",
-    "url": "/user",
+    "url": "/v1/user",
     "title": "Update user",
     "name": "UpdateUser",
     "group": "User.2",
@@ -17112,7 +17877,7 @@
   },
   {
     "type": "put",
-    "url": "/user",
+    "url": "/v1/user",
     "title": "Delete user",
     "name": "deleteUser",
     "group": "User.2",
@@ -17154,7 +17919,7 @@
   },
   {
     "type": "post",
-    "url": "/user/password-reset",
+    "url": "/v1/user/password-reset",
     "title": "Forgot password",
     "name": "UserPasswordForgot",
     "description": "<p>Create a new password reset token and send the user an email with the token. This endpoint is rate-limited to prevent abuse.</p> <p>Note: This endpoint does not require an access token.</p>",

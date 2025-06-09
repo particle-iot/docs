@@ -37,6 +37,21 @@ In some integrations, you'll notice fields like **WEBHOOK_ID** in all capital le
 
 {{imageOverlay src="/assets/images/integrations/integrations-fill-in.png" alt="Integrations options" class="no-darken"}}
 
+## Cloud secrets
+
+{{!-- BEGIN shared-blurb c2b1a838-446a-4cf6-8692-d1cfb424035a --}}
+The cloud secrets feature allows you to:
+
+- Securely store secret data like passwords, API keys, and authorization tokens for external services.
+- Share secrets across [integrations](/integrations/introduction/) and [Logic](/getting-started/logic-ledger/logic/).
+- Prevent even authorized users from viewing the secrets once created.
+- Updating a secret immediately takes effect in all things that use it.
+{{!-- END shared-blurb --}}
+
+{{imageOverlay src="/assets/images/secrets/webhook-secrets.png" class="no-darken"}}
+
+For more information, see [cloud secrets](/getting-started/cloud/secrets/).
+
 ## Additional instructions
 
 You can find additional instructions and tutorials for specific integrations in the navigation bar to the left under **Integrations** and **Community integrations**.
