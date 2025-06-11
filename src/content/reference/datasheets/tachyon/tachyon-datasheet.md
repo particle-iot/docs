@@ -98,8 +98,8 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 #### Radio 
 
 - 3GPP Rel-15 specification, and supports both 5G NSA and SA modes with 4G/ 3G fallback
-- 5G & LTE Multiple-Input Multiple-Output (MIMO) technology
-- Wi-Fi 6E & DBS, IEEE 802.11a/ b/ g/ n/ ac/ ax, Wi-Fi 2 × 2 MU-MIMO
+- 5G & LTE cellular technology
+- Wi-Fi 6E & DBS, IEEE 802.11a/ b/ g/ n/ ac/ ax, Wi-Fi 2
 - Bluetooth 5.2
 
 
@@ -539,21 +539,25 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
     <td style="width: 350px;">n2/ 5/ 7/ 12/ 13/ 14/ 25/ 26/ 29/ 30/ 38/ 41/ 48/ 66/ 70/ 71/ 77/ 78</td>
     <td style="width: 350px;">n1/ 3/ 5/ 7/ 8/ 20/ 28/ 38/ 40/ 41/ 77/ 78/ 79 </td>
 </tr>
+<!-- 
 <tr>
     <td>5G MIMO </td>
     <td>4 × 4 MIMO (DL): n1/ 3/ 7/ 38/ 40/ 41/ 77/ 78/ 79<br/>2 × 2 MIMO (UL): n38/ 40/ 41/ 77/ 78/ 79</td>
     <td>4 × 4 MIMO (DL): n2/ 7/ 25/ 30/ 38/ 41/ 48/ 66/ 70/ 77/ 78<br/>2 × 2 MIMO (UL): n38/ 41/ 48/ 77/ 78</td>
 </tr>
+-->
 <tr>
     <td>LTE</td>
     <td>B2/ 4/ 5/ 7/ 12/ 13/ 14/ 17/ 25/ 26/ 29/ 30/ 38/ 41/ 42/ 43/ 46/ 48/ 66/ 71</td>
     <td>B1/ 2/ 3/ 4/ 5/ 7/ 8/ 12/ 17/ 18/ 19/ 20/ 26/ 28/ 32/ 34/ 38/ 39/ 40/ 41/ 42</td>
 </tr>
+<!--
 <tr>
     <td>LTE MIMO</td>
     <td>4 × 4 MIMO (DL): B2/ 4/ 7/ 25/ 30/ 38/ 41/ 42/ 43/ 48/ 66</td>
     <td>4 × 4 MIMO (DL): B1/ 3/ 7/ 38/ 40/ 41/ 42</td>
 </tr>
+-->
 <tr>
     <td>WCDMA</td>
     <td>-</td>
@@ -566,8 +570,8 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
 </tr>
 <tr>
     <td>WLAN</td>
-    <td>2.4 & 5 & 6 GHz<br/>802.11a/ b/ g/ n/ ac/ ax,<br/>Supports DBS, 2 × 2 MU-MIMO</td>
-    <td>2.4 & 5 & 6 GHz<br/>802.11a/ b/ g/ n/ ac/ ax,<br/>Supports DBS, 2 × 2 MU-MIMO</td>
+    <td>2.4 & 5 & 6 GHz<br/>802.11a/ b/ g/ n/ ac/ ax,<br/>Supports DBS<!-- , 2 × 2 MU-MIMO --></td>
+    <td>2.4 & 5 & 6 GHz<br/>802.11a/ b/ g/ n/ ac/ ax,<br/>Supports DBS<!-- >, 2 × 2 MU-MIMO --></td>
 </tr>
 <tr>
     <td>Bluetooth</td>
@@ -664,7 +668,18 @@ The 40-pin expansion had connector is static sensitive and should be handled car
 
 ## FCC ISED CE Warnings and End Product Labeling Requirements
 
-**Federal Communication Commission Interference Statement**
+**FCC Supplier's Declaration of Conformity**
+
+47 CFR § 2.1077 Compliance Information
+
+Responsible party:<br/>
+Particle Industries, Inc.<br/>325 9th St<br/>San Francisco, CA 94103
+
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+
+
+**FCC Radiation Exposure Statement**
+
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
 
 - Reorient or relocate the receiving antenna.
@@ -672,15 +687,10 @@ This equipment has been tested and found to comply with the limits for a Class B
 - Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
-**FCC Caution:**
-Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment.
-This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
-
-1. This device may not cause harmful interference, and
-2. This device must accept any interference received, including interference that may cause undesired operation.
-
 **FCC Radiation Exposure Statement:**
 This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+
+This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
 
 **IMPORTANT NOTE:**
 In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
@@ -736,7 +746,7 @@ interference to co-channel mobile satellite systems;
 - Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars are allocated
 as primary users (i.e., priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that
 these radars could cause interference and/or damage to LE-LAN devices.
-
+- DFS (Dynamic Frequency Selection) products that operate in the bands 5250- 5350 MHz, 5470-5600MHz, and 5650-5725MHz.
 
 - Le dispositif de fonctionnement dans la bande 5150-5250 MHz est réservé à une utilisation en
 intérieur pour réduire le risque d'interférences nuisibles à la co-canal systèmes mobiles par
@@ -745,16 +755,17 @@ satellite
 sont désignés comme utilisateurs principaux (c.-àutilisateurs prioritaires) des bandes 5250-5350
 MHz et 5650-5850 MHz et que ces radars pourraient causer des interférences et / ou des
 dommages à dispositifs LAN-EL.
-
+- Les produits utilisant la technique d’atténuation DFS (sélection dynamique des fréquences) sur les bandes 5250- 5350 MHz, 5470-5600MHz et 5650-5725MHz.
 
 ### European Union (CE)
 
+Hereby, Particles declares that the radio equipment with the TACH8ROW referenced in the printed setup document for the product is in compliance with Directive 2014/53/EU. The full text of the EU Declaration of Conformity is available at the following internet address: https://docs.particle.io
 
-### United Kingdom
+**EU Radiation Exposure Statement:**
 
-UKCA Conformity:
+This device meets the EU requirements (2014/53/EU Article 3.1a) on the limitation of exposure of the general public to electromagnetic fields by way of health protection.
+The device complies with RF specifications when the device used at 20 cm from your body.
 
-Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 ### Outdoor use (world)
 
@@ -764,6 +775,35 @@ DK, EE, EL, ES, FI, FR, HR, HU, IE, IS, IT, LI, LT, LU, LV, MT, NL, NO, PL, PT, 
 SE, SI, SK, TR, UA, UK(NI).
 
 ## Certification documents
+
+## Product handling
+
+### ESD precautions
+
+The Tachyon contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. Failure to observe these precautions can result in severe damage to the module!
+
+### Battery warnings
+
+**CAUTION**
+
+RISK OF EXPLOSION IF BATTERY IS REPLACED BY AN INCORRECT TYPE.
+DISPOSE OF USED BATTERIES ACCORDING TO THE INSTRUCTIONS.
+
+- Replacement of a battery with an incorrect type that can defeat a safeguard.
+- Disposal of a battery into fire or a hot oven, or mechanically crushing or cutting of a battery, that can result in an explosion.
+- Leaving a battery in an extremely high temperature surrounding environment that can result in an explosion or the leakage of flammable liquid or gas.
+- A battery subjected to extremely low air pressure that may result in an explosion or the leakage of flammable liquid or gas.
+
+This symbol indicates DC voltage: <img style="display: inline-block; vertical-align: middle; width: 40px; background-color: #fff" src="/assets/images/dc_symbol.svg">
+
+### Disposal
+
+<img src="/assets/images/weee.png" style="background-color: #fff">
+
+The European directive 2012/19/EU On waste Electrical and Electronic Equipment (WEEE), requires that old household electrical appliance must not be disposed of in the normal unsorted municipal waste stream. Old appliances must be collected separately in order to optimize the recovery and recycling of the materials they contain, and reduce the impact on human health and the environment.
+
+The crossed out “wheeled bin" symbol on the product reminds you of your obligation, that when you dispose of the appliance, it must be separately collected.
+Consumers should contact their local authority or retailer for information concerning the correct disposal of their old appliance.
 
 
 ## Country compatibility
@@ -849,4 +889,5 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2025-03-03 | RK | Initial version |
-|          | 2025-06-09 | RK | Updated photo |
+| 001      | 2025-06-09 | RK | Updated photo |
+| 002      | 2025-06-11 | RK | Updates for certification |
