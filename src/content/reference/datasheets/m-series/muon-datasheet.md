@@ -197,10 +197,6 @@ The Muon itself does not contain PoE (power over Ethernet, IEEE 802.3af/at) circ
 
 This allows a PoE HAT to get power from the Ethernet jack, convert it to 5VDC 2A (minimum), and supply it to the Muon via the expansion connection 5V.
 
-This is one such adapter, made by [Waveshare](https://www.waveshare.com/product/raspberry-pi/hats/interface-power/poe-hat-g.htm).
-
-![PoE HAT](/assets/images/m-series/waveshare-poe-hat.png)
-
 Be sure the J15 jumper is connecting pins 1 & 2 to allow the expansion connector 5V to power the Muon.
 
 **Make sure you get a PoE adapter for the Raspberry Pi 5**
@@ -211,6 +207,8 @@ the Ethernet jack is on the Muon, as well.
 
 If your PoE adapter has the 4-pin power jack is next to the 40-pin expansion header, you have the wrong adapter 
 and it will not fit on the Muon.
+
+Note that not all PoE HATs for the Raspberry Pi 5 will fit, as some have components on the bottom the HAT that hit components on the Muon or the M-SoM. This [Waveshare](https://www.waveshare.com/product/raspberry-pi/hats/interface-power/poe-hat-g.htm) PoE HAT does **not** fit.
 
 #### LiPo battery connector
 
