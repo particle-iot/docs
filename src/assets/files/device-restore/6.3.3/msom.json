@@ -1,0 +1,326 @@
+{
+  "bootloader": {
+    "prefixInfo": {
+      "moduleStartAddy": "8004000",
+      "moduleEndAddy": "80131a0",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 3101,
+      "platformID": 35,
+      "moduleFunction": 2,
+      "moduleIndex": 0,
+      "depModuleFunction": 2,
+      "depModuleIndex": 2,
+      "depModuleVersion": 10,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 32
+    },
+    "suffixInfo": {
+      "productId": 65535,
+      "productVersion": 65535,
+      "fwUniqueId": "8a642c86a9bbe3cbc639a42b7a307997416c4f583a298110579393800865bf67",
+      "reserved": 0,
+      "suffixSize": 62,
+      "crcBlock": "e2962e31",
+      "extensions": [
+        {
+          "type": 2,
+          "length": 16,
+          "offset": 61794,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              2,
+              0,
+              16,
+              0,
+              0,
+              64,
+              0,
+              8,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "moduleStartAddress": "8004000",
+          "dynalibLoadAddress": "0",
+          "dynalibStartAddress": "0"
+        },
+        {
+          "type": 1,
+          "length": 10,
+          "offset": 61810,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              1,
+              0,
+              10,
+              0,
+              255,
+              255,
+              255,
+              255,
+              255,
+              255
+            ]
+          },
+          "productId": 65535,
+          "productVersion": 65535
+        }
+      ]
+    }
+  },
+  "prebootloader-part1": {
+    "prefixInfo": {
+      "moduleStartAddy": "8014000",
+      "moduleEndAddy": "8027864",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 10,
+      "platformID": 35,
+      "moduleFunction": 2,
+      "moduleIndex": 2,
+      "depModuleFunction": 0,
+      "depModuleIndex": 0,
+      "depModuleVersion": 0,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 0
+    },
+    "suffixInfo": {
+      "productId": 65535,
+      "productVersion": 65535,
+      "fwUniqueId": "5141486234758550c13e3cdff493d96eaee5a62b0b63502dd961fcf695158546",
+      "reserved": 0,
+      "suffixSize": 62,
+      "crcBlock": "ac00c9ab",
+      "extensions": [
+        {
+          "type": 2,
+          "length": 16,
+          "offset": 79910,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              2,
+              0,
+              16,
+              0,
+              0,
+              64,
+              1,
+              8,
+              24,
+              64,
+              1,
+              8,
+              0,
+              96,
+              8,
+              0
+            ]
+          },
+          "moduleStartAddress": "8014000",
+          "dynalibLoadAddress": "8014018",
+          "dynalibStartAddress": "86000"
+        },
+        {
+          "type": 1,
+          "length": 10,
+          "offset": 79926,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              1,
+              0,
+              10,
+              0,
+              255,
+              255,
+              255,
+              255,
+              255,
+              255
+            ]
+          },
+          "productId": 65535,
+          "productVersion": 65535
+        }
+      ]
+    }
+  },
+  "system-part1": {
+    "prefixInfo": {
+      "moduleStartAddy": "8060000",
+      "moduleEndAddy": "81a25fc",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 6304,
+      "platformID": 35,
+      "moduleFunction": 4,
+      "moduleIndex": 1,
+      "depModuleFunction": 2,
+      "depModuleIndex": 0,
+      "depModuleVersion": 3101,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 0
+    },
+    "suffixInfo": {
+      "productId": 65535,
+      "productVersion": 65535,
+      "fwUniqueId": "15339d29eec01c8a5aba626424bbeb80579e56a3f543340112bc0b2b4aeb731b",
+      "reserved": 0,
+      "suffixSize": 62,
+      "crcBlock": "1941074c",
+      "extensions": [
+        {
+          "type": 2,
+          "length": 16,
+          "offset": 1320382,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              2,
+              0,
+              16,
+              0,
+              0,
+              0,
+              6,
+              8,
+              160,
+              0,
+              6,
+              8,
+              0,
+              0,
+              0,
+              2
+            ]
+          },
+          "moduleStartAddress": "8060000",
+          "dynalibLoadAddress": "80600a0",
+          "dynalibStartAddress": "2000000"
+        },
+        {
+          "type": 1,
+          "length": 10,
+          "offset": 1320398,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              1,
+              0,
+              10,
+              0,
+              255,
+              255,
+              255,
+              255,
+              255,
+              255
+            ]
+          },
+          "productId": 65535,
+          "productVersion": 65535
+        }
+      ]
+    }
+  },
+  "tinker": {
+    "prefixInfo": {
+      "moduleStartAddy": "85f2000",
+      "moduleEndAddy": "85ffffc",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 6,
+      "platformID": 35,
+      "moduleFunction": 5,
+      "moduleIndex": 1,
+      "depModuleFunction": 4,
+      "depModuleIndex": 1,
+      "depModuleVersion": 6304,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 0
+    },
+    "suffixInfo": {
+      "productId": 35,
+      "productVersion": 4,
+      "fwUniqueId": "8486f2798c00b9e44e68ca5fe35bc4072085a77b1b436287a328426e9adfa796",
+      "reserved": 0,
+      "suffixSize": 62,
+      "crcBlock": "630b1159",
+      "extensions": [
+        {
+          "type": 2,
+          "length": 16,
+          "offset": 57278,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              2,
+              0,
+              16,
+              0,
+              0,
+              32,
+              95,
+              8,
+              168,
+              32,
+              95,
+              8,
+              208,
+              52,
+              63,
+              2
+            ]
+          },
+          "moduleStartAddress": "85f2000",
+          "dynalibLoadAddress": "85f20a8",
+          "dynalibStartAddress": "23f34d0"
+        },
+        {
+          "type": 1,
+          "length": 10,
+          "offset": 57294,
+          "data": {
+            "type": "Buffer",
+            "data": [
+              1,
+              0,
+              10,
+              0,
+              255,
+              255,
+              35,
+              0,
+              4,
+              0
+            ]
+          },
+          "productId": 35,
+          "productVersion": 4
+        }
+      ]
+    }
+  }
+}

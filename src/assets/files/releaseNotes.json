@@ -29291,6 +29291,68 @@
                 2869,
                 2871
             ]
+        },
+        "v6.3.3": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.3.3",
+            "tag_name": "v6.3.3",
+            "name": "v6.3.3 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2025-06-09T16:58:13Z",
+            "published_at": "2025-06-11T20:13:34Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2872
+                    ],
+                    "section": "FEATURES",
+                    "text": "Panic vitals"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2872
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Cortex-M33 FreeRTOS port updated to latest version with `BASEPRI` fixes  [realtek_ambd_sdk_public#6](https://github.com/particle-iot/realtek_ambd_sdk_public/pull/6)"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2872
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "`free_worker` incorrect queue put"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2873
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE lock is acquired inside ISR handler in cases where BLE memory pool gets exhausted"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2873
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE stack does not handle correctly the case where the peripheral does not respond to the MTU exchange request"
+                }
+            ],
+            "prs": [
+                2872,
+                2873
+            ]
         }
     },
     "pulls": {
@@ -43390,6 +43452,22 @@
             "state": "closed",
             "created_at": "2025-04-21T15:51:24Z",
             "detail": "While in safe mode Gen 4 devices only use 32KB of PSRAM for heap. This is not enough."
+        },
+        "2872": {
+            "url": "https://github.com/particle-iot/device-os/pull/2872",
+            "number": 2872,
+            "title": "Panic vitals, Gen 4 free_worker bugfix",
+            "state": "closed",
+            "created_at": "2025-06-05T00:12:07Z",
+            "detail": "1. This PR adds new panic vitals and makes sure that vitals are uploaded after a panic even after a session resumption (which normally does not happen)\n```\n{\n  \"uptime\": 10,\n  \"memory\": {\n    \"used\": 303216,\n    \"total\": 2925776\n  },\n  \"protected_mode\": \"Open\",\n  \"version\": 20072,\n  \"part\": {\n    \"hash\": 1277916473\n  },\n  \"user\": {\n    \"part\": {\n      \"hash\": 588532806\n    }\n  },\n  \"panic\": {\n    \"code\": 10,\n    \"pc\": 33747552,\n    \"lr\": 33835835,\n    \"assertion\": 34595205\n  }\n}\n```\n\n2. Fixes a bug in Gen 4 `free_worker` when putting an address to be freed onto the queue\n3. Updates Gen 4 Cortex-M33 FreeRTOS port to upstream version, as the current one is buggy due to missing memory barriers after BASEPRI modification. It's supposed to be a Cortex-M4 bug, but it's present on M33 too. This is causing crashes sometimes."
+        },
+        "2873": {
+            "url": "https://github.com/particle-iot/device-os/pull/2873",
+            "number": 2873,
+            "title": "BLE issues",
+            "state": "closed",
+            "created_at": "2025-06-05T18:35:15Z",
+            "detail": "This PR fixes two issues:\n1. [Gen 3] We've introduced a regression in 5.9.0 in https://github.com/particle-iot/device-os/pull/2796 where BLE mutex in some cases (out of memory pool) may be acquired from inside an ISR handler (additionally we are slightly increasing by 1K the pool size)\n2. [Gen 4] Devices in central role are hitting a connect semaphore acquisition timeout assertion with some peripheral that do not respond to MTU exchanges."
         }
     }
 }

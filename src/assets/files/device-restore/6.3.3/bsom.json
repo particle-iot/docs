@@ -1,0 +1,114 @@
+{
+  "bootloader": {
+    "prefixInfo": {
+      "moduleStartAddy": "f4000",
+      "moduleEndAddy": "ffebe",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 3101,
+      "platformID": 23,
+      "moduleFunction": 2,
+      "moduleIndex": 0,
+      "depModuleFunction": 0,
+      "depModuleIndex": 0,
+      "depModuleVersion": 0,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 512
+    },
+    "suffixInfo": {
+      "productId": 0,
+      "productVersion": 0,
+      "fwUniqueId": "3db4e3cd6211d96503d044f4bf106ec80ba2077637ab39af4ac84f7e911dedd6",
+      "reserved": 0,
+      "suffixSize": 40,
+      "crcBlock": "3940b8ac"
+    }
+  },
+  "softdevice": {
+    "prefixInfo": {
+      "moduleStartAddy": "1000",
+      "moduleEndAddy": "265d4",
+      "reserved": 0,
+      "moduleFlags": 1,
+      "moduleVersion": 202,
+      "platformID": 23,
+      "moduleFunction": 8,
+      "moduleIndex": 0,
+      "depModuleFunction": 2,
+      "depModuleIndex": 0,
+      "depModuleVersion": 501,
+      "dep2ModuleFunction": 4,
+      "dep2ModuleIndex": 1,
+      "dep2ModuleVersion": 1321,
+      "prefixSize": 24,
+      "prefixOffset": 0
+    },
+    "suffixInfo": {
+      "productId": -1,
+      "productVersion": -1,
+      "fwUniqueId": "939fee60b4b8dcb8cf25533a46ba8774c418174b80d5fad5e1f89064c04d8bb4",
+      "reserved": 0,
+      "suffixSize": 36,
+      "crcBlock": "22fbb8f2"
+    }
+  },
+  "system-part1": {
+    "prefixInfo": {
+      "moduleStartAddy": "28000",
+      "moduleEndAddy": "b34b8",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 6304,
+      "platformID": 23,
+      "moduleFunction": 4,
+      "moduleIndex": 1,
+      "depModuleFunction": 2,
+      "depModuleIndex": 0,
+      "depModuleVersion": 3100,
+      "dep2ModuleFunction": 8,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 202,
+      "prefixSize": 24,
+      "prefixOffset": 512
+    },
+    "suffixInfo": {
+      "productId": 0,
+      "productVersion": 0,
+      "fwUniqueId": "c6f767cd1e463fc5d7669b6471c48e5456bd598219839ea5b3de9aa0d91bae5b",
+      "reserved": 0,
+      "suffixSize": 40,
+      "crcBlock": "23abf918"
+    }
+  },
+  "tinker": {
+    "prefixInfo": {
+      "moduleStartAddy": "b4000",
+      "moduleEndAddy": "b6b6a",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 6,
+      "platformID": 23,
+      "moduleFunction": 5,
+      "moduleIndex": 2,
+      "depModuleFunction": 4,
+      "depModuleIndex": 1,
+      "depModuleVersion": 6304,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 0
+    },
+    "suffixInfo": {
+      "productId": 23,
+      "productVersion": 3,
+      "fwUniqueId": "5c4043e5b8ea00835232a436c3cb0acf2340209b265f28fd3687fb33e25affee",
+      "reserved": 0,
+      "suffixSize": 40,
+      "crcBlock": "4a139af9"
+    }
+  }
+}

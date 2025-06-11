@@ -2703,6 +2703,7 @@ The following settings, available in Monitor Edge v2, are for the Modbus (RS485)
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus_rs485/imd</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Inter Message Delay</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Delay between the last Modbus response and the next transmission in milliseconds.  This is used for rate limiting transactions.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0</td></tr>
 </tbody>
 </table>
 
