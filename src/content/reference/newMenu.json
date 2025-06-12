@@ -409,12 +409,12 @@
                         {
                             "dir": "muon-preview-datasheet",
                             "title": "Muon datasheet (preview)",
-                            "internal": true
+                            "hidden": true
                         },
                         {
                             "dir": "muon-samples",
                             "title": "Muon engineering samples",
-                            "internal": true
+                            "hidden": true
                         }
                     ]
                 },

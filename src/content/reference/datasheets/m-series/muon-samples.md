@@ -7,7 +7,11 @@ description: Muon engineering samples
 
 # {{title}}
 
-For the complete datasheet, see [Muon preview datasheet](/reference/datasheets/m-series/muon-preview-datasheet/).
+{{box op="start" cssClass="boxed warningBox"}}
+This is a document applies to the v0.5 preview hardware only!
+{{box op="end"}}
+
+See the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) for information about the v1.0 hardware.
 
 ## Features
 
@@ -113,4 +117,5 @@ We appreciate your attention to this matter and are here to assist with any ques
 |   1      | 2024-09-12 | RK | Initial version |
 |   2      | 2024-10-17 | RK | USB cable warning |
 |   3      | 2025-01-08 | RK | Updated antenna placement diagram |
+|   4      | 2025-06-12 | RK | Muon GA units are available |
 
