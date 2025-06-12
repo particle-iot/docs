@@ -310,6 +310,9 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             return;
         }
     }
+    if (submenuObj.hidden) {
+        return;
+    }
 
     for(const itemObj of submenuObj) {
         // title, dir
@@ -381,6 +384,9 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
             if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
                 continue;
             }
+        }
+        if (itemObj.hidden && !itemObj.isActivePage) {
+            continue;
         }
 
         if (itemObj.anchor) {
@@ -502,7 +508,7 @@ navMenu.generateNavHtmlInternal = function(submenuObj, options) {
         }
         $(itemObj.elem).append(itemObj.linkElem);    
 
-        if (itemObj.internal) {
+        if (itemObj.internal || itemObj.hidden) {
             const imgElem = document.createElement('img');
             $(imgElem).attr('src', '/assets/images/logo.png');
             $(imgElem).attr('width', '16px');
