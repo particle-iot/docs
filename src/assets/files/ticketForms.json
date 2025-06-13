@@ -6335,14 +6335,14 @@
         {
             "id": 35853606540187,
             "type": "checkbox",
-            "title": "I confirm that I would like to cancel my basic plan",
-            "description": "It may take up to one business day for our team to respond to your cancellation request, but we will action this based on the date you request the cancellation. Additionally, with the conclusion of your final date of service on the basic plan, you will no longer be eligible to order bulk product SKU’s from the Particle store.”",
+            "title": "I confirm that I would like to cancel my Basic/Plus plan",
+            "description": "It may take up to one business day for our team to respond to your cancellation request, but we will action this based on the date you request the cancellation. Additionally, with the conclusion of your final date of service on the Basic/Plus plan, you will no longer be eligible to order bulk product SKU’s from the Particle store.",
             "required": true
         },
         {
             "id": 35853686140699,
             "type": "text",
-            "title": "Basic plan cancellation date",
+            "title": "Basic/Plus plan cancellation date",
             "description": "Optionally specify the date you want the cancellation to be effective. Leave blank for as soon as possible.",
             "required": false
         },
@@ -6352,6 +6352,63 @@
             "title": "Number of Blocks Requested",
             "description": "Please enter the number of blocks you wish to add to your Basic Plan (see https://www.particle.io/pricing/ for more information).",
             "required": true
+        },
+        {
+            "id": 37958334330779,
+            "type": "tagger",
+            "title": "Why are you cancelling your Basic/Plus plan?",
+            "description": "Please select the primary reason for canceling your Basic/Plus plan",
+            "required": true,
+            "customFields": [
+                {
+                    "name": "Project or Business Lost Funding",
+                    "value": "lost_funding",
+                    "id": 37958300021147,
+                    "default": false
+                },
+                {
+                    "name": "Particle Pricing Too Expensive",
+                    "value": "too_expensive",
+                    "id": 37958300021275,
+                    "default": false
+                },
+                {
+                    "name": "Product/Feature Gap(s)",
+                    "value": "product_feature_gap",
+                    "id": 37958300021403,
+                    "default": false
+                },
+                {
+                    "name": "Unrelated development issue (for example, power supply issues)",
+                    "value": "unrelated_development_issue",
+                    "id": 37958300021531,
+                    "default": false
+                },
+                {
+                    "name": "Found Other Product Solution",
+                    "value": "found_other",
+                    "id": 37958300021659,
+                    "default": false
+                },
+                {
+                    "name": "My project or business is seasonal in nature",
+                    "value": "seasonal",
+                    "id": 37958300021787,
+                    "default": false
+                },
+                {
+                    "name": "Lack of Demand from End Customers",
+                    "value": "lack_of_demand",
+                    "id": 37958300021915,
+                    "default": false
+                },
+                {
+                    "name": "Other - please enter reason when submitting cancellation request",
+                    "value": "other",
+                    "id": 37958300022043,
+                    "default": false
+                }
+            ]
         }
     ],
     "ticketForms": [
@@ -6394,11 +6451,11 @@
                     "value": "i_have_another_question_not_listed_here.",
                     "child_fields": [
                         {
-                            "id": 360026631653,
+                            "id": 360025997694,
                             "is_required": false
                         },
                         {
-                            "id": 360025997694,
+                            "id": 360026631653,
                             "is_required": false
                         }
                     ]
@@ -6409,11 +6466,11 @@
                     "value": "pricing",
                     "child_fields": [
                         {
-                            "id": 360026658914,
+                            "id": 360025997694,
                             "is_required": false
                         },
                         {
-                            "id": 360025997694,
+                            "id": 360026658914,
                             "is_required": false
                         }
                     ]
@@ -6424,11 +6481,11 @@
                     "value": "shipping",
                     "child_fields": [
                         {
-                            "id": 360026658994,
+                            "id": 360025997694,
                             "is_required": false
                         },
                         {
-                            "id": 360025997694,
+                            "id": 360026658994,
                             "is_required": false
                         }
                     ]
@@ -6439,11 +6496,11 @@
                     "value": "returns",
                     "child_fields": [
                         {
-                            "id": 360026659254,
+                            "id": 360025997694,
                             "is_required": false
                         },
                         {
-                            "id": 360025997694,
+                            "id": 360026659254,
                             "is_required": false
                         }
                     ]
@@ -6502,6 +6559,17 @@
                 {
                     "parent_field_id": 360056120693,
                     "parent_field_type": "tagger",
+                    "value": "blocked_from_logging_in_due_to_2fa/mfa_issue",
+                    "child_fields": [
+                        {
+                            "id": 360055034734,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360056120693,
+                    "parent_field_type": "tagger",
                     "value": "cannot_log_in__error_in_login_page_",
                     "child_fields": [
                         {
@@ -6510,17 +6578,6 @@
                         },
                         {
                             "id": 1500000021382,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 360056120693,
-                    "parent_field_type": "tagger",
-                    "value": "blocked_from_logging_in_due_to_2fa/mfa_issue",
-                    "child_fields": [
-                        {
-                            "id": 360055034734,
                             "is_required": true
                         }
                     ]
@@ -6587,12 +6644,12 @@
                     "value": "sku_c_t1_d",
                     "child_fields": [
                         {
-                            "id": 1500000014802,
-                            "is_required": true
-                        },
-                        {
                             "id": 360055104874,
                             "is_required": false
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
                         }
                     ]
                 },
@@ -6602,12 +6659,12 @@
                     "value": "sku_c_tsomltem1_d",
                     "child_fields": [
                         {
-                            "id": 1500000014802,
-                            "is_required": true
-                        },
-                        {
                             "id": 360055104874,
                             "is_required": false
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
                         }
                     ]
                 },
@@ -6617,12 +6674,12 @@
                     "value": "sku_c_tsomlte1_d",
                     "child_fields": [
                         {
-                            "id": 1500000014802,
-                            "is_required": true
-                        },
-                        {
                             "id": 360055104874,
                             "is_required": false
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
                         }
                     ]
                 },
@@ -6861,6 +6918,98 @@
                 {
                     "parent_field_id": 1500000056042,
                     "parent_field_type": "tagger",
+                    "value": "led_blinking_red_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_red_sos_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_frozen_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_no_led_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
                     "value": "led_breathing_magenta_d",
                     "child_fields": [
                         {
@@ -6891,52 +7040,6 @@
                 {
                     "parent_field_id": 1500000056042,
                     "parent_field_type": "tagger",
-                    "value": "led_blinking_red_d",
-                    "child_fields": [
-                        {
-                            "id": 360056120293,
-                            "is_required": true
-                        },
-                        {
-                            "id": 1500000053121,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056120253,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056141453,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000056042,
-                    "parent_field_type": "tagger",
-                    "value": "led_red_sos_d",
-                    "child_fields": [
-                        {
-                            "id": 1500000053121,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056120253,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056120293,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056141453,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000056042,
-                    "parent_field_type": "tagger",
                     "value": "led_breathing_white_d",
                     "child_fields": [
                         {
@@ -6948,45 +7051,10 @@
                 {
                     "parent_field_id": 1500000056042,
                     "parent_field_type": "tagger",
-                    "value": "led_frozen_d",
+                    "value": "led_blinking_cyan_d",
                     "child_fields": [
                         {
-                            "id": 360056120293,
-                            "is_required": true
-                        },
-                        {
-                            "id": 1500000053121,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056120253,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056141453,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000056042,
-                    "parent_field_type": "tagger",
-                    "value": "led_no_led_d",
-                    "child_fields": [
-                        {
-                            "id": 1500000053121,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056120253,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056120293,
-                            "is_required": true
-                        },
-                        {
-                            "id": 360056141453,
+                            "id": 360056141253,
                             "is_required": true
                         }
                     ]
@@ -6998,17 +7066,6 @@
                     "child_fields": [
                         {
                             "id": 360056141433,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000056042,
-                    "parent_field_type": "tagger",
-                    "value": "led_blinking_cyan_d",
-                    "child_fields": [
-                        {
-                            "id": 360056141253,
                             "is_required": true
                         }
                     ]
@@ -7153,12 +7210,12 @@
                             "is_required": true
                         },
                         {
-                            "id": 360055036194,
-                            "is_required": true
-                        },
-                        {
                             "id": 360055036034,
                             "is_required": false
+                        },
+                        {
+                            "id": 360055036194,
+                            "is_required": true
                         },
                         {
                             "id": 1260802583329,
@@ -7172,12 +7229,12 @@
                     "value": "devtool_wb",
                     "child_fields": [
                         {
-                            "id": 1500000072801,
-                            "is_required": false
-                        },
-                        {
                             "id": 1260802583309,
                             "is_required": true
+                        },
+                        {
+                            "id": 1500000072801,
+                            "is_required": false
                         },
                         {
                             "id": 1500000072961,
@@ -7225,11 +7282,11 @@
                             "is_required": true
                         },
                         {
-                            "id": 360056043053,
+                            "id": 360056039773,
                             "is_required": true
                         },
                         {
-                            "id": 360056039773,
+                            "id": 360056043053,
                             "is_required": true
                         }
                     ]
@@ -7244,11 +7301,11 @@
                             "is_required": true
                         },
                         {
-                            "id": 360056043053,
+                            "id": 360056039773,
                             "is_required": true
                         },
                         {
-                            "id": 360056039773,
+                            "id": 360056043053,
                             "is_required": true
                         }
                     ]
@@ -7371,75 +7428,12 @@
                     "value": "other_ublox_d",
                     "child_fields": [
                         {
-                            "id": 360056084113,
-                            "is_required": true
-                        },
-                        {
                             "id": 360048593434,
                             "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000019321,
-                    "parent_field_type": "tagger",
-                    "value": "other_mobile_d",
-                    "child_fields": [
-                        {
-                            "id": 1500000073181,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000019321,
-                    "parent_field_type": "tagger",
-                    "value": "other_gps_d",
-                    "child_fields": [
-                        {
-                            "id": 360056039773,
-                            "is_required": true
                         },
                         {
-                            "id": 1500000014802,
+                            "id": 360056084113,
                             "is_required": true
-                        },
-                        {
-                            "id": 360056043053,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000019321,
-                    "parent_field_type": "tagger",
-                    "value": "other_cert_d",
-                    "child_fields": [
-                        {
-                            "id": 1500000222461,
-                            "is_required": false
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000019321,
-                    "parent_field_type": "tagger",
-                    "value": "other_3rd_d",
-                    "child_fields": [
-                        {
-                            "id": 1500000220882,
-                            "is_required": true
-                        }
-                    ]
-                },
-                {
-                    "parent_field_id": 1500000019321,
-                    "parent_field_type": "tagger",
-                    "value": "other_carrier_d",
-                    "child_fields": [
-                        {
-                            "id": 1500000019481,
-                            "is_required": false
                         }
                     ]
                 },
@@ -7457,11 +7451,19 @@
                 {
                     "parent_field_id": 1500000019321,
                     "parent_field_type": "tagger",
-                    "value": "other_transfer_d",
+                    "value": "other_gps_d",
                     "child_fields": [
                         {
-                            "id": 1500000019501,
-                            "is_required": false
+                            "id": 360056039773,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056043053,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
                         }
                     ]
                 },
@@ -7483,6 +7485,61 @@
                     "child_fields": [
                         {
                             "id": 1500000019042,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_carrier_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000019481,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_transfer_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000019501,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_mobile_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000073181,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_3rd_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000220882,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_cert_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000222461,
                             "is_required": false
                         }
                     ]
@@ -7538,11 +7595,11 @@
                     "value": "i_am_an_educator/not-for-profit_and_am_looking_for_a_discount",
                     "child_fields": [
                         {
-                            "id": 360026958653,
+                            "id": 360026688693,
                             "is_required": false
                         },
                         {
-                            "id": 360026688693,
+                            "id": 360026958653,
                             "is_required": false
                         }
                     ]
@@ -7621,10 +7678,13 @@
         },
         {
             "id": 35853786106395,
-            "title": "Cancel my basic plan",
+            "title": "Cancel my basic/plus plan",
             "fields": [
                 {
                     "id": 1260816805770
+                },
+                {
+                    "id": 37958334330779
                 },
                 {
                     "id": 35853606540187
