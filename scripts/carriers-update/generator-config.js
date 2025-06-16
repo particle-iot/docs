@@ -942,7 +942,24 @@ const schemaDocs = require('./schema-docs');
             }             
         }, 
 
-
+        // power-measurement.md
+        {
+            guid:'1e4ff400-8197-4485-ab74-b81d81c3eedc', 
+            generatorFn:function(updater) {
+                return updater.generateSimpleSkus({
+                    filterFn:function(skuObj) {
+                        return typeof skuObj.pmic != 'string' || skuObj.pmic.length == 0;
+                    },
+                    addMiddle: [
+                        {
+                            key: 'pmic',
+                            title: 'PMIC',
+                        },
+                    ],
+                }); 
+            },
+        },
+        
 
         // datasheets/boron/b404-b402-datasheet.md
         {
