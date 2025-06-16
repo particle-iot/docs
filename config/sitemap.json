@@ -9737,6 +9737,10 @@
         "getting-started/cloud/secrets.md": {
             "hash": "c1dc5412bcd38d6a24a282d76768f1f2f5ed53e0b67f836dd19ebc680a72f4ed",
             "date": "2025-06-02"
+        },
+        "hardware/power/power-measurement.md": {
+            "hash": "ca62e20ed7586e025f43d32d6d82fbbd15c644b79ba8bf86a085d01515bf66a6",
+            "date": "2025-06-16"
         }
     }
 }

@@ -1,4 +1,63 @@
 {
+    "info": {
+        "devices": {
+            "B402/B404 B-SoM": "B402",
+            "B404X B-SoM": "B404X",
+            "B504e B-SoM": "B523",
+            "B523/B524 B-SoM": "B523",
+            "Boron 2G/3G": "BRN310",
+            "Boron LTE (BRN402/BRN404)": "BRN402",
+            "Boron LTE (BRN404X)": "BRN404X",
+            "Tracker EVB T523M (EG91-EX)": "T523",
+            "Tracker EVB T402M (BG96-NA)": "T402",
+            "TrackerOne (T523M)": "ONE523",
+            "TrackerOne (T402M)": "ONE402",
+            "E404X": "E404X",
+            "Argon": "ARGN-H",
+            "P2": "P2",
+            "Photon 2": "PHN2",
+            "MSoM 404(BG95 CAT-M1)": "M404",
+            "MSoM 524 (EG91 CAT1)": "M524"
+        },
+        "modes": {
+            "STOP Mode": "stop",
+            "ULP Mode": "ulp",
+            "Hibernate Mode": "hibernate",
+            "Normal Mode": "normal"
+        },
+        "labels": {
+            "Iidle": "Operating current (uC on, peripherals and radio disabled)",
+            "Ible_adv": "Operating current (uC on, BLE advertising)",
+            "Ible_conn_idle": "Operating current (uC on, BLE connected but idle)",
+            "Ible_scan": "Operating current (uC on, BLE scanning)",
+            "Icell_idle": "Operating current (uC on, cellular on but not connected)",
+            "Icell_conn_twr": "Operating current (uC on, cellular connecting to tower)",
+            "Icell_conn_cloud": "Operating current (uC on, cellular connecting to cloud)",
+            "Icell_cloud_idle": "Operating current (uC on, cellular connected but idle)",
+            "Icell_cloud_tx": "Operating current (uC on, cellular connected and transmitting)",
+            "Icell_idle_catm1": "Operating current (uC on, cellular on but not connected using LTE Cat M1)",
+            "Icell_conn_twr_catm1": "Operating current (uC on, cellular connecting to tower using LTE Cat M1)",
+            "Icell_conn_cloud_catm1": "Operating current (uC on, cellular connecting to cloud using LTE Cat M1)",
+            "Icell_cloud_idle_catm1": "Operating current (uC on, cellular connected but idle using LTE Cat M1)",
+            "Icell_cloud_tx_catm1": "Operating current (uC on, cellular connected and transmitting using LTE Cat M1)",
+            "Icell_idle_2g": "Operating current (uC on, cellular on but not connected using 2G)",
+            "Icell_conn_twr_2g": "Operating current (uC on, cellular connecting to tower using 2G)",
+            "Icell_conn_cloud_2g": "Operating current (uC on, cellular connecting to cloud using 2G)",
+            "Icell_cloud_idle_2g": "Operating current (uC on, cellular connected but idle using 2G)",
+            "Icell_cloud_tx_2g": "Operating current (uC on, cellular connected and transmitting using 2G)",
+            "Iwifi_idle": "Operating current (uC on, Wi-Fi on but not connected)",
+            "Iwifi_conn_ap": "Operating current (uC on, Wi-Fi connecting to access point)",
+            "Iwifi_conn_cloud": "Operating current (uC on, Wi-Fi connecting to cloud)",
+            "Iwifi_cloud_idle": "Operating current (uC on, Wi-Fi connected but idle)",
+            "Iwifi_cloud_tx": "Operating current (uC on, Wi-Fi connected and transmitting)",
+            "Istop_gpio": "STOP mode sleep, GPIO wake-up",
+            "Istop_intrtc": "STOP mode sleep, RTC wake-up",
+            "Iulp_gpio": "ULP mode sleep, GPIO wake-up",
+            "Iulp_intrtc": "ULP mode sleep, RTC wake-up",
+            "Ihib_gpio": "HIBERNATE mode sleep, GPIO wake-up",
+            "Ihib_intrtc": "HIBERNATE mode sleep, RTC wake-up"
+        }
+    },
     "devices": {
         "T523": {
             "sku": "T523",

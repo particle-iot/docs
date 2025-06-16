@@ -332,6 +332,10 @@
                     "title": "Power supply guide"
                 },
                 {
+                    "dir": "power-measurement",
+                    "title": "Power measurement"
+                },
+                {
                     "dir": "pm-bat-datasheet",
                     "title": "PM-BAT power module datasheet"
                 },
