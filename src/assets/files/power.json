@@ -1,23 +1,23 @@
 {
     "info": {
         "devices": {
-            "B402/B404 B-SoM": "B402",
             "B404X B-SoM": "B404X",
+            "B404/B402 B-SoM": "B402",
             "B504e B-SoM": "B523",
-            "B523/B524 B-SoM": "B523",
-            "Boron 2G/3G": "BRN310",
-            "Boron LTE (BRN402/BRN404)": "BRN402",
+            "B524/B523 B-SoM": "B523",
             "Boron LTE (BRN404X)": "BRN404X",
-            "Tracker EVB T523M (EG91-EX)": "T523",
+            "Boron LTE (BRN404/BRN402)": "BRN402",
+            "Boron 2G/3G": "BRN310",
+            "MSoM 404(BG95 CAT-M1)": "M404",
+            "MSoM 524 (EG91 CAT1)": "M524",
             "Tracker EVB T402M (BG96-NA)": "T402",
-            "TrackerOne (T523M)": "ONE523",
-            "TrackerOne (T402M)": "ONE402",
+            "Tracker EVB T523M (EG91-EX)": "T523",
+            "Tracker One (T402M)": "ONE402",
+            "Tracker One (T523M)": "ONE523",
             "E404X": "E404X",
             "Argon": "ARGN-H",
             "P2": "P2",
-            "Photon 2": "PHN2",
-            "MSoM 404(BG95 CAT-M1)": "M404",
-            "MSoM 524 (EG91 CAT1)": "M524"
+            "Photon 2": "PHN2"
         },
         "modes": {
             "STOP Mode": "stop",
