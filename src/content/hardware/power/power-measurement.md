@@ -50,7 +50,7 @@ The [Qoitech Otii Arc Pro](https://www.qoitech.com/otii-arc-pro/) is the tool of
 
 All of the current measurements are done at 3.6V to the battery input for devices with a battery input.
 
-Additionally, devices with a bq24195 PMIC provide the lowest current only when using the LiPo battery input. This is especially important when you need low current in sleep mode. When using VIN, an additional voltage regulator within the PMIC is enabled, which has some current use even at idle. While the difference is negligible in operating mode as a percentage of total usage, in sleep mode it can be significant compared to the 100 µA sleep current on some devices.
+Devices with a bq24195 PMIC provide the lowest current only when using the LiPo battery input. This is especially important when you need low current in sleep mode. When using VIN, an additional voltage regulator within the PMIC is enabled, which has some current use even at idle. While the difference is negligible in operating mode as a percentage of total usage, in sleep mode it can be significant compared to the 100 µA sleep current on some devices.
 
 ### Particle devices with a PMIC
 
