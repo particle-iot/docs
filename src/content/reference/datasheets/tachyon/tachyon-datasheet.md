@@ -653,8 +653,11 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
 
 ![](/assets/images/tachyon/dimensions.png)
 
-
 Dimensions are in millimeters.
+
+### 3D models
+
+A 3D model of the Tachyon is available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/Tachyon).
 
 ## Product Handling
 
@@ -891,3 +894,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | pre      | 2025-03-03 | RK | Initial version |
 | 001      | 2025-06-09 | RK | Updated photo |
 | 002      | 2025-06-11 | RK | Updates for certification |
+| 003      | 2025-06-16 | RK | Added link to 3D models |

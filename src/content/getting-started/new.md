@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon 3D model 2025-06-16
+
+A link to the Tachyon 3D model is now available in the [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/#3d-models).
+
 ### Cloud secrets 2025-06-09
 
 Documentation for [cloud secrets](/getting-started/cloud/secrets/) is now available.
