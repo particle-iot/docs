@@ -822,7 +822,7 @@ breakout board, which has the cellular modem USB connector.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
-Current measurements taken at 3.6V via the battery input.
+Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
 
 ### Power consumption (M404) 
 
@@ -859,7 +859,7 @@ Current measurements taken at 3.6V via the battery input.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
-Current measurements taken at 3.6V via the battery input.
+Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
 
 
 ### Power consumption (M635)

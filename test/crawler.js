@@ -52,6 +52,7 @@ var ignoreHosts = [
   'memfault.com', // 403
   'www.ptcrb.com', // 403
   'www.fairchildsemi.com', // 403
+  'www.jedec.org', // 403
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';

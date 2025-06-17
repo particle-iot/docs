@@ -8,6 +8,8 @@ includeDefinitions: [api-helper, power-comparison]
 
 # {{title}}
 
+When designing a battery powered product using a Particle device, it will typically be useful to do your own measurements with any additional peripherals you have added to verify the power consumption.
+
 ## Measurement tools
 
 ### Standard DMMs

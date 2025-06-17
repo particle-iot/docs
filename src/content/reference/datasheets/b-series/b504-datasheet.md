@@ -1828,7 +1828,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 The values above are for connecting to cellular using LTE Cat 1 on the EG91-E (not 2G or 3G). Thus the values should be 
 comparable for the EG91-NAX (B504e) which only uses LTE Cat 1.
 
-Current measurements taken at 3.6V via the battery input.
+Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
 
 ---
 
