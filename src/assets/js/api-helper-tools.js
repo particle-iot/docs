@@ -429,6 +429,9 @@ $(document).ready(function() {
         let executeList = [];
         let stats = {};
 
+        const minToShowParallelRemove = 25;
+        const maxParallelRemove = 50;
+
 
         const tableObj = $(thisPartial).data('table');
         const tableConfigObj = {
@@ -573,7 +576,7 @@ $(document).ready(function() {
                 }
             }
             const deviceCount = Object.keys(deviceInfoCache).length;
-            if (deviceCount < 50) {
+            if (deviceCount < minToShowParallelRemove) {
                 $(thisPartial).find('.parallelRow').hide();
                 $(thisPartial).find('.parallelInput').val('1');
             }
@@ -715,18 +718,22 @@ $(document).ready(function() {
                     errors: 0,
                 };
 
+                executeList = Object.keys(deviceInfoCache);
+
+                const deviceCount = executeList.length;
+
                 let parallelCount = parseInt($(thisPartial).find('.parallelInput').val());
                 if (parallelCount < 1) {
                     parallelCount = 1;
                 }
                 else
-                if (parallelCount > 100) {
-                    parallelCount = 100;
+                if (parallelCount > maxParallelRemove) {
+                    parallelCount = maxParallelRemove;
                 }
-
-                executeList = Object.keys(deviceInfoCache);
-
-                const deviceCount = executeList.length;
+                if (parallelCount > deviceCount) {
+                    parallelCount = deviceCount;
+                }
+                $(thisPartial).find('.parallelInput').val(parallelCount.toString());
 
                 if (!confirm('Removing cannot be undone and typically will cause the devices to go offline and not be able to reconnect. Proceed?')) {
                     analytics.track('Remove Cancel', {category:gaCategory, label:deviceCount});
