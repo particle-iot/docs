@@ -25,6 +25,8 @@ async function run() {
     
         const $ = cheerio.load(html);   
     
+        // TODO: These are also in power.json now, and should be retrieved from there instead
+
         const deviceStrings = {
             'Tracker EVB T523M (EG91-EX)': 'T523',
             'Tracker EVB T402M (BG96-NA)': 'T402',
@@ -199,6 +201,8 @@ async function run() {
 
             }
         }
+
+        // Data cleanup code is duplicated in src/assets/js/power-consumption.js, should fix that
 
         // Fix missing data
         for(const key in data.devices.T402.modes.normal) {

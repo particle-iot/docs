@@ -334,6 +334,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
+Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
+
 ---
 
 ### Power consumption (Boron LTE)
@@ -368,6 +370,8 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 <sup>1</sup>The min, and particularly peak, values may consist of very short transients.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
 
 ---
 

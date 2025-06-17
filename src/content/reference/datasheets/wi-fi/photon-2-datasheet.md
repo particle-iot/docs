@@ -1064,7 +1064,6 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
-
 ## Mechanical specifications
 
 {{!--
