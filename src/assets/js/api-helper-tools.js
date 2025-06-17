@@ -430,7 +430,7 @@ $(document).ready(function() {
         let stats = {};
 
         const minToShowParallelRemove = 25;
-        const maxParallelRemove = 50;
+        const maxParallelRemove = 25;
 
 
         const tableObj = $(thisPartial).data('table');
