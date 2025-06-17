@@ -1566,6 +1566,9 @@ Overall dimensions are 56mm x 84.8mm (2.2" x 3.34").
 - Weight: 50g (with SoM and thumbscrew)
 - Height: 20mm
 
+### 3D models
+
+A 3D model of the Muon is available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/Muon).
 
 ## Schematics
 
@@ -1583,8 +1586,6 @@ Overall dimensions are 56mm x 84.8mm (2.2" x 3.34").
 
 ### Schematics page 6
 {{imageOverlay src="/assets/images/m-series/muon_v1.0_p6.svg" alt="Schematics" class="full-width"}}
-
-
 
 
 ## Product Handling
@@ -1945,3 +1946,4 @@ Global, country list to be provided a later date.
 |   2      | 2024-10-22 | RK | Public release|
 |   3      | 2025-01-02 | RK | Wrong pin listed for the power manager interrupt pin; it is A7, not A6 |
 |   4      | 2025-02-11 | RK | Added height and weight |
+|   5      | 2025-06-17 | RK | Added link to 3D models |

@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Muon 3D model 2025-06-17
+
+A link to the Muon 3D model is now available in the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/#3d-models).
+
+
 ### Power measurement 2025-06-17
 
 New [power measurement](/hardware/power/power-measurement/) page includes tips for measuring power usage on Particle devices and a device comparison tool.
