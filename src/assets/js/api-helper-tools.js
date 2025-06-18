@@ -426,6 +426,12 @@ $(document).ready(function() {
             productIndex: {},
             productDevices: {}
         };
+        let executeList = [];
+        let stats = {};
+
+        const minToShowParallelRemove = 25;
+        const maxParallelRemove = 25;
+
 
         const tableObj = $(thisPartial).data('table');
         const tableConfigObj = {
@@ -569,7 +575,14 @@ $(document).ready(function() {
                     }
                 }
             }
-
+            const deviceCount = Object.keys(deviceInfoCache).length;
+            if (deviceCount < minToShowParallelRemove) {
+                $(thisPartial).find('.parallelRow').hide();
+                $(thisPartial).find('.parallelInput').val('1');
+            }
+            else {
+                $(thisPartial).find('.parallelRow').show();
+            }
 
             if (!options.removeFromProduct && !options.unclaimDevice && !options.releaseSim) {
                 console.log('no operations');
@@ -614,106 +627,133 @@ $(document).ready(function() {
             await checkFileOrTextBoxData(deviceListRaw);
         };
         
+        const executeDeviceId = async function(options, deviceId) {
+            setStatus('Processing device ' + deviceId);
+
+            let tableDeviceObj = tableObj.tableData.data.find(e => e.id == deviceId);
+
+            if (deviceInfoCache[deviceId].notFound || !tableDeviceObj) {
+                return;
+            }
+
+            const isProduct = (deviceInfoCache[deviceId].product_id && deviceInfoCache[deviceId].product_id != deviceInfoCache[deviceId].platform_id);
+
+
+            const iccid = deviceInfoCache[deviceId].iccid;
+            if (options.releaseSim && iccid) {
+                try {
+                    if (isProduct) {
+                        // Remove product SIM
+                        await apiHelper.particle.removeSIM({ iccid, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
+                    }
+                    else {
+                        // Remove developer SIM
+                        await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
+                    }
+                    stats.release = stats.release ? stats.release + 1 : 1;
+                    tableDeviceObj['_sim'] = '\u2705'; // green check
+                }
+                catch(e) {
+                    console.log('exception', e);
+                    tableDeviceObj['_sim'] = '\u274C'; // Red X
+                    stats.errors++;
+                }
+
+            }
+            if (options.unclaimDevice && deviceInfoCache[deviceId].owner) {
+                const unclaimElem = deviceInfoCache[deviceId].unclaimElem;
+
+                try {
+                    if (isProduct) {
+                        // Unclaim product device
+                        await apiHelper.particle.removeDeviceOwner({ deviceId, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
+                    }
+                    else {
+                        // Unclaim developer device
+                        await apiHelper.particle.removeDevice({ deviceId, auth: apiHelper.auth.access_token });
+                    }    
+                    tableDeviceObj['_unclaimed'] = '\u2705'; // green check
+                    stats.unclaim = stats.unclaim ? stats.unclaim + 1 : 1;
+                    // $(unclaimElem).html('&#x2705'); // green check
+                }
+                catch(e) {
+                    console.log('exception', e);
+                    tableDeviceObj['_unclaimed'] = '\u274C'; // Red X
+                    // $(unclaimElem).html('&#x274c'); // red x
+                    stats.errors++;
+                }
+            }
+
+            if (options.removeFromProduct && isProduct) {
+                // Remove from product
+                try {
+                    await apiHelper.particle.removeDevice({ deviceId, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
+
+                    tableDeviceObj['_removed'] = '\u2705'; // green check
+                    stats.remove = stats.remove ? stats.remove + 1 : 1;
+                }
+                catch(e) {
+                    console.log('exception', e);
+                    tableDeviceObj['_removed'] = '\u274C'; // Red X
+                    stats.errors++;
+                }
+            }
+            
+            tableObj.refreshTable();
+        }
+
+        const executeThread = async function(options) {
+            return new Promise(async function(resolve, reject) {
+                while(executeList.length > 0) {
+                    const deviceId = executeList.shift();
+                    await executeDeviceId(options, deviceId);
+                }
+                resolve();
+            });
+        }
 
         const executeOperations = async function(options) {
             try {
-                let hasErrors = false;
+                stats = {
+                    errors: 0,
+                };
 
+                executeList = Object.keys(deviceInfoCache);
 
-                let stats = {};
+                const deviceCount = executeList.length;
 
-                const deviceCount = Object.keys(deviceInfoCache).length;
-                let deviceNum = 1;
+                let parallelCount = parseInt($(thisPartial).find('.parallelInput').val());
+                if (parallelCount < 1) {
+                    parallelCount = 1;
+                }
+                else
+                if (parallelCount > maxParallelRemove) {
+                    parallelCount = maxParallelRemove;
+                }
+                if (parallelCount > deviceCount) {
+                    parallelCount = deviceCount;
+                }
+                $(thisPartial).find('.parallelInput').val(parallelCount.toString());
 
                 if (!confirm('Removing cannot be undone and typically will cause the devices to go offline and not be able to reconnect. Proceed?')) {
                     analytics.track('Remove Cancel', {category:gaCategory, label:deviceCount});
                     return;
                 }
+                if (parallelCount > 1) {
+                    stats.parallel = parallelCount;
+                }
 
                 analytics.track('Remove Start', {category:gaCategory, label:deviceCount});
 
-                for(const deviceId in deviceInfoCache) {
-                    setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
-                    deviceNum++;
+                const promises = [];
 
-                    let tableDeviceObj = tableObj.tableData.data.find(e => e.id == deviceId);
+                for(let ii = 0; ii < parallelCount; ii++) {
+                    promises.push(executeThread(options));
+                }
 
-        
-                    if (deviceInfoCache[deviceId].notFound || !tableDeviceObj) {
-                        continue;
-                    }
+                await Promise.all(promises);
 
-                    const isProduct = (deviceInfoCache[deviceId].product_id && deviceInfoCache[deviceId].product_id != deviceInfoCache[deviceId].platform_id);
-
-
-                    const iccid = deviceInfoCache[deviceId].iccid;
-                    if (options.releaseSim && iccid) {
-                        try {
-                            if (isProduct) {
-                                // Remove product SIM
-                                await apiHelper.particle.removeSIM({ iccid, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
-                            }
-                            else {
-                                // Remove developer SIM
-                                await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
-                            }
-                            stats.release = stats.release ? stats.release + 1 : 1;
-                            tableDeviceObj['_sim'] = '\u2705'; // green check
-                        }
-                        catch(e) {
-                            console.log('exception', e);
-                            tableDeviceObj['_sim'] = '\u274C'; // Red X
-                            hasErrors = true;
-                            stats.errors = stats.errors ? stats.errors + 1 : 1;
-                        }
-    
-                    }
-                    if (options.unclaimDevice && deviceInfoCache[deviceId].owner) {
-                        const unclaimElem = deviceInfoCache[deviceId].unclaimElem;
-
-                        try {
-                            if (isProduct) {
-                                // Unclaim product device
-                                await apiHelper.particle.removeDeviceOwner({ deviceId, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
-                            }
-                            else {
-                                // Unclaim developer device
-                                await apiHelper.particle.removeDevice({ deviceId, auth: apiHelper.auth.access_token });
-                            }    
-                            tableDeviceObj['_unclaimed'] = '\u2705'; // green check
-                            stats.unclaim = stats.unclaim ? stats.unclaim + 1 : 1;
-                            // $(unclaimElem).html('&#x2705'); // green check
-                        }
-                        catch(e) {
-                            console.log('exception', e);
-                            tableDeviceObj['_unclaimed'] = '\u274C'; // Red X
-                            // $(unclaimElem).html('&#x274c'); // red x
-                            hasErrors = true;
-                            stats.errors = stats.errors ? stats.errors + 1 : 1;
-                        }
-                    }
-
-                    if (options.removeFromProduct && isProduct) {
-                        // Remove from product
-                        try {
-                            await apiHelper.particle.removeDevice({ deviceId, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
-
-                            tableDeviceObj['_removed'] = '\u2705'; // green check
-                            stats.remove = stats.remove ? stats.remove + 1 : 1;
-                        }
-                        catch(e) {
-                            console.log('exception', e);
-                            tableDeviceObj['_removed'] = '\u274C'; // Red X
-                            hasErrors = true;
-                            stats.errors = stats.errors ? stats.errors + 1 : 1;
-                        }
-                    }
-                    
-                    tableObj.refreshTable();
-
-                }                
-             
-                if (!hasErrors) {
+                if (stats.errors == 0) {
                     setStatus('All operations completed successfully!');
                 } 
                 else {
