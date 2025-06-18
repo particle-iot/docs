@@ -21,10 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Monitor One 4-20mA 2025-06-18
+
+[Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/#4-20ma-i-o-card) updated to correct the ADC values for reading the 4-20mA current loop input on the I/O card.
+
 ### Muon 3D model 2025-06-17
 
 A link to the Muon 3D model is now available in the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/#3d-models).
-
 
 ### Power measurement 2025-06-17
 

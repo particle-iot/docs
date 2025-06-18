@@ -311,6 +311,18 @@ The Eagle CAD schematic and board layout files for the I/O card can be found in 
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-4-20mA.png" alt="4-20mA" class="full-width"}}
 
+The A7 pin measures the voltage across R2, which is 100Ω. 
+
+| Current | V=IR                  | Voltage | ADC Value |
+| ------: | :-------------------- | :------ | --------: |
+|  0 mA   | 0.000A &times; 100Ω = | 0.0V    |    0      |
+|  4 mA   | 0.004A &times; 100Ω = | 0.4V    |  496      |
+| 20 mA   | 0.020A &times; 100Ω = | 2.0V    | 2482      |
+| 33 mA   | 0.033A &times; 100Ω = | 3.3V    | 4095      |
+
+R9 just limits the current that needs to be sunk via D1 if the current exceeds 33 mA and does not affect the ADC voltage.
+
+
 #### 0-10V - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-10v.png" alt="0-10V" class="full-width"}}
@@ -494,7 +506,7 @@ When using the I/O Card:
 | A4 | Output | Direction control for RS485 |
 | A5 | Digital Input | Slow signal input, optoisolated, 12V to 24V = HIGH |
 | A6 | Analog Input | Analog input, 0-10V, 10V=4095 |
-| A7 | Analog Input | 4-20mA, 4mA=0, 20mA=4095 |
+| A7 | Analog Input | 4-20mA current loop input |
 | NFC_PIN2 | Output | Relay coil, HIGH = energized |
 
 
@@ -1158,3 +1170,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2024-04-29 | RK | Updated EU certification band information |
 | 2024-05-14 | RK | Added voltage and current limits for M12 connectors |
 | 2024-08-08 | RK | Wire and Wire3 share the same I2C peripheral, it was reversed in the I2C section |
+| 2025-06-18 | RK | Corrected the ADC values for reading the 4-20mA current loop input on the I/O card. |
