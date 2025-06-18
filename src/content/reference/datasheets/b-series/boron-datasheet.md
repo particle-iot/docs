@@ -27,7 +27,7 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
 
 #### Features - BRN402, BRN404 (Boron LTE)
 
- * The BRN402 and BRN404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
+ * The BRN402 and BRN404 have been deprecated, replacement is the BRN404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
  * u-blox SARA-R410M-02B-00 or R410M-02B-03 LTE modem
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
@@ -839,6 +839,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v010     | 06-Sep-2022 | RK | Split BRN404X into new datasheet |
 | v011     | 28-Apr-2023 | RK | Add conformal coating and flux notes |
 | v012     | 19-Mar-2024 | RK | Incorrect bands listed for the BRN402 and BRN404 |
+| v013     | 18-Jul-2025 | RK | Fixed typo in replacement, is BRN404X not B404X |
 
 ## Known errata
 
