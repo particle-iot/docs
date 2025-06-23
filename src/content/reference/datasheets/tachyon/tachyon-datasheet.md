@@ -115,6 +115,7 @@ Power can be supplied by:
 
 - Primary USB-C (USB1)
 - LiPo battery (3-pin JST-PH connector)
+- 40-pin expansion HAT connector (when selected by jumper)
 
 
 ## Antennas
@@ -894,4 +895,3 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 001      | 2025-06-09 | RK | Updated photo |
 | 002      | 2025-06-11 | RK | Updates for certification |
 | 003      | 2025-06-16 | RK | Added link to 3D models |
-| 004      | 2025-06-23 | RK | Removed reference to HAT power jumper that does not exist |
