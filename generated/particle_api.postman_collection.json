@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-06-09T15:33:24.041Z",
+                  "value": "2025-06-24T20:34:52.657Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-06-09T15:33:24.043Z",
+                      "value": "2025-06-24T20:34:52.660Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-06-09T15:33:24.057Z",
+                  "value": "2025-06-24T20:34:52.675Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-06-09T15:33:24.057Z",
+                      "value": "2025-06-24T20:34:52.675Z",
                       "disabled": true
                     },
                     {
@@ -3210,13 +3210,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-09T15:33:24.067Z",
+                  "value": "2025-06-24T20:34:52.685Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-09T15:33:24.067Z",
+                  "value": "2025-06-24T20:34:52.685Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4633,13 +4633,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-09T15:33:24.074Z",
+                  "value": "2025-06-24T20:34:52.691Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-09T15:33:24.074Z",
+                  "value": "2025-06-24T20:34:52.691Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4740,13 +4740,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-09T15:33:24.075Z",
+                  "value": "2025-06-24T20:34:52.693Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-09T15:33:24.075Z",
+                  "value": "2025-06-24T20:34:52.693Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4847,13 +4847,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-09T15:33:24.077Z",
+                  "value": "2025-06-24T20:34:52.694Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-09T15:33:24.077Z",
+                  "value": "2025-06-24T20:34:52.694Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4954,13 +4954,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-09T15:33:24.081Z",
+                  "value": "2025-06-24T20:34:52.695Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-09T15:33:24.081Z",
+                  "value": "2025-06-24T20:34:52.696Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5061,13 +5061,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-06-09T15:33:24.082Z",
+                  "value": "2025-06-24T20:34:52.697Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-06-09T15:33:24.082Z",
+                  "value": "2025-06-24T20:34:52.697Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -10747,7 +10747,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"string\",\n  \"value\": \"string\"\n}"
+              "raw": "{\n  \"secret\": {\n    \"key\": \"value\",\n    \"name\": \"string\",\n    \"value\": \"string\"\n  }\n}"
             },
             "url": {
               "raw": "{{url}}/v1/secrets",
@@ -10776,7 +10776,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"string\",\n  \"value\": \"string\"\n}"
+                  "raw": "{\n  \"secret\": {\n    \"key\": \"value\",\n    \"name\": \"string\",\n    \"value\": \"string\"\n  }\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/secrets",
@@ -10815,7 +10815,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"value\": \"string\"\n}"
+              "raw": "{\n  \"secret\": {\n    \"key\": \"value\",\n    \"value\": \"string\"\n  }\n}"
             },
             "url": {
               "raw": "{{url}}/v1/secrets/:secretName",
@@ -10852,7 +10852,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"value\": \"string\"\n}"
+                  "raw": "{\n  \"secret\": {\n    \"key\": \"value\",\n    \"value\": \"string\"\n  }\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/secrets/:secretName",

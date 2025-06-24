@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Secrets API update 2025-06-24
+
+Minor updates for [cloud secrets](/getting-started/cloud/secrets/) cloud API.
+
 ### PHNTRAYH deprecation 2025-06-24
 
 The PHNTRAYH (Photon with Headers, Tray [x50]) is now deprecated and will no longer be available.

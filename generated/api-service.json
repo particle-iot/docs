@@ -14273,16 +14273,30 @@
       },
       {
         "title": "Create an organization cloud secret",
-        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"name\": \"MY_API_KEY\", \"value\": \"my_secret_value\"}'",
+        "content": "$ curl https://api.particle.io/v1/orgs/particle/secrets \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"secret\": { \"name\": \"MY_API_KEY\", \"value\": \"my_secret_value\" }}'",
         "type": "bash"
       }
     ],
     "body": [
       {
         "group": "Body",
+        "type": "Object",
+        "optional": false,
+        "field": "secret",
+        "isArray": false,
+        "description": "<p>Secret object containing <code>name</code> and <code>value</code>.</p>"
+      },
+      {
+        "group": "Body",
         "type": "String",
         "optional": false,
-        "field": "name",
+        "parentNode": {
+          "path": "secret",
+          "field": "secret",
+          "type": "Object",
+          "isArray": false
+        },
+        "field": "secret.name",
         "isArray": false,
         "description": "<p>Name of the secret. The name must contain only uppercase letters, numbers, and underscores, and must be unique within the Sandbox or organization.</p>"
       },
@@ -14290,7 +14304,13 @@
         "group": "Body",
         "type": "String",
         "optional": false,
-        "field": "value",
+        "parentNode": {
+          "path": "secret",
+          "field": "secret",
+          "type": "Object",
+          "isArray": false
+        },
+        "field": "secret.value",
         "isArray": false,
         "description": "<p>Value of the secret. The value will not be returned in the response for security reasons.</p>"
       }
@@ -14340,7 +14360,7 @@
       },
       {
         "title": "Update an organization cloud secret",
-        "content": "$ curl -X PUT https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"value\": \"my_secret_value\"}'",
+        "content": "$ curl -X PUT https://api.particle.io/v1/orgs/particle/secrets/MY_API_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\"secret\": { \"value\": \"my_secret_value\"} }'",
         "type": "bash"
       }
     ],
@@ -14361,9 +14381,23 @@
     "body": [
       {
         "group": "Body",
+        "type": "Object",
+        "optional": false,
+        "field": "secret",
+        "isArray": false,
+        "description": "<p>Secret object containing <code>value</code>.</p>"
+      },
+      {
+        "group": "Body",
         "type": "String",
         "optional": false,
-        "field": "value",
+        "parentNode": {
+          "path": "secret",
+          "field": "secret",
+          "type": "Object",
+          "isArray": false
+        },
+        "field": "secret.value",
         "isArray": false,
         "description": "<p>Value of the secret. The value will not be returned in the response for security reasons.</p>"
       }
