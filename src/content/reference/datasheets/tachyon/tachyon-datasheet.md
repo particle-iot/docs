@@ -4,12 +4,6 @@ columns: two
 layout: commonTwo.hbs
 description: Tachyon Datasheet
 ---
----
-title: Tachyon Datasheet
-columns: two
-layout: commonTwo.hbs
-description: Tachyon Datasheet
----
 
 # Tachyon Datasheet
 
@@ -109,25 +103,31 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 imageOverlay src="/assets/images/tachyon/block-diagram.svg" alt="Block diagram"
 --}}
 
+## Antennas
+
+The Tachyon includes built-in antennas for:
+- Cellular
+- Wi-Fi (2.4 GHz and 5 GHz) and BLE
+
+The Tachyon includes a U.FL connector for:
+- GNSS (GPS)
+
+Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
+
 ### Power
 
 Power can be supplied by:
 
 - Primary USB-C (USB1)
 - LiPo battery (3-pin JST-PH connector)
-- 40-pin expansion HAT connector (when selected by jumper)
+- 40-pin expansion HAT connector (5V)
 
+When powering from the HAT connector you cannot use Primary USB-C (USB1) at the same time.
 
-## Antennas
+The HAT as a power source can be used in two ways:
 
-- The Tachyon includes built-in antennas for:
-  - Cellular
-  - Wi-Fi (2.4 GHz and 5 GHz) and BLE
-
-- The Tachyon includes a U.FL connectors for:
-  - GNSS (GPS)
-
-- Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
+- A minimum of 5A is required (at 5VDC) to use Tachyon with only HAT power (no battery).
+- It is also possible to use HAT power to charge a battery, for example using a 5V solar battery charger.
 
 ## Connections
 
@@ -250,6 +250,10 @@ This connectors attaches to the debug adapter using a 10-pin (2x5) ribbon cable.
 - SPI
 - UART serial
 - All GPIO are 3.3V only (not 5V tolerant outside of the 5V power pin)
+
+The 5V pins on the 40-pin HAT connector can be used as an output (when powered by battery or USB), or as an input (powering Tachyon from the HAT). See [Power](#power), above.
+
+When supplying power to the HAT, the 5V power is limited. It can operate most peripheral cards, but high current cards like motor HATs may not work.
 
 ### <!-- shared-diagram-label top-diagram wifi-antenna title-label-paren -->Wi-Fi chip antenna (15)<!-- end -->
 
@@ -895,3 +899,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 001      | 2025-06-09 | RK | Updated photo |
 | 002      | 2025-06-11 | RK | Updates for certification |
 | 003      | 2025-06-16 | RK | Added link to 3D models |
+| 004      | 2025-06-24 | RK | Updated HAT power; no longer requires a jumper |
