@@ -30814,7 +30814,7 @@
     {
       "name": "PHNTRAYH",
       "desc": "Photon with Headers, Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "singleSku": "PHOTONH",
       "wifi": true,

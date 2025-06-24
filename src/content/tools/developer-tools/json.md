@@ -37,6 +37,9 @@ CBOR is a compact binary representation of structured data that can be converted
 
 {{> json-to-cbor rows="10" cols="90"}}
 
+Note: This tool uses a publicly available CBOR encoding Javascript library running in your browser. 
+It's intended to be a rough approximation of the data size and may not produce the same results as the Particle cloud 
+code as it is not based on the same implementation.
 
 ### Variant generator
 

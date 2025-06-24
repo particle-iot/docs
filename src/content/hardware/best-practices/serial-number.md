@@ -170,7 +170,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | PHN2KIT | Photon 2, Kit [x1] | GA | P051 |
 | PHN2MEA | Photon 2 [x1] | GA | P051 |
 | PHN2MTY | Photon 2, Tray [x50] | GA | P051 |
-| PHNTRAYH | Photon with Headers, Tray [x50] | NRND | PHHT |
+| PHNTRAYH | Photon with Headers, Tray [x50] | Deprecated | PHHT |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | Deprecated | PHNT |
 | PHOTONH | Photon with Headers, [x1] | Deprecated | PHHM |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Deprecated | PHHK |
@@ -308,7 +308,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P1MD | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Deprecated |
 | PHHK | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Deprecated |
 | PHHM | PHOTONH | Photon with Headers, [x1] | Deprecated |
-| PHHT | PHNTRAYH | Photon with Headers, Tray [x50] | NRND |
+| PHHT | PHNTRAYH | Photon with Headers, Tray [x50] | Deprecated |
 | PHNM | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Deprecated |
 | PHNT | PHNTRAYNOH | Photon without Headers, Tray [x50] | Deprecated |
 | S26K | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Deprecated |

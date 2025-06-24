@@ -1259,7 +1259,7 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| PHNTRAYH | Photon with Headers, Tray [x50] | Global | NRND | |
+| PHNTRAYH | Photon with Headers, Tray [x50] | Global | Deprecated | |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | Global | Deprecated | |
 | PHOTONH | Photon with Headers, [x1] | Global | Deprecated | |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Global | Deprecated | |

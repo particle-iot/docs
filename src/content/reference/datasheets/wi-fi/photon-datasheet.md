@@ -555,7 +555,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| PHNTRAYH | Photon with Headers, Tray [x50] | Global | NRND | |
+| PHNTRAYH | Photon with Headers, Tray [x50] | Global | Deprecated | |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | Global | Deprecated | |
 | PHOTONH | Photon with Headers, [x1] | Global | Deprecated | |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Global | Deprecated | |

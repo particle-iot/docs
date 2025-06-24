@@ -331,7 +331,7 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 | Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | GA|
 | Photon with Headers Starter Kit, [x1] | PHOTONKIT | chip | 3 | &nbsp; | Deprecated|
 | Photon with Headers, [x1] | PHOTONH | chip | 3 | &nbsp; | Deprecated|
-| Photon with Headers, Tray [x50] | PHNTRAYH | chip | 3 | &nbsp; | NRND|
+| Photon with Headers, Tray [x50] | PHNTRAYH | chip | 3 | &nbsp; | Deprecated|
 | Photon without Headers, Dev board Kit [x1] | PHOTONNOH | chip | 3 | &nbsp; | Deprecated|
 | Photon without Headers, Tray [x50] | PHNTRAYNOH | chip | 3 | &nbsp; | Deprecated|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | 1 | &nbsp; | &nbsp; | GA|

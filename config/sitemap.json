@@ -927,16 +927,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-04-28",
-            "hash": "5fa71c3e185df05260f9890fd7295445289e5c0e7050b185d72e1f6dae86909b"
+            "date": "2025-06-24",
+            "hash": "0357d9b8809a6164e46941c18b112165f79aa1299e9952712d63c4139812129e"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2025-05-15",
-            "hash": "a4040866495f96c63379b28f6254cc54ace283c9b4650ccd8bd1fdc7c169e6e0"
+            "date": "2025-06-24",
+            "hash": "113baad2ea9ead2f4e9834b12baa071a9b69db560d6c4dbad6c29726a48b8d70"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1315,8 +1315,8 @@
             "hash": "8ec1d044f01f999adecac71c84569f85ddc65a79a945931264287d49eae28e81"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2025-04-16",
-            "hash": "aa6a60efbf1dcb904076b609854a91e86a2752b92931fa4a51fd085bcbab01dc"
+            "date": "2025-06-24",
+            "hash": "10fb4c2ce07c871837104d6d734d8b424b17643324299cafb0774571e65db1db"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1407,8 +1407,8 @@
             "hash": "7ae461799eeae3b472655a49af7d7dd5706cae0d8528f5a0337f5b5663baff6d"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
-            "date": "2025-03-21",
-            "hash": "c2d99612f0238d190e99c7a913837dd8d9b8dda29979a8d3b550ce3e2c7b6212"
+            "date": "2025-06-24",
+            "hash": "3b351b3e521a2ee7a8c79bc318ae744b6ab1dd5372a0e61875431ba53e7022cf"
         },
         "reference/datasheets/tracker/m8-temperature-humidity.md": {
             "date": "2024-05-10",
@@ -8163,8 +8163,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "8dcdf59239a834bf36115c31928d002b2e3a5657abcfd6b0dc8bde59308a3770",
-            "date": "2025-04-16"
+            "hash": "49128975d21a0ca5856f78a4ad0515e975de5f53b32707b1463828f37fa3325f",
+            "date": "2025-06-24"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "4e1950817a53c881bbf3e5271f5827b962948883467cd687ec99b5f1d21cf47a",
-            "date": "2025-06-18"
+            "hash": "405d7483950f3d4d9b7e12125258a7a223ce17e59910983a925b89955f45d8da",
+            "date": "2025-06-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8295,8 +8295,8 @@
             "date": "2024-01-24"
         },
         "tools/developer-tools/json.md": {
-            "hash": "923d519440a0dbbc2713a57ea7c6116e613d09cf94976fb16bcefccb325de729",
-            "date": "2024-10-28"
+            "hash": "216413c26dd3c1504022e168821ae790aee3df257dc333fc4ac857dbf0e67b0a",
+            "date": "2025-06-24"
         },
         "reference/device-os/connection-management.md": {
             "hash": "ee92788deb411ce158390908112a59767782ddd2e17868bfd6f1e128005e33e0",
