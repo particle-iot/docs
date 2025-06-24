@@ -7,9 +7,7 @@ description: ulert incident management
 
 # {{title}}
 
-[ilert](https://eu1.hubs.ly/H062_XF0) is an all-in-one platform for incident management. It provides a set of features that helps companies increase their uptime 
-and react to incidents in the most comprehensive way. Alerting, call routing, on-call scheduling, ChatOps, AI assistance in incident communication and post-mortem 
-creation — these and many more functions enable teams to concentrate their efforts on issue resolution.
+[ilert](https://eu1.hubs.ly/H062_XF0) is an AI-first company offering an all-in-one incident management tool for alerting, on-call management, and incident communication to help companies increase their digital uptime. B2C and B2B companies from across the globe, including well-known brands such as IKEA, Lufthansa Systems, and NTT Data, trust ilert to empower their operations teams and ensure everything is running smoothly.
 
 The ilert integration for Particle enables users to receive alerts from devices and notify engineers by multiple channels, be it phone calls, push notifications, 
 SMS, etc. Use alert templates to enrich alerts with all vital information to help your team react quicker.
