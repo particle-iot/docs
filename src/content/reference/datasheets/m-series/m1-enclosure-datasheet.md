@@ -160,8 +160,11 @@ The GNSS antenna should be mounted just below the front status LED and connected
 
 Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M-SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
-- GNSS support will be added in a future version of Device OS. A [user firmware library](https://github.com/particle-iot/particle-som-gnss) is available now for the M404.
-- Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
+{{!-- BEGIN shared-blurb 7380ecbc-cf8b-4498-926c-f74739cafcb9 --}}
+- A [firmware library](https://github.com/particle-iot/particle-som-gnss) is available now for the M404. A future update will add support for the M524.
+- Features such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
+- On the M404 (BG95 cellular modem), radio hardware is shared between the cellular modem and built-in GNSS which limits concurrent use.
+{{!-- END shared-blurb --}}
 
 
 ### Wi-Fi/BLE antenna - Muon

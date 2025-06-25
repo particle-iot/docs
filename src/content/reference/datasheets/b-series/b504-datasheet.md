@@ -293,8 +293,10 @@ Environmental:
 
 Single quantity B-SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the B-SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
-- GNSS support requires a [firmware library](https://github.com/particle-iot/particle-som-gnss).
-- Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
+{{!-- BEGIN shared-blurb a33dc9e7-17a7-4a03-87d6-88b8a534600f --}}
+- GNSS support requires a [firmware library](https://github.com/particle-iot/particle-som-gnss). This library is not currently compatible with the B504 (EG91 cellular modem), but support is planned for the future.
+- Features such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
+{{!-- END shared-blurb --}}
 
 
 #### General antenna guidance
@@ -2181,3 +2183,4 @@ The following countries are not officially supported at this time, but may be co
 | 004      | 2024-09-24 | RK | Removed concurrent GNSS warning |
 | 005      | 2025-04-21 | RK | Added ISED certification |
 | 006      | 2025-05-09 | RK | Added Industry Canada statement |
+| 007      | 2025-06-25 | RK | Clarifications for GNSS use |
