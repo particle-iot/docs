@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cellular GNSS updates 2025-06-25
+
+Clarifications in datasheets and migration guides for devices with GNSS in the cellular modem (M404, M524, B504).
+
 ### Secrets API update 2025-06-24
 
 Minor updates for [cloud secrets](/getting-started/cloud/secrets/) cloud API.
