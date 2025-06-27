@@ -495,43 +495,6 @@ async function dfuDeviceRestore(usbDevice, options) {
         return null;
     }
 
-
-    const fixUserBackup = function(array) {
-        let prefixHeader;
-
-        if (options.platformVersionInfo.isRTL872x) {
-            // P2 is weird because the binary is right aligned in the buffer. Fix that here to move it to the beginning.
-            const dv = new DataView(array);
-
-            for(offset = dv.byteLength - 4096; offset >= 0; offset -= 4096) {
-                prefixHeader = parseBinaryModuleInfo(array, offset);
-                if (prefixHeader.validUserBinary) {
-                    array = array.slice(offset);
-                    break;
-                }
-            }
-        }
-        else
-        if (options.platformVersionInfo.isnRF52) {
-            if (array.byteLength == (256 * 1024)) {
-                // Check and see if there's a 128K binary half way into a 256K user binary (Gen 3). If so, use that instead (discard first half)
-                prefixHeader = parseBinaryModuleInfo(array, 128 * 1024);
-                if (prefixHeader.validUserBinary) {
-                    array = array.slice(128 * 1024);
-                }
-            }    
-        }
-        
-        prefixHeader = parseBinaryModuleInfo(array, 0);
-        if (!prefixHeader.validUserBinary) {
-            return null;
-        }
-
-        // Trim the binary to be the actual size of the binary from the prefix header
-        const fullSize = prefixHeader.moduleEndAddy  - prefixHeader.moduleStartAddy + 4;
-        return array.slice(0, fullSize)
-    };
-
     const flashBackup = async function(dfuseDeviceToBackup, backupOptions) {
         dfuseDeviceToBackup.startAddress = backupOptions.startAddress;
 
@@ -662,11 +625,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         if (options.flashBackup) {
             dfuParts.push({ name: 'flash-backup', title: 'Flash backup' });
         }
-        else {
-            if (options.userBackup) {
-                dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
-            }
-        
+        else {        
             if (options.prebootloader) {
                 // This option is not currently used
                 let obj = { name: 'prebootloader-part1', title: 'Prebootloader' };
@@ -790,44 +749,6 @@ async function dfuDeviceRestore(usbDevice, options) {
                 if (partName == 'flash-backup') {
                     if (options.flashBackup.type == 'main') {
                         await flashBackup(dfuseDevice, options.flashBackup);
-                    }
-                }
-                else
-                if (partName == 'user-backup') {
-                    let maxSize = 128 * 1024;
-
-                    if (options.platformVersionInfo.isRTL872x) {
-                        maxSize = 2 * 1024 * 1024;
-                        dfuseDevice.startAddress = 0x08600000 - maxSize;
-                    }
-                    else {
-                        if (options.moduleInfo['tinker']) {
-                            dfuseDevice.startAddress = parseInt(options.moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
-                        }
-                        else
-                        if (options.moduleInfo['tracker-edge']) {
-                            dfuseDevice.startAddress = parseInt(options.moduleInfo['tracker-edge'].prefixInfo.moduleStartAddy, 16);
-                        }
-    
-                        if (options.platformVersionInfo.isnRF52) {
-                            // Gen 3
-                            maxSize = 256 * 1024;
-                            dfuseDevice.startAddress = 0xb4000;
-                        }
-                        else {
-                            dfuseDevice.startAddress = parseInt(options.moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
-                        }    
-                    }
-
-                    const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
-    
-                    let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
-    
-                    userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
-    
-                    if (userBinaryArrayBuffer) {
-                        let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
-                        saveAs(blob, 'firmware_' + deviceId + '.bin');	
                     }
                 }
                 else

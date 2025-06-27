@@ -318,62 +318,6 @@ $(document).ready(function() {
             }
         }
 
-        const getUserFirmwareBackup = function() {
-            let firmwareBackup;
-            try {
-                firmwareBackup = JSON.parse(localStorage.getItem('firmwareBackup'));
-            }
-            catch(e) {                        
-            }
-            if (!firmwareBackup) {
-                firmwareBackup = {};
-            }
-
-            if (!firmwareBackup.backups) {
-                firmwareBackup.backups = [];
-            }
-
-            // Ignore backups older than 1 week
-            const oldestTs = Math.floor(Date.now() / 1000) - 604800;
-            for(let ii = 0; ii < firmwareBackup.backups.length;) {
-                if (firmwareBackup.backups[ii].ts < oldestTs) {
-                    // Delete this
-                    firmwareBackup.backups.splice(ii, 1);
-                }
-                else {
-                    ii++;   
-                }
-            }
-
-            return firmwareBackup;
-        }
-
-        const addUserFirmwareBackup = function() {
-            let firmwareBackup = getUserFirmwareBackup();
-
-            firmwareBackup.backups.push({
-                deviceId: deviceInfo.deviceId,
-                username: apiHelper.auth ? apiHelper.auth.username : '',
-                ts: Math.floor(Date.now() / 1000)
-            });
-
-            localStorage.setItem('firmwareBackup', JSON.stringify(firmwareBackup));
-        }
-
-        const hasUserFirmwareBackup = function() {
-            const firmwareBackup = getUserFirmwareBackup();
-
-            for(const f of firmwareBackup.backups) {
-                if (f.deviceId == deviceInfo.deviceId && f.username == apiHelper.auth.username) {
-                    // Found
-                    return true;
-                }
-            }
-            
-            return false;
-        }
-        
-
 
         const deviceLogsElem = $(thisElem).find('.deviceLogs');
         const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
@@ -1521,17 +1465,6 @@ $(document).ready(function() {
 
                             }
                         }
-
-                        if (hasUserFirmwareBackup()) {
-                            analytics.track('Firmware Backup Available', {category:gaCategory});
-
-                            $('.restoreDeviceId').text(deviceInfo.deviceId);
-                            $('.restoreFirmwareDiv').show();
-
-                            $('.setupRestoreDeviceButton').on('click', function() {
-                                $('#uploadUserBinary').trigger('click');
-                            });
-                        }    
                     }
 
                     // confirmFlash is used for setup, doctor, and restore (not wifi)
@@ -2531,19 +2464,10 @@ $(document).ready(function() {
                     }
                 });
 
-            
-                if ((flashDeviceOptions.mode == 'doctor' || mode == 'cloud') && !restoreFirmwareBinary) {
-                    // Not done for product mode
-                    options.userBackup = true;
-                }
-
+        
                 const restoreResult = await dfuDeviceRestore(usbDevice, options);
             
-                if (restoreResult.ok) {
-                    // Remember that we have backed up this device
-                    addUserFirmwareBackup();
-                }
-                else {
+                if (!restoreResult.ok) {
                     console.log('dfu error', restoreResult);
                 }
                 

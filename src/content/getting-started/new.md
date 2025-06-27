@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Web device doctor 2025-06-27
+
+The [Web device doctor](/tools/doctor/) incorrectly stated that a backup user firmware would be created; this is not correct and the message updated.
+
 ### Cellular GNSS updates 2025-06-25
 
 Clarifications in datasheets and migration guides for devices with GNSS in the cellular modem (M404, M524, B504).
