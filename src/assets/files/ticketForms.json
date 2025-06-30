@@ -6312,6 +6312,12 @@
                     "default": false
                 },
                 {
+                    "name": "Update my shipping address.",
+                    "value": "update_my_shipping_address",
+                    "id": 38493926675867,
+                    "default": false
+                },
+                {
                     "name": "Cancel my order.",
                     "value": "cancel_my_order.",
                     "id": 28756368582811,
@@ -7595,11 +7601,11 @@
                     "value": "i_am_an_educator/not-for-profit_and_am_looking_for_a_discount",
                     "child_fields": [
                         {
-                            "id": 360026688693,
+                            "id": 360026958653,
                             "is_required": false
                         },
                         {
-                            "id": 360026958653,
+                            "id": 360026688693,
                             "is_required": false
                         }
                     ]
