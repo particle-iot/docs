@@ -5139,8 +5139,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2025-05-01",
-            "hash": "7a875a27f5bc236744b60d1292da2f346d09755a1c7332257b4a4ab81ef04ff4"
+            "date": "2025-06-30",
+            "hash": "e2b31fce1ba887790af8180183d4bb9947ef0ea32738558a6516ec00e8c55c02"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -6423,8 +6423,8 @@
             "hash": "499e21c13267694b4105abee15899c01ede6a05b77a8e4106c2674cb7b5bfd8e"
         },
         "reference/device-os/libraries/m/Microphone_PDM.md": {
-            "date": "2024-11-05",
-            "hash": "d917859cc949663aa843aa447dab5f8fa5e9363c639aba8c17ac8069c7161f6e"
+            "date": "2025-06-30",
+            "hash": "9f31cf16679a9755e00ee082b3c6fa54ad0b775d19a884b889e7efca262f7bb3"
         },
         "reference/device-os/libraries/m/MiniShift-Particle.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e0ebbd8b9b54b91c8c78c76553de5265df1abc7060d7f3e0a73ff3394422cc0d",
-            "date": "2025-06-27"
+            "hash": "9750ab076f57ae09d6139f18473da808f21f1169cb7de6bd69ea4682d2943842",
+            "date": "2025-06-30"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
