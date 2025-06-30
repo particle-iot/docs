@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-06-30
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+
 ### Web device doctor 2025-06-27
 
 The [Web device doctor](/tools/doctor/) incorrectly stated that a backup user firmware would be created; this is not correct and the message updated.

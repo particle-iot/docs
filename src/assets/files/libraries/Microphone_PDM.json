@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "Microphone_PDM",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/Microphone_PDM/archive/0.0.4.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/Microphone_PDM/archive/0.0.5.tar.gz"
   },
   "attributes": {
     "name": "Microphone_PDM",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "license": "Apache 2",
     "author": "rick@particle.io",
     "sentence": "PDM (pulse density modulation) digital microphone library for RTL872x and nRF52 on Particle",
@@ -360,10 +360,164 @@
           }
         }
       }
+    },
+    "0.0.5": {
+      "added": "2025-06-30T10:04:26.046Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "bsom": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "b5som": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "tracker": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          },
+          "p2": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          },
+          "msom": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          },
+          "boron": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "bsom": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "b5som": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "tracker": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          },
+          "p2": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          },
+          "boron": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "bsom": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "b5som": {
+            "1-audio-over-tcp": false,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": false,
+            "5-dtmf": true
+          },
+          "tracker": {
+            "1-audio-over-tcp": true,
+            "2-buffer": true,
+            "3-wav": true,
+            "4-buffer-tcp": true,
+            "5-dtmf": true
+          },
+          "esomx": {
+            "1-audio-over-tcp": false,
+            "2-buffer": false,
+            "3-wav": false,
+            "4-buffer-tcp": false,
+            "5-dtmf": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-audio-over-tcp": false,
+            "2-buffer": false,
+            "3-wav": false,
+            "4-buffer-tcp": false,
+            "5-dtmf": false
+          },
+          "electron": {
+            "1-audio-over-tcp": false,
+            "2-buffer": false,
+            "3-wav": false,
+            "4-buffer-tcp": false,
+            "5-dtmf": false
+          }
+        }
+      }
     }
   },
-  "readme": "# Microphone_PDM\n\n*Library for PDM microphones for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon)*\n\nDigital MEMS microphones are commonly available in I2S and PDM interface. This library only supports the \nPDM ([pulse-density modulation](https://en.wikipedia.org/wiki/Pulse-density_modulation)) interface. \n\nPDM MEMS microphones are generally designed for voice use - not for high fidelity audio. \n\nAdafruit has two breakout boards:\n\n- [For use in a breadboard](https://www.adafruit.com/product/3492) \n- [With JST-SH connector](https://www.adafruit.com/product/4346)\n\nBoth are US$4.95 and there is [more information available at Adafruit](https://learn.adafruit.com/adafruit-pdm-microphone-breakout/). The boards include a [MP34DT01-M](https://cdn-learn.adafruit.com/assets/assets/000/049/977/original/MP34DT01-M.pdf) (PDF datasheet).\n\nThe pins needed for Adafruit PDM microphones are:\n\n| Breakout Pin | Particle Pin | Description | Color |\n| --- | --- | --- | --- |\n| 3V | 3V3 | Power 3.3V | Red |\n| GND | GND | Ground | Black |\n| SEL | | Left/Right Select | No Connection |\n| CLK | A0 | PDM Clock | Blue | \n| DAT | A1 | PDM Data | Green | \n\nPhoton 2 (image removed)\n\nArgon (image removed)\n\n- SEL - Left/Right select. If this pin is high, the output is on the falling edge of CLK considered the 'Right' channel. If this pin is low, the output is on the rising edge, a.k.a 'Left' channel. Has a pull-down to default to left so you can leave it unconnected.\n- CLK - PDM clock into breakout board, 1 - 3 MHz square wave required.\n- DAT - PDM data out of breakout board\n\nOn the nRF52 (Boron, etc.) the PDM CLK and DAT lines are configurable to other pins, but on RTL872x (P2 and Photon 2), only A0 (CLK) and D1 (DAT) can be used.\n\nOn both MCUs, the built-in hardware PDM decoder is used, along with DMA to write to the buffer, so the operation is \nvery efficient and does not block the execution of your code while sampling audio.\n\nOn the RTL827x, once you start PDM sampling it cannot be stopped without resetting the MCU! You can, however, simply ignore the sampled data, which will be discarded and the sampling only generates a minimal number of interrupts and uses minimal CPU.\n\n- Full [browsable API documentation](https://particle-iot.github.io/Microphone_PDM/)\n- Repository: https://github.com/particle-iot/Microphone_PDM\n- License: Apache 2 (Free for use. Can be used in closed-source commercial applications. No attribution required.)\n\n## Code\n\n### Initialization\n\nTypically you initialize the library like this:\n\n```cpp\nint err = Microphone_PDM::instance()\n    .withOutputSize(Microphone_PDM::OutputSize::UNSIGNED_8)\n    .withRange(Microphone_PDM::Range::RANGE_2048);\n    .withSampleRate(16000);\n    .init();\n```    \n\n- `withOutputSize` takes either:\n  - `Microphone_PDM::OutputSize::UNSIGNED_8` (unsigned 8-bit samples)\n  - `Microphone_PDM::OutputSize::SIGNED_16` (signed 16-bit samples)\n\n- `withRange` takes a range, which depends on the microphone. This is the right value for the Adafruit PDM microphone (12-bit, -2048 to +2047).\n\n- `withSampleRate` takes a sample rate, either 8000 or 16000. \n\n- `init()` does the initialization using the specified settings.\n\n### Starting and stopping\n\nThis can be done using `Microphone_PDM::instance().start()` and `Microphone_PDM::instance().stop()`.\n\nHowever, on RTL872x (P2 and Photon 2), the DMA doesn't really ever stop. These methods really only control whether the interrupt is \nprocessed or skipped over, using little CPU. \n\n### Reading samples\n\nWhile the code copies samples into double (nRF52) or quad (RTL872x) buffers using DMA, it's expected that you will do something with \nthe samples from loop() or from a worker thread. The two examples in this repository send the data over TCP, or save the data to a SD card.\n\nThis is the TCP reading example from loop(). What it does is use the noCopySamples to avoid making an extra copy of the samples, then \n\n```cpp\nMicrophone_PDM::instance().noCopySamples((link unavailable in preview) {\n    client.write((const uint8_t *)pSamples, Microphone_PDM::instance().getBufferSizeInBytes());\n});\n```\n\nAn alternate way would be to store the data in a temporary buffer. Use the `copySamples()` method instead to store in multiple buffers in a queue if you need to do \nlengthy blocking operations. Since the number of DMA buffers is small and fixed, copying to larger buffers is appropriate.\n\n\n## Examples\n\n### 1 - Audio over TCP\n\nThis example sends the data as 16000 Hz, mono, 8-bit data over TCP to a node.js server. The intention is to use this with an Argon, P2, or Photon 2 over a local Wi-Fi network to a computer on the same network.\n\n- examples/1-audio-over-tcp\n\nBe sure to modify the IP address of your server in this line. Note the separate is comma, not a dot, like a normal IP address.\n\n```cpp\nIPAddress serverAddr = IPAddress(192,168,2,6); // **UPDATE THIS**\n```\n\nWhen you press the MODE button the transmission will begin and the blue D7 LED will turn on. The recording will go for 30 seconds, or until you press the MODE button again. \n\nOn the Photon 2, the status LED will turn green and blink a few times, this is normal because a single press of the MODE button also does a signal strength check like cellular devices.\n\nYou could easily modify the code to record longer, even indefinitely. It likely will not work  with a Boron over cellular as there is no compression of the data and the data rate is too high. It won't work with a Xenon over mesh because TCP is not supported on a mesh-only node, and also the data rate is too high.\n\nTo run the server:\n\n```\ncd more-examples/tcp-audio-server\nnpm install\nnode app.js --rate 16000 --bits 8\n```\n\nWhen a client connects it creates a new file in the **out** directory. They're sequentially numbered and in wav format.\n\nMake sure you update the device firmware to specify the IP address of your node.js server! It will be printed out when you start the server.\n\n### 2-buffer\n\nIllustrates buffered mode which captures the data for a fixed length of time (specified in milliseconds) then passes the \ndata at once to your code. Can be used with a callback function or lamba, or polled.\n\n### 3-wav\n\nUses buffered mode, creates a wav file, and prints it to USB serial. You can capture this, convert it to binary, and\nplay it with a regular wav player.\n\n### SdFat Wav \n\nWhen you press the MODE button this example records audio to a SD card. Pressing MODE stops recording. Each press creates a new, sequentially numbered file in the **audio** directory on the SD card.\n\n- more-examples/1-sdfat\n\nThis example requires a lot of parts:\n\n- A compatible Particle devices\n- 3.3V compatible SD card reader (connected by SPI)\n- PDM microphone\n\n\n## Version History\n\n#### 0.0.4 (2023-08-09)\n\n- Fixed compile error on Device OS 4.x and earlier on nRF52\n\n#### 0.0.3 (2023-08-09)\n\n- Renamed WavHeaderBase class to avoid conflict with SdFatWavRK library\n\n#### 0.0.1 (2023-05-12)\n\n- Initial version\n\n\n\n\n",
+  "readme": "# Microphone_PDM\n\n*Library for PDM microphones for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon)*\n\nDigital MEMS microphones are commonly available in I2S and PDM interface. This library only supports the \nPDM ([pulse-density modulation](https://en.wikipedia.org/wiki/Pulse-density_modulation)) interface. \n\nPDM MEMS microphones are generally designed for voice use - not for high fidelity audio. \n\nAdafruit has two breakout boards:\n\n- [For use in a breadboard](https://www.adafruit.com/product/3492) \n- [With JST-SH connector](https://www.adafruit.com/product/4346)\n\nBoth are US$4.95 and there is [more information available at Adafruit](https://learn.adafruit.com/adafruit-pdm-microphone-breakout/). The boards include a [MP34DT01-M](https://cdn-learn.adafruit.com/assets/assets/000/049/977/original/MP34DT01-M.pdf) (PDF datasheet).\n\nThe pins needed for Adafruit PDM microphones are:\n\n| Breakout Pin | Particle Pin | Description | Color |\n| --- | --- | --- | --- |\n| 3V | 3V3 | Power 3.3V | Red |\n| GND | GND | Ground | Black |\n| SEL | | Left/Right Select | No Connection |\n| CLK | A0 | PDM Clock | Blue | \n| DAT | A1 | PDM Data | Green | \n\nPhoton 2 (image removed)\n\nArgon (image removed)\n\n- SEL - Left/Right select. If this pin is high, the output is on the falling edge of CLK considered the 'Right' channel. If this pin is low, the output is on the rising edge, a.k.a 'Left' channel. Has a pull-down to default to left so you can leave it unconnected.\n- CLK - PDM clock into breakout board, 1 - 3 MHz square wave required.\n- DAT - PDM data out of breakout board\n\nOn the nRF52 (Boron, etc.) the PDM CLK and DAT lines are configurable to other pins, but on RTL872x, only specific pins can be used:\n\n| Signal | P2/Photon 2 | M-SoM/Muon | nRF52 |\n| :--- | :---: | :--: | :---: |\n| CLK | A0 | A3 | Any |\n| DAT | A1 | A4 | Any |\n\nOn both MCUs, the built-in hardware PDM decoder is used, along with DMA to write to the buffer, so the operation is \nvery efficient and does not block the execution of your code while sampling audio.\n\nOn the RTL827x, once you start PDM sampling it cannot be stopped without resetting the MCU! You can, however, simply ignore the sampled data, which will be discarded and the sampling only generates a minimal number of interrupts and uses minimal CPU.\n\n- Full [browsable API documentation](https://particle-iot.github.io/Microphone_PDM/)\n- Repository: https://github.com/particle-iot/Microphone_PDM\n- License: Apache 2 (Free for use. Can be used in closed-source commercial applications. No attribution required.)\n\n## Code\n\n### Initialization\n\nTypically you initialize the library like this:\n\n```cpp\nint err = Microphone_PDM::instance()\n    .withOutputSize(Microphone_PDM::OutputSize::UNSIGNED_8)\n    .withRange(Microphone_PDM::Range::RANGE_2048);\n    .withSampleRate(16000);\n    .init();\n```    \n\n- `withOutputSize` takes either:\n  - `Microphone_PDM::OutputSize::UNSIGNED_8` (unsigned 8-bit samples)\n  - `Microphone_PDM::OutputSize::SIGNED_16` (signed 16-bit samples)\n\n- `withRange` takes a range, which depends on the microphone. This is the right value for the Adafruit PDM microphone (12-bit, -2048 to +2047).\n\n- `withSampleRate` takes a sample rate, either 8000 or 16000. \n\n- `init()` does the initialization using the specified settings.\n\n### Starting and stopping\n\nThis can be done using `Microphone_PDM::instance().start()` and `Microphone_PDM::instance().stop()`.\n\nHowever, on RTL872x (P2 and Photon 2), the DMA doesn't really ever stop. These methods really only control whether the interrupt is \nprocessed or skipped over, using little CPU. \n\n### Reading samples\n\nWhile the code copies samples into double (nRF52) or quad (RTL872x) buffers using DMA, it's expected that you will do something with \nthe samples from loop() or from a worker thread. The two examples in this repository send the data over TCP, or save the data to a SD card.\n\nThis is the TCP reading example from loop(). What it does is use the noCopySamples to avoid making an extra copy of the samples, then \n\n```cpp\nMicrophone_PDM::instance().noCopySamples((link unavailable in preview) {\n    client.write((const uint8_t *)pSamples, Microphone_PDM::instance().getBufferSizeInBytes());\n});\n```\n\nAn alternate way would be to store the data in a temporary buffer. Use the `copySamples()` method instead to store in multiple buffers in a queue if you need to do \nlengthy blocking operations. Since the number of DMA buffers is small and fixed, copying to larger buffers is appropriate.\n\n\n## Examples\n\n### 1 - Audio over TCP\n\nThis example sends the data as 16000 Hz, mono, 8-bit data over TCP to a node.js server. The intention is to use this with an Argon, P2, or Photon 2 over a local Wi-Fi network to a computer on the same network.\n\n- examples/1-audio-over-tcp\n\nBe sure to modify the IP address of your server in this line. Note the separate is comma, not a dot, like a normal IP address.\n\n```cpp\nIPAddress serverAddr = IPAddress(192,168,2,6); // **UPDATE THIS**\n```\n\nWhen you press the MODE button the transmission will begin and the blue D7 LED will turn on. The recording will go for 30 seconds, or until you press the MODE button again. \n\nOn the Photon 2, the status LED will turn green and blink a few times, this is normal because a single press of the MODE button also does a signal strength check like cellular devices.\n\nYou could easily modify the code to record longer, even indefinitely. It likely will not work  with a Boron over cellular as there is no compression of the data and the data rate is too high. It won't work with a Xenon over mesh because TCP is not supported on a mesh-only node, and also the data rate is too high.\n\nTo run the server:\n\n```\ncd more-examples/tcp-audio-server\nnpm install\nnode app.js --rate 16000 --bits 8\n```\n\nWhen a client connects it creates a new file in the **out** directory. They're sequentially numbered and in wav format.\n\nMake sure you update the device firmware to specify the IP address of your node.js server! It will be printed out when you start the server.\n\n### 2-buffer\n\nIllustrates buffered mode which captures the data for a fixed length of time (specified in milliseconds) then passes the \ndata at once to your code. Can be used with a callback function or lamba, or polled.\n\n### 3-wav\n\nUses buffered mode, creates a wav file, and prints it to USB serial. You can capture this, convert it to binary, and\nplay it with a regular wav player.\n\n### SdFat Wav \n\nWhen you press the MODE button this example records audio to a SD card. Pressing MODE stops recording. Each press creates a new, sequentially numbered file in the **audio** directory on the SD card.\n\n- more-examples/1-sdfat\n\nThis example requires a lot of parts:\n\n- A compatible Particle devices\n- 3.3V compatible SD card reader (connected by SPI)\n- PDM microphone\n\n\n## Version History\n\n#### 0.0.5 (2025-06-13)\n\n- Fix SRAM overflow on RTL872x\n- Add new example (DTMF decoding)\n\n#### 0.0.4 (2023-08-09)\n\n- Fixed compile error on Device OS 4.x and earlier on nRF52\n\n#### 0.0.3 (2023-08-09)\n\n- Renamed WavHeaderBase class to avoid conflict with SdFatWavRK library\n\n#### 0.0.1 (2023-05-12)\n\n- Initial version\n\n\n\n\n",
   "allVersions": [
+    "0.0.5",
     "0.0.4",
     "0.0.3",
     "0.0.2",
