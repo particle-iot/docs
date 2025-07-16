@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.3.3 GA 2025-07-16
+
+Device OS 6.6.3 is now generally available (GA) instead of preview.
+
 ### Library updates 2025-06-30
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.

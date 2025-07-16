@@ -73,7 +73,7 @@ Note that users created through SCIM will not have a password, so they will only
 
 ### Step 1: Create an API User
 
-1. Create an API User with permission to manage team members using the [API User creation tool](/getting-started/cloud/cloud-api/#create-api-user). Select your organization, and click the `teams.users:invite, teams.users:remove, teams.users:list, teams.users:update` scopes. We suggest using the friendly name "SSO user provisioning" for this API user.
+1. Create an API User with permission to manage team members using the [API User creation tool](https://console.particle.io/orgs/particle/team/api-user/create). Select your organization, and click the `teams.users:invite, teams.users:remove, teams.users:list, teams.users:update` scopes. We suggest using the friendly name "SSO user provisioning" for this API user.
   * Copy the access token (a 40-character string) as you will need it in the next step.
 
 ### Step 2: Configure SCIM in your identity provider
