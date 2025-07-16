@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Verizon FAQ update 2025-07-16
+
+The [Verizon FAQ](/reference/cellular/verizon-faq/) did not previously did not mention the B504, M404, and M635, since it predated those devices and had not been updated.
+
 ### B504 comparison 2025-07-16
 
 The B504 is now in the [band fit](/reference/cellular/cellular-carriers/?tab=BandFit&test=b-series&region=South%20America&country=) tab in the carrier list tool.
