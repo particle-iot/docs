@@ -1242,8 +1242,11 @@ countryDetails.init = function(options, callback) {
 
 bandFit.fromQuery = function(urlParams) {
 
-    const test = urlParams.get('test');
+    let test = urlParams.get('test');
     if (test) {
+        if (test == 'b504') {
+            test = 'b-series';
+        }
         $(bandFit.bandFitTestSelectElem).val(test);
     } 
     const region = urlParams.get('region');
@@ -1823,26 +1826,7 @@ bandFit.init = function(callback) {
             ],
         },
         'b-series': {
-            title: 'B-Series (B404X vs. B524)',
-            sim: 4, // EtherSIM
-            tests: [
-                {
-                    title: 'B404X',
-                    modemObj: datastore.data.modems.find(e => e.model == 'R510'),
-                    borderRight: true,
-                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
-                },
-                {
-                    title: 'B524',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG91-E'),
-                    borderRight: false,
-                    backgroundColor: '#89E2B3', // COLOR_Mint_600
-                },
-            ],
-        },
-        'b504': {
-            title: 'B504 comparison (B504 vs. B404X vs. B524)',
-            showInternalUsers: true,
+            title: 'B-Series (B504 vs. B404X vs. B524)',
             sim: 4, // EtherSIM
             tests: [
                 {
