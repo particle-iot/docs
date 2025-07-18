@@ -4847,7 +4847,7 @@ const schemaDocs = require('./schema-docs');
                     port: 'digitalRead',
                     label: 'GPIO',
                     newMCU: 'MCU',
-                    showBootMode: true,
+                    showBootMode: false,
                     noPinNumbers: false,
                     newRightColumns: [
                         {

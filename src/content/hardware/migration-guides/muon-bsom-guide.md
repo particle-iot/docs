@@ -29,7 +29,10 @@ The Muon is a developer kit with additional peripherals for easy prototyping:
 
 {{imageOverlay src="/assets/images/m-series/muon-rendering-top.png" alt="Rendering Top" class="full-width"}}
 
+<p class="attribution">Muon shown with M404 M-SoM instead of B-SoM</p>
+
 It is typically used with the M-SoM, but can be used with the B-SoM with some limitations.
+
 
 ### B-SoM
 
@@ -56,16 +59,21 @@ The B-SoM includes only cellular (not Wi-Fi or satellite). It uses the same M.2 
 
 ![B-SoM](/assets/images/b-series/b404x-iso.png)
 
-### Major differences between M-SoM and B-SoM in Muon
+### M-SoM 
+
+- [Muon with M-Som datasheet](/reference/datasheets/m-series/muon-datasheet/) 
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+
+
+### Differences between M-SoM and B-SoM in Muon
 
 - The M-SoM supports Wi-Fi and the B-SoM does not.
 - The M-SoM supports GNSS (GPS) on the cellular module. This is only supported on the B504e (not B404X or B524).
 - The M-SoM supports I2S (sound). This is not usable with the B-SoM with standard Pi sound expansion cards.
-
-- NC GPIO
-- NFC GPIO
-- PWM
-- Secondary ports
+- Some [PWM](#pwm) (pulse-width modulation) pins are different.
+- While the primary interfaces are the same, there are some [SPI](#spi) and [UART](#uart-serial) secondary ports that are different.
+- Some GPIO are not available when using the B-SoM, see [Pi GPIO not supported on B-SoM](/#pi-gpio-not-supported-on-b-som).
+- Additional steps must be taken to use [NFC pins as GPIO](#nfc).
 
 
 ### Features
@@ -702,21 +710,21 @@ The B-SoM supports the following GPIO:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 092baa41-ca38-486d-a0c6-81f5d0faf00a --}}
 
-| Pin | Muon (B-SoM) Pin Name | Muon (B-SoM) GPIO | MCU | Special boot function | Raspberry Pi |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 7 | IOEX_PA0 | &check; | &nbsp; | &nbsp; | GPIO4 (GPCKL0) |
-| 8 | TX / D9 | &check; | P0.06 | &nbsp; | GPIO14 (TXD) |
-| 10 | RX / D10 | &check; | P0.08 | &nbsp; | GPIO15 (RXD) |
-| 11 | D2 | &check; | P1.02 | &nbsp; | GPIO17 |
-| 12 | D6 | &check; | P1.11 | &nbsp; | GPIO18 (PCM_CLK) |
-| 24 | A6 / D29 | &check; | P0.05 | &nbsp; | GPIO8 (CE0) |
-| 26 | A2 / D17 | &check; | P0.28 | &nbsp; | GPIO7 (CE1) |
-| 29 | A0 / D19 | &check; | P0.03 | &nbsp; | GPIO5 |
-| 31 | A1 / D18 | &check; | P0.04 | &nbsp; | GPIO6 |
-| 32 | D5 | &check; | P1.10 | &nbsp; | GPIO12 (PWM0) |
-| 33 | D4 | &check; | P1.08 | &nbsp; | GPIO13 (PWM1) |
-| 36 | D3 | &check; | P1.01 | &nbsp; | GPIO16 |
-| 37 | IOEX_PB7 | &check; | &nbsp; | &nbsp; | GPIO26 |
+| Pin | Muon (B-SoM) Pin Name | Muon (B-SoM) GPIO | MCU | Raspberry Pi |
+| :---: | :--- | :--- | :--- | :--- |
+| 7 | IOEX_PA0 | &check; | &nbsp; | GPIO4 (GPCKL0) |
+| 8 | TX / D9 | &check; | P0.06 | GPIO14 (TXD) |
+| 10 | RX / D10 | &check; | P0.08 | GPIO15 (RXD) |
+| 11 | D2 | &check; | P1.02 | GPIO17 |
+| 12 | D6 | &check; | P1.11 | GPIO18 (PCM_CLK) |
+| 24 | A6 / D29 | &check; | P0.05 | GPIO8 (CE0) |
+| 26 | A2 / D17 | &check; | P0.28 | GPIO7 (CE1) |
+| 29 | A0 / D19 | &check; | P0.03 | GPIO5 |
+| 31 | A1 / D18 | &check; | P0.04 | GPIO6 |
+| 32 | D5 | &check; | P1.10 | GPIO12 (PWM0) |
+| 33 | D4 | &check; | P1.08 | GPIO13 (PWM1) |
+| 36 | D3 | &check; | P1.01 | GPIO16 |
+| 37 | IOEX_PB7 | &check; | &nbsp; | GPIO26 |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -1714,122 +1722,11 @@ The bootloader allows you to easily update the user application via several diff
 
 ---
 
-## FCC ISED CE Warnings and End Product Labeling Requirements
 
-**Federal Communication Commission Interference Statement**
-This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
+## Certification
 
-- Reorient or relocate the receiving antenna.
-- Increase the separation between the equipment and receiver.
-- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
-- Consult the dealer or an experienced radio/TV technician for help.
+See the appropriate B-SoM datasheet for certification information.
 
-**FCC Caution:**
-Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment.
-This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
-
-1. This device may not cause harmful interference, and
-2. This device must accept any interference received, including interference that may cause undesired operation.
-
-**FCC Radiation Exposure Statement:**
-This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
-
-**IMPORTANT NOTE:**
-In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
-
-**End Product Labeling**
-The final end product must be labeled in a visible area with the following:
-
-* Contains FCC ID: xxx
-
-**Manual Information to the End User**
-The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
-
-
-**Outdoor Use (US)**
-
-To be compliant to FCC §15.407(a) the EIRP is not allowed to exceed 125 mW
-(21 dBm) at any elevation angle above 30° (measured from the horizon) when operated as an
-outdoor access point in U-NII-1 band, 5.150-5.250 GHz. 
-
-
----
-
-**Canada Statement**
-This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
-
-1. This device may not cause interference; and
-2. This device must accept any interference, including interference that may cause undesired operation of the device.
-
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
-
-**L’exploitation est autorisée aux deux conditions suivantes:**
-
-1. l’appareil ne doit pas produire de brouillage;
-2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-**Caution Exposure:**
-This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
-Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
-
-**The final end product must be labelled in a visible area with the following:**
-The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-
- * Contains transmitter module ISED: 20127-M524
- 
-This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
-Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
-
-> The end user manual shall include all required regulatory information/warning as shown in this manual.
-
-
-**Outdoor use (CA)**
-
-- Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful
-interference to co-channel mobile satellite systems;
-- Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars are allocated
-as primary users (i.e., priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that
-these radars could cause interference and/or damage to LE-LAN devices.
-
----
-
-- Le dispositif de fonctionnement dans la bande 5150-5250 MHz est réservé à une utilisation en
-intérieur pour réduire le risque d'interférences nuisibles à la co-canal systèmes mobiles par
-satellite
-- Opération dans la bande 5600-5650 MHz n'est pas autorisée au Canada. Haute puissance radars
-sont désignés comme utilisateurs principaux (c.-àutilisateurs prioritaires) des bandes 5250-5350
-MHz et 5650-5850 MHz et que ces radars pourraient causer des interférences et / ou des
-dommages à dispositifs LAN-EL.
-
-
-### European Union (CE)
-
-We, Particle Industries,Inc, declare under our sole responsibility that the product, P2, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
-
-The full text of the EU declaration of conformity is available at the followingInternet address: 
-[https://www.particle.io/](https://www.particle.io/)
-
-Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
-
-The operating frequency bands and the maximum transmitted power limit are listed below:
-- BLE 2402-2480MHz 10dBm
-- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
-- Wi-Fi 5GHz band 5180-5825MHz 23dBm
-
-### United Kingdom
-
-UKCA Conformity:
-
-Radio Equipment Regulations 2017 (S.I. 2017/1206)
-
-### Outdoor use (world)
-
-This device is restricted to indoor use when operating in the 5150 to 5350
-MHz frequency range. This restriction applies in: AT, BE, BG, CH, CY, CZ, DE,
-DK, EE, EL, ES, FI, FR, HR, HU, IE, IS, IT, LI, LT, LU, LV, MT, NL, NO, PL, PT, RO,
-SE, SI, SK, TR, UA, UK(NI).
-
----
 
 ### RoHS
 
