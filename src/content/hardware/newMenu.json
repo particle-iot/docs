@@ -195,6 +195,11 @@
                     "title": "Muon from Boron or Argon migration guide"
                 },
                 {
+                    "dir": "muon-bsom-guide",
+                    "title": "Muon with B-SoM guide",
+                    "internal": true
+                },
+                {
                     "dir": "b404-b504-migration-guide",
                     "title": "B504e from B404X/B404/B402 migration Guide"
                 },

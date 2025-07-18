@@ -652,8 +652,8 @@ Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used f
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 3 | D0 | D0 GPIO, I2C SDA | Wire (SDA) | 22 | PB[0] | GPIO2 (SDA) |
-| 5 | D1 | D1 GPIO, I2C SCL | Wire (SCL) | 20 | PA[31] | GPIO3 (SCL) |
+| 3 | D0 | I2C SDA | Wire (SDA) | 22 | PB[0] | GPIO2 (SDA) |
+| 5 | D1 | I2C SCL | Wire (SCL) | 20 | PA[31] | GPIO3 (SCL) |
 | 12 | D6 | D6 GPIO, PWM, I2S CLK | Wire1 (SCL) | 70 | PB[20] | GPIO18 (PCM_CLK) |
 
 
@@ -668,8 +668,8 @@ On the Muon, `Wire` is available on the expansion connector on the following pin
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 3 | D0 | D0 GPIO, I2C SDA | SDA | 22 | PB[0] | GPIO2 (SDA) |
-| 5 | D1 | D1 GPIO, I2C SCL | SCL | 20 | PA[31] | GPIO3 (SCL) |
+| 3 | D0 | I2C SDA | SDA | 22 | PB[0] | GPIO2 (SDA) |
+| 5 | D1 | I2C SCL | SCL | 20 | PA[31] | GPIO3 (SCL) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -947,9 +947,9 @@ See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 3V3 power | 3V3 | 3.3V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 2 | 5V power | 5V | 5V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 3 | GPIO2 (SDA) | D0 | D0 GPIO, I2C SDA | &nbsp; | &nbsp; | Wire (SDA) | &nbsp; |
+| 3 | GPIO2 (SDA) | D0 | I2C SDA | &nbsp; | &nbsp; | Wire (SDA) | &nbsp; |
 | 4 | 5V power | 5V | 5V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 5 | GPIO3 (SCL) | D1 | D1 GPIO, I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
+| 5 | GPIO3 (SCL) | D1 | I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
 | 6 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 7 | GPIO4 (GPCKL0) | IOEX_PA0 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 8 | GPIO14 (TXD) | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Serial1 (TX) | SPI1 (MOSI) | &nbsp; | I2S MCLK |
@@ -1032,6 +1032,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">3V3</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">3.3V power to expansion card</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">3V3 power</td></tr>
 </tbody>
 </table>
 
@@ -1043,6 +1044,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">5V</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">5V power to expansion card</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">5V power</td></tr>
 </tbody>
 </table>
 
@@ -1064,6 +1066,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">42K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[4]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">23</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO5</td></tr>
 </tbody>
 </table>
 
@@ -1086,6 +1089,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[5]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">33</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO6</td></tr>
 </tbody>
 </table>
 
@@ -1106,6 +1110,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">22K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[6]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">35</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO7 (CE1)</td></tr>
 </tbody>
 </table>
 
@@ -1126,6 +1131,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">SWCLK. 40K pull-down at boot.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[3]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">43</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO27</td></tr>
 </tbody>
 </table>
 
@@ -1147,6 +1153,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[7]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">45</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO8 (CE0)</td></tr>
 </tbody>
 </table>
 
@@ -1157,11 +1164,12 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D0</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D0 GPIO, I2C SDA</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">I2C SDA</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">I2C interface</td><td class="" style="text-align: left; ">SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[0]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">22</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO2 (SDA)</td></tr>
 </tbody>
 </table>
 
@@ -1172,11 +1180,12 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D1</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D1 GPIO, I2C SCL</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">I2C SCL</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">I2C interface</td><td class="" style="text-align: left; ">SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[31]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">20</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO3 (SCL)</td></tr>
 </tbody>
 </table>
 
@@ -1196,6 +1205,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[14]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">42</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO17</td></tr>
 </tbody>
 </table>
 
@@ -1215,6 +1225,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[15]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">40</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO16</td></tr>
 </tbody>
 </table>
 
@@ -1234,6 +1245,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[18]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">66</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO13 (PWM1)</td></tr>
 </tbody>
 </table>
 
@@ -1254,6 +1266,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[19]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">68</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO12 (PWM0)</td></tr>
 </tbody>
 </table>
 
@@ -1275,6 +1288,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[20]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">70</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO18 (PCM_CLK)</td></tr>
 </tbody>
 </table>
 
@@ -1293,6 +1307,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[1]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">19</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO21 (PCM_DOUT)</td></tr>
 </tbody>
 </table>
 
@@ -1311,6 +1326,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">22K. No internal pull up or pull down in HIBERNATE sleep mode.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[0]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">17</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO20 (PCM_DIN)</td></tr>
 </tbody>
 </table>
 
@@ -1325,6 +1341,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[9]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">62</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO25</td></tr>
 </tbody>
 </table>
 
@@ -1344,6 +1361,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">Low at boot triggers ISP flash download</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[7]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">58</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO23</td></tr>
 </tbody>
 </table>
 
@@ -1363,6 +1381,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">Goes high at boot</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[8]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">60</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO24</td></tr>
 </tbody>
 </table>
 
@@ -1381,6 +1400,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[4]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">59</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO19 (PCM_FS)</td></tr>
 </tbody>
 </table>
 
@@ -1397,6 +1417,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[27]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">55</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO22</td></tr>
 </tbody>
 </table>
 
@@ -1408,6 +1429,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">GND</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Ground</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">Ground</td></tr>
 </tbody>
 </table>
 
@@ -1420,6 +1442,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">IOEX_PA0</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO4 (GPCKL0)</td></tr>
 </tbody>
 </table>
 
@@ -1432,6 +1455,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">IOEX_PB7</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO26</td></tr>
 </tbody>
 </table>
 
@@ -1450,6 +1474,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[17]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">50</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO9 (MISO)</td></tr>
 </tbody>
 </table>
 
@@ -1468,6 +1493,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[16]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">52</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO10 (MOSI)</td></tr>
 </tbody>
 </table>
 
@@ -1478,6 +1504,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC27</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO0 (ID_SD)</td></tr>
 </tbody>
 </table>
 
@@ -1488,6 +1515,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC28</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO1 (ID_SC)</td></tr>
 </tbody>
 </table>
 
@@ -1510,6 +1538,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[13]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">38</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO15 (RXD)</td></tr>
 </tbody>
 </table>
 
@@ -1526,6 +1555,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[18]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">54</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO11 (SCLK)</td></tr>
 </tbody>
 </table>
 
@@ -1549,6 +1579,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[12]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">36</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO14 (TXD)</td></tr>
 </tbody>
 </table>
 

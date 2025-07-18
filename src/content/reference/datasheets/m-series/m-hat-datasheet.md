@@ -346,7 +346,7 @@ The STUSB4500 USB PD controller has three connections, however they are not freq
 If using the B-SoM, it is recommended that you disable NFC in the UICR bytes of the nRF52840. This will allow the MCU to 
 use the NFC pins (NFC1 and NFC2) as GPIO, which will allow you to access the PD_RST and PD_ATTACH pins.
 
-A [library and instructions]((https://github.com/rickkas7/NFC_UICR_RK/) are available for doing so.
+A [library and instructions](https://github.com/rickkas7/NFC_UICR_RK/) are available for doing so.
 
 #### PD_RST
 

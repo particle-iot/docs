@@ -202,6 +202,10 @@ const svg = require('./svg');
                                         text = 'PWM';
                                     }
                                 }
+                                if (info[key] == 'isNC') {
+                                    text = 'NC';
+                                }
+
                                 if (text === true) {
                                     text = info.name;
                                 }
@@ -1906,7 +1910,6 @@ const svg = require('./svg');
     diagram.generateMuon = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Muon',
             outputPath: generateOptions.outputPath,
             width: 1000,
             height: 500,
@@ -2430,7 +2433,9 @@ const svg = require('./svg');
         await diagram.generateTrackerMExpansion(generateOptions, files);
 
         // Muon
+                
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2453,6 +2458,30 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 250,
+                    keys: ['desc'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-desc.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2475,6 +2504,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2497,6 +2527,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2519,6 +2550,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2541,6 +2573,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2563,6 +2596,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2585,6 +2619,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2608,6 +2643,7 @@ const svg = require('./svg');
 
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2630,6 +2666,7 @@ const svg = require('./svg');
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({
+            platformName: 'Muon',
             columns: [
                 {
                     width: 20,
@@ -2651,6 +2688,194 @@ const svg = require('./svg');
             outputPath: 'assets/images/m-series/muon-gpio.svg',
         }, generateOptions), files);
 
+        // Muon (B-SoM)
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 250,
+                    keys: ['desc'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-desc.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 50,
+                    keys: ['isNC'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-nc.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['digitalWrite'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-gpio.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['hardwareADC'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-adc.svg',
+        }, generateOptions), files);
+
+            await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['serial'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-uart.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['spi'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-spi.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['i2c'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-i2c.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['analogWritePWM'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-pwm.svg',
+        }, generateOptions), files);
+
+        //
+        // Pi
+        //
         await diagram.generatePi(Object.assign({
             platformName: 'pi5',
             columns: [
