@@ -243,6 +243,14 @@
         "showInSearch": false
     },
     {
+        "tag": "rpi",
+        "label": "Raspberry Pi Function",
+        "columnLabel": "Pi",
+        "searchable": false,
+        "sortable": false,
+        "showInSearch": false
+    },
+    {
         "tag": "label",
         "label": "Board label",
         "columnLabel": "Label",

@@ -606,8 +606,8 @@ Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used f
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 3 | D0 | D0 GPIO, I2C SDA | Wire (SDA) | 22 | PB[0] | GPIO2 (SDA) |
-| 5 | D1 | D1 GPIO, I2C SCL | Wire (SCL) | 20 | PA[31] | GPIO3 (SCL) |
+| 3 | D0 | I2C SDA | Wire (SDA) | 22 | PB[0] | GPIO2 (SDA) |
+| 5 | D1 | I2C SCL | Wire (SCL) | 20 | PA[31] | GPIO3 (SCL) |
 | 12 | D6 | D6 GPIO, PWM, I2S CLK | Wire1 (SCL) | 70 | PB[20] | GPIO18 (PCM_CLK) |
 
 
@@ -622,8 +622,8 @@ On the Muon, `Wire` is available on the expansion connector on the following pin
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 3 | D0 | D0 GPIO, I2C SDA | SDA | 22 | PB[0] | GPIO2 (SDA) |
-| 5 | D1 | D1 GPIO, I2C SCL | SCL | 20 | PA[31] | GPIO3 (SCL) |
+| 3 | D0 | I2C SDA | SDA | 22 | PB[0] | GPIO2 (SDA) |
+| 5 | D1 | I2C SCL | SCL | 20 | PA[31] | GPIO3 (SCL) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -872,9 +872,9 @@ The Muon can be used with some Raspberry Pi expansion cards ("HATs") that sit on
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 3V3 power | 3V3 | 3.3V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 2 | 5V power | 5V | 5V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 3 | GPIO2 (SDA) | D0 | D0 GPIO, I2C SDA | &nbsp; | &nbsp; | Wire (SDA) | &nbsp; |
+| 3 | GPIO2 (SDA) | D0 | I2C SDA | &nbsp; | &nbsp; | Wire (SDA) | &nbsp; |
 | 4 | 5V power | 5V | 5V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 5 | GPIO3 (SCL) | D1 | D1 GPIO, I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
+| 5 | GPIO3 (SCL) | D1 | I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
 | 6 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 7 | GPIO4 (GPCKL0) | IOEX_PA0 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 8 | GPIO14 (TXD) | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Serial1 (TX) | SPI1 (MOSI) | &nbsp; | I2S MCLK |

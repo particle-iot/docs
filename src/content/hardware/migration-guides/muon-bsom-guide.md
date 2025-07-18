@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Guide for using the Muon with the B-SoM
 ---
 
-# Muon datasheet
+# Muon with B-SoM guide
 
 ## Overview
 
@@ -212,21 +212,6 @@ To be provided at a later date.
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
  
-
-### Peripherals and GPIO
-
-| Peripheral Type | Qty | Input(I) / Output(O) |
-| :---:|:---:|:---:|
-| Digital | 20 (max) | I/O |
-| Analog (ADC) | 7 (max) | I |
-| UART | 2 | I/O |
-| SPI  | 2 | I/O |
-| I2C  | 1 | I/O |
-| USB  | 1 | I/O |
-| PWM  | 10 (max) | O |
-
-**Note:** All GPIOs are only rated at 3.3VDC max.
-
 ### JTAG and SWD 
 
 The Muon
@@ -362,7 +347,312 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+### Detailed comparison
 
+The table below is a detailed comparison of the M-SoM vs. B-SoM pins.
+
+{{collapse op="start" label="Show detailed comparison"}}
+
+{{!-- BEGIN do not edit content below, it is automatically generated 45d01527-9313-4c34-8016-29a83594a975 --}}
+
+#### Module Pin 3 (D0)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D0 | D0 |
+| &nbsp; | Description | I2C SDA | I2C SDA |
+| ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SDA. Use Wire object. |
+| &nbsp; | Supports attachInterrupt | n/a | n/a |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO2 (SDA) | GPIO2 (SDA) |
+#### Module Pin 5 (D1)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D1 | D1 |
+| &nbsp; | Description | I2C SCL | I2C SCL |
+| ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SCL. Use Wire object. |
+| &nbsp; | Supports attachInterrupt | n/a | n/a |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO3 (SCL) | GPIO3 (SCL) |
+#### Module Pin 8 (TX)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | TX | TX |
+| &nbsp; | Pin Alternate Name | D9 | D9 |
+| ∆ | Description | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Serial TX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | I2S interface | I2S MCLK | I2S MCLK |
+| ∆ | Internal pull resistance | 2.1K | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO14 (TXD) | GPIO14 (TXD) |
+#### Module Pin 10 (RX)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RX | RX |
+| &nbsp; | Pin Alternate Name | D10 | D10 |
+| ∆ | Description | Serial RX, PWM, GPIO, SPI1 MISO | Serial RX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 2.1K | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO15 (RXD) | GPIO15 (RXD) |
+#### Module Pin 11 (D2)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | UART serial | RTS. Use Serial1 object. | RTS. Use Serial1 object. |
+| &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SDA. Use Wire1 object. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO17 | GPIO17 |
+#### Module Pin 12 (D6)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | D6 GPIO, PWM, I2S CLK | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | D4, D5, and D6 must have the same frequency. |
+| ∆ | I2C interface | SCL. Use Wire1 object. Use 1.5K to 10K external pull-up resistor. | n/a |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | I2S interface | I2S CLK | n/a |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO18 (PCM_CLK) | GPIO18 (PCM_CLK) |
+#### Module Pin 13 (A5)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A5 | A5 |
+| &nbsp; | Pin Alternate Name | D14 | D14 |
+| ∆ | Description | A5 Analog in, PWM, GPIO, shared with pin 53 | A5 Analog in, GPIO |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | Supports attachInterrupt | n/a | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | ??? | 13K |
+| ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
+| ∆ | Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
+| &nbsp; | Raspberry Pi Function | GPIO27 | GPIO27 |
+#### Module Pin 15 (D27 / NC)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D27 | NC |
+| ∆ | Description | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | NC on B-SoM (D27, SWDIO on M-SoM) |
+| ∆ | Internal pull resistance | 42K | n/a |
+| ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
+| &nbsp; | Raspberry Pi Function | GPIO22 | GPIO22 |
+#### Module Pin 16 (D24 / NC)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D24 | NC |
+| ∆ | Description | D24 GPIO, Serial2 TX, do not pull down at boot | NC on B-SoM (D24, Serial2 TX on M-SoM) |
+| ∆ | Supports digitalRead | Yes | No |
+| ∆ | Supports digitalWrite | Yes | No |
+| ∆ | UART serial | TX. Use Serial2 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes | No |
+| ∆ | Internal pull resistance | 42K | n/a |
+| ∆ | Signal used at boot | Low at boot triggers ISP flash download | n/a |
+| &nbsp; | Raspberry Pi Function | GPIO23 | GPIO23 |
+#### Module Pin 18 (D25 / NC)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D25 | NC |
+| ∆ | Description | GPIO25, Serial2 RX | NC on B-SoM (GPIO25, Serial2 RX on M-SoM) |
+| ∆ | Supports digitalRead | Yes | No |
+| ∆ | Supports digitalWrite | Yes | No |
+| ∆ | UART serial | RX. Use Serial2 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes | No |
+| ∆ | Internal pull resistance | 42K | n/a |
+| ∆ | Signal used at boot | Goes high at boot | n/a |
+| &nbsp; | Raspberry Pi Function | GPIO24 | GPIO24 |
+#### Module Pin 19 (MOSI)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MOSI | MOSI |
+| &nbsp; | Pin Alternate Name | D12 | D12 |
+| ∆ | Description | D12 GPIO, PWM, SPI MOSI | SPI MOSI, GPIO |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
+| ∆ | Supports attachInterrupt | n/a | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 2.1K | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO10 (MOSI) | GPIO10 (MOSI) |
+#### Module Pin 21 (MISO)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MISO | MISO |
+| &nbsp; | Pin Alternate Name | D11 | D11 |
+| ∆ | Description | D11 GPIO, PWM, SPI MISO | SPI MISO, GPIO |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
+| ∆ | Supports attachInterrupt | n/a | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 2.1K | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO9 (MISO) | GPIO9 (MISO) |
+#### Module Pin 22 (D22)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D22 | D22 |
+| &nbsp; | Description | D22 GPIO | D22 GPIO |
+| ∆ | Supports attachInterrupt | n/a | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO25 | GPIO25 |
+#### Module Pin 23 (SCK)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | SCK | SCK |
+| &nbsp; | Pin Alternate Name | D13 | D13 |
+| ∆ | Description | D13 GPIO, SPI SCK | SPI SCK, GPIO |
+| &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
+| ∆ | Supports attachInterrupt | n/a | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 2.1K | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO11 (SCLK) | GPIO11 (SCLK) |
+#### Module Pin 24 (A6)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A6 | A6 |
+| &nbsp; | Pin Alternate Name | D29 | D29 |
+| ∆ | Description | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT | A6 Analog in, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO8 (CE0) | GPIO8 (CE0) |
+#### Module Pin 26 (A2)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A2 | A2 |
+| &nbsp; | Pin Alternate Name | D17 | D17 |
+| &nbsp; | Description | A2 Analog in, GPIO | A2 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | SPI interface | SCK. Use SPI2 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 22K | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO7 (CE1) | GPIO7 (CE1) |
+#### Module Pin 29 (A0)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A0 | A0 |
+| &nbsp; | Pin Alternate Name | D19 | D19 |
+| &nbsp; | Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 42K | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO5 | GPIO5 |
+#### Module Pin 31 (A1)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A1 | A1 |
+| &nbsp; | Pin Alternate Name | D18 | D18 |
+| &nbsp; | Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | SPI interface | MISO. Use SPI2 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO6 | GPIO6 |
+#### Module Pin 32 (D5)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | D5 GPIO, PWM, I2S TX | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | D4, D5, and D6 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | I2S interface | I2S TX | I2S TX |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO12 (PWM0) | GPIO12 (PWM0) |
+#### Module Pin 33 (D4)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | D4 GPIO, PWM | SPI1 MISO, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | D4, D5, and D6 must have the same frequency. |
+| ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO13 (PWM1) | GPIO13 (PWM1) |
+#### Module Pin 35 (D26 / NC)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D26 | NC |
+| ∆ | Description | D26 GPIO, I2S WS | NC on B-SoM (D26, I2S WS on M-SoM) |
+| ∆ | Supports digitalRead | Yes | No |
+| ∆ | Supports digitalWrite | Yes | No |
+| ∆ | Supports attachInterrupt | Yes | No |
+| ∆ | I2S interface | I2S WS | n/a |
+| ∆ | Internal pull resistance | ??? | n/a |
+| &nbsp; | Raspberry Pi Function | GPIO19 (PCM_FS) | GPIO19 (PCM_FS) |
+#### Module Pin 36 (D3)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | UART serial | CTS. Use Serial1 object. | CTS. Use Serial1 object. |
+| ∆ | SPI interface | SS. Use SPI1 object. | MOSI. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SCL. Use Wire1 object. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO16 | GPIO16 |
+#### Module Pin 38 (D21 / NFC1)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D21 | NFC1 |
+| ∆ | Description | D21 GPIO, I2S RX | NFC Antenna 1 (can be reconfigured as GPIO NFC_PIN1) |
+| ∆ | Supports digitalRead | Yes | No |
+| ∆ | Supports digitalWrite | Yes | No |
+| ∆ | Supports attachInterrupt | Yes | No |
+| ∆ | I2S interface | I2S RX | n/a |
+| ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | n/a |
+| &nbsp; | Raspberry Pi Function | GPIO20 (PCM_DIN) | GPIO20 (PCM_DIN) |
+#### Module Pin 40 (D20 / NFC2)
+|   |   | Muon (M-SoM) | Muon (B-SoM) |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D20 | NFC2 |
+| ∆ | Description | D20 GPIO, I2S TX | NFC Antenna 2 (can be reconfigured as GPIO NFC_PIN2) |
+| ∆ | Supports digitalRead | Yes | No |
+| ∆ | Supports digitalWrite | Yes | No |
+| ∆ | Supports attachInterrupt | Yes | No |
+| ∆ | I2S interface | I2S TX | n/a |
+| ∆ | Internal pull resistance | ??? | 13K |
+| &nbsp; | Raspberry Pi Function | GPIO21 (PCM_DOUT) | GPIO21 (PCM_DOUT) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+{{collapse op="end"}}
 
 
 ### GPIO (Digital I/O)
@@ -392,8 +682,6 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - All GPIO are 3.3V only and are not 5V tolerant
-
-Certain GPIO will change state at boot, or cause the MCU to enter a special mode. See the [boot mode pins](#boot-mode-pins) section, below, for more information.
 
 The following M.2 SoM pins are used for internal functions on the Muon and are not available on the expansion connector and cannot be used as GPIO:
 
@@ -508,8 +796,8 @@ Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used f
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 3 | D0 | D0 GPIO, I2C SDA | Wire (SDA) | 22 | P0.26 | GPIO2 (SDA) |
-| 5 | D1 | D1 GPIO, I2C SCL | Wire (SCL) | 20 | P0.27 | GPIO3 (SCL) |
+| 3 | D0 | I2C SDA | Wire (SDA) | 22 | P0.26 | GPIO2 (SDA) |
+| 5 | D1 | I2C SCL | Wire (SCL) | 20 | P0.27 | GPIO3 (SCL) |
 | 11 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | Wire1 (SDA) | 42 | P1.02 | GPIO17 |
 | 36 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | Wire1 (SCL) | 40 | P1.01 | GPIO16 |
 
@@ -525,8 +813,8 @@ On the Muon, `Wire` is available on the expansion connector on the following pin
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 3 | D0 | D0 GPIO, I2C SDA | SDA | 22 | P0.26 | GPIO2 (SDA) |
-| 5 | D1 | D1 GPIO, I2C SCL | SCL | 20 | P0.27 | GPIO3 (SCL) |
+| 3 | D0 | I2C SDA | SDA | 22 | P0.26 | GPIO2 (SDA) |
+| 5 | D1 | I2C SCL | SCL | 20 | P0.27 | GPIO3 (SCL) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -565,9 +853,6 @@ Raspberry Pi GPIO2 and GPIO3 can only be used as I2C, not as GPIO, This is becau
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- All available PWM pins on the M-SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
-
-
 If using an expansion card that requires PWM, generally the following pins are used on standard Raspberry Pi expansion cards. Note that only two of them, D4 and D5, are supported as PWM on the B-SoM. 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 35de6ee0-7880-4d24-bb76-5b7dffbf0e1d --}}
@@ -586,9 +871,6 @@ If using an expansion card that requires PWM, generally the following pins are u
 ### I2S
 
 Because the PCM_FS pin (Pi GPIO19) is NC on the B-SoM, it is not possible to use I2S (sound) with standard Raspberry Pi I2S expansion cards.
-
-PDM cannot be used on Muon expansion cards as the M-SoM PDM pins (A2, A3) are used for internal peripherals and are not available on the expansion connector.
-
 
 ### BLE (Bluetooth LE)
 
@@ -732,9 +1014,9 @@ See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 3V3 power | 3V3 | 3.3V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 2 | 5V power | 5V | 5V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 3 | GPIO2 (SDA) | D0 | D0 GPIO, I2C SDA | &nbsp; | &nbsp; | Wire (SDA) | &nbsp; |
+| 3 | GPIO2 (SDA) | D0 | I2C SDA | &nbsp; | &nbsp; | Wire (SDA) | &nbsp; |
 | 4 | 5V power | 5V | 5V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 5 | GPIO3 (SCL) | D1 | D1 GPIO, I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
+| 5 | GPIO3 (SCL) | D1 | I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
 | 6 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 7 | GPIO4 (GPCKL0) | IOEX_PA0 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 8 | GPIO14 (TXD) | TX / D9 | Serial TX, GPIO | Serial1 TX | &nbsp; | &nbsp; | I2S MCLK |
@@ -819,6 +1101,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">3V3</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">3.3V power to expansion card</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">3V3 power</td></tr>
 </tbody>
 </table>
 
@@ -830,6 +1113,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">5V</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">5V power to expansion card</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">5V power</td></tr>
 </tbody>
 </table>
 
@@ -851,6 +1135,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.03</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">23</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO5</td></tr>
 </tbody>
 </table>
 
@@ -872,6 +1157,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.04</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">33</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO6</td></tr>
 </tbody>
 </table>
 
@@ -889,6 +1175,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.31</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">43</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO27</td></tr>
 </tbody>
 </table>
 
@@ -899,12 +1186,13 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D0</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D0 GPIO, I2C SDA</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">I2C SDA</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">I2C interface</td><td class="" style="text-align: left; ">SDA. Use Wire object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes. You can only have 8 active interrupt pins.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">n/a</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.26</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">22</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO2 (SDA)</td></tr>
 </tbody>
 </table>
 
@@ -915,12 +1203,13 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D1</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D1 GPIO, I2C SCL</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">I2C SCL</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">I2C interface</td><td class="" style="text-align: left; ">SCL. Use Wire object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes. You can only have 8 active interrupt pins.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">n/a</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.27</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">20</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO3 (SCL)</td></tr>
 </tbody>
 </table>
 
@@ -941,6 +1230,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.02</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">42</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO17</td></tr>
 </tbody>
 </table>
 
@@ -960,6 +1250,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.11</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">70</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO18 (PCM_CLK)</td></tr>
 </tbody>
 </table>
 
@@ -975,6 +1266,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.24</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">62</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO25</td></tr>
 </tbody>
 </table>
 
@@ -986,6 +1278,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">GND</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Ground</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">Ground</td></tr>
 </tbody>
 </table>
 
@@ -998,6 +1291,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">IOEX_PA0</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO4 (GPCKL0)</td></tr>
 </tbody>
 </table>
 
@@ -1017,6 +1311,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.28</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">35</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO7 (CE1)</td></tr>
 </tbody>
 </table>
 
@@ -1038,6 +1333,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.05</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">45</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO8 (CE0)</td></tr>
 </tbody>
 </table>
 
@@ -1058,6 +1354,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.01</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">40</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO16</td></tr>
 </tbody>
 </table>
 
@@ -1078,6 +1375,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.08</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">66</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO13 (PWM1)</td></tr>
 </tbody>
 </table>
 
@@ -1098,6 +1396,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.10</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">68</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO12 (PWM0)</td></tr>
 </tbody>
 </table>
 
@@ -1110,6 +1409,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">IOEX_PB7</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO26</td></tr>
 </tbody>
 </table>
 
@@ -1127,6 +1427,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.14</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">50</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO9 (MISO)</td></tr>
 </tbody>
 </table>
 
@@ -1144,6 +1445,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.13</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">52</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO10 (MOSI)</td></tr>
 </tbody>
 </table>
 
@@ -1156,6 +1458,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on B-SoM (D27, SWDIO on M-SoM)</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">55</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO22</td></tr>
 </tbody>
 </table>
 
@@ -1168,6 +1471,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on B-SoM (D24, Serial2 TX on M-SoM)</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">58</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO23</td></tr>
 </tbody>
 </table>
 
@@ -1180,6 +1484,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on B-SoM (GPIO25, Serial2 RX on M-SoM)</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">60</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO24</td></tr>
 </tbody>
 </table>
 
@@ -1192,6 +1497,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on B-SoM (D26, I2S WS on M-SoM)</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">59</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO19 (PCM_FS)</td></tr>
 </tbody>
 </table>
 
@@ -1205,6 +1511,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NFC Antenna 1 (can be reconfigured as GPIO NFC_PIN1)</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.09</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">17</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO20 (PCM_DIN)</td></tr>
 </tbody>
 </table>
 
@@ -1219,6 +1526,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.10</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">19</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO21 (PCM_DOUT)</td></tr>
 </tbody>
 </table>
 
@@ -1229,6 +1537,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC27</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO0 (ID_SD)</td></tr>
 </tbody>
 </table>
 
@@ -1239,6 +1548,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">NC28</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO1 (ID_SC)</td></tr>
 </tbody>
 </table>
 
@@ -1258,6 +1568,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.08</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">38</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO15 (RXD)</td></tr>
 </tbody>
 </table>
 
@@ -1275,6 +1586,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.15</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">54</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO11 (SCLK)</td></tr>
 </tbody>
 </table>
 
@@ -1295,6 +1607,7 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.06</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">36</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Raspberry Pi Function</td><td class="" style="text-align: left; ">GPIO14 (TXD)</td></tr>
 </tbody>
 </table>
 
@@ -1342,7 +1655,7 @@ A 3D model of the Muon is available in the [hardware-libraries Github](https://g
 ## Product Handling
 
 ### ESD Precautions
-The M-SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M-SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the Particle M-SoM. ESD precautions should be implemented on the application board where the M-SoM is mounted. Failure to observe these precautions can result in severe damage to the M-SoM!
+The B-SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an B-SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the Particle B-SoM. ESD precautions should be implemented on the application board where the B-SoM is mounted. Failure to observe these precautions can result in severe damage to the B-SoM!
 
 ### Connectors
 
@@ -1356,7 +1669,7 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 ## Default settings
 
-The M-SoM comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+The B-SoM comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 

@@ -3434,6 +3434,11 @@ const generatorConfig = require('./generator-config');
             if (options.showPinNum) {
                 comparisonTags.splice(0, 0, 'num');
             }
+            if (options.moreComparisonTags) {
+                for(const s of options.moreComparisonTags) {
+                    comparisonTags.push(s);
+                }
+            }
             if (options.showMorePins) {
                 for(const p of options.showMorePins) {
                     comparisonTags.push(p);

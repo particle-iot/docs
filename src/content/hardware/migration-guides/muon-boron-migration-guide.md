@@ -341,8 +341,8 @@ If using an expansion card that requires I2C, generally the following pins are u
 
 | Pin | Pin Name | Description | Interface | M2 Pin | MCU | Raspberry Pi |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| 3 | D0 | D0 GPIO, I2C SDA | SDA | 22 | PB[0] | GPIO2 (SDA) |
-| 5 | D1 | D1 GPIO, I2C SCL | SCL | 20 | PA[31] | GPIO3 (SCL) |
+| 3 | D0 | I2C SDA | SDA | 22 | PB[0] | GPIO2 (SDA) |
+| 5 | D1 | I2C SCL | SCL | 20 | PA[31] | GPIO3 (SCL) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -563,7 +563,7 @@ The Boron and Argon support NFC Tag mode.
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D0 | D0 |
-| ∆ | Description | I2C SDA, GPIO | D0 GPIO, I2C SDA |
+| ∆ | Description | I2C SDA, GPIO | I2C SDA |
 | ∆ | Supports digitalRead | Yes | n/a |
 | ∆ | Supports digitalWrite | Yes | n/a |
 | ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
@@ -573,7 +573,7 @@ The Boron and Argon support NFC Tag mode.
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D1 | D1 |
-| ∆ | Description | I2C SCL, GPIO | D1 GPIO, I2C SCL |
+| ∆ | Description | I2C SCL, GPIO | I2C SCL |
 | ∆ | Supports digitalRead | Yes | n/a |
 | ∆ | Supports digitalWrite | Yes | n/a |
 | ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |

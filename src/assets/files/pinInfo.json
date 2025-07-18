@@ -245,6 +245,14 @@
       "showInSearch": false
     },
     {
+      "tag": "rpi",
+      "label": "Raspberry Pi Function",
+      "columnLabel": "Pi",
+      "searchable": false,
+      "sortable": false,
+      "showInSearch": false
+    },
+    {
       "tag": "label",
       "label": "Board label",
       "columnLabel": "Label",
@@ -5201,7 +5209,7 @@
         {
           "num": 3,
           "name": "D0",
-          "desc": "D0 GPIO, I2C SDA",
+          "desc": "I2C SDA",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -5221,7 +5229,7 @@
         {
           "num": 5,
           "name": "D1",
-          "desc": "D1 GPIO, I2C SCL",
+          "desc": "I2C SCL",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -5837,6 +5845,7 @@
       "mapPreserve": [
         "num",
         "name",
+        "desc",
         "morePins",
         "attachInterrupt",
         "digitalRead",
@@ -5874,13 +5883,12 @@
         {
           "num": 3,
           "name": "D0",
-          "desc": "D0 GPIO, I2C SDA",
+          "desc": "I2C SDA",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": false,
-          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "attachInterrupt": "n/a",
           "hardwarePin": "P0.26",
-          "hibernate": "Pin can wake from HIBERNATE sleep",
           "i2c": "Wire (SDA)|SDA. Use Wire object.",
           "internalPull": "13K",
           "is5VTolerant": false,
@@ -5896,11 +5904,11 @@
         {
           "num": 5,
           "name": "D1",
-          "desc": "D1 GPIO, I2C SCL",
+          "desc": "I2C SCL",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": false,
-          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "attachInterrupt": "n/a",
           "hardwarePin": "P0.27",
           "hibernate": "Pin can wake from HIBERNATE sleep",
           "i2c": "Wire (SCL)|SCL. Use Wire object.",
@@ -6524,7 +6532,8 @@
         "desc",
         "morePins",
         "digitalRead",
-        "digitalWrite"
+        "digitalWrite",
+        "attachInterrupt"
       ],
       "mapTo": "num",
       "mcu": "nRF52840"

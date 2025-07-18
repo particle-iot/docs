@@ -5047,6 +5047,21 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }                     
         },
+        {
+            guid:'45d01527-9313-4c34-8016-29a83594a975', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformOld: 'Muon',
+                    platformOldTitle: 'Muon (M-SoM)',
+                    platformNew: 'Muon (B-SoM)',
+                    hideUnchanged: true,
+                    moreComparisonTags: [
+                        'rpi',
+                    ],
+                }); 
+            } 
+        },
 
         //      
         // Muon - RTL8722DM

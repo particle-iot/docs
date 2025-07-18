@@ -27,7 +27,7 @@
         {
             "num": 3,
             "name": "D0",
-            "desc": "D0 GPIO, I2C SDA",
+            "desc": "I2C SDA",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -47,7 +47,7 @@
         {
             "num": 5,
             "name": "D1",
-            "desc": "D1 GPIO, I2C SCL",
+            "desc": "I2C SCL",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -663,6 +663,7 @@
     "mapPreserve": [
         "num",
         "name",
+        "desc",
         "morePins",
         "attachInterrupt",
         "digitalRead",
