@@ -36,7 +36,7 @@ The B-SoM includes only cellular (not Wi-Fi or satellite). It uses the same M.2 
 - [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
-{{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 90b7bedb-725d-410a-b299-a217829b336c --}}
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
@@ -46,10 +46,9 @@ The B-SoM includes only cellular (not Wi-Fi or satellite). It uses the same M.2 
 | B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | GA |
 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
-| M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 
-{{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ![B-SoM](/assets/images/b-series/b404x-iso.png)
 
@@ -602,40 +601,6 @@ Full-speed BLE modes such as A2DP used for BLE audio are not supported.
 
 BLE requires a 2.4 GHz antenna on the B-SoM; there is no built-in chip antenna for BLE.
 
-### Sleep
-
-The Muon/M-SoM can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
-
-The Muon/M-SoM can only wake from `HIBERNATE` sleep mode on on certain pins, `RISING`, `FALLING`, or `CHANGE`.
-
-The Muon/M-SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
-
-{{!-- BEGIN do not edit content below, it is automatically generated 2629e77b-eb69-4f63-8f0e-011032c72782 --}}
-
-| Pin | Pin Name | Description | Interface | M2 Pin | MCU |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 8 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Pin can wake from HIBERNATE sleep | 36 | PA[12] |
-| 10 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Pin can wake from HIBERNATE sleep | 38 | PA[13] |
-| 11 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Pin can wake from HIBERNATE sleep | 42 | PA[14] |
-| 36 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Pin can wake from HIBERNATE sleep | 40 | PA[15] |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down. These pins also cannot be used to wake from hibernate sleep mode.
-
-{{!-- BEGIN do not edit content below, it is automatically generated ecbef542-699d-4e47-bf18-b4568b48c0c7 --}}
-
-| Pin | Pin Name | Description | Interface | M2 Pin | MCU |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| 38 | D21 | D21 GPIO, I2S RX | No internal pull up or pull down in HIBERNATE sleep mode. | 17 | PA[0] |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-
-
-
 
 ## Firmware settings
 
@@ -743,7 +708,7 @@ See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 
 
 #### Pi hat connection pins 
-{{!-- BEGIN do not edit content below, it is automatically generated 547410e9-fa4c-4166-9b92-4d365b9a8471 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 909134fe-3b87-420c-975c-1fb626404e91 --}}
 
 | Pin | Pi Pin Name | Pin Name | Description | Serial | SPI | I2C | I2S |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -754,39 +719,39 @@ See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 | 5 | GPIO3 (SCL) | D1 | D1 GPIO, I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
 | 6 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 7 | GPIO4 (GPCKL0) | IOEX_PA0 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 8 | GPIO14 (TXD) | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI, I2S MCLK | Serial1 (TX) | SPI1 (MOSI) | &nbsp; | I2S MCLK |
+| 8 | GPIO14 (TXD) | TX / D9 | Serial TX, GPIO | Serial1 TX | &nbsp; | &nbsp; | I2S MCLK |
 | 9 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 10 | GPIO15 (RXD) | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | SPI1 (MISO) | &nbsp; | &nbsp; |
-| 11 | GPIO17 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | SPI1 (SCK) | &nbsp; | &nbsp; |
-| 12 | GPIO18 (PCM_CLK) | D6 | D6 GPIO, PWM, I2S CLK | &nbsp; | &nbsp; | Wire1 (SCL) | I2S CLK |
-| 13 | GPIO27 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 10 | GPIO15 (RXD) | RX / D10 | Serial RX, GPIO | Serial1 RX | &nbsp; | &nbsp; | &nbsp; |
+| 11 | GPIO17 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | Serial1 RTS | SPI1 (SCK) | Wire1 (SDA) | &nbsp; |
+| 12 | GPIO18 (PCM_CLK) | D6 | PWM, GPIO | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 13 | GPIO27 | A5 / D14 | A5 Analog in, GPIO | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 14 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 15 | GPIO22 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 16 | GPIO23 | D24 | D24 GPIO, Serial2 TX, do not pull down at boot | Serial2 (TX)  | &nbsp; | &nbsp; | &nbsp; |
+| 15 | GPIO22 | NC | NC on B-SoM (D27, SWDIO on M-SoM) | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 16 | GPIO23 | NC | NC on B-SoM (D24, Serial2 TX on M-SoM) | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 17 | 3V3 power | 3V3 | 3.3V power to expansion card | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 18 | GPIO24 | D25 | GPIO25, Serial2 RX | Serial2 (RX)  | &nbsp; | &nbsp; | &nbsp; |
-| 19 | GPIO10 (MOSI) | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | &nbsp; | SPI (MOSI) | &nbsp; | &nbsp; |
+| 18 | GPIO24 | NC | NC on B-SoM (GPIO25, Serial2 RX on M-SoM) | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 19 | GPIO10 (MOSI) | MOSI / D12 | SPI MOSI, GPIO | &nbsp; | SPI (MOSI) | &nbsp; | &nbsp; |
 | 20 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 21 | GPIO9 (MISO) | MISO / D11 | D11 GPIO, PWM, SPI MISO | &nbsp; | SPI (MISO) | &nbsp; | &nbsp; |
+| 21 | GPIO9 (MISO) | MISO / D11 | SPI MISO, GPIO | &nbsp; | SPI (MISO) | &nbsp; | &nbsp; |
 | 22 | GPIO25 | D22 | D22 GPIO | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 23 | GPIO11 (SCLK) | SCK / D13 | D13 GPIO, SPI SCK | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; |
-| 24 | GPIO8 (CE0) | A6 / D29 | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 23 | GPIO11 (SCLK) | SCK / D13 | SPI SCK, GPIO | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; |
+| 24 | GPIO8 (CE0) | A6 / D29 | A6 Analog in, PWM, GPIO | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 25 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 26 | GPIO7 (CE1) | A2 / D17 | A2 Analog in, GPIO | &nbsp; | SPI2 (SCK) | &nbsp; | &nbsp; |
+| 26 | GPIO7 (CE1) | A2 / D17 | A2 Analog in, GPIO | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 27 | GPIO0 (ID_SD) | NC27 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 28 | GPIO1 (ID_SC) | NC28 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 29 | GPIO5 | A0 / D19 | A0 Analog in, GPIO, PWM | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 30 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 31 | GPIO6 | A1 / D18 | A1 Analog in, GPIO, PWM | &nbsp; | SPI2 (MISO) | &nbsp; | &nbsp; |
-| 32 | GPIO12 (PWM0) | D5 | D5 GPIO, PWM, I2S TX | &nbsp; | &nbsp; | &nbsp; | I2S TX |
-| 33 | GPIO13 (PWM1) | D4 | D4 GPIO, PWM | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 31 | GPIO6 | A1 / D18 | A1 Analog in, GPIO, PWM | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 32 | GPIO12 (PWM0) | D5 | PWM, GPIO | &nbsp; | &nbsp; | &nbsp; | I2S TX |
+| 33 | GPIO13 (PWM1) | D4 | SPI1 MISO, PWM, GPIO | &nbsp; | SPI1 (MISO) | &nbsp; | &nbsp; |
 | 34 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 35 | GPIO19 (PCM_FS) | D26 | D26 GPIO, I2S WS | &nbsp; | &nbsp; | &nbsp; | I2S WS |
-| 36 | GPIO16 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | SPI1 (SS) | &nbsp; | &nbsp; |
+| 35 | GPIO19 (PCM_FS) | NC | NC on B-SoM (D26, I2S WS on M-SoM) | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 36 | GPIO16 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | Serial1 CTS | SPI1 (MOSI) | Wire1 (SCL) | &nbsp; |
 | 37 | GPIO26 | IOEX_PB7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 38 | GPIO20 (PCM_DIN) | D21 | D21 GPIO, I2S RX | &nbsp; | &nbsp; | &nbsp; | I2S RX |
+| 38 | GPIO20 (PCM_DIN) | NFC1 | NFC Antenna 1 (can be reconfigured as GPIO NFC_PIN1) | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 39 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 40 | GPIO21 (PCM_DOUT) | D20 | D20 GPIO, I2S TX | &nbsp; | &nbsp; | &nbsp; | I2S TX |
+| 40 | GPIO21 (PCM_DOUT) | NFC2 | NFC Antenna 2 (can be reconfigured as GPIO NFC_PIN2) | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -823,7 +788,9 @@ The sample design uses a PTH (through-hole) female socket for strength and to ma
 
 This section is very long; you can [skip over it](#schematics) if desired.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 7bdb0f44-3eb6-4e4a-89bb-14c9bb159cbd --}}
+{{collapse op="start" label="Show pin details"}}
+
+{{!-- BEGIN do not edit content below, it is automatically generated bfd8304c-f598-4d4c-8b8d-9d60114f27b0 --}}
 
 
 #### 3V3
@@ -1357,6 +1324,8 @@ This section is very long; you can [skip over it](#schematics) if desired.
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+{{collapse op="end"}}
+
 
 ## Mechanical specifications
 
@@ -1538,218 +1507,41 @@ SE, SI, SK, TR, UA, UK(NI).
 - [RoHS 3.0 Test Report](/assets/pdfs/muon-rohs.pdf)
 
 
-### MUON404 - Country compatibility
-
-
-{{!-- BEGIN do not edit content below, it is automatically generated 291c6e45-3647-412b-8e38-47d29d5b4a83 --}}
-
-| Country | Model | Technologies | Carriers |
-| :--- | :--- | :--- | :--- |
-| Canada | M404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | M404 | M1 | AT&T, Telcel |
-| United States | M404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
-
-### MUON404 - Certified bands
-
-| Technology | Band | FCC | CE |
-| :--- | :--- | :---: | :---: |
-| 2G | 850 MHz | &check; | &nbsp; |
-| 2G | 900 MHz | &nbsp; | &nbsp; |
-| 2G | 1800 MHz | &nbsp; | &nbsp; |
-| 2G | 1900 MHz | &check; | &nbsp; |
-| LTE Cat M1 | B1 (2100 MHz) | | &check;|
-| LTE Cat M1 | B2 (1900 MHz) | &check; | |
-| LTE Cat M1 | B3 (1800 MHz) | | &check;|
-| LTE Cat M1 | B4 (1700 MHz) | &check;| |
-| LTE Cat M1 | B5 (850 MHz) | &check;| |
-| LTE Cat M1 | B8 (900 MHz) | | &check;|
-| LTE Cat M1 | B12 (700 MHz) | &check;| |
-| LTE Cat M1 | B13 (700 MHz) | &check;| |
-| LTE Cat M1 | B20 (800 MHz) | | &check;|
-| LTE Cat M1 | B25 (1900 MHz) | &check;| |
-| LTE Cat M1 | B26 (850 MHz) | &check;| |
-| LTE Cat M1 | B28 (700 MHz) | | &check;|
-| LTE Cat M1 | B66 (2100 MHz) | &check;| |
-
-
-
-### MUON524 - Country compatibility
-
-
-{{!-- BEGIN do not edit content below, it is automatically generated da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
-
-| Country | Model | Technologies | Carriers |
-| :--- | :--- | :--- | :--- |
-| Albania | M524 | 2G, 3G, 4G | Eagle, Telekom, Vodafone |
-| Algeria | M524 | 2G, 3G, 4G | Mobilis, Ooredoo |
-| Aruba | M524 | 2G, 3G, 4G | Setar |
-| Australia | M524 | 4G | Optus, Telstra, Vodafone |
-| Austria | M524 | 2G, 3G, 4G | 3 (Drei), A1, T-Mobile |
-| Bahrain | M524 | 2G, 4G | Zain |
-| Bangladesh | M524 | 2G, 3G, 4G | Bangalink, GrameenPhone |
-| Belarus | M524 | 2G, 3G, 4G | A1 |
-| Belgium | M524 | 2G, 3G, 4G | Base, Orange, Proximus |
-| Bosnia and Herzegovina | M524 | 2G, 3G | BH Telecom, HT Eronet |
-| Botswana | M524 | 2G, 3G, 4G | BeMobile |
-| Brunei | M524 | 3G, 4G | DST |
-| Bulgaria | M524 | 2G, 3G | A1, Telenor, Vivacom |
-| Burkina Faso | M524 | 2G, 3G, 4G | Orange |
-| Cabo Verde | M524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
-| Cambodia | M524 | 2G, 3G | Metfone |
-| Chad | M524 | 2G, 3G, 4G | Airtel |
-| Chile | M524 | 3G, 4G | Claro, Entel, Movistar |
-| Congo (Brazzaville) | M524 | 2G, 3G, 4G | Airtel |
-| Congo (Kinshasa) | M524 | 2G, 3G, 4G | Airtel |
-| Côte d'Ivoire | M524 | 2G, 3G | MTN |
-| Croatia | M524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | M524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | M524 | 2G, 4G | O2, T-Mobile, Vodafone |
-| Denmark | M524 | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
-| Egypt | M524 | 2G, 3G, 4G | Etisalat, Orange |
-| Estonia | M524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
-| eSwatini | M524 | 2G, 3G, 4G | MTN |
-| Ethiopia | M524 | 2G, 3G, 4G | Ethio Telecom |
-| Faroe Islands | M524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | M524 | 2G, 4G | DNA, Elisa, Telia |
-| France | M524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
-| French Guiana | M524 | 2G, 3G | Digicel |
-| Gabon | M524 | 2G, 3G, 4G | Airtel |
-| Germany | M524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
-| Ghana | M524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
-| Gibraltar | M524 | 2G, 3G, 4G | Gibtel |
-| Greece | M524 | 2G, 4G | Cosmote, Vodafone, Wind |
-| Guinea | M524 | 2G, 3G, 4G | MTN |
-| Guinea-Bissau | M524 | 2G, 3G, 4G | MTN |
-| Guyana | M524 | 2G | Digicel |
-| Hong Kong | M524 | 2G, 3G, 4G | CMHK, CSL, SmarTone |
-| Hungary | M524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
-| Iceland | M524 | 2G, 3G, 4G | Nova, Siminn, Vodafone |
-| Indonesia | M524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
-| Ireland | M524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | M524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
-| Italy | M524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
-| Jordan | M524 | 2G, 3G, 4G | Zain |
-| Kazakhstan | M524 | 2G, 3G, 4G | Beeline, K-Cell |
-| Kenya | M524 | 2G, 3G, 4G | Airtel |
-| Kuwait | M524 | 2G, 3G, 4G | Viva, Zain |
-| Latvia | M524 | 2G, 3G, 4G | Bite, LMT, Tele2 |
-| Liechtenstein | M524 | 2G, 3G, 4G | Mobilkom, Orange |
-| Lithuania | M524 | 2G, 3G, 4G | Bite, Omnitel, Tele2 |
-| Luxembourg | M524 | 2G, 3G, 4G | Orange, POST, Tango |
-| Macao | M524 | 3G, 4G | CTM |
-| Madagascar | M524 | 2G, 3G, 4G | Airtel |
-| Malawi | M524 | 2G, 3G, 4G | Airtel |
-| Malaysia | M524 | 2G, 3G, 4G | Celcom, DiGi, Maxis |
-| Malta | M524 | 2G, 3G, 4G | Go Mobile, Vodafone |
-| Moldova | M524 | 2G, 3G, 4G | Moldcell, Orange |
-| Mongolia | M524 | 2G, 3G | Mobicom, Unitel |
-| Montenegro | M524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
-| Morocco | M524 | 2G, 3G, 4G | Inwi, Medi Telecom |
-| Mozambique | M524 | 2G, 3G, 4G | Vodacom |
-| Myanmar | M524 | 2G, 3G | MPT, Telenor |
-| Namibia | M524 | 2G, 3G, 4G | Telecom Namibia |
-| Netherlands | M524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
-| New Zealand | M524 | 2G, 3G, 4G | 2degrees, Spark, Vodafone |
-| Nigeria | M524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
-| Norway | M524 | 2G, 3G, 4G | TDC, Telenor, Telia |
-| Pakistan | M524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
-| Palestine | M524 | 2G, 3G | Jawwal |
-| Papua New Guinea | M524 | 2G, 3G | bmobile |
-| Poland | M524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
-| Portugal | M524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
-| Qatar | M524 | 2G, 3G, 4G | Ooredoo, Vodafone |
-| Romania | M524 | 2G, 3G, 4G | Orange, Telekom Romania, Vodafone |
-| Rwanda | M524 | 2G, 3G | Airtel, MTN |
-| Serbia | M524 | 2G, 3G, 4G | Telenor, VIP |
-| Seychelles | M524 | 2G, 3G, 4G | Airtel |
-| Sint Maarten | M524 | 2G, 3G | TelCell |
-| Slovakia | M524 | 2G, 4G | O2, Orange, Telekom |
-| Slovenia | M524 | 2G, 3G, 4G | A1, Mobitel |
-| South Africa | M524 | 2G, 3G, 4G | Cell C, MTN, Vodacom |
-| South Korea | M524 | 3G, 4G | KT, LG U+, SK Telecom |
-| South Sudan | M524 | 2G, 3G | MTN |
-| Spain | M524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | M524 | 2G, 3G, 4G | Dialog, Mobitel |
-| Suriname | M524 | 2G, 3G | Telesur |
-| Sweden | M524 | 2G, 3G, 4G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | M524 | 3G, 4G | Salt, Sunrise, Swisscom |
-| Taiwan | M524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
-| Tanzania | M524 | 2G, 3G, 4G | Airtel |
-| Thailand | M524 | 2G, 3G, 4G | AIS, DTAC, True Move |
-| Tunisia | M524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
-| Uganda | M524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | M524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
-| Vietnam | M524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
-| Zambia | M524 | 2G, 3G, 4G | Airtel |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-### MUON524 - Certified bands
-
-| Technology | Band | CE |
-| :--- | :--- | :---: |
-| 2G | 900 MHz | &check; |
-| 2G | 1800 MHz | &check; |
-| 3G | B1 (2100 MHz) | &check;|
-| 3G | B8 (900 MHz) | &check;|
-| LTE Cat 1 | B1 (2100 MHz) | &check;|
-| LTE Cat 1 | B3 (1800 MHz) | &check;|
-| LTE Cat 1 | B7 (2600 MHz) | &check;|
-| LTE Cat 1 | B8 (900 MHz) | &check;|
-| LTE Cat 1 | B20 (800 MHz) | &check;|
-| LTE Cat 1 | B28 (700 MHz) | &check;|
-
-
-
-### MUON635 - Country compatibility
-
-Global, country list to be provided a later date.
-
-
-
 
 ---
 ## Ordering information
 
-{{!-- BEGIN do not edit content below, it is automatically generated f4a91103-4428-4732-a1bc-83784f9bf207 --}}
+The Muon cannot be ordered with the B-SoM directly, but you can order the Muon carrier board or kit and the B-SoM separately:
 
-| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
-| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
-| MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
-| MUON524 | Muon LTE CAT1/3G/2G Dev Board (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | GA | |
-| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | GA | |
-| MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
-| MUON635EA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
+{{!-- BEGIN do not edit content below, it is automatically generated 5f2c9b3c-f2c5-4371-8c3f-7cb5bc267f43 --}}
+
+| SKU | Description | Lifecycle |
+| :--- | :--- | :--- |
+| MUONCB | Muon Carrier Board (Dev Board only) | GA |
+| MUONCBKIT | Muon Carrier Board Kit | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
-- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
+{{!-- BEGIN do not edit content below, it is automatically generated 90b7bedb-725d-410a-b299-a217829b336c --}}
+
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :--- | :--- |
+| B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B504EMEA | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1] | Americas | GA |
+| B504EMTY | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | NORAM | GA |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 
 
 ## Revision history
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 2024-02-05 | RK | Preliminary version (schematic 0.02 20240203R6) |
-|          | 2024-04-22 | RK | Update for schematic 0.3 |
-|          | 2024-04-24 | RK | Update for schematic 0.3R2 |
-|          | 2024-04-24 | RK | Expansion card interface updates |
-|          | 2024-05-08 | RK | Update for schematic 0.4R2 |
-|          | 2024-05-14 | RK | Update for schematic 0.4R4 |
-|          | 2024-05-20 | RK | Update diagrams 0.4R4 |
-|          | 2024-08-04 | RK | Pinmap 0.05 |
-|          | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
-|   1      | 2024-10-08 | RK | Update for schematic v1.0 |
-|   2      | 2024-10-22 | RK | Public release|
-|   3      | 2025-01-02 | RK | Wrong pin listed for the power manager interrupt pin; it is A7, not A6 |
-|   4      | 2025-02-11 | RK | Added height and weight |
-|   5      | 2025-06-17 | RK | Added link to 3D models |
-|   6      | 2025-06-25 | RK | Clarifications for GNSS use |
+| pre      | 2025-07-18 | RK | Preliminary version |

@@ -2213,6 +2213,18 @@ const schemaDocs = require('./schema-docs');
             },
         },
         {
+            guid:'90b7bedb-725d-410a-b299-a217829b336c',
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
+                    columns: ['name', 'desc', 'region', 'lifecycle'],
+                    filterFn: function(skuObj) {
+                        return skuObj.family != 'b series';
+                    },
+                }); 
+            },
+        },
+        {
             guid:'09a7da10-a5d0-11ec-b909-0242ac120002', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -4990,17 +5002,34 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }                     
         },
+        {
+            guid: '909134fe-3b87-420c-975c-1fb626404e91',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'piPins',
+                    platformNew: 'Muon (B-SoM)',
+                    noPinNumbers: false,
+                    showM2Pin: false,
+                    showHardwarePin: false,
+                    showPorts: true,
+                });
+            },
+        },
+        {
+            guid:'bfd8304c-f598-4d4c-8b8d-9d60114f27b0', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    noPinNumbers: false,
+                    platformNew: 'Muon',
+                    moreComparisonTags: [
+                        'rpi'
+                    ],
+                }); 
+            } 
+        },  
         /*
         
-
-
-
-
-
-909134fe-3b87-420c-975c-1fb626404e91
-
-bfd8304c-f598-4d4c-8b8d-9d60114f27b0
-
 */
         //      
         // Muon - RTL8722DM
@@ -6173,6 +6202,19 @@ bfd8304c-f598-4d4c-8b8d-9d60114f27b0
                 }); 
             } 
         },
+        {
+            // SKU list MUONCB
+            guid:'5f2c9b3c-f2c5-4371-8c3f-7cb5bc267f43', 
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    columns: ['name', 'desc', 'lifecycle'],
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MUONCB') || skuObj.lifecycle == 'Deprecated';
+                    }        
+                }); 
+            } 
+        },
+
         // monitor-one-muon-cards.md
         {
             guid:'fdd63f32-8330-4bde-942f-3c707ef91eb0', 
