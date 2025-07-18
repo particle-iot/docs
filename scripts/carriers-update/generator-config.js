@@ -4746,7 +4746,265 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        //
+        // Muon - B-SoM
+        //
+        {
+            guid: 'b62524a7-55e8-4791-b0fb-0c4631361046',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Muon (B-SoM)',
+                    noPinNumbers: false,
+                    pinFilterFn: p => typeof p.hardwarePin == 'undefined',
+                    includeDesc: false, 
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                    functionCols: [["hardwareADC", "i2s"], ["i2c","swd"], ["spi"], ["serial"]],
+                }); 
+            } 
+        },           
+        {
+            guid: '5010b500-f223-4d90-9248-6c69813167ca',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Muon (B-SoM)',
+                    noPinNumbers: false,
+                    sortByNum: true,
+                    includeDesc: false,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                    functionCols: [["hardwareADC", "i2s"], ["i2c","swd"], ["spi"], ["serial"]],
+                }); 
+            } 
+        },   
+        {
+            guid: '15e7c51d-1b86-4618-b5ac-06e155344875',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Muon (B-SoM)',
+                    noPinNumbers: false,
+                    sortByNum: 'rpiGPIO',
+                    includeDesc: false,
+                    leftColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                    functionCols: [["hardwareADC", "i2s"], ["i2c","swd"], ["spi"], ["serial"]],
+                }); 
+            } 
+        },   
+        {
+            guid:'092baa41-ca38-486d-a0c6-81f5d0faf00a',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'portPins',
+                    platformNew: 'Muon (B-SoM)',
+                    port: 'digitalRead',
+                    label: 'GPIO',
+                    newMCU: 'MCU',
+                    showBootMode: true,
+                    noPinNumbers: false,
+                    newRightColumns: [
+                        {
+                            key: 'new_rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            } 
+        },
+        {
+            guid:'888855dd-978a-4d0b-a83c-e77b29313f8c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'hardwareADC',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            } 
+        },   
+        {
+            guid:'b4fc214b-56a2-4284-87ed-3fd8591700ef',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'serial',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },     
+        {
+            guid:'0d045a42-7718-4d52-9c07-ee8e8a371d61',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'rpiSerial',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'aed83843-6d00-4001-a291-e99ac9c30395',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'spi',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'99d9e532-cd94-47e0-9cbe-6c7cac67cec1',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'i2c',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {        
+            guid:'f04456f7-b881-4f83-b055-a447cdc9860f',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: false, // temporary until assigned
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            } 
+        },    
+        {
+            guid:'26c36465-9c55-4ff0-94fe-e169780a2313',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'rpiSPI',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'4ba67c3e-e62c-4e88-8990-9e04556af9ae',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'rpiI2C',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        {
+            guid:'35de6ee0-7880-4d24-bb76-5b7dffbf0e1d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'rpiPWM',
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+        /*
+        
+
+
+
+
+
+909134fe-3b87-420c-975c-1fb626404e91
+
+bfd8304c-f598-4d4c-8b8d-9d60114f27b0
+
+*/
+        //      
         // Muon - RTL8722DM
+        // 
         {
             guid: '4c12540b-20a8-4d2b-a070-0237af5223e3',
             generatorFn:function(updater){

@@ -121,7 +121,7 @@ See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=by
 
 ### B-SoM
 
-The B-SoM includes only cellular (not Wi-Fi, satellite, or LoRaWAN). It uses the same M.2 NGFF socket as the M-SoM, though there are some minor differences because of the use of differnet MCUs (Realtek RTL8722 in M-SoM and Nordic nRF52840 in B-SoM).
+The B-SoM includes only cellular (not Wi-Fi, satellite, or LoRaWAN). It uses the same M.2 NGFF socket as the M-SoM, though there are some minor differences because of the use of different MCUs (Realtek RTL8722 in M-SoM and Nordic nRF52840 in B-SoM).
 
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B504 datasheet](/reference/datasheets/b-series/b504-datasheet/)
