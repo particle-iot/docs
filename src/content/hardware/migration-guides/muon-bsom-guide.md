@@ -7,6 +7,10 @@ description: Guide for using the Muon with the B-SoM
 
 # Muon with B-SoM guide
 
+{{box op="start" cssClass="boxed warningBox"}}
+This is a preliminary guide and is subject to change.
+{{box op="end"}}
+
 ## Overview
 
 The Muon is a developer kit with additional peripherals for easy prototyping:
@@ -29,7 +33,7 @@ It is typically used with the M-SoM, but can be used with the B-SoM with some li
 
 ### B-SoM
 
-The B-SoM includes only cellular (not Wi-Fi or satellite). It uses the same M.2 NGFF socket as the M-SoM, though there are some minor differences because of the use of different MCUs (Realtek RTL8722 in M-SoM and Nordic nRF52840 in B-SoM).
+The B-SoM includes only cellular (not Wi-Fi or satellite). It uses the same M.2 NGFF socket as the M-SoM, though there are some differences because of the use of different MCUs (Realtek RTL8722 in M-SoM and Nordic nRF52840 in B-SoM).
 
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B504 datasheet](/reference/datasheets/b-series/b504-datasheet/)
@@ -51,6 +55,18 @@ The B-SoM includes only cellular (not Wi-Fi or satellite). It uses the same M.2 
 {{!-- END do not edit content above, it is automatically generated --}}
 
 ![B-SoM](/assets/images/b-series/b404x-iso.png)
+
+### Major differences between M-SoM and B-SoM in Muon
+
+- The M-SoM supports Wi-Fi and the B-SoM does not.
+- The M-SoM supports GNSS (GPS) on the cellular module. This is only supported on the B504e (not B404X or B524).
+- The M-SoM supports I2S (sound). This is not usable with the B-SoM with standard Pi sound expansion cards.
+
+- NC GPIO
+- NFC GPIO
+- PWM
+- Secondary ports
+
 
 ### Features
 
@@ -214,8 +230,6 @@ To be provided at a later date.
  
 ### JTAG and SWD 
 
-The Muon
-
 Muon has a Particle-standard 10-pin 2x5 SWD debugging connector. This interface can be used to debug your code or reprogram your bootloader, device OS, or the user firmware using any standard SWD tools including our Gen 3 Debugger.
 
 <div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" class="small"></div>
@@ -256,7 +270,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | D2 | 11 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | &nbsp; | P1.02 | GPIO17 |
 | D3 | 36 | &nbsp; | Wire1 (SCL) | SPI1 (MOSI) | Serial1 CTS | &nbsp; | P1.01 | GPIO16 |
 | D4 | 33 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | &check; | P1.08 | GPIO13 (PWM1) |
-| D5 | 32 | I2S TX | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 | GPIO12 (PWM0) |
+| D5 | 32 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 | GPIO12 (PWM0) |
 | D6 | 12 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.11 | GPIO18 (PCM_CLK) |
 | D22 | 22 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.24 | GPIO25 |
 | MISO / D11 | 21 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | &nbsp; | P1.14 | GPIO9 (MISO) |
@@ -265,7 +279,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | NFC2 | 40 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.10 | GPIO21 (PCM_DOUT) |
 | RX / D10 | 10 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | &nbsp; | P0.08 | GPIO15 (RXD) |
 | SCK / D13 | 23 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; | P1.15 | GPIO11 (SCLK) |
-| TX / D9 | 8 | I2S MCLK | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 | GPIO14 (TXD) |
+| TX / D9 | 8 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 | GPIO14 (TXD) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -280,7 +294,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | 3 | D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | &nbsp; | P0.26 | GPIO2 (SDA) |
 | 5 | D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | &nbsp; | P0.27 | GPIO3 (SCL) |
 | 7 | IOEX_PA0 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | GPIO4 (GPCKL0) |
-| 8 | TX / D9 | I2S MCLK | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 | GPIO14 (TXD) |
+| 8 | TX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 | GPIO14 (TXD) |
 | 10 | RX / D10 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | &nbsp; | P0.08 | GPIO15 (RXD) |
 | 11 | D2 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | &nbsp; | P1.02 | GPIO17 |
 | 12 | D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.11 | GPIO18 (PCM_CLK) |
@@ -298,7 +312,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | 28 | NC28 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | GPIO1 (ID_SC) |
 | 29 | A0 / D19 | ADC1 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.03 | GPIO5 |
 | 31 | A1 / D18 | ADC2 | &nbsp; | &nbsp; | &nbsp; | &check; | P0.04 | GPIO6 |
-| 32 | D5 | I2S TX | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 | GPIO12 (PWM0) |
+| 32 | D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 | GPIO12 (PWM0) |
 | 33 | D4 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | &check; | P1.08 | GPIO13 (PWM1) |
 | 35 | NC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | GPIO19 (PCM_FS) |
 | 36 | D3 | &nbsp; | Wire1 (SCL) | SPI1 (MOSI) | Serial1 CTS | &nbsp; | P1.01 | GPIO16 |
@@ -327,9 +341,9 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | GPIO9 (MISO) | MISO / D11 | 21 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | &nbsp; | P1.14 |
 | GPIO10 (MOSI) | MOSI / D12 | 19 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | &nbsp; | P1.13 |
 | GPIO11 (SCLK) | SCK / D13 | 23 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | &nbsp; | P1.15 |
-| GPIO12 (PWM0) | D5 | 32 | I2S TX | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 |
+| GPIO12 (PWM0) | D5 | 32 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | P1.10 |
 | GPIO13 (PWM1) | D4 | 33 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | &check; | P1.08 |
-| GPIO14 (TXD) | TX / D9 | 8 | I2S MCLK | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 |
+| GPIO14 (TXD) | TX / D9 | 8 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | &nbsp; | P0.06 |
 | GPIO15 (RXD) | RX / D10 | 10 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | &nbsp; | P0.08 |
 | GPIO16 | D3 | 36 | &nbsp; | Wire1 (SCL) | SPI1 (MOSI) | Serial1 CTS | &nbsp; | P1.01 |
 | GPIO17 | D2 | 11 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | &nbsp; | P1.02 |
@@ -346,6 +360,26 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
+
+### Pi GPIO not supported on B-SoM
+
+There are four pins on the 40-pin Raspberry Pi expansion connector that are supported on M-SoM but not on B-SoM. There are an additional two pins that are not supported on the Muon with either.
+
+{{!-- BEGIN do not edit content below, it is automatically generated c3e83e8b-0c0d-4cf3-a8d2-15c03d8dc06a --}}
+
+| Pin | Pin Name | Description | M2 Pin | MCU | Raspberry Pi |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| 15 | NC | NC on B-SoM (D27, SWDIO on M-SoM) | 55 | &nbsp; | GPIO22 |
+| 16 | NC | NC on B-SoM (D24, Serial2 TX on M-SoM) | 58 | &nbsp; | GPIO23 |
+| 18 | NC | NC on B-SoM (GPIO25, Serial2 RX on M-SoM) | 60 | &nbsp; | GPIO24 |
+| 27 | NC27 | &nbsp; | &nbsp; | &nbsp; | GPIO0 (ID_SD) |
+| 28 | NC28 | &nbsp; | &nbsp; | &nbsp; | GPIO1 (ID_SC) |
+| 35 | NC | NC on B-SoM (D26, I2S WS on M-SoM) | 59 | &nbsp; | GPIO19 (PCM_FS) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
 
 ### Detailed comparison
 
@@ -386,7 +420,7 @@ The table below is a detailed comparison of the M-SoM vs. B-SoM pins.
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | MOSI. Use SPI1 object. | n/a |
 | ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
-| &nbsp; | I2S interface | I2S MCLK | I2S MCLK |
+| ∆ | I2S interface | I2S MCLK | n/a |
 | ∆ | Internal pull resistance | 2.1K | 13K |
 | &nbsp; | Raspberry Pi Function | GPIO14 (TXD) | GPIO14 (TXD) |
 #### Module Pin 10 (RX)
@@ -586,7 +620,7 @@ The table below is a detailed comparison of the M-SoM vs. B-SoM pins.
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | Yes | D4, D5, and D6 must have the same frequency. |
 | ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
-| &nbsp; | I2S interface | I2S TX | I2S TX |
+| ∆ | I2S interface | I2S TX | n/a |
 | ∆ | Internal pull resistance | ??? | 13K |
 | &nbsp; | Raspberry Pi Function | GPIO12 (PWM0) | GPIO12 (PWM0) |
 #### Module Pin 33 (D4)
@@ -659,6 +693,7 @@ The table below is a detailed comparison of the M-SoM vs. B-SoM pins.
 
 {{imageOverlay src="/assets/images/muon-b/muon-b-gpio.svg" alt="GPIO pins" class="full-width"}}
 
+The B-SoM supports the following GPIO:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 092baa41-ca38-486d-a0c6-81f5d0faf00a --}}
 
@@ -694,6 +729,7 @@ The following M.2 SoM pins are used for internal functions on the Muon and are n
 | D22 | I/O Expander Reset | 62 | M2_D22 |
 | D23 | I/O Expander CS | 64 | M2_D23_IOEX_CS |
 | D7 | 3V3_AUX and 5V power enable | 72 | D7_AUX_POWER_EN |
+
 
 
 ### ADC (Analog to Digital Converter)
@@ -1019,7 +1055,7 @@ See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 | 5 | GPIO3 (SCL) | D1 | I2C SCL | &nbsp; | &nbsp; | Wire (SCL) | &nbsp; |
 | 6 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 7 | GPIO4 (GPCKL0) | IOEX_PA0 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 8 | GPIO14 (TXD) | TX / D9 | Serial TX, GPIO | Serial1 TX | &nbsp; | &nbsp; | I2S MCLK |
+| 8 | GPIO14 (TXD) | TX / D9 | Serial TX, GPIO | Serial1 TX | &nbsp; | &nbsp; | &nbsp; |
 | 9 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 10 | GPIO15 (RXD) | RX / D10 | Serial RX, GPIO | Serial1 RX | &nbsp; | &nbsp; | &nbsp; |
 | 11 | GPIO17 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | Serial1 RTS | SPI1 (SCK) | Wire1 (SDA) | &nbsp; |
@@ -1043,7 +1079,7 @@ See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 | 29 | GPIO5 | A0 / D19 | A0 Analog in, GPIO, PWM | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 30 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 31 | GPIO6 | A1 / D18 | A1 Analog in, GPIO, PWM | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 32 | GPIO12 (PWM0) | D5 | PWM, GPIO | &nbsp; | &nbsp; | &nbsp; | I2S TX |
+| 32 | GPIO12 (PWM0) | D5 | PWM, GPIO | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 33 | GPIO13 (PWM1) | D4 | SPI1 MISO, PWM, GPIO | &nbsp; | SPI1 (MISO) | &nbsp; | &nbsp; |
 | 34 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 35 | GPIO19 (PCM_FS) | NC | NC on B-SoM (D26, I2S WS on M-SoM) | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -1392,7 +1428,6 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">D4, D5, and D6 must have the same frequency.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes. You can only have 8 active interrupt pins.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S TX</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P1.10</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">68</td></tr>
@@ -1603,7 +1638,6 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">TX. Use Serial1 object.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes. You can only have 8 active interrupt pins.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S MCLK</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">P0.06</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">36</td></tr>

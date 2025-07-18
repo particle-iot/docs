@@ -4819,6 +4819,26 @@ const schemaDocs = require('./schema-docs');
             } 
         },   
         {
+            guid:'c3e83e8b-0c0d-4cf3-a8d2-15c03d8dc06a',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'isNC',
+                    noInterface: true,
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+
+        {
             guid:'092baa41-ca38-486d-a0c6-81f5d0faf00a',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
