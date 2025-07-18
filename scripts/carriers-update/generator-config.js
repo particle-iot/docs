@@ -5021,16 +5021,33 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'full-details',
                     noPinNumbers: false,
-                    platformNew: 'Muon',
+                    platformNew: 'Muon (B-SoM)',
                     moreComparisonTags: [
                         'rpi'
                     ],
                 }); 
             } 
         },  
-        /*
-        
-*/
+        {
+            guid:'ceeeee7e-0e48-44bc-a05a-3ed8bf1c5183',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon (B-SoM)',
+                    interface: 'isNFC',
+                    noInterface: true,
+                    noPinNumbers: false,
+                    showM2Pin: true,
+                    rightColumns: [
+                        {
+                            key: 'rpi',
+                            title: 'Raspberry Pi',
+                        }
+                    ],
+                }); 
+            }                     
+        },
+
         //      
         // Muon - RTL8722DM
         // 
