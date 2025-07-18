@@ -202,6 +202,10 @@ const svg = require('./svg');
                                         text = 'PWM';
                                     }
                                 }
+                                if (info[key] == 'isNC') {
+                                    text = 'NC';
+                                }
+
                                 if (text === true) {
                                     text = info.name;
                                 }
@@ -2706,6 +2710,29 @@ const svg = require('./svg');
                 },
             ],
             outputPath: 'assets/images/muon-b/muon-b-desc.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            platformName: 'Muon (B-SoM)',
+            columns: [
+                {
+                    width: 20,
+                    keys: ['num'],
+                },
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 50,
+                    keys: ['isNC'],
+                },
+                {
+                    width: 100,
+                    keys: ['rpi'],
+                },
+            ],
+            outputPath: 'assets/images/muon-b/muon-b-nc.svg',
         }, generateOptions), files);
 
         await diagram.generateMuon(Object.assign({

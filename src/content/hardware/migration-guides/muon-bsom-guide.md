@@ -363,7 +363,12 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 
 ### Pi GPIO not supported on B-SoM
 
-There are four pins on the 40-pin Raspberry Pi expansion connector that are supported on M-SoM but not on B-SoM. There are an additional two pins that are not supported on the Muon with either.
+There are four pins on the 40-pin Raspberry Pi expansion connector that are supported on M-SoM but not on B-SoM. 
+
+There are an additional two pins (GPIO0 and GPIO1) that are not supported on the Muon with either, however these pins are generally used for an identification EEPROM which will often not be necessary with the Muon.
+
+{{imageOverlay src="/assets/images/muon-b/muon-b-nc.svg" alt="UART pins" class="full-width"}}
+
 
 {{!-- BEGIN do not edit content below, it is automatically generated c3e83e8b-0c0d-4cf3-a8d2-15c03d8dc06a --}}
 
