@@ -7,7 +7,7 @@
     "contributors": [],
     "license": "MIT",
     "dependencies": {
-        "@particle/node-example-helper": "0.0.2",
+        "@particle/node-example-helper": "0.0.3",
         "yargs": "^16.2.0"
     },
     "engines": {
