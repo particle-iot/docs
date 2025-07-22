@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@particle/node-example-helper": "0.0.1",
-        "axios": "^0.26.1"
+        "axios": "^0.30.0"
     },
     "devDependencies": {}
 }

@@ -18,6 +18,7 @@
         "apidoc": "^1.2.0",
         "autoprefixer": "^7.1.5",
         "binary-version-reader": "^2.0.1",
+        "form-data": "^4.0.4",
         "del": "^3.0.0",
         "gulp": "^4.0.2",
         "gulp-footer": "^1.0.5",

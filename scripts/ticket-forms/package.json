@@ -7,7 +7,7 @@
     "contributors": [],
     "license": "MIT",
     "dependencies": {
-        "axios": "^0.27.2"
+        "axios": "^0.30.0"
     },
     "engines": {
         "node": ">=12.14.0"
