@@ -39077,7 +39077,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "reason": "Requires Device OS 6.2.1. Currently in beta testing.",
+      "footnote": 8,
       "technologies": [
         "M1"
       ],

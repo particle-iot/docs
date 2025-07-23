@@ -1223,6 +1223,11 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
 
             html += '<tr ' + trAttr + '><td>' + obj.country + '</td><td>' + obj.carrier + '</td>';
 
+            let cmsObj;
+            if (options.sim) {
+                cmsObj = datastore.data.countryModemSim.find(e => e.country == obj.country && e.modem == modem.model && e.sim == options.sim);
+            }
+            
             bandsUsed.bandsAll.forEach(function(tagBand) {
                 const tag = dataui.bandGetTag(tagBand);
                 const band = dataui.bandGetBand(tagBand);
@@ -1242,25 +1247,33 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
 
                         if (modem.bands.includes(tagBand)) {
                             if (tag == 'M1') {
-                                const countryObj = datastore.findCountryByName(obj.country);
-                                if (countryObj.m1recommended || modem.globalM1) {
+                                if (cmsObj && cmsObj.footnote) {
                                     cellContents = '\u2705'; // Green Check
-
-                                    if (options.footnotes && options.footnotes['warnTMobile'] && obj[planKey].allowM1 == 5) {
-                                        cellContents += '<sup>' + options.footnotes['warnTMobile'] + '</sup>';
-                                        showFootnotes.warnTMobile = true;                                        
-                                    }
-                                    if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey].allowM1 == 7) {
-                                        cellContents += '<sup>' + options.footnotes['warnVerizon'] + '</sup>';
-                                        showFootnotes.warnVerizon = true;                                        
-                                    }
+                                    cellContents += '<sup>' + cmsObj.footnote + '</sup>';
+                                    showFootnotes['footnote' + cmsObj.footnote] = true;                                        
                                 }
                                 else {
-                                    cellContents = '\u2753'; // Red question
-                                    if (options.footnotes && options.footnotes['warnM1']) {
-                                        cellContents += '<sup>' + options.footnotes['warnM1'] + '</sup>';
-                                        showFootnotes.warnM1 = true;
+                                    const countryObj = datastore.findCountryByName(obj.country);
+                                    if (countryObj.m1recommended || modem.globalM1) {
+                                        cellContents = '\u2705'; // Green Check
+
+                                        if (options.footnotes && options.footnotes['warnTMobile'] && obj[planKey].allowM1 == 5) {
+                                            cellContents += '<sup>' + options.footnotes['warnTMobile'] + '</sup>';
+                                            showFootnotes.warnTMobile = true;                                        
+                                        }
+                                        if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey].allowM1 == 7) {
+                                            cellContents += '<sup>' + options.footnotes['warnVerizon'] + '</sup>';
+                                            showFootnotes.warnVerizon = true;                                        
+                                        }
                                     }
+                                    else {
+                                        cellContents = '\u2753'; // Red question
+                                        if (options.footnotes && options.footnotes['warnM1']) {
+                                            cellContents += '<sup>' + options.footnotes['warnM1'] + '</sup>';
+                                            showFootnotes.warnM1 = true;
+                                        }                                    
+                                    }
+
                                 }
                             }
                             else {
@@ -1360,6 +1373,9 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
             }
             if (showFootnotes.warnVerizon) {
                 html += '<tr><td><sup>' + options.footnotes.warnVerizon + '</sup></td><td>Verizon is only available on enterprise plans.</td></tr>';                            
+            }
+            if (showFootnotes.footnote8) {
+                html += '<tr><td><sup>8</sup></td><td>Requires Device OS 6.2.1. Currently in beta testing.</td></tr>';                            
             }
 
 

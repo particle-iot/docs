@@ -1136,7 +1136,8 @@ countryDetails.generateTable = function(options) {
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,
-        showM1: modemObj.technologies.includes('M1')
+        showM1: modemObj.technologies.includes('M1'),
+        sim: options.sim,
     }
     dataui.bandUseChangeHandler(options.tableId, [countryObj], simPlanObj.countryCarrierKey, modemObj, bandUseChangeOptions);
 }
