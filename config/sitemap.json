@@ -9071,8 +9071,8 @@
             "date": "2025-02-20"
         },
         "hardware/community/monitor-one-modbus.md": {
-            "hash": "000741881b27423fbd3c4ae3f92387716a0cac448012a9abe40bcef86408ae92",
-            "date": "2024-12-02"
+            "hash": "6a762ab6189422b698484f03c9771ff543287589254b1fdbec32367cf04210ea",
+            "date": "2025-07-23"
         },
         "hardware/community/hardware-community.md": {
             "hash": "c28c0aab3a9e20d3d9401c5c667c7f6894561200993fb0584d9aa975b771b118",
@@ -9741,6 +9741,10 @@
         "hardware/power/power-measurement.md": {
             "hash": "de7b67f16cfca3ecb1fb27b4f9bfee6aaa9cb79b470017ad15947fe46d869804",
             "date": "2025-06-17"
+        },
+        "archives/monitor-one-modbus.md": {
+            "hash": "4fc7a3da7379fc79f2fde296de93668b3a45326d15ff339e713da1cdcda0b400",
+            "date": "2025-07-23"
         }
     }
 }

@@ -10,3 +10,6 @@ includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras, api-helper
 {{> sso}}
 
 {{> device-remove}}
+
+
+*The device remove tool is intended to simplify removing a few devices and is not intended to be used in production environments as part of normal workflow.*
