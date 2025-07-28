@@ -52,6 +52,10 @@
                     "title": "Blynk"
                 },
                 {
+                    "dir": "datacake",
+                    "title": "Datacake"
+                },
+                {
                     "dir": "pushover",
                     "title": "Pushover (push notifications)"
                 },
