@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Datacake tutorial 2025-07-28
+
+There is now a [Datacake tutorial](/integrations/community-integrations/datacake/) for integrating with Datacake using webhooks.
+
 ### Verizon FAQ update 2025-07-16
 
 The [Verizon FAQ](/reference/cellular/verizon-faq/) did not previously did not mention the B504, M404, and M635, since it predated those devices and had not been updated.

@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "0c94ca6cfe4eea6660ce1fa21332919f84cde55bd06991a81c39ec56d6d3afb0",
-            "date": "2025-07-16"
+            "hash": "7dab7e68fdd55003a10fc82b2064e8c94e07848d036716a4401442945cd887da",
+            "date": "2025-07-28"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9745,6 +9745,10 @@
         "archives/monitor-one-modbus.md": {
             "hash": "4fc7a3da7379fc79f2fde296de93668b3a45326d15ff339e713da1cdcda0b400",
             "date": "2025-07-23"
+        },
+        "integrations/community-integrations/datacake.md": {
+            "hash": "a877bcdfe4a00b8dbf2e251589a83271df41627028a40d017272234d280d6129",
+            "date": "2025-07-28"
         }
     }
 }
