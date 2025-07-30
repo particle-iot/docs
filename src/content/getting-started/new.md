@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyton datasheet 2025-07-30
+
+The [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet#radio) now includes the radio module model number. It was accidentally omitted before.
+
 ### Datacake tutorial 2025-07-28
 
 There is now a [Datacake tutorial](/integrations/community-integrations/datacake/) for integrating with Datacake using webhooks.

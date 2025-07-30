@@ -91,6 +91,7 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 
 #### Radio 
 
+- Quectel SG560D-NA or SG560D-EM radio module
 - 3GPP Rel-15 specification, and supports both 5G NSA and SA modes with 4G/ 3G fallback
 - 5G & LTE cellular technology
 - Wi-Fi 6E & DBS, IEEE 802.11a/ b/ g/ n/ ac/ ax, Wi-Fi 2
@@ -900,3 +901,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 002      | 2025-06-11 | RK | Updates for certification |
 | 003      | 2025-06-16 | RK | Added link to 3D models |
 | 004      | 2025-06-24 | RK | Updated HAT power; no longer requires a jumper |
+| 005      | 2025-07-30 | RK | Include radio module model |
