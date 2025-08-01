@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-08-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+
 ### Tachyton datasheet 2025-07-30
 
 The [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet#radio) now includes the radio module model number. It was accidentally omitted before.

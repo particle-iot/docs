@@ -2123,6 +2123,10 @@
           "dir": "MCP23S17_bd78"
         },
         {
+          "title": "mcp2515",
+          "dir": "mcp2515"
+        },
+        {
           "title": "MCP3008",
           "dir": "MCP3008"
         },
@@ -3971,6 +3975,10 @@
         {
           "title": "Wiegand",
           "dir": "Wiegand"
+        },
+        {
+          "title": "WiFiChannelRK",
+          "dir": "WiFiChannelRK"
         },
         {
           "title": "wolfssl_particle",

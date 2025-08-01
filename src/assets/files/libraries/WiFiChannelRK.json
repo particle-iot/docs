@@ -1,0 +1,103 @@
+{
+  "type": "libraries",
+  "id": "WiFiChannelRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/WiFiChannelRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "WiFiChannelRK",
+    "version": "0.0.1",
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
+    "sentence": "Library to expose Wi-Fi channel information",
+    "url": "https://github.com/rickkas7/WiFiChannelRK",
+    "repository": "https://github.com/rickkas7/WiFiChannelRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/reference/device-os/libraries/w/WiFiChannelRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2025-08-01T09:52:06.025Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": false
+          },
+          "bsom": {
+            "1-simple": false
+          },
+          "b5som": {
+            "1-simple": false
+          },
+          "tracker": {
+            "1-simple": false
+          },
+          "p2": {
+            "1-simple": true
+          },
+          "msom": {
+            "1-simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": false
+          },
+          "bsom": {
+            "1-simple": false
+          },
+          "b5som": {
+            "1-simple": false
+          },
+          "tracker": {
+            "1-simple": false
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": false
+          },
+          "bsom": {
+            "1-simple": false
+          },
+          "b5som": {
+            "1-simple": false
+          },
+          "tracker": {
+            "1-simple": false
+          },
+          "esomx": {
+            "1-simple": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# WiFiChannelRK\n\n*Library to expose Wi-Fi channel information*\n\n- Github: https://github.com/rickkas7/WiFiChannelRK\n- License: MIT\n\nThe Device OS API does not expose the current Wi-Fi channel that it is connected to. This library provides a hacky workaround to get it, along with convenience methods for determining if the channel is 2.4 GHz or 5 GHz based on its channel number.\n\nWhen you've connected or reconnected to Wi-Fi, the library waits a short period of time (default: 4 seconds) and then does a WiFi.scan() to find the BSSID that we're connected to. The scan results include the channel, and this is saved if found.\n\n```\nvoid setup() {\n    WiFiChannelRK::instance()\n        .withUpdateCallback(updateCallback)\n        .setup();\n\n    Particle.connect();\n}\n\nvoid loop() {\n}\n\nvoid updateCallback() {\n    Log.info(\"updateCallback channel=%d, 2.4GHz=%d, 5GHz=%d\",\n        WiFiChannelRK::instance().getWiFiChannel(),\n        (int) WiFiChannelRK::instance().isWiFi_2_4_GHz(),\n        (int) WiFiChannelRK::instance().isWiFi_5_GHz());\n}\n```\n\nExample output:\n\n```\n0000026432 [app] INFO: updateCallback channel=6, 2.4GHz=1, 5GHz=0\n```\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}
