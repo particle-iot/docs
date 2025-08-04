@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-08-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Tachyton datasheet 2025-07-30
 
 The [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet#radio) now includes the radio module model number. It was accidentally omitted before.
@@ -43,7 +47,7 @@ Device OS 6.6.3 is now generally available (GA) instead of preview.
 
 ### Library updates 2025-06-30
 
-The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
 
 ### Web device doctor 2025-06-27
 
@@ -87,7 +91,7 @@ Clarification of [step 3](/scaling/quick-start-guide/enterprise-sso/#step-3-comp
 
 ### Library updates 2025-06-02
 
-The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
 
 ### TAN release dates 2025-06-02
 
@@ -135,7 +139,7 @@ Added additional documentation for [reset reason](/reference/device-os/api/syste
 
 ### Library updates 2025-05-01
 
-The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
 
 ### Extended publish examples 2025-04-28
 
@@ -175,7 +179,7 @@ Clarifications about using Location Fusion on non-Tracker devices added to the [
 
 ### Library updates 2025-04-01
 
-The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
 
 ### Cellular connect timing 2025-04-01
 
@@ -237,7 +241,7 @@ Countries with upcoming 2G/3G sunsets have been updated. There is a new [2G/3G s
 
 ### Library updates 2025-03-01
 
-The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updates libraries.
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
 
 ### Device Restore DFU fix 2025-02-28
 

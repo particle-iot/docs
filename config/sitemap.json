@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "fbb7119ee72a0af6eb66dd357e37cdff631dc6659482b29ca044318483982c7c",
-            "date": "2025-07-30"
+            "hash": "ef94eade477dc4ec36739b79e159f596b7283ce0e76505a95216497cede0f66c",
+            "date": "2025-08-04"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9749,6 +9749,14 @@
         "integrations/community-integrations/datacake.md": {
             "hash": "a877bcdfe4a00b8dbf2e251589a83271df41627028a40d017272234d280d6129",
             "date": "2025-07-28"
+        },
+        "reference/device-os/libraries/m/mcp2515.md": {
+            "hash": "335b43d8ef6fee369e5a1924dc578e6918499ebb641ea95ef1f9f3f08f4e2854",
+            "date": "2025-08-01"
+        },
+        "reference/device-os/libraries/w/WiFiChannelRK.md": {
+            "hash": "5676124cf762f9c924acf8b44f34716214fc6df4211577313440a7f6fdfb2063",
+            "date": "2025-08-01"
         }
     }
 }
