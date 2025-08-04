@@ -111,7 +111,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated | P028 |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Deprecated | P028 |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P028 |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | GA | P044 |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated | P044 |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | GA | P044 |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA | P044 |
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Deprecated | E26K |
@@ -278,7 +278,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P036 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated |
 | P042 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
 | P042 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
-| P044 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | GA |
+| P044 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated |
 | P044 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | GA |
 | P044 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
 | P046 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | GA |

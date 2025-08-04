@@ -127,7 +127,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXU | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &nbsp; | ANT-FLXU-50 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | PARANTC41TY | ANT-FLXU-50<sup>3</sup> | GA|
@@ -448,7 +448,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXV2 | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2-50 | &nbsp; | GA|
@@ -579,7 +579,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | &nbsp; | GA|

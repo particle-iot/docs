@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BRN404X (individual unit SKU) deprecation 2025-08-04
+
+The BRN404X (bare individual unit SKU) has been deprecated. The BRN404XTRAY50 (tray of 50) BRN404XKIT (starter kit) will continue to be available.
+
 ### Library updates 2025-08-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.

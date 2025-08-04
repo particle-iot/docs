@@ -113,7 +113,7 @@ instead of using a battery pack temperature sensor.
 | [BRN404](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
 | [BRN404KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | Deprecated |
 | [BRN404TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
-| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | GA |
+| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
 | [BRN404XKIT](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | micro-b | 2-pin | GA |
 | [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | GA |
 | [E260KIT](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |

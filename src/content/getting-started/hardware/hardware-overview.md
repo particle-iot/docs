@@ -271,7 +271,6 @@ There is no Boron version for EMEAA (Europe, Middle East, Africa, and Asia), as 
 
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
 

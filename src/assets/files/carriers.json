@@ -27809,7 +27809,7 @@
       "name": "BRN402",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
       "lifecycle": "Deprecated",
-      "replacement": "BRN404X",
+      "replacement": "BRN404XKIT",
       "modem": "R410",
       "sim": 3,
       "simPlans": [
@@ -27951,7 +27951,7 @@
       "name": "BRN404",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
       "lifecycle": "Deprecated",
-      "replacement": "BRN404X",
+      "replacement": "BRN404XKIT",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -28058,7 +28058,8 @@
     {
       "name": "BRN404X",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
+      "replacement": "BRN404XKIT",
       "modem": "R510",
       "sim": 4,
       "simPlans": [

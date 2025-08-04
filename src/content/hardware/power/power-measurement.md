@@ -78,7 +78,7 @@ The following devices include a PMIC.
 | [BRN404](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | bq24195 | Deprecated |
 | [BRN404KIT](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | bq24195 | Deprecated |
 | [BRN404TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | bq24195 | Deprecated |
-| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | bq24195 | GA |
+| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | bq24195 | Deprecated |
 | [BRN404XKIT](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | bq24195 | GA |
 | [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | bq24195 | GA |
 | [E260KIT](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | bq24195 | Deprecated |

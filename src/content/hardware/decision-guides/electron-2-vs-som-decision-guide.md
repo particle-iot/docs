@@ -95,7 +95,6 @@ In most cases, these are LTE Cat M1 devices, and are only officially supported i
 | [B404XMTY](/reference/datasheets/b-series/b404x-datasheet/) | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |
 | [B504EMTY](/reference/datasheets/b-series/b504-datasheet/) | B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50] | GA |
 | [BRN402TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
-| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | GA |
 | [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | GA |
 
 
@@ -233,7 +232,6 @@ Additional large-scale deployments of LTE Cat M1 in other countries are less lik
 | [B404XMEA](/reference/datasheets/b-series/b404x-datasheet/) | B-Series LTE-M (NorAm, EtherSIM), [x1] | noram | GA |
 | [B404XMTY](/reference/datasheets/b-series/b404x-datasheet/) | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | noram | GA |
 | [BRN402TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
-| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
 | [BRN404XKIT](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | noram | GA |
 | [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
 | [E402KIT](/reference/datasheets/e-series/e-series-eval-board/) | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | noram | NRND |
@@ -340,7 +338,6 @@ The [Feather page](/hardware/expansion/feather/) includes examples of Feather ac
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :---: | :--- |
 | [BRN402TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
-| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
 | [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
 | [ELC504EMEA](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x1] | americas | In development |
 | [ELC504EMTY](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x50] | americas | In development |
@@ -428,7 +425,6 @@ platform, each platform has differences in amount of available RAM and maximum a
 | [B524MEA](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | emeaa | GA |
 | [B524MTY](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | emeaa | GA |
 | [BRN402TRAY50](/reference/datasheets/b-series/boron-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | NRND |
-| [BRN404X](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), [x1] | noram | GA |
 | [BRN404XKIT](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | noram | GA |
 | [BRN404XTRAY50](/reference/datasheets/b-series/brn404x-datasheet/) | Boron LTE CAT-M1 (NorAm), Tray [x50] | noram | GA |
 | [E404XTRAY50](/reference/datasheets/e-series/e404x-datasheet/) | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | noram | GA |

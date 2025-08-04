@@ -1346,9 +1346,9 @@ Borons are available from [store.particle.io](https://store.particle.io/).
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | Deprecated | BRN404XKIT|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
