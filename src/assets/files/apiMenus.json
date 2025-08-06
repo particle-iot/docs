@@ -3133,6 +3133,17 @@
       ]
     },
     {
+      "title": "Linux",
+      "dir": "linux",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Linux",
+          "dir": "linux"
+        }
+      ]
+    },
+    {
       "title": "Logging",
       "dir": "logging",
       "collapse": true,
@@ -5237,6 +5248,17 @@
               "isContent": true
             }
           ]
+        }
+      ]
+    },
+    {
+      "title": "Tachyon",
+      "dir": "tachyon",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Tachyon",
+          "dir": "tachyon"
         }
       ]
     },

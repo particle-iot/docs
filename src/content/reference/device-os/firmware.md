@@ -19,6 +19,8 @@ Using Particle primitives like [Particle.publish](#particle-publish-) is how you
 
 If you haven't programmed in C++ or Arduino recently and would like a refresher, see [language syntax](#language-syntax).
 
+If you are programming the **Tachyon**, see the [Tachyon developer documentation](https://developer.particle.io/tachyon/).
+
 ### Navigation
 
 {{#if singlePage}}
@@ -30944,6 +30946,15 @@ The available stack depends on the environment:
 - Software timer callbacks: 1024 bytes
 
 The stack size cannot be changed as it's allocated by the Device OS before the user firmware is loaded. 
+
+
+## Tachyon
+
+For programming the Tachyon, see the [Tachyon developer documentation](https://developer.particle.io/tachyon/).
+
+## Linux
+
+For programming using Particle for Linux, see the [Particle for Linux developer documentation](https://developer.particle.io/linux/).
 
 ## Device OS versions
 

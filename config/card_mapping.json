@@ -1347,5 +1347,7 @@
   "/reference/device-os/firmware/#sscanf": "/reference/device-os/api/other-functions/sscanf/",
   "/reference/device-os/firmware/#preprocessor": "/reference/device-os/api/preprocessor/preprocessor/",
   "/reference/device-os/firmware/#memory": "/reference/device-os/api/memory/memory/",
-  "/reference/device-os/firmware/#stack": "/reference/device-os/api/memory/stack/"
+  "/reference/device-os/firmware/#stack": "/reference/device-os/api/memory/stack/",
+  "/reference/device-os/firmware/#tachyon": "/reference/device-os/api/tachyon/tachyon/",
+  "/reference/device-os/firmware/#linux": "/reference/device-os/api/linux/linux/"
 }

@@ -16,6 +16,7 @@ This is a preliminary datasheet and is subject to change.
 
 ## Overview
 
+{{!-- BEGIN shared-blurb 0cc9e529-f43b-4100-83b4-4ea4a75ad44b --}}
 Tachyon is a 5G-connected single-board computer (SBC) that takes the technology inside a modern smartphone and packs it into a Raspberry Pi form factor to power portable and remote computing devices. With a powerful Qualcomm Dragonwing™ SoC, an AI accelerator, and Particle’s application infrastructure, Tachyon combines all of the edge computing power, connectivity, and software necessary to embed intelligence into anything, anywhere.
 
 - Qualcomm QCM6490 8-core Kryo™ 670 CPU (1x 2.7GHz, 3x 2.4GHz, 4x 1.9GHz).
@@ -26,6 +27,12 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 - 2 x CSI 4-lane with ISP, supporting 20+ pre-integrated camera sensors 
 - Powered by USB-C or lithium-ion battery with integrated battery charger
 - Secure boot and encrypted filesystem
+{{!-- END shared-blurb --}}
+
+### Additional resources
+
+- [Tachyon developer documentation](https://developer.particle.io/tachyon/)
+- [Tachyon setup instructions](https://developer.particle.io/tachyon/setup/setup-overview)
 
 ### CPU information
 
@@ -650,6 +657,16 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
 
 ## Mechanical specifications
 
+### Operating temperature
+
+| Parameter | Minimum | Maximum | Notes |
+| :--- | :--- | :--- | :--- |
+| Recommended operating temperature | -17°C | +65°C | <sup>1</sup> |
+| Battery charging enabled | 0°C | +55°C |  |
+| Storage temperature | -40°C | +85°C | |
+
+<sup>1</sup>Device will perform thermal shutdown below -20°C or above +70°C.
+
 ### Dimensions and Weight
 
 - Dimensions: 85mm x 56mm
@@ -902,3 +919,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 003      | 2025-06-16 | RK | Added link to 3D models |
 | 004      | 2025-06-24 | RK | Updated HAT power; no longer requires a jumper |
 | 005      | 2025-07-30 | RK | Include radio module model |
+| 006      | 2025-08-06 | RK | Add operating temperature |

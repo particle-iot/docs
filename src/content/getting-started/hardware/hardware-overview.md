@@ -72,6 +72,30 @@ The Monitor One has the same cellular and processor module (Tracker SoM), but is
 
 ![Monitor One](/assets/images/monitor-one/monitor-one-closed.jpg)
 
+
+## Tachyon
+
+{{imageOverlay src="/assets/images/tachyon/tachyon-iso.jpg" alt="Tachyon Photo"}}
+
+{{!-- BEGIN shared-blurb 0cc9e529-f43b-4100-83b4-4ea4a75ad44b --}}
+Tachyon is a 5G-connected single-board computer (SBC) that takes the technology inside a modern smartphone and packs it into a Raspberry Pi form factor to power portable and remote computing devices. With a powerful Qualcomm Dragonwing™ SoC, an AI accelerator, and Particle’s application infrastructure, Tachyon combines all of the edge computing power, connectivity, and software necessary to embed intelligence into anything, anywhere.
+
+- Qualcomm QCM6490 8-core Kryo™ 670 CPU (1x 2.7GHz, 3x 2.4GHz, 4x 1.9GHz).
+- 5G sub-6Hz cellular connectivity and Wi-Fi 6E with on-device antennas
+- 8GB RAM and 128GB with built-in UFS storage
+- Adreno 643 GPU and 12 TOPS NPU 
+- USB-C 3.1 PD with DisplayPort and PD, 2x PCIe lanes, and DSI 4-lane
+- 2 x CSI 4-lane with ISP, supporting 20+ pre-integrated camera sensors 
+- Powered by USB-C or lithium-ion battery with integrated battery charger
+- Secure boot and encrypted filesystem
+{{!-- END shared-blurb --}}
+
+Additional Tachyon resources:
+- [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet)
+- [Tachyon developer documentation](https://developer.particle.io/tachyon/)
+- [Tachyon setup instructions](https://developer.particle.io/tachyon/setup/setup-overview)
+
+
 ## Production devices
 
 Production devices integrate with a custom base board to provide the functionality you need for your product.
