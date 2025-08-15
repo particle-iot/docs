@@ -595,38 +595,38 @@
           "dir": "bleuuid",
           "subsections": [
             {
-              "anchor": "type-",
-              "title": "type()",
+              "anchor": "type-bleuuid",
+              "title": "type() - BleUuid",
               "isContent": true
             },
             {
-              "anchor": "isvalid-",
-              "title": "isValid()",
+              "anchor": "isvalid-bleuuid",
+              "title": "isValid() - BleUuid",
               "isContent": true
             },
             {
-              "anchor": "equality",
-              "title": "equality",
+              "anchor": "equality-bleuuid",
+              "title": "equality - BleUuid",
               "isContent": true
             },
             {
-              "anchor": "rawbytes",
-              "title": "rawBytes",
+              "anchor": "rawbytes-bleuuid",
+              "title": "rawBytes - BleUuid",
               "isContent": true
             },
             {
-              "anchor": "operator-",
-              "title": "operator[]",
+              "anchor": "operator-bleuuid",
+              "title": "operator[] - BleUuid",
               "isContent": true
             },
             {
-              "anchor": "constructors",
-              "title": "Constructors",
+              "anchor": "constructors-bleuuid",
+              "title": "Constructors - BleUuid",
               "isContent": true
             },
             {
-              "anchor": "setters",
-              "title": "Setters",
+              "anchor": "setters-bleuuid",
+              "title": "Setters - BleUuid",
               "isContent": true
             }
           ]
@@ -691,7 +691,7 @@
               "isContent": true
             },
             {
-              "anchor": "operator--1",
+              "anchor": "operator-",
               "title": "operator[]",
               "isContent": true
             },
@@ -806,7 +806,7 @@
               "isContent": true
             },
             {
-              "anchor": "setters-1",
+              "anchor": "setters",
               "title": "Setters",
               "isContent": true
             }
@@ -5561,116 +5561,116 @@
           "dir": "time"
         },
         {
-          "title": "millis() - Time",
-          "dir": "millis"
+          "title": "millis() - Time - Time",
+          "dir": "millis-time"
         },
         {
-          "title": "micros() - Time",
-          "dir": "micros"
+          "title": "micros() - Time - Time",
+          "dir": "micros-time"
         },
         {
-          "title": "delay() - Time",
-          "dir": "delay"
+          "title": "delay() - Time - Time",
+          "dir": "delay-time"
         },
         {
-          "title": "delayMicroseconds() - Time",
-          "dir": "delaymicroseconds"
+          "title": "delayMicroseconds() - Time - Time",
+          "dir": "delaymicroseconds-time"
         },
         {
-          "title": "hour() - Time",
-          "dir": "hour"
+          "title": "hour() - Time - Time",
+          "dir": "hour-time"
         },
         {
-          "title": "hourFormat12() - Time",
-          "dir": "hourformat12"
+          "title": "hourFormat12() - Time - Time",
+          "dir": "hourformat12-time"
         },
         {
-          "title": "isAM() - Time",
-          "dir": "isam"
+          "title": "isAM() - Time - Time",
+          "dir": "isam-time"
         },
         {
-          "title": "isPM() - Time",
-          "dir": "ispm"
+          "title": "isPM() - Time - Time",
+          "dir": "ispm-time"
         },
         {
-          "title": "minute() - Time",
-          "dir": "minute"
+          "title": "minute() - Time - Time",
+          "dir": "minute-time"
         },
         {
-          "title": "second() - Time",
-          "dir": "second"
+          "title": "second() - Time - Time",
+          "dir": "second-time"
         },
         {
-          "title": "day() - Time",
-          "dir": "day"
+          "title": "day() - Time - Time",
+          "dir": "day-time"
         },
         {
-          "title": "weekday() - Time",
-          "dir": "weekday"
+          "title": "weekday() - Time - Time",
+          "dir": "weekday-time"
         },
         {
-          "title": "month() - Time",
-          "dir": "month"
+          "title": "month() - Time - Time",
+          "dir": "month-time"
         },
         {
-          "title": "year() - Time",
-          "dir": "year"
+          "title": "year() - Time - Time",
+          "dir": "year-time"
         },
         {
-          "title": "now() - Time",
-          "dir": "now"
+          "title": "now() - Time - Time",
+          "dir": "now-time"
         },
         {
-          "title": "local() - Time",
-          "dir": "local"
+          "title": "local() - Time - Time",
+          "dir": "local-time"
         },
         {
-          "title": "zone() - Time",
-          "dir": "zone"
+          "title": "zone() - Time - Time",
+          "dir": "zone-time"
         },
         {
-          "title": "isDST() - Time",
-          "dir": "isdst"
+          "title": "isDST() - Time - Time",
+          "dir": "isdst-time"
         },
         {
-          "title": "getDSTOffset() - Time",
-          "dir": "getdstoffset"
+          "title": "getDSTOffset() - Time - Time",
+          "dir": "getdstoffset-time"
         },
         {
-          "title": "setDSTOffset() - Time",
-          "dir": "setdstoffset"
+          "title": "setDSTOffset() - Time - Time",
+          "dir": "setdstoffset-time"
         },
         {
-          "title": "beginDST() - Time",
-          "dir": "begindst"
+          "title": "beginDST() - Time - Time",
+          "dir": "begindst-time"
         },
         {
-          "title": "endDST() - Time",
-          "dir": "enddst"
+          "title": "endDST() - Time - Time",
+          "dir": "enddst-time"
         },
         {
-          "title": "setTime() - Time",
-          "dir": "settime"
+          "title": "setTime() - Time - Time",
+          "dir": "settime-time"
         },
         {
-          "title": "timeStr() - Time",
-          "dir": "timestr"
+          "title": "timeStr() - Time - Time",
+          "dir": "timestr-time"
         },
         {
-          "title": "format() - Time",
-          "dir": "format"
+          "title": "format() - Time - Time",
+          "dir": "format-time"
         },
         {
-          "title": "setFormat() - Time",
-          "dir": "setformat"
+          "title": "setFormat() - Time - Time",
+          "dir": "setformat-time"
         },
         {
-          "title": "getFormat() - Time",
-          "dir": "getformat"
+          "title": "getFormat() - Time - Time",
+          "dir": "getformat-time"
         },
         {
-          "title": "isValid() - Time",
-          "dir": "isvalid"
+          "title": "isValid() - Time - Time",
+          "dir": "isvalid-time"
         },
         {
           "title": "Advanced - Time",
