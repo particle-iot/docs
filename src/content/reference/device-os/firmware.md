@@ -927,7 +927,7 @@ void loop() {
 Note that this function sends a request message to the Cloud and then returns.
 The time on the device will not be synchronized until some milliseconds later
 when the Cloud responds with the current time between calls to your loop.
-See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedLast()`](#particle-timesyncedlast-), [`Time.isValid()`](#isvalid-) and [`Particle.syncTimePending()`](#particle-synctimepending-) for information on how to wait for request to be finished.
+See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedLast()`](#particle-timesyncedlast-), [`Time.isValid()`](#isvalid-time) and [`Particle.syncTimePending()`](#particle-synctimepending-) for information on how to wait for request to be finished.
 
 Synchronizing time does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary time synchronization can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
@@ -960,7 +960,7 @@ void loop()
 }
 ```
 
-See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
+See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-time).
 
 ### Particle.syncTimePending()
 
@@ -975,7 +975,7 @@ Returns `true` if there a `syncTime()` request currently pending. Returns `false
 bool syncTimePending(void)
 ```
 
-See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
+See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-time).
 
 ### Particle.timeSyncedLast()
 
@@ -13821,7 +13821,7 @@ BleUuid(const uint8_t* uuid128, BleUuidOrder order = BleUuidOrder::LSB);
 BleUuid myCustomService({0x24, 0x0d, 0x51, 0x83, 0x81, 0x9a, 0x46, 0x27, 0x9c, 0xa9, 0x1a, 0xa2, 0x4d, 0xf2, 0x9f, 0x18});
 ```
 
-#### type()
+#### type() - BleUuid
 
 {{api name1="BleUuid::type"}}
 
@@ -13839,7 +13839,7 @@ Returns a constant:
 - `BleUuidType::LONG` for 128-bit UUIDs
 
 
-#### isValid()
+#### isValid() - BleUuid
 
 {{api name1="BleUuid::isValid" name2="BleUuid::valid"}}
 
@@ -13858,7 +13858,7 @@ Return `true` if the UUID is valid or `false` if not.
 
 In Device OS 3.0.0 and later,, `valid()` can be used as well. Before, the `isValid()` method was used.
 
-#### equality
+#### equality - BleUuid
 
 {{api name1="BleUuid::equality"}}
 
@@ -13887,7 +13887,7 @@ if (svcCount > 0 && foundServiceUUID == serviceUuid) {
 	// Device advertises our custom service "serviceUuid" so try to connect to it
 }
 ```
-#### rawBytes
+#### rawBytes - BleUuid
 
 {{api name1="BleUuid::rawBytes"}}
 
@@ -13900,7 +13900,7 @@ void rawBytes(uint8_t uuid128[BLE_SIG_UUID_128BIT_LEN]) const;
 const uint8_t* rawBytes() const;    
 ```
 
-#### operator[]
+#### operator[] - BleUuid
 
 {{api name1="BleUuid::operator[]"}}
 
@@ -13912,7 +13912,7 @@ uint8_t operator[](uint8_t i) const;
 
 In Device OS 3.0.0 and later, you can retrieve a raw bytes of the UUID using the `[]` operator.
 
-#### Constructors
+#### Constructors - BleUuid
 
 Other, less commonly used constructors include:
 
@@ -13927,7 +13927,7 @@ BleUuid(const String& uuid);
 BleUuid(const char* uuid);
 ```
 
-#### Setters
+#### Setters - BleUuid
 
 You normally don't need to set the value of a BleUuid after construction, but the following methods are available:
 
@@ -19152,7 +19152,7 @@ This reduces the need for external libraries to manage dates and times.
 Before the device gets online and for short intervals, you can use the
 `millis()` and `micros()` functions.
 
-### millis()
+### millis() - Time
 
 {{api name1="millis"}}
 
@@ -19182,7 +19182,7 @@ The return value for millis is an unsigned long, errors may be generated if a pr
 
 Instead of using `millis()`, you can instead use [`System.millis()`](#system-millis-) that returns a 64-bit value that will not roll over to 0 during the life of the device.
 
-### micros()
+### micros() - Time
 
 {{api name1="micros"}}
 
@@ -19210,7 +19210,7 @@ void loop()
 
 It overflows at the maximum 32-bit unsigned long value.
 
-### delay()
+### delay() - Time
 
 {{api name1="delay"}}
 
@@ -19250,7 +19250,7 @@ the parameter for millis is an unsigned long, errors may be generated if a progr
 You can also specify a value using [chrono literals](#chrono-literals), for example: `delay(2min)` for 2 minutes. However you should generally avoid long delays.
 
 
-### delayMicroseconds()
+### delayMicroseconds() - Time
 
 {{api name1="delayMicroseconds"}}
 
@@ -19285,7 +19285,7 @@ void loop()
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `delayMicroseconds(2ms)` for 2 milliseconds, but you should generally avoid using long delay values with delayMicroseconds.
 
-### hour()
+### hour() - Time
 
 {{api name1="Time.hour"}}
 
@@ -19306,7 +19306,7 @@ Returns: Integer 0-23
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
-### hourFormat12()
+### hourFormat12() - Time
 
 {{api name1="Time.hourFormat12"}}
 
@@ -19327,7 +19327,7 @@ Returns: Integer 1-12
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
-### isAM()
+### isAM() - Time
 
 {{api name1="Time.isAM"}}
 
@@ -19347,7 +19347,7 @@ Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing AM/PM to be calculated incorrectly.
 
-### isPM()
+### isPM() - Time
 
 {{api name1="Time.isPM"}}
 
@@ -19367,7 +19367,7 @@ Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing AM/PM to be calculated incorrectly.
 
-### minute()
+### minute() - Time
 
 {{api name1="Time.minute"}}
 
@@ -19388,7 +19388,7 @@ Returns: Integer 0-59
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
-### second()
+### second() - Time
 
 {{api name1="Time.second"}}
 
@@ -19408,7 +19408,7 @@ Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 Returns: Integer 0-59
 
 
-### day()
+### day() - Time
 
 {{api name1="Time.day"}}
 
@@ -19429,7 +19429,7 @@ Returns: Integer 1-31
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect date.
 
-### weekday()
+### weekday() - Time
 
 {{api name1="Time.weekday"}}
 
@@ -19457,7 +19457,7 @@ Returns: Integer 1-7
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect day of week.
 
-### month()
+### month() - Time
 
 {{api name1="Time.month"}}
 
@@ -19478,7 +19478,7 @@ Returns: Integer 1-12
 
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect date.
 
-### year()
+### year() - Time
 
 {{api name1="Time.year"}}
 
@@ -19497,7 +19497,7 @@ Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 Returns: Integer
 
 
-### now()
+### now() - Time
 
 {{api name1="Time.now"}}
 
@@ -19516,7 +19516,7 @@ Retrieve the current time as seconds since January 1, 1970 (commonly known as "U
 
 Returns: time32_t (Unix timestamp), coordinated universal time (UTC), `int32_t` (signed 32-bit integer). Prior to Device OS 2.0.0, this was a standard C `time_t`, however starting in Device OS 2.0.0, the standard C library changed the size of time_t to 64-bit to avoid rollover to 0 in 2038. For compatibility, Device OS still uses the 32-bit version.
 
-### local()
+### local() - Time
 
 {{api name1="Time.local"}}
 
@@ -19530,7 +19530,7 @@ Local time is also affected by the Daylight Saving Time (DST) settings.
 
 Returns: time32_t (Unix timestamp), local time, `int32_t` (signed 32-bit integer). Prior to Device OS 2.0.0, this was a standard C `time_t`, however starting in Device OS 2.0.0, the standard C library changed the size of time_t to 64-bit to avoid rollover to 0 in 2038. For compatibility, Device OS still uses the 32-bit version.
 
-### zone()
+### zone() - Time
 
 {{api name1="Time.zone"}}
 
@@ -19546,7 +19546,7 @@ Time.zone(-4);
 
 Parameters: floating point offset from UTC in hours, from -12.0 to 14.0
 
-### isDST()
+### isDST() - Time
 
 {{api name1="Time.isDST"}}
 
@@ -19563,7 +19563,7 @@ Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
 This function only returns the current DST setting that you choose using beginDST() or endDST(). The setting does not automatically change based on the calendar date.
 
-### getDSTOffset()
+### getDSTOffset() - Time
 
 {{api name1="Time.getDSTOffset"}}
 
@@ -19578,7 +19578,7 @@ float offset = Time.getDSTOffset();
 
 Returns: floating point DST offset in hours (default is +1.0 hours)
 
-### setDSTOffset()
+### setDSTOffset() - Time
 
 {{api name1="Time.setDSTOffset"}}
 
@@ -19594,7 +19594,7 @@ Time.setDSTOffset(0.5);
 
 Parameters: floating point offset in hours, from 0.0 to 2.0
 
-### beginDST()
+### beginDST() - Time
 
 {{api name1="Time.beginDST"}}
 
@@ -19604,7 +19604,7 @@ Start applying Daylight Saving Time (DST) offset to the current time.
 
 You must call beginDST() at startup if you want use DST mode. The setting is not remembered and is not automatically changed based on the calendar.
 
-### endDST()
+### endDST() - Time
 
 {{api name1="Time.endDST"}}
 
@@ -19614,7 +19614,7 @@ Stop applying Daylight Saving Time (DST) offset to the current time.
 
 You must call endDST() on the appropriate date to end DST mode. It is not calculated automatically.
 
-### setTime()
+### setTime() - Time
 
 {{api name1="Time.setTime"}}
 
@@ -19633,7 +19633,7 @@ Time.setTime(1413034662);
 Parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 
-### timeStr()
+### timeStr() - Time
 
 {{api name1="Time.timeStr"}}
 
@@ -19646,7 +19646,7 @@ Returns: String
 
 _NB: In 0.3.4 and earlier, this function included a newline at the end of the returned string. This has been removed in 0.4.0._
 
-### format()
+### format() - Time
 
 {{api name1="Time.format"}}
 
@@ -19681,7 +19681,7 @@ If you have set the time zone using Time.zone(), beginDST(), etc. the formatted 
 **Note:** The custom time provided to `Time.format()` needs to be UTC based and *not* contain the time zone offset (as `Time.local()` would), since the time zone correction is performed by the high level `Time` methods internally.
 
 
-### setFormat()
+### setFormat() - Time
 
 {{api name1="Time.setFormat"}}
 
@@ -19704,14 +19704,14 @@ Time.format(Time.now(), "Now it's %I:%M%p.");
 
 ```
 
-### getFormat()
+### getFormat() - Time
 
 {{api name1="Time.getFormat"}}
 
 Retrieves the currently configured format string for time formatting with `format()`.
 
 
-### isValid()
+### isValid() - Time
 
 {{api name1="Time.isValid"}}
 
@@ -19723,7 +19723,7 @@ Time.isValid();
 ```
 
 Used to check if current time is valid. This function will return `true` if:
-- Time has been set manually using [`Time.setTime()`](#settime-)
+- Time has been set manually using [`Time.setTime()`](#settime-time)
 - Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
 - On Gen 2 devices only, the correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#retained-memory) for cases when RTC retains the time.
 
@@ -24151,7 +24151,7 @@ of the device, it can be used for accurately measuring small periods of time.
 ```
 
 The system ticks are intended for measuring times from less than a microsecond up
-to a second. For longer time periods, using [micros()](#micros-) or [millis()](#millis-) would
+to a second. For longer time periods, using [micros()](#micros-time) or [millis()](#millis-time) would
 be more suitable.
 
 
@@ -24356,7 +24356,7 @@ void loop() {}
 
 {{since when="0.8.0"}}
 
-Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
+Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-time) function but returns a 64-bit value.
 
 While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-bit `System.millis()` does not.
 

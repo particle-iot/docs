@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS API reference fix 2025-08-15
+
+Fixed a problem where BleUuid::isValid and Time::isValid could jump to the wrong item when selected from the navigation.
+
 ### Tachyon datasheet 2025-08-06
 
 The [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/#operating-temperature) now includes operating temperature information.

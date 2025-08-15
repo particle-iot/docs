@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-08-06",
-            "hash": "92b0b112c1c57297a7930fe01f7a0740078bd9a3d85414d2b4f8c7dc36e6f5fe"
+            "date": "2025-08-15",
+            "hash": "5edb2188a5988a5d646ff2f3c0206304a50e284fc4a41c761b116572e505fc2c"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1787,16 +1787,16 @@
             "hash": "97e69c5d78dabe1509ff59688ef59e32bf8b11d791c62e761819b3987c430500"
         },
         "reference/device-os/api/cloud-functions/particle-synctime.md": {
-            "date": "2023-09-20",
-            "hash": "f596f3cacddc6152ee38e376b3a9b3d6a6cfb44375856f37c5c7cf046b702608"
+            "date": "2025-08-15",
+            "hash": "4f1530a3cea5e218dd02e03f9987d1422759ced11adbf6fd2b821ef7c5fcbd7c"
         },
         "reference/device-os/api/cloud-functions/particle-synctimedone.md": {
-            "date": "2023-09-20",
-            "hash": "d417e24cef1bca9d58493d37839aaf5dcddeb88ad8d55e4da88424bd06b6ad1e"
+            "date": "2025-08-15",
+            "hash": "f5180004dd52129d97839974d176ff9df236f1d5d8b396cf2e32ccfed92712bd"
         },
         "reference/device-os/api/cloud-functions/particle-synctimepending.md": {
-            "date": "2024-12-03",
-            "hash": "0fb499bfdc7c95192a9aa104f41a3fae5e74f0c5cbb7c682b59dffbc782962d8"
+            "date": "2025-08-15",
+            "hash": "c91999e20fc459cf1a2ca99364bdb366e06404521953a9202a482006f9dbe9a9"
         },
         "reference/device-os/api/cloud-functions/particle-timesyncedlast.md": {
             "date": "2024-12-03",
@@ -2919,8 +2919,8 @@
             "hash": "9257af6aa3dfaa6b413e6439bc3af1a20cc26c0fc5e16e0c949adcba7f10deeb"
         },
         "reference/device-os/api/bluetooth-le-ble/bleuuid.md": {
-            "date": "2024-02-22",
-            "hash": "ff3134e27ccd2b8a983d093acc216741c14730194225820edd2fe10a8e9c1b49"
+            "date": "2025-08-15",
+            "hash": "e798ca912f0498a2edf4a500a5ec46d8f155433901c478ea4439cfae6e08d179"
         },
         "reference/device-os/api/bluetooth-le-ble/bleadvertisingdata.md": {
             "date": "2023-09-20",
@@ -3763,8 +3763,8 @@
             "hash": "c29640de1c85a35399d1afdd46216c176c475ae4bb146587690914bac1beb365"
         },
         "reference/device-os/api/system-calls/system-cycle-counter.md": {
-            "date": "2023-09-20",
-            "hash": "35d0a2153166b246bc87fb1e1ab042496a8906bf92ead989b8c1e7d3671c7262"
+            "date": "2025-08-15",
+            "hash": "1710406699fb7b827a5990e215287cd2dbd5887a3055a69102808eb5cd6af158"
         },
         "reference/device-os/api/system-calls/freememory.md": {
             "date": "2024-07-23",
@@ -3787,8 +3787,8 @@
             "hash": "ca4de9d74d991340c0eaca2bfb3858c2f79a574cfda58b7374c7da5ba084d535"
         },
         "reference/device-os/api/system-calls/system-millis.md": {
-            "date": "2023-09-20",
-            "hash": "c734e4ea231a2da226f873cc810bd75b33b2efed214730f0e9208ae4c3b131bc"
+            "date": "2025-08-15",
+            "hash": "49124697877693e71743d8be8df41f00bac5a29b9e52a9432a09f313d788773d"
         },
         "reference/device-os/api/system-calls/system-uptime.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ee6ad10b9ec3f72662976df0e0ffd0e3b6a2750c3c500fc20d79dfe13c61464f",
-            "date": "2025-08-06"
+            "hash": "efcb2d272893d3ce2f6ca67b0bcb1a6225015de494947eddfe509c3177286285",
+            "date": "2025-08-15"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9765,6 +9765,118 @@
         "reference/device-os/api/linux/linux.md": {
             "hash": "256e7506e554e5692f0af505cc961425c8eea199f2b63eb6fddf6dfc841ed5e1",
             "date": "2025-08-06"
+        },
+        "reference/device-os/api/time/millis-time.md": {
+            "hash": "7aff88f97bc96e1900bd555b30a9a0deea359c96b993ac8ceb6acc306aa52853",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/micros-time.md": {
+            "hash": "8a716d55158457ba891f4fec466e582074b85b2422ef448181ed0b0e1c98cbf0",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/delay-time.md": {
+            "hash": "7a62977dcd253b2b201b043eb5d53e1d9ef806dd25641cde3fefe616b54cc302",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/delaymicroseconds-time.md": {
+            "hash": "44564193e2255a4602d35c5b4fe6599d2b8f7390daa7e2b04219d03a3641ce45",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/hour-time.md": {
+            "hash": "f8aa8bce4f27a6162f7defac22a25b34a1a34da2c1ff019f7531a98c1b7ba0b4",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/hourformat12-time.md": {
+            "hash": "08e6a3c75daefe0c0e3dfa524046a2935cfb83c7b8613b685f7078ad7f585039",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/isam-time.md": {
+            "hash": "b0d0021853835992d51587c0a934a5f5b3efd6c611f06c4ea36ed751b37f9464",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/ispm-time.md": {
+            "hash": "41076c22fe144eda4d8b484195691698b15776434990c5bc1d7dd5f081c196d1",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/minute-time.md": {
+            "hash": "0b9cba1b0bcbc46509ed2f1145898de55a4f38c6f0414379d55701f01b252251",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/second-time.md": {
+            "hash": "99006993646b3abefb2ff98a33298bc34daed8d609d8adb60843fa6747d963c6",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/day-time.md": {
+            "hash": "0592586fc7b89b25f64a653e558cd11719b9b05d5427803e7663582649f49ac0",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/weekday-time.md": {
+            "hash": "208da057a8c59087a5191f30fbb4fd51fa2c1f9a0dda778b2b69f2e4a49d9d66",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/month-time.md": {
+            "hash": "05e8233fc4899277730c2c95ecf705431bcdfd4b1cd9c25235a3af6a296e3a74",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/year-time.md": {
+            "hash": "ea293548f5c7362117e41a3e11de577c832d1670479b05d79808df32c3d6e829",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/now-time.md": {
+            "hash": "e6b20d0695e4e66d19a22958c99c1e79e66d2c0940fa147501eb93a34d1967e9",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/local-time.md": {
+            "hash": "e91759b56a174ce926d01fbf2bca74d6b51d6b7ec484da2e93e00a932a20e59f",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/zone-time.md": {
+            "hash": "fab3e24d313d36344b407784cce9c6dba8246e6c578eb2eeb47b6a47c460adc4",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/isdst-time.md": {
+            "hash": "be9f870a9f7d469febf63b7ae526d7f538c5b22aaa3d75f8787aeab1b0aef52a",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/getdstoffset-time.md": {
+            "hash": "d34f3cbfdfbeb9d2733e5c156f036a2c11ba2a6d3d1b545bece1750ba33121ae",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/setdstoffset-time.md": {
+            "hash": "a9c6a8763bfb79ec2d5daa51f56c124d8d1c6f487deab49263acfc16bd7a1428",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/begindst-time.md": {
+            "hash": "0992a308c31eed2138452ad3f623f74bb33b0a9583604978943329c2dd8e8e8e",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/enddst-time.md": {
+            "hash": "169a745fae6ae4af9651f1df164b45f49db946c86e895b93cc97dc09461a346d",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/settime-time.md": {
+            "hash": "7386ef9098db5f7b783656967b37e089e9dfd71e17a80622aafdbd0930f0ac77",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/timestr-time.md": {
+            "hash": "13e04a837550efae4af2306a70f592280f998eb4185e67b0345757c30ec14235",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/format-time.md": {
+            "hash": "809df78e6605413846431e3510dbf3426e87c6e7133afae4a1c6a27f3ba2be85",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/setformat-time.md": {
+            "hash": "3dfacc573b2dceb12b9412d0ad849eff49802d6a82a00f1e92954bfe17469d0e",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/getformat-time.md": {
+            "hash": "f21e03d86222012e056929f4f7f7dafb43f669dc91296c7ff2eae6032232cc00",
+            "date": "2025-08-15"
+        },
+        "reference/device-os/api/time/isvalid-time.md": {
+            "hash": "8e3344ea9ce247febdeaf1d5f61d4cb0e3b5b37dd037beb0b88f8cd459caaa48",
+            "date": "2025-08-15"
         }
     }
 }
