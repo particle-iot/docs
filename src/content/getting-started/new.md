@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Canada 2G/3G sunset update 2025=08-20
+
+The [Canada 2G/3G sunset page](/reference/discontinued/cellular/canada-sunset/) has been updated with a warning that even if you continue to have 2G or 3G service, it may end at any time since it is past the sunset deadline.
+
 ### Device OS API reference fix 2025-08-15
 
 Fixed a problem where BleUuid::isValid and Time::isValid could jump to the wrong item when selected from the navigation.

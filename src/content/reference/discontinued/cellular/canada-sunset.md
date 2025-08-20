@@ -15,6 +15,8 @@ Most carriers will have sunset 3G by December 31, 2025. **After this date, 2G/3G
 
 Rogers has [announced](https://www.rogers.com/support/mobility/3g-network-retirement-everything-you-need-to-know) the shutdown of their 3G network on July 31, 2025.
 
+While Rogers had officially sunset 2G in 2021, devices may still connect via 2G in some areas. 2G and 3G service may end at any time, without warning, as it is past the sunset deadline.
+
 ### Bell Mobility
 
 Bell Mobility is expected to sunset 3G on December 31, 2025. 
