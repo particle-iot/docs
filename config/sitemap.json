@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "40ec186f39cac50f05cbd3de3b33201a4f700511738bdfb20854e01abec4468a",
-            "date": "2025-08-20"
+            "hash": "ea5e1819a2f4961dd03d788da0e0dd0641aebce393dba531fbbbd30a4d5cd415",
+            "date": "2025-08-27"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9877,6 +9877,10 @@
         "reference/device-os/api/time/isvalid-time.md": {
             "hash": "8e3344ea9ce247febdeaf1d5f61d4cb0e3b5b37dd037beb0b88f8cd459caaa48",
             "date": "2025-08-15"
+        },
+        "reference/device-os/libraries/s/STM32_Flash.md": {
+            "hash": "588071848f4187e3c448893c51aab86dd74653bc446b0ddcc2de9915d7699157",
+            "date": "2025-08-27"
         }
     }
 }
