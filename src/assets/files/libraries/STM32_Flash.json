@@ -1,0 +1,118 @@
+{
+  "type": "libraries",
+  "id": "STM32_Flash",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/STM32_Flash/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "STM32_Flash",
+    "version": "1.0.1",
+    "author": "Julien Vanier",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/STM32_Flash",
+  "versions": {
+    "1.0.1": {
+      "added": "2025-08-27T10:22:43.152Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "bsom": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "b5som": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "tracker": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "p2": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "msom": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "boron": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "bsom": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "b5som": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "tracker": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "p2": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "boron": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "bsom": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "b5som": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "tracker": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          },
+          "esomx": {
+            "update_on_asset_ota": true,
+            "update_on_boot": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "update_on_asset_ota": false,
+            "update_on_boot": false
+          },
+          "electron": {
+            "update_on_asset_ota": false,
+            "update_on_boot": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# STM32_Flash\n\nA Particle library to flash an STM32 microcontroller using [Asset OTA](https://docs.particle.io/reference/asset-ota/asset-ota/).\n\n## Usage\n\n1. In your Particle project, create an `assets` directory.\n1. Put your STM32 binary in `.bin` format in the `assets` directory.\n1. Add the line `assetOtaDir=assets` to your `project.properties`.\n1. Connect the RESET, BOOT0, USART TX and RX pins from the STM32 to the Particle device.\n1. Add the `STM32_Flash` library to your application.\n1. From your application, call `flashStm32Binary` to perform the flash process.\n\n```\n#include \"STM32_Flash.h\"\n\nconst auto BOOT_PIN = D0;\nconst auto RESET_PIN = D1;\nvoid flash() {\n  for (auto& asset: System.assetsAvailable()) {\n    if (asset.name().startsWith(\"stm32\")) {\n      flashStm32Binary(asset, BOOT_PIN, RESET_PIN);\n    }\n  }\n}\n```\n\n## Hardware setup\n\nThe Particle device needs to be able to drive the STM32 pins RESET and BOOT0. Set up a transistor between the Particle device and each pins as shown in the image. You can use any digital output pin (D0 and D1 are just an example). The BOOT1 pin must to be held low. It can be hardwired to ground.\n\nPin connections (image removed)\n\nThis inverts the signal between the Particle device and the pin and is the default software configuration for the library. In case you use a non-inverting buffer, pass additional options to the library.\n\n```\nflashStm32Binary(asset, BOOT_PIN, RESET_PIN, STM32_RESET_NONINVERTED | STM32_BOOT_NONINVERTED);\n```\n\nConnect the STM32 TX pin to the Particle Serial1 RX pin, and the STM32 RX pin to the Particle Serial1 TX pin.\n\nSee [AN2606 STM32 microcontroller system memory boot mode](https://www.st.com/resource/en/application_note/an2606-stm32-microcontroller-system-memory-boot-mode-stmicroelectronics.pdf) to confirm which USART can be used to flash your STM32 device in bootloader mode.\n\n## Documentation\n\n```\nint flashStm32Binary(ApplicationAsset& asset, pin_t boot0Pin, pin_t resetPin, uint32_t options = 0);\n```\n\nCall `flashStm32Binary` to start flashing the asset to the STM32 device. It will turn on the BOOT0 pin, reset the device and communicate over USART using the [protocol described in AN3155](https://www.st.com/resource/en/application_note/an3155-usart-protocol-used-in-the-stm32-bootloader-stmicroelectronics.pdf). Returns 0 on success, and a [system error code](https://docs.particle.io/reference/device-os/firmware/#system-errors) on error (most likely -160 for timeout).\n\nTimeout failures are likely due to wrong pin connections so the STM32 doesn't switch to bootloader mode.\n\nYou can flash the device when a new asset is received (triggered by `System.onAssetOta`) or on demand (useful if you have a way to get the version of the firmware running on the STM32).\n\nSee the examples folder for more details.\n\n## License\n\nCopyright (c) 2024, Particle Industries, Inc.\n\nReleased under the MIT license\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
+}

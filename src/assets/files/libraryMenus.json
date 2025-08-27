@@ -3605,6 +3605,10 @@
           "dir": "Stepper"
         },
         {
+          "title": "STM32_Flash",
+          "dir": "STM32_Flash"
+        },
+        {
           "title": "StorageHelperRK",
           "dir": "StorageHelperRK"
         },
