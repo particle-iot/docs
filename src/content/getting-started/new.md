@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-08-27
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Canada 2G/3G sunset update 2025=08-20
 
 The [Canada 2G/3G sunset page](/reference/discontinued/cellular/canada-sunset/) has been updated with a warning that even if you continue to have 2G or 3G service, it may end at any time since it is past the sunset deadline.
