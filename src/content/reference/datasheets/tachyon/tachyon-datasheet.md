@@ -308,7 +308,121 @@ The LED indicates:
 - Connect these two pads to an external momentary switch to allow the button operations to be done from an external button.
 
 
+
+## Power requirements
+
+The Tachyon supports three power inputs: 
+
+- USB1 (primary USB-C)
+- 5V IN (input from the 40-pin expansion HAT connector) 
+- VBAT (LiPo battery)
+
+It supports different USB power modes:
+
+- PD (Power Delivery)
+- DCP (Dedicated Charge Port) 
+- CDP (Charging Downstream Port). 
+
+In order to use USB-PD mode, a battery must always be attached or the Tachyon will not boot properly.
+
+The USB-DCP mode can be used without a battery.
+
+If the Tachyon is connected to a HDMI dock, USB hub, or monitor via the USB1 connector, the USB-PD mode will be used, and a battery is required.
+
+Power from USB1 can be added or removed while the Tachyon is running. 
+
+You should avoid adding or removing 5V IN or the battery while the system is running as the change may not be detected, or the device may turn off unexpectedly.
+
+The USB1 port has a DP (DisplayPort) function for connecting to an external monitor via an USB-C to C cable. It is highly recommended the monitor have its own power supply to prevent high current from the USB1 port. The port can supply about 5V/1.5A to USB devices.
+
+### Power input requirements
+
+- USB1: There are different modes for supplying power to the USB-C port and its power capability from a USB-C power adapter and USB port of a computer
+  - DCP: 5V/3A or 9V/3A  
+  - CDP: 5V/1.5A  
+  - PD: 5V/5A or 9V/3A  
+- 5V IN: Input from the 40-pin HAT connector
+  - 5V/5A (do not provide voltage higher than 5V from the 40-pin connector)
+- VBAT: Battery
+  - 3.5V - 4.2V
+
+Notes:
+
+* If both the USB1 and 5V (as input) have power to supply to the board at the same time without battery attached, the 5V power will supply to VBAT (simulates battery).
+* If 5V is used as power input with battery attached, the USB1 port cannot be used.
+* If 5V is not used for power input, it is set to power output and supplies 5V/1.5A to the 40-pin expansion HAT connector.
+
+### Power modes
+
+The Tachyon supports the following power modes of operation
+
+* DCP  
+  * Powered by power adapter with DCP capability  
+  * This mode can work without battery attached  
+  * `POWER\_SUPPLY\_TYPE=USB\_DCP`
+* CDP  
+  * Powered by computer USB-A port, data communication is functional  
+  * Powered by computer USB-C to A adapter and A to C cable to the board, data communication is functional  
+  * Limited power but useful for sending data or debugging, e.g. adb shell  
+  * `POWER\_SUPPLY\_TYPE=USB\_CDP`
+* PD  
+  * Powered by power adapter with USB-PD capability  
+  * Powered by computer USB-C Port, data communication is functional  
+  * `POWER\_SUPPLY\_TYPE=USB\_PD`
+* Battery  
+  * Battery is discharging
+
+Known Issues:
+
+* CDP/PD: If the board has no battery attached and connects to the computer USB-C port via USB-C to C cable, it will get PD instead of CDP, so the Tachyon does not support this at this time.
+* DCP: The power adapter shipped with beta devices supports PD only and is not DCP capable, so it must be used with a battery or 5V input.
+
+
+### Power supply scenarios
+
+| USB1                  | 5V IN | VBAT  | Power Requirements            | Notes  |
+| :-------------------- | :---- | :---- | :---------------------------- | :---- |
+| Power Adapter         | NO    | NO    | PD: Not Suppored              | 5V is set to power output - 5V/1.5A |
+|                       |       |       | DCP: 9V/3A or 5V/5A           | Power adapter with PD only will not boot |
+| Power Adapter         | YES   | NO    | PD: 9V/3A                     | Power comes from USB1 |
+|                       |       |       | DCP: 9V/3A or 5V/5A           | Remove USB1, power will change to 5V<sup>2</sup> |
+| Power Adapter         | YES   | YES   | PD: 9V/3A                     | Power comes from USB1 |
+|                       |       |       | DCP: 9V/3A or 5V/5A           | Remove USB1, power will change to use VBAT<sup>1</sup><sup>3</sup> |
+| Power Adapter         | NO    | YES   | PD: 9V/3A                     | |
+|                       |       |       | DCP: 9V/3A or 5V/5A           | |
+| PC USB (A to C cable) | NO    | NO    | CDP: 5V/1.5A                  | Power comes from USB1 Limited power supply for peripherals |
+| PC USB (A to C cable) | YES   | NO    | CDP: 5V/1.5A                  | Power comes from 5V (via VBAT as fake battery) |
+|                       |       |       |                               | Limited power supply for peripherals |
+| PC USB (A to C cable) | YES   | YES   | CDP: 5V/1.5A                  | Power comes from USB1 |
+|                       |       |       |                               | Remove USB1, power will change to use VBAT 5V<sup>1</sup><sup>3</sup> |
+| PC USB (A to C cable) | NO    | YES   | CDP: 5V/1.5A                  | Power comes from USB1 and to VBAT |
+| PC USB (C to C cable) | YES   | YES   | PD: 5V/3A                     | Power comes from USB1 Remove USB1, power will change to use VBAT <sup>1</sup><sup>3</sup>|
+| PC USB (C to C cable) | YES   | NO    | PD: 5V/3A                     | Power comes from USB1 Remove USB1, power will change to use 5V <sup>2</sup> |
+| PC USB (C to C cable) | NO    | NO    | PD: Not Supported             |  |
+| PC USB (C to C cable) | NO    | YES   | PD: 5V/3A                     | Power comes from USB1 and to VBAT |
+| NO                    | YES   | YES   | 5V/5A                         | Power supplies to VBAT |
+|                       |       |       |                               | After boot-up, USB1 will not be functional |
+|                       |       |       |                               | System only reports DCP 5V/3A|
+| NO                    | YES   | NO    | 5V/5A                         | Power supplies to VBAT |
+|                       |       |       |                               | After boot-up, USB1 will be functional for USB device and display |
+| N/A                   | N/A   | YES   | 3.5V - 4.2V / 5A              |  |
+
+Note: Connect power input before booting Tachyon to assure proper detection.
+
+- <sup>1</sup>Battery will be discharging in this mode.
+- <sup>2</sup>VBAT is powered, simulating a battery, even though a battery is not connected.
+- <sup>3</sup>5V input is not used.
+
+### Power requirements summary
+
+- USB power adapter can support  
+  - USB-PD at 9V/3A (must use with battery or 5V at the same time) 
+  - USB-DCP at 9V/3A
+-  Supply 5V/5A to the 40-pin header for power input  
+-  Use a battery if possible (with capacity from a minimum of 3.5V to a maximum 4.2V with 5A capability)
+
 ## Technical specification
+
 
 {{!-- 
 ### Absolute maximum ratings
