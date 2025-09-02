@@ -89,7 +89,7 @@ By default the Monitor One uses the internal cellular and GNSS antennas, but can
 
 The cellular (1) and GNSS (4) antennas are not connected internally at the factory. In order to use the external connectors you must open the case, disconnect the internal antenna, and instead connect the U.FL connector for the external jack.
 
-The Monitor One is equipped with 2 external-facing SMA bulkhead connectors for both cellular and GNSS but are disconnected internally. The hardware is ready for use with external antennas giving the ability to connect a wide variety of application-specific antennas. It is recommended that the user perform required RF certifications with the selected antenna installed as the Monitor One has only been certified for use in select regions with the internal antennas.
+The Monitor One is equipped with 2 external-facing SMA bulkhead connectors for both cellular and GNSS but are disconnected internally. The hardware is ready for use with external antennas giving the ability to connect a wide variety of application-specific antennas. It is recommended that the user perform required RF certifications with the selected antenna installed as the Monitor One has only been certified for use in select regions with the internal antennas. The specifications for this cable are in the [SMA to JST cable datasheet](/assets/pdfs/sma-jst.pdf) (pdf).
 
 
 ## Mounting

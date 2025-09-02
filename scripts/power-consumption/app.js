@@ -44,6 +44,7 @@ async function run() {
             'Photon 2': 'PHN2',
             'MSoM (EG91, EVT)': 'M524',
             'MSoM (BG95 (2G/CAT-M1), EVT)': 'M404',
+            'Electron2': 'ELC2',
         };
 
         const modeStrings = {

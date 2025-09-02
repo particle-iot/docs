@@ -17,7 +17,8 @@
             "E404X": "E404X",
             "Argon": "ARGN-H",
             "P2": "P2",
-            "Photon 2": "PHN2"
+            "Photon 2": "PHN2",
+            "Electron 2": "ELC2"
         },
         "modes": {
             "STOP Mode": "stop",
@@ -57,7 +58,7 @@
             "Ihib_gpio": "HIBERNATE mode sleep, GPIO wake-up",
             "Ihib_intrtc": "HIBERNATE mode sleep, RTC wake-up"
         }
-    },
+    },    
     "devices": {
         "T523": {
             "sku": "T523",
@@ -1849,6 +1850,205 @@
                         "min": 29.8,
                         "typ": 68.7,
                         "max": 122,
+                        "unit": "mA"
+                    }
+                }
+            }
+        },
+        "ELC2": {
+            "sku": "ELC2",
+            "modes": {
+                "stop": {
+                    "Istop_gpio": {
+                        "min": -582,
+                        "typ": 613,
+                        "max": 4.1,
+                        "unit": "uA"
+                    },
+                    "Istop_analog": {
+                        "min": -553,
+                        "typ": 581,
+                        "max": 3.63,
+                        "unit": "uA"
+                    },
+                    "Istop_intrtc": {
+                        "min": -777,
+                        "typ": 602,
+                        "max": 3.69,
+                        "unit": "uA"
+                    },
+                    "Istop_ble_adv": {
+                        "min": -798,
+                        "typ": 672,
+                        "max": 3.98,
+                        "unit": "uA"
+                    },
+                    "Istop_ble_conn": {
+                        "min": -855,
+                        "typ": 647,
+                        "max": 4.03,
+                        "unit": "uA"
+                    },
+                    "Istop_usart": {
+                        "min": -897,
+                        "typ": 645,
+                        "max": 4.01,
+                        "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": 149,
+                        "typ": 5.89,
+                        "max": 45,
+                        "unit": "mA"
+                    }
+                },
+                "ulp": {
+                    "Iulp_gpio": {
+                        "min": -1.12,
+                        "typ": 113,
+                        "max": 3.72,
+                        "unit": "uA"
+                    },
+                    "Iulp_analog": {
+                        "min": -1.07,
+                        "typ": 117,
+                        "max": 3.23,
+                        "unit": "uA"
+                    },
+                    "Iulp_intrtc": {
+                        "min": -1.12,
+                        "typ": 119,
+                        "max": 3.41,
+                        "unit": "uA"
+                    },
+                    "Iulp_ble_adv": {
+                        "min": -3.31,
+                        "typ": 227,
+                        "max": 5.95,
+                        "unit": "uA"
+                    },
+                    "Iulp_ble_conn": {
+                        "min": -3.56,
+                        "typ": 212,
+                        "max": 5.06,
+                        "unit": "uA"
+                    },
+                    "Iulp_usart": {
+                        "min": -749,
+                        "typ": 567,
+                        "max": 3.68,
+                        "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": -5.37,
+                        "typ": 5.86,
+                        "max": 56.5,
+                        "unit": "mA"
+                    }
+                },
+                "hibernate": {
+                    "Ihib_gpio": {
+                        "min": -1.12,
+                        "typ": 106,
+                        "max": 3.26,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": -1.09,
+                        "typ": 101,
+                        "max": 3.33,
+                        "unit": "uA"
+                    }
+                },
+                "normal": {
+                    "Iidle": {
+                        "min": 3.41,
+                        "typ": 3.97,
+                        "max": 7.69,
+                        "unit": "mA"
+                    },
+                    "Irgb_r": {
+                        "min": 2.66,
+                        "typ": 4.4,
+                        "max": 7.22,
+                        "unit": "mA"
+                    },
+                    "Irgb_g": {
+                        "min": 2.72,
+                        "typ": 4.26,
+                        "max": 7.12,
+                        "unit": "mA"
+                    },
+                    "Irgb_b": {
+                        "min": 2.65,
+                        "typ": 4.16,
+                        "max": 6.96,
+                        "unit": "mA"
+                    },
+                    "Irgb_w": {
+                        "min": 3.36,
+                        "typ": 4.88,
+                        "max": 7.75,
+                        "unit": "mA"
+                    },
+                    "Ible_adv": {
+                        "min": 3.38,
+                        "typ": 4.91,
+                        "max": 7.85,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_idle": {
+                        "min": 3.41,
+                        "typ": 4.9,
+                        "max": 7.79,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_tx": {
+                        "min": 3.25,
+                        "typ": 4.88,
+                        "max": 8.01,
+                        "unit": "mA"
+                    },
+                    "Ible_scan": {
+                        "min": -3.58,
+                        "typ": 6.1,
+                        "max": 13.8,
+                        "unit": "mA"
+                    },
+                    "Icell_idle": {
+                        "min": 3.77,
+                        "typ": 9.05,
+                        "max": 46.4,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_twr": {
+                        "min": -10.59,
+                        "typ": 13.6,
+                        "max": 242.7,
+                        "unit": "mA"
+                    },
+                    "Icell_twr_idle": {
+                        "min": -6.03,
+                        "typ": 10.05,
+                        "max": 63,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_cloud": {
+                        "min": -11.7,
+                        "typ": 12.1,
+                        "max": 171,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_idle": {
+                        "min": -7.16,
+                        "typ": 10.6,
+                        "max": 57,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": -29.8,
+                        "typ": 30,
+                        "max": 213,
                         "unit": "mA"
                     }
                 }

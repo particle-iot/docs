@@ -16,7 +16,7 @@ The carrier board securely installs your Raspberry Pi compatible board through u
 
 ![M1 Enclosure open](/assets/images/monitor-one/m1-top-open.jpg)
 
-The bulkhead includes two M20 holes that can be used with round hole plugs or cable glands (included) or can fit other compatible connectors. It also includes two SMA connectors that can be used for external antennas.
+The bulkhead includes two M20 holes that can be used with round hole plugs or cable glands (included) or can fit other compatible connectors. It also includes two holes that can be used for SMA connectors that can be used for external antennas. The specifications for this cable are in the [SMA to JST cable datasheet](/assets/pdfs/sma-jst.pdf) (pdf).
 
 ![M1 Enclosure bulkhead](/assets/images/monitor-one/m1-bulkhead.jpg)
 
@@ -192,7 +192,7 @@ Single quantity M-SoM units and developer kits include a PARANTWM1EA antenna. Tr
 
 ### LoRa antenna - Muon
 
-It's expected that the LoRA antenna would use one of the SMA connectors on the bulkhead.
+It's expected that the LoRA antenna would connect using SMA connectors on the bulkhead.
 
 {{imageOverlay src="/assets/images/m-series/m1-muon-lora.jpg" alt="LoRa antenna" class="full-width"}}
 
@@ -264,3 +264,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 |:---------|:-----------|:-------|:---------|
 | pre      | 2024-10-22 | RK     | Preliminary version |
 |          | 2024-12-02 | RK     | Updated pictures and added note about positioning of Wi-Fi antenna |
+|          | 2025-09-02 | RK     | Added SMA connector details |

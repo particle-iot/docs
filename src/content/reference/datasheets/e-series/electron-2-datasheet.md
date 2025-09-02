@@ -1094,7 +1094,29 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
----
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Peak | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.41 | 3.97 | 7.69 | mA |
+| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 3.38 | 4.91 | 7.85 | mA |
+| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 3.41 | 4.9 | 7.79 | mA |
+| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> |  | 6.1 | 13.8 | mA |
+| Operating current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 3.77 | 9.05 | 46.4 | mA |
+| Operating current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> |  | 13.6 | 242.7 | mA |
+| Operating current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> |  | 12.1 | 171 | mA |
+| Operating current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> |  | 10.6 | 57 | mA |
+| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> |  | 30 | 213 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> |  | 613 | 4.1 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> |  | 602 | 3.69 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> |  | 113 | 3.72 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> |  | 119 | 3.41 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> |  | 106 | 3.26 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
 
 ### Radio specifications
 
@@ -1465,3 +1487,4 @@ To be provided at a later date.
 | Revision | Date       | Author | Comments |
 |:---------|:-----------|:-------|:---------|
 | pre      | 2025-03-25 | RK     | Preliminary version |
+|          | 2025-09-02 | RK     | Added power consumption |
