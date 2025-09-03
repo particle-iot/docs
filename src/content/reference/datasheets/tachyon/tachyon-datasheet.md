@@ -137,6 +137,8 @@ The HAT as a power source can be used in two ways:
 - A minimum of 5A is required (at 5VDC) to use Tachyon with only HAT power (no battery).
 - It is also possible to use HAT power to charge a battery, for example using a 5V solar battery charger.
 
+For additional details, see [power requirements](#power-requirements), below.
+
 ## Connections
 
 {{imageOverlay src="/assets/images/tachyon/top-diagram-labeled.png" alt="Connections"}}
@@ -176,7 +178,7 @@ The HAT as a power source can be used in two ways:
   - Supports USB-C adapters that combine USB, power, and HDMI output.
   - Acts as a PD sink when using a usb-c hub adapter.
 - Can output HDMI over USB-C hub.
-
+- For additional details, see [power requirements](#power-requirements), below.
 
 ### <!-- shared-diagram-label top-diagram secondary-usb title-label-paren -->Secondary USB (USB2) (2)<!-- end -->
 
@@ -261,7 +263,9 @@ This connectors attaches to the debug adapter using a 10-pin (2x5) ribbon cable.
 
 The 5V pins on the 40-pin HAT connector can be used as an output (when powered by battery or USB), or as an input (powering Tachyon from the HAT). See [Power](#power), above.
 
-When supplying power to the HAT, the 5V power is limited. It can operate most peripheral cards, but high current cards like motor HATs may not work.
+When supplying power to the HAT, the 5V power is limited to 1.5A. It can operate most peripheral cards, but high current cards like motor HATs may not work.
+
+For additional details about using 5V as a power input, see [power requirements](#power-requirements), below.
 
 ### <!-- shared-diagram-label top-diagram wifi-antenna title-label-paren -->Wi-Fi chip antenna (15)<!-- end -->
 
@@ -323,11 +327,11 @@ It supports different USB power modes:
 - DCP (Dedicated Charge Port) 
 - CDP (Charging Downstream Port). 
 
-In order to use USB-PD mode, a battery must always be attached or the Tachyon will not boot properly.
+If using USB-PD mode, a battery (or 5V in) must also be used or the Tachyon will not boot properly.
 
-The USB-DCP mode can be used without a battery.
+The USB-DCP mode can be used without a battery as the sole power source.
 
-If the Tachyon is connected to a HDMI dock, USB hub, or monitor via the USB1 connector, the USB-PD mode will be used, and a battery is required.
+If the Tachyon is connected to a HDMI dock, USB hub, or monitor via the USB1 connector, USB-PD mode will be used, and a battery is required.
 
 Power from USB1 can be added or removed while the Tachyon is running. 
 
@@ -359,22 +363,22 @@ The Tachyon supports the following power modes of operation
 * DCP  
   * Powered by power adapter with DCP capability  
   * This mode can work without battery attached  
-  * `POWER\_SUPPLY\_TYPE=USB\_DCP`
+  * `POWER_SUPPLY_TYPE=USB_DCP`
 * CDP  
   * Powered by computer USB-A port, data communication is functional  
   * Powered by computer USB-C to A adapter and A to C cable to the board, data communication is functional  
   * Limited power but useful for sending data or debugging, e.g. adb shell  
-  * `POWER\_SUPPLY\_TYPE=USB\_CDP`
+  * `POWER_SUPPLY_TYPE=USB_CDP`
 * PD  
   * Powered by power adapter with USB-PD capability  
   * Powered by computer USB-C Port, data communication is functional  
-  * `POWER\_SUPPLY\_TYPE=USB\_PD`
+  * `POWER_SUPPLY_TYPE=USB_PD`
 * Battery  
   * Battery is discharging
 
-Known Issues:
+Known issues:
 
-* CDP/PD: If the board has no battery attached and connects to the computer USB-C port via USB-C to C cable, it will get PD instead of CDP, so the Tachyon does not support this at this time.
+* CDP/PD: If the board has no battery attached and connects to the computer USB-C port via USB-C to C cable, the Tachyon will use PD instead of CDP.
 * DCP: The power adapter shipped with beta devices supports PD only and is not DCP capable, so it must be used with a battery or 5V input.
 
 
@@ -407,11 +411,11 @@ Known Issues:
 |                       |       |       |                               | After boot-up, USB1 will be functional for USB device and display |
 | N/A                   | N/A   | YES   | 3.5V - 4.2V / 5A              |  |
 
-Note: Connect power input before booting Tachyon to assure proper detection.
+<sup>1</sup>Battery will be discharging in this mode.<br/>
+<sup>2</sup>VBAT is powered, simulating a battery, even though a battery is not connected.<br/>
+<sup>3</sup>5V input is not used.
 
-- <sup>1</sup>Battery will be discharging in this mode.
-- <sup>2</sup>VBAT is powered, simulating a battery, even though a battery is not connected.
-- <sup>3</sup>5V input is not used.
+Connect power input(s) before booting Tachyon to insure proper detection.
 
 ### Power requirements summary
 

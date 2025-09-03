@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon power requirements 2025-09-03
+
+Added power requirements to the [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/#power-requirements).
+
 ### BLE Operating frequency 2025-09-03
 
 Updated the BLE operating frequency in the datasheets for several nRF52840-based devices. The correct range is 2400 to 2480 MHz.
