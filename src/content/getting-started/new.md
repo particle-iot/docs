@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE Operating frequency 2025-09-03
+
+Updated the BLE operating frequency in the datasheets for several nRF52840-based devices. The correct range is 2400 to 2480 MHz.
+
 ### Library updates 2025-08-27
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.

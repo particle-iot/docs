@@ -1339,20 +1339,20 @@
             "hash": "b61bcf619743d7f0667fa7e63967e94515955b24c1c8d4e2b1287cf567ef84e8"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2025-04-01",
-            "hash": "899e3359dfcb022f7f8d6049ba4e9bb7b71f10f5f0356ba6c08d6c107b7689eb"
+            "date": "2025-09-03",
+            "hash": "ce344eb284335b6cff549d6c75e88c3e48b08a950125bb32a44d16e31e51c06e"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2025-06-17",
             "hash": "05ec0aceef7f72785eb769b7e30d7590e25abd54e65b84a11f757f3b9549da04"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2025-08-06",
-            "hash": "2403aa4ee72a180d3aab2b4cf9c0adfbc7a6f8c4b6edf7ed6f643a3c6ee3ba9f"
+            "date": "2025-09-03",
+            "hash": "6e713d62b5085f66c16c9ce8e1908c7c5ebd3e3ce56c72a391934bc886400861"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
-            "date": "2025-08-06",
-            "hash": "cda794feb6466e79c17416f735ac75fe2ee1982625a5ab40766774f36323e88d"
+            "date": "2025-09-03",
+            "hash": "fcfb66b191a35d624eddca57e7fd14e784165a4662d18446270865284dcdfb4b"
         },
         "reference/datasheets/accessories/debugger.md": {
             "date": "2024-02-27",
@@ -1391,8 +1391,8 @@
             "hash": "f2b6fc38f1091a37a5c25cf0f754decdcc0972095e014c44ef42466961fac959"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
-            "date": "2025-03-21",
-            "hash": "8813087e5b6992512dc784e7a69cfeca592a63e65ea98597f42e48c34d27b8c9"
+            "date": "2025-09-03",
+            "hash": "e2c26ccf9dc6f15d36ad3b18e8310fd483b3e5775376799dc9784b51cb5ca93e"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2024-05-15",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "47e1e1ac2bc3204c47ab842fb34b49009b1e1fbaf00cc9da6dcb70b118c1ddbc",
-            "date": "2025-08-27"
+            "hash": "0f81b56599446fdfa1df70e748e7618b22c97cb7a03fa41941e9b7bcb9c29e7c",
+            "date": "2025-09-03"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9083,8 +9083,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "410b47c6b03cf0a2df11f0dd8155272e809907781520d7c27d33bc5e96cd4244",
-            "date": "2025-06-25"
+            "hash": "46b213e634d3a47463e1042b142481b510f2f5bb830426135988a28f4fbcac02",
+            "date": "2025-09-03"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",

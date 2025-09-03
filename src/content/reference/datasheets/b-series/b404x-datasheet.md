@@ -1853,7 +1853,7 @@ The B-Series SoM has two radio modules.
 | Feature | Description|
 | :-------|:---------- |
 | Feature | Bluetooth LE 5 |
-|Operating Frequencies| 2360 to 2500 MHz|
+|Operating Frequencies| 2400 to 2480 MHz|
 |Output Power| Programmable -20dBm to +8dBm|
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
@@ -2202,3 +2202,4 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 | 036      | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
 | 037      | 2024-04-23 | RK | Added links to certification documents |
 | 038      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
+| 039      | 2025-09-03 | RK | Corrected the BLE operating frequency to 2400 to 2480 MHz |

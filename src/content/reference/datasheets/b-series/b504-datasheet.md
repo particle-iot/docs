@@ -1845,7 +1845,7 @@ The B-Series SoM has two radio modules.
 | Feature | Description|
 | :-------|:---------- |
 | Feature | Bluetooth LE 5 |
-|Operating Frequencies| 2360 to 2500 MHz|
+|Operating Frequencies| 2400 to 2480 MHz|
 |Output Power| Programmable -20dBm to +8dBm|
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
@@ -2184,3 +2184,4 @@ The following countries are not officially supported at this time, but may be co
 | 005      | 2025-04-21 | RK | Added ISED certification |
 | 006      | 2025-05-09 | RK | Added Industry Canada statement |
 | 007      | 2025-06-25 | RK | Clarifications for GNSS use |
+| 008      | 2025-09-03 | RK | Corrected the BLE operating frequency to 2400 to 2480 MHz |

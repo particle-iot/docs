@@ -1166,7 +1166,7 @@ Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, dep
 | Feature | Description|
 | :-------|:---------- |
 | Feature | Bluetooth LE 5 |
-|Operating Frequencies| 2360 to 2500 MHz|
+|Operating Frequencies| 2400 to 2480 MHz|
 |Output Power| Programmable -20dBm to +8dBm|
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
@@ -1524,6 +1524,7 @@ The BRN404X is not certified for use in Europe at this time.
 | 020      | 2023-07-18 | RK | Added alternate antenna ANT-FLXU |
 | 021      | 2023-11-13 | RK | Add full pin details |
 | 022      | 2024-04-23 | RK | Added links to certification documents |
+| 023      | 2025-09-03 | RK | Corrected the BLE operating frequency to 2400 to 2480 MHz |
 
 ## Known errata
 

@@ -285,7 +285,7 @@ Nordic Semiconductor nRF52840 SoC for BLE and NFC.
 
 | Feature | Description|
 | :-------|:---------- |
-|Operating Frequencies| 2360 to 2500 MHz|
+|Operating Frequencies| 2400 to 2480 MHz|
 |Output Power| Programmable -20dBm to +8dBm|
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
@@ -507,6 +507,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v010     | 18-May-2023 | RK | Add warning that the Argon cannot be powered by 3V3 |
 | v011     | 12-Mar-2024 | RK | Fix location of VUSB diode in block diagram |
 | v012     | 15-Mar-2024 | RK | Update VUSB diode and descriptive text for VUSB |
+| v013     | 03-Sep-2025 | RK | Corrected the BLE operating frequency to 2400 to 2480 MHz |
 
 
 ## Known errata
