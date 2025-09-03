@@ -1340,7 +1340,7 @@
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
             "date": "2025-09-03",
-            "hash": "ce344eb284335b6cff549d6c75e88c3e48b08a950125bb32a44d16e31e51c06e"
+            "hash": "b665c854ee1d177f21417da39d3899b821d19dc487443fc100bdcc39ca116095"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2025-06-17",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "0f81b56599446fdfa1df70e748e7618b22c97cb7a03fa41941e9b7bcb9c29e7c",
+            "hash": "4f143574b3c72c89d8448a35d645db2fb29c4e32215b16d12dc461591d1a90ef",
             "date": "2025-09-03"
         },
         "getting-started/cloud/logic.md": {
@@ -9083,7 +9083,7 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "46b213e634d3a47463e1042b142481b510f2f5bb830426135988a28f4fbcac02",
+            "hash": "d31334f6a036d1cb8386c7f0e6aa1b6bb17f1d25a3b96af42932544d9484d28c",
             "date": "2025-09-03"
         },
         "hardware/m.2-som/basic-som-design.md": {
@@ -9703,8 +9703,8 @@
             "date": "2025-03-03"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "09863330b26f5cf5dadf6241dc19535adc7223eafa54267d7e171f2b4ef5de37",
-            "date": "2025-08-06"
+            "hash": "d47c1faf8749d5786353414ff8a3494d8ec3a6b687f4475c2a4555f36feb57bb",
+            "date": "2025-09-03"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "cac5c6226004cb00f3b4fa8a832d9d7a1a1da4584cee69509f177f38c57088d9",
