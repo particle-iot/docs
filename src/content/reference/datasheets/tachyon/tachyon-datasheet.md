@@ -1038,3 +1038,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 004      | 2025-06-24 | RK | Updated HAT power; no longer requires a jumper |
 | 005      | 2025-07-30 | RK | Include radio module model |
 | 006      | 2025-08-06 | RK | Add operating temperature |
+| 007      | 2025-09-03 | RK | Added power requirements |
