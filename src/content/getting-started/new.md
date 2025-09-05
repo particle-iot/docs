@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### SOS updates 2025-09-05
+
+Added additional documentation for exit and secure fault to the [red blink SOS guide](/troubleshooting/led/#red-blink-sos).
+
 ### Tachyon power requirements 2025-09-03
 
 Added power requirements to the [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/#power-requirements).

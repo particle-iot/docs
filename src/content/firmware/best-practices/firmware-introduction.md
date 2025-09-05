@@ -393,6 +393,17 @@ In old versions of Device OS, allocating memory from an ISR would proceed, excep
 
 For more information, see [Interrupts](/reference/device-os/api/interrupts/interrupts/) in the Device OS firmware API reference.
 
+### Exceptions
+
+Exceptions are not enabled on Particle devices, and throwing an exception causes an Exit fault (SOS+7). 
+
+Beware of some Standard C++ library classes that can throw exceptions. std::string, std::vector, std::stoi, std::stof, among others, can throw exceptions in certain cases.
+
+### Accessing invalid memory
+
+Using an invalid pointer from memory that has been corrupted, using a deleted pointer, etc. can cause unexpected behavior. 
+
+It can also cause a hard fault (SOS+1) if it attempts to access an invalid memory address. It can also cause a secure fault (SOS+15) if user firmware attempts to access secure memory areas, which it is not allowed to do.
 
 ### Out of memory handler
 

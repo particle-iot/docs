@@ -455,7 +455,7 @@ There are a number of other red blink codes that may be expressed after the SOS 
 12. Pure virtual call
 13. Stack overflow
 14. Heap error
-15. Security error
+15. Security fault
 
 Common events include:
 
@@ -472,6 +472,8 @@ Some causes of hard fault include:
 **Exit (7 blinks between 2 SOS patterns)**
 
 This occurs if the standard C function abort() is called. In a Unix program, this would be used to abruptly stop the process. Device OS itself does not use this function, but the SOS can happen if user firmware calls abort() or _exit(). Since Particle devices only effectively support a single process, the user firmware, the effect is an SOS+7 and reboot. This could also happen if a library used abort().
+
+It can also occur if code throws an exception. Exceptions are not enabled on Particle devices, and throwing an exception causes an Exit fault. Beware of some Standard C++ library classes that can throw exceptions. std::string, std::vector, std::stoi, std::stof, among others, can throw exceptions in certain cases.
 
 **Out of heap memory (8 blinks between 2 SOS patterns)**
 
@@ -530,6 +532,10 @@ Things you should not do from an ISR:
 - Mutex locks. This includes SPI transactions and I2C lock and unlock.
 - Start an SPI.transaction with DMA.
 {{!-- END shared-blurb --}}
+
+**Security fault (15 blinks between 2 SOS patterns)**
+
+SOS+15 occurs when user firmware accesses the secure RAM area, which it is not allowed to do. This most commonly occurs when using an invalid pointer that accesses random memory, and happens to access the secure area (SOS+15) instead of an invalid area (SOS+1).
 
 ## Solid colors
 

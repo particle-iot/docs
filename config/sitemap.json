@@ -495,8 +495,8 @@
             "hash": "fa06b0114321bc59e859b0cf1efa16167394ba2e237012c7784e857e03fa85b5"
         },
         "firmware/best-practices/firmware-introduction.md": {
-            "date": "2024-10-28",
-            "hash": "83d16efc7857cdeecb99b525f41445601c042e2d01af60eadc134d0e9b6d034e"
+            "date": "2025-09-05",
+            "hash": "df0bfff510c258519e7a7fc93d76f320ecc95302e9d14ecfe1661bd4b212fc2e"
         },
         "firmware/best-practices/github-actions.md": {
             "date": "2024-08-21",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "4f143574b3c72c89d8448a35d645db2fb29c4e32215b16d12dc461591d1a90ef",
-            "date": "2025-09-03"
+            "hash": "8803a2143e6af10d9b2e7be8f11dde8dee50d48decf59e1a9f0cf241f880af62",
+            "date": "2025-09-05"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9451,8 +9451,8 @@
             "date": "2025-04-28"
         },
         "troubleshooting/led.md": {
-            "hash": "df60457eef43105be5df19b65e3f0e556ba9ccad05ad6bb979405f056d124ef7",
-            "date": "2025-01-17"
+            "hash": "cef58900a255e9a87f0a15d9c84f5958645da64203499255c484fe7838e8e9b5",
+            "date": "2025-09-05"
         },
         "troubleshooting/guides/device-troubleshooting/muon-usb-power.md": {
             "hash": "5e971b61c9fc895f846d18ef8e2537d5c692c172c27c5d921d5ab347fb77b0af",
