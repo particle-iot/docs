@@ -31,7 +31,6 @@
         "gulp-replace": "^0.6.1",
         "handlebars": "^4.7.7",
         "jszip": "^3.8.0",
-        "lodash": "^4.17.21",
         "lunr": "^2.3.9",
         "marked": "~0.3.1",
         "md5": "^2.2.1",
@@ -72,6 +71,10 @@
         "simplecrawler": "github:particle-iot/node-simplecrawler#v0.6.3",
         "sinon": "^1.17.6",
         "yargs": "^17.0.1"
+    },
+    "overrides": {
+        "minimist": "0.2.4",
+        "lodash": "4.17.21"
     },
     "engines": {
         "node": "16.17.0",
