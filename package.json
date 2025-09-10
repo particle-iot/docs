@@ -47,7 +47,7 @@
         "metalsmith-in-place": "^1.0.1",
         "metalsmith-layouts": "^1.8.0",
         "metalsmith-less": "^2.0.0",
-        "metalsmith-markdown": "spark/metalsmith-markdown#v0.4.2",
+        "metalsmith-markdown": "github:particle-iot/metalsmith-markdown#v0.4.2",
         "metalsmith-move-up": "^3.0.0",
         "metalsmith-paths": "2.1.1",
         "metalsmith-permalinks": "^0.4.0",
@@ -69,7 +69,7 @@
         "eslint-config-particle": "^2.1.0",
         "git-rev": "^0.2.1",
         "markdown-spellcheck": "^0.11.0",
-        "simplecrawler": "spark/node-simplecrawler#v0.6.3",
+        "simplecrawler": "github:particle-iot/node-simplecrawler#v0.6.3",
         "sinon": "^1.17.6",
         "yargs": "^17.0.1"
     },
