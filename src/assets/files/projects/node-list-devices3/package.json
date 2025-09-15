@@ -9,7 +9,7 @@
         "start": "node app.js"
     },
     "dependencies": {
-        "@particle/node-example-helper": "0.0.3",
+        "@particle/node-example-helper": "0.0.4",
         "particle-api-js": "^9.1.0"
     },
     "devDependencies": {}

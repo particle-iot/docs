@@ -2608,6 +2608,14 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "imei2",
+            "isArray": false,
+            "description": "<p>Second IMEI number for dual SIM cellular devices</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "mac_wifi",
             "isArray": false,
             "description": "<p>The device MAC address if it has one. <em>Non cellular devices only</em></p>"
@@ -2739,6 +2747,80 @@
             "field": "device_protection.status",
             "isArray": false,
             "description": "<p>The device protection status of this device</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "eid",
+            "isArray": false,
+            "description": "<p>EID of the device, present on eSIM devices</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "esim",
+            "isArray": false,
+            "description": "<p>eSIM properties of eSIM devices</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "modem_firmware_version",
+            "isArray": false,
+            "description": "<p>The version of the modem firmware running on the device, if applicable</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "linux_metadata",
+            "isArray": false,
+            "description": "<p>Linux metadata of the device, if it is a Linux-based device</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "linux_metadata",
+              "field": "linux_metadata",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "linux_metadata.device_model",
+            "isArray": false,
+            "description": "<p>The model reported by the device</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "parentNode": {
+              "path": "linux_metadata",
+              "field": "linux_metadata",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "linux_metadata.distro",
+            "isArray": false,
+            "description": "<p>Linux distribution info. Includes <code>version</code> and <code>variant</code></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "linux_metadata",
+              "field": "linux_metadata",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "linux_metadata.packages",
+            "isArray": true,
+            "description": "<p>List of packages installed on the device. Each package has <code>name</code> and <code>version</code> attributes.</p>"
           }
         ]
       },
@@ -17247,6 +17329,20 @@
             "field": "sim.owner",
             "isArray": false,
             "description": "<p>Particle username for the user who claimed this SIM card</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "parentNode": {
+              "path": "sim",
+              "field": "sim",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "sim.events",
+            "isArray": false,
+            "description": "<p>eSIM events tracked in the cloud</p>"
           }
         ]
       },
@@ -17749,6 +17845,36 @@
     "filename": "src/views/api.js",
     "groupTitle": "Sims.9",
     "name": "PutV1SimsIccid"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/team/provision/Users/:user_id",
+    "title": "Read SCIM user",
+    "group": "Team",
+    "permission": [
+      {
+        "name": "teams.users:get"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/sso.js",
+    "groupTitle": "Team",
+    "name": "GetV1OrgsOrgidorslugTeamProvisionUsersUser_id"
+  },
+  {
+    "type": "patch",
+    "url": "/v1/orgs/:orgIdOrSlug/team/provision/Users/:user_id",
+    "title": "Modify SCIM user",
+    "group": "Team",
+    "permission": [
+      {
+        "name": "teams.users:update"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/views/sso.js",
+    "groupTitle": "Team",
+    "name": "PatchV1OrgsOrgidorslugTeamProvisionUsersUser_id"
   },
   {
     "type": "get",

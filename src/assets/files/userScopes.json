@@ -88,6 +88,7 @@
   "sims:list",
   "sims:remove",
   "sims:update",
+  "teams.users:get",
   "teams.users:invite",
   "teams.users:list",
   "teams.users:remove",
