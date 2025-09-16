@@ -651,8 +651,8 @@
             "hash": "e1246e9335380e44e192009da3e96fba0cc7f6becf6c27bfb2b90386861b2bbe"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2025-08-06",
-            "hash": "3066e9c625bc45f44338fbe1b9562de96a45a2ddce34e7cb5688ec83a0ce4653"
+            "date": "2025-09-16",
+            "hash": "e1f799e80465558362814585d98ee2981cdb9db527d548635caf40917ce6af3f"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -9703,8 +9703,8 @@
             "date": "2025-03-03"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "d47c1faf8749d5786353414ff8a3494d8ec3a6b687f4475c2a4555f36feb57bb",
-            "date": "2025-09-03"
+            "hash": "5eb04b93ef26bc77b8e7c01c63313c780a42f374732b51cd855711dbeca0d69d",
+            "date": "2025-09-16"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "cac5c6226004cb00f3b4fa8a832d9d7a1a1da4584cee69509f177f38c57088d9",

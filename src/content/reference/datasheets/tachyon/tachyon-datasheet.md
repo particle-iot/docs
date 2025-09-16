@@ -7,6 +7,10 @@ description: Tachyon Datasheet
 
 # Tachyon Datasheet
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/tachyon-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet and is subject to change.
 {{box op="end"}}
@@ -21,7 +25,8 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 
 - Qualcomm QCM6490 8-core Kryo™ 670 CPU (1x 2.7GHz, 3x 2.4GHz, 4x 1.9GHz).
 - 5G sub-6Hz cellular connectivity and Wi-Fi 6E with on-device antennas
-- 8GB RAM and 128GB with built-in UFS storage
+- 8GB RAM/128GB flash with built-in UFS storage (TACH8NA, TACH8ROW)
+- 4GB RAM/64 GB flash with built-in UFS storage (TACH4NA)
 - Adreno 643 GPU and 12 TOPS NPU 
 - USB-C 3.1 PD with DisplayPort and PD, 2x PCIe lanes, and DSI 4-lane
 - 2 x CSI 4-lane with ISP, supporting 20+ pre-integrated camera sensors 
@@ -661,7 +666,7 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
 
 <table>
 <thead>
-<tr><td style="width: 100px;">Frequency Bands</td><td style="width: 350px;">North America (TACH8NA)</td><td style="width: 350px;">Rest of World (TACH8ROW)</td></tr>
+<tr><td style="width: 100px;">Frequency Bands</td><td style="width: 350px;">North America (TACH4NA/TACH8NA)</td><td style="width: 350px;">Rest of World (TACH8ROW)</td></tr>
 </thead>
 <tbody>
 <tr>
@@ -681,7 +686,7 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
     <td>B2/ 4/ 5/ 7/ 12/ 13/ 14/ 17/ 25/ 26/ 29/ 30/ 38/ 41/ 42/ 43/ 46/ 48/ 66/ 71</td>
     <td>B1/ 2/ 3/ 4/ 5/ 7/ 8/ 12/ 17/ 18/ 19/ 20/ 26/ 28/ 32/ 34/ 38/ 39/ 40/ 41/ 42</td>
 </tr>
-<!--
+<!-
 <tr>
     <td>LTE MIMO</td>
     <td>4 × 4 MIMO (DL): B2/ 4/ 7/ 25/ 30/ 38/ 41/ 42/ 43/ 48/ 66</td>
@@ -719,7 +724,7 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
 #### Data rate
 <table>
 <thead>
-<tr><td style="width: 100px;">Data rate</td><td style="width: 350px;">North America (TACH8NA)</td><td style="width: 350px;">Rest of World (TACH8ROW)</td></tr>
+<tr><td style="width: 100px;">Data rate</td><td style="width: 350px;">North America (TACH4NA/TACH8NA)</td><td style="width: 350px;">Rest of World (TACH8ROW)</td></tr>
 </thead>
 <tbody>
 <tr>
@@ -951,7 +956,7 @@ Consumers should contact their local authority or retailer for information conce
 
 ## Country compatibility
 
-### TACH8NA - Country compatibility
+### TACH8NA/TACH4NA - Country compatibility
 {{!-- BEGIN do not edit content below, it is automatically generated ae3c46e6-c970-4ceb-8e55-2adde82efb79 --}}
 
 | Country | Technologies | Carriers |
@@ -1022,6 +1027,7 @@ some cases, the device may only be compatible with some carriers, or some bands.
 
 | SKU | Description |
 | :--- | :--- |
+| TACH4NA  | Tachyon 4GB RAM / 64GB Flash (NorAm), [x1] |
 | TACH8NA  | Tachyon 8GB RAM / 128GB Flash (NorAm), [x1] |
 | TACH8ROW | Tachyon 8GB RAM / 128GB Flash (EMEA), [x1] |
 
@@ -1039,3 +1045,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 005      | 2025-07-30 | RK | Include radio module model |
 | 006      | 2025-08-06 | RK | Add operating temperature |
 | 007      | 2025-09-03 | RK | Added power requirements |
+| 008      | 2025-09-16 | RK | Add TACH4NA |

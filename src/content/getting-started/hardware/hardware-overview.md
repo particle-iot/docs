@@ -82,7 +82,8 @@ Tachyon is a 5G-connected single-board computer (SBC) that takes the technology 
 
 - Qualcomm QCM6490 8-core Kryo™ 670 CPU (1x 2.7GHz, 3x 2.4GHz, 4x 1.9GHz).
 - 5G sub-6Hz cellular connectivity and Wi-Fi 6E with on-device antennas
-- 8GB RAM and 128GB with built-in UFS storage
+- 8GB RAM/128GB flash with built-in UFS storage (TACH8NA, TACH8ROW)
+- 4GB RAM/64 GB flash with built-in UFS storage (TACH4NA)
 - Adreno 643 GPU and 12 TOPS NPU 
 - USB-C 3.1 PD with DisplayPort and PD, 2x PCIe lanes, and DSI 4-lane
 - 2 x CSI 4-lane with ISP, supporting 20+ pre-integrated camera sensors 
