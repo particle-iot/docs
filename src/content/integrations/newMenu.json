@@ -80,6 +80,10 @@
                     "title": "IFTTT"
                 },
                 {
+                    "dir": "SIGNL4",
+                    "title": "SIGNL4"
+                },
+                {
                     "dir": "zapier",
                     "title": "Zapier"
                 },

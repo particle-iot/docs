@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Added the SIGNL4 Integration 2025-09-23
+
+Added the [SIGNL4 Integration](/integrations/community-integrations/signl4) to the Community Integrations.
+
 ### Debugger page 2025-09-23
 
 Updated the [Particle Debugger](/reference/datasheets/accessories/debugger/) to indicate that it is deprecated.
