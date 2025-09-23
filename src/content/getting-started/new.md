@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-Series carrier list map 2025-09-23
+
+The cellular carrier list [coverage map](/reference/cellular/cellular-carriers/?tab=ModelMap&family=m%20series) now includes M-Series.
+
 ### Added the SIGNL4 Integration 2025-09-23
 
 Added the [SIGNL4 Integration](/integrations/community-integrations/signl4) to the Community Integrations.

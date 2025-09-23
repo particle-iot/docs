@@ -31980,12 +31980,12 @@
       "name": "M-Series SoM",
       "group": [
         {
-          "name": "M-Series M404/M635 LTE M1/2G (Global) EtherSIM",
+          "name": "M-Series M404 LTE M1/2G (Global) EtherSIM",
           "short": [
             "M404"
           ],
-          "region": "global",
-          "lifecycle": "In development",
+          "region": "noram",
+          "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
           "modem": "BG95-M5",
@@ -31997,7 +31997,7 @@
             "M524"
           ],
           "region": "emeaa",
-          "lifecycle": "In development",
+          "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
           "modem": "EG91-EX",
