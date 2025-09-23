@@ -18,6 +18,8 @@ In this example, we integrate a Particle Photon device with both an IR motion se
 - An Particle ([https://console.particle.io](https://console.particle.io/)) account
 - A Particle device, e.g. Maker Kit ([https://store.particle.io/collections/all-products](https://store.particle.io/collections/all-products))
 
+## How to Integrate
+
 In this setup, we use the Particle Maker Kit with a Photon device to connect an IR motion sensor and a temperature sensor. An LED is also included to provide a direct visual indication of motion detection on the device.
 
 ![Particle Devices](/assets/images/integrations/signl4/particle-devices.png)
