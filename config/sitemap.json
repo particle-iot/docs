@@ -9881,6 +9881,10 @@
         "reference/device-os/libraries/s/STM32_Flash.md": {
             "hash": "588071848f4187e3c448893c51aab86dd74653bc446b0ddcc2de9915d7699157",
             "date": "2025-08-27"
+        },
+        "integrations/community-integrations/signl4.md": {
+            "hash": "98b52faed6a81398649dbd2eececbb7a6a6761990e5f4334180cc4499e0c92c7",
+            "date": "2025-09-23"
         }
     }
 }
