@@ -9,6 +9,23 @@ description: Particle Debugger
 
 <div align=center><img src="/assets/images/accessories/debugger.png" ></div>
 
+{{box op="start" cssClass="boxed warningBox"}}
+The Particle Debugger is deprecated.
+{{box op="end"}}
+
+The Particle Debugger is no longer sold, however you can use a generic CMSIS/DAP debugger available on Amazon, eBay, or AliExpress.
+
+- Get one that has support for drag-and-drop mode.
+- For Gen 3 devices, ideally get one that indicates support for Nordic nRF52. Some do not list it but are compatible anyway, but all things being equal it's safer if it's listed because a few are compatible only with STM32 devices.
+- For Gen 4 devices, it's rare that you'd see Realtek RTL872x listed explicitly, but debuggers that support ARM Cortex M and nRF52 are almost always compatible.
+- It does not matter whether you get one with a USB-A or USB-C connector; both will work.
+
+To connect a compatible debugger, see [debugger adapter](/troubleshooting/debuggers/debugger-adapter/).
+
+---
+
+## Particle Debugger
+
 The Particle Debugger gives you the power of professional debugging at a fraction of the cost. Using this accessory, you’ll be able to program Particle Gen 3 hardware over common interfaces like JTAG and SWD, using open source tools like GDB and openocd. It can also be used with Gen 2 devices, with the addition of some jumper wires.
 
 Supports the open source [CMSIS-DAP specification](https://os.mbed.com/handbook/DAPLink) and DAPLink firmware developed by ARM. On Mac, Linux, and Windows it requires no additional device drivers. 
@@ -77,10 +94,10 @@ Drag-and-drop flashing only works with .hex files. You can't drop a Particle .bi
 
 ## Ordering information
 
-The Particle Debugger is available from [store.particle.io](https://store.particle.io/products/particle-debugger).
+The Particle Debugger is no longer available for purchase.
 
 | SKU | Description | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- |
-| ACC-DEBUG | Particle Debugger | In development | |
+| ACC-DEBUG | Particle Debugger | Deprecated | |
 
 

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Debugger page 2025-09-23
+
+Updated the [Particle Debugger](/reference/datasheets/accessories/debugger/) to indicate that it is deprecated.
+
 ### SOS updates 2025-09-05
 
 Added additional documentation for exit and secure fault to the [red blink SOS guide](/troubleshooting/led/#red-blink-sos).

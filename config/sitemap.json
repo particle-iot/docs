@@ -1355,8 +1355,8 @@
             "hash": "fcfb66b191a35d624eddca57e7fd14e784165a4662d18446270865284dcdfb4b"
         },
         "reference/datasheets/accessories/debugger.md": {
-            "date": "2024-02-27",
-            "hash": "b959c6d162fa4f5b092e5b592fbe93cecdabe4cf1afbe50aeee88b42b057c7ba"
+            "date": "2025-09-23",
+            "hash": "5a3b0392b4e1f020ba6dee97cea43cf66b57fb68d19ab1c2f080e5b241a2ca6d"
         },
         "reference/datasheets/accessories/edge-ml-kit.md": {
             "date": "2024-02-27",
@@ -1515,8 +1515,8 @@
             "hash": "b356f425a5356524cd159fcea54e4218905dd25141a93832f22114d0d5e4ed13"
         },
         "troubleshooting/debuggers/debugger-adapter.md": {
-            "date": "2024-02-27",
-            "hash": "5042f8e2bcf5dd752e60d54d59ea48e96d4d35c62350038b04dc0154e97d9dad"
+            "date": "2025-09-23",
+            "hash": "21bbb3ea86a564d2b0d32dc5ff1ae396cb147cbcece332c51c1d74af03f204cd"
         },
         "troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide.md": {
             "date": "2023-09-06",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8803a2143e6af10d9b2e7be8f11dde8dee50d48decf59e1a9f0cf241f880af62",
-            "date": "2025-09-05"
+            "hash": "6a64d766d6ca2a80930dbd84984a3a1c0b3a3e0edf1d7b4083d0109076652d20",
+            "date": "2025-09-23"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

@@ -7,15 +7,15 @@ description: Adapter for using the NanoDAP debugger with Particle Gen 3 devices
 
 # {{title}}
 
-The [Particle Debugger](/reference/datasheets/accessories/debugger/) is the best option for debugging Particle hardware. Many CMSIS-DAP debuggers are also compatible with Particle hardware. This document describes using the [NanoDAP](https://github.com/wuxx/nanoDAP-HS/blob/master/README_en.md) debugger, however there are many nearly identical debuggers available. If have the option of getting it with or without file system support, get it with the file system, though on many models it won't even be mentioned since file system support should be standard for a CMSIS-DAP debugger.
+The [Particle Debugger](/reference/datasheets/accessories/debugger/) is the no longer sold. Many CMSIS-DAP debuggers are also compatible with Particle hardware, however. This document describes using the [NanoDAP](https://github.com/wuxx/nanoDAP-HS/blob/master/README_en.md) debugger, however there are many nearly identical debuggers available. If have the option of getting it with or without file system support, get it with the file system, though on many models it won't even be mentioned since file system support should be standard for a CMSIS-DAP debugger.
 
-The CMSIS-DAP debuggers work with both Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM) and Gen 2 (Photon, P1, Electron, E-Series) devices. The ST-LINK/V2 adapter only works with Gen 2 devices.
+The CMSIS-DAP debuggers work with Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM), Gen 2 (Photon, P1, Electron, E-Series), and Gen 4 (M-SoM, P2, and Photon 2) devices. The ST-LINK/V2 adapter only works with Gen 2 devices.
 
-| Debugger | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| Particle Debugger | &check; | &check; |
-| CMSIS-DAP Debugger | &check; | &check; |
-| ST-LINK/V2 | &check; |  |
+| Debugger | Gen 2 | Gen 3 | Gen 4 |
+| :--- | :---: | :---: | :---: |
+| Particle Debugger | &check; | &check; | &check; |
+| CMSIS-DAP Debugger | &check; | &check; | &check; |
+| ST-LINK/V2 | &check; |  |  |
 
 ## NanoDAP
 
@@ -71,6 +71,12 @@ Of course the colors don't matter, but are included in the table to help if your
 ![](/assets/images/debugger/connector2.jpeg)
 
 ![](/assets/images/debugger/connector3.jpeg)
+
+### Gen 4
+
+If you are using the Photon 2 or M-SoM in the M.2 breakout board, follow the Gen 3 instructions as these have the 5x2 debug connector.
+
+If you are using a P2 or M-SoM on a custom board without a debug connector, follow the Gen 2 instructions to connect to D6 and D7.
 
 
 ## Building an adapter
