@@ -927,8 +927,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-08-06",
-            "hash": "afcb2de183c6b7d6fef110283c9298d99d097aa6549f39084f2c78a7e34ec32c"
+            "date": "2025-09-24",
+            "hash": "e3c95c38533c38937082cf8c0272e471135dc1dcb297acc16c63656de9812de2"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -9459,7 +9459,7 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "c34c311b02a289d03a25c6087142e806df79aeeb2cf7d669b4cd3005c4f15ef7",
+            "hash": "ec8b4255f7fe91e75d88cc2af43e774224f841b44c203e498b6b3626538386d0",
             "date": "2025-09-24"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {

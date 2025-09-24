@@ -25,8 +25,8 @@ The following cellular antennas are available:
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
-| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
-| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524, B504e | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524, B504e | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) &#124; [Retail Store](https://store.particle.io/products/wide-band-lte-cat-m1-cell-antenna-x1) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 | Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B-Series<sup>1</sup>, E-Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
