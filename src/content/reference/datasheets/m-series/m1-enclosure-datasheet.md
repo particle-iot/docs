@@ -239,6 +239,13 @@ torque values for screws: 7.5 kgf*cm (42 lbf/in)
 
 - [Bottom cover 3D model](/assets/images/monitor-one/bottom-cover.step) (.step)
 
+## Certification documents
+
+{{!-- BEGIN shared-blurb b7b7f127-a165-4c2b-a180-1ce2fd1b62a8 --}}
+- [RoHS](/assets/pdfs/m1encl-rohs.pdf)
+- [IP67](/assets/pdfs/m1encl-ip67.pdf)
+{{!-- END shared-blurb --}}
+
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1ee1e229-4747-4ebe-9c86-90a2ddbb73af --}}
@@ -265,3 +272,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | pre      | 2024-10-22 | RK     | Preliminary version |
 |          | 2024-12-02 | RK     | Updated pictures and added note about positioning of Wi-Fi antenna |
 |          | 2025-09-02 | RK     | Added SMA connector details |
+|          | 2025-09-24 | RK     | Added certification documents |

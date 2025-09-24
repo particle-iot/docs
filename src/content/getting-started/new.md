@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M1 Enclosure certification 2025-09-24
+
+Added RoHS and IP67 certification documents to [certification documents](/hardware/certification/certification-documents/#m1-enclosure) and the [M1 enclosure datasheet](/reference/datasheets/m-series/m1-enclosure-datasheet/#certification-documents).
+
 ### M-Series carrier list map 2025-09-23
 
 The cellular carrier list [coverage map](/reference/cellular/cellular-carriers/?tab=ModelMap&family=m%20series) now includes M-Series.

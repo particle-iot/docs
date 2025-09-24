@@ -850,6 +850,23 @@ Additional FCC Test Reports:
 
 - [RoHS Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
 
+## M1 Enclosure
+
+{{!-- BEGIN do not edit content below, it is automatically generated 1ee1e229-4747-4ebe-9c86-90a2ddbb73af --}}
+
+| SKU | Description | Lifecycle |
+| :--- | :--- | :--- |
+| M1ENCLEA | M1 Enclosure | In development |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+{{!-- BEGIN shared-blurb b7b7f127-a165-4c2b-a180-1ce2fd1b62a8 --}}
+- [RoHS](/assets/pdfs/m1encl-rohs.pdf)
+- [IP67](/assets/pdfs/m1encl-ip67.pdf)
+{{!-- END shared-blurb --}}
+
+
 ## M404 M-SoM M-Series LTE-M/2G
 
 {{!-- BEGIN do not edit content below, it is automatically generated b7b56d49-1e9a-496c-bf05-70d5b9957cf9 --}}
