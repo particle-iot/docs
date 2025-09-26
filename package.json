@@ -20,7 +20,7 @@
         "binary-version-reader": "^2.0.1",
         "form-data": "^4.0.4",
         "del": "^3.0.0",
-        "gulp": "^4.0.2",
+        "gulp": "^5.0.1",
         "gulp-footer": "^1.0.5",
         "gulp-header": "^1.8.9",
         "gulp-ignore": "^2.0.2",
