@@ -72,7 +72,7 @@ The B-Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 <div align="center">
 <br />
 
-<a href="https://store.particle.io/products/boron-lte-cat-m1-noram-with-ethersim-4th-gen" target="_blank" class="button">BUY A BORON</a>
+<a href="https://store.particle.io/collections/cellular/products/boron-lte-cat-m1-noram-starter-kit-with-ethersim-brn404xkit" target="_blank" class="button">BUY A BORON</a>
 
 </div>
 -->
