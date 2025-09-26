@@ -55,7 +55,7 @@
         "metalsmith-register-partials": "github:particle-iot/metalsmith-register-partials",
         "metalsmith-serve": "0.0.7",
         "metalsmith-watch": "^1.0.1",
-        "mocha": "^8.4.0",
+        "mocha": "^11.7.2",
         "particle-api-js": "^11.1.3",
         "prettify": "^0.1.7",
         "through2": "^2.0.3"
