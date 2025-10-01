@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-09-30
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### M1 Enclosure certification 2025-09-24
 
 Added RoHS and IP67 certification documents to [certification documents](/hardware/certification/certification-documents/#m1-enclosure) and the [M1 enclosure datasheet](/reference/datasheets/m-series/m1-enclosure-datasheet/#certification-documents).

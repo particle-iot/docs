@@ -1077,6 +1077,10 @@
           "dir": "compressFile"
         },
         {
+          "title": "CRC32_RK",
+          "dir": "CRC32_RK"
+        },
+        {
           "title": "CryptoLW-RK",
           "dir": "CryptoLW-RK"
         },
@@ -2079,6 +2083,10 @@
           "dir": "Manchester"
         },
         {
+          "title": "MAX127A",
+          "dir": "MAX127A"
+        },
+        {
           "title": "MAX30100",
           "dir": "MAX30100"
         },
@@ -2221,6 +2229,10 @@
         {
           "title": "ModbusMaster-Particle",
           "dir": "ModbusMaster-Particle"
+        },
+        {
+          "title": "MODULE_4_20MA",
+          "dir": "MODULE_4_20MA"
         },
         {
           "title": "Modulo",

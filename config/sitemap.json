@@ -4543,8 +4543,8 @@
             "hash": "c9c54618a23358933db2a92fbdc49bf958c7b8e61b11c98b928e3c6e2a39fa90"
         },
         "reference/device-os/libraries/a/Adafruit_BusIO_RK.md": {
-            "date": "2024-08-28",
-            "hash": "a529cda57044733f64f227f78845340790d876e02688e29d6c71a85a5d5bb873"
+            "date": "2025-10-01",
+            "hash": "96498d8eb687021d3ccbc372a6e5e216abf7e69451840b3f4a5acef21f723229"
         },
         "reference/device-os/libraries/a/Adafruit_CAP1188.md": {
             "date": "2024-08-28",
@@ -4595,8 +4595,8 @@
             "hash": "bb3c58fb572294d5e9e55b7506f3edb70404db8cbc8ec3549e50a6f54bec47b0"
         },
         "reference/device-os/libraries/a/Adafruit_GFX_RK.md": {
-            "date": "2024-08-28",
-            "hash": "b33057584c0c49e6f6112c583067c58bd893188b28b6aa3e010ba1ebfcf03c00"
+            "date": "2025-10-01",
+            "hash": "f61263e8bb57082a64b30584496c2163e5c1e8702512bda3ef1bf29eb34d10cb"
         },
         "reference/device-os/libraries/a/Adafruit_GFX_RK_Z.md": {
             "date": "2024-08-28",
@@ -4847,8 +4847,8 @@
             "hash": "936bcd57c0ce0bf66e2473f31b11250bf0a5b39b516158b276163cf960e3f713"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1306_RK.md": {
-            "date": "2024-08-28",
-            "hash": "e4483fe95cab17d2704853f74a58ce7bba73fe0b714c282160757f163c01ce42"
+            "date": "2025-10-01",
+            "hash": "b0c626d3119e088f7d81424328829bae405da45afe4460813748a755674f31ec"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1325.md": {
             "date": "2024-08-28",
@@ -5679,8 +5679,8 @@
             "hash": "e0ac6e18646e8fb8a15f8ab82bd257f9db1a4b69c2e02702aa01dfb099b87d16"
         },
         "reference/device-os/libraries/e/electronsample.md": {
-            "date": "2024-08-28",
-            "hash": "e9f40c45a10196fbbea62ebea8a8acc9fdb02eeaccf32c23650b279ea37800df"
+            "date": "2025-10-01",
+            "hash": "9df0764e85b0c350ca844361f1ccda3493003984ed199431bfbe7a5c6d7326ab"
         },
         "reference/device-os/libraries/e/EMGFilters.md": {
             "date": "2024-08-28",
@@ -6943,8 +6943,8 @@
             "hash": "2172afe62c237ab4bffe5fec5ceaad406b633b2fedd035eda7fede3beac0fd16"
         },
         "reference/device-os/libraries/p/PublishQueuePosixRK.md": {
-            "date": "2024-08-28",
-            "hash": "853915cdca36df90f28180517c8af271764e801a08323b5b34da4f7c59599c5e"
+            "date": "2025-10-01",
+            "hash": "d7fd2a4cd49267eb7eba61d3659c46c395c8ac898eae2a1bef2fd15dbfeec6c5"
         },
         "reference/device-os/libraries/p/PubNub.md": {
             "date": "2024-08-28",
@@ -7183,8 +7183,8 @@
             "hash": "d3c832ffed6c851a5abd335fe448b9f989c53615288370e48a6fb4a9e494d76a"
         },
         "reference/device-os/libraries/s/SequentialFileRK.md": {
-            "date": "2025-05-01",
-            "hash": "939c96bc80e236ece7e7261e7a081bc3f429c0e130ed91a4fcca3fcb75dfceb8"
+            "date": "2025-10-01",
+            "hash": "f2d7e2b01e412e9578c44ba914a36513fc041f0c6b89ad1c6046cf45bb645fd9"
         },
         "reference/device-os/libraries/s/Serial_Controlled_Motor_Driver.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "fb8a9027b6191ab7424f6e6cb11437c785b0ac2aa66a47ab8bfc770861a4b7b3",
-            "date": "2025-09-24"
+            "hash": "900bf43dd9b01c27579d343d77da9479b9770b8c7624ce6f308189e2e4368879",
+            "date": "2025-10-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9687,8 +9687,8 @@
             "date": "2025-02-14"
         },
         "reference/device-os/libraries/p/PublishQueueExtRK.md": {
-            "hash": "81c4f18f23b9628694129b75f3e7a7750f8a2861d193ff0575382c6b1b4f7335",
-            "date": "2025-06-02"
+            "hash": "0469fe5caed65e3b52ac5dacbdd8dc2f13a70ee8097314e6167395eb576cce7c",
+            "date": "2025-10-01"
         },
         "reference/device-os/libraries/t/tmc2209.md": {
             "hash": "9aaa9e1642eabd6d9b693e8543f181a412f091c34eb5e701223b9f31c5577998",
@@ -9885,6 +9885,18 @@
         "integrations/community-integrations/signl4.md": {
             "hash": "ad0931e6a484fcaa233af810caaa1213074418bac61ef7a7ec3df4655e54ceb3",
             "date": "2025-09-23"
+        },
+        "reference/device-os/libraries/c/CRC32_RK.md": {
+            "hash": "67fec790b381b75424ab50034b82e443522dbb0f8e27ddfad7de86b4d144508f",
+            "date": "2025-10-01"
+        },
+        "reference/device-os/libraries/m/MAX127A.md": {
+            "hash": "2820501990f2d5e1f06dcb3944f3ca68f1ec715922a759c1491bf9e058dbb750",
+            "date": "2025-10-01"
+        },
+        "reference/device-os/libraries/m/MODULE_4_20MA.md": {
+            "hash": "20a272618ddb60fcad0b1323deec26bd188de604cbc9c619e0ae89e1d61e36a8",
+            "date": "2025-10-01"
         }
     }
 }
