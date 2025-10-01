@@ -1,0 +1,123 @@
+{
+  "type": "libraries",
+  "id": "CRC32_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CRC32_RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "CRC32_RK",
+    "version": "0.0.1",
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
+    "sentence": "CRC32 implementation for Particle devices",
+    "url": "https://github.com/particle-iot/CRC32_RK",
+    "repository": "https://github.com/particle-iot/CRC32_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/reference/device-os/libraries/c/CRC32_RK",
+  "versions": {
+    "0.0.1": {
+      "added": "2025-09-30T10:32:35.838Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CRC32_RK\n\n**Implementation of crc32 algorithm for Particle devices**\n\nThis library calculate CRC32 (32-bit Cyclic Redundancy Check). It uses the polynomial and other parameters as in gzip. \n\n- License: MIT\n- Repository: https://github.com/rickkas7/CRC32_RK\n- Full browseable [API docs](https://rickkas7.github.io/CRC32_RK/)\n\nFeatures:\n\n- Works with text or binary data\n- Supports calculating for a single buffer or multiple buffers\n- See the example 1-simple.cpp for example usage. \n- Compatible with gzip-style crc32.\n- If you need a compatible version for node.js, see the [crc](https://www.npmjs.com/package/crc) package in NPM.\n\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

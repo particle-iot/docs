@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "Adafruit_GFX_RK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/Adafruit_GFX_RK/archive/1.11.10.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/Adafruit_GFX_RK/archive/1.11.12.tar.gz"
   },
   "attributes": {
     "name": "Adafruit_GFX_RK",
-    "version": "1.11.10",
+    "version": "1.11.12",
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit GFX graphics core library, this is the 'core' class that all our other graphics libraries derive from. Ported by rickkas7.",
@@ -17,7 +17,7 @@
       "*"
     ],
     "dependencies": {
-      "adafruit-bus-io-rk": "1.16.1"
+      "adafruit-bus-io-rk": "1.16.3"
     },
     "visibility": "public",
     "mine": false
@@ -286,10 +286,85 @@
           }
         }
       }
+    },
+    "1.11.12": {
+      "added": "2025-09-30T08:44:27.176Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "readme": true
+          },
+          "bsom": {
+            "readme": true
+          },
+          "b5som": {
+            "readme": true
+          },
+          "tracker": {
+            "readme": true
+          },
+          "p2": {
+            "readme": true
+          },
+          "msom": {
+            "readme": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "readme": true
+          },
+          "boron": {
+            "readme": true
+          },
+          "bsom": {
+            "readme": true
+          },
+          "b5som": {
+            "readme": true
+          },
+          "tracker": {
+            "readme": true
+          },
+          "p2": {
+            "readme": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "readme": true
+          },
+          "boron": {
+            "readme": true
+          },
+          "bsom": {
+            "readme": true
+          },
+          "b5som": {
+            "readme": true
+          },
+          "tracker": {
+            "readme": true
+          },
+          "esomx": {
+            "readme": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "readme": true
+          },
+          "electron": {
+            "readme": true
+          }
+        }
+      }
     }
   },
   "readme": "# Adafruit GFX Library\n\nThis is the core graphics library for all our displays, providing a common set of graphics primitives (points, lines, circles, etc.). It needs to be paired with a hardware-specific library for each display device we carry (to handle the lower-level functions).\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nBSD license, check license.txt for more information.\nAll text above must be included in any redistribution.\n\nRecent Arduino IDE releases include the Library Manager for easy installation. Otherwise, to download, click the DOWNLOAD ZIP button, uncompress and rename the uncompressed folder Adafruit_GFX. Confirm that the Adafruit_GFX folder contains Adafruit_GFX.cpp and Adafruit_GFX.h. Place the Adafruit_GFX library folder your <arduinosketchfolder>/Libraries/ folder. You may need to create the Libraries subfolder if its your first library. Restart the IDE.\n\n# Useful Resources\n\n- Image2Code: This is a handy Java GUI utility to convert a BMP file into the array code necessary to display the image with the drawBitmap function. Check out the code at ehubin's GitHub repository: https://github.com/ehubin/Adafruit-GFX-Library/tree/master/Img2Code\n\n- drawXBitmap function: You can use the GIMP photo editor to save a .xbm file and use the array saved in the file to draw a bitmap with the drawXBitmap function. See the pull request here for more details: https://github.com/adafruit/Adafruit-GFX-Library/pull/31\n\n- 'Fonts' folder contains bitmap fonts for use with recent (1.1 and later) Adafruit_GFX. To use a font in your Arduino sketch, #include the corresponding .h file and pass address of GFXfont struct to setFont(). Pass NULL to revert to 'classic' fixed-space bitmap font.\n\n- 'fontconvert' folder contains a command-line tool for converting TTF fonts to Adafruit_GFX .h format.\n\n\n# Version History\n\n### 1.5.8 (2020-08-02)\n\n- Fix compiler error for `error: deleted function 'virtual Adafruit_SPITFT::~Adafruit_SPITFT()' overriding non-deleted function` with 2.0.0-rc.1.\n\n### 1.5.7 (2020-05-04)\n\n- Fix compiler error for undefined conversion to SpiClass with 1.5.1-rc.1.\n",
   "allVersions": [
+    "1.11.12",
+    "1.11.11",
     "1.11.10",
     "1.11.7",
     "1.5.8",
