@@ -29353,6 +29353,81 @@
                 2872,
                 2873
             ]
+        },
+        "v6.3.4": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.3.4",
+            "tag_name": "v6.3.4",
+            "name": "v6.3.4 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": false,
+            "created_at": "2025-09-22T17:49:07Z",
+            "published_at": "2025-10-01T16:59:41Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2874
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Increase system power manager stack size for all platforms"
+                },
+                {
+                    "tags": [
+                        "gen4",
+                        "bootloader"
+                    ],
+                    "prs": [
+                        2876
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Update SDK for pin toggling fix"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2877
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes for M635/M-SoM BG95-S5/BG95-M5 CELLULAR_07_urcs"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2882
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "system event `network_credentials_added` passes `NetworkCredentials` object"
+                },
+                {
+                    "tags": [
+                        "docs"
+                    ],
+                    "prs": [
+                        2878
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update CLA links"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2879
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update test dependencies"
+                }
+            ],
+            "prs": [
+                2874,
+                2876,
+                2877,
+                2878,
+                2879,
+                2882
+            ]
         }
     },
     "pulls": {
@@ -43468,6 +43543,72 @@
             "state": "closed",
             "created_at": "2025-06-05T18:35:15Z",
             "detail": "This PR fixes two issues:\n1. [Gen 3] We've introduced a regression in 5.9.0 in https://github.com/particle-iot/device-os/pull/2796 where BLE mutex in some cases (out of memory pool) may be acquired from inside an ISR handler (additionally we are slightly increasing by 1K the pool size)\n2. [Gen 4] Devices in central role are hitting a connect semaphore acquisition timeout assertion with some peripheral that do not respond to MTU exchanges."
+        },
+        "2874": {
+            "url": "https://github.com/particle-iot/device-os/pull/2874",
+            "number": 2874,
+            "title": "Increase system power manager stack size for all platforms",
+            "state": "closed",
+            "created_at": "2025-07-21T19:41:29Z",
+            "detail": "Using setup.particle.io on a B5SOM with Muon carrier board results in hard fault boot loop after flashing with 6.3.3 and enabling MUON support via USB control requests. Debugger showed that the system power manager thread was overflowing the stack. Gen3 platforms have a smaller stack than gen4"
+        },
+        "2875": {
+            "url": "https://github.com/particle-iot/device-os/pull/2875",
+            "number": 2875,
+            "title": "Bump form-data from 4.0.0 to 4.0.4 in /user/tests/integration",
+            "state": "closed",
+            "created_at": "2025-07-21T23:05:54Z"
+        },
+        "2876": {
+            "url": "https://github.com/particle-iot/device-os/pull/2876",
+            "number": 2876,
+            "title": "Update SDK for pin toggling fix",
+            "state": "closed",
+            "created_at": "2025-08-12T20:57:58Z"
+        },
+        "2877": {
+            "url": "https://github.com/particle-iot/device-os/pull/2877",
+            "number": 2877,
+            "title": "[test] fixes for M635 BG95-S5 CELLULAR_07_urcs",
+            "state": "closed",
+            "created_at": "2025-08-21T05:59:20Z",
+            "detail": "- CELLULAR_07_urcs failing on M635"
+        },
+        "2878": {
+            "url": "https://github.com/particle-iot/device-os/pull/2878",
+            "number": 2878,
+            "title": "feat: [sc-135235] Update CLA links",
+            "state": "closed",
+            "created_at": "2025-08-27T15:11:30Z"
+        },
+        "2879": {
+            "url": "https://github.com/particle-iot/device-os/pull/2879",
+            "number": 2879,
+            "title": "Update test dependencies",
+            "state": "closed",
+            "created_at": "2025-09-10T13:37:25Z"
+        },
+        "2880": {
+            "url": "https://github.com/particle-iot/device-os/pull/2880",
+            "number": 2880,
+            "title": "Bump tmp from 0.2.1 to 0.2.5 in /user/tests/integration",
+            "state": "closed",
+            "created_at": "2025-09-10T15:46:09Z"
+        },
+        "2881": {
+            "url": "https://github.com/particle-iot/device-os/pull/2881",
+            "number": 2881,
+            "title": "Bump brace-expansion in /user/tests/integration",
+            "state": "closed",
+            "created_at": "2025-09-10T15:46:12Z"
+        },
+        "2882": {
+            "url": "https://github.com/particle-iot/device-os/pull/2882",
+            "number": 2882,
+            "title": "system_event network_credentials_added passes NetworkCredentials object",
+            "state": "closed",
+            "created_at": "2025-09-18T03:38:35Z",
+            "detail": "- When setting Wi-Fi network credentials over USB/BLE, NetworkCredentials object is not passed to system event network_credentials_added as it is when calling WiFi.setCredentials() directly."
         }
     }
 }
