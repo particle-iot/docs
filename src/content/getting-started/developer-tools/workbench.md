@@ -381,7 +381,7 @@ There are two types of firmware:
 
 Prior to Device OS 4.0, monolithic builds were used mainly for source level debugging using Particle Workbench. This had the advantage of being able to easily step between the system and user firmware, but also introduced a difference that could make problems behave differently while debugging.
 
-Starting with Device OS 4.0 (and also 5.0):
+Starting with Device OS 4.0:
 
 - Debugging in Workbench now works with modular builds, and you can still step between user firmware and system parts.
 - This provides more consistent behavior between debugging and non-debugging builds.
@@ -510,6 +510,77 @@ You can also save and restore the optimization level around certain code:
 
 #pragma GCC pop_options
 ```
+
+#### Debugging panics
+
+Using the debugger is the best way to debug panics, especially hard fault (SOS+1), so you can examine the call stack to see where the error might be occurring. In some cases, such as memory corruption, the proximate location won't be helpful because it won't tell you where the memory corruption occurred, just where it caused a failure, but it still can be a helpful technique.
+
+This sample firmware generates a hard fault when the function "test" is called. This can be used to test the feature described here.
+
+```cpp
+#include "Particle.h"
+
+#pragma GCC optimize ("O0")
+
+SYSTEM_MODE(AUTOMATIC);
+
+SYSTEM_THREAD(ENABLED);
+
+SerialLogHandler logHandler(LOG_LEVEL_INFO);
+
+int testFn(String cmd); 
+
+void setup()
+{
+    Particle.function("test", testFn);
+}
+
+void loop()
+{
+}
+
+int testFn(String cmd) {
+    Log.info("test %s", cmd.c_str());
+
+    uint32_t *p = (uint32_t *)0x7fffffff;
+    *p = 0xffffffff; // This will hard fault
+
+    Log.info("after fault");
+
+    return 0;
+}
+```
+
+- Connect the device and debugger to your computer. Both USB connections must be made.
+- Use **Particle: Configure project for device**.
+- Use **Particle: Flash application & Device OS for debug (local)**.
+
+In order to set a breakpoint in the panic handler you will need to find the appropriate location in the version of Device OS you have selected. This is a little tricky because it's in a hidden directory. Change 6.3.3 to by the version of Device OS you have configured for.
+
+| Platform | Quick Open | Path | 
+| :------- | :--------- | :--- |
+| Mac      | Command-P  | `~/.particle/toolchains/deviceOS/6.3.3/services/src/panic.c` |
+| Linux    | Ctrl-P     | `~/.particle/toolchains/deviceOS/6.3.3/services/src/panic.c` |
+| Windows  | Ctrl-P     | `/Users/<your username>/.particle/toolchains/deviceOS/6.3.3/services/src/panic.c` |
+
+Scroll down to the `panic_ext` function and set a breakpoint, for example on the `memset` call.
+
+Use **Run: Start Debugging**.
+
+The firmware will start halted, so use Continue to have the device boot and connect to the cloud.
+
+Calling the function test on the device will cause a hard fault, which should halt at the breakpoint.
+
+{{imageOverlay src="/assets/images/workbench/debug-panic.png" class="no-darken"}}
+
+Of note:
+
+- The call stack pane will show the current breakpoint at panic_ext, but also show the location where the fault occurred (`testFn`) below it on the stack.
+- Clicking on `testFn` in the call stack will show the source near where there fault occurred. It maybe a few lines after it.
+- Continue will cause the device to SOS, then reboot.
+
+This technique can be used to open and and set a breakpoint at any Device OS function.
+
 
 #### Debugging FreeRTOS
 

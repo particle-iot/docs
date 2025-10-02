@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Debugging panics 2025-10-02
+
+Added instructions for debugging panics to the [Workbench debugger](/getting-started/developer-tools/workbench/#debugging-panics) documentation.
+
 ### Device OS 6.3.4 2025-10-01
 
 Device OS 6.3.4 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.
