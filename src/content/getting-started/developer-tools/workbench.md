@@ -557,6 +557,8 @@ int testFn(String cmd) {
 
 In order to set a breakpoint in the panic handler you will need to find the appropriate location in the version of Device OS you have selected. This is a little tricky because it's in a hidden directory. Change 6.3.3 to by the version of Device OS you have configured for.
 
+Use the **Quick Open** function in VSCode, Ctrl-P or Command-P, depending on platform. This is different than the Command Palette. Unlike the File-Open window, Quick Open allows you to enter a path in a hidden (dot) directory by typing then path in.
+
 | Platform | Quick Open | Path | 
 | :------- | :--------- | :--- |
 | Mac      | Command-P  | `~/.particle/toolchains/deviceOS/6.3.3/services/src/panic.c` |
