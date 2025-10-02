@@ -555,9 +555,11 @@ int testFn(String cmd) {
 - Use **Particle: Configure project for device**.
 - Use **Particle: Flash application & Device OS for debug (local)**.
 
-In order to set a breakpoint in the panic handler you will need to find the appropriate location in the version of Device OS you have selected. This is a little tricky because it's in a hidden directory. Change 6.3.3 to by the version of Device OS you have configured for.
+In order to set a breakpoint in the panic handler you will need to find the appropriate location in the version of Device OS you have selected. This is a little tricky because it's in a hidden directory, and not in your workspace.
 
-Use the **Quick Open** function in VSCode, Ctrl-P or Command-P, depending on platform. This is different than the Command Palette. Unlike the File-Open window, Quick Open allows you to enter a path in a hidden (dot) directory by typing then path in.
+Use the **Quick Open** function in VSCode, Ctrl-P or Command-P, depending on platform. This is different than the Command Palette. Unlike the File-Open window, Quick Open allows you to enter a path in a hidden (dot) directory by typing the path in.
+
+Change 6.3.3 to be the version of Device OS you have configured for.
 
 | Platform | Quick Open | Path | 
 | :------- | :--------- | :--- |
@@ -569,15 +571,15 @@ Scroll down to the `panic_ext` function and set a breakpoint, for example on the
 
 Use **Run: Start Debugging**.
 
-The firmware will start halted, so use Continue to have the device boot and connect to the cloud.
+The firmware will start halted, so use **Continue** to have the device boot and connect to the cloud.
 
-Calling the function test on the device will cause a hard fault, which should halt at the breakpoint.
+Calling the function `test` on the device will cause a hard fault, which should halt at the breakpoint.
 
 {{imageOverlay src="/assets/images/workbench/debug-panic.png" class="no-darken"}}
 
 Of note:
 
-- The call stack pane will show the current breakpoint at panic_ext, but also show the location where the fault occurred (`testFn`) below it on the stack.
+- The call stack pane will show the current breakpoint at `panic_ext`, but also show the location where the fault occurred (`testFn`) below it on the stack.
 - Clicking on `testFn` in the call stack will show the source near where there fault occurred. It maybe a few lines after it.
 - Continue will cause the device to SOS, then reboot.
 
