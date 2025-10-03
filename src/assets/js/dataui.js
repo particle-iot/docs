@@ -1162,15 +1162,21 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
             if (bandsUsed.bandsAll.length > 20) {
                 // If still too long (Canada)
                 bandsUsed.bands3G = [];
-                bandsUsed.bands4G = [];
                 for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
-                    if (bandsUsed.bandsAll[ii].startsWith('3G') || 
-                        bandsUsed.bandsAll[ii].startsWith('4G')) {
+                    if (bandsUsed.bandsAll[ii].startsWith('3G')) {
                         bandsUsed.bandsAll.splice(ii, 1);
                     }
                 }
-    
             }            
+            if (bandsUsed.bandsAll.length > 20) {            
+                bandsUsed.bands4G = [];
+                for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
+                    if (bandsUsed.bandsAll[ii].startsWith('4G')) {
+                        bandsUsed.bandsAll.splice(ii, 1);
+                    }
+                }
+            }
+
         }
     }
 

@@ -146,6 +146,9 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Italy | TIM | &nbsp; |
 | Italy | Vodafone | &nbsp; |
 | Italy | Wind | &nbsp; |
+| Japan | KDDI | &nbsp; |
+| Japan | NTT DoCoMo | &nbsp; |
+| Japan | Softbank | &nbsp; |
 | Jordan | Zain | &check; |
 | Kazakhstan | Beeline | &check; |
 | Kazakhstan | K-Cell | &check; |

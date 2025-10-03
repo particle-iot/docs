@@ -635,8 +635,8 @@
             "hash": "a28d48af8c2cb76339b62d02a9693c18479ec0b54a98f782d7a2b9a31f722d55"
         },
         "getting-started/developer-tools/workbench.md": {
-            "date": "2025-10-02",
-            "hash": "3b2a2d053bb4dd94a7f3e82c51125bd60aa81f00513f340ee58880830e506339"
+            "date": "2025-10-03",
+            "hash": "efe4ceb78522ad1015e7b6e59376c5066c9fdaa8cba4cfc812b75cf9f4e693a2"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
             "date": "2024-10-28",
@@ -991,24 +991,24 @@
             "hash": "b0438b76157a74c006236a8de92280c7a8d0516fcb1d07a012a7bf0221f959a4"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
-            "date": "2025-05-12",
-            "hash": "be473d5d733739a6bfc65db15164b40ba5d60a42b3d0e9faf176a1a1964cb03b"
+            "date": "2025-10-03",
+            "hash": "7062322ac4dd9fe7d113bf18cbcf76f65a8c006f9a4a17ed9309943bb8de7e82"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2025-04-01",
-            "hash": "f69fcce0c82eaeb69975802e80b9d0c7bdb89f843dba8198efcce75b5c326e69"
+            "date": "2025-10-03",
+            "hash": "6fba90ebd218953101095cdc2db1e8ab786b8e975302e77ccf64d3e1c7b38d31"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2025-04-01",
-            "hash": "e70ce86a8d76218c5dc610921fc21f516b46882c42ff6eb6dbbd13655496178a"
+            "date": "2025-10-03",
+            "hash": "045b796afc1bc16c106bf5b8cb0a01b6bc63257cfcc0c5902bdca3b75252b215"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2025-08-06",
-            "hash": "d20b848b2e87850ea7c2e579353e86ab5eb54c0316261af8859df9169f703417"
+            "date": "2025-10-03",
+            "hash": "2499141745ed250adb501dfa447c5cd02a3ac607e23b4db578f93f7ac87e591c"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -1119,8 +1119,8 @@
             "hash": "c49ffc2c5009f4422484dbf4bbd276257265a941dc0811a301d10e1537027b3f"
         },
         "reference/cellular/lte-cat-1-expansion.md": {
-            "date": "2025-05-12",
-            "hash": "9faf1ec347e24375d0b82570cfeef6100a7c513eb1fc2ecddebf4566a1971c4b"
+            "date": "2025-10-03",
+            "hash": "0c70b6323dc436df538890c79f9e0509beadcdd555cccaa2b4a4f032f3204049"
         },
         "reference/cellular/sim-cards.md": {
             "date": "2024-02-27",
@@ -1343,8 +1343,8 @@
             "hash": "b665c854ee1d177f21417da39d3899b821d19dc487443fc100bdcc39ca116095"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2025-06-17",
-            "hash": "05ec0aceef7f72785eb769b7e30d7590e25abd54e65b84a11f757f3b9549da04"
+            "date": "2025-10-03",
+            "hash": "731569f8f5a4e9586213feaed8a216beb545719151c8c8eb75bc94c6a476c0e2"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2025-09-03",

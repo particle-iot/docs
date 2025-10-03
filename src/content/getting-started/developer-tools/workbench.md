@@ -381,7 +381,7 @@ There are two types of firmware:
 
 Prior to Device OS 4.0, monolithic builds were used mainly for source level debugging using Particle Workbench. This had the advantage of being able to easily step between the system and user firmware, but also introduced a difference that could make problems behave differently while debugging.
 
-Starting with Device OS 4.0:
+Starting with Device OS 4.0 (and also 5.0):
 
 - Debugging in Workbench now works with modular builds, and you can still step between user firmware and system parts.
 - This provides more consistent behavior between debugging and non-debugging builds.

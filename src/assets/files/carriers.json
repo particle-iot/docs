@@ -93032,8 +93032,7 @@
       "country": "Japan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "limited band compatibility",
+      "recommendation": "YES",
       "technologies": [
         "4G",
         "3G"
@@ -93193,8 +93192,8 @@
       "country": "Japan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "limited band compatibility",
+      "recommendation": "POSS",
+      "reason": "Not certified for use in Japan.",
       "technologies": [
         "4G",
         "3G"
@@ -93805,7 +93804,8 @@
       "country": "Japan",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES",
+      "recommendation": "NR",
+      "reason": "2G/3G sunset",
       "technologies": [
         "3G"
       ],
@@ -93908,7 +93908,8 @@
       "country": "Japan",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
+      "reason": "2G/3G sunset",
       "technologies": [
         "3G"
       ],
@@ -94063,7 +94064,8 @@
       "country": "Japan",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND",
+      "recommendation": "NR",
+      "reason": "2G/3G sunset",
       "technologies": [
         "3G"
       ],
