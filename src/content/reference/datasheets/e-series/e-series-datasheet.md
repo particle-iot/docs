@@ -639,7 +639,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Israel | E314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | E314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | E314 | 2G, 3G | Digicel, Flow |
-| Japan | E314 | 3G | NTT DoCoMo |
 | Jordan | E314 | 2G, 3G | Zain |
 | Kazakhstan | E314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | E314 | 2G, 3G | Airtel |

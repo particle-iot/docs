@@ -605,7 +605,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | BRN314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | BRN314 | 2G, 3G | Digicel, Flow |
-| Japan | BRN314 | 3G | NTT DoCoMo |
 | Jordan | BRN314 | 2G, 3G | Zain |
 | Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | BRN314 | 2G, 3G | Airtel |

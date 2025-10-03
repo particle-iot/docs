@@ -705,7 +705,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | ELC314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | ELC314 | 2G, 3G | Digicel, Flow |
-| Japan | ELC314 | 3G | NTT DoCoMo |
 | Jordan | ELC314 | 2G, 3G | Zain |
 | Kazakhstan | ELC314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | ELC314 | 2G, 3G | Airtel |

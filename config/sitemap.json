@@ -996,11 +996,11 @@
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
             "date": "2025-10-03",
-            "hash": "6fba90ebd218953101095cdc2db1e8ab786b8e975302e77ccf64d3e1c7b38d31"
+            "hash": "7ab5c93c8a693e8c3685b28400c7ba1738909075664cf72e41081c8e4c871751"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
             "date": "2025-10-03",
-            "hash": "045b796afc1bc16c106bf5b8cb0a01b6bc63257cfcc0c5902bdca3b75252b215"
+            "hash": "654be6fe5aaea497bfd262fc73484eeaf0e25a1e9e2af7e7141fd435db8ff760"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
@@ -1008,7 +1008,7 @@
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
             "date": "2025-10-03",
-            "hash": "2499141745ed250adb501dfa447c5cd02a3ac607e23b4db578f93f7ac87e591c"
+            "hash": "b3bd8b35629dd630315cb2eda66c1d627c283836c58c30e6224fa8efbb8e9784"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -1347,8 +1347,8 @@
             "hash": "731569f8f5a4e9586213feaed8a216beb545719151c8c8eb75bc94c6a476c0e2"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2025-09-03",
-            "hash": "6e713d62b5085f66c16c9ce8e1908c7c5ebd3e3ce56c72a391934bc886400861"
+            "date": "2025-10-03",
+            "hash": "504b50eda18d3ca9a37c5cff5c8fafe1c788a67605032e64de8acd5b2ef96c51"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2025-09-03",
@@ -1371,8 +1371,8 @@
             "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2025-05-12",
-            "hash": "56e96739978f5d84072d6721513cb29a4a611920a6007da3bd271360b09f7767"
+            "date": "2025-10-03",
+            "hash": "2dc5fae8b01875468b56334daa5ce73a2de8307fa3478f1a67d53c01e009bc42"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
             "date": "2025-03-21",
@@ -1387,8 +1387,8 @@
             "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2025-06-17",
-            "hash": "f2b6fc38f1091a37a5c25cf0f754decdcc0972095e014c44ef42466961fac959"
+            "date": "2025-10-03",
+            "hash": "1e2c52200175092d7239757d8a3838e0af999233a5ba1cbc6d18662d39d97061"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-09-03",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "df2e516cb81437fe1f35d12e924b9642a562825895ca4813322d321ba898fed0",
-            "date": "2025-10-02"
+            "hash": "4cb6174cde174b7b40a83b337c27f0cc344ae82aa87c0dff4085847268b549c1",
+            "date": "2025-10-03"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
