@@ -6440,7 +6440,7 @@ bool pwrLast = false;
 
 void loop() {
     bool chg = !digitalRead(CHG);
-    bool pwr = hasVUSB(); // Use this instead of reading CHG
+    bool pwr = hasVUSB(); // Use this instead of reading PWR
 
     if (chgLast != chg || pwrLast != pwr) {
         String msg = String::format("chg=%d pwr=%d", chg, pwr);

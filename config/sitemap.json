@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2025-10-08",
-            "hash": "eccd94a0b0d967f8862bddef47196f796d582bf5b1e9c01c5902747beee3d9cd"
+            "hash": "30ecbbb2971dcf931212bfa816f46d89cc1b2ddb1eb1deebb2266ff9639f3d9d"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2272,7 +2272,7 @@
         },
         "reference/device-os/api/battery-voltage/battery-voltage-argon.md": {
             "date": "2025-10-08",
-            "hash": "76c051e2ecc20106c201ff5a4021db83100dc17a8ff1d9aa0a589dcd5a62141b"
+            "hash": "03c540fe95d485e235236402a650ede098e4c0910366e1e0dafdddcf3389718d"
         },
         "reference/device-os/api/fuelgauge/fuelgauge.md": {
             "date": "2024-02-27",
