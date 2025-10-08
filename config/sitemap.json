@@ -995,20 +995,20 @@
             "hash": "7062322ac4dd9fe7d113bf18cbcf76f65a8c006f9a4a17ed9309943bb8de7e82"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2025-10-03",
-            "hash": "7ab5c93c8a693e8c3685b28400c7ba1738909075664cf72e41081c8e4c871751"
+            "date": "2025-10-08",
+            "hash": "ca2b0e4f714586ebd756e747497a8c39b3dbcd849dab44328ba777e792cb2419"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2025-10-03",
-            "hash": "654be6fe5aaea497bfd262fc73484eeaf0e25a1e9e2af7e7141fd435db8ff760"
+            "date": "2025-10-08",
+            "hash": "0a72b823a6747c685cb2a58266ab2305e8528a38fce764cf0596a54bf514f560"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2025-10-03",
-            "hash": "b3bd8b35629dd630315cb2eda66c1d627c283836c58c30e6224fa8efbb8e9784"
+            "date": "2025-10-08",
+            "hash": "1025eecc6b3bf65f3c42917ba233ea7e0e5dc148dec9264f75c54a3c1e7502de"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-08-15",
-            "hash": "5edb2188a5988a5d646ff2f3c0206304a50e284fc4a41c761b116572e505fc2c"
+            "date": "2025-10-08",
+            "hash": "eccd94a0b0d967f8862bddef47196f796d582bf5b1e9c01c5902747beee3d9cd"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1347,8 +1347,8 @@
             "hash": "731569f8f5a4e9586213feaed8a216beb545719151c8c8eb75bc94c6a476c0e2"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2025-10-03",
-            "hash": "504b50eda18d3ca9a37c5cff5c8fafe1c788a67605032e64de8acd5b2ef96c51"
+            "date": "2025-10-08",
+            "hash": "f1557eb48cbaa11f1055045f9e803db1378f9015b9eb76ed71279e6aedda78f9"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2025-09-03",
@@ -1371,8 +1371,8 @@
             "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2025-10-03",
-            "hash": "2dc5fae8b01875468b56334daa5ce73a2de8307fa3478f1a67d53c01e009bc42"
+            "date": "2025-10-08",
+            "hash": "68c7fb4794a5161feab7cfb9dfb3d67c3204a30e4b62207f9f6f7cc3a00a9b5a"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
             "date": "2025-03-21",
@@ -1387,8 +1387,8 @@
             "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2025-10-03",
-            "hash": "1e2c52200175092d7239757d8a3838e0af999233a5ba1cbc6d18662d39d97061"
+            "date": "2025-10-08",
+            "hash": "0db8f79f790d5ff055f2e6a0fa41af959845ad13ed1a64eaf64f1f8a000e64b3"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-09-03",
@@ -2271,8 +2271,8 @@
             "hash": "bd28c0c17739d5ce395ebe67d0c7c61e14c436f34093a2816246c7038f666936"
         },
         "reference/device-os/api/battery-voltage/battery-voltage-argon.md": {
-            "date": "2024-02-27",
-            "hash": "17af475d6f5a352b9be9cbf7b33ee1f5ccfe20a4131452165487f1e604cf9d70"
+            "date": "2025-10-08",
+            "hash": "76c051e2ecc20106c201ff5a4021db83100dc17a8ff1d9aa0a589dcd5a62141b"
         },
         "reference/device-os/api/fuelgauge/fuelgauge.md": {
             "date": "2024-02-27",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "4cb6174cde174b7b40a83b337c27f0cc344ae82aa87c0dff4085847268b549c1",
-            "date": "2025-10-03"
+            "hash": "025872a81c19e9ef0fe1179b5eeb2ba564cad88f0b25c09142df3898241ca2f2",
+            "date": "2025-10-08"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

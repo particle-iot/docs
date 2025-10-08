@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Charging status and USB power 2025-10-08
+
+Updated the instructions for determining [charging status and USB power](/reference/device-os/api/battery-voltage/battery-voltage-argon/) on nRF52 devices including the Boron and Argon.
+
 ### Carrier list Japan fix 2025-10-03
 
 Fixed a problem in the [carrier list](/reference/cellular/cellular-carriers/) where the B524 and similar devices did not show 4G bands for Japan.

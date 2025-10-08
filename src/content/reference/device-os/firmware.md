@@ -6397,13 +6397,88 @@ The constant 0.0011224 is based on the voltage divider circuit (R1 = 806K, R2 = 
 The charge indicator on the Argon can be read using:
 
 ```cpp
+pinMode(CHG, INPUT_PULLUP);
 bool charging = !digitalRead(CHG);
 ```
 
-In other words, the `CHG` input is 0 when charging and 1 when not charging, and the `!` inverts this logic to make it easier to use.
+In other words, the `CHG` input is 0 when charging and 1 when not charging, and the `!` inverts this logic to make it easier to use. You only need to set the pinMode once, typically in setup().
 
-On the Argon, the `PWR` input is 1 when there is 5V power on the Micro USB connector or VUSB pin. You can use `digitalRead(PWR)` to find the value.
-On cellular devices with a PMIC, you should use [`System.powerSource()`](#powersource-) instead.
+On Gen 3 (nRF52) devices including the Argon, Boron, B-SoM, and Tracker, you can determine if there is USB power with this code:
+
+```cpp
+bool hasVUSB() {
+    // This only works with nRF52-based devices (Argon, Boron, B-SoM, Tracker)
+    uint32_t *pReg = (uint32_t *)0x40000438; // USBREGSTATUS
+
+    return (*pReg & 1) != 0;
+}
+```
+
+This sample code for the Argon shows how to read the various states:
+
+```cpp
+#include "Particle.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+SYSTEM_THREAD(ENABLED);
+
+SerialLogHandler logHandler(LOG_LEVEL_INFO);
+
+bool hasVUSB();
+
+void setup() {
+    RGB.control(true);
+    RGB.color(64, 64, 64); // Gray
+
+    pinMode(CHG, INPUT_PULLUP);
+
+    // Particle.connect()
+}
+
+bool chgLast = false;
+bool pwrLast = false;
+
+void loop() {
+    bool chg = !digitalRead(CHG);
+    bool pwr = hasVUSB(); // Use this instead of reading CHG
+
+    if (chgLast != chg || pwrLast != pwr) {
+        String msg = String::format("chg=%d pwr=%d", chg, pwr);
+        if (Particle.connected()) {
+            Particle.publish("testChgBat", msg);
+        }
+        Log.info(msg);
+
+        if (chg && pwr) {
+            // Charging from USB power
+            RGB.color(255, 165, 0); // Orange (looks kind of yellow)
+        }
+        else
+        if (!chg && pwr) {
+            // USB power, fully charged
+            RGB.color(0, 255, 0); // Green            
+        }
+        else if (!pwr) {
+            // No USB power, is powered from battery and discharging
+            RGB.color(64, 64, 64); // Gray 
+        }
+        else {
+            // Unexpected case
+            RGB.color(255, 0, 0); // Red
+        }
+
+        chgLast = chg;
+        pwrLast = pwr;        
+    }
+}
+
+bool hasVUSB() {
+    // This only works with nRF52-based devices (Argon, Boron, B-SoM, Tracker)
+    uint32_t *pReg = (uint32_t *)0x40000438; // USBREGSTATUS
+
+    return (*pReg & 1) != 0;
+}
+```
 
 ---
 
