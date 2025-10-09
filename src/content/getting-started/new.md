@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Serial number example fix 2025-10-09
+
+The [get serial number](/reference/device-os/api/device-identifiers/serial-number/) example incorrectly stated the return value is a system error; it's actually a length.
+
 ### Carrier list Canada fix 2025-10-09
 
 Fixed a problem in the [carrier list](/reference/cellular/cellular-carriers/) where the B504e did not show 4G bands for Canada.

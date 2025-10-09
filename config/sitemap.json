@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-10-08",
-            "hash": "30ecbbb2971dcf931212bfa816f46d89cc1b2ddb1eb1deebb2266ff9639f3d9d"
+            "date": "2025-10-09",
+            "hash": "f2d14f7c8d8f26e7bd421e5908f82ddd391731f87d001d420d1ebbe580ec9921"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4299,8 +4299,8 @@
             "hash": "744e084326f06eb0b482a42eed6c43f2729e1c7b4e2f11ad490aee64faa5298f"
         },
         "reference/device-os/api/device-identifiers/serial-number.md": {
-            "date": "2023-09-20",
-            "hash": "24bd018f85734b5f724232e11c860a21b737d3095d1e75ecf7640f8011750991"
+            "date": "2025-10-09",
+            "hash": "e45784d155e05b6c3782d4481cc315e507087e2d607a3f516790fc6d4079c5d4"
         },
         "reference/device-os/api/device-identifiers/data-matrix-sticker.md": {
             "date": "2024-02-27",
@@ -8163,8 +8163,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "831dd65f503ac67b74d0fe64c56075c5dd3bafb36717454dd15dd97cc3c05fff",
-            "date": "2025-08-06"
+            "hash": "c1a04a2a685c348728f01c66ec32664a109e73ca794a07ba7a171db08d44bad6",
+            "date": "2025-10-09"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "da6b52879a95241d1af94d51acd06512a247ad5df2b3f1c0b6068a9db8ff376f",
+            "hash": "85ba1c903653213c70684db0d713f7ab8074f2a5e02ca9668fdd92ef68c180f5",
             "date": "2025-10-09"
         },
         "getting-started/cloud/logic.md": {

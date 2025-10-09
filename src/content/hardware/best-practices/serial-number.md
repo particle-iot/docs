@@ -38,8 +38,8 @@ To get the serial number from user firmware:
 ```cpp
 char serial[HAL_DEVICE_SERIAL_NUMBER_SIZE + 1] = {0};
 int ret = hal_get_device_serial_number(serial, HAL_DEVICE_SERIAL_NUMBER_SIZE, nullptr);
-if (ret == SYSTEM_ERROR_NONE) {
-  // Success
+if (ret > 0) {
+  // Success (return value is length if >= 0)
 }
 ```
 
