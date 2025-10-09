@@ -1150,33 +1150,19 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
         options);
 
     if (bandsUsed.bandsAll.length > 20) {
-    // If there are too many bands, trim the list (US and Canada)
-    if (bandsUsed.bandsM1.length > 0) {
-            // If using M1, remove 5G
-            bandsUsed.bands5G = [];
-            for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
-                if (bandsUsed.bandsAll[ii].startsWith('5G')) {
-                    bandsUsed.bandsAll.splice(ii, 1);
-                }
-            }
-            if (bandsUsed.bandsAll.length > 20) {
-                // If still too long (Canada)
-                bandsUsed.bands3G = [];
+        // If there are too many bands
+        for(const tech of ['5G', 'M1', '4G', '3G', '2G']) {
+            if (!modem.technologies.includes(tech)) {
+                bandsUsed['bands' + tech] = [];
                 for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
-                    if (bandsUsed.bandsAll[ii].startsWith('3G')) {
+                    if (bandsUsed.bandsAll[ii].startsWith(tech)) {
                         bandsUsed.bandsAll.splice(ii, 1);
                     }
                 }
-            }            
-            if (bandsUsed.bandsAll.length > 20) {            
-                bandsUsed.bands4G = [];
-                for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
-                    if (bandsUsed.bandsAll[ii].startsWith('4G')) {
-                        bandsUsed.bandsAll.splice(ii, 1);
-                    }
+                if (bandsUsed.bandsAll.length < 20) {
+                    break;
                 }
             }
-
         }
     }
 
