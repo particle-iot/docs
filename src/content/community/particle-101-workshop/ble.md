@@ -39,7 +39,9 @@ Let's explore using Bluetooth with Particle Devices.
 <br />
 4. Now, let's turn on threading in the app, using the `SYSTEM_THREAD` command below. This opt-in change will allow your user firmware and Device OS to run on separate threads, which can speed things up when you're doing cloud publishes and local operations like Bluetooth. Note: be sure to place the following line near the top of your program, outside of the `setup` and `loop` functions.
 ```
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 ```
 <br />
 5. Next, add some global variables to handle timing for updating the device state values outside of the `setup` and `loop` functions.

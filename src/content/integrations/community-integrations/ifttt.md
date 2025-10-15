@@ -193,7 +193,9 @@ Sample device firmware:
 ```
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SerialLogHandler logHandler;
 
 int functionHandler(String cmd);

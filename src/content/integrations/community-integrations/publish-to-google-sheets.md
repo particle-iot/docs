@@ -238,7 +238,9 @@ Periodically (default: 30 seconds) it publishes an event with a counter value an
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -294,7 +296,9 @@ This is just the standard stuff in most device firmware.
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 ```
@@ -1074,7 +1078,9 @@ This example requires new device firmware.
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 

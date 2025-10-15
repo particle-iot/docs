@@ -867,7 +867,9 @@ Example using `SYSTEM_THREAD(ENABLED)`:
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 void setup() {
 	// When disabling updates by default, you must use either system thread
@@ -938,7 +940,9 @@ You can use the [`on_reset_pending`](/reference/device-os/api/system-events/syst
 Once you've performed any additional operations and it's a good time to reset, you can call `System.reset()`.
 
 ```
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 bool isSafeToReset();
 

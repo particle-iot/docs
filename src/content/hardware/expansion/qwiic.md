@@ -137,7 +137,9 @@ This is the sample code:
 // Library: SparkFun_BME280_Arduino_Library
 #include "SparkFunBME280.h" 
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // Log to USB debug serial log
 SerialLogHandler logHandler;
@@ -261,7 +263,9 @@ This example adds a [SparkFun Micro OLED Breakout (Qwiic)](https://www.sparkfun.
 // Library: SparkFun_Micro_OLED_Arduino_Library
 #include "SFE_MicroOLED.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // Log to USB debug serial log
 SerialLogHandler logHandler;
@@ -375,7 +379,9 @@ The Indicator Button example uses the [SparkFun Qwiic Button - Red LED](https://
 #include "SparkFun_Qwiic_Button.h"
 
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -457,7 +463,9 @@ Pressing the button turns on the red indicator LED in the button and also turns 
 // Library: SparkFun_Qwiic_Relay_Arduino_Library
 #include "SparkFun_Qwiic_Relay.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 

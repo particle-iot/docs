@@ -1034,7 +1034,9 @@ It is possible that the call will block for an indeterminate amount of time, pos
 Using this feature, the device can programmatically know its own public IP address.
 
 ```cpp
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 bool nameRequested = false;
@@ -1067,7 +1069,9 @@ Requesting the public IP uses two data operations, one for the request and one f
 This gives you the device name that is stored in the cloud.
 
 ```cpp
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 bool nameRequested = false;
@@ -2319,7 +2323,9 @@ It's also possible to enable Ethernet detection from code. This is saved in conf
 You should call it from setup() but make sure you are using `SYSTEM_THREAD(ENABLED)` so it can be enabled before the connecting to the cloud. You should not call it from STARTUP().
 
 ```cpp
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 void setup() 
 {
@@ -2361,7 +2367,9 @@ The correct order of operations is:
 - It is recommended that you enable threading and SEMI_AUTOMATIC mode because you will need to execute code before connecting to the cloud.
 
 ```cpp
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 ```
 
@@ -2409,7 +2417,9 @@ Here's a full sample application for testing:
 ```cpp
 // SAMPLE APPLICATION
 #include "Particle.h"
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 Serial1LogHandler log1Handler(115200, LOG_LEVEL_ALL);
 
@@ -4575,7 +4585,9 @@ There are two common uses for this:
 // EXAMPLE
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SerialLogHandler logHandler;
 
 class ExampleModule {
@@ -6420,7 +6432,9 @@ This sample code for the Argon shows how to read the various states:
 #include "Particle.h"
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler(LOG_LEVEL_INFO);
 
@@ -15030,7 +15044,9 @@ static int removeAll();
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler(LOG_LEVEL_INFO);
 
@@ -17829,7 +17845,9 @@ If you are listening on a specific port, you need to call begin(port) again ever
 ```
 const int LISTENING_PORT = 8080;
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 UDP udp;
 bool wasConnected = false;
@@ -23310,7 +23328,9 @@ void loop() {
 
 ```cpp
 SYSTEM_MODE(AUTOMATIC);
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 void setup() {
   // This is called even before being cloud connected
@@ -23348,7 +23368,9 @@ the Tracker Edge firmware uses.
 
 ```cpp
 SYSTEM_MODE(SEMI_AUTOMATIC);
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 void setup() {
   float batterySoc = System.batteryCharge();
@@ -23441,7 +23463,9 @@ Its use is recommended for all applications.
 
 ```
 // EXAMPLE USAGE
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 ```
 
 With Device OS {{systemThreadRequired}} and later, system thread is enabled by default.
@@ -23518,7 +23542,9 @@ For example, when the system is busy connecting to Wi-Fi or establishing the clo
 This presents itself typically in automatic mode and where `setup()` registers functions, variables or subscriptions. Even though the application thread is running `setup()` independently of the system thread, calling synchronous functions will cause the application to block until the system thread has finished connecting to the cloud. This can be avoided by delaying the cloud connection until after the synchronous functions have been called.
 
 ```
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 void setup()
@@ -23790,8 +23816,13 @@ We recommend always enabling the system thread in your application firmware usin
 
 See also the [threading explainer](/firmware/software-design/threading-explainer/) for additional information.
 
-With Device OS {{systemThreadRequired}} and later, system thread is always enabled. For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/).
+With Device OS {{systemThreadRequired}} and later, system thread is always enabled. For additional information, see [non-threaded system mode](/reference/discontinued/software/non-threaded-system-mode/). You can conditionally include it as follows:
 
+```cpp
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
+```
 
 ### os_thread_prio_t - Threading
 
@@ -28539,7 +28570,9 @@ Being able to switch from USB to UART serial is especially helpful if you are us
 ```cpp
 SerialLogHandler logHandler;
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 void setup() {
   // Wait for a USB serial connection for up to 15 seconds

@@ -4,7 +4,9 @@
 
 // The following line is optional, but recommended in most firmware. It
 // allows your code to run before the cloud is connected.
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // This uses the USB serial port for debugging logs.
 SerialLogHandler logHandler;

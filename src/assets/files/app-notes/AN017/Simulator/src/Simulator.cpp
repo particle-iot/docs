@@ -15,7 +15,9 @@
 #include <mcp_can.h>
 #include <SPI.h>
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(MANUAL);
 
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);

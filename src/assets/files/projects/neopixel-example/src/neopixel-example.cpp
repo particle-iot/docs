@@ -23,7 +23,9 @@
 #include "neopixel.h"
 
 SYSTEM_MODE(AUTOMATIC);
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // IMPORTANT: Set pixel COUNT, PIN and TYPE
 #if (PLATFORM_ID == 32)

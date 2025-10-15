@@ -335,7 +335,9 @@ Some libraries that deal with sensor hardware might behave strangely when the ha
 The easiest solution is to use [SYSTEM_THREAD](/reference/device-os/api/system-thread/system-thread/) mode.
 
 ```
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 ```
 
 You insert this at the top of your source file. What it does is run the cloud processing in a separate system thread, so if you block your loop, the cloud will still be serviced and you will stay in breathing cyan instead of going to breathing green.

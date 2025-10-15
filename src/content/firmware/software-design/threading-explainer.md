@@ -105,7 +105,9 @@ The results are quite different when the system thread is enabled:
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -179,7 +181,9 @@ Here's a simple example of implementing a thread to increment a counter in a loo
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -274,7 +278,9 @@ The `delay()` function yields to other threads internally, and won't resume unti
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -324,7 +330,9 @@ It's also possible to schedule periodic calls. In this case, we schedule the thr
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -384,7 +392,9 @@ To illustrate the problem of drift, this example delays between 0 and 4 millisec
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -450,7 +460,9 @@ In this example, `delay()` is replaced with `os_thread_delay_until()` and the dr
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -513,7 +525,9 @@ For example, the USB serial debug port (Serial) can only be called safely from m
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 void threadFunction(void *param);
 
@@ -586,7 +600,9 @@ Running this code will result in chaos. Or at least the display won't update cor
 #include "oled-wing-adafruit.h"
 #include "FreeSans9pt7b.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -653,7 +669,9 @@ A better way is to use `WITH_LOCK()`:
 #include "oled-wing-adafruit.h"
 #include "FreeSans9pt7b.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -751,7 +769,9 @@ Instead of using `WITH_LOCK()` you can surround your code with `os_mutex_lock()`
 #include "oled-wing-adafruit.h"
 #include "FreeSans9pt7b.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -829,7 +849,9 @@ Using a stack-based class like this eliminates the possibility of accidentally f
 #include "oled-wing-adafruit.h"
 #include "FreeSans9pt7b.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -968,7 +990,9 @@ One handy trick is to use a mutex to block your thread until something happens e
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 void threadFunction(void *param);
 
@@ -1027,7 +1051,9 @@ This is a simple example of using queues:
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 

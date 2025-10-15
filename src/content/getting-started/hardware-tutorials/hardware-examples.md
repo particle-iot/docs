@@ -65,7 +65,9 @@ If you leave this out, your code won't run (and the LED will not blink) until yo
 cloud successfully (breathing cyan).
 
 ```cpp
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 ```
 
 The `setup()` function is called once when the device boots to, well, set up the device. In this case we define our LED

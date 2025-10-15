@@ -168,7 +168,9 @@ debug logs. You can [learn more here](/reference/device-os/api/debugging/serial-
 Being able to switch from USB to UART serial is especially helpful if you are using sleep modes. Because USB serial disconnects on sleep, it can take several seconds for it to reconnect to your computer. By using UART serial (Serial1, for example) with a USB to TTL serial converter, the USB serial will stay connected to the adapter so you can begin logging immediately upon wake.
 
 ```cpp
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 ```
 
 This line enables system threaded mode. It allows your code to run before connected 

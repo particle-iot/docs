@@ -22,7 +22,9 @@
 #include "Adafruit_VS1053.h"
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // In production code, you may prefer to use onAssetOta from STARTUP
 // however see the note below in setup()

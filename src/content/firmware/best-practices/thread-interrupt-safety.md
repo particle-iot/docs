@@ -136,7 +136,9 @@ compiler, but does not prevent issues with concurrent access from an ISR.
 
 #include <atomic>
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 SerialLogHandler logHandler;

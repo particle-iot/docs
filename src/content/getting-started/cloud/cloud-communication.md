@@ -70,7 +70,9 @@ connected. This isn't too important for this example as it just publishes, which
 when cloud-connected, but it's still a good idea to get in the habit of using it.
 
 ```cpp
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 ```
 
 This allows USB serial debugging. If you are not seeing debug logs, connecting your Particle device

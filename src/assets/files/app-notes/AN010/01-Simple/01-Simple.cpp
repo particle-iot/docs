@@ -6,7 +6,9 @@
 #include "Particle.h"
 
 // This example uses threading enabled and SEMI_AUTOMATIC mode
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 // Using Serial1 (RX/TX) for debugging logs and an external TTL serial to USB (FT232) converter

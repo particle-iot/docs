@@ -12,7 +12,9 @@
 // It won't work on the Electron/E Series because it requires BLE, which is only on Gen 3
 
 SYSTEM_MODE(MANUAL);
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 

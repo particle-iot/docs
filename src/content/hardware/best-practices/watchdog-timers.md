@@ -97,7 +97,9 @@ The TPL5010 does not require a separate library - it just uses a single GPIO.
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -440,7 +442,9 @@ This is just the minimal implement of using the RTC and Watchdog Timer (WDT). He
 ```cpp
 #include "AB1805_RK.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 SerialLogHandler logHandler;
@@ -529,7 +533,9 @@ Full firmware:
 ```cpp
 #include "AB1805_RK.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 SerialLogHandler logHandler;
@@ -726,7 +732,9 @@ Full code:
 ```cpp
 #include "AB1805_RK.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 SerialLogHandler logHandler;

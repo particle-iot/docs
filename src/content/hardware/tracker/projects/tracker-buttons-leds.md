@@ -162,7 +162,9 @@ dependencies.sht3x-i2c=1.0.0
 #include "MCP23008-RK.h"
 #include "sht3x-i2c.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 

@@ -150,7 +150,9 @@ This example code uses a static IP address and an isolated Ethernet LAN. This co
 #include "Particle.h"
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // LOG_LEVEL_TRACE includes enough messages so you can be sure it's connecting by cellular
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);

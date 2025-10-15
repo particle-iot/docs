@@ -40,7 +40,9 @@ Your main application file will probably look something like this, but with more
 ```cpp
 #include "MyClass.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SerialLogHandler logHandler;
 
 void setup() {

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Threading warnings 2025-10-15
+
+Updated examples using `SYSTEM_THREAD(ENABLED)` to eliminate compile warnings when targeting Device OS 6.2.0 or later.
+
 ### Serial number example fix 2025-10-09
 
 The [get serial number](/reference/device-os/api/device-identifiers/serial-number/) example incorrectly stated the return value is a system error; it's actually a length.

@@ -35,7 +35,9 @@ Here's a full code example that also publishes once a minute, but using millis:
 ```cpp
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SerialLogHandler logHandler;
 
 system_tick_t lastPublish = 0;

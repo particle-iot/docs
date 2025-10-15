@@ -3,7 +3,9 @@
 
 // This demo works better with system thread enabled, otherwise the BLE log handler is not
 // initialized until you've already connected to the cloud, which is not as useful.
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // This sets up the BLE log handler. The <4096> template parameter sets the size of the buffer to hold log data
 // The other parameters are like SerialLogHandler. You can set the log level (optional) to things like

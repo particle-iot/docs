@@ -7,7 +7,9 @@
 #error "Device OS 5.5.0 or later is required to use Asset OTA"
 #endif
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
 void handleAssets(spark::Vector<ApplicationAsset> assets);

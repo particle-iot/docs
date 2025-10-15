@@ -335,7 +335,9 @@ It works between Wi-Fi and cellular devices, across Gen 2 and Gen 3 devices!
 
 #include "LedSwitchRK.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 
@@ -450,7 +452,9 @@ It defaults to fading between colors on the RGB LED. Pressing the button toggles
 
 #include <cmath>
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 SerialLogHandler logHandler;
 

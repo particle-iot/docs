@@ -110,7 +110,9 @@ And here's the sample code to test out the LED on the new pins:
 ```
 #include "Particle.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // These must be PWM compatible pins, all on different timers. See:
 // https://docs.particle.io/reference/device-os/firmware/photon/#tone-
@@ -176,7 +178,9 @@ Here's the code that I ran on the left (modified) Photon:
 
 #include "Serial2/Serial2.h"
 
-SYSTEM_THREAD(ENABLED);
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 
 // These must be PWM compatible pins, all on different timers. See:
 // https://docs.particle.io/reference/device-os/firmware/photon/#tone-
