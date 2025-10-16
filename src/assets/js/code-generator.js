@@ -102,7 +102,7 @@ $(document).ready(function () {
                     file: 'GPLv2.txt',
                 },
             ],
-            githubDefault: 'https://github.com/username/repo',
+            githubDefault: 'https://github.com/yourusername/',
             copyFiles: [
                 {
                     src: 'README.md',
@@ -145,7 +145,7 @@ $(document).ready(function () {
             }
         }
 
-        const saveOptions = function() {
+        const saveOptions = function(saveInLocalStorage = false) {
             // Fields retrievable using val() like input text and select
             for(const field of fieldConfig.valFields) {
                 options[field]= $(thisElem).find('.' + field).val();
@@ -160,11 +160,14 @@ $(document).ready(function () {
             options.libraryHeader = options.libraryName + '.h';
 
             if (options.generateSetupLoop) {
-                options.callLibrarySetup = '    ' + options.libraryName + '::instance().setup();\n';
-                options.callLibraryLoop = '    ' + options.libraryName + '::instance().loop();\n';;
+                options.callLibrarySetup = options.libraryName + '::instance().setup();\n';
+                options.callLibraryLoop = options.libraryName + '::instance().loop();\n';;
             }
             else {
                 options.callLibrarySetup = options.callLibraryLoop = '';
+            }
+            if (saveInLocalStorage) {
+                localStorage.setItem('libraryGenerator', JSON.stringify(options));
             }
         }
 
@@ -173,7 +176,7 @@ $(document).ready(function () {
             options.libraryName = 'MyLibrary';
             options.license = 'MIT.txt';
             options.copyright = 'Copyright (c) ' + d.getFullYear() + ' [your name]';
-            options.github = fieldConfig.githubDefault;
+            options.github = fieldConfig.githubDefault + options.libraryName;
             options.description = 'My new library for Particle devices';
             options.examples = '1-Simple';
             options.generateSingleton = options.generateMutex = options.generateThread = options.generateSetupLoop = true;
@@ -181,32 +184,54 @@ $(document).ready(function () {
             validateOptions();
         }
 
+        let saveTimer;
+
         const validateOptions = function() {
             saveOptions();
         
-            $(thisElem).find('.downloadButton').prop('disabled', false); // TEMPORARY
+            $(thisElem).find('.downloadButton').prop('disabled', true);
 
-            try {
-                const s = options.libraryName.replace(/[-A-Za-z0-9_]/g, '');
-                if (s != '') {
-                    setStatus('Library Name can only contain alphanumeric, underscore, and dash. No spaces or special characters!');
+            let s = options.libraryName.replace(/[A-Za-z0-9_]/g, '');
+            if (s != '') {
+                setStatus('Library Name can only contain alphanumeric and underscore. No spaces or special characters!');
+                return;
+            }
+            let m = options.libraryName.match(/^[0-9]/);
+            if (m) {
+                setStatus('Library Name cannot begin with a number.');
+                return;
+            }
+            
+            if (typeof options.github == 'string' && options.github.trim().length != 0) {
+                if (options.github.startsWith(fieldConfig.githubDefault) || !options.github.startsWith('https://') || options.github.endsWith('.git')) {
+                    setStatus('Github repository must be a URL to your Github repository for this project, or an empty string if you don\'t have one. It must not end with .git');
                     return;
                 }
-                
-                if (typeof options.github == 'string' && options.github.trim().length != 0) {
-                    if (options.github == fieldConfig.githubDefault || !options.github.startsWith('https://') || options.github.endsWith('.git')) {
-                        setStatus('Github repository must be a URL to your Github repository for this project, or an empty string if you don\'t have one. It must not end with .git');
-                        return;
-                    }
-                }
+            }
 
-                $(thisElem).find('.downloadButton').prop('disabled', false);
-                setStatus('');
+            $(thisElem).find('.downloadButton').prop('disabled', false);
+            setStatus('');
+
+            if (saveTimer) {
+                clearTimeout(saveTimer);
+                saveTimer = 0;
             }
-            catch(e) {
-                console.log('validateOptionsException', e);
-            }
+            saveTimer = setTimeout(function() {
+                saveOptions(true);
+            }, 2000);
         }
+
+        for(const fieldName of fieldConfig.valFields) {
+            $(thisElem).find('.' + fieldName).on('input blur', validateOptions);
+        }
+        $(thisElem).find('.libraryName').on('input blur', function() {
+            saveOptions();
+
+            if (options.github.startsWith(fieldConfig.githubDefault)) {
+                options.github = fieldConfig.githubDefault + options.libraryName;
+                loadOptions();
+            }
+        });
 
         const updateString = function(s) {
             for(const key in options) {
@@ -216,7 +241,6 @@ $(document).ready(function () {
             return s;
         }
 
-        $(thisElem).find('.libraryName').on('input blur', validateOptions);
 
         $(thisElem).find('.restoreDefaults').on('click', function() {
             $(thisElem).find('.restoreDefaults').prop('disabled', true);
@@ -228,8 +252,7 @@ $(document).ready(function () {
 
 
         $(thisElem).find('.downloadButton').on('click', async function() {
-            saveOptions();
-            localStorage.setItem('libraryGenerator', JSON.stringify(options));
+            saveOptions(true);
 
             let headerTop = '';
             if (options.github && options.github.length) {
