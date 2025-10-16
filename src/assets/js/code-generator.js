@@ -188,17 +188,19 @@ $(document).ready(function () {
         }
 
         const restoreDefaults = function() {
-            updateCalculatedDefaults();
 
             options.libraryName = 'MyLibrary';
             options.license = 'MIT.txt';
             options.username = 'yourusername';
-            options.copyright = options.copyrightDefault;
-            options.github = options.githubDefault;
             options.description = 'My new library for Particle devices';
             options.examples = '1-Simple';
             options.generateSingleton = options.generateMutex = options.generateThread = options.generateSetup = true;
             options.generateLoop = false;
+         
+            updateCalculatedDefaults();
+            options.copyright = options.copyrightDefault;
+            options.github = options.githubDefault;
+
             loadOptions();
             validateOptions();
         }
@@ -310,6 +312,8 @@ $(document).ready(function () {
                 const fileText = await zipEntry.getText();
                 libDir.addText('LICENSE', updateString(fileText));
             }
+
+            libDir.addText('project.properties', '');
 
             for(const copyObj of fieldConfig.copyFiles) {
                 if (!copyObj.dst) {
