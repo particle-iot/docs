@@ -75,7 +75,7 @@ $(document).ready(function () {
 
         const fieldConfig = {
             valFields: ['libraryName', 'license', 'copyright', 'github', 'description', 'examples'],
-            checkboxes: ['generateSingleton', 'generateMutex', 'generateThread'],
+            checkboxes: ['generateSingleton', 'generateMutex', 'generateThread', 'generateSetupLoop'],
             licenses: [
                 {
                     title: 'MIT',
@@ -101,14 +101,6 @@ $(document).ready(function () {
                     title: 'GPL v2',
                     file: 'GPLv2.txt',
                 },
-            ],
-            replaceWithKey: [
-                'copyright',
-                'libraryName',
-                'description',
-                'github',
-                'licenseTitle',
-                'libraryHeader',
             ],
             githubDefault: 'https://github.com/username/repo',
             copyFiles: [
@@ -166,6 +158,14 @@ $(document).ready(function () {
 
             options.licenseTitle = fieldConfig.licenses.find(e => e.file == options.license).title;
             options.libraryHeader = options.libraryName + '.h';
+
+            if (options.generateSetupLoop) {
+                options.callLibrarySetup = '    ' + options.libraryName + '::instance().setup();\n';
+                options.callLibraryLoop = '    ' + options.libraryName + '::instance().loop();\n';;
+            }
+            else {
+                options.callLibrarySetup = options.callLibraryLoop = '';
+            }
         }
 
         const restoreDefaults = function() {
@@ -176,7 +176,7 @@ $(document).ready(function () {
             options.github = fieldConfig.githubDefault;
             options.description = 'My new library for Particle devices';
             options.examples = '1-Simple';
-            options.generateSingleton = options.generateMutex = options.generateThread = true;
+            options.generateSingleton = options.generateMutex = options.generateThread = options.generateSetupLoop = true;
             loadOptions();
             validateOptions();
         }
@@ -209,12 +209,9 @@ $(document).ready(function () {
         }
 
         const updateString = function(s) {
-            for(const key of fieldConfig.replaceWithKey) {
+            for(const key in options) {
                 s = s.replaceAll('{{' + key + '}}', options[key]);
             }
-
-            s = s.replaceAll('{{licenseTitle}}', fieldConfig.licenses.find(e => e.file == options.license).title);
-            s = s.replaceAll('{{libraryHeader}}', options.libraryName + '.h');
 
             return s;
         }
@@ -245,8 +242,8 @@ $(document).ready(function () {
                 singleton: options.generateSingleton,
                 mutex: options.generateMutex,
                 thread: options.generateThread,
-                setup: true,
-                loop: true,
+                setup: options.generateSetupLoop,
+                loop: options.generateSetupLoop,
                 headerTop,
             });
 

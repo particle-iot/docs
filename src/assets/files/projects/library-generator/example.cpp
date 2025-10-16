@@ -13,8 +13,10 @@ SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and t
 std::chrono::milliseconds checkPeriod = 60s;
 
 void setup() {
+    {{callLibrarySetup}}
     Particle.connect();
 }
 
 void loop() {
+    {{callLibraryLoop}}
 }
