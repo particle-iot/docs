@@ -74,8 +74,8 @@ $(document).ready(function () {
         let options = {};
 
         const fieldConfig = {
-            valFields: ['libraryName', 'license', 'copyright', 'github', 'description', 'examples'],
-            checkboxes: ['generateSingleton', 'generateMutex', 'generateThread', 'generateSetupLoop'],
+            valFields: ['libraryName', 'license', 'copyright', 'username', 'github', 'description', 'examples'],
+            checkboxes: ['generateSingleton', 'generateMutex', 'generateThread', 'generateSetup', 'generateLoop'],
             licenses: [
                 {
                     title: 'MIT',
@@ -102,7 +102,7 @@ $(document).ready(function () {
                     file: 'GPLv2.txt',
                 },
             ],
-            githubDefault: 'https://github.com/yourusername/',
+            githubUrlPrefix: 'https://github.com/',
             copyFiles: [
                 {
                     src: 'README.md',
@@ -131,6 +131,14 @@ $(document).ready(function () {
             $(thisElem).find('.license').append(optionElem);
         }
 
+        const updateCalculatedDefaults = function() {
+            options.githubDefault = fieldConfig.githubUrlPrefix + options.username + '/' + options.libraryName;;
+
+            const d = new Date();
+            options.copyrightDefault = 'Copyright (c) ' + d.getFullYear() + ' ' + options.username;
+
+        }
+
         const loadOptions = function() {
             // Fields retrievable using val() like input text and select
             for(const field of fieldConfig.valFields) {
@@ -156,30 +164,41 @@ $(document).ready(function () {
                 options[field] = $(thisElem).find('.' + field).prop('checked');
             }
 
+            updateCalculatedDefaults();
+
             options.licenseTitle = fieldConfig.licenses.find(e => e.file == options.license).title;
             options.libraryHeader = options.libraryName + '.h';
 
-            if (options.generateSetupLoop) {
+            if (options.generateSetup) {
                 options.callLibrarySetup = options.libraryName + '::instance().setup();\n';
+            }
+            else {
+                options.callLibrarySetup = '';
+            }
+            if (options.generateLoop) {
                 options.callLibraryLoop = options.libraryName + '::instance().loop();\n';;
             }
             else {
-                options.callLibrarySetup = options.callLibraryLoop = '';
+                options.callLibraryLoop = '';
             }
+
             if (saveInLocalStorage) {
                 localStorage.setItem('libraryGenerator', JSON.stringify(options));
             }
         }
 
         const restoreDefaults = function() {
-            const d = new Date();
+            updateCalculatedDefaults();
+
             options.libraryName = 'MyLibrary';
             options.license = 'MIT.txt';
-            options.copyright = 'Copyright (c) ' + d.getFullYear() + ' [your name]';
-            options.github = fieldConfig.githubDefault + options.libraryName;
+            options.username = 'yourusername';
+            options.copyright = options.copyrightDefault;
+            options.github = options.githubDefault;
             options.description = 'My new library for Particle devices';
             options.examples = '1-Simple';
-            options.generateSingleton = options.generateMutex = options.generateThread = options.generateSetupLoop = true;
+            options.generateSingleton = options.generateMutex = options.generateThread = options.generateSetup = true;
+            options.generateLoop = false;
             loadOptions();
             validateOptions();
         }
@@ -221,17 +240,24 @@ $(document).ready(function () {
             }, 2000);
         }
 
+        $(thisElem).find('.libraryName,.username').on('input blur', function() {
+            const oldOptions = Object.assign({}, options);
+
+            saveOptions();
+
+            if (options.github == oldOptions.githubDefault) {
+                options.github = options.githubDefault;
+                loadOptions();
+            }
+            if (options.copyright == oldOptions.copyrightDefault) {
+                options.copyright = options.copyrightDefault;
+                loadOptions();
+            }
+            
+        });
         for(const fieldName of fieldConfig.valFields) {
             $(thisElem).find('.' + fieldName).on('input blur', validateOptions);
         }
-        $(thisElem).find('.libraryName').on('input blur', function() {
-            saveOptions();
-
-            if (options.github.startsWith(fieldConfig.githubDefault)) {
-                options.github = fieldConfig.githubDefault + options.libraryName;
-                loadOptions();
-            }
-        });
 
         const updateString = function(s) {
             for(const key in options) {
@@ -265,8 +291,8 @@ $(document).ready(function () {
                 singleton: options.generateSingleton,
                 mutex: options.generateMutex,
                 thread: options.generateThread,
-                setup: options.generateSetupLoop,
-                loop: options.generateSetupLoop,
+                setup: options.generateSetup,
+                loop: options.generateLoop,
                 headerTop,
             });
 
