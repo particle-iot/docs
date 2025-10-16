@@ -74,7 +74,7 @@ $(document).ready(function () {
         let options = {};
 
         const fieldConfig = {
-            valFields: ['libraryName', 'license', 'copyright', 'github', 'description'],
+            valFields: ['libraryName', 'license', 'copyright', 'github', 'description', 'examples'],
             checkboxes: ['generateSingleton', 'generateMutex', 'generateThread'],
             licenses: [
                 {
@@ -107,6 +107,8 @@ $(document).ready(function () {
                 'libraryName',
                 'description',
                 'github',
+                'licenseTitle',
+                'libraryHeader',
             ],
             githubDefault: 'https://github.com/username/repo',
             copyFiles: [
@@ -162,6 +164,8 @@ $(document).ready(function () {
                 options[field] = $(thisElem).find('.' + field).prop('checked');
             }
 
+            options.licenseTitle = fieldConfig.licenses.find(e => e.file == options.license).title;
+            options.libraryHeader = options.libraryName + '.h';
         }
 
         const restoreDefaults = function() {
@@ -170,30 +174,38 @@ $(document).ready(function () {
             options.license = 'MIT.txt';
             options.copyright = 'Copyright (c) ' + d.getFullYear() + ' [your name]';
             options.github = fieldConfig.githubDefault;
+            options.description = 'My new library for Particle devices';
+            options.examples = '1-Simple';
             options.generateSingleton = options.generateMutex = options.generateThread = true;
             loadOptions();
+            validateOptions();
         }
 
         const validateOptions = function() {
             saveOptions();
         
-            $(thisElem).find('.downloadButton').prop('disabled', true);
+            $(thisElem).find('.downloadButton').prop('disabled', false); // TEMPORARY
 
-            const s = options.libraryName.replace(/[-A-Za-z0-9_]/g, '');
-            if (s != '') {
-                setStatus('Library Name can only contain alphanumeric, underscore, and dash. No spaces or special characters!');
-                return;
-            }
-            
-            if (typeof options.github == 'string' && options.github.trim().length != 0) {
-                if (options.github == fieldConfig.githubDefault || !options.github.startsWith('https://') || options.github.endsWith('.git')) {
-                    setStatus('Github repository must be a URL to your Github repository for this project, or an empty string if you don\'t have one. It must not end with .git');
+            try {
+                const s = options.libraryName.replace(/[-A-Za-z0-9_]/g, '');
+                if (s != '') {
+                    setStatus('Library Name can only contain alphanumeric, underscore, and dash. No spaces or special characters!');
                     return;
                 }
-            }
+                
+                if (typeof options.github == 'string' && options.github.trim().length != 0) {
+                    if (options.github == fieldConfig.githubDefault || !options.github.startsWith('https://') || options.github.endsWith('.git')) {
+                        setStatus('Github repository must be a URL to your Github repository for this project, or an empty string if you don\'t have one. It must not end with .git');
+                        return;
+                    }
+                }
 
-            $(thisElem).find('.downloadButton').prop('disabled', false);
-            setStatus('');
+                $(thisElem).find('.downloadButton').prop('disabled', false);
+                setStatus('');
+            }
+            catch(e) {
+                console.log('validateOptionsException', e);
+            }
         }
 
         const updateString = function(s) {
@@ -202,6 +214,7 @@ $(document).ready(function () {
             }
 
             s = s.replaceAll('{{licenseTitle}}', fieldConfig.licenses.find(e => e.file == options.license).title);
+            s = s.replaceAll('{{libraryHeader}}', options.libraryName + '.h');
 
             return s;
         }
@@ -221,13 +234,20 @@ $(document).ready(function () {
             saveOptions();
             localStorage.setItem('libraryGenerator', JSON.stringify(options));
 
+            let headerTop = '';
+            if (options.github && options.github.length) {
+                headerTop += '// Repository: ' + options.github + '\n';
+            }
+            headerTop += '// License: ' + options.licenseTitle + '\n';
+
             const sources = codeGenerator.run({
                 name: options.libraryName,
                 singleton: options.generateSingleton,
                 mutex: options.generateMutex,
                 thread: options.generateThread,
                 setup: true,
-                loop: true
+                loop: true,
+                headerTop,
             });
 
             const sourceFileZipFs = new zip.fs.FS();
@@ -257,6 +277,21 @@ $(document).ready(function () {
             const srcDir = libDir.addDirectory('src');
             srcDir.addText(options.libraryName + '.cpp', sources.source);
             srcDir.addText(options.libraryName + '.h', sources.header);
+
+            {
+                const zipEntry = sourceFileZipFs.find('library-generator/example.cpp');
+                const fileText = await zipEntry.getText();
+                const exampleCpp = updateString(fileText);
+
+                const examplesDir = libDir.addDirectory('examples');
+                for(let exampleName of options.examples.split(',')) {
+                    exampleName = exampleName.trim();
+                    const thisExampleDir = examplesDir.addDirectory(exampleName);
+    
+                    thisExampleDir.addText(exampleName + '.cpp', exampleCpp);
+
+                }
+            }
 
             const blob = await zipFs.exportBlob({
                 level:0
