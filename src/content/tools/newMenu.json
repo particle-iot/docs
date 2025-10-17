@@ -85,6 +85,10 @@
                     "title": "Singleton class generator"
                 },
                 {
+                    "dir": "library-generator",
+                    "title": "Library project generator"
+                },
+                {
                     "dir": "json",
                     "title": "JSON tools"
                 },

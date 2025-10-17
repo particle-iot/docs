@@ -179,6 +179,10 @@ var codeGenerator = {};
         code += '#include "Particle.h"\n';
         code += '\n';
 
+        if (cg.options.headerTop) {
+            code += cg.options.headerTop + '\n';
+        }
+
         let classDetails = '';
         if (cg.options.singleton) {
             classDetails += 'This class is a singleton; you do not create one as a global, on the stack, or with new.';
