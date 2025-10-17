@@ -353,6 +353,9 @@ $(document).ready(function () {
         
             analytics.track('Success', {category:'Library Project Download'});
         
+            setTimeout(function() {
+                setStatus('');
+            }, 4000);
         });
 
         let doRestoreDefaults = true;
