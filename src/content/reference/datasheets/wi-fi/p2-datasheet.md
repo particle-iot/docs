@@ -2129,6 +2129,11 @@ SE, SI, SK, TR, UA, UK(NI).
 ### UKCA (United Kingdom) - P2
 
 - [UKCA Certification](/assets/pdfs/p2-ukca.pdf)
+
+### Trace antenna test report - P2
+
+- [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
+
 {{!-- END shared-blurb --}}
 
 

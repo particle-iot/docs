@@ -1265,6 +1265,11 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 ### UKCA (United Kingdom) - P2
 
 - [UKCA Certification](/assets/pdfs/p2-ukca.pdf)
+
+### Trace antenna test report - P2
+
+- [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
+
 {{!-- END shared-blurb --}}
 
 
@@ -1373,6 +1378,10 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 ### UKCA (United Kingdom) - Photon 2
 
 - [UKCA Certification](/assets/pdfs/phn2-ukca.pdf)
+
+### Trace antenna test report - Photon 2
+
+- [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
 
 {{!-- END shared-blurb --}}
 

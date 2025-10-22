@@ -927,16 +927,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-09-24",
-            "hash": "e3c95c38533c38937082cf8c0272e471135dc1dcb297acc16c63656de9812de2"
+            "date": "2025-10-22",
+            "hash": "89f50c7eae6d98382409a896db0be3a6c4e6b762cb0182df2f65d77c24bec759"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2025-09-24",
-            "hash": "914555d61539466e96e0e12409602a3f480e786af3b144ed33e4252191261b5e"
+            "date": "2025-10-22",
+            "hash": "7795969ddda67dfc911f89e6389f990307e82cb34ed59a77226122f3b2f86834"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1399,12 +1399,12 @@
             "hash": "a25ee15997fd92068f24b92fa506611af0f0bcbae34daaa769917bec984a3de0"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2025-04-01",
-            "hash": "b240ceb1b3ae8e425d2b6cf802993e9db396021de2ec7d33327bba78edf130d3"
+            "date": "2025-10-22",
+            "hash": "38155fcfbe2a0dfe9a324f1b03afad1d433bd228475acabdd0b6d9b8a8985e24"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2025-06-16",
-            "hash": "7ae461799eeae3b472655a49af7d7dd5706cae0d8528f5a0337f5b5663baff6d"
+            "date": "2025-10-22",
+            "hash": "6c9208aeff3fca2fa5c670b57c079cd6865a54499d7729f998d958f206139832"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2025-06-24",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "88584f50829b05dce001289bdf4e7378745fa80283f44daf141ee6dde9d1e1e6",
-            "date": "2025-10-15"
+            "hash": "41191e40161e89a8d722a0b7bd385b6ea59b41d850b825c333824e3e8d743f7d",
+            "date": "2025-10-22"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

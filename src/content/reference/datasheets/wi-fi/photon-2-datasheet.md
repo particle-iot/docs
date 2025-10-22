@@ -1349,6 +1349,10 @@ SE, SI, SK, TR, UA, UK(NI).
 
 - [UKCA Certification](/assets/pdfs/phn2-ukca.pdf)
 
+### Trace antenna test report - Photon 2
+
+- [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
+
 {{!-- END shared-blurb --}}
 
 

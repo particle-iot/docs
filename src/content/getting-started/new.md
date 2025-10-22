@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### P2/Photon 2 trace antenna 2025-10-22
+
+The test report for the P2/Photon 2 built-in Wi-Fi/BLE trace antenna is now included in the [antenna guide](/hardware/certification/antenna/#p2-photon-2-trace-antenna).
+
 ### Threading warnings 2025-10-15
 
 Updated examples using `SYSTEM_THREAD(ENABLED)` to eliminate compile warnings when targeting Device OS 6.2.0 or later.

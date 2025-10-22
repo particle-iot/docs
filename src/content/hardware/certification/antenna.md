@@ -372,6 +372,12 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 
 <sup>4</sup>The P2 and Photon 2 certified with the built-in trace antenna, and also the PARANTWM1EA and PARANTWM1TY external antennas. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz).
 
+### P2/Photon 2 trace antenna
+
+The P2 module, which is also included on the Photon 2, includes a built-in trace antenna for use with Wi-Fi and BLE.
+
+- [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
+
 ### Not compatible (Wi-Fi)
 
 These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenna.
@@ -508,6 +514,13 @@ These devices include Bluetooth LE (BLE) capabilities.
 <sup>1</sup>The Tracker One includes an BLE antenna inside the case, however it's a different antenna than the Particle 2.4 GHz Antenna (ANT-FLXV2). A separate antenna is used because the Tracker SoM is mounted on the bottom side of the Tracker Carrier Board, so signals to the chip antenna would be adversely affected.
 
 <sup>4</sup>The P2 and Photon 2 certified with the built-in trace antenna, and also the PARANTWM1EA and PARANTWM1TY external antennas. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz).
+
+### P2/Photon 2 trace antenna (BLE)
+
+The P2 module, which is also included on the Photon 2, includes a built-in trace antenna for use with Wi-Fi and BLE.
+
+- [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
+
 
 ### Not compatible (BLE)
 
