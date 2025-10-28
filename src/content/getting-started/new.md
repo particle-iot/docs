@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### File system opendir and unlink 2025-10-28
+
+Added a warning to the [file system reference](/reference/device-os/api/file-system/file-system-unlink/#file-system-unlink) about using unlink() within a readdir() loop.
+
 ### P2/Photon 2 trace antenna 2025-10-22
 
 The test report for the P2/Photon 2 built-in Wi-Fi/BLE trace antenna is now included in the [antenna guide](/hardware/certification/antenna/#p2-photon-2-trace-antenna).

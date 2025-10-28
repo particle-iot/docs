@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-10-15",
-            "hash": "49ee1ae14f5ef38405f907ae347b33b04dc63fe64553ef3f395df602083a774d"
+            "date": "2025-10-28",
+            "hash": "9b8c83867e63a094dd9d27fe9dd51fba688949b86f2f578ba3d7b11c075c7ef3"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3947,16 +3947,16 @@
             "hash": "c198425d73410ef3093ace60508d28f171bc052dab3c5c00e1e347633672d49c"
         },
         "reference/device-os/api/file-system/file-system-unlink.md": {
-            "date": "2023-09-20",
-            "hash": "2decc4e3f910c43ae6e6538686df7314f94f9f665055b63c0fc6486cd4545a2c"
+            "date": "2025-10-28",
+            "hash": "7ac4553e37992c81075f50add548c0e4eddf70a6ae4f46b67c1faaa3f68da1ec"
         },
         "reference/device-os/api/file-system/file-system-rename.md": {
             "date": "2023-09-20",
             "hash": "c655b81fce551a7dc7c88a16132ef7ee3ae2a99ee49e439e56e67cc3620668da"
         },
         "reference/device-os/api/file-system/file-system-opendir.md": {
-            "date": "2023-09-20",
-            "hash": "6a41ffb8b69c549eddb081d12b80fac1b5415ec0176fe865ffa7532faa95cf65"
+            "date": "2025-10-28",
+            "hash": "ef2052bf8d5aaabe5c0a06860a33198f8215d37240451b9a66494c69934ef3d8"
         },
         "reference/device-os/api/file-system/file-system-readdir.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "41191e40161e89a8d722a0b7bd385b6ea59b41d850b825c333824e3e8d743f7d",
-            "date": "2025-10-22"
+            "hash": "271462481c1a65fb034bbd04053794baf630e38e64ff66b4577ef972e0dc9259",
+            "date": "2025-10-28"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

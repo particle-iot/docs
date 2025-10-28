@@ -25617,6 +25617,15 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 - `EEXIST` or `ENOTEMPTY`: Directory is not empty.
 
 
+{{!-- BEGIN shared-blurb 196197f5-35e2-484b-878f-9d5124d8ea77 --}}
+{{note op="start" type="note"}}
+You must not call `unlink()` with an open directory handle to one or more parent directories! The common case where this can occur is if using the combination of opendir() and readdir(), and attempting to remove a file from within the loop. Doing so can cause an error, or, in some cases, corrupt the file system.
+
+You should either save a list of all files to delete then unlink them after closedir, or use `findLeafEntry()`. For examples of the latter, see the [SequentialFileRK](https://github.com/rickkas7/SequentialFileRK/blob/main/src/SequentialFileRK.cpp) library, or the [rmrf helper](https://github.com/particle-iot/device-os/pull/2798) in Device OS.
+{{note op="end"}}
+{{!-- END shared-blurb --}}
+
+
 ### File system rename
 
 {{api name1="rename"}}
@@ -25646,11 +25655,20 @@ Returns 0 on success. On error, returns -1 and sets `errno`.
 DIR* opendir(const char* pathname)
 ```
 
-Open a directory stream to iterate the files in the directory. Be sure to close the directory when done using [`closedir`](#file-system-closedir). Do not attempt to free the returned `DIR*`, only use `closedir`.
+Open a directory stream to iterate the files in the directory. Be sure to close the directory when done using [`closedir`](#file-system-closedir). Do not attempt to free the returned `DIR*`, only use `closedir`. You should closedir as soon as possible. Do not leave directory handles open for later use; instead close an reopen the directory later.
 
 - `pathname`: The pathname to the directory (Unix-style, with forward slash as the directory separator).
 
 Returns `NULL` (0) on error, or a non-zero value for use with `readdir`.
+
+{{!-- BEGIN shared-blurb 196197f5-35e2-484b-878f-9d5124d8ea77 --}}
+{{note op="start" type="note"}}
+You must not call `unlink()` with an open directory handle to one or more parent directories! The common case where this can occur is if using the combination of opendir() and readdir(), and attempting to remove a file from within the loop. Doing so can cause an error, or, in some cases, corrupt the file system.
+
+You should either save a list of all files to delete then unlink them after closedir, or use `findLeafEntry()`. For examples of the latter, see the [SequentialFileRK](https://github.com/rickkas7/SequentialFileRK/blob/main/src/SequentialFileRK.cpp) library, or the [rmrf helper](https://github.com/particle-iot/device-os/pull/2798) in Device OS.
+{{note op="end"}}
+{{!-- END shared-blurb --}}
+
 
 ### File system readdir
 
