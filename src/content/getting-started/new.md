@@ -20,6 +20,9 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+### Location services updates 2025-10-31
+
+Documentation for using [location fusion on non-Tracker devices](/reference/tracker/location-fusion) has been updated.
 
 ### File system opendir and unlink 2025-10-28
 
