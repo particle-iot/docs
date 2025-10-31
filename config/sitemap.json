@@ -1131,8 +1131,8 @@
             "hash": "264776c70a5538439141848e0febae9ecf64814c88342a38137f5a27f6c676b7"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2025-06-09",
-            "hash": "ab80be181dec73d375b716dcfc8604cd95d09f65ee606d8166a7d0a1121d6e3c"
+            "date": "2025-10-31",
+            "hash": "a5fb1e7ea17d700045613380db58f479e77111e72dcab99dfced9974837fa420"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2025-03-18",
@@ -1247,8 +1247,8 @@
             "hash": "c45f0908414aef05824e99d92fa31111fb0e263654f64f2f3afcb1805660e0dd"
         },
         "reference/tracker/location-fusion.md": {
-            "date": "2025-01-15",
-            "hash": "ffab7a8a525327743bfe14d75fe804e37a7161de4cf45a6a693853a034e6158a"
+            "date": "2025-10-31",
+            "hash": "44746441760fb7514c128b45449136ec4f7342ab692d745f30944181227f5c66"
         },
         "reference/tracker/tracker-configuration.md": {
             "date": "2024-11-14",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "271462481c1a65fb034bbd04053794baf630e38e64ff66b4577ef972e0dc9259",
-            "date": "2025-10-28"
+            "hash": "21e3d9f3c377a7108a8ca35ef225036ef50e866fd3b0c790b89a966d263237c8",
+            "date": "2025-10-31"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8391,12 +8391,12 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "d5cd05879d594310c9cdb1b8dae166fa22ff9df2db524909263a1078d61e9c42",
-            "date": "2025-06-25"
+            "hash": "c1af47abe55b1287aac83c0195e31b04c943f3550c12c544f53fe2fe4d08e096",
+            "date": "2025-10-31"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "dbb067f00730d0d16821a4158acf2460f4d84669e47cf2574232fa79e27d0900",
-            "date": "2025-07-18"
+            "hash": "10e5e0919676154bd2959ed2d2bbcb67eec0d4da64f2997865b43e382bd8d025",
+            "date": "2025-10-31"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "ec8b4255f7fe91e75d88cc2af43e774224f841b44c203e498b6b3626538386d0",
-            "date": "2025-09-24"
+            "hash": "f46ff69ca728ffb90fd93403d366e74dcf50a26282289aafd50c9d7a59e6e364",
+            "date": "2025-10-31"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -9619,8 +9619,8 @@
             "date": "2025-01-15"
         },
         "getting-started/cloud/location.md": {
-            "hash": "309be1deb390a2a617b481d70ebe18308a03e3fcac374d564ac007db25c5c4f9",
-            "date": "2025-05-07"
+            "hash": "23c72999852df24f16b113c67d4fb08124d8046849e8958b98756e54adcafb73",
+            "date": "2025-10-31"
         },
         "reference/technical-advisory-notices/tan015.md": {
             "hash": "dd8860c4fc975fa1161d286a6aa3a8b6d5b295b002f176f0b299694daa1eec04",

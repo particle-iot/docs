@@ -124,6 +124,8 @@ Location Fusion will not be done. If you do not have valid coordinates, but do h
 cell tower information or Wi-Fi access points, Location Fusion will be done, at a cost of {{dataOperationsForLocation}} data operations.
 If location can be determined by Location Fusion, a `loc-enhanced` event will be generated.
 
+The [LocationFusionRK](https://github.com/rickkas7/LocationFusionRK) can be used to provide Tracker-like location services non-Tracker devices.
+
 ### Non-Tracker devices with GNSS capabilities
 
 #### M-SoM

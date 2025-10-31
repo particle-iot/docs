@@ -33,10 +33,19 @@ The best-case and worse-case resolution of the various technologies is:
 
 The theoretical worst-case GNSS precision, based on visibility of a minimum number of satellites, combined with multi-path interference is 100 kilometers. Practically speaking, when there is a GNSS lock, the reported location is generally within 500 meters (1640 feet, or 1/3 of a mile) of the actual location, and often within 10 meters.
 
+## Enabling location services
+
+Geolocation services are only available to devices in a product. Additionally, you must enable location services in the Settings (gear) icon for the product.
+
+![Location](/assets/images/console/enable-location.png)
+
+
 ## On non-Tracker devices
 
 {{!-- BEGIN shared-blurb c4c1c0b6-028c-47fa-a13d-4b14452f096f --}}
 On some plans, it is possible to use the `loc` event on non-Tracker devices. See [getting started with location](/getting-started/cloud/location/).
 
 This might be done if you have a device with GNSS in the cellular modem (such as the M-SoM and B504), or if you have added an external hardware GNSS to your project.
+
+The [LocationFusionRK](https://github.com/rickkas7/LocationFusionRK) can be used to provide Tracker-like location services non-Tracker devices.
 {{!-- END shared-blurb --}}

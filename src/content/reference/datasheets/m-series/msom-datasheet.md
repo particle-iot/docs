@@ -163,6 +163,7 @@ Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tr
 
 {{!-- BEGIN shared-blurb 7380ecbc-cf8b-4498-926c-f74739cafcb9 --}}
 - A [firmware library](https://github.com/particle-iot/particle-som-gnss) is available now for the M404. A future update will add support for the M524.
+- Another option is the [QuectelGnssRK](https://github.com/rickkas7/QuectelGnssRK) library that can be used with [LocationFusionRK](https://github.com/rickkas7/LocationFusionRK) to provide Tracker-like location services on the M-SoM.
 - Features such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
 - On the M404 (BG95 cellular modem), radio hardware is shared between the cellular modem and built-in GNSS which limits concurrent use.
 {{!-- END shared-blurb --}}
