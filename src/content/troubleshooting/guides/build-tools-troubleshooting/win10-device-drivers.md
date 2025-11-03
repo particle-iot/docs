@@ -1,13 +1,13 @@
 ---
-title: Windows 10 device drivers
+title: Windows 10 & 11 device drivers
 columns: two
 layout: commonTwo.hbs
-description: Windows 10 device drivers
+description: Windows 10 & 11 device drivers
 ---
 
 # {{title}}
 
-This guide has some tips for debugging driver issues with Windows 10. If you are experiencing these problems you may have a driver issue:
+This guide has some tips for debugging driver issues with Windows 10 and Windows 11. If you are experiencing these problems you may have a driver issue:
 
 - No serial device identified in the web-based tools despite using a current version of Chrome or Edge.
 - `particle serial list` returns no results.
