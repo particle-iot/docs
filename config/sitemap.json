@@ -6899,8 +6899,8 @@
             "hash": "8437501c29af13c7dce763c91035cb9fd596f84429429c0adaf2f5275aeea804"
         },
         "reference/device-os/libraries/p/Preferences.md": {
-            "date": "2024-08-28",
-            "hash": "a8612545f78957f3572bef5239470f928a874db8f1b32dfc82f222efa4e5cf75"
+            "date": "2025-11-03",
+            "hash": "f87d29b84920151e1730de5cdcafc621c3f546c091a969c27388d13dbaede256"
         },
         "reference/device-os/libraries/p/Print64.md": {
             "date": "2024-08-28",
@@ -7911,8 +7911,8 @@
             "hash": "e8b645814428f512e8300bf8fa0a491e0ccfc90671aebf5ebda31c26e3106ee4"
         },
         "reference/device-os/libraries/t/TM6666.md": {
-            "date": "2024-08-28",
-            "hash": "0db69043f3574ad93a968713e5def3cf4ff6ce8bd9e800997e475268c2859643"
+            "date": "2025-11-03",
+            "hash": "47585fdaf4b7c4661f20849057cea72d45819e610e4077ac66aa0b56796cc7e2"
         },
         "reference/device-os/libraries/t/Touch_4Wire.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "21e3d9f3c377a7108a8ca35ef225036ef50e866fd3b0c790b89a966d263237c8",
-            "date": "2025-10-31"
+            "hash": "814c7af6cff0982dc4b033ea1c94af71d5d12cbf2e6a43c319b0e6eaca8ce265",
+            "date": "2025-11-03"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9901,6 +9901,18 @@
         "tools/developer-tools/library-generator.md": {
             "hash": "796a50a7c77a754782094f4a547fdccf4a0e3c8897bc2160ab15a51769d55d44",
             "date": "2025-10-16"
+        },
+        "reference/device-os/libraries/l/LocationFusionRK.md": {
+            "hash": "fcd27c6dce6100ed5c4b3b5a0996c1066908e09153f889ec795032e5d7d3eb86",
+            "date": "2025-11-03"
+        },
+        "reference/device-os/libraries/q/QuectelGnssRK.md": {
+            "hash": "f87ba816d38c4219e24056667ce103ebe58ce1737a49db9c82bf609937a88c82",
+            "date": "2025-11-03"
+        },
+        "reference/device-os/libraries/q/QuectelTowerRK.md": {
+            "hash": "8fc4b68ee55fa303089c3158f990a73461be550ea335770fabfc8a8e147a4a7a",
+            "date": "2025-11-03"
         }
     }
 }

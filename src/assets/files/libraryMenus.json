@@ -2020,6 +2020,10 @@
           "dir": "LocalTimeRK"
         },
         {
+          "title": "LocationFusionRK",
+          "dir": "LocationFusionRK"
+        },
+        {
           "title": "locator",
           "dir": "locator"
         },
@@ -2809,6 +2813,14 @@
         {
           "title": "QRCode",
           "dir": "QRCode"
+        },
+        {
+          "title": "QuectelGnssRK",
+          "dir": "QuectelGnssRK"
+        },
+        {
+          "title": "QuectelTowerRK",
+          "dir": "QuectelTowerRK"
         }
       ]
     },

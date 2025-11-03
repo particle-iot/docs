@@ -20,6 +20,12 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+
+### Library updates 2025-11-02
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
+
 ### Location services updates 2025-10-31
 
 Documentation for using [location fusion on non-Tracker devices](/reference/tracker/location-fusion) has been updated.

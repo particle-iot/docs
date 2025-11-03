@@ -1,0 +1,144 @@
+{
+  "type": "libraries",
+  "id": "LocationFusionRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LocationFusionRK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "LocationFusionRK",
+    "version": "0.0.2",
+    "license": "MIT",
+    "author": "rickkas7",
+    "sentence": "Library for Particle devices to generate enhanced geolocation requests",
+    "url": "https://github.com/rickkas7/LocationFusionRK",
+    "repository": "https://github.com/rickkas7/LocationFusionRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/reference/device-os/libraries/l/LocationFusionRK",
+  "versions": {
+    "0.0.2": {
+      "added": "2025-11-02T09:54:06.904Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-enhanced-callback": false,
+            "3-log-tower-wifi": false
+          },
+          "p2": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "msom": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-enhanced-callback": false,
+            "3-log-tower-wifi": false
+          },
+          "p2": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-enhanced-callback": false,
+            "3-log-tower-wifi": false
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-enhanced-callback": true,
+            "3-log-tower-wifi": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": false,
+            "2-enhanced-callback": false,
+            "3-log-tower-wifi": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-enhanced-callback": false,
+            "3-log-tower-wifi": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# LocationFusionRK\n\n*Library for Particle devices to generate enhanced geolocation requests*\n\nThe Tracker One, Tracker SoM, and Monitor One already include built-in support for enhanced location services or [location fusion](https://docs.particle.io/reference/tracker/location-fusion/). Other devices, however, can take advantage of these services in some cases, and this library can simplify doing so.\n\nThis library includes a small subset of features from Tracker Edge, but designed to work on non-Tracker devices. The most obvious target is the M-SoM which can use Wi-Fi and cellular tower geolocation as an alternative to GNSS.\n\nThis library requires Device OS 6.2.0 or later for Variant and CloudEvent support.\n\n- Repository: https://github.com/rickkas7/LocationFusionRK\n- License: MIT\n- Full [browseable API documentation](https://rickkas7.github.io/LocationFusionRK/)\n\n## Features\n\n- Configurable for how often to publish `loc` events.\n- Wi-Fi geolocation on Wi-Fi devices including the M-SoM.\n- Single tower geolocation on all cellular devices.\n- Multi-tower geolocation on devices with Quectel cellular modems using the [QuectelTowerRK](https://github.com/rickkas7/QuectelTowerRK) library.\n- GNSS location using the Quectel cellular modem on some devices such as the M404, M524, and B504e using the [QuectelGnssRK](https://github.com/rickkas7/QuectelGnssRK) library.\n- Extensible for other data sources, such as external GNSS modules connected by serial, I2C, or SPI.\n- `loc-enhanced`data can optionally be delivered back to user firmware so the device can know its latitude, longitude, and accuracy when determined by location fusion.\n\n\n## With other data sources\n\nThis library can also be used with these libraries:\n\n- [QuectelGnssRK](https://github.com/rickkas7/QuectelGnssRK) to use cellular modem GNSS on some devices to get GNSS location, and if not available, fall back to cell tower and/or Wi-Fi geolocation. See example 4-location-fusion in that library.\n- [QuectelTowerRK](https://github.com/rickkas7/QuectelTowerRK) for devices with a Quectel cellular modem such as the M-SoM to provide better location using neighbor cells using Location Fusion.\n\nThese libraries include a static method that is compatible with `withAddToEventHandler()` in this library to make it easy to add additional data. For example, adding GNSS using Quectel cellular modem GNSS using the QuectelGnssRK library.\n\n```cpp\nLocationFusionRK::instance()\n    .withAddTower(true)\n    .withAddWiFi(true)\n    .withPublishPeriodic(5min)\n    .withLocEnhancedHandler(locEnhancedCallback)\n    .withAddToEventHandler(QuectelGnssRK::addToEventHandler)\n    .setup();\n```\n\nThis method can also be used to connect to other data sources, like external hardware GNSS units.\n\n## Enhanced location callback\n\nIf you want to use location fusion and get the loc-enhanced results delivered back to the device, see example 2. By adding an asynchronous handler \nusing `withLocEnhancedHandler()` the device will receive the enhanced location.\n\nNote that on non-Tracker devices, location fusion is only done if there is no GNSS lock (`lck` in the inner `loc` is 0). Thus is will never be used to\nenhance the GNSS location. However, this also means that when you have a GNSS location, the extra data operations fee for doing location fusion is not charged.\nThe callback is still called, but only with the original `lat` and `lng`.\n\nSee example 2-enhanced-callback.\n\n## Version history\n\n### 0.0.2 (2025-10-31)\n\n- Documentation updates\n\n### 0.0.1 (2025-10-30)\n\n- Initial version",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}
