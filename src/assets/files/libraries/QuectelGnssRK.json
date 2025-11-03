@@ -1,0 +1,166 @@
+{
+  "type": "libraries",
+  "id": "QuectelGnssRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/QuectelGnssRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "QuectelGnssRK",
+    "version": "0.0.1",
+    "license": "Apache 2.0",
+    "author": "rickkas7",
+    "sentence": "GNSS for Quecel celluar modems on Particle devices",
+    "url": "https://github.com/rickkas7/QuectelGnssRK",
+    "repository": "https://github.com/rickkas7/QuectelGnssRK.git",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "location-fusion-rk": "0.0.1"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "q",
+  "cardUrl": "/reference/device-os/libraries/q/QuectelGnssRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2025-11-02T10:17:56.743Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "bsom": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "b5som": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "tracker": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          },
+          "p2": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          },
+          "msom": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          },
+          "boron": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "bsom": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "b5som": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "tracker": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          },
+          "p2": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          },
+          "boron": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "bsom": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "b5som": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          },
+          "tracker": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          },
+          "esomx": {
+            "1-publish-once": true,
+            "2-log-continuous": true,
+            "3-continuous-variant": true,
+            "4-location-fusion": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          },
+          "electron": {
+            "1-publish-once": false,
+            "2-log-continuous": false,
+            "3-continuous-variant": false,
+            "4-location-fusion": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# QuectelGnssRK\n\nThis library implements GNSS support on Particle devices that have a Quecetel cellular modem that has GNSS support.\n\nThis library is can only be built with device OS version 5.8.2 and greater. It is intended for use the the following devices:\n\n| Device | Modem    | Platform |\n| :----- | :------- | :------  |\n| M404   | BG95-M5  | msom     |\n| M524   | EG91-EX  | msom     |\n| B504e  | EG91-NAX | b5som    |\n\nNote: This library cannot be used with the B524/B523 as those devices contain a EG91-E cellular modem, which does not have GNSS support.\n\nIt also cannot be used with any device with a u-blox cellular modem (B402/B404/B404X or any Boron) as none of the modems support GNSS.\n\nSome location parameters are not supported on some cellular modems.\n\n| Feature             | BG95    | EG91    |\n| :------------------ | :-----: | :-----: |\n| horizontalAccuracy  |   ✅    |         |\n| verticalAccuracy    |   ✅    |         |\n\n\n- Repository: https://github.com/rickkas7/QuectelGnssRK\n- License: Apache 2\n- This library is a modified version of https://github.com/particle-iot/particle-som-gnss/ with a modified API and additional features.\n- Full [browseable API documentation](https://rickkas7.github.io/QuectelGnssRK/)\n\n\n## Using with LocationFusionRK\n\nExample 4 works with the [LocationFusionRK](https://github.com/rickkas7/LocationFusionRK) library to combine cellular, Wi-Fi, and GNSS location. \n\n```cpp\nLocationFusionRK::instance()\n    .withAddTower(true)\n    .withAddWiFi(true)\n    .withPublishPeriodic(5min)\n    .withLocEnhancedHandler(locEnhancedCallback)\n    .withAddToEventHandler(QuectelGnssRK::addToEventHandler)\n    .setup();\n```\n\nUse the `withAddToEventHandler()` method of LocationFusionRK to add the handler `QuectelGnssRK::addToEventHandler`. This uses this library to obtain GNSS information from the cellular modem, but allow fallback to using Wi-Fi or single cellular tower geolocation if there is no GNSS fix available.\n\n### Revision History\n\n#### 0.0.1 (2025-10-29)\n\n- Initial fork from particle-som-gnss v1.0.0 (2024-08-09)\n- Added support for b5som and EG91\n- Added asynchronous API\n- Added more examples\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

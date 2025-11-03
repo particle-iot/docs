@@ -1,0 +1,167 @@
+{
+  "type": "libraries",
+  "id": "QuectelTowerRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/QuectelTowerRK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "QuectelTowerRK",
+    "version": "0.0.2",
+    "license": "Apache 2.0",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "Cellular tower information for Particle devices with Quectel cellular modems",
+    "url": "https://github.com/rickkas7/QuectelTowerRK",
+    "repository": "https://github.com/rickkas7/QuectelTowerRK.git",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "location-fusion-rk": "0.0.2"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "q",
+  "cardUrl": "/reference/device-os/libraries/q/QuectelTowerRK",
+  "versions": {
+    "0.0.2": {
+      "added": "2025-11-02T10:03:31.622Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          },
+          "p2": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          },
+          "msom": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          },
+          "p2": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-async": true,
+            "3-variant": true,
+            "4-location-fusion": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-async": false,
+            "3-variant": false,
+            "4-location-fusion": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# QuectelTowerRK\n\n*Cellular tower information for Particle devices with Quectel cellular modems*\n\n This includes:\n - M-SoM (M-SoM, Muon)\n - b5som variants of B-SoM (B504e, B524, B523)\n - Tracker (Tracker One, Monitor One, Tracker SoM)\n\nThis library extracts the tracker_cellular.cpp and tracker_cellular.h files out of the [tracker_edge](https://github.com/particle-iot/tracker-edge) project and renames the class to be more generic.\n\nIt also adds blocking and callback methods, instead of requiring a fixed delay after calling startScan.\n\nSee examples 1-simple and 2-async for blocking and non-blocking usage.\n\nThere are two main reasons to use this class:\n\n- You need not just serving cell identifier, but also neighboring cell info for better cellular geolocation\n- You want to efficiently access RSSI information.\n\nOne issue with Cellular.RSSI() is that it is blocking, and if the system thread is blocked, it can block for a very long time, up to 10 minutes. This class includes a thread for getting serving and neighboring cell info, but also includes a request to get the CellularSignal (strength and quality) information. By using getSignal() in this class instead of using Cellular.RSSI() directly, you are much less likely to be blocked. The RSSI is updated every few seconds. This technique is also used in tracker-edge and monitor-edge, and is how the signal strength LED is implemented.\n\nOther notes:\n\n- This cannot be used with the bsom (B4xx) and Boron, which have u-blox cellular modems. This class only works with Quectel cellular modems including the BG95, BG96, and EG91.\n- It's fast, often under 20 milliseconds, and almost always under a few seconds, because it's just returning the data that's already stored in the cellular modem.\n- It can only be used after connecting to cellular, so it won't help with scanning for towers when you can't connect.\n- If you do not need neighboring cells, you should use [CellularGlobalIdentity](https://docs.particle.io/reference/device-os/api/cellular/cellular-global-identity/) built into Device OS, which does not require a separate library.\n\n- Repository: [https://github.com/rickkas7/QuectelTowerRK](https://github.com/rickkas7/QuectelTowerRK)\n- Full [browseable API documentation](https://rickkas7.github.io/QuectelTowerRK/)\n- License: Apache 2.0\n\n## Using with LocationFusionRK\n\nExample 4 works with the [LocationFusionRK](https://github.com/rickkas7/LocationFusionRK) library to combine cellular, Wi-Fi, and GNSS location. \n\n```cpp\nLocationFusionRK::instance()\n    .withAddTower(true)\n    .withAddWiFi(true)\n    .withPublishPeriodic(5min)\n    .withLocEnhancedHandler(locEnhancedCallback)\n    .withAddToEventHandler(QuectelTowerRK::addToEventHandler)\n    .setup();\n```\n\nUse the `withAddToEventHandler()` method of LocationFusionRK to add the handler `QuectelTowerRK::addToEventHandler`. This uses this library to obtain multiple towers instead of using the default single tower geolocation.\n\n\n## Version history\n\n### 0.0.2 (2025-10-31)\n\n- Add support for LocationFusionRK\n\n### 0.0.1 (2025-10-28)\n\n- Initial version\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}
