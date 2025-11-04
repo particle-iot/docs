@@ -3540,34 +3540,44 @@ $(document).ready(function() {
                 },
             ];
 
+            const columnWidths = {
+                module: '150px',
+                fieldTitle: '150px',
+                value: '100px',
+            };
+            
+
             for(const key in verInfo1) {
                 let trElem = document.createElement('tr');
 
                 let tdElem;
                 tdElem = document.createElement('td');
-                $(tdElem).attr('colspan', 4);
+                $(tdElem).css('width', columnWidths.module);
                 $(tdElem).text(key);
                 $(trElem).append(tdElem);
                 $(moduleVersionBodyElem).append(trElem);
 
-                for(const fieldObj in fields) {
+                for(const fieldObj of fields) {
                     trElem = document.createElement('tr');
 
                     // Spacer below module name
                     tdElem = document.createElement('td');
+                    $(tdElem).css('width', columnWidths.module);
                     $(trElem).append(tdElem);
 
                     tdElem = document.createElement('td');
+                    $(tdElem).css('width', columnWidths.fieldTitle);
                     $(tdElem).text(fieldObj.title);                        
                     $(trElem).append(tdElem);
 
-                    for(const values in [verInfo1, verInfo2]) {
-                        if (!values || !values.prefixInfo) {
+                    for(const values of [verInfo1, verInfo2]) {
+                        if (!values || !values[key].prefixInfo) {
                             continue;
                         }
 
                         tdElem = document.createElement('td');
-                        $(tdElem).text(values[fieldObj.key]);
+                        $(tdElem).css('width', columnWidths.value);
+                        $(tdElem).text(values[key].prefixInfo[fieldObj.key]);
                         $(trElem).append(tdElem);
                     }
 
