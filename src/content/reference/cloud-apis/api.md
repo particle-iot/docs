@@ -42,12 +42,12 @@ The Particle API accepts requests in [JSON](https://www.w3schools.com/js/js_json
 
 ```bash
 # Example with form encoded format
-curl https://api.particle.io/v1/devices/mydevice/wakeup \
+curl https://api.particle.io/v1/devices/0123456789abcdef01234567/wakeup \
      -d arg=please \
      -H "Authorization: Bearer :access_token"
 
 # Same example with JSON
-curl https://api.particle.io/v1/devices/mydevice/wakeup \
+curl https://api.particle.io/v1/devices/0123456789abcdef01234567/wakeup \
      -H "Authorization: Bearer :access_token" \
      -H "Content-Type: application/json" \
      -d "{\"arg\": \"please\"}"
