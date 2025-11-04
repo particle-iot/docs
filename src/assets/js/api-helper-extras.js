@@ -3476,6 +3476,201 @@ $(document).ready(function() {
     }
 
 
+    $('.apiHelperModuleVersion').each(function() {
+        const thisPartial = $(this);
+
+        const moduleVersionHelper = {
+            outputWidth: '440px',
+        };
+
+        const moduleVersionPlatformElem = $(thisPartial).find('.moduleVersionPlatform');
+        const moduleVersion1Elem = $(thisPartial).find('.moduleVersion1');
+        const moduleVersion2Elem = $(thisPartial).find('.moduleVersion2');
+        const moduleVersionBodyElem = $(thisPartial).find('.moduleVersionBody');
+
+        const updateOutput = async function() {
+            const platformName = $(moduleVersionPlatformElem).val();
+            const ver1 = $(moduleVersion1Elem).val();
+            const ver2 = $(moduleVersion2Elem).val();
+
+            let verInfo1;
+            try {
+                const fetchRes = await fetch('/assets/files/device-restore/' + ver1 + '/' + platformName + '.json');
+                verInfo1 = await fetchRes.json();
+            }
+            catch(e) {                
+            }
+
+            let verInfo2;
+            if (ver2 != '-') {
+                try {
+                    let fetchRes = await fetch('/assets/files/device-restore/' + ver2 + '/' + platformName + '.json');
+                    verInfo2 = await fetchRes.json();
+                }
+                catch(e) {                
+                }
+            }
+
+            $(thisPartial).find('.moduleVersionHead1').text(ver1);
+            if (verInfo2) {
+                $(thisPartial).find('.moduleVersionHead2').text(ver2);
+            }
+            else {
+                $(thisPartial).find('.moduleVersionHead2').text('');
+            }
+
+            let allModuleKeys = Object.keys(verInfo1);
+            if (verInfo2) {
+                for(const key in verInfo2) {
+                    if (!allModuleKeys.includes(key)) {
+                        allModuleKeys.push(key);
+                    }
+                }
+            }
+            console.log("allModuleKeys", allModuleKeys);
+            
+            $(moduleVersionBodyElem).empty();
+
+            for(const key of allModuleKeys) {
+                const trElem = document.createElement('tr');
+
+                let tdElem;
+                tdElem = document.createElement('td');
+                $(tdElem).attr('colspan', 2);
+                $(tdElem).text(key);
+                $(trElem).append(tdElem);
+
+                if (verInfo2) {
+                    tdElem = document.createElement('td');
+                    $(tdElem).attr('colspan', 2);
+                    $(tdElem).text(key);
+                    $(trElem).append(tdElem);
+                }
+
+                $(moduleVersionBodyElem).append(trElem);
+            }
+
+            if (verInfo2) {
+            }
+
+
+        }
+
+        const updateVersionSelect = async function() {
+            $(moduleVersion1Elem).empty();
+            $(moduleVersion2Elem).empty();
+
+            {
+                const optionElem = document.createElement('option');
+                $(optionElem).text('None');
+                $(optionElem).val('-');
+
+                $(moduleVersion2Elem).append(optionElem);
+            }
+
+            const platformName = $(moduleVersionPlatformElem).val();
+
+            for(const verString of moduleVersionHelper.deviceRestore.versionsZipByPlatform[platformName]) {
+                const optionElem = document.createElement('option');
+                $(optionElem).text(verString);
+                $(optionElem).val(verString);
+
+                $(moduleVersion1Elem).append(optionElem);
+                $(moduleVersion2Elem).append(optionElem.cloneNode(true));
+            }
+
+
+            $(moduleVersion1Elem).on('change', updateOutput);
+            $(moduleVersion2Elem).on('change', updateOutput);
+            updateOutput();
+        }
+
+        const run = async function() {
+
+            const promises = [];
+
+            promises.push(new Promise(function(resolve, reject) {
+                apiHelper.getCarriersJson().then(function(carriersJson) {
+                    moduleVersionHelper.carriersJson = carriersJson;
+            
+                    resolve();
+                });
+            }));
+
+            promises.push(new Promise(function(resolve, reject) {
+                fetch('/assets/files/deviceRestore.json')
+                    .then(response => response.json())
+                    .then(function(data) {
+
+                        moduleVersionHelper.deviceRestore = data;
+                        
+                        resolve();
+                    });                    
+            }));
+
+            await Promise.all(promises);
+
+            console.log('moduleVersionHelper', moduleVersionHelper);
+
+            moduleVersionHelper.devicePlatformNames = [];
+            for(const platformObj of moduleVersionHelper.deviceRestore.platforms) {
+                if (!platformObj.discontinued) {
+                    moduleVersionHelper.devicePlatformNames.push(platformObj.name);
+                }
+            }
+            moduleVersionHelper.devicePlatformNames.sort(function(a, b) {
+                const aObj = moduleVersionHelper.deviceRestore.platforms.find(e => e.name == a);
+                const bObj = moduleVersionHelper.deviceRestore.platforms.find(e => e.name == b);
+
+                return aObj.title.localeCompare(bObj.title);
+            })
+
+            // Load platform popup
+            for(const name of moduleVersionHelper.devicePlatformNames) {
+                const platformObj = moduleVersionHelper.deviceRestore.platforms.find(e => e.name == name)
+
+                const optionElem = document.createElement('option');
+                $(optionElem).text(platformObj.title);
+                $(optionElem).val(name);
+
+                $(moduleVersionPlatformElem).append(optionElem);
+            }
+            $(moduleVersionPlatformElem).on('change', updateVersionSelect)
+            await updateVersionSelect();
+
+            /*
+            // Get a list keys into deviceConstants, public only, sorted by displayName
+            moduleVersionHelper.deviceConstantsKeys = [];
+
+            for(const key in moduleVersionHelper.carriersJson.deviceConstants) {
+                const devicePlatformObj = moduleVersionHelper.carriersJson.deviceConstants[key];
+                if (devicePlatformObj.public) {
+                    moduleVersionHelper.deviceConstantsKeys.push(key);
+                }
+            }
+            moduleVersionHelper.deviceConstantsKeys.sort(function(a, b) {
+                return moduleVersionHelper.carriersJson.deviceConstants[a].displayName.localeCompare(moduleVersionHelper.carriersJson.deviceConstants[b].displayName);
+            });
+
+            // Load platform popup
+            for(const key of moduleVersionHelper.deviceConstantsKeys) {
+                const devicePlatformObj = moduleVersionHelper.carriersJson.deviceConstants[key];
+                if (!devicePlatformObj.public) {
+                    continue;
+                }
+
+                const optionElem = document.createElement('option');
+                $(optionElem).text(devicePlatformObj.displayName);
+                $(optionElem).val(devicePlatformObj.id);
+
+                $(moduleVersionPlatformElem).append(optionElem);
+            }
+            $(moduleVersionPlatformElem).on('change', updateVersionSelect)
+            */
+        };
+        run();
+    })
+
 });
 
 
