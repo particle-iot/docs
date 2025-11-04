@@ -3519,35 +3519,62 @@ $(document).ready(function() {
                 $(thisPartial).find('.moduleVersionHead2').text('');
             }
 
-            let allModuleKeys = Object.keys(verInfo1);
-            if (verInfo2) {
-                for(const key in verInfo2) {
-                    if (!allModuleKeys.includes(key)) {
-                        allModuleKeys.push(key);
-                    }
-                }
+            let moduleFunctions = [];
+            for(const key in verInfo1) {
+                const prefixInfo = verInfo1[key].prefixInfo;
+
+                moduleFunctions.push({
+                    moduleFunction: prefixInfo.moduleFunction,
+                    moduleIndex: prefixInfo.moduleIndex,
+                    key,
+                });
             }
-            console.log("allModuleKeys", allModuleKeys);
-            
+            console.log('moduleFunctions', moduleFunctions);
+
             $(moduleVersionBodyElem).empty();
 
-            for(const key of allModuleKeys) {
-                const trElem = document.createElement('tr');
+            const fields = [
+                {
+                    title: 'Module Version',
+                    key: 'moduleVersion'
+                },
+            ];
+
+            for(const key in verInfo1) {
+                let trElem = document.createElement('tr');
 
                 let tdElem;
                 tdElem = document.createElement('td');
-                $(tdElem).attr('colspan', 2);
+                $(tdElem).attr('colspan', 4);
                 $(tdElem).text(key);
                 $(trElem).append(tdElem);
+                $(moduleVersionBodyElem).append(trElem);
 
-                if (verInfo2) {
+                for(const fieldObj in fields) {
+                    trElem = document.createElement('tr');
+
+                    // Spacer below module name
                     tdElem = document.createElement('td');
-                    $(tdElem).attr('colspan', 2);
-                    $(tdElem).text(key);
                     $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).text(fieldObj.title);                        
+                    $(trElem).append(tdElem);
+
+                    for(const values in [verInfo1, verInfo2]) {
+                        if (!values || !values.prefixInfo) {
+                            continue;
+                        }
+
+                        tdElem = document.createElement('td');
+                        $(tdElem).text(values[fieldObj.key]);
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(moduleVersionBodyElem).append(trElem);
                 }
 
-                $(moduleVersionBodyElem).append(trElem);
+
             }
 
             if (verInfo2) {
@@ -3589,6 +3616,7 @@ $(document).ready(function() {
 
             const promises = [];
 
+            /*
             promises.push(new Promise(function(resolve, reject) {
                 apiHelper.getCarriersJson().then(function(carriersJson) {
                     moduleVersionHelper.carriersJson = carriersJson;
@@ -3596,6 +3624,7 @@ $(document).ready(function() {
                     resolve();
                 });
             }));
+            */
 
             promises.push(new Promise(function(resolve, reject) {
                 fetch('/assets/files/deviceRestore.json')
@@ -3630,43 +3659,13 @@ $(document).ready(function() {
                 const platformObj = moduleVersionHelper.deviceRestore.platforms.find(e => e.name == name)
 
                 const optionElem = document.createElement('option');
-                $(optionElem).text(platformObj.title);
+                $(optionElem).text(platformObj.title + ' (' + platformObj.id + ')');
                 $(optionElem).val(name);
 
                 $(moduleVersionPlatformElem).append(optionElem);
             }
             $(moduleVersionPlatformElem).on('change', updateVersionSelect)
             await updateVersionSelect();
-
-            /*
-            // Get a list keys into deviceConstants, public only, sorted by displayName
-            moduleVersionHelper.deviceConstantsKeys = [];
-
-            for(const key in moduleVersionHelper.carriersJson.deviceConstants) {
-                const devicePlatformObj = moduleVersionHelper.carriersJson.deviceConstants[key];
-                if (devicePlatformObj.public) {
-                    moduleVersionHelper.deviceConstantsKeys.push(key);
-                }
-            }
-            moduleVersionHelper.deviceConstantsKeys.sort(function(a, b) {
-                return moduleVersionHelper.carriersJson.deviceConstants[a].displayName.localeCompare(moduleVersionHelper.carriersJson.deviceConstants[b].displayName);
-            });
-
-            // Load platform popup
-            for(const key of moduleVersionHelper.deviceConstantsKeys) {
-                const devicePlatformObj = moduleVersionHelper.carriersJson.deviceConstants[key];
-                if (!devicePlatformObj.public) {
-                    continue;
-                }
-
-                const optionElem = document.createElement('option');
-                $(optionElem).text(devicePlatformObj.displayName);
-                $(optionElem).val(devicePlatformObj.id);
-
-                $(moduleVersionPlatformElem).append(optionElem);
-            }
-            $(moduleVersionPlatformElem).on('change', updateVersionSelect)
-            */
         };
         run();
     })
