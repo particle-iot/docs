@@ -3025,12 +3025,18 @@ Set a [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Wi-Fi interfac
 // PROTOTYPE
 int setConfig(const particle::NetworkInterfaceConfig& conf);
 
-// EXAMPLE
+// EXAMPLE - Static
 WiFi.setConfig(NetworkInterfaceConfig()
+  .profile("MySSID")
   .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway({192,168,1,1})
   .dns({192,168,1,1});
+
+// EXAMPLE - DHCP
+WiFi.setConfig(NetworkInterfaceConfig()
+  .profile("MySSID")
+  .source(NetworkInterfaceConfigSource::DHCP);
 ```
 
 ### getConfig() [WiFi]
