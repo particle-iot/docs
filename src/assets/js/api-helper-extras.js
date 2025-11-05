@@ -3562,9 +3562,9 @@ $(document).ready(function() {
             ];
 
             const columnWidths = {
-                module: '150px',
-                fieldTitle: '150px',
-                value: '100px',
+                moduleSpacer: '30px',
+                fieldTitle: '200px',
+                value: '200px',
             };
             
 
@@ -3573,7 +3573,9 @@ $(document).ready(function() {
 
                 let tdElem;
                 tdElem = document.createElement('td');
-                $(tdElem).css('width', columnWidths.module);
+                $(tdElem).css('line-height', '40px');
+                $(tdElem).css('font-size', '14px');
+                $(tdElem).attr('colspan', 4);
                 $(tdElem).text(moduleName);
                 $(trElem).append(tdElem);
                 $(moduleVersionBodyElem).append(trElem);
@@ -3583,7 +3585,7 @@ $(document).ready(function() {
 
                     // Spacer below module name
                     tdElem = document.createElement('td');
-                    $(tdElem).css('width', columnWidths.module);
+                    $(tdElem).css('width', columnWidths.moduleSpacer);
                     $(trElem).append(tdElem);
 
                     tdElem = document.createElement('td');
