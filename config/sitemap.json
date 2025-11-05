@@ -891,8 +891,8 @@
             "hash": "ece99c5138efe73e836aac636bcfeb10a681f88071928c1dca9677270a55817b"
         },
         "tools/developer-tools/device-inspect.md": {
-            "date": "2023-06-20",
-            "hash": "1bfac612fa218bf406869a363c2e896fa60b006eb74960ff990cea547de2d0c9"
+            "date": "2025-11-05",
+            "hash": "e5384193f8816645084a9a14aefcc3b7eea7a60e1d1e8badd6a1514ca6b4e414"
         },
         "tools/developer-tools/hex-generator.md": {
             "date": "2024-07-23",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "fb5a82b3118c4f9d583a533df80b2ea18bf85ee004bf4847326a36b08d590718",
+            "hash": "0d6b578d6ad63458aa844f71ec94e13c272561f0a83a0c0663653b1d391846d8",
             "date": "2025-11-05"
         },
         "getting-started/cloud/logic.md": {
@@ -9913,6 +9913,10 @@
         "reference/device-os/libraries/q/QuectelTowerRK.md": {
             "hash": "8fc4b68ee55fa303089c3158f990a73461be550ea335770fabfc8a8e147a4a7a",
             "date": "2025-11-03"
+        },
+        "tools/developer-tools/module-version.md": {
+            "hash": "b6061154a3413973f4e1451c2bf16b5215017fcc431c640507218b64701ec50b",
+            "date": "2025-11-04"
         }
     }
 }

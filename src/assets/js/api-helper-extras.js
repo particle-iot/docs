@@ -3476,6 +3476,314 @@ $(document).ready(function() {
     }
 
 
+    $('.apiHelperModuleVersion').each(function() {
+        const thisPartial = $(this);
+
+        const moduleVersionHelper = {
+            outputWidth: '440px',
+        };
+
+        const moduleVersionPlatformElem = $(thisPartial).find('.moduleVersionPlatform');
+        const moduleVersionBodyElem = $(thisPartial).find('.moduleVersionBody');
+
+        const columnInfo = [
+            {
+                selectElem: $(thisPartial).find('.moduleVersion1'),
+                headElem: $(thisPartial).find('.moduleVersionHead1'),
+            },
+            {
+                selectElem: $(thisPartial).find('.moduleVersion2'),
+                headElem: $(thisPartial).find('.moduleVersionHead2'),
+            },
+        ];
+
+        const updateOutput = async function() {
+            const platformName = $(moduleVersionPlatformElem).val();
+
+
+            for(const columnObj of columnInfo) {
+                columnObj.versionString = $(columnObj.selectElem).val();
+
+                $(columnObj.headElem).text('');
+
+
+                columnObj.moduleFunctions = [];
+                columnObj.moduleData = {};
+
+                if (columnObj.versionString && columnObj.versionString != '-') {
+                    try {
+                        const fetchRes = await fetch('/assets/files/device-restore/' + columnObj.versionString + '/' + platformName + '.json');
+                        columnObj.deviceRestoreVersionObj = await fetchRes.json();
+
+                        $(columnObj.headElem).text(columnObj.versionString);
+
+                        for(const moduleName in columnObj.deviceRestoreVersionObj) {
+                            const prefixInfo = columnObj.deviceRestoreVersionObj[moduleName].prefixInfo;
+
+                            columnObj.moduleFunctions.push({
+                                moduleFunction: prefixInfo.moduleFunction,
+                                moduleIndex: prefixInfo.moduleIndex,
+                                moduleName,
+                            });
+
+                            columnObj.moduleData[moduleName] = Object.assign({}, columnObj.deviceRestoreVersionObj[moduleName].prefixInfo);
+                            // Can mix other parts that are not in the prefixInfo here if needed
+                        }
+                    }
+                    catch(e) {                
+                        console.log('exception reading device-restore file', e);
+                    }
+                }
+            }
+
+            $(moduleVersionBodyElem).empty();
+
+            if (!columnInfo[0].moduleFunctions) {
+                console.log('failed to load column 0');
+                return;
+            }
+
+            const fields = [
+                {
+                    title: 'Module version',
+                    key: 'moduleVersion'
+                },
+                {
+                    title: 'Load address',
+                    key: 'moduleStartAddy',
+                    valuePrefix: '0x',
+                },
+                {
+                    title: 'Dependency',
+                    depFunctionKey: 'depModuleFunction',
+                    depIndexKey: 'depModuleIndex',
+                    depVersionKey: 'depModuleVersion',
+                },
+                {
+                    title: 'Dependency',
+                    depFunctionKey: 'dep2ModuleFunction',
+                    depIndexKey: 'dep2ModuleIndex',
+                    depVersionKey: 'dep2ModuleVersion',
+                },
+            ];
+
+            const columnWidths = {
+                moduleSpacer: '30px',
+                fieldTitle: '200px',
+                value: '200px',
+            };
+
+            const rowData = {};
+
+            for(const moduleName in columnInfo[0].deviceRestoreVersionObj) {
+                const rowDataForModule = [];
+
+                for(const fieldObj of fields) {
+                    const rowDataForField = {
+                        title: fieldObj.title,
+                        hasValue: false,
+                        columnData: [],
+                        valueChanged: false,
+                    };
+
+                    for(const columnObj of columnInfo) {
+
+                        if (!columnObj.moduleData || !columnObj.moduleData[moduleName]) {
+                            continue;
+                        }
+
+                        let value = '';
+
+                        if (fieldObj.depFunctionKey) {
+                            if (columnObj.moduleData[moduleName][fieldObj.depFunctionKey] != 0) {
+                                const depObj = columnObj.moduleFunctions.find(e => e.moduleFunction == columnObj.moduleData[moduleName][fieldObj.depFunctionKey] &&
+                                    e.moduleIndex == columnObj.moduleData[moduleName][fieldObj.depIndexKey]);
+                                
+                                if (depObj) {
+                                    value = depObj.moduleName + ' ' + columnObj.moduleData[moduleName][fieldObj.depVersionKey];
+
+                                }
+                                else {
+                                    console.log('depObj not found', {moduleFunction: columnObj.moduleData[moduleName][fieldObj.depFunctionKey], moduleIndex: columnObj.moduleData[moduleName][fieldObj.depIndexKey]});
+                                }
+                            }
+                        }
+                        else {
+                            if (fieldObj.valuePrefix) {
+                                value += fieldObj.valuePrefix;
+                            }
+                            value += columnObj.moduleData[moduleName][fieldObj.key];
+
+                        }
+
+                        if (value.length) {
+                            rowDataForField.hasValue = true;
+                        }
+
+                        rowDataForField.columnData.push(value);
+                    }
+
+                    if (rowDataForField.columnData.length > 1) {
+                        if (rowDataForField.columnData[0] != rowDataForField.columnData[1]) {
+                            rowDataForField.valueChanged = true;   
+                        }
+                    }
+
+                    rowDataForModule.push(rowDataForField);
+                }
+
+                rowData[moduleName] = rowDataForModule;
+            }
+
+            for(const moduleName in rowData) {
+                const rowDataForModule = rowData[moduleName];
+
+                {
+                    const trElem = document.createElement('tr');
+
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('line-height', '40px');
+                    $(tdElem).css('font-size', '14px');
+                    $(tdElem).attr('colspan', 4);
+                    $(tdElem).text(moduleName);
+                    $(trElem).append(tdElem);
+                    $(moduleVersionBodyElem).append(trElem);
+                }
+
+                for(const rowDataForField of rowDataForModule) {
+                    if (!rowDataForField.hasValue) {
+                        continue;
+                    }
+
+                    const trElem = document.createElement('tr');
+
+                    {
+                        // Spacer below module name
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', columnWidths.moduleSpacer);
+                        $(trElem).append(tdElem);
+                    }
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', columnWidths.fieldTitle);
+                        $(tdElem).text(rowDataForField.title);                        
+                        $(trElem).append(tdElem);
+                    }
+
+                    for(const value of rowDataForField.columnData) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', columnWidths.value);
+
+                        if (rowDataForField.valueChanged) {
+                            $(tdElem).css('background-color', '#c7bd46');
+                            $(tdElem).css('color', '#000000');
+                        }
+
+                        $(tdElem).text(value);                        
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(moduleVersionBodyElem).append(trElem);
+                }
+
+            }
+
+
+
+        }
+
+        const updateVersionSelect = async function() {
+
+            for(let columnNum = 0; columnNum < columnInfo.length; columnNum++) {
+                const columnObj = columnInfo[columnNum];
+
+                $(columnObj.selectElem).empty();
+
+
+                if (columnNum > 0) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text('None');
+                    $(optionElem).val('-');
+
+                    $(columnObj.selectElem).append(optionElem);
+                }
+                const platformName = $(moduleVersionPlatformElem).val();
+
+                for(const verString of moduleVersionHelper.deviceRestore.versionsZipByPlatform[platformName]) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text(verString);
+                    $(optionElem).val(verString);
+
+                    $(columnObj.selectElem).append(optionElem);
+                }
+
+                $(columnObj.selectElem).on('change', updateOutput);
+
+                if (columnObj.versionString) {
+                    $(columnObj.selectElem).val(columnObj.versionString);
+                }
+            }
+
+            updateOutput();
+        }
+
+        const run = async function() {
+
+            const promises = [];
+
+            /*
+            promises.push(new Promise(function(resolve, reject) {
+                apiHelper.getCarriersJson().then(function(carriersJson) {
+                    moduleVersionHelper.carriersJson = carriersJson;
+            
+                    resolve();
+                });
+            }));
+            */
+
+            promises.push(new Promise(function(resolve, reject) {
+                fetch('/assets/files/deviceRestore.json')
+                    .then(response => response.json())
+                    .then(function(data) {
+
+                        moduleVersionHelper.deviceRestore = data;
+                        
+                        resolve();
+                    });                    
+            }));
+
+            await Promise.all(promises);
+
+            moduleVersionHelper.devicePlatformNames = [];
+            for(const platformObj of moduleVersionHelper.deviceRestore.platforms) {
+                if (!platformObj.discontinued) {
+                    moduleVersionHelper.devicePlatformNames.push(platformObj.name);
+                }
+            }
+            moduleVersionHelper.devicePlatformNames.sort(function(a, b) {
+                const aObj = moduleVersionHelper.deviceRestore.platforms.find(e => e.name == a);
+                const bObj = moduleVersionHelper.deviceRestore.platforms.find(e => e.name == b);
+
+                return aObj.title.localeCompare(bObj.title);
+            })
+
+            // Load platform popup
+            for(const name of moduleVersionHelper.devicePlatformNames) {
+                const platformObj = moduleVersionHelper.deviceRestore.platforms.find(e => e.name == name)
+
+                const optionElem = document.createElement('option');
+                $(optionElem).text(platformObj.title + ' (' + platformObj.id + ')');
+                $(optionElem).val(name);
+
+                $(moduleVersionPlatformElem).append(optionElem);
+            }
+            $(moduleVersionPlatformElem).on('change', updateVersionSelect)
+            await updateVersionSelect();
+        };
+        run();
+    })
+
 });
 
 

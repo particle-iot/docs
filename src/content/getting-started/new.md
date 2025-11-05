@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Module version helper tool 2025-11-05
+
+The [module version helper tool](/tools/developer-tools/module-version/) makes it easy to compare module dependencies between versions of Device OS. 
+
 ### Wi-Fi static IP correction 2025-11-05
 
 Updated the example for [WiFi.setConfig()](/reference/device-os/api/wifi/setconfig-wifi/#setconfig-wifi-) to include the profile name, which is required.
