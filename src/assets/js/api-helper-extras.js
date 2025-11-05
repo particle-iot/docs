@@ -3490,48 +3490,58 @@ $(document).ready(function() {
 
         const updateOutput = async function() {
             const platformName = $(moduleVersionPlatformElem).val();
-            const ver1 = $(moduleVersion1Elem).val();
-            const ver2 = $(moduleVersion2Elem).val();
 
-            let verInfo1;
-            try {
-                const fetchRes = await fetch('/assets/files/device-restore/' + ver1 + '/' + platformName + '.json');
-                verInfo1 = await fetchRes.json();
-            }
-            catch(e) {                
-            }
+            const columnInfo = [
+                {
+                    selectElem: moduleVersion1Elem,
+                    headElem: $(thisPartial).find('.moduleVersionHead1'),
+                },
+                {
+                    selectElem: moduleVersion2Elem,
+                    headElem: $(thisPartial).find('.moduleVersionHead2'),
+                },
+            ]
 
-            let verInfo2;
-            if (ver2 != '-') {
-                try {
-                    let fetchRes = await fetch('/assets/files/device-restore/' + ver2 + '/' + platformName + '.json');
-                    verInfo2 = await fetchRes.json();
+            for(const columnObj of columnInfo) {
+                columnObj.versionString = $(columnObj.selectElem).val();
+                $(columnObj.headElem).text('');
+
+                if (columnObj.versionString != '-') {
+                    try {
+                        const fetchRes = await fetch('/assets/files/device-restore/' + columnObj.versionString + '/' + platformName + '.json');
+                        columnObj.deviceRestoreVersionObj = await fetchRes.json();
+
+                        $(columnObj.headElem).text(columnObj.versionString);
+
+                        columnObj.moduleFunctions = [];
+                        columnObj.moduleData = {};
+
+                        for(const moduleName in columnObj.deviceRestoreVersionObj) {
+                            const prefixInfo = columnObj.deviceRestoreVersionObj[moduleName].prefixInfo;
+
+                            columnObj.moduleFunctions.push({
+                                moduleFunction: prefixInfo.moduleFunction,
+                                moduleIndex: prefixInfo.moduleIndex,
+                                moduleName,
+                            });
+
+                            columnObj.moduleData[moduleName] = Object.assign({}, columnObj.deviceRestoreVersionObj[moduleName].prefixInfo);
+                            // Can mix other parts that are not in the prefixInfo here if needed
+                        }
+                        console.log('columnObj', columnObj);
+                    }
+                    catch(e) {                
+                        console.log('exception reading device-restore file', e);
+                    }
                 }
-                catch(e) {                
-                }
             }
-
-            $(thisPartial).find('.moduleVersionHead1').text(ver1);
-            if (verInfo2) {
-                $(thisPartial).find('.moduleVersionHead2').text(ver2);
-            }
-            else {
-                $(thisPartial).find('.moduleVersionHead2').text('');
-            }
-
-            let moduleFunctions = [];
-            for(const key in verInfo1) {
-                const prefixInfo = verInfo1[key].prefixInfo;
-
-                moduleFunctions.push({
-                    moduleFunction: prefixInfo.moduleFunction,
-                    moduleIndex: prefixInfo.moduleIndex,
-                    key,
-                });
-            }
-            console.log('moduleFunctions', moduleFunctions);
 
             $(moduleVersionBodyElem).empty();
+
+            if (!columnInfo[0].moduleFunctions) {
+                console.log('failed to load column 0');
+                return;
+            }
 
             const fields = [
                 {
@@ -3558,13 +3568,13 @@ $(document).ready(function() {
             };
             
 
-            for(const key in verInfo1) {
+            for(const moduleName in columnInfo[0].deviceRestoreVersionObj) {
                 let trElem = document.createElement('tr');
 
                 let tdElem;
                 tdElem = document.createElement('td');
                 $(tdElem).css('width', columnWidths.module);
-                $(tdElem).text(key);
+                $(tdElem).text(moduleName);
                 $(trElem).append(tdElem);
                 $(moduleVersionBodyElem).append(trElem);
 
@@ -3583,8 +3593,9 @@ $(document).ready(function() {
 
                     let hasValue = false;
 
-                    for(const values of [verInfo1, verInfo2]) {
-                        if (!values || !values[key].prefixInfo) {
+                    for(const columnObj of columnInfo) {
+
+                        if (!columnObj.moduleData || !columnObj.moduleData[moduleName]) {
                             continue;
                         }
 
@@ -3594,16 +3605,13 @@ $(document).ready(function() {
                         let value = '';
 
                         if (fieldObj.depFunctionKey) {
-                            if (typeof values[key].prefixInfo[fieldObj.depFunctionKey] === 'number' && values[key].prefixInfo[fieldObj.depFunctionKey] != 0) {
-                                // const otherModuleObj = verInfo1.find(e => e.moduleFunction == values[key].prefixInfo[fieldObj.depFunctionKey] && e.moduleIndex == values[key].prefixInfo[fieldObj.depIndexKey]);
-                                // console.log('otherModuleObj', otherModuleObj);
-                            }
+                                                        
                         }
                         else {
                             if (fieldObj.valuePrefix) {
                                 value += fieldObj.valuePrefix;
                             }
-                            value += values[key].prefixInfo[fieldObj.key];
+                            value += columnObj.moduleData[moduleName][fieldObj.key];
 
                         }
 
@@ -3620,9 +3628,6 @@ $(document).ready(function() {
                 }
 
 
-            }
-
-            if (verInfo2) {
             }
 
 
