@@ -139,10 +139,14 @@ Make sure you've used the [**Mark As Development Device**](/getting-started/cons
 It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
 You can also use Device OS 3.3.0.
 
+### Tracker Edge v19
+
 {{note op="start" type="note"}}
-Tracker Edge v18 and earlier are not compatible Device OS 5.x. If you wish to target Device OS 5.0.0 or later, you must use the manual
-instructions below and use the **develop** branch of tracker-edge.
+Tracker Edge v19 can only be used with Device OS 6.1.1 and earlier.
 {{note op="end"}}
+
+A compile error prevents it from working in 6.2.0 and later, however correcting this issue issue is not sufficient as a separate 
+issue can cause a SOS+1 fault.
 
 ### Tracker Edge with bare Tracker SoM
 
@@ -171,10 +175,6 @@ which will cause the software to crash at boot.
 
 This will allow you to boot, however, you should search all of the locations where `TRACKER_MODEL_TRACKERONE` is referenced and make sure you don't have similar changes you want to make for your custom board. This is how differences for the status LED, buttons, and other peripherals like the thermistor, are handled for the Tracker One.
 
-### Tracker Edge v19
-
-At this time, Tracker Edge v19 does not compile on Device OS 6.2.0 due a missing `HAL_Validate_Pin_Function()` function. Using 6.1.1
-or commenting out the offending line, are workarounds.
 
 ### Tracker Edge v18
 
@@ -196,7 +196,7 @@ If you've downloaded Tracker Edge v18 using the tool above recently, it was inse
 
 With those two changes you can cloud compile Tracker Edge v18 with Device OS 4.x LTS.
 
-Tracker Edge v18 is not compatible with Device OS 5.x.
+Tracker Edge v18 is not compatible with Device OS 5.x or later.
 
 ### Tracker Edge v17 and Earlier
 
@@ -206,7 +206,7 @@ Tracker Edge v17 and earlier will not build on Device OS 4.x LTS without a modif
 PRODUCT_ID(TRACKER_PRODUCT_ID);
 ```
 
-Tracker Edge v17 is not compatible with Device OS 5.x.
+Tracker Edge v17 is not compatible with Device OS 5.x or later.
 
 ### Manually
 

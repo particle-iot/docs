@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker Edge v19 warning 2025-11-05
+
+Added a warning that [Tracker Edge v19](/firmware/tracker-edge/tracker-edge-firmware/#tracker-edge-v19) should only be used with Device OS 6.1.1 and earlier.
+
 ### Library updates 2025-11-02
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
