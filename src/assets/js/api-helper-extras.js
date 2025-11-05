@@ -3484,37 +3484,38 @@ $(document).ready(function() {
         };
 
         const moduleVersionPlatformElem = $(thisPartial).find('.moduleVersionPlatform');
-        const moduleVersion1Elem = $(thisPartial).find('.moduleVersion1');
-        const moduleVersion2Elem = $(thisPartial).find('.moduleVersion2');
         const moduleVersionBodyElem = $(thisPartial).find('.moduleVersionBody');
+
+        const columnInfo = [
+            {
+                selectElem: $(thisPartial).find('.moduleVersion1'),
+                headElem: $(thisPartial).find('.moduleVersionHead1'),
+            },
+            {
+                selectElem: $(thisPartial).find('.moduleVersion2'),
+                headElem: $(thisPartial).find('.moduleVersionHead2'),
+            },
+        ];
 
         const updateOutput = async function() {
             const platformName = $(moduleVersionPlatformElem).val();
 
-            const columnInfo = [
-                {
-                    selectElem: moduleVersion1Elem,
-                    headElem: $(thisPartial).find('.moduleVersionHead1'),
-                },
-                {
-                    selectElem: moduleVersion2Elem,
-                    headElem: $(thisPartial).find('.moduleVersionHead2'),
-                },
-            ]
 
             for(const columnObj of columnInfo) {
                 columnObj.versionString = $(columnObj.selectElem).val();
+
                 $(columnObj.headElem).text('');
 
-                if (columnObj.versionString != '-') {
+
+                columnObj.moduleFunctions = [];
+                columnObj.moduleData = {};
+
+                if (columnObj.versionString && columnObj.versionString != '-') {
                     try {
                         const fetchRes = await fetch('/assets/files/device-restore/' + columnObj.versionString + '/' + platformName + '.json');
                         columnObj.deviceRestoreVersionObj = await fetchRes.json();
 
                         $(columnObj.headElem).text(columnObj.versionString);
-
-                        columnObj.moduleFunctions = [];
-                        columnObj.moduleData = {};
 
                         for(const moduleName in columnObj.deviceRestoreVersionObj) {
                             const prefixInfo = columnObj.deviceRestoreVersionObj[moduleName].prefixInfo;
@@ -3528,7 +3529,6 @@ $(document).ready(function() {
                             columnObj.moduleData[moduleName] = Object.assign({}, columnObj.deviceRestoreVersionObj[moduleName].prefixInfo);
                             // Can mix other parts that are not in the prefixInfo here if needed
                         }
-                        console.log('columnObj', columnObj);
                     }
                     catch(e) {                
                         console.log('exception reading device-restore file', e);
@@ -3556,8 +3556,14 @@ $(document).ready(function() {
                 {
                     title: 'Dependency',
                     depFunctionKey: 'depModuleFunction',
-                    depFunctionIndex: 'depModuleIndex',
+                    depIndexKey: 'depModuleIndex',
                     depVersionKey: 'depModuleVersion',
+                },
+                {
+                    title: 'Dependency',
+                    depFunctionKey: 'dep2ModuleFunction',
+                    depIndexKey: 'dep2ModuleIndex',
+                    depVersionKey: 'dep2ModuleVersion',
                 },
             ];
 
@@ -3566,34 +3572,19 @@ $(document).ready(function() {
                 fieldTitle: '200px',
                 value: '200px',
             };
-            
+
+            const rowData = {};
 
             for(const moduleName in columnInfo[0].deviceRestoreVersionObj) {
-                let trElem = document.createElement('tr');
-
-                let tdElem;
-                tdElem = document.createElement('td');
-                $(tdElem).css('line-height', '40px');
-                $(tdElem).css('font-size', '14px');
-                $(tdElem).attr('colspan', 4);
-                $(tdElem).text(moduleName);
-                $(trElem).append(tdElem);
-                $(moduleVersionBodyElem).append(trElem);
+                const rowDataForModule = [];
 
                 for(const fieldObj of fields) {
-                    trElem = document.createElement('tr');
-
-                    // Spacer below module name
-                    tdElem = document.createElement('td');
-                    $(tdElem).css('width', columnWidths.moduleSpacer);
-                    $(trElem).append(tdElem);
-
-                    tdElem = document.createElement('td');
-                    $(tdElem).css('width', columnWidths.fieldTitle);
-                    $(tdElem).text(fieldObj.title);                        
-                    $(trElem).append(tdElem);
-
-                    let hasValue = false;
+                    const rowDataForField = {
+                        title: fieldObj.title,
+                        hasValue: false,
+                        columnData: [],
+                        valueChanged: false,
+                    };
 
                     for(const columnObj of columnInfo) {
 
@@ -3601,13 +3592,21 @@ $(document).ready(function() {
                             continue;
                         }
 
-                        tdElem = document.createElement('td');
-                        $(tdElem).css('width', columnWidths.value);
-
                         let value = '';
 
                         if (fieldObj.depFunctionKey) {
-                                                        
+                            if (columnObj.moduleData[moduleName][fieldObj.depFunctionKey] != 0) {
+                                const depObj = columnObj.moduleFunctions.find(e => e.moduleFunction == columnObj.moduleData[moduleName][fieldObj.depFunctionKey] &&
+                                    e.moduleIndex == columnObj.moduleData[moduleName][fieldObj.depIndexKey]);
+                                
+                                if (depObj) {
+                                    value = depObj.moduleName + ' ' + columnObj.moduleData[moduleName][fieldObj.depVersionKey];
+
+                                }
+                                else {
+                                    console.log('depObj not found', {moduleFunction: columnObj.moduleData[moduleName][fieldObj.depFunctionKey], moduleIndex: columnObj.moduleData[moduleName][fieldObj.depIndexKey]});
+                                }
+                            }
                         }
                         else {
                             if (fieldObj.valuePrefix) {
@@ -3618,49 +3617,114 @@ $(document).ready(function() {
                         }
 
                         if (value.length) {
-                            hasValue = true;
+                            rowDataForField.hasValue = true;
                         }
-                        $(tdElem).text(value);
+
+                        rowDataForField.columnData.push(value);
+                    }
+
+                    if (rowDataForField.columnData.length > 1) {
+                        if (rowDataForField.columnData[0] != rowDataForField.columnData[1]) {
+                            rowDataForField.valueChanged = true;   
+                        }
+                    }
+
+                    rowDataForModule.push(rowDataForField);
+                }
+
+                rowData[moduleName] = rowDataForModule;
+            }
+
+            for(const moduleName in rowData) {
+                const rowDataForModule = rowData[moduleName];
+
+                {
+                    const trElem = document.createElement('tr');
+
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('line-height', '40px');
+                    $(tdElem).css('font-size', '14px');
+                    $(tdElem).attr('colspan', 4);
+                    $(tdElem).text(moduleName);
+                    $(trElem).append(tdElem);
+                    $(moduleVersionBodyElem).append(trElem);
+                }
+
+                for(const rowDataForField of rowDataForModule) {
+                    if (!rowDataForField.hasValue) {
+                        continue;
+                    }
+
+                    const trElem = document.createElement('tr');
+
+                    {
+                        // Spacer below module name
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', columnWidths.moduleSpacer);
                         $(trElem).append(tdElem);
                     }
 
-                    if (hasValue) {
-                        $(moduleVersionBodyElem).append(trElem);
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', columnWidths.fieldTitle);
+                        $(tdElem).text(rowDataForField.title);                        
+                        $(trElem).append(tdElem);
                     }
+
+                    for(const value of rowDataForField.columnData) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', columnWidths.value);
+
+                        if (rowDataForField.valueChanged) {
+                            $(tdElem).css('background-color', '#c7bd46');
+                            $(tdElem).css('color', '#000000');
+                        }
+
+                        $(tdElem).text(value);                        
+                        $(trElem).append(tdElem);
+                    }
+
+                    $(moduleVersionBodyElem).append(trElem);
                 }
 
-
             }
+
 
 
         }
 
         const updateVersionSelect = async function() {
-            $(moduleVersion1Elem).empty();
-            $(moduleVersion2Elem).empty();
 
-            {
-                const optionElem = document.createElement('option');
-                $(optionElem).text('None');
-                $(optionElem).val('-');
+            for(let columnNum = 0; columnNum < columnInfo.length; columnNum++) {
+                const columnObj = columnInfo[columnNum];
 
-                $(moduleVersion2Elem).append(optionElem);
+                $(columnObj.selectElem).empty();
+
+
+                if (columnNum > 0) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text('None');
+                    $(optionElem).val('-');
+
+                    $(columnObj.selectElem).append(optionElem);
+                }
+                const platformName = $(moduleVersionPlatformElem).val();
+
+                for(const verString of moduleVersionHelper.deviceRestore.versionsZipByPlatform[platformName]) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text(verString);
+                    $(optionElem).val(verString);
+
+                    $(columnObj.selectElem).append(optionElem);
+                }
+
+                $(columnObj.selectElem).on('change', updateOutput);
+
+                if (columnObj.versionString) {
+                    $(columnObj.selectElem).val(columnObj.versionString);
+                }
             }
 
-            const platformName = $(moduleVersionPlatformElem).val();
-
-            for(const verString of moduleVersionHelper.deviceRestore.versionsZipByPlatform[platformName]) {
-                const optionElem = document.createElement('option');
-                $(optionElem).text(verString);
-                $(optionElem).val(verString);
-
-                $(moduleVersion1Elem).append(optionElem);
-                $(moduleVersion2Elem).append(optionElem.cloneNode(true));
-            }
-
-
-            $(moduleVersion1Elem).on('change', updateOutput);
-            $(moduleVersion2Elem).on('change', updateOutput);
             updateOutput();
         }
 
@@ -3690,8 +3754,6 @@ $(document).ready(function() {
             }));
 
             await Promise.all(promises);
-
-            console.log('moduleVersionHelper', moduleVersionHelper);
 
             moduleVersionHelper.devicePlatformNames = [];
             for(const platformObj of moduleVersionHelper.deviceRestore.platforms) {

@@ -32,3 +32,8 @@ the raw JSON data (be sure to use the **Raw** button) and paste it in the box be
 the data. This can be used to determine if the device went into safe mode because of a missing dependency.
 
 {{> device-inspect-json}}
+
+## Module version helper tool
+
+You can use the [module version helper tool](/tools/developer-tools/module-version/) to examine the dependencies and compare between differenet versions of Device OS.
+
