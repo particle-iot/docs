@@ -3535,8 +3535,19 @@ $(document).ready(function() {
 
             const fields = [
                 {
-                    title: 'Module Version',
+                    title: 'Module version',
                     key: 'moduleVersion'
+                },
+                {
+                    title: 'Load address',
+                    key: 'moduleStartAddy',
+                    valuePrefix: '0x',
+                },
+                {
+                    title: 'Dependency',
+                    depFunctionKey: 'depModuleFunction',
+                    depFunctionIndex: 'depModuleIndex',
+                    depVersionKey: 'depModuleVersion',
                 },
             ];
 
@@ -3570,6 +3581,8 @@ $(document).ready(function() {
                     $(tdElem).text(fieldObj.title);                        
                     $(trElem).append(tdElem);
 
+                    let hasValue = false;
+
                     for(const values of [verInfo1, verInfo2]) {
                         if (!values || !values[key].prefixInfo) {
                             continue;
@@ -3577,11 +3590,33 @@ $(document).ready(function() {
 
                         tdElem = document.createElement('td');
                         $(tdElem).css('width', columnWidths.value);
-                        $(tdElem).text(values[key].prefixInfo[fieldObj.key]);
+
+                        let value = '';
+
+                        if (fieldObj.depFunctionKey) {
+                            if (typeof values[key].prefixInfo[fieldObj.depFunctionKey] === 'number' && values[key].prefixInfo[fieldObj.depFunctionKey] != 0) {
+                                // const otherModuleObj = verInfo1.find(e => e.moduleFunction == values[key].prefixInfo[fieldObj.depFunctionKey] && e.moduleIndex == values[key].prefixInfo[fieldObj.depIndexKey]);
+                                // console.log('otherModuleObj', otherModuleObj);
+                            }
+                        }
+                        else {
+                            if (fieldObj.valuePrefix) {
+                                value += fieldObj.valuePrefix;
+                            }
+                            value += values[key].prefixInfo[fieldObj.key];
+
+                        }
+
+                        if (value.length) {
+                            hasValue = true;
+                        }
+                        $(tdElem).text(value);
                         $(trElem).append(tdElem);
                     }
 
-                    $(moduleVersionBodyElem).append(trElem);
+                    if (hasValue) {
+                        $(moduleVersionBodyElem).append(trElem);
+                    }
                 }
 
 
