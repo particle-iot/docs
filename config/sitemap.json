@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2025-11-05",
-            "hash": "b5bf64f53a471ad5af6573fa6fef3b0be5a9c86de6983287a93e1ee50cd38c97"
+            "hash": "79a02f94e7425723710be21562bdd39aca785988b655cae5aa77829a62e4742a"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1927,8 +1927,8 @@
             "hash": "8ad06c786d1644c30b47360921a5c868620432ec331068f6432f0276d46d8de3"
         },
         "reference/device-os/api/wifi/getconfig-wifi.md": {
-            "date": "2023-09-20",
-            "hash": "7b12a10b03d457ae8a200b44260eaaea5a58ef566346200d7d10e1e0aee0d888"
+            "date": "2025-11-05",
+            "hash": "333ac5995f00eefedd20652b3d60b99e754993cccbb48f4b391ae35dc0576070"
         },
         "reference/device-os/api/wifi/selectantenna-antenna.md": {
             "date": "2024-04-30",
@@ -2115,8 +2115,8 @@
             "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
-            "date": "2024-01-12",
-            "hash": "ff6594d1441d02353f74f215ac33deeb1b62a9608233393870edb4c8b702e78c"
+            "date": "2025-11-05",
+            "hash": "a0df0ac9cc18843cf27185491cb82d1ba2b36cb9dde3c5b0c45b8ca6c8269ee8"
         },
         "reference/device-os/api/softap-http-pages/softap-http-pages.md": {
             "date": "2023-09-20",

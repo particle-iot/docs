@@ -3047,6 +3047,8 @@ WiFi.setConfig(NetworkInterfaceConfig()
 
 Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Wi-Fi interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later.
 
+The profile name is your Wi-Fi SSID.
+
 ```cpp
 // PROTOTYPE
 particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
@@ -4922,6 +4924,11 @@ NetworkInterfaceConfigSource source(int family = AF_INET) const;
 // EXAMPLE - Restore DHCP addressing for Ethernet
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::DHCP);
+
+// EXAMPLE - Restore DHCP for a specific Wi-Fi SSID
+WiFi.setConfig(NetworkInterfaceConfig()
+  .profile(SSID_NAME)
+  .source(NetworkInterfaceConfigSource::DHCP);
 ```    
 
 #### NetworkInterfaceConfig::address
@@ -4993,13 +5000,23 @@ Even though the parameter is a `SockAddr`, you can initialize the gateway addres
 // PROTOTYPE
 NetworkInterfaceConfig& dns(SockAddr dns);
 
-// EXAMPLE
+// EXAMPLE - Ethernet
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway(SockAddr({192,168,1,1}))
   .dns(SockAddr({192,168,1,1}))
   .dns(SockAddr({8,8,8,8})));
+
+// EXAMPLE - Wi-Fi
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .profile(SSID_NAME)
+  .source(NetworkInterfaceConfigSource::STATIC)
+  .address({192,168,1,20}, {255,255,255,0})
+  .gateway(SockAddr({192,168,1,1}))
+  .dns(SockAddr({192,168,1,1}))
+  .dns(SockAddr({8,8,8,8})));
+
 ```
 
 ## SoftAP HTTP pages
