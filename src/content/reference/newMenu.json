@@ -38,6 +38,109 @@
             ]
         },
         {
+            "dir": "application-notes",
+            "title": "Application notes",
+            "tileFormat": "application-notes",
+            "tiles": [
+                {
+                    "title": "Locating a device without GPS",
+                    "detail": "Use a cell tower lookup to estimate the location of a device that routinely loses GPS fix.",
+                    "href": "https://www.particle.io/application-notes/how-to-use-particles-enhanced-location-service-to-locate-a-device-without/",
+                    "img": "/assets/images/application-notes/locatingadevicewithoutgps.jpg"
+                },
+                {
+                    "title": "Video streaming and storage on Tachyon",
+                    "detail": "Configure an AWS Kinesis Video Stream for a webcam feed with YOLOv8 inferencing.",
+                    "href": "https://www.particle.io/application-notes/video-streaming-and-storage-on-tachyon-using-aws-kinesis-video-streams/",
+                    "img": "/assets/images/application-notes/videostreamingandstorageontachyon.jpg"
+                },
+                {
+                    "title": "Time of flight Flappy Bird with Tachyon",
+                    "detail": "Run a Python port of Flappy Bird on the SBC with a ToF sensor for input.",
+                    "href": "https://www.particle.io/application-notes/time-of-flight-flappy-bird-with-tachyon/",
+                    "img": "/assets/images/application-notes/timeofflightflappybirdwithtachyon.jpg"
+                },
+                {
+                    "title": "Hosting a public webpage with Tachyon",
+                    "detail": "Set up a Cloudflare tunnel into your SBC, which will serve a webpage to anyone who visits the URL.",
+                    "href": "https://www.particle.io/application-notes/hosting-a-public-webpage-with-tachyon/",
+                    "img": "/assets/images/application-notes/hostingapublicwebpagewithtachyon.jpg"
+                },
+                {
+                    "title": "Weather dashboard with LVGL, cloud secrets, and Ledger",
+                    "detail": "Check the forecast at a glance on a portable, Particle-powered display. ",
+                    "href": "https://www.particle.io/application-notes/particle-weather-dashboard-with-lvgl-cloud-secrets-and-ledger/",
+                    "img": "/assets/images/application-notes/weatherdashboardwithlvglcloudsecretsandledger.jpg"
+                },
+                {
+                    "title": "Particle for Linux with the MagicMirror² project",
+                    "detail": "Remotely manage your Raspberry Pi-powered smart mirror deployment.",
+                    "href": "https://www.particle.io/application-notes/particle-for-linux-with-the-magic-mirror-project/",
+                    "img": "/assets/images/application-notes/particleforlinuxwiththemagicmirrorproject.jpg"
+                },
+                {
+                    "title": "Proximity gesture detection with Particle’s B504e and Edge Impulse",
+                    "detail": "Reliably classify hand gestures using proximity and light data.",
+                    "href": "https://www.particle.io/application-notes/proximity-gesture-detection-with-particles-b504e-and-edge-impulse/",
+                    "img": "/assets/images/application-notes/proximitygesturedetectionwithparticlesb504eandedgeimpulse.jpg"
+                },
+                {
+                    "title": "Power optimization strategies for Generation 4 Devices",
+                    "detail": "Build robust applications using Particle's Gen 4 devices without compromising on energy efficiency.",
+                    "href": "https://www.particle.io/application-notes/power-optimization-strategies-for-generation-4-devices/",
+                    "img": "/assets/images/application-notes/poweroptimizationstrategiesforgeneration4devices.jpg"
+                },
+                {
+                    "title": "Training data acquisition over LTE",
+                    "detail": "Use an LTE-enabled module to remotely gather training data for an AI model.",
+                    "href": "https://www.particle.io/application-notes/edge-impulse-training-data-acquisition-over-lte-with-particle/",
+                    "img": "/assets/images/application-notes/trainingdataacquisitionoverlte.jpg"
+                },
+                {
+                    "title": "AI system controller with M-HAT and Particle Ledger",
+                    "detail": "Configure a system that you can operate with your voice.",
+                    "href": "https://www.particle.io/application-notes/ai-system-controller-with-raspberry-pi-m-hat-and-particle-ledger/",
+                    "img": "/assets/images/application-notes/aisystemcontrollerwithmhatandparticleledger.jpg"
+                },
+                {
+                    "title": "Creating an inventory management system",
+                    "detail": "Keep track of stock levels using a Particle M-SoM with a custom carrier PCB.",
+                    "href": "https://www.particle.io/application-notes/creating-an-inventory-management-system-with-particle/",
+                    "img": "/assets/images/application-notes/creatinganinventorymanagementsystem.jpg"
+                },
+                {
+                    "title": "Identifying birds with an LTE-enabled smart feeder",
+                    "detail": "Flockr can classify the species of bird from a video feed without Wi-Fi access.",
+                    "href": "https://www.particle.io/application-notes/flockr-an-lte-enabled-smart-bird-feeder/",
+                    "img": "/assets/images/application-notes/identifyingbirdswithanlteenabledsmartfeeder.jpg"
+                },
+                {
+                    "title": "Reprogramming a Raspberry Pi with Asset OTA and a B504e",
+                    "detail": "Perform a remote software update on a Raspberry Pi over LTE.",
+                    "href": "https://www.particle.io/application-notes/reprogramming-a-raspberry-pi-with-particles-asset-ota-and-a-b504e/",
+                    "img": "/assets/images/application-notes/reprogrammingaraspberrypiwithassetotaandab504e.jpg"
+                },
+                {
+                    "title": "Logging data with Ledger",
+                    "detail": "Gain remote access to detailed logging and device metadata for faster troubleshooting.",
+                    "href": "https://www.particle.io/application-notes/reduce-on-site-support-costs-by-logging-data-with-particles-device-ledger/",
+                    "img": "/assets/images/application-notes/loggingdatawithledger.jpg"
+                },
+                {
+                    "title": "Cellular modem for Linux devices",
+                    "detail": "For remote deployments where Wi-Fi isn’t available.",
+                    "href": "https://www.particle.io/application-notes/m-hat-more-than-just-a-cellular-modem-for-linux-devices/",
+                    "img": "/assets/images/application-notes/cellularmodemforlinuxdevices.jpg"
+                },
+                {
+                    "title": "Building a regression model",
+                    "detail": "Developed with Edge Impulse to compensate for a system’s drift.",
+                    "href": "https://www.particle.io/application-notes/building-a-regression-model-for-non-linear-systems/",
+                    "img": "/assets/images/application-notes/buildingaregressionmodel.jpg"
+                }
+            ]
+        },
+        {
             "dir": "device-os",
             "isSection": true,
             "subsections": [

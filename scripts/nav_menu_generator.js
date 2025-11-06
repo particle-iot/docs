@@ -85,22 +85,52 @@ function generateNavMenu(files, fileName, contentDir) {
     if (tileItem) {
         let html = '';
 
-        html += '<div class="mainGrid">\n';
 
-        for(const tile of tileItem.tiles) {
-            html += '   <div class="mainNoPicRect">\n';
-            html += '       <a href="' + tile.href + '" class="mainGridButton">\n';
-            html += '           <div class="mainContent">\n';
-            html += '               <div class="mainNoPicTopBottom">\n';
-            html += '                   <div class="mainNoPicTop">' + tile.title + '</div>\n';
-            html += '                   <div class="mainNoPicBottom">' + tile.detail + '</div>\n';
-            html += '               </div>\n';
-            html += '           </div>\n';
-            html += '       </a>\n';
-            html += '   </div>\n';
+        if (typeof tileItem.tileFormat === 'string' && tileItem.tileFormat == 'application-notes') {
+            // Application note style, with picture
+            html += '<div class="mainGridHome">\n';
+
+            for(const tile of tileItem.tiles) {
+
+                html += '	<div class="mainSquare">\n';
+                html += '       <a href="' + tile.href + '" class="mainGridButton">\n';
+                html += '			<div class="mainContent">\n';
+                html += '				<div class="mainTopBottom">\n';
+                html += '					<div class="applicationNoteTop">\n'; // Based on mainTop
+                html += '						<img src="' + tile.img + '" class="applicationNoteGridImg"/>\n'; // Based on mainGridImg
+                html += '					</div>\n';
+                html += '					<div class="mainBottom">\n';
+                html += '						<div class="mainBoxTitle">' + tile.title + '</div>\n';
+                html += '						<div class="mainBoxDescription">' + tile.detail + '</div>\n';
+                html += '					</div>\n';
+                html += '				</div>\n';
+                html += '			</div>\n';
+                html += '		</a>\n';
+                html += '	</div>\n';
+
+            }
+
+            html += '</div>\n';
+        }
+        else {
+            // Normal style
+            html += '<div class="mainGrid">\n';
+            for(const tile of tileItem.tiles) {
+                html += '   <div class="mainNoPicRect">\n';
+                html += '       <a href="' + tile.href + '" class="mainGridButton">\n';
+                html += '           <div class="mainContent">\n';
+                html += '               <div class="mainNoPicTopBottom">\n';
+                html += '                   <div class="mainNoPicTop">' + tile.title + '</div>\n';
+                html += '                   <div class="mainNoPicBottom">' + tile.detail + '</div>\n';
+                html += '               </div>\n';
+                html += '           </div>\n';
+                html += '       </a>\n';
+                html += '   </div>\n';
+            }
+
+            html += '</div>\n';
         }
 
-        html += '</div>\n';
 
         fileObj.tiles = html;
     }
