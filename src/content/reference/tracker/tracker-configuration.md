@@ -151,9 +151,9 @@ This picture shows how elements in the schema directly map to what you can see i
 
 ### Default schema
 
-This is the full schema for Tracker Edge. You won't need to understand the whole thing yet, but this is what it looks like:
+This is the full schema for Tracker Edge (v19). You won't need to understand the whole thing yet, but this is what it looks like:
 
-{{> codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
+{{> codebox content="/assets/files/tracker/tracker-config-schema-19.json" format="json" height="300"}}
 
 - The `geofence` module was added in schema v13.
 - The `deviceLevelOnly` boolean flag was added in v13. This allows a configuration module to only be configured per-device, regardless of whether it's a development device or not.
@@ -195,11 +195,7 @@ If you set this schema you can go to the console and view your fleet configurati
 
 ### Restore default schema
 
-To remove the Engine panel and restore the default schema use the **Restore Default Schema** button:
-
-{{> config-schema options="" }}
-
-You will probably also need to [reset on-device configuration to factory defaults](/getting-started/tracker/tracker-setup/#resetting-configuration) to remove the engine configuration from your local configuration.
+To restore a default schema, use the [Configuration schema tool](/tools/cloud-tools/configuration-schema/).
 
 ### Viewing in the console
 
@@ -211,7 +207,7 @@ This is what it looks like in the [console](https://console.particle.io):
 
 This is an interactive schema editor that makes it much easier to work with custom schemas:
 
-{{> schema-editor }}
+{{> schema-editor options="noOrg" }}
 
 ### Manually
 
@@ -360,8 +356,9 @@ Be sure to use the full schema, not just the part with "Mine" as a custom schema
 
 To remove the Mine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema options="" }}
+{{> config-schema options="noOrg" }}
 
+Note: The tools in this page are intended only for learning with test product, not for fleet management, and thus only work with sandbox products.
 
 ### Console - Example
 

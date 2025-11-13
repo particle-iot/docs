@@ -21,6 +21,9 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker configuration tutorial 2025-11-13
+The [tracker configuration tutorial](/reference/tracker/tracker-configuration/) now disables org selection to avoid accidentally modifying a production product. Also the [default schema](/reference/tracker/tracker-configuration/#default-schema) shows v19 instead of v17. 
+
 ### Module version helper tool 2025-11-05
 
 The [module version helper tool](/tools/developer-tools/module-version/) makes it easy to compare module dependencies between versions of Device OS. 

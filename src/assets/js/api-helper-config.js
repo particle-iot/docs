@@ -276,6 +276,17 @@ $(document).ready(async function() {
 
     };
 
+    let orgsDisabled = false;
+
+    function disableOrgSelection() {
+        const orgSelectElems = $('.apiHelperTrackerOrgSelect');
+        $(orgSelectElems).val('sandbox');
+        $(orgSelectElems).trigger('change');
+        orgsDisabled = true;
+
+        $('.apiHelperTrackerOrgRow').hide();
+    }
+
 
     async function setupMenus() {
         try {
@@ -298,7 +309,7 @@ $(document).ready(async function() {
                 // No orgs: orgsData.organizations empty array
                 // Object in array orgsData.organizations: id, slug, name
                 
-                if (orgsData.organizations.length > 0) {
+                if (!orgsDisabled && orgsData.organizations.length > 0) {
                     const orgSelectElems = $('.apiHelperTrackerOrgSelect');
 
                     let html = '<option value="sandbox" checked>Sandbox</option>';
@@ -535,6 +546,9 @@ $(document).ready(async function() {
 
             if (options.includes('noDownloadUpload')) {
                 $(thisPartial).find('.noDownloadUpload').hide();
+            }
+            if (options.includes('noOrg')) {
+                disableOrgSelection();
             }
 
             const defaultModeOptions = ['tracker', 'monitor'];
@@ -792,6 +806,12 @@ $(document).ready(async function() {
                 }, time);
             }
         }
+
+        const options = ($(thisPartial).data('options') || '').split(',');
+        if (options.includes('noOrg')) {
+            disableOrgSelection();
+        }
+
 
         $(addTabNameElem).on('input', function() {
             const tabName = $(addTabNameElem).val();
