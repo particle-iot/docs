@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Devices 6.3.4 GA 2025-11-13
+
+Device OS 6.3.4 is now generally available (GA). It was previously a preview release.
+
 ### Tracker configuration tutorial 2025-11-13
 The [tracker configuration tutorial](/reference/tracker/tracker-configuration/) now disables org selection to avoid accidentally modifying a production product. Also the [default schema](/reference/tracker/tracker-configuration/#default-schema) shows v19 instead of v17. 
 

@@ -43609,6 +43609,22 @@
             "state": "closed",
             "created_at": "2025-09-18T03:38:35Z",
             "detail": "- When setting Wi-Fi network credentials over USB/BLE, NetworkCredentials object is not passed to system event network_credentials_added as it is when calling WiFi.setCredentials() directly."
+        },
+        "2883": {
+            "url": "https://github.com/particle-iot/device-os/pull/2883",
+            "number": 2883,
+            "title": "Test/ctub plus power test",
+            "state": "open",
+            "created_at": "2025-10-13T02:52:17Z",
+            "detail": "What Bug or Missing Feature does this PR address? (A short summary is preferred over links)"
+        },
+        "2884": {
+            "url": "https://github.com/particle-iot/device-os/pull/2884",
+            "number": 2884,
+            "title": "[tests] Adds 00_before and zz_after HIL integration test suites [sc-1…",
+            "state": "open",
+            "created_at": "2025-10-31T20:25:44Z",
+            "detail": "- HIL Testing needs some helpers for device configuration before and after testing, to ensure devices that have failed in a bad state do not catch us off guard on the next test run."
         }
     }
 }
