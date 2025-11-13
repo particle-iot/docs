@@ -112,7 +112,7 @@ $(document).ready(function() {
 
             $(uploadedToProductElem).text(settings.uploadedToProduct ? 'Yes' : 'No');
 
-            $(uploadFirmwareButtonElem).prop('disabled', settings.uploadedToProduct || settings.tooManyVersions);
+            $(uploadFirmwareButtonElem).prop('disabled', settings.uploadedToProduct || settings.tooManyVersions || !settings.versionObj.bin);
 
         };
 
@@ -145,6 +145,8 @@ $(document).ready(function() {
             else {
                 $(edgeReleaseNotesElem).html('');
             }
+
+            
             analytics.track('View ' + settings.kind + ' ' + settings.version, {category:gaCategory});
 
             updateUploadedProduct();
@@ -338,7 +340,7 @@ $(document).ready(function() {
                 settings.versionsJson = res;
 
 
-                for(const v of settings.versionsJson.versions) {
+                for(const v of settings.versionsJson.versions) {                    
                     const optionElem = document.createElement('option');
                     $(optionElem).text(v.title);
                     $(optionElem).attr('value', v.version.toString());

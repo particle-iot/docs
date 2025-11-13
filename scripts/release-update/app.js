@@ -1516,12 +1516,14 @@ async function runEdgeVersion(options) {
             }
         }
 
-        const reader = new HalModuleParser();
-        const fileInfo = await reader.parseFile(binaryFile);
-        // console.log('fileInfo', fileInfo);
+        if (binaryFile) {
+            const reader = new HalModuleParser();
+            const fileInfo = await reader.parseFile(binaryFile);
+            // console.log('fileInfo', fileInfo);
 
-        //console.log('fileInfo.prefixInfo.depModuleVersion', fileInfo.prefixInfo.depModuleVersion);
-        templateParam.target = systemVersionToSemver(fileInfo.prefixInfo.depModuleVersion);
+            //console.log('fileInfo.prefixInfo.depModuleVersion', fileInfo.prefixInfo.depModuleVersion);
+            templateParam.target = systemVersionToSemver(fileInfo.prefixInfo.depModuleVersion);
+        }
 
         /*
           {

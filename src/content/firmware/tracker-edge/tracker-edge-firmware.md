@@ -52,7 +52,7 @@ When new versions are released, you generally go through several steps that can 
 {{> edge-firmware options="tracker"}}
 
 - To learn about the console settings, see [Tracker settings](/getting-started/console/console/#asset-tracker-features).
-
+- **Upload Edge firmware to product** is only available for v19 and earlier. To use a newer versions, you should build your own binary with any customizations you desire.
 
 {{collapse op="start" label="Show prior behavior"}}
 Before April 2023, when you created a new product for the Tracker (platform 26), the default Tracker Edge firmware was automatically
@@ -138,6 +138,12 @@ Make sure you've used the [**Mark As Development Device**](/getting-started/cons
 
 It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
 You can also use Device OS 3.3.0.
+
+### Tracker Edge v20
+
+This version is recommended for use with Device OS 6.2.0 and later. 
+
+It can be built back to Device OS 3.2.0, however the changes between v19 and v20 are only for Device OS 6.2.0 compatibility.
 
 ### Tracker Edge v19
 

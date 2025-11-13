@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "v": "v20",
+            "title": "Tracker Edge Firmware v20",
+            "releaseNotes": "## Tracker Edge Firmware v20\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.2.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Fix API complication for Device OS 6.2.0 and above\r\n\r\n### ENHANCEMENTS\r\n\r\n- Source can be built for device OS >= 6.2.0 \r\n\r\n### BUGFIXES\r\n\r\n- None\r\n\r\n### OTHER CHANGES\r\n\r\n- API update",
+            "version": 20,
+            "zip": "v20.zip",
+            "schemaVersion": 19,
+            "filename": "tracker-config-schema-19.json"
+        },
+        {
             "v": "v19",
             "title": "Tracker Edge Firmware v19",
             "releaseNotes": "# Tracker Edge v19 Release\r\nBuilt against device OS v3.3.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.2.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Added satellite diagnostics configuration to publish satellite count and mean CN0.\r\n- Updated battery model for more accurate state-of-charge\r\n\r\n### ENHANCEMENTS\r\n\r\n- Source can be built for device OS 3.2.0 to 6.x.\r\n\r\n### BUGFIXES\r\n\r\n- Fixed thermistor characteristics for more accuracy.\r\n- Fixed excessive shutdown current for GNSS ephemeris battery during shipping mode.\r\n- Fixed Ublox M8U fix stability stability check to exclude bad acquisitions.\r\n\r\n### OTHER CHANGES\r\n\r\n- Some function and file cleanup to allow for abstraction and organization of source code.\r\n- Use of C++ templates to replace selected function pointer callbacks.",

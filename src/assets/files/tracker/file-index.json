@@ -119,6 +119,10 @@
     ],
     "tracker": [
       {
+        "ver": 20,
+        "file": "v20.zip"
+      },
+      {
         "ver": 19,
         "file": "v19.zip"
       },

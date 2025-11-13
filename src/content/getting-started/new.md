@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker Edge v20 2025-11-13
+
+[Tracker Edge v20](/firmware/tracker-edge/tracker-edge-firmware/) is now available.
+
 ### Devices 6.3.4 GA 2025-11-13
 
 Device OS 6.3.4 is now generally available (GA). It was previously a preview release.

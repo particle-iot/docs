@@ -559,8 +559,8 @@
             "hash": "fc86887835879b290bd6172c02050d4877a02225d2cfdbe67ebd99aded819347"
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
-            "date": "2025-11-05",
-            "hash": "5ea9f283a443c88794a52e863c38a37e0c7f05d940c31f80d92a06a654baa3d1"
+            "date": "2025-11-13",
+            "hash": "45a1d435fd8cbe00a0b41aa1d3c4a156ad5190412736a19a8eb692ff19b42251"
         },
         "getting-started/billing/cellular-data.md": {
             "date": "2025-02-03",
@@ -591,8 +591,8 @@
             "hash": "61fbc6cd51322eae629148216875b973c3ebe17e8fffe98f28811eb1b77342c0"
         },
         "getting-started/console/console.md": {
-            "date": "2025-06-13",
-            "hash": "21d982f32e74f6484c9c655dc9fe0e47906a5fe7a54722d12c286797a7405160"
+            "date": "2025-11-13",
+            "hash": "6c82640c7791faea0fa58cc6444f573eca181547c2c3fbc711a9eb8f6c21ac7b"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a608fc2dae124e6ed018dfb1f64afc445b3360c9f4040fc8acbbc791cd11ff50",
+            "hash": "57dbde2dc0adfbef1d981a42b036e064e43c59f5b5786fccf35d3a5fcb1c0a47",
             "date": "2025-11-13"
         },
         "getting-started/cloud/logic.md": {
