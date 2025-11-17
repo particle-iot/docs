@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Class and library generator 2025-11-17
+
+The [singleton class generator](/tools/developer-tools/class-generator/) and [library project generator](/tools/developer-tools/library-generator/) now optionally support generating code using recursive mutex and const lock/unlock methods.
+
 ### Tracker Edge v20 2025-11-13
 
 [Tracker Edge v20](/firmware/tracker-edge/tracker-edge-firmware/) is now available.

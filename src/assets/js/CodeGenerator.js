@@ -8,10 +8,11 @@ var codeGenerator = {};
         protectedConstructor: false,
         thread: false,
         mutex: false,
+        recursiveMutex: false,
+        constMutex: false,
         setup: false,
         loop: false
     };
-
 
     cg.run = function(options) {
         let result = {};
@@ -134,7 +135,12 @@ var codeGenerator = {};
             code += 'void ' + cg.options.name + '::setup() {\n';
 
             if (cg.options.mutex) {
-                code += cg.indent(1) + 'os_mutex_create(&mutex);\n';
+                if (cg.options.recursiveMutex) {
+                    code += cg.indent(1) + 'os_mutex_recursive_create(&mutex);\n';
+                }
+                else {
+                    code += cg.indent(1) + 'os_mutex_create(&mutex);\n';
+                }
                 code += '\n';
             }
             if (cg.options.thread) {
@@ -241,25 +247,59 @@ var codeGenerator = {};
         }
 
         if (cg.options.mutex) {
-            code += cg.generateDoxygen(1, {
-                brief: 'Locks the mutex that protects shared resources',
-                details: 'This is compatible with `WITH_LOCK(*this)`.\n\nThe mutex is not recursive so do not lock it within a locked section.'
-            });
-            code += cg.indent(1) + 'void lock() { os_mutex_lock(mutex); };\n';
-            code += '\n';
+            const generateMutexMethods = function(recursiveString, constString) {
+                let doxygenData = {
+                    brief: 'Locks the mutex that protects shared resources',
+                    details: 'This is compatible with `WITH_LOCK(*this)`.',
+                };
+                if (recursiveString == '') {
+                    doxygenData.details += '\n\nThe mutex is not recursive so do not lock it within a locked section.';
+                }
+                if (constString != '') {
+                    doxygenData.brief += ' (const)';   
+                }
 
-            code += cg.generateDoxygen(1, {
-                brief: 'Attempts to lock the mutex that protects shared resources',
-                return: 'true if the mutex was locked or false if it was busy already.'
-            });
-            code += cg.indent(1) + 'bool tryLock() { return os_mutex_trylock(mutex); };\n';
-            code += '\n';
+                code += cg.generateDoxygen(1, doxygenData);
+                code += cg.indent(1) + 'void lock() ' + constString + '{ os_mutex' + recursiveString + '_lock(mutex); };\n';
+                code += '\n';
 
-            code += cg.generateDoxygen(1, {
-                brief: 'Unlocks the mutex that protects shared resources'
-            });
-            code += cg.indent(1) + 'void unlock() { os_mutex_unlock(mutex); };\n';
-            code += '\n';
+                doxygenData = {
+                    brief: 'Attempts to lock the mutex that protects shared resources',
+                    return: 'true if the mutex was locked or false if it was busy already.'
+                };
+                if (constString != '') {
+                    doxygenData.brief += ' (const)';   
+                }
+
+                code += cg.generateDoxygen(1, doxygenData);
+                code += cg.indent(1) + 'bool tryLock() ' + constString + ' { return os_mutex' + recursiveString + '_trylock(mutex); };\n';
+                code += '\n';
+
+                doxygenData = {
+                    brief: 'Unlocks the mutex that protects shared resources'
+                };
+                if (constString != '') {
+                    doxygenData.brief += ' (const)';   
+                }
+
+                code += cg.generateDoxygen(1, doxygenData);
+                code += cg.indent(1) + 'void unlock() ' + constString + ' { os_mutex' + recursiveString + '_unlock(mutex); };\n';
+                code += '\n';
+
+            }
+
+            if (cg.options.recursiveMutex) {
+                generateMutexMethods('_recursive', '');
+                if (cg.options.constMutex) {
+                    generateMutexMethods('_recursive', 'const');
+                }
+            }
+            else {
+                generateMutexMethods('', '');
+                if (cg.options.constMutex) {
+                    generateMutexMethods('', 'const');
+                }
+            }
         }
 
         
@@ -311,7 +351,12 @@ var codeGenerator = {};
                 brief: 'Mutex to protect shared resources',
                 details: 'This is initialized in setup() so make sure you call the setup() method from the global application setup.'
             });
-            code += cg.indent(1) + 'os_mutex_t mutex = 0;\n';
+            if (cg.options.constMutex) {
+                code += cg.indent(1) + 'mutable os_mutex_t mutex = 0;\n';
+            }
+            else {
+                code += cg.indent(1) + 'os_mutex_t mutex = 0;\n';                
+            }
             code += '\n';
         }
 

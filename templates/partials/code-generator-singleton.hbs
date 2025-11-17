@@ -3,7 +3,10 @@
         <div class="apiHelperBox">
             <table class="apiHelperTableNoMargin">
                 <tr><td class="apiHelperProductSelectorLabel">Class Name</td><td><input type="text" size="20" class="className" value="MyClass"></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="generateMutex" />Has mutex and lock</label></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel" colspan="3"><label><input type="checkbox" class="generateMutex" />Generate mutex and lock</label>
+                    <label><input type="checkbox" class="generateMutexRecursive" checked/>Use recursive mutex</label>
+                    <label><input type="checkbox" class="generateMutexConst" checked/>Include const methods</label>                    
+                </td></tr>
                 <tr><td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="generateThread" />Has worker thread</label></td><td>&nbsp;</td></tr>
                 <tr><td class="apiHelperProductSelectorLabel" colspan="2">
                     <button class="apiHelperActionButton">Generate Code</button> &nbsp;

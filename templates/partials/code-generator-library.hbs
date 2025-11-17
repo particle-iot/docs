@@ -14,7 +14,10 @@
                 <tr><td class="apiHelperProductSelectorLabel">Examples</td><td><input type="text" size="60" class="examples" value=""></td><td>Comma separated list</td></tr>
 
                 <tr><td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="generateSingleton" />Generate singleton class</label></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="generateMutex" />Generate mutex and lock</label></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel" colspan="3"><label><input type="checkbox" class="generateMutex" />Generate mutex and lock</label>
+                    <label><input type="checkbox" class="generateMutexRecursive" checked/>Use recursive mutex</label>
+                    <label><input type="checkbox" class="generateMutexConst" checked/>Include const methods</label>                    
+                </td></tr>
                 <tr><td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="generateThread" />Generate worker thread</label></td><td>&nbsp;</td></tr>
                 <tr><td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="generateSetup" />Generate class setup method</label></td><td>&nbsp;</td></tr>
                 <tr><td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="generateLoop" />Generate class loop method</label></td><td>&nbsp;</td></tr>

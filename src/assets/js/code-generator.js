@@ -18,6 +18,8 @@ $(document).ready(function () {
                 name: className,
                 singleton: true,
                 mutex: $(thisElem).find('.generateMutex').prop('checked'),
+                recursiveMutex: $(thisElem).find('.generateMutexRecursive').prop('checked'),
+                constMutex: $(thisElem).find('.generateMutexConst').prop('checked'),
                 thread: $(thisElem).find('.generateThread').prop('checked'),
                 setup: true,
                 loop: true
@@ -35,6 +37,9 @@ $(document).ready(function () {
 
         $(thisElem).find('.className').on('blur', generateCode);
         $(thisElem).find('.generateMutex').on('click', generateCode);
+        $(thisElem).find('.generateMutexRecursive').on('click', generateCode);
+        $(thisElem).find('.generateMutexConst').on('click', generateCode);
+
         $(thisElem).find('.generateThread').on('click', function() {
             if ($(this).prop('checked')) {
                 $(thisElem).find('.generateMutex').prop('checked', true);
@@ -75,7 +80,7 @@ $(document).ready(function () {
 
         const fieldConfig = {
             valFields: ['libraryName', 'license', 'copyright', 'username', 'github', 'description', 'examples'],
-            checkboxes: ['generateSingleton', 'generateMutex', 'generateThread', 'generateSetup', 'generateLoop'],
+            checkboxes: ['generateSingleton', 'generateMutex', 'generateMutexRecursive', 'generateMutexConst', 'generateThread', 'generateSetup', 'generateLoop'],
             licenses: [
                 {
                     title: 'MIT',
@@ -194,9 +199,9 @@ $(document).ready(function () {
             options.username = 'yourusername';
             options.description = 'My new library for Particle devices';
             options.examples = '1-Simple';
-            options.generateSingleton = options.generateMutex = options.generateThread = options.generateSetup = true;
+            options.generateSingleton = options.generateMutex = options.generateMutexRecursive = options.generateMutexConst = options.generateThread = options.generateSetup = true;
             options.generateLoop = false;
-         
+
             updateCalculatedDefaults();
             options.copyright = options.copyrightDefault;
             options.github = options.githubDefault;
@@ -292,6 +297,8 @@ $(document).ready(function () {
                 name: options.libraryName,
                 singleton: options.generateSingleton,
                 mutex: options.generateMutex,
+                recursiveMutex: options.generateMutexRecursive,
+                constMutex: options.generateMutexConst,
                 thread: options.generateThread,
                 setup: options.generateSetup,
                 loop: options.generateLoop,
