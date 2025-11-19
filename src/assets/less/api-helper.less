@@ -296,9 +296,9 @@ select.apiHelperConfigSchemaProductSelect {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-  }
-  
-  .apiHelperSlider::-webkit-slider-thumb {
+}
+
+.apiHelperSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
@@ -306,12 +306,36 @@ select.apiHelperConfigSchemaProductSelect {
     border-radius: 50%; 
     background: @COLOR_ParticleBlue_700;
     cursor: pointer;
-  }
-  
-  .apiHelperSlider::-moz-range-thumb {
+}
+
+.apiHelperSlider::-moz-range-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: @COLOR_ParticleBlue_700;
     cursor: pointer;
-  }
+}
+
+.logDecoderMessageDiv
+{
+    line-height: 14px;
+}
+
+.logDecoderMessage
+{
+    margin-block: 2px;
+    font-family: @monospace-font;
+    font-size: 12px;  
+    padding: 1px !important;
+}
+
+.logDecoderCommandInfo 
+{
+    margin-left: 20px;
+}
+
+.logDecoderInputTextArea
+{
+    font-size: 10px;
+    line-height: 14px;
+}

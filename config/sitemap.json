@@ -1499,8 +1499,8 @@
             "hash": "6f1839fec624aef7273a1796f976193bc448932e4e8203302727e706106dba37"
         },
         "troubleshooting/connectivity/cloud-debug.md": {
-            "date": "2024-06-08",
-            "hash": "24eaaf81d44af99f9e66b246c5c457232655c67a2fd460dfeb0fbb38d4850673"
+            "date": "2025-11-19",
+            "hash": "a3f3198c14e107755153606062db03825b47836176785f17401f691c8be94445"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug-2.md": {
             "date": "2024-02-27",
@@ -9921,6 +9921,10 @@
         "reference/application-notes.md": {
             "hash": "ed124065eafd7ded63a4850f62225c8f65db07622e11b6e91e86506a19af19f8",
             "date": "2025-11-06"
+        },
+        "tools/developer-tools/debug-log.md": {
+            "hash": "0669fc00ff4f276b8cefa749d7f553e960f95c9a1c2ec489ed7b10f6fe1ee0ad",
+            "date": "2025-11-19"
         }
     }
 }

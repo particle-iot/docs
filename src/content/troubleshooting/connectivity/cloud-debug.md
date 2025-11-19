@@ -42,15 +42,16 @@ Note that the Device OS version is the minimum device OS version that must be in
 {{!-- BEGIN setup-firmware-list --}}
 | Platform | Required Device OS |
 | :--- | :--- |
-| [Argon](/assets/files/docs-usb-setup-firmware/argon.bin) | 4.0.1 |
+| [Argon](/assets/files/docs-usb-setup-firmware/argon.bin) | 6.3.4 |
 | [Asset Tracker / Monitor One](/assets/files/docs-usb-setup-firmware/tracker.bin) | 4.0.0 |
-| [B-SoM](/assets/files/docs-usb-setup-firmware/bsom.bin) | 4.0.1 |
-| [B5-SoM](/assets/files/docs-usb-setup-firmware/b5som.bin) | 4.0.1 |
-| [Boron](/assets/files/docs-usb-setup-firmware/boron.bin) | 4.0.1 |
-| [E-SoM-X](/assets/files/docs-usb-setup-firmware/esomx.bin) | 4.0.1 |
-| [Electron](/assets/files/docs-usb-setup-firmware/electron.bin) | 2.3.0 |
-| [M-SoM](/assets/files/docs-usb-setup-firmware/msom.bin) | 5.5.0 |
-| [P1](/assets/files/docs-usb-setup-firmware/p1.bin) | 2.3.0 |
-| [Photon](/assets/files/docs-usb-setup-firmware/photon.bin) | 2.3.0 |
-| [Photon 2 / P2](/assets/files/docs-usb-setup-firmware/p2.bin) | 5.5.0 |
+| [B-SoM](/assets/files/docs-usb-setup-firmware/bsom.bin) | 6.3.4 |
+| [B5-SoM](/assets/files/docs-usb-setup-firmware/b5som.bin) | 6.3.4 |
+| [Boron](/assets/files/docs-usb-setup-firmware/boron.bin) | 6.3.4 |
+| [E-SoM-X](/assets/files/docs-usb-setup-firmware/esomx.bin) | 6.3.4 |
+| [Electron](/assets/files/docs-usb-setup-firmware/electron.bin) | 3.3.1 |
+| [M-SoM](/assets/files/docs-usb-setup-firmware/msom.bin) | 6.3.4 |
+| [P1](/assets/files/docs-usb-setup-firmware/p1.bin) | 3.3.1 |
+| [Photon](/assets/files/docs-usb-setup-firmware/firmware.bin) | 3.3.1 |
+| [Photon](/assets/files/docs-usb-setup-firmware/photon.bin) | 3.3.1 |
+| [Photon 2 / P2](/assets/files/docs-usb-setup-firmware/p2.bin) | 6.3.4 |
 {{!-- END setup-firmware-list --}}

@@ -1,0 +1,62 @@
+<div class="apiHelper apiHelperDebugLog">
+    <div class="apiHelperBox">
+        <h1>Log decoder test page</h1>    
+
+        <div class="logDecoderInputOptionsDiv">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="apiHelperProductSelectorLabel">Data source</td>
+                        <td>
+                            <select class="apiHelperSelect logDecoderInputSelect">
+                                <option value="text" selected>Text box for copy/paste</option>
+                                <option value="upload">Upload file</option>
+                                <option value="webSerial">Web Serial (live)</option>
+                                <option value="webBLE">Web BLE (live)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label><input type="checkbox" class="logDecoderOption" data-key="hideTrace" />Hide trace logs</label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label><input type="checkbox" class="logDecoderOption" data-key="hideDecoded" />Hide decoded information</label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="apiHelperButton logDecoderDownloadButton">Download Raw Logs</button>
+                            <button class="apiHelperButton logDecoderCopyButton">Copy Raw Logs to Clipboard</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="logDecoderInputDiv" data-which="text" style="display:none; ">
+                <textarea class="logDecoderInputTextArea" cols="140" rows="20"></textarea>
+            </div>
+            <div class="logDecoderInputDiv" data-which="upload" style="display:none; ">
+                <button class="apiHelperButton logDecoderInputFileButton">Select File</button>
+                <input type="file" class="logDecoderInputFile" style="display:none" />
+            </div>
+            <div class="logDecoderInputDiv" data-which="webSerial" style="display:none; ">
+                <button class="apiHelperButton logDecoderWebSerialConnectButton" disabled>Connect</button>
+                <button class="apiHelperButton logDecoderWebSerialDisconnectButton" disabled>Disconnect</button>
+                <div class="logDecoderWebSerialNotSupported" style="display:none;">
+                    <p>WebSerial is not supported on this browser.</p>
+                    <p>It can only be used on Chrome, Edge, and Opera browsers on Mac, Windows, Linux, Chromebook, and Android. It is not supported on iOS (iPhone/iPad).</p>
+                    <p>WebSerial is different than WebUSB and WebSerial is not supported on as many devices. Particle USB device setup uses WebUSB.</p>
+                </div>
+            </div>
+            <div class="logDecoderInputDiv" data-which="webBLE" style="display:none; ">
+                <button class="apiHelperButton logDecoderWebBLEConnectButton" disabled>Connect</button>
+                <button class="apiHelperButton logDecoderWebBLEDisconnectButton" disabled>Disconnect</button>
+                <div class="logDecoderWebBLENotSupported" style="display:none;">
+                    <p>WebBLE (Web Bluetooth API) is not supported on this browser.</p>
+                    <p>It can only be used on Chrome, Edge, and Opera browsers on Mac, Windows, Linux, Chromebook, and Android on some devices and versions. It is not supported on iOS (iPhone/iPad).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logDecodedOutputDiv">
+    </div>
+</div>
+
