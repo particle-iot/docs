@@ -25,7 +25,7 @@ You can add USB serial debugging to your own firmware using:
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 ```
 
-You can then monitor the output using the tool above, or the Particle CLI `particle serial monitor`.
+You can then monitor the output using the tool above in Web Serial mode, or the Particle CLI `particle serial monitor`.
 
 ### Web device doctor firmware
 

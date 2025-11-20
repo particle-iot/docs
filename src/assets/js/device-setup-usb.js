@@ -1226,6 +1226,20 @@ $(document).ready(function() {
                         break;
                 }
 
+                if (mode == 'doctor' || mode == 'setup') {
+                    if (deviceInfo.platformId == 26 || deviceInfo.platformId == 28) {
+                        analytics.track('Doctor not supported on tracker', {category:gaCategory});
+                        $(thisElem).find('.setupStepCheckDeviceStart').hide();
+                        if (mode == 'doctor') {
+                            $(thisElem).find('.setupStepCheckDeviceTrackerDoctor').show();
+                        }
+                        else {
+                            $(thisElem).find('.setupStepCheckDeviceTrackerSetup').show();
+                        }
+                        return;
+                    }
+                }
+
                 if (!deviceInfo.platformVersionInfo) {
                     $(thisElem).find('.setupStepCheckDeviceStart').hide();
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();

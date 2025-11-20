@@ -33,6 +33,7 @@ $(document).ready(function () {
         });
         $('.logDecoderClearButton').on('click', function() {
             logDecoder.clear();
+            logUserInterface.saveLogAndSettings();
         });
 
         logDecoder.load();

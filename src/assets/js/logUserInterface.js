@@ -1227,7 +1227,6 @@ logUserInterface.saveLogAndSettings = function() {
         logs: logDecoder.getRawLogs(),
     };
 
-    console.log('saveLogAndSettings', settingsJson);
     sessionStorage.setItem(logUserInterface.sessionStorageKey, JSON.stringify(settingsJson));
 }
 
@@ -1240,7 +1239,6 @@ logUserInterface.loadLogAndSettings = async function() {
         const s = sessionStorage.getItem(logUserInterface.sessionStorageKey);
         if (typeof s == 'string' && s.length >= 2) {
             const settingsJson = JSON.parse(s);
-            console.log('loadLogAndSettings', settingsJson);
             if (settingsJson.options) {
                 logUserInterface.setOptions(settingsJson.options);
             }
@@ -1903,7 +1901,7 @@ logUserInterface.newWebBLEConnection = function(options) {
     let conn = {};
 
     const setStatus = function(s) {
-        console.log(s);
+        $('.logDecoderStatusBLE').text(s);
     }
 
     conn.options = options || {};

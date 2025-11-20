@@ -18,14 +18,12 @@ Automatic install is the easiest way to install the cloud debug firmware and Dev
 
 ## Viewing the results
 
-If you are using a Chrome browser you can monitor the output here by connecting to your device using the web serial debug monitor:
+To view the results in a web browser, use the [Debug log tool](/tools/developer-tools/debug-log/);
 
-{{> usb-serial-console}}
-
-Otherwise, you can use the Particle CLI command:
+You can use the Particle CLI command:
 
 ```
-particle serial monitor
+particle serial monitor --follow
 ```
 
 If you are interested in understanding the log output:
