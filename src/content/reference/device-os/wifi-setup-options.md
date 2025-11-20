@@ -3,7 +3,7 @@ title: Wi-Fi setup options
 columns: two
 layout: commonTwo.hbs
 description: Wi-Fi setup options
-includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-projects, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, webdfu, zip]
+includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-projects, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, debug-log, webdfu, zip]
 ---
 
 # {{title}}

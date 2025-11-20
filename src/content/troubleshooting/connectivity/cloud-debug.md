@@ -2,7 +2,7 @@
 title: Cloud Debug
 layout: commonTwo.hbs
 description: Tool for debugging cloud connection issues
-includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, usb-serial, webdfu, zip]
+includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, usb-serial, debug-log, webdfu, zip]
 ---
 
 # Cloud debug
@@ -43,7 +43,6 @@ Note that the Device OS version is the minimum device OS version that must be in
 | Platform | Required Device OS |
 | :--- | :--- |
 | [Argon](/assets/files/docs-usb-setup-firmware/argon.bin) | 6.3.4 |
-| [Asset Tracker / Monitor One](/assets/files/docs-usb-setup-firmware/tracker.bin) | 4.0.0 |
 | [B-SoM](/assets/files/docs-usb-setup-firmware/bsom.bin) | 6.3.4 |
 | [B5-SoM](/assets/files/docs-usb-setup-firmware/b5som.bin) | 6.3.4 |
 | [Boron](/assets/files/docs-usb-setup-firmware/boron.bin) | 6.3.4 |

@@ -3,15 +3,11 @@ $(document).ready(function () {
         return;
     }
 
-    $('.apiHelperDebugLog').each(function() {
+    $('.apiHelperDebugLog').each(async function() {
         const thisPartial = $(this);
 
         logDecoder.urlPrefix = '/assets/files/';
-
-        logDecoder.load();
-        logUserInterface.setupHandlers();
-
-        logUserInterface.outputElem = $('.logDecodedOutputDiv');
+        logUserInterface.outputElem = $('.logDecoderOutputDiv');
 
 
         $('.logDecoderInputTextArea').on('input change blur', async function() {
@@ -35,6 +31,13 @@ $(document).ready(function () {
             t.select();
             document.execCommand("copy");
         });
+        $('.logDecoderClearButton').on('click', function() {
+            logDecoder.clear();
+        });
+
+        logDecoder.load();
+        logUserInterface.setupHandlers();
+        await logUserInterface.loadLogAndSettings();
 
     });
 

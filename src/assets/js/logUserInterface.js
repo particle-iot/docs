@@ -3,6 +3,7 @@
 logUserInterface = {
     // outputElem
     infoCache: {},
+    sessionStorageKey: 'logDecoder',
 };
 
 logUserInterface.commandInfo = {
@@ -721,6 +722,9 @@ logUserInterface.commandInfo = {
     UGPIOC: {
         title: 'GPIO select configuration command',
         render: async function(params) {
+            if (!params.lineObj.command.nonPlusObj) {
+                return;
+            }
 
             let tableParams = {
                 columns: [
@@ -734,7 +738,7 @@ logUserInterface.commandInfo = {
                 rows: [],
             };
 
-            for(const lineObj of params.lineObj.command.nonPlusObj) {
+                            for(const lineObj of params.lineObj.command.nonPlusObj) {
                 const values = lineObj.msg.split(',');
 
                 let row = [];
@@ -1217,197 +1221,86 @@ logUserInterface.jsonFields = {
     },
 }; 
 
-logUserInterface.optionChanged = async function() {
-    logUserInterface.getOptions();
-    await logUserInterface.render();    
+logUserInterface.saveLogAndSettings = function() {
+    let settingsJson = {
+        options: this.getOptions(),
+        logs: logDecoder.getRawLogs(),
+    };
+
+    console.log('saveLogAndSettings', settingsJson);
+    sessionStorage.setItem(logUserInterface.sessionStorageKey, JSON.stringify(settingsJson));
+}
+
+logUserInterface.loadLogAndSettings = async function() {
+    let loaded = false;
+
+    await logDecoder.loadedPromise;
+
+    try {
+        const s = sessionStorage.getItem(logUserInterface.sessionStorageKey);
+        if (typeof s == 'string' && s.length >= 2) {
+            const settingsJson = JSON.parse(s);
+            console.log('loadLogAndSettings', settingsJson);
+            if (settingsJson.options) {
+                logUserInterface.setOptions(settingsJson.options);
+            }
+            if (settingsJson.logs) {
+                $('.logDecoderInputTextArea').val(settingsJson.logs);
+                $('.logDecoderInputTextArea').trigger('input');
+            }
+            loaded = true;
+        }
+    } 
+    catch(e) {
+        console.log('loadLogAndSettings exception', e);
+    }
+    if (!loaded) {
+        // This is necessary to display the text field
+        $('.logDecoderInputSelect').trigger('change');
+    }
+}
+
+logUserInterface.deferredSave = function() {
+    if (logUserInterface.deferredSaveTimer) {
+        clearTimeout(logUserInterface.deferredSaveTimer);
+        logUserInterface.deferredSaveTimer = 0;
+    }
+
+    logUserInterface.deferredSaveTimer = setTimeout(function() {
+        logUserInterface.saveLogAndSettings();
+    }, 5000);
 }
 
 
-logUserInterface.newWebSerialConnection = function(options) {
-    let conn = {};
+logUserInterface.optionChanged = async function() {    
+    logUserInterface.getOptions();
+    await logUserInterface.render();    
 
-    conn.options = options || {};
-
-    conn.handleConnection = async function() {
-        try {
-            // const { usbProductId, usbVendorId } = port.getInfo();   
-            navigator.serial.addEventListener('connect', conn.reconnectHandler);
-            conn.keepReading = true;
-
-            await conn.port.open({ baudRate: 115200 });
-
-            const textDecoder = new TextDecoderStream();
-            const readableStreamClosed = conn.port.readable.pipeTo(textDecoder.writable);
-
-            if (conn.onConnect) {
-                conn.onConnect();
-            }
-
-            while (conn.port.readable && conn.keepReading) {
-                conn.reader = textDecoder.readable.getReader();
-
-                try {
-                    while (true) {
-                        const { value, done } = await conn.reader.read();
-                        if (done) {
-                            break;
-                        }
-                        if (conn.onReceive) {
-                            await conn.onReceive(value);
-                        }
-                    }    
-                }
-                catch(e) {
-                    conn.reader.cancel();
-                }
-                finally {
-                    conn.reader.releaseLock();
-                }
-            }
-
-            await readableStreamClosed.catch(() => {});
-
-            await conn.port.close();
-
-            if (conn.onDisconnect) {
-                // if keepReading == true then will attempt to reconnect
-                conn.onDisconnect(conn.keepReading);
-            }
-        }
-        catch(e) {
-            console.log('exception in WebSerial handleConnection', e);
-        }
-
-
-    };
-    conn.connect = async function(connectOptions) {
-        let connected = false;
-
-        let filters = [
-            { usbVendorId: 0x2b04 },  // Particle devices
-        ];
-        
-        conn.port = null;
-
-        try {
-            conn.port = await navigator.serial.requestPort({ filters });
-
-            // Don't await so handleConnection continues to run in the background
-            conn.handleConnection();   
-            connected = true;     
-        }
-        catch(e) {
-            console.log('exception opening webserial', e);
-            if (conn.onCancelConnect) {
-                conn.onCancelConnect();
-            }        
-        }
-        return connected;
-    };
-
-    conn.reconnectHandler = async function(event) {
-        conn.port = event.target;
-        conn.handleConnection();
-    };
-
-    conn.sendString = async function(str) {
-
-        const encoder = new TextEncoder();
-        const writer = conn.port.writable.getWriter();
-        await writer.write(encoder.encode(str));
-        writer.releaseLock();
-    };
-
-
-    conn.disconnect = async function() {
-        if (conn.port.readable && conn.reader) {
-            conn.reader.cancel();
-            conn.keepReading = false;    
-        }
-        else {
-            if (conn.onWillNotReconnect) {
-                conn.onWillNotReconnect();
-            }
-        }
-
-        navigator.serial.removeEventListener('connect', conn.reconnectHandler);
-    };
-
-    return conn;
-};
-
-logUserInterface.newWebBLEConnection = function(options) {
-    let conn = {};
-
-    const setStatus = function(s) {
-        console.log(s);
-    }
-
-    conn.options = options || {};
-
-    conn.handleNotifications = async function(event) {
-        const value = event.target.value;
-
-        const decoder = new TextDecoder('utf-8');
-
-        const text = decoder.decode(value.buffer);
-        if (conn.onReceive) {
-            await conn.onReceive(text);
-        }
-    }
-
-    conn.onDisconnected = async function() {
-        conn.device = null;
-    };
-
-    conn.connect = async function() {        
-        try {
-            setStatus('Requesting bluetooth device...');
-            conn.device = await navigator.bluetooth.requestDevice({
-                filters: [{services: ['6e400001-b5a3-f393-e0a9-e50e24dcca9e']}]});
-
-            conn.device.addEventListener('gattserverdisconnected', conn.onDisconnected);
-
-            setStatus('Connecting to GATT server...');
-            const server = await conn.device.gatt.connect();
-    
-            setStatus('Initializing service...');
-            const service = await server.getPrimaryService('6e400001-b5a3-f393-e0a9-e50e24dcca9e');
-    
-            const txCharacteristic = await service.getCharacteristic('6e400003-b5a3-f393-e0a9-e50e24dcca9e');
-    
-            await txCharacteristic.startNotifications();
-    
-            txCharacteristic.addEventListener('characteristicvaluechanged', conn.handleNotifications);
-            
-            conn.rxCharacteristic = await service.getCharacteristic('6e400002-b5a3-f393-e0a9-e50e24dcca9e');
-
-            setStatus('');
-
-        } catch(error) {
-            setStatus(error);
-        }                
-    }
-    return conn;
-};
-
-
-
+    // render() calls deferredSave()
+}
 
 
 logUserInterface.setupHandlers = function() {
     $('.logDecoderOption').each(function() {
+        const tagName = $(this).prop('tagName').toLowerCase();
         const inputType = $(this).attr('type');
         // const key = $(this).data('key');
         let action;
         
-        switch(inputType) {
-            case 'checkbox': {
-                action = 'click';
-                break;
+        if (tagName == 'select') {
+            action = 'change';
+        }
+        else
+        if (tagName == 'input') {
+            switch(inputType) {
+                case 'checkbox': {
+                    action = 'click';
+                    break;
+                }
+                default:
+                    break;
             }
-            default:
-                break;
+
         }
 
         if (action) {
@@ -1423,8 +1316,6 @@ logUserInterface.setupHandlers = function() {
             $('.logDecoderInputDiv').hide();
             $('.logDecoderInputDiv[data-which="' + which + '"]').show();
         });
-
-        $('.logDecoderInputSelect').trigger('change');
 
         $('.logDecoderInputFileButton').on('click', function() {
             $('.logDecoderInputFile').trigger('click');
@@ -1518,9 +1409,6 @@ logUserInterface.setupHandlers = function() {
         });
 
     }
-
-
-
 }
 
 
@@ -1531,19 +1419,27 @@ logUserInterface.getOptions = function() {
     logDecoder.state.options = {};
 
     $('.logDecoderOption').each(function() {
+        const tagName = $(this).prop('tagName').toLowerCase();
         const inputType = $(this).attr('type');
         const key = $(this).data('key');
-        
-        switch(inputType) {
-            case 'checkbox':
-                logDecoder.state.options[key] = $(this).prop('checked');
-                break;
+    
 
-            default:
-                logDecoder.state.options[key] = $(this).val();
-                break;
+        if (tagName == 'select') {
+            logDecoder.state.options[key] = $(this).val();
         }
+        else
+        if (tagName == 'input') {
+            switch(inputType) {
+                case 'checkbox':
+                    logDecoder.state.options[key] = $(this).prop('checked');
+                    break;
 
+                default:
+                    logDecoder.state.options[key] = $(this).val();
+                    break;
+            }
+
+        }
     });
 
     return logDecoder.state.options;
@@ -1555,19 +1451,26 @@ logUserInterface.setOptions = function(options) {
     }
 
     $('.logDecoderOption').each(function() {
+        const tagName = $(this).prop('tagName').toLowerCase();
         const inputType = $(this).attr('type');
         const key = $(this).data('key');
         
-        switch(inputType) {
-            case 'checkbox':
-                $(this).prop('checked', logDecoder.state.options[key]);
-                break;
-
-            default:
-                $(this).val(logDecoder.state.options[key]);
-                break;
+        if (tagName == 'select') {
+            $(this).val(options[key]);
+            $(this).trigger('change');
         }
+        else
+        if (tagName == 'input') {
+            switch(inputType) {
+                case 'checkbox':
+                    $(this).prop('checked', options[key]);
+                    break;
 
+                default:
+                    $(this).val(options[key]);
+                    break;
+            }
+        }
     });
     
 }
@@ -1587,6 +1490,8 @@ logUserInterface.render = async function(renderOptions = {}) {
     if (!logDecoder.state.options) {
         logDecoder.state.options = {};
     }
+
+    logUserInterface.deferredSave();
 
     if (typeof renderOptions.afterLine == 'undefined') {
         $(logUserInterface.outputElem).empty();
@@ -1798,24 +1703,21 @@ logUserInterface.rowsFromObject = function(params) {
 }
 
 logUserInterface.renderTable = function(params) {
+    const outerDivElem = document.createElement('div');
+
+    if (params.banner) {
+        const divElem = document.createElement('div');
+        $(divElem).addClass('logDecoderTableBanner')
+        $(divElem).text(params.banner);
+        $(outerDivElem).append(divElem);
+    }
+
+
     const tableElem = document.createElement('table');
     $(tableElem).addClass('apiHelperTableNoMargin');
 
     {
         const theadElem = document.createElement('thead');
-
-        if (params.banner) {
-            const trElem = document.createElement('tr');
-            
-            const thElem = document.createElement('th');
-            if (params.columns) {
-                $(thElem).attr('colspan', params.columns.length);
-            }
-            $(thElem).text(params.banner);
-            $(trElem).append(thElem);
-
-            $(theadElem).append(trElem);
-        }
 
         if (params.columns) {
             const trElem = document.createElement('tr');
@@ -1865,8 +1767,9 @@ logUserInterface.renderTable = function(params) {
 
         $(tableElem).append(tbodyElem);
     }
+    $(outerDivElem).append(tableElem);
 
-    return tableElem;
+    return outerDivElem;
 }
 
 
@@ -1882,14 +1785,171 @@ logUserInterface.valueLookup = function(value, array) {
 }
 
 
-/*
-                set: ['fun', 'rst'],
-                fun: {
-                    title: 'Selected functionality',
-                    values: [
-                        {
-                            value: 0,
-                            desc: 'sets the MT to minimum functionality (disable both transmit and receive RF circuits by deactivating both CS and PS services)',
-                        },
 
-*/
+logUserInterface.newWebSerialConnection = function(options) {
+    let conn = {};
+
+    conn.options = options || {};
+
+    conn.handleConnection = async function() {
+        try {
+            // const { usbProductId, usbVendorId } = port.getInfo();   
+            navigator.serial.addEventListener('connect', conn.reconnectHandler);
+            conn.keepReading = true;
+
+            await conn.port.open({ baudRate: 115200 });
+
+            const textDecoder = new TextDecoderStream();
+            const readableStreamClosed = conn.port.readable.pipeTo(textDecoder.writable);
+
+            if (conn.onConnect) {
+                conn.onConnect();
+            }
+
+            while (conn.port.readable && conn.keepReading) {
+                conn.reader = textDecoder.readable.getReader();
+
+                try {
+                    while (true) {
+                        const { value, done } = await conn.reader.read();
+                        if (done) {
+                            break;
+                        }
+                        if (conn.onReceive) {
+                            await conn.onReceive(value);
+                        }
+                    }    
+                }
+                catch(e) {
+                    conn.reader.cancel();
+                }
+                finally {
+                    conn.reader.releaseLock();
+                }
+            }
+
+            await readableStreamClosed.catch(() => {});
+
+            await conn.port.close();
+
+            if (conn.onDisconnect) {
+                // if keepReading == true then will attempt to reconnect
+                conn.onDisconnect(conn.keepReading);
+            }
+        }
+        catch(e) {
+            console.log('exception in WebSerial handleConnection', e);
+        }
+
+
+    };
+    conn.connect = async function(connectOptions) {
+        let connected = false;
+
+        let filters = [
+            { usbVendorId: 0x2b04 },  // Particle devices
+        ];
+        
+        conn.port = null;
+
+        try {
+            conn.port = await navigator.serial.requestPort({ filters });
+
+            // Don't await so handleConnection continues to run in the background
+            conn.handleConnection();   
+            connected = true;     
+        }
+        catch(e) {
+            console.log('exception opening webserial', e);
+            if (conn.onCancelConnect) {
+                conn.onCancelConnect();
+            }        
+        }
+        return connected;
+    };
+
+    conn.reconnectHandler = async function(event) {
+        conn.port = event.target;
+        conn.handleConnection();
+    };
+
+    conn.sendString = async function(str) {
+
+        const encoder = new TextEncoder();
+        const writer = conn.port.writable.getWriter();
+        await writer.write(encoder.encode(str));
+        writer.releaseLock();
+    };
+
+
+    conn.disconnect = async function() {
+        if (conn.port.readable && conn.reader) {
+            conn.reader.cancel();
+            conn.keepReading = false;    
+        }
+        else {
+            if (conn.onWillNotReconnect) {
+                conn.onWillNotReconnect();
+            }
+        }
+
+        navigator.serial.removeEventListener('connect', conn.reconnectHandler);
+    };
+
+    return conn;
+};
+
+logUserInterface.newWebBLEConnection = function(options) {
+    let conn = {};
+
+    const setStatus = function(s) {
+        console.log(s);
+    }
+
+    conn.options = options || {};
+
+    conn.handleNotifications = async function(event) {
+        const value = event.target.value;
+
+        const decoder = new TextDecoder('utf-8');
+
+        const text = decoder.decode(value.buffer);
+        if (conn.onReceive) {
+            await conn.onReceive(text);
+        }
+    }
+
+    conn.onDisconnected = async function() {
+        conn.device = null;
+    };
+
+    conn.connect = async function() {        
+        try {
+            setStatus('Requesting bluetooth device...');
+            conn.device = await navigator.bluetooth.requestDevice({
+                filters: [{services: ['6e400001-b5a3-f393-e0a9-e50e24dcca9e']}]});
+
+            conn.device.addEventListener('gattserverdisconnected', conn.onDisconnected);
+
+            setStatus('Connecting to GATT server...');
+            const server = await conn.device.gatt.connect();
+    
+            setStatus('Initializing service...');
+            const service = await server.getPrimaryService('6e400001-b5a3-f393-e0a9-e50e24dcca9e');
+    
+            const txCharacteristic = await service.getCharacteristic('6e400003-b5a3-f393-e0a9-e50e24dcca9e');
+    
+            await txCharacteristic.startNotifications();
+    
+            txCharacteristic.addEventListener('characteristicvaluechanged', conn.handleNotifications);
+            
+            conn.rxCharacteristic = await service.getCharacteristic('6e400002-b5a3-f393-e0a9-e50e24dcca9e');
+
+            setStatus('');
+
+        } catch(error) {
+            setStatus(error);
+        }                
+    }
+    return conn;
+};

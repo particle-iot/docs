@@ -603,9 +603,27 @@
                 <p><label><input type="checkbox" class="showDebuggingLogs" checked>Show device debugging logs</label></p>
             </div>
             <div class="deviceLogsTextButtons">
-                <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px; line-height: 11px;">
-                </textarea>
-                <p><button class="downloadLogs">Download Logs</button></p>                
+                <div class="logDecoderOutputDiv" style="height: 700px; overflow: scroll;">
+                </div>
+                <!-- <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px; line-height: 11px;">
+                </textarea> -->
+                <table class="apiHelperTableNoMarginc">
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><label><input type="checkbox" class="logDecoderOption" data-key="hideTrace" />Hide trace logs</label></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><label><input type="checkbox" class="logDecoderOption" data-key="hideDecoded" />Hide decoded information</label></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="apiHelperButton logDecoderDownloadButton">Download Raw Logs</button>
+                                <button class="apiHelperButton logDecoderCopyButton">Copy Raw Logs to Clipboard</button>
+                                <button class="apiHelperButton logDecoderClearButton">Clear Logs</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="manualLogs" style="display:none; padding-top:20px;">

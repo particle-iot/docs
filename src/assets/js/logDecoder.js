@@ -32,6 +32,9 @@ logDecoder = {
             uuid: 'a71f7ea4-defd-407f-83f2-87f7679e8182',
         },
     ],
+    loadedPromise: new Promise(function(resolve, reject) {
+        loadedPromiseResolve = resolve;
+    }),
 };
 
 logDecoder.zeroPad = function(n, places) {
@@ -80,10 +83,14 @@ logDecoder.load = async function() {
     }
 
     // console.log('log-decoder ready', logDecoder);
+    loadedPromiseResolve();
 }
 
-logDecoder.clear = function() {
+logDecoder.clear = async function() {
     logDecoder.state = JSON.parse(JSON.stringify(logDecoder.stateDefault));
+    if (typeof logUserInterface != 'undefined') {
+        await logUserInterface.render();
+    }
     // console.log('logDecoder.clear', {state: logDecoder.state, stateDefault: logDecoder.stateDefault});
 }
 

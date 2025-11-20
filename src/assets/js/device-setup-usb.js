@@ -320,15 +320,13 @@ $(document).ready(function() {
 
 
         const deviceLogsElem = $(thisElem).find('.deviceLogs');
-        const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
+        const deviceLogsOutputElem = $(thisElem).find('.logDecoderOutputDiv');
         const showDebuggingLogsElem = $(thisElem).find('.showDebuggingLogs');
         const deviceLogsTextButtonsElem = $(thisElem).find('.deviceLogsTextButtons');
         const downloadLogsElem = $(thisElem).find('.downloadLogs');
         let deviceLogsTimer1;
         let deviceLogsTimer2;
 
-        let deviceLogs = '';
-        let deviceLogsPartialLine;
         let checkStatus;
 
         let msgExternalSIM = false;
@@ -413,8 +411,7 @@ $(document).ready(function() {
 
         $(showDebuggingLogsElem).on('click', function() {
             if ($(showDebuggingLogsElem).prop('checked')) {                
-                $(deviceLogsTextElem).val(deviceLogs);
-                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                deviceLogsOutputElem.scrollTop(deviceLogsOutputElem[0].scrollHeight - deviceLogsOutputElem.height());    
                 $(deviceLogsTextButtonsElem).show();
             }
             else {
@@ -425,7 +422,7 @@ $(document).ready(function() {
         $(downloadLogsElem).on('click', function() {
             $(downloadLogsElem).prop('disabled', true);
 
-            let blob = new Blob([getInfoTableText(), deviceLogs], {type:'text/plain'});
+            let blob = new Blob([getInfoTableText(), logDecoder.getRawLogs()], {type:'text/plain'});
             saveAs(blob, 'logs.txt');	
 
             $(downloadLogsElem).prop('disabled', false);
@@ -663,27 +660,15 @@ $(document).ready(function() {
     
                             res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
                             if (res.result == 0 && res.data) {
-                                if (res.data.length > 0) {
-                                    let tempLog = (deviceLogsPartialLine ? deviceLogsPartialLine : '') + res.data;
-                                    let lastLF = tempLog.lastIndexOf('\n');
-                                    if (lastLF < (tempLog.length - 1)) {
-                                        deviceLogsPartialLine = tempLog.substr(lastLF + 1);
-                                        tempLog = tempLog.substr(0, lastLF + 1);
-                                    }
-                                    else {
-                                        deviceLogsPartialLine = '';
-                                    }
-                                    for(let line of tempLog.split('\n')) {
-                                        line = line.trim();
-                                        if (line.length) {
-                                            processLogMessage(line);
-                                        }
-                                    }
-                                    
-                                    deviceLogs += tempLog;
+                                if (res.data.length > 0) {                                    
+                                    // Remove CRs so lines are only LF terminated
+                                    const s = res.data.replaceAll('\r', '');
+
+                                    await logDecoder.parse(s);
+                                    await logUserInterface.renderIncremental();
+
                                     if ($(showDebuggingLogsElem).prop('checked')) {
-                                        $(deviceLogsTextElem).val(deviceLogs);
-                                        deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                                        deviceLogsOutputElem.scrollTop(deviceLogsOutputElem[0].scrollHeight - deviceLogsOutputElem.height());    
                                     }
                                 }
                             }
@@ -4646,6 +4631,42 @@ $(document).ready(function() {
 
         };
     });
+
+    async function loadLogDecoder() {
+        logDecoder.urlPrefix = '/assets/files/';
+        logUserInterface.outputElem = $('.logDecoderOutputDiv');
+
+        $('.logDecoderDownloadButton').on('click', function() {
+            const str = logDecoder.getRawLogs();
+
+            let blob = new Blob([str], {type:'text/plain'});
+            saveAs(blob, 'log.txt');			
+
+			analytics.track('File Download', {category:gaCategory});
+        });
+        $('.logDecoderCopyButton').on('click', function() {
+            const str = logDecoder.getRawLogs();
+
+			var t = document.createElement('textarea');
+			document.body.appendChild(t);
+			$(t).text(str);
+			t.select();
+			document.execCommand("copy");
+			document.body.removeChild(t);
+
+            analytics.track('File Copy', {category:gaCategory});
+        });
+        $('.logDecoderClearButton').on('click', function() {
+            logDecoder.clear();
+        });
+
+        logDecoder.load();
+        logUserInterface.setupHandlers();
+        await logUserInterface.loadLogAndSettings();
+
+    }
+    loadLogDecoder();
+
 
 });
 

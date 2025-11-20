@@ -2,7 +2,7 @@
 title: Device Restore USB
 layout: commonTwo.hbs
 description: Device restore over USB from a browser
-includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, webdfu, zip]
+includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, debug-log, webdfu, zip]
 ---
 
 # Device restore over USB
