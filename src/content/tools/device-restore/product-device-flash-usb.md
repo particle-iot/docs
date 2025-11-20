@@ -3,7 +3,7 @@ title: Product Device Flash USB
 columns: two
 layout: commonTwo.hbs
 description: Product Device Flash USB
-includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, webdfu, zip]
+includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, debug-log, webdfu, zip]
 ---
 
 # {{title}} (Beta)

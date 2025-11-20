@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Debug log enhancements 2025-11-20
+
+The new [debug log tool](/tools/developer-tools/debug-log/) allows viewing and decoding of device debugging logs from copy/paste, uploaded file, live using USB serial, or live using BLE.
+
+### Web device doctor update 2025-11-20
+
+The [web device doctor](/tools/doctor) includes updated device firmware that uses Device OS 6.3.4, transmits the logs in raw format instead of decoding on device, and support BLE transfer of logs. 
+
 ### Class and library generator 2025-11-17
 
 The [singleton class generator](/tools/developer-tools/class-generator/) and [library project generator](/tools/developer-tools/library-generator/) now optionally support generating code using recursive mutex and const lock/unlock methods.

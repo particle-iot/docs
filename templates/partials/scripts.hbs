@@ -43,6 +43,11 @@
 <script type="text/javascript" src="/assets/js/precompiled.js"></script>
 <script src='/assets/js/docs.js'></script>
 <script src='/assets/js/navmenu.js'></script>
+{{#contains includeDefinitions 'debug-log'}}
+<script src='/assets/js/logDecoder.js'></script>
+<script src='/assets/js/logUserInterface.js'></script>
+<script src='/assets/js/debug-log.js'></script>
+{{/contains}}
 {{#contains includeDefinitions 'device-animation'}}
 <script src='/assets/js/device-animation.js'></script>
 {{/contains}}

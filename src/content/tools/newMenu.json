@@ -51,6 +51,10 @@
             "isSection": true,
             "subsections": [
                 {
+                    "dir": "debug-log",
+                    "title": "Debug log tool"
+                },
+                {
                     "dir": "lookup"
                 },
                 {

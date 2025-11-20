@@ -1499,8 +1499,8 @@
             "hash": "6f1839fec624aef7273a1796f976193bc448932e4e8203302727e706106dba37"
         },
         "troubleshooting/connectivity/cloud-debug.md": {
-            "date": "2024-06-08",
-            "hash": "24eaaf81d44af99f9e66b246c5c457232655c67a2fd460dfeb0fbb38d4850673"
+            "date": "2025-11-20",
+            "hash": "1312e2cefaa9b74bb3aa179e0f29031e7d8db452881febf9226c3a1fd46bacd6"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug-2.md": {
             "date": "2024-02-27",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8f9dcbb360f92d42be21cf0af05825a007ebf913039abfe6834e3c2d988230ff",
-            "date": "2025-11-17"
+            "hash": "35064d563c6169b74a5e55206df7dcf0f9011eae7cf5c8c9b0fa4a8e559d91a1",
+            "date": "2025-11-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9921,6 +9921,10 @@
         "reference/application-notes.md": {
             "hash": "ed124065eafd7ded63a4850f62225c8f65db07622e11b6e91e86506a19af19f8",
             "date": "2025-11-06"
+        },
+        "tools/developer-tools/debug-log.md": {
+            "hash": "563ef86bb46437649418c088100c04a532fb46ba7e38b539cd3c1bcb5bc0dcea",
+            "date": "2025-11-20"
         }
     }
 }
