@@ -50,8 +50,6 @@ Note that the Device OS version is the minimum device OS version that must be in
 | [Photon 2 / P2](/assets/files/docs-usb-setup-firmware/p2.bin) | 6.3.4 |
 {{!-- END setup-firmware-list --}}
 
-### Cloud debug firmware
-
 
 
 

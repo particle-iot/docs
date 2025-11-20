@@ -18,9 +18,9 @@ Automatic install is the easiest way to install the cloud debug firmware and Dev
 
 ## Viewing the results
 
-To view the results in a web browser, use the [Debug log tool](/tools/developer-tools/debug-log/);
+To view the results in a web browser, use the [Debug log tool](/tools/developer-tools/debug-log/). The tool also helps decode some commands.
 
-You can use the Particle CLI command:
+Or you can use the Particle CLI command:
 
 ```
 particle serial monitor --follow
@@ -33,9 +33,13 @@ If you are interested in understanding the log output:
 
 ## Manual installation
 
-You should really use [Web Device Doctor](/tools/doctor/) as it is able to do both device-side and cloud-side checks from one user interface, but if you prefer to install manually or do not have a compatible browser or computer, you can flash appropriate binary below to your device manually.
+You should use [Web Device Doctor](/tools/doctor/) as it is able to do both device-side and cloud-side checks from one user interface, but if you prefer to install manually or do not have a compatible browser or computer, you can flash appropriate binary below to your device manually.
 
-Note that the Device OS version is the minimum device OS version that must be installed to use that binary. It's OK if your device already has a newer version of Device OS. If your device has an older version of Device OS you should upgrade it first, or use the Web Device Doctor that will handle updating Device OS if necessary.
+The Particle CLI can flash the binary and Device OS as necessary:
+
+```
+particle flash --local firmware.bin
+```
 
 {{!-- BEGIN setup-firmware-list --}}
 | Platform | Required Device OS |
@@ -52,3 +56,5 @@ Note that the Device OS version is the minimum device OS version that must be in
 | [Photon](/assets/files/docs-usb-setup-firmware/photon.bin) | 3.3.1 |
 | [Photon 2 / P2](/assets/files/docs-usb-setup-firmware/p2.bin) | 6.3.4 |
 {{!-- END setup-firmware-list --}}
+
+Note that the Device OS version is the minimum device OS version that must be installed to use that binary. It's OK if your device already has a newer version of Device OS. If your device has an older version of Device OS you should upgrade it first, or use the Web Device Doctor that will handle updating Device OS if necessary.
