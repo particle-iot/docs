@@ -9925,6 +9925,10 @@
         "tools/developer-tools/debug-log.md": {
             "hash": "563ef86bb46437649418c088100c04a532fb46ba7e38b539cd3c1bcb5bc0dcea",
             "date": "2025-11-20"
+        },
+        "tools/cloud-tools/cloud-wifi-config.md": {
+            "hash": "c9776df0ce125ff25b03a048cf1c8d337867d36f4240ab7d939e72c544df858c",
+            "date": "2025-11-21"
         }
     }
 }

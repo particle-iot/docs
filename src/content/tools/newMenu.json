@@ -151,6 +151,10 @@
                     "title": "Tinker"
                 },
                 {
+                    "dir": "cloud-wifi-config",
+                    "title": "Cloud-based Wi-Fi configuration"
+                },
+                {
                     "dir": "api-users-old",
                     "title": "API Users (old)",
                     "internal": true
