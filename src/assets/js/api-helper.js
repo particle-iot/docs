@@ -463,6 +463,131 @@ apiHelper.simpleTableObjectMap = function(tbodyElem, keys, data) {
 }
 
 
+apiHelper.simpleTable = function(params) {
+    let outerDivElem;
+
+    if (!params.noOuterDiv) {
+        outerDivElem = document.createElement('div');
+
+        if (params.banner) {
+            // text div above table
+            const divElem = document.createElement('div');
+            if (params.cssClassBanner) {
+                $(divElem).addClass(params.cssClassBanner);
+            }
+            if (params.cssStyleBanner) {
+                $(divElem).attr('style', params.cssStyleBanner);
+            }
+            $(divElem).text(params.banner);
+            $(outerDivElem).append(divElem);
+        }
+    }
+    
+    const tableElem = document.createElement('table');
+    if (params.cssClassTable) {
+        $(tableElem).addClass(params.cssClassTable);
+    }
+
+    {
+        const theadElem = document.createElement('thead');
+
+        if (params.columns) {
+            const trElem = document.createElement('tr');
+            
+            for(const columnObj of params.columns) {
+                const thElem = document.createElement('th');
+                if (columnObj.cssClassHead) {
+                    $(thElem).addClass(columnObj.cssClassHead);
+                }
+                if (columnObj.title) {
+                    $(thElem).text(columnObj.title);
+                }
+                $(trElem).append(thElem);
+            }
+            $(theadElem).append(trElem);
+        }
+
+        $(tableElem).append(theadElem);
+    }
+    {
+        const tbodyElem = document.createElement('tbody');
+
+        if (params.rows) { // An array of rows
+            let columnIndex = -1;
+            for(const row of params.rows) {
+                columnIndex++;
+
+                const trElem = document.createElement('tr');
+                if (params.cssClassRow) {
+                    $(trElem).addClass(params.cssClassRow);
+                }
+
+                
+                for(const columnObj of params.columns) {
+                    const tdElem = document.createElement('td');
+                    if (columnObj.cssClass) {
+                        $(tdElem).addClass(columnObj.cssClassBody);
+                    }
+                    if (columnObj.cssStyle) {
+                        $(tdElem).attr('style', columnObj.cssStyleBody);
+                    }
+
+                    if (columnObj.radioName) {
+                        const inputElem = document.createElement('input');
+                        $(inputElem).attr('type', 'radio');
+                        $(inputElem).attr('name', columnObj.radioName);
+                        if (columnObj.radioClass) {
+                            $(inputElem).addClass(columnObj.radioClass);
+                        }
+                        if (columnObj.radioValueKey) {
+                            $(inputElem).attr('value', row[columnObj.radioValueKey]);
+                        }
+
+                        $(tdElem).html(inputElem);
+                    }
+                    else {
+                        let text;
+                        if (Array.isArray(row)) {
+                            if (columIndex < row.length) {
+                                text = row[colIndex];
+                            }
+                        }
+                        else {
+                            text = row[columnObj.key];
+                        }
+
+                        if (text) {
+                            if (typeof columnObj.valueDecoder == 'function') {
+                                text = columnObj.valueDecoder(text);
+                            }
+
+                            $(tdElem).text(text);
+                        }
+
+                    }
+
+
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+            }
+        }
+
+        $(tableElem).append(tbodyElem);
+    }
+
+    if (!params.noOuterDiv) {
+        $(outerDivElem).append(tableElem);
+
+        return outerDivElem;
+    }
+    else {
+        return tableElem;
+    }
+}
+
+
 apiHelper.sandboxProducts = function() {
     let sandboxProducts = {
     };
