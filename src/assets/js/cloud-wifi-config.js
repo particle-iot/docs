@@ -9,6 +9,7 @@ $(document).ready(function() {
         const wifiConfig = {
             productInfo: {}, // Object, key is product slug
             deviceInfo: {}, // Object, key is device ID
+            setupFunctionName: 'WiFiSetup',
         };
         
         const updateButtons = async function() {
@@ -72,11 +73,11 @@ $(document).ready(function() {
             $('.apiHelperDeviceFunctionStatus').text(s);
         }
 
-        $('.deviceSearchText').on('input blur', async function() {
+        $(thisPartial).find('.deviceSearchText').on('input blur', async function() {
             await updateButtons();
         });
         
-        $('.deviceSearchText').on('keydown', function(ev) {
+        $(thisPartial).find('.deviceSearchText').on('keydown', function(ev) {
             if (ev.key != 'Enter') {
                 return;
             }
@@ -85,7 +86,7 @@ $(document).ready(function() {
             $('.deviceSearchButton').trigger('click');    
         });  
 
-        $('.deviceSearchButton').on('click', async function() {
+        $(thisPartial).find('.deviceSearchButton').on('click', async function() {
             const org = parseInt($('.apiHelperSandboxOrgSelect').val());
 
             const params = {
@@ -207,7 +208,7 @@ $(document).ready(function() {
                                     
                                     wifiConfig.deviceInfo[res.device.id].info = jsonResult;
 
-                                    tableRowObj.hasSetupFunction = jsonResult.functions.includes('WiFiSetup');
+                                    tableRowObj.hasSetupFunction = wifiConfig.deviceInfo[res.device.id].hasSetupFunction = jsonResult.functions.includes(wifiConfig.setupFunctionName);
                                     tableRowObj.online = jsonResult.online;
 
                                     if (!wifiConfig.firstDeviceWithFunction) {
@@ -234,16 +235,13 @@ $(document).ready(function() {
                         $('.searchResultTableDiv').html(tableElem);
 
                         if (wifiConfig.firstDeviceWithFunctionAndOnline) {
-                            console.log('firstDeviceWithFunctionAndOnline ' + wifiConfig.firstDeviceWithFunctionAndOnline);
                             $('input[type="radio"][name="searchDevice"][value="' + wifiConfig.firstDeviceWithFunctionAndOnline + '"]').prop('checked', true);
                         }
                         else
                         if (wifiConfig.firstDeviceWithFunction) {
-                            console.log('firstDeviceWithFunction ' + wifiConfig.firstDeviceWithFunction);
                             $('input[type="radio"][name="searchDevice"][value="' + wifiConfig.firstDeviceWithFunction + '"]').prop('checked', true);
                         }
                         else {
-                            console.log('select first');
                             $('input[type="radio"][name="searchDevice"]:first').prop('checked', true);
                         }
 
@@ -280,7 +278,122 @@ $(document).ready(function() {
 
         });
 
+        const getParticleOptions = function() {
+            const deviceId = $('input[type="radio"][name="searchDevice"]:checked').val();
 
+            let particleOptions  = {
+                auth: apiHelper.auth.access_token,
+                deviceId,
+            };
+
+            if (wifiConfig.deviceInfo[deviceId].productId) {
+                particleOptions.product = wifiConfig.deviceInfo[deviceId].productId;
+            }
+
+            return particleOptions;
+        };
+
+        const startEventStream = function() {
+            return new Promise(function(resolve, reject) {
+                if (wifiConfig.stream) {
+                    resolve(wifiConfig.stream);
+                    return;
+                }
+
+                $(thisPartial).find('.logsDiv').empty();
+                $(thisPartial).find('.logsDiv').show();
+
+                const deviceId = $('input[type="radio"][name="searchDevice"]:checked').val();
+
+                let particleOptions  = {
+                    auth: apiHelper.auth.access_token,
+                };
+
+                if (wifiConfig.deviceInfo[deviceId].productId) {
+                    particleOptions.product = wifiConfig.deviceInfo[deviceId].productId;
+                }
+                else {
+                    particleOptions.deviceId = 'mine';
+                }
+                    
+                apiHelper.particle.getEventStream(particleOptions).then(function(stream) {
+                    wifiConfig.stream = stream;
+                    console.log('event stream started');
+                    
+                    wifiConfig.stream.on('event', function(data) {
+                        try {
+                            // data
+                            //  .data (string)
+                            //  .coreid
+                            //  .productID
+                            //  .name
+                            //  .published_at
+
+                            const json = JSON.parse(data.data);
+
+                            console.log('event', {data, json});
+
+                        }
+                        catch(e) {
+                            console.log('exception in event handler', e);
+                        }
+                    });
+                    resolve(wifiConfig.stream);
+                });      
+
+            });
+        }
+
+        const sendFunction = async function(json) {
+            let particleOptions = getParticleOptions();
+
+            particleOptions.name = wifiConfig.setupFunctionName;
+            particleOptions.argument = JSON.stringify(json);
+
+            apiHelper.particle.callFunction(particleOptions);
+        };
+
+        $(thisPartial).find('.wifiScan').on('click', async function() {
+            $(this).prop('disabled', true);
+            setTimeout(function() {
+                $(this).prop('disabled', false);
+            }, 1000);
+
+            await startEventStream();
+
+            await sendFunction({op: 'wifiScan'});
+        });
+
+        $(thisPartial).find('.setCredentials').on('click', async function() {
+            $(this).prop('disabled', true);
+            setTimeout(function() {
+                $(this).prop('disabled', false);
+            }, 1000);
+
+            await startEventStream();
+
+        });
+
+        $(thisPartial).find('.getCredentials').on('click', async function() {
+            $(this).prop('disabled', true);
+            setTimeout(function() {
+                $(this).prop('disabled', false);
+            }, 1000);
+
+            await startEventStream();
+
+            sendFunction({op: 'getCredentials'});
+        });
+
+        $(thisPartial).find('.clearCredentials').on('click', async function() {
+            $(this).prop('disabled', true);
+            setTimeout(function() {
+                $(this).prop('disabled', false);
+            }, 1000);
+
+            await startEventStream();
+
+        });
 
     })
 
