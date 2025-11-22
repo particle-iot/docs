@@ -6,17 +6,74 @@ $(document).ready(function() {
     $('.cloudWifiConfig').each(function() {
         const thisPartial = $(this);
 
-        const updateButtons = function() {
+        const wifiConfig = {
+            productInfo: {}, // Object, key is product slug
+            deviceInfo: {}, // Object, key is device ID
+        };
+        
+        const updateButtons = async function() {
             const s = $('.deviceSearchText').val().trim();
 
             $('.deviceSearchButton').prop('disabled', (s.length == 0));
+
+            const selectedDevice = $('input[type="radio"][name="searchDevice"]:checked').val();
+            if (selectedDevice && wifiConfig.deviceInfo[selectedDevice].hasSetupFunction) {
+                $('.wifiSetup').show();
+
+                
+            }
+            else {
+                // No devices listed
+                $('.wifiSetup').hide();
+            }
         };
+
+        wifiConfig.tableParams = {
+            noOuterDiv: true,
+            cssClassTable: 'apiHelperTableNoMargin',
+            columns: [
+                {
+                    radioName: 'searchDevice',
+                    radioValueKey: 'id',
+                },
+                {
+                    key: 'id',
+                    title: 'Device ID',
+                },
+                {
+                    key: 'name',
+                    title: 'Device Name',  
+                },
+                {
+                    key: 'serialNumber',
+                    title: 'Serial Number',  
+                },
+                {
+                    key: 'productName',
+                    title: 'Product Name',  
+                },
+                {
+                    key: 'hasSetupFunction',
+                    title: 'Supports Wi-Fi Setup',
+                    greenCheck: true,
+                    // cssStyleBody: 'text-align: center;',
+                },
+                {
+                    key: 'online',
+                    title: 'Online',
+                    greenCheck: true,
+                }
+            ],
+            rows: [],
+        };
+
+
         const setStatus = function(s) {
             $('.apiHelperDeviceFunctionStatus').text(s);
         }
 
-        $('.deviceSearchText').on('input blur', function() {
-            updateButtons();
+        $('.deviceSearchText').on('input blur', async function() {
+            await updateButtons();
         });
         
         $('.deviceSearchText').on('keydown', function(ev) {
@@ -66,45 +123,21 @@ $(document).ready(function() {
 
                 const jsonResult = await fetchRes.json();
 
-                console.log('jsonResult', jsonResult);
 
                 if (jsonResult.ok) {
                     $('.searchResultTable').empty();
 
+                    wifiConfig.tableParams.rows = [];
+
                     if (jsonResult.results.length > 0) {
-                        let productInfo = {};
 
-
-                        const tableParams = {
-                            noOuterDiv: true,
-                            cssClassTable: 'apiHelperTableNoMargin',
-                            columns: [
-                                {
-                                    radioName: 'searchDevice',
-                                    radioValueKey: 'id',
-                                },
-                                {
-                                    key: 'id',
-                                    title: 'Device ID',
-                                },
-                                {
-                                    key: 'name',
-                                    title: 'Device Name',  
-                                },
-                                {
-                                    key: 'serialNumber',
-                                    title: 'Serial Number',  
-                                },
-                                {
-                                    key: 'productName',
-                                    title: 'Product Name',  
-                                },
-                            ],
-                            rows: [
-                            ],
-                        };
+                        wifiConfig.firstDeviceWithFunction = null;
+                        wifiConfig.firstDeviceWithFunctionAndOnline = null;
 
                         for(const res of jsonResult.results) {
+                            if (!res.device) {
+                                continue;
+                            }
                             // res
                             //   .device
                             //     .id
@@ -113,8 +146,17 @@ $(document).ready(function() {
                             //     .productSlug
                             const tableRowObj = Object.assign({}, res.device);
 
-                            if (res.device && res.device.productSlug) {
-                                if (!productInfo[res.device.productSlug]) {
+                            if (!wifiConfig.deviceInfo[res.device.id]) {
+                                wifiConfig.deviceInfo[res.device.id] = {
+                                    id: res.device.id,
+                                    name: res.device.name,
+                                    serialNumber: res.device.serialNumber,
+                                }; 
+                            }
+
+                            if (res.device.productSlug) {
+                                // Product device
+                                if (!wifiConfig.productInfo[res.device.productSlug]) {
                                     try {
                                         const productFetchRes = await fetch(productInfoUrl + res.device.productSlug, fetchOptions);
                                         const productRes = await productFetchRes.json();
@@ -128,26 +170,85 @@ $(document).ready(function() {
                                         //      .slug
                                         //      .user
 
-                                        console.log('productRes', productRes);
-                                        productInfo[res.device.productSlug] = productRes.product;
+                                        wifiConfig.productInfo[res.device.productSlug] = productRes.product;
                                     }   
                                     catch(e) {
                                         console.log('exception getting product ' + res.device.productSlug, e);
                                     }                                 
                                 }
-                                tableRowObj.productId = productInfo[res.device.productSlug].id;
-                                tableRowObj.productName = productInfo[res.device.productSlug].name;
-                                tableRowObj.platformId = productInfo[res.device.productSlug].platform_id;
+                                tableRowObj.productId = wifiConfig.deviceInfo[res.device.id].productId = wifiConfig.productInfo[res.device.productSlug].id;
+                                tableRowObj.productName = wifiConfig.deviceInfo[res.device.id].productName =wifiConfig.productInfo[res.device.productSlug].name;
+                                tableRowObj.platformId = wifiConfig.deviceInfo[res.device.id].platformId = wifiConfig.productInfo[res.device.productSlug].platform_id;
+                                 
+                            }
+                            else {
+                                // Sandbox device
                             }
 
-                            tableParams.rows.push(tableRowObj);
+                            if (!wifiConfig.deviceInfo[res.device.id].info) {
+                                let url = 'https://api.particle.io/v1/';
+
+                                if (wifiConfig.deviceInfo[res.device.id].productId) {
+                                    url += 'products/' + wifiConfig.deviceInfo[res.device.id].productId + '/';
+                                }
+                                url += 'devices/' + res.device.id;
+
+                                const fetchOptions = {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    }
+                                };
+                                try {
+                                    const fetchRes = await fetch(url, fetchOptions);
+
+                                    const jsonResult = await fetchRes.json();
+                                    
+                                    wifiConfig.deviceInfo[res.device.id].info = jsonResult;
+
+                                    tableRowObj.hasSetupFunction = jsonResult.functions.includes('WiFiSetup');
+                                    tableRowObj.online = jsonResult.online;
+
+                                    if (!wifiConfig.firstDeviceWithFunction) {
+                                        if (tableRowObj.hasSetupFunction) {
+                                            wifiConfig.firstDeviceWithFunction = res.device.id;
+                                        }
+                                    }
+                                    if (!wifiConfig.firstDeviceWithFunctionAndOnline) {
+                                        if (tableRowObj.hasSetupFunction && tableRowObj.online) {
+                                            wifiConfig.firstDeviceWithFunctionAndOnline = res.device.id;
+                                        }
+                                    }
+                                }
+                                catch(e) {
+                                    console.log('exception getting device info', e);
+                                }
+                            }
+
+                            wifiConfig.tableParams.rows.push(tableRowObj);
                         }
 
-                        const tableElem = apiHelper.simpleTable(tableParams);
+                        const tableElem = apiHelper.simpleTable(wifiConfig.tableParams);
                         
                         $('.searchResultTableDiv').html(tableElem);
 
-                        $('input[type="radio"][name="searchDevice"]:first').prop('checked', true);
+                        if (wifiConfig.firstDeviceWithFunctionAndOnline) {
+                            console.log('firstDeviceWithFunctionAndOnline ' + wifiConfig.firstDeviceWithFunctionAndOnline);
+                            $('input[type="radio"][name="searchDevice"][value="' + wifiConfig.firstDeviceWithFunctionAndOnline + '"]').prop('checked', true);
+                        }
+                        else
+                        if (wifiConfig.firstDeviceWithFunction) {
+                            console.log('firstDeviceWithFunction ' + wifiConfig.firstDeviceWithFunction);
+                            $('input[type="radio"][name="searchDevice"][value="' + wifiConfig.firstDeviceWithFunction + '"]').prop('checked', true);
+                        }
+                        else {
+                            console.log('select first');
+                            $('input[type="radio"][name="searchDevice"]:first').prop('checked', true);
+                        }
+
+                        $('input[type="radio"][name="searchDevice"]').on('click', updateButtons);
+                        await updateButtons();
 
                         $('.searchResultTableDiv').show();
 

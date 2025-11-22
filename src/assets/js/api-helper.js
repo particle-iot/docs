@@ -525,10 +525,10 @@ apiHelper.simpleTable = function(params) {
                 
                 for(const columnObj of params.columns) {
                     const tdElem = document.createElement('td');
-                    if (columnObj.cssClass) {
+                    if (columnObj.cssClassBody) {
                         $(tdElem).addClass(columnObj.cssClassBody);
                     }
-                    if (columnObj.cssStyle) {
+                    if (columnObj.cssStyleBody) {
                         $(tdElem).attr('style', columnObj.cssStyleBody);
                     }
 
@@ -547,6 +547,7 @@ apiHelper.simpleTable = function(params) {
                     }
                     else {
                         let text;
+                        let html;
                         if (Array.isArray(row)) {
                             if (columIndex < row.length) {
                                 text = row[colIndex];
@@ -555,8 +556,19 @@ apiHelper.simpleTable = function(params) {
                         else {
                             text = row[columnObj.key];
                         }
+                        if (columnObj.greenCheck) {
+                            if (text) {
+                                html = '\u2705'; // Green Check
+                            }
+                            else {
+                                html = '&nbsp;'
+                            }
+                        }
 
-                        if (text) {
+                        if (html) {
+                            $(tdElem).html(html);
+                        }
+                        else {
                             if (typeof columnObj.valueDecoder == 'function') {
                                 text = columnObj.valueDecoder(text);
                             }
