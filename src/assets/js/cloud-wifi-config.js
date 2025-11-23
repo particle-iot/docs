@@ -69,8 +69,8 @@ $(document).ready(function() {
         };
 
 
-        const setStatus = function(s) {
-            $('.apiHelperDeviceFunctionStatus').text(s);
+        const setSearchStatus = function(s) {
+            $('.searchStatus').text(s);
         }
 
         $(thisPartial).find('.deviceSearchText').on('input blur', async function() {
@@ -117,7 +117,7 @@ $(document).ready(function() {
                 }
             };
 
-            setStatus('Searching...');
+            setSearchStatus('Searching...');
 
             try {
                 const fetchRes = await fetch(searchUrl, fetchOptions);
@@ -251,19 +251,19 @@ $(document).ready(function() {
                         $('.searchResultTableDiv').show();
 
                         if (jsonResult.results.length == 1) {
-                            setStatus('1 device found');
+                            setSearchStatus('1 device found');
                         }
                         else {
-                            setStatus(jsonResult.results.length + ' devices found');
+                            setSearchStatus(jsonResult.results.length + ' devices found');
                         }
                     }
                     else {
-                        setStatus('No devices found');
+                        setSearchStatus('No devices found');
                     }
 
                 }
                 else {
-                    setStatus('Error searching devices');
+                    setSearchStatus('Error searching devices');
                 }
 
                 // .ok (bool)
@@ -372,6 +372,12 @@ $(document).ready(function() {
 
             console.log('sendFunction', json);
 
+            const setStatus = function(s) {
+                if (sendFunctionOptions.statusElem) {
+                    $(sendFunctionOptions.statusElem).text(s);
+                }
+            }
+
             try {
                 if (sendFunctionOptions.waitForResponse) {
                     wifiConfig.waitForResponse = {
@@ -427,12 +433,70 @@ $(document).ready(function() {
         $(thisPartial).find('.wifiScan').on('click', async function() {
             $(thisPartial).find('.actionButton').prop('disabled', true);
 
+            $('.wifiNetworkList').empty();
+
             await startEventStream();
 
-            let scanResult = await sendFunction({op: 'wifiScan'}, {waitForResponse:true});
+            let scanResult = await sendFunction({op: 'wifiScan'}, {
+                waitForResponse: true,
+                statusElem: $('.wifiScanStatus'),
+            });
 
             if (scanResult) {
 
+                const tableParams = {
+                    noOuterDiv: true,
+                    cssClassTable: 'apiHelperTableNoMargin',
+                    columns: [
+                        {
+                            radioName: 'selectNetwork',
+                            radioValueKey: 'ssid',
+                        },
+                        {
+                            key: 'ssid',
+                            title: 'SSID',
+                        },
+                        {
+                            key: 'rssi',
+                            title: 'RSSI',  
+                        },
+                        {
+                            key: 'security',
+                            title: 'Security',  
+                        },
+                    ],
+                    rows: [],
+                };
+                // Dedupe the scanResults and sort
+                wifiConfig.networksBySsid = {};
+                for(const res of scanResult) {
+                    if (wifiConfig.networksBySsid[res.ssid]) {
+                        if (res.rssi > wifiConfig.networksBySsid[res.ssid].rssi) {
+                            wifiConfig.networksBySsid[res.ssid] = res;
+                        }
+                    }
+                    else {
+                        wifiConfig.networksBySsid[res.ssid] = res;
+                    }
+                }
+                for(const ssid in wifiConfig.networksBySsid) {
+                    tableParams.rows.push(wifiConfig.networksBySsid[ssid]);
+                }
+                tableParams.rows.sort(function(a, b) {
+                    return a.ssid.localeCompare(b.ssid);
+                });
+            
+                const tableElem = apiHelper.simpleTable(tableParams);
+                $('.wifiNetworkList').html(tableElem);
+
+                $(thisPartial).find('input[name="selectNetwork"]').on('click', function() {
+                    const ssid = $(thisPartial).find('input[name="selectNetwork"]:checked').val();
+
+                    wifiConfig.credentialsInput.values.ssid = ssid;
+                    wifiConfig.credentialsInput.values.password = '';
+                    wifiConfig.credentialsInput.values.security = wifiConfig.networksBySsid[ssid].security;
+                    wifiConfig.credentialsInput.setValues();
+                });
             }
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
@@ -465,15 +529,24 @@ $(document).ready(function() {
 
             await startEventStream();
 
+            // setCredentialsStatus
+
             $(thisPartial).find('.actionButton').prop('disabled', false);
         });
 
         $(thisPartial).find('.getCredentials').on('click', async function() {
             $(thisPartial).find('.actionButton').prop('disabled', true);
 
+            $('.wifiCredentialsList').empty();
+
             await startEventStream();
 
-            sendFunction({op: 'getCredentials'});
+            const credentialsList = await sendFunction({op: 'getCredentials'}, {
+                waitForResponse: true,
+                statusElem: $('.getCredentialsStatus'),
+            });
+            console.log('credentialsList', credentialsList);
+
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
         });
@@ -482,6 +555,8 @@ $(document).ready(function() {
             $(thisPartial).find('.actionButton').prop('disabled', true);
 
             await startEventStream();
+
+            // clearCredentialsStatus
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
         });
