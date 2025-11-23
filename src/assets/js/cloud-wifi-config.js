@@ -348,14 +348,18 @@ $(document).ready(function() {
                                 suffix = data.name.substring(lastSlash + 1);
                             }
 
-                            const json = JSON.parse(data.data);
+                            try {
+                                const json = JSON.parse(data.data);
 
-                            console.log('event', {data, json, suffix});
+                                console.log('event', {data, json, suffix});
 
-                            if (wifiConfig.waitForResponse && wifiConfig.waitForResponse.op == suffix) {
-                                wifiConfig.waitForResponse.resolve(json);
+                                if (wifiConfig.waitForResponse && wifiConfig.waitForResponse.op == suffix) {
+                                    wifiConfig.waitForResponse.resolve(json);
+                                }
                             }
-
+                            catch(e) {
+                                // Not JSON (not fatal either)
+                            }
                         }
                         catch(e) {
                             console.log('exception in event handler', e);
@@ -397,7 +401,16 @@ $(document).ready(function() {
 
                 setStatus('Sending ' + json.op + ' request to ' + wifiConfig.deviceId + '...');
 
-                await apiHelper.particle.callFunction(particleOptions);
+                const callResult = await apiHelper.particle.callFunction(particleOptions);
+                /// console.log('callResult', callResult);
+
+                // callResult
+                //   .statusCode
+                //   .body
+                //     .id
+                //     .name
+                //     .connected
+                //     .return_value
 
                 if (sendFunctionOptions.waitForResponse) {
                     console.log('sendFunction wait for response');
@@ -418,7 +431,9 @@ $(document).ready(function() {
 
                 }
                 else {
-                    console.log('sendFunction complete (no wait)');
+                    result = callResult.body.return_value;
+
+                    console.log('sendFunction complete (no wait) result=' + result, callResult);
                     setStatus('Sent ' + json.op + ' request to ' + wifiConfig.deviceId);
                 }
             }
@@ -495,7 +510,11 @@ $(document).ready(function() {
                     wifiConfig.credentialsInput.values.ssid = ssid;
                     wifiConfig.credentialsInput.values.password = '';
                     wifiConfig.credentialsInput.values.security = wifiConfig.networksBySsid[ssid].security;
+                    wifiConfig.credentialsInput.values.hidden = false;
                     wifiConfig.credentialsInput.setValues();
+
+                    // TODO: Focus in password field
+
                 });
             }
 
@@ -523,15 +542,39 @@ $(document).ready(function() {
         };
         apiHelper.simpleInput(wifiConfig.credentialsInput);
 
+        // TODO: Handle Enter in password field
 
         $(thisPartial).find('.setCredentials').on('click', async function() {
             $(thisPartial).find('.actionButton').prop('disabled', true);
 
             await startEventStream();
 
-            // setCredentialsStatus
+            const req = {
+                op: 'setCredentials',
+                credentials: {
+                    ssid: wifiConfig.credentialsInput.values.ssid,
+                    password: wifiConfig.credentialsInput.values.password,
+                    security: wifiConfig.credentialsInput.values.security,
+                    hidden: wifiConfig.credentialsInput.values.hidden,
+                    validate: true, // TESTING
+                },
+            };
+            console.log('setCredentials', req);
+
+            const result = await sendFunction(req, {
+                waitForResponse: false,
+                statusElem: $('.setCredentialsStatus'),
+            });
+
+            if (result == 0) {
+                $('.setCredentialsStatus').text('');
+            }
+            else {
+                $('.setCredentialsStatus').text('Set credentials failed (possibly invalid password)');
+            }
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
+
         });
 
         $(thisPartial).find('.getCredentials').on('click', async function() {
@@ -545,8 +588,34 @@ $(document).ready(function() {
                 waitForResponse: true,
                 statusElem: $('.getCredentialsStatus'),
             });
-            console.log('credentialsList', credentialsList);
 
+            if (credentialsList.length) {
+                console.log('credentialsList', credentialsList);
+
+                const tableParams = {
+                    noOuterDiv: true,
+                    cssClassTable: 'apiHelperTableNoMargin',
+                    columns: [
+                        {
+                            key: 'ssid',
+                            title: 'SSID',
+                        },
+                        {
+                            key: 'security',
+                            title: 'Security',  
+                        },
+                        // cipher
+                        // BSSID
+                    ],
+                    rows: credentialsList,
+                };
+            
+                const tableElem = apiHelper.simpleTable(tableParams);
+                $('.wifiCredentialsList').html(tableElem);
+            }
+            else {
+                $(credentialsList.statusElem).text('Device has no Wi-Fi networks configured');
+            }
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
         });
@@ -556,7 +625,18 @@ $(document).ready(function() {
 
             await startEventStream();
 
-            // clearCredentialsStatus
+            $('.wifiCredentialsList').empty();
+
+            const req = {
+                op: 'clearCredentials',
+            };
+
+            await sendFunction(req, {
+                waitForResponse: false,
+                statusElem: $('.clearCredentialsStatus'),
+            });
+
+            $('.clearCredentialsStatus').text('');
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
         });
