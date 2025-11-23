@@ -599,6 +599,113 @@ apiHelper.simpleTable = function(params) {
     }
 }
 
+apiHelper.simpleInput = function(simpleInput) {
+    simpleInput.elemObj = [];
+    simpleInput.radioNames = [];
+
+    simpleInput.getValues = function() {
+        let values = {};
+
+        for(const elemObj of simpleInput.elemObj) {
+            if (elemObj.key && elemObj.getValue) {
+                values[elemObj.key] = elemObj.getValue();
+            }
+        }
+
+        for(const name of simpleInput.radioNames) {
+            const radioElem = $(simpleInput.elemObj).find('input[type="radio"][name="' + name + '"]');
+            values[name] = $(radioElem).find(':checked').val();
+        }
+
+        return values;
+    };
+
+    simpleInput.setValues = function(values) {
+        for(const elemObj of simpleInput.elemObj) {
+            if (elemObj.key && elemObj.setValue && typeof values[key] != 'undefined') {
+                elemObj.setValue(values[elemObj.key]);
+            }
+        }
+
+        for(const name of simpleInput.radioNames) {
+            if (typeof values[name] == 'undefined') {
+                continue;
+
+            }
+            $(simpleInput.elemObj).find('input[type="radio"][name="' + name + '"]').prop('checked', false);
+            $(simpleInput.elemObj).find('input[type="radio"][name="' + name + '"][value="' + values[name] + '"]').prop('checked', true);
+        }
+
+    };
+
+    
+    simpleInput.onChange = function() {
+        simpleInput.values = simpleInput.getValues();
+
+        if (typeof simpleInput.updateButtons == 'function') {
+            simpleInput.updateButtons();
+        }
+    };
+
+    $(simpleInput.containerElem).find('.apiHelperInput').each(function() {
+        const elemObj = {
+            elem: $(this),
+        }
+
+        elemObj.onChange = function() {
+            simpleInput.onChange();
+        };
+
+        elemObj.tagName = $(elemObj.elem).prop('tagName').toLowerCase();
+        elemObj.key = $(elemObj.elem).data('key');
+
+        if (elemObj.tagName == 'input') {
+            elemObj.type = $(elemObj.elem).prop('type');
+            if (elemObj.type == 'checkbox') {
+                elemObj.getValue = function() {
+                    return $(elemObj.elem).prop('checked');
+                }
+                elemObj.setValue = function(value) {
+                    $(elemObj.elem).prop('checked', value);
+                }
+                $(elemObj.elem).on('click', elemObj.onChange);
+            }
+            else
+            if (elemObj.type == 'radio') {
+                const name = $(elemObj.elem).prop('name');
+                if (!simpleInput.radioNames.includes(name)) {
+                    simpleInput.radioNames.push(name);
+                }
+                $(elemObj.elem).on('click', elemObj.onChange);
+            }
+            else {
+                // text, password, file, etc.
+                elemObj.getValue = function() {
+                    return $(elemObj.elem).val();
+                }
+                elemObj.setValue = function(value) {
+                    $(elemObj.elem).val(value);
+                }
+                $(elemObj.elem).on('input blur', elemObj.onChange);
+            }                            
+        }
+        else
+        if (elemObj.tagName == 'select') {
+            elemObj.getValue = function() {
+                return $(elemObj.elem).val();
+            }
+            elemObj.setValue = function(value) {
+                $(elemObj.elem).val(value);
+            }
+
+            $(elemObj.elem).on('change', elemObj.onChange);
+        }
+
+        simpleInput.elemObj.push(elemObj);
+    });
+
+    simpleInput.onChange();
+}
 
 apiHelper.sandboxProducts = function() {
     let sandboxProducts = {
