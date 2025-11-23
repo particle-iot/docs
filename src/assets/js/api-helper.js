@@ -621,8 +621,12 @@ apiHelper.simpleInput = function(simpleInput) {
     };
 
     simpleInput.setValues = function(values) {
+        if (typeof values == 'undefined') {
+            values = simpleInput.values;
+        }
+
         for(const elemObj of simpleInput.elemObj) {
-            if (elemObj.key && elemObj.setValue && typeof values[key] != 'undefined') {
+            if (elemObj.key && elemObj.setValue && typeof values[elemObj.key] != 'undefined') {
                 elemObj.setValue(values[elemObj.key]);
             }
         }

@@ -20,12 +20,12 @@
                 </tr>
             </tbody>
         </table>
-        <div class="searchResultTableDiv" style="display:none; ">
-        </div>
-        <div class="apiHelperDeviceFunctionStatus"></div>
+        <div class="searchResultTableDiv" style="display:none; "></div>
+        <div class="searchStatus wifiSetupStatus"></div>
         <div class="wifiSetup" style="display:none">          
             <div class="wifiSetupCommandSection">
                 <button class="wifiScan actionButton">Scan for Wi-Fi networks</button>
+                <div class="wifiScanStatus wifiSetupStatus"></div>
                 <div class="wifiNetworkList"></div>
             </div>
             <div class="wifiSetupCommandSection wifiSetupSetCredentials">
@@ -59,13 +59,16 @@
                     </tbody>
                 </table>
                 <button class="setCredentials actionButton">Add Wi-Fi credentials</button>
+                <div class="setCredentialsStatus wifiSetupStatus"></div>
             </div>
             <div class="wifiSetupCommandSection">
                 <button class="getCredentials actionButton">List configured Wi-Fi networks</button>
+                <div class="getCredentialsStatus wifiSetupStatus"></div>
                 <div class="wifiCredentialsList"></div>
             </div>
             <div class="wifiSetupCommandSection">
                 <button class="clearCredentials actionButton">Clear configured Wi-Fi networks</button>
+                <div class="clearCredentialsStatus wifiSetupStatus"></div>
             </div>
         </div>
         <div class="logsDiv" style="display:none">
