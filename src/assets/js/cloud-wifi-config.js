@@ -308,10 +308,12 @@ $(document).ready(function() {
                 };
             
                 const tableElem = apiHelper.simpleTable(tableParams);
+                $('.wifiStatusStatus').text('');
                 $('.wifiStatusResult').html(tableElem);
             }
             else {
                 $('.wifiStatusStatus').text('Wi-Fi is not connected');
+                $('.wifiStatusResult').empty();
             }
                         
         }
@@ -323,7 +325,6 @@ $(document).ready(function() {
                 if (deviceId != wifiConfig.deviceId) {
                     wifiConfig.deviceId = deviceId;
 
-                    $('.wifiSetUpDeviceLogsDiv').empty();
                     $('.wifiSetupEventsDiv').empty();
                 }
 
@@ -708,27 +709,6 @@ $(document).ready(function() {
             updateWiFiStatus(statusObj);
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
-        });
-
-        $(thisPartial).find('.enableDeviceLogs').on('click', async function() {
-            const enable = $(this).prop('checked');
-
-            $(thisPartial).find('.actionButton').prop('disabled', true);
-
-            await startEventStream();
-
-            $('.wifiCredentialsList').empty();
-
-            const req = {
-                op: 'enableDeviceLogs',
-                enable,
-            };
-
-            await sendFunction(req, {
-                waitForResponse: false,
-            });
-
-            $(thisPartial).find('.actionButton').prop('disabled', false);            
         });
 
     })
