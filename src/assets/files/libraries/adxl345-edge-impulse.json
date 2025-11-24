@@ -1,0 +1,103 @@
+{
+  "type": "libraries",
+  "id": "adxl345-edge-impulse",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/adxl345-edge-impulse/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "adxl345-edge-impulse",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "Edge Impulse Inc.",
+    "sentence": "Edge Impulse ADXL345 Library for Particle devices",
+    "url": "https://edgeimpulse.com",
+    "repository": "https://github.com/edgeimpulse/adxl345-edge-impulse",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/adxl345-edge-impulse",
+  "versions": {
+    "1.0.0": {
+      "added": "2025-11-24T14:57:53.347Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "data-forwarder": false
+          },
+          "bsom": {
+            "data-forwarder": false
+          },
+          "b5som": {
+            "data-forwarder": false
+          },
+          "tracker": {
+            "data-forwarder": false
+          },
+          "p2": {
+            "data-forwarder": false
+          },
+          "msom": {
+            "data-forwarder": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "data-forwarder": false
+          },
+          "boron": {
+            "data-forwarder": false
+          },
+          "bsom": {
+            "data-forwarder": false
+          },
+          "b5som": {
+            "data-forwarder": false
+          },
+          "tracker": {
+            "data-forwarder": false
+          },
+          "p2": {
+            "data-forwarder": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "data-forwarder": false
+          },
+          "boron": {
+            "data-forwarder": false
+          },
+          "bsom": {
+            "data-forwarder": false
+          },
+          "b5som": {
+            "data-forwarder": false
+          },
+          "tracker": {
+            "data-forwarder": false
+          },
+          "esomx": {
+            "data-forwarder": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "data-forwarder": false
+          },
+          "electron": {
+            "data-forwarder": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Edge Impulse ADXL345 Library for Particle devices\n\n\n## Install\nUser Particle tools to install this library into your project. Either Workbench IDE or Particle CLI works.\nAlternative option is to copy / paste following files into your project:\n- `adxl345.cpp`\n- `adxl345.h`\n\n## Example\nThe included example shows how to retrieve data from the sensor and forward the data over serial.\nWhen using the Edge Impulse CLI tools data can forwarded into your project directly. \n\n## Further info\n\n### Running inference on a Particle device\nEdge Impulse enabled running neural networks on Particle hardware. Follow this [example](https://docs.edgeimpulse.com/docs/run-inference/running-your-impulse-particle) on how to train and build an Edge AI model and deploy it to a Particle device.\n\n### Use the data forwarder to upload sensor data directly into your project\nUsing the `data-forwarder` example, sensor data can be uploaded to an Edge Impulse studio project directly. This [docs page](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder) explains how to hook up hardware to Edge Impulse studio.\n\n",
+  "allVersions": [
+    "1.0.0",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

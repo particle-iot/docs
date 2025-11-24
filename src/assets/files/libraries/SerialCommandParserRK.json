@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "SerialCommandParserRK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/SerialCommandParserRK/archive/0.0.8.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/SerialCommandParserRK/archive/0.0.10.tar.gz"
   },
   "attributes": {
     "name": "SerialCommandParserRK",
-    "version": "0.0.8",
+    "version": "0.0.10",
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Code for presenting a simple command line from a Particle device over USB or UART serial.",
@@ -420,10 +420,205 @@
         }
       },
       "added": "2022-06-17T10:16:54.007Z"
+    },
+    "0.0.10": {
+      "added": "2025-11-24T14:31:52.056Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": false,
+            "7-cmd-options-test": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "msom": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": false,
+            "7-cmd-options-test": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": false,
+            "7-cmd-options-test": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          }
+        }
+      }
     }
   },
-  "readme": "# Serial Command Parser\n\nThis library is intended to provide a way of accepting commands and options from\na USB or UART serial interface on a Particle device.\n\nRight now, it's a work-in-progress that was needed for another project. \n\nIt can accept simple commands from USB or UART serial, parse arguments, and dispatch. This would be useful if you're driving commands from an automated test.\n\nIt can also run in interactive terminal mode with ANSI terminal programs (including screen on Mac and Linux, CoolTerm and PuTTY on Windows). This mode supports:\n\n- Line editing.\n- Arrow keys, Home, End, Forward Delete, etc.\n- History buffer so you can pull up previously typed commands easily.\n- GNU readline/emacs control keys like:\n  - Ctrl-A Move cursor to start of line (Home)\n  - Ctrl-B Move cursor back (left arrow)\n  - Ctrl-E Move cursor to end of line (End)\n  - Ctrl-F Move cursor forward (right arrow)\n  - Ctrl-H Delete previous character (backspace)\n  - Ctrl-I Command completion (tab)\n  - Ctrl-K Clear content after cursor\n  - Ctrl-L Clear screen\n  - Ctrl-N Next Command (down arrow)\n  - Ctrl-P Previous Command (up arrow)\n- Smart mixing of LogHandler and editing output (optional)\n\nSome future useful features might include:\n\n- Command option processing\n\n",
+  "readme": "# Serial Command Parser\n\nThis library is intended to provide a way of accepting commands and options from\na USB or UART serial interface on a Particle device.\n\nRight now, it's a work-in-progress that was needed for another project. \n\nIt can accept simple commands from USB or UART serial, parse arguments, and dispatch. This would be useful if you're driving commands from an automated test.\n\nIt can also run in interactive terminal mode with ANSI terminal programs (including screen on Mac and Linux, CoolTerm and PuTTY on Windows). This mode supports:\n\n- Line editing.\n- Arrow keys, Home, End, Forward Delete, etc.\n- History buffer so you can pull up previously typed commands easily.\n- GNU readline/emacs control keys like:\n  - Ctrl-A Move cursor to start of line (Home)\n  - Ctrl-B Move cursor back (left arrow)\n  - Ctrl-E Move cursor to end of line (End)\n  - Ctrl-F Move cursor forward (right arrow)\n  - Ctrl-H Delete previous character (backspace)\n  - Ctrl-I Command completion (tab)\n  - Ctrl-K Clear content after cursor\n  - Ctrl-L Clear screen\n  - Ctrl-N Next Command (down arrow)\n  - Ctrl-P Previous Command (up arrow)\n- Smart mixing of LogHandler and editing output (optional)\n\nSome future useful features might include:\n\n- Command option processing\n\n## Version History\n\n### 0.0.10 (2025-11-14)\n\n- Fix conflicting definition for `log`.",
   "allVersions": [
+    "0.0.10",
+    "0.0.9",
     "0.0.8",
     "0.0.7",
     "0.0.6",

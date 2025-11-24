@@ -5559,8 +5559,8 @@
             "hash": "378c37b86faf12f4ff27efd4b048f5e2765d2bd88a4e42fef06f6634906cc0c2"
         },
         "reference/device-os/libraries/d/DHT22Gen3_RK.md": {
-            "date": "2024-12-17",
-            "hash": "7626917a49dcb5c59178e309f86d8762b32610c365688e4e77421a8da9d7ace8"
+            "date": "2025-11-24",
+            "hash": "ec2f31f223e8d48a75994267ae4a2b2dc1ccb6353f56c0eda8e31a40e3b69c34"
         },
         "reference/device-os/libraries/d/DiagnosticsHelperRK.md": {
             "date": "2024-08-28",
@@ -7207,8 +7207,8 @@
             "hash": "5c9c0306cfd702143807df148fc658f0093a3ff9d9dccddb321c0a88f052f4f4"
         },
         "reference/device-os/libraries/s/SerialCommandParserRK.md": {
-            "date": "2024-08-28",
-            "hash": "a27ceccb49dcff9fa765d9b03822cae6c1391437697e5f9afaa9bd9a29420c21"
+            "date": "2025-11-24",
+            "hash": "69d59a9f2d27dc0d525f2f02077b68e8cd8a124a1369f7306d0fb7775cb187b9"
         },
         "reference/device-os/libraries/s/ServoEaser.md": {
             "date": "2024-08-28",
@@ -9687,8 +9687,8 @@
             "date": "2025-02-14"
         },
         "reference/device-os/libraries/p/PublishQueueExtRK.md": {
-            "hash": "0469fe5caed65e3b52ac5dacbdd8dc2f13a70ee8097314e6167395eb576cce7c",
-            "date": "2025-10-01"
+            "hash": "39b09bc788dce79b3ea231b661069b27382ba3794c92e589b41ce6a8b768558e",
+            "date": "2025-11-24"
         },
         "reference/device-os/libraries/t/tmc2209.md": {
             "hash": "9aaa9e1642eabd6d9b693e8543f181a412f091c34eb5e701223b9f31c5577998",
@@ -9925,6 +9925,14 @@
         "tools/developer-tools/debug-log.md": {
             "hash": "563ef86bb46437649418c088100c04a532fb46ba7e38b539cd3c1bcb5bc0dcea",
             "date": "2025-11-20"
+        },
+        "reference/device-os/libraries/a/adxl345-edge-impulse.md": {
+            "hash": "5ef9070da9f9f74d82673c13a37f2e15a18c79771ffb9ff2d15b3f2058b60387",
+            "date": "2025-11-24"
+        },
+        "reference/device-os/libraries/c/CloudWiFiSetupRK.md": {
+            "hash": "600eb5aad2825673efb7415b9335f3b5b4a792db5e465705455476422adb9005",
+            "date": "2025-11-24"
         }
     }
 }
