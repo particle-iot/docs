@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "DHT22Gen3_RK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/DHT22Gen3_RK/archive/0.0.3.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/DHT22Gen3_RK/archive/0.0.4.tar.gz"
   },
   "attributes": {
     "name": "DHT22Gen3_RK",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "DHT22 Sensor Library using DMA for Particle Gen 3 devices (Argon, Boron, Xenon)",
@@ -427,10 +427,144 @@
           }
         }
       }
+    },
+    "0.0.4": {
+      "added": "2025-11-24T14:09:32.434Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "msom": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          }
+        }
+      }
     }
   },
-  "readme": "# DHT22Gen3 Library\n\nThere's been a problem with DHT22 libraries on Gen 3 devices (Argon, Boron, Xenon). Interrupt latency causes it to misinterpret bits for interrupt-based libraries (like PietteTech_DHT) and bit-banging isn't much better. The narrowest pulse is 26-28 us. \n\nI created a new library, DHT22Gen3_RK, that takes an entirely different approach. It uses the nRF52 I2S peripheral not to capture sound data, but as a DMA-based digital signal sampler. It can grab a full DHT22 sample into a 360 byte buffer at a 512 kHz sampling rate. It doesn't require any interrupts, no timers are required, and it's completely non-blocking. It doesn't have to disable interrupts or thread swapping. \n\nI ran a test overnight and captured 14,703 samples every 2.5 seconds with no checksum errors. The library will retry on error, but didn't have to at all.\n\nIt can sample multiple sensors (sequentially, not at the same time), one per GPIO pin. There one annoying caveat: You need to allocate two spare GPIO pins. The I2S peripheral requires that you expose SCK and LRCK on physical GPIO pins or it doesn't work. These signals are of no use for capturing DHT22 samples, but they still need to be allocated. Most people have a few GPIO left, so hopefully that's OK.\n\nThe API is callback/lambda based, as it takes about 24 milliseconds to query a DHT22. The callback allows the loop to flow freely during this time, but the callback is dispatched from the loop context so you can still do things like Particle.publish from the callback. The callback is particularly helpful if a retry is required because of a bad checksum. Since the DHT22 can only be queried every 2 seconds, retries take a long time.\n\n- Repository: https://github.com/rickkas7/DHT22Gen3_RK\n- License: MIT\n- [Full browsable API documentation](https://rickkas7.github.io/DHT22Gen3_RK/)\n\nAs of version 0.0.2, it now supports:\n\n- DHT22 (and AM2302)\n- DHT11\n\nThis library cannot the used on the P2, Photon 2, or M-SoM (RTL872x).\n\n## Example Usage\n\n```\n#include \"DHT22Gen3_RK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\n// How often to check the temperature in humidity in milliseconds\nconst unsigned long CHECK_INTERVAL = 5000;\nunsigned long lastCheck = 0;\n\n// The two parameters are any available GPIO pins. They will be used as output but the signals aren't\n// particularly important for DHT11 and DHT22 sensors. They do need to be valid pins, however.\nDHT22Gen3 dht(A4, A5);\n\nvoid sampleCallback(DHTSample sample);\n\nvoid setup() {\n\tdht.setup();\n}\n\nvoid loop() {\n\tdht.loop();\n\n\tif (millis() - lastCheck >= CHECK_INTERVAL) {\n\t\tlastCheck = millis();\n\n\t\tdht.getSample(A3, sampleCallback);\n\t}\n\n}\n\nvoid sampleCallback(DHTSample sample) {\n\t// The callback is called at loop() (from dht.loop()) so it's safe to do anything you would normally\n\t// do at loop time (like publish) without having to worry about thread concurrency.\n\n\tif (sample.isSuccess()) {\n\t\tLog.info(\"sampleResult=%d tempF=%.1f tempC=%.1f humidity=%.1f tries=%d\",\n\t\t\t\t(int) sample.getSampleResult(), sample.getTempF(), sample.getTempC(), sample.getHumidity(), sample.getTries() );\n\t\tLog.info(\"dewPointF=%.1f dewPointC=%.1f\",\n\t\t\t\tsample.getDewPointF(), sample.getDewPointC() );\n\t}\n\telse {\n\t\tLog.info(\"sample is not valid sampleResult=%d\", (int) sample.getSampleResult());\n\t}\n}\n\n```\n\nThe `getSample()` method can also take a C++11 lambda, which is handy for calling member functions or implementing the method inline:\n\n```\n\t\tdht.getSample(A3, (link unavailable in preview) {\n\t\t\tif (sample.isSuccess()) {\n\t\t\t\tchar buf[128];\n\t\t\t\tsnprintf(buf, sizeof(buf), \"{\\\"temp\\\":%.1f,\\\"hum\\\":%1.f}\", sample.getTempC(), sample.getHumidity());\n\t\t\t\tif (Particle.connected()) {\n\t\t\t\t\tParticle.publish(\"temperatureTest\", buf, PRIVATE);\n\t\t\t\t\tLog.info(\"published: %s\", buf);\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\tLog.info(\"not published: %s\", buf);\n\t\t\t\t}\n\t\t\t}\n\t\t\telse {\n\t\t\t\tLog.info(\"sample is not valid sampleResult=%d\", (int) sample.getSampleResult());\n\t\t\t}\n\t\t});\n\n```\n\nWhen using a DHT11:\n\n```\n\t\tdht.getSample(A3, sampleCallback, &DHT22Gen3::sensorTypeDHT11);\n```\n\n## More details\n\nInclude the `DHT22Gen3_RK` library and include its header file:\n\n```\n#include \"DHT22Gen3_RK.h\"\n```\n\nAdd a global variable. There should only be one instance of this object, and it should be in a global scope.\n\n```\nDHT22Gen3 dht(A4, A5);\n```\n\nThe two parameters are unused GPIO pins. These can be A pins, D pins, even unused special port pins that you are not otherwise using (TX, RX, SCK, MISO, MOSI). They do need to be valid pins, however, and not the same pin. The output will be 512 kHz signal on the first pin and a 32 kHz signal on the second. You shouldn't connect anything to these pins. They're necessary because the I2S peripheral that's used to decode the DHT22 signal requires the pins.\n\nFrom `setup()` call `dht.setup()`:\n\n```\nvoid setup() {\n\tdht.setup();\n}\n```\n\nFrom `loop()` call `dht.loop()`:\n\n```\nvoid loop() {\n\tdht.loop();\n\t\n\t// Rest of your code\n}\n```\n\nYou should call dht.loop() on every loop call even if you are not currently sampling data. It uses very little processor time when not active.\n\nUse the `dht.getSample()` method above to query the sensor. It will take 24 milliseconds normally, but could take up to 9 seconds to get a result.\n\n\n## Version History\n\n#### 0.0.3 (2024-11-04)\n\n- Fix compile error on newer versions of Device OS.\n\n#### 0.0.2 (2019-12-17)\n\n- Support for DHT11. Actually it worked before, but it wasn't tested and there wasn't an example for it.\n\n#### 0.0.1 (2019-12-13)\n\n- Initial version! There may be bugs still.\n\n",
+  "readme": "# DHT22Gen3 Library\n\nThere's been a problem with DHT22 libraries on Gen 3 devices (Argon, Boron, Xenon). Interrupt latency causes it to misinterpret bits for interrupt-based libraries (like PietteTech_DHT) and bit-banging isn't much better. The narrowest pulse is 26-28 us. \n\nI created a new library, DHT22Gen3_RK, that takes an entirely different approach. It uses the nRF52 I2S peripheral not to capture sound data, but as a DMA-based digital signal sampler. It can grab a full DHT22 sample into a 360 byte buffer at a 512 kHz sampling rate. It doesn't require any interrupts, no timers are required, and it's completely non-blocking. It doesn't have to disable interrupts or thread swapping. \n\nI ran a test overnight and captured 14,703 samples every 2.5 seconds with no checksum errors. The library will retry on error, but didn't have to at all.\n\nIt can sample multiple sensors (sequentially, not at the same time), one per GPIO pin. There one annoying caveat: You need to allocate two spare GPIO pins. The I2S peripheral requires that you expose SCK and LRCK on physical GPIO pins or it doesn't work. These signals are of no use for capturing DHT22 samples, but they still need to be allocated. Most people have a few GPIO left, so hopefully that's OK.\n\nThe API is callback/lambda based, as it takes about 24 milliseconds to query a DHT22. The callback allows the loop to flow freely during this time, but the callback is dispatched from the loop context so you can still do things like Particle.publish from the callback. The callback is particularly helpful if a retry is required because of a bad checksum. Since the DHT22 can only be queried every 2 seconds, retries take a long time.\n\n- Repository: https://github.com/rickkas7/DHT22Gen3_RK\n- License: MIT\n- [Full browsable API documentation](https://rickkas7.github.io/DHT22Gen3_RK/)\n\nAs of version 0.0.2, it now supports:\n\n- DHT22 (and AM2302)\n- DHT11\n\nThis library cannot the used on the P2, Photon 2, or M-SoM (RTL872x).\n\n## Example Usage\n\n```\n#include \"DHT22Gen3_RK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\n// How often to check the temperature in humidity in milliseconds\nconst unsigned long CHECK_INTERVAL = 5000;\nunsigned long lastCheck = 0;\n\n// The two parameters are any available GPIO pins. They will be used as output but the signals aren't\n// particularly important for DHT11 and DHT22 sensors. They do need to be valid pins, however.\nDHT22Gen3 dht(A4, A5);\n\nvoid sampleCallback(DHTSample sample);\n\nvoid setup() {\n\tdht.setup();\n}\n\nvoid loop() {\n\tdht.loop();\n\n\tif (millis() - lastCheck >= CHECK_INTERVAL) {\n\t\tlastCheck = millis();\n\n\t\tdht.getSample(A3, sampleCallback);\n\t}\n\n}\n\nvoid sampleCallback(DHTSample sample) {\n\t// The callback is called at loop() (from dht.loop()) so it's safe to do anything you would normally\n\t// do at loop time (like publish) without having to worry about thread concurrency.\n\n\tif (sample.isSuccess()) {\n\t\tLog.info(\"sampleResult=%d tempF=%.1f tempC=%.1f humidity=%.1f tries=%d\",\n\t\t\t\t(int) sample.getSampleResult(), sample.getTempF(), sample.getTempC(), sample.getHumidity(), sample.getTries() );\n\t\tLog.info(\"dewPointF=%.1f dewPointC=%.1f\",\n\t\t\t\tsample.getDewPointF(), sample.getDewPointC() );\n\t}\n\telse {\n\t\tLog.info(\"sample is not valid sampleResult=%d\", (int) sample.getSampleResult());\n\t}\n}\n\n```\n\nThe `getSample()` method can also take a C++11 lambda, which is handy for calling member functions or implementing the method inline:\n\n```\n\t\tdht.getSample(A3, (link unavailable in preview) {\n\t\t\tif (sample.isSuccess()) {\n\t\t\t\tchar buf[128];\n\t\t\t\tsnprintf(buf, sizeof(buf), \"{\\\"temp\\\":%.1f,\\\"hum\\\":%1.f}\", sample.getTempC(), sample.getHumidity());\n\t\t\t\tif (Particle.connected()) {\n\t\t\t\t\tParticle.publish(\"temperatureTest\", buf, PRIVATE);\n\t\t\t\t\tLog.info(\"published: %s\", buf);\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\tLog.info(\"not published: %s\", buf);\n\t\t\t\t}\n\t\t\t}\n\t\t\telse {\n\t\t\t\tLog.info(\"sample is not valid sampleResult=%d\", (int) sample.getSampleResult());\n\t\t\t}\n\t\t});\n\n```\n\nWhen using a DHT11:\n\n```\n\t\tdht.getSample(A3, sampleCallback, &DHT22Gen3::sensorTypeDHT11);\n```\n\n## More details\n\nInclude the `DHT22Gen3_RK` library and include its header file:\n\n```\n#include \"DHT22Gen3_RK.h\"\n```\n\nAdd a global variable. There should only be one instance of this object, and it should be in a global scope.\n\n```\nDHT22Gen3 dht(A4, A5);\n```\n\nThe two parameters are unused GPIO pins. These can be A pins, D pins, even unused special port pins that you are not otherwise using (TX, RX, SCK, MISO, MOSI). They do need to be valid pins, however, and not the same pin. The output will be 512 kHz signal on the first pin and a 32 kHz signal on the second. You shouldn't connect anything to these pins. They're necessary because the I2S peripheral that's used to decode the DHT22 signal requires the pins.\n\nFrom `setup()` call `dht.setup()`:\n\n```\nvoid setup() {\n\tdht.setup();\n}\n```\n\nFrom `loop()` call `dht.loop()`:\n\n```\nvoid loop() {\n\tdht.loop();\n\t\n\t// Rest of your code\n}\n```\n\nYou should call dht.loop() on every loop call even if you are not currently sampling data. It uses very little processor time when not active.\n\nUse the `dht.getSample()` method above to query the sensor. It will take 24 milliseconds normally, but could take up to 9 seconds to get a result.\n\n\n## Version History\n\n#### 0.0.4 (2025-10-03)\n\n- Fixed a linker error for nrfx_i2s_init, nrfx_i2s_stop, and others with Device OS 6.3.3 and later.\n\n#### 0.0.3 (2024-11-04)\n\n- Fix compile error on newer versions of Device OS.\n\n#### 0.0.2 (2019-12-17)\n\n- Support for DHT11. Actually it worked before, but it wasn't tested and there wasn't an example for it.\n\n#### 0.0.1 (2019-12-13)\n\n- Initial version! There may be bugs still.\n\n",
   "allVersions": [
+    "0.0.4",
     "0.0.3",
     "0.0.2",
     "0.0.1"

@@ -631,6 +631,10 @@
           "dir": "ADXL345_Sparkfun_Particle"
         },
         {
+          "title": "adxl345-edge-impulse",
+          "dir": "adxl345-edge-impulse"
+        },
+        {
           "title": "adxl362",
           "dir": "adxl362"
         },
@@ -1035,6 +1039,10 @@
         {
           "title": "CloudConfigRK",
           "dir": "CloudConfigRK"
+        },
+        {
+          "title": "CloudWiFiSetupRK",
+          "dir": "CloudWiFiSetupRK"
         },
         {
           "title": "coap",
