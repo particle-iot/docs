@@ -9933,6 +9933,10 @@
         "reference/device-os/libraries/c/CloudWiFiSetupRK.md": {
             "hash": "600eb5aad2825673efb7415b9335f3b5b4a792db5e465705455476422adb9005",
             "date": "2025-11-24"
+        },
+        "tools/cloud-tools/cloud-wifi-config.md": {
+            "hash": "4d71db56129ae176d6c7ecb8e0a7c49e596476795e4499280453937db353a503",
+            "date": "2025-11-24"
         }
     }
 }

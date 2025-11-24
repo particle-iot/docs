@@ -363,7 +363,6 @@ $(document).ready(function() {
 
                 apiHelper.particle.getEventStream(particleOptions).then(function(stream) {
                     wifiConfig.stream = stream;
-                    console.log('event stream started');
                     
                     wifiConfig.stream.on('event', function(data) {
                         try {
@@ -390,7 +389,7 @@ $(document).ready(function() {
                             try {
                                 const json = JSON.parse(data.data);
 
-                                console.log('event', {data, json, suffix});
+                                // console.log('event', {data, json, suffix});
 
                                 if (wifiConfig.waitForResponse && wifiConfig.waitForResponse.op == suffix) {
                                     wifiConfig.waitForResponse.resolve(json);
@@ -436,7 +435,7 @@ $(document).ready(function() {
         const sendFunction = async function(json, sendFunctionOptions = {}) {
             let result;
 
-            console.log('sendFunction', json);
+            // console.log('sendFunction', json);
 
             const setStatus = function(s) {
                 if (sendFunctionOptions.statusElem) {
@@ -475,7 +474,6 @@ $(document).ready(function() {
                 //     .return_value
 
                 if (sendFunctionOptions.waitForResponse) {
-                    console.log('sendFunction wait for response');
                     setStatus('Waiting for response from ' + wifiConfig.deviceId + '...');
 
                     const timeoutMs = sendFunctionOptions.timeout || 30000;
@@ -495,7 +493,7 @@ $(document).ready(function() {
                 else {
                     result = callResult.body.return_value;
 
-                    console.log('sendFunction complete (no wait) result=' + result, callResult);
+                    // console.log('sendFunction complete (no wait) result=' + result, callResult);
                     setStatus('Sent ' + json.op + ' request to ' + wifiConfig.deviceId);
                 }
             }
@@ -620,7 +618,6 @@ $(document).ready(function() {
                     validate: true, // TESTING
                 },
             };
-            console.log('setCredentials', req);
 
             const result = await sendFunction(req, {
                 waitForResponse: false,
@@ -651,8 +648,6 @@ $(document).ready(function() {
             });
 
             if (credentialsList && credentialsList.length) {
-                console.log('credentialsList', credentialsList);
-
                 const tableParams = {
                     noOuterDiv: true,
                     cssClassTable: 'apiHelperTableNoMargin',

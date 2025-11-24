@@ -37,7 +37,7 @@ That's it!
 
 ### View library source and examples
 
-{{> library-browser infoFile="/assets/files/libraries/AB1805_RK.json"}}
+{{> library-browser infoFile="/assets/files/libraries/CloudWiFiSetupRK.json"}}
 
 ## Data operations
 
