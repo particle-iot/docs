@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
@@ -293,10 +294,38 @@ $(document).ready(function() {
             return particleOptions;
         };
 
+
+        const updateWiFiStatus = function(statusObj) {
+            if (statusObj.ready) {
+                const tableParams = {
+                    noOuterDiv: true,
+                    cssClassTable: 'apiHelperTableNoMargin',
+                    keyMapping: {
+                        localIP: 'Local IP Address',
+                        ready: 'Wi-Fi connected',
+                    },
+                    object: statusObj,
+                };
+            
+                const tableElem = apiHelper.simpleTable(tableParams);
+                $('.wifiStatusResult').html(tableElem);
+            }
+            else {
+                $('.wifiStatusStatus').text('Wi-Fi is not connected');
+            }
+                        
+        }
+
         const startEventStream = function() {
             return new Promise(function(resolve, reject) {
 
-                wifiConfig.deviceId = $('input[type="radio"][name="searchDevice"]:checked').val();
+                const deviceId = $('input[type="radio"][name="searchDevice"]:checked').val();
+                if (deviceId != wifiConfig.deviceId) {
+                    wifiConfig.deviceId = deviceId;
+
+                    $('.wifiSetUpDeviceLogsDiv').empty();
+                    $('.wifiSetupEventsDiv').empty();
+                }
 
                 let particleOptions  = {
                     auth: apiHelper.auth.access_token,
@@ -336,7 +365,7 @@ $(document).ready(function() {
                             //  .published_at
 
                             if (data.coreid != wifiConfig.deviceId) {
-                                console.log('event from a different device', data);
+                                // console.log('event from a different device', data);
                                 return;
                             }
 
@@ -356,9 +385,32 @@ $(document).ready(function() {
                                 if (wifiConfig.waitForResponse && wifiConfig.waitForResponse.op == suffix) {
                                     wifiConfig.waitForResponse.resolve(json);
                                 }
+
+                                if (suffix == 'wifiStatus') {
+                                    updateWiFiStatus(json);
+                                }
                             }
                             catch(e) {
                                 // Not JSON (not fatal either)
+                            }
+
+                            {
+                                const outerDivElem = document.createElement('div');
+                                $(outerDivElem).addClass('wifiSetupEventLogEntry');
+                                {
+                                    const headerElem = document.createElement('div');
+                                    $(headerElem).addClass('wifiSetupEventLogHeader');
+                                    $(headerElem).text(data.name);
+                                    $(outerDivElem).append(headerElem);
+                                }
+                                {
+                                    const eventDataElem = document.createElement('div');
+                                    $(eventDataElem).addClass('wifiSetupEventLogData');
+                                    $(eventDataElem).text(data.data);
+                                    $(outerDivElem).append(eventDataElem);
+                                }
+
+                                $('.wifiSetupEventsDiv').append(outerDivElem);
                             }
                         }
                         catch(e) {
@@ -589,7 +641,7 @@ $(document).ready(function() {
                 statusElem: $('.getCredentialsStatus'),
             });
 
-            if (credentialsList.length) {
+            if (credentialsList && credentialsList.length) {
                 console.log('credentialsList', credentialsList);
 
                 const tableParams = {
@@ -614,7 +666,7 @@ $(document).ready(function() {
                 $('.wifiCredentialsList').html(tableElem);
             }
             else {
-                $(credentialsList.statusElem).text('Device has no Wi-Fi networks configured');
+                $('.getCredentialsStatus').text('Device has no Wi-Fi networks configured');
             }
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
@@ -639,6 +691,44 @@ $(document).ready(function() {
             $('.clearCredentialsStatus').text('');
 
             $(thisPartial).find('.actionButton').prop('disabled', false);
+        });
+
+        $(thisPartial).find('.wifiStatus').on('click', async function() {
+            $(thisPartial).find('.actionButton').prop('disabled', true);
+
+            $('.wifiStatusResult').empty();
+
+            await startEventStream();
+
+            const statusObj = await sendFunction({op: 'wifiStatus'}, {
+                waitForResponse: true,
+                statusElem: $('.wifiStatusStatus'),
+            });
+            
+            updateWiFiStatus(statusObj);
+
+            $(thisPartial).find('.actionButton').prop('disabled', false);
+        });
+
+        $(thisPartial).find('.enableDeviceLogs').on('click', async function() {
+            const enable = $(this).prop('checked');
+
+            $(thisPartial).find('.actionButton').prop('disabled', true);
+
+            await startEventStream();
+
+            $('.wifiCredentialsList').empty();
+
+            const req = {
+                op: 'enableDeviceLogs',
+                enable,
+            };
+
+            await sendFunction(req, {
+                waitForResponse: false,
+            });
+
+            $(thisPartial).find('.actionButton').prop('disabled', false);            
         });
 
     })
