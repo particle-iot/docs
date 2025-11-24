@@ -312,6 +312,7 @@ $(document).ready(function() {
                     keyMapping: {
                         localIP: 'Local IP Address',
                         ready: 'Wi-Fi connected',
+                        connectionInterface: 'Current cloud connection interface',
                     },
                     object: statusObj,
                 };
