@@ -1,0 +1,84 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperSandboxOrOrg cloudWifiConfig" style="display:none;">
+    <div class="apiHelperBox">
+        <table class="apiHelperTableNoMargin">
+            <tbody>
+                <tr class="sandboxOrgRow">
+                    <td class="apiHelperProductSelectorLabel">Sandbox or Organization</td>
+                    <td><select class="apiHelperSandboxOrgSelect apiHelperSelect">
+                        <option value="0" selected>Sandbox</option>
+                    </select></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Device ID or name</td>
+                    <td><input type="text" size="20" class="deviceSearchText"/></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel" colspan="2"><button class="deviceSearchButton" disabled>Search for Device</button></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="searchResultTableDiv" style="display:none; "></div>
+        <div class="searchStatus wifiSetupStatus"></div>
+        <div class="wifiSetup" style="display:none">          
+            <div class="wifiSetupCommandSection">
+                <button class="wifiScan actionButton">Scan for Wi-Fi networks</button>
+                <div class="wifiScanStatus wifiSetupStatus"></div>
+                <div class="wifiNetworkList"></div>
+            </div>
+            <div class="wifiSetupCommandSection wifiSetupSetCredentials">
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr>
+                            <td>SSID</td>
+                            <td><input type="text" size="20" class="apiHelperInput" data-key="ssid"/></td>
+                        </tr>
+                        <tr class="wifiSetupSetCredentialsPasswordRow">
+                            <td>Password</td>
+                            <td><input type="text" size="20"  class="apiHelperInput" data-key="password"/></td>
+                        </tr>
+                        <tr class="set">
+                            <td>Security</td>
+                            <td>
+                                <select class="apiHelperInput" data-key="security"> 
+                                    <option value="UNSEC">Unsecured</option>
+                                    <option value="WEP">WEP</option>
+                                    <option value="WPA">WPA</option>
+                                    <option value="WPA2" selected>WPA2</option>
+                                    <option value="WPA3">WPA3</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label><input type="checkbox"  class="apiHelperInput" data-key="hidden"/>Hidden network</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="setCredentials actionButton">Add Wi-Fi credentials</button>
+                <div class="setCredentialsStatus wifiSetupStatus"></div>
+            </div>
+            <div class="wifiSetupCommandSection">
+                <button class="wifiStatus actionButton">Get Wi-Fi status</button>
+                <div class="wifiStatusStatus wifiSetupStatus"></div>
+                <div class="wifiStatusResult"></div>
+            </div>
+            <div class="wifiSetupCommandSection">
+                <button class="getCredentials actionButton">List configured Wi-Fi networks</button>
+                <div class="getCredentialsStatus wifiSetupStatus"></div>
+                <div class="wifiCredentialsList"></div>
+            </div>
+            <div class="wifiSetupCommandSection">
+                <button class="clearCredentials actionButton">Clear configured Wi-Fi networks</button>
+                <div class="clearCredentialsStatus wifiSetupStatus"></div>
+            </div>
+            <div class="wifiSetupOuterSection">
+                <div>Events published by device:</div>
+                <div class="wifiSetupEventsDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>

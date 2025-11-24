@@ -463,6 +463,282 @@ apiHelper.simpleTableObjectMap = function(tbodyElem, keys, data) {
 }
 
 
+apiHelper.simpleTable = function(params) {
+    let outerDivElem;
+
+    if (!params.noOuterDiv) {
+        outerDivElem = document.createElement('div');
+
+        if (params.banner) {
+            // text div above table
+            const divElem = document.createElement('div');
+            if (params.cssClassBanner) {
+                $(divElem).addClass(params.cssClassBanner);
+            }
+            if (params.cssStyleBanner) {
+                $(divElem).attr('style', params.cssStyleBanner);
+            }
+            $(divElem).text(params.banner);
+            $(outerDivElem).append(divElem);
+        }
+    }
+    
+    const tableElem = document.createElement('table');
+    if (params.cssClassTable) {
+        $(tableElem).addClass(params.cssClassTable);
+    }
+
+    {
+        const theadElem = document.createElement('thead');
+
+        if (params.columns) {
+            const trElem = document.createElement('tr');
+            
+            for(const columnObj of params.columns) {
+                const thElem = document.createElement('th');
+                if (columnObj.cssClassHead) {
+                    $(thElem).addClass(columnObj.cssClassHead);
+                }
+                if (columnObj.title) {
+                    $(thElem).text(columnObj.title);
+                }
+                $(trElem).append(thElem);
+            }
+            $(theadElem).append(trElem);
+        }
+
+        $(tableElem).append(theadElem);
+    }
+    {
+        const tbodyElem = document.createElement('tbody');
+
+        if (params.rows) { 
+            // An array of rows
+            let columnIndex = -1;
+            for(const row of params.rows) {
+                columnIndex++;
+
+                const trElem = document.createElement('tr');
+                if (params.cssClassRow) {
+                    $(trElem).addClass(params.cssClassRow);
+                }
+
+                
+                for(const columnObj of params.columns) {
+                    const tdElem = document.createElement('td');
+                    if (columnObj.cssClassBody) {
+                        $(tdElem).addClass(columnObj.cssClassBody);
+                    }
+                    if (columnObj.cssStyleBody) {
+                        $(tdElem).attr('style', columnObj.cssStyleBody);
+                    }
+
+                    if (columnObj.radioName) {
+                        const inputElem = document.createElement('input');
+                        $(inputElem).attr('type', 'radio');
+                        $(inputElem).attr('name', columnObj.radioName);
+                        if (columnObj.radioClass) {
+                            $(inputElem).addClass(columnObj.radioClass);
+                        }
+                        if (columnObj.radioValueKey) {
+                            $(inputElem).attr('value', row[columnObj.radioValueKey]);
+                        }
+
+                        $(tdElem).html(inputElem);
+                    }
+                    else {
+                        let text;
+                        let html;
+                        if (Array.isArray(row)) {
+                            if (columIndex < row.length) {
+                                text = row[colIndex];
+                            }
+                        }
+                        else {
+                            text = row[columnObj.key];
+                        }
+                        if (columnObj.greenCheck) {
+                            if (text) {
+                                html = '\u2705'; // Green Check
+                            }
+                            else {
+                                html = '&nbsp;'
+                            }
+                        }
+
+                        if (html) {
+                            $(tdElem).html(html);
+                        }
+                        else {
+                            if (typeof columnObj.valueDecoder == 'function') {
+                                text = columnObj.valueDecoder(text);
+                            }
+
+                            $(tdElem).text(text);
+                        }
+
+                    }
+
+
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+            }
+        }
+        if (params.object) {
+            // Display an object
+            for(const key in params.object) {
+                const trElem = document.createElement('tr');
+                if (params.cssClassRow) {
+                    $(trElem).addClass(params.cssClassRow);
+                }
+
+                {
+                    const tdElem = document.createElement('td');
+                    let text = key;
+                    if (params.keyMapping && params.keyMapping[key]) {
+                        text = params.keyMapping[key];
+                    }
+
+                    $(tdElem).text(text);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(params.object[key]);
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+            }
+        }
+
+        $(tableElem).append(tbodyElem);
+    }
+
+    if (!params.noOuterDiv) {
+        $(outerDivElem).append(tableElem);
+
+        return outerDivElem;
+    }
+    else {
+        return tableElem;
+    }
+}
+
+apiHelper.simpleInput = function(simpleInput) {
+    simpleInput.elemObj = [];
+    simpleInput.radioNames = [];
+
+    simpleInput.getValues = function() {
+        let values = {};
+
+        for(const elemObj of simpleInput.elemObj) {
+            if (elemObj.key && elemObj.getValue) {
+                values[elemObj.key] = elemObj.getValue();
+            }
+        }
+
+        for(const name of simpleInput.radioNames) {
+            const radioElem = $(simpleInput.elemObj).find('input[type="radio"][name="' + name + '"]');
+            values[name] = $(radioElem).find(':checked').val();
+        }
+
+        return values;
+    };
+
+    simpleInput.setValues = function(values) {
+        if (typeof values == 'undefined') {
+            values = simpleInput.values;
+        }
+
+        for(const elemObj of simpleInput.elemObj) {
+            if (elemObj.key && elemObj.setValue && typeof values[elemObj.key] != 'undefined') {
+                elemObj.setValue(values[elemObj.key]);
+            }
+        }
+
+        for(const name of simpleInput.radioNames) {
+            if (typeof values[name] == 'undefined') {
+                continue;
+
+            }
+            $(simpleInput.elemObj).find('input[type="radio"][name="' + name + '"]').prop('checked', false);
+            $(simpleInput.elemObj).find('input[type="radio"][name="' + name + '"][value="' + values[name] + '"]').prop('checked', true);
+        }
+
+    };
+
+    
+    simpleInput.onChange = function() {
+        simpleInput.values = simpleInput.getValues();
+
+        if (typeof simpleInput.updateButtons == 'function') {
+            simpleInput.updateButtons();
+        }
+    };
+
+    $(simpleInput.containerElem).find('.apiHelperInput').each(function() {
+        const elemObj = {
+            elem: $(this),
+        }
+
+        elemObj.onChange = function() {
+            simpleInput.onChange();
+        };
+
+        elemObj.tagName = $(elemObj.elem).prop('tagName').toLowerCase();
+        elemObj.key = $(elemObj.elem).data('key');
+
+        if (elemObj.tagName == 'input') {
+            elemObj.type = $(elemObj.elem).prop('type');
+            if (elemObj.type == 'checkbox') {
+                elemObj.getValue = function() {
+                    return $(elemObj.elem).prop('checked');
+                }
+                elemObj.setValue = function(value) {
+                    $(elemObj.elem).prop('checked', value);
+                }
+                $(elemObj.elem).on('click', elemObj.onChange);
+            }
+            else
+            if (elemObj.type == 'radio') {
+                const name = $(elemObj.elem).prop('name');
+                if (!simpleInput.radioNames.includes(name)) {
+                    simpleInput.radioNames.push(name);
+                }
+                $(elemObj.elem).on('click', elemObj.onChange);
+            }
+            else {
+                // text, password, file, etc.
+                elemObj.getValue = function() {
+                    return $(elemObj.elem).val();
+                }
+                elemObj.setValue = function(value) {
+                    $(elemObj.elem).val(value);
+                }
+                $(elemObj.elem).on('input blur', elemObj.onChange);
+            }                            
+        }
+        else
+        if (elemObj.tagName == 'select') {
+            elemObj.getValue = function() {
+                return $(elemObj.elem).val();
+            }
+            elemObj.setValue = function(value) {
+                $(elemObj.elem).val(value);
+            }
+
+            $(elemObj.elem).on('change', elemObj.onChange);
+        }
+
+        simpleInput.elemObj.push(elemObj);
+    });
+
+    simpleInput.onChange();
+}
+
 apiHelper.sandboxProducts = function() {
     let sandboxProducts = {
     };
