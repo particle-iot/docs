@@ -62,6 +62,11 @@
                 <div class="setCredentialsStatus wifiSetupStatus"></div>
             </div>
             <div class="wifiSetupCommandSection">
+                <button class="wifiStatus actionButton">Get Wi-Fi status</button>
+                <div class="wifiStatusStatus wifiSetupStatus"></div>
+                <div class="wifiStatusResult"></div>
+            </div>
+            <div class="wifiSetupCommandSection">
                 <button class="getCredentials actionButton">List configured Wi-Fi networks</button>
                 <div class="getCredentialsStatus wifiSetupStatus"></div>
                 <div class="wifiCredentialsList"></div>
@@ -70,8 +75,15 @@
                 <button class="clearCredentials actionButton">Clear configured Wi-Fi networks</button>
                 <div class="clearCredentialsStatus wifiSetupStatus"></div>
             </div>
-        </div>
-        <div class="logsDiv" style="display:none">
+            <div class="wifiSetupOuterSection">
+                <div>
+                    <label><input type="checkbox" class="enableDeviceLogs" />Enable live device logs (uses additional data operations)</label>
+                </div>
+                <div class="wifiSetUpDeviceLogsDiv"></div>
+            </div>
+            <div class="wifiSetupOuterSection">
+                <div class="wifiSetupEventsDiv"></div>
+            </div>
         </div>
     </div>
 </div>

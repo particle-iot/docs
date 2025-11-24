@@ -512,7 +512,8 @@ apiHelper.simpleTable = function(params) {
     {
         const tbodyElem = document.createElement('tbody');
 
-        if (params.rows) { // An array of rows
+        if (params.rows) { 
+            // An array of rows
             let columnIndex = -1;
             for(const row of params.rows) {
                 columnIndex++;
@@ -579,6 +580,33 @@ apiHelper.simpleTable = function(params) {
                     }
 
 
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+            }
+        }
+        if (params.object) {
+            // Display an object
+            for(const key in params.object) {
+                const trElem = document.createElement('tr');
+                if (params.cssClassRow) {
+                    $(trElem).addClass(params.cssClassRow);
+                }
+
+                {
+                    const tdElem = document.createElement('td');
+                    let text = key;
+                    if (params.keyMapping && params.keyMapping[key]) {
+                        text = params.keyMapping[key];
+                    }
+
+                    $(tdElem).text(text);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(params.object[key]);
                     $(trElem).append(tdElem);
                 }
 
