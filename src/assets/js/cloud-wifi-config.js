@@ -87,6 +87,15 @@ $(document).ready(function() {
             $('.deviceSearchButton').trigger('click');    
         });  
 
+        $('.apiHelperInput[data-key="password"]').on('keydown', function(ev) {
+            if (ev.key != 'Enter') {
+                return;
+            }
+
+            ev.preventDefault();
+            $('.setCredentials').trigger('click');    
+        });
+
         $(thisPartial).find('.deviceSearchButton').on('click', async function() {
             const org = parseInt($('.apiHelperSandboxOrgSelect').val());
 
@@ -566,8 +575,7 @@ $(document).ready(function() {
                     wifiConfig.credentialsInput.values.hidden = false;
                     wifiConfig.credentialsInput.setValues();
 
-                    // TODO: Focus in password field
-
+                    $('.apiHelperInput[data-key="password"]').focus();
                 });
             }
 

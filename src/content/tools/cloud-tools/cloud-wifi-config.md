@@ -3,7 +3,7 @@ title: Cloud Wi-Fi config
 columns: two
 layout: commonTwo.hbs
 description: Tinker
-includeDefinitions: [api-helper, api-helper-cloud, cloud-wifi-config]
+includeDefinitions: [api-helper, api-helper-cloud, api-helper-library, cloud-wifi-config]
 ---
 
 # {{title}}
@@ -18,8 +18,26 @@ This tool demonstrates configuring Wi-Fi on a device from the cloud. This is onl
 
 ## Device firmware
 
-A firmware library is required to configure the Wi-Fi credentials. This is a standalone test application, but the intention is that you would add the library to your own production firmware to able to configure Wi-Fi credentials remotely.
+You typically include this functionality in your regular user firmware:
 
+- Include the `CloudWiFiSetupRK` library in your project.
+- Include the header file in your main application .cpp file:
+
+```cpp
+#include "CloudWiFiSetupRK.h"
+```
+
+- Include the setup call in your setup():
+
+```cpp
+CloudWiFiSetupRK::instance().setup();
+```
+
+That's it!
+
+### View library source and examples
+
+{{> library-browser infoFile="/assets/files/libraries/AB1805_RK.json"}}
 
 ## Data operations
 
