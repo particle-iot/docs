@@ -305,7 +305,7 @@ $(document).ready(function() {
 
 
         const updateWiFiStatus = function(statusObj) {
-            if (statusObj.ready) {
+            if (statusObj && statusObj.ready) {
                 const tableParams = {
                     noOuterDiv: true,
                     cssClassTable: 'apiHelperTableNoMargin',
