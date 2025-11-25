@@ -616,7 +616,7 @@ $(document).ready(function() {
                     password: wifiConfig.credentialsInput.values.password,
                     security: wifiConfig.credentialsInput.values.security,
                     hidden: wifiConfig.credentialsInput.values.hidden,
-                    validate: true, // TESTING
+                    validate: !wifiConfig.credentialsInput.values.noValidate,
                 },
             };
 
