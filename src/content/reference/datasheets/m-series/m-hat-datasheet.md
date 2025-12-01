@@ -8,7 +8,7 @@ description: M-HAT Datasheet
 # M-HAT datasheet (preview)
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is a pre-review, preliminary datasheet, for internal use only. Changes are likely before release.
+This is a preliminary datasheet. Changes may occur before release.
 {{box op="end"}}
 
 ![](/assets/images/m-hat/m-hat.png)
@@ -562,7 +562,7 @@ tethering so the Raspberry Pi can use the B-SoM cellular connection.
 Note that the M-SoM does not support tethering and cannot be used to supply a cellular network connection to a Raspberry Pi with the M-HAT.
 
 ### One-time configuration - Firmware settings
-The following code can be used to enable Ethernet on the M-HAT. This only needs to be done
+The following code can be used to enable 3V3_AUX power on the M-HAT. This only needs to be done
 once and the device must be reset after configuration for the changes to take effect.  It requires Device OS 5.9.0 or later.
 
 ```cpp
@@ -591,7 +591,22 @@ To control `3V3_AUX` manually from your firmware, use `pinMode(D7, OUTPUT)` in `
 
 ## Schematics
 
-To be provided at a later date.
+### Schematics page 1
+{{imageOverlay src="/assets/images/m-hat/schematics-v1.0/p1.png" alt="Schematics" class="full-width"}}
+
+### Schematics page 2
+{{imageOverlay src="/assets/images/m-hat/schematics-v1.0/p2.png" alt="Schematics" class="full-width"}}
+
+### Schematics page 3
+{{imageOverlay src="/assets/images/m-hat/schematics-v1.0/p3.png" alt="Schematics" class="full-width"}}
+
+### Schematics page 4
+{{imageOverlay src="/assets/images/m-hat/schematics-v1.0/p4.png" alt="Schematics" class="full-width"}}
+
+### Schematics page 5
+{{imageOverlay src="/assets/images/m-hat/schematics-v1.0/p5.png" alt="Schematics" class="full-width"}}
+
+
 
 ## Certification
 
@@ -607,10 +622,7 @@ You will likely need to perform unintentional radiator testing with your compete
 
 ## Cellular carriers
 
-The carriers are dependent on the Particle M.2 SoM you have selected for your M-HAT.
-
-- [B504e carriers](/reference/cellular/cellular-carriers/?tab=ByDevice&device=B-Series%20B504%20LTE%20CAT1%2F3G%20(NorAm)%20EtherSIM&region=All)
-- [B524 carriers](/reference/cellular/cellular-carriers/?tab=ByDevice&device=B-Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(EMEAA)%20EtherSIM&region=All)
+The cellular carriers are dependent on the Particle M.2 SoM you have selected for your M-HAT. See the [carrier list](/reference/cellular/cellular-carriers) for more information.
 
 ---
 ## Ordering information
