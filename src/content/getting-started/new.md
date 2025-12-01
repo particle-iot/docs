@@ -23,11 +23,11 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Wi-Fi setCredentials 2025-12-01
 
-[WiFi.setCredentials()](/reference/device-os/api/wifi/setcredentials/) can connect to a hidden network on the P2, Photon 2, and M-SoM with Device OS 5.5.0 and later.
+[WiFi.setCredentials](/reference/device-os/api/wifi/setcredentials/) can connect to a hidden network on the P2, Photon 2, and M-SoM with Device OS 5.5.0 and later.
 
 ### I2C speed 2025-12-01
 
-A user-supplied frequency other than 100 kHz or 400 kHz is only supported on Gen 2 devices.
+A user-supplied frequency other than 100 kHz or 400 kHz is only supported on Gen 2 devices for [Wire.setSpeed](/reference/device-os/api/wire-i2c/setspeed/).
 
 ### Debug log enhancements 2025-11-20
 
