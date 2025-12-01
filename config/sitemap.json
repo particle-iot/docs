@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-11-05",
-            "hash": "79a02f94e7425723710be21562bdd39aca785988b655cae5aa77829a62e4742a"
+            "date": "2025-12-01",
+            "hash": "3e95102abe068e86b8151f1b6d68f0364c958b96699ffae2980b0986b49a9b6a"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1951,8 +1951,8 @@
             "hash": "b5d2ab0b081fbc1d82ec0ec52dc658d425816fb2e869d26a4b509aa26f3d83ac"
         },
         "reference/device-os/api/wifi/setcredentials.md": {
-            "date": "2024-04-30",
-            "hash": "b9b1d555b07df8d1f5cd9f3ffc42b1af165f48bc4b4b1e7e7667c005212a1552"
+            "date": "2025-12-01",
+            "hash": "9c503114fbb3540d7aa1d6eb9b3e7842d30c7ce8c91022105bd91c0e7a217683"
         },
         "reference/device-os/api/wifi/getcredentials.md": {
             "date": "2023-09-20",
@@ -2771,8 +2771,8 @@
             "hash": "ad0a5b06d170b13aa6c6ad0f709e423df6a3747b5700bc9ba4b91096756ddc98"
         },
         "reference/device-os/api/wire-i2c/setspeed.md": {
-            "date": "2024-04-30",
-            "hash": "2f715ed53caebbbc1bd51212046ae29febd2923e4866f4b597e8744d59c66dec"
+            "date": "2025-12-01",
+            "hash": "faa52afb573e0826205aab6b79135ca4314b7ca31dfbded494bab00833062d56"
         },
         "reference/device-os/api/wire-i2c/stretchclock.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "35064d563c6169b74a5e55206df7dcf0f9011eae7cf5c8c9b0fa4a8e559d91a1",
-            "date": "2025-11-20"
+            "hash": "3fb41366e891ae7b73a21e6544b17fd5f93c77ec06366228c3017564e78bb073",
+            "date": "2025-12-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

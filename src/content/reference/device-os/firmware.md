@@ -3274,6 +3274,18 @@ Allows the application to set credentials for the Wi-Fi network from within the 
 - The Photon and P1 can store one set of WPA Enterprise credentials in Device OS 0.7.0 and later.
 
 ```cpp
+// PROTOTYPES
+bool setCredentials(const char *ssid)
+bool setCredentials(const char *ssid, const char *password)
+bool setCredentials(const char *ssid, const char *password, unsigned long security, unsigned long cipher=WLAN_CIPHER_NOT_SET)
+bool setCredentials(const char *ssid, unsigned int ssidLen, const char *password,
+        unsigned int passwordLen, unsigned long security=WLAN_SEC_UNSEC, unsigned long cipher=WLAN_CIPHER_NOT_SET)
+
+bool setCredentials(const char* ssid, WiFiCredentials credentials)
+bool setCredentials(WiFiCredentials credentials)
+
+// EXAMPLES
+
 // Connects to an unsecured network.
 WiFi.setCredentials(ssid);
 WiFi.setCredentials("My_Router_Is_Big");
@@ -3288,11 +3300,19 @@ WiFi.setCredentials(ssid, password, auth);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
 ```
 
-When used with hidden or offline networks, the security cipher is also required. This is only supported on the Photon and P1. The Argon, P2, and Photon 2 do not support connecting to hidden networks.
+When used with hidden or offline networks, the security cipher is also required. This is only supported on the Photon and P1. 
+
+{{!-- BEGIN shared-blurb 424858c5-b26c-4c39-9df8-221e235b3958 --}}
+Wi-fi networks with a hidden SSID are supported on the P2, Photon 2, and M-SoM when using Device OS 5.5.0 and later. You must use the 
+overload that takes a [WiFiCredentials class](/reference/device-os/api/wifi/wificredentials-class/), and use the `setHidden()` method to enable the use of the hidden network
+support for that SSID.
+
+Hidden Wi-Fi networks are not supported on the Argon.
+{{!-- END shared-blurb --}}
 
 ```cpp
 
-// for hidden and offline networks on the Photon, the security cipher is also needed
+// for hidden and offline networks on the Photon 1, the security cipher is also needed
 // Cipher options are WLAN_CIPHER_AES, WLAN_CIPHER_TKIP and WLAN_CIPHER_AES_TKIP
 WiFi.setCredentials(ssid, password, auth, cipher);
 WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES);
@@ -3317,7 +3337,7 @@ The password is limited to 64 7-bit ASCII characters. If you pass in a longer pa
 {{note op="start" type="note"}}
 WPA Enterprise is only supported on the Photon and P1.
 
-It is not supported on the Argon, P2, and Photon 2.
+It is not supported on the Argon, P2, Photon 2, or M-SoM.
 {{note op="end"}}
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
@@ -11000,11 +11020,11 @@ Wire.begin();
 
 Parameters:
 
-- `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
+- `clockSpeed`: CLOCK_SPEED_100KHZ or CLOCK_SPEED_400KHZ only.
 
 ---
-{{note op="start" type="gen4"}}
-On the P2 and Photon 2 the only valid values are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+{{note op="start" type="gen2"}}
+On Gen 2 (STM32) including the E-Series (except E404X), Electron 1, and Photon 1, a user-specified frequency can be used. This is not supported on Gen 3 and Gen 4 devices.
 {{note op="end"}}
 
 
