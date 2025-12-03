@@ -2,11 +2,11 @@
   "type": "libraries",
   "id": "CloudWiFiSetupRK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/CloudWiFiSetupRK/archive/0.0.1.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/CloudWiFiSetupRK/archive/0.0.2.tar.gz"
   },
   "attributes": {
     "name": "CloudWiFiSetupRK",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "author": "rickkas7",
     "sentence": "Library for setting Wi-Fi credentials over cellular",
@@ -94,10 +94,84 @@
           }
         }
       }
+    },
+    "0.0.2": {
+      "added": "2025-12-03T09:59:57.978Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-Simple": false
+          },
+          "bsom": {
+            "1-Simple": false
+          },
+          "b5som": {
+            "1-Simple": false
+          },
+          "tracker": {
+            "1-Simple": false
+          },
+          "p2": {
+            "1-Simple": false
+          },
+          "msom": {
+            "1-Simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-Simple": false
+          },
+          "boron": {
+            "1-Simple": false
+          },
+          "bsom": {
+            "1-Simple": false
+          },
+          "b5som": {
+            "1-Simple": false
+          },
+          "tracker": {
+            "1-Simple": false
+          },
+          "p2": {
+            "1-Simple": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-Simple": false
+          },
+          "boron": {
+            "1-Simple": false
+          },
+          "bsom": {
+            "1-Simple": false
+          },
+          "b5som": {
+            "1-Simple": false
+          },
+          "tracker": {
+            "1-Simple": false
+          },
+          "esomx": {
+            "1-Simple": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-Simple": false
+          },
+          "electron": {
+            "1-Simple": false
+          }
+        }
+      }
     }
   },
-  "readme": "# CloudWiFiSetupRK\n\n*Library for setting Wi-Fi credentials over cellular*\n\n- Repository: https://github.com/rickkas7/CloudWiFiSetupRK\n- License: MIT\n- [Browseable API docs](https://rickkas7.github,io/CloudWiFiSetupRK/index.html)\n- [Web-based configuration tool](https://docs.particle.io/tools/cloud-tools/cloud-wifi-config/)\n\n\nThis library is used with the M-SoM to allow Wi-Fi credentials to be set over the cellular interface. \n\nYou typically include the function in your regular user firmware:\n\n- Include the `CloudWiFiSetupRK` library in your project.\n- Include the header file in your main application .cpp file:\n\n```cpp\n#include \"CloudWiFiSetupRK.h\"\n```\n\n- Include the setup call in your setup():\n\n```cpp\nCloudWiFiSetupRK::instance().setup();\n```\n\nThat's it!\n\nThe configuration tool can be found in the Particle docs at [Cloud Wi-Fi config](https://docs.particle.io/tools/cloud-tools/cloud-wifi-config/).\n\n\n\n",
+  "readme": "# CloudWiFiSetupRK\n\n*Library for setting Wi-Fi credentials over cellular*\n\n- Repository: https://github.com/rickkas7/CloudWiFiSetupRK\n- License: MIT\n- [Browseable API docs](https://rickkas7.github,io/CloudWiFiSetupRK/index.html)\n- [Web-based configuration tool](https://docs.particle.io/tools/cloud-tools/cloud-wifi-config/)\n\n\nThis library is used with the M-SoM to allow Wi-Fi credentials to be set over the cellular interface. \n\nYou typically include the function in your regular user firmware:\n\n- Include the `CloudWiFiSetupRK` library in your project.\n- Include the header file in your main application .cpp file:\n\n```cpp\n#include \"CloudWiFiSetupRK.h\"\n```\n\n- Include the setup call in your setup():\n\n```cpp\nCloudWiFiSetupRK::instance().setup();\n```\n\nThat's it!\n\nThe configuration tool can be found in the Particle docs at [Cloud Wi-Fi config](https://docs.particle.io/tools/cloud-tools/cloud-wifi-config/).\n\n\n\n## Version history\n\n### 0.0.2 (2025-11-24)\n\n- Add connectionInterface\n\n### 0.0.1 (2025-11-24)\n\n- Initial version\n",
   "allVersions": [
+    "0.0.2",
     "0.0.1"
   ]
 }

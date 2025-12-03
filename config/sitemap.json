@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "821d7d3dcb66e0f7a707ae02719942dbdef16f6ffaa1b61d8482ffddc0f5790d",
-            "date": "2025-12-01"
+            "hash": "2af54e68a35c7f866654591ae512e633d9a3b98400233caee09e6f38e2a475fc",
+            "date": "2025-12-03"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9931,12 +9931,16 @@
             "date": "2025-11-24"
         },
         "reference/device-os/libraries/c/CloudWiFiSetupRK.md": {
-            "hash": "600eb5aad2825673efb7415b9335f3b5b4a792db5e465705455476422adb9005",
-            "date": "2025-11-24"
+            "hash": "e08a9433de78a3396a1e32c91ed28a11f188926a9f06073a51b8d74b6415e1df",
+            "date": "2025-12-03"
         },
         "tools/cloud-tools/cloud-wifi-config.md": {
             "hash": "4d71db56129ae176d6c7ecb8e0a7c49e596476795e4499280453937db353a503",
             "date": "2025-11-24"
+        },
+        "reference/device-os/libraries/h/HttpClient-mbedtls.md": {
+            "hash": "66a38496c7505bd1d53ef609fb7610d0f5249b918b2a8fc7475b0223670db612",
+            "date": "2025-12-03"
         }
     }
 }
