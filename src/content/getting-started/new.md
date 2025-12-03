@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-12-03
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Wi-Fi setCredentials 2025-12-01
 
 [WiFi.setCredentials](/reference/device-os/api/wifi/setcredentials/) can connect to a hidden network on the P2, Photon 2, and M-SoM with Device OS 5.5.0 and later.

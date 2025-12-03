@@ -1,0 +1,101 @@
+{
+  "type": "libraries",
+  "id": "HttpClient-mbedtls",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/HttpClient-mbedtls/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "HttpClient-mbedtls",
+    "version": "0.0.1",
+    "license": "MIT",
+    "author": "Mariano Goluboff",
+    "sentence": "A simplified HTTPS Client",
+    "paragraph": "This library allows you to securely access some REST APIs, such as the Stripe payment processor",
+    "repository": "git repository for the project, like https://github.com/mgolu/HttpsClient-library",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/reference/device-os/libraries/h/HttpClient-mbedtls",
+  "versions": {
+    "0.0.1": {
+      "added": "2025-12-03T09:53:37.549Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "stripe": false
+          },
+          "bsom": {
+            "stripe": false
+          },
+          "b5som": {
+            "stripe": false
+          },
+          "tracker": {
+            "stripe": false
+          },
+          "p2": {
+            "stripe": false
+          },
+          "msom": {
+            "stripe": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "stripe": false
+          },
+          "boron": {
+            "stripe": false
+          },
+          "bsom": {
+            "stripe": false
+          },
+          "b5som": {
+            "stripe": false
+          },
+          "tracker": {
+            "stripe": false
+          },
+          "p2": {
+            "stripe": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "stripe": false
+          },
+          "boron": {
+            "stripe": false
+          },
+          "bsom": {
+            "stripe": false
+          },
+          "b5som": {
+            "stripe": false
+          },
+          "tracker": {
+            "stripe": false
+          },
+          "esomx": {
+            "stripe": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "stripe": false
+          },
+          "electron": {
+            "stripe": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# HTTPS Client\n\nThis library implements a simplified HTTPS Client to make it easy to access a REST API\nby using HTTP POST.\n\nCurrently supported:\n* POST with application/json Content-Type\n* POST with application/x-www-form-urlencoded Content-Type\n\nSystem Diagram (image removed)\n\nThe HTTP Client is connected to mbedTLS in order to provide TLS Encryption. The customized\nmbedTLS implementation then uses the TCP Client to make the connection to the server.\n\n## Usage\n\nFirst you need to get an instance of the HTTPS client:\n\n    HttpsClient client;\n\nThe next step is to load a certificate to validate the identity of the server. This is\nrequired, as disabling validation makes the system vulnerable to \"man in the middle\" attacks.\nThe certificate can be embedded in the firmware, or stored in flash in the file system.\nThe latter allows you to use the Particle cloud to update certificates, as they have an\nexpiration date.\n\n    client.initTls(CA_cert, strlen(CA_cert)+1); // Include the null terminator\n    client.connect((char *)\"example.com\",443);\n\nThe HttpsClient object has a pointer to an HttpRequest object which allows you to\nconfigure the request as needed. For example:\n\nIf the REST API endpoint requires Basic Authentication (using Base64-encoded \nusername and password), add these with the following:\n\n    client.req->withBasicAuthentication(\"username\",\"password\");\n\nYou might need to add custom headers, with this function (do not set Content-Length,\nContent-Type, or User-Agent, these are set by the library):\n\n    client.req->addHeader(\"Accept\",\"*/*\");\n\nNote that both the Authentication as well as any headers are used and removed\nfrom the object when an HTTP transaction is done. So if you are re-using the \nobject for multiple back to back transactions, you will need to re-add authorization\nand headers each time.\n\nIf the API uses x-www-form-urlencoded, then you can add form fields with:\n\n    client.req->addFormField(\"Foo\",\"Bar\");\n\nAfter the request is ready, it is time to send the HTTP POST transaction with:\n\n    client.postUrlEncoded((char *)\"/api/endpoint\"); // Send x-www-form-urlencoded POST\n    client.postJson((char *)\"/api/endpoint\",\"{\\\"foo\\\":\\\"bar\\\"}\"); // POST JSON in the body\n\nThe HTTP Client will now conduct the transaction, and populate an HttpResponse object\nthat can be accessed through the `resp` pointer. This object has the following variables:\n\n    uint16_t status_code\n    Vector<HttpsClient::Header> headers\n    char* body\n\n`status_code` and `body` are self-explanatory. To access the response headers, use the\n`headers` Vector. For example, you could do this:\n\n    while (!client.resp->headers.isEmpty())\n    {\n        HttpsClient::Header header = client.resp->headers.takeFirst();\n        Log.info(\"Header name: %s  Value: %s\", header.name, header.value);\n    }\n\n## Examples\n\n* **Stripe**: Uses the library to access the Stripe payment processor and make credit\ncard transactions. Prior to getting any device to production using this example, you \nshould consult a security expert to make sure that the device meets all the requirements \nof the Payment Card Industry Data Security Standard (PCI DSS).",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

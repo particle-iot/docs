@@ -1660,6 +1660,10 @@
           "dir": "HttpClient"
         },
         {
+          "title": "HttpClient-mbedtls",
+          "dir": "HttpClient-mbedtls"
+        },
+        {
           "title": "HttpClient2",
           "dir": "HttpClient2"
         },
