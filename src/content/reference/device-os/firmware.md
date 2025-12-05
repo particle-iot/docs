@@ -8022,6 +8022,8 @@ void loop()
 
 The Power Manager API provides a way to set PMIC (Power Management IC) settings such as input volage, input current limit, charge current, and charge termination voltage using a simple API. The Power Manager settings are persistent and saved in configuration flash so you can set them once and they will continue to be used.
 
+For full sample code sample code for logging power settings to USB serial debug, see the [power supply guide](/hardware/power/power-supply-guide/#power-settings-example).
+
 To set the Power Manager configuration, create a `SystemPowerConfiguration` object and use the methods below to adjust the settings:
 
 ---
@@ -8192,6 +8194,8 @@ void setup() {
 
 System power features are enabled or disabled using the `SystemPowerConfiguration::feature()` method. The settings are saved in non-volatile storage so you do not need to set them on every startup.
 
+For full sample code sample code for logging power settings to USB serial debug, see the [power supply guide](/hardware/power/power-supply-guide/#power-settings-example).
+
 
 #### SystemPowerFeature::PMIC_DETECTION
 
@@ -8312,6 +8316,8 @@ System.setPowerConfiguration(SystemPowerConfiguration());
 You should generally set the PMIC settings such as input volage, input current limit, charge current, and charge termination voltage using the Power Manager API, above. If you directly set the PMIC, the settings will likely be overridden by the system.
 
 To find out the current power source (battery, VIN, USB), see [`System.powerSource()`](#powersource-). To find out if the battery is charging, discharging, disconnected, etc., see [`System.batteryState()`](#batterystate-).
+
+For full sample code sample code for logging power settings to USB serial debug, see the [power supply guide](/hardware/power/power-supply-guide/#power-settings-example).
 
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically

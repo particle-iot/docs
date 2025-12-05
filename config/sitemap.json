@@ -1035,8 +1035,8 @@
             "hash": "cb7652e089bee05e9a3baaffd44329cc2b01b0b9d9296da63d1c7fc05fb47070"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2025-08-06",
-            "hash": "8b1294a233ae045ce1832bfa5c92b2289d6680754ff71ab5af01b2233de0fec3"
+            "date": "2025-12-05",
+            "hash": "c9641ad7738a2d79f123c812432867ca27a8b34927c1a108eb27dcf8096f0133"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2025-12-01",
-            "hash": "3e95102abe068e86b8151f1b6d68f0364c958b96699ffae2980b0986b49a9b6a"
+            "date": "2025-12-05",
+            "hash": "fe00a72be1cd2a5edd29b62fc00165ff845236c1a87d62ce5aad1138d5979210"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2415,8 +2415,8 @@
             "hash": "9be6beacdf6f5b535a36001e96d451c5c17cf55fa979e411ef7ae790a6310d16"
         },
         "reference/device-os/api/power-manager/power-manager.md": {
-            "date": "2024-09-17",
-            "hash": "a8eb69755e1ca892d8c96217b5144b7c2da435d6918608c4e3edb98bf5328a89"
+            "date": "2025-12-05",
+            "hash": "99d2d915fa4424412c2dc665380a3e78260f213b79f284b6f2070a413964ed39"
         },
         "reference/device-os/api/power-manager/powersourcemaxcurrent.md": {
             "date": "2023-09-20",
@@ -2435,16 +2435,16 @@
             "hash": "7b703fe4a07173d9a3527623532cc6ba4abb64b5a6bc000c5cf0b509df7cfd0c"
         },
         "reference/device-os/api/power-manager/systempowerfeature.md": {
-            "date": "2024-03-25",
-            "hash": "b8de3e9bb3ae4b0f72436ceda7bf8cc363f6f869d9e631ebba4145f0f0490984"
+            "date": "2025-12-05",
+            "hash": "06f6dd9ca10af588d73353ba079461ab3b30ec9cf5d2b1c9031a6fd62892f17b"
         },
         "reference/device-os/api/power-manager/b-series-som.md": {
             "date": "2024-02-27",
             "hash": "8c4d10289798236f2269ed50188a577a4d0b6f67dad519de8885780675538095"
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic.md": {
-            "date": "2024-02-27",
-            "hash": "11b7973fde6e2b40f8125b9b2232b1c6ae6342d8bac473075fd679b26cb373ac"
+            "date": "2025-12-05",
+            "hash": "95f6101cf358e9c4ad30d164966f7c1920fcb9de4b34b9d9f96e98170f55c69e"
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-constructor.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2af54e68a35c7f866654591ae512e633d9a3b98400233caee09e6f38e2a475fc",
-            "date": "2025-12-03"
+            "hash": "831847e0b9e8f90649bb8c90a24048069a490b3fe934c8490bb7f63efa7177c1",
+            "date": "2025-12-05"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

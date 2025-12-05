@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Power settings logging 2025-12-05
+
+There is now sample code for [logging power settings](/hardware/power/power-supply-guide/#power-settings-example) to USB serial debug.
+
 ### Library updates 2025-12-03
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.

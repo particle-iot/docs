@@ -3,6 +3,7 @@ title: Power supply guide
 columns: two
 layout: commonTwo.hbs
 description: Power supply guide
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 ---
 
 # {{title}}
@@ -172,6 +173,42 @@ instead of using a battery pack temperature sensor.
 - This is only applicable to the Photon and E-Series, and is used to back up the real-time clock and retained memory when removing USB or VIN power. You can connect a Lithium coin cell or a supercap to this pin.
 
 - There is an Electron pin labeled VBAT but it should not be used because it's tied to 3V3 on the Electron with a 0-ohm resistor.
+
+## Power settings example
+
+Here's sample code for logging power settings to USB serial debug:
+
+{{> project-browser project="power-log" default-file="src/power-log.cpp" height="400" flash="false"}}
+
+Sample output:
+
+- M-SoM, Device OS 6.3.4
+- In M.2 Breakout Board
+- Powered by VIN (barrel connector) with battery
+
+```
+0000031792 [app] INFO: powerLog ===========================================
+0000031813 [app] INFO: System Power source: vin
+0000031826 [app] INFO: System Battery state: charging
+0000031840 [app] INFO: System Battery charge: 94.417969
+0000031855 [app] INFO: SystemPowerConfiguration powerSourceMinVoltage=3880, powerSourceMaxCurrent=900
+0000031881 [app] INFO: SystemPowerConfiguration batteryChargeVoltage=4112, batteryChargeCurrent=896
+0000031907 [app] INFO: SystemPowerConfiguration auxiliaryPowerControlPin=23, auxiliaryPowerControlActiveLevel=1
+0000031936 [app] INFO: SystemPowerConfiguration interruptPin=29, socBitPrecision=18
+0000031957 [app] INFO: SystemPowerConfiguration feature PMIC_DETECTION=1
+0000031976 [app] INFO: SystemPowerConfiguration feature USE_VIN_SETTINGS_WITH_USB_HOST=0
+0000031999 [app] INFO: SystemPowerConfiguration feature DISABLE=0
+0000032016 [app] INFO: SystemPowerConfiguration feature DISABLE_CHARGING=0
+0000032036 [app] INFO: PMIC version=23
+0000032047 [app] INFO: PMIC systemStatus=0x24, vbusStatus=unknown, chargeStatus=fast charging
+0000032071 [app] INFO: PMIC not DPM, power good, normal thermal regulation, not in VSYSMIN regulation
+0000032098 [app] INFO: PMIC input source register=0x03, inputCurrentLimit=900 mA, inputVoltageLimit=3.880
+0000032126 [app] INFO: PMIC charge current control register=0x18, chargeCurrent=896 mA
+0000032149 [app] INFO: PMIC charge termination register=0x8a
+0000032166 [app] INFO: PMIC charge voltage control register=0x9a, chargeVoltage=4.112
+0000032189 [app] INFO: PMIC fault register=0x00, watchdog normal, charge fault: normal
+0000032211 [app] INFO: PMIC bat fault: normal, ntcStatus: normal (0)
+```
 
 
 
