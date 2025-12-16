@@ -13406,6 +13406,8 @@ You must call this before BLE setup is started. For listening mode, this is ofte
 
 The maximum name length is `BLE_MAX_DEV_NAME_LEN`, or 20 ASCII characters. In practice, however, this must must be 14 or fewer characters because it will not fit in the default advertising packet (which is limited to 31 bytes) if longer.
 
+When using provisioning mode, the device name is limited to 8 bytes Because of the custom data (8 bytes) and a 128-bit service UUID.
+
 ```cpp
 // PROTOTYPES
 int setDeviceName(const char* name, size_t len) const;
@@ -13473,7 +13475,7 @@ int provisioningMode(bool enabled) const;
 BLE.provisioningMode(true);
 ```
 
-Be sure to set all desired parameters, such as [service UUIDs](#ble-setprovisioningsvcuuid) before enabling provisioning mode.
+Be sure to set all desired parameters, such as [service UUID](#ble-setprovisioningsvcuuid) before enabling provisioning mode.
 
 Since listening mode and BLE provisioning mode are mutually exclusive and listening mode takes precedence, if you are using BLE provisioning mode you will typically want to disable listening mode:
 
@@ -13483,6 +13485,26 @@ STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 ```
 
 Since BLE provisioning mode can run concurrently with your firmware while cloud connected, you do not need to disable it after setting Wi-Fi credentials. This also means your end-users will be able to reconfigure Wi-Fi credentials without having to press the MODE button, which may eliminate the need for an external button in your product.
+
+Note, however, that when provisioning mode is active, any BLE advertising will contain only provisioning mode data, including:
+
+- Device name
+- Manufacturer custom data (8 bytes)
+- Provisioning service UUID
+
+You can set your own provisioning service UUID and company ID, but cannot add additional manufacturing data or add other service UUIDs. The advertising data payload has a maximum size of 31 bytes.
+
+You can add your own characteristics, however, and utilize a single service UUID for both provisioning mode and your custom service.
+
+If you add custom advertising data before starting provisioning mode, that advertising will stop and be replaced by the provisionging mode advertising. If you stop provisioning mode, your custom adverting data will resume.
+
+When using a 128-bit service UUID, the practical limit of the size of the device name is 8 bytes.
+
+| Size | Contents |
+| ---: | :--- |
+|   13 | Custom data (8 bytes) |
+|   23 | Custom data (8 bytes) + Device name 'test1234' |
+|   31 | Custom data (8 bytes) + Device name 'test1234' + 1x 128-bit service UUID |
 
 See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
 
@@ -14092,7 +14114,32 @@ The BleAdvertisingData is used in two ways:
 
 For more information about advertising, see [the BLE tutorial](/reference/device-os/bluetooth-le/#advertising).
 
-#### BleAdvertisingData()
+#### Size limits - BleAdvertisingData
+
+The BLE advertising data is limited to 31 bytes so you will be limited to what you can include. Some common options are:
+
+- Service UUID(s)
+- Custom Data
+- Device Name
+
+Note that the advertising data is transmitted continuously and does not require the peripheral to connect to see the data. Larger data can be sent using characteristics after connecting.
+
+| Size | Contents |
+| ---: | :--- |
+|    3 | Empty payload overhead |
+|    7 | 1x 16-bit service UUID |
+|   11 | 2x 16-bit service UUIDs |
+|   21 | 1x 128-bit service UUID |
+|   25 | 1x 16-bit + 1x 128-bit service UUIDs |
+|   27 | Device name 'test' + 128-bit service UUID |
+|   31 | Device name 'test1234' + 128-bit service UUID |
+|   13 | Custom data (8 bytes) |
+|   23 | Custom data (8 bytes) + Device name 'test1234' |
+|   31 | Custom data (8 bytes) + Device name 'test1234' + 1x 128-bit service UUID |
+
+
+
+#### constructor - BleAdvertisingData
 
 Construct a `BleAdvertisingData` object. You typically do this in a peripheral role before adding new data. 
 
@@ -14103,7 +14150,7 @@ In the central role, you get a filled in object in the [`BleScanResult`](#blesca
 BleAdvertisingData();
 ```
 
-#### append()
+#### append() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::append"}}
 
@@ -14129,11 +14176,11 @@ Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and 
 
 You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically.
 
-#### appendCustomData
+#### appendCustomData - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::appendCustomData"}}
 
-Appends custom advertising data to the advertising data object.
+Appends custom advertising data to the advertising data object. There can only be one custom data block.
 
 ```cpp
 // PROTOTYPE
@@ -14158,7 +14205,7 @@ If you are using private custom data it's recommended to begin it with two 0xff 
 
 The maximum custom data size is 26 bytes, including the company ID. Adding data that is too large will cause it to be omitted (not truncated).
 
-#### appendLocalName()
+#### appendLocalName() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::appendLocalName"}}
 
@@ -14172,7 +14219,7 @@ size_t appendLocalName(const char* name);
 size_t appendLocalName(const String& name);
 ```
 
-#### appendServiceUUID()
+#### appendServiceUUID() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::appendServiceUUID"}}
 
@@ -14193,9 +14240,9 @@ advData.appendServiceUUID(healthThermometerService);
 - `uuid` The UUID to add. This can be a [`BleUuid`](#bleuuid) object, a uint16_t (short UUID), or a const char * or string literal specifying a long UUID.
 - `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
 
-Since long UUIDs are long (16 bytes plus 2 bytes of overhead) they will use a lot of the 31 byte payload, leaving little room for other things like short name.
+Since long UUIDs are long (16 bytes plus 2 bytes of overhead) they will use a lot of the 31 byte payload, leaving little room for other things like short name. You can only add a single 128-bit long UUID to yout advertising data. 
 
-#### clear()
+#### clear() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::clear"}}
 
@@ -14206,7 +14253,7 @@ Remove all existing data from the BleAdvertisingData object.
 void clear();
 ```
 
-#### remove()
+#### remove() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::remove"}}
 
@@ -14220,7 +14267,7 @@ void remove(BleAdvertisingDataType type);
 - `type` The [`BleAdvertisingDataType`](#bleadvertisingdatatype) to remove.
 
 
-#### set()
+#### set() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::set"}}
 
@@ -14231,7 +14278,7 @@ In a peripheral role, you sometimes will want to build your advertising data com
 size_t set(const uint8_t* buf, size_t len);
 ```
 
-#### get(type, buffer)
+#### get(type, buffer) - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::get"}}
 
@@ -14249,7 +14296,7 @@ size_t get(BleAdvertisingDataType type, uint8_t* buf, size_t len) const;
 Returns the number of bytes copied, which will be <= `len`. Returns 0 if the type does not exist in the advertising data.
 
 
-#### get(buffer)
+#### get(buffer) - BleAdvertisingData
 
 In the central role, if you want to get the advertising data as a complete block of data, you can use the get method with a buffer and length.
 
@@ -14266,7 +14313,7 @@ size_t get(uint8_t* buf, size_t len) const;
 
 Returns the number of bytes copied, which will be <= `len`.
 
-#### length()
+#### length() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::length"}}
 
@@ -14277,7 +14324,7 @@ Return the length of the data in bytes.
 size_t length() const;
 ```
 
-#### operator[]
+#### operator[] - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::operator[]"}}
 
@@ -14289,7 +14336,7 @@ uint8_t operator[](uint8_t i) const;
 
 In Device OS 3.0.0 and later, you can retrieve a byte from the advertising data using the `[]` operator. This uses `get()` internally.
 
-#### deviceName()
+#### deviceName() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::deviceName"}}
 
@@ -14300,7 +14347,7 @@ Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). Returns a Str
 String deviceName() const;
 ```
 
-#### deviceName(buf)
+#### deviceName(buf) - BleAdvertisingData
 
 Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). 
 
@@ -14316,7 +14363,7 @@ Returns the size of the name in bytes. Returns 0 if there is no name.
 
 Note that the buf will not be null-terminated (not a c-string).  
 
-#### serviceUUID()
+#### serviceUUID() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::serviceUUID"}}
 
@@ -14342,7 +14389,7 @@ There is often a single UUID advertised, even for devices that have multiple ser
 
 Since the advertisement data is limited to 31 bytes, the maximum number of services that could be advertised is 14 16-bit UUIDs. 
 
-#### customData()
+#### customData() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::customData"}}
 
@@ -14357,7 +14404,7 @@ size_t customData(uint8_t* buf, size_t len) const;
 
 Returns the size of the data in bytes. Returns 0 if there is no `MANUFACTURER_SPECIFIC_DATA`.
 
-#### contains()
+#### contains() - BleAdvertisingData
 
 {{api name1="BleAdvertisingData::contains"}}
 

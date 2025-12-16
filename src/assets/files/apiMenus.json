@@ -636,88 +636,93 @@
           "dir": "bleadvertisingdata",
           "subsections": [
             {
-              "anchor": "bleadvertisingdata-",
-              "title": "BleAdvertisingData()",
+              "anchor": "size-limits-bleadvertisingdata",
+              "title": "Size limits - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "append-",
-              "title": "append()",
+              "anchor": "constructor-bleadvertisingdata",
+              "title": "constructor - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "appendcustomdata",
-              "title": "appendCustomData",
+              "anchor": "append-bleadvertisingdata",
+              "title": "append() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "appendlocalname-",
-              "title": "appendLocalName()",
+              "anchor": "appendcustomdata-bleadvertisingdata",
+              "title": "appendCustomData - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "appendserviceuuid-",
-              "title": "appendServiceUUID()",
+              "anchor": "appendlocalname-bleadvertisingdata",
+              "title": "appendLocalName() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "clear-",
-              "title": "clear()",
+              "anchor": "appendserviceuuid-bleadvertisingdata",
+              "title": "appendServiceUUID() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "remove-",
-              "title": "remove()",
+              "anchor": "clear-bleadvertisingdata",
+              "title": "clear() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "set-",
-              "title": "set()",
+              "anchor": "remove-bleadvertisingdata",
+              "title": "remove() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "get-type-buffer-",
-              "title": "get(type, buffer)",
+              "anchor": "set-bleadvertisingdata",
+              "title": "set() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "get-buffer-",
-              "title": "get(buffer)",
+              "anchor": "get-type-buffer-bleadvertisingdata",
+              "title": "get(type, buffer) - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "length-",
-              "title": "length()",
+              "anchor": "get-buffer-bleadvertisingdata",
+              "title": "get(buffer) - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "operator-",
-              "title": "operator[]",
+              "anchor": "length-bleadvertisingdata",
+              "title": "length() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "devicename-",
-              "title": "deviceName()",
+              "anchor": "operator-bleadvertisingdata",
+              "title": "operator[] - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "devicename-buf-",
-              "title": "deviceName(buf)",
+              "anchor": "devicename-bleadvertisingdata",
+              "title": "deviceName() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "serviceuuid-",
-              "title": "serviceUUID()",
+              "anchor": "devicename-buf-bleadvertisingdata",
+              "title": "deviceName(buf) - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "customdata-",
-              "title": "customData()",
+              "anchor": "serviceuuid-bleadvertisingdata",
+              "title": "serviceUUID() - BleAdvertisingData",
               "isContent": true
             },
             {
-              "anchor": "contains-",
-              "title": "contains()",
+              "anchor": "customdata-bleadvertisingdata",
+              "title": "customData() - BleAdvertisingData",
+              "isContent": true
+            },
+            {
+              "anchor": "contains-bleadvertisingdata",
+              "title": "contains() - BleAdvertisingData",
               "isContent": true
             }
           ]

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE advertising data 2025-12-16
+
+There is additional information about advertising data and [provisioning mode](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-provisioningmode). There is also additional information about the size limits of [BleAdvertisingData](/reference/device-os/api/bluetooth-le-ble/bleadvertisingdata/).
+
 ### Power settings logging 2025-12-05
 
 There is now sample code for [logging power settings](/hardware/power/power-supply-guide/#power-settings-example) to USB serial debug.
