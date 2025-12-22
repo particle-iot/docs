@@ -20,6 +20,9 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+### Tachyon power requirements update 2025-12-22
+
+Updated power requirements in the [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/#power-requirements).
 
 ### BLE advertising data 2025-12-16
 

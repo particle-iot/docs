@@ -332,11 +332,6 @@ It supports different USB power modes:
 - DCP (Dedicated Charge Port) 
 - CDP (Charging Downstream Port). 
 
-If using USB-PD mode, a battery (or 5V in) must also be used or the Tachyon will not boot properly.
-
-The USB-DCP mode can be used without a battery as the sole power source.
-
-If the Tachyon is connected to a HDMI dock, USB hub, or monitor via the USB1 connector, USB-PD mode will be used, and a battery is required.
 
 Power from USB1 can be added or removed while the Tachyon is running. 
 
@@ -377,6 +372,7 @@ The Tachyon supports the following power modes of operation
 * PD  
   * Powered by power adapter with USB-PD capability  
   * Powered by computer USB-C Port, data communication is functional  
+  * This mode can work without battery attached, see [Older power requirements](#older-power-requirements), below.
   * `POWER_SUPPLY_TYPE=USB_PD`
 * Battery  
   * Battery is discharging
@@ -391,8 +387,8 @@ Known issues:
 
 | USB1                  | 5V IN | VBAT  | Power Requirements            | Notes  |
 | :-------------------- | :---- | :---- | :---------------------------- | :---- |
-| Power Adapter         | NO    | NO    | PD: Not Suppored              | 5V is set to power output - 5V/1.5A |
-|                       |       |       | DCP: 9V/3A or 5V/5A           | Power adapter with PD only will not boot |
+| Power Adapter         | NO    | NO    | PD: Not Supported             | 5V is set to power output - 5V/1.5A |
+|                       |       |       | DCP: 9V/3A or 5V/5A           | Power adapter with PD only see <sup>4</sup> |
 | Power Adapter         | YES   | NO    | PD: 9V/3A                     | Power comes from USB1 |
 |                       |       |       | DCP: 9V/3A or 5V/5A           | Remove USB1, power will change to 5V<sup>2</sup> |
 | Power Adapter         | YES   | YES   | PD: 9V/3A                     | Power comes from USB1 |
@@ -418,9 +414,32 @@ Known issues:
 
 <sup>1</sup>Battery will be discharging in this mode.<br/>
 <sup>2</sup>VBAT is powered, simulating a battery, even though a battery is not connected.<br/>
-<sup>3</sup>5V input is not used.
+<sup>3</sup>5V input is not used.<br/>
+<sup>4</sup>Requires 24.04 (Release v1.1.32), 20.04 (Release v1.0.180), or later. Earlier versions will not boot.
 
 Connect power input(s) before booting Tachyon to insure proper detection.
+
+### Older power requirements
+
+In version 24.04 (Release v1.1.32) and 20.04 (Release v1.0.180) support was added for powering in USB-C PD mode without requiring a battery:
+
+> No-battery (USB-Powered) mode: The device can be powered via the USB1 port
+(USB-C) without a battery attached. USB-C Power Delivery is supported for
+negotiating adequate power from a host or charger, and this does not require an
+external Power Delivery controller chip on the accessory. This mode is useful for
+bench testing or situations where the device is stationary and can be powered
+continuously via USB-C.
+
+The information above has been updated to reflect this. You may see references elsewhere to a battery being required when using USB-C PD mode. This is no longer necessary once you've upgraded to these releases, but will still be required when using an older version, or upgrading from an older version.
+
+When using **older** releases, the following power requirements apply:
+
+- With older versions when using USB-PD mode, a battery (or 5V in) must also be used or the Tachyon will not boot properly.
+- The USB-DCP mode can be used without a battery as the sole power source.
+- If the Tachyon is connected to a HDMI dock, USB hub, or monitor via the USB1 connector, USB-PD mode will be used, and a battery is required when using older versions.
+
+
+
 
 ### Power requirements summary
 
@@ -766,18 +785,6 @@ These values are from the TXS0108E datasheet and assume V<sub>CCB</sub> is 3.3V.
 </table>
 
 
-<!-- 
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
--->
-
-{{!--  
-### Schematics
---}}
-
 ## Mechanical specifications
 
 ### Operating temperature
@@ -1046,3 +1053,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 006      | 2025-08-06 | RK | Add operating temperature |
 | 007      | 2025-09-03 | RK | Added power requirements |
 | 008      | 2025-09-16 | RK | Add TACH4NA |
+| 009      | 2025-12-22 | RK | Update power requirements |
