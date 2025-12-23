@@ -403,7 +403,7 @@ Known issues:
 | PC USB (A to C cable) | NO    | YES   | CDP: 5V/1.5A                  | Power comes from USB1 and to VBAT |
 | PC USB (C to C cable) | YES   | YES   | PD: 5V/3A                     | Power comes from USB1 Remove USB1, power will change to use VBAT <sup>1</sup><sup>3</sup>|
 | PC USB (C to C cable) | YES   | NO    | PD: 5V/3A                     | Power comes from USB1 Remove USB1, power will change to use 5V <sup>2</sup> |
-| PC USB (C to C cable) | NO    | NO    | PD: Not Supported             |  |
+| PC USB (C to C cable) | NO    | NO    | PD: See <sup>4</sup>          |  |
 | PC USB (C to C cable) | NO    | YES   | PD: 5V/3A                     | Power comes from USB1 and to VBAT |
 | NO                    | YES   | YES   | 5V/5A                         | Power supplies to VBAT |
 |                       |       |       |                               | After boot-up, USB1 will not be functional |
