@@ -1,0 +1,36 @@
+{
+  "type": "libraries",
+  "id": "MAX6675_CNM",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MAX6675_CNM/archive/0.0.9.tar.gz"
+  },
+  "attributes": {
+    "name": "MAX6675_CNM",
+    "version": "0.0.9",
+    "license": "MIT",
+    "author": "Brian Rashap",
+    "sentence": "CNM IoT Bootcamp - Thermocouple Library",
+    "paragraph": "Particle library for using Thermocouple",
+    "architectures": [
+      "library designed for Particle Argon",
+      " Boron",
+      " and Photon 2"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/reference/device-os/libraries/m/MAX6675_CNM",
+  "versions": {
+    "0.0.9": {
+      "added": "2026-01-01T19:34:47.987Z",
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# IoTClassroom_CNM\n\nA Particle library for MAX6675_CNM\n\n## Welcome to your library!\n\nThe MAX6675_CNM library is designed to be used with the CNM Ingenuity IoT Bootcamp (https://deepdivecoding.com/iot). This library contains several capabilites that are all included with IoTClassroom_CNM.h\n\n* hue.h - control of the Phillips Hue Smart Lighting in the IoT Classroom (controlled via Phillips Hue Hub)\n* wemo.h - control of the Belkin Wemo Smart Outlets in the IoT Classroom (setup for 6 classroom outlets)\n* IoTTImer.h - the IoTTImer class that was created earlier the course\n* Button.h - a modified version of the Button class (also earlier from the course) that includes both button pressed and button clicked (i.e., not held down).\n* Colors.h - a library of hex color constants to be used with neoPixel (or any other RGB needs)\n\n## Usage\n\nSee the examples folder for usage of the hue.h and wemo.h libraries\n\n## Documentation\n\nTODO: Describe `IoTClassroom_CNM`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add IoTClassroom_CNM_myname` to add the library to a project on your machine or add the IoTClassroom_CNM_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2023 Brian Rashap\n\nLicensed under the MIT license\n",
+  "allVersions": [
+    "0.0.9"
+  ]
+}

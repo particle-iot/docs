@@ -7,7 +7,6 @@
   "attributes": {
     "name": "particle-loop",
     "version": "0.0.1",
-    "installs": 91,
     "license": "MIT",
     "author": "Fabien Lavocat <fabien.lavocat@live.com>",
     "sentence": "A simple library to help writing loops for a Particle Photon",
@@ -50,8 +49,69 @@
           "boron": {
             "RunLoops": true
           }
+        },
+        "6.2.0": {
+          "boron": {
+            "RunLoops": true
+          },
+          "bsom": {
+            "RunLoops": true
+          },
+          "b5som": {
+            "RunLoops": true
+          },
+          "tracker": {
+            "RunLoops": true
+          },
+          "p2": {
+            "RunLoops": true
+          },
+          "msom": {
+            "RunLoops": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "RunLoops": true
+          },
+          "boron": {
+            "RunLoops": true
+          },
+          "bsom": {
+            "RunLoops": true
+          },
+          "b5som": {
+            "RunLoops": true
+          },
+          "tracker": {
+            "RunLoops": true
+          },
+          "p2": {
+            "RunLoops": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "RunLoops": true
+          },
+          "boron": {
+            "RunLoops": true
+          },
+          "bsom": {
+            "RunLoops": true
+          },
+          "b5som": {
+            "RunLoops": true
+          },
+          "tracker": {
+            "RunLoops": true
+          },
+          "esomx": {
+            "RunLoops": true
+          }
         }
-      }
+      },
+      "added": "2026-01-01T19:34:47.990Z"
     }
   },
   "readme": "# particle-loop\n============\n\nProvides another way to add multiple loops for the Particle (Spark).\nTested on the Photon.",

@@ -1,0 +1,124 @@
+{
+  "type": "libraries",
+  "id": "MAX6675_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MAX6675_RK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "MAX6675_RK",
+    "version": "0.0.2",
+    "license": "MIT",
+    "author": "rickkas7",
+    "sentence": "MAX6675 SPI thermocouple library for Particle devices",
+    "url": "https://github.com/rickkas7/MAX6675_RK",
+    "repository": "https://github.com/rickkas7/MAX6675_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/reference/device-os/libraries/m/MAX6675_RK",
+  "versions": {
+    "0.0.2": {
+      "added": "2026-01-01T19:38:25.988Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "bsom": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "b5som": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "tracker": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "p2": {
+            "1-Simple": true,
+            "2-multiple": true
+          },
+          "msom": {
+            "1-Simple": true,
+            "2-multiple": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "boron": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "bsom": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "b5som": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "tracker": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "p2": {
+            "1-Simple": true,
+            "2-multiple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "boron": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "bsom": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "b5som": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "tracker": {
+            "1-Simple": true,
+            "2-multiple": false
+          },
+          "esomx": {
+            "1-Simple": true,
+            "2-multiple": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-Simple": false,
+            "2-multiple": false
+          },
+          "electron": {
+            "1-Simple": false,
+            "2-multiple": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# MAX6675_RK\n\n*MAX6675 SPI thermocouple library for Particle devices*\n\n- Repository: https://github.com/rickkas7/MAX6675_RK\n- License: MIT\n- Full browseable API documentation: https://rickkas7.github.io/MAX6675_RK/index.html\n\n\n## API\n\n### Allocate an object\n\nYou will typically allocate one of these objects as a global variable.\n\n```cpp\n// Examples. Select only one!\nMAX6675_RK sensor;\n// MAX6675_RK sensor(A0);\n// MAX6675_RK sensor(&SPI1, D5);\n```\n\nYou can configure more than one sensor by creating multiple objects. Each sensor must have its own CS line. See example 2-multiple.\n\n### Initialize the object in setup()\n\n```cpp\nvoid setup() {\n    sensor.setup();\n}\n```\n\n### Read the value\n\nUse the readValue() method to read the value in degrees Celsius:\n\n```cpp\nfloat value = sensor.readValue();\nif (!std::isnan(value)) {\n    Log.info(\"value=%f\", value);\n}\n```\n\n## Example\n\nI purchased [this set](https://www.amazon.com/dp/B092ZCSM7J) of inexpensive MAX6675 with thermocouples from Amazon. There are many similar boards available on Amazon, eBay, and AliExpress.\n\n| Pin  | Description | Connects To    | Picture        |\n| :--- | :---------- | :------------- | :------------- |\n| GND  | Ground      | GND            | Gray to GND    |\n| VCC  | 3.0 to 5V   | 3V3            | Purple to 3V3  |\n| SCK  | SCK         | SCK            | Blue to SCK    |\n| CS   | Chip Select | Available GPIO | Green to S3    |\n| SO   | Data Out    | MISO           | Yellow to MISO |\n\nThe CS pin can be connected to any available GPIO. There is a default CS pin named `SS` that varies depending on the device, but you don't have to specifically use that pin.\n\nThe color doesn't matter, and that is not the same Dupont wire that came with the thermocouple adapter as I wanted male-to-female instead of female-to-female. The colors are only listed to clarify the picture.\n\nWiring (image removed)\n\nThe connections on this adapter board:\n\nBoard connections (image removed)\n\nThe sample code in examples/1-Simple can be used to test the firmware side.\n\nThe output should look like this:\n\n```\n0000022622 [app] INFO: value=26.500000\n0000024622 [app] INFO: value=26.750000\n0000026622 [app] INFO: value=26.500000\n0000028622 [app] INFO: value=26.500000\n0000030622 [app] INFO: value=26.500000\n0000032622 [app] INFO: value=26.250000\n0000034622 [app] INFO: value=26.500000\n0000036622 [app] INFO: value=26.500000\n0000038622 [app] INFO: value=26.750000\n```\n\nIf you disconnect the T+ or T- thermocouple connection, you should see something like:\n\n```\n0001088622 [app] INFO: value=26.500000\n0001090622 [app] INFO: sensor not available\n0001092622 [app] INFO: sensor not available\n0001094622 [app] INFO: value=26.500000\n```\n\nIf you disconnect the SPI interface, you will typically get a value of 0.\n\n## MAX6675\n\nFrom the datasheet:\n\n**Cold-Junction-Compensated K-Thermocouple-to-Digital Converter (0°C to +1024°C)**\n\nThe MAX6675 performs cold-junction compensation and digitizes the signal from a type-K thermocouple. The data is output in a 12-bit resolution, SPI-compatible, read-only\nformat.\n\nThis converter resolves temperatures to 0.25°C, allows readings as high as +1024°C, and exhibits thermocouple accuracy of 8 LSBs for temperatures ranging from 0°C to +700°C.\n\nThe MAX6675 is available in a small, 8-pin SO package.\n\n- Direct Digital Conversion of Type -K Thermocouple Output\n- Cold-Junction Compensation\n- Simple SPI-Compatible Serial Interface\n- 12-Bit, 0.25°C Resolution\n- Open Thermocouple Detection\n\nAdditionally:\n\n- Unidirectional 3-wire SPI interface (SCK, CS, and SO only)\n- 3.0 to 5.5V recommended supply voltage\n- Serial clock frequency maximum: 4.3 MHz\n- SPI Mode 3 (CPOL=1, CPHA=1) (data sampled on the second edge, idle high)\n\nSPI timing (image removed)\n\n## Version History\n\n### 0.0.2 (2025-12-11)\n\n- Added example for multiple sensors (2-multiple)\n\n### 0.0.1 (2025-12-10)\n\n- Initial version\n\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

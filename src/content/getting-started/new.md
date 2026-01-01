@@ -20,6 +20,11 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+
+### Library updates 2026-01-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Tachyon power requirements update 2025-12-22
 
 Updated power requirements in the [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/#power-requirements).
