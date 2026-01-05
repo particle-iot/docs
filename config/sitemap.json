@@ -6111,8 +6111,8 @@
             "hash": "a9dd4f56134557ceed2a4f46e0d13505f5448d0abe9543250c8dd0e03ca222ae"
         },
         "reference/device-os/libraries/j/JSN-SR04_Gen3_RK.md": {
-            "date": "2025-04-01",
-            "hash": "086673d441fc911aac6eaea3e3bec2a3ad3ba014424fbe9ca5ac0fde2efaa63a"
+            "date": "2026-01-01",
+            "hash": "2172aea5314823bb56e65c4efd561deaca63f7f9dad1b1f42d8fc4cc59461962"
         },
         "reference/device-os/libraries/j/JsonParserGeneratorRK.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "9a6eb160cbab42e044beb4601b1defda3b4c7b7c22bd5f8932513935f2e93cd2",
-            "date": "2025-12-22"
+            "hash": "b6d84f907fc17fc3be3bca0674b3518049868dff7e0f5903fb93cea6cb9fc431",
+            "date": "2026-01-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9941,6 +9941,14 @@
         "reference/device-os/libraries/h/HttpClient-mbedtls.md": {
             "hash": "66a38496c7505bd1d53ef609fb7610d0f5249b918b2a8fc7475b0223670db612",
             "date": "2025-12-03"
+        },
+        "reference/device-os/libraries/m/MAX6675_CNM.md": {
+            "hash": "b39aa5989337c6eedd16cc1eb90082f1b4bf9542ff74eee6f4fd62308b0e1d34",
+            "date": "2026-01-01"
+        },
+        "reference/device-os/libraries/m/MAX6675_RK.md": {
+            "hash": "f5954298976e2effab87fabb7a1739a918d49fa0dce3dd7c5cae0cbba64c5927",
+            "date": "2026-01-01"
         }
     }
 }

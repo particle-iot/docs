@@ -2119,6 +2119,14 @@
           "dir": "MAX31856TC"
         },
         {
+          "title": "MAX6675_CNM",
+          "dir": "MAX6675_CNM"
+        },
+        {
+          "title": "MAX6675_RK",
+          "dir": "MAX6675_RK"
+        },
+        {
           "title": "MB85RC256V-FRAM-RK",
           "dir": "MB85RC256V-FRAM-RK"
         },
