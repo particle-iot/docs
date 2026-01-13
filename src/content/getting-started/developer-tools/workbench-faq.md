@@ -131,5 +131,5 @@ This is caused by a change in the behavior of the `tr` command in Mac OS. This c
 export LC_COLLATE=C
 ```
 
-Note that Workbench uses bash as its shell for local build and **Particle: Launch compiler shell** regardless of your default shell, so you will probably use .bash_profile even if you normally use zah and .zprofile. 
+Note that Workbench uses bash as its shell for local build and **Particle: Launch compiler shell** regardless of your default shell, so you will probably use .bash_profile even if you normally use zsh and .zprofile. 
 
