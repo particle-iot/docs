@@ -4354,7 +4354,7 @@
       "country": "Albania",
       "carrier": "Vodafone",
       "sunset2G": "2030-01-01",
-      "sunset3G": "2022-12-31",
+      "sunset3G": "2026-03-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -7401,7 +7401,7 @@
         "Telus Mobility, Koodo Mobile, Public Mobile"
       ],
       "sunset2G": "2017-05-31",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2026-03-31",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -10238,7 +10238,7 @@
     {
       "country": "France",
       "carrier": "Orange",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2026-03-31",
       "sunset3G": "2028-12-31",
       "lteM1": true,
       "supersim": {
@@ -12188,7 +12188,7 @@
     {
       "country": "Hungary",
       "carrier": "Magyar Telekom",
-      "sunset2G": "?",
+      "sunset2G": "2026-01-31",
       "sunset3G": "NA",
       "supersim": {
         "allow2G": true,
@@ -17598,7 +17598,7 @@
       "country": "New Zealand",
       "carrier": "Spark",
       "sunset2G": "2012-07-31",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2026-03-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -166059,6 +166059,58 @@
     },
     {
       "date": "2026-03-31",
+      "country": "Albania",
+      "items": [
+        {
+          "carrier": "Vodafone",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Eagle",
+        "Telekom",
+        "Vodafone"
+      ],
+      "3G": [
+        "Eagle",
+        "Telekom"
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "country": "Canada",
+      "items": [
+        {
+          "carrier": "Telus",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2026-03-31",
+      "country": "France",
+      "items": [
+        {
+          "carrier": "Orange",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Bouygues",
+        "Free Mobile",
+        "SFR"
+      ],
+      "3G": [
+        "Bouygues",
+        "Free Mobile",
+        "Orange",
+        "SFR"
+      ]
+    },
+    {
+      "date": "2026-03-31",
       "country": "Japan",
       "items": [
         {
@@ -166068,6 +166120,34 @@
       ],
       "2G": [],
       "3G": []
+    },
+    {
+      "date": "2026-03-31",
+      "country": "New Zealand",
+      "items": [
+        {
+          "carrier": "Spark",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2026-01-31",
+      "country": "Hungary",
+      "items": [
+        {
+          "carrier": "Magyar Telekom",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "Telenor"
+      ],
+      "3G": [
+        "Telenor"
+      ]
     },
     {
       "date": "2025-12-31",
@@ -166162,14 +166242,12 @@
         {
           "carrier": "Bell Mobility",
           "rat": "3G"
-        },
-        {
-          "carrier": "Telus",
-          "rat": "3G"
         }
       ],
       "2G": [],
-      "3G": []
+      "3G": [
+        "Telus"
+      ]
     },
     {
       "date": "2025-12-31",
@@ -166287,27 +166365,6 @@
         "Elisa"
       ],
       "3G": []
-    },
-    {
-      "date": "2025-12-31",
-      "country": "France",
-      "items": [
-        {
-          "carrier": "Orange",
-          "rat": "2G"
-        }
-      ],
-      "2G": [
-        "Bouygues",
-        "Free Mobile",
-        "SFR"
-      ],
-      "3G": [
-        "Bouygues",
-        "Free Mobile",
-        "Orange",
-        "SFR"
-      ]
     },
     {
       "date": "2025-12-31",
@@ -166545,16 +166602,14 @@
           "rat": "3G"
         },
         {
-          "carrier": "Spark",
-          "rat": "3G"
-        },
-        {
           "carrier": "Vodafone",
           "rat": "2G"
         }
       ],
       "2G": [],
-      "3G": []
+      "3G": [
+        "Spark"
+      ]
     },
     {
       "date": "2025-12-31",
@@ -167955,25 +168010,6 @@
       ],
       "3G": [
         "T-Mobile"
-      ]
-    },
-    {
-      "date": "2022-12-31",
-      "country": "Albania",
-      "items": [
-        {
-          "carrier": "Vodafone",
-          "rat": "3G"
-        }
-      ],
-      "2G": [
-        "Eagle",
-        "Telekom",
-        "Vodafone"
-      ],
-      "3G": [
-        "Eagle",
-        "Telekom"
       ]
     },
     {

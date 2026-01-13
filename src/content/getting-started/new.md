@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+
+### Updated sunset dates 2026-01-13
+
+[Updated 3G sunset dates](/reference/discontinued/cellular/2g-3g-sunset/) for Hungary Magyar Telekom. Several carriers in other countries had 3G sunset dates moved from 2025-12-31 to 2026-03-31.
+
 ### Workbench FAQ update 2026-01-13
 
 Updated the [Workbench FAQ](/getting-started/developer-tools/workbench-faq/#error-compiler-generates-fpu-instructions-for-a-device-without-an-fpu) for fixing a "Compiler generates FPU instructions for a device without an FPU error" for debug builds on newer version of Mac OS.
