@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Workbench FAQ update 2026-01-13
+
+Updated the [Workbench FAQ](/getting-started/developer-tools/workbench-faq/#error-compiler-generates-fpu-instructions-for-a-device-without-an-fpu) for fixing a "Compiler generates FPU instructions for a device without an FPU error" for debug builds on newer version of Mac OS.
+
 ### Library updates 2026-01-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.

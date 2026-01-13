@@ -103,3 +103,33 @@ Click the settings (gear) icon in the lower left, Settings, Extensions, Particle
 ![Enable preview releases](/assets/images/workbench/enable-prerelease.png)
 
 Once you complete this step, **Particle: Configure Workspace for Device** will include additional versions.
+
+### Error: Compiler generates FPU instructions for a device without an FPU 
+
+When building debug builds on newer version of Mac OS, you may see errors similar to these:
+
+```bash
+/Users/rickk/.particle/toolchains/deviceOS/6.3.4/modules/tron/system-part1/makefile /Users/rickk/.particle/toolchains/deviceOS/6.3.4/modules/tron/user-part/makefile
+<command-line>: error: ISO C++11 requires whitespace after the macro name [-Werror]
+In file included from ../hal/src/rtl872x/interrupts_irq.h:94,
+                 from ../hal/inc/interrupts_hal.h:33,
+                 from src/malloc.cpp:12:
+../third_party/ambd_sdk/ambd_sdk/component/soc/realtek/amebad/cmsis/core_armv8mbl.h:88:6: error: #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+   88 |     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      |      ^~~~~
+cc1plus: all warnings being treated as errors
+make[4]: *** [../build/target/newlib_nano/platform-32-m/./src/malloc.o] Error 1
+make[3]: *** [newlib_nano] Error 2
+make[2]: *** [/Users/rickk/.particle/toolchains/deviceOS/6.3.4/modules/tron/system-part1/makefile] Error 2
+```
+
+This is caused by a change in the behavior of the `tr` command in Mac OS. This can be fixed by adding this to the `.bash_profile` file in your home directory.
+
+```bash
+# fixes error: #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+# for Particle Workbench debug builds on Mac OS
+export LC_COLLATE=C
+```
+
+Note that Workbench uses bash as its shell for local build and **Particle: Launch compiler shell** regardless of your default shell, so you will probably use .bash_profile even if you normally use zah and .zprofile. 
+
