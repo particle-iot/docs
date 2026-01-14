@@ -1,0 +1,15 @@
+{
+    "name": "map-fix",
+    "version": "0.0.1",
+    "description": "",
+    "private": true,
+    "scripts": {},
+    "author": "rickkas7@rickkas7.com",
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+    },
+    "engines": {
+        "node": ">=12.14.0"
+    }
+}

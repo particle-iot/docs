@@ -689,7 +689,6 @@ rec2.init = function(options, callback) {
 //
 // Family Map
 //
-const mapsApiKey = 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY';
  
 let familyMaps = [];
 
@@ -709,6 +708,16 @@ const familyMapCreate = function() {
 
         history.pushState(null, '', '?tab=ModelMap&family=' + encodeURIComponent(family));
     };
+
+    familyMap.removeFill = function() {
+        if (familyMap.worldMapFill) {
+            const svgElem = $('.familyMapDiv > svg ');
+            for(const className of familyMap.worldMapFill) {
+                $(svgElem).find('.' + className).css('fill', '#E2E4EB'); // gray 200
+            }
+        }
+        familyMap.worldMapFill = [];
+    }
 
     familyMap.drawMap = function() {
         let family;
@@ -736,7 +745,10 @@ const familyMapCreate = function() {
             }
         });
 
-        let countryModelArray = [['Country', 'Model']];
+        // let countryModelArray = [['Country', 'Model']];
+        familyMap.removeFill();
+        const svgElem = $('.familyMapDiv > svg ');
+        const colors = ['86E2D5', '00AEEF'];
 
         datastore.data.countries.forEach(function(countryObj) {
 
@@ -753,30 +765,20 @@ const familyMapCreate = function() {
                             foundModel = modelObj.mapColor;
                         }
                         else {
-                            foundModel = modelIndex;
+                            // foundModel = modelIndex;
                         }
                     }
                 });
             });    
-            if (foundModel != undefined) {
-                countryModelArray.push([countryObj.isoCode, foundModel]);
+            if (typeof foundModel != 'undefined') {
+                const className = 'country-' + countryObj.isoCode;
+                familyMap.worldMapFill.push(className);
+
+                $(svgElem).find('.' + className).css('fill', '#' + colors[foundModel]);
+                // console.log('drawMap', {className, color: colors[foundModel], foundModel})
             }
         });
 
-        var data = google.visualization.arrayToDataTable(countryModelArray);
-
-        // Light fuscia 'FF8CE1' replaces teal (86E2D5)
-        // Light pink 'FFB8D3' replaces cyan (00AEEF)
-        var options = {
-            colorAxis: {colors: ['86E2D5', '00AEEF']}, // teal to cyan
-            legend: 'none',
-            tooltip: {trigger: 'none'}
-        };
-
-
-        var chart = new google.visualization.GeoChart(familyMap.options.mapDiv[0]);
-
-        chart.draw(data, options);
 
         // 
         {
@@ -787,8 +789,8 @@ const familyMapCreate = function() {
                 if (typeof skuFamilyObj['mapColor'] != 'undefined') {
                     mapColor = skuFamilyObj.mapColor;
                 }
-                const style = 'background-color:#' + options.colorAxis.colors[mapColor];
-                if (!options.colorAxis.colors[mapColor]) {
+                const style = 'background-color:#' + colors[mapColor];
+                if (!colors[mapColor]) {
                     return;
                 }
 
@@ -808,9 +810,13 @@ const familyMapCreate = function() {
     }
 
     familyMap.drawMapCat1Expansion = function() {
-        let countryDataArray = [['Country', 'Coverage']];
+        // let countryDataArray = [['Country', 'Coverage']];
+
+        const svgElem = $('.familyMapDiv > svg ');
+        familyMap.removeFill();
 
         const labelValues = ['Original Coverage', 'Expanded Coverage'];
+        const colors = ['AFE4EE', '2BB1CA'];
 
         datastore.data.countries.forEach(function(countryObj) {
 
@@ -835,29 +841,19 @@ const familyMapCreate = function() {
             });    
 
             if (foundValue) {
-                countryDataArray.push([countryObj.isoCode, foundValue]);
+                const className = 'country-' + countryObj.isoCode;
+                familyMap.worldMapFill.push(className);
+
+                $(svgElem).find('.' + className).css('fill', '#' + colors[foundValue - 1]);
             }
         });
-
-        var data = google.visualization.arrayToDataTable(countryDataArray);
-
-        var options = {
-            colorAxis: {colors: ['AFE4EE', '2BB1CA']}, // Sky 600 to Sky 900
-            legend: 'none',
-            tooltip: {trigger: 'none'}
-        };
-
-
-        var chart = new google.visualization.GeoChart(familyMap.options.mapDiv[0]);
-
-        chart.draw(data, options);
 
         // 
         {
             let html = '<div><table><tbody>';
 
             for(let ii = 0; ii < labelValues.length; ii++) {
-                const style = 'background-color:#' + options.colorAxis.colors[ii];
+                const style = 'background-color:#' + colors[ii];
 
                 html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + labelValues[ii] + '</td></tr>';
             }
@@ -868,14 +864,17 @@ const familyMapCreate = function() {
         }
     }
     
-    familyMap.initMap = function() {
+    familyMap.initMap = async function() {
         familyMap.initMapStarted = true;
 
-        google.charts.load('current', {
-            'packages':['geochart'],
-            'mapsApiKey': mapsApiKey
-        });
-        google.charts.setOnLoadCallback(familyMap.drawMap);    
+        const fetchRes = await fetch('/assets/images/world-map.svg');
+        familyMap.worldMapSvg = await fetchRes.text();
+
+        $('.familyMapDiv').html(familyMap.worldMapSvg);
+
+        familyMap.worldMapFill = [];
+
+        familyMap.drawMap();
     }
 
     familyMap.clickToShow = function() {
@@ -2040,7 +2039,7 @@ $(document).ready(function() {
                 },
                 function() {
                     carrierSelectTabs.ModelMap.init({
-                        mapDiv:$('#familyMapDiv'),
+                        mapDiv:$('.familyMapDiv'),
                         familySelect:$('#familyMapSelect'),
                         skusDiv:$('#familyMapSkusDiv')
                     },

@@ -31913,7 +31913,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "BG96-MC"
+          "modem": "BG96-MC",
+          "mapColor": 0
         },
         {
           "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
@@ -31925,7 +31926,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "EG91-EX"
+          "modem": "EG91-EX",
+          "mapColor": 1
         },
         {
           "name": "Monitor One MON404 LTE M1 (NorAm) EtherSIM",
@@ -31936,7 +31938,8 @@
           "lifecycle": "In development",
           "sim": 4,
           "simPlan": 40,
-          "modem": "BG96-MC"
+          "modem": "BG96-MC",
+          "mapColor": 0
         },
         {
           "name": "Monitor One MON524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
@@ -31947,7 +31950,8 @@
           "lifecycle": "In development",
           "sim": 4,
           "simPlan": 40,
-          "modem": "EG91-EX"
+          "modem": "EG91-EX",
+          "mapColor": 1
         },
         {
           "name": "Tracker T402/ONE402 LTE M1 (NorAm) (before 2021)",
@@ -32191,7 +32195,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "E-Series E314 2G/3G Global EtherSIM",
@@ -32202,7 +32207,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "U201"
+          "modem": "U201",
+          "mapColor": 1
         },
         {
           "name": "E-Series E402 LTE M1 (NorAm) (before 2021)",
@@ -32284,7 +32290,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "Electron ELC314 2G/3G Global EtherSIM",
@@ -32295,7 +32302,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "U201"
+          "modem": "U201",
+          "mapColor": 1
         },
         {
           "name": "Electron ELC402 LTE M1 (NorAm) (before 2021)",

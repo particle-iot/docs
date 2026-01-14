@@ -3,7 +3,7 @@ title: LTE Cat 1 Expansion
 columns: two
 layout: commonTwo.hbs
 description: LTE Cat 1 Expansion (May 2022)
-includeDefinitions: [api-helper, carrier-family-map]
+includeDefinitions: [api-helper, datastore, carrier-family-map]
 ---
 
 # {{title}}
