@@ -68,6 +68,138 @@ $(document).ready(function() {
 
     datastore.init({path:'/assets/files/carriers.json'}, function() {
 
+        // sunsetMap
+        const createSunsetMap = async function() {
+
+            const fetchRes = await fetch('/assets/images/world-map.svg');
+            const worldMapSvg = await fetchRes.text();
+
+            $('.sunsetMap').each(function() {
+                const thisPartial = $(this);
+
+                const sunsetMap = {
+                    thisPartial,
+                    options: {},
+                    worldMapSvg,
+                    sunsetMapDivElem: $(thisPartial).find('.sunsetMapDiv'),
+                    years: [],
+                }
+                sunsetMap.legend = [
+                    {
+                        key: 'full',
+                        color: '#78ECB0', // Green 500
+                        title: 'Full service',
+                    },
+                    {
+                        key: 'reduced',
+                        color: '#FFBC80', // Orange 500
+                        title: 'Reduced service',
+                    },
+                    {
+                        key: 'none',
+                        color: '#E2E4EB', // Backgrond color gray 200
+                        title: 'No service',
+                    },
+                ];
+
+
+                $(thisPartial).data('sunsetMap', sunsetMap);
+
+                for(const pair of $(thisPartial).data('options').split(',')) {
+                    const parts = pair.split('=', 2);
+                    if (parts.length >= 1) {
+                        if (parts.length == 1) {
+                            sunsetMap.options[parts[0].trim()] = true;
+                        }
+                        else {
+                            sunsetMap.options[parts[0].trim()] = parts[1].trim();
+                        }
+                    }
+                }  
+                $(sunsetMap.sunsetMapDivElem).html(sunsetMap.worldMapSvg);
+
+                const updateMap = function() {
+                    const yearStr = $(thisPartial).find('.sunsetMapDateSelect').val();
+                    const year = parseInt(yearStr);
+                    $(thisPartial).find('.inputRange').val(year);
+
+                    const sunsetDataObj = datastore.data.sunsetTimeline[yearStr];
+
+                    for(const country in sunsetDataObj) {
+                        const countryObj = datastore.data.countries.find(e => e.name == country);
+                        if (!countryObj) {
+                            continue;
+                        }
+
+                        const className = 'country-' + countryObj.isoCode;
+                        const status = sunsetDataObj[country].status;
+
+                        let color = sunsetMap.legend.find(e => e.key == status).color;
+                        $(sunsetMap.sunsetMapDivElem).find('.' + className).css('fill', color);
+                    }
+                }
+
+                for(const yearStr in datastore.data.sunsetTimeline) {
+                    sunsetMap.years.push(parseInt(yearStr));
+
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text(yearStr);
+                    $(optionElem).attr('value', yearStr);
+
+                    $(thisPartial).find('.sunsetMapDateSelect').append(optionElem);
+                }
+                sunsetMap.yearFirst = sunsetMap.years[0];
+                sunsetMap.yearLast = sunsetMap.years[sunsetMap.years.length - 1];
+
+                $(thisPartial).find('.inputRange').prop('min', sunsetMap.yearFirst);
+                $(thisPartial).find('.inputRange').prop('max', sunsetMap.yearLast);
+                $(thisPartial).find('.inputRange').on('input', function() {
+                    const year = $(this).val();
+                    $(thisPartial).find('.sunsetMapDateSelect').val(year.toString());
+                    updateMap();
+                })
+                
+                $(thisPartial).find('.sunsetMapDateSelect').on('change', updateMap);
+
+                const currentYear = new Date().getFullYear();
+                $(thisPartial).find('.sunsetMapDateSelect').val(currentYear.toString());
+
+                updateMap();
+
+                // Legend
+                for(const legendObj of sunsetMap.legend) {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', '30px');
+                        $(tdElem).css('background-color', legendObj.color);
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(legendObj.title);
+                        $(trElem).append(tdElem);
+                    }
+
+
+                    $(thisPartial).find('.sunsetMapLegend').append(trElem);
+                }
+
+
+                console.log('sunsetMap', sunsetMap);
+
+                $(thisPartial).show();
+            });
+        }
+        createSunsetMap();
+
+
+
+        
+        // 
+        // sunsetList
+        //
         $('.sunsetList').each(function() {
             const thisPartial = $(this);
 
