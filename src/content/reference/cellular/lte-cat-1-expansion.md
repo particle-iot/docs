@@ -36,6 +36,8 @@ This document describes the expansion of available countries for LTE Cat 1, made
 
 {{> carrier-family-map family="cat1expansion"}}
 
+<p class="attribution">World map from [simplemaps.com](https://simplemaps.com/resources/svg-world)</p>
+
 ## Detailed list of countries and carriers
 
 {{!-- BEGIN do not edit content below, it is automatically generated 574fffef-d296-4b39-a38f-9dc8bba013c8 --}}
