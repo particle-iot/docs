@@ -11,10 +11,6 @@ description: Tachyon Datasheet
 {{downloadButton url="/assets/pdfs/datasheets/tachyon-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and is subject to change.
-{{box op="end"}}
-
 {{imageOverlay src="/assets/images/tachyon/tachyon-iso.jpg" alt="Tachyon Photo"}}
 
 
@@ -847,13 +843,23 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 
 This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
 
+**FCC Indoor Use**
+
+FCC regulations restrict the operation of this device to indoor use only.
+This device is prohibited from being operated on oil platforms, cars, trains, boats, and
+aircraft, except it can be operated in large aircraft while flying above 10,000 feet in the
+5.925-6.425 GHz band.
+
+Transmitters in the 5.925-7.125 GHz band are prohibited from operating to control or
+communicate with unmanned aircraft systems
+
 **IMPORTANT NOTE:**
 In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
 
-* Contains FCC ID: 
+* Contains FCC ID: 2AEMI-TACHYON
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -867,12 +873,13 @@ outdoor access point in U-NII-1 band, 5.150-5.250 GHz.
 
 
 **Canada Statement**
-This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
+This device complies with Innovation, Science, and Economic Development Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
 
 1. This device may not cause interference; and
 2. This device must accept any interference, including interference that may cause undesired operation of the device.
 
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
+Le présent appareil est conforme aux CNR d’Innovation, Sciences et Développement économique
+Canada applicables aux appareils radio exempts de licence.
 
 **L’exploitation est autorisée aux deux conditions suivantes:**
 
@@ -884,9 +891,9 @@ This device meets the exemption from the routine evaluation limits in section 2.
 Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
 
 **The final end product must be labelled in a visible area with the following:**
-The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
+The Innovation, Science, and Economic Development Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Innovation, Science, and Economic Development Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
- * Contains transmitter module ISED: 
+ * Contains transmitter module ISED: 20127-TACHYON
  
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -896,21 +903,22 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 **Outdoor use (CA)**
 
-- Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful
+- Operation in the bands 5150–5250 MHz, 5250-5350MHz, and 5925-7125MHz is only for indoor use to reduce the potential for harmful
 interference to co-channel mobile satellite systems;
 - Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars are allocated
 as primary users (i.e., priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that
 these radars could cause interference and/or damage to LE-LAN devices.
 - DFS (Dynamic Frequency Selection) products that operate in the bands 5250- 5350 MHz, 5470-5600MHz, and 5650-5725MHz.
 
-- Le dispositif de fonctionnement dans la bande 5150-5250 MHz est réservé à une utilisation en
+- Le dispositif de fonctionnement dans la bande 5150-5250 MHz, 5250-5350MHz, et
+5925-7125MHz est réservé à une utilisation en
 intérieur pour réduire le risque d'interférences nuisibles à la co-canal systèmes mobiles par
 satellite
 - Opération dans la bande 5600-5650 MHz n'est pas autorisée au Canada. Haute puissance radars
 sont désignés comme utilisateurs principaux (c.-àutilisateurs prioritaires) des bandes 5250-5350
 MHz et 5650-5850 MHz et que ces radars pourraient causer des interférences et / ou des
 dommages à dispositifs LAN-EL.
-- Les produits utilisant la technique d’atténuation DFS (sélection dynamique des fréquences) sur les bandes 5250- 5350 MHz, 5470-5600MHz et 5650-5725MHz.
+- Les produits utilisant la technique d’atténuation DFS (sélection dynamique des fréquences) sur les bandes 5250-5350 MHz, 5470-5600MHz et 5650-5725MHz.
 
 ### European Union (CE)
 
@@ -1054,3 +1062,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 007      | 2025-09-03 | RK | Added power requirements |
 | 008      | 2025-09-16 | RK | Add TACH4NA |
 | 009      | 2025-12-22 | RK | Update power requirements |
+| 010      | 2026-01-15 | RK | Updates for certification |

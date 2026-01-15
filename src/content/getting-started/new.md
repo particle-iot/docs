@@ -21,6 +21,9 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon datasheet update 2026-01-15
+
+Minor updates to the [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/) for certification.
 
 ### Updated sunset dates 2026-01-13
 
