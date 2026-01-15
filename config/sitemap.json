@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "cddc7c414a6ce45d143bb659dfd280f3118168bc443153a0921880e17792bcda",
+            "hash": "3274b84cfa26c628ea63ff0d71bfa631d4bf97acc3fa0160bb6e2765e9a195b0",
             "date": "2026-01-15"
         },
         "getting-started/cloud/logic.md": {
@@ -9695,8 +9695,8 @@
             "date": "2025-03-01"
         },
         "reference/discontinued/cellular/2g-3g-sunset.md": {
-            "hash": "f0e4dad142b9f44a8de3138fa0101a61e011f1a8fb5fdf0045ae9f7a238230b7",
-            "date": "2026-01-14"
+            "hash": "ec5e50daab1b795b59c980daa7c4bc35a7d1005d5a9b9627e871657e2a2f171e",
+            "date": "2026-01-15"
         },
         "firmware/best-practices/thread-interrupt-safety.md": {
             "hash": "df83bd969de97f0e388c49294ce7c3168cb66057c3a37bcd5e8e99a7a070cd10",

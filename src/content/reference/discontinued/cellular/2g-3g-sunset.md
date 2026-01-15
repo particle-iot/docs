@@ -17,6 +17,8 @@ spectrum and tower space for 4G and 5G LTE services.
 - [2G/3G sunsets - by date](#2g-3g-sunsets-by-date)
 - [2G/3G sunsets - by country](#2g-3g-sunsets-by-country)
 
+**There may be sunsets not listed below, and dates are subject to change!**
+
 ## 2G/3G sunsets - map
 
 {{> sunset-map options=""}}
