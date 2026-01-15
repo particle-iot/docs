@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Sunset map 2026-01-15
+
+[The 2G/3G sunset page](/reference/discontinued/cellular/2g-3g-sunset/) now has a map view; you can use a slider control to view dates in the past and future to view 2G/3G coverage.
+
 ### Tachyon datasheet update 2026-01-15
 
 Minor updates to the [Tachyon datasheet](/reference/datasheets/tachyon/tachyon-datasheet/) for certification.

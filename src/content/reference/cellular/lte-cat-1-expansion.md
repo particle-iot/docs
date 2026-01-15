@@ -3,7 +3,7 @@ title: LTE Cat 1 Expansion
 columns: two
 layout: commonTwo.hbs
 description: LTE Cat 1 Expansion (May 2022)
-includeDefinitions: [api-helper, carrier-family-map]
+includeDefinitions: [api-helper, datastore, carrier-family-map]
 ---
 
 # {{title}}
@@ -35,6 +35,8 @@ This document describes the expansion of available countries for LTE Cat 1, made
 ## Map of expanded coverage
 
 {{> carrier-family-map family="cat1expansion"}}
+
+<p class="attribution">World map from [simplemaps.com](https://simplemaps.com/resources/svg-world)</p>
 
 ## Detailed list of countries and carriers
 

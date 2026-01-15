@@ -1119,8 +1119,8 @@
             "hash": "c49ffc2c5009f4422484dbf4bbd276257265a941dc0811a301d10e1537027b3f"
         },
         "reference/cellular/lte-cat-1-expansion.md": {
-            "date": "2025-10-03",
-            "hash": "0c70b6323dc436df538890c79f9e0509beadcdd555cccaa2b4a4f032f3204049"
+            "date": "2026-01-15",
+            "hash": "75757ec332ca04a25ec337453914782d9ef51a2c7f65ec9361a0a3c3a617206e"
         },
         "reference/cellular/sim-cards.md": {
             "date": "2024-02-27",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "cddc7c414a6ce45d143bb659dfd280f3118168bc443153a0921880e17792bcda",
+            "hash": "3274b84cfa26c628ea63ff0d71bfa631d4bf97acc3fa0160bb6e2765e9a195b0",
             "date": "2026-01-15"
         },
         "getting-started/cloud/logic.md": {
@@ -9695,8 +9695,8 @@
             "date": "2025-03-01"
         },
         "reference/discontinued/cellular/2g-3g-sunset.md": {
-            "hash": "6d0e64ed20876debc037f94dd9fdd687f5a92cd53ecf199237887cb44f9b22d2",
-            "date": "2025-05-13"
+            "hash": "ec5e50daab1b795b59c980daa7c4bc35a7d1005d5a9b9627e871657e2a2f171e",
+            "date": "2026-01-15"
         },
         "firmware/best-practices/thread-interrupt-safety.md": {
             "hash": "df83bd969de97f0e388c49294ce7c3168cb66057c3a37bcd5e8e99a7a070cd10",

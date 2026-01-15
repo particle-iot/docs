@@ -13,10 +13,15 @@ The mobile operators used by Particle cellular devices around are making changes
 As the number of 2G and 3G devices dwindle, carriers are ending, deprecating, or sunsetting 2G and/or 3G services in order to reallocate
 spectrum and tower space for 4G and 5G LTE services.
 
-There are two tables below:
-
+- [2G/3G sunsets - map](#2g-3g-sunsets-map)
 - [2G/3G sunsets - by date](#2g-3g-sunsets-by-date)
 - [2G/3G sunsets - by country](#2g-3g-sunsets-by-country)
+
+**There may be sunsets not listed below, and dates are subject to change!**
+
+## 2G/3G sunsets - map
+
+{{> sunset-map options=""}}
 
 ## 2G/3G sunsets - by date
 
