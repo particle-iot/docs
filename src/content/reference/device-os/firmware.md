@@ -6611,7 +6611,7 @@ It may be preferable to use [`System.batteryCharge()`](#batterycharge-) instead 
 
 ```cpp
 // PROTOTYPE
-float getNormalizedSoC()
+float getNormalizedSoC();
 ```
 
 Returns the State of Charge in percentage from 0-100% as a `float`, normalized based on the charge voltage. Returns -1.0 if the fuel gauge cannot be read.
