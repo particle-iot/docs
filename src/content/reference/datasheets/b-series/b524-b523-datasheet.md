@@ -1749,12 +1749,12 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Algeria | B524 | 2G, 3G, 4G | Mobilis, Ooredoo |
 | Aruba | B524 | 2G, 3G, 4G | Setar |
 | Australia | B524 | 4G | Optus, Telstra, Vodafone |
-| Austria | B524 | 2G, 3G, 4G | 3 (Drei), A1, T-Mobile |
+| Austria | B524 | 2G, 4G | 3 (Drei), A1, T-Mobile |
 | Bahrain | B524 | 2G, 4G | Zain |
 | Bangladesh | B524 | 2G, 3G, 4G | Bangalink, GrameenPhone |
 | Belarus | B524 | 2G, 3G, 4G | A1 |
-| Belgium | B524 | 2G, 3G, 4G | Base, Orange, Proximus |
-| Bosnia and Herzegovina | B524 | 2G, 3G | BH Telecom, HT Eronet |
+| Belgium | B524 | 2G, 4G | Base, Orange, Proximus |
+| Bosnia and Herzegovina | B524 | 2G, 3G | HT Eronet |
 | Botswana | B524 | 2G, 3G, 4G | BeMobile |
 | Brunei | B524 | 3G, 4G | DST |
 | Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
@@ -1767,9 +1767,9 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Congo (Kinshasa) | B524 | 2G, 3G, 4G | Airtel |
 | Côte d'Ivoire | B524 | 2G, 3G | MTN |
 | Croatia | B524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | B524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
+| Cyprus | B524 | 2G, 3G, 4G | MTN, PrimeTel |
 | Czechia | B524 | 2G, 4G | O2, T-Mobile, Vodafone |
-| Denmark | B524 | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
+| Denmark | B524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | B524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | B524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | B524 | 2G, 3G, 4G | MTN |
@@ -1788,9 +1788,9 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Guinea-Bissau | B524 | 2G, 3G, 4G | MTN |
 | Guyana | B524 | 2G | Digicel |
 | Haiti | B524 | 2G, 3G | Digicel |
-| Hong Kong | B524 | 2G, 3G, 4G | CMHK, CSL, SmarTone |
+| Hong Kong | B524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | B524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
-| Iceland | B524 | 2G, 3G, 4G | Nova, Siminn, Vodafone |
+| Iceland | B524 | 4G | Nova, Siminn, Vodafone |
 | Indonesia | B524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | B524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | B524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
@@ -1800,10 +1800,10 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Kazakhstan | B524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | B524 | 2G, 3G, 4G | Airtel |
 | Kuwait | B524 | 2G, 3G, 4G | Viva, Zain |
-| Latvia | B524 | 2G, 3G, 4G | Bite, LMT, Tele2 |
+| Latvia | B524 | 2G, 4G | Bite, LMT, Tele2 |
 | Liechtenstein | B524 | 2G, 3G, 4G | Mobilkom, Orange |
-| Lithuania | B524 | 2G, 3G, 4G | Bite, Omnitel, Tele2 |
-| Luxembourg | B524 | 2G, 3G, 4G | Orange, POST, Tango |
+| Lithuania | B524 | 2G, 4G | Bite, Omnitel, Tele2 |
+| Luxembourg | B524 | 2G, 4G | Orange, POST, Tango |
 | Macao | B524 | 3G, 4G | CTM |
 | Madagascar | B524 | 2G, 3G, 4G | Airtel |
 | Malawi | B524 | 2G, 3G, 4G | Airtel |
@@ -1814,10 +1814,10 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Montenegro | B524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | B524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | B524 | 2G, 3G, 4G | Vodacom |
-| Myanmar | B524 | 2G, 3G | MPT, Telenor |
+| Myanmar | B524 | 2G, 3G | MPT |
 | Namibia | B524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | B524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
-| New Zealand | B524 | 2G, 3G, 4G | 2degrees, Spark, Vodafone |
+| New Zealand | B524 | 3G, 4G | 2degrees, Spark, Vodafone |
 | Nigeria | B524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | B524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | B524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
@@ -1826,7 +1826,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Poland | B524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | B524 | 2G, 3G, 4G | Ooredoo, Vodafone |
-| Romania | B524 | 2G, 3G, 4G | Orange, Telekom Romania, Vodafone |
+| Romania | B524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | B524 | 2G, 3G | Airtel, MTN |
 | Serbia | B524 | 2G, 3G, 4G | Telenor, VIP |
 | Seychelles | B524 | 2G, 3G, 4G | Airtel |
@@ -1839,15 +1839,15 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Spain | B524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | B524 | 2G, 3G, 4G | Dialog, Mobitel |
 | Suriname | B524 | 2G, 3G | Telesur |
-| Sweden | B524 | 2G, 3G, 4G | 3 (Tre), Tele2, Telenor, Telia |
+| Sweden | B524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | B524 | 3G, 4G | Salt, Sunrise, Swisscom |
 | Taiwan | B524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | B524 | 2G, 3G, 4G | Airtel |
 | Thailand | B524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | B524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
 | Uganda | B524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | B524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
-| Vietnam | B524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
+| United Kingdom | B524 | 2G, 4G | 3, EE, O2, Vodafone |
+| Vietnam | B524 | 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | B524 | 2G, 3G, 4G | Airtel |
 
 

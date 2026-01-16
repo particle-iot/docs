@@ -1412,7 +1412,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Belgium | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Bermuda | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Bolivia | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Bosnia and Herzegovina | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Bosnia and Herzegovina | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Botswana | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Brazil | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Brunei | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
@@ -1425,7 +1425,6 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Cayman Islands | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Chad | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Chile | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
-| China | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Colombia | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Congo (Brazzaville) | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Congo (Kinshasa) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
@@ -1433,7 +1432,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Côte d'Ivoire | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Croatia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Curaçao | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Cyprus | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Cyprus | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Czechia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Denmark | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Dominica | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -1445,7 +1444,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | eSwatini | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Ethiopia | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Faroe Islands | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
-| Finland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Finland | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | France | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | French Guiana | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Gabon | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1465,7 +1464,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Honduras | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Hong Kong | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Hungary | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Iceland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Iceland | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Indonesia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Ireland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Israel | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1521,7 +1520,6 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Saint Vincent and the Grenadines | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Serbia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Seychelles | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Singapore | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Sint Maarten | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Slovakia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Slovenia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
@@ -1535,13 +1533,13 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Switzerland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Taiwan | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Tanzania | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Thailand | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Thailand | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Trinidad and Tobago | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Tunisia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Uganda | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Ukraine | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | United Arab Emirates | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
-| United Kingdom | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| United Kingdom | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | United States | &nbsp; | &nbsp; | &check; | &check; | &nbsp; |
 | Uruguay | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Venezuela | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |

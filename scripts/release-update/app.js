@@ -1127,7 +1127,7 @@ async function runDeviceOs() {
                 if (module.prefixInfo.moduleFunction == 'user_part' && isTrackerOrMonitor) {
                     for(let v of trackerEdgeVersionsJson.versions) {
                         // versionSort sorts descending, so this test looks backwards
-                        if (apiHelper.versionSort(ver.version, v.target) <= 0) {
+                        if (v.target && apiHelper.versionSort(ver.version, v.target) <= 0) {
                             //console.log('using tracker', v);
                             module.binaryFile = path.join(trackerDir, v.bin);
                             break;

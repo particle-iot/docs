@@ -990,39 +990,38 @@ Consumers should contact their local authority or retailer for information conce
 | Country | Technologies | Carriers |
 | :--- | :--- | :--- |
 | Australia | 4G, 5G | Optus |
-| Austria | 2G, 3G, 4G, 5G | 3 (Drei) |
-| Belgium | 2G, 3G, 4G, 5G | Base, Orange, Proximus |
+| Austria | 2G, 4G, 5G | 3 (Drei) |
+| Belgium | 2G, 4G, 5G | Base, Orange, Proximus |
 | Bulgaria | 2G, 3G | A1, Telenor, Vivacom |
-| Cyprus | 2G, 3G | Cytamobile-Vodafone |
 | Czechia | 2G, 4G, 5G | O2, T-Mobile, Vodafone |
-| Denmark | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
+| Denmark | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | Finland | 2G, 4G | DNA, Elisa, Telia |
 | France | 2G, 3G, 4G, 5G | Bouygues, Free Mobile, Orange, SFR |
 | Germany | 2G, 3G, 4G, 5G | O2, Telekom, Vodafone |
 | Greece | 2G, 4G, 5G | Cosmote, Vodafone, Wind |
 | Hungary | 2G, 3G, 4G, 5G | T-Mobile, Telenor, Vodafone |
-| Iceland | 2G, 3G, 4G | Nova, Siminn |
+| Iceland | 4G | Nova, Siminn |
 | India | 2G, 3G, 4G | Vodafone |
 | Ireland | 2G, 4G, 5G | 3 (Tre), Vodafone |
 | Italy | 2G, 3G, 4G, 5G | TIM, Vodafone, Wind |
 | Japan | 4G, 5G | KDDI |
-| Lithuania | 2G, 3G, 4G, 5G | Bite |
-| Luxembourg | 2G, 3G, 4G | Orange, POST, Tango |
+| Lithuania | 2G, 4G, 5G | Bite |
+| Luxembourg | 2G, 4G | Orange, POST, Tango |
 | Netherlands | 2G, 3G, 4G, 5G | KPN, T-Mobile, Vodafone |
 | New Zealand | 3G, 4G, 5G | Spark |
-| Norway | 2G, 4G | Telenor, Telia |
+| Norway | 4G | Telenor, Telia |
 | Poland | 2G, 3G, 4G, 5G | Orange, Play, Plus, T-Mobile |
 | Portugal | 2G, 3G, 4G, 5G | MEO, NOS, Vodafone |
-| Romania | 2G, 3G, 4G, 5G | Orange, Telekom Romania, Vodafone |
+| Romania | 2G, 4G, 5G | Orange, Telekom Romania, Vodafone |
 | Slovakia | 2G, 4G | O2, Orange, Telekom |
 | Slovenia | 2G, 3G, 4G, 5G | A1, Mobitel |
 | South Africa | 2G, 3G, 4G, 5G | MTN |
 | South Korea | 4G, 5G | LG U+ |
 | Spain | 2G, 3G, 4G, 5G | Orange, Telefonica, Vodafone, Yoigo |
-| Sweden | 2G, 3G, 4G, 5G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | 3G, 4G, 5G | Sunrise, Swisscom |
-| United Kingdom | 2G, 3G, 4G, 5G | 3, O2, Vodafone |
+| Sweden | 2G, 4G, 5G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | 4G, 5G | Sunrise, Swisscom |
+| United Kingdom | 4G, 5G | 3, O2, Vodafone |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

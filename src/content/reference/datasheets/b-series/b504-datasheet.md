@@ -2128,7 +2128,7 @@ The following countries are not officially supported at this time, but may be co
 | Colombia | 3G, 4G | Movistar, Tigo |
 | Costa Rica | 3G | Movistar |
 | Dominica | 4G | Flow |
-| Dominican Republic | 3G, 4G | Altice Dominicana, Claro |
+| Dominican Republic | 4G | Altice Dominicana, Claro |
 | Ecuador | 3G, 4G | Claro, Movistar |
 | El Salvador | 3G, 4G | Claro, Telefonica |
 | Guatemala | 3G, 4G | Claro, Movistar |

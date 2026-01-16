@@ -29428,6 +29428,82 @@
                 2879,
                 2882
             ]
+        },
+        "v6.3.5": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.3.5",
+            "tag_name": "v6.3.5",
+            "name": "v6.3.5 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": true,
+            "created_at": "2026-01-13T07:00:17Z",
+            "published_at": "2026-01-15T21:33:42Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2886
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes MCP23S17 lock issue"
+                },
+                {
+                    "tags": [
+                        "b5som",
+                        "eg91nax",
+                        "quectel"
+                    ],
+                    "prs": [
+                        2891
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes policyman/svc_mode setting preventing IMSI switching"
+                },
+                {
+                    "tags": [
+                        "fuelgauge"
+                    ],
+                    "prs": [
+                        2890
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes access when i2c unintentionally disabled"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2893
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Adds support for `I2C::setSpeed()` from 10kHz to 99kHz in 1kHz increments"
+                },
+                {
+                    "tags": [
+                        "gen4"
+                    ],
+                    "prs": [
+                        2887
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Optimize boot time"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2884
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Adds `00_before` and `zz_after` HIL integration test suites"
+                }
+            ],
+            "prs": [
+                2884,
+                2886,
+                2887,
+                2890,
+                2891,
+                2893
+            ]
         }
     },
     "pulls": {
@@ -43625,6 +43701,75 @@
             "state": "open",
             "created_at": "2025-10-31T20:25:44Z",
             "detail": "- HIL Testing needs some helpers for device configuration before and after testing, to ensure devices that have failed in a bad state do not catch us off guard on the next test run."
+        },
+        "2885": {
+            "url": "https://github.com/particle-iot/device-os/pull/2885",
+            "number": 2885,
+            "title": "Built-in am18x5 driver in DVOS",
+            "state": "open",
+            "created_at": "2025-11-20T02:30:46Z"
+        },
+        "2886": {
+            "url": "https://github.com/particle-iot/device-os/pull/2886",
+            "number": 2886,
+            "title": "Fixes MCP23S17 lock issue",
+            "state": "closed",
+            "created_at": "2025-11-21T09:11:43Z",
+            "detail": "`Mcp23s17Lock lock();` in mcp23s17.cpp doesn't actually acuire the lock.\n\nAffected platforms: tracker, trackerm"
+        },
+        "2887": {
+            "url": "https://github.com/particle-iot/device-os/pull/2887",
+            "number": 2887,
+            "title": "Optimize Gen4 boot time",
+            "state": "closed",
+            "created_at": "2025-11-25T17:25:29Z",
+            "detail": "Gen4 takes too much time to boot into user app."
+        },
+        "2888": {
+            "url": "https://github.com/particle-iot/device-os/pull/2888",
+            "number": 2888,
+            "title": "Feature/early startup",
+            "state": "open",
+            "created_at": "2025-11-28T02:42:12Z",
+            "detail": "`STARTUP()` is not timing guaranteed. For example,\n```cpp\nclass Test {\npublic:\n    Test(uint8_t val = 0) {\n        DiagPrintf(\"User App Constructor: %d\\n\", val);\n    }\n    ~Test() = default;\n};\n\nTest testInstance1(1);\n\nSTARTUP(\n    DiagPrintf(\"STARTUP() 1\\n\");\n);\n\nSTARTUP(\n    DiagPrintf(\"STARTUP() 2\\n\");\n);\n\nTest testInstance2(2);\n```\nThe output:\n```\n[+   2][253802946] User App Constructor: 1\n[+   3][253802949] STARTUP() 1\n[+   1][253802950] STARTUP() 2\n[+   1][253802951] User App Constructor: 2\n```"
+        },
+        "2889": {
+            "url": "https://github.com/particle-iot/device-os/pull/2889",
+            "number": 2889,
+            "title": "add 20 KHz and 50 KHz I2C speeds for the gen3 Nordic-based modules",
+            "state": "closed",
+            "created_at": "2025-12-03T17:48:12Z",
+            "detail": "We need lower I2C speeds to support longer cable distances on our Gen3 devices. Right now we are limited to 100 KHz or 400 KHz only."
+        },
+        "2890": {
+            "url": "https://github.com/particle-iot/device-os/pull/2890",
+            "number": 2890,
+            "title": "[fuelgauge] fixes access when i2c unintentionally disabled [sc-137389]",
+            "state": "closed",
+            "created_at": "2025-12-09T19:20:49Z",
+            "detail": "- Calls to `FuelGauge` in certain cases can result in incorrect readings if `FuelGauge::begin()` not called first.\n- These cases are typically when using `hal_i2c_config_t acquireWireBuffer()` and setting a buffer size greater than 32.  This ends up re-initialing the I2C bus, and leaving it disabled.  Typically `begin()` would need to be called afterwards, but we do not document it as necessary.\n- In addition to the i2c bus being disabled, the `FuelGauge` calls need to occur 5-10s after boot.  The reason for this is the `FuelGauge` i2c bus is shared with the `PMIC`, and if the `PMIC` is still going through it's initial configuration, it will detect the bus has been disabled by the `FuelGauge` call, and call `begin()` again."
+        },
+        "2891": {
+            "url": "https://github.com/particle-iot/device-os/pull/2891",
+            "number": 2891,
+            "title": "[b5som][eg91nax][quectel] fixes policyman/svc_mode setting preventing IMSI switching [sc-137388]",
+            "state": "closed",
+            "created_at": "2025-12-10T03:39:15Z",
+            "detail": "- A small number of EG91NAX devices have been found to have the `policyman/svc_mode` setting in an incorrect state on first boot, resulting in SIM IMSI switching not occurring.  This can lead to the device not being able to register with the cellular network.\n- At this time only EG91NAX is affected."
+        },
+        "2892": {
+            "url": "https://github.com/particle-iot/device-os/pull/2892",
+            "number": 2892,
+            "title": "Environment variables",
+            "state": "open",
+            "created_at": "2025-12-19T16:14:50Z"
+        },
+        "2893": {
+            "url": "https://github.com/particle-iot/device-os/pull/2893",
+            "number": 2893,
+            "title": "Adds support for I2C::setSpeed() from 10kHz to 99kHz in 1kHz increments",
+            "state": "closed",
+            "created_at": "2025-12-19T17:57:34Z"
         }
     }
 }

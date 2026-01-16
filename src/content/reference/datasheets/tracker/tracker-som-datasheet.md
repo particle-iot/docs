@@ -1212,12 +1212,12 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Algeria | T524 | 2G, 3G, 4G | Mobilis, Ooredoo |
 | Aruba | T524 | 2G, 3G, 4G | Setar |
 | Australia | T524 | 4G | Optus, Telstra, Vodafone |
-| Austria | T524 | 2G, 3G, 4G | 3 (Drei), A1, T-Mobile |
+| Austria | T524 | 2G, 4G | 3 (Drei), A1, T-Mobile |
 | Bahrain | T524 | 2G, 4G | Zain |
 | Bangladesh | T524 | 2G, 3G, 4G | Bangalink, GrameenPhone |
 | Belarus | T524 | 2G, 3G, 4G | A1 |
-| Belgium | T524 | 2G, 3G, 4G | Base, Orange, Proximus |
-| Bosnia and Herzegovina | T524 | 2G, 3G | BH Telecom, HT Eronet |
+| Belgium | T524 | 2G, 4G | Base, Orange, Proximus |
+| Bosnia and Herzegovina | T524 | 2G, 3G | HT Eronet |
 | Botswana | T524 | 2G, 3G, 4G | BeMobile |
 | Brunei | T524 | 3G, 4G | DST |
 | Bulgaria | T524 | 2G, 3G | A1, Telenor, Vivacom |
@@ -1231,9 +1231,9 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Congo (Kinshasa) | T524 | 2G, 3G, 4G | Airtel |
 | Côte d'Ivoire | T524 | 2G, 3G | MTN |
 | Croatia | T524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | T524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
+| Cyprus | T524 | 2G, 3G, 4G | MTN, PrimeTel |
 | Czechia | T524 | 2G, 4G | O2, T-Mobile, Vodafone |
-| Denmark | T524 | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
+| Denmark | T524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | T524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | T524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | T524 | 2G, 3G, 4G | MTN |
@@ -1250,9 +1250,9 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Guinea | T524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | T524 | 2G, 3G, 4G | MTN |
 | Guyana | T524 | 2G | Digicel |
-| Hong Kong | T524 | 2G, 3G, 4G | CMHK, CSL, SmarTone |
+| Hong Kong | T524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | T524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
-| Iceland | T524 | 2G, 3G, 4G | Nova, Siminn, Vodafone |
+| Iceland | T524 | 4G | Nova, Siminn, Vodafone |
 | Indonesia | T524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | T524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | T524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
@@ -1261,10 +1261,10 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Kazakhstan | T524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | T524 | 2G, 3G, 4G | Airtel |
 | Kuwait | T524 | 2G, 3G, 4G | Viva, Zain |
-| Latvia | T524 | 2G, 3G, 4G | Bite, LMT, Tele2 |
+| Latvia | T524 | 2G, 4G | Bite, LMT, Tele2 |
 | Liechtenstein | T524 | 2G, 3G, 4G | Mobilkom, Orange |
-| Lithuania | T524 | 2G, 3G, 4G | Bite, Omnitel, Tele2 |
-| Luxembourg | T524 | 2G, 3G, 4G | Orange, POST, Tango |
+| Lithuania | T524 | 2G, 4G | Bite, Omnitel, Tele2 |
+| Luxembourg | T524 | 2G, 4G | Orange, POST, Tango |
 | Macao | T524 | 3G, 4G | CTM |
 | Madagascar | T524 | 2G, 3G, 4G | Airtel |
 | Malawi | T524 | 2G, 3G, 4G | Airtel |
@@ -1276,10 +1276,10 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Montenegro | T524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | T524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | T524 | 2G, 3G, 4G | Vodacom |
-| Myanmar | T524 | 2G, 3G | MPT, Telenor |
+| Myanmar | T524 | 2G, 3G | MPT |
 | Namibia | T524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | T524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
-| New Zealand | T524 | 2G, 3G, 4G | 2degrees, Spark, Vodafone |
+| New Zealand | T524 | 3G, 4G | 2degrees, Spark, Vodafone |
 | Nigeria | T524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | T524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | T524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
@@ -1288,7 +1288,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Poland | T524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | T524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | T524 | 2G, 3G, 4G | Ooredoo, Vodafone |
-| Romania | T524 | 2G, 3G, 4G | Orange, Telekom Romania, Vodafone |
+| Romania | T524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | T524 | 2G, 3G | Airtel, MTN |
 | Serbia | T524 | 2G, 3G, 4G | Telenor, VIP |
 | Seychelles | T524 | 2G, 3G, 4G | Airtel |
@@ -1301,16 +1301,16 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Spain | T524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | T524 | 2G, 3G, 4G | Dialog, Mobitel |
 | Suriname | T524 | 2G, 3G | Telesur |
-| Sweden | T524 | 2G, 3G, 4G | 3 (Tre), Tele2, Telenor, Telia |
+| Sweden | T524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | T524 | 3G, 4G | Salt, Sunrise, Swisscom |
 | Taiwan | T524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | T524 | 2G, 3G, 4G | Airtel |
 | Thailand | T524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | T524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
 | Uganda | T524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | T524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
+| United Kingdom | T524 | 2G, 4G | 3, EE, O2, Vodafone |
 | United States | T404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-| Vietnam | T524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
+| Vietnam | T524 | 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | T524 | 2G, 3G, 4G | Airtel |
 
 

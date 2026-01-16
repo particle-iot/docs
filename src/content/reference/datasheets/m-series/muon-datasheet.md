@@ -1819,12 +1819,12 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Algeria | M524 | 2G, 3G, 4G | Mobilis, Ooredoo |
 | Aruba | M524 | 2G, 3G, 4G | Setar |
 | Australia | M524 | 4G | Optus, Telstra, Vodafone |
-| Austria | M524 | 2G, 3G, 4G | 3 (Drei), A1, T-Mobile |
+| Austria | M524 | 2G, 4G | 3 (Drei), A1, T-Mobile |
 | Bahrain | M524 | 2G, 4G | Zain |
 | Bangladesh | M524 | 2G, 3G, 4G | Bangalink, GrameenPhone |
 | Belarus | M524 | 2G, 3G, 4G | A1 |
-| Belgium | M524 | 2G, 3G, 4G | Base, Orange, Proximus |
-| Bosnia and Herzegovina | M524 | 2G, 3G | BH Telecom, HT Eronet |
+| Belgium | M524 | 2G, 4G | Base, Orange, Proximus |
+| Bosnia and Herzegovina | M524 | 2G, 3G | HT Eronet |
 | Botswana | M524 | 2G, 3G, 4G | BeMobile |
 | Brunei | M524 | 3G, 4G | DST |
 | Bulgaria | M524 | 2G, 3G | A1, Telenor, Vivacom |
@@ -1837,9 +1837,9 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Congo (Kinshasa) | M524 | 2G, 3G, 4G | Airtel |
 | Côte d'Ivoire | M524 | 2G, 3G | MTN |
 | Croatia | M524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | M524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
+| Cyprus | M524 | 2G, 3G, 4G | MTN, PrimeTel |
 | Czechia | M524 | 2G, 4G | O2, T-Mobile, Vodafone |
-| Denmark | M524 | 2G, 3G, 4G | 3 (Tre), TDC, Telenor, Telia |
+| Denmark | M524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | M524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | M524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | M524 | 2G, 3G, 4G | MTN |
@@ -1856,9 +1856,9 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Guinea | M524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | M524 | 2G, 3G, 4G | MTN |
 | Guyana | M524 | 2G | Digicel |
-| Hong Kong | M524 | 2G, 3G, 4G | CMHK, CSL, SmarTone |
+| Hong Kong | M524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | M524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
-| Iceland | M524 | 2G, 3G, 4G | Nova, Siminn, Vodafone |
+| Iceland | M524 | 4G | Nova, Siminn, Vodafone |
 | Indonesia | M524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | M524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | M524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
@@ -1867,10 +1867,10 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Kazakhstan | M524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | M524 | 2G, 3G, 4G | Airtel |
 | Kuwait | M524 | 2G, 3G, 4G | Viva, Zain |
-| Latvia | M524 | 2G, 3G, 4G | Bite, LMT, Tele2 |
+| Latvia | M524 | 2G, 4G | Bite, LMT, Tele2 |
 | Liechtenstein | M524 | 2G, 3G, 4G | Mobilkom, Orange |
-| Lithuania | M524 | 2G, 3G, 4G | Bite, Omnitel, Tele2 |
-| Luxembourg | M524 | 2G, 3G, 4G | Orange, POST, Tango |
+| Lithuania | M524 | 2G, 4G | Bite, Omnitel, Tele2 |
+| Luxembourg | M524 | 2G, 4G | Orange, POST, Tango |
 | Macao | M524 | 3G, 4G | CTM |
 | Madagascar | M524 | 2G, 3G, 4G | Airtel |
 | Malawi | M524 | 2G, 3G, 4G | Airtel |
@@ -1881,10 +1881,10 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Montenegro | M524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | M524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | M524 | 2G, 3G, 4G | Vodacom |
-| Myanmar | M524 | 2G, 3G | MPT, Telenor |
+| Myanmar | M524 | 2G, 3G | MPT |
 | Namibia | M524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | M524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
-| New Zealand | M524 | 2G, 3G, 4G | 2degrees, Spark, Vodafone |
+| New Zealand | M524 | 3G, 4G | 2degrees, Spark, Vodafone |
 | Nigeria | M524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | M524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | M524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
@@ -1893,7 +1893,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Poland | M524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | M524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | M524 | 2G, 3G, 4G | Ooredoo, Vodafone |
-| Romania | M524 | 2G, 3G, 4G | Orange, Telekom Romania, Vodafone |
+| Romania | M524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | M524 | 2G, 3G | Airtel, MTN |
 | Serbia | M524 | 2G, 3G, 4G | Telenor, VIP |
 | Seychelles | M524 | 2G, 3G, 4G | Airtel |
@@ -1906,15 +1906,15 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Spain | M524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | M524 | 2G, 3G, 4G | Dialog, Mobitel |
 | Suriname | M524 | 2G, 3G | Telesur |
-| Sweden | M524 | 2G, 3G, 4G | 3 (Tre), Tele2, Telenor, Telia |
+| Sweden | M524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | M524 | 3G, 4G | Salt, Sunrise, Swisscom |
 | Taiwan | M524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | M524 | 2G, 3G, 4G | Airtel |
 | Thailand | M524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | M524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
 | Uganda | M524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | M524 | 2G, 3G, 4G | 3, EE, O2, Vodafone |
-| Vietnam | M524 | 2G, 3G, 4G | MobiFone, Viettel, Vinaphone |
+| United Kingdom | M524 | 2G, 4G | 3, EE, O2, Vodafone |
+| Vietnam | M524 | 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | M524 | 2G, 3G, 4G | Airtel |
 
 
