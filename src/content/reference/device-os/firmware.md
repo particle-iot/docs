@@ -11022,15 +11022,30 @@ Sets the I2C clock speed. This is an optional call (not from the original Arduin
 // SYNTAX
 Wire.setSpeed(clockSpeed);
 Wire.begin();
+
+// PROTOTYPE
+void setSpeed(uint32_t);
 ```
 
 Parameters:
 
-- `clockSpeed`: CLOCK_SPEED_100KHZ or CLOCK_SPEED_400KHZ only.
+- `clockSpeed`: CLOCK_SPEED_100KHZ or CLOCK_SPEED_400KHZ, see notes below.
 
 ---
+{{note op="start" type="gen4"}}
+On Gen 4 devices, CLOCK_SPEED_100KHZ or CLOCK_SPEED_400KHZ are supported on all version of Device OS.
+
+In Device OS 6.3.5 and later, you can also specify an arbitrary frequency between 10 KHz and 99 KHZ, in addition to CLOCK_SPEED_100KHZ and CLOCK_SPEED_400KHZ.
+{{note op="end"}}
+
+{{note op="start" type="gen3"}}
+On Gen 3 devices, CLOCK_SPEED_100KHZ or CLOCK_SPEED_400KHZ are supported on all version of Device OS.
+
+In Device OS 6.3.5 and later, you can also specify an arbitrary frequency between 10 KHz and 99 KHZ, in addition to CLOCK_SPEED_100KHZ and CLOCK_SPEED_400KHZ.
+{{note op="end"}}
+
 {{note op="start" type="gen2"}}
-On Gen 2 (STM32) including the E-Series (except E404X), Electron 1, and Photon 1, a user-specified frequency can be used. This is not supported on Gen 3 and Gen 4 devices.
+On Gen 2 devices, a user-specified frequency can be used.
 {{note op="end"}}
 
 
@@ -11044,6 +11059,9 @@ Enables or Disables I2C clock stretching. This is an optional call (not from the
 // SYNTAX
 Wire.stretchClock(stretch);
 Wire.begin(4); // I2C Slave mode, address #4
+
+// PROTOTYPE
+void stretchClock(bool);
 ```
 
 Parameters:
@@ -11061,6 +11079,12 @@ Initiate the Wire library and join the I2C bus as a master or slave. This should
 // SYNTAX
 Wire.begin(); // I2C master mode
 Wire.begin(address); // I2C slave mode
+
+// PROTOTYPES
+void begin();
+void begin(uint8_t);
+void begin(int);
+
 ```
 
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master. If address is specified, join the bus as an I2C slave. If you are communicating with I2C sensors, displays, etc. you will almost always use I2C master mode (no address specified).
@@ -11114,6 +11138,9 @@ Used to check if the Wire library is enabled already.  Useful if using multiple 
 ```cpp
 // SYNTAX
 Wire.isEnabled();
+
+// PROTOTYPE
+bool isEnabled(void);
 ```
 
 Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
@@ -11137,6 +11164,12 @@ Used by the master to request bytes from a slave device. The bytes may then be r
 // SYNTAX
 Wire.requestFrom(address, quantity);
 Wire.requestFrom(address, quantity, stop);
+
+// PROTOTYPE
+size_t requestFrom(uint8_t, size_t);
+size_t requestFrom(uint8_t, size_t, uint8_t);
+size_t requestFrom(const WireTransmission& transfer);
+
 ```
 
 Parameters:
@@ -11175,6 +11208,10 @@ has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and 
 we hope this function isn't required, and it's provided for completeness.
 
 
+```cpp
+// PROTOTYPE
+int reset();
+```
 ### beginTransmission()
 
 {{api name1="Wire.beginTransmission"}}
@@ -11184,6 +11221,11 @@ Begin a transmission to the I2C slave device with the given address. Subsequentl
 ```cpp
 // SYNTAX
 Wire.beginTransmission(address);
+
+// PROTOTYPE
+void beginTransmission(uint8_t);
+void beginTransmission(int);
+void beginTransmission(const WireTransmission& transfer);
 ```
 
 Parameters: `address`: the 7-bit address of the device to transmit to.
@@ -11211,6 +11253,10 @@ Ends a transmission to a slave device that was begun by `beginTransmission()` an
 // SYNTAX
 Wire.endTransmission();
 Wire.endTransmission(stop);
+
+// PROTOTYPE
+uint8_t endTransmission(void);
+uint8_t endTransmission(uint8_t);
 ```
 
 Parameters: `stop` : boolean.
@@ -11247,6 +11293,10 @@ The default buffer size is 32 bytes; writing bytes beyond 32 before calling endT
 Wire.write(value);
 Wire.write(string);
 Wire.write(data, length);
+
+// PROTOTYPE
+virtual size_t write(uint8_t);
+virtual size_t write(const uint8_t *, size_t);
 ```
 Parameters:
 
@@ -11258,6 +11308,8 @@ Parameters:
 Returns: `byte`
 
 `write()` will return the number of bytes written, though reading that number is optional.
+
+Because the `Wire` class inherits from `Stream` you can also use methods from the Print classes to format output.
 
 ```cpp
 // EXAMPLE USAGE
@@ -11288,7 +11340,9 @@ void loop() {
 Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler.
 
 ```cpp
-Wire.available();
+// PROTOTYPE
+virtual int available(void);
+ 
 ```
 
 Returns: The number of bytes available for reading.
@@ -11301,10 +11355,15 @@ Reads a byte that was transmitted from a slave device to a master after a call t
 
 ```cpp
 // SYNTAX
-Wire.read() ;
+Wire.read();
+
+// PROTOTYPE
+virtual int read(void);
 ```
 
 Returns: The next byte received
+
+Because the `Wire` class inherits from `Stream` you can also use methods from the [Stream](reference/device-os/api/stream-class/) classes when reading data.
 
 ```cpp
 // EXAMPLE USAGE
@@ -11337,6 +11396,9 @@ Similar in use to read(). Reads (but does not remove from the buffer) a byte tha
 ```cpp
 // SYNTAX
 Wire.peek();
+
+// PROTOTYPE
+virtual int peek(void);
 ```
 
 Returns: The next byte received (without removing it from the buffer)
@@ -11350,6 +11412,9 @@ The `Wire` object does not have built-in thread-safety. If you want to use read 
 A call to lock `lock()` must be balanced with a call to `unlock()` and not be nested. To make sure every lock is released, it's good practice to use `WITH_LOCK` like this:
 
 ```cpp
+// PROTOTYPE
+bool lock();
+
 // EXAMPLE USAGE
 void loop()
 {
@@ -11372,6 +11437,10 @@ Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlo
 
 Unlocks the `Wire` mutex. See `lock()`.
 
+```cpp
+// PROTOTYPE
+bool unlock();
+```
 
 ### onReceive()
 
@@ -11382,6 +11451,9 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 **Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to receive I2C data.  Post process outside of this handler.
 
 ```cpp
+// PROTOTYPE
+void onReceive(void (*)(int));
+
 // EXAMPLE USAGE
 
 // Slave Reader running on Device No.2 (Use with corresponding Master Writer running on Device No.1)
@@ -11419,6 +11491,9 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 **Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to send I2C data.  Post process outside of this handler.
 
 ```cpp
+// PROTOTYPE
+void onRequest(void (*)(void));
+
 // EXAMPLE USAGE
 
 // Slave Writer running on Device No.2 (Use with corresponding Master Reader running on Device No.1)

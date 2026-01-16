@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2026-01-16",
-            "hash": "2ffb28028ac5b31f6c594516f070cb872df5172581245ea5509944a0cb7c7d65"
+            "hash": "0f3e986168101a7c320ac7f7971c0ae29112c618f6ab04ab365bbe6c1ea24497"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2771,72 +2771,72 @@
             "hash": "ad0a5b06d170b13aa6c6ad0f709e423df6a3747b5700bc9ba4b91096756ddc98"
         },
         "reference/device-os/api/wire-i2c/setspeed.md": {
-            "date": "2025-12-01",
-            "hash": "faa52afb573e0826205aab6b79135ca4314b7ca31dfbded494bab00833062d56"
+            "date": "2026-01-16",
+            "hash": "ea62d0aeafe31ea09ab29cea323507d50aeca7e0b4b0148e3350651929e0b7ff"
         },
         "reference/device-os/api/wire-i2c/stretchclock.md": {
-            "date": "2023-09-20",
-            "hash": "1243500cca2559fc825d507035ae7bfa2c59b8b83bfaf15e3d433d59edb0f519"
+            "date": "2026-01-16",
+            "hash": "14a8e511cc0b49b0ec483d980e5b147535e3a99fad2aec82aa4278970188a0e3"
         },
         "reference/device-os/api/wire-i2c/begin.md": {
-            "date": "2024-03-26",
-            "hash": "861fabe701e836eaef0d8534b970bc578c8acc89ef12cac05f4af7c503a63f30"
+            "date": "2026-01-16",
+            "hash": "472652ede57c65e1b075851803fc2726e623f7051e8947e3a5de50a746193d23"
         },
         "reference/device-os/api/wire-i2c/end.md": {
             "date": "2023-09-20",
             "hash": "9f73f693fd3f04a9771b0c338f3eb7ad0d1fa86f89f7c3bfc0c88694151d5e41"
         },
         "reference/device-os/api/wire-i2c/isenabled.md": {
-            "date": "2023-09-20",
-            "hash": "774a43672568ae7548aa1655609d9b624667af95dbe772063878150e9a45f4d2"
+            "date": "2026-01-16",
+            "hash": "5d45c60f70fc126f2847e5dfa935f798ee60df64ce09b18319772e444f4bdcf6"
         },
         "reference/device-os/api/wire-i2c/requestfrom.md": {
-            "date": "2023-09-20",
-            "hash": "0dc0a941edfb012bbdfca9b84047c32a2e4f999752cc57bdc2a885b81461cce1"
+            "date": "2026-01-16",
+            "hash": "78a2e7743d472700f82ed13a26733ba709c848d71ca0781b31f1dc4398c00a5c"
         },
         "reference/device-os/api/wire-i2c/reset.md": {
-            "date": "2023-09-20",
-            "hash": "df47eeaa38baae2e10234d8f7e0147a926524ae37feb787816df621ff4d0c752"
+            "date": "2026-01-16",
+            "hash": "27cff82ef253d176489ed0438f9ec7b1ee57382743fdcd08aca9bd43302452db"
         },
         "reference/device-os/api/wire-i2c/begintransmission.md": {
-            "date": "2023-09-20",
-            "hash": "dc31975754856979540c69eef58b2c6b9b3436261d5cc87636c2a190a67b4585"
+            "date": "2026-01-16",
+            "hash": "6867babdf431f0d5a3e9abfef59d77f0858f2eacdd1cb5adae0786fba3c4ac7d"
         },
         "reference/device-os/api/wire-i2c/endtransmission.md": {
-            "date": "2025-03-18",
-            "hash": "1748d82ee53c9f10e9e7730613c0de2f23a9cb30cebe2ffe2a6d47d273881d79"
+            "date": "2026-01-16",
+            "hash": "00fe02f7d5341ec286a2996e21525a29be8b758ac701a92fba91dafa1e8e6cb3"
         },
         "reference/device-os/api/wire-i2c/write.md": {
-            "date": "2023-09-20",
-            "hash": "89fa8fcd77d958d08aa8cae57efa216949c4644bafdd0d48dd156f9653f7deda"
+            "date": "2026-01-16",
+            "hash": "9aa0e6a41c1ee07f5ebdb77a0493c5259dc9817506450d8bfaa5a71d189ab3f7"
         },
         "reference/device-os/api/wire-i2c/available.md": {
-            "date": "2023-09-20",
-            "hash": "7e439b2544ba417387df4db170be1c09e007ff2873342c253c4a682b615344ca"
+            "date": "2026-01-16",
+            "hash": "0ca4e3c80bd8928ee9aaff37181ea180309aa01f64e3ac8bc070c5f3d102cac1"
         },
         "reference/device-os/api/wire-i2c/read.md": {
-            "date": "2023-09-20",
-            "hash": "3c2bb5b8060221bd37cd11da3cf38bad845b4427e44d9f66579338205eea0087"
+            "date": "2026-01-16",
+            "hash": "c4171aead47ca26f958971ac8df5e90f2c63a29729fbb21899856a7921c4c61b"
         },
         "reference/device-os/api/wire-i2c/peek.md": {
-            "date": "2023-09-20",
-            "hash": "bb718d6be8f7826e335394f05316cc31ed31af1f2530cee791ae946ee0bd0bae"
+            "date": "2026-01-16",
+            "hash": "8d0fdcef1241d95feb3e2a0ff4d9d84a765cb757d7b7b12c4cd8e265e61987d9"
         },
         "reference/device-os/api/wire-i2c/lock.md": {
-            "date": "2023-09-20",
-            "hash": "8ebff78609700989108875f153e00f9d08259f216dcdaa7c3abe611f3fc55bae"
+            "date": "2026-01-16",
+            "hash": "a1217f2ee376c1b5e279c5cb2c6afdf30753aafd6f5b68253f472b3ec42d89e7"
         },
         "reference/device-os/api/wire-i2c/unlock.md": {
-            "date": "2023-09-20",
-            "hash": "fea60fa6a3bdc04c20f3c8e8a61e8a0b3f617efc9083cc0a77d68743120daf88"
+            "date": "2026-01-16",
+            "hash": "7e4c6a65158bf0db92fee1bbcc64e9bdc7ca5b543313f68fb22640815416bdb7"
         },
         "reference/device-os/api/wire-i2c/onreceive.md": {
-            "date": "2023-09-20",
-            "hash": "6a125da5594c0e7a36fd29d65c9e16947af03e9f8a6ac6042d5165f37a182a62"
+            "date": "2026-01-16",
+            "hash": "e961a062de3006cdb69f269e8536e57decf4c9d96b1a3be5c19e238b03f791ec"
         },
         "reference/device-os/api/wire-i2c/onrequest.md": {
-            "date": "2023-09-20",
-            "hash": "152cbba18971126945f8830441f405f3e3c81c843582dcf72c4d1024ca87f862"
+            "date": "2026-01-16",
+            "hash": "1dde3d4b35ba5c69e3f63ee5d5e361d69fae90559596035ede1ffb369f48e3d4"
         },
         "reference/device-os/api/wire-i2c/acquirewirebuffer.md": {
             "date": "2025-05-12",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "3274b84cfa26c628ea63ff0d71bfa631d4bf97acc3fa0160bb6e2765e9a195b0",
-            "date": "2026-01-15"
+            "hash": "2cdedc8a2a346a28c8475c99c2ebe88b30afbe5f99f145d15eb0a25ec2887bb4",
+            "date": "2026-01-16"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

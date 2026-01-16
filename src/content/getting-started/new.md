@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Wire.setSpeed 2026-01-16
+
+In Device OS 6.3.5 and later, I2C [Wire.setSpeed](/reference/device-os/api/wire-i2c/setspeed/#setspeed-) allows additional speeds on Gen 3 and Gen 4 devices.
+
+### Device OS 6.3.5 2026-01-16
+
+Device OS 6.3.5 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.
+
 ### Sunset map 2026-01-15
 
 [The 2G/3G sunset page](/reference/discontinued/cellular/2g-3g-sunset/) now has a map view; you can use a slider control to view dates in the past and future to view 2G/3G coverage.
