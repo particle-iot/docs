@@ -1643,6 +1643,16 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        // Tachyon
+        {
+            guid:'17be9816-9d0d-48f4-ba5e-8d192ba4300d',
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tachyon', {
+                    includeLinux: true,
+                }); 
+            } 
+        },
+
         // datasheets/asset-tracking/tracker-som-eval-board.md
         {
             guid:'698155b6-76d7-11eb-9439-0242ac130002', 

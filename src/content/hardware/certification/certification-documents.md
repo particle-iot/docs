@@ -1508,6 +1508,48 @@ The T523 and T524 is not FCC certified as it does not support the cellular bands
 - [UKCA Certification](/assets/pdfs/t524-ukca.pdf) (updated 2022-11-16)
 
 
+## Tachyon
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 17be9816-9d0d-48f4-ba5e-8d192ba4300d --}}
+
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| TACH4NA | Tachyon 4GB RAM / 64GB Flash (NorAm), [x1] | NORAM | SG560D-NA |  | In development | |
+| TACH4ROW | Tachyon 4GB RAM / 64GB Flash (EMEA), [x1] | EMEAA | SG560D-EM |  | In development | |
+| TACH8NA | Tachyon 8GB RAM / 128GB Flash (NorAm), [x1] | NORAM | SG560D-NA |  | In development | |
+| TACH8ROW | Tachyon 8GB RAM / 128GB Flash (EMEA), [x1] | EMEAA | SG560D-EM |  | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+{{!-- BEGIN shared-blurb 7592ab73-1be1-4f08-bd25-2923a6fb9e73 --}}
+
+### CE (Europe) - TACH4ROW TACH8ROW
+- [Summary](/assets/pdfs/tach8row-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/tach8row-ce-emc-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/tach8row-EN62311-test-report.pdf) 
+- [EN 301 511 Test Report](/assets/pdfs/tach8row-EN301-511-test-report.pdf) (2G GSM) 
+- [EN 301 908-1 Test Report](/assets/pdfs/tach8row-EN301-908-1-test-report.pdf) 
+- [EN 301 908-2 Test Report](/assets/pdfs/tach8row-EN301-908-2-test-report.pdf) (3G)
+- [EN 301 908-13 Test Report](/assets/pdfs/tach8row-EN301-908-13-test-report.pdf) (4G)
+- [EN 301 908-25 Test Report](/assets/pdfs/tach8row-EN301-908-25-test-report.pdf) (5G)
+- [EN 300 328 Test Report - BT](/assets/pdfs/tach8row-EN300-328-bt-test-report.pdf)
+- [EN 300 328 Test Report - BLE](/assets/pdfs/tach8row-EN300-328-ble-test-report.pdf)
+- [EN 300 328 Test Report - Wi-Fi 2.4 GHz](/assets/pdfs/tach8row-EN300-328-wifi-2-4-test-report.pdf)
+- [EN 300 328 Test Report - Wi-Fi 5 GHz](/assets/pdfs/tach8row-EN300-328-wifi-5-test-report.pdf)
+- [EN 300 328 Test Report - Wi-Fi 5.8 GHz](/assets/pdfs/tach8row-EN300-328-wifi-5-8-test-report.pdf)
+- [EN 303 413 Test Report](/assets/pdfs/tach8row-EN303-413-test-report.pdf)
+- [EN 303 687 Test Report](/assets/pdfs/tach8row-EN303-687-test-report.pdf)
+- [EN-62368 Test Report](/assets/pdfs/tach8row-EN62368-test-report.pdf) (safety)
+
+
+### RoHS - TACH4ROW TACH8ROW
+- [RoHS Certificate](/assets/pdfs/tach8row-rohs-certificate.pdf)
+- [RoHS Test Reports](/assets/pdfs/tach8row-rohs-test-report.pdf)
+
+{{!-- END shared-blurb --}}
+
 ## Xenon
 
 The Xenon is deprecated. 

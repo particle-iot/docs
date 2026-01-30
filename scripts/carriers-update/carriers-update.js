@@ -1046,8 +1046,12 @@ const generatorConfig = require('./generator-config');
                 // Hide discontinued kits
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden') {
                 // Hidden, whether a kit or not
+                return;
+            }
+            if (!!skuObj.linux && !options.includeLinux) {
+                // Linux is hidden, unless includeLinux is specified as an option
                 return;
             }
 

@@ -939,6 +939,34 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ## Certification documents
 
+{{!-- BEGIN shared-blurb 7592ab73-1be1-4f08-bd25-2923a6fb9e73 --}}
+
+### CE (Europe) - TACH4ROW TACH8ROW
+- [Summary](/assets/pdfs/tach8row-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/tach8row-ce-emc-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/tach8row-EN62311-test-report.pdf) 
+- [EN 301 511 Test Report](/assets/pdfs/tach8row-EN301-511-test-report.pdf) (2G GSM) 
+- [EN 301 908-1 Test Report](/assets/pdfs/tach8row-EN301-908-1-test-report.pdf) 
+- [EN 301 908-2 Test Report](/assets/pdfs/tach8row-EN301-908-2-test-report.pdf) (3G)
+- [EN 301 908-13 Test Report](/assets/pdfs/tach8row-EN301-908-13-test-report.pdf) (4G)
+- [EN 301 908-25 Test Report](/assets/pdfs/tach8row-EN301-908-25-test-report.pdf) (5G)
+- [EN 300 328 Test Report - BT](/assets/pdfs/tach8row-EN300-328-bt-test-report.pdf)
+- [EN 300 328 Test Report - BLE](/assets/pdfs/tach8row-EN300-328-ble-test-report.pdf)
+- [EN 300 328 Test Report - Wi-Fi 2.4 GHz](/assets/pdfs/tach8row-EN300-328-wifi-2-4-test-report.pdf)
+- [EN 300 328 Test Report - Wi-Fi 5 GHz](/assets/pdfs/tach8row-EN300-328-wifi-5-test-report.pdf)
+- [EN 300 328 Test Report - Wi-Fi 5.8 GHz](/assets/pdfs/tach8row-EN300-328-wifi-5-8-test-report.pdf)
+- [EN 303 413 Test Report](/assets/pdfs/tach8row-EN303-413-test-report.pdf)
+- [EN 303 687 Test Report](/assets/pdfs/tach8row-EN303-687-test-report.pdf)
+- [EN-62368 Test Report](/assets/pdfs/tach8row-EN62368-test-report.pdf) (safety)
+
+
+### RoHS - TACH4ROW TACH8ROW
+- [RoHS Certificate](/assets/pdfs/tach8row-rohs-certificate.pdf)
+- [RoHS Test Reports](/assets/pdfs/tach8row-rohs-test-report.pdf)
+
+{{!-- END shared-blurb --}}
+
+
 ## Product handling
 
 ### ESD precautions
@@ -1062,3 +1090,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 008      | 2025-09-16 | RK | Add TACH4NA |
 | 009      | 2025-12-22 | RK | Update power requirements |
 | 010      | 2026-01-15 | RK | Updates for certification |
+| 011      | 2026-01-30 | RK | Added EU and RoHS certification document links |

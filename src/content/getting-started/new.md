@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon certification docs 2026-01-30
+
+EU and RoHS [certification documents](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4ROW and TACH8ROW are now available.
+
 ### Wire.setSpeed 2026-01-16
 
 In Device OS 6.3.5 and later, I2C [Wire.setSpeed](/reference/device-os/api/wire-i2c/setspeed/#setspeed-) allows additional speeds on Gen 3 and Gen 4 devices.
