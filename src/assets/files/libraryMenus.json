@@ -327,6 +327,10 @@
           "dir": "Adafruit_mfGFX"
         },
         {
+          "title": "Adafruit_Mini_GPS_PA1010D",
+          "dir": "Adafruit_Mini_GPS_PA1010D"
+        },
+        {
           "title": "Adafruit_MLX90393_SSSA",
           "dir": "Adafruit_MLX90393_SSSA"
         },
