@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2026-02-02
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Tachyon certification docs 2026-01-30
 
 EU and RoHS [certification documents](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4ROW and TACH8ROW are now available.

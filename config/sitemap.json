@@ -5791,8 +5791,8 @@
             "hash": "1b290147cfc6cd8c3171315497b2f8c29403f367bfe5a879031665410d6a14c5"
         },
         "reference/device-os/libraries/g/G35.md": {
-            "date": "2024-08-28",
-            "hash": "90f858f3c3bd765cbc3e5824f08fa06cc8f78878759040bcc8dd6b5caab25f85"
+            "date": "2026-02-02",
+            "hash": "130e97fb5e55ede8559fe1009f18e0796a5071219f7986c9e70094ce13e3c0e9"
         },
         "reference/device-os/libraries/g/GA1A12S202.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8135b9c2ece2ec95b444e76315a12bd950564b1e00eba788cd3e11bf31436d65",
-            "date": "2026-01-30"
+            "hash": "b4558a434c2e48e8807ec17cac3bea0c51ba1dc0ab4379c1fb6f0a1d8edb0e61",
+            "date": "2026-02-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9903,8 +9903,8 @@
             "date": "2025-10-16"
         },
         "reference/device-os/libraries/l/LocationFusionRK.md": {
-            "hash": "fcd27c6dce6100ed5c4b3b5a0996c1066908e09153f889ec795032e5d7d3eb86",
-            "date": "2025-11-03"
+            "hash": "163994abeb15c719f1d6129ba64afc9e693a1580ededf185ccfd545be83ba4ea",
+            "date": "2026-02-02"
         },
         "reference/device-os/libraries/q/QuectelGnssRK.md": {
             "hash": "f87ba816d38c4219e24056667ce103ebe58ce1737a49db9c82bf609937a88c82",
@@ -9949,6 +9949,10 @@
         "reference/device-os/libraries/m/MAX6675_RK.md": {
             "hash": "f5954298976e2effab87fabb7a1739a918d49fa0dce3dd7c5cae0cbba64c5927",
             "date": "2026-01-01"
+        },
+        "reference/device-os/libraries/a/Adafruit_Mini_GPS_PA1010D.md": {
+            "hash": "7a02168dfcbb397f19042756e20fce59eb22a98455fb7d299673b1e6f95ca8e0",
+            "date": "2026-02-02"
         }
     }
 }
