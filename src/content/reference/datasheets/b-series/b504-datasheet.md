@@ -2133,7 +2133,7 @@ The following countries are not officially supported at this time, but may be co
 | El Salvador | 3G, 4G | Claro, Telefonica |
 | Guatemala | 3G, 4G | Claro, Movistar |
 | Honduras | 3G, 4G | Claro, Tigo |
-| Jamaica | 3G, 4G | Digicel, Flow |
+| Jamaica | 4G | Digicel, Flow |
 | Nicaragua | 3G | Movistar |
 | Panama | 3G | Digicel, Movistar |
 | Paraguay | 3G, 4G | Claro, Personal, Tigo, Vox |

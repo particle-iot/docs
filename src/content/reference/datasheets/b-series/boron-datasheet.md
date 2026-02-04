@@ -603,7 +603,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Ireland | BRN314 | 2G, 3G | Meteor, O2, Vodafone |
 | Israel | BRN314 | 2G, 3G | Hot Mobile |
 | Italy | BRN314 | 2G, 3G | TIM, Vodafone, Wind |
-| Jamaica | BRN314 | 3G | Flow |
 | Jordan | BRN314 | 2G, 3G | Zain |
 | Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | BRN314 | 2G, 3G | Airtel |

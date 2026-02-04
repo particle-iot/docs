@@ -1510,7 +1510,6 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Isle of Man | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Israel | &check; | &nbsp; | &nbsp; | &check; |
 | Italy | &check; | &check; | &nbsp; | &check; |
-| Jamaica | &check; | &check; | &nbsp; | &nbsp; |
 | Japan | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Jersey | &check; | &check; | &nbsp; | &nbsp; |
 | Jordan | &nbsp; | &check; | &nbsp; | &check; |

@@ -763,8 +763,6 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Italy | TIM | &check; | &check; | &check; | &nbsp; |
 | Italy | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Italy | Wind | &check; | &check; | &check; | &nbsp; |
-| Jamaica | Digicel | &check; | &check; | &nbsp; | &nbsp; |
-| Jamaica | Flow | &check; | &check; | &nbsp; | &nbsp; |
 | Japan | NTT DoCoMo | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Japan | Softbank | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Jersey | Airtel-Vodafone | &check; | &nbsp; | &nbsp; | &nbsp; |

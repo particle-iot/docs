@@ -1469,7 +1469,6 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Ireland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Israel | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Italy | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Jamaica | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Japan | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Jersey | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Jordan | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |

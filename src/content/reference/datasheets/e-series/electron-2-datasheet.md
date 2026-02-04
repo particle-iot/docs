@@ -1392,7 +1392,7 @@ To be provided at a later date.
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Ireland</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>3 (Tre), Meteor, O2, Vodafone</td></tr>
 <tr><td style="width: 2px; "></td><td>Israel</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Hot Mobile, Orange, Pelephone</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Italy</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>TIM, Vodafone, Wind</td></tr>
-<tr><td style="width: 2px; "></td><td>Jamaica</td><td>❓</td><td>Digicel, Flow</td><td>&nbsp;</td><td>❓</td><td>Digicel, Flow</td></tr>
+<tr><td style="width: 2px; "></td><td>Jamaica</td><td>❓</td><td>Digicel, Flow</td><td>&nbsp;</td><td>❓</td><td>Digicel</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Jersey</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>Jersey Telecom</td></tr>
 <tr><td style="width: 2px; "></td><td>Jordan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Zain</td></tr>
 <tr><td style="width: 2px; "></td><td>Kazakhstan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Beeline, K-Cell</td></tr>
