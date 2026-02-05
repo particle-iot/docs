@@ -847,19 +847,24 @@ navMenu.syncNavigation = function() {
         pageOffsets.push(obj);    
     });
 
-    // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
-    // one to display.
-    // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
-    // because it's been scrolled up.
-    const menubarRect = $('.menubar')[0].getBoundingClientRect();
-    
     let topIndex;
-    for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-        if (pageOffsets[ii].top < (menubarRect.top + 10)) {
-            topIndex = ii;
-            break;
+
+    const menubars = $('.menubar');
+    if (menubars.length == 1) {
+        // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
+        // one to display.
+        // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
+        // because it's been scrolled up.
+        const menubarRect = $('.menubar')[0].getBoundingClientRect();
+        
+        for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+            if (pageOffsets[ii].top < (menubarRect.top + 10)) {
+                topIndex = ii;
+                break;
+            }
         }
     }
+
     if (typeof topIndex == 'undefined') {
         return;
     }
