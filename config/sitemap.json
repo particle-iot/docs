@@ -935,8 +935,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-01-30",
-            "hash": "c25e7432252060e96b889cda35409749d6aebb9c96df4de99eb8b3771e1c1459"
+            "date": "2026-02-06",
+            "hash": "920a5d420481a0c4ed3747d91816c68a7712beedd083b02975f91768a6b0cb3f"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -991,15 +991,15 @@
             "hash": "80676fbedf72f8b81302ea85930e6dbbde2aa8eedbea0129afeffedbb5992f28"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "8c471f48b361f3448089922fd9ee583d6ded5df0814c59771a3bc059389ec7fa"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2026-02-05",
+            "date": "2026-02-06",
             "hash": "23bd4f479c1b03c1b7c59e1bed88445fb92c319aa4a6508e8730c606ba781300"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2026-02-05",
+            "date": "2026-02-06",
             "hash": "28461f072a12f0c7c6f3639e49f36e124ff0878d4c233236f2166010ac4b1102"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
@@ -1007,7 +1007,7 @@
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2026-02-05",
+            "date": "2026-02-06",
             "hash": "5e1a4a58f4530aed4bd5bf0087e4ca2cc174a2a12d423f258c15615c159004b2"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
@@ -1119,7 +1119,7 @@
             "hash": "c49ffc2c5009f4422484dbf4bbd276257265a941dc0811a301d10e1537027b3f"
         },
         "reference/cellular/lte-cat-1-expansion.md": {
-            "date": "2026-01-15",
+            "date": "2026-02-06",
             "hash": "75757ec332ca04a25ec337453914782d9ef51a2c7f65ec9361a0a3c3a617206e"
         },
         "reference/cellular/sim-cards.md": {
@@ -1279,7 +1279,7 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "0f3e986168101a7c320ac7f7971c0ae29112c618f6ab04ab365bbe6c1ea24497"
         },
         "reference/device-os/pin-info.md": {
@@ -1343,11 +1343,11 @@
             "hash": "b665c854ee1d177f21417da39d3899b821d19dc487443fc100bdcc39ca116095"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "581e2de16ffc33ee011e9b786f006d48d32467589e01f952a6a2a2e2d6bca7af"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2026-02-05",
+            "date": "2026-02-06",
             "hash": "f0cc730dea7ebd3e429f90b490b6a3d48bc7a6df0f4428f2e07dcf137cff8afa"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
@@ -1371,7 +1371,7 @@
             "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2026-02-05",
+            "date": "2026-02-06",
             "hash": "ffd26c98f6b956ac690f2364cfad9c2a529ca9a8b8e6495f61c9ab0925af080e"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
@@ -1387,7 +1387,7 @@
             "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2026-02-05",
+            "date": "2026-02-06",
             "hash": "8873b2d0f7d65f755bb6a4452704ab3303363a17d46011d2e68a05ad0794dce7"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
@@ -1415,11 +1415,11 @@
             "hash": "f8d9c44479044bee8f53f30f3aeb0a50d3233d0bbd40154dca569cf300849f54"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "8941b7cc5024d7dd6b8a99ecedee9dc34fe66444579d0fd96e4b4af2783d902b"
         },
         "reference/datasheets/tracker/tracker-one.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "82b7f01511031a4b23534ebcb64b4d2be6a372b66d84fb6accca9bdd223af7fa"
         },
         "reference/datasheets/tracker/tracker-m8-accessories.md": {
@@ -1427,7 +1427,7 @@
             "hash": "f2e75f5229b4625cbd15c3082ed36c031ca5c17c6d4fd2ebdf727386518b4d1a"
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "e3d3632f1da3555fbd2d6915bc79de8ce05193e056cb57d98b31d966e6be4b31"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
@@ -2771,15 +2771,15 @@
             "hash": "ad0a5b06d170b13aa6c6ad0f709e423df6a3747b5700bc9ba4b91096756ddc98"
         },
         "reference/device-os/api/wire-i2c/setspeed.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "ea62d0aeafe31ea09ab29cea323507d50aeca7e0b4b0148e3350651929e0b7ff"
         },
         "reference/device-os/api/wire-i2c/stretchclock.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "14a8e511cc0b49b0ec483d980e5b147535e3a99fad2aec82aa4278970188a0e3"
         },
         "reference/device-os/api/wire-i2c/begin.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "472652ede57c65e1b075851803fc2726e623f7051e8947e3a5de50a746193d23"
         },
         "reference/device-os/api/wire-i2c/end.md": {
@@ -2787,55 +2787,55 @@
             "hash": "9f73f693fd3f04a9771b0c338f3eb7ad0d1fa86f89f7c3bfc0c88694151d5e41"
         },
         "reference/device-os/api/wire-i2c/isenabled.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "5d45c60f70fc126f2847e5dfa935f798ee60df64ce09b18319772e444f4bdcf6"
         },
         "reference/device-os/api/wire-i2c/requestfrom.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "78a2e7743d472700f82ed13a26733ba709c848d71ca0781b31f1dc4398c00a5c"
         },
         "reference/device-os/api/wire-i2c/reset.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "27cff82ef253d176489ed0438f9ec7b1ee57382743fdcd08aca9bd43302452db"
         },
         "reference/device-os/api/wire-i2c/begintransmission.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "6867babdf431f0d5a3e9abfef59d77f0858f2eacdd1cb5adae0786fba3c4ac7d"
         },
         "reference/device-os/api/wire-i2c/endtransmission.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "00fe02f7d5341ec286a2996e21525a29be8b758ac701a92fba91dafa1e8e6cb3"
         },
         "reference/device-os/api/wire-i2c/write.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "9aa0e6a41c1ee07f5ebdb77a0493c5259dc9817506450d8bfaa5a71d189ab3f7"
         },
         "reference/device-os/api/wire-i2c/available.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "0ca4e3c80bd8928ee9aaff37181ea180309aa01f64e3ac8bc070c5f3d102cac1"
         },
         "reference/device-os/api/wire-i2c/read.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "c4171aead47ca26f958971ac8df5e90f2c63a29729fbb21899856a7921c4c61b"
         },
         "reference/device-os/api/wire-i2c/peek.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "8d0fdcef1241d95feb3e2a0ff4d9d84a765cb757d7b7b12c4cd8e265e61987d9"
         },
         "reference/device-os/api/wire-i2c/lock.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "a1217f2ee376c1b5e279c5cb2c6afdf30753aafd6f5b68253f472b3ec42d89e7"
         },
         "reference/device-os/api/wire-i2c/unlock.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "7e4c6a65158bf0db92fee1bbcc64e9bdc7ca5b543313f68fb22640815416bdb7"
         },
         "reference/device-os/api/wire-i2c/onreceive.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "e961a062de3006cdb69f269e8536e57decf4c9d96b1a3be5c19e238b03f791ec"
         },
         "reference/device-os/api/wire-i2c/onrequest.md": {
-            "date": "2026-01-16",
+            "date": "2026-02-06",
             "hash": "1dde3d4b35ba5c69e3f63ee5d5e361d69fae90559596035ede1ffb369f48e3d4"
         },
         "reference/device-os/api/wire-i2c/acquirewirebuffer.md": {
@@ -5791,7 +5791,7 @@
             "hash": "1b290147cfc6cd8c3171315497b2f8c29403f367bfe5a879031665410d6a14c5"
         },
         "reference/device-os/libraries/g/G35.md": {
-            "date": "2026-02-02",
+            "date": "2026-02-06",
             "hash": "130e97fb5e55ede8559fe1009f18e0796a5071219f7986c9e70094ce13e3c0e9"
         },
         "reference/device-os/libraries/g/GA1A12S202.md": {
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "b4558a434c2e48e8807ec17cac3bea0c51ba1dc0ab4379c1fb6f0a1d8edb0e61",
-            "date": "2026-02-02"
+            "hash": "eb1f6a99b821cc1d77b688949cdfe9cba5a45d74db57d63237e1aab85a225aa6",
+            "date": "2026-02-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8392,11 +8392,11 @@
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
             "hash": "17a997ce8141a24a2d1c6f25de164eb8cf6bb852724d28652f7e500973d8daab",
-            "date": "2026-01-16"
+            "date": "2026-02-06"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "328ba35778a303dd65c02c939e4c43bcb0489a5c135dbec4973473e644d81179",
-            "date": "2026-01-16"
+            "date": "2026-02-06"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9084,7 +9084,7 @@
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
             "hash": "f0bbf435e93142b8596713b977cec1ac79c4374e49e2f9a4da88bfa077014f46",
-            "date": "2026-02-05"
+            "date": "2026-02-06"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9696,15 +9696,15 @@
         },
         "reference/discontinued/cellular/2g-3g-sunset.md": {
             "hash": "ec5e50daab1b795b59c980daa7c4bc35a7d1005d5a9b9627e871657e2a2f171e",
-            "date": "2026-01-15"
+            "date": "2026-02-06"
         },
         "firmware/best-practices/thread-interrupt-safety.md": {
             "hash": "df83bd969de97f0e388c49294ce7c3168cb66057c3a37bcd5e8e99a7a070cd10",
             "date": "2025-10-15"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "32bf6f54642ed7bcaadc82423305ecf3aa0be64647900cccc8b655b58873cf4b",
-            "date": "2026-01-30"
+            "hash": "f4342141b74a020868367af34c57b20e337b8834675872de630dd2227396e048",
+            "date": "2026-02-06"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "cac5c6226004cb00f3b4fa8a832d9d7a1a1da4584cee69509f177f38c57088d9",
@@ -9904,7 +9904,7 @@
         },
         "reference/device-os/libraries/l/LocationFusionRK.md": {
             "hash": "163994abeb15c719f1d6129ba64afc9e693a1580ededf185ccfd545be83ba4ea",
-            "date": "2026-02-02"
+            "date": "2026-02-06"
         },
         "reference/device-os/libraries/q/QuectelGnssRK.md": {
             "hash": "f87ba816d38c4219e24056667ce103ebe58ce1737a49db9c82bf609937a88c82",
@@ -9952,7 +9952,7 @@
         },
         "reference/device-os/libraries/a/Adafruit_Mini_GPS_PA1010D.md": {
             "hash": "7a02168dfcbb397f19042756e20fce59eb22a98455fb7d299673b1e6f95ca8e0",
-            "date": "2026-02-02"
+            "date": "2026-02-06"
         }
     }
 }

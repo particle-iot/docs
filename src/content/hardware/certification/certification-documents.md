@@ -1524,6 +1524,31 @@ The T523 and T524 is not FCC certified as it does not support the cellular bands
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 {{!-- BEGIN shared-blurb 7592ab73-1be1-4f08-bd25-2923a6fb9e73 --}}
+### FCC (United States) - TACH4NA TACH8NA
+
+- FCC ID: 2AEMI-TACHYON
+- [Grant of equipment authorization (DTS)](/assets/pdfs/tach8na-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/tach8na-fcc-pcb.pdf)
+- [Grant of equipment authorization (NII)](/assets/pdfs/tach8na-fcc-nii.pdf)
+- [Grant of equipment authorization (DSS)](/assets/pdfs/tach8na-fcc-dss.pdf)
+- [Grant of equipment authorization (CBE)](/assets/pdfs/tach8na-fcc-cbe.pdf)
+- [Grant of equipment authorization (6ID)](/assets/pdfs/tach8na-fcc-6id.pdf)
+- [Test report FCC Part 15 Subpart B](/assets/pdfs/tach8na-fcc-15b.pdf)
+- [Test report FCC - Bluetooth](/assets/pdfs/tach8na-fcc-bluetooth.pdf)
+- [Test report FCC - BLE](/assets/pdfs/tach8na-fcc-ble.pdf)
+- [Test report FCC - 2.4 GHz Wi-Fi ](/assets/pdfs/tach8na-fcc-2_4g-wifi.pdf)
+- [Test report FCC - 5 GHz Wi-Fi - Part 1](/assets/pdfs/tach8na-fcc-5g-wifi-1.pdf)
+- [Test report FCC - 5 GHz Wi-Fi - Part 2](/assets/pdfs/tach8na-fcc-5g-wifi-2.pdf)
+- [Test report FCC - 5 GHz Wi-Fi - Part 3](/assets/pdfs/tach8na-fcc-5g-wifi-3.pdf)
+- [Test report FCC - 6 GHz Wi-Fi - Part 1](/assets/pdfs/tach8na-fcc-6g-wifi-1.pdf)
+- [Test report FCC - 6 GHz Wi-Fi - Part 2](/assets/pdfs/tach8na-fcc-6g-wifi-2.pdf)
+- [Test report FCC - 6 GHz Wi-Fi - Part 1](/assets/pdfs/tach8na-fcc-6g-wifi-3.pdf)
+- [Test report FCC - DFS](/assets/pdfs/tach8na-fcc-dfs.pdf)
+- [Test report FCC - Cellular](/assets/pdfs/tach8na-fcc-cellular.pdf)
+- [Test report FCC - Cellular - NR](/assets/pdfs/tach8na-fcc-cellular-nr.pdf)
+- [Test report FCC - MPE](/assets/pdfs/tach8na-fcc-mpe.pdf)
+- [Test report FCC - Title 47 Part 96.47](/assets/pdfs/tach8na-fcc-47-96-47.pdf)
+
 
 ### CE (Europe) - TACH4ROW TACH8ROW
 - [Summary](/assets/pdfs/tach8row-ce-summary.pdf)

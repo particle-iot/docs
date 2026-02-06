@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon certification docs 2026-02-06
+
+FCC [certification documents](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4NA and TACH8NA are now available.
+
 ### Library updates 2026-02-02
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
