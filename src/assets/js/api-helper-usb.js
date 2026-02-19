@@ -665,6 +665,108 @@ $(document).ready(function () {
         }));
     }));
 
+    $('.usbControlRequest').each(function() {
+        const thisPartial = $(this);
+
+        const connectButtonElem = $(thisPartial).find('.connectButton');
+        const disconnectButtonElem = $(thisPartial).find('.disconnectButton');
+        const sendButtonElem = $(thisPartial).find('.sendButton');
+        const requestJsonLinterElem = $(thisPartial).find('.apiHelperJsonLinterEditor');
+        const responseTextElem = $(thisPartial).find('.responseText > textarea');
+        const browserErrorDivElem = $(thisPartial).find('.browserErrorDiv');
+        // const Elem = $(thisPartial).find('.');
+
+        const defaultRequest = {
+            op: 'test',
+        };
+        apiHelper.jsonLinterSetValue(thisPartial, JSON.stringify(defaultRequest, null, 4));
+
+        let nativeUsbDevice;
+        let usbDevice;
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperStatus').text(s);
+        }
+        
+        if (!navigator.usb) {
+			analytics.track('No WebUSB', {category:gaCategory, label:navigator.userAgent});
+            $(connectButtonElem).prop('disabled', true);
+            $(browserErrorDivElem).show();
+            return;
+        }
+
+        $(connectButtonElem).on('click', async function() {
+            $(connectButtonElem).prop('disabled', true);
+            $(responseTextElem).val('');           
+                    
+            let filters = [
+                {vendorId: 0x2b04},
+            ];
+        
+            try {
+                nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
+        
+                usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
+
+                setStatus('Connected to device');
+                $(disconnectButtonElem).prop('disabled', false);
+                $(sendButtonElem).prop('disabled', false);
+            }
+            catch(e) {
+                if (e.message.includes('No device selected')) {
+                    setStatus('Canceled connecting');
+                }
+                else {
+                    setStatus('Failed to connect to device');
+                    console.log('exception', e);
+                }
+                $(connectButtonElem).prop('disabled', false);
+                $(disconnectButtonElem).prop('disabled', true);
+                nativeUsbDevice = usbDevice = null;
+            }
+        });
+
+        $(disconnectButtonElem).on('click', function() {
+            $(disconnectButtonElem).prop('disabled', true);
+            $(sendButtonElem).prop('disabled', true);
+
+            if (usbDevice) {
+                usbDevice.close();
+            }
+            nativeUsbDevice = usbDevice = null;
+
+            $(connectButtonElem).prop('disabled', false);
+        });
+        $(sendButtonElem).on('click', async function() {
+            $(sendButtonElem).prop('disabled', true);
+            $(responseTextElem).val('');           
+
+            const req = apiHelper.jsonLinterGetValue(thisPartial);
+
+            try {
+                const res = await usbDevice.sendControlRequest(10, req);
+                if (res.result == 0 && res.data) {            
+                    $(responseTextElem).val(res.data);
+                    setStatus('Send request succeeded');
+                }
+                else {
+                    setStatus('Device returned error ' + res.result);
+                }
+            
+            }
+            catch(e) {
+                console.log('control request exception', e);
+                setStatus('Error sending request');
+            }
+        
+            $(sendButtonElem).prop('disabled', false);
+
+        });
+
+
+
+    });
+
     fetch('/assets/files/deviceRestore.json')
         .then(response => response.json())
         .then(function(res) {

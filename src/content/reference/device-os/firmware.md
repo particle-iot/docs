@@ -25202,6 +25202,26 @@ Additional information can be found in:
 - [particle-usb library](https://github.com/particle-iot/particle-usb) which implements control requests for node.js (also available in npm) and browser-based WebUSB.
 
 
+## Control requests
+
+USB control requests work for devices connected by USB to a computer. You can use a command line tool or web browser to send the requests.
+
+There are certain built-in request handlers in Device OS; this is how setting Wi-Fi credentials works over USB.
+
+USB control requests work independently from USB serial debug, and both can be operational at the same time.
+
+You can add a user handler (request 10) with a custom payload. The Tracker (and Monitor One) use this for resetting configuration and entering shipping mode, for example.
+
+```cpp
+void ctrl_request_custom_handler(ctrl_request *req)
+```
+
+You can filter requests at the Device OS level using [System.setControlRequestFilter](/reference/device-os/api/system-calls/system-setcontrolrequestfilter/).
+
+Control requests can also be done over BLE, but this is more complicated and requires using the mobile secret embedded in the data matrix code on the serial number label for the device.
+
+A web-based tool for sending control requests and example code is available at [USB control request tool](/tools/developer-tools/control-request/).
+
 ## System interrupts
 
 This is advanced, low-level functionality, intended primarily for library writers.

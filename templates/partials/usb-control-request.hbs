@@ -1,0 +1,32 @@
+<div class="apiHelper apiHelperJsonLinter usbControlRequest">
+    <div class="apiHelperBox">
+        <div style="padding-bottom:10px;">
+            <button class="connectButton">Connect to device</button>
+            <button class="disconnectButton" disabled>Disconnect from device</button>
+        </div>
+        <div>
+            <button class="sendButton" disabled>Send custom control request</button>
+        </div>
+        <div class="apiHelperStatus" style="padding-top: 10px;"></div>
+    </div>
+    <div class="apiHelperJsonLinterEditor" style="padding-top: 20px;">
+        <div style="padding-bottom:10px;">Request JSON:</div>
+        <textarea rows="{{rows}}" cols="{{cols}}">{}</textarea>
+    </div>
+    <div class="responseText" style="padding-top: 30px;">
+        <div style="padding-bottom:10px;">Response:</div>
+        <textarea rows="{{rows}}" cols="{{cols}}" readonly>
+        </textarea>
+    </div>
+    <div class="browserErrorDiv" style="display:none">
+        <p>This tool can only be used on:</p>
+        <ul>
+            <li>Chrome (Windows, Mac, Linux, Chromebook, or Android, version 61 and later)</li>
+            <li>Edge (version 79 or later</li>
+            <li>Opera (Windows, Mac, Linux, or Android, version 48 or later</li>
+            <li>Samsung Internet (version 8.0 or later)</li>
+        </ul>
+        <p style="display:none">If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
+        you can use the Particle CLI for Windows, Mac, and Linux.</p>
+    </div>         
+</div>

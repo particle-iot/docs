@@ -399,6 +399,7 @@
   "/reference/device-os/api/chrono-literals": "/reference/device-os/api/chrono-literals/chrono-literals",
   "/reference/device-os/api/cloud-functions": "/reference/device-os/api/cloud-functions/overview-of-api-field-limits",
   "/reference/device-os/api/cloudevent": "/reference/device-os/api/cloudevent/cloudevent",
+  "/reference/device-os/api/control-requests": "/reference/device-os/api/control-requests/control-requests",
   "/reference/device-os/api/debugging": "/reference/device-os/api/debugging/debugging",
   "/reference/device-os/api/device-identifiers": "/reference/device-os/api/device-identifiers/device-identifiers",
   "/reference/device-os/api/device-os-versions": "/reference/device-os/api/device-os-versions/device-os-versions",

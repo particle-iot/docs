@@ -108,6 +108,10 @@
                 {
                     "dir": "module-version",
                     "title": "Module version tool"
+                },
+                {
+                    "dir": "control-request",
+                    "title": "USB control request"
                 }
             ]
         },

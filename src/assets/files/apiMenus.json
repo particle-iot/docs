@@ -1531,6 +1531,17 @@
       ]
     },
     {
+      "title": "Control requests",
+      "dir": "control-requests",
+      "collapse": true,
+      "subsections": [
+        {
+          "title": "Control requests",
+          "dir": "control-requests"
+        }
+      ]
+    },
+    {
       "title": "Debugging",
       "dir": "debugging",
       "collapse": true,
