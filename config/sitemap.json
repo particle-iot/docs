@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-02-06",
-            "hash": "0f3e986168101a7c320ac7f7971c0ae29112c618f6ab04ab365bbe6c1ea24497"
+            "date": "2026-02-19",
+            "hash": "6eb1d024fd6e8951e2efe54d1c6f40e38788ac1930d2c437d7b0a93705766d8a"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "665416824200498d1818783fdb56e2d2f54f034377fbade85412bf7e0bb57829",
+            "hash": "8010888c4ba10f4953171acbb48855a3814d880bf04564bf8b559e7c8d30bed2",
             "date": "2026-02-19"
         },
         "getting-started/cloud/logic.md": {
@@ -9953,6 +9953,14 @@
         "reference/device-os/libraries/a/Adafruit_Mini_GPS_PA1010D.md": {
             "hash": "7a02168dfcbb397f19042756e20fce59eb22a98455fb7d299673b1e6f95ca8e0",
             "date": "2026-02-06"
+        },
+        "tools/developer-tools/control-request.md": {
+            "hash": "e61cf71aa9909a3c2c5c40ee67eca8efb6edee09a66c356f0c4b772ff53f9917",
+            "date": "2026-02-19"
+        },
+        "reference/device-os/api/control-requests/control-requests.md": {
+            "hash": "6943da4e29b8b72f9d8526e680a8f3c728fe8be737ce10525a3834fd26cb7232",
+            "date": "2026-02-19"
         }
     }
 }

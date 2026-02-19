@@ -1088,6 +1088,7 @@
   "/reference/device-os/firmware/#systemcontrolrequestaclaction": "/reference/device-os/api/system-calls/system-setcontrolrequestfilter/#systemcontrolrequestaclaction",
   "/reference/device-os/firmware/#systemcontrolrequestacl": "/reference/device-os/api/system-calls/system-setcontrolrequestfilter/#systemcontrolrequestacl",
   "/reference/device-os/firmware/#ctrl_request_type": "/reference/device-os/api/system-calls/system-setcontrolrequestfilter/#ctrl_request_type",
+  "/reference/device-os/firmware/#control-requests": "/reference/device-os/api/control-requests/control-requests/",
   "/reference/device-os/firmware/#system-interrupts": "/reference/device-os/api/system-interrupts/system-interrupts/",
   "/reference/device-os/firmware/#attachsysteminterrupt-": "/reference/device-os/api/system-interrupts/attachsysteminterrupt/",
   "/reference/device-os/firmware/#detachsysteminterrupt-": "/reference/device-os/api/system-interrupts/detachsysteminterrupt/",
