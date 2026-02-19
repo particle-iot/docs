@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Muon I2C pin 2026-02-19
+
+Fixed an error in the [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/#i2c) in the table that shows I2C pins. There is no Wire1 on M-SoM and D6 is not Wire1 SCK.
+
 ### Tachyon certification docs 2026-02-06
 
 FCC [certification documents](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4NA and TACH8NA are now available.

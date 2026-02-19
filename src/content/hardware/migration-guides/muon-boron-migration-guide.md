@@ -327,7 +327,6 @@ Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used f
 | :--- | :--- | :---: | :--- | :--- | :--- |
 | D0 | Wire (SDA) | 3 | D0 | Wire (SDA) | GPIO2 (SDA) |
 | D1 | Wire (SCL) | 5 | D1 | Wire (SCL) | GPIO3 (SCL) |
-| D6 | &nbsp; | 12 | D6 | Wire1 (SCL) | GPIO18 (PCM_CLK) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -704,7 +703,6 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| ∆ | I2C interface | n/a | SCL. Use Wire1 object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 13K | ??? |

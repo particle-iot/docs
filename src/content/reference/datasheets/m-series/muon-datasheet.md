@@ -384,7 +384,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | D3 | 36 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | &nbsp; | PA[15] | GPIO16 |
 | D4 | 33 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[18] | GPIO13 (PWM1) |
 | D5 | 32 | I2S TX | &nbsp; | &nbsp; | &nbsp; | &check; | PB[19] | GPIO12 (PWM0) |
-| D6 | 12 | I2S CLK | Wire1 (SCL) | &nbsp; | &nbsp; | &check; | PB[20] | GPIO18 (PCM_CLK) |
+| D6 | 12 | I2S CLK | &nbsp; | &nbsp; | &nbsp; | &check; | PB[20] | GPIO18 (PCM_CLK) |
 | D20 | 40 | I2S TX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] | GPIO21 (PCM_DOUT) |
 | D21 | 38 | I2S RX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] | GPIO20 (PCM_DIN) |
 | D22 | 22 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] | GPIO25 |
@@ -414,7 +414,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | 8 | TX / D9 | I2S MCLK | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | &check; | PA[12] | GPIO14 (TXD) |
 | 10 | RX / D10 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | &check; | PA[13] | GPIO15 (RXD) |
 | 11 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | &nbsp; | PA[14] | GPIO17 |
-| 12 | D6 | I2S CLK | Wire1 (SCL) | &nbsp; | &nbsp; | &check; | PB[20] | GPIO18 (PCM_CLK) |
+| 12 | D6 | I2S CLK | &nbsp; | &nbsp; | &nbsp; | &check; | PB[20] | GPIO18 (PCM_CLK) |
 | 13 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | &check; | PB[3] | GPIO27 |
 | 15 | D27 | &nbsp; | SWDIO | &nbsp; | &nbsp; | &nbsp; | PA[27] | GPIO22 |
 | 16 | D24 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | &nbsp; | PA[7] | GPIO23 |
@@ -464,7 +464,7 @@ The Muon has 40-pin expansion connector mounted on the top of the board.
 | GPIO15 (RXD) | RX / D10 | 10 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | &check; | PA[13] |
 | GPIO16 | D3 | 36 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | &nbsp; | PA[15] |
 | GPIO17 | D2 | 11 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | &nbsp; | PA[14] |
-| GPIO18 (PCM_CLK) | D6 | 12 | I2S CLK | Wire1 (SCL) | &nbsp; | &nbsp; | &check; | PB[20] |
+| GPIO18 (PCM_CLK) | D6 | 12 | I2S CLK | &nbsp; | &nbsp; | &nbsp; | &check; | PB[20] |
 | GPIO19 (PCM_FS) | D26 | 35 | I2S WS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
 | GPIO20 (PCM_DIN) | D21 | 38 | I2S RX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
 | GPIO21 (PCM_DOUT) | D20 | 40 | I2S TX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
@@ -655,7 +655,6 @@ Expansion cards GPIO10 (MOSI), GPIO9 (MISO), and GPIO11(SCLK) can only be used f
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
 | 3 | D0 | I2C SDA | Wire (SDA) | 22 | PB[0] | GPIO2 (SDA) |
 | 5 | D1 | I2C SCL | Wire (SCL) | 20 | PA[31] | GPIO3 (SCL) |
-| 12 | D6 | D6 GPIO, PWM, I2S CLK | Wire1 (SCL) | 70 | PB[20] | GPIO18 (PCM_CLK) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -957,7 +956,7 @@ See [Muon HATs](/hardware/muon-hats/muon-hats/) for more information.
 | 9 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 10 | GPIO15 (RXD) | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | SPI1 (MISO) | &nbsp; | &nbsp; |
 | 11 | GPIO17 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | SPI1 (SCK) | &nbsp; | &nbsp; |
-| 12 | GPIO18 (PCM_CLK) | D6 | D6 GPIO, PWM, I2S CLK | &nbsp; | &nbsp; | Wire1 (SCL) | I2S CLK |
+| 12 | GPIO18 (PCM_CLK) | D6 | D6 GPIO, PWM, I2S CLK | &nbsp; | &nbsp; | &nbsp; | I2S CLK |
 | 13 | GPIO27 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 14 | Ground | GND | Ground | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 15 | GPIO22 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -1283,7 +1282,6 @@ This section is very long; you can [skip over it](#schematics) if desired.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2C interface</td><td class="" style="text-align: left; ">SCL. Use Wire1 object. Use 1.5K to 10K external pull-up resistor.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S CLK</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
@@ -1983,3 +1981,4 @@ Global, country list to be provided a later date.
 |   4      | 2025-02-11 | RK | Added height and weight |
 |   5      | 2025-06-17 | RK | Added link to 3D models |
 |   6      | 2025-06-25 | RK | Clarifications for GNSS use |
+|   7      | 2026-02-19 | RK | D6 is not an I2C pin |
