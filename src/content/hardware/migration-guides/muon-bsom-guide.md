@@ -473,7 +473,6 @@ The table below is a detailed comparison of the M-SoM vs. B-SoM pins.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | Yes | D4, D5, and D6 must have the same frequency. |
-| ∆ | I2C interface | SCL. Use Wire1 object. Use 1.5K to 10K external pull-up resistor. | n/a |
 | ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
 | ∆ | I2S interface | I2S CLK | n/a |
 | ∆ | Internal pull resistance | ??? | 13K |

@@ -181,7 +181,6 @@
             "digitalRead": true,
             "digitalWrite": true,
             "hardwarePin": "PB[20]",
-            "i2c": "Wire1 (SCL)|SCL. Use Wire1 object. Use 1.5K to 10K external pull-up resistor.",
             "i2s": "I2S CLK",
             "internalPull": "???",
             "is5VTolerant": false,

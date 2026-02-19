@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "eb1f6a99b821cc1d77b688949cdfe9cba5a45d74db57d63237e1aab85a225aa6",
-            "date": "2026-02-06"
+            "hash": "516a2579e47d9c98ae2c7e19baf4ecae21124109673ae5f2731589958bbb4ec3",
+            "date": "2026-02-19"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8395,8 +8395,8 @@
             "date": "2026-02-06"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "328ba35778a303dd65c02c939e4c43bcb0489a5c135dbec4973473e644d81179",
-            "date": "2026-02-06"
+            "hash": "f30f69102fa644a92eaf42c08e7a404eedc04144cf9f60272920c8c059b5bb6c",
+            "date": "2026-02-19"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9407,8 +9407,8 @@
             "date": "2024-10-28"
         },
         "hardware/migration-guides/muon-boron-migration-guide.md": {
-            "hash": "2f2e31e4784f7ce9a07fbeed8399155ad8726fdc9e2e2ae073b35a3ace14ef49",
-            "date": "2025-07-18"
+            "hash": "2e8459b216c2824510ba3f2f0cb5f5d735af80c95f3edfbb4259c0a50731d6b8",
+            "date": "2026-02-19"
         },
         "hardware/muon-hats/automation-hats.md": {
             "hash": "78139201bc6ae944d48f3b30ab9647d9e9c4c26499558fd1d0175853e51dd02d",
