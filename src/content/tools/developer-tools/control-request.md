@@ -32,6 +32,8 @@ Control requests can also be done over BLE, but this is more complicated and req
 
 The sample code below also supports sending requests using a Particle.function.
 
+Additional information can be found in [Control Requests](/reference/device-os/api/control-requests/) in the Device OS API reference.
+
 ## Sample code
 
 This is sample device firmware code you can test for using control requests.

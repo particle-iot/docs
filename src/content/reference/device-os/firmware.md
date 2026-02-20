@@ -25212,15 +25212,190 @@ USB control requests work independently from USB serial debug, and both can be o
 
 You can add a user handler (request 10) with a custom payload. The Tracker (and Monitor One) use this for resetting configuration and entering shipping mode, for example.
 
-```cpp
-void ctrl_request_custom_handler(ctrl_request *req)
-```
-
 You can filter requests at the Device OS level using [System.setControlRequestFilter](/reference/device-os/api/system-calls/system-setcontrolrequestfilter/).
 
 Control requests can also be done over BLE, but this is more complicated and requires using the mobile secret embedded in the data matrix code on the serial number label for the device.
 
 A web-based tool for sending control requests and example code is available at [USB control request tool](/tools/developer-tools/control-request/).
+
+### ctrl_request_custom_handler - Control requests
+
+To implement a custom control request handler implement the `ctrl_request_custom_handler` function.
+
+```cpp
+// PROTOTYPE
+void ctrl_request_custom_handler(ctrl_request *req)
+```
+
+### ctrl_request - Control requests
+
+The `ctrl_request` structure contains the request to be handled. It also can be filled in with reply data. The structure is defined as follows:
+
+```cpp
+typedef struct ctrl_request {
+    uint16_t size; // Size of this structure
+    uint16_t type; // Request type
+    char* request_data; // Request data
+    size_t request_size; // Size of the request data
+    char* reply_data; // Reply data
+    size_t reply_size; // Size of the reply data
+    void* channel; // Request channel (used internally)
+} ctrl_request;
+```
+
+Note that the data is specified by pointer and length and may not be a valid c-string. It also could contain binary data, if the requester sent it.
+
+### system_ctrl_alloc_reply_data - Control requests
+
+Allocates or frees the reply data buffer. This function acts as realloc(), i.e. it changes the size of an already allocated buffer, or frees it if `size` is set to 0.
+
+```cpp
+int system_ctrl_alloc_reply_data(ctrl_request* req, size_t size, void* reserved);
+```
+
+- `req` is the request passed to `ctrl_request_custom_handler`
+- `size` is the number of byes to allocate
+- `reserved` must be set to `nullptr` (0)
+
+The return value is a system error constant; 0 if successful.
+
+If the allocation is successful, fill in `req->reply_data` with the data to reply with.
+
+### system_ctrl_set_result - Control requests
+
+Completes the processing of a request. The `result` argument specifies a result code as defined by the `system_error_t` enum. The function also takes an optional callback that will be invoked once the sender of the request has received the reply successfully, or an error has occurred while sending the reply.
+
+```cpp
+// PROTOTYPE
+void system_ctrl_set_result(ctrl_request* req, int result, ctrl_completion_handler_fn handler, void* data, void* reserved);
+
+// EXAMPLE
+void ctrl_request_custom_handler(ctrl_request *req) {
+  int result = SYSTEM_ERROR_NOT_SUPPORTED;
+  system_ctrl_set_result(req, result, nullptr, nullptr, nullptr);
+}
+```
+
+- `req` is the request passed to `ctrl_request_custom_handler`
+- `result` the system error code to return (0 = success)
+- `handler` the callback function or `nullptr` if not used
+- `data` optional data pointer that is passed to the handler
+- `reserved` must be set to `nullptr` (0)
+
+
+### ctrl_completion_handler_fn - Control requests
+
+Callback function for `system_ctrl_set_result()`.
+
+```cpp
+// DECLARATION
+typedef void(*ctrl_completion_handler_fn)(int result, void* data);
+
+// EXAMPLE FUNCTION
+void myCompletion(int result, void* data)
+```
+
+- `result` the result code passed to `system_ctrl_set_result()`.
+- `data` the pointer passed to `system_ctrl_set_result()`.
+
+
+### Handler using Variant - Control requests
+
+The `Variant` API is generally much easier to use but requires Device OS 6.2 or later.
+
+```cpp
+void ctrl_request_custom_handler(ctrl_request *req) {
+    int result = SYSTEM_ERROR_NOT_SUPPORTED;
+
+    // Parse the incoming request as JSON
+    String reqData(req->request_data, req->request_size);
+    Variant reqVar = Variant::fromJSON(reqData.c_str());
+
+    // Optionally fill this in with JSON data to return by USB control request
+    Variant respVar;
+
+    // Read the "op" value out of the JSON. You can use a different key.
+    String op = reqVar.get("op").asString();
+    Log.info("Request received op=%s %s", op.c_str(), reqVar.toJSON().c_str());
+
+    if (op == "test") {
+        // If "op" is "test" then do something here
+        respVar.set("counter", ++counter);
+        respVar.set("result", 0);
+
+        result = SYSTEM_ERROR_NONE;
+    }
+
+    if (respVar.isMap()) {
+        // If respVar is a JSON object, then return it to the caller.
+        String respJson = respVar.toJSON();
+        if (respJson.length()) {
+            if (system_ctrl_alloc_reply_data(req, respJson.length(), nullptr) == 0) {
+                memcpy(req->reply_data, respJson.c_str(), respJson.length());
+            } else {
+                result = SYSTEM_ERROR_NO_MEMORY;
+            }        
+            Log.info("response %s", respJson.c_str());
+        }
+
+    }
+
+    system_ctrl_set_result(req, result, nullptr, nullptr, nullptr);
+}
+
+```
+
+
+### Handler using JSONValue - Control requests
+
+To support older versions of Device OS, you can also use `JSONValue` and `JSONWriter`.
+
+```cpp
+void ctrl_request_custom_handler(ctrl_request *req) {
+    int result = SYSTEM_ERROR_NOT_SUPPORTED;
+
+    JSONValue outerObj = JSONValue::parseCopy(req->request_data, req->request_size);
+
+    memset(responseBuffer, 0, sizeof(responseBuffer));
+
+    String op;
+
+    {
+        JSONObjectIterator iter(outerObj);
+        while(iter.next()) {
+            if (iter.name() == "op") {
+                op = (const char *)iter.value().toString();
+                break;
+            }
+        }
+    }
+
+    Log.info("USB request received op=%s", op.c_str());
+    if (op == "test") {
+        JSONBufferWriter writer(responseBuffer, sizeof(responseBuffer) - 1);
+        writer.beginObject();
+        {
+            writer.name("counter").value(++counter);
+            writer.name("result").value(0);        
+        }
+        writer.endObject();
+        result = SYSTEM_ERROR_NONE;
+    }
+
+    size_t size = strlen(responseBuffer);
+    if (size > 0) {
+        if (system_ctrl_alloc_reply_data(req, size, nullptr) == 0) {
+            memcpy(req->reply_data, responseBuffer, size);
+        } else {
+            result = SYSTEM_ERROR_NO_MEMORY;
+        }        
+    }
+
+    system_ctrl_set_result(req, result, nullptr, nullptr, nullptr);
+}
+
+```
+
 
 ## System interrupts
 

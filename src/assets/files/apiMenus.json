@@ -1538,6 +1538,34 @@
         {
           "title": "Control requests",
           "dir": "control-requests"
+        },
+        {
+          "title": "ctrl_request_custom_handler - Control requests - Control requests",
+          "dir": "ctrl_request_custom_handler-control-requests"
+        },
+        {
+          "title": "ctrl_request - Control requests - Control requests",
+          "dir": "ctrl_request-control-requests"
+        },
+        {
+          "title": "system_ctrl_alloc_reply_data - Control requests - Control requests",
+          "dir": "system_ctrl_alloc_reply_data-control-requests"
+        },
+        {
+          "title": "system_ctrl_set_result - Control requests - Control requests",
+          "dir": "system_ctrl_set_result-control-requests"
+        },
+        {
+          "title": "ctrl_completion_handler_fn - Control requests - Control requests",
+          "dir": "ctrl_completion_handler_fn-control-requests"
+        },
+        {
+          "title": "Handler using Variant - Control requests - Control requests",
+          "dir": "handler-using-variant-control-requests"
+        },
+        {
+          "title": "Handler using JSONValue - Control requests - Control requests",
+          "dir": "handler-using-jsonvalue-control-requests"
         }
       ]
     },

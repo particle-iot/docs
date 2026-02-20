@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-02-19",
-            "hash": "6eb1d024fd6e8951e2efe54d1c6f40e38788ac1930d2c437d7b0a93705766d8a"
+            "date": "2026-02-20",
+            "hash": "00ca5fec6fa770e68ae9195ffdeef27946c86c31afb83cf95c267011c6454b95"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -9955,12 +9955,40 @@
             "date": "2026-02-06"
         },
         "tools/developer-tools/control-request.md": {
-            "hash": "e61cf71aa9909a3c2c5c40ee67eca8efb6edee09a66c356f0c4b772ff53f9917",
-            "date": "2026-02-19"
+            "hash": "fadfc4948083e433ce06b0936f0072dd7064d947fadb0ecf8a2880195731b2bc",
+            "date": "2026-02-20"
         },
         "reference/device-os/api/control-requests/control-requests.md": {
-            "hash": "6943da4e29b8b72f9d8526e680a8f3c728fe8be737ce10525a3834fd26cb7232",
-            "date": "2026-02-19"
+            "hash": "8d46de5c8365a210738f00b52e3797d0c2a15cf5dc139648525fad02be234d53",
+            "date": "2026-02-20"
+        },
+        "reference/device-os/api/control-requests/ctrl_request_custom_handler-control-requests.md": {
+            "hash": "9a28d01f49fe7ec9535eba52bc60410cb6c460a4a55aa1d3167e73458f786a71",
+            "date": "2026-02-20"
+        },
+        "reference/device-os/api/control-requests/ctrl_request-control-requests.md": {
+            "hash": "52bccb1f6b5a0522de4c1e80a6ec0be8b654ccc8a3da582229eb3a79f50f0d35",
+            "date": "2026-02-20"
+        },
+        "reference/device-os/api/control-requests/system_ctrl_alloc_reply_data-control-requests.md": {
+            "hash": "b95bea5dcc8aad62ab3303424049ebe8090e61cef78a80b3aebc3fbb3121e7f5",
+            "date": "2026-02-20"
+        },
+        "reference/device-os/api/control-requests/system_ctrl_set_result-control-requests.md": {
+            "hash": "c36ec53607b9d8016c04ecf9063bbdd1f2ae2bcfe5a7823d819917fcdc826797",
+            "date": "2026-02-20"
+        },
+        "reference/device-os/api/control-requests/ctrl_completion_handler_fn-control-requests.md": {
+            "hash": "34438e83a211a531300fd67b8254e866c0048aa0caffd1ad75bfb647d48ef4d5",
+            "date": "2026-02-20"
+        },
+        "reference/device-os/api/control-requests/handler-using-variant-control-requests.md": {
+            "hash": "c05ac79f93eb5bde887628123fc89c11bbfb8ea3a3b933805301e0c2318000b4",
+            "date": "2026-02-20"
+        },
+        "reference/device-os/api/control-requests/handler-using-jsonvalue-control-requests.md": {
+            "hash": "db2447f63a026298bdf336004d7fb66df5ef2106a3fd9f9c9f365a3f822b2cfb",
+            "date": "2026-02-20"
         }
     }
 }
