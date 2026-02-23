@@ -180,7 +180,7 @@ Additionally, both sandbox and organization products have their own Environment 
 
 For more information, see:
 
-- [Environment variables](/getting-started/configuration/env-vars/): lightweight, non‑secret key - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
+- [Environment variables](/getting-started/configuration/env-vars/): lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
 - [Secrets](/getting-started/cloud/secrets/): secure, organization‑scoped values that integrations and logic can reference securely.
 
 ## Billing & usage

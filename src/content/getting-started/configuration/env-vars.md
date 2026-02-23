@@ -6,23 +6,23 @@ description: Environment Variables (env vars)
 ---
 
 {{!-- BEGIN shared-blurb 79e94a32-654d-4961-8498-5d7969690c4a --}}
-Environment variables are a lightweight, non‑secret, key - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
+Environment variables are a lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
 {{!-- END shared-blurb --}}
 
 The feature is available in Device OS 6.4.0 and later.
 
 ## Variables
 
-Environment variables are key - value pairs.
+Environment variables are name - value pairs.
 
 {{!-- BEGIN shared-blurb 436d14ef-9684-4d3e-85de-72de338ff565 --}}
 - Variable names are uppercase letters, underscores and numbers only, and cannot start with a number.
 - Variable names beginning with `PARTICLE_` are reserved for Particle use.
 - Maximum variable name length: 128 characters.
 - Maximum variable value length: Not limited per variable.
+- The total size of all name - value pairs to be delivered to a device cannot exceed 16 Kbytes. 
 {{!-- END shared-blurb --}}
 
-The total size of all key - value pairs to be delivered to a device cannot exceed 16 Kbytes. This includes all variables from the organization, product, and device level.
 
 ## Hierarchical
 
@@ -87,6 +87,7 @@ To create an environment variable, fill in this screen:
 - Variable names beginning with `PARTICLE_` are reserved for Particle use.
 - Maximum variable name length: 128 characters.
 - Maximum variable value length: Not limited per variable.
+- The total size of all name - value pairs to be delivered to a device cannot exceed 16 Kbytes. 
 {{!-- END shared-blurb --}}
 
 Once you've created a variable, you'll see a list of variables that you have created within this scope.
@@ -164,7 +165,7 @@ This is useful for seeding the default variable values before your firmware conn
 
 ### Using project.properties - Application-specific variables
 
-The `firmwareEnv` key in the project.properties allows bundling of an application binary (.bin) file with an arbitrary JSON file of key - value pairs. 
+The `firmwareEnv` key in the project.properties allows bundling of an application binary (.bin) file with an arbitrary JSON file of name - value pairs. 
 
 ```
 name=MyProject
@@ -175,7 +176,7 @@ As is the case with Asset OTA, specifying `firmwareEnv` will create a .zip file 
 
 ### Using particle bundle - Application-specific variables
 
-Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `particle bundle` command with the `--env` option allows bundling of an application binary (.bin) file with an arbitrary JSON file of key - value pairs.
+Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `particle bundle` command with the `--env` option allows bundling of an application binary (.bin) file with an arbitrary JSON file of name - value pairs.
 
 ## Device OS environment variables
 
@@ -186,8 +187,49 @@ Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `parti
 | `PARTICLE_WIFI_ENABLE` | Set to `false` to disable Wi-Fi | bool | 6.4.0 |
 
 
-### Cellular environment variables
+## Cellular environment variables
 
+### PARTICLE_CELLULAR_PREFERRED_PLMN
+
+- Available in Device OS 6.4.0 and later
+- Gen 3 and Gen 4 devices
+- Cellular Modems: BG95-M5, BG96-MC, EG91-E, EG91-EX, EG91-NA, R410, R510, SG560D
+
+Sets the preferred list of operators in MCCMNC format. Up to three can be specified. For example:
+
+- `311480,310410`
+- `311480`
+- If set to an empty string, the modem default is used
+
+### PARTICLE_CELLULAR_PREFERRED_BANDS
+
+- Available in Device OS 6.4.0 and later
+- Gen 3 and Gen 4 devices
+- Cellular Modems: BG95-M5, BG96-MC, EG91-E, EG91-EX, EG91-NA, R410, R510, SG560D
+
+Sets preferred bands using a band mask.
+
+The band mask is a bit field of bands. For example:
+
+| Band | Mask |
+| :--- | :--- |
+| B1   | 1    |
+| B2   | 2    |
+| B3   | 4    |
+| B4   | 8    |
+| B5   | 16   |
+
+The value to store for the key is a uint128 value represented in decimal of the band mask values added together.
+
+After 10 minutes of failing to connect, the device reverts to using all bands instead of just the preferred bands.
+
+### PARTICLE_CELLULAR_FORBIDDEN_BANDS
+
+- Available in Device OS 6.4.0 and later
+- Gen 3 and Gen 4 devices
+- Cellular Modems: BG95-M5, BG96-MC, EG91-E, EG91-EX, EG91-NA, R410, R510, SG560D
+
+Sets a mask of bands to not use. The band mask is the same uint128 format as for `PARTICLE_CELLULAR_PREFERRED_BANDS`.
 
 
 ## Logic
@@ -220,9 +262,21 @@ export interface FunctionContext {
 ```
 {{!-- END shared-blurb --}}
 
+For example:
+
+```js
+export default function process({ event, env })
+{
+    console.log('RETRY_PERIOD=' + env.RETRY_PERIOD);
+}
+```
+
+
 ## Integrations
 
 Integrations including webhooks have access to environment variables using [mustache templates](/firmware/best-practices/json/#mustache-variables).
+
+For example, you could use `\{{{RETRY_PERIOD}}}` from the example above in an integration template in any field including headers, query parameters, URL, etc..
 
 ## Particle CLI
 

@@ -1311,7 +1311,7 @@ If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 
 
 ## particle config env
 
-The `particle config env` commands allow setting environment variables from the command line. [Environment variables](/getting-started/configuration/env-vars/) are lightweight, non‑secret key - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
+The `particle config env` commands allow setting environment variables from the command line. [Environment variables](/getting-started/configuration/env-vars/) are lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
 
 In previous versions of the Particle CLI, `particle config` switched between profiles. That function is now performed by the `particle profile` command.
 
@@ -1334,7 +1334,7 @@ particle config env list --device <deviceId>
 
 ### particle config env set
 
-Set a single key - value pair within a given scope (organization, product, or device).
+Set a single name - value pair within a given scope (organization, product, or device).
 
 ```sh
 # Specify the organization
@@ -1358,7 +1358,7 @@ particle config env set <name>=<value> --device <deviceId>
 
 ### particle config env delete
 
-Delete a single key - value pair within a given scope (organization, product, or device).
+Delete a single name - value pair within a given scope (organization, product, or device).
 
 ```sh
 # Specify the organization

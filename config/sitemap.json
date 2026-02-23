@@ -592,7 +592,7 @@
         },
         "getting-started/console/console.md": {
             "date": "2026-02-23",
-            "hash": "d04d466812c3f81f87e739469c451ce7d730a19850c9c9c72da062a05861bb92"
+            "hash": "3b7b7b27e99e2626d786ae0a931d436af778dd10c691defd0a4774c41646e4b2"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -1132,7 +1132,7 @@
         },
         "reference/cloud-apis/api.md": {
             "date": "2026-02-23",
-            "hash": "7ffeb70cfb2cb3885f6a44bcce449804414d0058fae16557543f5f203ccffe9c"
+            "hash": "85d4f1b7fc35f3ca31d14ac412d8d7ba68986a30ca4195a19dac723391c8df57"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2025-03-18",
@@ -1164,7 +1164,7 @@
         },
         "reference/developer-tools/cli.md": {
             "date": "2026-02-23",
-            "hash": "9c04f53c7e2ae44374dd8bd83c285f301a933051fbaefa5219caeb2fbea82b94"
+            "hash": "b3ea6478579011d46c09127c7fe0bb1d1a70604692d09aa67880b4a5eefc4939"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2026-02-23",
-            "hash": "b5b91ee4e53bce1f7f3f58e31bf1ce96027d34caaf2314ef6e32b40d2e94cdf7"
+            "hash": "be64e70e83311d90af33aefc55326aa89a8431dc1a82b4b24f210241a271325c"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -9991,15 +9991,15 @@
             "date": "2026-02-20"
         },
         "getting-started/configuration/configuration.md": {
-            "hash": "60c2b411926382ef7c9c426fd3993832f32dd6230d72250be8d41dd8832c0491",
+            "hash": "24e9a31fe3993ac8763b668e1d965b2f32343abc0247e0d9bb0334fe0a5375fe",
             "date": "2026-02-23"
         },
         "getting-started/configuration/env-vars.md": {
-            "hash": "a49a28febb22e96497bc0df37dbc3dbba220db6b358ff90a35147028723ebe89",
+            "hash": "b5def7f7084dc1748d02526b387302ce5e40d8d3605302f3217d83f5d7975ac6",
             "date": "2026-02-23"
         },
         "reference/device-os/api/system-calls/enviroment-variables-system.md": {
-            "hash": "4367ccc58a47bc6a71ffbc83e0a524f7653e39e226573fb62f8d2819e32ab3c0",
+            "hash": "4c042c550cd970c5de1983b8d394ec4c582584e4f30870cc82e561d7a0523962",
             "date": "2026-02-23"
         }
     }
