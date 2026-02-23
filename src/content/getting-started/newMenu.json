@@ -199,6 +199,24 @@
             ]
         },
         {
+            "dir": "configuration",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "configuration",
+                    "title": "Introduction"
+                },
+                {
+                    "dir": "env-vars",
+                    "title": "Environment Variables"
+                },
+                {
+                    "title": "Secrets",
+                    "href": "/getting-started/cloud/secrets/"                    
+                }
+            ]
+        },
+        {
             "dir": "tracker",
             "isSection": true,
             "subsections": [

@@ -1131,8 +1131,8 @@
             "hash": "264776c70a5538439141848e0febae9ecf64814c88342a38137f5a27f6c676b7"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2025-11-04",
-            "hash": "ec13f8e33250268a9144598a29f5b54812c6a329d8ba1208d14bf2684b859e9c"
+            "date": "2026-02-23",
+            "hash": "9cd5a2e257771c0ab9ec6edeb852cef7b44ae204aa5f8eea668f281929a3b824"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2025-03-18",
@@ -9989,6 +9989,14 @@
         "reference/device-os/api/control-requests/handler-using-jsonvalue-control-requests.md": {
             "hash": "db2447f63a026298bdf336004d7fb66df5ef2106a3fd9f9c9f365a3f822b2cfb",
             "date": "2026-02-20"
+        },
+        "getting-started/configuration/configuration.md": {
+            "hash": "cd5a19f0063a8794e6239c18e6e056991893069fea11abbddcc0412532650d77",
+            "date": "2026-02-23"
+        },
+        "getting-started/configuration/env-vars.md": {
+            "hash": "e71b306d13a0a77b79009d5a35bc3100e17a32425694058190e13a1232b7a3ae",
+            "date": "2026-02-23"
         }
     }
 }
