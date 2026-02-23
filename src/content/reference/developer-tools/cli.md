@@ -1416,28 +1416,27 @@ $ particle nyan [device_id/all] [on/off]
 ```
 
 
-## particle config
+## particle profile
 
-The config command lets you create groups of settings and quickly switch to a profile by calling `particle config <profile-name>`. This is especially useful for switching to your local server or between other environments.
-
-Calling `particle config particle` will switch **Particle-Cli** back to the Particle Device Cloud API server.
+The `profile` command lets you create groups of settings and quickly switch to a profile by calling `particle profile <profile-name>`. This is especially useful for switching to your local server or between other environments.
 
 ```sh
-$ particle config my-profile-name // switch to a new profile called 'my-profile-name'
-$ particle config particle // switch back to your default profile
-$ particle config local apiUrl http://localhost:8080  //creates a new profile with name "local" and saves the IP-address parameter
-$ particle config useSudoForDfu true // sets the `useSudoForDfu` option to `true`
+$ particle profile my-profile-name // switch to a new profile called 'my-profile-name'
+$ particle profile particle // switch back to your default profile
+$ particle profile local apiUrl http://localhost:8080  //creates a new profile with name "local" and saves the IP-address parameter
+$ particle profile useSudoForDfu true // sets the `useSudoForDfu` option to `true`
 ```
 
-Calling `particle config` will output your current config settings.
+Calling `particle profile` will output your current config settings.
 
 ```sh
-$ particle config
+$ particle profile
 Current profile: particle
 Using API: https://api.particle.io
 Access token: 01234567890abcdef01234567890abcdef012345
 ```
 
+This command was previously `particle config` instead of `particle profile`.
 
 ## particle binary
 

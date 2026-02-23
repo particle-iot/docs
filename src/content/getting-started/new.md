@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Particle CLI 2026-02-23
+
+The Particle CLI `particle config` command to select between multiple profiles is now `particle profile`.
+
 ### USB control request tool 2026-02-19
 
 The [USB control request tool](/tools/developer-tools/control-request/) is a web-based tool for sending custom USB control requests, and includes example code and information on using the feature.

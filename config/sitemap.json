@@ -1163,8 +1163,8 @@
             "hash": "b4453e56a2580505f67707080688e877b65a735d86c69638d9acee75e2ab0ab1"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-11-06",
-            "hash": "b528b74549f00d0c258cfaa393f107de920db4b552748ebdbfc2a11674c5387a"
+            "date": "2026-02-23",
+            "hash": "e527e85bb96e72b8764325edabba407d9f1412919d9c6ae0d197b56d5992b789"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8010888c4ba10f4953171acbb48855a3814d880bf04564bf8b559e7c8d30bed2",
-            "date": "2026-02-19"
+            "hash": "16ff9ccbbe6c3633c022ab5e1112f29948f990a915599bcbf1f0f6a9c05cc99a",
+            "date": "2026-02-23"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
