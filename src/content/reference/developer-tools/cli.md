@@ -545,6 +545,8 @@ asset directory. The assets path should be relative to the project root.
 
 Optionally, you can use the `--assets <path>` option to override the directory used for assets.
 
+If you want to include [environment variables](/getting-started/configuration/env-vars/) in your application bundle you can include them via project.properties using the env-vars key, or use the `--env` option to `particle bundle`. This can be combined with assets, if desired.
+
 To override the default filename to save to, use the `--saveTo <filename>` option. It should be a .zip file. 
 
 Example usage:
@@ -555,6 +557,7 @@ Example usage:
 | `particle bundle myApp.bin --assets /path/to/assets` | Creates a bundle of application binary and assets. The assets are obtained from /path/to/assets directory |
 | `particle bundle myApp.bin --assets /path/to/project.properties` | Creates a bundle of application binary and assets. The assets are picked up from the provided project.properties file |
 | `particle bundle myApp.bin --assets /path/ --saveTo myApp.zip` | Creates a bundle of application binary and assets, and saves it to the myApp.zip file |
+| `particle bundle myApp.bin --env env.json` | Creates a bundle of application binary and assets with custom env-vars file |
 | `particle bundle myApp.bin --saveTo myApp.zip` | Creates a bundle of application binary and assets as specified in the assetOtaDir if available, and saves the bundle to the myApp.zip file |
 
 ## particle device-protection
@@ -1284,6 +1287,119 @@ You can also downgrade Device OS, however:
 If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
 {{!-- END shared-blurb --}}
 
+
+## particle env-vars
+
+[Environment variables](/getting-started/configuration/env-vars/) are lightweight, non‑secret key - value pairs that shape the runtime environment. You can manipulate the values from the Particle console, the cloud API, or the Particle CLI.
+
+### particle env-vars list
+
+```sh
+# List all environment variables from an specific organization
+particle env-vars list --org <org>
+
+# List all environment variables from an specific product
+particle env-vars list --product <productId>
+
+# List all environment variables from an specific device
+particle env-vars list --device <deviceId>
+```
+
+### particle env-vars set
+
+Set a single key - value pair within a given scope (organization, product, or device).
+
+After setting values, use the `rollout` option to deploy the change to devices.
+
+```sh
+# Specify the organization
+particle env-vars set <key> <value> --org <org>
+
+# Specify the product ID to set variables for that product only
+particle env-vars set <key> <value> --product <productId>
+
+# Specify the device ID 
+particle env-vars set <key> <value> --device <deviceId>
+```
+
+
+
+### particle env-vars unset
+
+Remove (unset) a single key - value pair within a given scope (organization, product, or device).
+
+After unsetting values, use the `rollout` option to deploy the change to devices.
+
+```sh
+# Specify the organization
+particle env-vars unset <key> --org <org>
+
+# Specify the product ID to set variables for that product only
+particle env-vars unset <key> --product <productId>
+
+# Specify the device ID 
+particle env-vars unset <key> --device <deviceId>
+```
+
+### particle env-vars patch
+
+Patch environment variables from a file. This allows multiple variables to be added or changed from a JSON file. 
+
+After patching values, use the `rollout` option to deploy the change to devices.
+
+```sh
+# Specify the organization
+particle env-vars patch <filename> --org <org>
+
+# Specify the product ID to set variables for that product only
+particle env-vars patch <filename> --product <productId>
+
+# Specify the device ID 
+particle env-vars patch <filename> --device <deviceId>
+```
+
+
+### particle env-vars render
+
+Display the environment variables, combining the values for the organization, product, and device (if specified). The output is human-readable by default, but the `--json` option can be used to generate JSON format instead.
+
+```sh
+# Specify the organization
+particle env-vars render --org <org>
+
+# Specify the product ID to set variables for that product only
+particle env-vars render --product <productId>
+
+# Specify the device ID 
+particle env-vars render --device <deviceId>
+
+# Specify JSON format for the output; combine with other options as needed
+particle env-vars render --json
+```
+
+### particle env-vars rollout
+
+Roll out environment variables to devices. Using set, unset, or patch only stages the change. Once you have made all of the changes you want for this scope, using the rollout command to release it to devices.
+
+```sh
+# Specify the organization
+particle env-vars rollout --org <org>
+
+# Rollout environment variables to the user's sandbox
+particle env-vars rollout --sandbox
+
+# Specify the product ID to roll out variables for that product only
+particle env-vars rollout --product <productId>
+
+# Specify the device ID 
+particle env-vars rollout --device <deviceId>
+
+# Skip confirmation and perform the rollout non-interactively
+particle env-vars rollout --yes
+
+# Specify when to rollout the environment variables either Immediate or Connect (on next connection, even if currently online)
+particle env-vars rollout --when 
+```
 
 ## particle keys
 
