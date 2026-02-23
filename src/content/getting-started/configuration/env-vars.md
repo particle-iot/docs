@@ -50,6 +50,12 @@ When variables are changed at a given level, the changed are staged for delivery
 
 Added, removed, or changed variables can be delivered immediately to online devices. For devices that are offline, changes are delivered when the device connects to the cloud.
 
+Each device has a snapshot, which is the combination of organization (or sandbox), product, and per-device environment variables specific to that device. 
+
+When an update affects the snapshot for a device and the device is online, the snapshot is immediately sent to the device. The snapshot contains all values, not the changed values, and is limited to 16 kilobytes. There is some overhead for the protobuf encoding, so the actual data maximum size will be slightly smaller.
+
+When a device is comes online, a hash of its current snapshot is sent to the cloud. If the snapshot is not current, then the cloud sends a new snapshot to the device.
+
 ## Console
 
 ### Organization - Console
@@ -147,12 +153,64 @@ To read environment variables from your code, you use functions like `System.get
 
 Device OS 6.4.0 or later is required.
 
+## Application-specific variables
+
+You can optionally include environment variables with your application using an application bundle, the same technology used for [Asset OTA](/getting-started/cloud/ota-updates/#asset-ota). 
+
+This is useful for seeding the default variable values before your firmware connects to the cloud the first time, instead of checking whether the variable exists and embedding the value in your code when you read it.
+
+
+### Using project.properties - Application-specific variables
+
+The `firmwareEnv` key in the project.properties allows bundling of an application binary (.bin) file with an arbitrary JSON file of key - value pairs. 
+
+```
+name=MyProject
+firmwareEnv=env.json
+```
+
+As is the case with Asset OTA, specifying `firmwareEnv` will create a .zip file for your application that contains both the binary and its additional data.
+
+### Using particle bundle - Application-specific variables
+
+Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `particle bundle` command with the `--env` option allows bundling of an application binary (.bin) file with an arbitrary JSON file of key - value pairs.
+
 ## Particle environment variables
 
 ### Networking environment variables
 
 ### Cellular environment variables
 
+## Logic
 
+Environment variables are available in [Logic](/getting-started/logic-ledger/logic/) via the `env` member of the `FunctionContent`.
 
+{{!-- BEGIN shared-blurb a001a102-d85f-4def-941e-39e53459f5c4 --}}
+- `functionInfo`: information about the function that was called
+- `trigger`: information about the time the event was triggered
+- `secrets`: cloud secrets for this product and organization
+- `env`: environment variables for this function
 
+Additionally, one of the following parameters will be populated, based on the type of trigger:
+
+- `event`: information about the event that triggered the Logic Function
+- `scheduled`: information about the schedule that triggered the Logic Function
+- `ledgerChange`: information about a ledger database change the triggered the Logic Function (future)
+
+```js
+// PROTOTYPE
+export interface FunctionContext {
+    functionInfo: FunctionInfo,
+    trigger: TriggerInfo,
+    secrets: Record<string, string | null>,
+    env: Record<string, string>,
+    event?: EventInfo,
+    scheduled?: ScheduledInfo,
+    ledgerChange?: LedgerChangeInfo
+}
+```
+{{!-- END shared-blurb --}}
+
+## Particle CLI
+
+The Particle CLI [`particle env-vars`](/reference/developer-tools/cli/#particle-env-vars) command allows adding, removing, and rolling out variables using the command line instead of the console.
