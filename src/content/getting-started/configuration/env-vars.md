@@ -17,6 +17,7 @@ Environment variables are key - value pairs.
 
 {{!-- BEGIN shared-blurb 436d14ef-9684-4d3e-85de-72de338ff565 --}}
 - Variable names are uppercase letters, underscores and numbers only, and cannot start with a number.
+- Variable names beginning with `PARTICLE_` are reserved for Particle use.
 - Maximum variable name length: 128 characters.
 - Maximum variable value length: Not limited per variable.
 {{!-- END shared-blurb --}}
@@ -83,6 +84,7 @@ To create an environment variable, fill in this screen:
 
 {{!-- BEGIN shared-blurb 436d14ef-9684-4d3e-85de-72de338ff565 --}}
 - Variable names are uppercase letters, underscores and numbers only, and cannot start with a number.
+- Variable names beginning with `PARTICLE_` are reserved for Particle use.
 - Maximum variable name length: 128 characters.
 - Maximum variable value length: Not limited per variable.
 {{!-- END shared-blurb --}}
@@ -175,7 +177,14 @@ As is the case with Asset OTA, specifying `firmwareEnv` will create a .zip file 
 
 Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `particle bundle` command with the `--env` option allows bundling of an application binary (.bin) file with an arbitrary JSON file of key - value pairs.
 
-## Particle environment variables
+## Device OS environment variables
+
+| Name | Description | Type | Version Added| 
+| :--- | :--- | :--- |
+| `PARTICLE_BLUETOOTH_ENABLE` | Set to `false` to disable BLE | bool | 6.4.0 |
+| `PARTICLE_ETHERNET_ENABLE` | Set to `false` to disable Ethernet | bool | 6.4.0 |
+| `PARTICLE_WIFI_ENABLE` | Set to `false` to disable Wi-Fi | bool | 6.4.0 |
+
 
 ### Networking environment variables
 
