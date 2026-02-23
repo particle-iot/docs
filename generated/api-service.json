@@ -5711,6 +5711,1087 @@
   },
   {
     "type": "get",
+    "url": "/v1/env",
+    "title": "List environment variables",
+    "name": "listEnv",
+    "description": "<p>List environment variables for an organization, Sandbox, product, or device.</p>",
+    "group": "Env.1",
+    "permission": [
+      {
+        "name": "env:list"
+      }
+    ],
+    "examples": [
+      {
+        "title": "List Sandbox environment variables",
+        "content": "$ curl https://api.particle.io/v1/env \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List organization environment variables",
+        "content": "$ curl https://api.particle.io/v1/orgs/:orgIdOrSlug/env \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List product environment variables",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/env \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List product device environment variables",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/env/:deviceId \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "List device environment variables for any device your account has access to.",
+        "content": "$ curl https://api.particle.io/v1/env/:deviceId \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "on_device",
+            "isArray": false,
+            "description": "<p>Current state of environment variables on the device. Only present for device scope. May be <code>null</code> if the device has never reported its environment variables.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "parentNode": {
+              "path": "on_device",
+              "field": "on_device",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "on_device.rendered",
+            "isArray": false,
+            "description": "<p>Flat key-value map of the actual environment variables currently on the device.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "on_device",
+              "field": "on_device",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "on_device.last_reported_at",
+            "isArray": false,
+            "description": "<p>ISO 8601 timestamp of when the device last reported its environment variables.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": true,
+            "parentNode": {
+              "path": "on_device",
+              "field": "on_device",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "on_device.development_env",
+            "isArray": false,
+            "description": "<p>If <code>true</code>, the device is running custom firmware with environment variables that don't match any product firmware.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "last_snapshot",
+            "isArray": false,
+            "description": "<p>The last rolled out environment variables. May be <code>null</code> if no rollout has occurred.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "parentNode": {
+              "path": "last_snapshot",
+              "field": "last_snapshot",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "last_snapshot.own",
+            "isArray": false,
+            "description": "<p>Environment variables defined at this scope level at the time of the last rollout. Keys are variable names, values are objects with a <code>value</code> property.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "last_snapshot",
+              "field": "last_snapshot",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "last_snapshot.inherited",
+            "isArray": false,
+            "description": "<p>Environment variables inherited from parent scopes at the time of the last rollout. Only present for product and device scopes. Keys are variable names, values are objects with <code>from</code> and <code>value</code> properties.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "last_snapshot.inherited",
+              "parentNode": {
+                "path": "last_snapshot",
+                "field": "last_snapshot",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "last_snapshot.inherited",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "last_snapshot.inherited.from",
+            "isArray": false,
+            "description": "<p>The scope where the inherited variable is defined (<code>Owner</code>, <code>Product</code>, <code>Firmware</code>).</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "last_snapshot.inherited",
+              "parentNode": {
+                "path": "last_snapshot",
+                "field": "last_snapshot",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "last_snapshot.inherited",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "last_snapshot.inherited.value",
+            "isArray": false,
+            "description": "<p>The value of the inherited variable.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "last_snapshot",
+              "field": "last_snapshot",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "last_snapshot.rollout_at",
+            "isArray": false,
+            "description": "<p>ISO 8601 timestamp of when the last rollout occurred. May be <code>null</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "last_snapshot",
+              "field": "last_snapshot",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "last_snapshot.rollout_by",
+            "isArray": false,
+            "description": "<p>User ID of the user who initiated the last rollout. May be <code>null</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "latest",
+            "isArray": false,
+            "description": "<p>The latest values of the environment variables. All changes may not be rolled out yet. Contains <code>own</code> and optionally <code>inherited</code> properties.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "parentNode": {
+              "path": "latest",
+              "field": "latest",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.own",
+            "isArray": false,
+            "description": "<p>Environment variables defined at this scope level. Keys are variable names, values are objects with a <code>value</code> property.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "parentNode": {
+              "path": "latest",
+              "field": "latest",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.inherited",
+            "isArray": false,
+            "description": "<p>Environment variables inherited from parent scopes (product or owner). Only present for product and device scopes. Keys are variable names, values are objects with <code>from</code> and <code>value</code> properties.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "latest.inherited",
+              "parentNode": {
+                "path": "latest",
+                "field": "latest",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "latest.inherited",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.inherited.from",
+            "isArray": false,
+            "description": "<p>The scope where the inherited variable is defined (<code>Owner</code>, <code>Product</code>, <code>Firmware</code>).</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "latest.inherited",
+              "parentNode": {
+                "path": "latest",
+                "field": "latest",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "latest.inherited",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.inherited.value",
+            "isArray": false,
+            "description": "<p>The value of the inherited variable.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "latest",
+              "field": "latest",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.created_at",
+            "isArray": false,
+            "description": "<p>ISO 8601 timestamp of when the environment variables were first created at this scope. May be <code>null</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "latest",
+              "field": "latest",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.updated_at",
+            "isArray": false,
+            "description": "<p>ISO 8601 timestamp of when the environment variables were last updated at this scope. May be <code>null</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "latest",
+              "field": "latest",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.created_by",
+            "isArray": false,
+            "description": "<p>User ID of the user who created the environment variables at this scope. May be <code>null</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "latest",
+              "field": "latest",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "latest.updated_by",
+            "isArray": false,
+            "description": "<p>User ID of the user who last updated the environment variables at this scope. May be <code>null</code>.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Organization/Sandbox response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"own\": {\n      \"DATA\": { \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"value\": \"toall\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"own\": {\n      \"DATA\": { \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"value\": \"toall\" }\n    }\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Product response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    }\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Device response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"on_device\": {\n    \"rendered\": {\n      \"SOME_DATA_ON_MY_DEVICE\": \"yay!\"\n    },\n    \"last_reported_at\": \"2025-12-19T21:34:29.671Z\"\n  },\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/env.js",
+    "groupTitle": "Env.1"
+  },
+  {
+    "type": "put",
+    "url": "/v1/env/:key",
+    "title": "Set environment variable",
+    "name": "setEnv",
+    "description": "<p>Create or update a single environment variable for an organization, Sandbox, product, or device.</p>",
+    "group": "Env.2",
+    "permission": [
+      {
+        "name": "env:update"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "key",
+            "isArray": false,
+            "description": "<p>Environment variable name.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Set Sandbox environment variable",
+        "content": "$ curl -X PUT https://api.particle.io/v1/env/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"value\": \"my_value\" }'",
+        "type": "bash"
+      },
+      {
+        "title": "Set organization environment variable",
+        "content": "$ curl -X PUT https://api.particle.io/v1/orgs/:orgIdOrSlug/env/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"value\": \"my_value\" }'",
+        "type": "bash"
+      },
+      {
+        "title": "Set product environment variable",
+        "content": "$ curl -X PUT https://api.particle.io/v1/products/:productIdOrSlug/env/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"value\": \"my_value\" }'",
+        "type": "bash"
+      },
+      {
+        "title": "Set product device environment variable",
+        "content": "$ curl -X PUT https://api.particle.io/v1/products/:productIdOrSlug/env/:deviceId/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"value\": \"my_value\" }'",
+        "type": "bash"
+      },
+      {
+        "title": "Set device environment variable for any device your account has access to",
+        "content": "$ curl -X PUT https://api.particle.io/v1/env/:deviceId/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"value\": \"my_value\" }'",
+        "type": "bash"
+      }
+    ],
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "value",
+        "isArray": false,
+        "description": "<p>The value to set for the environment variable.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "isArray": false,
+            "description": "<p>Updated environment variables. See <a href=\"#list-environment-variables\">List environment variables</a> for the response attributes.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/views/env.js",
+    "groupTitle": "Env.2"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/env/:key",
+    "title": "Delete environment variable",
+    "name": "deleteEnv",
+    "description": "<p>Delete a single environment variable for an organization, Sandbox, product, or device.</p>",
+    "group": "Env.3",
+    "permission": [
+      {
+        "name": "env:update"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "key",
+            "isArray": false,
+            "description": "<p>Environment variable name.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Delete Sandbox environment variable",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/env/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete organization environment variable",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/orgs/:orgIdOrSlug/env/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete product environment variable",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/products/:productIdOrSlug/env/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete product device environment variable",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/products/:productIdOrSlug/env/:deviceId/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete device environment variable for any device your account has access to",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/env/:deviceId/MY_KEY \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "isArray": false,
+            "description": "<p>Updated environment variables. See <a href=\"#list-environment-variables\">List environment variables</a> for the response attributes.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/views/env.js",
+    "groupTitle": "Env.3"
+  },
+  {
+    "type": "patch",
+    "url": "/v1/env",
+    "title": "Bulk update environment variables",
+    "name": "patchEnv",
+    "description": "<p>Apply multiple changes to environment variables for an organization, Sandbox, product, or device in a single request.</p>",
+    "group": "Env.4",
+    "permission": [
+      {
+        "name": "env:update"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Update Sandbox/organization environment variables",
+        "content": "$ curl -X PATCH https://api.particle.io/v1/env \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"ops\": [{ \"op\": \"Set\", \"key\": \"DATA\", \"value\": \"odata\" }] }'",
+        "type": "bash"
+      },
+      {
+        "title": "Update organization environment variables",
+        "content": "$ curl -X PATCH https://api.particle.io/v1/orgs/:orgIdOrSlug/env \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"ops\": [{ \"op\": \"Set\", \"key\": \"GLOBAL_DATA\", \"value\": \"toall\" }] }'",
+        "type": "bash"
+      },
+      {
+        "title": "Update product environment variables",
+        "content": "$ curl -X PATCH https://api.particle.io/v1/products/:productIdOrSlug/env \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"ops\": [{ \"op\": \"Set\", \"key\": \"DATA\", \"value\": \"pdata\" }] }'",
+        "type": "bash"
+      },
+      {
+        "title": "Update product device environment variables",
+        "content": "$ curl -X PATCH https://api.particle.io/v1/products/:productIdOrSlug/env/:deviceId \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"ops\": [{ \"op\": \"Set\", \"key\": \"DATA\", \"value\": \"ddata\" }] }'",
+        "type": "bash"
+      },
+      {
+        "title": "Update device environment variables for any product device you can access",
+        "content": "$ curl -X PATCH https://api.particle.io/v1/env/:deviceId \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"ops\": [{ \"op\": \"Set\", \"key\": \"DATA\", \"value\": \"ddata\" }] }'",
+        "type": "bash"
+      },
+      {
+        "title": "Request format",
+        "content": "{\n  \"ops\": [\n    { \"op\": \"Set\", \"key\": \"SOME_KEY\", \"value\": \"some value\" },\n    { \"op\": \"Unset\", \"key\": \"OLD_KEY\" }\n  ]\n}",
+        "type": "json"
+      }
+    ],
+    "body": [
+      {
+        "group": "Body",
+        "type": "Object[]",
+        "optional": false,
+        "field": "ops",
+        "isArray": true,
+        "description": "<p>List of change operations to apply (max 50 operations).</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "allowedValues": [
+          "\"Set\"",
+          "\"Unset\""
+        ],
+        "optional": false,
+        "parentNode": {
+          "path": "ops",
+          "field": "ops",
+          "type": "Object[]",
+          "isArray": true
+        },
+        "field": "ops.op",
+        "isArray": false,
+        "description": "<p>Operation type.</p> <ul> <li><code>Set</code>: Create or update an environment variable at this scope.</li> <li><code>Unset</code>: Delete an environment variable at this scope.</li> </ul>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "parentNode": {
+          "path": "ops",
+          "field": "ops",
+          "type": "Object[]",
+          "isArray": true
+        },
+        "field": "ops.key",
+        "isArray": false,
+        "description": "<p>Environment variable name.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": true,
+        "parentNode": {
+          "path": "ops",
+          "field": "ops",
+          "type": "Object[]",
+          "isArray": true
+        },
+        "field": "ops.value",
+        "isArray": false,
+        "description": "<p>The value to set. Required when <code>op</code> is <code>Set</code>.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "isArray": false,
+            "description": "<p>Updated environment variables. See <a href=\"#list-environment-variables\">List environment variables</a> for the response attributes.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/views/env.js",
+    "groupTitle": "Env.4"
+  },
+  {
+    "type": "get",
+    "url": "/v1/env/render",
+    "title": "Render environment variables",
+    "name": "renderEnv",
+    "description": "<p>Render environment variables for an organization, Sandbox, product, or device. The response is a flat key/value map of the effective variables after inheritance and overrides are applied.</p>",
+    "group": "Env.5",
+    "permission": [
+      {
+        "name": "env:list"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Render Sandbox environment variables",
+        "content": "$ curl https://api.particle.io/v1/env/render \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Render organization environment variables",
+        "content": "$ curl https://api.particle.io/v1/orgs/:orgIdOrSlug/env/render \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Render product environment variables",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/env/render \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Render product device environment variables",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/env/:deviceId/render \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Render device environment variables for any device your account has access to.",
+        "content": "$ curl https://api.particle.io/v1/env/:deviceId/render \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "env",
+            "isArray": false,
+            "description": "<p>Flat key-value map of the effective environment variables after inheritance and overrides are applied.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "last_updated_at",
+            "isArray": false,
+            "description": "<p>ISO 8601 timestamp of when the environment variables were last updated at this scope. May be <code>null</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "rollout_at",
+            "isArray": false,
+            "description": "<p>ISO 8601 timestamp of when the last rollout occurred. May be <code>null</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "rollout_by",
+            "isArray": false,
+            "description": "<p>User ID of the user who initiated the last rollout. May be <code>null</code>.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"env\": {\n    \"DATA\": \"value\",\n    \"GLOBAL_DATA\": \"toall\",\n    \"SOMETHING_ELSE\": \"something\"\n  },\n  \"last_updated_at\": \"2025-12-19T21:34:29.671Z\",\n  \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n  \"rollout_by\": \"some-user-id\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/env.js",
+    "groupTitle": "Env.5"
+  },
+  {
+    "type": "get",
+    "url": "/v1/env/rollout",
+    "title": "Review environment variables rollout",
+    "name": "reviewEnvRollout",
+    "description": "<p>Review changes that can be rolled out</p>",
+    "group": "Env.6",
+    "permission": [
+      {
+        "name": "env:rollout"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Review environment variables rollout for a Sandbox",
+        "content": "$ curl https://api.particle.io/v1/env/rollout \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Review environment variables rollout for an organization",
+        "content": "$ curl https://api.particle.io/v1/orgs/:orgIdOrSlug/env/rollout \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Review environment variables rollout for a product",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/env/rollout \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      },
+      {
+        "title": "Review environment variables rollout for a device",
+        "content": "$ curl https://api.particle.io/v1/env/:deviceId/rollout \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "from_snapshot",
+            "isArray": false,
+            "description": "<p>Changes compared to the last rolled out snapshot.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "from_snapshot",
+              "field": "from_snapshot",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "from_snapshot.changes",
+            "isArray": true,
+            "description": "<p>List of changes to environment variables.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "\"Added\"",
+              "\"Changed\"",
+              "\"Removed\""
+            ],
+            "optional": false,
+            "parentNode": {
+              "path": "from_snapshot.changes",
+              "parentNode": {
+                "path": "from_snapshot",
+                "field": "from_snapshot",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_snapshot.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_snapshot.changes.op",
+            "isArray": false,
+            "description": "<p>Type of change.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "from_snapshot.changes",
+              "parentNode": {
+                "path": "from_snapshot",
+                "field": "from_snapshot",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_snapshot.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_snapshot.changes.key",
+            "isArray": false,
+            "description": "<p>Name of the environment variable.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "parentNode": {
+              "path": "from_snapshot.changes",
+              "parentNode": {
+                "path": "from_snapshot",
+                "field": "from_snapshot",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_snapshot.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_snapshot.changes.before",
+            "isArray": false,
+            "description": "<p>Previous value. Present when <code>op</code> is <code>Changed</code> or <code>Removed</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "parentNode": {
+              "path": "from_snapshot.changes",
+              "parentNode": {
+                "path": "from_snapshot",
+                "field": "from_snapshot",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_snapshot.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_snapshot.changes.after",
+            "isArray": false,
+            "description": "<p>New value. Present when <code>op</code> is <code>Changed</code> or <code>Added</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "parentNode": {
+              "path": "from_snapshot",
+              "field": "from_snapshot",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "from_snapshot.unchanged",
+            "isArray": false,
+            "description": "<p>Map of unchanged environment variables (key to value).</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "from_device",
+            "isArray": false,
+            "description": "<p>Changes compared to what is currently on the device. Only present for device scope.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "parentNode": {
+              "path": "from_device",
+              "field": "from_device",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "from_device.changes",
+            "isArray": true,
+            "description": "<p>List of changes to environment variables.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "\"Added\"",
+              "\"Changed\"",
+              "\"Removed\""
+            ],
+            "optional": false,
+            "parentNode": {
+              "path": "from_device.changes",
+              "parentNode": {
+                "path": "from_device",
+                "field": "from_device",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_device.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_device.changes.op",
+            "isArray": false,
+            "description": "<p>Type of change.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "from_device.changes",
+              "parentNode": {
+                "path": "from_device",
+                "field": "from_device",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_device.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_device.changes.key",
+            "isArray": false,
+            "description": "<p>Name of the environment variable.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "parentNode": {
+              "path": "from_device.changes",
+              "parentNode": {
+                "path": "from_device",
+                "field": "from_device",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_device.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_device.changes.before",
+            "isArray": false,
+            "description": "<p>Previous value. Present when <code>op</code> is <code>Changed</code> or <code>Removed</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "parentNode": {
+              "path": "from_device.changes",
+              "parentNode": {
+                "path": "from_device",
+                "field": "from_device",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "from_device.changes",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "from_device.changes.after",
+            "isArray": false,
+            "description": "<p>New value. Present when <code>op</code> is <code>Changed</code> or <code>Added</code>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "parentNode": {
+              "path": "from_device",
+              "field": "from_device",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "from_device.unchanged",
+            "isArray": false,
+            "description": "<p>Map of unchanged environment variables (key to value).</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Owner/Product response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"from_snapshot\": {\n    \"changes\": [\n      { \"op\": \"Added\", \"key\": \"MY_DATA\", \"after\": \"wowza!\" },\n      { \"op\": \"Removed\", \"key\": \"ANOTHER_ONE\", \"before\": \"woahza!\" },\n      { \"op\": \"Changed\", \"key\": \"THING_NUMBER_THREE\", \"before\": \"previous\", \"after\": \"postvious\" }\n    ],\n    \"unchanged\": {\n      \"DATA\": \"yes\",\n      \"OTHER\": \"also yes\"\n    }\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Device response",
+          "content": "HTTP/1.1 200 OK\n{\n  \"from_device\": {\n      \"changes\": [\n      { \"op\": \"Added\", \"key\": \"MY_DATA\", \"after\": \"wowza!\" },\n      { \"op\": \"Removed\", \"key\": \"ANOTHER_ONE\", \"before\": \"woahza!\" },\n      { \"op\": \"Changed\", \"key\": \"THING_NUMBER_THREE\", \"before\": \"previous\", \"after\": \"postvious\" }\n    ],\n    \"unchanged\": {\n      \"DATA\": \"yes\",\n      \"OTHER\": \"also yes\"\n    }\n  },\n  \"from_snapshot\": {\n    \"changes\": [\n      { \"op\": \"Added\", \"key\": \"MY_DATA\", \"after\": \"wowza!\" },\n      { \"op\": \"Removed\", \"key\": \"ANOTHER_ONE\", \"before\": \"woahza!\" },\n      { \"op\": \"Changed\", \"key\": \"THING_NUMBER_THREE\", \"before\": \"previous\", \"after\": \"postvious\" }\n    ],\n    \"unchanged\": {\n      \"DATA\": \"yes\",\n      \"OTHER\": \"also yes\"\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/env.js",
+    "groupTitle": "Env.6"
+  },
+  {
+    "type": "post",
+    "url": "/v1/env/rollout",
+    "title": "Start environment variables rollout",
+    "name": "startEnvRollout",
+    "description": "<p>Apply updated environment variable values and make them available to devices.</p> <p>When rolling out immediately, devices that are currently available to receive OTA updates will receive updated environment variables. Devices that are busy or offline will apply the update when they become ready. When rolling out on next connection, as devices handshake (begin new secure sessions) with the Device Cloud, they will receive updated environment variables.</p>",
+    "group": "Env.7",
+    "permission": [
+      {
+        "name": "env:rollout"
+      }
+    ],
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "allowedValues": [
+          "\"Immediate\"",
+          "\"Connect\""
+        ],
+        "optional": false,
+        "field": "when",
+        "isArray": false,
+        "description": "<p>Rollout timing.</p>"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Start environment variables rollout for a Sandbox",
+        "content": "$ curl -X POST https://api.particle.io/v1/env/rollout \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"when\": \"Immediate\" }'",
+        "type": "bash"
+      },
+      {
+        "title": "Start environment variables rollout for an organization",
+        "content": "$ curl -X POST https://api.particle.io/v1/orgs/:orgIdOrSlug/env/rollout \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"when\": \"Immediate\" }'",
+        "type": "bash"
+      },
+      {
+        "title": "Start environment variables rollout for a product",
+        "content": "$ curl -X POST https://api.particle.io/v1/products/:productIdOrSlug/env/rollout \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"when\": \"Immediate\" }'",
+        "type": "bash"
+      },
+      {
+        "title": "Start environment variables rollout for a device",
+        "content": "$ curl -X POST https://api.particle.io/v1/env/:deviceId/rollout \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"when\": \"Immediate\" }'",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "isArray": false,
+            "description": "<p>Indicates if the rollout was successful.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response",
+          "content": "HTTP/1.1 201 Created\n{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/env.js",
+    "groupTitle": "Env.7"
+  },
+  {
+    "type": "get",
     "url": "/v1/events/:eventPrefix",
     "title": "Get a stream of events",
     "parameter": {
@@ -8735,6 +9816,15 @@
         "field": "secrets",
         "isArray": false,
         "description": "<p>An array of Cloud secrets to use with the webhook. Each element needs a <code>name</code> property and can have an optional <code>template_name</code> property. Insert the value into the webhook using <code>{{{SECRET_NAME}}}</code> where SECRET_NAME is the <code>template_name</code> or <code>name</code> if <code>template_name</code> is omitted.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "Boolean",
+        "optional": true,
+        "field": "use_env",
+        "isArray": false,
+        "description": "<p>Set to <code>true</code> to include environment variables in the webhook. Insert the value into the webhook using <code>{{{ENV_VAR_NAME}}}</code></p>",
+        "checked": false
       }
     ],
     "examples": [
@@ -9496,6 +10586,15 @@
         "field": "template",
         "isArray": false,
         "description": "<p>The template that was used to create this webhook</p>"
+      },
+      {
+        "group": "Body",
+        "type": "Boolean",
+        "optional": true,
+        "field": "use_env",
+        "isArray": false,
+        "description": "<p>Set to <code>true</code> to include environment variables in the webhook. Insert the value into the webhook using <code>{{{ENV_VAR_NAME}}}</code></p>",
+        "checked": false
       }
     ],
     "examples": [
@@ -13136,7 +14235,7 @@
       "examples": [
         {
           "title": "GET /v1/user/products",
-          "content": "GET /v1/user/products\nHTTP/1.1 200 OK\n{\n  \"products\": [{\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }]\n}",
+          "content": "GET /v1/user/products\nHTTP/1.1 200 OK\n{\n  \"products\": [{\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }]\n}",
           "type": "json"
         }
       ]
@@ -13259,7 +14358,7 @@
       "examples": [
         {
           "title": "GET /v1/products/photon",
-          "content": "GET /v1/products/photon\nHTTP/1.1 200 OK\n{\n  \"product\": {\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    },\n    \"device_protection\": \"disabled\"\n  }\n}",
+          "content": "GET /v1/products/photon\nHTTP/1.1 200 OK\n{\n  \"product\": {\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    },\n    \"device_protection\": \"disabled\"\n  }\n}",
           "type": "json"
         }
       ]
@@ -14425,9 +15524,9 @@
   {
     "type": "put",
     "url": "/v1/secrets/:secretName",
-    "title": "Update the value of a cloud secret",
-    "name": "updateSecret",
-    "description": "<p>Update the value of a cloud secret in the Sandbox or organization.</p>",
+    "title": "Create or Update the value of a cloud secret",
+    "name": "putSecret",
+    "description": "<p>Creates or Updates the value of a cloud secret in the Sandbox or organization.</p>",
     "group": "Secrets.4",
     "permission": [
       {
@@ -14567,11 +15666,22 @@
     "name": "getServiceAgreements",
     "description": "<p>Get the service agreements related to a user</p>",
     "group": "ServiceAgreements.1",
+    "query": [
+      {
+        "group": "Query",
+        "type": "Boolean",
+        "optional": true,
+        "field": "include_usage_summary",
+        "isArray": false,
+        "defaultValue": "true",
+        "description": "<p>Set to false to exclude <code>current_usage_summary</code> from the response. Defaults to true. Requires service_agreements.usage_summary:get scope.</p>"
+      }
+    ],
     "success": {
       "examples": [
         {
-          "title": "GET /v1/orgs/particle/service_agreements",
-          "content": " GET /v1/orgs/particle/service_agreements\n HTTP/1.1 200 OK\n{\n\t\"data\":[\n\t\t\t{\n\t\t\t\t\"id\":\"1\",\n\t\t\t\t\"type\":\"service_agreement\",\n\t\t\t\t\"attributes\":{\n\t\t\t\t\t\"owner_id\":\"abc123\",\n\t\t\t\t\t\"owner_type\":\"individual\",\n\t\t\t\t\t\"name\":\"Sandbox\",\n\t\t\t\t\t\"agreement_type\":\"developer\",\n\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\"state\":\"active\",\n\t\t\t\t\t\"starts_on\":\"2021-04-08\",\n\t\t\t\t\t\"ends_on\":null,\n\t\t\t\t\t\"current_billing_period_start\":\"2021-04-08\",\n\t\t\t\t\t\"current_billing_period_end\":\"2021-05-07\",\n\t\t\t\t\t\"next_billing_period_start\":\"2021-05-08\",\n\t\t\t\t\t\"current_usage_summary\":{\n\t\t\t\t\t\t\"device_limit_reached\":false,\n\t\t\t\t\t\t\"connectivity\":{\n\t\t\t\t\t\t\t\"all\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":null,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"pricing_terms\":{\n\t\t\t\t\t\t\"rates\":{\n\t\t\t\t\t\t\t\"all_platforms\":{\n\t\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\t\"per_block\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"pricing_model_version\":\"tier2021.1\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_devices\":100\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"messaging\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:messaging\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_messages\":100000\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device_data\":{\n\t\t\t\t\t\t\t\"uom\":\"bytes\",\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device_data\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_data\":45000000,\n\t\t\t\t\t\t\t\"device_data\":45000000,\n\t\t\t\t\t\t\t\"devices_cap\":45000000,\n\t\t\t\t\t\t\t\"cap_exception\":true\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+          "title": "GET /v1/users/service_agreements",
+          "content": " GET /v1/users/service_agreements\n HTTP/1.1 200 OK\n{\n\t\"data\":[\n\t\t\t{\n\t\t\t\t\"id\":\"1\",\n\t\t\t\t\"type\":\"service_agreement\",\n\t\t\t\t\"attributes\":{\n\t\t\t\t\t\"owner_id\":\"abc123\",\n\t\t\t\t\t\"owner_type\":\"individual\",\n\t\t\t\t\t\"name\":\"Sandbox\",\n\t\t\t\t\t\"agreement_type\":\"developer\",\n\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\"state\":\"active\",\n\t\t\t\t\t\"starts_on\":\"2021-04-08\",\n\t\t\t\t\t\"ends_on\":null,\n\t\t\t\t\t\"current_billing_period_start\":\"2021-04-08\",\n\t\t\t\t\t\"current_billing_period_end\":\"2021-05-07\",\n\t\t\t\t\t\"next_billing_period_start\":\"2021-05-08\",\n\t\t\t\t\t\"current_usage_summary\":{\n\t\t\t\t\t\t\"device_limit_reached\":false,\n\t\t\t\t\t\t\"connectivity\":{\n\t\t\t\t\t\t\t\"all\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":null,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"pricing_terms\":{\n\t\t\t\t\t\t\"rates\":{\n\t\t\t\t\t\t\t\"all_platforms\":{\n\t\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\t\"per_block\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"pricing_model_version\":\"tier2021.1\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_devices\":100\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"messaging\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:messaging\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_messages\":100000\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device_data\":{\n\t\t\t\t\t\t\t\"uom\":\"bytes\",\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device_data\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_data\":45000000,\n\t\t\t\t\t\t\t\"device_data\":45000000,\n\t\t\t\t\t\t\t\"devices_cap\":45000000,\n\t\t\t\t\t\t\t\"cap_exception\":true\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
           "type": "json"
         }
       ],
@@ -14875,6 +15985,17 @@
         ]
       }
     },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Boolean",
+        "optional": true,
+        "field": "include_usage_summary",
+        "isArray": false,
+        "defaultValue": "true",
+        "description": "<p>Set to false to exclude <code>current_usage_summary</code> from the response. Defaults to true. Requires service_agreements.usage_summary:get scope.</p>"
+      }
+    ],
     "permission": [
       {
         "name": "service_agreements:list"
@@ -17903,14 +19024,6 @@
           },
           {
             "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "subscription_ids",
-            "isArray": false,
-            "description": "<p>Subscriptions for SIM cards and products</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "Object",
             "optional": false,
             "field": "mfa",
@@ -17946,7 +19059,7 @@
       "examples": [
         {
           "title": "GET /v1/user",
-          "content": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"subscription_ids\": [],\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  scim_provisioned: false,\n  no_password: false,\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}",
+          "content": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  scim_provisioned: false,\n  no_password: false,\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}",
           "type": "json"
         }
       ]
