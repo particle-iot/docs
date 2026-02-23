@@ -1164,7 +1164,7 @@
         },
         "reference/developer-tools/cli.md": {
             "date": "2026-02-23",
-            "hash": "e527e85bb96e72b8764325edabba407d9f1412919d9c6ae0d197b56d5992b789"
+            "hash": "9ec7eb82e7365e719c7a7be0faaed706a4b56bc15be9d23114cdd554d1fcb38d"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -8279,8 +8279,8 @@
             "date": "2024-09-04"
         },
         "getting-started/logic-ledger/logic.md": {
-            "hash": "fd226adc3f058df801f842e2532d96b32a83d31b4a1fdf2dcea457073816fdcb",
-            "date": "2025-06-02"
+            "hash": "b6deb4f82ab9eb44dbb51e4af8b41b64b51b4a3fc8cd0be0b31e166ab0f1d975",
+            "date": "2026-02-23"
         },
         "getting-started/logic-ledger/data-transformation.md": {
             "hash": "95468cd5b3e47cd95d8b3a0eca2c8648f5cb3736c0ff81b151b0abf9fb4fdf4a",
@@ -9995,7 +9995,7 @@
             "date": "2026-02-23"
         },
         "getting-started/configuration/env-vars.md": {
-            "hash": "96127a496b513440734e3ad2670f417b8b9b2af6a6e0129a36325d9b8e8334b1",
+            "hash": "64b4de7094a25111442339e13441e944e7b85a9f4b67be20d5cd520b9d34a2e0",
             "date": "2026-02-23"
         },
         "reference/device-os/api/system-calls/enviroment-variables-system.md": {

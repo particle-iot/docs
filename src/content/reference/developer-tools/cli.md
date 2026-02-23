@@ -1288,117 +1288,125 @@ If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 
 {{!-- END shared-blurb --}}
 
 
-## particle env-vars
+## particle config env
 
-[Environment variables](/getting-started/configuration/env-vars/) are lightweight, non‑secret key - value pairs that shape the runtime environment. You can manipulate the values from the Particle console, the cloud API, or the Particle CLI.
+The `particle config env` commands allow setting environment variables from the command line. [Environment variables](/getting-started/configuration/env-vars/) are lightweight, non‑secret key - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
 
-### particle env-vars list
+In previous versions of the Particle CLI, `particle config` switched between profiles. That function is now performed by the `particle profile` command.
+
+
+### particle config env list
 
 ```sh
 # List all environment variables from an specific organization
-particle env-vars list --org <org>
+particle config env list --org <org>
+
+# List all environment variables in the sandbox for the currently logged in user
+particle config env list --sandbox
 
 # List all environment variables from an specific product
-particle env-vars list --product <productId>
+particle config env list --product <productId>
 
 # List all environment variables from an specific device
-particle env-vars list --device <deviceId>
+particle config env list --device <deviceId>
 ```
 
-### particle env-vars set
+### particle config env set
 
 Set a single key - value pair within a given scope (organization, product, or device).
 
-After setting values, use the `rollout` option to deploy the change to devices.
-
 ```sh
 # Specify the organization
-particle env-vars set <key> <value> --org <org>
+particle config env set <name> <value> --org <org>
+particle config env set <name>=<value> --org <org>
+
+# Set a sandbox environment variable
+particle config env set <name> <value> --sandbox
+particle config env set <name>=<value> --sandbox
 
 # Specify the product ID to set variables for that product only
-particle env-vars set <key> <value> --product <productId>
+particle config env set <name> <value> --product <productId>
+particle config env set <name>=<value> --product <productId>
 
 # Specify the device ID 
-particle env-vars set <key> <value> --device <deviceId>
+particle config env set <name> <value> --device <deviceId>
+particle config env set <name>=<value> --device <deviceId>
 ```
 
 
 
-### particle env-vars unset
+### particle config env delete
 
-Remove (unset) a single key - value pair within a given scope (organization, product, or device).
-
-After unsetting values, use the `rollout` option to deploy the change to devices.
+Delete a single key - value pair within a given scope (organization, product, or device).
 
 ```sh
 # Specify the organization
-particle env-vars unset <key> --org <org>
+particle config env delete <name> --org <org>
+
+# Delete from the sandbox
+particle config env delete <name> --sandbox
 
 # Specify the product ID to set variables for that product only
-particle env-vars unset <key> --product <productId>
+particle config env delete <name> --product <productId>
 
 # Specify the device ID 
-particle env-vars unset <key> --device <deviceId>
+particle config env delete <name> --device <deviceId>
 ```
 
-### particle env-vars patch
+## particle config secrets
 
-Patch environment variables from a file. This allows multiple variables to be added or changed from a JSON file. 
+The `particle config secrets` commands allow setting secrets from the command line. [Secrets](/getting-started/cloud/secrets/) are secure, organization‑scoped values that integrations and logic can reference securely.
 
-After patching values, use the `rollout` option to deploy the change to devices.
+### particle config secrets list
+
+List all created secrets in the specified scope.
 
 ```sh
-# Specify the organization
-particle env-vars patch <filename> --org <org>
+# List secrets for the specified organization
+particle config secrets list --org <org>
 
-# Specify the product ID to set variables for that product only
-particle env-vars patch <filename> --product <productId>
+# List secrets for sandbox for the currently logged in user
+particle config secrets list --sandbox
 
-# Specify the device ID 
-particle env-vars patch <filename> --device <deviceId>
+# Use JSON output format. Combine with --org or --sandbox.
+particle config secrets list --json
+```
+
+### particle config secrets get
+
+Get a specific secret.
+
+```sh
+# Get secret named <name> for the specified organization
+particle config secrets get <name> --org <org>
+
+# Get secret named <name> for sandbox for the currently logged in user
+particle config secrets get <name> --sandbox
+```
+
+### particle config secrets set
+
+Set a secret.
+
+```sh
+# Set a secret for the specified organization
+particle config secrets set <name> <value> --org <org>
+particle config secrets set <name>=<value> --org <org>
+
+# Set a secret for sandbox for the currently logged in user
+particle config secrets set <name> <value> --sandbox
+particle config secrets set <name>=<value> --sandbox
 ```
 
 
-### particle env-vars render
-
-Display the environment variables, combining the values for the organization, product, and device (if specified). The output is human-readable by default, but the `--json` option can be used to generate JSON format instead.
+### particle config secrets delete
 
 ```sh
-# Specify the organization
-particle env-vars render --org <org>
+# Delete a secret for the specified organization
+particle config secrets delete <name> --org <org>
 
-# Specify the product ID to set variables for that product only
-particle env-vars render --product <productId>
-
-# Specify the device ID 
-particle env-vars render --device <deviceId>
-
-# Specify JSON format for the output; combine with other options as needed
-particle env-vars render --json
-```
-
-### particle env-vars rollout
-
-Roll out environment variables to devices. Using set, unset, or patch only stages the change. Once you have made all of the changes you want for this scope, using the rollout command to release it to devices.
-
-```sh
-# Specify the organization
-particle env-vars rollout --org <org>
-
-# Rollout environment variables to the user's sandbox
-particle env-vars rollout --sandbox
-
-# Specify the product ID to roll out variables for that product only
-particle env-vars rollout --product <productId>
-
-# Specify the device ID 
-particle env-vars rollout --device <deviceId>
-
-# Skip confirmation and perform the rollout non-interactively
-particle env-vars rollout --yes
-
-# Specify when to rollout the environment variables either Immediate or Connect (on next connection, even if currently online)
-particle env-vars rollout --when 
+# Delete a secret for sandbox for the currently logged in user
+particle config secrets delete <name> --sandbox
 ```
 
 ## particle keys
