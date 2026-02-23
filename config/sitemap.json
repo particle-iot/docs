@@ -1164,7 +1164,7 @@
         },
         "reference/developer-tools/cli.md": {
             "date": "2026-02-23",
-            "hash": "9ec7eb82e7365e719c7a7be0faaed706a4b56bc15be9d23114cdd554d1fcb38d"
+            "hash": "b220724654232645473be20906159a9c72b9f0a4a7356625aa3863f78a07426a"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2026-02-23",
-            "hash": "1c8024b23712c3db5e279a2e7b2273a4683d4a7636d79c5d69e9c4f1f32c350b"
+            "hash": "b5b91ee4e53bce1f7f3f58e31bf1ce96027d34caaf2314ef6e32b40d2e94cdf7"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -9955,12 +9955,12 @@
             "date": "2026-02-06"
         },
         "tools/developer-tools/control-request.md": {
-            "hash": "fadfc4948083e433ce06b0936f0072dd7064d947fadb0ecf8a2880195731b2bc",
-            "date": "2026-02-20"
+            "hash": "fdec9b8cafac1d2aa2dd48e9aac7341159cfc84a6e038f0ddcfad93b58320afd",
+            "date": "2026-02-23"
         },
         "reference/device-os/api/control-requests/control-requests.md": {
-            "hash": "8d46de5c8365a210738f00b52e3797d0c2a15cf5dc139648525fad02be234d53",
-            "date": "2026-02-20"
+            "hash": "4dc35ad9c3848d243a72b946a5dd63aacb12f274c186dc625017036faedf9610",
+            "date": "2026-02-23"
         },
         "reference/device-os/api/control-requests/ctrl_request_custom_handler-control-requests.md": {
             "hash": "9a28d01f49fe7ec9535eba52bc60410cb6c460a4a55aa1d3167e73458f786a71",

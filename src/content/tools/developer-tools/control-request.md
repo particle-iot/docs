@@ -34,6 +34,8 @@ The sample code below also supports sending requests using a Particle.function.
 
 Additional information can be found in [Control Requests](/reference/device-os/api/control-requests/) in the Device OS API reference.
 
+You can also send a custom control request using the Particle CLI [`particle usb send-request`](/reference/developer-tools/cli/#particle-usb-send-request) command.
+
 ## Sample code
 
 This is sample device firmware code you can test for using control requests.

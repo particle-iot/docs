@@ -1233,6 +1233,24 @@ particle usb reset [devices...] [--all]
 
 Reset can be used from normal operating mode, safe mode, or DFU mode.
 
+### particle usb send-request
+
+Send a custom USB control request to a device. See [USB control request tool](/tools/developer-tools/control-request/) for more information.
+
+```
+particle usb send-request '{"op":"status"}'
+```
+
+### particle usb env
+
+Get environment variables from a USB-connected device (or devices). See [environment variables](/getting-started/configuration/env-vars/) for more information.
+
+```
+particle usb env            Gets environment variables from the connected device',
+particle usb env --all      Gets environment variables from all devices connected over USB',
+particle usb env my_device  Gets environment variables from the device named "my_device"',
+```
+
 ### particle usb setup-done
 
 On the Argon, Boron, B-Series SoM, and Tracker SoM running Device OS 3.x and earlier, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).

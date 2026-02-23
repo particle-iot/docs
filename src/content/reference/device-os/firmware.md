@@ -25310,6 +25310,8 @@ Control requests can also be done over BLE, but this is more complicated and req
 
 A web-based tool for sending control requests and example code is available at [USB control request tool](/tools/developer-tools/control-request/).
 
+You can also send a custom control request using the Particle CLI [`particle usb send-request`](/reference/developer-tools/cli/#particle-usb-send-request) command.
+
 ### ctrl_request_custom_handler - Control requests
 
 To implement a custom control request handler implement the `ctrl_request_custom_handler` function.
