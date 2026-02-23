@@ -591,8 +591,8 @@
             "hash": "61fbc6cd51322eae629148216875b973c3ebe17e8fffe98f28811eb1b77342c0"
         },
         "getting-started/console/console.md": {
-            "date": "2025-11-17",
-            "hash": "21d982f32e74f6484c9c655dc9fe0e47906a5fe7a54722d12c286797a7405160"
+            "date": "2026-02-23",
+            "hash": "d04d466812c3f81f87e739469c451ce7d730a19850c9c9c72da062a05861bb92"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -9991,11 +9991,11 @@
             "date": "2026-02-20"
         },
         "getting-started/configuration/configuration.md": {
-            "hash": "f6de061ac402a9bd7ef1695829b4caab088540688b359ed21b0facfced0abebe",
+            "hash": "60c2b411926382ef7c9c426fd3993832f32dd6230d72250be8d41dd8832c0491",
             "date": "2026-02-23"
         },
         "getting-started/configuration/env-vars.md": {
-            "hash": "d0de3fd7e847ef781feec40069f81bd2df47b60f76e45fc5e371994ee93972de",
+            "hash": "96127a496b513440734e3ad2670f417b8b9b2af6a6e0129a36325d9b8e8334b1",
             "date": "2026-02-23"
         },
         "reference/device-os/api/system-calls/enviroment-variables-system.md": {

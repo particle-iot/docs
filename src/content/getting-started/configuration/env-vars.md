@@ -143,15 +143,16 @@ Environment variables can be configured using the Cloud API. See the [Cloud API 
 
 ## Device OS
 
+To read environment variables from your code, you use functions like `System.getEnv()`. These are described in the [Device OS API reference](reference/device-os/api/system-calls/enviroment-variables-system/).
 
+Device OS 6.4.0 or later is required.
 
 ## Particle environment variables
 
-### Networking
+### Networking environment variables
 
-### Cellular
+### Cellular environment variables
 
-## Particle CLI
 
 
 

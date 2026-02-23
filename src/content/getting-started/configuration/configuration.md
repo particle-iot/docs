@@ -6,7 +6,7 @@ description: Configuration
 ---
 
 
-**Configuration** is a platform‑wide capability for Particle. Configuration is the control plane for tailoring how devices, cloud, and applications behave, used to solve real-life problems like modem behavior and operating systen level radio configuration, as well as to align user applications needs from any vertical or use case. 
+**Configuration** is a platform‑wide capability for Particle. Configuration is the control plane for tailoring how devices, cloud, and applications behave, used to solve real-life problems like modem behavior and operating system level radio configuration, as well as to align user applications needs from any vertical or use case. 
 
 Configuration is used by all parts of IoT deployment: Device OS, cloud services, pre-built applications like Tracker Edge and Monitor Edge, and user applications.
 
