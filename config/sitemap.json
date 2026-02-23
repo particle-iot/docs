@@ -1164,7 +1164,7 @@
         },
         "reference/developer-tools/cli.md": {
             "date": "2026-02-23",
-            "hash": "b220724654232645473be20906159a9c72b9f0a4a7356625aa3863f78a07426a"
+            "hash": "9c04f53c7e2ae44374dd8bd83c285f301a933051fbaefa5219caeb2fbea82b94"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -9995,7 +9995,7 @@
             "date": "2026-02-23"
         },
         "getting-started/configuration/env-vars.md": {
-            "hash": "64b4de7094a25111442339e13441e944e7b85a9f4b67be20d5cd520b9d34a2e0",
+            "hash": "a49a28febb22e96497bc0df37dbc3dbba220db6b358ff90a35147028723ebe89",
             "date": "2026-02-23"
         },
         "reference/device-os/api/system-calls/enviroment-variables-system.md": {

@@ -186,9 +186,9 @@ Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `parti
 | `PARTICLE_WIFI_ENABLE` | Set to `false` to disable Wi-Fi | bool | 6.4.0 |
 
 
-### Networking environment variables
-
 ### Cellular environment variables
+
+
 
 ## Logic
 
@@ -220,6 +220,14 @@ export interface FunctionContext {
 ```
 {{!-- END shared-blurb --}}
 
+## Integrations
+
+Integrations including webhooks have access to environment variables using [mustache templates](/firmware/best-practices/json/#mustache-variables).
+
 ## Particle CLI
 
-The Particle CLI [`particle config env`](/reference/developer-tools/cli/#particle-config-env) command allows adding, removing, and rolling out variables using the command line instead of the console.
+The Particle CLI [`particle config env`](/reference/developer-tools/cli/#particle-config-env) command allows adding, changing, or deleting variables using the command line instead of the console.
+
+You can also retrieve values from a device connected by USB using [`particle usb env`](/reference/developer-tools/cli/#particle-usb-env).
+
+

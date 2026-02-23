@@ -1251,6 +1251,9 @@ particle usb env --all      Gets environment variables from all devices connecte
 particle usb env my_device  Gets environment variables from the device named "my_device"',
 ```
 
+Note that you cannot set individual values using the CLI over USB. The source of truth for what values should be set on the device is stored in the cloud. If it were possible to set individual values on the device it would be ambiguous which value is correct when they differ, which would make synchronizing problematic. To set per-device values use `particle config env` to set the value on the cloud side, then let the value be synchronized to the device from the cloud.
+
+
 ### particle usb setup-done
 
 On the Argon, Boron, B-Series SoM, and Tracker SoM running Device OS 3.x and earlier, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
