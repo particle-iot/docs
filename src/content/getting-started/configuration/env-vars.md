@@ -222,4 +222,4 @@ export interface FunctionContext {
 
 ## Particle CLI
 
-The Particle CLI [`particle env-vars`](/reference/developer-tools/cli/#particle-env-vars) command allows adding, removing, and rolling out variables using the command line instead of the console.
+The Particle CLI [`particle config env`](/reference/developer-tools/cli/#particle-config-env) command allows adding, removing, and rolling out variables using the command line instead of the console.
