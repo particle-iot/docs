@@ -1132,7 +1132,7 @@
         },
         "reference/cloud-apis/api.md": {
             "date": "2026-02-23",
-            "hash": "9cd5a2e257771c0ab9ec6edeb852cef7b44ae204aa5f8eea668f281929a3b824"
+            "hash": "7ffeb70cfb2cb3885f6a44bcce449804414d0058fae16557543f5f203ccffe9c"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2025-03-18",
@@ -9995,7 +9995,7 @@
             "date": "2026-02-23"
         },
         "getting-started/configuration/env-vars.md": {
-            "hash": "e71b306d13a0a77b79009d5a35bc3100e17a32425694058190e13a1232b7a3ae",
+            "hash": "4e761ac0165d7ea1d647148b4a5425711a944c6546164fa00bdeec19380a5f2c",
             "date": "2026-02-23"
         }
     }
