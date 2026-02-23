@@ -5048,6 +5048,32 @@
           "dir": "backupramsync"
         },
         {
+          "title": "Enviroment variables - System - System calls",
+          "dir": "enviroment-variables-system",
+          "subsections": [
+            {
+              "anchor": "getenv-enviroment-variables-system",
+              "title": "getEnv - Enviroment variables - System",
+              "isContent": true
+            },
+            {
+              "anchor": "hasenv-enviroment-variables-system",
+              "title": "hasEnv - Enviroment variables - System",
+              "isContent": true
+            },
+            {
+              "anchor": "listenv-enviroment-variables-system",
+              "title": "listEnv - Enviroment variables - System",
+              "isContent": true
+            },
+            {
+              "anchor": "clearenv-enviroment-variables-system",
+              "title": "clearEnv - Enviroment variables - System",
+              "isContent": true
+            }
+          ]
+        },
+        {
           "title": "System config [ set ] - System calls",
           "dir": "system-config-set"
         },

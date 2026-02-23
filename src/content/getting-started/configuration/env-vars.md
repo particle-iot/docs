@@ -9,6 +9,8 @@ description: Environment Variables (env vars)
 Environment variables are a lightweight, non‑secret, key - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
 {{!-- END shared-blurb --}}
 
+The feature is available in Device OS 6.4.0 and later.
+
 ## Variables
 
 Environment variables are key - value pairs.
@@ -47,10 +49,6 @@ Environment variables, like ledger, are only used for devices in a product.
 When variables are changed at a given level, the changed are staged for delivery to devices. 
 
 Added, removed, or changed variables can be delivered immediately to online devices. For devices that are offline, changes are delivered when the device connects to the cloud.
-
-Optionally, you can have online devices also wait until the next cloud connection to update their variables when rolling out updates.
-
-
 
 ## Console
 
@@ -93,11 +91,59 @@ Creating a new variable does not immediately take effect. Once you have made all
 
 Changes take effect immediately for online devices, and will be sent to offline devices when they next connect to the Particle cloud.
 
+When a device connects to the cloud a hash of the current environment is sent to the cloud and a new version is only sent if the device does not have the current environment snapshot for the device.
+
+### Environment variable values
+
+The value is a string that can be used for any data type, however, there are two built-in decoders in Device OS.
+
+#### Boolean environment variable values
+
+If the string has the value `true` or `false` (case-sensitive, lowercase), you can use the `bool` overload in Device OS.
+
+```cpp
+// EXAMPLE
+bool enabled;
+if (System.getEnv("ENABLE_DEBUG", enabled) && enabled) {
+    // Variable was set and is value and true
+}
+
+// PROTOTYPE in System class
+static bool getEnv(const char* name, bool& value);
+```
+
+#### Integer environment variable values
+
+If the string has an valid 32-bit signed integer value, you can use the `int` overload in Device OS.
+
+```cpp
+// EXAMPLE
+int value;
+if (System.getEnv("RETRY_PERIOD", value)) {
+    // Value was set, do something with it here
+}
+
+// PROTOTYPE in System class
+static bool getEnv(const char* name, int& value);
+```
+
+### Editing an environment variable
+
+When editing the environment, you can update or delete individual variables.
+
+{{imageOverlay src="/assets/images/console/config-update-delete.png" class="no-darken"}}
+
+Don't forget to rollout the changes to devices after updating.
+
+{{imageOverlay src="/assets/images/console/config-update-rollout.png" class="no-darken"}}
+
 ## Cloud API
 
 Environment variables can be configured using the Cloud API. See the [Cloud API Reference](/reference/cloud-apis/api/#environment).
 
 ## Device OS
+
+
 
 ## Particle environment variables
 

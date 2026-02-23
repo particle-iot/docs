@@ -935,8 +935,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-03-11",
-            "hash": "107e36cea97aea9adaed5b4d7d5820af20029dafaec2f7bba54e9b4acf01e3f9"
+            "date": "2026-02-06",
+            "hash": "920a5d420481a0c4ed3747d91816c68a7712beedd083b02975f91768a6b0cb3f"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1147,8 +1147,8 @@
             "hash": "a2dc293d88ca8de8ed1826ea803abcd9d39a05b39190e8b41b4428f8b05cb27d"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2026-03-06",
-            "hash": "d9578adfe561915c2f954a03909c3a077566e0a05a71bb883663d504090f4c45"
+            "date": "2024-12-17",
+            "hash": "4978c808b23aa6b3ef7b4d961b20f9ff60705f5d62a5534bfb18fbd6896a992c"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-03-05",
-            "hash": "79e0a6664e23074beeace9424ade5d15079c643f547db3c1b3c3d95bd640f2cb"
+            "date": "2026-02-23",
+            "hash": "1c8024b23712c3db5e279a2e7b2273a4683d4a7636d79c5d69e9c4f1f32c350b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3167,8 +3167,8 @@
             "hash": "e669bf1e59ac9b1556bc3b386bc473649dae063a8f56e2912dc0ec2a603b9be7"
         },
         "reference/device-os/api/servo/attach.md": {
-            "date": "2026-03-05",
-            "hash": "9aeb2f62d8cbc8aa3e59850bb579e5afa3d17e1bd9c3c38a3e1606404ee50ef2"
+            "date": "2025-03-26",
+            "hash": "8b4120c8557a583ebe46069ba1ce72d4cfa08a53895f45a7a43590cf49b246b4"
         },
         "reference/device-os/api/servo/write.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8eb90b0fd79cb91120eb6ba0e67bfbfbde814a07d2326248b96032673409cfd6",
-            "date": "2026-03-11"
+            "hash": "93c900c66a826a5ee1b925fd02ff0fe1c496e3ff76a5537962c222da291538fa",
+            "date": "2026-03-04"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9703,8 +9703,8 @@
             "date": "2025-10-15"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "97a4972178040d58fe1ec3b925317c4ebbef07a1f96be7921d58beea168d36d3",
-            "date": "2026-03-11"
+            "hash": "90af2dfa271b3870aae8aba0d820fda3e947987c1a925d38799607a69aaaec56",
+            "date": "2026-03-04"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "cac5c6226004cb00f3b4fa8a832d9d7a1a1da4584cee69509f177f38c57088d9",
@@ -9991,11 +9991,15 @@
             "date": "2026-02-20"
         },
         "getting-started/configuration/configuration.md": {
-            "hash": "cd5a19f0063a8794e6239c18e6e056991893069fea11abbddcc0412532650d77",
+            "hash": "f6de061ac402a9bd7ef1695829b4caab088540688b359ed21b0facfced0abebe",
             "date": "2026-02-23"
         },
         "getting-started/configuration/env-vars.md": {
-            "hash": "4e761ac0165d7ea1d647148b4a5425711a944c6546164fa00bdeec19380a5f2c",
+            "hash": "d0de3fd7e847ef781feec40069f81bd2df47b60f76e45fc5e371994ee93972de",
+            "date": "2026-02-23"
+        },
+        "reference/device-os/api/system-calls/enviroment-variables-system.md": {
+            "hash": "4367ccc58a47bc6a71ffbc83e0a524f7653e39e226573fb62f8d2819e32ab3c0",
             "date": "2026-02-23"
         }
     }
