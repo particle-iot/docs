@@ -3,6 +3,8 @@ title: Environment Variables
 columns: two
 layout: commonTwo.hbs
 description: Environment Variables (env vars)
+includeDefinitions: [api-helper, api-helper-extras]
+
 ---
 
 {{!-- BEGIN shared-blurb 79e94a32-654d-4961-8498-5d7969690c4a --}}
@@ -199,6 +201,7 @@ Sets the preferred list of operators in MCCMNC format. Up to three can be specif
 
 - `311480,310410`
 - `311480`
+
 - If set to an empty string, the modem default is used
 
 ### PARTICLE_CELLULAR_PREFERRED_BANDS
@@ -207,21 +210,22 @@ Sets the preferred list of operators in MCCMNC format. Up to three can be specif
 - Gen 3 and Gen 4 devices
 - Cellular Modems: BG95-M5, BG96-MC, EG91-E, EG91-EX, EG91-NA, R410, R510, SG560D
 
-Sets preferred bands using a band mask.
+Sets preferred bands using a band mask. After 10 minutes of failing to connect, the device reverts to using all bands instead of just the preferred bands.
 
 The band mask is a bit field of bands. For example:
 
-| Band | Mask |
-| :--- | :--- |
-| B1   | 1    |
-| B2   | 2    |
-| B3   | 4    |
-| B4   | 8    |
-| B5   | 16   |
+| Band | Bit  | Mask |
+| :--- | :--- | :--- |
+| B1   | 0    | 1    |
+| B2   | 1    | 2    |
+| B3   | 2    | 4    |
+| B4   | 3    | 8    |
+| B5   | 4    | 16   |
 
 The value to store for the key is a uint128 value represented in decimal of the band mask values added together.
 
-After 10 minutes of failing to connect, the device reverts to using all bands instead of just the preferred bands.
+{{> band-mask-calculator }}
+
 
 ### PARTICLE_CELLULAR_FORBIDDEN_BANDS
 
