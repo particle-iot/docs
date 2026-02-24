@@ -8,7 +8,7 @@ includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 {{!-- BEGIN shared-blurb 79e94a32-654d-4961-8498-5d7969690c4a --}}
-Environment variables are a lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
+Environment variables are lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
 {{!-- END shared-blurb --}}
 
 The feature is available in Device OS 6.4.0 and later.
@@ -45,7 +45,7 @@ For products in the free developer sandbox, you can set environment variables at
 
 If a variable is set in multiple layers, the most specific (rightmost) setting is used.
 
-Environment variables, like ledger, are only used for devices in a product.
+Environment variables are only used for devices in a product. This is also the case for [Ledger](/getting-started/logic-ledger/ledger/).
 
 ## Synchronized
 
@@ -61,18 +61,29 @@ When a device is comes online, a hash of its current snapshot is sent to the clo
 
 ## Console
 
+### Product - Console
+
+You will often configure your environment variables per-product. Once you have opened your organization or sandbox product, go to **Configuration** then **Environment** in the left navigation bar.
+
+{{imageOverlay src="/assets/images/console/config-product.png" class="no-darken"}}
+
+These environment variables are sent to every device in this product.
+
 ### Organization - Console
 
 If you have access to an organization (basic, plus, or enterprise), you can set environment variables at the organization level in the **Organization - Configuration - Environment** section.
 
 {{imageOverlay src="/assets/images/console/config-org.png" class="no-darken"}}
 
+These environment variables are sent to every device in every product in the organization.
 
 ### Sandbox - Console
 
 For the free developer sandbox, you can set environment variables in **Sandbox - Configuration - Environment** section.
 
 {{imageOverlay src="/assets/images/console/config-sandbox.png" class="no-darken"}}
+
+These environment variables are sent to every device in every product owned by this developer account.
 
 ### Creating an environment variable
 
@@ -191,6 +202,10 @@ Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `parti
 
 ## Cellular environment variables
 
+{{box op="start" cssClass="boxed warningBox"}}
+Changing cellular environment variables may adversely affect connectivity. Under normal circumstances you should never need to change these values, and if you do change them, be sure to test changes on a subset of your fleet that you have easy access to in case the changes make the device unable to connect to cellular again.
+{{box op="end"}}
+
 ### PARTICLE_CELLULAR_PREFERRED_PLMN
 
 - Available in Device OS 6.4.0 and later
@@ -284,8 +299,8 @@ For example, you could use `\{{{RETRY_PERIOD}}}` from the example above in an in
 
 ## Particle CLI
 
-The Particle CLI [`particle config env`](/reference/developer-tools/cli/#particle-config-env) command allows adding, changing, or deleting variables using the command line instead of the console.
+The Particle CLI [particle config env](/reference/developer-tools/cli/#particle-config-env) command allows adding, changing, or deleting variables using the command line instead of the console.
 
-You can also retrieve values from a device connected by USB using [`particle usb env`](/reference/developer-tools/cli/#particle-usb-env).
+You can also retrieve values from a device connected by USB using [particle usb env](/reference/developer-tools/cli/#particle-usb-env).
 
 
