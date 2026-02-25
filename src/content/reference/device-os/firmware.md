@@ -6565,6 +6565,11 @@ FuelGauge is available on all devices with a battery state-of-charge sensor, inc
 The Photon 2, P2, Argon, Photon, and P1 do not have FuelGauge support.
 {{note op="end"}}
 
+---
+
+{{since when="6.4.0"}}
+
+Fuel gauge methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
 
 
 ### getVCell()
@@ -6720,6 +6725,10 @@ On the P2 and Photon 2 in addition to the standard analog inputs A0, A1, A2, and
 
 ---
 
+{{since when="6.4.0"}}
+
+GPIO functions can called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+
 ### pinMode()
 
 {{api name1="pinMode"}}
@@ -6870,6 +6879,10 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 ---
 
+{{since when="6.4.0"}}
+
+`pinMode()` can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+
 ### getPinMode(pin)
 
 {{api name1="getPinMode"}}
@@ -6886,6 +6899,7 @@ if (getPinMode(D0)==INPUT) {
   // D0 is an input pin
 }
 ```
+
 
 ### digitalWrite()
 
@@ -6952,7 +6966,7 @@ void loop()
 - The drive current on Gen 2 devices is 25 mA per pin, with a maximum of 125 mA across all GPIO.
 {{note op="end"}}
 
-
+---
 
 ### digitalRead()
 
@@ -7019,6 +7033,8 @@ void loop()
 - On the P1, all GPIO pins **except** A3, A6, D0 and D1 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs. 
 - On the P1 there are 2.1K hardware pull-up resistors to 3V3 on D0 and D1 and are not 5V tolerant.
 {{note op="end"}}
+
+---
 
 ### pinSetDriveStrength()
 
@@ -8034,6 +8050,15 @@ Power Management is available on the M-SoM, Muon, Boron, B-Series SoM, Tracker S
 It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
 
+---
+
+---
+
+{{since when="6.4.0"}}
+
+Power manager methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+
+
 ### powerSourceMaxCurrent - SystemPowerConfiguration
 
 {{api name1="SystemPowerConfiguration::powerSourceMaxCurrent"}}
@@ -8330,6 +8355,12 @@ Power Management is available on the Boron, B-Series SoM, Tracker SoM (Gen 3), E
 
 It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
+
+---
+
+{{since when="6.4.0"}}
+
+PMIC methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
 
 ### PMIC() constructor
 
@@ -10449,6 +10480,12 @@ This alternate location is mapped as follows:
 * `MOSI` => `C1`
 
 {{note op="end"}}
+
+---
+
+{{since when="6.4.0"}}
+
+SPI methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
 
 ---
 
@@ -18798,6 +18835,13 @@ The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the
 
 **Note:** Consider using this object instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
 
+---
+
+{{since when="6.4.0"}}
+
+LED signaling methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+
+
 ### LEDStatus Class
 
 {{api name1="LEDStatus"}}
@@ -19160,6 +19204,13 @@ theme.setColor(LED_SIGNAL_NETWORK_DHCP, RGB_COLOR_YELLOW);
 theme.setColor(LED_SIGNAL_NETWORK_CONNECTED, RGB_COLOR_YELLOW);
 theme.apply(); // Apply theme settings
 ```
+
+---
+
+{{since when="6.4.0"}}
+
+`LEDSystemTheme` methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+
 
 #### LEDSystemTheme()
 
@@ -25763,6 +25814,12 @@ The File System is not available on Gen 2 devices (Photon, P1, Electron, E-Serie
 {{note op="end"}}
 
 ---
+
+{{since when="6.4.0"}}
+
+File system calls can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+
+
 
 ### File system open
 

@@ -48,7 +48,7 @@ includeDefinitions: [api-helper, api-helper-extras]
             "kind": "arrow"
         },
         {
-            "title": "Invoke PRE_SETUP()",
+            "title": "Invoke PRE_STARTUP()",
             "body": "Can put the device back to sleep without further booting if desired"
         },
         {
@@ -78,10 +78,43 @@ includeDefinitions: [api-helper, api-helper-extras]
 {{step-diagram op="end"}}
 
 
-ROM/Bootloader → secure validation / image checks → vector table set
-Kernel/HAL bring‑up → clocks, pinmux, GPIO, timers
-Drivers (minimal) → I²C, SPI, PMIC/FuelGauge, LED/Button, filesystem
-Scheduler on (multitasking enabled; no system threads yet)
-Invoke Application Boot Hook (if present) (single‑threaded from the app’s perspective)
-If the hook returns: start system services/threads (logging, heap monitor, etc.), then connectivity stacks, then call the platform’s standard app initialization (e.g., setup())
-Enter the main run loop (e.g., loop())
+## PRE_STARTUP
+
+In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. It is similar to `STARTUP()` but the behavior is defined. It was created as a separate macro to avoid breaking applications that depend on the previous `STARTUP()` behavior, which varies slightly between device platforms.
+
+Additionally, `PRE_STARTUP()` is an optional C function, not a macro. The code goes in the body of the function, not as an argument to the macro as with `STARTUP()`.
+
+```cpp
+void PRE_STARTUP() {
+    Serial1.begin(115200);
+    Serial1.println("PRE_STARTUP called");  
+}
+```
+
+Because `PRE_STARTUP()` runs before the system thread is started, your code will essentially behave as if single-threaded.
+
+### Features available during PRE_STARTUP
+
+- GPIO
+- I2C (Wire)
+- SPI
+- PMIC/Fuel Gauge
+- User LED
+- User Button
+- File system (read/write)
+
+### Additional available APIs 
+
+- System.sleep()
+
+### Feature not available
+
+- USB CDC serial (`Serial`)
+- Logging (Log.info, etc.)
+- Networking (Cellular, Ethernet, Wi-Fi)
+- BLE
+
+
+
+
+
