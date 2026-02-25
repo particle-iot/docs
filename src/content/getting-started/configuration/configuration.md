@@ -14,7 +14,7 @@ Configuration scales from organization‑wide defaults, to product‑level setti
 
 It comprises three complementary layers:
 
-- [Environment variables](/getting-started/configuration/env-vars/): lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
+- [Environment](/getting-started/configuration/environment/): lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
 - [Secrets](/getting-started/cloud/secrets/): secure, organization‑scoped values that integrations and logic can reference securely.
-- Schemas & Values: optional, typed, schema‑validated parameters that govern firmware‑level behavior at scale. A template (JSON Schema) is exposed so teams can type, document, and revision‑control options.
+- Typed configuration: schema‑validated parameters that govern firmware‑level behavior at scale. A template (JSON Schema) is exposed so teams can type, document, and revision‑control options.
 

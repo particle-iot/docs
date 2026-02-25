@@ -1,14 +1,14 @@
 ---
-title: Environment Variables
+title: Environment
 columns: two
 layout: commonTwo.hbs
-description: Environment Variables (env vars)
+description: Environment 
 includeDefinitions: [api-helper, api-helper-extras]
 
 ---
 
 {{!-- BEGIN shared-blurb 79e94a32-654d-4961-8498-5d7969690c4a --}}
-Environment variables are lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
+Environment is a collection of lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
 {{!-- END shared-blurb --}}
 
 The feature is available in Device OS 6.4.0 and later.
@@ -55,7 +55,7 @@ Added, removed, or changed variables can be delivered immediately to online devi
 
 Each device has a snapshot, which is the combination of organization (or sandbox), product, and per-device environment variables specific to that device. 
 
-When an update affects the snapshot for a device and the device is online, the snapshot is immediately sent to the device. The snapshot contains all values, not the changed values, and is limited to 16 kilobytes. There is some overhead for the protobuf encoding, so the actual data maximum size will be slightly smaller.
+When an update affects the snapshot for a device and the device is online, the snapshot is immediately sent to the device. The snapshot contains all values (not just the changed ones) and is limited to 16 kB, with the limit enforced on the JSON-encoded key–value pairs.
 
 When a device is comes online, a hash of its current snapshot is sent to the cloud. If the snapshot is not current, then the cloud sends a new snapshot to the device.
 
@@ -165,29 +165,29 @@ Environment variables can be configured using the Cloud API. See the [Cloud API 
 
 ## Device OS
 
-To read environment variables from your code, you use functions like `System.getEnv()`. These are described in the [Device OS API reference](reference/device-os/api/system-calls/enviroment-variables-system/).
+To read environment variables from your code, you use functions like `System.getEnv()`. These are described in the [Device OS API reference](/reference/device-os/api/system-calls/enviroment-variables-system/).
 
 Device OS 6.4.0 or later is required.
 
-## Application-specific variables
+## Firmware variables
 
 You can optionally include environment variables with your application using an application bundle, the same technology used for [Asset OTA](/getting-started/cloud/ota-updates/#asset-ota). 
 
 This is useful for seeding the default variable values before your firmware connects to the cloud the first time, instead of checking whether the variable exists and embedding the value in your code when you read it.
 
 
-### Using project.properties - Application-specific variables
+### Using project.properties - Firmware variables
 
-The `firmwareEnv` key in the project.properties allows bundling of an application binary (.bin) file with an arbitrary JSON file of name - value pairs. 
+The `env` key in the project.properties allows bundling of an application binary (.bin) file with an arbitrary JSON file of name - value pairs. 
 
 ```
 name=MyProject
-firmwareEnv=env.json
+env=env.json
 ```
 
-As is the case with Asset OTA, specifying `firmwareEnv` will create a .zip file for your application that contains both the binary and its additional data.
+As is the case with Asset OTA, specifying `env` will create a .zip file for your application that contains both the binary and its additional data.
 
-### Using particle bundle - Application-specific variables
+### Using particle bundle - Firmware variables
 
 Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `particle bundle` command with the `--env` option allows bundling of an application binary (.bin) file with an arbitrary JSON file of name - value pairs.
 

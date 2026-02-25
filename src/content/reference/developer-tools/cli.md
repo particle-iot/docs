@@ -545,7 +545,7 @@ asset directory. The assets path should be relative to the project root.
 
 Optionally, you can use the `--assets <path>` option to override the directory used for assets.
 
-If you want to include [environment variables](/getting-started/configuration/env-vars/) in your application bundle you can include them via project.properties using the env-vars key, or use the `--env` option to `particle bundle`. This can be combined with assets, if desired.
+If you want to include [environment variables](/getting-started/configuration/environment/) in your application bundle you can include them via project.properties using the `env` key, or use the `--env` option to `particle bundle`. This can be combined with assets, if desired.
 
 To override the default filename to save to, use the `--saveTo <filename>` option. It should be a .zip file. 
 
@@ -1243,7 +1243,7 @@ particle usb send-request '{"op":"status"}'
 
 ### particle usb env
 
-Get environment variables from a USB-connected device (or devices). See [environment variables](/getting-started/configuration/env-vars/) for more information.
+Get environment variables from a USB-connected device (or devices). See [environment variables](/getting-started/configuration/environment/) for more information.
 
 ```
 particle usb env            Gets environment variables from the connected device',
@@ -1311,7 +1311,7 @@ If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 
 
 ## particle config env
 
-The `particle config env` commands allow setting environment variables from the command line. [Environment variables](/getting-started/configuration/env-vars/) are lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
+The `particle config env` commands allow setting environment variables from the command line. [Environment](/getting-started/configuration/environment/) are lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
 
 In previous versions of the Particle CLI, `particle config` switched between profiles. That function is now performed by the `particle profile` command.
 
@@ -1354,6 +1354,7 @@ particle config env set <name> <value> --device <deviceId>
 particle config env set <name>=<value> --device <deviceId>
 ```
 
+The `config env set` command stages the changes in the cloud but does not roll them out to devices. You must go to the [Particle console](https://console.particle.io/) to review and roll out the changes to your device fleet.
 
 
 ### particle config env delete
@@ -1373,6 +1374,8 @@ particle config env delete <name> --product <productId>
 # Specify the device ID 
 particle config env delete <name> --device <deviceId>
 ```
+
+The `config env delete` command stages the changes in the cloud but does not roll them out to devices. You must go to the [Particle console](https://console.particle.io/) to review and roll out the changes to your device fleet.
 
 ## particle config secrets
 

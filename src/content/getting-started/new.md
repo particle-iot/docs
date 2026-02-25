@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Environment 2026-03-13
+
+Documentation is now available for [Environment](/getting-started/configuration/environment/), a collection of lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
+
 ### Tachyon ISED 2026-03-11
 
 The ISED (Canada) [certificate](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4NA and TACH8NA is now available.
