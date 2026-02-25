@@ -17,48 +17,71 @@ includeDefinitions: [api-helper, api-helper-extras]
 	"arrowWidth": 20,
 	"arrowBase": 8,
 	"arrowHead": 10,
+    "style": "withBody",
     "steps": [
         {
-            "title": "ROM / Pre-bootloader"
+            "title": "ROM / Bootloader",
+            "body": "Secure validation, image checks, vector table set"
         },
         {
             "kind": "arrow"
         },
         {
-            "title": "Vector table set / Jump to system"
+            "title": "Kernel/HAL bring‑up)",
+            "body": "Clocks, pinmux, GPIO, timers"
         },
         {
             "kind": "arrow"
         },
         {
-            "title": "Kernel/HAL bring-up (clocks, pinmux, GPIO, timers)"
+            "title": "Drivers (minimal)",
+            "body": "I2C, SPI, PMIC/FuelGauge, LED/Button, filesystem"
         },
         {
             "kind": "arrow"
         },
         {
-            "title": "Drivers (I2C, SPI, PMIC/FuelGauge, LED, button, filesystem)"
+            "title": "Scheduler on",
+            "body": "Multitasking enabled; no system threads yet"
         },
         {
             "kind": "arrow"
         },
         {
-            "title": "STARTUP()"
+            "title": "Invoke PRE_SETUP()",
+            "body": "Can put the device back to sleep without further booting if desired"
         },
         {
             "kind": "arrow"
         },
         {
-            "title": "Start system threads/services (logging, heap monitor, etc.)"
+            "title": "System startup",
+            "body": "Start system services/threads (logging, heap monitor, etc.)"
         },
         {
             "kind": "arrow"
         },
         {
-            "title": "Connectivity stacks (Cellular/Wi‑Fi/Ethernet/Cloud), time sync, OTA/session"
+            "title": "Connectivity setup",
+            "body": "Start cellular, Ethernet, Wi-Fi, etc."
+        },
+        {
+            "kind": "arrow"
+        },
+        {
+            "title": "Application initialization",
+            "body": "Call setup(), then loop()"
         }
     ]
 }
 ```
 {{step-diagram op="end"}}
 
+
+ROM/Bootloader → secure validation / image checks → vector table set
+Kernel/HAL bring‑up → clocks, pinmux, GPIO, timers
+Drivers (minimal) → I²C, SPI, PMIC/FuelGauge, LED/Button, filesystem
+Scheduler on (multitasking enabled; no system threads yet)
+Invoke Application Boot Hook (if present) (single‑threaded from the app’s perspective)
+If the hook returns: start system services/threads (logging, heap monitor, etc.), then connectivity stacks, then call the platform’s standard app initialization (e.g., setup())
+Enter the main run loop (e.g., loop())

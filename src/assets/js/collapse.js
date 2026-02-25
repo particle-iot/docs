@@ -538,12 +538,13 @@ stepDiagram.setup = function() {
 			// Default values
 			let diagramSettings = {
 				width: '150',
-				background: 'ParticleBlue_500',
+				background: 'ParticleBlue_400',
 				foreground: 'Midnight_800',
 				margin: '10px 10px 10px 10px', 
 				padding: '10px 10px 10px 10px',
 				titleFontSize: '14px',
 				titleFontWidth: '400',
+				titleHeight: '100%',
 				arrowHeight: 40,
 				arrowWidth: 40,
 				arrowBase: 16,
@@ -551,12 +552,17 @@ stepDiagram.setup = function() {
 			}
 
 			const predefinedStyles = {
-				
+				withBody: {
+					titleFontSize: '16px',
+					bodyFontSize: '14px',
+				},
 			};
 
-			const styleOverride = (diagramSettings.style && predefinedStyles[diagramSettings.style]) || {};
+			const settingsFromMd = JSON.parse(sourceText);
 
-			let diagram = Object.assign({}, diagramSettings, styleOverride, JSON.parse(sourceText));
+			const styleOverride = (settingsFromMd.style && predefinedStyles[settingsFromMd.style]) || {};
+
+			let diagram = Object.assign({}, diagramSettings, styleOverride, settingsFromMd);
 
 			// console.log('step-diagram', diagram);
 
@@ -582,17 +588,35 @@ stepDiagram.setup = function() {
 
 				if (stepObj.kind == 'box') {
 					$(stepDiv).css('width', stepObj.width + 'px');
+					$(stepDiv).css('display', 'flex');
+					$(stepDiv).css('flex-direction', 'column');
+					$(stepDiv).css('justify-content', 'center');
+					$(stepDiv).css('gap', '10px');
+					$(stepDiv).css('align-items', 'center');
 					$(stepDiv).css('background-color', colorNames[stepObj.background] || stepObj.background);
 
-					const titleDiv = document.createElement('title');
+					const titleDiv = document.createElement('div');
+					$(titleDiv).css('width', '100%');
+					$(titleDiv).css('height', stepObj.titleHeight || diagram.titleHeight);
 					$(titleDiv).css('color', colorNames[stepObj.foreground] || stepObj.foreground);
 					$(titleDiv).css('text-align', 'center');
 					$(titleDiv).css('font-size', stepObj.titleFontSize || diagram.titleFontSize);
-					$(titleDiv).css('font-weight', stepObj.titleFontWidth || diagram.titleFontWidth);
-
-					$(titleDiv).text(stepObj.title);	
-
+					$(titleDiv).css('font-weight', stepObj.titleFontWeight || diagram.titleFontWeight);
+					$(titleDiv).text(stepObj.title);
 					$(stepDiv).append(titleDiv);
+
+					if (stepObj.body) {
+						const bodyDiv = document.createElement('div');
+						$(bodyDiv).css('width', '100%');
+						$(bodyDiv).css('height', stepObj.bodyHeight || diagram.bodyHeight);
+						$(bodyDiv).css('color', colorNames[stepObj.foreground] || stepObj.foreground);
+						$(bodyDiv).css('text-align', 'center');
+						$(bodyDiv).css('font-size', stepObj.bodyFontSize || diagram.bodyFontSize);
+						$(bodyDiv).css('font-weight', stepObj.bodyFontWeight || diagram.bodyFontWeight);
+						$(bodyDiv).text(stepObj.body);
+						$(stepDiv).append(bodyDiv);
+					}
+
 				}
 				else
 				if (stepObj.kind == 'arrow') {
