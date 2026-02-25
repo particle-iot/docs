@@ -210,20 +210,21 @@ Changing cellular environment variables may adversely affect connectivity. Under
 
 - Available in Device OS 6.4.0 and later
 - Gen 3 and Gen 4 devices
-- Cellular Modems: BG95-M5, BG96-MC, EG91-E, EG91-EX, EG91-NA, R410, R510, SG560D
+- This variable is not available on the B402, B404, BRN402, or BRN404 but is available on the B404X and BRN404X
 
 Sets the preferred list of operators in MCCMNC format. Up to three can be specified. For example:
 
 - `311480,310410`
 - `311480`
 
-- If set to an empty string, the modem default is used
+- If set to an empty string, the modem default is used.
+
+{{> env-var-skus var="PARTICLE_CELLULAR_PREFERRED_PLMN"}}
 
 ### PARTICLE_CELLULAR_PREFERRED_BANDS
 
 - Available in Device OS 6.4.0 and later
 - Gen 3 and Gen 4 devices
-- Cellular Modems: BG95-M5, BG96-MC, EG91-E, EG91-EX, EG91-NA, R410, R510, SG560D
 
 Sets preferred bands using a band mask. After 10 minutes of failing to connect, the device reverts to using all bands instead of just the preferred bands.
 
@@ -241,14 +242,16 @@ The value to store for the key is a uint128 value represented in decimal of the 
 
 {{> band-mask-calculator }}
 
+{{> env-var-skus var="PARTICLE_CELLULAR_PREFERRED_BANDS"}}
 
 ### PARTICLE_CELLULAR_FORBIDDEN_BANDS
 
 - Available in Device OS 6.4.0 and later
 - Gen 3 and Gen 4 devices
-- Cellular Modems: BG95-M5, BG96-MC, EG91-E, EG91-EX, EG91-NA, R410, R510, SG560D
 
 Sets a mask of bands to not use. The band mask is the same uint128 format as for `PARTICLE_CELLULAR_PREFERRED_BANDS`.
+
+{{> env-var-skus var="PARTICLE_CELLULAR_FORBIDDEN_BANDS"}}
 
 
 ## Logic

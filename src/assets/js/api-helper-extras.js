@@ -3870,6 +3870,40 @@ $(document).ready(function() {
 
     })
 
+    $('.envVarSkus').each(async function() {
+        const thisPartial = $(this);
+
+        const carriersJson = await apiHelper.getCarriersJson();
+
+        const varName = $(thisPartial).data('var');
+
+        const tbodyElem = $(thisPartial).find('.envVarSkusTableBody');
+
+        for(const skuObj of carriersJson.skus) {
+            if (!skuObj.modem || skuObj.lifecycle == 'Hidden') {
+                continue;
+            }
+            const modemObj = carriersJson.modems.find(e => e.model == skuObj.modem);
+            if (!modemObj || !modemObj.env) {
+                continue;
+            }
+
+            if (!modemObj.env.includes(varName)) {
+                continue;
+            }
+
+            const trElem = document.createElement('tr');
+
+            for(const field of ['name', 'desc', 'lifecycle', 'modem']) {
+                const tdElem = document.createElement('td');
+                $(tdElem).text(skuObj[field]);
+                $(trElem).append(tdElem);
+            }
+
+            $(tbodyElem).append(trElem);
+        }
+    });
+
 });
 
 
