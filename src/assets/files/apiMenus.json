@@ -3262,6 +3262,10 @@
           "dir": "startup"
         },
         {
+          "title": "PRE_STARTUP() - Macros",
+          "dir": "pre_startup"
+        },
+        {
           "title": "PRODUCT_VERSION() - Macros",
           "dir": "product_version"
         },

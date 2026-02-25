@@ -542,13 +542,21 @@ stepDiagram.setup = function() {
 				foreground: 'Midnight_800',
 				margin: '10px 10px 10px 10px', 
 				padding: '10px 10px 10px 10px',
+				titleFontSize: '14px',
+				titleFontWidth: '400',
 				arrowHeight: 40,
 				arrowWidth: 40,
 				arrowBase: 16,
 				arrowHead: 20,
 			}
 
-			let diagram = Object.assign({}, diagramSettings, JSON.parse(sourceText));
+			const predefinedStyles = {
+				
+			};
+
+			const styleOverride = (diagramSettings.style && predefinedStyles[diagramSettings.style]) || {};
+
+			let diagram = Object.assign({}, diagramSettings, styleOverride, JSON.parse(sourceText));
 
 			// console.log('step-diagram', diagram);
 
@@ -576,10 +584,15 @@ stepDiagram.setup = function() {
 					$(stepDiv).css('width', stepObj.width + 'px');
 					$(stepDiv).css('background-color', colorNames[stepObj.background] || stepObj.background);
 
-					$(stepDiv).css('color', colorNames[stepObj.foreground] || stepObj.foreground);
-					$(stepDiv).css('text-align', 'center');
+					const titleDiv = document.createElement('title');
+					$(titleDiv).css('color', colorNames[stepObj.foreground] || stepObj.foreground);
+					$(titleDiv).css('text-align', 'center');
+					$(titleDiv).css('font-size', stepObj.titleFontSize || diagram.titleFontSize);
+					$(titleDiv).css('font-weight', stepObj.titleFontWidth || diagram.titleFontWidth);
 
-					$(stepDiv).text(stepObj.title);	
+					$(titleDiv).text(stepObj.title);	
+
+					$(stepDiv).append(titleDiv);
 				}
 				else
 				if (stepObj.kind == 'arrow') {

@@ -21745,6 +21745,8 @@ Other acceptable calls to make from STARTUP include:
 - [`System.setPowerConfiguration()`](/reference/device-os/api/power-manager/systempowerfeature/)
 - `System.enableFeature()`
 
+For more information on startup behavior, see [Startup behavior](/reference/device-os/startup-behavior/).
+
 ---
 
 {{note op="start" type="gen2"}}
@@ -21763,6 +21765,26 @@ On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controllin
 
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this!
 {{note op="end"}}
+
+### PRE_STARTUP()
+
+{{api name1="PRE_STARTUP"}}
+
+{{since when="6.4.0"}}
+
+In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. It is similar to `STARTUP()` but the behavior is defined. It was created as a separate macro to avoid breaking applications that depend on the previous `STARTUP()` behavior, which varies slightly between device platforms.
+
+Additionally, `PRE_STARTUP()` is an optional C function, not a macro. The code goes in the body of the function, not as an argument to the macro as with `STARTUP()`.
+
+```cpp
+void PRE_STARTUP() {
+    Serial1.begin(115200);
+    Serial1.println("PRE_STARTUP called");  
+}
+```
+
+For more information on startup behavior, see [Startup behavior](/reference/device-os/startup-behavior/).
+
 
 
 ### PRODUCT_VERSION()
@@ -29987,6 +30009,15 @@ void loop()
 }
 ```
 
+If you are using `SYSTEM_THREAD(ENABLED)`, `setup()` is called before connecting to the network. Threading is enabled by default in Device OS 6.2.0 and later.
+
+If you are using `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)`, `setup()` is also called before connecting to the network, regardless of threading.
+
+In the specific case of not using the system thread and using `SYSTEM_MODE(AUTOMATIC)` `setup()` is only called after connecting to the cloud (breathing cyan).
+
+For more information on startup behavior, see [Startup behavior](/reference/device-os/startup-behavior/).
+
+
 #### loop()
 
 {{api name1="loop"}}
@@ -30016,6 +30047,14 @@ void loop()
     digitalWrite(LED,LOW);
 }
 ```
+
+If you are using `SYSTEM_THREAD(ENABLED)`, `loop()` is called before connecting to the network. Threading is enabled by default in Device OS 6.2.0 and later.
+
+If you are using `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)`, `loop()` is also called before connecting to the network, and when disconnected, regardless of threading.
+
+In the specific case of not using the system thread and using `SYSTEM_MODE(AUTOMATIC)` `loop()` is only called after actively to the cloud (breathing cyan). It stops running when reconnecting (blinking green or blinking cyan). It also stops running while downloading an OTA update.
+
+
 
 ### Control structures
 
