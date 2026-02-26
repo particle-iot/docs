@@ -114,7 +114,7 @@ Because `PRE_STARTUP()` runs before the system thread is started, your code will
 - BLE
 - USB CDC serial (`Serial`)
 
-`Serial` is not currently available but may be available on some platforms in the future, but is not guaranteed. Using UART serial (`Serial1`) may be an alternative.
+`Serial` is not currently available but may be available on some platforms in the future, but is not guaranteed to be available. Using UART serial (`Serial1`) may be an alternative.
 
 
 
