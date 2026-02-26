@@ -10970,6 +10970,10 @@ This object allows you to communicate with I2C / TWI (Two Wire Interface) device
 | I2C | 400 Kbit/sec | 400 Kbit/sec | Many (limited by addresses) |
 | SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
 
+{{since when="6.4.0"}}
+
+`System.sleep()` can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+
 ### Pull-up resistors (I2C)
 
 The I2C bus must have pull-up resistors, one on the SDA line and one on the SCL line. They're typically 4.7K or 10K ohm, but should be in the range of 2K to 10K.
@@ -21927,6 +21931,10 @@ The `SystemSleepConfiguration` class configures all of the sleep parameters and 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
 The Tracker One, Tracker SoM, and Monitor One have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/) and [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep). You generally should avoid directly using this sleep API on the Tracker as it will not put the tracker-specific peripherals like the GNSS, IMU, CAN, and RTC to sleep properly, as these functions are implemented in the [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) or [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/) sleep functionality, not Device OS.
+
+{{since when="6.4.0"}}
+
+`System.sleep()` can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
 
 
 ### mode() (SystemSleepConfiguration)

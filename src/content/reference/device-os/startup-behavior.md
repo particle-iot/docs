@@ -95,24 +95,26 @@ Because `PRE_STARTUP()` runs before the system thread is started, your code will
 
 ### Features available during PRE_STARTUP
 
-- GPIO
-- I2C (Wire)
-- SPI
-- PMIC/Fuel Gauge
-- User LED
-- User Button
-- File system (read/write)
+- [GPIO](/reference/device-os/api/input-output/)
+- [I2C (Wire)](/reference/device-os/api/wire-i2c/wire-i2c/)
+- [SPI](/reference/device-os/api/spi/)
+- [PMIC](/reference/device-os/api/pmic-power-management-ic/)
+- [Fuel Gauge](/reference/device-os/api/fuelgauge/)
+- [User LED](/reference/device-os/api/led-signaling/)
+- [File system (read/write)](/reference/device-os/api/file-system/)
 
 ### Additional available APIs 
 
-- System.sleep()
+- [System.sleep()](/reference/device-os/api/sleep-sleep)
 
 ### Feature not available
 
-- USB CDC serial (`Serial`)
 - Logging (Log.info, etc.)
 - Networking (Cellular, Ethernet, Wi-Fi)
 - BLE
+- USB CDC serial (`Serial`)
+
+`Serial` is not currently available but may be available on some platforms in the future, but is not guaranteed. Using UART serial (`Serial1`) may be an alternative.
 
 
 

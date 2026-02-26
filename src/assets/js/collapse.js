@@ -543,7 +543,7 @@ stepDiagram.setup = function() {
 				margin: '10px 10px 10px 10px', 
 				padding: '10px 10px 10px 10px',
 				titleFontSize: '14px',
-				titleFontWidth: '400',
+				titleFontWeight: '400',
 				titleHeight: '100%',
 				arrowHeight: 40,
 				arrowWidth: 40,
@@ -554,6 +554,7 @@ stepDiagram.setup = function() {
 			const predefinedStyles = {
 				withBody: {
 					titleFontSize: '16px',
+					titleFontWeight: '600',
 					bodyFontSize: '14px',
 				},
 			};
