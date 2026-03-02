@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2026-03-02
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Particle CLI 2026-02-23
 
 The Particle CLI `particle config` command to select between multiple profiles is now `particle profile`.

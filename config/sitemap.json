@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "16ff9ccbbe6c3633c022ab5e1112f29948f990a915599bcbf1f0f6a9c05cc99a",
-            "date": "2026-02-23"
+            "hash": "c12549590167eda69996cc66d897976291022081a94b65023009c444a9e6d968",
+            "date": "2026-03-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9903,8 +9903,8 @@
             "date": "2025-10-16"
         },
         "reference/device-os/libraries/l/LocationFusionRK.md": {
-            "hash": "163994abeb15c719f1d6129ba64afc9e693a1580ededf185ccfd545be83ba4ea",
-            "date": "2026-02-06"
+            "hash": "c1448a4f7224ff5b339fd5f438d1219452a42c6bc058389df46fd32a3166a1ac",
+            "date": "2026-03-02"
         },
         "reference/device-os/libraries/q/QuectelGnssRK.md": {
             "hash": "f87ba816d38c4219e24056667ce103ebe58ce1737a49db9c82bf609937a88c82",
