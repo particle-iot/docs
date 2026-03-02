@@ -807,7 +807,7 @@ $(document).ready(async function() {
             }
         }
 
-        const options = ($(thisPartial).data('options') || '').split(',');
+        const options = ($(thisElem).data('options') || '').split(',');
         if (options.includes('noOrg')) {
             disableOrgSelection();
         }
