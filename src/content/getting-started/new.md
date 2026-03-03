@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Schema editor fix 2026-03-02
+
+Fixed an error in the [schema editor](/reference/tracker/tracker-configuration/#schema-editor) tutorial that prevented it from loading.
+
 ### Library updates 2026-03-02
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
