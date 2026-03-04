@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Updated carriers 2026-03-04
 
-Updated the 4G bands for cellular carriers that did not previously list 4G bands as many have added support since the last update.
+Updated the 4G bands for cellular carriers that did not previously list 4G bands as several have added support since the last update.
 
 ### Schema editor fix 2026-03-02
 
