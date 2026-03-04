@@ -657,10 +657,9 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Cabo Verde | Unitel T+ | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Cambodia | Metfone | &nbsp; | &check; | &check; | &nbsp; |
 | Cameroon | MTN | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Canada | Bell Mobility | &check; | <sup>NRND</sup> | &nbsp; | &check; |
-| Canada | Rogers Wireless | &check; | <sup>NRND</sup> | &nbsp; | &check; |
-| Canada | Telus | &check; | <sup>NRND</sup> | &nbsp; | &check; |
-| Canada | Videotron | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Canada | Bell Mobility | &nbsp; | &nbsp; | &nbsp; | &check; |
+| Canada | Rogers Wireless | &nbsp; | &nbsp; | &nbsp; | &check; |
+| Canada | Telus | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Cayman Islands | Flow | &check; | &check; | &nbsp; | &nbsp; |
 | Chad | Airtel | &nbsp; | &check; | &check; | &nbsp; |
 | Chile | Claro | &nbsp; | &check; | &check; | &nbsp; |
@@ -814,9 +813,9 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Netherlands | KPN | &check; | &check; | &check; | &nbsp; |
 | Netherlands | T-Mobile | &check; | &check; | &check; | &nbsp; |
 | Netherlands | Vodafone | &check; | &check; | &check; | &nbsp; |
-| New Zealand | 2degrees | &check; | <sup>NRND</sup> | &check; | &nbsp; |
-| New Zealand | Spark | &check; | <sup>NRND</sup> | &check; | &nbsp; |
-| New Zealand | Vodafone | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| New Zealand | 2degrees | &nbsp; | &nbsp; | &check; | &nbsp; |
+| New Zealand | Spark | &nbsp; | &nbsp; | &check; | &nbsp; |
+| New Zealand | Vodafone | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Nicaragua | Movistar | &check; | &check; | &nbsp; | &nbsp; |
 | Niger | Celtel | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Nigeria | 9mobile | &nbsp; | &check; | &check; | &nbsp; |

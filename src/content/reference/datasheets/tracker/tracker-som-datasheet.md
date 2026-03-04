@@ -1276,10 +1276,10 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Montenegro | T524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | T524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | T524 | 2G, 3G, 4G | Vodacom |
-| Myanmar | T524 | 2G, 3G | MPT |
+| Myanmar | T524 | 2G, 3G, 4G | MPT, Telenor |
 | Namibia | T524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | T524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
-| New Zealand | T524 | 3G, 4G | 2degrees, Spark, Vodafone |
+| New Zealand | T524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | T524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | T524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | T524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |

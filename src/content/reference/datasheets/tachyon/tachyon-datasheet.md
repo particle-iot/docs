@@ -1062,7 +1062,7 @@ Consumers should contact their local authority or retailer for information conce
 | Lithuania | 2G, 4G, 5G | Bite |
 | Luxembourg | 2G, 4G | Orange, POST, Tango |
 | Netherlands | 2G, 3G, 4G, 5G | KPN, T-Mobile, Vodafone |
-| New Zealand | 3G, 4G, 5G | Spark |
+| New Zealand | 4G, 5G | Spark |
 | Norway | 4G | Telenor, Telia |
 | Poland | 2G, 3G, 4G, 5G | Orange, Play, Plus, T-Mobile |
 | Portugal | 2G, 3G, 4G, 5G | MEO, NOS, Vodafone |

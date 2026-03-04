@@ -1421,7 +1421,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Cabo Verde | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Cambodia | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Cameroon | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Canada | &check; | &nbsp; | &check; | &check; | &nbsp; |
+| Canada | &nbsp; | &nbsp; | &check; | &check; | &nbsp; |
 | Cayman Islands | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Chad | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Chile | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
@@ -1494,7 +1494,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Myanmar | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Namibia | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Netherlands | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| New Zealand | &check; | &check; | &nbsp; | &nbsp; | &check; |
+| New Zealand | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Nicaragua | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Niger | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Nigeria | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
