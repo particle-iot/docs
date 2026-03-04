@@ -2141,7 +2141,7 @@ The following countries are not officially supported at this time, but may be co
 | Saint Kitts and Nevis | 3G | Flow |
 | Saint Lucia | 3G | Flow |
 | Saint Vincent and the Grenadines | 3G, 4G | Flow |
-| Trinidad and Tobago | 3G | Digicel, TSTT |
+| Trinidad and Tobago | 3G, 4G | Digicel, TSTT |
 | Turks and Caicos Islands | 3G | Flow |
 | Uruguay | 3G, 4G | Antel, Claro, Movistar |
 | Venezuela | 3G, 4G | Movistar |

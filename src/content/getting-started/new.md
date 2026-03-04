@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated carriers 2026-03-04
+
+Updated the 4G bands for cellular carriers that did not previously list 4G bands as several have added support since the last update.
+
 ### Schema editor fix 2026-03-02
 
 Fixed an error in the [schema editor](/reference/tracker/tracker-configuration/#schema-editor) tutorial that prevented it from loading.

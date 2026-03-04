@@ -1795,7 +1795,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Ireland | B524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | B524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
 | Italy | B524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
-| Japan | B524 | 3G, 4G | KDDI, NTT DoCoMo, Softbank |
+| Japan | B524 | 4G | KDDI, NTT DoCoMo, Softbank |
 | Jordan | B524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | B524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | B524 | 2G, 3G, 4G | Airtel |
@@ -1814,10 +1814,10 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Montenegro | B524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | B524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | B524 | 2G, 3G, 4G | Vodacom |
-| Myanmar | B524 | 2G, 3G | MPT |
+| Myanmar | B524 | 2G, 3G, 4G | MPT, Telenor |
 | Namibia | B524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | B524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
-| New Zealand | B524 | 3G, 4G | 2degrees, Spark, Vodafone |
+| New Zealand | B524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | B524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | B524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | B524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |

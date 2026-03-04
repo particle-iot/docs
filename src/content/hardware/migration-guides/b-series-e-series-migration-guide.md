@@ -1456,7 +1456,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Cabo Verde | &check; | &nbsp; | &nbsp; | &check; |
 | Cambodia | &nbsp; | &check; | &nbsp; | &check; |
 | Cameroon | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Canada | NRND | NRND | &check; | &nbsp; |
+| Canada | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Cayman Islands | &check; | &check; | &nbsp; | &nbsp; |
 | Central African Republic | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Chad | &nbsp; | &check; | &nbsp; | &check; |
@@ -1538,7 +1538,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Namibia | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Nauru | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Netherlands | &check; | &check; | &nbsp; | &check; |
-| New Zealand | NRND | &nbsp; | &nbsp; | &check; |
+| New Zealand | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Nicaragua | &check; | &check; | &nbsp; | &nbsp; |
 | Niger | &check; | &check; | &nbsp; | &nbsp; |
 | Nigeria | &check; | &check; | &nbsp; | &check; |
