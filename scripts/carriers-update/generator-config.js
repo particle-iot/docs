@@ -753,6 +753,7 @@ const schemaDocs = require('./schema-docs');
             }             
         }, 
         // electron 2 
+        /*
         {
             guid:'128e6580-8ddd-45bc-882f-71785ae12855', 
             generatorFn:function(updater) {
@@ -941,6 +942,7 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }             
         }, 
+        */
 
         // power-measurement.md
         {

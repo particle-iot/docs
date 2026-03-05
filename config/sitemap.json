@@ -647,8 +647,8 @@
             "hash": "4f6c0d93a3dd402078eaff079dbf2262adf03f1ca6a62e2696cc5757ba6b8924"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2025-08-06",
-            "hash": "e1246e9335380e44e192009da3e96fba0cc7f6becf6c27bfb2b90386861b2bbe"
+            "date": "2026-03-05",
+            "hash": "604258a29b7b623d2f281fd7b35277df56ca465695521b15cec395741c440514"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2025-09-16",
@@ -695,8 +695,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2025-04-01",
-            "hash": "e775d2bb0fd29ebf9c14e66c21ca8f28decd44de2ce3094d0ebdb1fa20dc0d13"
+            "date": "2026-03-05",
+            "hash": "421f141b0af1d2f765083b39496503cf975159d7c872a26b2f8f7cbb8875d7bb"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -927,8 +927,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2025-10-22",
-            "hash": "89f50c7eae6d98382409a896db0be3a6c4e6b762cb0182df2f65d77c24bec759"
+            "date": "2026-03-05",
+            "hash": "64768db40d79f0253ca10f7660758acc86165508db9fd8fca24da73c462514d7"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -1031,12 +1031,12 @@
             "hash": "04d24ddae20c5b300736c1d7f37668afdeb7fc80c3e8db85410b336bb269f9a3"
         },
         "hardware/power/batteries.md": {
-            "date": "2025-08-06",
-            "hash": "cb7652e089bee05e9a3baaffd44329cc2b01b0b9d9296da63d1c7fc05fb47070"
+            "date": "2026-03-05",
+            "hash": "4b2951755549f4c80c265d749a1fb5b33fa6d1d077fefcd503ac762973854543"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2025-12-05",
-            "hash": "c9641ad7738a2d79f123c812432867ca27a8b34927c1a108eb27dcf8096f0133"
+            "date": "2026-03-05",
+            "hash": "3455a5050c04c3e2cdf66c2c67d8ceac50e9944808c464cfe992ea354f9eb2f5"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1571,8 +1571,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2025-04-01",
-            "hash": "a57ad7824573ae486d14130daface469f669a088037c72e21f4bb7e18c7fbb55"
+            "date": "2026-03-05",
+            "hash": "a58c90a36fd37c4a5ee9b6ee28da455068cf8e939ea645d94a8015b9e3f299ff"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2024-11-13",
@@ -9139,8 +9139,8 @@
             "date": "2024-07-23"
         },
         "reference/cellular/verizon-faq.md": {
-            "hash": "a4ef390b1de8faf8fa577552e98288ccf4bb37fbb73ec31c849405c044559220",
-            "date": "2025-07-16"
+            "hash": "61fd9b2d72810349103de56bdfe63a48f09b7362c688e298913b3ae5cff72811",
+            "date": "2026-03-05"
         },
         "reference/device-os/libraries/a/Adafruit_ADS1X15_multi.md": {
             "hash": "8a7cc52f3debf1f8017ede9a2bd5bcb35a07758c30a5de8618c3ed452e5e17c2",
@@ -9739,8 +9739,8 @@
             "date": "2025-06-02"
         },
         "hardware/power/power-measurement.md": {
-            "hash": "88ca9ed9dd59b6c898d5182edfb446783b9d55ff9f99f2733dfb179cc510a3f4",
-            "date": "2025-08-06"
+            "hash": "f1e480e1655016822aaa1f2bd14b54b90165a6298bfd3d642145beed05c7330a",
+            "date": "2026-03-05"
         },
         "archives/monitor-one-modbus.md": {
             "hash": "4fc7a3da7379fc79f2fde296de93668b3a45326d15ff339e713da1cdcda0b400",

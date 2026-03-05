@@ -1848,6 +1848,7 @@ bandFit.init = function(callback) {
                 },
             ],
         },
+        /*
         'electron-2': {
             title: 'Electron 2 (ELC504EM vs. ELC524EM)',
             showInternalUsers: true,
@@ -1886,6 +1887,7 @@ bandFit.init = function(callback) {
                 },
             ],
         },
+        */
         'tracker': {
             title: 'Tracker One, Monitor One, Tracker SoM (ONE404 vs. ONE524)',
             sim: 4, // EtherSIM

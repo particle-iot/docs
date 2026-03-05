@@ -141,10 +141,6 @@ instead of using a battery pack temperature sensor.
 | [ELC402EA](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
 | [ELC402TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | Deprecated |
 | [ELC404TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |
-| [ELC504EMEA](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x1] | c | 3-pin | In development |
-| [ELC504EMTY](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x50] | c | 3-pin | In development |
-| [ELC524EMEA](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (Europe), [x1] | c | 3-pin | In development |
-| [ELC524EMTY](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (Europe), [x50] | c | 3-pin | In development |
 | [M2BREAKOUT](/reference/datasheets/m-series/m2-breakout-datasheet/) | Particle M.2 SoM Breakout Board [x1] | c | 3-pin | GA |
 | [M2EVAL](/reference/datasheets/b-series/b-series-eval-board/) | Particle M.2 SoM Evaluation Board [x1] | micro-b | 2-pin | GA |
 | MHAT | M-HAT | c | 3-pin | In development |

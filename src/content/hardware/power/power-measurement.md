@@ -106,10 +106,6 @@ The following devices include a PMIC.
 | [ELC402EA](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), [x1] | bq24195 | Deprecated |
 | [ELC402TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), Tray [x50] | bq24195 | Deprecated |
 | [ELC404TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | bq24195 | Deprecated |
-| [ELC504EMEA](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x1] | bq24195 | In development |
-| [ELC504EMTY](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (NorAm), [x50] | bq24195 | In development |
-| [ELC524EMEA](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (Europe), [x1] | bq24195 | In development |
-| [ELC524EMTY](/reference/datasheets/e-series/electron-2-datasheet/) | Electron 2 LTE CAT-1 bis (Europe), [x50] | bq24195 | In development |
 | [M2BREAKOUT](/reference/datasheets/m-series/m2-breakout-datasheet/) | Particle M.2 SoM Breakout Board [x1] | bq24195 | GA |
 | [M2EVAL](/reference/datasheets/b-series/b-series-eval-board/) | Particle M.2 SoM Evaluation Board [x1] | bq24195 | GA |
 | MHAT | M-HAT | bq24195 | In development |

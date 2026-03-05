@@ -1470,15 +1470,6 @@ To be provided at a later date.
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 128e6580-8ddd-45bc-882f-71785ae12855 --}}
-
-| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
-| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| ELC504EMEA | Electron 2 LTE CAT-1 bis (NorAm), [x1] | Americas | EG800Q-NA | &check; | In development | |
-| ELC504EMTY | Electron 2 LTE CAT-1 bis (NorAm), [x50] | Americas | EG800Q-NA | &check; | In development | |
-| ELC524EMEA | Electron 2 LTE CAT-1 bis (Europe), [x1] | EMEAA | EG800Q-EU | &check; | In development | |
-| ELC524EMTY | Electron 2 LTE CAT-1 bis (Europe), [x50] | EMEAA | EG800Q-EU | &check; | In development | |
-
-
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
