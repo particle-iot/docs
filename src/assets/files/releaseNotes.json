@@ -43770,6 +43770,72 @@
             "title": "Adds support for I2C::setSpeed() from 10kHz to 99kHz in 1kHz increments",
             "state": "closed",
             "created_at": "2025-12-19T17:57:34Z"
+        },
+        "2894": {
+            "url": "https://github.com/particle-iot/device-os/pull/2894",
+            "number": 2894,
+            "title": "Fix DNS server change lockup",
+            "state": "closed",
+            "created_at": "2026-01-30T19:35:12Z",
+            "detail": "See [LWIP issue](https://github.com/particle-iot/lwip/pull/18) for detailed summary of DNS issues.\nAnother problem is that the connection tester logic to explicitly rotate network interfaces/their associated DNS servers fails if the DNS resolution step fails."
+        },
+        "2895": {
+            "url": "https://github.com/particle-iot/device-os/pull/2895",
+            "number": 2895,
+            "title": "[Env] Flash space savings for Gen 3 platforms + a bunch of build/test fixes",
+            "state": "closed",
+            "created_at": "2026-02-05T00:21:34Z"
+        },
+        "2896": {
+            "url": "https://github.com/particle-iot/device-os/pull/2896",
+            "number": 2896,
+            "title": "Cellular Env Vars",
+            "state": "closed",
+            "created_at": "2026-02-13T15:56:34Z"
+        },
+        "2897": {
+            "url": "https://github.com/particle-iot/device-os/pull/2897",
+            "number": 2897,
+            "title": "env: PARTICLE_BLE/WIFI/ETHERNET_ENABLE",
+            "state": "closed",
+            "created_at": "2026-02-13T20:17:44Z"
+        },
+        "2898": {
+            "url": "https://github.com/particle-iot/device-os/pull/2898",
+            "number": 2898,
+            "title": "[gen3] USB Tethering",
+            "state": "open",
+            "created_at": "2026-02-19T20:09:28Z"
+        },
+        "2899": {
+            "url": "https://github.com/particle-iot/device-os/pull/2899",
+            "number": 2899,
+            "title": "Fix env tests",
+            "state": "closed",
+            "created_at": "2026-02-20T15:02:14Z"
+        },
+        "2900": {
+            "url": "https://github.com/particle-iot/device-os/pull/2900",
+            "number": 2900,
+            "title": "update xcode to latest 26.2.0",
+            "state": "closed",
+            "created_at": "2026-03-05T01:47:57Z",
+            "detail": "xcode out of date with workbench"
+        },
+        "2901": {
+            "url": "https://github.com/particle-iot/device-os/pull/2901",
+            "number": 2901,
+            "title": "[test] fix for fixture tests",
+            "state": "closed",
+            "created_at": "2026-03-05T05:17:45Z"
+        },
+        "2902": {
+            "url": "https://github.com/particle-iot/device-os/pull/2902",
+            "number": 2902,
+            "title": "Fix Protobuf dependencies",
+            "state": "closed",
+            "created_at": "2026-03-05T11:45:16Z",
+            "detail": "The script for compiling Protobuf definitions no longer works."
         }
     }
 }

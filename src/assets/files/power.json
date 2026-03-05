@@ -17,8 +17,7 @@
             "E404X": "E404X",
             "Argon": "ARGN-H",
             "P2": "P2",
-            "Photon 2": "PHN2",
-            "Electron 2": "ELC2"
+            "Photon 2": "PHN2"
         },
         "modes": {
             "STOP Mode": "stop",

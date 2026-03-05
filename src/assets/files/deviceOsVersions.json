@@ -2,7 +2,7 @@
   {
     "version": "6.3.5",
     "internal_version": 6306,
-    "release_state": "preview",
+    "release_state": "ga",
     "base_url": "https://api.particle.io/v1/firmware/device-os/v6.3.5",
     "supported_platforms": [
       12,
@@ -14,6 +14,13 @@
       32,
       26,
       28
+    ],
+    "default_platforms": [
+      25,
+      23,
+      15,
+      35,
+      32
     ],
     "publishedAt": "2026-01-15T21:33:42Z"
   },
@@ -35,12 +42,7 @@
     ],
     "default_platforms": [
       12,
-      25,
       13,
-      23,
-      15,
-      35,
-      32,
       26
     ],
     "publishedAt": "2025-10-01T16:59:41Z"

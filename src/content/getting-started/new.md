@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Devices 6.3.5 GA 2026-03-05
+
+Device OS 6.3.5 is now generally available (GA). It was previously a preview release.
+
 ### Updated carriers 2026-03-04
 
 Updated the 4G bands for cellular carriers that did not previously list 4G bands as several have added support since the last update.
