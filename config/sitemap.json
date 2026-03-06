@@ -1147,8 +1147,8 @@
             "hash": "a2dc293d88ca8de8ed1826ea803abcd9d39a05b39190e8b41b4428f8b05cb27d"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2024-12-17",
-            "hash": "4978c808b23aa6b3ef7b4d961b20f9ff60705f5d62a5534bfb18fbd6896a992c"
+            "date": "2026-03-06",
+            "hash": "d9578adfe561915c2f954a03909c3a077566e0a05a71bb883663d504090f4c45"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "afc30d86560416092b6c483a2886925bb744435dd327cbf414d2602030aff00e",
-            "date": "2026-03-05"
+            "hash": "3bfa2a18b14f77a4f2acbc39e5bf39771f3111c2af21063e29d163f179b6effa",
+            "date": "2026-03-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

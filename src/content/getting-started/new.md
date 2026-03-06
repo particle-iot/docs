@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### particle-api-js 2026-03-06
+
+Updated the [particle-api-js SDK documentation](/reference/cloud-apis/javascript/).
+
 ### Devices 6.3.5 GA 2026-03-05
 
 Device OS 6.3.5 is now generally available (GA). It was previously a preview release.
