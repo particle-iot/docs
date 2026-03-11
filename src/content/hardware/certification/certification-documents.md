@@ -1550,6 +1550,12 @@ The T523 and T524 is not FCC certified as it does not support the cellular bands
 - [Test report FCC - Title 47 Part 96.47](/assets/pdfs/tach8na-fcc-47-96-47.pdf)
 
 
+### ISED (Canada) - TACH4NA TACH8NA
+- ISED ID: 20127-TACHYON
+- [Certificate](/assets/pdfs/tach8na-ised.pdf)
+- The test reports are the same as the testing for for FCC (United States)
+
+
 ### CE (Europe) - TACH4ROW TACH8ROW
 - [Summary](/assets/pdfs/tach8row-ce-summary.pdf)
 - [EMC Test Report](/assets/pdfs/tach8row-ce-emc-test-report.pdf)

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon ISED 2026-03-11
+
+The ISED (Canada) [certificate](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4NA and TACH8NA are now available.
+
 ### USB device restore 2026-03-11
 
 USB device restore cannot be used on Tracker-based devices, but a bug prevented the warning message from appearing. The Particle CLI should be used instead.
