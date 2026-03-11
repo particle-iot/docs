@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### USB device restore 2026-03-11
+
+USB device restore cannot be used on Tracker-based devices, but a bug prevented the warning message from appearing. The Particle CLI should be used instead.
+
 ### particle-api-js 2026-03-06
 
 Updated the [particle-api-js SDK documentation](/reference/cloud-apis/javascript/).
