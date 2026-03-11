@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Tachyon ISED 2026-03-11
 
-The ISED (Canada) [certificate](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4NA and TACH8NA are now available.
+The ISED (Canada) [certificate](/hardware/certification/certification-documents/#tachyon) for Tachyon TACH4NA and TACH8NA is now available.
 
 ### USB device restore 2026-03-11
 
