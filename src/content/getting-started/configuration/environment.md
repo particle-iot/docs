@@ -22,7 +22,8 @@ Environment variables are name - value pairs.
 - Variable names beginning with `PARTICLE_` are reserved for Particle use.
 - Maximum variable name length: 128 characters.
 - Maximum variable value length: Not limited per variable.
-- The total size of all name - value pairs to be delivered to a device cannot exceed 16 Kbytes. 
+- The total size of all name - value pairs to be delivered to a device cannot exceed 16 Kbytes.
+- Maximum number of variables in a scope: 100.
 {{!-- END shared-blurb --}}
 
 
@@ -100,7 +101,8 @@ To create an environment variable, fill in this screen:
 - Variable names beginning with `PARTICLE_` are reserved for Particle use.
 - Maximum variable name length: 128 characters.
 - Maximum variable value length: Not limited per variable.
-- The total size of all name - value pairs to be delivered to a device cannot exceed 16 Kbytes. 
+- The total size of all name - value pairs to be delivered to a device cannot exceed 16 Kbytes.
+- Maximum number of variables in a scope: 100.
 {{!-- END shared-blurb --}}
 
 Once you've created a variable, you'll see a list of variables that you have created within this scope.
