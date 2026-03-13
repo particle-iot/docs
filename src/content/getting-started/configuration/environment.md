@@ -105,6 +105,8 @@ To create an environment variable, fill in this screen:
 - Maximum number of variables in a scope: 100.
 {{!-- END shared-blurb --}}
 
+For example, you can have 100 organization variables, and also 100 product variables, as long as the combined size does not exceed 16 Kbytes.
+
 Once you've created a variable, you'll see a list of variables that you have created within this scope.
 
 {{imageOverlay src="/assets/images/console/config-list.png" class="no-darken"}}
