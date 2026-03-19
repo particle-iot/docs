@@ -80,7 +80,9 @@ includeDefinitions: [api-helper, api-helper-extras]
 
 ## PRE_STARTUP
 
-In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. It is similar to `STARTUP()` but the behavior is defined. It was created as a separate macro to avoid breaking applications that depend on the previous `STARTUP()` behavior, which varies slightly between device platforms.
+In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. It is similar to `STARTUP()` but the behavior is better-defined. It was created as a separate feature to avoid breaking applications that depend on the previous `STARTUP()` behavior, which varies slightly between device platforms.
+
+`PRE_STARTUP()` is guaranteed to run first before any `STARTUP()` or global object constructors. 
 
 Additionally, `PRE_STARTUP()` is an optional C function, not a macro. The code goes in the body of the function, not as an argument to the macro as with `STARTUP()`.
 
@@ -92,6 +94,7 @@ void PRE_STARTUP() {
 ```
 
 Because `PRE_STARTUP()` runs before the system thread is started, your code will essentially behave as if single-threaded.
+ 
 
 ### Features available during PRE_STARTUP
 
@@ -109,12 +112,24 @@ Because `PRE_STARTUP()` runs before the system thread is started, your code will
 
 ### Feature not available
 
+- Global objects will not have been constructed yet
 - Logging (Log.info, etc.)
 - Networking (Cellular, Ethernet, Wi-Fi)
 - BLE
 - USB CDC serial (`Serial`)
+- Anything that is not allowed during `STARTUP()` also cannot be done during `PRE_STARTUP()`.
 
 `Serial` is not currently available but may be available on some platforms in the future, but is not guaranteed to be available. Using UART serial (`Serial1`) may be an alternative.
+
+### Global objects
+
+`PRE_STARTUP()` executes before global object construction, so you must not rely on global objects. In general, you should be cautious when using global object constructors even without `PRE_STARTUP()` because the order of global object instantiation is not predictable. A good alternative is to use the [singleton pattern](/firmware/software-design/singleton/).
+
+C++ POD structs are not initialized before `PRE_STARTUP()`.
+
+Global variables of primitive types such as int, char, float, enums, and pointers do have their values set.
+
+
 
 
 
