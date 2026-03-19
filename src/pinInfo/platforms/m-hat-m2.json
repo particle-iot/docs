@@ -121,8 +121,8 @@
         {
             "num": 37,
             "name": "A3",
-            "desc": "LiPo to 5V boost converter (HIGH to turn off, default on)",
-            "connectedTo": "DML3006",
+            "desc": "LiPo to 5V boost converter (LOW to turn off, default on)",
+            "connectedTo": "Boost Converter",
             "digitalWrite": true,
             "direction": "O",
             "isIO": true,

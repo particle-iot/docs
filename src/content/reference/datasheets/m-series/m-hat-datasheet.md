@@ -7,10 +7,6 @@ description: M-HAT Datasheet
 
 # M-HAT datasheet (preview)
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet. Changes may occur before release.
-{{box op="end"}}
-
 ![](/assets/images/m-hat/m-hat.png)
 
 <p class="attribution">Rendering is of an older version of the M-HAT</p>
@@ -107,7 +103,7 @@ Some other Particle devices have a 3.7V LiPo battery without a temperature senso
 
 <p class="attribution">Facing the plug on the battery side</p>
 
-If you wish to use a battery without a 10K NTC temperature sensor, you must cut the normally closed trace jumper indicated, otherwise charging will never enable. It is located to the left of the power module (on the bottom side of the board), with the HAT connector on the side away from you.
+If you wish to use a battery without a 10K NTC temperature sensor, you must cut the normally closed trace jumper indicated, otherwise charging will never enable. Trace jumper JP2 is located to the left of the power module (on the bottom side of the board), with the HAT connector on the side away from you.
 
 {{imageOverlay src="/assets/images/m-hat/ts-jumper.png" alt="TS jumper"}}
 
@@ -316,13 +312,13 @@ Both of these default to on, but can be disabled using GPIO.
 
 | Module Pin | Pin Name | Schematic net | MCU direction | Description |
 | :---: | :--- | :--- | :--- | :--- |
-| 37 | A3 | EN1_CTR | O | LiPo to 5V boost converter (HIGH to turn off, default on) |
+| 37 | A3 | EN1_CTR | O | LiPo to 5V boost converter (LOW to turn off, default on) |
 | 41 | A4 | EN2_CTR | O | DCIN or USB boost-buck converter (HIGH to turn off, default on) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-The LiPo boost converter is isolated by a DML3006 load switch, so when disconnected, the boost converter (TPS61088) is not powered. The EN1_CTR control line connects to the load switch via a 2N7002 N-channel MOSFET to handle the inversion and voltage-level differences.
+The EN1_CTR control line connects to the LiPo to 5V boost converter via a 2N7002 N-channel MOSFET to handle the inversion and voltage-level differences.
 
 The EN2_CTR control line connects to the MP28167 boost-buck converter EN pin via a 2N7002 N-channel MOSFET to handle the inversion and voltage-level differences.
 
@@ -470,7 +466,7 @@ Unlike the Muon, AUX_PWR_EN does not control 3.3V and 5V power to the HAT connec
 | A0 | SEL | O | FSA2567 | HIGH to enable SoM to Pi UART | 23 |
 | A1 | M2_A1/MISO | I/O | Grove A1 | Grove A1, Input, Output, ADC, PWM | 33 |
 | A2 | M2_A2/SCK | I/O | Grove A2 | Grove A2, Input, Output, ADC | 35 |
-| A3 | EN1_CTR | O | DML3006 | LiPo to 5V boost converter (HIGH to turn off, default on) | 37 |
+| A3 | EN1_CTR | O | Boost Converter | LiPo to 5V boost converter (LOW to turn off, default on) | 37 |
 | A4 | EN2_CTR | O | MP28167 | DCIN or USB boost-buck converter (HIGH to turn off, default on) | 41 |
 | A7 | M2_A7/PMIC_INT | I | PM-BAT | PMIC and fuel gauge interrupt output | 47 |
 | CS | WAKE_RPI_CTR | O | HAT | Pi power control by GPIO4 | 48 |
@@ -646,3 +642,4 @@ The cellular carriers are dependent on the Particle M.2 SoM you have selected fo
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-04-21 | RK | Initial version |
+|          | 2026-03-19 | RK | Minor updates |
