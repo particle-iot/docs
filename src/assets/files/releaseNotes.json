@@ -29504,6 +29504,143 @@
                 2891,
                 2893
             ]
+        },
+        "v6.4.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.4.0",
+            "tag_name": "v6.4.0",
+            "name": "v6.4.0 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": false,
+            "created_at": "2026-03-18T05:01:08Z",
+            "published_at": "2026-03-19T07:50:48Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2892,
+                        2904,
+                        2903,
+                        2902
+                    ],
+                    "section": "FEATURES",
+                    "text": "Environment"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2888
+                    ],
+                    "section": "FEATURES",
+                    "text": "`PRE_STARTUP()` API for earlier application initialization"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2897
+                    ],
+                    "section": "FEATURES",
+                    "text": "`PARTICLE_BLE_ENABLE`, `PARTICLE_WIFI_ENABLE`, and `PARTICLE_ETHERNET_ENABLE` environment variables"
+                },
+                {
+                    "tags": [
+                        "cellular"
+                    ],
+                    "prs": [
+                        2896
+                    ],
+                    "section": "FEATURES",
+                    "text": "support `PARTICLE_CELLULAR_PREFERRED_BANDS`, `PARTICLE_CELLULAR_FORBIDDEN_BANDS`, and `PARTICLE_CELLULAR_PREFERRED_PLMN` environment variables"
+                },
+                {
+                    "tags": [
+                        "am18x5"
+                    ],
+                    "prs": [
+                        2906
+                    ],
+                    "section": "FEATURES",
+                    "text": "built-in AM18x5 driver in Device OS  [1bb9b26](https://github.com/particle-iot/device-os/commit/1bb9b26e6)"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2906
+                    ],
+                    "section": "FEATURES",
+                    "text": "`POWER_OFF` sleep mode support through AM18x5"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2894
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix DNS server change lockup and improve DNS failure handling"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "system: fix 32-bit global `millis()` being shadowed by class-member 64-bit `millis()` [9d30096](https://github.com/particle-iot/device-os/commit/9d3009660)"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "do not handle network activity when going into sleep mode if network manager is not initialized [97ecb3d](https://github.com/particle-iot/device-os/commit/97ecb3dab)"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2906
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "preserve RTC time across sleep and software resets  [708feb6](https://github.com/particle-iot/device-os/commit/708feb62d)"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2899,
+                        2901,
+                        2906
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Test improvements    [1875a2a](https://github.com/particle-iot/device-os/commit/1875a2a07) [9b5c9d9](https://github.com/particle-iot/device-os/commit/9b5c9d9fa) [04949f4](https://github.com/particle-iot/device-os/commit/04949f429)"
+                },
+                {
+                    "tags": [
+                        "ci"
+                    ],
+                    "prs": [
+                        2900
+                    ],
+                    "section": "INTERNAL",
+                    "text": "update Xcode to 26.2.0"
+                }
+            ],
+            "prs": [
+                2888,
+                2892,
+                2894,
+                2896,
+                2897,
+                2899,
+                2900,
+                2901,
+                2902,
+                2903,
+                2904,
+                2906
+            ]
         }
     },
     "pulls": {
@@ -43836,6 +43973,34 @@
             "state": "closed",
             "created_at": "2026-03-05T11:45:16Z",
             "detail": "The script for compiling Protobuf definitions no longer works."
+        },
+        "2903": {
+            "url": "https://github.com/particle-iot/device-os/pull/2903",
+            "number": 2903,
+            "title": "Reduce RAM used by env vars",
+            "state": "closed",
+            "created_at": "2026-03-10T13:39:14Z"
+        },
+        "2904": {
+            "url": "https://github.com/particle-iot/device-os/pull/2904",
+            "number": 2904,
+            "title": "New API for listing env vars",
+            "state": "closed",
+            "created_at": "2026-03-10T15:01:45Z"
+        },
+        "2905": {
+            "url": "https://github.com/particle-iot/device-os/pull/2905",
+            "number": 2905,
+            "title": "Built-in am18x5 driver in DVOS v2",
+            "state": "closed",
+            "created_at": "2026-03-10T20:38:33Z"
+        },
+        "2906": {
+            "url": "https://github.com/particle-iot/device-os/pull/2906",
+            "number": 2906,
+            "title": "Built-in am18x5 driver in DVOS v2, test fixes and optimizations for 6.4.0",
+            "state": "closed",
+            "created_at": "2026-03-13T06:44:08Z"
         }
     }
 }
