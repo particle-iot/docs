@@ -3790,7 +3790,7 @@ $(document).ready(function() {
         const enableButtons = function() {
             const s = $(thisPartial).find('.numInput').val();
 
-            const m = s.match(/^([0-9]+)$/);
+            const m = s.match(/^([0-9A-Fa-f]+)$/);
             if (m) {
                 $(thisPartial).find('.upButton').prop('disabled', false);
             }
@@ -3806,12 +3806,12 @@ $(document).ready(function() {
                 const band = BigInt($(this).data('band'));
                 mask |= (1n << (band - 1n));
             });
-            $(thisPartial).find('.numInput').val(mask.toString(10));
+            $(thisPartial).find('.numInput').val(mask.toString(16));
             enableButtons();
         };
 
         const calculateUp = function() {
-            const mask = BigInt($(thisPartial).find('.numInput').val());
+            const mask = BigInt('0x' + $(thisPartial).find('.numInput').val());
 
             $(thisPartial).find('.bandMaskInputCheckbox').each(function() {
                 const band = BigInt($(this).data('band'));

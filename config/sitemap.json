@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "21eedd4820e65cf4d8c3e0253b75cd025ab9edc70ee301545c64e4b98d9a3016",
-            "date": "2026-03-12"
+            "hash": "72ebb54bd6d5738e3b271174173f2d7d33facc7aa483f35cb5a182d3c2d9ede4",
+            "date": "2026-03-19"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10003,8 +10003,8 @@
             "date": "2026-03-03"
         },
         "getting-started/configuration/environment.md": {
-            "hash": "24a4d32070941f294cb31898063d7873a56be266fd26de3ee2a3eb3e9e0554b6",
-            "date": "2026-03-13"
+            "hash": "8f96262cbe12fd1f93905743839e715cc84a5b9bc7c85e80d66a1d97d2e9e48d",
+            "date": "2026-03-19"
         }
     }
 }

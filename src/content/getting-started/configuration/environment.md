@@ -216,12 +216,15 @@ Changing cellular environment variables may adversely affect connectivity. Under
 - Gen 3 and Gen 4 devices
 - This variable is not available on the B402, B404, BRN402, or BRN404 but is available on the B404X and BRN404X
 
-Sets the preferred list of operators in MCCMNC format. Up to three can be specified. For example:
+Sets the preferred list of operators in MCCMNC format. Up to four can be specified. For example:
 
 - `311480,310410`
 - `311480`
 
-- If set to an empty string, the modem default is used.
+In both cases Verizon (311480) will be the first priority. If you find a device hasn't connected to the preferred operator it may not be available or has missed it in the re-selection process for some reason. A second attempt can be forced by keeping the same first operator, modifying the subsequent values, and rolling out the changes. This will force a disconnect and re-selection of the cellular network if the device is not already on the preferred operator.
+
+If set to an empty string or variable deleted, the modem default is used.
+
 
 {{> env-var-skus var="PARTICLE_CELLULAR_PREFERRED_PLMN"}}
 
@@ -230,7 +233,7 @@ Sets the preferred list of operators in MCCMNC format. Up to three can be specif
 - Available in Device OS 6.4.0 and later
 - Gen 3 and Gen 4 devices
 
-Sets preferred bands using a band mask. After 10 minutes of failing to connect, the device reverts to using all bands instead of just the preferred bands.
+Sets preferred bands using a band mask.
 
 The band mask is a bit field of bands. For example:
 
@@ -240,9 +243,11 @@ The band mask is a bit field of bands. For example:
 | B2   | 1    | 2    |
 | B3   | 2    | 4    |
 | B4   | 3    | 8    |
-| B5   | 4    | 16   |
+| B5   | 4    | f    |
 
-The value to store for the key is a uint128 value represented in decimal of the band mask values added together.
+The value to store for the key is a uint128 value represented in hexadecimal of the band mask values added together. Just include the hex digits, do not include a `0x` or other characters.
+
+All bands can be enabled by using the value `FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`.
 
 {{> band-mask-calculator }}
 
@@ -253,10 +258,11 @@ The value to store for the key is a uint128 value represented in decimal of the 
 - Available in Device OS 6.4.0 and later
 - Gen 3 and Gen 4 devices
 
-Sets a mask of bands to not use. The band mask is the same uint128 format as for `PARTICLE_CELLULAR_PREFERRED_BANDS`.
+Sets a mask of bands to not use. The band mask is the same uint128 hex format as for `PARTICLE_CELLULAR_PREFERRED_BANDS`.
 
 {{> env-var-skus var="PARTICLE_CELLULAR_FORBIDDEN_BANDS"}}
 
+You can disable all bands by using the value `0`.
 
 ## Logic
 
