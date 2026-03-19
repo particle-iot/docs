@@ -6569,7 +6569,7 @@ The Photon 2, P2, Argon, Photon, and P1 do not have FuelGauge support.
 
 {{since when="6.4.0"}}
 
-Fuel gauge methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+Fuel gauge methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 
 ### getVCell()
@@ -6727,7 +6727,7 @@ On the P2 and Photon 2 in addition to the standard analog inputs A0, A1, A2, and
 
 {{since when="6.4.0"}}
 
-GPIO functions can called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+GPIO functions can called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 ### pinMode()
 
@@ -6881,7 +6881,7 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 {{since when="6.4.0"}}
 
-`pinMode()` can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+`pinMode()` can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 ### getPinMode(pin)
 
@@ -8056,7 +8056,7 @@ It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 
 {{since when="6.4.0"}}
 
-Power manager methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+Power manager methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 
 ### powerSourceMaxCurrent - SystemPowerConfiguration
@@ -8221,6 +8221,8 @@ System power features are enabled or disabled using the `SystemPowerConfiguratio
 
 For full sample code sample code for logging power settings to USB serial debug, see the [power supply guide](/hardware/power/power-supply-guide/#power-settings-example).
 
+`System.getPowerConfiguration()` and `System.setPowerConfiguration()` can be used in `PRE_STARTUP()` and `STARTUP()`.
+
 
 #### SystemPowerFeature::PMIC_DETECTION
 
@@ -8360,7 +8362,9 @@ It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 
 {{since when="6.4.0"}}
 
-PMIC methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+PMIC methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
+If using `PRE_STARTUP()` the `PMIC` object must be local to the function, not a global, because global object constructors will not have been called yet.
 
 ### PMIC() constructor
 
@@ -10485,7 +10489,7 @@ This alternate location is mapped as follows:
 
 {{since when="6.4.0"}}
 
-SPI methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+SPI methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 ---
 
@@ -10972,7 +10976,7 @@ This object allows you to communicate with I2C / TWI (Two Wire Interface) device
 
 {{since when="6.4.0"}}
 
-`System.sleep()` can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+`System.sleep()` can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 ### Pull-up resistors (I2C)
 
@@ -18843,7 +18847,7 @@ The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the
 
 {{since when="6.4.0"}}
 
-LED signaling methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+LED signaling methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 
 ### LEDStatus Class
@@ -19213,8 +19217,9 @@ theme.apply(); // Apply theme settings
 
 {{since when="6.4.0"}}
 
-`LEDSystemTheme` methods can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+`LEDSystemTheme` methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
+If using `PRE_STARTUP()` the `LEDSystemTheme` object must be local to the function, not a global, because global object constructors will not have been called yet.
 
 #### LEDSystemTheme()
 
@@ -21827,7 +21832,11 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 {{since when="6.4.0"}}
 
-In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. It is similar to `STARTUP()` but the behavior is defined. It was created as a separate macro to avoid breaking applications that depend on the previous `STARTUP()` behavior, which varies slightly between device platforms.
+In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. If you need specific execution order guarantees and can deal with tighter limitations than `STARTUP()`, it is an option.
+
+If you have existing code that uses `STARTUP()`, it is not necessary to change it as both will continue to be supported.
+
+`PRE_STARTUP()` is guaranteed to run first before any `STARTUP()` or global object constructors. 
 
 Additionally, `PRE_STARTUP()` is an optional C function, not a macro. The code goes in the body of the function, not as an argument to the macro as with `STARTUP()`.
 
@@ -21837,6 +21846,9 @@ void PRE_STARTUP() {
     Serial1.println("PRE_STARTUP called");  
 }
 ```
+
+Because `PRE_STARTUP()` runs before the system thread is started, your code will essentially behave as if single-threaded.
+ 
 
 For more information on startup behavior, see [Startup behavior](/reference/device-os/startup-behavior/).
 
@@ -21934,7 +21946,7 @@ The Tracker One, Tracker SoM, and Monitor One have an additional layer of sleep 
 
 {{since when="6.4.0"}}
 
-`System.sleep()` can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+`System.sleep()` can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 
 ### mode() (SystemSleepConfiguration)
@@ -24772,6 +24784,7 @@ Power Management including power source detection is available on the Boron, B-S
 It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
 
+`System.powerSource()` will not return a valid value during `PRE_STARTUP()` or `STARTUP()`.
 
 ### batteryState()
 
@@ -24803,6 +24816,8 @@ if (batteryState == BATTERY_STATE_CHARGING) {
 }
 ```
 
+`System.batteryState()` will not return a valid value during `PRE_STARTUP()` or `STARTUP()`.
+
 ---
 
 {{note op="start" type="note"}}
@@ -24827,6 +24842,8 @@ float batteryCharge() const
 float batterySoc = System.batteryCharge();
 Log.info("soc=%.1f", batterySoc);
 ```
+
+`System.batteryCharge()` will not return a valid value during `PRE_STARTUP()` or `STARTUP()`.
 
 ---
 
@@ -25825,7 +25842,7 @@ The File System is not available on Gen 2 devices (Photon, P1, Electron, E-Serie
 
 {{since when="6.4.0"}}
 
-File system calls can be called from `PRE_STARUP()` in Device OS 6.4.0 and later.
+File system calls can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 
 

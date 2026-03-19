@@ -80,7 +80,9 @@ includeDefinitions: [api-helper, api-helper-extras]
 
 ## PRE_STARTUP
 
-In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. It is similar to `STARTUP()` but the behavior is better-defined. It was created as a separate feature to avoid breaking applications that depend on the previous `STARTUP()` behavior, which varies slightly between device platforms.
+In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. If you need specific execution order guarantees and can deal with tighter limitations than `STARTUP()`, it is an option.
+
+If you have existing code that uses `STARTUP()`, it is not necessary to change it as both will continue to be supported.
 
 `PRE_STARTUP()` is guaranteed to run first before any `STARTUP()` or global object constructors. 
 
