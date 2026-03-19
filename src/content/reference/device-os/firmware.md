@@ -8840,6 +8840,8 @@ You should also avoid mixing the use of `Serial.printlnf` and `Log.info` (and si
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
+`Serial`, `Serial1`, etc. can be used from `PRE_STARTUP()` and `STARTUP()`.
+
 ---
 
 {{note op="start" type="gen3"}}

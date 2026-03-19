@@ -107,6 +107,8 @@ Because `PRE_STARTUP()` runs before the system thread is started, your code will
 - [Fuel Gauge](/reference/device-os/api/fuelgauge/)
 - [User LED](/reference/device-os/api/led-signaling/)
 - [File system (read/write)](/reference/device-os/api/file-system/)
+- [System power configuration](/reference/device-os/api/power-manager/systempowerfeature/) calls `System.setPowerConfiguration()` and `System.getPowerConfiguration()`
+- [Serial](/reference/device-os/api/serial/), `Serial1`, etc.
 
 ### Additional available APIs 
 
@@ -118,10 +120,8 @@ Because `PRE_STARTUP()` runs before the system thread is started, your code will
 - Logging (Log.info, etc.)
 - Networking (Cellular, Ethernet, Wi-Fi)
 - BLE
-- USB CDC serial (`Serial`)
+- System power manager functions such as `System.powerSource()`, `System.batteryState()`, `System.batteryCharge()`
 - Anything that is not allowed during `STARTUP()` also cannot be done during `PRE_STARTUP()`.
-
-`Serial` is not currently available but may be available on some platforms in the future, but is not guaranteed to be available. Using UART serial (`Serial1`) may be an alternative.
 
 ### Global objects
 

@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2026-03-19",
-            "hash": "4015df5f440fb739563b96b10ed6a5898dc697f488fe3dc881ac311d68731818"
+            "hash": "b589ef21f76e4c5fb5fdf93c1f5bb7f16d7f4cc857b2e83beddaf7fd939ac23b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2511,8 +2511,8 @@
             "hash": "5c63720e7b179dde9162ba7bd8469d7d93a3037f4bb4a027278c2b1274148c12"
         },
         "reference/device-os/api/serial/serial.md": {
-            "date": "2024-05-09",
-            "hash": "1d11121c16dbd218ab3a2901d260b246d967bb8571d4966da467d7acf7193a64"
+            "date": "2026-03-19",
+            "hash": "458895e2a66dc160494f2e87a5965ddfb6a636e3d39969910afcab2e88d90b34"
         },
         "reference/device-os/api/serial/begin.md": {
             "date": "2024-04-30",
@@ -10007,7 +10007,7 @@
             "date": "2026-03-19"
         },
         "reference/device-os/startup-behavior.md": {
-            "hash": "34b75ac8582fe9e55551cc38584e2bfaaec545a06300632ecc1d0036c44fb3a1",
+            "hash": "0c3f758a11fc71c8c242cedcc1dbfeb2cc25e0a4484bf6d7dd40678b3a1d16db",
             "date": "2026-03-19"
         },
         "reference/device-os/api/macros/pre_startup.md": {
