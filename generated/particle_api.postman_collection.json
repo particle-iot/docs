@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-09-15T10:16:52.412Z",
+                  "value": "2026-02-23T09:26:11.698Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-09-15T10:16:52.415Z",
+                      "value": "2026-02-23T09:26:11.700Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2025-09-15T10:16:52.428Z",
+                  "value": "2026-02-23T09:26:11.720Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2025-09-15T10:16:52.428Z",
+                      "value": "2026-02-23T09:26:11.721Z",
                       "disabled": true
                     },
                     {
@@ -3210,13 +3210,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-09-15T10:16:52.437Z",
+                  "value": "2026-02-23T09:26:11.733Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-09-15T10:16:52.437Z",
+                  "value": "2026-02-23T09:26:11.733Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -3425,6 +3425,457 @@
               "body": "GET /v1/diagnostics/0123456789abcdef01234567/update\nHTTP/1.1 202\n{\n  \"ok\": true\n}"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "Env",
+      "item": [
+        {
+          "name": "List environment variables",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/env",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "env"
+              ],
+              "query": [],
+              "variables": []
+            },
+            "description": "List environment variables for an organization, Sandbox, product, or device."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/env",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "env"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"own\": {\n      \"DATA\": { \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"value\": \"toall\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"own\": {\n      \"DATA\": { \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"value\": \"toall\" }\n    }\n  }\n}"
+            },
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/env",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "env"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    }\n  }\n}"
+            },
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/env",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "env"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "HTTP/1.1 200 OK\n{\n  \"on_device\": {\n    \"rendered\": {\n      \"SOME_DATA_ON_MY_DEVICE\": \"yay!\"\n    },\n    \"last_reported_at\": \"2025-12-19T21:34:29.671Z\"\n  },\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Render environment variables",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/env/render",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "env",
+                "render"
+              ],
+              "query": [],
+              "variables": []
+            },
+            "description": "Render environment variables for an organization, Sandbox, product, or device. The response is a flat key/value map of the effective variables after inheritance and overrides are applied."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/env/render",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "env",
+                    "render"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "HTTP/1.1 200 OK\n{\n  \"env\": {\n    \"DATA\": \"value\",\n    \"GLOBAL_DATA\": \"toall\",\n    \"SOMETHING_ELSE\": \"something\"\n  },\n  \"last_updated_at\": \"2025-12-19T21:34:29.671Z\",\n  \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n  \"rollout_by\": \"some-user-id\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Review environment variables rollout",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/env/rollout",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "env",
+                "rollout"
+              ],
+              "query": [],
+              "variables": []
+            },
+            "description": "Review changes that can be rolled out"
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/env/rollout",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "env",
+                    "rollout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "HTTP/1.1 200 OK\n{\n  \"from_snapshot\": {\n    \"changes\": [\n      { \"op\": \"Added\", \"key\": \"MY_DATA\", \"after\": \"wowza!\" },\n      { \"op\": \"Removed\", \"key\": \"ANOTHER_ONE\", \"before\": \"woahza!\" },\n      { \"op\": \"Changed\", \"key\": \"THING_NUMBER_THREE\", \"before\": \"previous\", \"after\": \"postvious\" }\n    ],\n    \"unchanged\": {\n      \"DATA\": \"yes\",\n      \"OTHER\": \"also yes\"\n    }\n  }\n}"
+            },
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/env/rollout",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "env",
+                    "rollout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "HTTP/1.1 200 OK\n{\n  \"from_device\": {\n      \"changes\": [\n      { \"op\": \"Added\", \"key\": \"MY_DATA\", \"after\": \"wowza!\" },\n      { \"op\": \"Removed\", \"key\": \"ANOTHER_ONE\", \"before\": \"woahza!\" },\n      { \"op\": \"Changed\", \"key\": \"THING_NUMBER_THREE\", \"before\": \"previous\", \"after\": \"postvious\" }\n    ],\n    \"unchanged\": {\n      \"DATA\": \"yes\",\n      \"OTHER\": \"also yes\"\n    }\n  },\n  \"from_snapshot\": {\n    \"changes\": [\n      { \"op\": \"Added\", \"key\": \"MY_DATA\", \"after\": \"wowza!\" },\n      { \"op\": \"Removed\", \"key\": \"ANOTHER_ONE\", \"before\": \"woahza!\" },\n      { \"op\": \"Changed\", \"key\": \"THING_NUMBER_THREE\", \"before\": \"previous\", \"after\": \"postvious\" }\n    ],\n    \"unchanged\": {\n      \"DATA\": \"yes\",\n      \"OTHER\": \"also yes\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Start environment variables rollout",
+          "request": {
+            "auth": null,
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"when\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{url}}/v1/env/rollout",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "env",
+                "rollout"
+              ],
+              "query": [],
+              "variables": []
+            },
+            "description": "Apply updated environment variable values and make them available to devices. \n\nWhen rolling out immediately, devices that are currently available to receive OTA updates will receive updated environment variables. Devices that are busy or offline will apply the update when they become ready. When rolling out on next connection, as devices handshake (begin new secure sessions) with the Device Cloud, they will receive updated environment variables."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"when\": \"string\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/v1/env/rollout",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "env",
+                    "rollout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "HTTP/1.1 201 Created\n{\n  \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Set environment variable",
+          "request": {
+            "auth": null,
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{url}}/v1/env/:key",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "env",
+                ":key"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "key",
+                  "value": "string",
+                  "description": "Environment variable name.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Create or update a single environment variable for an organization, Sandbox, product, or device."
+          },
+          "response": []
+        },
+        {
+          "name": "Bulk update environment variables",
+          "request": {
+            "auth": null,
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ops\": [\n    {\n      \"key\": \"value\"\n    },\n    {\n      \"key\": \"value\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{url}}/v1/env",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "env"
+              ],
+              "query": [],
+              "variables": []
+            },
+            "description": "Apply multiple changes to environment variables for an organization, Sandbox, product, or device in a single request."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete environment variable",
+          "request": {
+            "auth": null,
+            "method": "DELETE",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/env/:key",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "env",
+                ":key"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "key",
+                  "value": "string",
+                  "description": "Environment variable name.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Delete a single environment variable for an organization, Sandbox, product, or device."
+          },
+          "response": []
         }
       ]
     },
@@ -4633,13 +5084,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-09-15T10:16:52.445Z",
+                  "value": "2026-02-23T09:26:11.742Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-09-15T10:16:52.445Z",
+                  "value": "2026-02-23T09:26:11.742Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4740,13 +5191,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-09-15T10:16:52.446Z",
+                  "value": "2026-02-23T09:26:11.743Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-09-15T10:16:52.446Z",
+                  "value": "2026-02-23T09:26:11.743Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4847,13 +5298,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-09-15T10:16:52.447Z",
+                  "value": "2026-02-23T09:26:11.744Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-09-15T10:16:52.447Z",
+                  "value": "2026-02-23T09:26:11.745Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -4954,13 +5405,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-09-15T10:16:52.449Z",
+                  "value": "2026-02-23T09:26:11.746Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-09-15T10:16:52.449Z",
+                  "value": "2026-02-23T09:26:11.746Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5061,13 +5512,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2025-09-15T10:16:52.450Z",
+                  "value": "2026-02-23T09:26:11.748Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2025-09-15T10:16:52.450Z",
+                  "value": "2026-02-23T09:26:11.748Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -6013,7 +6464,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"parameters\": [\n    0,\n    1\n  ],\n  \"secrets\": [\n    0,\n    1\n  ]\n}"
+              "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"parameters\": [\n    0,\n    1\n  ],\n  \"secrets\": [\n    0,\n    1\n  ],\n  \"use_env\": false\n}"
             },
             "url": {
               "raw": "{{url}}/v1/integrations",
@@ -6049,7 +6500,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"parameters\": [\n    0,\n    1\n  ],\n  \"secrets\": [\n    0,\n    1\n  ]\n}"
+                  "raw": "{\n  \"integration_type\": \"string\",\n  \"event\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"deviceID\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"parameters\": [\n    0,\n    1\n  ],\n  \"secrets\": [\n    0,\n    1\n  ],\n  \"use_env\": false\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/integrations",
@@ -6313,7 +6764,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"event\": \"string\",\n  \"deviceID\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\"\n}"
+              "raw": "{\n  \"event\": \"string\",\n  \"deviceID\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"use_env\": false\n}"
             },
             "url": {
               "raw": "{{url}}/v1/integrations/:integrationId",
@@ -6356,7 +6807,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"event\": \"string\",\n  \"deviceID\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\"\n}"
+                  "raw": "{\n  \"event\": \"string\",\n  \"deviceID\": \"string\",\n  \"url\": \"string\",\n  \"name\": \"string\",\n  \"requestType\": \"string\",\n  \"body\": \"string\",\n  \"json\": {\n    \"key\": \"value\"\n  },\n  \"form\": {\n    \"key\": \"value\"\n  },\n  \"query\": {\n    \"key\": \"value\"\n  },\n  \"auth\": {\n    \"key\": \"value\"\n  },\n  \"headers\": {\n    \"key\": \"value\"\n  },\n  \"responseTopic\": \"string\",\n  \"errorResponseTopic\": \"string\",\n  \"responseTemplate\": \"string\",\n  \"noDefaults\": false,\n  \"disabled\": false,\n  \"rejectUnauthorized\": false,\n  \"template\": \"string\",\n  \"use_env\": false\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/integrations/:integrationId",
@@ -9804,7 +10255,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/user/products\nHTTP/1.1 200 OK\n{\n  \"products\": [{\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }]\n}"
+              "body": "GET /v1/user/products\nHTTP/1.1 200 OK\n{\n  \"products\": [{\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }]\n}"
             }
           ]
         },
@@ -9870,7 +10321,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/products/photon\nHTTP/1.1 200 OK\n{\n  \"product\": {\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    },\n    \"device_protection\": \"disabled\"\n  }\n}"
+              "body": "GET /v1/products/photon\nHTTP/1.1 200 OK\n{\n  \"product\": {\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    },\n    \"device_protection\": \"disabled\"\n  }\n}"
             }
           ]
         },
@@ -10803,7 +11254,7 @@
           ]
         },
         {
-          "name": "Update the value of a cloud secret",
+          "name": "Create or Update the value of a cloud secret",
           "request": {
             "auth": null,
             "method": "PUT",
@@ -10837,7 +11288,7 @@
                 }
               ]
             },
-            "description": "Update the value of a cloud secret in the Sandbox or organization."
+            "description": "Creates or Updates the value of a cloud secret in the Sandbox or organization."
           },
           "response": [
             {
@@ -10965,7 +11416,14 @@
                 "user",
                 "service_agreements"
               ],
-              "query": [],
+              "query": [
+                {
+                  "key": "include_usage_summary",
+                  "value": false,
+                  "description": "Set to false to exclude current_usage_summary from the response. Defaults to true. Requires service_agreements.usage_summary:get scope.",
+                  "disabled": true
+                }
+              ],
               "variables": []
             },
             "description": "Get the service agreements related to a user"
@@ -11003,7 +11461,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": " GET /v1/orgs/particle/service_agreements\n HTTP/1.1 200 OK\n{\n\t\"data\":[\n\t\t\t{\n\t\t\t\t\"id\":\"1\",\n\t\t\t\t\"type\":\"service_agreement\",\n\t\t\t\t\"attributes\":{\n\t\t\t\t\t\"owner_id\":\"abc123\",\n\t\t\t\t\t\"owner_type\":\"individual\",\n\t\t\t\t\t\"name\":\"Sandbox\",\n\t\t\t\t\t\"agreement_type\":\"developer\",\n\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\"state\":\"active\",\n\t\t\t\t\t\"starts_on\":\"2021-04-08\",\n\t\t\t\t\t\"ends_on\":null,\n\t\t\t\t\t\"current_billing_period_start\":\"2021-04-08\",\n\t\t\t\t\t\"current_billing_period_end\":\"2021-05-07\",\n\t\t\t\t\t\"next_billing_period_start\":\"2021-05-08\",\n\t\t\t\t\t\"current_usage_summary\":{\n\t\t\t\t\t\t\"device_limit_reached\":false,\n\t\t\t\t\t\t\"connectivity\":{\n\t\t\t\t\t\t\t\"all\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":null,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"pricing_terms\":{\n\t\t\t\t\t\t\"rates\":{\n\t\t\t\t\t\t\t\"all_platforms\":{\n\t\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\t\"per_block\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"pricing_model_version\":\"tier2021.1\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_devices\":100\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"messaging\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:messaging\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_messages\":100000\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device_data\":{\n\t\t\t\t\t\t\t\"uom\":\"bytes\",\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device_data\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_data\":45000000,\n\t\t\t\t\t\t\t\"device_data\":45000000,\n\t\t\t\t\t\t\t\"devices_cap\":45000000,\n\t\t\t\t\t\t\t\"cap_exception\":true\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}"
+              "body": " GET /v1/users/service_agreements\n HTTP/1.1 200 OK\n{\n\t\"data\":[\n\t\t\t{\n\t\t\t\t\"id\":\"1\",\n\t\t\t\t\"type\":\"service_agreement\",\n\t\t\t\t\"attributes\":{\n\t\t\t\t\t\"owner_id\":\"abc123\",\n\t\t\t\t\t\"owner_type\":\"individual\",\n\t\t\t\t\t\"name\":\"Sandbox\",\n\t\t\t\t\t\"agreement_type\":\"developer\",\n\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\"state\":\"active\",\n\t\t\t\t\t\"starts_on\":\"2021-04-08\",\n\t\t\t\t\t\"ends_on\":null,\n\t\t\t\t\t\"current_billing_period_start\":\"2021-04-08\",\n\t\t\t\t\t\"current_billing_period_end\":\"2021-05-07\",\n\t\t\t\t\t\"next_billing_period_start\":\"2021-05-08\",\n\t\t\t\t\t\"current_usage_summary\":{\n\t\t\t\t\t\t\"device_limit_reached\":false,\n\t\t\t\t\t\t\"connectivity\":{\n\t\t\t\t\t\t\t\"all\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":null,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\t\"owned_devices\":0,\n\t\t\t\t\t\t\t\t\"billable_devices\":0,\n\t\t\t\t\t\t\t\t\"device_data\":0,\n\t\t\t\t\t\t\t\t\"device_messages\":0\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"pricing_terms\":{\n\t\t\t\t\t\t\"rates\":{\n\t\t\t\t\t\t\t\"all_platforms\":{\n\t\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\t\"per_block\":0\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"pricing_model_version\":\"tier2021.1\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_devices\":100\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"messaging\":{\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:messaging\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_messages\":100000\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"device_data\":{\n\t\t\t\t\t\t\t\"uom\":\"bytes\",\n\t\t\t\t\t\t\t\"name\":\"commercial_model:developer:device_data\",\n\t\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\t\"max_data\":45000000,\n\t\t\t\t\t\t\t\"device_data\":45000000,\n\t\t\t\t\t\t\t\"devices_cap\":45000000,\n\t\t\t\t\t\t\t\"cap_exception\":true\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}"
             }
           ]
         },
@@ -11025,7 +11483,14 @@
                 ":orgIdOrSlug",
                 "service_agreements"
               ],
-              "query": [],
+              "query": [
+                {
+                  "key": "include_usage_summary",
+                  "value": false,
+                  "description": "Set to false to exclude current_usage_summary from the response. Defaults to true. Requires service_agreements.usage_summary:get scope.",
+                  "disabled": true
+                }
+              ],
               "variables": [
                 {
                   "key": "orgIdOrSlug",
@@ -12315,7 +12780,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"subscription_ids\": [],\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  scim_provisioned: false,\n  no_password: false,\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}"
+              "body": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  scim_provisioned: false,\n  no_password: false,\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}"
             }
           ]
         },

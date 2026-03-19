@@ -162,6 +162,27 @@ tutorial](/integrations/community-integrations/azure-iot-hub/)
 - [Google Cloud Platform
 tutorial](/integrations/integrations/google-cloud-platform/)
 
+## Configuration
+
+Configuration is a platform‑wide capability for Particle. Configuration is the control plane for tailoring how devices, cloud, and applications behave, used to solve real-life problems like modem behavior and operating system level radio configuration, as well as to align user applications needs from any vertical or use case. 
+
+Configuration scales from organization‑wide defaults, to product‑level settings, to device‑specific overrides where appropriate. 
+
+If you have access to an organization (basic, plus, or enterprise), you can set environment variables at the organization level in the **Organization - Configuration - Environment** section.
+
+{{imageOverlay src="/assets/images/console/config-org.png" class="no-darken"}}
+
+You can also set environment variables in **Sandbox - Configuration - Environment** section.
+
+{{imageOverlay src="/assets/images/console/config-sandbox.png" class="no-darken"}}
+
+Additionally, both sandbox and organization products have their own Environment configuration.
+
+For more information, see:
+
+- [Environment](/getting-started/configuration/environment/): lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
+- [Secrets](/getting-started/cloud/secrets/): secure, organization‑scoped values that integrations and logic can reference securely.
+
 ## Billing & usage
 
 The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 

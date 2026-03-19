@@ -3784,7 +3784,128 @@ $(document).ready(function() {
         run();
     })
 
+    $('.bandMaskCalculator').each(function() {
+        const thisPartial = $(this);
+
+        const enableButtons = function() {
+            const s = $(thisPartial).find('.numInput').val();
+
+            const m = s.match(/^([0-9A-Fa-f]+)$/);
+            if (m) {
+                $(thisPartial).find('.upButton').prop('disabled', false);
+            }
+            else {
+                $(thisPartial).find('.upButton').prop('disabled', true);
+            }
+        };
+
+
+        const calculateDown = function() {
+            let mask = 0n;
+            $(thisPartial).find('.bandMaskInputCheckbox:checked').each(function() {
+                const band = BigInt($(this).data('band'));
+                mask |= (1n << (band - 1n));
+            });
+            $(thisPartial).find('.numInput').val(mask.toString(16));
+            enableButtons();
+        };
+
+        const calculateUp = function() {
+            const mask = BigInt('0x' + $(thisPartial).find('.numInput').val());
+
+            $(thisPartial).find('.bandMaskInputCheckbox').each(function() {
+                const band = BigInt($(this).data('band'));
+                
+                const bandBit = 1n << (band - 1n);
+                $(this).prop('checked', (mask & bandBit) != 0);
+                
+            });            
+        }
+
+        for(let band = 1; band < 128; band++) {
+            const divElem = document.createElement('div');
+            $(divElem).css('width', '75px');
+
+            const labelElem = document.createElement('label');
+            const inputElem = document.createElement('input');
+            $(inputElem).attr('type', 'checkbox');
+            $(inputElem).addClass('bandMaskInputCheckbox');
+            $(inputElem).data('band', band);
+            $(inputElem).on('click', calculateDown);
+            $(labelElem).append(inputElem);
+
+            const textElem = document.createTextNode('B' + band)
+            $(labelElem).append(textElem);
+
+            $(divElem).append(labelElem);
+
+            $(thisPartial).find('.bandsDiv').append(divElem);
+        }
+        enableButtons();
+
+        $(thisPartial).find('.numInput').on('change', function() {
+            enableButtons();
+        });
+        $(thisPartial).find('.numInput').on('keydown', function(ev) {
+            if (ev.key == 'Enter') {
+                calculateUp();
+            }
+            enableButtons();
+        });
+
+
+        $(thisPartial).find('.downButton').on('click', calculateDown);
+
+        $(thisPartial).find('.upButton').on('click', calculateUp);
+
+
+        $(thisPartial).find('.selectAllButton').on('click', function() {
+            $(thisPartial).find('.bandMaskInputCheckbox').prop('checked', true);
+            calculateDown();
+        });
+        $(thisPartial).find('.selectNoneButton').on('click', function() {
+            $(thisPartial).find('.bandMaskInputCheckbox').prop('checked', false);            
+            calculateDown();
+        });
+
+    })
+
+    $('.envVarSkus').each(async function() {
+        const thisPartial = $(this);
+
+        const carriersJson = await apiHelper.getCarriersJson();
+
+        const varName = $(thisPartial).data('var');
+
+        const tbodyElem = $(thisPartial).find('.envVarSkusTableBody');
+
+        for(const skuObj of carriersJson.skus) {
+            if (!skuObj.modem || skuObj.lifecycle == 'Hidden') {
+                continue;
+            }
+            const modemObj = carriersJson.modems.find(e => e.model == skuObj.modem);
+            if (!modemObj || !modemObj.env) {
+                continue;
+            }
+
+            if (!modemObj.env.includes(varName)) {
+                continue;
+            }
+
+            const trElem = document.createElement('tr');
+
+            for(const field of ['name', 'desc', 'lifecycle', 'modem']) {
+                const tdElem = document.createElement('td');
+                $(tdElem).text(skuObj[field]);
+                $(trElem).append(tdElem);
+            }
+
+            $(tbodyElem).append(trElem);
+        }
+    });
+
 });
+
 
 
 /*

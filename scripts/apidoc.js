@@ -6,6 +6,7 @@ var fs = require('fs');
 var path = require('path');
 
 var apiScopes = [];
+let firstLoad = true;
 
 function assignOrder(data) {
   data.forEach(function (route) {
@@ -17,6 +18,12 @@ function assignOrder(data) {
 
 module.exports = function(options) {
   return function(files, metalsmith, done) {
+    // Only run this on first load, not when doing updates because the source files are not tracked
+    if (!firstLoad) {
+      return done();
+    }
+    firstLoad = false;
+
     var apiData = options.apis.map(function processApi(apiOptions) {
       const savePath = path.join(__dirname, '..', 'generated', path.basename(apiOptions.src) + '.json');
       apiOptions.parse = true;

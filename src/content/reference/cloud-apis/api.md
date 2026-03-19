@@ -592,6 +592,17 @@ Because of the simultaneous connection limit, if you want to subscribe to multip
 ## Integrations [Webhooks]
 {{> api group=apiGroups.Integrations}}
 
+## Environment
+
+{{!-- BEGIN shared-blurb 79e94a32-654d-4961-8498-5d7969690c4a --}}
+Environment is a collection of lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
+{{!-- END shared-blurb --}}
+
+For more information, see [environment](/getting-started/configuration/environment/).
+
+{{> api group=apiGroups.Env}}
+
+
 ## Cloud secrets
 
 {{> api group=apiGroups.Secrets}}

@@ -900,8 +900,11 @@ It is not possible to import arbitrary npm or other packages in your Logic Funct
 
 When your Logic Function is called, it will always include required parameters:
 
+{{!-- BEGIN shared-blurb a001a102-d85f-4def-941e-39e53459f5c4 --}}
 - `functionInfo`: information about the function that was called
 - `trigger`: information about the time the event was triggered
+- `secrets`: cloud secrets for this product and organization
+- `env`: environment variables for this function
 
 Additionally, one of the following parameters will be populated, based on the type of trigger:
 
@@ -912,13 +915,16 @@ Additionally, one of the following parameters will be populated, based on the ty
 ```js
 // PROTOTYPE
 export interface FunctionContext {
-    functionInfo: FunctionInfo;
-    trigger: TriggerInfo;
-    event?: EventInfo;
-    scheduled?: ScheduledInfo;
-    ledgerChange?: LedgerChangeInfo;
+    functionInfo: FunctionInfo,
+    trigger: TriggerInfo,
+    secrets: Record<string, string | null>,
+    env: Record<string, string>,
+    event?: EventInfo,
+    scheduled?: ScheduledInfo,
+    ledgerChange?: LedgerChangeInfo
 }
 ```
+{{!-- END shared-blurb --}}
 
 #### Accessing the context
 

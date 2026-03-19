@@ -25031,6 +25031,98 @@ System.backupRamSync();
 
 On all other devices, retained memory is preserved as a special section of battery backed RAM and no special precautions are required.
 
+### Enviroment variables - System
+
+{{!-- BEGIN shared-blurb 79e94a32-654d-4961-8498-5d7969690c4a --}}
+Environment is a collection of lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
+{{!-- END shared-blurb --}}
+
+For more information, see [Environment](/getting-started/configuration/environment/).
+
+#### getEnv - Enviroment variables - System
+
+Get the value of an environment variable. 
+
+```cpp
+// EXAMPLE
+String value;
+if (System.getEnv("TEST_VAR", value)) {
+    Log.info("TEST_VAR=%s", value.c_str());
+}
+
+// EXAMPLE
+bool enabled;
+if (System.getEnv("ENABLE_DEBUG", enabled) && enabled) {
+    // Variable was set and is value and true
+}
+
+// EXAMPLE
+int value;
+if (System.getEnv("RETRY_PERIOD", value)) {
+    // Value was set, do something with it here
+}
+
+// PROTOTYPES
+// Returns an empty string if the variable is not defined
+static String getEnv(const char* name);
+
+// Returns true if found, modifies value only on success
+static bool getEnv(const char* name, String& value);
+
+// Validates if the env is exactly "true" or "false" (case-sensitive, lowercase only)
+// Returns true if found AND valid, modifies value only on success
+static bool getEnv(const char* name, bool& value);
+
+// Validates if the env is a valid integer (32-bit, signed, decimal only)
+// Returns true if found AND valid, modifies value only on success
+static bool getEnv(const char* name, int& value);
+
+```
+
+
+#### hasEnv - Enviroment variables - System
+
+```cpp
+// EXAMPLE
+if (System.hasEnv("RETRY_PERIOD")) {
+  // Do something
+}
+
+// PROTOTYPE
+static bool hasEnv(const char* name);
+```
+
+
+
+
+#### listEnv - Enviroment variables - System
+
+
+```cpp
+// EXAMPLE
+Vector<const char*> list = System.listEnv();
+for(auto it = list.begin(); it != list.end(); it++) {
+  const char *key = *it;
+  Log.info("key=%s value=%s", key, System.getEnv(key).c_str());
+}
+
+// PROTOTYPE
+static Vector<const char*> listEnv();
+```
+
+
+#### clearEnv - Enviroment variables - System
+
+Returns true if a system reset is needed to apply the changes. If `reset` is true (default), resets the device automatically.
+
+```cpp
+// EXAMPLE
+System.clearEnv();
+
+// PROTOTYPE
+static bool clearEnv(bool reset = true);
+```
+
 ### System config [ set ]
 
 {{api name1="System.set"}}
@@ -25217,6 +25309,8 @@ You can filter requests at the Device OS level using [System.setControlRequestFi
 Control requests can also be done over BLE, but this is more complicated and requires using the mobile secret embedded in the data matrix code on the serial number label for the device.
 
 A web-based tool for sending control requests and example code is available at [USB control request tool](/tools/developer-tools/control-request/).
+
+You can also send a custom control request using the Particle CLI [`particle usb send-request`](/reference/developer-tools/cli/#particle-usb-send-request) command.
 
 ### ctrl_request_custom_handler - Control requests
 

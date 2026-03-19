@@ -545,6 +545,8 @@ asset directory. The assets path should be relative to the project root.
 
 Optionally, you can use the `--assets <path>` option to override the directory used for assets.
 
+If you want to include [environment variables](/getting-started/configuration/environment/) in your application bundle you can include them via project.properties using the `env` key, or use the `--env` option to `particle bundle`. This can be combined with assets, if desired.
+
 To override the default filename to save to, use the `--saveTo <filename>` option. It should be a .zip file. 
 
 Example usage:
@@ -555,6 +557,7 @@ Example usage:
 | `particle bundle myApp.bin --assets /path/to/assets` | Creates a bundle of application binary and assets. The assets are obtained from /path/to/assets directory |
 | `particle bundle myApp.bin --assets /path/to/project.properties` | Creates a bundle of application binary and assets. The assets are picked up from the provided project.properties file |
 | `particle bundle myApp.bin --assets /path/ --saveTo myApp.zip` | Creates a bundle of application binary and assets, and saves it to the myApp.zip file |
+| `particle bundle myApp.bin --env env.json` | Creates a bundle of application binary and assets with custom env-vars file |
 | `particle bundle myApp.bin --saveTo myApp.zip` | Creates a bundle of application binary and assets as specified in the assetOtaDir if available, and saves the bundle to the myApp.zip file |
 
 ## particle device-protection
@@ -1230,6 +1233,27 @@ particle usb reset [devices...] [--all]
 
 Reset can be used from normal operating mode, safe mode, or DFU mode.
 
+### particle usb send-request
+
+Send a custom USB control request to a device. See [USB control request tool](/tools/developer-tools/control-request/) for more information.
+
+```
+particle usb send-request '{"op":"status"}'
+```
+
+### particle usb env
+
+Get environment variables from a USB-connected device (or devices). See [environment variables](/getting-started/configuration/environment/) for more information.
+
+```
+particle usb env            Gets environment variables from the connected device',
+particle usb env --all      Gets environment variables from all devices connected over USB',
+particle usb env my_device  Gets environment variables from the device named "my_device"',
+```
+
+Note that you cannot set individual values using the CLI over USB. The source of truth for what values should be set on the device is stored in the cloud. If it were possible to set individual values on the device it would be ambiguous which value is correct when they differ, which would make synchronizing problematic. To set per-device values use `particle config env` to set the value on the cloud side, then let the value be synchronized to the device from the cloud.
+
+
 ### particle usb setup-done
 
 On the Argon, Boron, B-Series SoM, and Tracker SoM running Device OS 3.x and earlier, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
@@ -1284,6 +1308,130 @@ You can also downgrade Device OS, however:
 If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
 {{!-- END shared-blurb --}}
 
+
+## particle config env
+
+The `particle config env` commands allow setting environment variables from the command line. [Environment](/getting-started/configuration/environment/) are lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
+
+In previous versions of the Particle CLI, `particle config` switched between profiles. That function is now performed by the `particle profile` command.
+
+
+### particle config env list
+
+```sh
+# List all environment variables from an specific organization
+particle config env list --org <org>
+
+# List all environment variables in the sandbox for the currently logged in user
+particle config env list --sandbox
+
+# List all environment variables from an specific product
+particle config env list --product <productId>
+
+# List all environment variables from an specific device
+particle config env list --device <deviceId>
+```
+
+### particle config env set
+
+Set a single name - value pair within a given scope (organization, product, or device).
+
+```sh
+# Specify the organization
+particle config env set <name> <value> --org <org>
+particle config env set <name>=<value> --org <org>
+
+# Set a sandbox environment variable
+particle config env set <name> <value> --sandbox
+particle config env set <name>=<value> --sandbox
+
+# Specify the product ID to set variables for that product only
+particle config env set <name> <value> --product <productId>
+particle config env set <name>=<value> --product <productId>
+
+# Specify the device ID 
+particle config env set <name> <value> --device <deviceId>
+particle config env set <name>=<value> --device <deviceId>
+```
+
+The `config env set` command stages the changes in the cloud but does not roll them out to devices. You must go to the [Particle console](https://console.particle.io/) to review and roll out the changes to your device fleet.
+
+
+### particle config env delete
+
+Delete a single name - value pair within a given scope (organization, product, or device).
+
+```sh
+# Specify the organization
+particle config env delete <name> --org <org>
+
+# Delete from the sandbox
+particle config env delete <name> --sandbox
+
+# Specify the product ID to set variables for that product only
+particle config env delete <name> --product <productId>
+
+# Specify the device ID 
+particle config env delete <name> --device <deviceId>
+```
+
+The `config env delete` command stages the changes in the cloud but does not roll them out to devices. You must go to the [Particle console](https://console.particle.io/) to review and roll out the changes to your device fleet.
+
+## particle config secrets
+
+The `particle config secrets` commands allow setting secrets from the command line. [Secrets](/getting-started/cloud/secrets/) are secure, organization‑scoped values that integrations and logic can reference securely.
+
+### particle config secrets list
+
+List all created secrets in the specified scope.
+
+```sh
+# List secrets for the specified organization
+particle config secrets list --org <org>
+
+# List secrets for sandbox for the currently logged in user
+particle config secrets list --sandbox
+
+# Use JSON output format. Combine with --org or --sandbox.
+particle config secrets list --json
+```
+
+### particle config secrets get
+
+Get a specific secret.
+
+```sh
+# Get secret named <name> for the specified organization
+particle config secrets get <name> --org <org>
+
+# Get secret named <name> for sandbox for the currently logged in user
+particle config secrets get <name> --sandbox
+```
+
+### particle config secrets set
+
+Set a secret.
+
+```sh
+# Set a secret for the specified organization
+particle config secrets set <name> <value> --org <org>
+particle config secrets set <name>=<value> --org <org>
+
+# Set a secret for sandbox for the currently logged in user
+particle config secrets set <name> <value> --sandbox
+particle config secrets set <name>=<value> --sandbox
+```
+
+
+### particle config secrets delete
+
+```sh
+# Delete a secret for the specified organization
+particle config secrets delete <name> --org <org>
+
+# Delete a secret for sandbox for the currently logged in user
+particle config secrets delete <name> --sandbox
+```
 
 ## particle keys
 
