@@ -960,6 +960,7 @@
   "/reference/device-os/firmware/#persistent-settings": "/reference/device-os/api/persistent-settings/persistent-settings/",
   "/reference/device-os/firmware/#macros": "/reference/device-os/api/macros/macros/",
   "/reference/device-os/firmware/#startup-": "/reference/device-os/api/macros/startup/",
+  "/reference/device-os/firmware/#pre_startup-": "/reference/device-os/api/macros/pre_startup/",
   "/reference/device-os/firmware/#product_version-": "/reference/device-os/api/macros/product_version/",
   "/reference/device-os/firmware/#product_id-": "/reference/device-os/api/macros/product_id/",
   "/reference/device-os/firmware/#device-os-4-0-and-later": "/reference/device-os/api/macros/product_id/#device-os-4-0-and-later",

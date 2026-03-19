@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-03-12",
-            "hash": "e517d4e224e5c605278b25c30c52abf02f3a39d4af6fcf50d636458b2d39614d"
+            "date": "2026-03-19",
+            "hash": "b589ef21f76e4c5fb5fdf93c1f5bb7f16d7f4cc857b2e83beddaf7fd939ac23b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2275,8 +2275,8 @@
             "hash": "03768490a6acb6ade9124e528aa866e120905e69caaa33c47c903228b15c305e"
         },
         "reference/device-os/api/fuelgauge/fuelgauge.md": {
-            "date": "2024-02-27",
-            "hash": "dc03c8d82f5cea79bdb3d2c29ebeabaa355b1eb608ddfbda100efa61fdf7a40a"
+            "date": "2026-03-19",
+            "hash": "158c8883f5109a40d33e1561170c91ea21e4f21a928eec633f5337e32155efaf"
         },
         "reference/device-os/api/fuelgauge/getvcell.md": {
             "date": "2023-09-20",
@@ -2327,24 +2327,24 @@
             "hash": "7f553c466a9a749f218dd3061b284953fd09f1d709f01b2b30169880b6a845c6"
         },
         "reference/device-os/api/input-output/input-output.md": {
-            "date": "2024-04-30",
-            "hash": "fe7e39d012c22fcada695b4deb155baac4d8d7e7bee2def6915f3b3a323dc6d5"
+            "date": "2026-03-19",
+            "hash": "0aa9570583a39b2f4f7130ad1f16b49137b5aaccb718775894dcb06ddc27f40e"
         },
         "reference/device-os/api/input-output/pinmode.md": {
-            "date": "2024-04-30",
-            "hash": "dc7c2c6e94f96ce4f046aaf45c121f48a5604bd02f170b2b6da3c1e155fd2d57"
+            "date": "2026-03-19",
+            "hash": "8b69e2155e2371136594197b7cb16c77a6be094faf4af61bb0acbec01f9a720e"
         },
         "reference/device-os/api/input-output/getpinmode-pin.md": {
-            "date": "2023-09-20",
-            "hash": "7b6595c065fed479010f5a151b0c31e68c75f3e60fe46437e9394449a97c62df"
+            "date": "2026-03-19",
+            "hash": "e292cc8b61a55bdd70afd854b2006ab37b6b98d02672bdf87fc26df5306ff354"
         },
         "reference/device-os/api/input-output/digitalwrite.md": {
-            "date": "2024-04-30",
-            "hash": "636f46357c7267d28976a8b738e6afbf21af63cd8ec1ba7aa212c3568fc44c76"
+            "date": "2026-03-19",
+            "hash": "5e55ae920b37daaa0a7bf9ce3b0b758e4780913dc644e912a1ac25fd2a7e0940"
         },
         "reference/device-os/api/input-output/digitalread.md": {
-            "date": "2024-04-30",
-            "hash": "eedf0b5acec12dade49bc53cf63b81ce1d62e0698b0caacb34fd92c9095111fd"
+            "date": "2026-03-19",
+            "hash": "4f0dff45d9f23205c0f1ced86a3f1a7133ddc39cebd2c72108aedc12ca9d3a1d"
         },
         "reference/device-os/api/input-output/pinsetdrivestrength.md": {
             "date": "2024-04-30",
@@ -2415,8 +2415,8 @@
             "hash": "9be6beacdf6f5b535a36001e96d451c5c17cf55fa979e411ef7ae790a6310d16"
         },
         "reference/device-os/api/power-manager/power-manager.md": {
-            "date": "2025-12-05",
-            "hash": "99d2d915fa4424412c2dc665380a3e78260f213b79f284b6f2070a413964ed39"
+            "date": "2026-03-19",
+            "hash": "65982e059d8e723411488047ed28e4e1ab698dc9295d864c5a1e60b9ecd42991"
         },
         "reference/device-os/api/power-manager/powersourcemaxcurrent.md": {
             "date": "2023-09-20",
@@ -2435,16 +2435,16 @@
             "hash": "7b703fe4a07173d9a3527623532cc6ba4abb64b5a6bc000c5cf0b509df7cfd0c"
         },
         "reference/device-os/api/power-manager/systempowerfeature.md": {
-            "date": "2025-12-05",
-            "hash": "06f6dd9ca10af588d73353ba079461ab3b30ec9cf5d2b1c9031a6fd62892f17b"
+            "date": "2026-03-19",
+            "hash": "bc44b4f1b468f8cb8783b6642983fa780eb4da3a477afd5e8f668ab8c8cf4a55"
         },
         "reference/device-os/api/power-manager/b-series-som.md": {
             "date": "2024-02-27",
             "hash": "8c4d10289798236f2269ed50188a577a4d0b6f67dad519de8885780675538095"
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic.md": {
-            "date": "2025-12-05",
-            "hash": "95f6101cf358e9c4ad30d164966f7c1920fcb9de4b34b9d9f96e98170f55c69e"
+            "date": "2026-03-19",
+            "hash": "184c27ad36ba5288818d40b01a0c21649d46c4af6f3536c558fc504ea547b4c2"
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-constructor.md": {
             "date": "2023-09-20",
@@ -2511,8 +2511,8 @@
             "hash": "5c63720e7b179dde9162ba7bd8469d7d93a3037f4bb4a027278c2b1274148c12"
         },
         "reference/device-os/api/serial/serial.md": {
-            "date": "2024-05-09",
-            "hash": "1d11121c16dbd218ab3a2901d260b246d967bb8571d4966da467d7acf7193a64"
+            "date": "2026-03-19",
+            "hash": "458895e2a66dc160494f2e87a5965ddfb6a636e3d39969910afcab2e88d90b34"
         },
         "reference/device-os/api/serial/begin.md": {
             "date": "2024-04-30",
@@ -2691,8 +2691,8 @@
             "hash": "3cec9cad3b57457921979a4705266431e5b9bf7576073677cf3c081c988e8b9d"
         },
         "reference/device-os/api/spi/spi.md": {
-            "date": "2024-05-09",
-            "hash": "d5e68662cf62f1cec07dc504c929fb5afe1fbe7705ec160e22ded4192ab87d86"
+            "date": "2026-03-19",
+            "hash": "9453b56145de15e7a70a12d28999369a83e4489f6e7b690e7e364273f1d57e5e"
         },
         "reference/device-os/api/spi/begin.md": {
             "date": "2023-09-20",
@@ -2759,8 +2759,8 @@
             "hash": "c8f60ab4bc95dbd77659a774eb95c9b088999eb5a6b7ff3cdfa283cb192ffabe"
         },
         "reference/device-os/api/wire-i2c/wire-i2c.md": {
-            "date": "2023-09-20",
-            "hash": "34a3d2bd42d7b1261d3ada710bb0759a14851146d6fa6c410094737698199d98"
+            "date": "2026-03-19",
+            "hash": "7ad11964b02ff69178c29693d9801e6925881575ce4a0ab11c40852ff107ebca"
         },
         "reference/device-os/api/wire-i2c/pull-up-resistors-i2c.md": {
             "date": "2024-02-27",
@@ -3231,16 +3231,16 @@
             "hash": "5fbe18ef07d17675ae4c6918e263842f18bd0509b19fe7336730adc49c53cca3"
         },
         "reference/device-os/api/led-signaling/led-signaling.md": {
-            "date": "2023-09-20",
-            "hash": "7ba769eb8d1c730920249f9786d6c82098bdaa89a43a64f643a21c6f07c03306"
+            "date": "2026-03-19",
+            "hash": "56fab401553157783ff9b793195c514ce18926ade7035eb1fa2a2903eb83f6b4"
         },
         "reference/device-os/api/led-signaling/ledstatus-class.md": {
             "date": "2024-02-27",
             "hash": "dbfdbd8dd229aa36dbd41d0546ff606895e5c146b160ed727e0f99fb7af58527"
         },
         "reference/device-os/api/led-signaling/ledsystemtheme-class.md": {
-            "date": "2023-09-20",
-            "hash": "5e4212d7aa0039c62c003b2166407ef144e37572f4e3c51171b5dbb487182031"
+            "date": "2026-03-19",
+            "hash": "4dfbee501b5f7824625627d101b7a7ab0f6bb7ffdfd40d62c464e8fed0bcc731"
         },
         "reference/device-os/api/led-signaling/ledsignal-enum.md": {
             "date": "2023-09-20",
@@ -3583,8 +3583,8 @@
             "hash": "151d97aa8da525f7c43a7bf000be7fa451471b68718235213acdf44f5cb0254f"
         },
         "reference/device-os/api/macros/startup.md": {
-            "date": "2024-10-15",
-            "hash": "7dba2d87b79d7bce0b705fabed684a9f623774803becab7a3478e327ff8ab1dc"
+            "date": "2026-03-19",
+            "hash": "8f37db7784d54a78279a0b5319e4a124bc43dd38aa3d3d5eeb48738c608a83a5"
         },
         "reference/device-os/api/macros/product_version.md": {
             "date": "2023-09-20",
@@ -3595,8 +3595,8 @@
             "hash": "83802608f4bc7411757af7ab70ce83ba1517d51f599a938c062b0e6a321850a1"
         },
         "reference/device-os/api/sleep-sleep/sleep-sleep.md": {
-            "date": "2023-09-20",
-            "hash": "525ae0334eb0731d14fff33e6ed1be99fdddaa1046710782733b446536f0d2ee"
+            "date": "2026-03-19",
+            "hash": "9a9a81edd8b12935ead72c4ad93244b2456da9d03d6420a5d2c82b2cbf8a5619"
         },
         "reference/device-os/api/sleep-sleep/mode-systemsleepconfiguration.md": {
             "date": "2023-09-20",
@@ -3795,16 +3795,16 @@
             "hash": "0e118a7f016b7e60bffffc5177f3f63beef866c0de50f78d734c540a571f0a91"
         },
         "reference/device-os/api/system-calls/powersource.md": {
-            "date": "2024-02-27",
-            "hash": "8a1945d15f74708a3b78d1ea085be3df7e3ae89581d4400cbfac3f35450caba5"
+            "date": "2026-03-19",
+            "hash": "8ef53ad9ff60ef0efcad0709a87a983a1b8a2e561910bb681e4da18ba0c93a63"
         },
         "reference/device-os/api/system-calls/batterystate.md": {
-            "date": "2024-02-27",
-            "hash": "4d30f4448f6f48ad9ed959de9a06d765e843c51862d6069b88fb44e3f82da74d"
+            "date": "2026-03-19",
+            "hash": "5c1b9f52d0f1a04fe9d8254e646d7c6d91a67af8ee76585057bfdc92455e175b"
         },
         "reference/device-os/api/system-calls/batterycharge.md": {
-            "date": "2024-02-27",
-            "hash": "35b5aecead3f439d6b8d7f2ca7f252f1c13ce4ceace93202f49510e51a3f4ac7"
+            "date": "2026-03-19",
+            "hash": "46acdad0b563a1653c05c74ec8ab8bba26a39e98ff7a5949cb150c145415f1ad"
         },
         "reference/device-os/api/system-calls/onassetota-system.md": {
             "date": "2023-09-20",
@@ -3895,8 +3895,8 @@
             "hash": "f03880f245195d5c7358167b0f083e22e557309cf8e482a6b49049937672eace"
         },
         "reference/device-os/api/file-system/file-system.md": {
-            "date": "2024-02-27",
-            "hash": "de678fc2031d37a67c9f934522e80e0ce0346c30baab4811fd67f72b242d592c"
+            "date": "2026-03-19",
+            "hash": "6d5fae6a1dd9d6ea994dfa2525abd0ad1af4bace129e867c02cc7afd9dff8864"
         },
         "reference/device-os/api/file-system/file-system-open.md": {
             "date": "2023-09-20",
@@ -4339,8 +4339,8 @@
             "hash": "123482b604376d4c699fa319f7767e1120ed11ae8c8bd6fda01f8ee65f562c66"
         },
         "reference/device-os/api/language-syntax/structure.md": {
-            "date": "2023-09-20",
-            "hash": "41e8a04792fbfc82f20a8c54fe42d833d60d583d35ea229f5a47945e945d100e"
+            "date": "2026-03-19",
+            "hash": "fc556198051b158ad36d6d2bc9d490df6b9aa7f7152e8b8795a46061a194ced4"
         },
         "reference/device-os/api/language-syntax/control-structures.md": {
             "date": "2023-09-20",
@@ -10004,6 +10004,14 @@
         },
         "getting-started/configuration/environment.md": {
             "hash": "8f96262cbe12fd1f93905743839e715cc84a5b9bc7c85e80d66a1d97d2e9e48d",
+            "date": "2026-03-19"
+        },
+        "reference/device-os/startup-behavior.md": {
+            "hash": "0c3f758a11fc71c8c242cedcc1dbfeb2cc25e0a4484bf6d7dd40678b3a1d16db",
+            "date": "2026-03-19"
+        },
+        "reference/device-os/api/macros/pre_startup.md": {
+            "hash": "b8123d209ef077502759a750ef77be60b15cbbf74ff76a90a5eccc123de49e77",
             "date": "2026-03-19"
         }
     }

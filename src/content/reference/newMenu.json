@@ -227,6 +227,10 @@
                 {
                     "dir": "tethering",
                     "title": "Tethering"
+                },
+                {
+                    "dir": "startup-behavior",
+                    "title": "Startup behavior"
                 }
             ]
         },

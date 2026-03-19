@@ -6565,6 +6565,11 @@ FuelGauge is available on all devices with a battery state-of-charge sensor, inc
 The Photon 2, P2, Argon, Photon, and P1 do not have FuelGauge support.
 {{note op="end"}}
 
+---
+
+{{since when="6.4.0"}}
+
+Fuel gauge methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 
 ### getVCell()
@@ -6720,6 +6725,10 @@ On the P2 and Photon 2 in addition to the standard analog inputs A0, A1, A2, and
 
 ---
 
+{{since when="6.4.0"}}
+
+GPIO functions can called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
 ### pinMode()
 
 {{api name1="pinMode"}}
@@ -6870,6 +6879,10 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 ---
 
+{{since when="6.4.0"}}
+
+`pinMode()` can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
 ### getPinMode(pin)
 
 {{api name1="getPinMode"}}
@@ -6886,6 +6899,7 @@ if (getPinMode(D0)==INPUT) {
   // D0 is an input pin
 }
 ```
+
 
 ### digitalWrite()
 
@@ -6952,7 +6966,7 @@ void loop()
 - The drive current on Gen 2 devices is 25 mA per pin, with a maximum of 125 mA across all GPIO.
 {{note op="end"}}
 
-
+---
 
 ### digitalRead()
 
@@ -7019,6 +7033,8 @@ void loop()
 - On the P1, all GPIO pins **except** A3, A6, D0 and D1 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs. 
 - On the P1 there are 2.1K hardware pull-up resistors to 3V3 on D0 and D1 and are not 5V tolerant.
 {{note op="end"}}
+
+---
 
 ### pinSetDriveStrength()
 
@@ -8034,6 +8050,15 @@ Power Management is available on the M-SoM, Muon, Boron, B-Series SoM, Tracker S
 It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
 
+---
+
+---
+
+{{since when="6.4.0"}}
+
+Power manager methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
+
 ### powerSourceMaxCurrent - SystemPowerConfiguration
 
 {{api name1="SystemPowerConfiguration::powerSourceMaxCurrent"}}
@@ -8196,6 +8221,8 @@ System power features are enabled or disabled using the `SystemPowerConfiguratio
 
 For full sample code sample code for logging power settings to USB serial debug, see the [power supply guide](/hardware/power/power-supply-guide/#power-settings-example).
 
+`System.getPowerConfiguration()` and `System.setPowerConfiguration()` can be used in `PRE_STARTUP()` and `STARTUP()`.
+
 
 #### SystemPowerFeature::PMIC_DETECTION
 
@@ -8330,6 +8357,14 @@ Power Management is available on the Boron, B-Series SoM, Tracker SoM (Gen 3), E
 
 It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
+
+---
+
+{{since when="6.4.0"}}
+
+PMIC methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
+If using `PRE_STARTUP()` the `PMIC` object must be local to the function, not a global, because global object constructors will not have been called yet.
 
 ### PMIC() constructor
 
@@ -8804,6 +8839,8 @@ Instead of using `Serial` directly, you should use it using the the `SerialLogHa
 You should also avoid mixing the use of `Serial.printlnf` and `Log.info` (and similar calls). Since `Serial.print` is not thread safe, it can interfere with the use of `Log` calls.
 
 `Serial1:` This channel is available via the device's TX and RX pins.
+
+`Serial`, `Serial1`, etc. can be used from `PRE_STARTUP()` and `STARTUP()`.
 
 ---
 
@@ -10452,6 +10489,12 @@ This alternate location is mapped as follows:
 
 ---
 
+{{since when="6.4.0"}}
+
+SPI methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
+---
+
 
 ### begin()
 
@@ -10932,6 +10975,10 @@ This object allows you to communicate with I2C / TWI (Two Wire Interface) device
 | UART Serial | 230 Kbit/sec | 1 Mbit/sec | 1 (point-to-point) |
 | I2C | 400 Kbit/sec | 400 Kbit/sec | Many (limited by addresses) |
 | SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
+
+{{since when="6.4.0"}}
+
+`System.sleep()` can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 ### Pull-up resistors (I2C)
 
@@ -18798,6 +18845,13 @@ The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the
 
 **Note:** Consider using this object instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
 
+---
+
+{{since when="6.4.0"}}
+
+LED signaling methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
+
 ### LEDStatus Class
 
 {{api name1="LEDStatus"}}
@@ -19160,6 +19214,14 @@ theme.setColor(LED_SIGNAL_NETWORK_DHCP, RGB_COLOR_YELLOW);
 theme.setColor(LED_SIGNAL_NETWORK_CONNECTED, RGB_COLOR_YELLOW);
 theme.apply(); // Apply theme settings
 ```
+
+---
+
+{{since when="6.4.0"}}
+
+`LEDSystemTheme` methods can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
+If using `PRE_STARTUP()` the `LEDSystemTheme` object must be local to the function, not a global, because global object constructors will not have been called yet.
 
 #### LEDSystemTheme()
 
@@ -21745,6 +21807,8 @@ Other acceptable calls to make from STARTUP include:
 - [`System.setPowerConfiguration()`](/reference/device-os/api/power-manager/systempowerfeature/)
 - `System.enableFeature()`
 
+For more information on startup behavior, see [Startup behavior](/reference/device-os/startup-behavior/).
+
 ---
 
 {{note op="start" type="gen2"}}
@@ -21763,6 +21827,33 @@ On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controllin
 
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this!
 {{note op="end"}}
+
+### PRE_STARTUP()
+
+{{api name1="PRE_STARTUP"}}
+
+{{since when="6.4.0"}}
+
+In Device OS 6.4.0 a new `PRE_STARTUP()` function was added. If you need specific execution order guarantees and can deal with tighter limitations than `STARTUP()`, it is an option.
+
+If you have existing code that uses `STARTUP()`, it is not necessary to change it as both will continue to be supported.
+
+`PRE_STARTUP()` is guaranteed to run first before any `STARTUP()` or global object constructors. 
+
+Additionally, `PRE_STARTUP()` is an optional C function, not a macro. The code goes in the body of the function, not as an argument to the macro as with `STARTUP()`.
+
+```cpp
+void PRE_STARTUP() {
+    Serial1.begin(115200);
+    Serial1.println("PRE_STARTUP called");  
+}
+```
+
+Because `PRE_STARTUP()` runs before the system thread is started, your code will essentially behave as if single-threaded.
+ 
+
+For more information on startup behavior, see [Startup behavior](/reference/device-os/startup-behavior/).
+
 
 
 ### PRODUCT_VERSION()
@@ -21854,6 +21945,10 @@ The `SystemSleepConfiguration` class configures all of the sleep parameters and 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
 The Tracker One, Tracker SoM, and Monitor One have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/) and [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep). You generally should avoid directly using this sleep API on the Tracker as it will not put the tracker-specific peripherals like the GNSS, IMU, CAN, and RTC to sleep properly, as these functions are implemented in the [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) or [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/) sleep functionality, not Device OS.
+
+{{since when="6.4.0"}}
+
+`System.sleep()` can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
 
 
 ### mode() (SystemSleepConfiguration)
@@ -24691,6 +24786,7 @@ Power Management including power source detection is available on the Boron, B-S
 It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
 
+`System.powerSource()` will not return a valid value during `PRE_STARTUP()` or `STARTUP()`.
 
 ### batteryState()
 
@@ -24722,6 +24818,8 @@ if (batteryState == BATTERY_STATE_CHARGING) {
 }
 ```
 
+`System.batteryState()` will not return a valid value during `PRE_STARTUP()` or `STARTUP()`.
+
 ---
 
 {{note op="start" type="note"}}
@@ -24746,6 +24844,8 @@ float batteryCharge() const
 float batterySoc = System.batteryCharge();
 Log.info("soc=%.1f", batterySoc);
 ```
+
+`System.batteryCharge()` will not return a valid value during `PRE_STARTUP()` or `STARTUP()`.
 
 ---
 
@@ -25741,6 +25841,12 @@ The File System is not available on Gen 2 devices (Photon, P1, Electron, E-Serie
 {{note op="end"}}
 
 ---
+
+{{since when="6.4.0"}}
+
+File system calls can be called from `PRE_STARTUP()` in Device OS 6.4.0 and later, and in `STARTUP()` in all versions of Device OS.
+
+
 
 ### File system open
 
@@ -29987,6 +30093,15 @@ void loop()
 }
 ```
 
+If you are using `SYSTEM_THREAD(ENABLED)`, `setup()` is called before connecting to the network. Threading is enabled by default in Device OS 6.2.0 and later.
+
+If you are using `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)`, `setup()` is also called before connecting to the network, regardless of threading.
+
+In the specific case of not using the system thread and using `SYSTEM_MODE(AUTOMATIC)` `setup()` is only called after connecting to the cloud (breathing cyan).
+
+For more information on startup behavior, see [Startup behavior](/reference/device-os/startup-behavior/).
+
+
 #### loop()
 
 {{api name1="loop"}}
@@ -30016,6 +30131,14 @@ void loop()
     digitalWrite(LED,LOW);
 }
 ```
+
+If you are using `SYSTEM_THREAD(ENABLED)`, `loop()` is called before connecting to the network. Threading is enabled by default in Device OS 6.2.0 and later.
+
+If you are using `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)`, `loop()` is also called before connecting to the network, and when disconnected, regardless of threading.
+
+In the specific case of not using the system thread and using `SYSTEM_MODE(AUTOMATIC)` `loop()` is only called after actively to the cloud (breathing cyan). It stops running when reconnecting (blinking green or blinking cyan). It also stops running while downloading an OTA update.
+
+
 
 ### Control structures
 
