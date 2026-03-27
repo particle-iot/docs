@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "binary-version-reader": "^2.2.0",
-    "handlebars": "^4.7.8",
+    "handlebars": "^4.7.9",
     "jszip": "^3.10.1",
     "node-fetch": "^2.6.13",
     "yargs": "^17.6.0"
