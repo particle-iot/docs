@@ -7,7 +7,7 @@
     "contributors": [],
     "license": "MIT",
     "dependencies": {
-        "yaml": "^2.6.0",
+        "yaml": "^2.8.3",
         "yargs": "^16.2.0"
     },
     "engines": {
