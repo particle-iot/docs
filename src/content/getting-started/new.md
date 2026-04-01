@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Power supply guide 2026-04-01
+
+The [power supply guide](/hardware/power/power-supply-guide/) has been updated with additional information for the PM-BAT.
+
 ### Library updates 2026-04-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.

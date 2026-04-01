@@ -36,9 +36,15 @@ This guide is a brief guide to power supplies for Particle devices.
 
 - Monitor One devices can only be powered by the M12 8-pin connector.
 
+### USB Power (USB-C PD)
+
+- The Muon has a USB-C connector, and also requires USB-C PD support.
+- The Muon cannot be powered by a USB-A to USB-C adapter cable!
+- See [Muon USB power](/troubleshooting/guides/device-troubleshooting/muon-usb-power/) for more information
+
 ### VIN (external supplies)
 
-- All devices have the ability to power from a non-USB power pin. On many devices this is labeled VIN.
+- Most devices have the ability to power from a non-USB power pin. On many devices this is labeled VIN.
 
 - The allowable voltage range and current varies by device, see the list of devices below.
 
@@ -163,10 +169,9 @@ instead of using a battery pack temperature sensor.
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-
 ### VBAT
 
-- This is only applicable to the Photon and E-Series, and is used to back up the real-time clock and retained memory when removing USB or VIN power. You can connect a Lithium coin cell or a supercap to this pin.
+- This is only applicable to the Photon 1 and E-Series, and is used to back up the real-time clock and retained memory when removing USB or VIN power. You can connect a Lithium coin cell or a supercap to this pin.
 
 - There is an Electron pin labeled VBAT but it should not be used because it's tied to 3V3 on the Electron with a 0-ohm resistor.
 
@@ -210,6 +215,20 @@ Sample output:
 
 ## PMIC (bq24195) guide
 
+### Enabling or disabling charging
+
+To enable or disable charging, use [SystemPowerFeature::DISABLE_CHARGING](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature). This is typically done if:
+
+- You are manually controlling charging, for example based on an external temperature sensor
+- You are using a non-rechargeable battery
+- You are powering the device from a power supply connected to the Li+ pin instead of VIN
+
+Additionally, charging can be automatically controlled by Device OS if not disabled using SystemPowerFeature:
+
+- If no battery is detected, charging is disabled to avoid the CHRG LED flickering constantly
+- For devices with a battery temperature sensor (3-pin LiPo on the PM-BAT, including the Muon and M.2 breakout board), charging can be disabled when out of temperature range
+
+
 ### Charge current
 
 The charge current is limited by the charge current limit set in software, as well as the input current limit, described in the following section.
@@ -231,11 +250,11 @@ The charge current can be specified using the Power Manager [`batteryChargeCurre
 
 The input current is limited by:
 
-- The software setting, [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/).
+- The software setting, [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/). The default is 900 mA.
 
-- DPDM, if connected to a hub or power adapter that supports DPDM.
+- DPDM, if connected to a hub or power adapter that supports DPDM, and the devices uses it.
 
-- A hardware maximum set by the ILIM resistor, 1590 mA on most devices.
+- A hardware maximum set by the ILIM resistor, 1590 mA on most devices. On the Muon and PM-BAT, it is 3000 mA.
 
 #### powerSourceMaxCurrent
 
@@ -260,13 +279,15 @@ The input current limit is further limited to this value to prevent putting more
 
 Note that if you are not using DPDM, such as from using the VIN external power input or a tablet charger that does not support DPDM, the input current limit will be determined only by the software settings and ILIM hardware current limit.
 
+Devices using PM-BAT including the Muon or M.2 breakout board do not use DPDM.
+
 ### Voltage input range
 
 We recommend limiting the input voltage on bq24195 devices to 12 VDC. However, the PMIC does allow operation up to 17 VDC. Thus you can use a somewhat higher limit if needed.
 
-Note, however, that in automotive uses-cases, vehicle power supplies may have surges that exceed 17 volts, so you should include extra protection.
+Note, however, that in automotive uses-cases, vehicle power supplies may have surges that exceed 17 volts, so you should include extra protection. Also beware of solar panels that may have a full-sun open circuit voltage that exceeds the limit.
 
-The Tracker One includes a bq24195 but has a higher voltage limit because it includes an additional power supply in front of the bq24195 input.
+The Tracker One includes a bq24195 but has a higher voltage limit because it includes an additional power supply in front of the bq24195 input. Up to 90 VDC can be applied to the Tracker One VIN.
 
 ### Using Li+ as a power input
 
@@ -463,7 +484,16 @@ In some cases, it may be necessary to add a supervisory/reset IC, such as the Ri
 See [supervisory reset](#supervisory-reset), below, for additional information.
 {{!-- END shared-blurb --}}
 
+### Muon
 
+The Muon can be powered 
+- USB-C PD
+- VIN (6 - 12 VDC, via screw terminals)
+- LiPo battery (via 3-pin JST battery connector)
+- Expansion card (HAT)
+- PoE (with appropriate adapter)
+
+There are special requirements for powering by USB-C. See [Muon USB power](/troubleshooting/guides/device-troubleshooting/muon-usb-power/) for more information.
 
 ### B-Series SoM
 
@@ -547,9 +577,9 @@ The Photon includes the following power inputs:
 
 On the Electron, 3V3 can only be used as a power output, not a power input.
 
-### Photon
+### Photon 1
 
-The Photon includes the following power inputs:
+The Photon 1 includes the following power inputs:
 
 - USB Micro B, 500 mA required.
 - VIN, 3.6V to 5.5V at 500 mA.
