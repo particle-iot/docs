@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2026-04-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Device OS 6.4.0 2026-03-19
 
 Device OS 6.4.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.

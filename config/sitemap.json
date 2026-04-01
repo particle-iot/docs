@@ -5139,8 +5139,8 @@
             "hash": "fb55977411891da7286e4becc54da5e40fecb1646f248989b27aeb6b01c9f697"
         },
         "reference/device-os/libraries/a/ArduinoJson.md": {
-            "date": "2025-06-30",
-            "hash": "e2b31fce1ba887790af8180183d4bb9947ef0ea32738558a6516ec00e8c55c02"
+            "date": "2026-04-01",
+            "hash": "fe094bb746af112bdf3c1432cc003899cd7970edb2f6e3b6fee96fe281b5964f"
         },
         "reference/device-os/libraries/a/ArduinoJson6113.md": {
             "date": "2024-08-28",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "f3b14c9d95ff4cc150822ead1cbf6601a92d6a080e32c13314b32cf6988bcaf2",
-            "date": "2026-03-19"
+            "hash": "f2613c94c2964ca8f9fc8e5d5562157839366152c9faef40439966ec8be690a5",
+            "date": "2026-04-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
