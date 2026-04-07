@@ -9,8 +9,6 @@ description: M-HAT Datasheet
 
 ![](/assets/images/m-hat/m-hat.png)
 
-<p class="attribution">Rendering is of an older version of the M-HAT</p>
-
 
 ## Overview
 
@@ -33,6 +31,30 @@ If you are using a PoE (Power over Ethernet) HAT, it must go directly against th
 Other pass-through HATs could be used below the M-HAT, if they fit and have appropriate stand-offs so the M-HAT remains secure, as well.
 
 Note that the M-SoM does not support tethering and cannot be used to supply a cellular network connection to a Raspberry Pi with the M-HAT.
+
+## Photos
+
+The M-HAT sits on top of a Raspberry Pi 4 or Raspberry Pi 5 and provides power and cellular connectivity to the Pi. Raspberry Pi not included.
+
+{{imageOverlay src="/assets/images/m-hat/top-with-pi.png" alt="With Pi"}}
+
+{{imageOverlay src="/assets/images/m-hat/side-with-pi.png" alt="With Pi"}}
+
+Additional HATs can be placed on top of the M-HAT. For example, the RS485 and CAN HAT. Additional HATs not included.
+
+{{imageOverlay src="/assets/images/m-hat/can-hat.png" alt="With CAN hat"}}
+
+Optionally, the M-HAT can be used with a LiPo battery that powers both the M-HAT and the Pi.
+
+{{imageOverlay src="/assets/images/m-hat/with-pi-and-battery.png" alt="With battery"}}
+
+The M-HAT includes a Particle M.2 SoM socket that can be used with the B524 and B504 cellular SoMs.
+
+{{imageOverlay src="/assets/images/m-hat/top-iso.png" alt="No SoM"}}
+
+The bottom side of the M-HAT that faces the top of the Raspberry Pi.
+
+{{imageOverlay src="/assets/images/m-hat/bottom-iso.png" alt="Bottom"}}
 
 ## Diagram
 
