@@ -44001,6 +44001,59 @@
             "title": "Built-in am18x5 driver in DVOS v2, test fixes and optimizations for 6.4.0",
             "state": "closed",
             "created_at": "2026-03-13T06:44:08Z"
+        },
+        "2907": {
+            "url": "https://github.com/particle-iot/device-os/pull/2907",
+            "number": 2907,
+            "title": "Adds compatible Tracker exrtc functions and fixes Gen 4 sleep duration sanity checks",
+            "state": "closed",
+            "created_at": "2026-03-24T15:38:12Z"
+        },
+        "2908": {
+            "url": "https://github.com/particle-iot/device-os/pull/2908",
+            "number": 2908,
+            "title": "Implement cellular env var tests for BG95-S5",
+            "state": "closed",
+            "created_at": "2026-03-24T17:58:31Z",
+            "detail": "BG95-S5 with modem firmware A03 is not supported in cellular env vars"
+        },
+        "2909": {
+            "url": "https://github.com/particle-iot/device-os/pull/2909",
+            "number": 2909,
+            "title": "Add lock around reading logical efuse",
+            "state": "closed",
+            "created_at": "2026-03-30T14:03:36Z",
+            "detail": "Reading logical efuse sometimes failed even after retries, which results failed to get device ID, mobile secrect and serial number."
+        },
+        "2910": {
+            "url": "https://github.com/particle-iot/device-os/pull/2910",
+            "number": 2910,
+            "title": "[msom] PPP Server Serial1 Tethering",
+            "state": "closed",
+            "created_at": "2026-03-31T15:59:17Z",
+            "detail": "Enabling the PPP server interface on MSoM caused a system deadlock. The PPP server's AT command loop uses waitEvent() to block while waiting for serial data, but the RTL872x USART HAL rejected waitEvent() on interrupt-mode UARTs (UART2/UART3) with SYSTEM_ERROR_NOT_SUPPORTED. Since Serial1 (LP_UART) uses interrupt mode, the pppserver thread spun in a tight loop at network priority, permanently starving the lower-priority system thread which was holding the lwIP core lock. NRF52840 is unaffected because its waitEvent() has no such restriction."
+        },
+        "2911": {
+            "url": "https://github.com/particle-iot/device-os/pull/2911",
+            "number": 2911,
+            "title": "[scripts] fix rtl872x.tcl flash script to be more reliable",
+            "state": "closed",
+            "created_at": "2026-03-31T23:36:28Z"
+        },
+        "2912": {
+            "url": "https://github.com/particle-iot/device-os/pull/2912",
+            "number": 2912,
+            "title": "[msom] PPP Server USB Serial Tethering",
+            "state": "open",
+            "created_at": "2026-04-03T16:13:19Z"
+        },
+        "2913": {
+            "url": "https://github.com/particle-iot/device-os/pull/2913",
+            "number": 2913,
+            "title": "Improve I2C driver reliability",
+            "state": "open",
+            "created_at": "2026-04-08T13:43:00Z",
+            "detail": "1. The system power manager references the wiring PMIC and FuelGauge driver, which will construct the `Wire` instance and initialize the TX/RX buffer in the I2C driver. The `Wire` instance in user app is separated instance and if user specify a larger buffer (>32 bytes) for the driver, the I2C will be deinitialized, which may results in corrupting the operation to PMIC and FuelGauge in the system power manager. This is fixed by https://github.com/particle-iot/device-os/pull/2890. The PR herein reverts some of those changes and fix the issue from another perspective.\n2. (Gen4 only) `hal_i2c_transaction()` doesn't check if the I2C is enabled before going forward.\n3. If the I2C interface that is used by system power manager is ended by `Wire.end()` in user app, the system power manager may return unexpected state."
         }
     }
 }
