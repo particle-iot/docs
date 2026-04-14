@@ -3566,7 +3566,7 @@ float strength = sig.getStrength();
 
 // EXAMPLE
 WiFiSignal sig = WiFi.RSSI();
-Log.info("WiFi signal strength: %.02f%%", sig.getStrength());
+Log.info("WiFi signal strength: %0.2f%%", sig.getStrength());
 ```
 
 Returns: `float`
@@ -3584,7 +3584,7 @@ float quality = sig.getQuality();
 
 // EXAMPLE
 WiFiSignal sig = WiFi.RSSI();
-Log.info("WiFi signal quality: %.02f%%", sig.getQuality());
+Log.info("WiFi signal quality: %0.2f%%", sig.getQuality());
 ```
 
 Returns: `float`
@@ -5871,7 +5871,7 @@ float strength = sig.getStrength();
 
 // EXAMPLE
 CellularSignal sig = Cellular.RSSI();
-Log.info("Cellular signal strength: %.02f%%", sig.getStrength());
+Log.info("Cellular signal strength: %0.2f%%", sig.getStrength());
 ```
 
 Returns: `float`
@@ -5889,7 +5889,7 @@ float quality = sig.getQuality();
 
 // EXAMPLE
 CellularSignal sig = Cellular.RSSI();
-Log.info("Cellular signal quality: %.02f%%", sig.getQuality());
+Log.info("Cellular signal quality: %0.2f%%", sig.getQuality());
 ```
 
 Returns: `float`
