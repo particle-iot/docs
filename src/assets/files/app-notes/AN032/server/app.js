@@ -52,7 +52,8 @@ app.post('/led', function (req, res) {
         .then(function (data) {
             res.json({ ok: true });
         }, function (err) {
-            res.json({ ok: false, err });
+            console.error(err);
+            res.status(500).json({ ok: false, code: 'internal_error', error: 'Failed to call device function' });
         });
 });
 
