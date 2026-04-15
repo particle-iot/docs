@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-03-19",
-            "hash": "b589ef21f76e4c5fb5fdf93c1f5bb7f16d7f4cc857b2e83beddaf7fd939ac23b"
+            "date": "2026-04-15",
+            "hash": "f2d940d47fc948834c429cbe26f3b25b940bf64e076c1655743c4853330d1d01"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1463,16 +1463,16 @@
             "hash": "d938953475a26cb1dcbf81bb58e718857ce997bdffb6e513e16a3670b2b28377"
         },
         "reference/discontinued/software/firmware-core.md": {
-            "date": "2024-10-28",
-            "hash": "64c3f74116fada72bef54b4fb2b52b879005c9c81a61515e639c5034286c8b65"
+            "date": "2026-04-15",
+            "hash": "ac67071c56525d9bbff9c8b1f1d1d6067b5291c616f60a5c39694a5b755643aa"
         },
         "reference/discontinued/software/firmware-mesh.md": {
             "date": "2022-06-14",
             "hash": "c2a21a44fa7c834e9ce7618f9b0141166434edcbd5a0dcf50b48adb5d396f88f"
         },
         "reference/discontinued/software/firmware-xenon.md": {
-            "date": "2025-02-13",
-            "hash": "d0eac68d80d998efc3c9a18facd149628a3de746d137c6fb50df11937703ff23"
+            "date": "2026-04-15",
+            "hash": "910845e084dd1d13377c9e536573ebfbb774cbb513b28e27e7631ac5df97072b"
         },
         "reference/discontinued/software/windows.md": {
             "date": "2025-02-07",
@@ -1983,8 +1983,8 @@
             "hash": "a2246fe857237f52ca2f469174d77b62196315b7b72439c540d009050d314af0"
         },
         "reference/device-os/api/wifi/wifisignal-class.md": {
-            "date": "2023-09-20",
-            "hash": "0aa13fb0b01cf4b9b78f0d720d75d05729d83832d0ec0f58330847f025b99a25"
+            "date": "2026-04-15",
+            "hash": "d62dc2f6d6b01c58c5e33d210df53c3d1a763cb449f528413c07353aa92df376"
         },
         "reference/device-os/api/wifi/ping.md": {
             "date": "2025-02-14",
@@ -2239,8 +2239,8 @@
             "hash": "3a0ced1d21067c700b42a56962835210a780430e7608de44ee1f2b79e57262ae"
         },
         "reference/device-os/api/cellular/cellularsignal-class.md": {
-            "date": "2023-09-20",
-            "hash": "22c6b7cc00d3bd070b24acc0c021f687e018cab7440a2aff26f72d7c0223322c"
+            "date": "2026-04-15",
+            "hash": "5af73844468a6d83336e99960c260356e79b6e36caacf2163cbc77936cb68d8d"
         },
         "reference/device-os/api/cellular/getbandavailable.md": {
             "date": "2024-11-06",
@@ -10007,8 +10007,8 @@
             "date": "2026-03-19"
         },
         "reference/device-os/startup-behavior.md": {
-            "hash": "0c3f758a11fc71c8c242cedcc1dbfeb2cc25e0a4484bf6d7dd40678b3a1d16db",
-            "date": "2026-03-19"
+            "hash": "9bcddbe1a4bfeecbd20c04b8439f6452b9aeabedbef2b77729f7bab1113255dd",
+            "date": "2026-04-15"
         },
         "reference/device-os/api/macros/pre_startup.md": {
             "hash": "b8123d209ef077502759a750ef77be60b15cbbf74ff76a90a5eccc123de49e77",

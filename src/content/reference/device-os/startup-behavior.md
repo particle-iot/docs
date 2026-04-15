@@ -129,9 +129,11 @@ Because `PRE_STARTUP()` runs before the system thread is started, your code will
 
 C++ POD structs are not initialized before `PRE_STARTUP()`.
 
-Global variables of primitive types such as int, char, float, enums, and pointers do have their values set.
+Global variables of primitive types such as int, char, float, enums do have their values set.
 
-
+{{box op="start" cssClass="boxed warningBox"}}
+Beware of global objects and some object pointers that will not be not initialized when in `PRE_STARTUP`. This may cause a change in behavior compared to `STARTUP`.
+{{box op="end"}}
 
 
 
