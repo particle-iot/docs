@@ -52,13 +52,15 @@ Environment variables are only used for devices in a product. This is also the c
 
 When variables are changed at a given level, the changed are staged for delivery to devices. 
 
-Added, removed, or changed variables can be delivered immediately to online devices. For devices that are offline, changes are delivered when the device connects to the cloud.
+Device-level environment variables that are added, removed, or changed are delivered immediately to online devices that have not disabled updates. These are delivered via an OTA update, and the device will have the new values available when the device reboots. Environment variables are never changed while the user firmware is running. 
 
-Each device has a snapshot, which is the combination of organization (or sandbox), product, and per-device environment variables specific to that device. 
+For devices that are offline, changes are delivered when the device connects to the cloud.
 
-When an update affects the snapshot for a device and the device is online, the snapshot is immediately sent to the device. The snapshot contains all values (not just the changed ones) and is limited to 16 kB, with the limit enforced on the JSON-encoded key–value pairs.
+Each device has a snapshot, which is the combination of organization (or sandbox), product, and per-device environment variables specific to that device. The snapshot contains all values (not just the changed ones) and is limited to 16 kB, with the limit enforced on the JSON-encoded key–value pairs.
 
 When a device is comes online, a hash of its current snapshot is sent to the cloud. If the snapshot is not current, then the cloud sends a new snapshot to the device.
+
+Changes to the environment made at the organization, sandbox, or product level are available to the device after it connects to the cloud. Changes at these levels do not cause an immediate OTA and reboot of the device.
 
 ## Console
 
