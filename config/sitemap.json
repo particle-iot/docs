@@ -1131,8 +1131,8 @@
             "hash": "264776c70a5538439141848e0febae9ecf64814c88342a38137f5a27f6c676b7"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2026-03-03",
-            "hash": "fe11cf1f6a616711f4a34089eedea961c8ea61dac95f7f399a83075fe4145b61"
+            "date": "2026-04-15",
+            "hash": "ce1e3ec41840dae19b772fba038fe0b80d143b4ca252b8e5708bc4c2b02ac943"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2025-03-18",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "816809f0025c6c5c6c05cd6433b68646dfcff25ef4a189c590ffa058eaec828f",
-            "date": "2026-04-13"
+            "hash": "23f314151af57035c641cabe731a87b47378e2555e08787b81527c16ba07ccb3",
+            "date": "2026-04-15"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

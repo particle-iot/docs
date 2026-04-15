@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### ScopeValue 2026-04-15
+
+Added an explanation of `scopeValue` in the [Ledger cloud API](/reference/cloud-apis/api/#scopevalue).
+
 ### Tracker Edge v21 2026-04-13
 
 Tracker Edge v21 is now available.

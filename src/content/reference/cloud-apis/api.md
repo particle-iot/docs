@@ -1098,6 +1098,25 @@ please see [the guide](/getting-started/console/device-groups/).
 
 ## Ledger
 
+### scopeValue
+
+In the definitions below, the value of `:scopeValue` depends on the scope of the Ledger.
+
+| Ledger Scope | `:scopeValue` |
+| :--- | :--- |
+| Product | Product ID (numeric) |
+| Device | Device ID (24 character hex) |
+| Owner | Owner unique ID |
+
+For example, to get the contents of the sandbox device-to-cloud ledger named `sensors` (device scope), you might use a request URL like: 
+
+```
+/v1/ledgers/sensors/instances/0a10aced20ffffffff02c53c
+```
+
+- `sensors` is the Ledger name 
+- `0a10aced20ffffffff02c53c` is the Device ID
+
 {{> api group=apiGroups.Ledger}}
 
 ## Fleet Health
