@@ -78,7 +78,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 
 ### B504e vs. B504
 
-The B504e (B504MEA and B504MTY) is the same as the B504 (B504MEA and B504MTY), except it has a programmable
+The B504e (B504EMEA and B504EMTY) is the same as the B504 (B504MEA and B504MTY), except it has a programmable
 e-sim in place of the MFF2 SMD Particle EtherSIM. The e-sim is not user-programmable, and is programmed at the factory
 with the same SIM and carriers as the B504.
 
@@ -2185,3 +2185,4 @@ The following countries are not officially supported at this time, but may be co
 | 006      | 2025-05-09 | RK | Added Industry Canada statement |
 | 007      | 2025-06-25 | RK | Clarifications for GNSS use |
 | 008      | 2025-09-03 | RK | Corrected the BLE operating frequency to 2400 to 2480 MHz |
+| 009      | 2026-04-17 | RK | Corrected incorrect in B504E SKUs in the explanatory text |
