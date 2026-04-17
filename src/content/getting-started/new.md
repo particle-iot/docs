@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### M-HAT 2026-04-17
 
-The datasheets for the [M-HAT](/reference/datasheets/m-series/m-hat-datasheet/) is now available.
+The datasheet for the [M-HAT](/reference/datasheets/m-series/m-hat-datasheet/) is now available.
 
 ### Environment 2026-04-15
 
