@@ -510,8 +510,7 @@
                         },
                         {
                             "dir": "m-hat-datasheet",
-                            "title": "M-HAT datasheet (preview)",
-                            "internal": true
+                            "title": "M-HAT datasheet"
                         },
                         {
                             "dir": "muon-preview-datasheet",
