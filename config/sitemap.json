@@ -731,8 +731,8 @@
             "hash": "1bcc83e81f4bb098cd6eeef1b07e70aac539f3048aff3256666e52c69f5625b1"
         },
         "integrations/community-integrations/about-community-integrations.md": {
-            "date": "2025-02-07",
-            "hash": "2f982dbca670df88b8946c65b31f5f3238d1e11b0bf24e4d5ba3e20268cab491"
+            "date": "2026-04-21",
+            "hash": "53944250d5f0006854ccd7359bccddc9d80511412d0188f0c3b8377b8fdfe7ff"
         },
         "integrations/community-integrations/azure-iot-hub.md": {
             "date": "2024-06-08",
@@ -8183,8 +8183,8 @@
             "date": "2023-10-06"
         },
         "reference/asset-ota/asset-ota-community/asset-ota-community.md": {
-            "hash": "333444257cb71095c202673aa2552b1756cf71fe277a90793389a36dd5abe146",
-            "date": "2025-02-07"
+            "hash": "5b33b1642f5947188c64f6ad9f0bdfe8198c62c3d6d2a727d4fa74f84833470a",
+            "date": "2026-04-21"
         },
         "reference/asset-ota/asset-ota-community/sound-asset-ota.md": {
             "hash": "8948bb51f42ccad3d86304279f3e9b9b6ffb26249677d7d17b457746b0fc9d99",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "1fdffec3d180724f815aa7711fdb44a1fab8ca924b7915762de1839269460e7d",
-            "date": "2026-04-17"
+            "hash": "c81587b06f6584e4029345dd7467d1ccae814d1640d3a2c86d32fb9b0d27d039",
+            "date": "2026-04-21"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9055,8 +9055,8 @@
             "date": "2025-03-11"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
-            "hash": "5e26330dd542d2246f3d5d65e74b80f5305f43168683c0d51dab32be107b0d46",
-            "date": "2025-02-07"
+            "hash": "f275a6fea2e4cfd48a721e99bef3c5777d8f6442967f7ecc58fba05d55f1a672",
+            "date": "2026-04-21"
         },
         "getting-started/logic-ledger/logic-ledger-community/cloud-to-device-ledger-getting-started.md": {
             "hash": "3aa3b22bd9ed612779407e4d25e8739d930d1590dafe4195e54888c1a72ce490",
@@ -9075,8 +9075,8 @@
             "date": "2025-07-23"
         },
         "hardware/community/hardware-community.md": {
-            "hash": "c28c0aab3a9e20d3d9401c5c667c7f6894561200993fb0584d9aa975b771b118",
-            "date": "2025-02-07"
+            "hash": "b667868a06fb1b18348f889d008212908a0d12d134971d103c6e37d432ca9460",
+            "date": "2026-04-21"
         },
         "reference/device-os/libraries/g/Grove_scd30_co2_sensor.md": {
             "hash": "df33994d6674f56c811dc44850af67bc39ad7aabdafb35e2ef8b8d87aedbd966",
@@ -9419,8 +9419,8 @@
             "date": "2024-10-28"
         },
         "hardware/muon-hats/muon-hats.md": {
-            "hash": "1312e974bee3bc4a96828fe141acce83ad59b1f79f37575ee05f793c753cf57a",
-            "date": "2025-02-07"
+            "hash": "d3acbf314dbfc91db6cbd296e05c9dae66d2d9c07abb3077bc144200a057b330",
+            "date": "2026-04-21"
         },
         "hardware/muon-hats/environmental-hats.md": {
             "hash": "ddfa969e1cfe9a673dcca3aca95cb00e0cd37e9adca35cf48e2ab399af74b24d",
@@ -10015,8 +10015,8 @@
             "date": "2026-03-19"
         },
         "reference/datasheets/m-series/m-hat-datasheet.md": {
-            "hash": "8ace63bf93361dbe8bcd359f1a8c85720479baffe4a5562e99c3ca192cd77825",
-            "date": "2026-04-17"
+            "hash": "a42adf6e41f4db08040ab0aabd31955cdcfe0f7cbe6fcfc942b8346add190ffc",
+            "date": "2026-04-21"
         }
     }
 }
