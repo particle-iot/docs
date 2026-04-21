@@ -49,5 +49,5 @@ If you design files such as Eagle CAD files, for hardware projects, just include
 
 The documentation content at docs.particle.io is Apache 2 licensed, so submissions will have that license as well.
 
-Once your content is ready, send an email to docs-submission (at) particle.io. That email can also be used to request updates.
+Once your content is ready, send an email to particle.docs-submission (at) digi.com. That email can also be used to request updates.
 {{!-- END shared-blurb --}}

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-HAT 2026-04-21
+
+The datasheet for the [M-HAT](/reference/datasheets/m-series/m-hat-datasheet/) is now available.
+
 ### Environment 2026-04-15
 
 Clarified when [Environment](/getting-started/configuration/environment/#synchronized) changes are synchronized to devices.

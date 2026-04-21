@@ -5,10 +5,13 @@ layout: commonTwo.hbs
 description: M-HAT Datasheet
 ---
 
-# M-HAT datasheet (preview)
+# M-HAT datasheet
+
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/m-hat-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
 
 ![](/assets/images/m-hat/m-hat.png)
-
 
 ## Overview
 
@@ -20,15 +23,16 @@ It is intended for use with the B504e (LTE Cat 1 NorAm) and B524 (LTE Cat 1 EMEA
 
 The M-HAT provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow use with additional HATs.
 
+{{!-- - [Unboxing and setup instructions](https://developer.particle.io/m-hat/introduction) --}}
 - [B504e datasheet](/reference/datasheets/b-series/b504-datasheet/)
 - [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/)
 
 If you are using additional Raspberry Pi HATs, you will typically stack them on top of the M-HAT.
 
-If you are using a PoE (Power over Ethernet) HAT, it must go directly against the Raspberry Pi, underneath the M-HAT. This is because PoE has a separate 4-pin connector that directly plugs into to a header next to the Ethernet jack in addition to accessing the 40-pin HAT connector. 
+If you are using a PoE (Power over Ethernet) HAT, it must go directly against the Raspberry Pi, underneath the M-HAT. This is because PoE has a separate 4-pin connector that directly plugs into to a header next to the Ethernet jack in addition to accessing the 40-pin HAT connector.
 
-Other pass-through HATs could be used below the M-HAT, if they fit and have appropriate stand-offs so the M-HAT remains secure, as well.
+Other pass-through HATs could be used below the M-HAT, if they fit and have appropriate stand-offs so the M-HAT remains secure, as well.  Not all pass-through HATs will fit under the M-HAT.
 
 Note that the M-SoM does not support tethering and cannot be used to supply a cellular network connection to a Raspberry Pi with the M-HAT.
 
@@ -569,12 +573,14 @@ After changing the auxiliary power configuration you must reset the device.
 
 ### Tethering code - Firmware settings
 
+You can find a pre-configured projects in the [Raspberry Pi cellular tethering blueprint](https://blueprints.particle.io/blueprint-rpi-tethering/).
+
 The following code can be added to your application to enable the UART interface connection and enable
 tethering so the Raspberry Pi can use the B-SoM cellular connection.
 
 {{> codebox content="/assets/files/tether-mhat.cpp" format="cpp" height="400" flash="true"}}
 
-- For general information, see [Tethering](reference/device-os/tethering/).
+- For general information, see [Tethering](/reference/device-os/tethering/).
 - For information about the `Tether` class, see the [Device OS API reference](/reference/device-os/api/tether/).
 
 Note that the M-SoM does not support tethering and cannot be used to supply a cellular network connection to a Raspberry Pi with the M-HAT.
@@ -665,3 +671,4 @@ The cellular carriers are dependent on the Particle M.2 SoM you have selected fo
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-04-21 | RK | Initial version |
 |          | 2026-03-19 | RK | Minor updates |
+|  1       | 2026-04-17 | RK | Initial release |
