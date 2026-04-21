@@ -23,7 +23,7 @@ It is intended for use with the B504e (LTE Cat 1 NorAm) and B524 (LTE Cat 1 EMEA
 
 The M-HAT provides a pass-through Raspberry Pi 40-pin expansion HAT connector to allow use with additional HATs.
 
-{{!-- - [Unboxing and setup instructions](https://developer.particle.io/m-hat/introduction) --}}
+- [Unboxing and setup instructions](https://developer.particle.io/m-hat/introduction)
 - [B504e datasheet](/reference/datasheets/b-series/b504-datasheet/)
 - [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/)
