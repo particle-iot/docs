@@ -316,6 +316,9 @@ You must enable environment variables in your integration to use this feature.
 
 {{imageOverlay src="/assets/images/console/allow-environment.png" class="no-darken"}}
 
+If the event that triggers the integration is generated from a device, then it will have access to the device, product, and organization/sandbox environment variables.
+
+If it's generated from a product, such as from Logic defined in a product, it would only have access to product and organization/sandbox environment variables.
 
 
 ## Particle CLI
