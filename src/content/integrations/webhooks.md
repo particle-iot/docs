@@ -376,3 +376,10 @@ As a quick reference, these are the pre-defined webhook variables available for 
 - `\{{{PARTICLE_EVENT_JSON}}}`: The entire event (name, value, published at, etc) as a JSON string.
 - `\{{{PARTICLE_EVENT_BASE64}}}`: The entire event (name, value, published at, etc) as a Base64-encoded JSON string.
 
+### Environment variables
+
+Integrations including webhooks have access to [environment variables](/getting-started/configuration/environment/) using [mustache templates](/firmware/best-practices/json/#mustache-variables).
+
+You must enable environment variables in your integration to use this feature.
+
+{{imageOverlay src="/assets/images/console/allow-environment.png" class="no-darken"}}

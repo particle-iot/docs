@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Environment in integrations 2026-04-23
+
+Added information about using Environment to the [webhook page](/integrations/webhooks/#environment-variables). It was previously only in [environment](/getting-started/configuration/environment/#integrations).
+
 ### M-HAT 2026-04-21
 
 The datasheet for the [M-HAT](/reference/datasheets/m-series/m-hat-datasheet/) is now available.

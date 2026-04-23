@@ -312,6 +312,12 @@ Integrations including webhooks have access to environment variables using [must
 
 For example, you could use `\{{{RETRY_PERIOD}}}` from the example above in an integration template in any field including headers, query parameters, URL, etc..
 
+You must enable environment variables in your integration to use this feature.
+
+{{imageOverlay src="/assets/images/console/allow-environment.png" class="no-darken"}}
+
+
+
 ## Particle CLI
 
 The Particle CLI [particle config env](/reference/developer-tools/cli/#particle-config-env) command allows adding, changing, or deleting variables using the command line instead of the console.

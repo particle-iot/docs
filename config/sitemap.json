@@ -727,8 +727,8 @@
             "hash": "79544fe82b6ff8f4ce196599abb70c06ddff51b40697654c4a192c14c028c5d8"
         },
         "integrations/webhooks.md": {
-            "date": "2025-03-18",
-            "hash": "1bcc83e81f4bb098cd6eeef1b07e70aac539f3048aff3256666e52c69f5625b1"
+            "date": "2026-04-23",
+            "hash": "83a986c3d07f0b1c17189471ac384861e07a47b6733e56cf56e3adda44a63c66"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2026-04-21",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c81587b06f6584e4029345dd7467d1ccae814d1640d3a2c86d32fb9b0d27d039",
-            "date": "2026-04-21"
+            "hash": "094a92798f04c633b77a641b4cb6f3bd7c59ffc8c55494226652e85436b0408f",
+            "date": "2026-04-23"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10003,8 +10003,8 @@
             "date": "2026-03-03"
         },
         "getting-started/configuration/environment.md": {
-            "hash": "ba72dbd7691dede963878cd91718419b2d9002b11db394c3a14a0cd490d9df37",
-            "date": "2026-04-15"
+            "hash": "ce71d9651eb4f5f425a2cce94c1b4df69b488b1b86cd66d1acca0a64ca586491",
+            "date": "2026-04-23"
         },
         "reference/device-os/startup-behavior.md": {
             "hash": "9bcddbe1a4bfeecbd20c04b8439f6452b9aeabedbef2b77729f7bab1113255dd",
