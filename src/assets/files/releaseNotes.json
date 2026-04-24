@@ -44054,6 +44054,29 @@
             "state": "open",
             "created_at": "2026-04-08T13:43:00Z",
             "detail": "1. The system power manager references the wiring PMIC and FuelGauge driver, which will construct the `Wire` instance and initialize the TX/RX buffer in the I2C driver. The `Wire` instance in user app is separated instance and if user specify a larger buffer (>32 bytes) for the driver, the I2C will be deinitialized, which may results in corrupting the operation to PMIC and FuelGauge in the system power manager. This is fixed by https://github.com/particle-iot/device-os/pull/2890. The PR herein reverts some of those changes and fix the issue from another perspective.\n2. (Gen4 only) `hal_i2c_transaction()` doesn't check if the I2C is enabled before going forward.\n3. If the I2C interface that is used by system power manager is ended by `Wire.end()` in user app, the system power manager may return unexpected state."
+        },
+        "2914": {
+            "url": "https://github.com/particle-iot/device-os/pull/2914",
+            "number": 2914,
+            "title": "Support detecting/configuring M-HAT in Tinker",
+            "state": "closed",
+            "created_at": "2026-04-14T05:17:44Z",
+            "detail": "The factory default user app, i.e. the Tinker firmware, running on Particle M.2 SoMs that is installed on M-HAT may not work as expected, since some of the pins for controlling the power module are not correct."
+        },
+        "2915": {
+            "url": "https://github.com/particle-iot/device-os/pull/2915",
+            "number": 2915,
+            "title": "API for sending APDUs",
+            "state": "closed",
+            "created_at": "2026-04-16T13:19:52Z"
+        },
+        "2916": {
+            "url": "https://github.com/particle-iot/device-os/pull/2916",
+            "number": 2916,
+            "title": "[acm] Add env vars for specific netif cloud connection keep alives",
+            "state": "open",
+            "created_at": "2026-04-21T19:53:50Z",
+            "detail": "Cloud connection timeouts are hard coded to 23 minutes for cellular and 25 seconds for wifi for ACM enabled platforms, (ie MSOM). This is overrideable with `Particle.keepAlive()` but will not distinguish between network interfaces."
         }
     }
 }
