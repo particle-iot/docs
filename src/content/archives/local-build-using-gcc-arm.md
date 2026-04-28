@@ -333,7 +333,7 @@ sudo cp 50-particle.rules /etc/udev/rules.d/
 
 ```
 
-* You will probably need to reboot after installing this.
+* You need to unplug and replug your device after this.
 
 ### Building
 

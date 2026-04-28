@@ -30,7 +30,7 @@ The browser and USB-based tools are often the best way to restore known good dev
 
 ### Linux
 
-- If you get an USB device not selected error on Linux, you may need a udev rule. Download [99-particle.rules](/assets/files/50-particle.rules) and copy it to /etc/udev/rules.d and reboot.
+- If you get an USB device not selected error on Linux, you may need a udev rule. Download [50-particle.rules](/assets/files/50-particle.rules) and copy it to /etc/udev/rules.d, then unplug and replug your device.
 
 ## Very old Device OS
 

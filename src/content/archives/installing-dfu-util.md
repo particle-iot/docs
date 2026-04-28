@@ -264,7 +264,7 @@ sudo cp 50-particle.rules /etc/udev/rules.d/
 
 ```
 
-You may need to restart after this step.
+You need to unplug and replug your device after this.
 
 ### Using dfu-util
 
