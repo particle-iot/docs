@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Integration secrets 2026-04-29
+
+Added information about using Secrets to the [webhook page](/integrations/webhooks/#secrets). It was previously only in [secrets](/getting-started/cloud/secrets/#secrets-in-webhooks).
+
 ### Device OS 6.4.0 GA 2026-04-24
 
 Device OS 6.4.0 is now a general availability (GA) release.

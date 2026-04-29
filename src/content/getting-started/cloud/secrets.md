@@ -69,6 +69,7 @@ you can switch back to the edit integration tab and it will be immediately avail
 
 ## Secrets in webhooks
 
+{{!-- BEGIN shared-blurb fa83ee67-0464-4024-af2f-9eb6804045c8 --}}
 {{imageOverlay src="/assets/images/secrets/webhook-secrets.png" class="no-darken"}}
 
 Clicking **click here to create a new secret** will open a new browser tab to allow you to create a new cloud secret. Once you've created it, 
@@ -82,11 +83,12 @@ If you select **AUTH_KEY**, it will be available as the Mustache variable `\{{{A
 
 {{imageOverlay src="/assets/images/secrets/webhook-authorization.png" class="no-darken"}}
 
-You can also use it for basic authentication, within the URL field, etc..
+You can also use it for basic authentication, query parameters, within the URL field, etc..
 
 The same secret can be shared by multiple logic blocks and integrations. Editing the secret value will cause the new value to be used in all locations. Since cloud secrets are scoped to your sandbox or organization, they can be shared across multiple product integrations as well.
 
 Cloud secrets used from integrations will be hidden from the in integration logs. The log will instead contain `[[SENSITIVE]]` instead of the secret value.
+{{!-- END shared-blurb --}}
 
 
 ## Secrets in Logic

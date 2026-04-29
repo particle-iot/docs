@@ -47,12 +47,12 @@
             "hash": "7206fa4b639b68770d7e79f74255d15ac6a6e2b212247c7c162727578ee444a3"
         },
         "archives/installing-dfu-util.md": {
-            "date": "2024-05-10",
-            "hash": "a289d9ce3d61ac4ac25f34364f60695d7e1931a3cdf29c00188d0b571fa915db"
+            "date": "2026-04-29",
+            "hash": "7bb561c61da5f3eb2fb4480b456e20fc5f83b146c98739e52fcbe4987ea0e643"
         },
         "archives/local-build-using-gcc-arm.md": {
-            "date": "2024-05-10",
-            "hash": "153a1b080696e4dab395bb90820c3c96585376f848e3bc99dbe8aaf5fe0738dc"
+            "date": "2026-04-29",
+            "hash": "807fd4c63e5ebfd49e4fb3b3474c32f58d93d2807ba6ad198460ea790cb7dc23"
         },
         "archives/maker-kit.md": {
             "date": "2024-09-18",
@@ -631,8 +631,8 @@
             "hash": "190544e46c4b5ba09acd0b894181a631852e113010853e872d5fe7db5d28dd57"
         },
         "getting-started/developer-tools/workbench-faq.md": {
-            "date": "2026-01-13",
-            "hash": "020441ab00ca40477f35e4d6eb0f1944673856239ab8db61813567eab97760d6"
+            "date": "2026-04-29",
+            "hash": "d1c1af61fb3b5366e058d5c445e0ec4a79ac35780478733aade99f7fe3b03a18"
         },
         "getting-started/developer-tools/workbench.md": {
             "date": "2025-10-15",
@@ -727,8 +727,8 @@
             "hash": "79544fe82b6ff8f4ce196599abb70c06ddff51b40697654c4a192c14c028c5d8"
         },
         "integrations/webhooks.md": {
-            "date": "2026-04-23",
-            "hash": "83a986c3d07f0b1c17189471ac384861e07a47b6733e56cf56e3adda44a63c66"
+            "date": "2026-04-29",
+            "hash": "4b24e91302d957ff28171e1b8b58e20833dad2da09d2679729719cbf9028a64e"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2026-04-21",
@@ -843,8 +843,8 @@
             "hash": "cdd18dc2cf8187d8509543b73fab8f2357e78ee098230bc8102d1a14aa2a5bfe"
         },
         "tools/device-restore/device-restore-usb.md": {
-            "date": "2025-03-24",
-            "hash": "061ed7bd650ff5f05b96b0083e6ea7c972fd74599676f2f66b0680b747ccc62e"
+            "date": "2026-04-29",
+            "hash": "dec916fe41ce016dc28c3617fdff121f92a10564135553b8b3fa12ad80751168"
         },
         "tools/device-restore/product-device-flash-usb.md": {
             "date": "2023-03-03",
@@ -1591,16 +1591,16 @@
             "hash": "ab053f5d69c15ad699eed6dfa46f55d3501e93f0ae3aab7f213ce161968a5427"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench.md": {
-            "date": "2023-11-15",
-            "hash": "adaaa93e7fc8bc80ac52eb537260c2709abef555f8bf118a7eaa418d0fd54c24"
+            "date": "2026-04-29",
+            "hash": "ecd41c827c65c15d7f0919c369fdeb95c5c2aa93ca96df48b13a71fe38500492"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues.md": {
             "date": "2024-11-13",
             "hash": "62e2e3477120d3b99081426e35e946f9c5974ff9cb448f73540b0874744014ff"
         },
         "troubleshooting/guides/build-tools-troubleshooting/webusb-errors.md": {
-            "date": "2024-02-27",
-            "hash": "f0eeb68ce61ff0922b199867c514ca748a46fdde83eff047398cd0169998f001"
+            "date": "2026-04-29",
+            "hash": "3065aa8073f90084af61b0f3dd0a2b25e6506ee2a9383699abd3325a7efb4d46"
         },
         "troubleshooting/guides/device-troubleshooting/device-blinking-cyan.md": {
             "date": "2023-09-29",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "7c1ce3b438bfc2c8fb56b06ed4f6eeff52491fa4086568eb3c2a093df1e607cd",
-            "date": "2026-04-24"
+            "hash": "2cb995729dc131ce1b215b107f30e03b55c7db15978d543f2b500b80f1886b57",
+            "date": "2026-04-29"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9735,8 +9735,8 @@
             "date": "2025-05-13"
         },
         "getting-started/cloud/secrets.md": {
-            "hash": "c1dc5412bcd38d6a24a282d76768f1f2f5ed53e0b67f836dd19ebc680a72f4ed",
-            "date": "2025-06-02"
+            "hash": "e83cf20411f0de3f11ca4c9ac28e97781c83718d253bd2c546e11d0e47380280",
+            "date": "2026-04-29"
         },
         "hardware/power/power-measurement.md": {
             "hash": "f1e480e1655016822aaa1f2bd14b54b90165a6298bfd3d642145beed05c7330a",
