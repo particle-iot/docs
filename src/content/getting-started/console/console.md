@@ -19,6 +19,12 @@ and [tools to manage product fleets](#product-tools).
 
 {{> sso}}
 
+## Demo
+
+You can explore a live demo environment with a continuously operating device fleet, no hardware or setup required!
+
+Visit the [demo site](https://www.particle.io/demo/) for instant access.
+
 ## Developer tools
 
 While actively developing an IoT project or product, the Console offers

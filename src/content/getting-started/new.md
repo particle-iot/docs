@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Console live demo 20260-04-29
+
+Added a [console demo](/getting-started/console/console/#demo) section with a link to the live demo environment access page.
+
 ### Integration secrets 2026-04-29
 
 Added information about using Secrets to the [webhook page](/integrations/webhooks/#secrets). It was previously only in [secrets](/getting-started/cloud/secrets/#secrets-in-webhooks).
