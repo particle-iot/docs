@@ -21,7 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Console live demo 20260-04-29
+### Library updates 2026-05-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
+### Console live demo 2026-04-29
 
 Added a [console demo](/getting-started/console/console/#demo) section with a link to the live demo environment access page.
 

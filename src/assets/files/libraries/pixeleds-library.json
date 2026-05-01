@@ -1,0 +1,109 @@
+{
+  "type": "libraries",
+  "id": "pixeleds-library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/pixeleds-library/archive/2.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "pixeleds-library",
+    "version": "2.0.2",
+    "license": "Apache 2.0",
+    "author": "K Smith <krsjunk@netscape.net>",
+    "sentence": "Library for controlling addressable LEDs.",
+    "paragraph": "An alternative to neopixel and InternetButton libraries for creating LED animations without using the delay() function.",
+    "url": "https://github.com/krsmes/pixeleds-library",
+    "repository": "https://github.com/krsmes/pixeleds-library.git",
+    "architectures": [
+      "particle-photon",
+      "particle-p1",
+      "particle-electron",
+      "particle-p2"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/reference/device-os/libraries/p/pixeleds-library",
+  "versions": {
+    "2.0.2": {
+      "added": "2026-05-01T11:44:13.599Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          },
+          "msom": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Pixeleds Library\n\nA feature-rich C++ library for controlling addressable LED strips on Particle devices. The library provides a high-level interface for LED animations and color management, with particular support for WS2812B and SK6812W LED types.\n\n## Features\n\n- Support for WS2812B and SK6812W addressable LED strips\n- Rich color management system with HSV/HSL color spaces\n- Predefined color palettes and color sets\n- Extensive animation framework with customizable effects\n- Platform-specific optimizations for Particle Photon 1 and 2\n- Built-in animations for common effects\n\n**There is no use of the delay() function in Pixeleds.**\n\n## Installation\n\nThe library can be included in your Particle project. Include the necessary headers:\n\n```cpp\n#include \"pixeleds-library.h\"\n#include \"pixeleds-colors.h\"\n```\n\n## Basic Usage\n\nHere's a simple example of a rainbow animation:\n\n```cpp\n#include \"Particle.h\"\n#include \"pixeleds-library.h\"\n#include \"pixeleds-colors.h\"\n\n// Configuration for SK6812W LED strip\n#define PARTICLE_PIXEL_PIN 0\n#define PARTICLE_PIXEL_COUNT 60\n#define PARTICLE_PIXEL_TYPE SK6812W\n#define PARTICLE_PIXEL_ORDER ORDER_GRBW\n\nPixeleds px = Pixeleds(PARTICLE_PIXEL_COUNT, PARTICLE_PIXEL_PIN, \n                       PARTICLE_PIXEL_TYPE, PARTICLE_PIXEL_ORDER);\n\nvoid setup() {\n    px.setup();\n    // Start a rainbow animation that cycles every 500ms\n    px.startAnimation(&animation_gradient, &Color::RAINBOW, 500);\n}\n\nvoid loop() {\n    px.update(millis());\n}\n```\n\n## Color Management\n\n### Using Predefined Colors\n\nThe library provides extensive predefined colors in the `Color` namespace:\n\n```cpp\n// Basic colors\npx.setPixels(Color::RED);\npx.setPixels(Color::BLUE);\npx.setPixel(0, Color::GREEN);\n\n// Shades and variants\npx.setPixels(Color::DARK_RED);\npx.setPixels(Color::LIGHT_CORAL);\npx.setPixels(Color::DEEP_SKY_BLUE);\n```\n\n### Creating Custom Colors\n\nColors can be created using RGB, HSV, or HSL:\n\n```cpp\n// RGB constructor (0-255)\nPixCol orange(255, 128, 0);\n\n// Using hex values\nPixCol purple(0x800080);\n\n// Using HSV (normalized 0.0-1.0)\nPixCol hsvColor = PixCol::hsv(Hue::RED, 1.0, 1.0);\n\n// Using HSL (normalized 0.0-1.0)\nPixCol hslColor = PixCol::hsl(0.333, 1.0, 0.5);\n\n// Color manipulation\nPixCol dimmed = color.scale(0.5);  // 50% brightness\nPixCol saturated = color.saturate(0.8);  // 80% saturation\n```\n\n### Color Palettes\n\nThe library includes several predefined color palettes in the `Color` namespace:\n\n```cpp\n// Basic palettes\nColor::BW       // Black and white\nColor::RGB      // Red, green, blue\nColor::RYGB     // Red, yellow, green, blue\nColor::RAINBOW  // Full rainbow spectrum\nColor::CYM      // Cyan, yellow, magenta\n\n// Color family palettes\nColor::REDS     // Various red shades\nColor::BLUES    // Various blue shades\nColor::GREENS   // Various green shades\nColor::CYANS    // Various cyan shades\nColor::PURPLES  // Various purple shades\n```\n\nCreating custom palettes:\n\n```cpp\nPixPal customPalette = PixPal::create({\n    Color::CRIMSON,\n    Color::ORANGE_RED,\n    PixCol::hsv(Hue::ORANGE, 1.0, 0.3),\n    Color::GOLD\n});\n```\n\n## Creating Custom Animations\n\nThe animation system uses the `PixAniData` structure and `PixAniFunc` function type.\n\n### Understanding PixAniData\n\nThe `PixAniData` structure provides animation control:\n\n```cpp\nstruct PixAniData {\n    // Basic strip information\n    int pixelCount;          // Number of LEDs\n    PixCol *pixels;          // LED color array\n    PixPal *palette;         // Current color palette\n    \n    // Timing information\n    long cycleDuration;      // Cycle length in ms\n    long start;              // Start time\n    long stop;               // End time\n    system_tick_t updated;   // Current time\n    \n    // Animation progress\n    long cycleMillis;        // Ms into cycle\n    long cycleCount;         // Completed cycles\n    float cyclePct;          // Cycle progress (0.0-1.0)\n    int data;                // Custom data\n};\n```\n\n### Helper Functions\n\nPixAniData provides various helper functions:\n\n```cpp\n// Cycle progress\nint step(int steps);              // Integer steps\nfloat step(float steps);          // Float steps\ndouble sineWave(float periods=1); // Sine wave\ndouble triangleWave(float periods=1);\ndouble sawtoothWave(float periods=1);\ndouble squareWave(float periods=1);\ndouble arctanWave(float periods=1);\n\n// Color helpers\nint paletteCount();\nPixCol paletteColor(int idx);\nPixCol paletteColor(float idx);\nPixCol randomColor();\nPixCol pixelColor(int idx);\nvoid setPixels(PixCol color);\n```\n\n### Example Custom Animations\n\nHere are some example animations:\n\n```cpp\n// Fade from black animation\nvoid fade_from_black(PixAniData* data) {\n    PixCol from = Color::BLACK;\n    PixCol target;\n    float ratio = float(data->paletteCount()) / data->pixelCount;\n    \n    for (int i = 0; i < data->pixelCount; i++) {\n        target = data->paletteColor(i * ratio);\n        data->pixels[i] = from.interpolate(target, data->cyclePct);\n    }\n}\n\n// Moving gradient animation\nvoid moving_gradient(PixAniData* data) {\n    for (int i = 0; i < data->pixelCount; i++) {\n        float pos = float(i + data->cycleMillis) / data->pixelCount;\n        data->pixels[i] = data->paletteColor(pos * data->paletteCount());\n    }\n}\n```\n\n### Using Custom Animations\n\nStart animations with specified timing:\n\n```cpp\n// Run animation with 10-second cycle, once\npx.startAnimation(&fade_from_black, &customPalette, 10000, 10000);\n\n// Run indefinitely with 1-second cycle\npx.startAnimation(&moving_gradient, &Color::RAINBOW, 1000, -1);\n```\n\n## Built-in Animations\n\nThe library includes several pre-built animations:\n\n- `animation_blink` - Simple on/off blinking\n- `animation_alternating` - Alternating pattern\n- `animation_fadeIn/fadeOut` - Smooth fades\n- `animation_glow` - Pulsing effect\n- `animation_strobe` - Strobe effect\n- `animation_sparkle` - Random twinkling\n- `animation_fader` - Smooth color fading\n- `animation_cycle` - Color cycling\n- `animation_random` - Random colors\n- `animation_increment/decrement` - Moving pixel\n- `animation_bounce` - Bouncing effect\n- `animation_scanner` - Scanning effect\n- `animation_comet` - Comet trail effect\n- `animation_bars` - Color bars\n- `animation_gradient` - Smooth gradients\n\n## Platform Support\n\nThe library includes optimized implementations for:\n- Particle Photon 1 (PLATFORM_ID 6, 8, 10, 88)\n- Particle Photon 2 (PLATFORM_ID 32)\n\n## License\n\nCopyright 2024 The Brynwood Team, LLC\n\nLicensed under the Apache License, Version 2.0.",
+  "allVersions": [
+    "2.0.2",
+    "2.0.1",
+    "2.0.0"
+  ]
+}

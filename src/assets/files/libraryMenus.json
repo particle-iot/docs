@@ -2692,6 +2692,10 @@
           "dir": "PietteTech_Phant"
         },
         {
+          "title": "pixeleds-library",
+          "dir": "pixeleds-library"
+        },
+        {
           "title": "Pixycam5",
           "dir": "Pixycam5"
         },
