@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2026-05-04
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Buffer clarification 2026-05-04
 
 Added additional explanation of `Buffer` in the [Variant](/reference/device-os/api/variant/) documentation.
