@@ -15677,6 +15677,8 @@ Variants have an explicit type, unlike JSON. The following
 
 You can construct a `Variant` object with a parameter of an explict type to create a variant of that type.
 
+When passing binary data, use the `Buffer` instead of the `const char*` override to avoid decoding issues when the data is not valid UTF-8 strings.
+
 ```cpp
 // PROTOTYPES
 Variant();
@@ -15691,11 +15693,11 @@ Variant(unsigned long val);
 Variant(long long val);
 Variant(unsigned long long val);
 Variant(double val);
-Variant(const char* val);
+Variant(const char* val); // must be a valid UTF-8 string
 Variant(String val);
-Variant(Buffer val) 
+Variant(Buffer val);
 Variant(VariantArray val);
-Variant(VariantMap val);'
+Variant(VariantMap val);
 ```
 
 ### value() [Variant class]
@@ -15975,7 +15977,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 
 {{api name1="Variant::toDouble()"}}
 
-Returns the value of the variant to an `double` (8 byte or 64-bit double precision floating point), converting the type if necessary. The original value is left unchanged.
+Returns the value of the variant to a `double` (8 byte or 64-bit double precision floating point), converting the type if necessary. The original value is left unchanged.
 
 | Source | Result | 
 | :--- | :--- |
@@ -16001,7 +16003,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toX
 
 {{api name1="Variant::asDouble()"}}
 
-Returns a reference to the value contained in this variant as an `double`. This can be used to modify the value of the variant.
+Returns a reference to the value contained in this variant as a `double`. This can be used to modify the value of the variant.
 
 ```cpp
 // PROTOTYPE
@@ -16017,7 +16019,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 
 {{api name1="Variant::toString()"}}
 
-Returns the value of the variant to an `String` (an ASCII or UTF-8 string) and returns a copy of it, converting the type if necessary. The original value is left unchanged.
+Returns the value of the variant to a UTF-8 `String` and returns a copy of it, converting the type if necessary. The original value is left unchanged.
 
 | Source | Result | 
 | :--- | :--- |
@@ -16041,7 +16043,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toX
 
 {{api name1="Variant::asString()"}}
 
-Returns a reference to the value contained in this variant as an `String`. This can be used to modify the value of the variant and to more efficiently read the string without having to copy it.
+Returns a reference to the value contained in this variant as a `String`. This can be used to modify the value of the variant and to more efficiently read the string without having to copy it.
 
 ```cpp
 // PROTOTYPE
@@ -16128,7 +16130,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 
 {{api name1="Variant::toMap()"}}
 
-Returns the value of the variant as an map.
+Returns the value of the variant as a map.
 
 | Source | Result | 
 | :--- | :--- |
@@ -16150,7 +16152,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toX
 
 {{api name1="Variant::asMap()"}}
 
-Returns a reference to the value contained in this variant as an `VariantMap`. This can be used to modify the value of the variant and to more efficiently read the map without having to copy it.
+Returns a reference to the value contained in this variant as a `VariantMap`. This can be used to modify the value of the variant and to more efficiently read the map without having to copy it.
 
 ```cpp
 // PROTOTYPE
