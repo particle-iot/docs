@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-04-15",
-            "hash": "f2d940d47fc948834c429cbe26f3b25b940bf64e076c1655743c4853330d1d01"
+            "date": "2026-05-04",
+            "hash": "c7c86dc4616104d277b937d395cf4badd8347fda359541565d5dfea548c1d72e"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "f00c5755ebef327cf53e9894ef5c155af8cdfd3c447aafb1f6efd3a07f640f64",
-            "date": "2026-04-29"
+            "hash": "5defcd7ba649acd19315150bdab8351829e3cf05402f0070c626fc075baa2d09",
+            "date": "2026-05-04"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8679,12 +8679,12 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/variant-type.md": {
-            "hash": "1276f29f0193460d96d2ec24bf241409635b645379b9a7c68302a5fb4cf1a9d1",
-            "date": "2024-10-04"
+            "hash": "eb6d44701d2a03357dfc981abfc807d18348cc3ffafbd46a552fcfee6d494055",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/constructor-variant-class.md": {
-            "hash": "7b3475d23057af8a9dc74f8a2d67f458a6b74871b7fb9549d033175d694ec4e6",
-            "date": "2024-10-04"
+            "hash": "438759fee7f7db31c828e373f1e5755e63daeb48870165055d92fc706f737337",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/value-variant-class.md": {
             "hash": "ac5d80a0e6c40685abd868aca0bf4c49a7e78c94fe215312bd37a26236fe5879",
@@ -8743,20 +8743,20 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/todouble-variant-class.md": {
-            "hash": "fe2605fdade77d736b44f8962c747c801c4ac8a064c9fb38eefa33cd35331251",
-            "date": "2024-05-01"
+            "hash": "fcec8b0dbaa300143effc0e0687e3dc06b236a9b25769720b25ebf5d3ab9db2d",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/asdouble-variant-class.md": {
-            "hash": "74d8e91b970ccf8175d7cee6db0c0f5e13192bf2808ff6ce6dc1ff18ca3b2096",
-            "date": "2024-05-01"
+            "hash": "c2f6444daee93e10346751c40a67d4dbff923104f774b06c3deb302fdfc4069b",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/tostring-variant-class.md": {
-            "hash": "314f6f21ced33f543e9e0e50992b2c0bf46a4fbda1af79328e42080d3cf58e6e",
-            "date": "2024-05-01"
+            "hash": "b669ff42a7f8da2fcc122fd2c661997c4792435d4edf74b2994a85be68ddc853",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/asstring-variant-class.md": {
-            "hash": "91650a4aa8e6c773905f50b0a7f3b62d5d66b77feff859ab7db14fd0ed261f4f",
-            "date": "2024-05-01"
+            "hash": "cc180063e13c6b79b390492dd164da32497ee0e11cfff1ae62c798df2c08e53a",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/toarray-variant-class.md": {
             "hash": "21f086a4b2cb064f2a5a589d23812c78d68c3124377d204578f2afdce7fa8dd6",
@@ -8767,12 +8767,12 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variant/tomap-variant-class.md": {
-            "hash": "422dab6b403be1179a38ab322ea99053e4f13ac34b24fa272a5684e364402b39",
-            "date": "2024-05-01"
+            "hash": "fa32a14c5a8457bf8cefb533174a4e338d86346d3de80d5e988685291c9434a0",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/asmap-variant-class.md": {
-            "hash": "817a66d70aa01dde9b72cdd36905e2ca8f4e5f91bb1855ef0ca8e63444335dea",
-            "date": "2024-05-01"
+            "hash": "d7f5e3ab22768811f34a53a961db4f5b10536bbb48d7598465a9caa9b785cadf",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/tojson-variant-class.md": {
             "hash": "85d8641f2ae80da12a828cc469a38a673610e18b7caa62f8d4537c4c978ff947",
@@ -9219,8 +9219,8 @@
             "date": "2024-09-18"
         },
         "reference/device-os/api/buffer/buffer.md": {
-            "hash": "14762cd4e39a5adfe2dbffc86f694ba1eaa72f026f0324f1bd79e0f492d459d5",
-            "date": "2024-10-15"
+            "hash": "9f216a47af8a4260519138f26c8822ef0be9e108c74078b4e29e847dcca97511",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/buffer/constructor-size-buffer-class.md": {
             "hash": "61ffe60d6e4cfcd003461841591fe4e017d931d06f077d129fcd662439f1d2cd",
@@ -9291,12 +9291,12 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/variant/tobuffer-variant-class.md": {
-            "hash": "f80ba8d3d155b3ce360c986d4e23d9070cfac231ea1ff2962769fb03099c2db7",
-            "date": "2024-10-04"
+            "hash": "432d3024e9cec2a428c99dc8f4fb1e867180a8b242fbaa06c4aa070898d75f0d",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/variant/asbuffer-variant-class.md": {
-            "hash": "769f74189f6f3bb6de189b12c3c42aa015a2468e6377ffcd11f2e97fb81ff0b5",
-            "date": "2024-10-04"
+            "hash": "1e429bf0d62d757bf6d75752e2f0de78dca410bc959fcfc74ac8a5b471fb6ede",
+            "date": "2026-05-04"
         },
         "reference/device-os/api/publish/publish.md": {
             "hash": "529481021c3eea48a165c92a1b6967dfd14c52dd6eef03e2ad700d9942c62cef",

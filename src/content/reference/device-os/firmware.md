@@ -15399,10 +15399,9 @@ See [Variant](#variant) and [Map](#map) for additional information.
 The `Buffer` class is a container for data in a dynamically allocated buffer. It's essentially a wrapper
 around `std::vector<char>` with additional convenience methods for encoding the data.
 
-The `Variant` class has been extended to store arbitrary binary data in a `Buffer`. A Variant containing a `Buffer` 
-cannot be serialized to JSON or deserialized from JSON on-device using the `toJSON()` and `fromJSON()` methods
-but can when publishing an event to the cloud. See [Typed publish](/reference/device-os/typed-publish/) for more information.
+The `Variant` class has been extended to store arbitrary binary data in a `Buffer` when publishing an event to the cloud. See [Typed publish](/reference/device-os/typed-publish/) for more information.
 
+A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON on-device using the `toJSON()` and `fromJSON()` methods.
 
 ### constructor(size) [Buffer class]
 
@@ -15654,7 +15653,7 @@ See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full e
 
 ### Variant::Type
 
-Variants have an explicit type, unlike JSON. The following
+Variants have an explicit type, unlike JSON. The following types are available:
 
 | Constant | C++ Type |
 | :--- | :--- |
@@ -15677,7 +15676,9 @@ Variants have an explicit type, unlike JSON. The following
 
 You can construct a `Variant` object with a parameter of an explict type to create a variant of that type.
 
-When passing binary data, use the `Buffer` instead of the `const char*` override to avoid decoding issues when the data is not valid UTF-8 strings.
+Do not use the `const char *` or `String` overloads for binary data; they can only be used for UTF-8 encoded strings.
+
+When passing binary data, use the `Buffer` to avoid decoding issues when the data is not valid UTF-8 strings. See [Buffer](/reference/device-os/api/buffer/) for more information.
 
 ```cpp
 // PROTOTYPES
@@ -16067,7 +16068,9 @@ Buffer toBuffer() const;
 Buffer toBuffer(bool& ok) const;
 ```
 
-A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+Buffer overloads are used when publising binary data in a `Variant`. Binary data in a published event is converted to CBOR, 
+then the cloud converts it into a hex-encoded string in the published JSON in the event log and in integrations. See
+[Buffer](/reference/device-os/api/buffer/) for more information.
 
 See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
@@ -16082,11 +16085,11 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 Buffer& asBuffer();
 ```
 
-A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+Buffer overloads are used when publising binary data in a `Variant`. Binary data in a published event is converted to CBOR, 
+then the cloud converts it into a hex-encoded string in the published JSON in the event log and in integrations. See
+[Buffer](/reference/device-os/api/buffer/) for more information.
 
 See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
-
-
 
 
 ### toArray() [Variant class]
