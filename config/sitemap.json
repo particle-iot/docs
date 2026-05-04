@@ -5995,8 +5995,8 @@
             "hash": "ad8a239f791beb252d827f98bd9f6eff87a7a160fc23dcba5d33e23fcebf1b01"
         },
         "reference/device-os/libraries/i/i2c_anything_ng.md": {
-            "date": "2024-08-28",
-            "hash": "c5c03167fc1753eaa921c993e5ea20d18763ec78a5ef0261835bd44786c9ccf8"
+            "date": "2026-05-01",
+            "hash": "6cec4538f5d00395985eac0ed6523e7e3e2de4b9eba4a07b8c84bee9ffa3d114"
         },
         "reference/device-os/libraries/i/I2c7SegmentLed.md": {
             "date": "2024-08-28",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5defcd7ba649acd19315150bdab8351829e3cf05402f0070c626fc075baa2d09",
+            "hash": "b41fdd12e1f15c01ce1835530fc9cd9c03ed3c416eb41467a6183274c5a5f045",
             "date": "2026-05-04"
         },
         "getting-started/cloud/logic.md": {
@@ -10017,6 +10017,10 @@
         "reference/datasheets/m-series/m-hat-datasheet.md": {
             "hash": "8ace63bf93361dbe8bcd359f1a8c85720479baffe4a5562e99c3ca192cd77825",
             "date": "2026-04-21"
+        },
+        "reference/device-os/libraries/p/pixeleds-library.md": {
+            "hash": "ef1dee4d2cd89b7ac6dad23971ebdaf409133aaa6f5677b3554b4bad5765309f",
+            "date": "2026-05-01"
         }
     }
 }
