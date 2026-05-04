@@ -15399,10 +15399,9 @@ See [Variant](#variant) and [Map](#map) for additional information.
 The `Buffer` class is a container for data in a dynamically allocated buffer. It's essentially a wrapper
 around `std::vector<char>` with additional convenience methods for encoding the data.
 
-The `Variant` class has been extended to store arbitrary binary data in a `Buffer`. A Variant containing a `Buffer` 
-cannot be serialized to JSON or deserialized from JSON on-device using the `toJSON()` and `fromJSON()` methods
-but can when publishing an event to the cloud. See [Typed publish](/reference/device-os/typed-publish/) for more information.
+The `Variant` class has been extended to store arbitrary binary data in a `Buffer` when publishing an event to the cloud. See [Typed publish](/reference/device-os/typed-publish/) for more information.
 
+A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON on-device using the `toJSON()` and `fromJSON()` methods.
 
 ### constructor(size) [Buffer class]
 
@@ -15654,7 +15653,7 @@ See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full e
 
 ### Variant::Type
 
-Variants have an explicit type, unlike JSON. The following
+Variants have an explicit type, unlike JSON. The following types are available:
 
 | Constant | C++ Type |
 | :--- | :--- |
@@ -15677,6 +15676,10 @@ Variants have an explicit type, unlike JSON. The following
 
 You can construct a `Variant` object with a parameter of an explict type to create a variant of that type.
 
+Do not use the `const char *` or `String` overloads for binary data; they can only be used for UTF-8 encoded strings.
+
+When passing binary data, use the `Buffer` to avoid decoding issues when the data is not valid UTF-8 strings. See [Buffer](/reference/device-os/api/buffer/) for more information.
+
 ```cpp
 // PROTOTYPES
 Variant();
@@ -15691,11 +15694,11 @@ Variant(unsigned long val);
 Variant(long long val);
 Variant(unsigned long long val);
 Variant(double val);
-Variant(const char* val);
+Variant(const char* val); // must be a valid UTF-8 string
 Variant(String val);
-Variant(Buffer val) 
+Variant(Buffer val);
 Variant(VariantArray val);
-Variant(VariantMap val);'
+Variant(VariantMap val);
 ```
 
 ### value() [Variant class]
@@ -15975,7 +15978,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 
 {{api name1="Variant::toDouble()"}}
 
-Returns the value of the variant to an `double` (8 byte or 64-bit double precision floating point), converting the type if necessary. The original value is left unchanged.
+Returns the value of the variant to a `double` (8 byte or 64-bit double precision floating point), converting the type if necessary. The original value is left unchanged.
 
 | Source | Result | 
 | :--- | :--- |
@@ -16001,7 +16004,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toX
 
 {{api name1="Variant::asDouble()"}}
 
-Returns a reference to the value contained in this variant as an `double`. This can be used to modify the value of the variant.
+Returns a reference to the value contained in this variant as a `double`. This can be used to modify the value of the variant.
 
 ```cpp
 // PROTOTYPE
@@ -16017,7 +16020,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 
 {{api name1="Variant::toString()"}}
 
-Returns the value of the variant to an `String` (an ASCII or UTF-8 string) and returns a copy of it, converting the type if necessary. The original value is left unchanged.
+Returns the value of the variant to a UTF-8 `String` and returns a copy of it, converting the type if necessary. The original value is left unchanged.
 
 | Source | Result | 
 | :--- | :--- |
@@ -16041,7 +16044,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toX
 
 {{api name1="Variant::asString()"}}
 
-Returns a reference to the value contained in this variant as an `String`. This can be used to modify the value of the variant and to more efficiently read the string without having to copy it.
+Returns a reference to the value contained in this variant as a `String`. This can be used to modify the value of the variant and to more efficiently read the string without having to copy it.
 
 ```cpp
 // PROTOTYPE
@@ -16065,7 +16068,9 @@ Buffer toBuffer() const;
 Buffer toBuffer(bool& ok) const;
 ```
 
-A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+Buffer overloads are used when publising binary data in a `Variant`. Binary data in a published event is converted to CBOR, 
+then the cloud converts it into a hex-encoded string in the published JSON in the event log and in integrations. See
+[Buffer](/reference/device-os/api/buffer/) for more information.
 
 See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
@@ -16080,11 +16085,11 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 Buffer& asBuffer();
 ```
 
-A Variant containing a `Buffer` cannot be serialized to JSON or deserialized from JSON as JSON does not support binary values.
+Buffer overloads are used when publising binary data in a `Variant`. Binary data in a published event is converted to CBOR, 
+then the cloud converts it into a hex-encoded string in the published JSON in the event log and in integrations. See
+[Buffer](/reference/device-os/api/buffer/) for more information.
 
 See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
-
-
 
 
 ### toArray() [Variant class]
@@ -16128,7 +16133,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asX
 
 {{api name1="Variant::toMap()"}}
 
-Returns the value of the variant as an map.
+Returns the value of the variant as a map.
 
 | Source | Result | 
 | :--- | :--- |
@@ -16150,7 +16155,7 @@ See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toX
 
 {{api name1="Variant::asMap()"}}
 
-Returns a reference to the value contained in this variant as an `VariantMap`. This can be used to modify the value of the variant and to more efficiently read the map without having to copy it.
+Returns a reference to the value contained in this variant as a `VariantMap`. This can be used to modify the value of the variant and to more efficiently read the map without having to copy it.
 
 ```cpp
 // PROTOTYPE

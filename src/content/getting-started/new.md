@@ -21,7 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Console live demo 20260-04-29
+### Buffer clarification 2026-05-04
+
+Added additional explanation of `Buffer` in the [Variant](/reference/device-os/api/variant/) documentation.
+
+### Console live demo 2026-04-29
 
 Added a [console demo](/getting-started/console/console/#demo) section with a link to the live demo environment access page.
 
