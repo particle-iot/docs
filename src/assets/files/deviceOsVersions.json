@@ -1,5 +1,23 @@
 [
   {
+    "version": "6.4.1",
+    "internal_version": 6401,
+    "release_state": "preview",
+    "base_url": "https://api.particle.io/v1/firmware/device-os/v6.4.1",
+    "supported_platforms": [
+      12,
+      25,
+      13,
+      23,
+      15,
+      35,
+      32,
+      26,
+      28
+    ],
+    "publishedAt": "2026-05-04T17:46:58Z"
+  },
+  {
     "version": "6.4.0",
     "internal_version": 6400,
     "release_state": "ga",
@@ -22,7 +40,8 @@
       23,
       15,
       35,
-      32
+      32,
+      26
     ],
     "publishedAt": "2026-03-19T07:50:48Z"
   },
@@ -59,9 +78,6 @@
       32,
       26,
       28
-    ],
-    "default_platforms": [
-      26
     ],
     "publishedAt": "2025-10-01T16:59:41Z"
   },

@@ -29641,6 +29641,132 @@
                 2904,
                 2906
             ]
+        },
+        "v6.4.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.4.1",
+            "tag_name": "v6.4.1",
+            "name": "v6.4.1 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": false,
+            "created_at": "2026-04-27T19:10:25Z",
+            "published_at": "2026-05-04T17:46:58Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2898,
+                        2912
+                    ],
+                    "section": "FEATURES",
+                    "text": "USB (Serial) tethering support"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2910
+                    ],
+                    "section": "FEATURES",
+                    "text": "Serial1 tethering support"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2915
+                    ],
+                    "section": "FEATURES",
+                    "text": "API for sending APDUs"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2908
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "BG95S5 cellular env vars support"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2914
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Support detecting/configuring M-HAT in Tinker"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2907
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Allows longer duration sleep with AM1805 (external RTC)"
+                },
+                {
+                    "tags": [
+                        "Tracker"
+                    ],
+                    "prs": [
+                        2907
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Expose deprecated `hal_exrtc_` functions"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2909
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Add locking around logical eFuse reads"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "scripts"
+                    ],
+                    "prs": [
+                        2911
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fix rtl872x.tcl flash script to be more reliable"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2917
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Filesystem initialization in bootloader should create `/sys` folder"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2917
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`manufacturing/empty_external_flash` test"
+                }
+            ],
+            "prs": [
+                2898,
+                2907,
+                2908,
+                2909,
+                2910,
+                2911,
+                2912,
+                2914,
+                2915,
+                2917
+            ]
         }
     },
     "pulls": {
@@ -44077,6 +44203,13 @@
             "state": "open",
             "created_at": "2026-04-21T19:53:50Z",
             "detail": "Cloud connection timeouts are hard coded to 23 minutes for cellular and 25 seconds for wifi for ACM enabled platforms, (ie MSOM). This is overrideable with `Particle.keepAlive()` but will not distinguish between network interfaces."
+        },
+        "2917": {
+            "url": "https://github.com/particle-iot/device-os/pull/2917",
+            "number": 2917,
+            "title": "fix bootloader filesystem initialization, adds manufacturing/empty_external_flash test",
+            "state": "closed",
+            "created_at": "2026-04-24T19:11:23Z"
         }
     }
 }
