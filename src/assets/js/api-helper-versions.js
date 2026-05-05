@@ -269,7 +269,8 @@ $(document).ready(function() {
                             ver: 'v' + verObj.version, 
                             outputElem: releaseNotesContentDivElem, 
                             linkToGithub:false,
-                            headerTag: 'h5'
+                            headerTag: 'h5',
+                            showVersionDetails: false,
                         });                            
                     }        
                 }
@@ -709,6 +710,7 @@ $(document).ready(function() {
                 versions.renderSingleVersion({
                     verObj,
                     containerElem: versions.versionListElem,
+                    showReleaseNotesDetail: true,
                 });
                 
             }

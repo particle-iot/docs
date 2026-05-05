@@ -538,11 +538,12 @@ $(document).ready(function() {
         //   .ver version to render
         //   .outputElem element to append to
         //   .linkToGithub include link to Github release
+        //   .showVersionDetails
         const releaseObj = releaseNotes.releaseNotesJson.releases[options.ver];
 
         // console.log('releaseNotes.renderSingleVersion', {releaseObj, options, });
 
-        if (versions) {
+        if (versions && options.showVersionDetails) {
             await apiHelper.moduleGetPromise('versions');
 
             let ver = options.ver;
@@ -555,6 +556,7 @@ $(document).ready(function() {
                     verObj,
                     containerElem: options.outputElem,
                     showReleaseNotesDetail: false,
+                    showVersionDetails: true,
                 });
             }
         }
@@ -609,7 +611,7 @@ $(document).ready(function() {
 
             analytics.track('View Version', {category:releaseNotes.gaCategory, label:ver});
 
-            await releaseNotes.renderSingleVersion({ver, outputElem, showVersion:false, linkToGithub:true})
+            await releaseNotes.renderSingleVersion({ver, outputElem, showVersion:false, linkToGithub:true, showVersionDetails: true, })
         }
         else
         if (mode == 'rel2') {
