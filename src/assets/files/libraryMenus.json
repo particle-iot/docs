@@ -997,10 +997,6 @@
           "dir": "CarriotsAPI"
         },
         {
-          "title": "cayenne-particle",
-          "dir": "cayenne-particle"
-        },
-        {
           "title": "CayenneLPP",
           "dir": "CayenneLPP"
         },

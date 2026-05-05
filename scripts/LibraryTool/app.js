@@ -94,6 +94,11 @@ const allowAuthorsArray = [
     'particle'
 ];
 
+// This is a list of libraries to exclude
+const excludeLibraries = [
+    'cayenne-particle', // Underlying Github has been deleted
+];
+
 async function fetchLibraryList() {
     let libraryListRaw = [];
 
@@ -129,6 +134,10 @@ async function fetchLibraryList() {
                     break;
                 }
             }
+        }
+        if (excludeLibraries.includes(obj.attributes.name)) {
+            console.log('excluded library ' + obj.attributes.name);
+            includeObj = false;
         }
 
         if (includeObj) {
@@ -404,6 +413,14 @@ async function generate() {
     }
     fs.writeFileSync(libraryUsagePath, JSON.stringify(usageJson, null, 2));
 
+    // Remove json file if excluded
+    for(const libName of excludeLibraries) {
+        const libInfoPath = path.join(librariesDir, libName + '.json');
+        if (fs.existsSync(libInfoPath)) {
+            fs.rmSync(libInfoPath);
+        }
+    }
+
     for (const lib of libraryList) {
         const libSourceDir = path.join(dataLibrariesDir, lib.id);
 
@@ -504,6 +521,11 @@ async function generate() {
 
 
 function saveLibraryData() {
+    // Remove libraryData for excluded libraries
+    for(const libName of excludeLibraries) {
+        delete libraryData[libName];
+    }
+
     const newStr = JSON.stringify(libraryData, null, 2);
     if (newStr != libraryDataStr) {
         libraryDataStr = newStr;
