@@ -533,24 +533,25 @@ $(document).ready(function() {
         }   
     }
 
-    releaseNotes.renderSingleVersion = function(options) {
+    releaseNotes.renderSingleVersion = async function(options) {
         // options
         //   .ver version to render
         //   .outputElem element to append to
         //   .linkToGithub include link to Github release
         const releaseObj = releaseNotes.releaseNotesJson.releases[options.ver];
 
-        console.log('releaseNotes.renderSingleVersion', {releaseObj, options, deviceOsVersions: releaseNotes.deviceOsVersions});
+        // console.log('releaseNotes.renderSingleVersion', {releaseObj, options, });
 
         if (versions) {
-            await apiHelper.get
+            await apiHelper.moduleGetPromise('versions');
+
             let ver = options.ver;
             if (ver.startsWith('v')) {
                 ver = ver.substring(1);
             }
-            const verObj = releaseNotes.deviceOsVersions.find(e => e.version == ver);            
+            const verObj = versions.deviceOsVersions.find(e => e.version == ver);            
             if (verObj) {
-                apiHelper.renderVersionDetails({
+                versions.renderSingleVersion({
                     verObj,
                     containerElem: options.outputElem,
                     showReleaseNotesDetail: false,
@@ -588,7 +589,7 @@ $(document).ready(function() {
 
     }
 
-    releaseNotes.renderPage = function() {
+    releaseNotes.renderPage = async function() {
         const outputElem = $(releaseNotes.thisPartial).find('.apiHelperOutput');
 
         $(outputElem).empty();
@@ -608,7 +609,7 @@ $(document).ready(function() {
 
             analytics.track('View Version', {category:releaseNotes.gaCategory, label:ver});
 
-            releaseNotes.renderSingleVersion({ver, outputElem, showVersion:false, linkToGithub:true})
+            await releaseNotes.renderSingleVersion({ver, outputElem, showVersion:false, linkToGithub:true})
         }
         else
         if (mode == 'rel2') {
@@ -713,7 +714,7 @@ $(document).ready(function() {
             }
         }
         releaseNotes.unknownTags.sort();
-        console.log('unknownTags', releaseNotes.unknownTags);
+        // console.log('unknownTags', releaseNotes.unknownTags);
 
         if (releaseNotes.filterPlatform && releaseNotes.platformId) {
             searchParams.set('filter', releaseNotes.platformId);
@@ -724,9 +725,9 @@ $(document).ready(function() {
 
 
     
-    releaseNotes.doSetup = function() {
+    releaseNotes.doSetup = async function() {
 
-        $('.apiHelperReleaseNotes').each(function() {
+        $('.apiHelperReleaseNotes').each(async function() {
             if (releaseNotes.thisPartial) {
                 // Only process first (you can only have one release notes partial per page)
                 return;
@@ -764,13 +765,13 @@ $(document).ready(function() {
                 
             }
 
-            $(releaseNotes.thisPartial).find('.versionSelect').on('change', function() {
+            $(releaseNotes.thisPartial).find('.versionSelect').on('change', async function() {
                 const ver = $(releaseNotes.thisPartial).find('.versionSelect').val();
                 if (ver != '-') {
                     $(releaseNotes.thisPartial).find('input:radio[name=mode]').prop('checked', false);
                     $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
                 }
-                releaseNotes.renderPage();
+                await releaseNotes.renderPage();
             });
 
             const buildMenuVersion2 = function() {
@@ -798,23 +799,25 @@ $(document).ready(function() {
                 }
             }
 
-            $(releaseNotes.thisPartial).find('.version1Select').on('change', function() {
+            $(releaseNotes.thisPartial).find('.version1Select').on('change', async function() {
                 buildMenuVersion2();
-                releaseNotes.renderPage();
+                await releaseNotes.renderPage();
             });
-            $(releaseNotes.thisPartial).find('.version2Select').on('change', function() {
-                releaseNotes.renderPage();
+            $(releaseNotes.thisPartial).find('.version2Select').on('change', async function() {
+                await releaseNotes.renderPage();
             });
 
-            $(releaseNotes.thisPartial).find('.filterDevice').on('click', function() {
-                releaseNotes.renderPage();
+            $(releaseNotes.thisPartial).find('.filterDevice').on('click', async function() {
+                await releaseNotes.renderPage();
             });
-            $(releaseNotes.thisPartial).find('.filterPlatform').on('change', function() {
-                releaseNotes.renderPage();
+            $(releaseNotes.thisPartial).find('.filterPlatform').on('change', async function() {
+                await releaseNotes.renderPage();
             });
 
                 
-            $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel1]').on('change', releaseNotes.renderPage);
+            $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel1]').on('change', async function() {
+                releaseNotes.renderPage();
+            });
 
             let keyTimer;
 
@@ -830,24 +833,26 @@ $(document).ready(function() {
                 $(releaseNotes.thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
 
                 clearKeyTimer();
-                keyTimer = setTimeout(releaseNotes.renderPage, 750);
+                keyTimer = setTimeout(async function() {
+                    await releaseNotes.renderPage();
+                }, 750);
             });
 
-            $(releaseNotes.thisPartial).find('.searchInput').on('blur', function() {
+            $(releaseNotes.thisPartial).find('.searchInput').on('blur', async function() {
                 clearKeyTimer();
-                releaseNotes.renderPage();
+                await releaseNotes.renderPage();
             });
 
-            $(releaseNotes.thisPartial).find('.searchInput').on('keydown', function(ev) {
+            $(releaseNotes.thisPartial).find('.searchInput').on('keydown', async function(ev) {
                 if (ev.key == 'Enter') {
                     clearKeyTimer();
-                    releaseNotes.renderPage();
+                    await releaseNotes.renderPage();
                 }
             });
 
-            $(releaseNotes.thisPartial).find('.versionAfterSelect').on('change', function() {
+            $(releaseNotes.thisPartial).find('.versionAfterSelect').on('change', async function() {
                 clearKeyTimer();
-                releaseNotes.renderPage();
+                await releaseNotes.renderPage();
             });
 
             $(releaseNotes.thisPartial).find('.showSearchTips').on('click', function() {
@@ -878,7 +883,7 @@ $(document).ready(function() {
                         $(releaseNotes.thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
         
                         $(releaseNotes.thisPartial).find('.versionSelect').val(ver);
-                        releaseNotes.renderPage();
+                        await releaseNotes.renderPage();
                     }
                 }
                 else
@@ -893,7 +898,7 @@ $(document).ready(function() {
                         buildMenuVersion2();
 
                         $(releaseNotes.thisPartial).find('.version2Select').val(ver2);
-                        releaseNotes.renderPage();
+                        await releaseNotes.renderPage();
                     }
                 }
                 else
@@ -906,7 +911,7 @@ $(document).ready(function() {
 
                         $(releaseNotes.thisPartial).find('.searchInput').val(text);
                         $(releaseNotes.thisPartial).find('.versionAfterSelect').val(ver);
-                        releaseNotes.renderPage();
+                        await releaseNotes.renderPage();
                     }
                 }
             }
@@ -1028,7 +1033,7 @@ $(document).ready(function() {
 
         apiHelper.moduleComplete('releaseNotes');
 
-        releaseNotes.doSetup();
+        await releaseNotes.doSetup();
 
     }
 

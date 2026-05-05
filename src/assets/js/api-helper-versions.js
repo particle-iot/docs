@@ -246,7 +246,7 @@ $(document).ready(function() {
 
 
             // Release notes 
-            {
+            if (options.showReleaseNotesDetail) {
                 const releaseNotesDivElem = document.createElement('div');
 
                 const detailsElem = document.createElement('details');
@@ -419,6 +419,29 @@ $(document).ready(function() {
             promises.push(apiHelper.moduleGetPromise('releaseNotes'));
 
             await Promise.all(promises);
+
+            // carriersJson.deviceConstants - object key platform name, contains id, name, displayName, etc.
+            versions.platforms = [];
+
+            for(const key in versions.carriersJson.deviceConstants) {
+                const platformObj = versions.carriersJson.deviceConstants[key];
+
+                if (platformObj.generation == 3 && platformObj.baseMcu == 'rtl872x') {
+                    platformObj.generation = 4;
+                }
+
+                if (platformObj.public && platformObj.productEligible) {
+                    versions.platforms.push(platformObj);
+                }
+                else
+                if ([0, 14].includes(platformObj.id)) {
+                    // Also include core and xenon, even though they're not product eligible
+                    versions.platforms.push(platformObj);
+                }
+
+            }
+            
+            versions.platforms.sort((a, b) => a.displayName.localeCompare(b.displayName));
 
             apiHelper.moduleComplete('versions')
         };
@@ -709,28 +732,6 @@ $(document).ready(function() {
         const run = async function() {
             await apiHelper.moduleGetPromise('versions');
 
-            // carriersJson.deviceConstants - object key platform name, contains id, name, displayName, etc.
-            versions.platforms = [];
-
-            for(const key in versions.carriersJson.deviceConstants) {
-                const platformObj = versions.carriersJson.deviceConstants[key];
-
-                if (platformObj.generation == 3 && platformObj.baseMcu == 'rtl872x') {
-                    platformObj.generation = 4;
-                }
-
-                if (platformObj.public && platformObj.productEligible) {
-                    versions.platforms.push(platformObj);
-                }
-                else
-                if ([0, 14].includes(platformObj.id)) {
-                    // Also include core and xenon, even though they're not product eligible
-                    versions.platforms.push(platformObj);
-                }
-
-            }
-            
-            versions.platforms.sort((a, b) => a.displayName.localeCompare(b.displayName));
 
             for(const platformObj of versions.platforms) {
                 const optionElem = document.createElement('option');
