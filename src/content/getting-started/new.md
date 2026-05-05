@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Release note viewer 2026-05-05
+
+In the [Release note viewer](/reference/device-os/release-notes/?mode=rel1&ver=v6.4.1), when viewing release notes for a single version, a panel is now shown with the supported platforms, downloads, publish date, and compatible SKUs.
+
+
 ### Device OS 6.4.1 2026-05-04
 
 [Device OS 6.4.1](/reference/device-os/release-notes/?mode=rel1&ver=v6.4.1) is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.
