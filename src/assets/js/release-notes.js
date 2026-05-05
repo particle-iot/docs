@@ -540,7 +540,23 @@ $(document).ready(function() {
         //   .linkToGithub include link to Github release
         const releaseObj = releaseNotes.releaseNotesJson.releases[options.ver];
 
-        console.log('releaseNotes.renderSingleVersion', {releaseObj, options});
+        console.log('releaseNotes.renderSingleVersion', {releaseObj, options, deviceOsVersions: releaseNotes.deviceOsVersions});
+
+        if (versions) {
+            await apiHelper.get
+            let ver = options.ver;
+            if (ver.startsWith('v')) {
+                ver = ver.substring(1);
+            }
+            const verObj = releaseNotes.deviceOsVersions.find(e => e.version == ver);            
+            if (verObj) {
+                apiHelper.renderVersionDetails({
+                    verObj,
+                    containerElem: options.outputElem,
+                    showReleaseNotesDetail: false,
+                });
+            }
+        }
 
         let sectionData = {};
 
