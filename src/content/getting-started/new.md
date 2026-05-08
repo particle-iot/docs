@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Device OS firmware API 2026-05-08
 
-Added C++ prototypes for most functions in the [Device OS firmware API](/reference/device-os/firmware/) that did not already have them.
+Added C++ prototypes for most functions in the [Device OS firmware API](/reference/device-os/api/) that did not already have them.
 
 ### Release note viewer 2026-05-05
 
